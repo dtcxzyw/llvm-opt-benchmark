@@ -2097,10 +2097,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread14:       ; preds = %_ZN4llvm9StringRef1
   br i1 %.not.not, label %.loopexit, label %_ZN4llvm9StringRef13consume_frontES0_.exit.split, !llvm.loop !24
 
 .loopexit:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread14, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us, %.split.us
-  %.not17 = phi i1 [ true, %.split.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14 ]
-  %.0 = phi i1 [ %22, %.split.us ], [ undef, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ undef, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14 ]
-  %spec.select = and i1 %.not17, %.0
-  ret i1 %spec.select
+  %.not17 = phi i1 [ %22, %.split.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread14 ]
+  ret i1 %.not17
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

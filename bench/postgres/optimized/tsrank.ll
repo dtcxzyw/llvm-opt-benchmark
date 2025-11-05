@@ -1909,8 +1909,8 @@ define internal fastcc float @calc_rank_or(ptr noundef readonly captures(none) %
   br i1 %22, label %.lr.ph70, label %.loopexit
 
 .lr.ph70:                                         ; preds = %.preheader, %._crit_edge
-  %.05069 = phi ptr [ %64, %._crit_edge ], [ %18, %.preheader ]
-  %.268 = phi float [ %63, %._crit_edge ], [ %.05173, %.preheader ]
+  %.05069 = phi ptr [ %65, %._crit_edge ], [ %18, %.preheader ]
+  %.268 = phi float [ %64, %._crit_edge ], [ %.05173, %.preheader ]
   %23 = load i32, ptr %.05069, align 4
   %24 = and i32 %23, 1
   %.not60 = icmp eq i32 %24, 0
@@ -1969,41 +1969,39 @@ define internal fastcc float @calc_rank_or(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %53 = add nuw nsw i32 %.1, 1
+  %53 = fadd float %50, %.148
+  %54 = add nuw nsw i32 %.1, 1
+  %55 = mul i32 %54, %54
+  %56 = sitofp i32 %55 to float
+  %57 = fdiv float %.148, %56
+  %58 = fsub float %53, %57
+  %59 = fpext float %58 to double
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %39
-  %.049.lcssa = phi float [ 0.000000e+00, %39 ], [ %50, %._crit_edge.loopexit ]
-  %.047.lcssa = phi float [ -1.000000e+00, %39 ], [ %.148, %._crit_edge.loopexit ]
-  %.0.lcssa = phi i32 [ 1, %39 ], [ %53, %._crit_edge.loopexit ]
-  %54 = fpext float %.268 to double
-  %55 = fadd float %.049.lcssa, %.047.lcssa
-  %56 = mul i32 %.0.lcssa, %.0.lcssa
-  %57 = sitofp i32 %56 to float
-  %58 = fdiv float %.047.lcssa, %57
-  %59 = fsub float %55, %58
-  %60 = fpext float %59 to double
-  %61 = fdiv double %60, 0x3FFA51A662532707
-  %62 = fadd double %61, %54
-  %63 = fptrunc double %62 to float
-  %64 = getelementptr inbounds nuw i8, ptr %.05069, i64 4
-  %65 = ptrtoint ptr %64 to i64
-  %66 = sub i64 %65, %19
-  %67 = ashr exact i64 %66, 2
-  %68 = icmp slt i64 %67, %21
-  br i1 %68, label %.lr.ph70, label %.loopexit, !llvm.loop !27
+  %60 = phi double [ 0.000000e+00, %39 ], [ %59, %._crit_edge.loopexit ]
+  %61 = fpext float %.268 to double
+  %62 = fdiv double %60, 0x3FFA51A662532707
+  %63 = fadd double %62, %61
+  %64 = fptrunc double %63 to float
+  %65 = getelementptr inbounds nuw i8, ptr %.05069, i64 4
+  %66 = ptrtoint ptr %65 to i64
+  %67 = sub i64 %66, %19
+  %68 = ashr exact i64 %67, 2
+  %69 = icmp slt i64 %68, %21
+  br i1 %69, label %.lr.ph70, label %.loopexit, !llvm.loop !27
 
 .loopexit:                                        ; preds = %._crit_edge, %.preheader, %15
-  %.152 = phi float [ %.05173, %15 ], [ %.05173, %.preheader ], [ %63, %._crit_edge ]
+  %.152 = phi float [ %.05173, %15 ], [ %.05173, %.preheader ], [ %64, %._crit_edge ]
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
   %exitcond86.not = icmp eq i64 %indvars.iv.next83, %wide.trip.count85
   br i1 %exitcond86.not, label %._crit_edge76, label %15, !llvm.loop !28
 
 ._crit_edge76:                                    ; preds = %.loopexit, %3
   %.051.lcssa = phi float [ 0.000000e+00, %3 ], [ %.152, %.loopexit ]
-  %69 = uitofp nneg i32 %11 to float
-  %70 = fdiv float %.051.lcssa, %69
-  %.3 = select i1 %12, float %70, float %.051.lcssa
+  %70 = uitofp nneg i32 %11 to float
+  %71 = fdiv float %.051.lcssa, %70
+  %.3 = select i1 %12, float %71, float %.051.lcssa
   tail call void @pfree(ptr noundef %10) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

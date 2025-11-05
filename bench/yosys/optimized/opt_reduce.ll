@@ -29215,11 +29215,14 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   %.pre14881 = load i32, ptr %45, align 8, !tbaa !276
   br label %._crit_edge391.thread.i
 
-._crit_edge.i1023:                                ; preds = %11919, %.preheader.i1022
-  %.043.lcssa.i = phi i32 [ 0, %.preheader.i1022 ], [ %.1.i, %11919 ]
+._crit_edge.loopexit.i:                           ; preds = %11919
+  %11905 = mul nsw i32 %.1.i, %11445
+  br label %._crit_edge.i1023
+
+._crit_edge.i1023:                                ; preds = %._crit_edge.loopexit.i, %.preheader.i1022
+  %.043.lcssa.i = phi i32 [ 0, %.preheader.i1022 ], [ %11905, %._crit_edge.loopexit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %11905 = mul nsw i32 %.043.lcssa.i, %11445
-  invoke void @_ZNK5Yosys5RTLIL7SigSpec7extractEii(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %51, ptr noundef nonnull align 8 dereferenceable(56) %43, i32 noundef %11905, i32 noundef %11445)
+  invoke void @_ZNK5Yosys5RTLIL7SigSpec7extractEii(ptr dead_on_unwind nonnull writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %51, ptr noundef nonnull align 8 dereferenceable(56) %43, i32 noundef %.043.lcssa.i, i32 noundef %11445)
           to label %11920 unwind label %11949
 
 .lr.ph388.i:                                      ; preds = %11919, %.lr.ph388.preheader.i
@@ -29254,7 +29257,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiE
   %.1.i = phi i32 [ %.043386.i, %.lr.ph388.i ], [ %11911, %11908 ], [ %11918, %11915 ], [ %.043386.i, %11912 ]
   %indvars.iv.next439.i = add nuw nsw i64 %indvars.iv438.i, 1
   %exitcond.not.i1041 = icmp eq i64 %indvars.iv.next439.i, %wide.trip.count.i1040
-  br i1 %exitcond.not.i1041, label %._crit_edge.i1023, label %.lr.ph388.i, !llvm.loop !392
+  br i1 %exitcond.not.i1041, label %._crit_edge.loopexit.i, label %.lr.ph388.i, !llvm.loop !392
 
 11920:                                            ; preds = %._crit_edge.i1023
   invoke void @_ZN5Yosys5RTLIL7SigSpec6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %47, ptr noundef nonnull align 8 dereferenceable(56) %51)

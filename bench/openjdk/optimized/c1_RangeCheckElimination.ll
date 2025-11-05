@@ -5542,77 +5542,76 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %41, %43
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN20RangeCheckEliminator24is_ok_for_deoptimizationEP11InstructionS1_S1_S1_iS1_i(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef readnone captures(none) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 align 2 {
-  %9 = icmp ne ptr %6, null
-  br i1 %9, label %10, label %25
+  %.not24 = icmp eq ptr %6, null
+  br i1 %.not24, label %24, label %9
 
-10:                                               ; preds = %8
-  %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %25, label %15
+9:                                                ; preds = %8
+  %10 = load ptr, ptr %6, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 72
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
+  %.not = icmp eq ptr %13, null
+  br i1 %.not, label %24, label %14
 
-15:                                               ; preds = %10
-  %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, %2
-  br i1 %22, label %23, label %25
+14:                                               ; preds = %9
+  %15 = load ptr, ptr %6, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 72
+  %17 = load ptr, ptr %16, align 8
+  %18 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(96) %6) #13
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, %2
+  br i1 %21, label %22, label %24
 
-23:                                               ; preds = %15
-  %24 = icmp sgt i32 %7, -1
-  br i1 %24, label %50, label %25
+22:                                               ; preds = %14
+  %23 = icmp sgt i32 %7, -1
+  br i1 %23, label %49, label %24
 
-25:                                               ; preds = %23, %15, %10, %8
-  %.0 = phi i1 [ true, %15 ], [ true, %10 ], [ true, %8 ], [ false, %23 ]
+24:                                               ; preds = %22, %14, %9, %8
+  %.0 = phi i1 [ true, %14 ], [ true, %9 ], [ false, %8 ], [ false, %22 ]
   %.not21 = icmp eq ptr %4, null
-  br i1 %.not21, label %40, label %26
+  br i1 %.not21, label %39, label %25
 
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %4, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call noundef ptr %29(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
-  %.not22 = icmp eq ptr %30, null
-  br i1 %.not22, label %40, label %31
+25:                                               ; preds = %24
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 72
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
+  %.not22 = icmp eq ptr %29, null
+  br i1 %.not22, label %39, label %30
 
-31:                                               ; preds = %26
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call noundef ptr %34(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, %2
-  %39 = icmp sgt i32 %5, 0
-  %or.cond3 = and i1 %39, %38
-  br i1 %or.cond3, label %50, label %40
+30:                                               ; preds = %25
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(96) %4) #13
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 96
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, %2
+  %38 = icmp sgt i32 %5, 0
+  %or.cond3 = and i1 %38, %37
+  br i1 %or.cond3, label %49, label %39
 
-40:                                               ; preds = %31, %26, %25
-  %or.cond = and i1 %9, %.0
-  br i1 %or.cond, label %41, label %49
+39:                                               ; preds = %30, %25, %24
+  br i1 %.0, label %40, label %48
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds nuw i8, ptr %6, i64 24
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call noundef ptr %46(ptr noundef nonnull align 8 dereferenceable(16) %43) #13
-  %.not23 = icmp ne ptr %47, null
-  %48 = icmp eq ptr %6, %2
-  %or.cond24 = and i1 %48, %.not23
-  br i1 %or.cond24, label %50, label %49
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 72
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(16) %42) #13
+  %.not23 = icmp ne ptr %46, null
+  %47 = icmp eq ptr %6, %2
+  %or.cond = and i1 %47, %.not23
+  br i1 %or.cond, label %49, label %48
 
-49:                                               ; preds = %41, %40
-  br label %50
+48:                                               ; preds = %40, %39
+  br label %49
 
-50:                                               ; preds = %41, %31, %23, %49
-  %.018 = phi i1 [ true, %49 ], [ false, %23 ], [ false, %31 ], [ false, %41 ]
+49:                                               ; preds = %40, %30, %22, %48
+  %.018 = phi i1 [ true, %48 ], [ false, %22 ], [ false, %30 ], [ false, %40 ]
   ret i1 %.018
 }
 

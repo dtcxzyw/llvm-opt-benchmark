@@ -7485,11 +7485,11 @@ define i64 @ossl_ctrl_internal(ptr noundef %0, i32 noundef %1, i64 noundef %2, p
   %8 = icmp eq i32 %4, 0
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %208, %5
-  %.tr = phi ptr [ %0, %5 ], [ %18, %208 ]
-  %.tr144 = phi i1 [ %8, %5 ], [ true, %208 ]
+tailrecurse:                                      ; preds = %202, %5
+  %.tr = phi ptr [ %0, %5 ], [ %18, %202 ]
+  %.tr146 = phi i1 [ %8, %5 ], [ true, %202 ]
   %9 = icmp eq ptr %.tr, null
-  br i1 %9, label %.thread136, label %10
+  br i1 %9, label %.thread138, label %10
 
 10:                                               ; preds = %tailrecurse
   %11 = load i32, ptr %.tr, align 8, !tbaa !19
@@ -7507,7 +7507,7 @@ tailrecurse:                                      ; preds = %208, %5
 
 17:                                               ; preds = %10, %13, %15
   %18 = phi ptr [ %16, %15 ], [ null, %13 ], [ %.tr, %10 ]
-  br i1 %.tr144, label %19, label %28
+  br i1 %.tr146, label %19, label %28
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %.tr, align 8, !tbaa !19
@@ -7521,14 +7521,14 @@ tailrecurse:                                      ; preds = %208, %5
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 152
   %26 = load ptr, ptr %25, align 8, !tbaa !242
   %27 = tail call i64 %26(ptr noundef nonnull %.tr, i32 noundef %1, i64 noundef %2, ptr noundef %3) #20
-  br label %.thread136
+  br label %.thread138
 
 28:                                               ; preds = %19, %17
   %29 = icmp eq ptr %18, null
-  br i1 %29, label %.thread136, label %30
+  br i1 %29, label %.thread138, label %30
 
 30:                                               ; preds = %28
-  switch i32 %1, label %208 [
+  switch i32 %1, label %202 [
     i32 40, label %31
     i32 41, label %35
     i32 33, label %40
@@ -7545,16 +7545,16 @@ tailrecurse:                                      ; preds = %208, %5
     i32 110, label %125
     i32 122, label %134
     i32 123, label %146
-    i32 130, label %173
-    i32 124, label %177
-    i32 131, label %204
+    i32 130, label %170
+    i32 124, label %174
+    i32 131, label %198
   ]
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 3232
   %33 = load i32, ptr %32, align 8, !tbaa !144
   %34 = sext i32 %33 to i64
-  br label %.thread136
+  br label %.thread138
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %18, i64 3232
@@ -7562,7 +7562,7 @@ tailrecurse:                                      ; preds = %208, %5
   %38 = sext i32 %37 to i64
   %39 = trunc i64 %2 to i32
   store i32 %39, ptr %36, align 8, !tbaa !144
-  br label %.thread136
+  br label %.thread138
 
 40:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -7587,7 +7587,7 @@ tailrecurse:                                      ; preds = %208, %5
   %53 = load i32, ptr %41, align 8, !tbaa !130
   %54 = zext i32 %53 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread136
+  br label %.thread138
 
 55:                                               ; preds = %30
   %56 = getelementptr inbounds nuw i8, ptr %18, i64 2488
@@ -7597,27 +7597,27 @@ tailrecurse:                                      ; preds = %208, %5
   %60 = and i32 %57, %59
   store i32 %60, ptr %56, align 8, !tbaa !130
   %61 = zext i32 %60 to i64
-  br label %.thread136
+  br label %.thread138
 
 62:                                               ; preds = %30
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 2504
   %64 = load i64, ptr %63, align 8, !tbaa !132
-  br label %.thread136
+  br label %.thread138
 
 65:                                               ; preds = %30
   %66 = icmp slt i64 %2, 0
-  br i1 %66, label %.thread136, label %67
+  br i1 %66, label %.thread138, label %67
 
 67:                                               ; preds = %65
   %68 = getelementptr inbounds nuw i8, ptr %18, i64 2504
   %69 = load i64, ptr %68, align 8, !tbaa !132
   store i64 %2, ptr %68, align 8, !tbaa !132
-  br label %.thread136
+  br label %.thread138
 
 70:                                               ; preds = %30
   %71 = add i64 %2, -16385
   %or.cond3 = icmp ult i64 %71, -15873
-  br i1 %or.cond3, label %.thread136, label %72
+  br i1 %or.cond3, label %.thread138, label %72
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %18, i64 2528
@@ -7639,24 +7639,24 @@ tailrecurse:                                      ; preds = %208, %5
   %83 = getelementptr inbounds nuw i8, ptr %18, i64 3208
   %84 = load ptr, ptr %83, align 8, !tbaa !337
   tail call void %82(ptr noundef %84, i64 noundef %2) #20
-  br label %.thread136
+  br label %.thread138
 
 85:                                               ; preds = %30
   %86 = getelementptr inbounds nuw i8, ptr %18, i64 2528
   %87 = load i64, ptr %86, align 8, !tbaa !174
   %88 = add i64 %2, -1
   %or.cond5.not = icmp ult i64 %88, %87
-  br i1 %or.cond5.not, label %89, label %.thread136
+  br i1 %or.cond5.not, label %89, label %.thread138
 
 89:                                               ; preds = %85
   %90 = getelementptr inbounds nuw i8, ptr %18, i64 2520
   store i64 %2, ptr %90, align 8, !tbaa !176
-  br label %.thread136
+  br label %.thread138
 
 91:                                               ; preds = %30
   %92 = add i64 %2, -33
   %or.cond7 = icmp ult i64 %92, -32
-  br i1 %or.cond7, label %.thread136, label %93
+  br i1 %or.cond7, label %.thread138, label %93
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %18, i64 2536
@@ -7666,24 +7666,24 @@ tailrecurse:                                      ; preds = %208, %5
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 120
   %98 = load ptr, ptr %97, align 8, !tbaa !411
   %.not121 = icmp eq ptr %98, null
-  br i1 %.not121, label %.thread136, label %99
+  br i1 %.not121, label %.thread138, label %99
 
 99:                                               ; preds = %93
   %100 = getelementptr inbounds nuw i8, ptr %18, i64 3200
   %101 = load ptr, ptr %100, align 8, !tbaa !363
   tail call void %98(ptr noundef %101, i64 noundef %2) #20
-  br label %.thread136
+  br label %.thread138
 
 102:                                              ; preds = %30
   %103 = getelementptr inbounds nuw i8, ptr %18, i64 1200
   %104 = load i32, ptr %103, align 8, !tbaa !412
   %105 = sext i32 %104 to i64
-  br label %.thread136
+  br label %.thread138
 
 106:                                              ; preds = %30
   %107 = getelementptr inbounds nuw i8, ptr %18, i64 104
   store i32 8, ptr %107, align 8, !tbaa !85
-  br label %.thread136
+  br label %.thread138
 
 108:                                              ; preds = %30
   %109 = getelementptr inbounds nuw i8, ptr %18, i64 2176
@@ -7694,7 +7694,7 @@ tailrecurse:                                      ; preds = %208, %5
   %114 = or i32 %112, %113
   store i32 %114, ptr %111, align 4, !tbaa !413
   %115 = zext i32 %114 to i64
-  br label %.thread136
+  br label %.thread138
 
 116:                                              ; preds = %30
   %117 = getelementptr inbounds nuw i8, ptr %18, i64 2176
@@ -7706,17 +7706,17 @@ tailrecurse:                                      ; preds = %208, %5
   %123 = and i32 %120, %122
   store i32 %123, ptr %119, align 4, !tbaa !413
   %124 = zext i32 %123 to i64
-  br label %.thread136
+  br label %.thread138
 
 125:                                              ; preds = %30
   %.not120 = icmp eq ptr %3, null
-  br i1 %.not120, label %.thread136, label %126
+  br i1 %.not120, label %.thread138, label %126
 
 126:                                              ; preds = %125
   %127 = getelementptr inbounds nuw i8, ptr %18, i64 928
   %128 = load ptr, ptr %127, align 8, !tbaa !414
   %129 = icmp eq ptr %128, null
-  br i1 %129, label %.thread136, label %130
+  br i1 %129, label %.thread138, label %130
 
 130:                                              ; preds = %126
   store ptr %128, ptr %3, align 8, !tbaa !283
@@ -7724,23 +7724,23 @@ tailrecurse:                                      ; preds = %208, %5
   %132 = load i64, ptr %131, align 8, !tbaa !415
   %sext = shl i64 %132, 32
   %133 = ashr exact i64 %sext, 32
-  br label %.thread136
+  br label %.thread138
 
 134:                                              ; preds = %30
   %135 = getelementptr inbounds nuw i8, ptr %18, i64 2304
   %136 = load ptr, ptr %135, align 8, !tbaa !20
   %.not116 = icmp eq ptr %136, null
-  br i1 %.not116, label %.thread136, label %137
+  br i1 %.not116, label %.thread138, label %137
 
 137:                                              ; preds = %134
   %138 = tail call i32 @SSL_in_init(ptr noundef nonnull %0) #20
   %.not117 = icmp eq i32 %138, 0
-  br i1 %.not117, label %139, label %.thread136
+  br i1 %.not117, label %139, label %.thread138
 
 139:                                              ; preds = %137
   %140 = tail call i32 @ossl_statem_get_in_handshake(ptr noundef nonnull %18) #20
   %.not118 = icmp eq i32 %140, 0
-  br i1 %.not118, label %141, label %.thread136
+  br i1 %.not118, label %141, label %.thread138
 
 141:                                              ; preds = %139
   %142 = load ptr, ptr %135, align 8, !tbaa !20
@@ -7748,7 +7748,7 @@ tailrecurse:                                      ; preds = %208, %5
   %144 = load i32, ptr %143, align 8, !tbaa !416
   %145 = and i32 %144, 1
   %. = zext nneg i32 %145 to i64
-  br label %.thread136
+  br label %.thread138
 
 146:                                              ; preds = %30
   %147 = trunc i64 %2 to i32
@@ -7763,117 +7763,111 @@ tailrecurse:                                      ; preds = %208, %5
   %.mask39.i = and i32 %149, -256
   %153 = icmp eq i32 %.mask39.i, 65024
   %or.cond40.i = or i1 %152, %153
+  %spec.select44.i = and i1 %or.cond40.i, %not.or.cond.i
   %154 = icmp eq i32 %149, 0
   %155 = or i1 %154, %not.or.cond.i
   %or.cond3.not.i = or i1 %155, %or.cond40.i
-  br i1 %or.cond3.not.i, label %156, label %.thread136
+  %or.cond3.not.not.i = xor i1 %or.cond3.not.i, true
+  %156 = icmp ne i32 %147, 0
+  %or.cond7.i = and i1 %156, %spec.select44.i
+  %or.cond41.i = or i1 %or.cond7.i, %or.cond3.not.not.i
+  br i1 %or.cond41.i, label %.thread138, label %157
 
-156:                                              ; preds = %146
-  %not.or.cond40.i = xor i1 %or.cond40.i, true
-  %157 = icmp eq i32 %147, 0
-  %158 = or i1 %157, %not.or.cond40.i
-  %or.cond7.not.i = or i1 %or.cond.i, %158
-  br i1 %or.cond7.not.i, label %159, label %.thread136
-
-159:                                              ; preds = %156
+157:                                              ; preds = %146
   %or.cond9.i = or i1 %or.cond.i, %or.cond40.i
-  br i1 %or.cond9.i, label %ssl_check_allowed_versions.exit, label %160
+  br i1 %or.cond9.i, label %ssl_check_allowed_versions.exit, label %158
 
-160:                                              ; preds = %159
-  %161 = icmp ne i32 %147, 0
-  %162 = icmp slt i32 %147, 768
-  %163 = and i1 %161, %162
-  %164 = icmp sgt i32 %149, 767
-  %165 = or i1 %154, %164
-  %or.cond13.i = and i1 %163, %165
-  br i1 %or.cond13.i, label %.thread136, label %ssl_check_allowed_versions.exit
+158:                                              ; preds = %157
+  %159 = icmp slt i32 %147, 768
+  %160 = icmp sgt i32 %149, 767
+  %161 = or i1 %154, %160
+  %162 = and i1 %159, %161
+  %or.cond13.i = and i1 %156, %162
+  br i1 %or.cond13.i, label %.thread138, label %ssl_check_allowed_versions.exit
 
-ssl_check_allowed_versions.exit:                  ; preds = %160, %159
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %167 = load ptr, ptr %166, align 8, !tbaa !95
-  %168 = load i32, ptr %167, align 8, !tbaa !82
-  %169 = getelementptr inbounds nuw i8, ptr %18, i64 2492
-  %170 = tail call i32 @ssl_set_version_bound(i32 noundef %168, i32 noundef %147, ptr noundef nonnull %169) #20
-  %171 = icmp ne i32 %170, 0
-  %172 = zext i1 %171 to i64
-  br label %.thread136
+ssl_check_allowed_versions.exit:                  ; preds = %158, %157
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %164 = load ptr, ptr %163, align 8, !tbaa !95
+  %165 = load i32, ptr %164, align 8, !tbaa !82
+  %166 = getelementptr inbounds nuw i8, ptr %18, i64 2492
+  %167 = tail call i32 @ssl_set_version_bound(i32 noundef %165, i32 noundef %147, ptr noundef nonnull %166) #20
+  %168 = icmp ne i32 %167, 0
+  %169 = zext i1 %168 to i64
+  br label %.thread138
 
-173:                                              ; preds = %30
-  %174 = getelementptr inbounds nuw i8, ptr %18, i64 2492
-  %175 = load i32, ptr %174, align 4, !tbaa !126
-  %176 = sext i32 %175 to i64
-  br label %.thread136
+170:                                              ; preds = %30
+  %171 = getelementptr inbounds nuw i8, ptr %18, i64 2492
+  %172 = load i32, ptr %171, align 4, !tbaa !126
+  %173 = sext i32 %172 to i64
+  br label %.thread138
 
-177:                                              ; preds = %30
-  %178 = getelementptr inbounds nuw i8, ptr %18, i64 2492
-  %179 = load i32, ptr %178, align 4, !tbaa !126
-  %180 = trunc i64 %2 to i32
-  %181 = icmp eq i32 %179, 256
-  %.mask.i123 = and i32 %179, -256
-  %182 = icmp eq i32 %.mask.i123, 65024
-  %or.cond.i124 = or i1 %181, %182
+174:                                              ; preds = %30
+  %175 = getelementptr inbounds nuw i8, ptr %18, i64 2492
+  %176 = load i32, ptr %175, align 4, !tbaa !126
+  %177 = trunc i64 %2 to i32
+  %178 = icmp eq i32 %176, 256
+  %.mask.i123 = and i32 %176, -256
+  %179 = icmp eq i32 %.mask.i123, 65024
+  %or.cond.i124 = or i1 %178, %179
   %not.or.cond.i125 = xor i1 %or.cond.i124, true
-  %183 = icmp eq i32 %180, 256
-  %.mask39.i126 = and i32 %180, -256
-  %184 = icmp eq i32 %.mask39.i126, 65024
-  %or.cond40.i127 = or i1 %183, %184
-  %185 = icmp eq i32 %180, 0
-  %186 = or i1 %185, %not.or.cond.i125
-  %or.cond3.not.i128 = or i1 %or.cond40.i127, %186
-  br i1 %or.cond3.not.i128, label %187, label %.thread136
+  %180 = icmp eq i32 %177, 256
+  %.mask39.i126 = and i32 %177, -256
+  %181 = icmp eq i32 %.mask39.i126, 65024
+  %or.cond40.i127 = or i1 %180, %181
+  %spec.select44.i128 = and i1 %or.cond40.i127, %not.or.cond.i125
+  %182 = icmp eq i32 %177, 0
+  %183 = or i1 %182, %not.or.cond.i125
+  %or.cond3.not.i129 = or i1 %or.cond40.i127, %183
+  %or.cond3.not.not.i130 = xor i1 %or.cond3.not.i129, true
+  %184 = icmp ne i32 %176, 0
+  %or.cond7.i131 = and i1 %184, %spec.select44.i128
+  %or.cond41.i132 = or i1 %or.cond7.i131, %or.cond3.not.not.i130
+  br i1 %or.cond41.i132, label %.thread138, label %185
 
-187:                                              ; preds = %177
-  %not.or.cond40.i130 = xor i1 %or.cond40.i127, true
-  %188 = icmp eq i32 %179, 0
-  %189 = or i1 %188, %not.or.cond40.i130
-  %or.cond7.not.i131 = or i1 %189, %or.cond.i124
-  br i1 %or.cond7.not.i131, label %190, label %.thread136
+185:                                              ; preds = %174
+  %or.cond9.i133 = or i1 %or.cond40.i127, %or.cond.i124
+  br i1 %or.cond9.i133, label %ssl_check_allowed_versions.exit136, label %186
 
-190:                                              ; preds = %187
-  %or.cond9.i132 = or i1 %or.cond40.i127, %or.cond.i124
-  br i1 %or.cond9.i132, label %ssl_check_allowed_versions.exit134, label %191
+186:                                              ; preds = %185
+  %187 = icmp slt i32 %176, 768
+  %188 = icmp sgt i32 %177, 767
+  %189 = or i1 %182, %188
+  %190 = and i1 %189, %187
+  %or.cond13.i134 = and i1 %184, %190
+  br i1 %or.cond13.i134, label %.thread138, label %ssl_check_allowed_versions.exit136
 
-191:                                              ; preds = %190
-  %192 = icmp ne i32 %179, 0
-  %193 = icmp slt i32 %179, 768
-  %194 = and i1 %192, %193
-  %195 = icmp sgt i32 %180, 767
-  %196 = or i1 %185, %195
-  %or.cond13.i133 = and i1 %196, %194
-  br i1 %or.cond13.i133, label %.thread136, label %ssl_check_allowed_versions.exit134
+ssl_check_allowed_versions.exit136:               ; preds = %186, %185
+  %191 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %192 = load ptr, ptr %191, align 8, !tbaa !95
+  %193 = load i32, ptr %192, align 8, !tbaa !82
+  %194 = getelementptr inbounds nuw i8, ptr %18, i64 2496
+  %195 = tail call i32 @ssl_set_version_bound(i32 noundef %193, i32 noundef %177, ptr noundef nonnull %194) #20
+  %196 = icmp ne i32 %195, 0
+  %197 = zext i1 %196 to i64
+  br label %.thread138
 
-ssl_check_allowed_versions.exit134:               ; preds = %191, %190
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %198 = load ptr, ptr %197, align 8, !tbaa !95
-  %199 = load i32, ptr %198, align 8, !tbaa !82
-  %200 = getelementptr inbounds nuw i8, ptr %18, i64 2496
-  %201 = tail call i32 @ssl_set_version_bound(i32 noundef %199, i32 noundef %180, ptr noundef nonnull %200) #20
-  %202 = icmp ne i32 %201, 0
-  %203 = zext i1 %202 to i64
-  br label %.thread136
+198:                                              ; preds = %30
+  %199 = getelementptr inbounds nuw i8, ptr %18, i64 2496
+  %200 = load i32, ptr %199, align 8, !tbaa !128
+  %201 = sext i32 %200 to i64
+  br label %.thread138
 
-204:                                              ; preds = %30
-  %205 = getelementptr inbounds nuw i8, ptr %18, i64 2496
-  %206 = load i32, ptr %205, align 8, !tbaa !128
-  %207 = sext i32 %206 to i64
-  br label %.thread136
+202:                                              ; preds = %30
+  %203 = load i32, ptr %.tr, align 8, !tbaa !19
+  %204 = and i32 %203, 128
+  %.not122 = icmp eq i32 %204, 0
+  br i1 %.not122, label %205, label %tailrecurse
 
-208:                                              ; preds = %30
-  %209 = load i32, ptr %.tr, align 8, !tbaa !19
-  %210 = and i32 %209, 128
-  %.not122 = icmp eq i32 %210, 0
-  br i1 %.not122, label %211, label %tailrecurse
+205:                                              ; preds = %202
+  %206 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
+  %207 = load ptr, ptr %206, align 8, !tbaa !3
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 152
+  %209 = load ptr, ptr %208, align 8, !tbaa !242
+  %210 = tail call i64 %209(ptr noundef nonnull %.tr, i32 noundef %1, i64 noundef %2, ptr noundef %3) #20
+  br label %.thread138
 
-211:                                              ; preds = %208
-  %212 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
-  %213 = load ptr, ptr %212, align 8, !tbaa !3
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 152
-  %215 = load ptr, ptr %214, align 8, !tbaa !242
-  %216 = tail call i64 %215(ptr noundef nonnull %.tr, i32 noundef %1, i64 noundef %2, ptr noundef %3) #20
-  br label %.thread136
-
-.thread136:                                       ; preds = %tailrecurse, %28, %191, %177, %187, %160, %146, %156, %ssl_check_allowed_versions.exit134, %ssl_check_allowed_versions.exit, %141, %134, %137, %139, %125, %126, %93, %99, %91, %85, %70, %65, %211, %204, %173, %130, %116, %108, %106, %102, %89, %78, %67, %62, %55, %40, %35, %31, %22
-  %.0 = phi i64 [ %27, %22 ], [ %216, %211 ], [ %34, %31 ], [ %38, %35 ], [ %54, %40 ], [ %61, %55 ], [ %64, %62 ], [ %69, %67 ], [ 1, %78 ], [ 1, %89 ], [ %105, %102 ], [ 1, %106 ], [ %115, %108 ], [ %124, %116 ], [ %133, %130 ], [ %176, %173 ], [ %207, %204 ], [ 0, %65 ], [ 0, %70 ], [ 0, %85 ], [ 0, %91 ], [ 1, %99 ], [ 1, %93 ], [ 0, %126 ], [ 2, %125 ], [ -1, %139 ], [ -1, %137 ], [ -1, %134 ], [ %., %141 ], [ %172, %ssl_check_allowed_versions.exit ], [ %203, %ssl_check_allowed_versions.exit134 ], [ 0, %156 ], [ 0, %146 ], [ 0, %160 ], [ 0, %187 ], [ 0, %177 ], [ 0, %191 ], [ 0, %28 ], [ 0, %tailrecurse ]
+.thread138:                                       ; preds = %tailrecurse, %28, %186, %174, %158, %146, %ssl_check_allowed_versions.exit136, %ssl_check_allowed_versions.exit, %141, %134, %137, %139, %125, %126, %93, %99, %91, %85, %70, %65, %205, %198, %170, %130, %116, %108, %106, %102, %89, %78, %67, %62, %55, %40, %35, %31, %22
+  %.0 = phi i64 [ %27, %22 ], [ %210, %205 ], [ %34, %31 ], [ %38, %35 ], [ %54, %40 ], [ %61, %55 ], [ %64, %62 ], [ %69, %67 ], [ 1, %78 ], [ 1, %89 ], [ %105, %102 ], [ 1, %106 ], [ %115, %108 ], [ %124, %116 ], [ %133, %130 ], [ %173, %170 ], [ %201, %198 ], [ 0, %65 ], [ 0, %70 ], [ 0, %85 ], [ 0, %91 ], [ 1, %99 ], [ 1, %93 ], [ 0, %126 ], [ 2, %125 ], [ -1, %139 ], [ -1, %137 ], [ -1, %134 ], [ %., %141 ], [ %169, %ssl_check_allowed_versions.exit ], [ %197, %ssl_check_allowed_versions.exit136 ], [ 0, %146 ], [ 0, %158 ], [ 0, %174 ], [ 0, %186 ], [ 0, %28 ], [ 0, %tailrecurse ]
   ret i64 %.0
 }
 
@@ -7892,36 +7886,33 @@ define internal fastcc range(i32 0, 2) i32 @ssl_check_allowed_versions(i32 nound
   %.mask39 = and i32 %1, -256
   %6 = icmp eq i32 %.mask39, 65024
   %or.cond40 = or i1 %5, %6
+  %spec.select44 = and i1 %or.cond40, %not.or.cond
   %7 = icmp eq i32 %1, 0
   %8 = or i1 %7, %not.or.cond
   %or.cond3.not = or i1 %8, %or.cond40
-  br i1 %or.cond3.not, label %9, label %20
+  %or.cond3.not.not = xor i1 %or.cond3.not, true
+  %9 = icmp ne i32 %0, 0
+  %or.cond7 = and i1 %9, %spec.select44
+  %or.cond41 = or i1 %or.cond7, %or.cond3.not.not
+  br i1 %or.cond41, label %17, label %10
 
-9:                                                ; preds = %2
-  %not.or.cond40 = xor i1 %or.cond40, true
-  %10 = icmp eq i32 %0, 0
-  %11 = or i1 %10, %not.or.cond40
-  %or.cond7.not = or i1 %or.cond, %11
-  br i1 %or.cond7.not, label %12, label %20
-
-12:                                               ; preds = %9
+10:                                               ; preds = %2
   %or.cond9 = or i1 %or.cond, %or.cond40
-  br i1 %or.cond9, label %19, label %13
+  br i1 %or.cond9, label %16, label %11
 
-13:                                               ; preds = %12
-  %14 = icmp ne i32 %0, 0
-  %15 = icmp slt i32 %0, 768
-  %16 = and i1 %14, %15
-  %17 = icmp sgt i32 %1, 767
-  %18 = or i1 %7, %17
-  %or.cond13 = and i1 %16, %18
-  br i1 %or.cond13, label %20, label %19
+11:                                               ; preds = %10
+  %12 = icmp slt i32 %0, 768
+  %13 = icmp sgt i32 %1, 767
+  %14 = or i1 %7, %13
+  %15 = and i1 %12, %14
+  %or.cond13 = and i1 %9, %15
+  br i1 %or.cond13, label %17, label %16
 
-19:                                               ; preds = %12, %13
-  br label %20
+16:                                               ; preds = %10, %11
+  br label %17
 
-20:                                               ; preds = %13, %2, %9, %19
-  %.036 = phi i32 [ 1, %19 ], [ 0, %9 ], [ 0, %2 ], [ 0, %13 ]
+17:                                               ; preds = %11, %2, %16
+  %.036 = phi i32 [ 1, %16 ], [ 0, %2 ], [ 0, %11 ]
   ret i32 %.036
 }
 

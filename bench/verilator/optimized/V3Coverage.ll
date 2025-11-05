@@ -22974,7 +22974,7 @@ _ZN15CoverageVisitor17abortExprCoverageEv.exit.i: ; preds = %_ZNSt5dequeIN15Cove
   resume { ptr, i32 } %96
 
 _ZN15CoverageVisitor13checkMaxExprsEm.exit:       ; preds = %_ZN15CoverageVisitor17abortExprCoverageEv.exit.i, %29
-  %.0.i = phi i1 [ true, %_ZN15CoverageVisitor17abortExprCoverageEv.exit.i ], [ false, %29 ]
+  %.0.i = phi i1 [ true, %_ZN15CoverageVisitor17abortExprCoverageEv.exit.i ], [ %.not, %29 ]
   %97 = load ptr, ptr %3, align 8, !tbaa !94
   %.not8.i.i = icmp eq ptr %97, %3
   br i1 %.not8.i.i, label %_ZNSt7__cxx1110_List_baseISt5dequeIN15CoverageVisitor9CoverTermESaIS3_EESaIS5_EED2Ev.exit, label %.lr.ph.i.i
@@ -23141,8 +23141,7 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EED2Ev.exit26: ; preds = %_ZNSt5d
 
 _ZNSt7__cxx1110_List_baseISt5dequeIN15CoverageVisitor9CoverTermESaIS3_EESaIS5_EED2Ev.exit: ; preds = %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EED2Ev.exit26, %_ZN15CoverageVisitor13checkMaxExprsEm.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %brmerge = or i1 %.0.i, %.not
-  br i1 %brmerge, label %157, label %15
+  br i1 %.0.i, label %157, label %15
 
 157:                                              ; preds = %_ZNSt7__cxx1110_List_baseISt5dequeIN15CoverageVisitor9CoverTermESaIS3_EESaIS5_EED2Ev.exit, %7
   call void @_ZN15CoverageVisitor9lineTrackEPK7AstNode(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1)

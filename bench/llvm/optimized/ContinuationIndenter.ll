@@ -14745,20 +14745,19 @@ _ZNK5clang6format11FormatToken15isStringLiteralEv.exit: ; preds = %switch.lookup
   %305 = load ptr, ptr %304, align 8
   tail call void %305(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(128) %2) #24
   %306 = zext i32 %.8348 to i64
+  %307 = or disjoint i64 %.0349.lcssa, %306
   br label %_ZNKSt14default_deleteIKN5clang6format14BreakableTokenEEclEPS3_.exit.i
 
 _ZNKSt14default_deleteIKN5clang6format14BreakableTokenEEclEPS3_.exit.i: ; preds = %8, %302
-  %.sroa.0343.0.ph = phi i64 [ 0, %8 ], [ %306, %302 ]
-  %.sroa.4.0.ph = phi i64 [ 0, %8 ], [ %.0349.lcssa, %302 ]
-  %307 = load ptr, ptr %7, align 8, !tbaa !155
-  %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  %309 = load ptr, ptr %308, align 8
-  tail call void %309(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
-  %310 = or disjoint i64 %.sroa.4.0.ph, %.sroa.0343.0.ph
+  %.sroa.4.0.ph = phi i64 [ 0, %8 ], [ %307, %302 ]
+  %308 = load ptr, ptr %7, align 8, !tbaa !155
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  %310 = load ptr, ptr %309, align 8
+  tail call void %310(ptr noundef nonnull align 8 dereferenceable(32) %7) #24
   br label %_ZNSt10unique_ptrIKN5clang6format14BreakableTokenESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIKN5clang6format14BreakableTokenESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN5clang6format14BreakableTokenESt14default_deleteIS2_EED2Ev.exit, %_ZNKSt14default_deleteIKN5clang6format14BreakableTokenEEclEPS3_.exit.i
-  %.sroa.0343.0.insert.insert = phi i64 [ %310, %_ZNKSt14default_deleteIKN5clang6format14BreakableTokenEEclEPS3_.exit.i ], [ 0, %_ZNSt10unique_ptrIN5clang6format14BreakableTokenESt14default_deleteIS2_EED2Ev.exit ]
+  %.sroa.0343.0.insert.insert = phi i64 [ %.sroa.4.0.ph, %_ZNKSt14default_deleteIKN5clang6format14BreakableTokenEEclEPS3_.exit.i ], [ 0, %_ZNSt10unique_ptrIN5clang6format14BreakableTokenESt14default_deleteIS2_EED2Ev.exit ]
   ret i64 %.sroa.0343.0.insert.insert
 }
 

@@ -1078,11 +1078,11 @@ lpad34.i:                                         ; preds = %call1.i.noexc.i, %_
 
 cleanup42.loopexit.i:                             ; preds = %invoke.cont14.i
   %53 = zext i32 %37 to i64
+  %54 = or disjoint i64 %53, 4294967296
   br label %cleanup42.i
 
 cleanup42.i:                                      ; preds = %cleanup42.loopexit.i, %call1.i.noexc.i, %invoke.cont37.i, %invoke.cont35.i, %call.i.noexc.i
-  %retval.sroa.0.1.i = phi i64 [ 0, %invoke.cont37.i ], [ 0, %call1.i.noexc.i ], [ 0, %invoke.cont35.i ], [ 0, %call.i.noexc.i ], [ %53, %cleanup42.loopexit.i ]
-  %retval.sroa.2.0.i = phi i64 [ 0, %invoke.cont37.i ], [ 0, %call1.i.noexc.i ], [ 0, %invoke.cont35.i ], [ 0, %call.i.noexc.i ], [ 4294967296, %cleanup42.loopexit.i ]
+  %retval.sroa.2.0.i = phi i64 [ 0, %invoke.cont37.i ], [ 0, %call1.i.noexc.i ], [ 0, %invoke.cont35.i ], [ 0, %call.i.noexc.i ], [ %54, %cleanup42.loopexit.i ]
   %tobool.not.i.i.i.i = icmp eq ptr %35, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EED2Ev.exit.i, label %if.then.i.i.i.i479
 
@@ -1092,7 +1092,6 @@ if.then.i.i.i.i479:                               ; preds = %cleanup42.i
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i479, %cleanup42.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp7.i)
-  %54 = or disjoint i64 %retval.sroa.2.0.i, %retval.sroa.0.1.i
   br label %invoke.cont168
 
 ehcleanup43.i:                                    ; preds = %lpad34.i, %lpad13.i
@@ -1109,7 +1108,7 @@ _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EED2Ev.exit86.i: ; preds = %if.the
   br label %ehcleanup302
 
 invoke.cont168:                                   ; preds = %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %retval.sroa.0.0.insert.insert.i = phi i64 [ %54, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EED2Ev.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
+  %retval.sroa.0.0.insert.insert.i = phi i64 [ %retval.sroa.2.0.i, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EED2Ev.exit.i ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %params)
   invoke void @_ZN3irr27SIrrlichtCreationParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %params)
           to label %invoke.cont172 unwind label %lpad171

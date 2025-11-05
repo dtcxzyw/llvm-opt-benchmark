@@ -22111,8 +22111,8 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm27SwitchInstProfUpdateWra
   br label %14
 
 14:                                               ; preds = %2, %6
-  %.sroa.0.0.insert.insert = phi i64 [ %13, %6 ], [ 0, %2 ]
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = phi i64 [ %13, %6 ], [ 0, %2 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -22363,7 +22363,7 @@ _ZN4llvm11SmallVectorIjLj8EED2Ev.exit:            ; preds = %_ZNSt8optionalIN4ll
 define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm27SwitchInstProfUpdateWrapper18getSuccessorWeightERKNS_10SwitchInstEj(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN4llvm21getBranchWeightMDNodeERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(72) %0) #32
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %46, label %4
+  br i1 %.not, label %47, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 -16
@@ -22382,7 +22382,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit:          ; preds = %4
   %14 = and i32 %13, 67108863
   %15 = add nuw nsw i32 %14, 1
   %16 = icmp eq i32 %10, %15
-  br i1 %16, label %28, label %46
+  br i1 %16, label %28, label %47
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %4
   %17 = getelementptr inbounds i8, ptr %3, i64 -24
@@ -22393,7 +22393,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %4
   %22 = and i32 %21, 67108863
   %23 = add nuw nsw i32 %22, 1
   %24 = icmp eq i32 %18, %23
-  br i1 %24, label %25, label %46
+  br i1 %24, label %25, label %47
 
 25:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread
   %26 = getelementptr inbounds i8, ptr %3, i64 -32
@@ -22423,13 +22423,12 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %4
   %.0.in.i = select i1 %43, ptr %40, ptr %44
   %.0.i = load i64, ptr %.0.in.i, align 8, !tbaa !83
   %45 = and i64 %.0.i, 4294967295
-  br label %46
+  %46 = or disjoint i64 %45, 4294967296
+  br label %47
 
-46:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %2, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %33
-  %.sroa.0.012 = phi i64 [ %45, %33 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 0, %2 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ]
-  %.sroa.2.1 = phi i64 [ 4294967296, %33 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 0, %2 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.0.012
-  ret i64 %.sroa.0.0.insert.insert
+47:                                               ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %2, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %33
+  %.sroa.2.1 = phi i64 [ %46, %33 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 0, %2 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ]
+  ret i64 %.sroa.2.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

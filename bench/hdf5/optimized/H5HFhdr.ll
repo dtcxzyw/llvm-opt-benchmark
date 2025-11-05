@@ -2028,7 +2028,7 @@ define range(i32 -1, 1) i32 @H5HF__hdr_reverse_iter(ptr noundef %0, i64 noundef 
 .backedge:                                        ; preds = %156, %67
   br label %39, !llvm.loop !96
 
-.thread90:                                        ; preds = %89, %70, %.thread, %85, %73, %63, %56, %2, %27, %20
+.thread90:                                        ; preds = %.thread, %89, %85, %70, %73, %63, %56, %2, %27, %20
   %.069 = phi i32 [ -1, %27 ], [ -1, %20 ], [ 0, %2 ], [ -1, %56 ], [ -1, %63 ], [ -1, %73 ], [ -1, %.thread ], [ 0, %89 ], [ -1, %85 ], [ 0, %70 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

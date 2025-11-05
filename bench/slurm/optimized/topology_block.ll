@@ -1027,19 +1027,16 @@ define dso_local i32 @topology_p_get_fragmentation(ptr noundef %0) local_unnamed
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @block_record_cnt, align 4
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph41, label %.._crit_edge_crit_edge
+  br i1 %4, label %.lr.ph41, label %._crit_edge
 
-.._crit_edge_crit_edge:                           ; preds = %1
-  %.pre58 = load i16, ptr @bblock_node_cnt, align 2
-  %.pre59 = zext i16 %.pre58 to i32
+._crit_edge.loopexit:                             ; preds = %.loopexit
+  %5 = mul i32 %.3, %17
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.loopexit, %.._crit_edge_crit_edge
-  %.pre-phi = phi i32 [ %.pre59, %.._crit_edge_crit_edge ], [ %17, %.loopexit ]
-  %.027.lcssa = phi i32 [ 0, %.._crit_edge_crit_edge ], [ %.3, %.loopexit ]
-  %5 = mul i32 %.027.lcssa, %.pre-phi
+._crit_edge:                                      ; preds = %1, %._crit_edge.loopexit
+  %.027.lcssa = phi i32 [ %5, %._crit_edge.loopexit ], [ 0, %1 ]
   %6 = load i32, ptr @blocks_nodes_cnt, align 4
-  %7 = add i32 %5, %6
+  %7 = add i32 %.027.lcssa, %6
   %8 = load ptr, ptr @blocks_nodes_bitmap, align 8
   %9 = tail call i32 @slurm_bit_overlap(ptr noundef %0, ptr noundef %8) #9
   %10 = sub i32 %7, %9
@@ -1133,7 +1130,7 @@ define dso_local i32 @topology_p_get_fragmentation(ptr noundef %0) local_unnamed
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %37 = sext i32 %.pre57 to i64
   %38 = icmp slt i64 %indvars.iv.next53, %37
-  br i1 %38, label %.lr.ph41, label %._crit_edge, !llvm.loop !26
+  br i1 %38, label %.lr.ph41, label %._crit_edge.loopexit, !llvm.loop !26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

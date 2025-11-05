@@ -4888,12 +4888,12 @@ hfinfo_bitoffset.exit:                            ; preds = %21, %21, %21, %26, 
   %49 = shl nsw i32 %reass.sub.i, 8
   %50 = add nsw i32 %49, 256
   %51 = and i32 %50, 16128
+  %52 = or i32 %51, %42
   br label %hfinfo_mask_bitwidth.exit
 
 hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %43
-  %.0.i25 = phi i32 [ %51, %43 ], [ 0, %hfinfo_bitoffset.exit ]
-  %52 = or i32 %.0.i25, %42
-  store i32 %52, ptr %22, align 4
+  %.0.i25 = phi i32 [ %52, %43 ], [ %42, %hfinfo_bitoffset.exit ]
+  store i32 %.0.i25, ptr %22, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %ws_sign_ext32.exit, %hfinfo_mask_bitwidth.exit, %2
@@ -5543,12 +5543,12 @@ hfinfo_bitoffset.exit:                            ; preds = %12, %12, %12, %17, 
   %40 = shl nsw i32 %reass.sub.i, 8
   %41 = add nsw i32 %40, 256
   %42 = and i32 %41, 16128
+  %43 = or i32 %42, %33
   br label %hfinfo_mask_bitwidth.exit
 
 hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %34
-  %.0.i20 = phi i32 [ %42, %34 ], [ 0, %hfinfo_bitoffset.exit ]
-  %43 = or i32 %.0.i20, %33
-  store i32 %43, ptr %13, align 4
+  %.0.i20 = phi i32 [ %43, %34 ], [ %33, %hfinfo_bitoffset.exit ]
+  store i32 %.0.i20, ptr %13, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %hfinfo_mask_bitwidth.exit, %2
@@ -8387,12 +8387,12 @@ hfinfo_bitoffset.exit:                            ; preds = %10, %10, %10, %15, 
   %38 = shl nsw i32 %reass.sub.i, 8
   %39 = add nsw i32 %38, 256
   %40 = and i32 %39, 16128
+  %41 = or i32 %40, %31
   br label %hfinfo_mask_bitwidth.exit
 
 hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %32
-  %.0.i20 = phi i32 [ %40, %32 ], [ 0, %hfinfo_bitoffset.exit ]
-  %41 = or i32 %.0.i20, %31
-  store i32 %41, ptr %11, align 4
+  %.0.i20 = phi i32 [ %41, %32 ], [ %31, %hfinfo_bitoffset.exit ]
+  store i32 %.0.i20, ptr %11, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %6, %hfinfo_mask_bitwidth.exit, %2
@@ -8858,12 +8858,12 @@ hfinfo_bitoffset.exit:                            ; preds = %19, %19, %19, %24, 
   %47 = shl nsw i32 %reass.sub.i, 8
   %48 = add nsw i32 %47, 256
   %49 = and i32 %48, 16128
+  %50 = or i32 %49, %40
   br label %hfinfo_mask_bitwidth.exit
 
 hfinfo_mask_bitwidth.exit:                        ; preds = %hfinfo_bitoffset.exit, %41
-  %.0.i25 = phi i32 [ %49, %41 ], [ 0, %hfinfo_bitoffset.exit ]
-  %50 = or i32 %.0.i25, %40
-  store i32 %50, ptr %20, align 4
+  %.0.i25 = phi i32 [ %50, %41 ], [ %40, %hfinfo_bitoffset.exit ]
+  store i32 %.0.i25, ptr %20, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %ws_sign_ext64.exit, %hfinfo_mask_bitwidth.exit, %2

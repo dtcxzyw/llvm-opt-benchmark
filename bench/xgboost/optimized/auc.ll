@@ -15012,12 +15012,12 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 213:                                              ; preds = %183, %181
   %214 = call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %215 = icmp eq i64 %214, 0
-  br i1 %215, label %225, label %216
+  br i1 %215, label %226, label %216
 
 216:                                              ; preds = %213
   %217 = call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(25) %42)
   %218 = icmp eq i64 %217, 0
-  br i1 %218, label %225, label %219
+  br i1 %218, label %226, label %219
 
 219:                                              ; preds = %216
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -15029,20 +15029,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %224 = load double, ptr %23, align 8, !tbaa !57
   store double %224, ptr %6, align 8, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %225
+  %225 = fmul double %221, %223
+  br label %226
 
-225:                                              ; preds = %219, %216, %213
-  %.0170 = phi double [ 0.000000e+00, %213 ], [ 0.000000e+00, %216 ], [ %223, %219 ]
-  %.0169 = phi double [ 0.000000e+00, %213 ], [ 0.000000e+00, %216 ], [ %221, %219 ]
-  %226 = load ptr, ptr %29, align 8, !tbaa !346
-  %227 = load double, ptr %6, align 8, !tbaa !57
-  %228 = fmul double %.0170, %.0169
-  %229 = call noundef double @_ZN7xgboost10collective11GlobalRatioIdEET_PKNS_7ContextERKNS_8MetaInfoES2_S2_(ptr noundef %226, ptr noundef nonnull align 8 dereferenceable(233) %2, double noundef %227, double noundef %228)
+226:                                              ; preds = %219, %216, %213
+  %.0169 = phi double [ 0.000000e+00, %213 ], [ 0.000000e+00, %216 ], [ %225, %219 ]
+  %227 = load ptr, ptr %29, align 8, !tbaa !346
+  %228 = load double, ptr %6, align 8, !tbaa !57
+  %229 = call noundef double @_ZN7xgboost10collective11GlobalRatioIdEET_PKNS_7ContextERKNS_8MetaInfoES2_S2_(ptr noundef %227, ptr noundef nonnull align 8 dereferenceable(233) %2, double noundef %228, double noundef %.0169)
   store double %229, ptr %6, align 8, !tbaa !57
   %230 = fcmp uno double %229, 0.000000e+00
   br i1 %230, label %258, label %231
 
-231:                                              ; preds = %225
+231:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store double 0x3FF000010C6F7A00, ptr %25, align 8, !tbaa !57
@@ -15145,8 +15144,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store double %.sroa.speculated, ptr %6, align 8, !tbaa !57
   br label %258
 
-258:                                              ; preds = %225, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145, %144, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127
-  %259 = phi double [ %229, %225 ], [ %.sroa.speculated, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145 ], [ %148, %144 ], [ %.pr193, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109 ], [ %212, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127 ]
+258:                                              ; preds = %226, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145, %144, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127
+  %259 = phi double [ %229, %226 ], [ %.sroa.speculated, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145 ], [ %148, %144 ], [ %.pr193, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109 ], [ %212, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127 ]
   %260 = fcmp uno double %259, 0.000000e+00
   br i1 %260, label %261, label %285
 
@@ -21080,12 +21079,12 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 213:                                              ; preds = %183, %181
   %214 = call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %215 = icmp eq i64 %214, 0
-  br i1 %215, label %225, label %216
+  br i1 %215, label %226, label %216
 
 216:                                              ; preds = %213
   %217 = call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(25) %42)
   %218 = icmp eq i64 %217, 0
-  br i1 %218, label %225, label %219
+  br i1 %218, label %226, label %219
 
 219:                                              ; preds = %216
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -21097,20 +21096,19 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %224 = load double, ptr %23, align 8, !tbaa !57
   store double %224, ptr %6, align 8, !tbaa !57
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %225
+  %225 = fmul double %221, %223
+  br label %226
 
-225:                                              ; preds = %219, %216, %213
-  %.0170 = phi double [ 0.000000e+00, %213 ], [ 0.000000e+00, %216 ], [ %223, %219 ]
-  %.0169 = phi double [ 0.000000e+00, %213 ], [ 0.000000e+00, %216 ], [ %221, %219 ]
-  %226 = load ptr, ptr %29, align 8, !tbaa !346
-  %227 = load double, ptr %6, align 8, !tbaa !57
-  %228 = fmul double %.0170, %.0169
-  %229 = call noundef double @_ZN7xgboost10collective11GlobalRatioIdEET_PKNS_7ContextERKNS_8MetaInfoES2_S2_(ptr noundef %226, ptr noundef nonnull align 8 dereferenceable(233) %2, double noundef %227, double noundef %228)
+226:                                              ; preds = %219, %216, %213
+  %.0169 = phi double [ 0.000000e+00, %213 ], [ 0.000000e+00, %216 ], [ %225, %219 ]
+  %227 = load ptr, ptr %29, align 8, !tbaa !346
+  %228 = load double, ptr %6, align 8, !tbaa !57
+  %229 = call noundef double @_ZN7xgboost10collective11GlobalRatioIdEET_PKNS_7ContextERKNS_8MetaInfoES2_S2_(ptr noundef %227, ptr noundef nonnull align 8 dereferenceable(233) %2, double noundef %228, double noundef %.0169)
   store double %229, ptr %6, align 8, !tbaa !57
   %230 = fcmp uno double %229, 0.000000e+00
   br i1 %230, label %258, label %231
 
-231:                                              ; preds = %225
+231:                                              ; preds = %226
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store double 0x3FF000010C6F7A00, ptr %25, align 8, !tbaa !57
@@ -21213,8 +21211,8 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   store double %.sroa.speculated, ptr %6, align 8, !tbaa !57
   br label %258
 
-258:                                              ; preds = %225, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145, %144, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127
-  %259 = phi double [ %229, %225 ], [ %.sroa.speculated, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145 ], [ %148, %144 ], [ %.pr193, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109 ], [ %212, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127 ]
+258:                                              ; preds = %226, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145, %144, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127
+  %259 = phi double [ %229, %226 ], [ %.sroa.speculated, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit145 ], [ %148, %144 ], [ %.pr193, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit109 ], [ %212, %_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev.exit127 ]
   %260 = fcmp uno double %259, 0.000000e+00
   br i1 %260, label %261, label %285
 

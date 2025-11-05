@@ -8514,7 +8514,7 @@ define range(i32 -1, -2147483648) i32 @Gia_ManFindGateGate(ptr noundef readonly 
   %11 = load ptr, ptr %4, align 8, !tbaa !69
   %12 = tail call i32 @Gia_ManFindGateGateInt(ptr poison, ptr noundef %9, ptr noundef %1, i32 noundef %2, ptr noundef %10, ptr noundef %11, ptr noundef %5, ptr noundef %6)
   %13 = icmp sgt i32 %12, -1
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br i1 %13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %14 = load ptr, ptr %0, align 8, !tbaa !78
@@ -8524,16 +8524,12 @@ define range(i32 -1, -2147483648) i32 @Gia_ManFindGateGate(ptr noundef readonly 
   %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = tail call i32 @Gia_ManFindGateGateInt(ptr poison, ptr noundef %14, ptr noundef %1, i32 noundef %2, ptr noundef %16, ptr noundef %18, ptr noundef %5, ptr noundef %6)
   %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %._crit_edge, label %.loopexit, !llvm.loop !162
+  %21 = xor i32 %19, 1
+  %spec.select = select i1 %20, i32 %21, i32 -1
+  br label %.loopexit, !llvm.loop !162
 
-._crit_edge:                                      ; preds = %.lr.ph, %7
-  %.lcssa28 = phi i32 [ 0, %7 ], [ 1, %.lr.ph ]
-  %.lcssa = phi i32 [ %12, %7 ], [ %19, %.lr.ph ]
-  %21 = xor i32 %.lcssa, %.lcssa28
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.lr.ph, %._crit_edge
-  %.0 = phi i32 [ %21, %._crit_edge ], [ -1, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %7
+  %.0 = phi i32 [ %12, %7 ], [ %spec.select, %.lr.ph ]
   ret i32 %.0
 }
 

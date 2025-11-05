@@ -1083,10 +1083,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPKN5clang7VarDeclEELb1EE9push_backES6
   br label %36
 
 36:                                               ; preds = %34, %32, %27
-  %.2 = phi i1 [ undef, %27 ], [ %35, %34 ], [ undef, %32 ]
-  %cond = phi i1 [ true, %27 ], [ false, %34 ], [ true, %32 ]
-  %spec.select = or i1 %.2, %cond
-  ret i1 %spec.select
+  %cond = phi i1 [ true, %27 ], [ %35, %34 ], [ true, %32 ]
+  ret i1 %cond
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

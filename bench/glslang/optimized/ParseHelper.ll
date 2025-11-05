@@ -8597,11 +8597,11 @@ switch.lookup49:                                  ; preds = %35
   %39 = zext nneg i32 %switch.tableidx48 to i64
   %switch.gep50 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK7glslang13TParseContext22getIoArrayImplicitSizeERKNS_10TQualifierEPNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE.33, i64 %39
   %switch.load51 = load i32, ptr %switch.gep50, align 4
+  %40 = mul i32 %switch.load51, %spec.select40
   br label %_ZN7glslang10TQualifier17mapGeometryToSizeENS_15TLayoutGeometryE.exit20
 
 _ZN7glslang10TQualifier17mapGeometryToSizeENS_15TLayoutGeometryE.exit20: ; preds = %35, %switch.lookup49
-  %.0.i19 = phi i32 [ %switch.load51, %switch.lookup49 ], [ 0, %35 ]
-  %40 = mul i32 %.0.i19, %spec.select40
+  %.0.i19 = phi i32 [ %40, %switch.lookup49 ], [ 0, %35 ]
   %41 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(40) %3, i64 noundef 0, i64 noundef 7, ptr noundef nonnull @.str.83, i64 noundef 15)
   %42 = load ptr, ptr %9, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 788
@@ -8692,7 +8692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEpLE
   br label %76
 
 76:                                               ; preds = %._crit_edge.i.i, %23, %68, %74, %72, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEpLEPKc.exit, %25, %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit
-  %.0 = phi i32 [ %.0.i27, %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit ], [ %spec.select, %23 ], [ 3, %25 ], [ %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEpLEPKc.exit ], [ %spec.select40, %68 ], [ %spec.select40, %72 ], [ %spec.select, %74 ], [ 0, %._crit_edge.i.i ]
+  %.0 = phi i32 [ %.0.i27, %_ZN7glslang10TQualifier17getGeometryStringENS_15TLayoutGeometryE.exit ], [ %spec.select, %23 ], [ 3, %25 ], [ %.0.i19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEpLEPKc.exit ], [ %spec.select40, %68 ], [ %spec.select40, %72 ], [ %spec.select, %74 ], [ 0, %._crit_edge.i.i ]
   %.not17 = icmp eq ptr %2, null
   %.not.i.i.i23 = icmp eq ptr %2, %3
   %or.cond = or i1 %.not17, %.not.i.i.i23
@@ -33181,7 +33181,7 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %.not5 = icmp eq ptr %40, null
-  br i1 %.not5, label %59, label %41
+  br i1 %.not5, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %41
 
 41:                                               ; preds = %.loopexit
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -33214,15 +33214,14 @@ _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmal
   %57 = mul i32 %56, %.05611.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
+  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
-_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %41, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
-  %.05.lcssa.i = phi i32 [ 1, %41 ], [ 1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %58 = mul i32 %.05.lcssa.i, %.1
-  br label %59
+_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
+  %58 = mul i32 %57, %.1
+  br label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
 
-59:                                               ; preds = %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, %.loopexit
-  %.2 = phi i32 [ %58, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit ], [ %.1, %.loopexit ]
+_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i, %41, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit, %.loopexit
+  %.2 = phi i32 [ %.1, %.loopexit ], [ %.1, %41 ], [ %.1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %58, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit ]
   ret i32 %.2
 }
 
@@ -74880,25 +74879,21 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN7glslang5TTyp
   %49 = phi i1 [ false, %41 ], [ false, %38 ], [ %47, %44 ]
   %50 = load ptr, ptr %23, align 8
   %51 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate20isIntegralConversionENS_10TBasicTypeES1_(ptr noundef nonnull align 8 dereferenceable(2024) %50, i32 noundef %14, i32 noundef %22) #23
-  br i1 %51, label %58, label %52
+  br i1 %51, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %52
 
 52:                                               ; preds = %48
   %53 = load ptr, ptr %23, align 8
   %54 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate14isFPConversionENS_10TBasicTypeES1_(ptr noundef nonnull align 8 dereferenceable(2024) %53, i32 noundef %14, i32 noundef %22) #23
-  br i1 %54, label %58, label %55
+  br i1 %54, label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit", label %55
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %23, align 8
   %57 = tail call noundef zeroext i1 @_ZNK7glslang13TIntermediate22isFPIntegralConversionENS_10TBasicTypeES1_(ptr noundef nonnull align 8 dereferenceable(2024) %56, i32 noundef %14, i32 noundef %22) #23
-  br label %58
-
-58:                                               ; preds = %55, %52, %48
-  %59 = phi i1 [ true, %52 ], [ true, %48 ], [ %57, %55 ]
-  %60 = and i1 %49, %59
+  %58 = and i1 %49, %57
   br label %"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit"
 
-"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %6, %8, %.critedge.i.i.i, %37, %58
-  %.0.i.i.i = phi i1 [ %7, %6 ], [ %36, %.critedge.i.i.i ], [ %60, %58 ], [ false, %8 ], [ false, %37 ]
+"_ZSt10__invoke_rIbRZN7glslang13TParseContext25findFunctionExplicitTypesERKNS0_10TSourceLocERKNS0_9TFunctionERbE3$_1JRKNS0_5TTypeESD_SD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit": ; preds = %6, %8, %.critedge.i.i.i, %37, %48, %52, %55
+  %.0.i.i.i = phi i1 [ %7, %6 ], [ %36, %.critedge.i.i.i ], [ false, %8 ], [ false, %37 ], [ %49, %52 ], [ %49, %48 ], [ %58, %55 ]
   ret i1 %.0.i.i.i
 }
 

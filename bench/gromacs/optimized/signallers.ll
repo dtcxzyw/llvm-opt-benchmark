@@ -1589,11 +1589,11 @@ _Z11do_per_stepll.exit31:                         ; preds = %24, %_Z11do_per_ste
   %41 = sext i32 %39 to i64
   %42 = srem i64 %1, %41
   %43 = icmp eq i64 %42, 0
+  %44 = or i1 %36, %43
   br label %_Z11do_per_stepll.exit34
 
 _Z11do_per_stepll.exit34:                         ; preds = %_Z11do_per_stepll.exit31, %40
-  %.0.i33 = phi i1 [ %43, %40 ], [ false, %_Z11do_per_stepll.exit31 ]
-  %44 = or i1 %36, %.0.i33
+  %.0.i33 = phi i1 [ %44, %40 ], [ %36, %_Z11do_per_stepll.exit31 ]
   br i1 %36, label %45, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
 
 45:                                               ; preds = %_Z11do_per_stepll.exit34
@@ -1666,7 +1666,7 @@ _ZNKSt8functionIFvldEEclEld.exit.i40:             ; preds = %.lr.ph.i37
   br i1 %.not.i41, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42, label %.lr.ph.i37
 
 _ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42: ; preds = %_ZNKSt8functionIFvldEEclEld.exit.i40, %54, %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit
-  br i1 %44, label %63, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit49
+  br i1 %.0.i33, label %63, label %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit49
 
 63:                                               ; preds = %_ZN3gmxL15runAllCallbacksERKSt6vectorISt8functionIFvldEESaIS3_EEld.exit42
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72

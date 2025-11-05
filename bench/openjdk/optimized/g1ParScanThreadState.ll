@@ -5325,7 +5325,7 @@ _ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i: ; preds = %_ZN5StackI11S
   store i64 %62, ptr %32, align 8
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %4
+._crit_edge:                                      ; preds = %_ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE4pushES0_.exit.thread.i.i, %_ZN5StackI11ScannerTaskL8MEMFLAGS5EE4pushES0_.exit.i.i, %4
   %.sroa.1.0.extract.shift = lshr i24 %1, 8
   %.sroa.1.0.extract.trunc = trunc i24 %.sroa.1.0.extract.shift to i8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 384

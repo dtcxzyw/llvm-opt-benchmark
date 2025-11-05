@@ -8493,8 +8493,7 @@ _ZN12_GLOBAL__N_112X86AsmParser19HandleAVX512OperandERN4llvm15SmallVectorImplISt
   br label %.loopexit
 
 .thread208.i:                                     ; preds = %.thread3266, %2804, %2663
-  %.4211.i = phi i1 [ %.6.i, %2804 ], [ undef, %2663 ], [ true, %.thread3266 ]
-  %.not = phi i1 [ true, %2804 ], [ false, %2663 ], [ true, %.thread3266 ]
+  %.not = phi i1 [ %.6.i, %2804 ], [ false, %2663 ], [ true, %.thread3266 ]
   %2806 = phi ptr [ %2805, %2804 ], [ %.pre.i1270, %2663 ], [ %.pre.i1270, %.thread3266 ]
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN4llvm18MCParsedAsmOperandE, i64 16), ptr %2806, align 8, !tbaa !3
   %2807 = getelementptr inbounds nuw i8, ptr %2806, i64 16
@@ -8512,8 +8511,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 _ZNKSt14default_deleteIN4llvm10X86OperandEEclEPS1_.exit.i.i: ; preds = %.thread208.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %2806, i64 noundef 160) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %brmerge.not = and i1 %.4211.i, %.not
-  br i1 %brmerge.not, label %.loopexit, label %_ZN12_GLOBAL__N_112X86AsmParser19HandleAVX512OperandERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEE.exit.thread3273
+  br i1 %.not, label %.loopexit, label %_ZN12_GLOBAL__N_112X86AsmParser19HandleAVX512OperandERN4llvm15SmallVectorImplISt10unique_ptrINS1_18MCParsedAsmOperandESt14default_deleteIS4_EEEE.exit.thread3273
 
 2813:                                             ; preds = %2804
   call void @llvm.lifetime.end.p0(ptr nonnull %16)

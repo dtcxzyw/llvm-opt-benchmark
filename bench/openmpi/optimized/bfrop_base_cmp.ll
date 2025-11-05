@@ -815,712 +815,710 @@ define internal fastcc i32 @cmp_darray(ptr noundef readonly captures(address_is_
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond854 = and i1 %3, %4
-  br i1 %or.cond854, label %cmp_resunit.exit.thread, label %.lr.ph
+  br i1 %or.cond854, label %cmp_resunit.exit.thread, label %.lr.ph.preheader
 
-.lr.ph:                                           ; preds = %2, %29
-  %5 = phi i1 [ false, %29 ], [ %4, %2 ]
-  %6 = phi i1 [ false, %29 ], [ %3, %2 ]
-  %.tr504856 = phi ptr [ %15, %29 ], [ %1, %2 ]
-  %.tr855 = phi ptr [ %12, %29 ], [ %0, %2 ]
-  %brmerge = or i1 %6, %5
-  br i1 %brmerge, label %cmp_resunit.exit.thread.loopexit542.split.loop.exit850, label %7
+.lr.ph.preheader:                                 ; preds = %2
+  %5 = or i1 %3, %4
+  br i1 %5, label %cmp_resunit.exit.thread.loopexit542.split.loop.exit850, label %.lr.ph2843
 
-7:                                                ; preds = %.lr.ph
-  %8 = load i16, ptr %.tr855, align 8, !tbaa !25
-  %9 = load i16, ptr %.tr504856, align 8, !tbaa !25
-  %.not = icmp eq i16 %8, %9
-  br i1 %.not, label %10, label %cmp_resunit.exit.thread
+.lr.ph2843:                                       ; preds = %.lr.ph.preheader, %27
+  %.tr8552842 = phi ptr [ %10, %27 ], [ %0, %.lr.ph.preheader ]
+  %.tr5048562841 = phi ptr [ %13, %27 ], [ %1, %.lr.ph.preheader ]
+  %6 = load i16, ptr %.tr8552842, align 8, !tbaa !25
+  %7 = load i16, ptr %.tr5048562841, align 8, !tbaa !25
+  %.not = icmp eq i16 %6, %7
+  br i1 %.not, label %8, label %cmp_resunit.exit.thread
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.tr855, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !27
-  %13 = icmp eq ptr %12, null
-  %14 = getelementptr inbounds nuw i8, ptr %.tr504856, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !27
-  %16 = icmp eq ptr %15, null
-  br i1 %13, label %17, label %18
+8:                                                ; preds = %.lr.ph2843
+  %9 = getelementptr inbounds nuw i8, ptr %.tr8552842, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !27
+  %11 = icmp eq ptr %10, null
+  %12 = getelementptr inbounds nuw i8, ptr %.tr5048562841, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !27
+  %14 = icmp eq ptr %13, null
+  br i1 %11, label %15, label %16
 
-17:                                               ; preds = %10
-  %spec.select = select i1 %16, i32 0, i32 2
+15:                                               ; preds = %8
+  %spec.select = select i1 %14, i32 0, i32 2
   br label %cmp_resunit.exit.thread
 
-18:                                               ; preds = %10
-  br i1 %16, label %cmp_resunit.exit.thread, label %19
+16:                                               ; preds = %8
+  br i1 %14, label %cmp_resunit.exit.thread, label %17
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
+17:                                               ; preds = %16
+  %18 = getelementptr inbounds nuw i8, ptr %.tr8552842, i64 8
+  %19 = load i64, ptr %18, align 8, !tbaa !28
+  %20 = getelementptr inbounds nuw i8, ptr %.tr5048562841, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw i8, ptr %.tr504856, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !28
-  %24 = icmp ugt i64 %21, %23
+  %22 = icmp ugt i64 %19, %21
+  br i1 %22, label %cmp_resunit.exit.thread, label %23
+
+23:                                               ; preds = %17
+  %24 = icmp ult i64 %19, %21
   br i1 %24, label %cmp_resunit.exit.thread, label %25
 
-25:                                               ; preds = %19
-  %26 = icmp ult i64 %21, %23
+25:                                               ; preds = %23
+  %26 = icmp eq i64 %19, 0
   br i1 %26, label %cmp_resunit.exit.thread, label %27
 
 27:                                               ; preds = %25
-  %28 = icmp eq i64 %21, 0
-  br i1 %28, label %cmp_resunit.exit.thread, label %29
-
-29:                                               ; preds = %27
-  switch i16 %8, label %273 [
+  switch i16 %6, label %271 [
     i16 0, label %cmp_resunit.exit.thread
-    i16 1, label %32
-    i16 2, label %36
+    i16 1, label %30
+    i16 2, label %34
     i16 3, label %.preheader
-    i16 4, label %45
-    i16 5, label %50
-    i16 6, label %55
-    i16 11, label %55
-    i16 7, label %60
-    i16 12, label %60
-    i16 8, label %64
-    i16 13, label %64
-    i16 69, label %64
-    i16 9, label %69
-    i16 14, label %69
-    i16 10, label %74
-    i16 15, label %74
-    i16 66, label %74
-    i16 67, label %74
-    i16 68, label %74
-    i16 16, label %79
-    i16 17, label %84
-    i16 18, label %89
-    i16 19, label %94
-    i16 20, label %99
-    i16 40, label %104
-    i16 60, label %109
-    i16 22, label %114
+    i16 4, label %43
+    i16 5, label %48
+    i16 6, label %53
+    i16 11, label %53
+    i16 7, label %58
+    i16 12, label %58
+    i16 8, label %62
+    i16 13, label %62
+    i16 69, label %62
+    i16 9, label %67
+    i16 14, label %67
+    i16 10, label %72
+    i16 15, label %72
+    i16 66, label %72
+    i16 67, label %72
+    i16 68, label %72
+    i16 16, label %77
+    i16 17, label %82
+    i16 18, label %87
+    i16 19, label %92
+    i16 20, label %97
+    i16 40, label %102
+    i16 60, label %107
+    i16 22, label %112
     i16 24, label %.lr.ph887.preheader
-    i16 27, label %.preheader2843
-    i16 42, label %.preheader2843
-    i16 59, label %.preheader2843
-    i16 49, label %.preheader2843
-    i16 30, label %133
-    i16 32, label %137
-    i16 33, label %141
-    i16 37, label %145
-    i16 38, label %.preheader2846
-    i16 39, label %.lr.ph
-    i16 31, label %154
-    i16 43, label %159
-    i16 71, label %163
-    i16 46, label %.preheader2849
-    i16 47, label %.preheader2852
-    i16 51, label %177
-    i16 50, label %181
+    i16 27, label %.preheader2847
+    i16 42, label %.preheader2847
+    i16 59, label %.preheader2847
+    i16 49, label %.preheader2847
+    i16 30, label %131
+    i16 32, label %135
+    i16 33, label %139
+    i16 37, label %143
+    i16 38, label %.preheader2850
+    i16 39, label %.lr.ph2843
+    i16 31, label %152
+    i16 43, label %157
+    i16 71, label %161
+    i16 46, label %.preheader2853
+    i16 47, label %.preheader2856
+    i16 51, label %175
+    i16 50, label %179
     i16 56, label %.lr.ph878.preheader
     i16 52, label %.lr.ph873.preheader
-    i16 58, label %197
-    i16 53, label %.preheader2859
-    i16 57, label %207
-    i16 70, label %.preheader2862
-    i16 72, label %.preheader2865
-    i16 54, label %.preheader2868
-    i16 55, label %.preheader2871
-    i16 65, label %.preheader2874
-    i16 61, label %.preheader2877
-    i16 62, label %.preheader2880
-    i16 63, label %.preheader2883
-    i16 64, label %.preheader2886
+    i16 58, label %195
+    i16 53, label %.preheader2863
+    i16 57, label %205
+    i16 70, label %.preheader2866
+    i16 72, label %.preheader2869
+    i16 54, label %.preheader2872
+    i16 55, label %.preheader2875
+    i16 65, label %.preheader2878
+    i16 61, label %.preheader2881
+    i16 62, label %.preheader2884
+    i16 63, label %.preheader2887
+    i16 64, label %.preheader2890
     i16 48, label %.lr.ph858.preheader
   ]
 
-.preheader2843:                                   ; preds = %29, %29, %29, %29
-  br label %129
+.preheader2847:                                   ; preds = %27, %27, %27, %27
+  br label %127
 
-.lr.ph873.preheader:                              ; preds = %29
-  %30 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
+.lr.ph873.preheader:                              ; preds = %27
+  %28 = getelementptr inbounds nuw i8, ptr %.tr8552842, i64 8
   br label %.lr.ph873
 
-.lr.ph878.preheader:                              ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
+.lr.ph878.preheader:                              ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %.tr8552842, i64 8
   br label %.lr.ph878
 
-32:                                               ; preds = %29
-  %33 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %cmp_resunit.exit.thread, label %35
+30:                                               ; preds = %27
+  %31 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %cmp_resunit.exit.thread, label %33
 
-35:                                               ; preds = %32
-  %.not473 = icmp ne i32 %33, 0
+33:                                               ; preds = %30
+  %.not473 = icmp ne i32 %31, 0
   %. = zext i1 %.not473 to i32
   br label %cmp_resunit.exit.thread
 
-36:                                               ; preds = %29
-  %37 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %38 = icmp slt i32 %37, 0
-  br i1 %38, label %cmp_resunit.exit.thread, label %39
+34:                                               ; preds = %27
+  %35 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %cmp_resunit.exit.thread, label %37
 
-39:                                               ; preds = %36
-  %.not472 = icmp ne i32 %37, 0
+37:                                               ; preds = %34
+  %.not472 = icmp ne i32 %35, 0
   %.474 = zext i1 %.not472 to i32
   br label %cmp_resunit.exit.thread
 
-40:                                               ; preds = %.preheader
-  %41 = add nuw i64 %.0374891, 1
-  %exitcond1949.not = icmp eq i64 %41, %21
+38:                                               ; preds = %.preheader
+  %39 = add nuw i64 %.0374891, 1
+  %exitcond1949.not = icmp eq i64 %39, %19
   br i1 %exitcond1949.not, label %cmp_resunit.exit.thread, label %.preheader, !llvm.loop !29
 
-.preheader:                                       ; preds = %29, %40
-  %.0374891 = phi i64 [ %41, %40 ], [ 0, %29 ]
-  %42 = getelementptr inbounds nuw i8, ptr %12, i64 %.0374891
-  %43 = getelementptr inbounds nuw i8, ptr %15, i64 %.0374891
-  %44 = tail call fastcc i32 @cmp_string(ptr noundef %42, ptr noundef %43)
-  %.not471 = icmp eq i32 %44, 0
-  br i1 %.not471, label %40, label %cmp_resunit.exit.thread
+.preheader:                                       ; preds = %27, %38
+  %.0374891 = phi i64 [ %39, %38 ], [ 0, %27 ]
+  %40 = getelementptr inbounds nuw i8, ptr %10, i64 %.0374891
+  %41 = getelementptr inbounds nuw i8, ptr %13, i64 %.0374891
+  %42 = tail call fastcc i32 @cmp_string(ptr noundef %40, ptr noundef %41)
+  %.not471 = icmp eq i32 %42, 0
+  br i1 %.not471, label %38, label %cmp_resunit.exit.thread
 
-45:                                               ; preds = %29
-  %46 = shl i64 %21, 3
-  %47 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %46) #7
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %cmp_resunit.exit.thread, label %49
+43:                                               ; preds = %27
+  %44 = shl i64 %19, 3
+  %45 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %44) #7
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %cmp_resunit.exit.thread, label %47
 
-49:                                               ; preds = %45
-  %.not470 = icmp ne i32 %47, 0
+47:                                               ; preds = %43
+  %.not470 = icmp ne i32 %45, 0
   %.475 = zext i1 %.not470 to i32
   br label %cmp_resunit.exit.thread
 
-50:                                               ; preds = %29
-  %51 = shl i64 %21, 2
-  %52 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %51) #7
-  %53 = icmp slt i32 %52, 0
-  br i1 %53, label %cmp_resunit.exit.thread, label %54
+48:                                               ; preds = %27
+  %49 = shl i64 %19, 2
+  %50 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %49) #7
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %cmp_resunit.exit.thread, label %52
 
-54:                                               ; preds = %50
-  %.not469 = icmp ne i32 %52, 0
+52:                                               ; preds = %48
+  %.not469 = icmp ne i32 %50, 0
   %.476 = zext i1 %.not469 to i32
   br label %cmp_resunit.exit.thread
 
-55:                                               ; preds = %29, %29
-  %56 = shl i64 %21, 2
-  %57 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %56) #7
-  %58 = icmp slt i32 %57, 0
-  br i1 %58, label %cmp_resunit.exit.thread, label %59
+53:                                               ; preds = %27, %27
+  %54 = shl i64 %19, 2
+  %55 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %54) #7
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %cmp_resunit.exit.thread, label %57
 
-59:                                               ; preds = %55
-  %.not468 = icmp ne i32 %57, 0
+57:                                               ; preds = %53
+  %.not468 = icmp ne i32 %55, 0
   %.477 = zext i1 %.not468 to i32
   br label %cmp_resunit.exit.thread
 
-60:                                               ; preds = %29, %29
-  %61 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %62 = icmp slt i32 %61, 0
-  br i1 %62, label %cmp_resunit.exit.thread, label %63
+58:                                               ; preds = %27, %27
+  %59 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %cmp_resunit.exit.thread, label %61
 
-63:                                               ; preds = %60
-  %.not467 = icmp ne i32 %61, 0
+61:                                               ; preds = %58
+  %.not467 = icmp ne i32 %59, 0
   %.478 = zext i1 %.not467 to i32
   br label %cmp_resunit.exit.thread
 
-64:                                               ; preds = %29, %29, %29
-  %65 = shl i64 %21, 1
-  %66 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %65) #7
-  %67 = icmp slt i32 %66, 0
-  br i1 %67, label %cmp_resunit.exit.thread, label %68
+62:                                               ; preds = %27, %27, %27
+  %63 = shl i64 %19, 1
+  %64 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %63) #7
+  %65 = icmp slt i32 %64, 0
+  br i1 %65, label %cmp_resunit.exit.thread, label %66
 
-68:                                               ; preds = %64
-  %.not466 = icmp ne i32 %66, 0
+66:                                               ; preds = %62
+  %.not466 = icmp ne i32 %64, 0
   %.479 = zext i1 %.not466 to i32
   br label %cmp_resunit.exit.thread
 
-69:                                               ; preds = %29, %29
-  %70 = shl i64 %21, 2
-  %71 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %70) #7
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %cmp_resunit.exit.thread, label %73
+67:                                               ; preds = %27, %27
+  %68 = shl i64 %19, 2
+  %69 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %68) #7
+  %70 = icmp slt i32 %69, 0
+  br i1 %70, label %cmp_resunit.exit.thread, label %71
 
-73:                                               ; preds = %69
-  %.not465 = icmp ne i32 %71, 0
+71:                                               ; preds = %67
+  %.not465 = icmp ne i32 %69, 0
   %.480 = zext i1 %.not465 to i32
   br label %cmp_resunit.exit.thread
 
-74:                                               ; preds = %29, %29, %29, %29, %29
-  %75 = shl i64 %21, 3
-  %76 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %75) #7
-  %77 = icmp slt i32 %76, 0
-  br i1 %77, label %cmp_resunit.exit.thread, label %78
+72:                                               ; preds = %27, %27, %27, %27, %27
+  %73 = shl i64 %19, 3
+  %74 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %73) #7
+  %75 = icmp slt i32 %74, 0
+  br i1 %75, label %cmp_resunit.exit.thread, label %76
 
-78:                                               ; preds = %74
-  %.not464 = icmp ne i32 %76, 0
+76:                                               ; preds = %72
+  %.not464 = icmp ne i32 %74, 0
   %.481 = zext i1 %.not464 to i32
   br label %cmp_resunit.exit.thread
 
-79:                                               ; preds = %29
-  %80 = shl i64 %21, 2
-  %81 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %80) #7
-  %82 = icmp slt i32 %81, 0
-  br i1 %82, label %cmp_resunit.exit.thread, label %83
+77:                                               ; preds = %27
+  %78 = shl i64 %19, 2
+  %79 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %78) #7
+  %80 = icmp slt i32 %79, 0
+  br i1 %80, label %cmp_resunit.exit.thread, label %81
 
-83:                                               ; preds = %79
-  %.not463 = icmp ne i32 %81, 0
+81:                                               ; preds = %77
+  %.not463 = icmp ne i32 %79, 0
   %.482 = zext i1 %.not463 to i32
   br label %cmp_resunit.exit.thread
 
-84:                                               ; preds = %29
-  %85 = shl i64 %21, 3
-  %86 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %85) #7
-  %87 = icmp slt i32 %86, 0
-  br i1 %87, label %cmp_resunit.exit.thread, label %88
+82:                                               ; preds = %27
+  %83 = shl i64 %19, 3
+  %84 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %83) #7
+  %85 = icmp slt i32 %84, 0
+  br i1 %85, label %cmp_resunit.exit.thread, label %86
 
-88:                                               ; preds = %84
-  %.not462 = icmp ne i32 %86, 0
+86:                                               ; preds = %82
+  %.not462 = icmp ne i32 %84, 0
   %.483 = zext i1 %.not462 to i32
   br label %cmp_resunit.exit.thread
 
-89:                                               ; preds = %29
-  %90 = shl i64 %21, 4
-  %91 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %90) #7
-  %92 = icmp slt i32 %91, 0
-  br i1 %92, label %cmp_resunit.exit.thread, label %93
+87:                                               ; preds = %27
+  %88 = shl i64 %19, 4
+  %89 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %88) #7
+  %90 = icmp slt i32 %89, 0
+  br i1 %90, label %cmp_resunit.exit.thread, label %91
 
-93:                                               ; preds = %89
-  %.not461 = icmp ne i32 %91, 0
+91:                                               ; preds = %87
+  %.not461 = icmp ne i32 %89, 0
   %.484 = zext i1 %.not461 to i32
   br label %cmp_resunit.exit.thread
 
-94:                                               ; preds = %29
-  %95 = shl i64 %21, 3
-  %96 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %95) #7
-  %97 = icmp slt i32 %96, 0
-  br i1 %97, label %cmp_resunit.exit.thread, label %98
+92:                                               ; preds = %27
+  %93 = shl i64 %19, 3
+  %94 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %93) #7
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %cmp_resunit.exit.thread, label %96
 
-98:                                               ; preds = %94
-  %.not460 = icmp ne i32 %96, 0
+96:                                               ; preds = %92
+  %.not460 = icmp ne i32 %94, 0
   %.485 = zext i1 %.not460 to i32
   br label %cmp_resunit.exit.thread
 
-99:                                               ; preds = %29
-  %100 = shl i64 %21, 2
-  %101 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %100) #7
-  %102 = icmp slt i32 %101, 0
-  br i1 %102, label %cmp_resunit.exit.thread, label %103
+97:                                               ; preds = %27
+  %98 = shl i64 %19, 2
+  %99 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %98) #7
+  %100 = icmp slt i32 %99, 0
+  br i1 %100, label %cmp_resunit.exit.thread, label %101
 
-103:                                              ; preds = %99
-  %.not459 = icmp ne i32 %101, 0
+101:                                              ; preds = %97
+  %.not459 = icmp ne i32 %99, 0
   %.486 = zext i1 %.not459 to i32
   br label %cmp_resunit.exit.thread
 
-104:                                              ; preds = %29
-  %105 = shl i64 %21, 2
-  %106 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %105) #7
-  %107 = icmp slt i32 %106, 0
-  br i1 %107, label %cmp_resunit.exit.thread, label %108
+102:                                              ; preds = %27
+  %103 = shl i64 %19, 2
+  %104 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %103) #7
+  %105 = icmp slt i32 %104, 0
+  br i1 %105, label %cmp_resunit.exit.thread, label %106
 
-108:                                              ; preds = %104
-  %.not458 = icmp ne i32 %106, 0
+106:                                              ; preds = %102
+  %.not458 = icmp ne i32 %104, 0
   %.487 = zext i1 %.not458 to i32
   br label %cmp_resunit.exit.thread
 
-109:                                              ; preds = %29
-  %110 = shl i64 %21, 8
-  %111 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %110) #7
-  %112 = icmp slt i32 %111, 0
-  br i1 %112, label %cmp_resunit.exit.thread, label %113
+107:                                              ; preds = %27
+  %108 = shl i64 %19, 8
+  %109 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %108) #7
+  %110 = icmp slt i32 %109, 0
+  br i1 %110, label %cmp_resunit.exit.thread, label %111
 
-113:                                              ; preds = %109
-  %.not457 = icmp ne i32 %111, 0
+111:                                              ; preds = %107
+  %.not457 = icmp ne i32 %109, 0
   %.488 = zext i1 %.not457 to i32
   br label %cmp_resunit.exit.thread
 
-114:                                              ; preds = %29
-  %115 = mul i64 %21, 260
-  %116 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %115) #7
-  %117 = icmp slt i32 %116, 0
-  br i1 %117, label %cmp_resunit.exit.thread, label %118
+112:                                              ; preds = %27
+  %113 = mul i64 %19, 260
+  %114 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %113) #7
+  %115 = icmp slt i32 %114, 0
+  br i1 %115, label %cmp_resunit.exit.thread, label %116
 
-118:                                              ; preds = %114
-  %.not456 = icmp ne i32 %116, 0
+116:                                              ; preds = %112
+  %.not456 = icmp ne i32 %114, 0
   %.489 = zext i1 %.not456 to i32
   br label %cmp_resunit.exit.thread
 
-.lr.ph887.preheader:                              ; preds = %29
-  %119 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
+.lr.ph887.preheader:                              ; preds = %27
+  %117 = getelementptr inbounds nuw i8, ptr %.tr8552842, i64 8
   br label %.lr.ph887
 
-120:                                              ; preds = %.lr.ph887
-  %121 = add nuw i64 %.1886, 1
-  %122 = load i64, ptr %119, align 8, !tbaa !28
-  %123 = icmp ult i64 %121, %122
-  br i1 %123, label %.lr.ph887, label %cmp_resunit.exit.thread, !llvm.loop !31
+118:                                              ; preds = %.lr.ph887
+  %119 = add nuw i64 %.1886, 1
+  %120 = load i64, ptr %117, align 8, !tbaa !28
+  %121 = icmp ult i64 %119, %120
+  br i1 %121, label %.lr.ph887, label %cmp_resunit.exit.thread, !llvm.loop !31
 
-.lr.ph887:                                        ; preds = %.lr.ph887.preheader, %120
-  %.1886 = phi i64 [ %121, %120 ], [ 0, %.lr.ph887.preheader ]
-  %124 = getelementptr inbounds nuw %struct.pmix_info, ptr %12, i64 %.1886
-  %125 = getelementptr inbounds nuw %struct.pmix_info, ptr %15, i64 %.1886
-  %126 = tail call fastcc i32 @cmp_info(ptr noundef %124, ptr noundef %125)
-  %.not455 = icmp eq i32 %126, 0
-  br i1 %.not455, label %120, label %cmp_resunit.exit.thread
+.lr.ph887:                                        ; preds = %.lr.ph887.preheader, %118
+  %.1886 = phi i64 [ %119, %118 ], [ 0, %.lr.ph887.preheader ]
+  %122 = getelementptr inbounds nuw %struct.pmix_info, ptr %10, i64 %.1886
+  %123 = getelementptr inbounds nuw %struct.pmix_info, ptr %13, i64 %.1886
+  %124 = tail call fastcc i32 @cmp_info(ptr noundef %122, ptr noundef %123)
+  %.not455 = icmp eq i32 %124, 0
+  br i1 %.not455, label %118, label %cmp_resunit.exit.thread
 
-127:                                              ; preds = %129
-  %128 = add nuw i64 %.2885, 1
-  %exitcond1901.not = icmp eq i64 %128, %21
-  br i1 %exitcond1901.not, label %cmp_resunit.exit.thread, label %129, !llvm.loop !32
+125:                                              ; preds = %127
+  %126 = add nuw i64 %.2885, 1
+  %exitcond1901.not = icmp eq i64 %126, %19
+  br i1 %exitcond1901.not, label %cmp_resunit.exit.thread, label %127, !llvm.loop !32
 
-129:                                              ; preds = %.preheader2843, %127
-  %.2885 = phi i64 [ %128, %127 ], [ 0, %.preheader2843 ]
-  %130 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %12, i64 %.2885
-  %131 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %15, i64 %.2885
-  %132 = tail call fastcc i32 @cmp_byte_object(ptr noundef %130, ptr noundef %131)
-  %.not454 = icmp eq i32 %132, 0
-  br i1 %.not454, label %127, label %cmp_resunit.exit.thread
+127:                                              ; preds = %.preheader2847, %125
+  %.2885 = phi i64 [ %126, %125 ], [ 0, %.preheader2847 ]
+  %128 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %10, i64 %.2885
+  %129 = getelementptr inbounds nuw %struct.pmix_byte_object, ptr %13, i64 %.2885
+  %130 = tail call fastcc i32 @cmp_byte_object(ptr noundef %128, ptr noundef %129)
+  %.not454 = icmp eq i32 %130, 0
+  br i1 %.not454, label %125, label %cmp_resunit.exit.thread
 
-133:                                              ; preds = %29
-  %134 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %135 = icmp slt i32 %134, 0
-  br i1 %135, label %cmp_resunit.exit.thread, label %136
+131:                                              ; preds = %27
+  %132 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %133 = icmp slt i32 %132, 0
+  br i1 %133, label %cmp_resunit.exit.thread, label %134
 
-136:                                              ; preds = %133
-  %.not453 = icmp ne i32 %134, 0
+134:                                              ; preds = %131
+  %.not453 = icmp ne i32 %132, 0
   %.490 = zext i1 %.not453 to i32
   br label %cmp_resunit.exit.thread
 
-137:                                              ; preds = %29
-  %138 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %139 = icmp slt i32 %138, 0
-  br i1 %139, label %cmp_resunit.exit.thread, label %140
+135:                                              ; preds = %27
+  %136 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %137 = icmp slt i32 %136, 0
+  br i1 %137, label %cmp_resunit.exit.thread, label %138
 
-140:                                              ; preds = %137
-  %.not452 = icmp ne i32 %138, 0
+138:                                              ; preds = %135
+  %.not452 = icmp ne i32 %136, 0
   %.491 = zext i1 %.not452 to i32
   br label %cmp_resunit.exit.thread
 
-141:                                              ; preds = %29
-  %142 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %143 = icmp slt i32 %142, 0
-  br i1 %143, label %cmp_resunit.exit.thread, label %144
+139:                                              ; preds = %27
+  %140 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %141 = icmp slt i32 %140, 0
+  br i1 %141, label %cmp_resunit.exit.thread, label %142
 
-144:                                              ; preds = %141
-  %.not451 = icmp ne i32 %142, 0
+142:                                              ; preds = %139
+  %.not451 = icmp ne i32 %140, 0
   %.492 = zext i1 %.not451 to i32
   br label %cmp_resunit.exit.thread
 
-145:                                              ; preds = %29
-  %146 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %147 = icmp slt i32 %146, 0
-  br i1 %147, label %cmp_resunit.exit.thread, label %148
+143:                                              ; preds = %27
+  %144 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %145 = icmp slt i32 %144, 0
+  br i1 %145, label %cmp_resunit.exit.thread, label %146
 
-148:                                              ; preds = %145
-  %.not450 = icmp ne i32 %146, 0
+146:                                              ; preds = %143
+  %.not450 = icmp ne i32 %144, 0
   %.493 = zext i1 %.not450 to i32
   br label %cmp_resunit.exit.thread
 
-149:                                              ; preds = %.preheader2846
-  %150 = add nuw i64 %.3884, 1
-  %exitcond1853.not = icmp eq i64 %150, %21
-  br i1 %exitcond1853.not, label %cmp_resunit.exit.thread, label %.preheader2846, !llvm.loop !33
+147:                                              ; preds = %.preheader2850
+  %148 = add nuw i64 %.3884, 1
+  %exitcond1853.not = icmp eq i64 %148, %19
+  br i1 %exitcond1853.not, label %cmp_resunit.exit.thread, label %.preheader2850, !llvm.loop !33
 
-.preheader2846:                                   ; preds = %29, %149
-  %.3884 = phi i64 [ %150, %149 ], [ 0, %29 ]
-  %151 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %12, i64 %.3884
-  %152 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %15, i64 %.3884
-  %153 = tail call fastcc i32 @cmp_proc_info(ptr noundef %151, ptr noundef %152)
-  %.not449 = icmp eq i32 %153, 0
-  br i1 %.not449, label %149, label %cmp_resunit.exit.thread
+.preheader2850:                                   ; preds = %27, %147
+  %.3884 = phi i64 [ %148, %147 ], [ 0, %27 ]
+  %149 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %10, i64 %.3884
+  %150 = getelementptr inbounds nuw %struct.pmix_proc_info, ptr %13, i64 %.3884
+  %151 = tail call fastcc i32 @cmp_proc_info(ptr noundef %149, ptr noundef %150)
+  %.not449 = icmp eq i32 %151, 0
+  br i1 %.not449, label %147, label %cmp_resunit.exit.thread
 
-154:                                              ; preds = %29
-  %155 = shl i64 %21, 3
-  %156 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %155) #7
-  %157 = icmp slt i32 %156, 0
-  br i1 %157, label %cmp_resunit.exit.thread, label %158
+152:                                              ; preds = %27
+  %153 = shl i64 %19, 3
+  %154 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %153) #7
+  %155 = icmp slt i32 %154, 0
+  br i1 %155, label %cmp_resunit.exit.thread, label %156
 
-158:                                              ; preds = %154
-  %.not448 = icmp ne i32 %156, 0
+156:                                              ; preds = %152
+  %.not448 = icmp ne i32 %154, 0
   %.494 = zext i1 %.not448 to i32
   br label %cmp_resunit.exit.thread
 
-159:                                              ; preds = %29
-  %160 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %161 = icmp slt i32 %160, 0
-  br i1 %161, label %cmp_resunit.exit.thread, label %162
+157:                                              ; preds = %27
+  %158 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %159 = icmp slt i32 %158, 0
+  br i1 %159, label %cmp_resunit.exit.thread, label %160
 
-162:                                              ; preds = %159
-  %.not447 = icmp ne i32 %160, 0
+160:                                              ; preds = %157
+  %.not447 = icmp ne i32 %158, 0
   %.495 = zext i1 %.not447 to i32
   br label %cmp_resunit.exit.thread
 
-163:                                              ; preds = %29
-  %164 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %165 = icmp slt i32 %164, 0
-  br i1 %165, label %cmp_resunit.exit.thread, label %166
+161:                                              ; preds = %27
+  %162 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %163 = icmp slt i32 %162, 0
+  br i1 %163, label %cmp_resunit.exit.thread, label %164
 
-166:                                              ; preds = %163
-  %.not446 = icmp ne i32 %164, 0
+164:                                              ; preds = %161
+  %.not446 = icmp ne i32 %162, 0
   %.496 = zext i1 %.not446 to i32
   br label %cmp_resunit.exit.thread
 
-167:                                              ; preds = %.preheader2849
-  %168 = add nuw i64 %.4883, 1
-  %exitcond1805.not = icmp eq i64 %168, %21
-  br i1 %exitcond1805.not, label %cmp_resunit.exit.thread, label %.preheader2849, !llvm.loop !34
+165:                                              ; preds = %.preheader2853
+  %166 = add nuw i64 %.4883, 1
+  %exitcond1805.not = icmp eq i64 %166, %19
+  br i1 %exitcond1805.not, label %cmp_resunit.exit.thread, label %.preheader2853, !llvm.loop !34
 
-.preheader2849:                                   ; preds = %29, %167
-  %.4883 = phi i64 [ %168, %167 ], [ 0, %29 ]
-  %169 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %12, i64 %.4883
-  %170 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %15, i64 %.4883
-  %171 = tail call fastcc i32 @cmp_envar(ptr noundef %169, ptr noundef %170)
-  %.not445 = icmp eq i32 %171, 0
-  br i1 %.not445, label %167, label %cmp_resunit.exit.thread
+.preheader2853:                                   ; preds = %27, %165
+  %.4883 = phi i64 [ %166, %165 ], [ 0, %27 ]
+  %167 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %10, i64 %.4883
+  %168 = getelementptr inbounds nuw %struct.pmix_envar_t, ptr %13, i64 %.4883
+  %169 = tail call fastcc i32 @cmp_envar(ptr noundef %167, ptr noundef %168)
+  %.not445 = icmp eq i32 %169, 0
+  br i1 %.not445, label %165, label %cmp_resunit.exit.thread
 
-172:                                              ; preds = %.preheader2852
-  %173 = add nuw i64 %.5882, 1
-  %exitcond1757.not = icmp eq i64 %173, %21
-  br i1 %exitcond1757.not, label %cmp_resunit.exit.thread, label %.preheader2852, !llvm.loop !35
+170:                                              ; preds = %.preheader2856
+  %171 = add nuw i64 %.5882, 1
+  %exitcond1757.not = icmp eq i64 %171, %19
+  br i1 %exitcond1757.not, label %cmp_resunit.exit.thread, label %.preheader2856, !llvm.loop !35
 
-.preheader2852:                                   ; preds = %29, %172
-  %.5882 = phi i64 [ %173, %172 ], [ 0, %29 ]
-  %174 = getelementptr inbounds nuw %struct.pmix_coord, ptr %12, i64 %.5882
-  %175 = getelementptr inbounds nuw %struct.pmix_coord, ptr %15, i64 %.5882
-  %176 = tail call fastcc i32 @cmp_coord(ptr noundef %174, ptr noundef %175)
-  %.not444 = icmp eq i32 %176, 0
-  br i1 %.not444, label %172, label %cmp_resunit.exit.thread
+.preheader2856:                                   ; preds = %27, %170
+  %.5882 = phi i64 [ %171, %170 ], [ 0, %27 ]
+  %172 = getelementptr inbounds nuw %struct.pmix_coord, ptr %10, i64 %.5882
+  %173 = getelementptr inbounds nuw %struct.pmix_coord, ptr %13, i64 %.5882
+  %174 = tail call fastcc i32 @cmp_coord(ptr noundef %172, ptr noundef %173)
+  %.not444 = icmp eq i32 %174, 0
+  br i1 %.not444, label %170, label %cmp_resunit.exit.thread
 
-177:                                              ; preds = %29
-  %178 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %179 = icmp slt i32 %178, 0
-  br i1 %179, label %cmp_resunit.exit.thread, label %180
+175:                                              ; preds = %27
+  %176 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %177 = icmp slt i32 %176, 0
+  br i1 %177, label %cmp_resunit.exit.thread, label %178
 
-180:                                              ; preds = %177
-  %.not443 = icmp ne i32 %178, 0
+178:                                              ; preds = %175
+  %.not443 = icmp ne i32 %176, 0
   %.497 = zext i1 %.not443 to i32
   br label %cmp_resunit.exit.thread
 
-181:                                              ; preds = %29
-  %182 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %21) #7
-  %183 = icmp slt i32 %182, 0
-  br i1 %183, label %cmp_resunit.exit.thread, label %184
+179:                                              ; preds = %27
+  %180 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %19) #7
+  %181 = icmp slt i32 %180, 0
+  br i1 %181, label %cmp_resunit.exit.thread, label %182
 
-184:                                              ; preds = %181
-  %.not442 = icmp ne i32 %182, 0
+182:                                              ; preds = %179
+  %.not442 = icmp ne i32 %180, 0
   %.498 = zext i1 %.not442 to i32
   br label %cmp_resunit.exit.thread
 
-185:                                              ; preds = %.lr.ph878
-  %186 = add nuw i64 %.6877, 1
-  %187 = load i64, ptr %31, align 8, !tbaa !28
-  %188 = icmp ult i64 %186, %187
-  br i1 %188, label %.lr.ph878, label %cmp_resunit.exit.thread, !llvm.loop !36
+183:                                              ; preds = %.lr.ph878
+  %184 = add nuw i64 %.6877, 1
+  %185 = load i64, ptr %29, align 8, !tbaa !28
+  %186 = icmp ult i64 %184, %185
+  br i1 %186, label %.lr.ph878, label %cmp_resunit.exit.thread, !llvm.loop !36
 
-.lr.ph878:                                        ; preds = %.lr.ph878.preheader, %185
-  %.6877 = phi i64 [ %186, %185 ], [ 0, %.lr.ph878.preheader ]
-  %189 = getelementptr inbounds nuw %struct.pmix_topology_t, ptr %12, i64 %.6877
-  %190 = tail call fastcc i32 @cmp_topo(ptr noundef %189, ptr noundef %189)
-  %.not441 = icmp eq i32 %190, 0
-  br i1 %.not441, label %185, label %cmp_resunit.exit.thread
+.lr.ph878:                                        ; preds = %.lr.ph878.preheader, %183
+  %.6877 = phi i64 [ %184, %183 ], [ 0, %.lr.ph878.preheader ]
+  %187 = getelementptr inbounds nuw %struct.pmix_topology_t, ptr %10, i64 %.6877
+  %188 = tail call fastcc i32 @cmp_topo(ptr noundef %187, ptr noundef %187)
+  %.not441 = icmp eq i32 %188, 0
+  br i1 %.not441, label %183, label %cmp_resunit.exit.thread
 
-191:                                              ; preds = %.lr.ph873
-  %192 = add nuw i64 %.7872, 1
-  %193 = load i64, ptr %30, align 8, !tbaa !28
-  %194 = icmp ult i64 %192, %193
-  br i1 %194, label %.lr.ph873, label %cmp_resunit.exit.thread, !llvm.loop !37
+189:                                              ; preds = %.lr.ph873
+  %190 = add nuw i64 %.7872, 1
+  %191 = load i64, ptr %28, align 8, !tbaa !28
+  %192 = icmp ult i64 %190, %191
+  br i1 %192, label %.lr.ph873, label %cmp_resunit.exit.thread, !llvm.loop !37
 
-.lr.ph873:                                        ; preds = %.lr.ph873.preheader, %191
-  %.7872 = phi i64 [ %192, %191 ], [ 0, %.lr.ph873.preheader ]
-  %195 = getelementptr inbounds nuw %struct.pmix_cpuset_t, ptr %12, i64 %.7872
-  %196 = tail call fastcc i32 @cmp_cpuset(ptr noundef %195, ptr noundef %195)
-  %.not440 = icmp eq i32 %196, 0
-  br i1 %.not440, label %191, label %cmp_resunit.exit.thread
+.lr.ph873:                                        ; preds = %.lr.ph873.preheader, %189
+  %.7872 = phi i64 [ %190, %189 ], [ 0, %.lr.ph873.preheader ]
+  %193 = getelementptr inbounds nuw %struct.pmix_cpuset_t, ptr %10, i64 %.7872
+  %194 = tail call fastcc i32 @cmp_cpuset(ptr noundef %193, ptr noundef %193)
+  %.not440 = icmp eq i32 %194, 0
+  br i1 %.not440, label %189, label %cmp_resunit.exit.thread
 
-197:                                              ; preds = %29
-  %198 = shl i64 %21, 1
-  %199 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %198) #7
-  %200 = icmp slt i32 %199, 0
-  br i1 %200, label %cmp_resunit.exit.thread, label %201
+195:                                              ; preds = %27
+  %196 = shl i64 %19, 1
+  %197 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %196) #7
+  %198 = icmp slt i32 %197, 0
+  br i1 %198, label %cmp_resunit.exit.thread, label %199
 
-201:                                              ; preds = %197
-  %.not439 = icmp ne i32 %199, 0
+199:                                              ; preds = %195
+  %.not439 = icmp ne i32 %197, 0
   %.499 = zext i1 %.not439 to i32
   br label %cmp_resunit.exit.thread
 
-202:                                              ; preds = %.preheader2859
-  %203 = add nuw i64 %.8871, 1
-  %exitcond1709.not = icmp eq i64 %203, %21
-  br i1 %exitcond1709.not, label %cmp_resunit.exit.thread, label %.preheader2859, !llvm.loop !38
+200:                                              ; preds = %.preheader2863
+  %201 = add nuw i64 %.8871, 1
+  %exitcond1709.not = icmp eq i64 %201, %19
+  br i1 %exitcond1709.not, label %cmp_resunit.exit.thread, label %.preheader2863, !llvm.loop !38
 
-.preheader2859:                                   ; preds = %29, %202
-  %.8871 = phi i64 [ %203, %202 ], [ 0, %29 ]
-  %204 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %12, i64 %.8871
-  %205 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %15, i64 %.8871
-  %206 = tail call fastcc i32 @cmp_geometry(ptr noundef %204, ptr noundef %205)
-  %.not438 = icmp eq i32 %206, 0
-  br i1 %.not438, label %202, label %cmp_resunit.exit.thread
+.preheader2863:                                   ; preds = %27, %200
+  %.8871 = phi i64 [ %201, %200 ], [ 0, %27 ]
+  %202 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %10, i64 %.8871
+  %203 = getelementptr inbounds nuw %struct.pmix_geometry, ptr %13, i64 %.8871
+  %204 = tail call fastcc i32 @cmp_geometry(ptr noundef %202, ptr noundef %203)
+  %.not438 = icmp eq i32 %204, 0
+  br i1 %.not438, label %200, label %cmp_resunit.exit.thread
 
-207:                                              ; preds = %29
-  %208 = shl i64 %21, 3
-  %209 = tail call i32 @memcmp(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef %208) #7
-  %210 = icmp slt i32 %209, 0
-  br i1 %210, label %cmp_resunit.exit.thread, label %211
+205:                                              ; preds = %27
+  %206 = shl i64 %19, 3
+  %207 = tail call i32 @memcmp(ptr noundef nonnull %10, ptr noundef nonnull %13, i64 noundef %206) #7
+  %208 = icmp slt i32 %207, 0
+  br i1 %208, label %cmp_resunit.exit.thread, label %209
 
-211:                                              ; preds = %207
-  %.not437 = icmp ne i32 %209, 0
+209:                                              ; preds = %205
+  %.not437 = icmp ne i32 %207, 0
   %.500 = zext i1 %.not437 to i32
   br label %cmp_resunit.exit.thread
 
-212:                                              ; preds = %.preheader2862
-  %213 = add nuw i64 %.9870, 1
-  %exitcond1661.not = icmp eq i64 %213, %21
-  br i1 %exitcond1661.not, label %cmp_resunit.exit.thread, label %.preheader2862, !llvm.loop !39
+210:                                              ; preds = %.preheader2866
+  %211 = add nuw i64 %.9870, 1
+  %exitcond1661.not = icmp eq i64 %211, %19
+  br i1 %exitcond1661.not, label %cmp_resunit.exit.thread, label %.preheader2866, !llvm.loop !39
 
-.preheader2862:                                   ; preds = %29, %212
-  %.9870 = phi i64 [ %213, %212 ], [ 0, %29 ]
-  %214 = getelementptr inbounds nuw %struct.pmix_device, ptr %12, i64 %.9870
-  %215 = getelementptr inbounds nuw %struct.pmix_device, ptr %15, i64 %.9870
-  %216 = tail call fastcc i32 @cmp_device(ptr noundef %214, ptr noundef %215)
-  %.not436 = icmp eq i32 %216, 0
-  br i1 %.not436, label %212, label %cmp_resunit.exit.thread
+.preheader2866:                                   ; preds = %27, %210
+  %.9870 = phi i64 [ %211, %210 ], [ 0, %27 ]
+  %212 = getelementptr inbounds nuw %struct.pmix_device, ptr %10, i64 %.9870
+  %213 = getelementptr inbounds nuw %struct.pmix_device, ptr %13, i64 %.9870
+  %214 = tail call fastcc i32 @cmp_device(ptr noundef %212, ptr noundef %213)
+  %.not436 = icmp eq i32 %214, 0
+  br i1 %.not436, label %210, label %cmp_resunit.exit.thread
 
-217:                                              ; preds = %cmp_resunit.exit
-  %218 = add nuw i64 %.10869, 1
-  %exitcond1613.not = icmp eq i64 %218, %21
-  br i1 %exitcond1613.not, label %cmp_resunit.exit.thread, label %.preheader2865, !llvm.loop !40
+215:                                              ; preds = %cmp_resunit.exit
+  %216 = add nuw i64 %.10869, 1
+  %exitcond1613.not = icmp eq i64 %216, %19
+  br i1 %exitcond1613.not, label %cmp_resunit.exit.thread, label %.preheader2869, !llvm.loop !40
 
-.preheader2865:                                   ; preds = %29, %217
-  %.10869 = phi i64 [ %218, %217 ], [ 0, %29 ]
-  %219 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %12, i64 %.10869
-  %220 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %15, i64 %.10869
-  %221 = load i64, ptr %219, align 8, !tbaa !15
-  %222 = load i64, ptr %220, align 8, !tbaa !15
-  %.not.i = icmp eq i64 %221, %222
-  br i1 %.not.i, label %223, label %cmp_resunit.exit.thread
+.preheader2869:                                   ; preds = %27, %215
+  %.10869 = phi i64 [ %216, %215 ], [ 0, %27 ]
+  %217 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %10, i64 %.10869
+  %218 = getelementptr inbounds nuw %struct.pmix_resource_unit, ptr %13, i64 %.10869
+  %219 = load i64, ptr %217, align 8, !tbaa !15
+  %220 = load i64, ptr %218, align 8, !tbaa !15
+  %.not.i = icmp eq i64 %219, %220
+  br i1 %.not.i, label %221, label %cmp_resunit.exit.thread
 
-223:                                              ; preds = %.preheader2865
-  %224 = getelementptr inbounds nuw i8, ptr %219, i64 8
+221:                                              ; preds = %.preheader2869
+  %222 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  %223 = load i64, ptr %222, align 8, !tbaa !17
+  %224 = getelementptr inbounds nuw i8, ptr %218, i64 8
   %225 = load i64, ptr %224, align 8, !tbaa !17
-  %226 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %227 = load i64, ptr %226, align 8, !tbaa !17
-  %228 = icmp ugt i64 %225, %227
-  br i1 %228, label %cmp_resunit.exit.thread, label %cmp_resunit.exit
+  %226 = icmp ugt i64 %223, %225
+  br i1 %226, label %cmp_resunit.exit.thread, label %cmp_resunit.exit
 
-cmp_resunit.exit:                                 ; preds = %223
-  %229 = icmp ult i64 %225, %227
-  br i1 %229, label %cmp_resunit.exit.thread, label %217
+cmp_resunit.exit:                                 ; preds = %221
+  %227 = icmp ult i64 %223, %225
+  br i1 %227, label %cmp_resunit.exit.thread, label %215
 
-230:                                              ; preds = %.preheader2868
-  %231 = add nuw i64 %.11868, 1
-  %exitcond1565.not = icmp eq i64 %231, %21
-  br i1 %exitcond1565.not, label %cmp_resunit.exit.thread, label %.preheader2868, !llvm.loop !41
+228:                                              ; preds = %.preheader2872
+  %229 = add nuw i64 %.11868, 1
+  %exitcond1565.not = icmp eq i64 %229, %19
+  br i1 %exitcond1565.not, label %cmp_resunit.exit.thread, label %.preheader2872, !llvm.loop !41
 
-.preheader2868:                                   ; preds = %29, %230
-  %.11868 = phi i64 [ %231, %230 ], [ 0, %29 ]
-  %232 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %12, i64 %.11868
-  %233 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %15, i64 %.11868
-  %234 = tail call fastcc i32 @cmp_devdist(ptr noundef %232, ptr noundef %233)
-  %.not434 = icmp eq i32 %234, 0
-  br i1 %.not434, label %230, label %cmp_resunit.exit.thread
+.preheader2872:                                   ; preds = %27, %228
+  %.11868 = phi i64 [ %229, %228 ], [ 0, %27 ]
+  %230 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %10, i64 %.11868
+  %231 = getelementptr inbounds nuw %struct.pmix_device_distance, ptr %13, i64 %.11868
+  %232 = tail call fastcc i32 @cmp_devdist(ptr noundef %230, ptr noundef %231)
+  %.not434 = icmp eq i32 %232, 0
+  br i1 %.not434, label %228, label %cmp_resunit.exit.thread
 
-235:                                              ; preds = %.preheader2871
-  %236 = add nuw i64 %.12867, 1
-  %exitcond1517.not = icmp eq i64 %236, %21
-  br i1 %exitcond1517.not, label %cmp_resunit.exit.thread, label %.preheader2871, !llvm.loop !42
+233:                                              ; preds = %.preheader2875
+  %234 = add nuw i64 %.12867, 1
+  %exitcond1517.not = icmp eq i64 %234, %19
+  br i1 %exitcond1517.not, label %cmp_resunit.exit.thread, label %.preheader2875, !llvm.loop !42
 
-.preheader2871:                                   ; preds = %29, %235
-  %.12867 = phi i64 [ %236, %235 ], [ 0, %29 ]
-  %237 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %12, i64 %.12867
-  %238 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %15, i64 %.12867
-  %239 = tail call fastcc i32 @cmp_endpoint(ptr noundef %237, ptr noundef %238)
-  %.not433 = icmp eq i32 %239, 0
-  br i1 %.not433, label %235, label %cmp_resunit.exit.thread
+.preheader2875:                                   ; preds = %27, %233
+  %.12867 = phi i64 [ %234, %233 ], [ 0, %27 ]
+  %235 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %10, i64 %.12867
+  %236 = getelementptr inbounds nuw %struct.pmix_endpoint, ptr %13, i64 %.12867
+  %237 = tail call fastcc i32 @cmp_endpoint(ptr noundef %235, ptr noundef %236)
+  %.not433 = icmp eq i32 %237, 0
+  br i1 %.not433, label %233, label %cmp_resunit.exit.thread
 
-240:                                              ; preds = %.preheader2874
-  %241 = add nuw i64 %.13866, 1
-  %exitcond1469.not = icmp eq i64 %241, %21
-  br i1 %exitcond1469.not, label %cmp_resunit.exit.thread, label %.preheader2874, !llvm.loop !43
+238:                                              ; preds = %.preheader2878
+  %239 = add nuw i64 %.13866, 1
+  %exitcond1469.not = icmp eq i64 %239, %19
+  br i1 %exitcond1469.not, label %cmp_resunit.exit.thread, label %.preheader2878, !llvm.loop !43
 
-.preheader2874:                                   ; preds = %29, %240
-  %.13866 = phi i64 [ %241, %240 ], [ 0, %29 ]
-  %242 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %12, i64 %.13866
-  %243 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %15, i64 %.13866
-  %244 = tail call fastcc i32 @cmp_dbuf(ptr noundef %242, ptr noundef %243)
-  %.not432 = icmp eq i32 %244, 0
-  br i1 %.not432, label %240, label %cmp_resunit.exit.thread
+.preheader2878:                                   ; preds = %27, %238
+  %.13866 = phi i64 [ %239, %238 ], [ 0, %27 ]
+  %240 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %10, i64 %.13866
+  %241 = getelementptr inbounds nuw %struct.pmix_data_buffer, ptr %13, i64 %.13866
+  %242 = tail call fastcc i32 @cmp_dbuf(ptr noundef %240, ptr noundef %241)
+  %.not432 = icmp eq i32 %242, 0
+  br i1 %.not432, label %238, label %cmp_resunit.exit.thread
 
-245:                                              ; preds = %.preheader2877
-  %246 = add nuw i64 %.14865, 1
-  %exitcond1421.not = icmp eq i64 %246, %21
-  br i1 %exitcond1421.not, label %cmp_resunit.exit.thread, label %.preheader2877, !llvm.loop !44
+243:                                              ; preds = %.preheader2881
+  %244 = add nuw i64 %.14865, 1
+  %exitcond1421.not = icmp eq i64 %244, %19
+  br i1 %exitcond1421.not, label %cmp_resunit.exit.thread, label %.preheader2881, !llvm.loop !44
 
-.preheader2877:                                   ; preds = %29, %245
-  %.14865 = phi i64 [ %246, %245 ], [ 0, %29 ]
-  %247 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %12, i64 %.14865
-  %248 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %15, i64 %.14865
-  %249 = tail call fastcc i32 @cmp_procstats(ptr noundef %247, ptr noundef %248)
-  %.not431 = icmp eq i32 %249, 0
-  br i1 %.not431, label %245, label %cmp_resunit.exit.thread
+.preheader2881:                                   ; preds = %27, %243
+  %.14865 = phi i64 [ %244, %243 ], [ 0, %27 ]
+  %245 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %10, i64 %.14865
+  %246 = getelementptr inbounds nuw %struct.pmix_proc_stats, ptr %13, i64 %.14865
+  %247 = tail call fastcc i32 @cmp_procstats(ptr noundef %245, ptr noundef %246)
+  %.not431 = icmp eq i32 %247, 0
+  br i1 %.not431, label %243, label %cmp_resunit.exit.thread
 
-250:                                              ; preds = %.preheader2880
-  %251 = add nuw i64 %.15864, 1
-  %exitcond1373.not = icmp eq i64 %251, %21
-  br i1 %exitcond1373.not, label %cmp_resunit.exit.thread, label %.preheader2880, !llvm.loop !45
+248:                                              ; preds = %.preheader2884
+  %249 = add nuw i64 %.15864, 1
+  %exitcond1373.not = icmp eq i64 %249, %19
+  br i1 %exitcond1373.not, label %cmp_resunit.exit.thread, label %.preheader2884, !llvm.loop !45
 
-.preheader2880:                                   ; preds = %29, %250
-  %.15864 = phi i64 [ %251, %250 ], [ 0, %29 ]
-  %252 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %12, i64 %.15864
-  %253 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %15, i64 %.15864
-  %254 = tail call fastcc i32 @cmp_diskstats(ptr noundef %252, ptr noundef %253)
-  %.not430 = icmp eq i32 %254, 0
-  br i1 %.not430, label %250, label %cmp_resunit.exit.thread
+.preheader2884:                                   ; preds = %27, %248
+  %.15864 = phi i64 [ %249, %248 ], [ 0, %27 ]
+  %250 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %10, i64 %.15864
+  %251 = getelementptr inbounds nuw %struct.pmix_disk_stats_t, ptr %13, i64 %.15864
+  %252 = tail call fastcc i32 @cmp_diskstats(ptr noundef %250, ptr noundef %251)
+  %.not430 = icmp eq i32 %252, 0
+  br i1 %.not430, label %248, label %cmp_resunit.exit.thread
 
-255:                                              ; preds = %.preheader2883
-  %256 = add nuw i64 %.16863, 1
-  %exitcond1325.not = icmp eq i64 %256, %21
-  br i1 %exitcond1325.not, label %cmp_resunit.exit.thread, label %.preheader2883, !llvm.loop !46
+253:                                              ; preds = %.preheader2887
+  %254 = add nuw i64 %.16863, 1
+  %exitcond1325.not = icmp eq i64 %254, %19
+  br i1 %exitcond1325.not, label %cmp_resunit.exit.thread, label %.preheader2887, !llvm.loop !46
 
-.preheader2883:                                   ; preds = %29, %255
-  %.16863 = phi i64 [ %256, %255 ], [ 0, %29 ]
-  %257 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %12, i64 %.16863
-  %258 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %15, i64 %.16863
-  %259 = tail call fastcc i32 @cmp_netstats(ptr noundef %257, ptr noundef %258)
-  %.not429 = icmp eq i32 %259, 0
-  br i1 %.not429, label %255, label %cmp_resunit.exit.thread
+.preheader2887:                                   ; preds = %27, %253
+  %.16863 = phi i64 [ %254, %253 ], [ 0, %27 ]
+  %255 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %10, i64 %.16863
+  %256 = getelementptr inbounds nuw %struct.pmix_net_stats_t, ptr %13, i64 %.16863
+  %257 = tail call fastcc i32 @cmp_netstats(ptr noundef %255, ptr noundef %256)
+  %.not429 = icmp eq i32 %257, 0
+  br i1 %.not429, label %253, label %cmp_resunit.exit.thread
 
-260:                                              ; preds = %.preheader2886
-  %261 = add nuw i64 %.17862, 1
-  %exitcond.not = icmp eq i64 %261, %21
-  br i1 %exitcond.not, label %cmp_resunit.exit.thread, label %.preheader2886, !llvm.loop !47
+258:                                              ; preds = %.preheader2890
+  %259 = add nuw i64 %.17862, 1
+  %exitcond.not = icmp eq i64 %259, %19
+  br i1 %exitcond.not, label %cmp_resunit.exit.thread, label %.preheader2890, !llvm.loop !47
 
-.preheader2886:                                   ; preds = %29, %260
-  %.17862 = phi i64 [ %261, %260 ], [ 0, %29 ]
-  %262 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %12, i64 %.17862
-  %263 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %15, i64 %.17862
-  %264 = tail call fastcc i32 @cmp_nodestats(ptr noundef %262, ptr noundef %263)
-  %.not428 = icmp eq i32 %264, 0
-  br i1 %.not428, label %260, label %cmp_resunit.exit.thread
+.preheader2890:                                   ; preds = %27, %258
+  %.17862 = phi i64 [ %259, %258 ], [ 0, %27 ]
+  %260 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %10, i64 %.17862
+  %261 = getelementptr inbounds nuw %struct.pmix_node_stats_t, ptr %13, i64 %.17862
+  %262 = tail call fastcc i32 @cmp_nodestats(ptr noundef %260, ptr noundef %261)
+  %.not428 = icmp eq i32 %262, 0
+  br i1 %.not428, label %258, label %cmp_resunit.exit.thread
 
-.lr.ph858.preheader:                              ; preds = %29
-  %265 = getelementptr inbounds nuw i8, ptr %.tr855, i64 8
+.lr.ph858.preheader:                              ; preds = %27
+  %263 = getelementptr inbounds nuw i8, ptr %.tr8552842, i64 8
   br label %.lr.ph858
 
-266:                                              ; preds = %.lr.ph858
-  %267 = add nuw i64 %.18857, 1
-  %268 = load i64, ptr %265, align 8, !tbaa !28
-  %269 = icmp ult i64 %267, %268
-  br i1 %269, label %.lr.ph858, label %cmp_resunit.exit.thread, !llvm.loop !48
+264:                                              ; preds = %.lr.ph858
+  %265 = add nuw i64 %.18857, 1
+  %266 = load i64, ptr %263, align 8, !tbaa !28
+  %267 = icmp ult i64 %265, %266
+  br i1 %267, label %.lr.ph858, label %cmp_resunit.exit.thread, !llvm.loop !48
 
-.lr.ph858:                                        ; preds = %.lr.ph858.preheader, %266
-  %.18857 = phi i64 [ %267, %266 ], [ 0, %.lr.ph858.preheader ]
-  %270 = getelementptr inbounds nuw %struct.pmix_regattr_t, ptr %12, i64 %.18857
-  %271 = getelementptr inbounds nuw %struct.pmix_regattr_t, ptr %15, i64 %.18857
-  %272 = tail call fastcc i32 @cmp_regattr(ptr noundef %270, ptr noundef %271)
-  %.not427 = icmp eq i32 %272, 0
-  br i1 %.not427, label %266, label %cmp_resunit.exit.thread
+.lr.ph858:                                        ; preds = %.lr.ph858.preheader, %264
+  %.18857 = phi i64 [ %265, %264 ], [ 0, %.lr.ph858.preheader ]
+  %268 = getelementptr inbounds nuw %struct.pmix_regattr_t, ptr %10, i64 %.18857
+  %269 = getelementptr inbounds nuw %struct.pmix_regattr_t, ptr %13, i64 %.18857
+  %270 = tail call fastcc i32 @cmp_regattr(ptr noundef %268, ptr noundef %269)
+  %.not427 = icmp eq i32 %270, 0
+  br i1 %.not427, label %264, label %cmp_resunit.exit.thread
 
-273:                                              ; preds = %29
-  %274 = tail call ptr @PMIx_Data_type_string(i16 noundef zeroext %8) #8
-  %275 = load i16, ptr %.tr855, align 8, !tbaa !25
-  %276 = zext i16 %275 to i32
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %274, i32 noundef %276) #8
+271:                                              ; preds = %27
+  %272 = tail call ptr @PMIx_Data_type_string(i16 noundef zeroext %6) #8
+  %273 = load i16, ptr %.tr8552842, align 8, !tbaa !25
+  %274 = zext i16 %273 to i32
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str, ptr noundef %272, i32 noundef %274) #8
   br label %cmp_resunit.exit.thread
 
-cmp_resunit.exit.thread.loopexit542.split.loop.exit850: ; preds = %.lr.ph
-  %277 = icmp ne ptr %.tr855, null
-  %or.cond3.le = and i1 %277, %5
+cmp_resunit.exit.thread.loopexit542.split.loop.exit850: ; preds = %.lr.ph.preheader
+  %275 = icmp ne ptr %0, null
+  %or.cond3.le = and i1 %275, %4
   %.mux.le = select i1 %or.cond3.le, i32 1, i32 2
   br label %cmp_resunit.exit.thread
 
-cmp_resunit.exit.thread:                          ; preds = %7, %18, %19, %25, %27, %29, %.lr.ph858, %266, %260, %.preheader2886, %255, %.preheader2883, %250, %.preheader2880, %245, %.preheader2877, %240, %.preheader2874, %235, %.preheader2871, %230, %.preheader2868, %cmp_resunit.exit, %223, %.preheader2865, %217, %212, %.preheader2862, %202, %.preheader2859, %.lr.ph873, %191, %.lr.ph878, %185, %172, %.preheader2852, %167, %.preheader2849, %149, %.preheader2846, %127, %129, %.lr.ph887, %120, %40, %.preheader, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850, %2, %17, %211, %207, %201, %197, %184, %181, %180, %177, %166, %163, %162, %159, %158, %154, %148, %145, %144, %141, %140, %137, %136, %133, %118, %114, %113, %109, %108, %104, %103, %99, %98, %94, %93, %89, %88, %84, %83, %79, %78, %74, %73, %69, %68, %64, %63, %60, %59, %55, %54, %50, %49, %45, %39, %36, %35, %32, %273
-  %.0 = phi i32 [ 5, %273 ], [ 2, %32 ], [ %., %35 ], [ 2, %36 ], [ %.474, %39 ], [ 2, %45 ], [ %.475, %49 ], [ 2, %50 ], [ %.476, %54 ], [ 2, %55 ], [ %.477, %59 ], [ 2, %60 ], [ %.478, %63 ], [ 2, %64 ], [ %.479, %68 ], [ 2, %69 ], [ %.480, %73 ], [ 2, %74 ], [ %.481, %78 ], [ 2, %79 ], [ %.482, %83 ], [ 2, %84 ], [ %.483, %88 ], [ 2, %89 ], [ %.484, %93 ], [ 2, %94 ], [ %.485, %98 ], [ 2, %99 ], [ %.486, %103 ], [ 2, %104 ], [ %.487, %108 ], [ 2, %109 ], [ %.488, %113 ], [ 2, %114 ], [ %.489, %118 ], [ 2, %133 ], [ %.490, %136 ], [ 2, %137 ], [ %.491, %140 ], [ 2, %141 ], [ %.492, %144 ], [ 2, %145 ], [ %.493, %148 ], [ 2, %154 ], [ %.494, %158 ], [ 2, %159 ], [ %.495, %162 ], [ 2, %163 ], [ %.496, %166 ], [ 2, %177 ], [ %.497, %180 ], [ 2, %181 ], [ %.498, %184 ], [ 2, %197 ], [ %.499, %201 ], [ 2, %207 ], [ %.500, %211 ], [ %spec.select, %17 ], [ %.mux.le, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850 ], [ 0, %2 ], [ 0, %40 ], [ %44, %.preheader ], [ %126, %.lr.ph887 ], [ 0, %120 ], [ 0, %127 ], [ %132, %129 ], [ 0, %149 ], [ %153, %.preheader2846 ], [ 0, %167 ], [ %171, %.preheader2849 ], [ 0, %172 ], [ %176, %.preheader2852 ], [ %190, %.lr.ph878 ], [ 0, %185 ], [ %196, %.lr.ph873 ], [ 0, %191 ], [ 0, %202 ], [ %206, %.preheader2859 ], [ 0, %212 ], [ %216, %.preheader2862 ], [ 2, %cmp_resunit.exit ], [ 4, %.preheader2865 ], [ 1, %223 ], [ 0, %217 ], [ 0, %230 ], [ %234, %.preheader2868 ], [ 0, %235 ], [ %239, %.preheader2871 ], [ 0, %240 ], [ %244, %.preheader2874 ], [ 0, %245 ], [ %249, %.preheader2877 ], [ 0, %250 ], [ %254, %.preheader2880 ], [ 0, %255 ], [ %259, %.preheader2883 ], [ 0, %260 ], [ %264, %.preheader2886 ], [ %272, %.lr.ph858 ], [ 0, %266 ], [ 0, %29 ], [ 0, %27 ], [ 2, %25 ], [ 1, %19 ], [ 1, %18 ], [ 3, %7 ]
+cmp_resunit.exit.thread:                          ; preds = %.lr.ph2843, %16, %17, %23, %25, %27, %.lr.ph858, %264, %258, %.preheader2890, %253, %.preheader2887, %248, %.preheader2884, %243, %.preheader2881, %238, %.preheader2878, %233, %.preheader2875, %228, %.preheader2872, %cmp_resunit.exit, %221, %.preheader2869, %215, %210, %.preheader2866, %200, %.preheader2863, %.lr.ph873, %189, %.lr.ph878, %183, %170, %.preheader2856, %165, %.preheader2853, %147, %.preheader2850, %125, %127, %.lr.ph887, %118, %38, %.preheader, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850, %2, %15, %209, %205, %199, %195, %182, %179, %178, %175, %164, %161, %160, %157, %156, %152, %146, %143, %142, %139, %138, %135, %134, %131, %116, %112, %111, %107, %106, %102, %101, %97, %96, %92, %91, %87, %86, %82, %81, %77, %76, %72, %71, %67, %66, %62, %61, %58, %57, %53, %52, %48, %47, %43, %37, %34, %33, %30, %271
+  %.0 = phi i32 [ 5, %271 ], [ 2, %30 ], [ %., %33 ], [ 2, %34 ], [ %.474, %37 ], [ 2, %43 ], [ %.475, %47 ], [ 2, %48 ], [ %.476, %52 ], [ 2, %53 ], [ %.477, %57 ], [ 2, %58 ], [ %.478, %61 ], [ 2, %62 ], [ %.479, %66 ], [ 2, %67 ], [ %.480, %71 ], [ 2, %72 ], [ %.481, %76 ], [ 2, %77 ], [ %.482, %81 ], [ 2, %82 ], [ %.483, %86 ], [ 2, %87 ], [ %.484, %91 ], [ 2, %92 ], [ %.485, %96 ], [ 2, %97 ], [ %.486, %101 ], [ 2, %102 ], [ %.487, %106 ], [ 2, %107 ], [ %.488, %111 ], [ 2, %112 ], [ %.489, %116 ], [ 2, %131 ], [ %.490, %134 ], [ 2, %135 ], [ %.491, %138 ], [ 2, %139 ], [ %.492, %142 ], [ 2, %143 ], [ %.493, %146 ], [ 2, %152 ], [ %.494, %156 ], [ 2, %157 ], [ %.495, %160 ], [ 2, %161 ], [ %.496, %164 ], [ 2, %175 ], [ %.497, %178 ], [ 2, %179 ], [ %.498, %182 ], [ 2, %195 ], [ %.499, %199 ], [ 2, %205 ], [ %.500, %209 ], [ %spec.select, %15 ], [ %.mux.le, %cmp_resunit.exit.thread.loopexit542.split.loop.exit850 ], [ 0, %2 ], [ 0, %38 ], [ %42, %.preheader ], [ %124, %.lr.ph887 ], [ 0, %118 ], [ 0, %125 ], [ %130, %127 ], [ 0, %147 ], [ %151, %.preheader2850 ], [ 0, %165 ], [ %169, %.preheader2853 ], [ 0, %170 ], [ %174, %.preheader2856 ], [ %188, %.lr.ph878 ], [ 0, %183 ], [ %194, %.lr.ph873 ], [ 0, %189 ], [ 0, %200 ], [ %204, %.preheader2863 ], [ 0, %210 ], [ %214, %.preheader2866 ], [ 2, %cmp_resunit.exit ], [ 4, %.preheader2869 ], [ 1, %221 ], [ 0, %215 ], [ 0, %228 ], [ %232, %.preheader2872 ], [ 0, %233 ], [ %237, %.preheader2875 ], [ 0, %238 ], [ %242, %.preheader2878 ], [ 0, %243 ], [ %247, %.preheader2881 ], [ 0, %248 ], [ %252, %.preheader2884 ], [ 0, %253 ], [ %257, %.preheader2887 ], [ 0, %258 ], [ %262, %.preheader2890 ], [ %270, %.lr.ph858 ], [ 0, %264 ], [ 0, %27 ], [ 0, %25 ], [ 2, %23 ], [ 1, %17 ], [ 1, %16 ], [ 3, %.lr.ph2843 ]
   ret i32 %.0
 }
 

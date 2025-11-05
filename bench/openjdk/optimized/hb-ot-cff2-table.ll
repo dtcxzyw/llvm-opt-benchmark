@@ -2242,16 +2242,19 @@ _ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8numb
   store double %60, ptr %.0.i31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !14
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %34, !llvm.loop !14
 
-._crit_edge:                                      ; preds = %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, %.preheader.thread, %.preheader
-  %.0.i4346 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit ]
-  %61 = mul i32 %.0.i4346, %4
-  %.not.i32 = icmp ult i32 %16, %61
+._crit_edge.loopexit:                             ; preds = %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_extents_t20cff2_extents_param_tNS_8number_tE25cff2_path_procs_extents_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit
+  %61 = mul i32 %4, %18
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader.thread, %.preheader
+  %.0.i4346 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %61, %._crit_edge.loopexit ]
+  %.not.i32 = icmp ult i32 %16, %.0.i4346
   br i1 %.not.i32, label %64, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = sub nuw i32 %16, %61
+  %63 = sub nuw i32 %16, %.0.i4346
   store i32 %63, ptr %6, align 4
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 
@@ -7462,16 +7465,19 @@ _ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE2
   store double %60, ptr %.0.i31, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %34, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit, %.preheader.thread, %.preheader
-  %.0.i4346 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %18, %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit ]
-  %61 = mul i32 %.0.i4346, %4
-  %.not.i32 = icmp ult i32 %16, %61
+._crit_edge.loopexit:                             ; preds = %_ZN3CFF15cff2_cs_opset_tI20cff2_cs_opset_path_t17cff2_path_param_tNS_8number_tE22cff2_path_procs_path_tE17process_arg_blendIS3_TnPN12hb_enable_ifIXntsr10hb_is_sameIT_NS_11blend_arg_tEEE5valueEvE4typeELPv0EEEvRNS_20cff2_cs_interp_env_tIS3_EERS3_10hb_array_tIKS3_Ejj.exit
+  %61 = mul i32 %4, %18
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader.thread, %.preheader
+  %.0.i4346 = phi i32 [ 0, %.preheader.thread ], [ 0, %.preheader ], [ %61, %._crit_edge.loopexit ]
+  %.not.i32 = icmp ult i32 %16, %.0.i4346
   br i1 %.not.i32, label %64, label %62
 
 62:                                               ; preds = %._crit_edge
-  %63 = sub nuw i32 %16, %61
+  %63 = sub nuw i32 %16, %.0.i4346
   store i32 %63, ptr %6, align 4
   br label %_ZN3CFF11cff_stack_tINS_8number_tELi513EE3popEj.exit
 

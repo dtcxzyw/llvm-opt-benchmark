@@ -3776,16 +3776,14 @@ define i64 @b2Shape_GetParentChain(i64 %0) local_unnamed_addr #0 {
   %22 = zext i16 %21 to i64
   %23 = shl nuw i64 %22, 48
   %24 = and i64 %0, 281470681743360
-  %25 = zext i32 %19 to i64
+  %25 = or disjoint i64 %23, %24
+  %26 = zext i32 %19 to i64
+  %27 = or disjoint i64 %25, %26
   br label %.thread
 
 .thread:                                          ; preds = %12, %1, %15
-  %.sroa.09.1 = phi i64 [ %25, %15 ], [ 0, %1 ], [ 0, %12 ]
-  %.sroa.3.1 = phi i64 [ %24, %15 ], [ 0, %1 ], [ 0, %12 ]
-  %.sroa.5.1 = phi i64 [ %23, %15 ], [ 0, %1 ], [ 0, %12 ]
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.1, %.sroa.09.1
-  %.sroa.09.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.5.1
-  ret i64 %.sroa.09.0.insert.insert
+  %.sroa.5.1 = phi i64 [ %27, %15 ], [ 0, %1 ], [ 0, %12 ]
+  ret i64 %.sroa.5.1
 }
 
 ; Function Attrs: nounwind uwtable

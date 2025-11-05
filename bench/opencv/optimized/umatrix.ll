@@ -4019,22 +4019,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %168
 173:                                              ; preds = %160
   %174 = sub nsw i32 %.val72, %.val71
   store i32 %174, ptr %15, align 4, !tbaa !64
-  %175 = zext nneg i32 %.val71 to i64
-  %176 = load i32, ptr %13, align 4, !tbaa !57
-  %177 = icmp sgt i32 %176, 0
-  br i1 %177, label %178, label %_ZNK2cv4UMat8elemSizeEv.exit
+  %175 = load i32, ptr %13, align 4, !tbaa !57
+  %176 = icmp sgt i32 %175, 0
+  br i1 %176, label %177, label %_ZNK2cv4UMat8elemSizeEv.exit
 
-178:                                              ; preds = %173
+177:                                              ; preds = %173
+  %178 = zext nneg i32 %.val71 to i64
   %179 = load ptr, ptr %21, align 8, !tbaa !66
-  %180 = zext nneg i32 %176 to i64
+  %180 = zext nneg i32 %175 to i64
   %181 = getelementptr i64, ptr %179, i64 %180
   %182 = getelementptr i8, ptr %181, i64 -8
   %183 = load i64, ptr %182, align 8, !tbaa !68
+  %184 = mul i64 %183, %178
   br label %_ZNK2cv4UMat8elemSizeEv.exit
 
-_ZNK2cv4UMat8elemSizeEv.exit:                     ; preds = %173, %178
-  %184 = phi i64 [ %183, %178 ], [ 0, %173 ]
-  %185 = mul i64 %184, %175
+_ZNK2cv4UMat8elemSizeEv.exit:                     ; preds = %173, %177
+  %185 = phi i64 [ %184, %177 ], [ 0, %173 ]
   %186 = load i64, ptr %19, align 8, !tbaa !62
   %187 = add i64 %186, %185
   store i64 %187, ptr %19, align 8, !tbaa !62

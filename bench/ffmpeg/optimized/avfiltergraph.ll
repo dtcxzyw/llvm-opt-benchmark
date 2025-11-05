@@ -1462,15 +1462,15 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
   br i1 %.not57.i.i, label %graph_config_formats.exit.thread59.thread, label %.split.i.i
 
 .split.i.i:                                       ; preds = %.loopexit110.i, %._crit_edge.i20.i
-  %471 = phi i32 [ %727, %._crit_edge.i20.i ], [ %470, %.loopexit110.i ]
-  %472 = phi i32 [ %727, %._crit_edge.i20.i ], [ 1, %.loopexit110.i ]
+  %471 = phi i32 [ %728, %._crit_edge.i20.i ], [ %470, %.loopexit110.i ]
+  %472 = phi i32 [ %728, %._crit_edge.i20.i ], [ 1, %.loopexit110.i ]
   %.not58.i.i = icmp eq i32 %472, 0
   br i1 %.not58.i.i, label %reduce_formats.exit.i, label %.lr.ph.i15.i
 
 .lr.ph.i15.i:                                     ; preds = %.split.i.i, %reduce_formats_on_filter.exit.thread13.i.i
-  %473 = phi i32 [ %727, %reduce_formats_on_filter.exit.thread13.i.i ], [ %471, %.split.i.i ]
+  %473 = phi i32 [ %728, %reduce_formats_on_filter.exit.thread13.i.i ], [ %471, %.split.i.i ]
   %indvars.iv.i16.i = phi i64 [ %indvars.iv.next.i19.i, %reduce_formats_on_filter.exit.thread13.i.i ], [ 0, %.split.i.i ]
-  %.0956.i.i = phi i32 [ %728, %reduce_formats_on_filter.exit.thread13.i.i ], [ 0, %.split.i.i ]
+  %.0956.i.i = phi i32 [ %.5.i15.i.i, %reduce_formats_on_filter.exit.thread13.i.i ], [ 0, %.split.i.i ]
   %474 = load ptr, ptr %469, align 8, !tbaa !15
   %475 = getelementptr inbounds nuw ptr, ptr %474, i64 %indvars.iv.i16.i
   %476 = load ptr, ptr %475, align 8, !tbaa !18
@@ -2018,23 +2018,23 @@ query_formats.exit.i:                             ; preds = %183, %.loopexit.i, 
 reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i: ; preds = %.loopexit364.i.i.i, %.preheader.i.i.i, %.preheader369.i.i.i, %.preheader374.i.i.i, %.preheader379.i.i.i
   %.5.i.i.i = phi i32 [ %.19203.ph.i.i.i, %.preheader.i.i.i ], [ %.13197.ph.i.i.i, %.preheader369.i.i.i ], [ %.7191.ph.i.i.i, %.preheader374.i.i.i ], [ %.1185.ph.i.i.i, %.preheader379.i.i.i ], [ %.25209.ph.i.i.i, %.loopexit364.i.i.i ]
   %.pre.i18.i = load i32, ptr %8, align 8, !tbaa !14
+  %727 = or i32 %.5.i.i.i, %.0956.i.i
   br label %reduce_formats_on_filter.exit.thread13.i.i
 
 reduce_formats_on_filter.exit.thread13.i.i:       ; preds = %reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i, %.lr.ph.i15.i
-  %727 = phi i32 [ %.pre.i18.i, %reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i ], [ %473, %.lr.ph.i15.i ]
-  %.5.i15.i.i = phi i32 [ %.5.i.i.i, %reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i ], [ 0, %.lr.ph.i15.i ]
-  %728 = or i32 %.5.i15.i.i, %.0956.i.i
+  %728 = phi i32 [ %.pre.i18.i, %reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i ], [ %473, %.lr.ph.i15.i ]
+  %.5.i15.i.i = phi i32 [ %727, %reduce_formats_on_filter.exit.reduce_formats_on_filter.exit.thread13_crit_edge.i.i ], [ %.0956.i.i, %.lr.ph.i15.i ]
   %indvars.iv.next.i19.i = add nuw nsw i64 %indvars.iv.i16.i, 1
-  %729 = zext i32 %727 to i64
+  %729 = zext i32 %728 to i64
   %730 = icmp samesign ult i64 %indvars.iv.next.i19.i, %729
   br i1 %730, label %.lr.ph.i15.i, label %._crit_edge.i20.i, !llvm.loop !141
 
 ._crit_edge.i20.i:                                ; preds = %reduce_formats_on_filter.exit.thread13.i.i
-  %731 = icmp eq i32 %728, 0
+  %731 = icmp eq i32 %.5.i15.i.i, 0
   br i1 %731, label %reduce_formats.exit.i, label %.split.i.i, !llvm.loop !142
 
 reduce_formats.exit.i:                            ; preds = %._crit_edge.i20.i, %.split.i.i
-  %.pr.i = phi i32 [ %727, %._crit_edge.i20.i ], [ %471, %.split.i.i ]
+  %.pr.i = phi i32 [ %728, %._crit_edge.i20.i ], [ %471, %.split.i.i ]
   %.not.i21.i = icmp eq i32 %.pr.i, 0
   br i1 %.not.i21.i, label %graph_config_formats.exit.thread59.thread, label %.lr.ph.i22.i
 

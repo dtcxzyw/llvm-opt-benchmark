@@ -1629,12 +1629,12 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiSt10multip
   %52 = getelementptr i8, ptr %51, i64 -8
   %53 = load i64, ptr %52, align 8, !tbaa !47
   %54 = trunc i64 %53 to i32
+  %55 = mul i32 %.0.lcssa.i, %54
+  %56 = sext i32 %55 to i64
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %37, %47
-  %55 = phi i32 [ %54, %47 ], [ 0, %37 ]
-  %56 = mul i32 %55, %.0.lcssa.i
-  %57 = sext i32 %56 to i64
+  %57 = phi i64 [ %56, %47 ], [ 0, %37 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr align 1 %40, i64 %57, i1 false)
   br label %.loopexit
 
@@ -1663,53 +1663,53 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %37, %47
   %72 = load ptr, ptr %71, align 8, !tbaa !102
   %73 = load ptr, ptr %27, align 8, !tbaa !100
   %74 = getelementptr inbounds i8, ptr %73, i64 -4
-  %75 = load i32, ptr %74, align 4, !tbaa !49
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %77 = load i32, ptr %76, align 4, !tbaa !83
-  %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %79, label %_ZNK2cv3Mat8elemSizeEv.exit40
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %76 = load i32, ptr %75, align 4, !tbaa !83
+  %77 = icmp sgt i32 %76, 0
+  br i1 %77, label %78, label %_ZNK2cv3Mat8elemSizeEv.exit40
 
-79:                                               ; preds = %66
+78:                                               ; preds = %66
+  %79 = load i32, ptr %74, align 4, !tbaa !49
   %80 = getelementptr inbounds nuw i8, ptr %70, i64 72
   %81 = load ptr, ptr %80, align 8, !tbaa !103
-  %82 = zext nneg i32 %77 to i64
+  %82 = zext nneg i32 %76 to i64
   %83 = getelementptr i64, ptr %81, i64 %82
   %84 = getelementptr i8, ptr %83, i64 -8
   %85 = load i64, ptr %84, align 8, !tbaa !47
   %86 = trunc i64 %85 to i32
+  %87 = mul i32 %79, %86
+  %88 = sext i32 %87 to i64
   br label %_ZNK2cv3Mat8elemSizeEv.exit40
 
-_ZNK2cv3Mat8elemSizeEv.exit40:                    ; preds = %66, %79
-  %87 = phi i32 [ %86, %79 ], [ 0, %66 ]
-  %88 = mul i32 %87, %75
-  %89 = load ptr, ptr %25, align 8, !tbaa !100
-  %.not5.i41 = icmp eq ptr %89, %74
+_ZNK2cv3Mat8elemSizeEv.exit40:                    ; preds = %66, %78
+  %89 = phi i64 [ %88, %78 ], [ 0, %66 ]
+  %90 = load ptr, ptr %25, align 8, !tbaa !100
+  %.not5.i41 = icmp eq ptr %90, %74
   br i1 %.not5.i41, label %.lr.ph, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %_ZNK2cv3Mat8elemSizeEv.exit40, %.lr.ph.i42
-  %.07.i43 = phi i32 [ %91, %.lr.ph.i42 ], [ 1, %_ZNK2cv3Mat8elemSizeEv.exit40 ]
-  %.sroa.02.06.i44 = phi ptr [ %92, %.lr.ph.i42 ], [ %89, %_ZNK2cv3Mat8elemSizeEv.exit40 ]
-  %90 = load i32, ptr %.sroa.02.06.i44, align 4, !tbaa !49
-  %91 = mul nsw i32 %90, %.07.i43
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i44, i64 4
-  %.not.i45 = icmp eq ptr %92, %74
+  %.07.i43 = phi i32 [ %92, %.lr.ph.i42 ], [ 1, %_ZNK2cv3Mat8elemSizeEv.exit40 ]
+  %.sroa.02.06.i44 = phi ptr [ %93, %.lr.ph.i42 ], [ %90, %_ZNK2cv3Mat8elemSizeEv.exit40 ]
+  %91 = load i32, ptr %.sroa.02.06.i44, align 4, !tbaa !49
+  %92 = mul nsw i32 %91, %.07.i43
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i44, i64 4
+  %.not.i45 = icmp eq ptr %93, %74
   br i1 %.not.i45, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SA_S9_T1_.exit47, label %.lr.ph.i42, !llvm.loop !101
 
 _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SA_S9_T1_.exit47: ; preds = %.lr.ph.i42
-  %93 = icmp sgt i32 %91, 0
-  br i1 %93, label %.lr.ph, label %.loopexit
+  %94 = icmp sgt i32 %92, 0
+  br i1 %94, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK2cv3Mat8elemSizeEv.exit40, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SA_S9_T1_.exit47
-  %.0.lcssa.i4675 = phi i32 [ %91, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SA_S9_T1_.exit47 ], [ 1, %_ZNK2cv3Mat8elemSizeEv.exit40 ]
-  %94 = sext i32 %88 to i64
+  %.0.lcssa.i4675 = phi i32 [ %92, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SA_S9_T1_.exit47 ], [ 1, %_ZNK2cv3Mat8elemSizeEv.exit40 ]
   %wide.trip.count = zext nneg i32 %.0.lcssa.i4675 to i64
   br label %95
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
-  %96 = mul nsw i64 %indvars.iv, %94
+  %96 = mul nsw i64 %indvars.iv, %89
   %97 = getelementptr inbounds i8, ptr %72, i64 %96
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %97, ptr align 1 %69, i64 %94, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %97, ptr align 1 %69, i64 %89, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %95, !llvm.loop !104

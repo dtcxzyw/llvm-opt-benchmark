@@ -489,18 +489,18 @@ check_pack_crc.exit.i:                            ; preds = %126
   %198 = zext i32 %197 to i64
   call void @display_progress(ptr noundef %3, i64 noundef %198) #9
   call void @free(ptr noundef nonnull %92) #9
+  %199 = or i32 %.2119.lcssa.i, %.06.i
   br label %verify_packfile.exit
 
 verify_packfile.exit:                             ; preds = %31, %._crit_edge153.i
-  %.0.i = phi i32 [ %.2119.lcssa.i, %._crit_edge153.i ], [ -1, %31 ]
+  %.0.i = phi i32 [ %199, %._crit_edge153.i ], [ -1, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %199 = or i32 %.0.i, %.06.i
   call void @unuse_pack(ptr noundef nonnull %15) #9
   br label %200
 
 200:                                              ; preds = %verify_pack_index.exit, %verify_packfile.exit
-  %.0 = phi i32 [ %199, %verify_packfile.exit ], [ -1, %verify_pack_index.exit ]
+  %.0 = phi i32 [ %.0.i, %verify_packfile.exit ], [ -1, %verify_pack_index.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret i32 %.0
 }

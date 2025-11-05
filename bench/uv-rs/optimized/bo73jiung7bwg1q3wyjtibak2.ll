@@ -1462,7 +1462,7 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   store i64 %62, ptr %.sroa.5212.0..sroa_idx, align 8
   %89 = load i64, ptr %13, align 8, !noundef !3
   switch i64 %89, label %90 [
-    i64 0, label %.loopexit.i.i.i.i
+    i64 0, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit
     i64 1, label %93
   ]
 
@@ -1499,7 +1499,7 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %102 = insertvalue { ptr, i64 } %101, i64 %.sroa.3.0.i152, 1
   br label %105
 
-103:                                              ; preds = %147, %.critedge, %90
+103:                                              ; preds = %147, %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread, %90
   %104 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17he37a5e5a121d0c88E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #24
@@ -1509,20 +1509,20 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %.pn124 = phi { ptr, i64 } [ %102, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h6182620496aa6c20E.exit156" ], [ %92, %90 ]
   %.sroa.053.0 = extractvalue { ptr, i64 } %.pn124, 0
   %106 = icmp eq ptr %.sroa.053.0, null
-  br i1 %106, label %.loopexit.i.i.i.i, label %107
+  br i1 %106, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit, label %107
 
 107:                                              ; preds = %105
   %.sroa.755.0 = extractvalue { ptr, i64 } %.pn124, 1
   switch i64 %.sroa.755.0, label %110 [
-    i64 0, label %.critedge
+    i64 0, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread
     i64 1, label %108
   ]
 
 108:                                              ; preds = %107
   %109 = load i8, ptr %.sroa.053.0, align 1, !alias.scope !281, !noundef !3
   switch i8 %109, label %.lr.ph.i.i.i.i.preheader [
-    i8 43, label %.critedge
-    i8 45, label %.critedge
+    i8 43, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread
+    i8 45, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread
   ]
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %115, %111, %108
@@ -1551,7 +1551,7 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %.sroa.148.0.i.i.i.i = phi i64 [ %119, %128 ], [ %.sroa.148.0.i.i.i.i.ph, %.preheader50.i.i.i.i.preheader ]
   %.sroa.02.0.i.i.i.i = phi ptr [ %118, %128 ], [ %.sroa.02.0.i.i.i.i.ph, %.preheader50.i.i.i.i.preheader ]
   %.not.i.i.i.i = icmp eq i64 %.sroa.148.0.i.i.i.i, 0
-  br i1 %.not.i.i.i.i, label %.loopexit.i.i.i.i, label %117
+  br i1 %.not.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit, label %117
 
 115:                                              ; preds = %110
   %116 = icmp ult i64 %.sroa.755.0, 5
@@ -1566,18 +1566,18 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %123 = zext i8 %122 to i32
   %124 = add nsw i32 %123, -48
   %125 = icmp ugt i32 %124, 9
-  br i1 %125, label %.critedge, label %126
+  br i1 %125, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread, label %126
 
 126:                                              ; preds = %117
   %127 = extractvalue { i16, i1 } %120, 1
-  br i1 %127, label %.critedge, label %128
+  br i1 %127, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread, label %128
 
 128:                                              ; preds = %126
   %129 = trunc nuw nsw i32 %124 to i16
   %130 = tail call { i16, i1 } @llvm.uadd.with.overflow.i16(i16 %121, i16 %129)
   %131 = extractvalue { i16, i1 } %130, 1
   %132 = add nuw i16 %121, %129
-  br i1 %131, label %.critedge, label %.preheader50.i.i.i.i
+  br i1 %131, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread, label %.preheader50.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %137
   %.sroa.02.158.i.i.i.i = phi ptr [ %140, %137 ], [ %.sroa.02.158.i.i.i.i.ph, %.lr.ph.i.i.i.i.preheader ]
@@ -1587,7 +1587,7 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %134 = zext i8 %133 to i32
   %135 = add nsw i32 %134, -48
   %136 = icmp ugt i32 %135, 9
-  br i1 %136, label %.critedge, label %137
+  br i1 %136, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread, label %137
 
 137:                                              ; preds = %.lr.ph.i.i.i.i
   %138 = mul i16 %.sroa.015.256.i.i.i.i, 10
@@ -1596,9 +1596,9 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   %141 = trunc nuw nsw i32 %135 to i16
   %142 = add i16 %138, %141
   %.not45.i.i.i.i = icmp eq i64 %139, 0
-  br i1 %.not45.i.i.i.i, label %.loopexit.i.i.i.i, label %.lr.ph.i.i.i.i
+  br i1 %.not45.i.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit, label %.lr.ph.i.i.i.i
 
-.loopexit.i.i.i.i:                                ; preds = %.preheader50.i.i.i.i, %137, %86, %105
+_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit: ; preds = %.preheader50.i.i.i.i, %137, %86, %105
   %.sroa.048.0 = phi i16 [ 0, %105 ], [ 0, %86 ], [ 1, %137 ], [ 1, %.preheader50.i.i.i.i ]
   %.sroa.649.0 = phi i16 [ undef, %105 ], [ undef, %86 ], [ %142, %137 ], [ %.sroa.015.0.i.i.i.i, %.preheader50.i.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.059)
@@ -1616,12 +1616,12 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %149
 
-.critedge:                                        ; preds = %117, %126, %128, %.lr.ph.i.i.i.i, %108, %108, %107
+_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread: ; preds = %128, %126, %117, %.lr.ph.i.i.i.i, %108, %108, %107
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !290
   invoke void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17he68bd1692bcae451E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef %.sroa.8.0, i1 noundef zeroext false, i64 noundef 1, i64 noundef 1)
           to label %.noexc160 unwind label %103
 
-.noexc160:                                        ; preds = %.critedge
+.noexc160:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit.thread
   %143 = load i64, ptr %5, align 8, !range !5, !noalias !290, !noundef !3
   %trunc.i.i157 = trunc nuw i64 %143 to i1
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1637,7 +1637,7 @@ define void @"_ZN90_$LT$uv_configuration..trusted_host..TrustedHost$u20$as$u20$c
 .noexc161:                                        ; preds = %147
   unreachable
 
-149:                                              ; preds = %.loopexit.i.i.i.i, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he6b36d2e5c5e815eE.exit", %20
+149:                                              ; preds = %_ZN4core3ops8function6FnOnce9call_once17h958613dd6c04af7cE.exit, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17he6b36d2e5c5e815eE.exit", %20
   ret void
 
 150:                                              ; preds = %.noexc160

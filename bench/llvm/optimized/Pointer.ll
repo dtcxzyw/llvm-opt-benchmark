@@ -1137,12 +1137,12 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit.thread: ; preds = %_ZN5clang6inte
   %281 = getelementptr inbounds nuw i8, ptr %271, i64 8
   %282 = load i32, ptr %281, align 8, !tbaa !65
   %283 = zext i32 %282 to i64
+  %284 = mul i64 %272, %283
   br label %_ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i
 
 _ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i:    ; preds = %280, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit.thread.thread540
-  %.0.shrunk.i.i.i = phi i64 [ %283, %280 ], [ 1, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit.thread.thread540 ]
-  %284 = mul i64 %.0.shrunk.i.i.i, %272
-  %285 = add i64 %284, %273
+  %.0.shrunk.i.i.i = phi i64 [ %284, %280 ], [ %272, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit.thread.thread540 ]
+  %285 = add i64 %.0.shrunk.i.i.i, %273
   br label %_ZNK5clang6interp7Pointer8getIndexEv.exit
 
 286:                                              ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit.thread
@@ -1823,12 +1823,12 @@ _ZNK5clang6interp7Pointer12getFieldDescEv.exit209.thread: ; preds = %_ZN5clang6i
   %551 = getelementptr inbounds nuw i8, ptr %498, i64 8
   %552 = load i32, ptr %551, align 8, !tbaa !65
   %553 = zext i32 %552 to i64
+  %554 = mul i64 %499, %553
   br label %_ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i247
 
 _ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i247: ; preds = %550, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit209.thread.thread545
-  %.0.shrunk.i.i.i248 = phi i64 [ %553, %550 ], [ 1, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit209.thread.thread545 ]
-  %554 = mul i64 %.0.shrunk.i.i.i248, %499
-  %555 = add i64 %554, %500
+  %.0.shrunk.i.i.i248 = phi i64 [ %554, %550 ], [ %499, %_ZNK5clang6interp7Pointer12getFieldDescEv.exit209.thread.thread545 ]
+  %555 = add i64 %.0.shrunk.i.i.i248, %500
   br label %_ZNK5clang6interp7Pointer8getIndexEv.exit276
 
 556:                                              ; preds = %_ZNK5clang6interp7Pointer12getFieldDescEv.exit209.thread
@@ -3257,12 +3257,12 @@ define linkonce_odr hidden noundef i64 @_ZNK5clang6interp7Pointer8getIndexEv(ptr
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !65
   %15 = zext i32 %14 to i64
+  %16 = mul i64 %7, %15
   br label %_ZNK5clang6interp7Pointer8elemSizeEv.exit.i
 
 _ZNK5clang6interp7Pointer8elemSizeEv.exit.i:      ; preds = %12, %8
-  %.0.shrunk.i.i = phi i64 [ %15, %12 ], [ 1, %8 ]
-  %16 = mul i64 %.0.shrunk.i.i, %7
-  %17 = add i64 %16, %10
+  %.0.shrunk.i.i = phi i64 [ %16, %12 ], [ %7, %8 ]
+  %17 = add i64 %.0.shrunk.i.i, %10
   br label %_ZNK5clang6interp7Pointer24getIntegerRepresentationEv.exit
 
 18:                                               ; preds = %6

@@ -3068,7 +3068,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation15initializeRatesEiP
   store i8 %42, ptr %38, align 4
   %43 = add nsw i32 %36, %35
   %44 = shl nsw i32 %43, 1
-  br label %124
+  br label %126
 
 45:                                               ; preds = %20
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -3097,7 +3097,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   %53 = or i8 %52, 2
   store i8 %53, ptr %51, align 4
   %54 = mul nsw i32 %50, %7
-  br label %124
+  br label %126
 
 55:                                               ; preds = %15
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3151,7 +3151,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   %80 = phi ptr [ %16, %55 ], [ %.pre, %72 ]
   %.1.lcssa = phi i32 [ 0, %55 ], [ %78, %72 ]
   %81 = icmp sgt i32 %1, %7
-  br i1 %81, label %82, label %105
+  br i1 %81, label %82, label %107
 
 82:                                               ; preds = %._crit_edge
   %83 = zext i16 %6 to i64
@@ -3181,53 +3181,57 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
 95:                                               ; preds = %91
   %96 = load i32, ptr %80, align 4
   %97 = icmp eq i32 %.sroa.speculated55, %96
-  br i1 %97, label %98, label %.thread
+  br i1 %97, label %99, label %.thread
 
-98:                                               ; preds = %95
+.thread:                                          ; preds = %91, %95
+  %98 = and i8 %79, -3
+  br label %105
+
+99:                                               ; preds = %95
+  %100 = and i8 %79, -3
   store i8 %79, ptr %56, align 4
-  %99 = load i32, ptr %80, align 4
-  %100 = icmp eq i32 %92, %99
-  %101 = select i1 %100, i8 2, i8 0
-  br label %.thread
+  %101 = load i32, ptr %80, align 4
+  %102 = icmp eq i32 %92, %101
+  %103 = select i1 %102, i8 2, i8 0
+  %104 = or disjoint i8 %103, %100
+  br label %105
 
-.thread:                                          ; preds = %95, %91, %98
-  %102 = phi i8 [ %101, %98 ], [ 0, %91 ], [ 0, %95 ]
-  %103 = and i8 %79, -3
-  %104 = or disjoint i8 %102, %103
-  store i8 %104, ptr %56, align 4
-  br label %124
+105:                                              ; preds = %.thread, %99
+  %106 = phi i8 [ %104, %99 ], [ %98, %.thread ]
+  store i8 %106, ptr %56, align 4
+  br label %126
 
-105:                                              ; preds = %._crit_edge
-  br i1 %18, label %106, label %120
+107:                                              ; preds = %._crit_edge
+  br i1 %18, label %108, label %122
 
-106:                                              ; preds = %105
-  %107 = load i32, ptr %80, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %109 = load i32, ptr %108, align 4
-  %110 = add nsw i32 %109, %107
-  %111 = sdiv i32 %110, 2
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %111, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %80, i64 4
-  %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %80, i64 12
+108:                                              ; preds = %107
+  %109 = load i32, ptr %80, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %111 = load i32, ptr %110, align 4
+  %112 = add nsw i32 %111, %109
+  %113 = sdiv i32 %112, 2
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %113, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %116 = load i32, ptr %115, align 4
-  %117 = add nsw i32 %116, %114
-  %118 = sdiv i32 %117, 2
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %118, ptr %119, align 4
-  br label %124
+  %117 = getelementptr inbounds nuw i8, ptr %80, i64 12
+  %118 = load i32, ptr %117, align 4
+  %119 = add nsw i32 %118, %116
+  %120 = sdiv i32 %119, 2
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %120, ptr %121, align 4
+  br label %126
 
-120:                                              ; preds = %105
-  %121 = sdiv i32 %.1.lcssa, %7
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %121, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %121, ptr %123, align 4
-  br label %124
+122:                                              ; preds = %107
+  %123 = sdiv i32 %.1.lcssa, %7
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %123, ptr %124, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  store i32 %123, ptr %125, align 4
+  br label %126
 
-124:                                              ; preds = %.thread, %120, %106, %24, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
-  %.036 = phi i32 [ %44, %24 ], [ %54, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ], [ %.1.lcssa, %.thread ], [ %.1.lcssa, %106 ], [ %.1.lcssa, %120 ]
+126:                                              ; preds = %105, %122, %108, %24, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
+  %.036 = phi i32 [ %44, %24 ], [ %54, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ], [ %.1.lcssa, %105 ], [ %.1.lcssa, %108 ], [ %.1.lcssa, %122 ]
   ret i32 %.036
 }
 
@@ -5815,10 +5819,10 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   br label %68
 
 68:                                               ; preds = %.lr.ph, %141
-  %.099238 = phi i32 [ 0, %.lr.ph ], [ %.1256, %141 ]
-  %.0100237 = phi i32 [ %27, %.lr.ph ], [ %.1101254, %141 ]
-  %.0102236 = phi i32 [ %8, %.lr.ph ], [ %.1103252, %141 ]
-  %.0104235 = phi i32 [ %32, %.lr.ph ], [ %.1105250, %141 ]
+  %.099238 = phi i32 [ 0, %.lr.ph ], [ %.1255, %141 ]
+  %.0100237 = phi i32 [ %27, %.lr.ph ], [ %.1101253, %141 ]
+  %.0102236 = phi i32 [ %8, %.lr.ph ], [ %.1103251, %141 ]
+  %.0104235 = phi i32 [ %32, %.lr.ph ], [ %.1105249, %141 ]
   %.0106234 = phi i32 [ %33, %.lr.ph ], [ %.1107, %141 ]
   %.0112229 = phi i32 [ 0, %.lr.ph ], [ %142, %141 ]
   %.0113228 = phi i32 [ %35, %.lr.ph ], [ %.1114, %141 ]
@@ -5937,20 +5941,20 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   br label %137
 
 133:                                              ; preds = %.thread211, %.thread
-  %.0108.shrunk196216 = phi i1 [ false, %.thread211 ], [ true, %.thread ]
+  %.0110195218 = phi i1 [ false, %.thread211 ], [ true, %.thread ]
   %134 = add nsw i32 %.0102236, %8
   %135 = add nsw i32 %.0104235, 1
   %.not139 = icmp slt i32 %134, %15
   %136 = load i32, ptr %29, align 4
   %spec.select = select i1 %.not139, i32 %135, i32 %136
   %spec.select221 = tail call i32 @llvm.smin.i32(i32 %134, i32 %15)
-  br i1 %.0108.shrunk196216, label %137, label %141
+  br i1 %.0110195218, label %137, label %141
 
 137:                                              ; preds = %.thread243, %133
-  %.1257 = phi i32 [ %.099238, %.thread243 ], [ %.0102236, %133 ]
-  %.1101255 = phi i32 [ %.0100237, %.thread243 ], [ %.0104235, %133 ]
-  %.1103253 = phi i32 [ %.0102236, %.thread243 ], [ %spec.select221, %133 ]
-  %.1105251 = phi i32 [ %.0104235, %.thread243 ], [ %spec.select, %133 ]
+  %.1256 = phi i32 [ %.099238, %.thread243 ], [ %.0102236, %133 ]
+  %.1101254 = phi i32 [ %.0100237, %.thread243 ], [ %.0104235, %133 ]
+  %.1103252 = phi i32 [ %.0102236, %.thread243 ], [ %spec.select221, %133 ]
+  %.1105250 = phi i32 [ %.0104235, %.thread243 ], [ %spec.select, %133 ]
   %138 = add nsw i32 %.0115227, %10
   %139 = add nsw i32 %.0117226, %25
   %.not140 = icmp slt i32 %138, %.098
@@ -5960,10 +5964,10 @@ define internal fastcc noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12_GLOBAL__N_110F
   br label %141
 
 141:                                              ; preds = %137, %133
-  %.1256 = phi i32 [ %.0102236, %133 ], [ %.1257, %137 ]
-  %.1101254 = phi i32 [ %.0104235, %133 ], [ %.1101255, %137 ]
-  %.1103252 = phi i32 [ %spec.select221, %133 ], [ %.1103253, %137 ]
-  %.1105250 = phi i32 [ %spec.select, %133 ], [ %.1105251, %137 ]
+  %.1255 = phi i32 [ %.0102236, %133 ], [ %.1256, %137 ]
+  %.1101253 = phi i32 [ %.0104235, %133 ], [ %.1101254, %137 ]
+  %.1103251 = phi i32 [ %spec.select221, %133 ], [ %.1103252, %137 ]
+  %.1105249 = phi i32 [ %spec.select, %133 ], [ %.1105250, %137 ]
   %.1118 = phi i32 [ %.0117226, %133 ], [ %spec.select222, %137 ]
   %.1116 = phi i32 [ %.0115227, %133 ], [ %spec.select223, %137 ]
   %.1114 = phi i32 [ %.0113228, %133 ], [ %.0117226, %137 ]

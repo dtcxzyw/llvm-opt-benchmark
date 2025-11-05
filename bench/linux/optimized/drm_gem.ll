@@ -892,22 +892,22 @@ define dso_local ptr @drm_gem_get_pages(ptr noundef readonly captures(none) %0) 
   %43 = add nsw i64 %39, %25
   br label %44
 
-44:                                               ; preds = %53, %41
-  %45 = phi i64 [ %25, %41 ], [ %58, %53 ]
+44:                                               ; preds = %54, %41
+  %45 = phi i64 [ %25, %41 ], [ %58, %54 ]
   %46 = load volatile i64, ptr %26, align 8
   %47 = and i64 %46, 64
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %53, label %49
+  br i1 %48, label %54, label %49
 
 49:                                               ; preds = %44
   %50 = load i32, ptr %42, align 4
   %51 = zext i32 %50 to i64
   %52 = add nsw i64 %51, -1
-  br label %53
+  %53 = and i64 %52, %45
+  br label %54
 
-53:                                               ; preds = %49, %44
-  %54 = phi i64 [ %52, %49 ], [ 0, %44 ]
-  %55 = and i64 %54, %45
+54:                                               ; preds = %49, %44
+  %55 = phi i64 [ %53, %49 ], [ 0, %44 ]
   %56 = getelementptr %struct.page, ptr %26, i64 %55
   %57 = getelementptr ptr, ptr %19, i64 %45
   store ptr %56, ptr %57, align 8
@@ -915,8 +915,8 @@ define dso_local ptr @drm_gem_get_pages(ptr noundef readonly captures(none) %0) 
   %59 = icmp eq i64 %58, %43
   br i1 %59, label %.loopexit, label %44, !llvm.loop !40
 
-.loopexit:                                        ; preds = %53, %37
-  %60 = phi i64 [ %25, %37 ], [ %43, %53 ]
+.loopexit:                                        ; preds = %54, %37
+  %60 = phi i64 [ %25, %37 ], [ %43, %54 ]
   %61 = load i32, ptr %23, align 8
   %62 = and i32 %61, 4
   %63 = icmp eq i32 %62, 0

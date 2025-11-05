@@ -8188,101 +8188,101 @@ define internal i32 @ff_tx_rdft_init_float_c(ptr noundef initializes((140, 152))
   %27 = fdiv nsz double 0x401921FB54442D18, %26
   %.not67 = icmp eq i32 %5, 0
   %28 = load double, ptr %13, align 8, !tbaa !26
+  %.pre = fmul nsz double %28, 5.000000e-01
   %29 = fmul nsz double %28, 2.000000e+00
-  %30 = select i1 %.not67, double 1.000000e+00, double 5.000000e-01
-  %31 = select nsz i1 %.not67, double %28, double %29
-  %32 = fmul nsz double %30, %31
-  %33 = fptrunc nsz double %32 to float
+  %30 = fmul nsz double %29, 5.000000e-01
+  %.pre-phi = select i1 %.not67, double %.pre, double %30
+  %31 = select i1 %.not67, double %28, double %30
+  %32 = select nsz i1 %.not67, double %28, double %29
+  %33 = fptrunc nsz double %31 to float
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store float %33, ptr %23, align 4, !tbaa !28
-  %35 = fmul nsz double %31, 5.000000e-01
-  %36 = select nsz i1 %.not67, double %28, double %35
-  %37 = fptrunc nsz double %36 to float
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store float %37, ptr %34, align 4, !tbaa !28
-  %39 = fptrunc nsz double %31 to float
-  %40 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  %35 = fptrunc nsz double %31 to float
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store float %35, ptr %34, align 4, !tbaa !28
+  %37 = fptrunc nsz double %32 to float
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store float %37, ptr %36, align 4, !tbaa !28
+  %39 = fneg nsz float %37
+  %40 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store float %39, ptr %38, align 4, !tbaa !28
-  %41 = fneg nsz float %39
-  %42 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %41 = fptrunc nsz double %.pre-phi to float
+  %42 = getelementptr inbounds nuw i8, ptr %23, i64 20
   store float %41, ptr %40, align 4, !tbaa !28
-  %43 = fptrunc nsz double %35 to float
-  %44 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store float %43, ptr %42, align 4, !tbaa !28
   %.not68 = icmp eq i64 %8, 0
-  br i1 %.not68, label %48, label %45
+  br i1 %.not68, label %46, label %43
 
-45:                                               ; preds = %25
-  %46 = load float, ptr %14, align 4, !tbaa !84
-  %47 = fdiv nsz float 1.000000e+00, %46
-  br label %51
+43:                                               ; preds = %25
+  %44 = load float, ptr %14, align 4, !tbaa !84
+  %45 = fdiv nsz float 1.000000e+00, %44
+  br label %49
 
-48:                                               ; preds = %25
-  %49 = fmul nsz double %31, -5.000000e-01
-  %50 = fptrunc nsz double %49 to float
-  br label %51
+46:                                               ; preds = %25
+  %47 = fmul nsz double %32, -5.000000e-01
+  %48 = fptrunc nsz double %47 to float
+  br label %49
 
-51:                                               ; preds = %48, %45
-  %storemerge = phi float [ %50, %48 ], [ %47, %45 ]
+49:                                               ; preds = %46, %43
+  %storemerge = phi float [ %48, %46 ], [ %45, %43 ]
   %.062 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store float %storemerge, ptr %44, align 4, !tbaa !28
-  %52 = sitofp i32 %5 to double
-  %53 = fsub nsz double 5.000000e-01, %52
-  %54 = fmul nsz double %53, %31
-  %55 = fptrunc nsz double %54 to float
-  %56 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  store float %55, ptr %.062, align 4, !tbaa !28
-  %57 = fneg nsz double %53
-  %58 = fmul nsz double %31, %57
-  %59 = fptrunc nsz double %58 to float
-  store float %59, ptr %56, align 4, !tbaa !28
-  %60 = icmp sgt i32 %10, 0
-  br i1 %60, label %.lr.ph.preheader, label %.loopexit
+  store float %storemerge, ptr %42, align 4, !tbaa !28
+  %50 = sitofp i32 %5 to double
+  %51 = fsub nsz double 5.000000e-01, %50
+  %52 = fmul nsz double %51, %32
+  %53 = fptrunc nsz double %52 to float
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 28
+  store float %53, ptr %.062, align 4, !tbaa !28
+  %55 = fneg nsz double %51
+  %56 = fmul nsz double %32, %55
+  %57 = fptrunc nsz double %56 to float
+  store float %57, ptr %54, align 4, !tbaa !28
+  %58 = icmp sgt i32 %10, 0
+  br i1 %58, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %51
-  %61 = getelementptr inbounds nuw i8, ptr %23, i64 32
+.lr.ph.preheader:                                 ; preds = %49
+  %59 = getelementptr inbounds nuw i8, ptr %23, i64 32
   br label %.lr.ph
 
 .lr.ph74:                                         ; preds = %.lr.ph
-  %62 = zext nneg i32 %10 to i64
-  %63 = getelementptr inbounds nuw float, ptr %23, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  %65 = select i1 %.not67, i32 -1, i32 1
-  %66 = sitofp i32 %65 to double
-  br label %73
+  %60 = zext nneg i32 %10 to i64
+  %61 = getelementptr inbounds nuw float, ptr %23, i64 %60
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  %63 = select i1 %.not67, i32 -1, i32 1
+  %64 = sitofp i32 %63 to double
+  br label %71
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06070 = phi i32 [ %72, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.169 = phi ptr [ %71, %.lr.ph ], [ %61, %.lr.ph.preheader ]
-  %67 = uitofp nneg i32 %.06070 to double
-  %68 = fmul nsz double %27, %67
-  %69 = tail call nsz double @llvm.cos.f64(double %68)
-  %70 = fptrunc nsz double %69 to float
-  %71 = getelementptr inbounds nuw i8, ptr %.169, i64 4
-  store float %70, ptr %.169, align 4, !tbaa !28
-  %72 = add nuw nsw i32 %.06070, 1
-  %exitcond.not = icmp eq i32 %72, %10
+  %.06070 = phi i32 [ %70, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.169 = phi ptr [ %69, %.lr.ph ], [ %59, %.lr.ph.preheader ]
+  %65 = uitofp nneg i32 %.06070 to double
+  %66 = fmul nsz double %27, %65
+  %67 = tail call nsz double @llvm.cos.f64(double %66)
+  %68 = fptrunc nsz double %67 to float
+  %69 = getelementptr inbounds nuw i8, ptr %.169, i64 4
+  store float %68, ptr %.169, align 4, !tbaa !28
+  %70 = add nuw nsw i32 %.06070, 1
+  %exitcond.not = icmp eq i32 %70, %10
   br i1 %exitcond.not, label %.lr.ph74, label %.lr.ph, !llvm.loop !139
 
-73:                                               ; preds = %.lr.ph74, %73
-  %.072 = phi i32 [ 0, %.lr.ph74 ], [ %83, %73 ]
-  %.271 = phi ptr [ %64, %.lr.ph74 ], [ %82, %73 ]
-  %74 = shl nsw i32 %.072, 2
-  %75 = sub nsw i32 %4, %74
-  %76 = sitofp i32 %75 to double
-  %77 = fmul nsz double %76, 2.500000e-01
-  %78 = fmul nsz double %27, %77
-  %79 = tail call nsz double @llvm.cos.f64(double %78)
-  %80 = fmul nsz double %79, %66
-  %81 = fptrunc nsz double %80 to float
-  %82 = getelementptr inbounds nuw i8, ptr %.271, i64 4
-  store float %81, ptr %.271, align 4, !tbaa !28
-  %83 = add nuw nsw i32 %.072, 1
-  %exitcond75.not = icmp eq i32 %83, %10
-  br i1 %exitcond75.not, label %.loopexit, label %73, !llvm.loop !140
+71:                                               ; preds = %.lr.ph74, %71
+  %.072 = phi i32 [ 0, %.lr.ph74 ], [ %81, %71 ]
+  %.271 = phi ptr [ %62, %.lr.ph74 ], [ %80, %71 ]
+  %72 = shl nsw i32 %.072, 2
+  %73 = sub nsw i32 %4, %72
+  %74 = sitofp i32 %73 to double
+  %75 = fmul nsz double %74, 2.500000e-01
+  %76 = fmul nsz double %27, %75
+  %77 = tail call nsz double @llvm.cos.f64(double %76)
+  %78 = fmul nsz double %77, %64
+  %79 = fptrunc nsz double %78 to float
+  %80 = getelementptr inbounds nuw i8, ptr %.271, i64 4
+  store float %79, ptr %.271, align 4, !tbaa !28
+  %81 = add nuw nsw i32 %.072, 1
+  %exitcond75.not = icmp eq i32 %81, %10
+  br i1 %exitcond75.not, label %.loopexit, label %71, !llvm.loop !140
 
-.loopexit:                                        ; preds = %73, %51, %18, %7
-  %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %51 ], [ 0, %73 ]
+.loopexit:                                        ; preds = %71, %49, %18, %7
+  %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %49 ], [ 0, %71 ]
   ret i32 %.061
 }
 

@@ -5984,7 +5984,7 @@ define linkonce_odr hidden void @_ZN4llvm3lto6ConfigC2Ev(ptr noundef nonnull ali
 declare void @_ZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(1416), ptr noundef, i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i64 0, 8589934592) i64 @_ZL12getCodeModelRKN5clang14CodeGenOptionsE(ptr readonly captures(none) %.200.val, i64 %.208.val) unnamed_addr #10 {
+define internal fastcc range(i64 4294967294, 8589934592) i64 @_ZL12getCodeModelRKN5clang14CodeGenOptionsE(ptr readonly captures(none) %.200.val, i64 %.208.val) unnamed_addr #10 {
   switch i64 %.208.val, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41.thread [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i
     i64 5, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6
@@ -6023,15 +6023,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i38:          ; preds = %0
   br i1 %6, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41, label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41.thread
 
 _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30
-  %.not = phi i64 [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
-  %.sroa.16.5 = phi i64 [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ], [ 4294967294, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 3, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 2, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+  %.not = phi i64 [ 4294967300, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ], [ 4294967294, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 4294967299, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 4294967298, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i14 ], [ 4294967297, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i6 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   br label %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41.thread
 
 _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41.thread: ; preds = %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41, %0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38
-  %spec.select.i95 = phi i64 [ 4294967295, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 4294967295, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ], [ 4294967295, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967295, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 4294967295, %0 ], [ %.sroa.16.5, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41 ]
-  %.sroa.238.0 = phi i64 [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 4294967296, %0 ], [ %.not, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41 ]
-  %.sroa.037.0.insert.insert = or disjoint i64 %.sroa.238.0, %spec.select.i95
-  ret i64 %.sroa.037.0.insert.insert
+  %.sroa.238.0 = phi i64 [ 8589934591, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i38 ], [ 8589934591, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i30 ], [ 8589934591, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ 8589934591, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i22 ], [ 8589934591, %0 ], [ %.not, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit41 ]
+  ret i64 %.sroa.238.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

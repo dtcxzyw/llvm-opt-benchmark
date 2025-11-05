@@ -424,15 +424,13 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @LLVMTargetMachineOptionsSetRelocMode(ptr noundef writeonly captures(none) initializes((100, 108)) %0, i32 noundef %1) local_unnamed_addr #7 {
-switch.lookup:
   %switch.tableidx = add i32 %1, -1
-  %2 = icmp ult i32 %switch.tableidx, 6
-  %narrow = select i1 %2, i32 %switch.tableidx, i32 0
-  %spec.select = zext nneg i32 %narrow to i64
-  %spec.select67 = select i1 %2, i64 4294967296, i64 0
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %.sroa.041.0.insert.insert = or disjoint i64 %spec.select67, %spec.select
-  store i64 %.sroa.041.0.insert.insert, ptr %3, align 4
+  %3 = icmp ult i32 %switch.tableidx, 6
+  %switch.idx.cast = zext i32 %switch.tableidx to i64
+  %switch.offset = or disjoint i64 %switch.idx.cast, 4294967296
+  %.sroa.9.0 = select i1 %3, i64 %switch.offset, i64 0
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i64 %.sroa.9.0, ptr %4, align 4
   ret void
 }
 
@@ -472,11 +470,9 @@ define dso_local void @LLVMTargetMachineOptionsSetCodeModel(ptr noundef writeonl
   br label %_ZN4llvm6unwrapE13LLVMCodeModelRb.exit
 
 _ZN4llvm6unwrapE13LLVMCodeModelRb.exit:           ; preds = %2, %4, %5, %6, %7, %8, %9
-  %.sroa.0.0.i = phi i64 [ 1, %9 ], [ 0, %5 ], [ 2, %6 ], [ 3, %7 ], [ 4, %8 ], [ 0, %4 ], [ 0, %2 ]
-  %.sroa.7.0.i = phi i64 [ 4294967296, %9 ], [ 4294967296, %5 ], [ 4294967296, %6 ], [ 4294967296, %7 ], [ 4294967296, %8 ], [ 0, %4 ], [ 0, %2 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.7.0.i, %.sroa.0.0.i
+  %.sroa.7.0.i = phi i64 [ 4294967297, %9 ], [ 4294967296, %5 ], [ 4294967298, %6 ], [ 4294967299, %7 ], [ 4294967300, %8 ], [ 0, %4 ], [ 0, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i64 %.sroa.0.0.insert.insert.i, ptr %10, align 4
+  store i64 %.sroa.7.0.i, ptr %10, align 4
   ret void
 }
 
@@ -707,12 +703,11 @@ define dso_local noundef ptr @LLVMCreateTargetMachine(ptr noundef %0, ptr nounde
   store i32 %spec.select.i, ptr %15, align 8, !tbaa !30
   %switch.tableidx.i14 = add i32 %5, -1
   %23 = icmp ult i32 %switch.tableidx.i14, 6
-  %narrow.i = select i1 %23, i32 %switch.tableidx.i14, i32 0
-  %spec.select.i15 = zext nneg i32 %narrow.i to i64
-  %spec.select67.i = select i1 %23, i64 4294967296, i64 0
+  %switch.idx.cast.i = zext nneg i32 %switch.tableidx.i14 to i64
+  %switch.offset.i = or disjoint i64 %switch.idx.cast.i, 4294967296
+  %.sroa.9.0.i = select i1 %23, i64 %switch.offset.i, i64 0
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 100
-  %.sroa.041.0.insert.insert.i = or disjoint i64 %spec.select67.i, %spec.select.i15
-  store i64 %.sroa.041.0.insert.insert.i, ptr %24, align 4
+  store i64 %.sroa.9.0.i, ptr %24, align 4
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 116
   store i8 0, ptr %25, align 4, !tbaa !42
   switch i32 %6, label %31 [
@@ -744,11 +739,9 @@ define dso_local noundef ptr @LLVMCreateTargetMachine(ptr noundef %0, ptr nounde
   br label %LLVMTargetMachineOptionsSetCodeModel.exit
 
 LLVMTargetMachineOptionsSetCodeModel.exit:        ; preds = %7, %26, %27, %28, %29, %30, %31
-  %.sroa.0.0.i.i = phi i64 [ 1, %31 ], [ 0, %27 ], [ 2, %28 ], [ 3, %29 ], [ 4, %30 ], [ 0, %26 ], [ 0, %7 ]
-  %.sroa.7.0.i.i = phi i64 [ 4294967296, %31 ], [ 4294967296, %27 ], [ 4294967296, %28 ], [ 4294967296, %29 ], [ 4294967296, %30 ], [ 0, %26 ], [ 0, %7 ]
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.7.0.i.i, %.sroa.0.0.i.i
+  %.sroa.7.0.i.i = phi i64 [ 4294967297, %31 ], [ 4294967296, %27 ], [ 4294967298, %28 ], [ 4294967299, %29 ], [ 4294967300, %30 ], [ 0, %26 ], [ 0, %7 ]
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 108
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %32, align 4
+  store i64 %.sroa.7.0.i.i, ptr %32, align 4
   %33 = tail call ptr @LLVMCreateTargetMachineWithOptions(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8)
   %34 = load ptr, ptr %13, align 8, !tbaa !22
   %35 = icmp eq ptr %34, %14

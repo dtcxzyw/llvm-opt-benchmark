@@ -12811,8 +12811,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1416:             ; preds = %5393, %5395
   br label %_ZNK4llvm19StringToOffsetTable15GetStringOffsetENS_9StringRefE.exit
 
 _ZNK4llvm19StringToOffsetTable15GetStringOffsetENS_9StringRefE.exit: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1416, %5408
-  %.sroa.06.0.i = phi i64 [ %5413, %5408 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit1416 ]
-  %5414 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i1415, i64 noundef %.sroa.06.0.i) #24
+  %.sroa.2.0.i = phi i64 [ %5413, %5408 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit1416 ]
+  %5414 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i1415, i64 noundef %.sroa.2.0.i) #24
   %5415 = getelementptr inbounds nuw i8, ptr %5414, i64 24
   %5416 = load ptr, ptr %5415, align 8, !tbaa !141
   %5417 = getelementptr inbounds nuw i8, ptr %5414, i64 32
@@ -22055,8 +22055,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i3279: ; preds = 
   br label %_ZNK4llvm19StringToOffsetTable15GetStringOffsetENS_9StringRefE.exit.i
 
 _ZNK4llvm19StringToOffsetTable15GetStringOffsetENS_9StringRefE.exit.i: ; preds = %10237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i3279
-  %.sroa.06.0.i.i = phi i64 [ %10242, %10237 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i3279 ]
-  %10243 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %.sroa.06.0.i.i) #24
+  %.sroa.2.0.i.i = phi i64 [ %10242, %10237 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i3279 ]
+  %10243 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %.sroa.2.0.i.i) #24
   %10244 = getelementptr inbounds nuw i8, ptr %10243, i64 24
   %10245 = load ptr, ptr %10244, align 8, !tbaa !141
   %10246 = getelementptr inbounds nuw i8, ptr %10243, i64 32
@@ -59152,10 +59152,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit30:     ; preds = %_ZNK4llvm9StringRef
   br label %26
 
 26:                                               ; preds = %.thread50, %_ZN4llvm9StringRef13consume_frontES0_.exit30, %_ZN4llvm9StringRef13consume_frontES0_.exit18, %_ZN4llvm9StringRef13consume_frontES0_.exit24, %1, %11, %7
-  %.sroa.046.0 = phi i64 [ 1, %7 ], [ 0, %11 ], [ 0, %1 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 2, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 2, %.thread50 ]
-  %.sroa.5.0 = phi i64 [ 4294967296, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967296, %.thread50 ]
-  %.sroa.046.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.046.0
-  ret i64 %.sroa.046.0.insert.insert
+  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
+  ret i64 %.sroa.5.0
 }
 
 declare void @_ZN4llvm9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef, i64, i8) local_unnamed_addr #5

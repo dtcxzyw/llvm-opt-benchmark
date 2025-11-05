@@ -5540,26 +5540,26 @@ sub_1:                                            ; preds = %sub_0
   %invariant.gep = getelementptr inbounds nuw i8, ptr %304, i64 %indvars.iv696
   br label %316
 
-315:                                              ; preds = %322
+315:                                              ; preds = %323
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   br label %327
 
-316:                                              ; preds = %313, %322
-  %indvars.iv687 = phi i64 [ 0, %313 ], [ %indvars.iv.next688, %322 ]
-  %.0420605 = phi i32 [ 0, %313 ], [ %324, %322 ]
+316:                                              ; preds = %313, %323
+  %indvars.iv687 = phi i64 [ 0, %313 ], [ %indvars.iv.next688, %323 ]
+  %.0420605 = phi i32 [ 0, %313 ], [ %324, %323 ]
   %317 = shl i32 %.0420605, 8
   %318 = icmp sgt i64 %314, %indvars.iv687
-  br i1 %318, label %319, label %322
+  br i1 %318, label %319, label %323
 
 319:                                              ; preds = %316
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %indvars.iv687
   %320 = load i8, ptr %gep, align 1, !tbaa !25
   %321 = zext i8 %320 to i32
-  br label %322
+  %322 = or disjoint i32 %317, %321
+  br label %323
 
-322:                                              ; preds = %316, %319
-  %323 = phi i32 [ %321, %319 ], [ 0, %316 ]
-  %324 = or disjoint i32 %323, %317
+323:                                              ; preds = %316, %319
+  %324 = phi i32 [ %322, %319 ], [ %317, %316 ]
   %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
   %exitcond690.not = icmp eq i64 %indvars.iv.next688, 3
   br i1 %exitcond690.not, label %315, label %316, !llvm.loop !32

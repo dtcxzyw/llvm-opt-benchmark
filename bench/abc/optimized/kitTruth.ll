@@ -645,14 +645,14 @@ Kit_TruthSwapAdjacentVars.exit:                   ; preds = %._crit_edge.us.i, %
 
 ._crit_edge52.loopexit:                           ; preds = %87
   %89 = and i32 %.2, 1
+  %90 = xor i32 %89, %5
   br label %._crit_edge52
 
 ._crit_edge52:                                    ; preds = %._crit_edge52.loopexit, %6
   %.030.lcssa = phi ptr [ %1, %6 ], [ %.232, %._crit_edge52.loopexit ]
   %.027.lcssa = phi ptr [ %0, %6 ], [ %.229, %._crit_edge52.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %6 ], [ %89, %._crit_edge52.loopexit ]
-  %90 = xor i32 %.0.lcssa, %5
-  %.not = icmp eq i32 %90, 1
+  %.0.lcssa = phi i32 [ %5, %6 ], [ %90, %._crit_edge52.loopexit ]
+  %.not = icmp eq i32 %.0.lcssa, 1
   br i1 %.not, label %Kit_TruthCopy.exit, label %91
 
 91:                                               ; preds = %._crit_edge52
@@ -898,14 +898,14 @@ Kit_TruthSwapAdjacentVars.exit:                   ; preds = %._crit_edge.us.i, %
 
 ._crit_edge55.loopexit:                           ; preds = %85
   %86 = and i32 %.2, 1
+  %87 = xor i32 %86, %5
   br label %._crit_edge55
 
 ._crit_edge55:                                    ; preds = %._crit_edge55.loopexit, %6
   %.029.lcssa = phi ptr [ %1, %6 ], [ %.231, %._crit_edge55.loopexit ]
   %.026.lcssa = phi ptr [ %0, %6 ], [ %.228, %._crit_edge55.loopexit ]
-  %.0.lcssa = phi i32 [ 0, %6 ], [ %86, %._crit_edge55.loopexit ]
-  %87 = xor i32 %.0.lcssa, %5
-  %.not = icmp eq i32 %87, 1
+  %.0.lcssa = phi i32 [ %5, %6 ], [ %87, %._crit_edge55.loopexit ]
+  %.not = icmp eq i32 %.0.lcssa, 1
   br i1 %.not, label %Kit_TruthCopy.exit, label %88
 
 88:                                               ; preds = %._crit_edge55
@@ -1137,14 +1137,14 @@ Kit_TruthSwapAdjacentVars.exit.us:                ; preds = %._crit_edge.us.i.us
 
 .split54.us.loopexit:                             ; preds = %._crit_edge.us
   %84 = and i32 %.2.us, 1
+  %85 = xor i32 %84, %4
   br label %.split54.us
 
 .split54.us:                                      ; preds = %.split54.us.loopexit, %5
   %.us-phi = phi ptr [ %1, %5 ], [ %.237.us, %.split54.us.loopexit ]
   %.us-phi55 = phi ptr [ %0, %5 ], [ %.233.us, %.split54.us.loopexit ]
-  %.us-phi56 = phi i32 [ 0, %5 ], [ %84, %.split54.us.loopexit ]
-  %85 = xor i32 %.us-phi56, %4
-  %.not39 = icmp eq i32 %85, 1
+  %.us-phi56 = phi i32 [ %4, %5 ], [ %85, %.split54.us.loopexit ]
+  %.not39 = icmp eq i32 %.us-phi56, 1
   %brmerge = select i1 %.not39, i1 true, i1 %11
   br i1 %brmerge, label %Kit_TruthCopy.exit, label %select.unfold.i
 

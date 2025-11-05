@@ -508,27 +508,27 @@ _ZN2cv11JpegDecoder5closeEv.exit:                 ; preds = %6, %9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %36 = load ptr, ptr %35, align 8, !tbaa !120
   store ptr %34, ptr %24, align 8, !tbaa !121
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %38 = load i32, ptr %37, align 4, !tbaa !122
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %40 = load i32, ptr %39, align 8, !tbaa !123
-  %41 = mul nsw i32 %40, %38
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %44 = load i32, ptr %43, align 4, !tbaa !124
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %40, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-46:                                               ; preds = %23
-  %47 = zext nneg i32 %44 to i64
+40:                                               ; preds = %23
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %42 = load i32, ptr %41, align 4, !tbaa !123
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %44 = load i32, ptr %43, align 8, !tbaa !124
+  %45 = mul nsw i32 %44, %42
+  %46 = sext i32 %45 to i64
+  %47 = zext nneg i32 %38 to i64
   %48 = getelementptr i64, ptr %36, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -8
   %50 = load i64, ptr %49, align 8, !tbaa !125
+  %51 = mul i64 %50, %46
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %23, %46
-  %51 = phi i64 [ %50, %46 ], [ 0, %23 ]
-  %52 = mul i64 %51, %42
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %23, %40
+  %52 = phi i64 [ %51, %40 ], [ 0, %23 ]
   store i64 %52, ptr %31, align 8, !tbaa !126
   br label %58
 
@@ -2497,9 +2497,9 @@ attributes #29 = { noreturn }
 !119 = !{!16, !9, i64 16}
 !120 = !{!16, !22, i64 72}
 !121 = !{!81, !9, i64 1024}
-!122 = !{!14, !15, i64 100}
-!123 = !{!14, !15, i64 96}
-!124 = !{!16, !15, i64 4}
+!122 = !{!16, !15, i64 4}
+!123 = !{!14, !15, i64 100}
+!124 = !{!14, !15, i64 96}
 !125 = !{!12, !12, i64 0}
 !126 = !{!81, !12, i64 1032}
 !127 = !{!81, !86, i64 40}

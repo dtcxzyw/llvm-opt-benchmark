@@ -2897,8 +2897,7 @@ SDL_GetDriverAndJoystickIndex.exit.loopexit:      ; preds = %14
   br label %SDL_GetDriverAndJoystickIndex.exit
 
 SDL_GetDriverAndJoystickIndex.exit:               ; preds = %SDL_GetDriverAndJoystickIndex.exit.loopexit, %.loopexit.i
-  %.0 = phi i1 [ undef, %.loopexit.i ], [ %19, %SDL_GetDriverAndJoystickIndex.exit.loopexit ]
-  %.3.i = phi i1 [ false, %.loopexit.i ], [ true, %SDL_GetDriverAndJoystickIndex.exit.loopexit ]
+  %.3.i = phi i1 [ false, %.loopexit.i ], [ %19, %SDL_GetDriverAndJoystickIndex.exit.loopexit ]
   %20 = load i32, ptr @SDL_joysticks_locked, align 4
   %21 = add nsw i32 %20, -1
   store i32 %21, ptr @SDL_joysticks_locked, align 4
@@ -2928,8 +2927,7 @@ SDL_GetDriverAndJoystickIndex.exit:               ; preds = %SDL_GetDriverAndJoy
   br label %SDL_UnlockJoysticks_REAL.exit
 
 SDL_UnlockJoysticks_REAL.exit:                    ; preds = %26, %.critedge.i3
-  %or.cond = and i1 %.3.i, %.0
-  ret i1 %or.cond
+  ret i1 %.3.i
 }
 
 ; Function Attrs: nounwind uwtable

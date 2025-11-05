@@ -4166,89 +4166,88 @@ define internal fastcc ptr @createInternal(i32 noundef %0, ptr noundef %1, ptr n
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 9
   store i8 %6, ptr %17, align 1
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %21, label %18
+  br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %14
   %19 = tail call i32 @eventFilter_setThreadOnlyFilter(ptr noundef nonnull %13, i32 noundef 0, ptr noundef nonnull %2) #6
   %20 = icmp eq i32 %19, 0
-  br label %21
+  %21 = and i1 %10, %20
+  br i1 %21, label %23, label %25
 
-21:                                               ; preds = %18, %14
-  %.024 = phi i32 [ 1, %18 ], [ 0, %14 ]
-  %.023 = phi i1 [ %20, %18 ], [ true, %14 ]
-  %or.cond = and i1 %10, %.023
-  br i1 %or.cond, label %22, label %24
+22:                                               ; preds = %14
+  br i1 %10, label %23, label %25
 
-22:                                               ; preds = %21
-  %23 = tail call i32 @eventFilter_setLocationOnlyFilter(ptr noundef nonnull %13, i32 noundef %.024, ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5) #6
-  br label %24
+23:                                               ; preds = %18, %22
+  %.02432 = phi i32 [ 1, %18 ], [ 0, %22 ]
+  %24 = tail call i32 @eventFilter_setLocationOnlyFilter(ptr noundef nonnull %13, i32 noundef %.02432, ptr noundef nonnull %3, ptr noundef %4, i64 noundef %5) #6
+  br label %25
 
-24:                                               ; preds = %22, %21
-  %25 = tail call fastcc i32 @installHandler(ptr noundef nonnull %13, ptr noundef %1, i8 noundef zeroext 0)
-  %.not29 = icmp eq i32 %25, 0
-  br i1 %.not29, label %eventHandler_alloc.exit.thread, label %26
+25:                                               ; preds = %18, %23, %22
+  %26 = tail call fastcc i32 @installHandler(ptr noundef nonnull %13, ptr noundef %1, i8 noundef zeroext 0)
+  %.not29 = icmp eq i32 %26, 0
+  br i1 %.not29, label %eventHandler_alloc.exit.thread, label %27
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr @handlerLock, align 8
-  tail call void @debugMonitorEnter(ptr noundef %27) #6
-  %28 = load i8, ptr %17, align 1
-  %.not6.i.i = icmp eq i8 %28, 0
-  br i1 %.not6.i.i, label %29, label %eventHandler_free.exit
+27:                                               ; preds = %25
+  %28 = load ptr, ptr @handlerLock, align 8
+  tail call void @debugMonitorEnter(ptr noundef %28) #6
+  %29 = load i8, ptr %17, align 1
+  %.not6.i.i = icmp eq i8 %29, 0
+  br i1 %.not6.i.i, label %30, label %eventHandler_free.exit
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %32 = load ptr, ptr %31, align 8
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %deinsert.exit.i.i, label %34
+30:                                               ; preds = %27
+  %31 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %deinsert.exit.i.i, label %35
 
-34:                                               ; preds = %29
-  %35 = load ptr, ptr %32, align 8
-  %36 = icmp eq ptr %35, %13
-  %.pre.i.i.i = load ptr, ptr %30, align 8
-  br i1 %36, label %37, label %38
+35:                                               ; preds = %30
+  %36 = load ptr, ptr %33, align 8
+  %37 = icmp eq ptr %36, %13
+  %.pre.i.i.i = load ptr, ptr %31, align 8
+  br i1 %37, label %38, label %39
 
-37:                                               ; preds = %34
-  store ptr %.pre.i.i.i, ptr %32, align 8
-  br label %38
+38:                                               ; preds = %35
+  store ptr %.pre.i.i.i, ptr %33, align 8
+  br label %39
 
-38:                                               ; preds = %37, %34
+39:                                               ; preds = %38, %35
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.pre16.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
-  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %39
+  br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %40
 
-39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 24
-  store ptr %.pre16.i.i.i, ptr %40, align 8
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 24
+  store ptr %.pre16.i.i.i, ptr %41, align 8
   br label %._crit_edge.i.i.i
 
-._crit_edge.i.i.i:                                ; preds = %39, %38
+._crit_edge.i.i.i:                                ; preds = %40, %39
   %.not15.i.i.i = icmp eq ptr %.pre16.i.i.i, null
-  br i1 %.not15.i.i.i, label %44, label %41
+  br i1 %.not15.i.i.i, label %45, label %42
 
-41:                                               ; preds = %._crit_edge.i.i.i
-  %42 = load ptr, ptr %30, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.pre16.i.i.i, i64 16
-  store ptr %42, ptr %43, align 8
-  br label %44
+42:                                               ; preds = %._crit_edge.i.i.i
+  %43 = load ptr, ptr %31, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %.pre16.i.i.i, i64 16
+  store ptr %43, ptr %44, align 8
+  br label %45
 
-44:                                               ; preds = %41, %._crit_edge.i.i.i
-  store ptr null, ptr %31, align 8
+45:                                               ; preds = %42, %._crit_edge.i.i.i
+  store ptr null, ptr %32, align 8
   br label %deinsert.exit.i.i
 
-deinsert.exit.i.i:                                ; preds = %44, %29
-  %45 = tail call i32 @eventFilterRestricted_deinstall(ptr noundef nonnull %13) #6
+deinsert.exit.i.i:                                ; preds = %45, %30
+  %46 = tail call i32 @eventFilterRestricted_deinstall(ptr noundef nonnull %13) #6
   tail call void @jvmtiDeallocate(ptr noundef nonnull %13) #6
   br label %eventHandler_free.exit
 
-eventHandler_free.exit:                           ; preds = %26, %deinsert.exit.i.i
-  %46 = load ptr, ptr @handlerLock, align 8
-  tail call void @debugMonitorExit(ptr noundef %46) #6
+eventHandler_free.exit:                           ; preds = %27, %deinsert.exit.i.i
+  %47 = load ptr, ptr @handlerLock, align 8
+  tail call void @debugMonitorExit(ptr noundef %47) #6
   br label %eventHandler_alloc.exit.thread
 
-eventHandler_alloc.exit.thread:                   ; preds = %7, %24, %eventHandler_free.exit
-  %.025 = phi ptr [ null, %eventHandler_free.exit ], [ %13, %24 ], [ null, %7 ]
+eventHandler_alloc.exit.thread:                   ; preds = %7, %25, %eventHandler_free.exit
+  %.025 = phi ptr [ null, %eventHandler_free.exit ], [ %13, %25 ], [ null, %7 ]
   ret ptr %.025
 }
 

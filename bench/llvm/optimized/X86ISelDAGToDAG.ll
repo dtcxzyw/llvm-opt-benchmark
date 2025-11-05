@@ -23441,13 +23441,13 @@ _ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit252: ; preds = %422,
   br label %439
 
 439:                                              ; preds = %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit251, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit252, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit241
-  %.sroa.0259.0.sink403 = phi ptr [ %.fca.0.extract96, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit241 ], [ %.fca.0.extract, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit252 ], [ %.fca.0.extract5, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit251 ]
+  %.sroa.0259.0.sink402 = phi ptr [ %.fca.0.extract96, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit241 ], [ %.fca.0.extract, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit252 ], [ %.fca.0.extract5, %_ZL13insertDAGNodeRN4llvm12SelectionDAGENS_7SDValueES2_.exit251 ]
   %440 = load ptr, ptr %133, align 8, !tbaa !341
-  call void @_ZN4llvm12SelectionDAG18ReplaceAllUsesWithEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(952) %440, ptr noundef nonnull %1, ptr noundef %.sroa.0259.0.sink403) #27
-  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %.sroa.0259.0.sink403) #27
+  call void @_ZN4llvm12SelectionDAG18ReplaceAllUsesWithEPNS_6SDNodeES2_(ptr noundef nonnull align 8 dereferenceable(952) %440, ptr noundef nonnull %1, ptr noundef %.sroa.0259.0.sink402) #27
+  call void @_ZN4llvm16SelectionDAGISel22EnforceNodeIdInvariantEPNS_6SDNodeE(ptr noundef %.sroa.0259.0.sink402) #27
   %441 = load ptr, ptr %133, align 8, !tbaa !341
   call void @_ZN4llvm12SelectionDAG14RemoveDeadNodeEPNS_6SDNodeE(ptr noundef nonnull align 8 dereferenceable(952) %441, ptr noundef nonnull %1) #27
-  call void @_ZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS_6SDNodeEPKhj(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef %.sroa.0259.0.sink403, ptr noundef nonnull @_ZZN12_GLOBAL__N_115X86DAGToDAGISel10SelectCodeEPN4llvm6SDNodeEE12MatcherTable, i32 noundef 716055) #27
+  call void @_ZN4llvm16SelectionDAGISel16SelectCodeCommonEPNS_6SDNodeEPKhj(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef %.sroa.0259.0.sink402, ptr noundef nonnull @_ZZN12_GLOBAL__N_115X86DAGToDAGISel10SelectCodeEPN4llvm6SDNodeEE12MatcherTable, i32 noundef 716055) #27
   %442 = load ptr, ptr %8, align 8, !tbaa !459
   %.not.i.i.i.i.i253 = icmp eq ptr %442, null
   br i1 %.not.i.i.i.i.i253, label %_ZN4llvm5SDLocD2Ev.exit254, label %443

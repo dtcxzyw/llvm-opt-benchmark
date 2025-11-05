@@ -2728,11 +2728,11 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiSt10multip
   %167 = getelementptr i64, ptr %165, i64 %166
   %168 = getelementptr i8, ptr %167, i64 -8
   %169 = load i64, ptr %168, align 8, !tbaa !36
+  %170 = mul i64 %169, %159
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %160, %164
-  %170 = phi i64 [ %169, %164 ], [ 0, %160 ]
-  %171 = mul i64 %170, %159
+  %171 = phi i64 [ %170, %164 ], [ 0, %160 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %157, ptr align 1 %155, i64 %171, i1 false)
   br label %601
 

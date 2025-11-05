@@ -254,22 +254,18 @@ _ZNK5clang10RawComment10getRawTextERKNS_13SourceManagerE.exit.thread: ; preds = 
 57:                                               ; preds = %.fold.split49.i, %.fold.split.i, %54, %44
   %.0.i = phi i64 [ 3, %44 ], [ 5, %54 ], [ 4, %.fold.split.i ], [ 6, %.fold.split49.i ]
   %58 = icmp ugt i32 %17, 3
-  br i1 %58, label %59, label %64
+  br i1 %58, label %59, label %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %24, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !23
   %62 = icmp eq i8 %61, 60
   %63 = select i1 %62, i64 4294967296, i64 0
-  br label %64
-
-64:                                               ; preds = %59, %57
-  %.sroa.2.0.insert.ext.i21.i = phi i64 [ 0, %57 ], [ %63, %59 ]
-  %.sroa.0.0.insert.insert.i24.i = or disjoint i64 %.sroa.2.0.insert.ext.i21.i, %.0.i
+  %64 = or disjoint i64 %63, %.0.i
   br label %_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit
 
-_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit: ; preds = %42, %44, %54, %64
-  %.sroa.0.0.in.i = phi i64 [ %.sroa.0.0.insert.insert.i24.i, %64 ], [ 1, %42 ], [ 1, %44 ], [ 2, %54 ]
+_ZN12_GLOBAL__N_114getCommentKindEN4llvm9StringRefEb.exit: ; preds = %42, %44, %54, %57, %59
+  %.sroa.0.0.in.i = phi i64 [ 1, %42 ], [ 1, %44 ], [ 2, %54 ], [ %.0.i, %57 ], [ %64, %59 ]
   %.sroa.05.0.extract.trunc = trunc i64 %.sroa.0.0.in.i to i32
   %65 = add i32 %.sroa.05.0.extract.trunc, -1
   %66 = icmp ult i32 %65, 2
@@ -512,13 +508,13 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %60
+  br label %61
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, %46
   %51 = phi ptr [ %50, %46 ], [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %60, label %52
+  br i1 %.not, label %61, label %52
 
 52:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
   %53 = phi ptr [ %44, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14 ], [ %51, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
@@ -528,13 +524,12 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4
   %57 = zext i32 %56 to i64
   %58 = shl nuw i64 %57, 32
   %59 = zext i32 %.sroa.02.0.i.i to i64
-  br label %60
+  %60 = or disjoint i64 %58, %59
+  br label %61
 
-60:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread, %52
-  %.sroa.012.0 = phi i64 [ %59, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
-  %.sroa.3.0 = phi i64 [ %58, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
-  %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.012.0
-  ret i64 %.sroa.012.0.insert.insert
+61:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread, %52
+  %.sroa.3.0 = phi i64 [ %60, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
+  ret i64 %.sroa.3.0
 }
 
 declare { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696), i32, ptr noundef) local_unnamed_addr #2

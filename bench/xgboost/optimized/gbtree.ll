@@ -14729,7 +14729,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7xgboost3gbm6GBTree12
   %12 = alloca %"class.dmlc::LogMessageFatal", align 1
   %13 = alloca %"class.dmlc::LogMessageFatal", align 1
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.critedge49, label %14
+  br i1 %.not, label %.critedge49.thread, label %14
 
 14:                                               ; preds = %4
   %15 = load ptr, ptr %3, align 8, !tbaa !104
@@ -14752,7 +14752,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK7xgboost3gbm6GBTree12
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  br label %204
+  br label %201
 
 26:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -14771,8 +14771,8 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i: ; preds = %26
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %32 unwind label %33
 
-common.resume:                                    ; preds = %45, %156, %175, %201, %152, %188, %141, %32
-  %common.resume.op = phi { ptr, i32 } [ %31, %32 ], [ %140, %141 ], [ %187, %188 ], [ %44, %45 ], [ %153, %152 ], [ %155, %156 ], [ %174, %175 ], [ %200, %201 ]
+common.resume:                                    ; preds = %45, %154, %172, %198, %150, %185, %139, %32
+  %common.resume.op = phi { ptr, i32 } [ %31, %32 ], [ %138, %139 ], [ %184, %185 ], [ %44, %45 ], [ %151, %150 ], [ %153, %154 ], [ %171, %172 ], [ %197, %198 ]
   resume { ptr, i32 } %common.resume.op
 
 32:                                               ; preds = %30
@@ -14792,7 +14792,7 @@ _ZN7xgboost6common16AssertGPUSupportEv.exit:      ; preds = %_ZN4dmlc15LogMessag
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %37 = load ptr, ptr %36, align 8, !tbaa !100
   %.not74 = icmp eq ptr %37, null
-  br i1 %.not74, label %38, label %204, !prof !114
+  br i1 %.not74, label %38, label %201, !prof !114
 
 38:                                               ; preds = %_ZN7xgboost6common16AssertGPUSupportEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -14812,13 +14812,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN4dml
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %204
+  br label %201
 
 43:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit, %38
   %44 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %8)
-          to label %45 unwind label %205
+          to label %45 unwind label %202
 
 45:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -14882,12 +14882,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51: ; preds = %_ZStl
 
 _ZN7xgboost8BatchSetINS_10SparsePageEE5beginEv.exit: ; preds = %62, %73, %76
   %78 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7xgboost13BatchIteratorINS_10SparsePageEEdeEv(ptr noundef nonnull align 8 dereferenceable(16) %9)
-          to label %79 unwind label %152
+          to label %79 unwind label %150
 
 79:                                               ; preds = %_ZN7xgboost8BatchSetINS_10SparsePageEE5beginEv.exit
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = invoke noundef zeroext i1 @_ZNK7xgboost16HostDeviceVectorINS_5EntryEE13DeviceCanReadEv(ptr noundef nonnull align 8 dereferenceable(8) %80)
-          to label %.critedge47 unwind label %152
+          to label %.critedge47 unwind label %150
 
 .critedge47:                                      ; preds = %79
   %82 = load ptr, ptr %67, align 8, !tbaa !451
@@ -14990,81 +14990,79 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %122, %
 _ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit:  ; preds = %_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev.exit, %110, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.critedge49
+  %126 = or i1 %.ph, %81
+  br i1 %126, label %127, label %.critedge49.thread
 
-.critedge49:                                      ; preds = %4, %57, %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit
-  %126 = phi i1 [ %81, %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit ], [ false, %57 ], [ false, %4 ]
-  %127 = phi i1 [ %.ph, %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit ], [ %.ph, %57 ], [ false, %4 ]
-  %128 = or i1 %126, %127
-  br i1 %128, label %129, label %157
+.critedge49:                                      ; preds = %57
+  br i1 %.ph, label %127, label %.critedge49.thread
 
-129:                                              ; preds = %.critedge49
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %131 = load ptr, ptr %130, align 8, !tbaa !103
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  %.sroa.0.0.copyload.i.i54 = load i32, ptr %132, align 8
-  %133 = and i32 %.sroa.0.0.copyload.i.i54, 65535
-  %134 = icmp eq i32 %133, 1
-  br i1 %134, label %135, label %157
+127:                                              ; preds = %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit, %.critedge49
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %129 = load ptr, ptr %128, align 8, !tbaa !103
+  %130 = getelementptr inbounds nuw i8, ptr %129, i64 40
+  %.sroa.0.0.copyload.i.i54 = load i32, ptr %130, align 8
+  %131 = and i32 %.sroa.0.0.copyload.i.i54, 65535
+  %132 = icmp eq i32 %131, 1
+  br i1 %132, label %133, label %.critedge49.thread
 
-135:                                              ; preds = %129
+133:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %136 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %136, ptr noundef nonnull @.str.106, i32 noundef 168)
-  %137 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i55 unwind label %139
+  %134 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %134, ptr noundef nonnull @.str.106, i32 noundef 168)
+  %135 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %6)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i55 unwind label %137
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i55: ; preds = %135
-  %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %137, ptr noundef nonnull @.str.107, i64 noundef 46)
-          to label %_ZN7xgboost6common16AssertGPUSupportEv.exit56 unwind label %139
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i55: ; preds = %133
+  %136 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %135, ptr noundef nonnull @.str.107, i64 noundef 46)
+          to label %_ZN7xgboost6common16AssertGPUSupportEv.exit56 unwind label %137
 
-139:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i55, %135
-  %140 = landingpad { ptr, i32 }
+137:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i55, %133
+  %138 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6)
-          to label %141 unwind label %142
+          to label %139 unwind label %140
 
-141:                                              ; preds = %139
+139:                                              ; preds = %137
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %common.resume
 
-142:                                              ; preds = %139
-  %143 = landingpad { ptr, i32 }
+140:                                              ; preds = %137
+  %141 = landingpad { ptr, i32 }
           catch ptr null
-  %144 = extractvalue { ptr, i32 } %143, 0
-  call void @__clang_call_terminate(ptr %144) #39
+  %142 = extractvalue { ptr, i32 } %141, 0
+  call void @__clang_call_terminate(ptr %142) #39
   unreachable
 
 _ZN7xgboost6common16AssertGPUSupportEv.exit56:    ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i55
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %145 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %146 = load ptr, ptr %145, align 8, !tbaa !100
-  %.not78 = icmp eq ptr %146, null
-  br i1 %.not78, label %147, label %204, !prof !114
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %144 = load ptr, ptr %143, align 8, !tbaa !100
+  %.not78 = icmp eq ptr %144, null
+  br i1 %.not78, label %145, label %201, !prof !114
 
-147:                                              ; preds = %_ZN7xgboost6common16AssertGPUSupportEv.exit56
+145:                                              ; preds = %_ZN7xgboost6common16AssertGPUSupportEv.exit56
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %148 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %148, ptr noundef nonnull @.str.1, i32 noundef 596)
-  %149 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit57 unwind label %154
+  %146 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %146, ptr noundef nonnull @.str.1, i32 noundef 596)
+  %147 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %11)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit57 unwind label %152
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit57: ; preds = %147
-  %150 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull @.str.69, i64 noundef 28)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58 unwind label %154
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit57: ; preds = %145
+  %148 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.69, i64 noundef 28)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58 unwind label %152
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit57
-  %151 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %149, ptr noundef nonnull @.str.5, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59 unwind label %154
+  %149 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull @.str.5, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59 unwind label %152
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %204
+  br label %201
 
-152:                                              ; preds = %79, %_ZN7xgboost8BatchSetINS_10SparsePageEE5beginEv.exit
-  %153 = landingpad { ptr, i32 }
+150:                                              ; preds = %79, %_ZN7xgboost8BatchSetINS_10SparsePageEE5beginEv.exit
+  %151 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7xgboost13BatchIteratorINS_10SparsePageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #22
   call void @_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #22
@@ -15072,164 +15070,164 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59: ; preds = %_ZStl
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %common.resume
 
-154:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit57, %147
-  %155 = landingpad { ptr, i32 }
+152:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit58, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit57, %145
+  %153 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %11)
-          to label %156 unwind label %205
+          to label %154 unwind label %202
 
-156:                                              ; preds = %154
+154:                                              ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %common.resume
 
-157:                                              ; preds = %129, %.critedge49
+.critedge49.thread:                               ; preds = %4, %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit, %127, %.critedge49
+  %.not84 = phi i1 [ false, %127 ], [ true, %.critedge49 ], [ true, %_ZN7xgboost8BatchSetINS_10SparsePageEED2Ev.exit ], [ true, %4 ]
   %.not42 = icmp eq ptr %2, null
-  br i1 %.not42, label %176, label %158
+  br i1 %.not42, label %173, label %155
 
-158:                                              ; preds = %157
-  %159 = call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  %160 = icmp eq i64 %159, 0
-  br i1 %160, label %161, label %176
+155:                                              ; preds = %.critedge49.thread
+  %156 = call noundef i64 @_ZNK7xgboost16HostDeviceVectorIfE4SizeEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %157 = icmp eq i64 %156, 0
+  br i1 %157, label %158, label %173
 
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %163 = load i32, ptr %162, align 8, !tbaa !455
-  %164 = icmp eq i32 %163, 0
-  %or.cond = or i1 %128, %164
-  %or.cond.not = xor i1 %or.cond, true
-  %or.cond3 = and i1 %1, %or.cond.not
-  br i1 %or.cond3, label %165, label %176
+158:                                              ; preds = %155
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %160 = load i32, ptr %159, align 8, !tbaa !455
+  %161 = icmp ne i32 %160, 0
+  %or.cond.not86 = and i1 %.not84, %161
+  %or.cond3 = and i1 %1, %or.cond.not86
+  br i1 %or.cond3, label %162, label %173
 
-165:                                              ; preds = %161
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  %167 = load ptr, ptr %166, align 8, !tbaa !100
-  %.not75 = icmp eq ptr %167, null
-  br i1 %.not75, label %168, label %204, !prof !114
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  %164 = load ptr, ptr %163, align 8, !tbaa !100
+  %.not75 = icmp eq ptr %164, null
+  br i1 %.not75, label %165, label %201, !prof !114
 
-168:                                              ; preds = %165
+165:                                              ; preds = %162
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %169 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %12)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %169, ptr noundef nonnull @.str.1, i32 noundef 610)
-  %170 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit60 unwind label %173
+  %166 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %12)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %166, ptr noundef nonnull @.str.1, i32 noundef 610)
+  %167 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %12)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit60 unwind label %170
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit60: ; preds = %168
-  %171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull @.str.70, i64 noundef 28)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61 unwind label %173
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit60: ; preds = %165
+  %168 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull @.str.70, i64 noundef 28)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61 unwind label %170
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit60
-  %172 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %170, ptr noundef nonnull @.str.5, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62 unwind label %173
+  %169 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %167, ptr noundef nonnull @.str.5, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62 unwind label %170
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %204
+  br label %201
 
-173:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit60, %168
-  %174 = landingpad { ptr, i32 }
+170:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit60, %165
+  %171 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %175 unwind label %205
+          to label %172 unwind label %202
 
-175:                                              ; preds = %173
+172:                                              ; preds = %170
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %common.resume
 
-176:                                              ; preds = %161, %158, %157
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %178 = load ptr, ptr %177, align 8, !tbaa !103
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
-  %.sroa.0.0.copyload.i.i63 = load i32, ptr %179, align 8
+173:                                              ; preds = %158, %155, %.critedge49.thread
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %175 = load ptr, ptr %174, align 8, !tbaa !103
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
+  %.sroa.0.0.copyload.i.i63 = load i32, ptr %176, align 8
   %trunc76 = trunc i32 %.sroa.0.0.copyload.i.i63 to i16
-  switch i16 %trunc76, label %202 [
-    i16 0, label %180
-    i16 1, label %182
+  switch i16 %trunc76, label %199 [
+    i16 0, label %177
+    i16 1, label %179
   ]
 
-180:                                              ; preds = %176
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  br label %204
+177:                                              ; preds = %173
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  br label %201
 
-182:                                              ; preds = %176
+179:                                              ; preds = %173
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %183 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %183, ptr noundef nonnull @.str.106, i32 noundef 168)
-  %184 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i65 unwind label %186
+  %180 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %180, ptr noundef nonnull @.str.106, i32 noundef 168)
+  %181 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %5)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i65 unwind label %183
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i65: ; preds = %182
-  %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %184, ptr noundef nonnull @.str.107, i64 noundef 46)
-          to label %_ZN7xgboost6common16AssertGPUSupportEv.exit66 unwind label %186
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i65: ; preds = %179
+  %182 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %181, ptr noundef nonnull @.str.107, i64 noundef 46)
+          to label %_ZN7xgboost6common16AssertGPUSupportEv.exit66 unwind label %183
 
-186:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i65, %182
-  %187 = landingpad { ptr, i32 }
+183:                                              ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i65, %179
+  %184 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
-          to label %188 unwind label %189
+          to label %185 unwind label %186
 
-188:                                              ; preds = %186
+185:                                              ; preds = %183
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
-189:                                              ; preds = %186
-  %190 = landingpad { ptr, i32 }
+186:                                              ; preds = %183
+  %187 = landingpad { ptr, i32 }
           catch ptr null
-  %191 = extractvalue { ptr, i32 } %190, 0
-  call void @__clang_call_terminate(ptr %191) #39
+  %188 = extractvalue { ptr, i32 } %187, 0
+  call void @__clang_call_terminate(ptr %188) #39
   unreachable
 
 _ZN7xgboost6common16AssertGPUSupportEv.exit66:    ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit.i65
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %192 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %193 = load ptr, ptr %192, align 8, !tbaa !100
-  %.not77 = icmp eq ptr %193, null
-  br i1 %.not77, label %194, label %204, !prof !114
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %190 = load ptr, ptr %189, align 8, !tbaa !100
+  %.not77 = icmp eq ptr %190, null
+  br i1 %.not77, label %191, label %201, !prof !114
 
-194:                                              ; preds = %_ZN7xgboost6common16AssertGPUSupportEv.exit66
+191:                                              ; preds = %_ZN7xgboost6common16AssertGPUSupportEv.exit66
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %195 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
-  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %195, ptr noundef nonnull @.str.1, i32 noundef 618)
-  %196 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit67 unwind label %199
+  %192 = call noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
+  call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %192, ptr noundef nonnull @.str.1, i32 noundef 618)
+  %193 = invoke noundef nonnull align 8 dereferenceable(376) ptr @_ZN4dmlc15LogMessageFatal8GetEntryEv(ptr noundef nonnull align 1 dereferenceable(1) %13)
+          to label %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit67 unwind label %196
 
-_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit67: ; preds = %194
-  %197 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef nonnull @.str.69, i64 noundef 28)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68 unwind label %199
+_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit67: ; preds = %191
+  %194 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull @.str.69, i64 noundef 28)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68 unwind label %196
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68: ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit67
-  %198 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef nonnull @.str.5, i64 noundef 2)
-          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69 unwind label %199
+  %195 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull @.str.5, i64 noundef 2)
+          to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69 unwind label %196
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %204
+  br label %201
 
-199:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit67, %194
-  %200 = landingpad { ptr, i32 }
+196:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit67, %191
+  %197 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %201 unwind label %205
+          to label %198 unwind label %202
 
-201:                                              ; preds = %199
+198:                                              ; preds = %196
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %common.resume
 
-202:                                              ; preds = %176
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  br label %204
+199:                                              ; preds = %173
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 528
+  br label %201
 
-204:                                              ; preds = %180, %202, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59, %_ZN7xgboost6common16AssertGPUSupportEv.exit56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62, %165, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69, %_ZN7xgboost6common16AssertGPUSupportEv.exit66, %_ZN7xgboost6common16AssertGPUSupportEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51, %24
-  %.0 = phi ptr [ %25, %24 ], [ %36, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 ], [ %36, %_ZN7xgboost6common16AssertGPUSupportEv.exit ], [ %181, %180 ], [ %203, %202 ], [ %145, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59 ], [ %145, %_ZN7xgboost6common16AssertGPUSupportEv.exit56 ], [ %166, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62 ], [ %166, %165 ], [ %192, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69 ], [ %192, %_ZN7xgboost6common16AssertGPUSupportEv.exit66 ]
+201:                                              ; preds = %177, %199, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59, %_ZN7xgboost6common16AssertGPUSupportEv.exit56, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62, %162, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69, %_ZN7xgboost6common16AssertGPUSupportEv.exit66, %_ZN7xgboost6common16AssertGPUSupportEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51, %24
+  %.0 = phi ptr [ %25, %24 ], [ %36, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit51 ], [ %36, %_ZN7xgboost6common16AssertGPUSupportEv.exit ], [ %178, %177 ], [ %200, %199 ], [ %143, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit59 ], [ %143, %_ZN7xgboost6common16AssertGPUSupportEv.exit56 ], [ %163, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit62 ], [ %163, %162 ], [ %189, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit69 ], [ %189, %_ZN7xgboost6common16AssertGPUSupportEv.exit66 ]
   ret ptr %.0
 
-205:                                              ; preds = %199, %173, %154, %43
-  %206 = landingpad { ptr, i32 }
+202:                                              ; preds = %196, %170, %152, %43
+  %203 = landingpad { ptr, i32 }
           catch ptr null
-  %207 = extractvalue { ptr, i32 } %206, 0
-  call void @__clang_call_terminate(ptr %207) #39
+  %204 = extractvalue { ptr, i32 } %203, 0
+  call void @__clang_call_terminate(ptr %204) #39
   unreachable
 }
 

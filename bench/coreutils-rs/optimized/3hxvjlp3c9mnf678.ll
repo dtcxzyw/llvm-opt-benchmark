@@ -280,32 +280,33 @@ define hidden noundef i8 @"_ZN166_$LT$clap_builder..builder..value_hint..ValueHi
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(none) uwtable
 define hidden noundef i64 @"_ZN4core3num21_$LT$impl$u20$i64$GT$3pow17h46f3f76ba4990e7aE.llvm.6876384978452292205"(i64 noundef %0, i32 noundef %1) unnamed_addr #4 {
   switch i32 %1, label %.lr.ph [
-    i32 0, label %3
-    i32 1, label %._crit_edge
+    i32 0, label %._crit_edge
+    i32 1, label %._crit_edge.fold.split
   ]
 
-3:                                                ; preds = %2, %._crit_edge
-  %.011 = phi i64 [ %4, %._crit_edge ], [ 1, %2 ]
+._crit_edge.fold.split:                           ; preds = %2
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %2, %._crit_edge.fold.split, %._crit_edge.loopexit
+  %.011 = phi i64 [ 1, %2 ], [ %3, %._crit_edge.loopexit ], [ %0, %._crit_edge.fold.split ]
   ret i64 %.011
 
-._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.013.lcssa = phi i64 [ 1, %2 ], [ %spec.select, %.lr.ph ]
-  %.012.lcssa = phi i64 [ %0, %2 ], [ %8, %.lr.ph ]
-  %4 = mul i64 %.012.lcssa, %.013.lcssa
-  br label %3
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %3 = mul i64 %7, %spec.select
+  br label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.017 = phi i32 [ %7, %.lr.ph ], [ %1, %2 ]
-  %.01216 = phi i64 [ %8, %.lr.ph ], [ %0, %2 ]
+  %.017 = phi i32 [ %6, %.lr.ph ], [ %1, %2 ]
+  %.01216 = phi i64 [ %7, %.lr.ph ], [ %0, %2 ]
   %.01315 = phi i64 [ %spec.select, %.lr.ph ], [ 1, %2 ]
-  %5 = and i32 %.017, 1
-  %.not = icmp eq i32 %5, 0
-  %6 = select i1 %.not, i64 1, i64 %.01216
-  %spec.select = mul i64 %6, %.01315
-  %7 = lshr i32 %.017, 1
-  %8 = mul i64 %.01216, %.01216
-  %9 = icmp ugt i32 %.017, 3
-  br i1 %9, label %.lr.ph, label %._crit_edge
+  %4 = and i32 %.017, 1
+  %.not = icmp eq i32 %4, 0
+  %5 = select i1 %.not, i64 1, i64 %.01216
+  %spec.select = mul i64 %5, %.01315
+  %6 = lshr i32 %.017, 1
+  %7 = mul i64 %.01216, %.01216
+  %8 = icmp ugt i32 %.017, 3
+  br i1 %8, label %.lr.ph, label %._crit_edge.loopexit
 }
 
 ; Function Attrs: nonlazybind uwtable

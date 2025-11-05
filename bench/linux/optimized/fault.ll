@@ -1012,8 +1012,8 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   %212 = shl nuw i32 3, %206
   %213 = and i32 %203, %212
   %214 = icmp eq i32 %213, 0
-  %or.cond20.reass.us.reass.reass = and i1 %214, %invariant.op
-  br i1 %or.cond20.reass.us.reass.reass, label %216, label %.thread9.split, !prof !39
+  %or.cond19.reass.us.reass.reass = and i1 %214, %invariant.op
+  br i1 %or.cond19.reass.us.reass.reass, label %216, label %.thread9.split, !prof !39
 
 215:                                              ; preds = %210, %192, %.split.split.us
   br i1 %.not6.old, label %216, label %.thread9.split, !prof !40
@@ -1041,7 +1041,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   %230 = load i64, ptr %183, align 8
   %231 = and i64 %230, 256
   %232 = icmp eq i64 %231, 0
-  br i1 %232, label %233, label %.split29.us
+  br i1 %232, label %233, label %.split28.us
 
 233:                                              ; preds = %229, %225
   %234 = load i64, ptr %16, align 8
@@ -1053,13 +1053,13 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   %238 = load volatile i64, ptr %6, align 8
   %239 = and i64 %238, 131072
   %240 = icmp eq i64 %239, 0
-  br i1 %240, label %241, label %.split29.us, !prof !10
+  br i1 %240, label %241, label %.split28.us, !prof !10
 
 241:                                              ; preds = %237
   %242 = load volatile i64, ptr %6, align 8
   %243 = and i64 %242, 4
   %244 = icmp eq i64 %243, 0
-  br i1 %244, label %245, label %.split29.us
+  br i1 %244, label %245, label %.split28.us
 
 245:                                              ; preds = %241, %233
   %246 = and i32 %222, 16384
@@ -1099,7 +1099,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   %266 = load i64, ptr %183, align 8
   %267 = and i64 %266, 256
   %268 = icmp eq i64 %267, 0
-  br i1 %268, label %269, label %.split29.us
+  br i1 %268, label %269, label %.split28.us
 
 269:                                              ; preds = %265, %261
   %270 = load i64, ptr %16, align 8
@@ -1111,13 +1111,13 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   %274 = load volatile i64, ptr %6, align 8
   %275 = and i64 %274, 131072
   %276 = icmp eq i64 %275, 0
-  br i1 %276, label %277, label %.split29.us, !prof !10
+  br i1 %276, label %277, label %.split28.us, !prof !10
 
 277:                                              ; preds = %273
   %278 = load volatile i64, ptr %6, align 8
   %279 = and i64 %278, 4
   %280 = icmp eq i64 %279, 0
-  br i1 %280, label %281, label %.split29.us
+  br i1 %280, label %281, label %.split28.us
 
 281:                                              ; preds = %277, %269
   %282 = and i32 %258, 16384
@@ -1134,7 +1134,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br label %bad_area_access_error.exit
 
 .thread9.split:                                   ; preds = %.split.split.split.us, %216, %215, %211, %202, %.split.split, %180
-  %.split24 = phi ptr [ %178, %180 ], [ %178, %.split.split ], [ %188, %202 ], [ %188, %211 ], [ %188, %215 ], [ %188, %216 ], [ %251, %.split.split.split.us ]
+  %.split23 = phi ptr [ %178, %180 ], [ %178, %.split.split ], [ %188, %202 ], [ %188, %211 ], [ %188, %215 ], [ %188, %216 ], [ %251, %.split.split.split.us ]
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 516, i32 16, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #14
           to label %287 [label %287, label %326], !srcloc !14
 
@@ -1152,13 +1152,13 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %293, label %326, label %294
 
 294:                                              ; preds = %291
-  %295 = getelementptr inbounds nuw i8, ptr %.split24, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %.split23, i64 16
   %296 = load ptr, ptr %295, align 8
   %297 = icmp eq ptr %292, %296
   br i1 %297, label %298, label %326
 
 298:                                              ; preds = %294
-  %299 = getelementptr inbounds nuw i8, ptr %.split24, i64 32
+  %299 = getelementptr inbounds nuw i8, ptr %.split23, i64 32
   %300 = load i64, ptr %299, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 516, i32 16, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 104)) #14
           to label %301 [label %301, label %304], !srcloc !14
@@ -1188,7 +1188,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br i1 %316, label %326, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %313, %304, %287
-  %317 = getelementptr inbounds nuw i8, ptr %.split24, i64 32
+  %317 = getelementptr inbounds nuw i8, ptr %.split23, i64 32
   %318 = load i64, ptr %317, align 8
   %319 = lshr i64 %318, 32
   %320 = trunc nuw i64 %319 to i32
@@ -1222,19 +1222,19 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   call fastcc void @__bad_area_nosemaphore(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 0, i32 noundef 2)
   br label %bad_area_access_error.exit
 
-.split29.us:                                      ; preds = %277, %273, %265, %229, %237, %241
+.split28.us:                                      ; preds = %277, %273, %265, %229, %237, %241
   %331 = load i64, ptr %16, align 8
   %332 = and i64 %331, 3
   %333 = icmp eq i64 %332, 0
   br i1 %333, label %334, label %bad_area_access_error.exit
 
-334:                                              ; preds = %.split29.us
+334:                                              ; preds = %.split28.us
   call fastcc void @kernelmode_fixup_or_oops(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 7, i32 noundef 2, i32 noundef 0)
   br label %bad_area_access_error.exit
 
 .thread11:                                        ; preds = %257, %221
-  %.us-phi27 = phi i32 [ %222, %221 ], [ %258, %257 ]
-  %335 = and i32 %.us-phi27, 16384
+  %.us-phi26 = phi i32 [ %222, %221 ], [ %258, %257 ]
+  %335 = and i32 %.us-phi26, 16384
   %336 = icmp eq i32 %335, 0
   br i1 %336, label %.thread12, label %bad_area_access_error.exit
 
@@ -1252,7 +1252,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   br label %340
 
 340:                                              ; preds = %338, %144
-  %341 = phi i32 [ %.us-phi27, %338 ], [ %138, %144 ]
+  %341 = phi i32 [ %.us-phi26, %338 ], [ %138, %144 ]
   %342 = and i32 %341, 2163
   %343 = icmp eq i32 %342, 0
   br i1 %343, label %bad_area_access_error.exit, label %344, !prof !10
@@ -1322,7 +1322,7 @@ define internal void @do_user_addr_fault(ptr noundef %0, i64 noundef %1, i64 nou
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 1467, i32 0, i64 12) #14, !srcloc !43
   unreachable
 
-bad_area_access_error.exit:                       ; preds = %281, %245, %.thread11, %329, %324, %374, %370, %366, %365, %357, %340, %334, %.split29.us, %.loopexit, %175, %171, %88, %58, %48, %34, %14, %11
+bad_area_access_error.exit:                       ; preds = %281, %245, %.thread11, %329, %324, %374, %370, %366, %365, %357, %340, %334, %.split28.us, %.loopexit, %175, %171, %88, %58, %48, %34, %14, %11
   ret void
 }
 

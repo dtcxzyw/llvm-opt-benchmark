@@ -9074,16 +9074,16 @@ define i32 @If_DsdManOperation(ptr noundef %0, i32 noundef %1, ptr noundef captu
 
 55:                                               ; preds = %.thread
   %56 = tail call i32 @If_DsdManPushInv_rec(ptr noundef nonnull %0, i32 noundef %23, ptr noundef %.0334)
+  %57 = and i32 %23, -2
   %.val255.pre = load i32, ptr %28, align 4
   br label %If_DsdManPushInv.exit
 
 If_DsdManPushInv.exit:                            ; preds = %53, %.thread, %55
   %.val255 = phi i32 [ %.val255.pre, %55 ], [ %.val251, %.thread ], [ %.val251, %53 ]
-  %.0.i = phi i32 [ 1, %55 ], [ 0, %.thread ], [ 0, %53 ]
-  %57 = xor i32 %.0.i, %23
+  %.0.i = phi i32 [ %57, %55 ], [ %23, %.thread ], [ %23, %53 ]
   %58 = sext i32 %.0205333 to i64
   %59 = getelementptr inbounds i32, ptr %8, i64 %58
-  store i32 %57, ptr %59, align 4, !tbaa !40
+  store i32 %.0.i, ptr %59, align 4, !tbaa !40
   %60 = shl i32 %.0228330, 16
   %61 = lshr i32 %.val255, 3
   %62 = and i32 %61, 31
@@ -9264,12 +9264,12 @@ If_DsdObjSort.exit:                               ; preds = %96, %._crit_edge337
 
 125:                                              ; preds = %123
   %126 = tail call i32 @If_DsdManPushInv_rec(ptr noundef nonnull %0, i32 noundef %117, ptr noundef %.1298)
+  %127 = and i32 %117, -2
   br label %If_DsdManPushInv.exit260
 
 If_DsdManPushInv.exit260:                         ; preds = %115, %123, %125
-  %.0.i259 = phi i32 [ 1, %125 ], [ 0, %123 ], [ 0, %115 ]
-  %127 = xor i32 %.0.i259, %117
-  store i32 %127, ptr %116, align 4, !tbaa !40
+  %.0.i259 = phi i32 [ %127, %125 ], [ %117, %123 ], [ %117, %115 ]
+  store i32 %.0.i259, ptr %116, align 4, !tbaa !40
   %128 = getelementptr inbounds nuw i8, ptr %121, i64 4
   %129 = load i32, ptr %128, align 4
   %130 = lshr i32 %129, 3
@@ -9431,14 +9431,14 @@ If_DsdManPushInv.exit260:                         ; preds = %115, %123, %125
 
 206:                                              ; preds = %204
   %207 = tail call i32 @If_DsdManPushInv_rec(ptr noundef nonnull %0, i32 noundef %198, ptr noundef %.2317)
+  %208 = and i32 %198, -2
   br label %If_DsdManPushInv.exit264
 
 If_DsdManPushInv.exit264:                         ; preds = %196, %204, %206
-  %.0.i263 = phi i32 [ 1, %206 ], [ 0, %204 ], [ 0, %196 ]
-  %208 = xor i32 %.0.i263, %198
+  %.0.i263 = phi i32 [ %208, %206 ], [ %198, %204 ], [ %198, %196 ]
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %209 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv413
-  store i32 %208, ptr %209, align 4, !tbaa !40
+  store i32 %.0.i263, ptr %209, align 4, !tbaa !40
   %210 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %211 = load i32, ptr %210, align 4
   %212 = lshr i32 %211, 3
@@ -9529,13 +9529,13 @@ If_DsdManPushInv.exit264:                         ; preds = %196, %204, %206
 
 258:                                              ; preds = %256
   %259 = call i32 @If_DsdManPushInv_rec(ptr noundef nonnull %0, i32 noundef %246, ptr noundef %254)
+  %260 = and i32 %242, -2
   br label %If_DsdManPushInv.exit273
 
 If_DsdManPushInv.exit273:                         ; preds = %237, %256, %258
-  %.0.i272 = phi i32 [ 1, %258 ], [ 0, %256 ], [ 0, %237 ]
-  %260 = xor i32 %.0.i272, %246
+  %.0.i272 = phi i32 [ %260, %258 ], [ %246, %256 ], [ %246, %237 ]
   %261 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
-  store i32 %260, ptr %261, align 4, !tbaa !40
+  store i32 %.0.i272, ptr %261, align 4, !tbaa !40
   %262 = getelementptr inbounds nuw i8, ptr %250, i64 4
   %263 = load i32, ptr %262, align 4
   %264 = lshr i32 %263, 3

@@ -4686,13 +4686,13 @@ if.then47:                                        ; preds = %if.end
   %cmp58 = icmp eq i32 %and57, 48
   %cond59 = select i1 %cmp58, i8 48, i8 0
   %or60 = or disjoint i8 %or55, %cond59
+  %8 = and i8 %or60, %sametype_neighbors
   br label %if.end62
 
 if.end62:                                         ; preds = %if.then47, %if.end
-  %sametype_mask.0 = phi i8 [ %or60, %if.then47 ], [ 0, %if.end ]
+  %sametype_mask.0 = phi i8 [ %8, %if.then47 ], [ 0, %if.end ]
   %and6580 = and i8 %or44, %solid_neighbors
-  %and68 = and i8 %sametype_mask.0, %sametype_neighbors
-  %or69 = or i8 %and68, %and6580
+  %or69 = or i8 %sametype_mask.0, %and6580
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end62, %entry
@@ -13927,13 +13927,13 @@ if.then47.i:                                      ; preds = %if.end.i559
   %cmp58.i = icmp eq i32 %and57.i, 48
   %cond59.i = select i1 %cmp58.i, i8 48, i8 0
   %or60.i = or disjoint i8 %or55.i, %cond59.i
+  %125 = and i8 %or60.i, %sametype_neighbors.1
   br label %if.end62.i
 
 if.end62.i:                                       ; preds = %if.then47.i, %if.end.i559
-  %sametype_mask.0.i = phi i8 [ %or60.i, %if.then47.i ], [ 0, %if.end.i559 ]
+  %sametype_mask.0.i = phi i8 [ %125, %if.then47.i ], [ 0, %if.end.i559 ]
   %and6580.i = and i8 %or44.i, %solid_neighbors.1
-  %and68.i = and i8 %sametype_mask.0.i, %sametype_neighbors.1
-  %or69.i = or i8 %and68.i, %and6580.i
+  %or69.i = or i8 %sametype_mask.0.i, %and6580.i
   br label %_ZNK21MapblockMeshGenerator14getNodeBoxMaskEN3irr4core8aabbox3dIfEEhh.exit
 
 _ZNK21MapblockMeshGenerator14getNodeBoxMaskEN3irr4core8aabbox3dIfEEhh.exit: ; preds = %if.end62.i, %for.body252
@@ -13948,18 +13948,18 @@ invoke.cont260:                                   ; preds = %_ZNK21MapblockMeshG
   br i1 %cmp.i552.not, label %for.cond.cleanup251.loopexit, label %for.body252
 
 lpad259:                                          ; preds = %_ZNK21MapblockMeshGenerator14getNodeBoxMaskEN3irr4core8aabbox3dIfEEhh.exit
-  %125 = landingpad { ptr, i32 }
+  %126 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup273
 
 ehcleanup273:                                     ; preds = %lpad259, %if.then.i.i.i549, %ehcleanup239, %ehcleanup239.thread, %lpad
-  %.pn323.pn.pn.pn = phi { ptr, i32 } [ %66, %lpad ], [ %125, %lpad259 ], [ %74, %ehcleanup239.thread ], [ %.pn323.pn, %ehcleanup239 ], [ %.pn323.pn, %if.then.i.i.i549 ]
-  %126 = load ptr, ptr %boxes, align 8, !tbaa !197
-  %tobool.not.i.i.i562 = icmp eq ptr %126, null
+  %.pn323.pn.pn.pn = phi { ptr, i32 } [ %66, %lpad ], [ %126, %lpad259 ], [ %74, %ehcleanup239.thread ], [ %.pn323.pn, %ehcleanup239 ], [ %.pn323.pn, %if.then.i.i.i549 ]
+  %127 = load ptr, ptr %boxes, align 8, !tbaa !197
+  %tobool.not.i.i.i562 = icmp eq ptr %127, null
   br i1 %tobool.not.i.i.i562, label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit564, label %if.then.i.i.i563
 
 if.then.i.i.i563:                                 ; preds = %ehcleanup273
-  call void @_ZdlPv(ptr noundef nonnull %126) #25
+  call void @_ZdlPv(ptr noundef nonnull %127) #25
   br label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit564
 
 _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EED2Ev.exit564: ; preds = %if.then.i.i.i563, %ehcleanup273

@@ -520,12 +520,12 @@ bytestream2_get_byte.exit.i.i:                    ; preds = %238
   %252 = getelementptr inbounds nuw i8, ptr %.sroa.0.3104109.i.i, i64 1
   %253 = load i8, ptr %.sroa.0.3104109.i.i, align 1, !tbaa !43
   %254 = zext i8 %253 to i32
+  %255 = or disjoint i32 %248, %254
   br label %bytestream2_get_byte.exit65.i.i
 
 bytestream2_get_byte.exit65.i.i:                  ; preds = %251, %.thread.i.i
   %.sroa.0.4.i.i = phi ptr [ %252, %251 ], [ %229, %.thread.i.i ]
-  %.0.i64.i.i = phi i32 [ %254, %251 ], [ 0, %.thread.i.i ]
-  %255 = or disjoint i32 %.0.i64.i.i, %248
+  %.0.i64.i.i = phi i32 [ %255, %251 ], [ %248, %.thread.i.i ]
   %256 = lshr i32 %.0.i105108.i.i, 2
   %257 = and i32 %256, 7
   %258 = add nuw nsw i32 %257, 3
@@ -579,14 +579,14 @@ bytestream2_get_be16.exit.i.i:                    ; preds = %269, %bytestream2_p
   %287 = load i16, ptr %240, align 1, !tbaa !43
   %288 = tail call i16 @llvm.bswap.i16(i16 %287)
   %289 = zext i16 %288 to i32
+  %290 = or disjoint i32 %281, %289
   %.pre.i.i = ptrtoint ptr %286 to i64
   br label %bytestream2_get_be16.exit70.i.i
 
 bytestream2_get_be16.exit70.i.i:                  ; preds = %285, %278
   %.pre-phi.i.i = phi i64 [ %230, %278 ], [ %.pre.i.i, %285 ]
   %.sroa.0.7.i.i = phi ptr [ %229, %278 ], [ %286, %285 ]
-  %.0.i69.i.i = phi i32 [ 0, %278 ], [ %289, %285 ]
-  %290 = or disjoint i32 %.0.i69.i.i, %281
+  %.0.i69.i.i = phi i32 [ %281, %278 ], [ %290, %285 ]
   %291 = shl nuw nsw i32 %242, 6
   %292 = and i32 %291, 768
   %293 = sub i64 %230, %.pre-phi.i.i
@@ -610,7 +610,7 @@ bytestream2_get_byte.exit67.i.i:                  ; preds = %295, %bytestream2_g
   %.sroa.0.1.i.i = phi ptr [ %.sroa.0.4.i.i, %bytestream2_get_byte.exit65.i.i ], [ %.sroa.0.6.i.i, %bytestream2_get_be16.exit.i.i ], [ %.sroa.0.5.i.i, %bytestream2_get_byte.exit67.i.i ]
   %.054.i.i = phi i32 [ %246, %bytestream2_get_byte.exit65.i.i ], [ %275, %bytestream2_get_be16.exit.i.i ], [ %279, %bytestream2_get_byte.exit67.i.i ]
   %.053.i.i = phi i32 [ %258, %bytestream2_get_byte.exit65.i.i ], [ %277, %bytestream2_get_be16.exit.i.i ], [ %300, %bytestream2_get_byte.exit67.i.i ]
-  %.052.in.i.i = phi i32 [ %255, %bytestream2_get_byte.exit65.i.i ], [ %.0.i68.i.i, %bytestream2_get_be16.exit.i.i ], [ %290, %bytestream2_get_byte.exit67.i.i ]
+  %.052.in.i.i = phi i32 [ %.0.i64.i.i, %bytestream2_get_byte.exit65.i.i ], [ %.0.i68.i.i, %bytestream2_get_be16.exit.i.i ], [ %.0.i69.i.i, %bytestream2_get_byte.exit67.i.i ]
   %.052.i.i = add nuw nsw i32 %.052.in.i.i, 1
   %302 = ptrtoint ptr %.0112.i.i to i64
   %303 = sub i64 %232, %302

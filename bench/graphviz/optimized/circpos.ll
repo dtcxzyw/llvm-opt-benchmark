@@ -642,40 +642,42 @@ positionChildren.exit.i:                          ; preds = %340, %337, %._crit_
   %347 = call double @llvm.maxnum.f64(double %.sroa.4.097.i, double %346)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond114.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond114.not.i, label %._crit_edge102.i, label %170, !llvm.loop !76
+  br i1 %exitcond114.not.i, label %._crit_edge102.loopexit.i, label %170, !llvm.loop !76
 
-._crit_edge102.i:                                 ; preds = %positionChildren.exit.i, %.preheader.i, %gv_calloc.exit.i
-  %.077.lcssa132141.i = phi double [ %.077.lcssa.i, %.preheader.i ], [ 0.000000e+00, %gv_calloc.exit.i ], [ %.077.lcssa.i, %positionChildren.exit.i ]
-  %.sroa.10.0.lcssa.i = phi double [ -1.000000e+00, %.preheader.i ], [ -1.000000e+00, %gv_calloc.exit.i ], [ %.081.lcssa.i.i, %positionChildren.exit.i ]
-  %.sroa.4.0.lcssa.i = phi double [ %24, %.preheader.i ], [ %24, %gv_calloc.exit.i ], [ %347, %positionChildren.exit.i ]
-  %.sroa.14.0.lcssa.i = phi double [ -1.000000e+00, %.preheader.i ], [ -1.000000e+00, %gv_calloc.exit.i ], [ %.080.lcssa.i.i, %positionChildren.exit.i ]
+._crit_edge102.loopexit.i:                        ; preds = %positionChildren.exit.i
+  %348 = fadd double %.081.lcssa.i.i, %.080.lcssa.i.i
+  %349 = fmul double %348, 5.000000e-01
+  %350 = fadd double %349, 0xC00921FB54442D18
+  br label %._crit_edge102.i
+
+._crit_edge102.i:                                 ; preds = %._crit_edge102.loopexit.i, %.preheader.i, %gv_calloc.exit.i
+  %.077.lcssa132141.i = phi double [ %.077.lcssa.i, %._crit_edge102.loopexit.i ], [ %.077.lcssa.i, %.preheader.i ], [ 0.000000e+00, %gv_calloc.exit.i ]
+  %.sroa.10.0.lcssa.i = phi double [ %350, %._crit_edge102.loopexit.i ], [ 0xC01090FDAA22168C, %.preheader.i ], [ 0xC01090FDAA22168C, %gv_calloc.exit.i ]
+  %.sroa.4.0.lcssa.i = phi double [ %347, %._crit_edge102.loopexit.i ], [ %24, %.preheader.i ], [ %24, %gv_calloc.exit.i ]
   call void @free(ptr noundef %16) #11
-  %348 = icmp eq i64 %.024.lcssa, 1
-  br i1 %348, label %349, label %position.exit
+  %351 = icmp eq i64 %.024.lcssa, 1
+  br i1 %351, label %352, label %position.exit
 
-349:                                              ; preds = %._crit_edge102.i
-  %350 = fmul double %2, 5.000000e-01
-  %351 = fadd double %350, %.077.lcssa132141.i
-  %352 = fneg double %351
-  call fastcc void @applyDelta(ptr noundef nonnull %1, double noundef %352, double noundef 0.000000e+00, double noundef 0.000000e+00)
-  %353 = load double, ptr %23, align 8, !tbaa !30
-  %354 = fadd double %351, %353
-  %355 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %356 = load i32, ptr %355, align 8, !tbaa !73
-  %357 = or i32 %356, 1
-  store i32 %357, ptr %355, align 8, !tbaa !73
+352:                                              ; preds = %._crit_edge102.i
+  %353 = fmul double %2, 5.000000e-01
+  %354 = fadd double %353, %.077.lcssa132141.i
+  %355 = fneg double %354
+  call fastcc void @applyDelta(ptr noundef nonnull %1, double noundef %355, double noundef 0.000000e+00, double noundef 0.000000e+00)
+  %356 = load double, ptr %23, align 8, !tbaa !30
+  %357 = fadd double %354, %356
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %359 = load i32, ptr %358, align 8, !tbaa !73
+  %360 = or i32 %359, 1
+  store i32 %360, ptr %358, align 8, !tbaa !73
   br label %position.exit
 
-position.exit:                                    ; preds = %._crit_edge102.i, %349
-  %.sroa.4.0.lcssa.sink.i = phi double [ %354, %349 ], [ %.sroa.4.0.lcssa.i, %._crit_edge102.i ]
+position.exit:                                    ; preds = %._crit_edge102.i, %352
+  %.sroa.4.0.lcssa.sink.i = phi double [ %357, %352 ], [ %.sroa.4.0.lcssa.i, %._crit_edge102.i ]
   store double %.sroa.4.0.lcssa.sink.i, ptr %23, align 8, !tbaa !30
-  %358 = fadd double %.sroa.10.0.lcssa.i, %.sroa.14.0.lcssa.i
-  %359 = fmul double %358, 5.000000e-01
-  %360 = fadd double %359, 0xC00921FB54442D18
   br label %361
 
 361:                                              ; preds = %position.exit, %._crit_edge
-  %.025 = phi double [ %360, %position.exit ], [ 0x400921FB54442D18, %._crit_edge ]
+  %.025 = phi double [ %.sroa.10.0.lcssa.i, %position.exit ], [ 0x400921FB54442D18, %._crit_edge ]
   %362 = icmp eq i64 %.val, 1
   br i1 %362, label %363, label %377
 

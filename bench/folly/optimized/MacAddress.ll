@@ -235,9 +235,9 @@ define void @_ZN5folly10MacAddress13setFromStringENS_5RangeIPKcEE(ptr noundef no
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br label %27
 
-27:                                               ; preds = %134, %3
-  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %134 ]
-  %.098.i = phi ptr [ %1, %3 ], [ %.4.i, %134 ]
+27:                                               ; preds = %135, %3
+  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %135 ]
+  %.098.i = phi ptr [ %1, %3 ], [ %.4.i, %135 ]
   %28 = icmp eq ptr %.098.i, %2
   br i1 %28, label %29, label %49
 
@@ -499,7 +499,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 101:                                              ; preds = %75
   %102 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %103 = icmp eq ptr %102, %2
-  br i1 %103, label %134, label %104
+  br i1 %103, label %135, label %104
 
 104:                                              ; preds = %101
   %105 = load i8, ptr %102, align 1, !tbaa !26
@@ -594,20 +594,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %.130.i = phi i8 [ %108, %104 ], [ %79, %110 ], [ %79, %110 ]
   %132 = getelementptr inbounds nuw i8, ptr %.2.i, i64 2
   %133 = shl i8 %.135.i, 4
-  br label %134
+  %134 = or i8 %133, %.130.i
+  br label %135
 
-134:                                              ; preds = %131, %101
-  %.034.i = phi i8 [ %133, %131 ], [ 0, %101 ]
-  %.029.i = phi i8 [ %.130.i, %131 ], [ %79, %101 ]
+135:                                              ; preds = %131, %101
+  %.034.i = phi i8 [ %134, %131 ], [ %79, %101 ]
   %.4.i = phi ptr [ %132, %131 ], [ %102, %101 ]
-  %135 = or i8 %.029.i, %.034.i
   %136 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i
-  store i8 %135, ptr %136, align 1, !tbaa !26
+  store i8 %.034.i, ptr %136, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.i, label %.thread90.i, label %27, !llvm.loop !51
 
-.thread90.i:                                      ; preds = %134
+.thread90.i:                                      ; preds = %135
   %.not43.i = icmp eq ptr %.4.i, %2
   br i1 %.not43.i, label %"_ZN5folly10MacAddress13setFromStringIZNS0_13setFromStringENS_5RangeIPKcEEE3$_0EENS_8ExpectedINS_4UnitENS_21MacAddressFormatErrorEEES5_T_.exit", label %137
 
@@ -975,9 +974,9 @@ define range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPK
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %5
 
-5:                                                ; preds = %32, %3
-  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %32 ]
-  %.068.i = phi ptr [ %1, %3 ], [ %.4.i, %32 ]
+5:                                                ; preds = %33, %3
+  %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %33 ]
+  %.068.i = phi ptr [ %1, %3 ], [ %.4.i, %33 ]
   %6 = icmp eq ptr %.068.i, %2
   br i1 %6, label %"_ZN5folly10MacAddress13setFromStringIZNS0_16trySetFromStringENS_5RangeIPKcEEE3$_0EENS_8ExpectedINS_4UnitENS_21MacAddressFormatErrorEEES5_T_.exit", label %7
 
@@ -1010,7 +1009,7 @@ define range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPK
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %.2.i, i64 1
   %21 = icmp eq ptr %20, %2
-  br i1 %21, label %32, label %22
+  br i1 %21, label %33, label %22
 
 22:                                               ; preds = %19
   %23 = load i8, ptr %20, align 1, !tbaa !26
@@ -1032,20 +1031,19 @@ define range(i64 1, 3) i64 @_ZN5folly10MacAddress16trySetFromStringENS_5RangeIPK
   %.130.i = phi i8 [ %26, %22 ], [ %17, %28 ], [ %17, %28 ]
   %30 = getelementptr inbounds nuw i8, ptr %.2.i, i64 2
   %31 = shl i8 %.135.i, 4
-  br label %32
+  %32 = or i8 %31, %.130.i
+  br label %33
 
-32:                                               ; preds = %29, %19
-  %.034.i = phi i8 [ %31, %29 ], [ 0, %19 ]
-  %.029.i = phi i8 [ %.130.i, %29 ], [ %17, %19 ]
+33:                                               ; preds = %29, %19
+  %.034.i = phi i8 [ %32, %29 ], [ %17, %19 ]
   %.4.i = phi ptr [ %30, %29 ], [ %20, %19 ]
-  %33 = or i8 %.029.i, %.034.i
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
-  store i8 %33, ptr %34, align 1, !tbaa !26
+  store i8 %.034.i, ptr %34, align 1, !tbaa !26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.i, label %35, label %5, !llvm.loop !71
 
-35:                                               ; preds = %32
+35:                                               ; preds = %33
   %.not43.i = icmp eq ptr %.4.i, %2
   br i1 %.not43.i, label %"_ZN5folly10MacAddress13setFromBinaryIZNS0_16trySetFromStringENS_5RangeIPKcEEE3$_0EENS_8ExpectedINS_4UnitENS_21MacAddressFormatErrorEEENS2_IPKhEET_.exit.i", label %"_ZN5folly10MacAddress13setFromStringIZNS0_16trySetFromStringENS_5RangeIPKcEEE3$_0EENS_8ExpectedINS_4UnitENS_21MacAddressFormatErrorEEES5_T_.exit"
 

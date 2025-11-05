@@ -3656,87 +3656,86 @@ setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.ex
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 10736
   br label %75
 
-75:                                               ; preds = %._crit_edge, %102
-  %76 = phi i1 [ true, %._crit_edge ], [ false, %102 ]
-  %indvars.iv76 = phi i64 [ 0, %._crit_edge ], [ 1, %102 ]
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv76
-  %78 = load i8, ptr %77, align 1
-  %79 = load ptr, ptr %4, align 8
-  %80 = add i8 %78, -1
-  %or.cond.i.i = icmp ult i8 %80, 8
+75:                                               ; preds = %._crit_edge, %101
+  %.not.not = phi i1 [ %71, %._crit_edge ], [ false, %101 ]
+  %indvars.iv76 = phi i64 [ 0, %._crit_edge ], [ 1, %101 ]
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 %indvars.iv76
+  %77 = load i8, ptr %76, align 1
+  %78 = load ptr, ptr %4, align 8
+  %79 = add i8 %77, -1
+  %or.cond.i.i = icmp ult i8 %79, 8
   br i1 %or.cond.i.i, label %get_ref_frame_map_idx.exit.i, label %get_ref_scale_factors_const.exit
 
 get_ref_frame_map_idx.exit.i:                     ; preds = %75
-  %81 = zext nneg i8 %78 to i64
-  %82 = getelementptr inbounds nuw i8, ptr %79, i64 640
-  %83 = add nuw nsw i64 %81, 4294967295
-  %84 = and i64 %83, 4294967295
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %84
-  %86 = load i32, ptr %85, align 4
-  %.fr.i = freeze i32 %86
+  %80 = zext nneg i8 %77 to i64
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 640
+  %82 = add nuw nsw i64 %80, 4294967295
+  %83 = and i64 %82, 4294967295
+  %84 = getelementptr inbounds nuw i32, ptr %81, i64 %83
+  %85 = load i32, ptr %84, align 4
+  %.fr.i = freeze i32 %85
   %.not.i55 = icmp eq i32 %.fr.i, -1
-  br i1 %.not.i55, label %get_ref_frame_map_idx.exit.i57, label %87
+  br i1 %.not.i55, label %get_ref_frame_map_idx.exit.i57, label %86
 
-87:                                               ; preds = %get_ref_frame_map_idx.exit.i
-  %88 = getelementptr inbounds nuw i8, ptr %79, i64 960
-  %89 = sext i32 %.fr.i to i64
-  %90 = getelementptr inbounds ptr, ptr %88, i64 %89
-  %91 = load ptr, ptr %90, align 8
+86:                                               ; preds = %get_ref_frame_map_idx.exit.i
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 960
+  %88 = sext i32 %.fr.i to i64
+  %89 = getelementptr inbounds ptr, ptr %87, i64 %88
+  %90 = load ptr, ptr %89, align 8
   br label %get_ref_frame_map_idx.exit.i57
 
-get_ref_frame_map_idx.exit.i57:                   ; preds = %get_ref_frame_map_idx.exit.i, %87
-  %.ph = phi ptr [ null, %get_ref_frame_map_idx.exit.i ], [ %91, %87 ]
+get_ref_frame_map_idx.exit.i57:                   ; preds = %get_ref_frame_map_idx.exit.i, %86
+  %.ph = phi ptr [ null, %get_ref_frame_map_idx.exit.i ], [ %90, %86 ]
   %.not.i58 = icmp eq i32 %.fr.i, -1
-  %92 = getelementptr inbounds nuw i8, ptr %79, i64 704
-  %93 = sext i32 %.fr.i to i64
-  %94 = getelementptr inbounds %struct.scale_factors, ptr %92, i64 %93
-  %spec.select61 = select i1 %.not.i58, ptr null, ptr %94
+  %91 = getelementptr inbounds nuw i8, ptr %78, i64 704
+  %92 = sext i32 %.fr.i to i64
+  %93 = getelementptr inbounds %struct.scale_factors, ptr %91, i64 %92
+  %spec.select61 = select i1 %.not.i58, ptr null, ptr %93
   br label %get_ref_scale_factors_const.exit
 
 get_ref_scale_factors_const.exit:                 ; preds = %get_ref_frame_map_idx.exit.i57, %75
-  %95 = phi ptr [ null, %75 ], [ %.ph, %get_ref_frame_map_idx.exit.i57 ]
-  %96 = phi ptr [ null, %75 ], [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv76
-  store ptr %96, ptr %97, align 8
-  %98 = load i32, ptr %96, align 8
-  %.not.i59 = icmp eq i32 %98, -1
+  %94 = phi ptr [ null, %75 ], [ %.ph, %get_ref_frame_map_idx.exit.i57 ]
+  %95 = phi ptr [ null, %75 ], [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ]
+  %96 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv76
+  store ptr %95, ptr %96, align 8
+  %97 = load i32, ptr %95, align 8
+  %.not.i59 = icmp eq i32 %97, -1
   br i1 %.not.i59, label %av1_is_valid_scale.exit.thread, label %av1_is_valid_scale.exit
 
 av1_is_valid_scale.exit:                          ; preds = %get_ref_scale_factors_const.exit
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %100 = load i32, ptr %99, align 4
-  %.not62 = icmp eq i32 %100, -1
-  br i1 %.not62, label %av1_is_valid_scale.exit.thread, label %102
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  %99 = load i32, ptr %98, align 4
+  %.not62 = icmp eq i32 %99, -1
+  br i1 %.not62, label %av1_is_valid_scale.exit.thread, label %101
 
 av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_factors_const.exit, %av1_is_valid_scale.exit
-  %101 = load ptr, ptr %74, align 16
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %101, i32 noundef 5, ptr noundef nonnull @.str) #19
-  br label %102
+  %100 = load ptr, ptr %74, align 16
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %100, i32 noundef 5, ptr noundef nonnull @.str) #19
+  br label %101
 
-102:                                              ; preds = %av1_is_valid_scale.exit.thread, %av1_is_valid_scale.exit
-  %103 = getelementptr inbounds nuw i8, ptr %95, i64 1312
-  %104 = load i32, ptr %0, align 16
-  %105 = trunc nuw nsw i64 %indvars.iv76 to i32
-  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %105, ptr noundef nonnull %103, i32 noundef %104, i32 noundef %70, ptr noundef nonnull %96, i32 noundef %5)
-  %.not.not = and i1 %76, %71
-  br i1 %.not.not, label %75, label %106, !llvm.loop !43
+101:                                              ; preds = %av1_is_valid_scale.exit.thread, %av1_is_valid_scale.exit
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 1312
+  %103 = load i32, ptr %0, align 16
+  %104 = trunc nuw nsw i64 %indvars.iv76 to i32
+  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %104, ptr noundef nonnull %102, i32 noundef %103, i32 noundef %70, ptr noundef nonnull %95, i32 noundef %5)
+  br i1 %.not.not, label %75, label %105, !llvm.loop !43
 
-106:                                              ; preds = %102
+105:                                              ; preds = %101
   %.neg = mul i32 %70, -32
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 7924
-  store i32 %.neg, ptr %107, align 4
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %109 = load i32, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8308
-  %111 = load i8, ptr %110, align 4
-  %112 = zext i8 %111 to i32
-  %113 = zext i8 %2 to i32
-  %114 = add i32 %1, %113
-  %115 = sub i32 %112, %114
-  %116 = shl nsw i32 %115, 5
-  %117 = add nsw i32 %116, %109
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 7928
-  store i32 %117, ptr %118, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 7924
+  store i32 %.neg, ptr %106, align 4
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %108 = load i32, ptr %107, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8308
+  %110 = load i8, ptr %109, align 4
+  %111 = zext i8 %110 to i32
+  %112 = zext i8 %2 to i32
+  %113 = add i32 %1, %112
+  %114 = sub i32 %111, %113
+  %115 = shl nsw i32 %114, 5
+  %116 = add nsw i32 %115, %108
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 7928
+  store i32 %116, ptr %117, align 8
   ret void
 }
 
@@ -3864,87 +3863,86 @@ setup_pred_plane.exit.us:                         ; preds = %setup_pred_plane.ex
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %79
 
-79:                                               ; preds = %._crit_edge, %106
-  %80 = phi i1 [ true, %._crit_edge ], [ false, %106 ]
-  %indvars.iv75 = phi i64 [ 0, %._crit_edge ], [ 1, %106 ]
-  %81 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv75
-  %82 = load i8, ptr %81, align 1
-  %83 = load ptr, ptr %4, align 8
-  %84 = add i8 %82, -1
-  %or.cond.i.i = icmp ult i8 %84, 8
+79:                                               ; preds = %._crit_edge, %105
+  %.not.not = phi i1 [ %74, %._crit_edge ], [ false, %105 ]
+  %indvars.iv75 = phi i64 [ 0, %._crit_edge ], [ 1, %105 ]
+  %80 = getelementptr inbounds nuw i8, ptr %75, i64 %indvars.iv75
+  %81 = load i8, ptr %80, align 1
+  %82 = load ptr, ptr %4, align 8
+  %83 = add i8 %81, -1
+  %or.cond.i.i = icmp ult i8 %83, 8
   br i1 %or.cond.i.i, label %get_ref_frame_map_idx.exit.i, label %get_ref_scale_factors_const.exit
 
 get_ref_frame_map_idx.exit.i:                     ; preds = %79
-  %85 = zext nneg i8 %82 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %83, i64 640
-  %87 = add nuw nsw i64 %85, 4294967295
-  %88 = and i64 %87, 4294967295
-  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
-  %90 = load i32, ptr %89, align 4
-  %.fr.i = freeze i32 %90
+  %84 = zext nneg i8 %81 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 640
+  %86 = add nuw nsw i64 %84, 4294967295
+  %87 = and i64 %86, 4294967295
+  %88 = getelementptr inbounds nuw i32, ptr %85, i64 %87
+  %89 = load i32, ptr %88, align 4
+  %.fr.i = freeze i32 %89
   %.not.i55 = icmp eq i32 %.fr.i, -1
-  br i1 %.not.i55, label %get_ref_frame_map_idx.exit.i57, label %91
+  br i1 %.not.i55, label %get_ref_frame_map_idx.exit.i57, label %90
 
-91:                                               ; preds = %get_ref_frame_map_idx.exit.i
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 960
-  %93 = sext i32 %.fr.i to i64
-  %94 = getelementptr inbounds ptr, ptr %92, i64 %93
-  %95 = load ptr, ptr %94, align 8
+90:                                               ; preds = %get_ref_frame_map_idx.exit.i
+  %91 = getelementptr inbounds nuw i8, ptr %82, i64 960
+  %92 = sext i32 %.fr.i to i64
+  %93 = getelementptr inbounds ptr, ptr %91, i64 %92
+  %94 = load ptr, ptr %93, align 8
   br label %get_ref_frame_map_idx.exit.i57
 
-get_ref_frame_map_idx.exit.i57:                   ; preds = %get_ref_frame_map_idx.exit.i, %91
-  %.ph = phi ptr [ null, %get_ref_frame_map_idx.exit.i ], [ %95, %91 ]
+get_ref_frame_map_idx.exit.i57:                   ; preds = %get_ref_frame_map_idx.exit.i, %90
+  %.ph = phi ptr [ null, %get_ref_frame_map_idx.exit.i ], [ %94, %90 ]
   %.not.i58 = icmp eq i32 %.fr.i, -1
-  %96 = getelementptr inbounds nuw i8, ptr %83, i64 704
-  %97 = sext i32 %.fr.i to i64
-  %98 = getelementptr inbounds %struct.scale_factors, ptr %96, i64 %97
-  %spec.select61 = select i1 %.not.i58, ptr null, ptr %98
+  %95 = getelementptr inbounds nuw i8, ptr %82, i64 704
+  %96 = sext i32 %.fr.i to i64
+  %97 = getelementptr inbounds %struct.scale_factors, ptr %95, i64 %96
+  %spec.select61 = select i1 %.not.i58, ptr null, ptr %97
   br label %get_ref_scale_factors_const.exit
 
 get_ref_scale_factors_const.exit:                 ; preds = %get_ref_frame_map_idx.exit.i57, %79
-  %99 = phi ptr [ null, %79 ], [ %.ph, %get_ref_frame_map_idx.exit.i57 ]
-  %100 = phi ptr [ null, %79 ], [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ]
-  %101 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv75
-  store ptr %100, ptr %101, align 8
-  %102 = load i32, ptr %100, align 8
-  %.not.i59 = icmp eq i32 %102, -1
+  %98 = phi ptr [ null, %79 ], [ %.ph, %get_ref_frame_map_idx.exit.i57 ]
+  %99 = phi ptr [ null, %79 ], [ %spec.select61, %get_ref_frame_map_idx.exit.i57 ]
+  %100 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv75
+  store ptr %99, ptr %100, align 8
+  %101 = load i32, ptr %99, align 8
+  %.not.i59 = icmp eq i32 %101, -1
   br i1 %.not.i59, label %av1_is_valid_scale.exit.thread, label %av1_is_valid_scale.exit
 
 av1_is_valid_scale.exit:                          ; preds = %get_ref_scale_factors_const.exit
-  %103 = getelementptr inbounds nuw i8, ptr %100, i64 4
-  %104 = load i32, ptr %103, align 4
-  %.not62 = icmp eq i32 %104, -1
-  br i1 %.not62, label %av1_is_valid_scale.exit.thread, label %106
+  %102 = getelementptr inbounds nuw i8, ptr %99, i64 4
+  %103 = load i32, ptr %102, align 4
+  %.not62 = icmp eq i32 %103, -1
+  br i1 %.not62, label %av1_is_valid_scale.exit.thread, label %105
 
 av1_is_valid_scale.exit.thread:                   ; preds = %get_ref_scale_factors_const.exit, %av1_is_valid_scale.exit
-  %105 = load ptr, ptr %77, align 16
-  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %105, i32 noundef 5, ptr noundef nonnull @.str) #19
-  br label %106
+  %104 = load ptr, ptr %77, align 16
+  tail call void (ptr, i32, ptr, ...) @aom_internal_error(ptr noundef %104, i32 noundef 5, ptr noundef nonnull @.str) #19
+  br label %105
 
-106:                                              ; preds = %av1_is_valid_scale.exit.thread, %av1_is_valid_scale.exit
-  %107 = getelementptr inbounds nuw i8, ptr %99, i64 1312
-  %108 = load i32, ptr %78, align 4
-  %109 = trunc nuw nsw i64 %indvars.iv75 to i32
-  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %109, ptr noundef nonnull %107, i32 noundef %73, i32 noundef %108, ptr noundef nonnull %100, i32 noundef %5)
-  %.not.not = and i1 %80, %74
-  br i1 %.not.not, label %79, label %110, !llvm.loop !45
+105:                                              ; preds = %av1_is_valid_scale.exit.thread, %av1_is_valid_scale.exit
+  %106 = getelementptr inbounds nuw i8, ptr %98, i64 1312
+  %107 = load i32, ptr %78, align 4
+  %108 = trunc nuw nsw i64 %indvars.iv75 to i32
+  tail call void @av1_setup_pre_planes(ptr noundef nonnull %0, i32 noundef %108, ptr noundef nonnull %106, i32 noundef %73, i32 noundef %107, ptr noundef nonnull %99, i32 noundef %5)
+  br i1 %.not.not, label %79, label %109, !llvm.loop !45
 
-110:                                              ; preds = %106
-  %111 = mul i32 %73, -32
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 7932
-  store i32 %111, ptr %112, align 4
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %114 = load i32, ptr %113, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 8309
-  %116 = load i8, ptr %115, align 1
-  %117 = zext i8 %116 to i32
-  %118 = zext i8 %2 to i32
-  %119 = add i32 %1, %118
-  %120 = sub i32 %117, %119
-  %121 = shl nsw i32 %120, 5
-  %122 = add nsw i32 %121, %114
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 7936
-  store i32 %122, ptr %123, align 16
+109:                                              ; preds = %105
+  %110 = mul i32 %73, -32
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 7932
+  store i32 %110, ptr %111, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %113 = load i32, ptr %112, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 8309
+  %115 = load i8, ptr %114, align 1
+  %116 = zext i8 %115 to i32
+  %117 = zext i8 %2 to i32
+  %118 = add i32 %1, %117
+  %119 = sub i32 %116, %118
+  %120 = shl nsw i32 %119, 5
+  %121 = add nsw i32 %120, %113
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 7936
+  store i32 %121, ptr %122, align 16
   ret void
 }
 

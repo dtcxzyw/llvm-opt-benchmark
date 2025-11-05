@@ -3531,12 +3531,12 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax4node9InnerNode9numberize17h8
   %79 = load ptr, ptr %.sroa.0.0, align 8, !alias.scope !524, !nonnull !7, !noundef !7
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 56
   %81 = load i64, ptr %80, align 8, !noalias !524, !noundef !7
+  %82 = mul i64 %81, %.033
   br label %_ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit
 
 _ZN12typst_syntax4node10SyntaxNode11descendants17h0a0a546ffd69f1ffE.exit: ; preds = %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73bd899027c71a6bE.exit", %78
-  %.0.i49 = phi i64 [ %81, %78 ], [ 1, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73bd899027c71a6bE.exit" ]
-  %82 = mul i64 %.0.i49, %.033
-  %83 = add i64 %82, %.136
+  %.0.i49 = phi i64 [ %82, %78 ], [ %.033, %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73bd899027c71a6bE.exit" ]
+  %83 = add i64 %.0.i49, %.136
   %84 = tail call noundef zeroext i1 @_ZN12typst_syntax4node10SyntaxNode9numberize17hfdbf64fc88f06fa8E(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.0.0, i16 noundef %1, i64 noundef %.136, i64 noundef %83)
   br i1 %84, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h73bd899027c71a6bE.exit.thread", label %73
 

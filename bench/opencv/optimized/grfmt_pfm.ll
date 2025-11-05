@@ -838,22 +838,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19, %
   %50 = load i64, ptr %49, align 8, !tbaa !71
   %51 = mul i64 %50, %indvars.iv.next43
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %51
-  %53 = load i32, ptr %37, align 8, !tbaa !65
-  %54 = load i32, ptr %38, align 4, !tbaa !80
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %53 = load i32, ptr %38, align 4, !tbaa !80
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-56:                                               ; preds = %47
-  %57 = zext nneg i32 %54 to i64
+55:                                               ; preds = %47
+  %56 = load i32, ptr %37, align 8, !tbaa !65
+  %57 = zext nneg i32 %53 to i64
   %58 = getelementptr i64, ptr %49, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -8
   %60 = load i64, ptr %59, align 8, !tbaa !71
   %61 = trunc i64 %60 to i32
+  %62 = mul i32 %56, %61
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %47, %56
-  %62 = phi i32 [ %61, %56 ], [ 0, %47 ]
-  %63 = mul i32 %62, %53
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %47, %55
+  %63 = phi i32 [ %62, %55 ], [ 0, %47 ]
   %64 = invoke noundef i32 @_ZN2cv12RLByteStream8getBytesEPvi(ptr noundef nonnull align 8 dereferenceable(57) %12, ptr noundef %52, i32 noundef %63)
           to label %65 unwind label %80
 

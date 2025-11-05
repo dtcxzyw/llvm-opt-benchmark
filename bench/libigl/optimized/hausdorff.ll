@@ -850,7 +850,7 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
   %45 = zext i1 %44 to i16
   %46 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i.i.i, %45
   %.not6.i.i.i.i = or i1 %44, %46
-  br i1 %.not6.i.i.i.i, label %47, label %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i
+  br i1 %.not6.i.i.i.i, label %47, label %_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit
 
 47:                                               ; preds = %43
   %.sroa.01.0.insert.insert.i.i.i = or disjoint i16 %.sroa.42.0.insert.shift.i.i.i, %45
@@ -858,31 +858,27 @@ define linkonce_odr dso_local void @_ZN4CGAL8internal9AABB_tree17Projection_trai
   %.sroa.2.0.insert.ext.i.i.i.i.i = zext i1 %48 to i16
   %.sroa.2.0.insert.shift.i.i.i.i.i = select i1 %48, i16 256, i16 0
   %.sroa.0.0.insert.insert.i.i.i.i.i = or disjoint i16 %.sroa.2.0.insert.shift.i.i.i.i.i, %.sroa.2.0.insert.ext.i.i.i.i.i
-  %49 = and i16 %.sroa.0.0.insert.insert.i.i.i.i.i, %.sroa.01.0.insert.insert.i.i.i
-  br label %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i
-
-_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i: ; preds = %47, %43
-  %.sroa.05.0.i.i.i.i = phi i16 [ %49, %47 ], [ 0, %43 ]
-  %.sroa.03.0.insert.insert.i.i.i = and i16 %.sroa.05.0.i.i.i.i, %.sroa.04.0.insert.insert.i
+  %49 = and i16 %.sroa.01.0.insert.insert.i.i.i, %.sroa.04.0.insert.insert.i
+  %50 = and i16 %49, %.sroa.0.0.insert.insert.i.i.i.i.i
   br label %_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit
 
-_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit: ; preds = %3, %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i
-  %.sroa.06.0.i.i = phi i16 [ %.sroa.03.0.insert.insert.i.i.i, %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i ], [ 0, %3 ]
+_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit: ; preds = %3, %43, %47
+  %.sroa.06.0.i.i = phi i16 [ 0, %3 ], [ %50, %47 ], [ 0, %43 ]
   store i16 %.sroa.06.0.i.i, ptr %4, align 2
-  %50 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %4)
+  %51 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %50, label %53, label %51
+  br i1 %51, label %54, label %52
 
-51:                                               ; preds = %_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit
+52:                                               ; preds = %_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !tbaa !47
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %.sroa.0.0.copyload.i, ptr %52, align 8, !tbaa !47
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %.sroa.0.0.copyload.i, ptr %53, align 8, !tbaa !47
   store double %.sroa.05.0.copyload6, ptr %0, align 8
   store double %.sroa.5.0.copyload8, ptr %13, align 8
   store double %.sroa.6.0.copyload10, ptr %14, align 8
-  br label %53
+  br label %54
 
-53:                                               ; preds = %51, %_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit
+54:                                               ; preds = %52, %_ZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_.exit
   ret void
 }
 
@@ -1534,7 +1530,7 @@ define linkonce_odr dso_local void @_ZN4CGAL20CommonKernelFunctors27Construct_pr
   %18 = zext i1 %17 to i16
   %19 = icmp ne i16 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i.i, %18
   %.not6.i.i.i.i.i.i.i = or i1 %17, %19
-  br i1 %.not6.i.i.i.i.i.i.i, label %20, label %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i.i.i.i
+  br i1 %.not6.i.i.i.i.i.i.i, label %20, label %_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit
 
 20:                                               ; preds = %12
   %.sroa.01.0.insert.insert.i.i.i.i.i.i = or disjoint i16 %.sroa.42.0.insert.shift.i.i.i.i.i.i, %18
@@ -1546,87 +1542,83 @@ define linkonce_odr dso_local void @_ZN4CGAL20CommonKernelFunctors27Construct_pr
   %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i = zext i1 %25 to i16
   %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i = select i1 %25, i16 256, i16 0
   %.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i16 %.sroa.2.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.2.0.insert.ext.i.i.i.i.i.i.i.i
-  %26 = and i16 %.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i, %.sroa.01.0.insert.insert.i.i.i.i.i.i
-  br label %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i.i.i.i
-
-_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i.i.i.i: ; preds = %20, %12
-  %.sroa.05.0.i.i.i.i.i.i.i = phi i16 [ %26, %20 ], [ 0, %12 ]
-  %.sroa.03.0.insert.insert.i.i.i.i.i.i = and i16 %.sroa.05.0.i.i.i.i.i.i.i, %.sroa.04.0.insert.insert.i.i.i.i
+  %26 = and i16 %.sroa.01.0.insert.insert.i.i.i.i.i.i, %.sroa.04.0.insert.insert.i.i.i.i
+  %27 = and i16 %26, %.sroa.0.0.insert.insert.i.i.i.i.i.i.i.i
   br label %_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit
 
-_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit: ; preds = %5, %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i.i.i.i
-  %.sroa.06.0.i.i.i.i.i = phi i16 [ %.sroa.03.0.insert.insert.i.i.i.i.i.i, %_ZZNK4CGAL20CommonKernelFunctors7Equal_3INS_16Simple_cartesianIdEEEclERKNS_7Point_3IS3_EES8_ENKUlvE_clEv.exit.i.i.i.i.i ], [ 0, %5 ]
+_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit: ; preds = %5, %12, %20
+  %.sroa.06.0.i.i.i.i.i = phi i16 [ 0, %5 ], [ %27, %20 ], [ 0, %12 ]
   store i16 %.sroa.06.0.i.i.i.i.i, ptr %6, align 2
-  %27 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %6)
+  %28 = call noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(ptr noundef nonnull align 1 dereferenceable(2) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %27, label %28, label %29
-
-28:                                               ; preds = %_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %73
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit
-  %30 = load double, ptr %7, align 8, !tbaa !16, !noalias !191
-  %31 = load double, ptr %2, align 8, !tbaa !16, !noalias !191
-  %32 = fsub double %30, %31
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %34 = load double, ptr %33, align 8, !tbaa !16, !noalias !191
-  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %36 = load double, ptr %35, align 8, !tbaa !16, !noalias !191
-  %37 = fsub double %34, %36
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %39 = load double, ptr %38, align 8, !tbaa !16, !noalias !191
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %41 = load double, ptr %40, align 8, !tbaa !16, !noalias !191
-  %42 = fsub double %39, %41
-  %43 = load double, ptr %3, align 8, !tbaa !16, !noalias !206
-  %44 = fsub double %43, %31
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %46 = load double, ptr %45, align 8, !tbaa !16, !noalias !206
-  %47 = fsub double %46, %36
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %49 = load double, ptr %48, align 8, !tbaa !16, !noalias !206
-  %50 = fsub double %49, %41
-  %51 = fmul double %37, %47
-  %52 = call double @llvm.fmuladd.f64(double %32, double %44, double %51)
-  %53 = call double @llvm.fmuladd.f64(double %42, double %50, double %52)
-  %54 = fcmp ugt double %53, 0.000000e+00
-  br i1 %54, label %56, label %55
-
-55:                                               ; preds = %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  br label %73
+  br label %74
 
-56:                                               ; preds = %29
-  %57 = fsub double %43, %30
-  %58 = fsub double %46, %34
-  %59 = fsub double %49, %39
-  %60 = fmul double %37, %58
-  %61 = call double @llvm.fmuladd.f64(double %32, double %57, double %60)
-  %62 = call noundef double @llvm.fmuladd.f64(double %42, double %59, double %61)
-  %63 = fcmp ult double %62, 0.000000e+00
-  br i1 %63, label %65, label %64
+30:                                               ; preds = %_ZNK4CGAL20CommonKernelFunctors15Is_degenerate_3INS_16Simple_cartesianIdEEEclERKNS_9Segment_3IS3_EE.exit
+  %31 = load double, ptr %7, align 8, !tbaa !16, !noalias !191
+  %32 = load double, ptr %2, align 8, !tbaa !16, !noalias !191
+  %33 = fsub double %31, %32
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %35 = load double, ptr %34, align 8, !tbaa !16, !noalias !191
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %37 = load double, ptr %36, align 8, !tbaa !16, !noalias !191
+  %38 = fsub double %35, %37
+  %39 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %40 = load double, ptr %39, align 8, !tbaa !16, !noalias !191
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %42 = load double, ptr %41, align 8, !tbaa !16, !noalias !191
+  %43 = fsub double %40, %42
+  %44 = load double, ptr %3, align 8, !tbaa !16, !noalias !206
+  %45 = fsub double %44, %32
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %47 = load double, ptr %46, align 8, !tbaa !16, !noalias !206
+  %48 = fsub double %47, %37
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %50 = load double, ptr %49, align 8, !tbaa !16, !noalias !206
+  %51 = fsub double %50, %42
+  %52 = fmul double %38, %48
+  %53 = call double @llvm.fmuladd.f64(double %33, double %45, double %52)
+  %54 = call double @llvm.fmuladd.f64(double %43, double %51, double %53)
+  %55 = fcmp ugt double %54, 0.000000e+00
+  br i1 %55, label %57, label %56
 
-64:                                               ; preds = %56
+56:                                               ; preds = %30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  br label %74
+
+57:                                               ; preds = %30
+  %58 = fsub double %44, %31
+  %59 = fsub double %47, %35
+  %60 = fsub double %50, %40
+  %61 = fmul double %38, %59
+  %62 = call double @llvm.fmuladd.f64(double %33, double %58, double %61)
+  %63 = call noundef double @llvm.fmuladd.f64(double %43, double %60, double %62)
+  %64 = fcmp ult double %63, 0.000000e+00
+  br i1 %64, label %66, label %65
+
+65:                                               ; preds = %57
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
-  br label %73
+  br label %74
 
-65:                                               ; preds = %56
-  %66 = fmul double %37, %37
-  %67 = call double @llvm.fmuladd.f64(double %32, double %32, double %66)
-  %68 = call double @llvm.fmuladd.f64(double %42, double %42, double %67)
-  %69 = fdiv double %53, %68
-  %70 = call double @llvm.fmuladd.f64(double %69, double %32, double %31)
-  %71 = call double @llvm.fmuladd.f64(double %69, double %37, double %36)
-  %72 = call double @llvm.fmuladd.f64(double %69, double %42, double %41)
-  store double %70, ptr %0, align 8, !alias.scope !213
+66:                                               ; preds = %57
+  %67 = fmul double %38, %38
+  %68 = call double @llvm.fmuladd.f64(double %33, double %33, double %67)
+  %69 = call double @llvm.fmuladd.f64(double %43, double %43, double %68)
+  %70 = fdiv double %54, %69
+  %71 = call double @llvm.fmuladd.f64(double %70, double %33, double %32)
+  %72 = call double @llvm.fmuladd.f64(double %70, double %38, double %37)
+  %73 = call double @llvm.fmuladd.f64(double %70, double %43, double %42)
+  store double %71, ptr %0, align 8, !alias.scope !213
   %.sroa.4.0..sroa_idx.i.i23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %71, ptr %.sroa.4.0..sroa_idx.i.i23, align 8, !alias.scope !213
+  store double %72, ptr %.sroa.4.0..sroa_idx.i.i23, align 8, !alias.scope !213
   %.sroa.5.0..sroa_idx.i.i24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store double %72, ptr %.sroa.5.0..sroa_idx.i.i24, align 8, !alias.scope !213
-  br label %73
+  store double %73, ptr %.sroa.5.0..sroa_idx.i.i24, align 8, !alias.scope !213
+  br label %74
 
-73:                                               ; preds = %65, %64, %55, %28
+74:                                               ; preds = %66, %65, %56, %29
   ret void
 }
 

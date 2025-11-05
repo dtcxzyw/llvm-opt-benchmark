@@ -124,6 +124,10 @@ define void @_ZN4LIEF3ELF14AArch64Feature6createERNS_12BinaryStreamE(ptr dead_on
   store i64 %5, ptr %4, align 8, !tbaa !3
   br i1 %.not.i.i, label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, label %11
 
+_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %2
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %_ZNSt6vectorIN4LIEF3ELF14AArch64Feature7FEATUREESaIS3_EED2Ev.exit24
+
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i8, ptr %12, align 8, !tbaa !14, !range !15, !noundef !16
@@ -132,15 +136,11 @@ define void @_ZN4LIEF3ELF14AArch64Feature6createERNS_12BinaryStreamE(ptr dead_on
 
 15:                                               ; preds = %11
   call void @_ZN4LIEF11swap_endianIjEEvPT_(ptr noundef nonnull %3) #18
-  %.pre = load i64, ptr %4, align 8, !tbaa !3
+  %.pre.i = load i64, ptr %4, align 8, !tbaa !3
   br label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit
 
-_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %2
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZNSt6vectorIN4LIEF3ELF14AArch64Feature7FEATUREESaIS3_EED2Ev.exit24
-
 _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds = %11, %15
-  %16 = phi i64 [ %.pre, %15 ], [ %5, %11 ]
+  %16 = phi i64 [ %5, %11 ], [ %.pre.i, %15 ]
   %17 = load i32, ptr %3, align 4, !tbaa !10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %18 = add i64 %16, 4

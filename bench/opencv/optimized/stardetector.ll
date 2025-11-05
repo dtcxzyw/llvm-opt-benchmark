@@ -6063,19 +6063,22 @@ define internal fastcc noundef zeroext i1 @_ZN2cv11xfeatures2dL25StarDetectorSup
 ._crit_edge158:                                   ; preds = %72
   %indvars.iv.next190 = add nsw i64 %indvars.iv189, %62
   %.not124 = icmp sgt i64 %indvars.iv.next190, %66
-  br i1 %.not124, label %._crit_edge168, label %.lr.ph157, !llvm.loop !162
+  br i1 %.not124, label %._crit_edge168.loopexit175, label %.lr.ph157, !llvm.loop !162
 
-._crit_edge168:                                   ; preds = %._crit_edge158, %.preheader
-  %.0117.lcssa = phi i32 [ 0, %.preheader ], [ %88, %._crit_edge158 ]
-  %.0115.lcssa = phi i32 [ 0, %.preheader ], [ %90, %._crit_edge158 ]
-  %.0113.lcssa = phi i32 [ 0, %.preheader ], [ %92, %._crit_edge158 ]
-  %93 = add nsw i32 %.0115.lcssa, %.0117.lcssa
-  %94 = mul nsw i32 %93, %93
-  %95 = mul nsw i32 %.0115.lcssa, %.0117.lcssa
-  %96 = mul nsw i32 %.0113.lcssa, %.0113.lcssa
-  %97 = sub nsw i32 %95, %96
+._crit_edge168.loopexit175:                       ; preds = %._crit_edge158
+  %93 = mul nsw i32 %92, %92
+  br label %._crit_edge168
+
+._crit_edge168:                                   ; preds = %._crit_edge168.loopexit175, %.preheader
+  %.0117.lcssa = phi i32 [ 0, %.preheader ], [ %88, %._crit_edge168.loopexit175 ]
+  %.0115.lcssa = phi i32 [ 0, %.preheader ], [ %90, %._crit_edge168.loopexit175 ]
+  %.0113.lcssa = phi i32 [ 0, %.preheader ], [ %93, %._crit_edge168.loopexit175 ]
+  %94 = add nsw i32 %.0115.lcssa, %.0117.lcssa
+  %95 = mul nsw i32 %94, %94
+  %96 = mul nsw i32 %.0115.lcssa, %.0117.lcssa
+  %97 = sub nsw i32 %96, %.0113.lcssa
   %98 = mul nsw i32 %97, %4
-  %.not125 = icmp sge i32 %94, %98
+  %.not125 = icmp sge i32 %95, %98
   br label %99
 
 99:                                               ; preds = %._crit_edge168, %._crit_edge143

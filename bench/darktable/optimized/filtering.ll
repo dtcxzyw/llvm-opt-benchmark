@@ -515,16 +515,16 @@ _get_mask.exit:                                   ; preds = %6, %21
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 74
   %41 = tail call i64 @strtoll(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 16) #20
   %42 = trunc i64 %41 to i32
+  %43 = and i32 %25, %42
   br label %_get_mask.exit37
 
 _get_mask.exit37:                                 ; preds = %37, %39
-  %.0.i36 = phi i32 [ %42, %39 ], [ 0, %37 ]
-  %43 = and i32 %.0.i36, %25
+  %.0.i36 = phi i32 [ %43, %39 ], [ 0, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %44
 
 44:                                               ; preds = %_get_mask.exit37, %_get_mask.exit
-  %.0 = phi i32 [ %43, %_get_mask.exit37 ], [ %26, %_get_mask.exit ]
+  %.0 = phi i32 [ %.0.i36, %_get_mask.exit37 ], [ %26, %_get_mask.exit ]
   %45 = icmp ne i32 %.0, 0
   %46 = uitofp i1 %45 to float
   br label %47

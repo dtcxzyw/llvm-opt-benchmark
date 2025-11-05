@@ -11403,30 +11403,29 @@ cleanup.sink.split:                               ; preds = %invoke.cont18, %inv
   %5 = load atomic i8, ptr %asciiInfo seq_cst, align 8
   %frombool13 = and i8 %5, 1
   %6 = zext nneg i8 %frombool13 to i16
+  %7 = or disjoint i16 %6, 256
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont, %invoke.cont18, %invoke.cont7
-  %retval.sroa.0.0 = phi i16 [ 0, %invoke.cont7 ], [ 0, %invoke.cont18 ], [ 0, %invoke.cont ], [ %6, %cleanup.sink.split ]
-  %retval.sroa.3.0 = phi i16 [ 0, %invoke.cont7 ], [ 0, %invoke.cont18 ], [ 0, %invoke.cont ], [ 256, %cleanup.sink.split ]
-  %7 = load i8, ptr %_M_owns.i2.i.i.i, align 8
-  %tobool.i.i = trunc i8 %7 to i1
+  %retval.sroa.3.0 = phi i16 [ 0, %invoke.cont7 ], [ 0, %invoke.cont18 ], [ 0, %invoke.cont ], [ %7, %cleanup.sink.split ]
+  %8 = load i8, ptr %_M_owns.i2.i.i.i, align 8
+  %tobool.i.i = trunc i8 %8 to i1
   br i1 %tobool.i.i, label %if.then.i.i, label %_ZN5folly9LockedPtrIKNS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSB_22SynchronizedMutexLevelE2ELNSB_23SynchronizedMutexMethodE0EEEED2Ev.exit
 
 if.then.i.i:                                      ; preds = %cleanup
-  %8 = load ptr, ptr %rlockedAsciiComputedRows, align 8
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %8)
+  %9 = load ptr, ptr %rlockedAsciiComputedRows, align 8
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %9)
           to label %_ZN5folly9LockedPtrIKNS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSB_22SynchronizedMutexLevelE2ELNSB_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
-  %9 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #27
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #27
   unreachable
 
 _ZN5folly9LockedPtrIKNS_12SynchronizedIN8facebook5velox17SelectivityVectorENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSB_22SynchronizedMutexLevelE2ELNSB_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %cleanup, %if.then.i.i
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.3.0, %retval.sroa.0.0
-  ret i16 %retval.sroa.0.0.insert.insert
+  ret i16 %retval.sroa.3.0
 }
 
 ; Function Attrs: mustprogress uwtable

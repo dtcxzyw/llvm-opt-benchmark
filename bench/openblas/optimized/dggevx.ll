@@ -110,15 +110,16 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %75 = or i1 %67, %73
   %76 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #6
   %.not644 = icmp eq i32 %76, 0
-  br i1 %.not644, label %77, label %79
+  br i1 %.not644, label %77, label %80
 
 77:                                               ; preds = %72
   %78 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.2) #6
   %.not649 = icmp eq i32 %78, 0
-  br label %79
+  %79 = or i1 %75, %.not649
+  br label %80
 
-79:                                               ; preds = %77, %72
-  %80 = phi i1 [ false, %72 ], [ %.not649, %77 ]
+80:                                               ; preds = %77, %72
+  %or.cond7 = phi i1 [ %75, %72 ], [ %79, %77 ]
   %81 = tail call i32 @lsame_(ptr noundef %3, ptr noundef nonnull @.str) #6
   %82 = tail call i32 @lsame_(ptr noundef %3, ptr noundef nonnull @.str.3) #6
   %83 = tail call i32 @lsame_(ptr noundef %3, ptr noundef nonnull @.str.1) #6
@@ -130,7 +131,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.not645 = icmp eq i32 %87, 0
   br i1 %.not645, label %88, label %94
 
-88:                                               ; preds = %79
+88:                                               ; preds = %80
   %89 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str.5) #6
   %.not646 = icmp eq i32 %89, 0
   br i1 %.not646, label %90, label %94
@@ -149,7 +150,7 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.mux.mux = select i1 %.not648, i32 -1, i32 %.mux
   br i1 %brmerge900, label %.thread690.sink.split, label %95
 
-94:                                               ; preds = %90, %88, %79
+94:                                               ; preds = %90, %88, %80
   %brmerge901 = select i1 %68, i1 true, i1 %74
   %.mux902 = select i1 %68, i32 -2, i32 -3
   br i1 %brmerge901, label %.thread690.sink.split, label %95
@@ -206,7 +207,6 @@ define void @dggevx_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %120, label %146, label %121
 
 121:                                              ; preds = %119
-  %or.cond7 = or i1 %75, %80
   %122 = mul nuw nsw i32 %101, 6
   %123 = shl nuw i32 %101, 1
   %.1598 = select i1 %or.cond7, i32 %122, i32 %123

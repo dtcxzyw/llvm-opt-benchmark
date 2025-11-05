@@ -7868,16 +7868,16 @@ _ZN3gmxL18layoutClusterRatioERKNS_4Grid8GeometryE.exit.i.i: ; preds = %1396, %13
   %.sroa.070.4.vec.insert83.i.i.i = insertelement <2 x float> %.sroa.070.0.vec.insert77.i.i.i, float %1459, i64 1
   %1460 = getelementptr i8, ptr %1456, i64 %.sink85.i.i.i
   %1461 = load float, ptr %1460, align 4, !tbaa !51
+  %1462 = fadd float %522, %1461
   br label %_ZN3gmxL13getCoordinateERKNS_16nbnxn_atomdata_tEi.exit.i.i
 
 _ZN3gmxL13getCoordinateERKNS_16nbnxn_atomdata_tEi.exit.i.i: ; preds = %.sink.split.i.i.i, %1439
   %.sroa.070.0.i.i.i = phi <2 x float> [ undef, %1439 ], [ %.sroa.070.4.vec.insert83.i.i.i, %.sink.split.i.i.i ]
-  %.sroa.9.0.i.i.i = phi float [ undef, %1439 ], [ %1461, %.sink.split.i.i.i ]
+  %.sroa.9.0.i.i.i = phi float [ 0x7FF8000000000000, %1439 ], [ %1462, %.sink.split.i.i.i ]
   %.sroa.0221.0.vec.extract.i.i = extractelement <2 x float> %.sroa.070.0.i.i.i, i64 0
-  %1462 = fadd float %622, %.sroa.0221.0.vec.extract.i.i
+  %1463 = fadd float %622, %.sroa.0221.0.vec.extract.i.i
   %.sroa.0221.4.vec.extract.i.i = extractelement <2 x float> %.sroa.070.0.i.i.i, i64 1
-  %1463 = fadd float %557, %.sroa.0221.4.vec.extract.i.i
-  %1464 = fadd float %522, %.sroa.9.0.i.i.i
+  %1464 = fadd float %557, %.sroa.0221.4.vec.extract.i.i
   %1465 = load i32, ptr %276, align 4, !tbaa !30
   %1466 = mul nsw i32 %1465, %1413
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -8094,10 +8094,10 @@ _ZN3gmxL13getCoordinateERKNS_16nbnxn_atomdata_tEi.exit199.i.i: ; preds = %.sink.
   %.sroa.070.0.i195.i.i = phi <2 x float> [ undef, %1572 ], [ %.sroa.070.4.vec.insert83.i194.i.i, %.sink.split.i187.i.i ]
   %.sroa.9.0.i196.i.i = phi float [ undef, %1572 ], [ %1594, %.sink.split.i187.i.i ]
   %.sroa.0220.0.vec.extract.i.i = extractelement <2 x float> %.sroa.070.0.i195.i.i, i64 0
-  %1595 = fsub float %1462, %.sroa.0220.0.vec.extract.i.i
+  %1595 = fsub float %1463, %.sroa.0220.0.vec.extract.i.i
   %.sroa.0220.4.vec.extract.i.i = extractelement <2 x float> %.sroa.070.0.i195.i.i, i64 1
-  %1596 = fsub float %1463, %.sroa.0220.4.vec.extract.i.i
-  %1597 = fsub float %1464, %.sroa.9.0.i196.i.i
+  %1596 = fsub float %1464, %.sroa.0220.4.vec.extract.i.i
+  %1597 = fsub float %.sroa.9.0.i.i.i, %.sroa.9.0.i196.i.i
   %1598 = fmul float %1596, %1596
   %1599 = call float @llvm.fmuladd.f32(float %1595, float %1595, float %1598)
   %1600 = call noundef float @llvm.fmuladd.f32(float %1597, float %1597, float %1599)

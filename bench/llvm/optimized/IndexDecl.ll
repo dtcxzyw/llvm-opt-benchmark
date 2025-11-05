@@ -916,7 +916,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   %.052 = phi i32 [ 256, %23 ], [ 0, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !13
   %27 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext11shouldIndexEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull %1) #10
-  br i1 %27, label %28, label %118
+  br i1 %27, label %28, label %117
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %0, align 8, !tbaa !13
@@ -924,12 +924,12 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang5index14SymbolRelationELb1EE9push_backE
   %31 = load i32, ptr %17, align 8, !tbaa !48
   %32 = zext i32 %31 to i64
   %33 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext10handleDeclEPKNS_4DeclENS_14SourceLocationEjN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull %1, i32 %.sroa.0101.0, i32 noundef %.052, ptr %30, i64 %32, ptr noundef null) #10
-  br i1 %33, label %34, label %118
+  br i1 %33, label %34, label %117
 
 34:                                               ; preds = %28
   %35 = load ptr, ptr %19, align 8, !tbaa !50
   %.not.i = icmp eq ptr %35, null
-  br i1 %.not.i, label %118, label %36
+  br i1 %.not.i, label %117, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 104
@@ -1089,23 +1089,17 @@ _ZNK5clang4Decl14getDeclContextEv.exit83:         ; preds = %107, %114
   %116 = call noundef zeroext i1 @_ZN5clang5index15IndexingContext15handleReferenceEPKNS_9NamedDeclENS_14SourceLocationES4_PKNS_11DeclContextEjN4llvm8ArrayRefINS0_14SymbolRelationEEEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(64) %108, ptr noundef nonnull %89, i32 %.sroa.0.0.copyload.i80, ptr noundef null, ptr noundef %.0.i.i82, i32 noundef 0, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %4, ptr noundef null) #10
   br label %117
 
-117:                                              ; preds = %101, %104, %88, %_ZNK5clang4Decl14getDeclContextEv.exit83
-  %cond = phi i1 [ true, %_ZNK5clang4Decl14getDeclContextEv.exit83 ], [ true, %88 ], [ false, %101 ], [ %106, %104 ]
-  %.3 = phi i1 [ undef, %_ZNK5clang4Decl14getDeclContextEv.exit83 ], [ undef, %88 ], [ true, %101 ], [ false, %104 ]
-  %spec.select65 = or i1 %cond, %.3
-  br label %118
+117:                                              ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit83, %88, %104, %101, %34, %28, %25
+  %.0 = phi i1 [ true, %25 ], [ false, %28 ], [ true, %34 ], [ true, %_ZNK5clang4Decl14getDeclContextEv.exit83 ], [ true, %88 ], [ true, %101 ], [ %106, %104 ]
+  %118 = load ptr, ptr %3, align 8, !tbaa !46
+  %119 = icmp eq ptr %118, %16
+  br i1 %119, label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj1EED2Ev.exit, label %120
 
-118:                                              ; preds = %34, %28, %25, %117
-  %.0 = phi i1 [ %spec.select65, %117 ], [ true, %25 ], [ false, %28 ], [ true, %34 ]
-  %119 = load ptr, ptr %3, align 8, !tbaa !46
-  %120 = icmp eq ptr %119, %16
-  br i1 %120, label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj1EED2Ev.exit, label %121
-
-121:                                              ; preds = %118
-  call void @free(ptr noundef %119) #10
+120:                                              ; preds = %117
+  call void @free(ptr noundef %118) #10
   br label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj1EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj1EED2Ev.exit: ; preds = %118, %121
+_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj1EED2Ev.exit: ; preds = %117, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i1 %.0
 }

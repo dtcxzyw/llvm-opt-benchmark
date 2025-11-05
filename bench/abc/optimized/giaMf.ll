@@ -15901,7 +15901,7 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
 
 .preheader.tailrecurse_crit_edge:                 ; preds = %.preheader
   %.pre = shl nuw nsw i32 1, %8
-  %.pre58 = zext nneg i32 %.pre to i64
+  %.pre57 = zext nneg i32 %.pre to i64
   br label %tailrecurse
 
 14:                                               ; preds = %.preheader
@@ -15924,24 +15924,24 @@ define internal fastcc i64 @Abc_Tt6Isop(i64 noundef %0, i64 noundef %1, i32 noun
   br i1 %.not, label %.preheader, label %tailrecurse, !llvm.loop !308
 
 tailrecurse:                                      ; preds = %14, %23, %.preheader.tailrecurse_crit_edge
-  %.pre-phi59 = phi i64 [ %.pre58, %.preheader.tailrecurse_crit_edge ], [ %16, %23 ], [ %16, %14 ]
+  %.pre-phi58 = phi i64 [ %.pre57, %.preheader.tailrecurse_crit_edge ], [ %16, %23 ], [ %16, %14 ]
   %.0.lcssa = phi i32 [ %8, %.preheader.tailrecurse_crit_edge ], [ %indvars, %23 ], [ %indvars, %14 ]
   %27 = sext i32 %.0.lcssa to i64
   %28 = getelementptr inbounds i64, ptr @s_Truths6Neg, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !3
   %30 = and i64 %29, %.tr53
-  %31 = shl i64 %30, %.pre-phi59
+  %31 = shl i64 %30, %.pre-phi58
   %32 = or i64 %31, %30
   %33 = getelementptr inbounds i64, ptr @s_Truths6, i64 %27
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = and i64 %34, %.tr53
-  %36 = lshr i64 %35, %.pre-phi59
+  %36 = lshr i64 %35, %.pre-phi58
   %37 = or i64 %36, %35
   %38 = and i64 %29, %.tr4754
-  %39 = shl i64 %38, %.pre-phi59
+  %39 = shl i64 %38, %.pre-phi58
   %40 = or i64 %39, %38
   %41 = and i64 %34, %.tr4754
-  %42 = lshr i64 %41, %.pre-phi59
+  %42 = lshr i64 %41, %.pre-phi58
   %43 = or i64 %42, %41
   %44 = xor i64 %43, -1
   %45 = and i64 %32, %44
@@ -15963,10 +15963,8 @@ tailrecurse:                                      ; preds = %14, %23, %.preheade
   br i1 %60, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %tailrecurse, %4, %9
-  %accumulator.tr51 = phi i64 [ %accumulator.tr52, %9 ], [ 0, %4 ], [ %59, %tailrecurse ]
-  %.042 = phi i64 [ -1, %9 ], [ 0, %4 ], [ 0, %tailrecurse ]
-  %accumulator.ret.tr = or i64 %.042, %accumulator.tr51
-  ret i64 %accumulator.ret.tr
+  %.042 = phi i64 [ -1, %9 ], [ 0, %4 ], [ %59, %tailrecurse ]
+  ret i64 %.042
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

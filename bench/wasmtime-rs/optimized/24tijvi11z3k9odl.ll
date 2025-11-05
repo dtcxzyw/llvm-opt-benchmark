@@ -3736,15 +3736,14 @@ define hidden void @_ZN6wiggle19validate_size_align17h471ea62db683fac1E(ptr noal
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !252
   %46 = lshr i64 %.sroa.6.0.copyload.i, 3
   %47 = and i64 %.sroa.6.0.copyload.i, 7
+  %48 = or i64 %47, %.sroa.4.0.copyload.i
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hee425af40dedac5dE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17hee425af40dedac5dE.exit": ; preds = %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i"
-  %.sroa.4.0.copyload.sink.i = phi i64 [ %.sroa.4.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ %27, %31 ]
+  %.sroa.4.0.copyload.sink.i = phi i64 [ %48, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ %27, %31 ]
   %.sroa.5.0.copyload.sink.i = phi ptr [ %.sroa.5.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ @anon.671675c1a4a640a3c56f13f914c22246.3.llvm.7437452962731462277, %31 ]
   %.sink13.i = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
-  %.sink.i = phi i64 [ %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
-  %48 = or i64 %.sink.i, %.sroa.4.0.copyload.sink.i
-  %or.cond.not = icmp eq i64 %48, 0
+  %or.cond.not = icmp eq i64 %.sroa.4.0.copyload.sink.i, 0
   br i1 %or.cond.not, label %51, label %53
 
 49:                                               ; preds = %.thread121, %25
@@ -4027,15 +4026,14 @@ define hidden void @_ZN6wiggle19validate_size_align17hfab9d8c251dfdd4dE(ptr noal
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !268
   %46 = lshr i64 %.sroa.6.0.copyload.i, 2
   %47 = and i64 %.sroa.6.0.copyload.i, 3
+  %48 = or i64 %47, %.sroa.4.0.copyload.i
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h7d6bda58600f782dE.exit"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8align_to17h7d6bda58600f782dE.exit": ; preds = %31, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i"
-  %.sroa.4.0.copyload.sink.i = phi i64 [ %.sroa.4.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ %27, %31 ]
+  %.sroa.4.0.copyload.sink.i = phi i64 [ %48, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ %27, %31 ]
   %.sroa.5.0.copyload.sink.i = phi ptr [ %.sroa.5.0.copyload.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ @anon.671675c1a4a640a3c56f13f914c22246.3.llvm.7437452962731462277, %31 ]
   %.sink13.i = phi i64 [ %46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
-  %.sink.i = phi i64 [ %47, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h8ff5e5cab1b65c06E.llvm.7437452962731462277.exit.i" ], [ 0, %31 ]
-  %48 = or i64 %.sink.i, %.sroa.4.0.copyload.sink.i
-  %or.cond.not = icmp eq i64 %48, 0
+  %or.cond.not = icmp eq i64 %.sroa.4.0.copyload.sink.i, 0
   br i1 %or.cond.not, label %51, label %53
 
 49:                                               ; preds = %.thread121, %25

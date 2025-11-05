@@ -259,13 +259,16 @@ ogg_page_packets.exit:                            ; preds = %ogg_page_packets.ex
   %spec.select.i42 = add nuw nsw i32 %.08.i40, %46
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i39, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i38
-  br i1 %exitcond.not.i44, label %ogg_page_packets.exit45, label %43, !llvm.loop !59
+  br i1 %exitcond.not.i44, label %ogg_page_packets.exit45.loopexit, label %43, !llvm.loop !59
 
-ogg_page_packets.exit45:                          ; preds = %43, %38
-  %.0.lcssa.i36 = phi i32 [ 0, %38 ], [ %spec.select.i42, %43 ]
-  %47 = mul nsw i32 %.0.lcssa.i36, %10
+ogg_page_packets.exit45.loopexit:                 ; preds = %43
+  %47 = mul nsw i32 %spec.select.i42, %10
   %48 = sext i32 %47 to i64
-  %49 = sub i64 %37, %48
+  br label %ogg_page_packets.exit45
+
+ogg_page_packets.exit45:                          ; preds = %ogg_page_packets.exit45.loopexit, %38
+  %.0.lcssa.i36 = phi i64 [ 0, %38 ], [ %48, %ogg_page_packets.exit45.loopexit ]
+  %49 = sub i64 %37, %.0.lcssa.i36
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i64 %49, ptr %50, align 8, !tbaa !62
   store i64 %49, ptr %34, align 8, !tbaa !56

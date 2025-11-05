@@ -21,10 +21,9 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [7 x i8] c"arm64e\00", align 1
 @.str.14 = private unnamed_addr constant [9 x i8] c"arm64_32\00", align 1
 @.str.15 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
-@switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE = private unnamed_addr constant [15 x i64] [i64 7, i64 16777223, i64 16777223, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 12, i64 16777228, i64 16777228, i64 33554444], align 8
-@switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE.2 = private unnamed_addr constant [15 x i64] [i64 12884901888, i64 12884901888, i64 34359738368, i64 21474836480, i64 25769803776, i64 30064771072, i64 38654705664, i64 47244640256, i64 51539607552, i64 60129542144, i64 64424509440, i64 68719476736, i64 0, i64 8589934592, i64 4294967296], align 8
+@switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE = private unnamed_addr constant [15 x i64] [i64 12884901895, i64 12901679111, i64 34376515591, i64 21474836492, i64 25769803788, i64 30064771084, i64 38654705676, i64 47244640268, i64 51539607564, i64 60129542156, i64 64424509452, i64 68719476748, i64 16777228, i64 8606711820, i64 4328521740], align 8
 @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE = private unnamed_addr constant [15 x i64] [i64 4, i64 6, i64 7, i64 6, i64 5, i64 5, i64 5, i64 6, i64 6, i64 6, i64 6, i64 7, i64 5, i64 6, i64 8], align 8
-@switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.3 = private unnamed_addr constant [15 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 8
+@switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.2 = private unnamed_addr constant [15 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext range(i8 0, 16) i8 @_ZN4llvm5MachO26getArchitectureFromCpuTypeEjj(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -243,7 +242,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.3, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.2, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -256,23 +255,19 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 68786585600) i64 @_ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE(i8 noundef zeroext %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 68719476749) i64 @_ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE(i8 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = icmp ult i8 %0, 15
-  br i1 %2, label %switch.lookup, label %6
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %0 to i64
-  %switch.gep131 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE.2, i64 %4
-  %switch.load132 = load i64, ptr %switch.gep131, align 8
-  %5 = or disjoint i64 %switch.load132, %switch.load
-  br label %6
+  br label %4
 
-6:                                                ; preds = %1, %switch.lookup
-  %.sroa.0130.0.insert.insert = phi i64 [ %5, %switch.lookup ], [ 0, %1 ]
-  ret i64 %.sroa.0130.0.insert.insert
+4:                                                ; preds = %1, %switch.lookup
+  %.sroa.18.0 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1 ]
+  ret i64 %.sroa.18.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -305,7 +300,7 @@ switch.lookup:                                    ; preds = %2
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.3, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE.2, i64 %5
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   br label %_ZN4llvm5MachO19getArchitectureNameENS0_12ArchitectureE.exit
 

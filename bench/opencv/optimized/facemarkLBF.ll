@@ -10958,7 +10958,7 @@ define hidden { i64, i64 } @_ZN2cv4face15FacemarkLBFImpl7getBBoxERNS_3MatENS_4Ma
 11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %93
+  br label %90
 
 13:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -10990,7 +10990,7 @@ define hidden { i64, i64 } @_ZN2cv4face15FacemarkLBFImpl7getBBoxERNS_3MatENS_4Ma
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %93
+  br label %90
 
 25:                                               ; preds = %9, %22
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -11109,7 +11109,7 @@ define hidden { i64, i64 } @_ZN2cv4face15FacemarkLBFImpl7getBBoxERNS_3MatENS_4Ma
   %86 = call noundef double @llvm.fabs.f64(double %85)
   %87 = sitofp i32 %82 to double
   %88 = fcmp ogt double %86, %87
-  br i1 %88, label %89, label %.thread.loopexit
+  br i1 %88, label %89, label %.thread
 
 89:                                               ; preds = %81, %73, %69, %64
   %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
@@ -11120,38 +11120,31 @@ define hidden { i64, i64 } @_ZN2cv4face15FacemarkLBFImpl7getBBoxERNS_3MatENS_4Ma
   %.not.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit, label %.thread
 
-.thread.loopexit:                                 ; preds = %81
-  %90 = and i64 %.sroa.0.0.copyload, -4294967296
-  %91 = and i64 %.sroa.0.0.copyload, 4294967295
-  br label %.thread
-
-.thread:                                          ; preds = %89, %.thread.loopexit, %.critedge
-  %.sroa.8.086 = phi i64 [ -1, %.critedge ], [ %.sroa.8.0.copyload, %.thread.loopexit ], [ -1, %89 ]
-  %.sroa.0.sroa.0.084 = phi i64 [ 4294967295, %.critedge ], [ %91, %.thread.loopexit ], [ 4294967295, %89 ]
-  %.sroa.0.sroa.5.082 = phi i64 [ -4294967296, %.critedge ], [ %90, %.thread.loopexit ], [ -4294967296, %89 ]
+.thread:                                          ; preds = %89, %81, %.critedge
+  %.sroa.8.086 = phi i64 [ -1, %.critedge ], [ -1, %89 ], [ %.sroa.8.0.copyload, %81 ]
+  %.sroa.0.sroa.5.082 = phi i64 [ -1, %.critedge ], [ -1, %89 ], [ %.sroa.0.0.copyload, %81 ]
   call void @_ZdlPv(ptr noundef nonnull %28) #30
-  %92 = or disjoint i64 %.sroa.0.sroa.5.082, %.sroa.0.sroa.0.084
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %.critedge, %.thread
   %.sroa.8.087 = phi i64 [ -1, %.critedge ], [ %.sroa.8.086, %.thread ]
-  %.sroa.0.sroa.0.0.insert.insert = phi i64 [ -1, %.critedge ], [ %92, %.thread ]
+  %.sroa.0.sroa.0.0.insert.insert = phi i64 [ -1, %.critedge ], [ %.sroa.0.sroa.5.082, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.8.087, 1
   ret { i64, i64 } %.fca.1.insert
 
-93:                                               ; preds = %23, %11
+90:                                               ; preds = %23, %11
   %.pn.pn.pn = phi { ptr, i32 } [ %24, %23 ], [ %12, %11 ]
-  %94 = load ptr, ptr %4, align 8, !tbaa !145
-  %.not.i.i.i39 = icmp eq ptr %94, null
-  br i1 %.not.i.i.i39, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit40, label %95
+  %91 = load ptr, ptr %4, align 8, !tbaa !145
+  %.not.i.i.i39 = icmp eq ptr %91, null
+  br i1 %.not.i.i.i39, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit40, label %92
 
-95:                                               ; preds = %93
-  call void @_ZdlPv(ptr noundef nonnull %94) #30
+92:                                               ; preds = %90
+  call void @_ZdlPv(ptr noundef nonnull %91) #30
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit40
 
-_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit40:   ; preds = %93, %95
+_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit40:   ; preds = %90, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn.pn
 }

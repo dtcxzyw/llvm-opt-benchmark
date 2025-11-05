@@ -495,7 +495,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
   %46 = shl i32 %4, 4
   %47 = zext i32 %46 to i64
   %48 = shl nuw i64 %47, 32
-  %49 = or disjoint i64 %48, 268468224
+  %49 = or disjoint i64 %48, 276856834
   br label %51
 
 50:                                               ; preds = %42
@@ -504,9 +504,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
   br label %51
 
 51:                                               ; preds = %45, %50
-  %.sroa.12.0468 = phi i64 [ 268468224, %50 ], [ %49, %45 ]
-  %.sroa.8.0466 = phi i64 [ 1835008, %50 ], [ 8388608, %45 ]
-  %.sroa.0223.0464 = phi i64 [ 0, %50 ], [ 2, %45 ]
+  %.sroa.12.0468 = phi i64 [ 270303232, %50 ], [ %49, %45 ]
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %1, ptr noundef nonnull align 4 dereferenceable(8) %9)
   %52 = shl i32 %3, 4
   %.sroa.21.0.insert.ext.i = zext i32 %52 to i64
@@ -515,9 +513,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6415emitInstSetListERNS1_13IrRegAllocX6
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 268795904, i64 %.sroa.0209.0.insert.insert)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX647vmovupsENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 353113089, i64 268795904)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643addENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 269254656, i64 68996333570)
-  %.sroa.6.0.insert.insert = or i64 %.sroa.12.0468, %.sroa.8.0466
-  %.sroa.0223.0.insert.insert = or i64 %.sroa.6.0.insert.insert, %.sroa.0223.0464
-  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643cmpENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 269254656, i64 %.sroa.0223.0.insert.insert)
+  call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643cmpENS1_10OperandX64ES3_(ptr noundef nonnull align 8 dereferenceable(252) %1, i64 269254656, i64 %.sroa.12.0468)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX643jccENS0_12ConditionX64ERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %1, i8 noundef zeroext 4, ptr noundef nonnull align 4 dereferenceable(8) %9)
   call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX648setLabelERNS0_5LabelE(ptr noundef nonnull align 8 dereferenceable(252) %1, ptr noundef nonnull align 4 dereferenceable(8) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

@@ -18081,13 +18081,16 @@ opj_j2k_write_mcc_record.exit.thread:             ; preds = %109
   %132 = add nuw i32 %.08091.i, 1
   %133 = load i32, ptr %99, align 4, !tbaa !186
   %134 = icmp ult i32 %132, %133
-  br i1 %134, label %130, label %._crit_edge.i40, !llvm.loop !492
+  br i1 %134, label %130, label %._crit_edge.loopexit.i, !llvm.loop !492
 
-._crit_edge.i40:                                  ; preds = %130, %._crit_edge105.i
-  %.078.lcssa.i = phi ptr [ %127, %._crit_edge105.i ], [ %131, %130 ]
-  %.lcssa.i = phi i32 [ 0, %._crit_edge105.i ], [ %133, %130 ]
-  %135 = or i32 %.lcssa.i, %.89.i
-  tail call void @opj_write_bytes_LE(ptr noundef nonnull %.078.lcssa.i, i32 noundef %135, i32 noundef 2) #21
+._crit_edge.loopexit.i:                           ; preds = %130
+  %135 = or i32 %133, %.89.i
+  br label %._crit_edge.i40
+
+._crit_edge.i40:                                  ; preds = %._crit_edge.loopexit.i, %._crit_edge105.i
+  %.078.lcssa.i = phi ptr [ %127, %._crit_edge105.i ], [ %131, %._crit_edge.loopexit.i ]
+  %.lcssa.i = phi i32 [ %.89.i, %._crit_edge105.i ], [ %135, %._crit_edge.loopexit.i ]
+  tail call void @opj_write_bytes_LE(ptr noundef nonnull %.078.lcssa.i, i32 noundef %.lcssa.i, i32 noundef 2) #21
   %136 = getelementptr inbounds nuw i8, ptr %.078.lcssa.i, i64 2
   %137 = load i32, ptr %99, align 4, !tbaa !186
   %.not101.i = icmp eq i32 %137, 0

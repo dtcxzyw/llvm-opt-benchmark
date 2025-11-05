@@ -2377,7 +2377,7 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
   %52 = udiv i64 %51, %12
   %53 = trunc i64 %52 to i32
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %.lr.ph107, label %102
+  br i1 %54, label %.lr.ph107, label %103
 
 .lr.ph107:                                        ; preds = %Bbl_ManSopToTruthElem.exit
   %55 = sext i32 %19 to i64
@@ -2512,37 +2512,37 @@ Bbl_ManSopToTruthElem.exit:                       ; preds = %..loopexit25_crit_e
 ._crit_edge108:                                   ; preds = %.preheader83, %._crit_edge102.us122, %._crit_edge102.us
   %.us-phi = phi i8 [ %57, %._crit_edge102.us ], [ %86, %._crit_edge102.us122 ], [ %97, %.preheader83 ]
   %101 = icmp eq i8 %.us-phi, 48
-  br label %102
+  %102 = and i1 %101, %34
+  br label %103
 
-102:                                              ; preds = %._crit_edge108, %Bbl_ManSopToTruthElem.exit
-  %.0.lcssa = phi i1 [ %101, %._crit_edge108 ], [ false, %Bbl_ManSopToTruthElem.exit ]
+103:                                              ; preds = %._crit_edge108, %Bbl_ManSopToTruthElem.exit
+  %.0.lcssa = phi i1 [ %102, %._crit_edge108 ], [ false, %Bbl_ManSopToTruthElem.exit ]
   %.not77 = icmp eq ptr %24, null
-  br i1 %.not77, label %104, label %103
+  br i1 %.not77, label %105, label %104
 
-103:                                              ; preds = %102
+104:                                              ; preds = %103
   tail call void @free(ptr noundef nonnull %24) #26
-  br label %104
+  br label %105
 
-104:                                              ; preds = %102, %103
-  %or.cond = and i1 %.0.lcssa, %34
-  br i1 %or.cond, label %.lr.ph126.preheader, label %.loopexit
+105:                                              ; preds = %103, %104
+  br i1 %.0.lcssa, label %.lr.ph126.preheader, label %.loopexit
 
-.lr.ph126.preheader:                              ; preds = %104
+.lr.ph126.preheader:                              ; preds = %105
   %wide.trip.count164 = zext nneg i32 %7 to i64
   br label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %indvars.iv161 = phi i64 [ 0, %.lr.ph126.preheader ], [ %indvars.iv.next162, %.lr.ph126 ]
-  %105 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv161
-  %106 = load i32, ptr %105, align 4, !tbaa !15
-  %107 = xor i32 %106, -1
-  store i32 %107, ptr %105, align 4, !tbaa !15
+  %106 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv161
+  %107 = load i32, ptr %106, align 4, !tbaa !15
+  %108 = xor i32 %107, -1
+  store i32 %108, ptr %106, align 4, !tbaa !15
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next162, %wide.trip.count164
   br i1 %exitcond165.not, label %.loopexit, label %.lr.ph126, !llvm.loop !67
 
-.loopexit:                                        ; preds = %.lr.ph126, %104, %2, %14
-  %.067 = phi ptr [ null, %14 ], [ null, %2 ], [ %18, %104 ], [ %18, %.lr.ph126 ]
+.loopexit:                                        ; preds = %.lr.ph126, %105, %2, %14
+  %.067 = phi ptr [ null, %14 ], [ null, %2 ], [ %18, %105 ], [ %18, %.lr.ph126 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.067
 }

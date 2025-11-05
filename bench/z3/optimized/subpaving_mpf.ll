@@ -4011,109 +4011,108 @@ _ZN11mpf_manager10is_regularERK3mpf.exit.i.i:     ; preds = %81
 
 _ZN3f2nI11mpf_managerE3incER3mpf.exit.thread:     ; preds = %_ZN3f2nI11mpf_managerE4ceilERK3mpfRS2_.exit, %54, %60, %_ZN11mpf_manager10is_regularERK3mpf.exit.i.i.i, %65, %71, %_ZN11mpf_manager10is_regularERK3mpf.exit.i.i.i32
   %86 = select i1 %3, i32 536870912, i32 0
-  br label %88
+  br label %89
 
 _ZN3f2nI11mpf_managerE3incER3mpf.exit:            ; preds = %_ZN11mpf_manager10is_regularERK3mpf.exit.i.i, %81, %76
   %87 = select i1 %3, i32 536870912, i32 0
   %spec.select = select i1 %4, i32 1073741824, i32 0
-  br label %88
+  %88 = or disjoint i32 %spec.select, %87
+  br label %89
 
-88:                                               ; preds = %_ZN3f2nI11mpf_managerE3incER3mpf.exit, %_ZN3f2nI11mpf_managerE3incER3mpf.exit.thread
-  %89 = phi i32 [ %86, %_ZN3f2nI11mpf_managerE3incER3mpf.exit.thread ], [ %87, %_ZN3f2nI11mpf_managerE3incER3mpf.exit ]
-  %90 = phi i32 [ 0, %_ZN3f2nI11mpf_managerE3incER3mpf.exit.thread ], [ %spec.select, %_ZN3f2nI11mpf_managerE3incER3mpf.exit ]
+89:                                               ; preds = %_ZN3f2nI11mpf_managerE3incER3mpf.exit, %_ZN3f2nI11mpf_managerE3incER3mpf.exit.thread
+  %90 = phi i32 [ %86, %_ZN3f2nI11mpf_managerE3incER3mpf.exit.thread ], [ %88, %_ZN3f2nI11mpf_managerE3incER3mpf.exit ]
   %.in = load i32, ptr %16, align 8
   %91 = and i32 %.in, 536870911
-  %92 = or disjoint i32 %90, %89
-  %93 = or disjoint i32 %92, %91
-  store i32 %93, ptr %16, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 872
-  %95 = load i64, ptr %94, align 8, !tbaa !178
-  %96 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i64 %95, ptr %96, align 8, !tbaa !84
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %98 = load ptr, ptr %97, align 8, !tbaa !66
-  %99 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %98, ptr %99, align 8, !tbaa !86
-  %100 = load i64, ptr %6, align 8, !tbaa !179
-  store i64 %100, ptr %15, align 8, !tbaa !179
+  %92 = or disjoint i32 %90, %91
+  store i32 %92, ptr %16, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 872
+  %94 = load i64, ptr %93, align 8, !tbaa !178
+  %95 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store i64 %94, ptr %95, align 8, !tbaa !84
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %97 = load ptr, ptr %96, align 8, !tbaa !66
+  %98 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store ptr %97, ptr %98, align 8, !tbaa !86
+  %99 = load i64, ptr %6, align 8, !tbaa !179
+  store i64 %99, ptr %15, align 8, !tbaa !179
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr %14, ptr %8, align 8, !tbaa !56
-  store ptr %14, ptr %97, align 8, !tbaa !66
-  %101 = load i32, ptr %16, align 8
-  %102 = and i32 %101, 536870912
-  %.not.i = icmp eq i32 %102, 0
-  %103 = load ptr, ptr %5, align 8, !tbaa !55
-  %104 = and i32 %101, 536870911
+  store ptr %14, ptr %96, align 8, !tbaa !66
+  %100 = load i32, ptr %16, align 8
+  %101 = and i32 %100, 536870912
+  %.not.i = icmp eq i32 %101, 0
+  %102 = load ptr, ptr %5, align 8, !tbaa !55
+  %103 = and i32 %100, 536870911
   %..i = select i1 %.not.i, i64 24, i64 8
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 %..i
-  call void @_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE3setERNS5_3refEjRKPNS3_5boundE(ptr noundef nonnull align 8 dereferenceable(32) %103, ptr noundef nonnull align 8 dereferenceable(12) %105, i32 noundef %104, ptr noundef nonnull align 8 dereferenceable(8) %8)
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 %..i
+  call void @_ZN14parray_managerIN9subpaving9context_tINS0_10config_mpfEE18bound_array_configEE3setERNS5_3refEjRKPNS3_5boundE(ptr noundef nonnull align 8 dereferenceable(32) %102, ptr noundef nonnull align 8 dereferenceable(12) %104, i32 noundef %103, ptr noundef nonnull align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %106 = call noundef zeroext i1 @_ZNK9subpaving9context_tINS_10config_mpfEE18conflicting_boundsEjPNS2_4nodeE(ptr noundef nonnull align 8 dereferenceable(1560) %0, i32 noundef %1, ptr noundef nonnull %5)
-  br i1 %106, label %107, label %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
+  %105 = call noundef zeroext i1 @_ZNK9subpaving9context_tINS_10config_mpfEE18conflicting_boundsEjPNS2_4nodeE(ptr noundef nonnull align 8 dereferenceable(1560) %0, i32 noundef %1, ptr noundef nonnull %5)
+  br i1 %105, label %106, label %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
 
-107:                                              ; preds = %88
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 1132
-  %109 = load i32, ptr %108, align 4, !tbaa !180
-  %110 = add i32 %109, 1
-  store i32 %110, ptr %108, align 4, !tbaa !180
-  %111 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i32 %1, ptr %111, align 8, !tbaa !46
-  %112 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %113 = load ptr, ptr %112, align 8, !tbaa !71
-  %114 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %115 = load ptr, ptr %114, align 8, !tbaa !72
-  %.not.i.i = icmp eq ptr %113, null
-  br i1 %.not.i.i, label %118, label %116
+106:                                              ; preds = %89
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 1132
+  %108 = load i32, ptr %107, align 4, !tbaa !180
+  %109 = add i32 %108, 1
+  store i32 %109, ptr %107, align 4, !tbaa !180
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i32 %1, ptr %110, align 8, !tbaa !46
+  %111 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %112 = load ptr, ptr %111, align 8, !tbaa !71
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  %114 = load ptr, ptr %113, align 8, !tbaa !72
+  %.not.i.i = icmp eq ptr %112, null
+  br i1 %.not.i.i, label %117, label %115
 
-116:                                              ; preds = %107
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 96
-  store ptr %115, ptr %117, align 8, !tbaa !72
-  store ptr null, ptr %112, align 8, !tbaa !71
-  br label %123
+115:                                              ; preds = %106
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 96
+  store ptr %114, ptr %116, align 8, !tbaa !72
+  store ptr null, ptr %111, align 8, !tbaa !71
+  br label %122
 
-118:                                              ; preds = %107
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 888
-  %120 = load ptr, ptr %119, align 8, !tbaa !172
-  %121 = icmp eq ptr %120, %5
-  br i1 %121, label %122, label %123
+117:                                              ; preds = %106
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 888
+  %119 = load ptr, ptr %118, align 8, !tbaa !172
+  %120 = icmp eq ptr %119, %5
+  br i1 %120, label %121, label %122
 
-122:                                              ; preds = %118
-  store ptr %115, ptr %119, align 8, !tbaa !172
-  br label %123
+121:                                              ; preds = %117
+  store ptr %114, ptr %118, align 8, !tbaa !172
+  br label %122
 
-123:                                              ; preds = %122, %118, %116
-  %.not16.i.i = icmp eq ptr %115, null
-  br i1 %.not16.i.i, label %126, label %124
+122:                                              ; preds = %121, %117, %115
+  %.not16.i.i = icmp eq ptr %114, null
+  br i1 %.not16.i.i, label %125, label %123
 
-124:                                              ; preds = %123
-  %125 = getelementptr inbounds nuw i8, ptr %115, i64 88
-  store ptr %113, ptr %125, align 8, !tbaa !71
-  store ptr null, ptr %114, align 8, !tbaa !72
+123:                                              ; preds = %122
+  %124 = getelementptr inbounds nuw i8, ptr %114, i64 88
+  store ptr %112, ptr %124, align 8, !tbaa !71
+  store ptr null, ptr %113, align 8, !tbaa !72
   br label %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
 
-126:                                              ; preds = %123
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %128 = load ptr, ptr %127, align 8, !tbaa !173
-  %129 = icmp eq ptr %128, %5
-  br i1 %129, label %130, label %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
+125:                                              ; preds = %122
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 896
+  %127 = load ptr, ptr %126, align 8, !tbaa !173
+  %128 = icmp eq ptr %127, %5
+  br i1 %128, label %129, label %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
 
-130:                                              ; preds = %126
-  store ptr %113, ptr %127, align 8, !tbaa !173
+129:                                              ; preds = %125
+  store ptr %112, ptr %126, align 8, !tbaa !173
   br label %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
 
-_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit: ; preds = %130, %126, %124, %88
-  %131 = load i64, ptr %94, align 8, !tbaa !178
-  %132 = add i64 %131, 1
-  store i64 %132, ptr %94, align 8, !tbaa !178
-  %133 = icmp eq i64 %132, -1
-  br i1 %133, label %134, label %136
+_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit: ; preds = %129, %125, %123, %89
+  %130 = load i64, ptr %93, align 8, !tbaa !178
+  %131 = add i64 %130, 1
+  store i64 %131, ptr %93, align 8, !tbaa !178
+  %132 = icmp eq i64 %131, -1
+  br i1 %132, label %133, label %135
 
-134:                                              ; preds = %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
-  %135 = call ptr @__cxa_allocate_exception(i64 1) #24
-  call void @__cxa_throw(ptr %135, ptr nonnull @_ZTIN9subpaving9exceptionE, ptr null) #25
+133:                                              ; preds = %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
+  %134 = call ptr @__cxa_allocate_exception(i64 1) #24
+  call void @__cxa_throw(ptr %134, ptr nonnull @_ZTIN9subpaving9exceptionE, ptr null) #25
   unreachable
 
-136:                                              ; preds = %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
+135:                                              ; preds = %_ZN9subpaving9context_tINS_10config_mpfEE12set_conflictEjPNS2_4nodeE.exit
   ret ptr %14
 }
 

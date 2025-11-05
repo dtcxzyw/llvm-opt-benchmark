@@ -117,7 +117,7 @@ $_ZNSt6vectorI11epoll_eventSaIS0_EE17_M_default_appendEm = comdat any
 @switch.table._ZN8WasmEdge4Host4WASI5INode8sockOpenE23__wasi_address_family_t18__wasi_sock_type_t = private unnamed_addr constant [3 x i32] [i32 2, i32 10, i32 1], align 4
 @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6 = private unnamed_addr constant [3 x i32] [i32 0, i32 2, i32 1], align 4
 @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockSetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE = private unnamed_addr constant [15 x i32] [i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 13, i32 18, i32 20, i32 21, i32 30, i32 25], align 4
-@switch.table._ZNK8WasmEdge4Host4WASI5INode8filetypeEv = private unnamed_addr constant [11 x i16] [i16 2, i16 0, i16 3, i16 0, i16 1, i16 0, i16 4, i16 0, i16 7, i16 0, i16 6], align 2
+@switch.table._ZNK8WasmEdge4Host4WASI5INode8filetypeEv = private unnamed_addr constant [11 x i32] [i32 131073, i32 1, i32 196609, i32 1, i32 65537, i32 1, i32 262145, i32 1, i32 458753, i32 1, i32 393217], align 4
 
 @_ZN8WasmEdge4Host4WASI6PollerC1ERNS1_13PollerContextE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8WasmEdge4Host4WASI6PollerC2ERNS1_13PollerContextE
 
@@ -2054,7 +2054,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode14pathUnlinkFileEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 5701634) i32 @_ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %4, i32 noundef %5, ptr noundef readonly byval(%"struct.cxx20::span.46") align 8 captures(none) %6, ptr noundef readonly byval(%"struct.cxx20::span.48") align 8 captures(none) %7, ptr noundef readonly byval(%"struct.cxx20::span.50") align 8 captures(none) %8, ptr noundef readonly byval(%"struct.cxx20::span.50") align 8 captures(none) %9, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %10) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 1, 5701633) i32 @_ZN8WasmEdge4Host4WASI5INode11getAddrinfoESt17basic_string_viewIcSt11char_traitsIcEES6_RK17__wasi_addrinfo_tjN5cxx204spanIPS7_Lm18446744073709551615EEENSB_IP17__wasi_sockaddr_tLm18446744073709551615EEENSB_IPcLm18446744073709551615EEESI_Rj(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %4, i32 noundef %5, ptr noundef readonly byval(%"struct.cxx20::span.46") align 8 captures(none) %6, ptr noundef readonly byval(%"struct.cxx20::span.48") align 8 captures(none) %7, ptr noundef readonly byval(%"struct.cxx20::span.50") align 8 captures(none) %8, ptr noundef readonly byval(%"struct.cxx20::span.50") align 8 captures(none) %9, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %10) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %struct.addrinfo, align 8
   %13 = alloca ptr, align 8
   %14 = icmp eq i64 %0, 0
@@ -2384,8 +2384,7 @@ _ZN8WasmEdge4Host4WASI6detail17fromAddressFamilyEi.exit77: ; preds = %125, %130,
   br label %_ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit
 
 _ZN8WasmEdge4Host4WASI6detail12fromEAIErrNoEi.exit: ; preds = %switch.lookup, %._crit_edge
-  %.sroa.086.0 = phi i32 [ 1, %._crit_edge ], [ 0, %switch.lookup ]
-  %.sroa.487.sroa.0.0 = phi i32 [ 0, %._crit_edge ], [ %switch.load102, %switch.lookup ]
+  %.sroa.487.sroa.0.0 = phi i32 [ 1, %._crit_edge ], [ %switch.load102, %switch.lookup ]
   %.not.i.i = icmp eq ptr %.sroa.05.0.i62, null
   br i1 %.not.i.i, label %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit, label %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
 
@@ -2402,8 +2401,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit82
 
 _ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit82: ; preds = %_ZNSt4pairIPKcSt10unique_ptrIA_cSt14default_deleteIS3_EEED2Ev.exit, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i80
-  %.sroa.086.0.insert.insert = or disjoint i32 %.sroa.487.sroa.0.0, %.sroa.086.0
-  ret i32 %.sroa.086.0.insert.insert
+  ret i32 %.sroa.487.sroa.0.0
 
 151:                                              ; preds = %_ZN8WasmEdge4Host4WASI12_GLOBAL__N_126createNullTerminatedStringESt17basic_string_viewIcSt11char_traitsIcEE.exit66
   %152 = landingpad { ptr, i32 }
@@ -2776,7 +2774,7 @@ _ZSt5visitIN8WasmEdge4Host4WASI11VarAddrSizeEJRSt7variantIJNS2_13SockEmptyAddrE1
 declare i32 @connect(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode8sockRecvEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tRjR16__wasi_roflags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i16 noundef zeroext %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8sockRecvEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tRjR16__wasi_roflags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i16 noundef zeroext %3, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.cxx20::span.25", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = tail call i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr %1, i64 %2, i16 noundef zeroext %3, ptr noundef null, ptr noundef nonnull byval(%"struct.cxx20::span.25") align 8 %7, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 2 dereferenceable(2) %5) #25
@@ -2784,7 +2782,7 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode8sockRecvEN5cxx204
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i16 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly byval(%"struct.cxx20::span.25") align 8 captures(none) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5cxx204spanINS4_IhLm18446744073709551615EEELm18446744073709551615EEE16__wasi_riflags_tP23__wasi_address_family_tS5_PtRjR16__wasi_roflags_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr readonly captures(address) %1, i64 %2, i16 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readonly byval(%"struct.cxx20::span.25") align 8 captures(none) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(2) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca [1024 x %struct.iovec], align 16
   %11 = alloca %struct.sockaddr_storage, align 8
   %12 = alloca %struct.msghdr, align 8
@@ -2851,143 +2849,137 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockRecvFromEN5c
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %36, i8 0, i64 20, i1 false)
   %38 = load i32, ptr %0, align 8
   %39 = invoke i64 @recvmsg(i32 noundef %38, ptr noundef nonnull %12, i32 noundef %.1)
-          to label %40 unwind label %93
+          to label %40 unwind label %94
 
 40:                                               ; preds = %31
   %41 = icmp slt i64 %39, 0
-  br i1 %41, label %42, label %47
+  br i1 %41, label %42, label %48
 
 42:                                               ; preds = %40
   %43 = tail call ptr @__errno_location() #26
   %44 = load i32, ptr %43, align 4
   %45 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %44) #25
-  %.sroa.660.sroa.6.0.extract.shift = and i16 %45, -256
-  %46 = and i16 %45, 255
-  br label %92
+  %46 = zext i16 %45 to i32
+  %47 = shl nuw i32 %46, 16
+  br label %93
 
-47:                                               ; preds = %40
-  %48 = trunc i64 %39 to i32
-  store i32 %48, ptr %7, align 4
-  br i1 %32, label %49, label %_ZN6spdlog4warnIA27_cEEvRKT_.exit
+48:                                               ; preds = %40
+  %49 = trunc i64 %39 to i32
+  store i32 %49, ptr %7, align 4
+  br i1 %32, label %50, label %_ZN6spdlog4warnIA27_cEEvRKT_.exit
 
-49:                                               ; preds = %47
-  %50 = load i16, ptr %11, align 8
-  switch i16 %50, label %92 [
-    i16 0, label %51
-    i16 2, label %53
-    i16 10, label %67
-    i16 1, label %80
+50:                                               ; preds = %48
+  %51 = load i16, ptr %11, align 8
+  switch i16 %51, label %93 [
+    i16 0, label %52
+    i16 2, label %54
+    i16 10, label %68
+    i16 1, label %81
   ]
 
-51:                                               ; preds = %49
-  %52 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc unwind label %93
+52:                                               ; preds = %50
+  %53 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
+          to label %.noexc unwind label %94
 
-.noexc:                                           ; preds = %51
-  invoke void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %52, ptr noundef nonnull align 1 dereferenceable(27) @.str)
-          to label %_ZN6spdlog4warnIA27_cEEvRKT_.exit unwind label %93
+.noexc:                                           ; preds = %52
+  invoke void @_ZN6spdlog6logger4warnIA27_cEEvRKT_(ptr noundef nonnull align 8 dereferenceable(208) %53, ptr noundef nonnull align 1 dereferenceable(27) @.str)
+          to label %_ZN6spdlog4warnIA27_cEEvRKT_.exit unwind label %94
 
-53:                                               ; preds = %49
-  br i1 %.not49, label %55, label %54
+54:                                               ; preds = %50
+  br i1 %.not49, label %56, label %55
 
-54:                                               ; preds = %53
+55:                                               ; preds = %54
   store i8 1, ptr %4, align 1
-  br label %55
+  br label %56
 
-55:                                               ; preds = %54, %53
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %57 = load i64, ptr %56, align 8
-  %58 = icmp ugt i64 %57, 3
-  br i1 %58, label %59, label %63
+56:                                               ; preds = %55, %54
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %58 = load i64, ptr %57, align 8
+  %59 = icmp ugt i64 %58, 3
+  br i1 %59, label %60, label %64
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %5, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %62 = load i32, ptr %61, align 4
-  store i32 %62, ptr %60, align 1
-  br label %63
+60:                                               ; preds = %56
+  %61 = load ptr, ptr %5, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %63 = load i32, ptr %62, align 4
+  store i32 %63, ptr %61, align 1
+  br label %64
 
-63:                                               ; preds = %59, %55
+64:                                               ; preds = %60, %56
   %.not51 = icmp eq ptr %6, null
-  br i1 %.not51, label %_ZN6spdlog4warnIA27_cEEvRKT_.exit, label %64
+  br i1 %.not51, label %_ZN6spdlog4warnIA27_cEEvRKT_.exit, label %65
 
-64:                                               ; preds = %63
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %66 = load i16, ptr %65, align 2
-  store i16 %66, ptr %6, align 2
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %67 = load i16, ptr %66, align 2
+  store i16 %67, ptr %6, align 2
   br label %_ZN6spdlog4warnIA27_cEEvRKT_.exit
 
-67:                                               ; preds = %49
-  br i1 %.not49, label %69, label %68
+68:                                               ; preds = %50
+  br i1 %.not49, label %70, label %69
 
-68:                                               ; preds = %67
+69:                                               ; preds = %68
   store i8 2, ptr %4, align 1
-  br label %69
+  br label %70
 
-69:                                               ; preds = %68, %67
-  %70 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %71 = load i64, ptr %70, align 8
-  %72 = icmp ugt i64 %71, 15
-  br i1 %72, label %73, label %76
+70:                                               ; preds = %69, %68
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %72 = load i64, ptr %71, align 8
+  %73 = icmp ugt i64 %72, 15
+  br i1 %73, label %74, label %77
 
-73:                                               ; preds = %69
-  %74 = load ptr, ptr %5, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %74, ptr noundef nonnull align 8 dereferenceable(16) %75, i64 16, i1 false)
-  br label %76
+74:                                               ; preds = %70
+  %75 = load ptr, ptr %5, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %76, i64 16, i1 false)
+  br label %77
 
-76:                                               ; preds = %73, %69
+77:                                               ; preds = %74, %70
   %.not50 = icmp eq ptr %6, null
-  br i1 %.not50, label %_ZN6spdlog4warnIA27_cEEvRKT_.exit, label %77
+  br i1 %.not50, label %_ZN6spdlog4warnIA27_cEEvRKT_.exit, label %78
 
-77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  %79 = load i16, ptr %78, align 2
-  store i16 %79, ptr %6, align 2
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  %80 = load i16, ptr %79, align 2
+  store i16 %80, ptr %6, align 2
   br label %_ZN6spdlog4warnIA27_cEEvRKT_.exit
 
-80:                                               ; preds = %49
-  br i1 %.not49, label %82, label %81
+81:                                               ; preds = %50
+  br i1 %.not49, label %83, label %82
 
-81:                                               ; preds = %80
+82:                                               ; preds = %81
   store i8 3, ptr %4, align 1
-  br label %82
+  br label %83
 
-82:                                               ; preds = %81, %80
-  %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %84 = load i64, ptr %83, align 8
-  %85 = icmp ugt i64 %84, 107
-  br i1 %85, label %86, label %92
+83:                                               ; preds = %82, %81
+  %84 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %85 = load i64, ptr %84, align 8
+  %86 = icmp ugt i64 %85, 107
+  br i1 %86, label %87, label %93
 
-86:                                               ; preds = %82
-  %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %11, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(108) %87, ptr noundef nonnull align 2 dereferenceable(108) %88, i64 108, i1 false)
+87:                                               ; preds = %83
+  %88 = load ptr, ptr %5, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %11, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(108) %88, ptr noundef nonnull align 2 dereferenceable(108) %89, i64 108, i1 false)
   br label %_ZN6spdlog4warnIA27_cEEvRKT_.exit
 
-_ZN6spdlog4warnIA27_cEEvRKT_.exit:                ; preds = %.noexc, %86, %64, %63, %77, %76, %47
-  %89 = load i32, ptr %37, align 8
-  %90 = trunc i32 %89 to i16
-  %91 = lshr i16 %90, 5
-  %spec.store.select = and i16 %91, 1
+_ZN6spdlog4warnIA27_cEEvRKT_.exit:                ; preds = %.noexc, %87, %65, %64, %78, %77, %48
+  %90 = load i32, ptr %37, align 8
+  %91 = trunc i32 %90 to i16
+  %92 = lshr i16 %91, 5
+  %spec.store.select = and i16 %92, 1
   store i16 %spec.store.select, ptr %8, align 2
-  br label %92
+  br label %93
 
-92:                                               ; preds = %_ZN6spdlog4warnIA27_cEEvRKT_.exit, %49, %82, %42
-  %.sroa.059.0 = phi i32 [ 0, %42 ], [ 0, %82 ], [ 0, %49 ], [ 1, %_ZN6spdlog4warnIA27_cEEvRKT_.exit ]
-  %.sroa.660.sroa.0.0 = phi i16 [ %46, %42 ], [ 28, %82 ], [ 52, %49 ], [ 0, %_ZN6spdlog4warnIA27_cEEvRKT_.exit ]
-  %.sroa.660.sroa.6.0 = phi i16 [ %.sroa.660.sroa.6.0.extract.shift, %42 ], [ 0, %82 ], [ 0, %49 ], [ 0, %_ZN6spdlog4warnIA27_cEEvRKT_.exit ]
-  %.sroa.660.sroa.0.0.insert.insert = or disjoint i16 %.sroa.660.sroa.6.0, %.sroa.660.sroa.0.0
-  %.sroa.660.0.insert.ext = zext i16 %.sroa.660.sroa.0.0.insert.insert to i32
-  %.sroa.660.0.insert.shift = shl nuw i32 %.sroa.660.0.insert.ext, 16
-  %.sroa.059.0.insert.insert = or disjoint i32 %.sroa.660.0.insert.shift, %.sroa.059.0
+93:                                               ; preds = %_ZN6spdlog4warnIA27_cEEvRKT_.exit, %50, %83, %42
+  %.sroa.059.0.insert.insert = phi i32 [ %47, %42 ], [ 1835008, %83 ], [ 3407872, %50 ], [ 1, %_ZN6spdlog4warnIA27_cEEvRKT_.exit ]
   ret i32 %.sroa.059.0.insert.insert
 
-93:                                               ; preds = %.noexc, %51, %31
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %.noexc, %52, %31
+  %95 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #24
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #24
   unreachable
 }
 
@@ -3198,7 +3190,7 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockShutdownE16_
 declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 switch.lookup:
   %4 = alloca i32, align 4
   %5 = zext nneg i32 %2 to i64
@@ -3212,59 +3204,53 @@ switch.lookup:
   %10 = load ptr, ptr %3, align 8
   %11 = call i32 @getsockopt(i32 noundef %9, i32 noundef 1, i32 noundef %switch.load, ptr noundef %10, ptr noundef nonnull %4) #25
   %12 = icmp slt i32 %11, 0
-  br i1 %12, label %13, label %18
+  br i1 %12, label %13, label %19
 
 13:                                               ; preds = %switch.lookup
   %14 = tail call ptr @__errno_location() #26
   %15 = load i32, ptr %14, align 4
   %16 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %15) #25
-  %.sroa.431.sroa.4.0.extract.shift = and i16 %16, -256
-  %17 = and i16 %16, 255
-  br label %32
+  %17 = zext i16 %16 to i32
+  %18 = shl nuw i32 %17, 16
+  br label %33
 
-18:                                               ; preds = %switch.lookup
-  %19 = load i32, ptr %4, align 4
-  switch i32 %2, label %30 [
-    i32 2, label %20
+19:                                               ; preds = %switch.lookup
+  %20 = load i32, ptr %4, align 4
+  switch i32 %2, label %31 [
+    i32 2, label %21
     i32 1, label %switch.lookup32
   ]
 
-20:                                               ; preds = %18
-  %21 = icmp eq i32 %19, 4
-  call void @llvm.assume(i1 %21)
-  %22 = load ptr, ptr %3, align 8
+21:                                               ; preds = %19
+  %22 = icmp eq i32 %20, 4
+  call void @llvm.assume(i1 %22)
+  %23 = load ptr, ptr %3, align 8
   store i64 4, ptr %6, align 8
-  %23 = load i32, ptr %22, align 4
-  %24 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %23) #25
-  %25 = zext i16 %24 to i32
-  store i32 %25, ptr %22, align 4
-  br label %32
+  %24 = load i32, ptr %23, align 4
+  %25 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %24) #25
+  %26 = zext i16 %25 to i32
+  store i32 %26, ptr %23, align 4
+  br label %33
 
-switch.lookup32:                                  ; preds = %18
-  %26 = icmp eq i32 %19, 4
-  call void @llvm.assume(i1 %26)
-  %27 = load ptr, ptr %3, align 8
+switch.lookup32:                                  ; preds = %19
+  %27 = icmp eq i32 %20, 4
+  call void @llvm.assume(i1 %27)
+  %28 = load ptr, ptr %3, align 8
   store i64 4, ptr %6, align 8
-  %28 = load i32, ptr %27, align 4
-  %29 = zext nneg i32 %28 to i64
-  %switch.gep33 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 %29
+  %29 = load i32, ptr %28, align 4
+  %30 = zext nneg i32 %29 to i64
+  %switch.gep33 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode10sockGetOptE23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE.6, i64 %30
   %switch.load34 = load i32, ptr %switch.gep33, align 4
-  store i32 %switch.load34, ptr %27, align 4
-  br label %32
+  store i32 %switch.load34, ptr %28, align 4
+  br label %33
 
-30:                                               ; preds = %18
-  %31 = zext i32 %19 to i64
-  store i64 %31, ptr %6, align 8
-  br label %32
+31:                                               ; preds = %19
+  %32 = zext i32 %20 to i64
+  store i64 %32, ptr %6, align 8
+  br label %33
 
-32:                                               ; preds = %20, %switch.lookup32, %30, %13
-  %.sroa.431.sroa.0.0 = phi i16 [ %17, %13 ], [ 0, %30 ], [ 0, %switch.lookup32 ], [ 0, %20 ]
-  %.sroa.030.0 = phi i32 [ 0, %13 ], [ 1, %30 ], [ 1, %switch.lookup32 ], [ 1, %20 ]
-  %.sroa.431.sroa.4.0 = phi i16 [ %.sroa.431.sroa.4.0.extract.shift, %13 ], [ 0, %30 ], [ 0, %switch.lookup32 ], [ 0, %20 ]
-  %.sroa.431.sroa.0.0.insert.insert = or disjoint i16 %.sroa.431.sroa.4.0, %.sroa.431.sroa.0.0
-  %.sroa.431.0.insert.ext = zext i16 %.sroa.431.sroa.0.0.insert.insert to i32
-  %.sroa.431.0.insert.shift = shl nuw i32 %.sroa.431.0.insert.ext, 16
-  %.sroa.030.0.insert.insert = or disjoint i32 %.sroa.431.0.insert.shift, %.sroa.030.0
+33:                                               ; preds = %21, %switch.lookup32, %31, %13
+  %.sroa.030.0.insert.insert = phi i32 [ %18, %13 ], [ 1, %31 ], [ 1, %switch.lookup32 ], [ 1, %21 ]
   ret i32 %.sroa.030.0.insert.insert
 }
 
@@ -3300,7 +3286,7 @@ switch.lookup:
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef writeonly captures(address_is_null) %1, ptr writeonly captures(none) %2, i64 %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef writeonly captures(address_is_null) %1, ptr writeonly captures(none) %2, i64 %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.sockaddr_storage, align 8
   %7 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
@@ -3308,106 +3294,100 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode16sockGetLocalAddr
   %8 = load i32, ptr %0, align 8
   %9 = call i32 @getsockname(i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %16
+  br i1 %10, label %11, label %17
 
 11:                                               ; preds = %5
   %12 = tail call ptr @__errno_location() #26
   %13 = load i32, ptr %12, align 4
   %14 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %13) #25
-  %.sroa.1232.sroa.12.0.extract.shift = and i16 %14, -256
-  %15 = and i16 %14, 255
-  br label %47
+  %15 = zext i16 %14 to i32
+  %16 = shl nuw i32 %15, 16
+  br label %48
 
-16:                                               ; preds = %5
-  %17 = load i16, ptr %6, align 8
-  switch i16 %17, label %47 [
-    i16 2, label %18
-    i16 10, label %30
-    i16 1, label %41
+17:                                               ; preds = %5
+  %18 = load i16, ptr %6, align 8
+  switch i16 %18, label %48 [
+    i16 2, label %19
+    i16 10, label %31
+    i16 1, label %42
   ]
 
-18:                                               ; preds = %16
-  %19 = icmp ult i64 %3, 4
-  br i1 %19, label %47, label %20
+19:                                               ; preds = %17
+  %20 = icmp ult i64 %3, 4
+  br i1 %20, label %48, label %21
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   %.not20 = icmp eq ptr %1, null
-  br i1 %.not20, label %22, label %21
+  br i1 %.not20, label %23, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   store i8 1, ptr %1, align 1
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %20
+23:                                               ; preds = %22, %21
   %.not21 = icmp eq ptr %4, null
-  br i1 %.not21, label %27, label %23
+  br i1 %.not21, label %28, label %24
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %25 = load i16, ptr %24, align 2
-  %26 = call zeroext i16 @ntohs(i16 noundef zeroext %25) #26
-  store i16 %26, ptr %4, align 2
-  br label %27
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %26 = load i16, ptr %25, align 2
+  %27 = call zeroext i16 @ntohs(i16 noundef zeroext %26) #26
+  store i16 %27, ptr %4, align 2
+  br label %28
 
-27:                                               ; preds = %23, %22
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %29 = load i32, ptr %28, align 4
-  store i32 %29, ptr %2, align 1
-  br label %47
+28:                                               ; preds = %24, %23
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %2, align 1
+  br label %48
 
-30:                                               ; preds = %16
-  %31 = icmp ult i64 %3, 16
-  br i1 %31, label %47, label %32
+31:                                               ; preds = %17
+  %32 = icmp ult i64 %3, 16
+  br i1 %32, label %48, label %33
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %34, label %33
+  br i1 %.not18, label %35, label %34
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   store i8 2, ptr %1, align 1
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %32
+35:                                               ; preds = %34, %33
   %.not19 = icmp eq ptr %4, null
-  br i1 %.not19, label %39, label %35
+  br i1 %.not19, label %40, label %36
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %37 = load i16, ptr %36, align 2
-  %38 = call zeroext i16 @ntohs(i16 noundef zeroext %37) #26
-  store i16 %38, ptr %4, align 2
-  br label %39
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %38 = load i16, ptr %37, align 2
+  %39 = call zeroext i16 @ntohs(i16 noundef zeroext %38) #26
+  store i16 %39, ptr %4, align 2
+  br label %40
 
-39:                                               ; preds = %35, %34
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
-  br label %47
+40:                                               ; preds = %36, %35
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
+  br label %48
 
-41:                                               ; preds = %16
-  %42 = icmp ult i64 %3, 108
-  br i1 %42, label %47, label %43
+42:                                               ; preds = %17
+  %43 = icmp ult i64 %3, 108
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %45, label %44
+  br i1 %.not, label %46, label %45
 
-44:                                               ; preds = %43
+45:                                               ; preds = %44
   store i8 3, ptr %1, align 1
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %43
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(108) %2, ptr noundef nonnull align 2 dereferenceable(108) %46, i64 108, i1 false)
-  br label %47
+46:                                               ; preds = %45, %44
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(108) %2, ptr noundef nonnull align 2 dereferenceable(108) %47, i64 108, i1 false)
+  br label %48
 
-47:                                               ; preds = %16, %41, %30, %18, %45, %39, %27, %11
-  %.sroa.031.0 = phi i32 [ 0, %11 ], [ 1, %27 ], [ 1, %39 ], [ 1, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
-  %.sroa.1232.sroa.0.0 = phi i16 [ %15, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 48, %18 ], [ 48, %30 ], [ 48, %41 ], [ 52, %16 ]
-  %.sroa.1232.sroa.12.0 = phi i16 [ %.sroa.1232.sroa.12.0.extract.shift, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
-  %.sroa.1232.sroa.0.0.insert.insert = or disjoint i16 %.sroa.1232.sroa.12.0, %.sroa.1232.sroa.0.0
-  %.sroa.1232.0.insert.ext = zext i16 %.sroa.1232.sroa.0.0.insert.insert to i32
-  %.sroa.1232.0.insert.shift = shl nuw i32 %.sroa.1232.0.insert.ext, 16
-  %.sroa.031.0.insert.insert = or disjoint i32 %.sroa.1232.0.insert.shift, %.sroa.031.0
+48:                                               ; preds = %17, %42, %31, %19, %46, %40, %28, %11
+  %.sroa.031.0.insert.insert = phi i32 [ %16, %11 ], [ 1, %28 ], [ 1, %40 ], [ 1, %46 ], [ 3145728, %19 ], [ 3145728, %31 ], [ 3145728, %42 ], [ 3407872, %17 ]
   ret i32 %.sroa.031.0.insert.insert
 }
 
@@ -3418,7 +3398,7 @@ declare i32 @getsockname(i32 noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef writeonly captures(address_is_null) %1, ptr writeonly captures(none) %2, i64 %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrEP23__wasi_address_family_tN5cxx204spanIhLm18446744073709551615EEEPt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef writeonly captures(address_is_null) %1, ptr writeonly captures(none) %2, i64 %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.sockaddr_storage, align 8
   %7 = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false)
@@ -3426,106 +3406,100 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrE
   %8 = load i32, ptr %0, align 8
   %9 = call i32 @getpeername(i32 noundef %8, ptr noundef nonnull %6, ptr noundef nonnull %7) #25
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %11, label %16
+  br i1 %10, label %11, label %17
 
 11:                                               ; preds = %5
   %12 = tail call ptr @__errno_location() #26
   %13 = load i32, ptr %12, align 4
   %14 = call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %13) #25
-  %.sroa.1232.sroa.12.0.extract.shift = and i16 %14, -256
-  %15 = and i16 %14, 255
-  br label %47
+  %15 = zext i16 %14 to i32
+  %16 = shl nuw i32 %15, 16
+  br label %48
 
-16:                                               ; preds = %5
-  %17 = load i16, ptr %6, align 8
-  switch i16 %17, label %47 [
-    i16 2, label %18
-    i16 10, label %30
-    i16 1, label %41
+17:                                               ; preds = %5
+  %18 = load i16, ptr %6, align 8
+  switch i16 %18, label %48 [
+    i16 2, label %19
+    i16 10, label %31
+    i16 1, label %42
   ]
 
-18:                                               ; preds = %16
-  %19 = icmp ult i64 %3, 4
-  br i1 %19, label %47, label %20
+19:                                               ; preds = %17
+  %20 = icmp ult i64 %3, 4
+  br i1 %20, label %48, label %21
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   %.not20 = icmp eq ptr %1, null
-  br i1 %.not20, label %22, label %21
+  br i1 %.not20, label %23, label %22
 
-21:                                               ; preds = %20
+22:                                               ; preds = %21
   store i8 1, ptr %1, align 1
-  br label %22
+  br label %23
 
-22:                                               ; preds = %21, %20
+23:                                               ; preds = %22, %21
   %.not21 = icmp eq ptr %4, null
-  br i1 %.not21, label %27, label %23
+  br i1 %.not21, label %28, label %24
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %25 = load i16, ptr %24, align 2
-  %26 = call zeroext i16 @ntohs(i16 noundef zeroext %25) #26
-  store i16 %26, ptr %4, align 2
-  br label %27
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %26 = load i16, ptr %25, align 2
+  %27 = call zeroext i16 @ntohs(i16 noundef zeroext %26) #26
+  store i16 %27, ptr %4, align 2
+  br label %28
 
-27:                                               ; preds = %23, %22
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %29 = load i32, ptr %28, align 4
-  store i32 %29, ptr %2, align 1
-  br label %47
+28:                                               ; preds = %24, %23
+  %29 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %30 = load i32, ptr %29, align 4
+  store i32 %30, ptr %2, align 1
+  br label %48
 
-30:                                               ; preds = %16
-  %31 = icmp ult i64 %3, 16
-  br i1 %31, label %47, label %32
+31:                                               ; preds = %17
+  %32 = icmp ult i64 %3, 16
+  br i1 %32, label %48, label %33
 
-32:                                               ; preds = %30
+33:                                               ; preds = %31
   %.not18 = icmp eq ptr %1, null
-  br i1 %.not18, label %34, label %33
+  br i1 %.not18, label %35, label %34
 
-33:                                               ; preds = %32
+34:                                               ; preds = %33
   store i8 2, ptr %1, align 1
-  br label %34
+  br label %35
 
-34:                                               ; preds = %33, %32
+35:                                               ; preds = %34, %33
   %.not19 = icmp eq ptr %4, null
-  br i1 %.not19, label %39, label %35
+  br i1 %.not19, label %40, label %36
 
-35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %37 = load i16, ptr %36, align 2
-  %38 = call zeroext i16 @ntohs(i16 noundef zeroext %37) #26
-  store i16 %38, ptr %4, align 2
-  br label %39
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %38 = load i16, ptr %37, align 2
+  %39 = call zeroext i16 @ntohs(i16 noundef zeroext %38) #26
+  store i16 %39, ptr %4, align 2
+  br label %40
 
-39:                                               ; preds = %35, %34
-  %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false)
-  br label %47
+40:                                               ; preds = %36, %35
+  %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %41, i64 16, i1 false)
+  br label %48
 
-41:                                               ; preds = %16
-  %42 = icmp ult i64 %3, 108
-  br i1 %42, label %47, label %43
+42:                                               ; preds = %17
+  %43 = icmp ult i64 %3, 108
+  br i1 %43, label %48, label %44
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %45, label %44
+  br i1 %.not, label %46, label %45
 
-44:                                               ; preds = %43
+45:                                               ; preds = %44
   store i8 3, ptr %1, align 1
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %43
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(108) %2, ptr noundef nonnull align 2 dereferenceable(108) %46, i64 108, i1 false)
-  br label %47
+46:                                               ; preds = %45, %44
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(108) %2, ptr noundef nonnull align 2 dereferenceable(108) %47, i64 108, i1 false)
+  br label %48
 
-47:                                               ; preds = %16, %41, %30, %18, %45, %39, %27, %11
-  %.sroa.031.0 = phi i32 [ 0, %11 ], [ 1, %27 ], [ 1, %39 ], [ 1, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
-  %.sroa.1232.sroa.0.0 = phi i16 [ %15, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 48, %18 ], [ 48, %30 ], [ 48, %41 ], [ 52, %16 ]
-  %.sroa.1232.sroa.12.0 = phi i16 [ %.sroa.1232.sroa.12.0.extract.shift, %11 ], [ 0, %27 ], [ 0, %39 ], [ 0, %45 ], [ 0, %18 ], [ 0, %30 ], [ 0, %41 ], [ 0, %16 ]
-  %.sroa.1232.sroa.0.0.insert.insert = or disjoint i16 %.sroa.1232.sroa.12.0, %.sroa.1232.sroa.0.0
-  %.sroa.1232.0.insert.ext = zext i16 %.sroa.1232.sroa.0.0.insert.insert to i32
-  %.sroa.1232.0.insert.shift = shl nuw i32 %.sroa.1232.0.insert.ext, 16
-  %.sroa.031.0.insert.insert = or disjoint i32 %.sroa.1232.0.insert.shift, %.sroa.031.0
+48:                                               ; preds = %17, %42, %31, %19, %46, %40, %28, %11
+  %.sroa.031.0.insert.insert = phi i32 [ %16, %11 ], [ 1, %28 ], [ 1, %40 ], [ 1, %46 ], [ 3145728, %19 ], [ 3145728, %31 ], [ 3145728, %42 ], [ 3407872, %17 ]
   ret i32 %.sroa.031.0.insert.insert
 }
 
@@ -3533,7 +3507,7 @@ define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode15sockGetPeerAddrE
 declare i32 @getpeername(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, -65534) i32 @_ZNK8WasmEdge4Host4WASI5INode8filetypeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode8filetypeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -3552,35 +3526,29 @@ _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit: ; preds = %5
   %9 = tail call ptr @__errno_location() #26
   %10 = load i32, ptr %9, align 4
   %11 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %10) #25
-  %.sroa.34.sroa.3.0.extract.shift = and i16 %11, -256
-  %12 = and i16 %11, 255
+  %12 = zext i16 %11 to i32
+  %13 = shl nuw i32 %12, 16
   br label %_ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread: ; preds = %5, %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 61440
-  %16 = add nsw i32 %15, -4096
-  %17 = lshr exact i32 %16, 12
-  %switch.tableidx = add nsw i32 %17, -1
-  %18 = icmp ult i32 %switch.tableidx, 11
-  br i1 %18, label %switch.lookup, label %_ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %15 = load i32, ptr %14, align 8
+  %16 = and i32 %15, 61440
+  %17 = add nsw i32 %16, -4096
+  %18 = lshr exact i32 %17, 12
+  %switch.tableidx = add nsw i32 %18, -1
+  %19 = icmp ult i32 %switch.tableidx, 11
+  br i1 %19, label %switch.lookup, label %_ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit
 
 switch.lookup:                                    ; preds = %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread
-  %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8filetypeEv, i64 %19
-  %switch.load = load i16, ptr %switch.gep, align 2
+  %20 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK8WasmEdge4Host4WASI5INode8filetypeEv, i64 %20
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit
 
 _ZNK8WasmEdge4Host4WASI5INode14unsafeFiletypeEv.exit: ; preds = %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread, %switch.lookup, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit
-  %.sroa.03.0 = phi i32 [ 0, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit ], [ 1, %switch.lookup ], [ 1, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread ]
-  %.sroa.34.sroa.0.0 = phi i16 [ %12, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit ], [ %switch.load, %switch.lookup ], [ 0, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread ]
-  %.sroa.34.sroa.3.0 = phi i16 [ %.sroa.34.sroa.3.0.extract.shift, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit ], [ 0, %switch.lookup ], [ 0, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread ]
-  %.sroa.34.sroa.0.0.insert.insert = or disjoint i16 %.sroa.34.sroa.3.0, %.sroa.34.sroa.0.0
-  %.sroa.34.0.insert.ext = zext i16 %.sroa.34.sroa.0.0.insert.insert to i32
-  %.sroa.34.0.insert.shift = shl nuw i32 %.sroa.34.0.insert.ext, 16
-  %.sroa.03.0.insert.insert = or disjoint i32 %.sroa.34.0.insert.shift, %.sroa.03.0
-  ret i32 %.sroa.03.0.insert.insert
+  %.sroa.34.sroa.3.0 = phi i32 [ %13, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit ], [ %switch.load, %switch.lookup ], [ 1, %_ZNK8WasmEdge4Host4WASI5INode10updateStatEv.exit.thread ]
+  ret i32 %.sroa.34.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

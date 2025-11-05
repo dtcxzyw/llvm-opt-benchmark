@@ -2875,7 +2875,7 @@ define dso_local range(i16 0, 258) i16 @_ZNK5clang7CodeGen10CodeGenPGO16getIsCou
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !777
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %42, label %5
+  br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %4, align 8, !tbaa !778
@@ -2925,7 +2925,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_
   %32 = zext i32 %8 to i64
   %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %32
   %34 = icmp eq ptr %.sroa.0.1.i, %33
-  br i1 %34, label %42, label %35
+  br i1 %34, label %43, label %35
 
 35:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
@@ -2936,13 +2936,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_
   %.not.i2 = icmp sgt i32 %39, -1
   %40 = select i1 %.not.i2, i16 256, i16 0
   %41 = zext i1 %.not.i to i16
-  br label %42
+  %42 = or disjoint i16 %40, %41
+  br label %43
 
-42:                                               ; preds = %35, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit, %2
-  %.sroa.011.0 = phi i16 [ 0, %2 ], [ %41, %35 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit ]
-  %.sroa.412.0 = phi i16 [ 0, %2 ], [ %40, %35 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit ]
-  %.sroa.011.0.insert.insert = or disjoint i16 %.sroa.412.0, %.sroa.011.0
-  ret i16 %.sroa.011.0.insert.insert
+43:                                               ; preds = %35, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit, %2
+  %.sroa.412.0 = phi i16 [ 0, %2 ], [ %42, %35 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4StmtENS2_7CodeGen11CounterPairENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S7_EEEES5_S7_S9_SC_E4findES5_.exit ]
+  ret i16 %.sroa.412.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

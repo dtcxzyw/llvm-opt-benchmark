@@ -3604,13 +3604,12 @@ Io_BlifGetLine.exit158.i:                         ; preds = %263, %.critedge.loo
   %278 = icmp eq i32 %.1.i, 0
   %279 = ptrtoint ptr %272 to i64
   %280 = zext i1 %278 to i64
+  %281 = xor i64 %279, %280
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %157
-  %.085.lcssa.i = phi i64 [ %162, %157 ], [ %279, %._crit_edge.loopexit.i ]
-  %.0.lcssa.i63 = phi i64 [ 0, %157 ], [ %280, %._crit_edge.loopexit.i ]
-  %281 = xor i64 %.0.lcssa.i63, %.085.lcssa.i
-  %282 = inttoptr i64 %281 to ptr
+  %.0.lcssa.i63 = phi i64 [ %162, %157 ], [ %281, %._crit_edge.loopexit.i ]
+  %282 = inttoptr i64 %.0.lcssa.i63 to ptr
   br label %Io_BlifParseTable.exit
 
 Io_BlifParseTable.exit:                           ; preds = %98, %Io_BlifGetLine.exit.i, %128, %Io_BlifGetLine.exit118.i, %Io_BlifGetLine.exit128.i, %Io_BlifGetLine.exit138.i, %Io_BlifGetLine.exit148.i, %Io_BlifGetLine.exit158.i, %._crit_edge.i

@@ -810,8 +810,8 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl14DecimalMatcher5matchERNS_1
   %150 = trunc nuw i8 %149 to i1
   %151 = and i16 %148, 1
   %.not253 = icmp eq i16 %151, 0
-  %or.cond715 = select i1 %150, i1 true, i1 %.not253
-  br i1 %or.cond715, label %179, label %152
+  %or.cond723 = select i1 %150, i1 true, i1 %.not253
+  br i1 %or.cond723, label %179, label %152
 
 152:                                              ; preds = %147
   %153 = load i16, ptr %18, align 8, !tbaa !6
@@ -1102,7 +1102,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   %.11 = phi i8 [ %.1156, %.thread330 ], [ 1, %267 ], [ %.10325, %215 ]
   %268 = load i8, ptr %32, align 8, !tbaa !37, !range !47, !noundef !48
   %269 = trunc nuw i8 %268 to i1
-  br i1 %269, label %270, label %285
+  br i1 %269, label %270, label %286
 
 270:                                              ; preds = %.thread330.thread
   switch i32 %.6230, label %280 [
@@ -1133,81 +1133,81 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit296: ; preds = 
   %282 = load i16, ptr %34, align 4, !tbaa !40
   %283 = sext i16 %282 to i32
   %284 = icmp eq i32 %.5211, %283
+  %285 = and i1 %.0.i298.ph, %284
   br label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
 
-285:                                              ; preds = %.thread330.thread
-  %286 = icmp ne i32 %.6230, 1
-  %287 = icmp ne i32 %.5242, 1
-  %spec.select.i297 = or i1 %287, %286
-  br i1 %spec.select.i297, label %293, label %288
+286:                                              ; preds = %.thread330.thread
+  %287 = icmp ne i32 %.6230, 1
+  %288 = icmp ne i32 %.5242, 1
+  %spec.select.i297 = or i1 %288, %287
+  br i1 %spec.select.i297, label %294, label %289
 
-288:                                              ; preds = %285
+289:                                              ; preds = %286
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %.5217)
-          to label %298 unwind label %291
+          to label %299 unwind label %292
 
-289:                                              ; preds = %353, %352, %343, %315, %311, %309, %305
-  %290 = landingpad { ptr, i32 }
+290:                                              ; preds = %353, %352, %343, %315, %311, %309, %305
+  %291 = landingpad { ptr, i32 }
           cleanup
   br label %360
 
-291:                                              ; preds = %300, %.thread349, %297, %288
-  %292 = landingpad { ptr, i32 }
+292:                                              ; preds = %301, %.thread349, %298, %289
+  %293 = landingpad { ptr, i32 }
           cleanup
   br label %360
 
-293:                                              ; preds = %285
-  %294 = icmp ne i32 %.5197, 1
-  %295 = icmp ne i32 %.5211, 1
-  %spec.select.i301 = or i1 %295, %294
-  %296 = or i32 %.6230, %.5242
-  %or.cond18.not = icmp eq i32 %296, 0
+294:                                              ; preds = %286
+  %295 = icmp ne i32 %.5197, 1
+  %296 = icmp ne i32 %.5211, 1
+  %spec.select.i301 = or i1 %296, %295
+  %297 = or i32 %.6230, %.5242
+  %or.cond18.not = icmp eq i32 %297, 0
   %or.cond289 = or i1 %or.cond18.not, %spec.select.i301
-  br i1 %or.cond289, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread, label %297
+  br i1 %or.cond289, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %298
 
-297:                                              ; preds = %293
+298:                                              ; preds = %294
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %.6191)
-          to label %.thread349 unwind label %291
+          to label %.thread349 unwind label %292
 
-298:                                              ; preds = %288
+299:                                              ; preds = %289
   %.neg = xor i32 %.5211, -1
   %.not266 = icmp eq i32 %.5211, -1
-  br i1 %.not266, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread, label %.thread349
+  br i1 %.not266, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %.thread349
 
-.thread349:                                       ; preds = %297, %298
-  %.13354 = phi i8 [ %.11, %298 ], [ 1, %297 ]
-  %.0160353.neg = phi i32 [ %.neg, %298 ], [ -1, %297 ]
-  %299 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %.0160353.neg)
-          to label %300 unwind label %291
+.thread349:                                       ; preds = %298, %299
+  %.13354 = phi i8 [ %.11, %299 ], [ 1, %298 ]
+  %.0160353.neg = phi i32 [ %.neg, %299 ], [ -1, %298 ]
+  %300 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %.0160353.neg)
+          to label %301 unwind label %292
 
-300:                                              ; preds = %.thread349
+301:                                              ; preds = %.thread349
   invoke void @_ZN6icu_776number4impl15DecimalQuantity8truncateEv(ptr noundef nonnull align 8 dereferenceable(66) %6)
-          to label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread unwind label %291
+          to label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread unwind label %292
 
-_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; preds = %280, %293, %281, %298, %300
-  %.0162 = phi i1 [ true, %300 ], [ true, %298 ], [ %.0.i298.ph, %280 ], [ %.0.i298.ph, %281 ], [ true, %293 ]
-  %.0161 = phi i1 [ true, %300 ], [ true, %298 ], [ true, %280 ], [ %284, %281 ], [ true, %293 ]
-  %.12 = phi i8 [ %.13354, %300 ], [ %.11, %298 ], [ %.11, %280 ], [ %.11, %281 ], [ %.11, %293 ]
+_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; preds = %280, %281
+  %.0162 = phi i1 [ %.0.i298.ph, %280 ], [ %285, %281 ]
   %.not267 = icmp eq i32 %.5197, 2
-  %or.cond20 = and i1 %.0162, %.0161
-  %or.cond290 = or i1 %.not267, %or.cond20
-  br i1 %or.cond290, label %301, label %.thread605
+  %or.cond290 = or i1 %.not267, %.0162
+  br i1 %or.cond290, label %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread, label %.thread611
 
-.thread605:                                       ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
+.thread611:                                       ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
   store i8 1, ptr %16, align 8, !tbaa !42
   br label %303
 
-301:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
+_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread: ; preds = %294, %299, %301, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread
+  %.12610 = phi i8 [ %.11, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread ], [ %.11, %294 ], [ %.11, %299 ], [ %.13354, %301 ]
   %.pre = load i8, ptr %16, align 8, !tbaa !42, !range !47
   %302 = trunc nuw i8 %.pre to i1
   br i1 %302, label %303, label %311
 
-303:                                              ; preds = %.thread605, %301
-  %304 = trunc nuw i8 %.12 to i1
+303:                                              ; preds = %.thread611, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread
+  %.12609613 = phi i8 [ %.11, %.thread611 ], [ %.12610, %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread ]
+  %304 = trunc nuw i8 %.12609613 to i1
   br i1 %304, label %309, label %305
 
 305:                                              ; preds = %303
   %306 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %307 unwind label %289
+          to label %307 unwind label %290
 
 307:                                              ; preds = %305
   %308 = icmp eq i32 %306, 0
@@ -1216,19 +1216,19 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
 309:                                              ; preds = %307, %303
   %310 = phi i1 [ true, %303 ], [ %308, %307 ]
   invoke void @_ZN6icu_7713StringSegment9setOffsetEi(ptr noundef nonnull align 8 dereferenceable(17) %1, i32 noundef %15)
-          to label %359 unwind label %289
+          to label %359 unwind label %290
 
-311:                                              ; preds = %301
+311:                                              ; preds = %_ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread.thread
   %312 = sub nsw i32 0, %.0163
   %313 = invoke noundef zeroext i1 @_ZN6icu_776number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66) %6, i32 noundef %312)
-          to label %314 unwind label %289
+          to label %314 unwind label %290
 
 314:                                              ; preds = %311
   br i1 %13, label %343, label %315
 
 315:                                              ; preds = %314
   %316 = invoke noundef i32 @_ZNK6icu_7713StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %317 unwind label %289
+          to label %317 unwind label %290
 
 317:                                              ; preds = %315
   %.not269 = icmp eq i32 %316, %15
@@ -1292,7 +1292,7 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
 
 343:                                              ; preds = %317, %314
   %344 = invoke noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %2, ptr noundef nonnull align 8 dereferenceable(66) %6)
-          to label %345 unwind label %289
+          to label %345 unwind label %290
 
 345:                                              ; preds = %329, %337, %338, %343
   %346 = load i16, ptr %18, align 8, !tbaa !6
@@ -1309,15 +1309,15 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
 
 352:                                              ; preds = %348, %345
   invoke void @_ZN6icu_778numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr noundef nonnull align 8 dereferenceable(216) %2, ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %353 unwind label %289
+          to label %353 unwind label %290
 
 353:                                              ; preds = %352
   %354 = invoke noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %1)
-          to label %355 unwind label %289
+          to label %355 unwind label %290
 
 355:                                              ; preds = %353
   %356 = icmp eq i32 %354, 0
-  %357 = trunc nuw i8 %.12 to i1
+  %357 = trunc nuw i8 %.12610 to i1
   %358 = select i1 %356, i1 true, i1 %357
   br label %359
 
@@ -1331,8 +1331,8 @@ _ZNK6icu_778numparse4impl14DecimalMatcher13validateGroupEiib.exit303.thread: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %361
 
-360:                                              ; preds = %.loopexit368, %.loopexit.split-lp369, %.loopexit361, %.loopexit.split-lp, %.loopexit363, %.loopexit.split-lp364, %120, %122, %145, %177, %190, %207, %52, %330, %334, %332, %291, %289, %50
-  %.pn275.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %53, %52 ], [ %208, %207 ], [ %121, %120 ], [ %191, %190 ], [ %178, %177 ], [ %146, %145 ], [ %123, %122 ], [ %290, %289 ], [ %292, %291 ], [ %331, %330 ], [ %335, %334 ], [ %333, %332 ], [ %lpad.loopexit365, %.loopexit363 ], [ %lpad.loopexit.split-lp366, %.loopexit.split-lp364 ], [ %lpad.loopexit, %.loopexit361 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit370, %.loopexit368 ], [ %lpad.loopexit.split-lp371, %.loopexit.split-lp369 ]
+360:                                              ; preds = %.loopexit368, %.loopexit.split-lp369, %.loopexit361, %.loopexit.split-lp, %.loopexit363, %.loopexit.split-lp364, %120, %122, %145, %177, %190, %207, %52, %330, %334, %332, %292, %290, %50
+  %.pn275.pn.pn = phi { ptr, i32 } [ %51, %50 ], [ %53, %52 ], [ %208, %207 ], [ %121, %120 ], [ %191, %190 ], [ %178, %177 ], [ %146, %145 ], [ %123, %122 ], [ %291, %290 ], [ %293, %292 ], [ %331, %330 ], [ %335, %334 ], [ %333, %332 ], [ %lpad.loopexit365, %.loopexit363 ], [ %lpad.loopexit.split-lp366, %.loopexit.split-lp364 ], [ %lpad.loopexit, %.loopexit361 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit370, %.loopexit368 ], [ %lpad.loopexit.split-lp371, %.loopexit.split-lp369 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #9

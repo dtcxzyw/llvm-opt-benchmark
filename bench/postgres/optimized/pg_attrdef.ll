@@ -332,13 +332,12 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %25 = call ptr @systable_getnext(ptr noundef %12) #5
   %.not15 = icmp eq ptr %25, null
-  br i1 %.not15, label %._crit_edge, label %17, !llvm.loop !6
+  br i1 %.not15, label %.critedge, label %17, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %17, %5
+._crit_edge:                                      ; preds = %5
   call void @systable_endscan(ptr noundef %12) #5
   call void @table_close(ptr noundef %8, i32 noundef 3) #5
-  %or.cond.not = and i1 %3, %.not1516
-  br i1 %or.cond.not, label %26, label %30
+  br i1 %3, label %26, label %30
 
 26:                                               ; preds = %._crit_edge
   %27 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
@@ -347,7 +346,12 @@ define dso_local void @RemoveAttrDefault(i32 noundef %0, i16 noundef signext %1,
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 257, ptr noundef nonnull @__func__.RemoveAttrDefault) #5
   unreachable
 
-30:                                               ; preds = %._crit_edge
+.critedge:                                        ; preds = %17
+  call void @systable_endscan(ptr noundef %12) #5
+  call void @table_close(ptr noundef %8, i32 noundef 3) #5
+  br label %30
+
+30:                                               ; preds = %.critedge, %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

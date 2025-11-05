@@ -291,7 +291,7 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %.not5 = icmp eq ptr %40, null
-  br i1 %.not5, label %59, label %41
+  br i1 %.not5, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %41
 
 41:                                               ; preds = %.loopexit
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -324,15 +324,14 @@ _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmal
   %57 = mul i32 %56, %.05611.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
+  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
-_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %41, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
-  %.05.lcssa.i = phi i32 [ 1, %41 ], [ 1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %58 = mul i32 %.05.lcssa.i, %.1
-  br label %59
+_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
+  %58 = mul i32 %57, %.1
+  br label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
 
-59:                                               ; preds = %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, %.loopexit
-  %.2 = phi i32 [ %58, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit ], [ %.1, %.loopexit ]
+_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i, %41, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit, %.loopexit
+  %.2 = phi i32 [ %.1, %.loopexit ], [ %.1, %41 ], [ %.1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %58, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit ]
   ret i32 %.2
 }
 

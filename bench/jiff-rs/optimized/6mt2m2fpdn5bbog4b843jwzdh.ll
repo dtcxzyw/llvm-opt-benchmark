@@ -10355,7 +10355,7 @@ define internal fastcc void @_ZN4jiff5zoned5Zoned3new17h68851bfd65d9f17bE(ptr de
   %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$jiff..tz..timezone..TimeZone$GT$17h17ffc961aac3f863E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #19
-          to label %86 unwind label %84
+          to label %92 unwind label %90
 
 _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %9, %4, %4, %12, %.noexc4, %.noexc6
   %.sroa.0.0.i = phi i32 [ %11, %9 ], [ 0, %4 ], [ 0, %4 ], [ %13, %12 ], [ %20, %.noexc4 ], [ %27, %.noexc6 ]
@@ -10381,7 +10381,7 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %9, 
   %.sroa.011.0.i.i.i.i = phi i32 [ %39, %43 ], [ %2, %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit ]
   %.sroa.04.0.i.i.i.i = phi i64 [ %44, %43 ], [ %spec.select.i.i.i.i, %_ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit ]
   %41 = icmp eq i64 %.sroa.04.0.i.i.i.i, 0
-  br i1 %41, label %60, label %45
+  br i1 %41, label %61, label %45
 
 .thread15.i.i.i:                                  ; preds = %38
   %42 = add i32 %34, -1
@@ -10397,7 +10397,7 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %9, 
   %48 = trunc nuw nsw i32 %47 to i8
   %49 = urem i32 %46, 3600
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %60, label %51
+  br i1 %50, label %61, label %51
 
 51:                                               ; preds = %45, %.thread15.i.i.i
   %52 = phi i32 [ 3599, %.thread15.i.i.i ], [ %49, %45 ]
@@ -10411,78 +10411,78 @@ _ZN4jiff2tz8timezone8TimeZone9to_offset17hd85c397c919b8629E.exit: ; preds = %9, 
   %57 = zext nneg i16 %56 to i64
   %58 = shl nuw nsw i64 %57, 48
   %59 = shl nuw nsw i64 %55, 40
-  br label %60
+  %60 = or disjoint i64 %58, %59
+  br label %61
 
-60:                                               ; preds = %51, %45, %40
+61:                                               ; preds = %51, %45, %40
   %.sroa.02.0.i14.i.i.i = phi i32 [ %34, %40 ], [ %34, %45 ], [ %.sroa.02.0.i1319.i.i.i, %51 ]
   %.sroa.011.0.i11.i.i.i = phi i32 [ %.sroa.011.0.i.i.i.i, %40 ], [ %.sroa.011.0.i.i.i.i, %45 ], [ %.sroa.011.0.i1020.i.i.i, %51 ]
-  %.sroa.5.0.i.i.i.i = phi i64 [ 0, %40 ], [ 0, %45 ], [ %58, %51 ]
-  %.sroa.4.0.i.i.i.i = phi i64 [ 0, %40 ], [ 0, %45 ], [ %59, %51 ]
+  %.sroa.5.0.i.i.i.i = phi i64 [ 0, %40 ], [ 0, %45 ], [ %60, %51 ]
   %.sroa.3.0.i.i.i.i = phi i8 [ 0, %40 ], [ %48, %45 ], [ %53, %51 ]
-  %61 = shl i32 %.sroa.02.0.i14.i.i.i, 2
-  %62 = add i32 %61, 50797691
-  %63 = urem i32 %62, 146097
-  %64 = or i32 %63, 3
-  %65 = zext nneg i32 %64 to i64
-  %66 = mul nuw nsw i64 %65, 2939745
-  %67 = trunc i64 %66 to i32
-  %68 = udiv i32 %67, 11758980
-  %69 = mul nuw nsw i32 %68, 2141
-  %70 = add nuw nsw i32 %69, 197913
-  %.lhs.trunc.i.i.i = trunc i32 %70 to i16
-  %71 = udiv i16 %.lhs.trunc.i.i.i, 2141
-  %72 = icmp ugt i32 %67, -696719417
-  %73 = and i32 %70, 4128768
-  %74 = add nuw nsw i32 %73, 15990784
-  %.sroa.2.0.insert.ext.i.i.i.i = select i1 %72, i32 %74, i32 %70
-  %75 = udiv i32 %62, 146097
-  %76 = mul nuw nsw i32 %75, 100
-  %77 = lshr i64 %66, 32
-  %78 = trunc nuw nsw i64 %77 to i32
-  %79 = zext i1 %72 to i32
-  %80 = add nuw nsw i32 %76, 32736
-  %81 = add nuw nsw i32 %80, %78
+  %62 = shl i32 %.sroa.02.0.i14.i.i.i, 2
+  %63 = add i32 %62, 50797691
+  %64 = urem i32 %63, 146097
+  %65 = or i32 %64, 3
+  %66 = zext nneg i32 %65 to i64
+  %67 = mul nuw nsw i64 %66, 2939745
+  %68 = trunc i64 %67 to i32
+  %69 = udiv i32 %68, 11758980
+  %70 = mul nuw nsw i32 %69, 2141
+  %71 = add nuw nsw i32 %70, 197913
+  %.lhs.trunc.i.i.i = trunc i32 %71 to i16
+  %72 = udiv i16 %.lhs.trunc.i.i.i, 2141
+  %73 = icmp ugt i32 %68, -696719417
+  %74 = and i32 %71, 4128768
+  %75 = add nuw nsw i32 %74, 15990784
+  %.sroa.2.0.insert.ext.i.i.i.i = select i1 %73, i32 %75, i32 %71
+  %76 = udiv i32 %63, 146097
+  %77 = mul nuw nsw i32 %76, 100
+  %78 = lshr i64 %67, 32
+  %79 = trunc nuw nsw i64 %78 to i32
+  %80 = zext i1 %73 to i32
+  %81 = add nuw nsw i32 %77, 32736
   %82 = add nuw nsw i32 %81, %79
-  %.sroa.3.0.insert.insert.i = or i64 %.sroa.4.0.i.i.i.i, %.sroa.5.0.i.i.i.i
-  %.sroa.014.0.extract.trunc.i = trunc i32 %82 to i16
+  %83 = add nuw nsw i32 %82, %80
+  %.sroa.014.0.extract.trunc.i = trunc i32 %83 to i16
   %.sroa.014.2.extract.shift.i = lshr i32 %.sroa.2.0.insert.ext.i.i.i.i, 16
   %.sroa.014.2.extract.trunc.i = trunc i32 %.sroa.014.2.extract.shift.i to i8
-  %83 = trunc nuw nsw i16 %71 to i8
-  %.sroa.014.3.extract.trunc.i = add nuw nsw i8 %83, 1
-  %.sroa.615.9.extract.shift.i = lshr exact i64 %.sroa.4.0.i.i.i.i, 40
-  %.sroa.615.9.extract.trunc.i = trunc nuw nsw i64 %.sroa.615.9.extract.shift.i to i8
-  %.sroa.615.10.extract.shift.i = lshr i64 %.sroa.3.0.insert.insert.i, 48
-  %.sroa.615.10.extract.trunc.i = trunc nuw nsw i64 %.sroa.615.10.extract.shift.i to i8
+  %84 = trunc nuw nsw i16 %72 to i8
+  %.sroa.014.3.extract.trunc.i = add nuw nsw i8 %84, 1
+  %85 = lshr i64 %.sroa.5.0.i.i.i.i, 32
+  %86 = trunc i64 %85 to i8
+  %.sroa.615.8.extract.trunc.i = or i8 %.sroa.3.0.i.i.i.i, %86
+  %87 = trunc i64 %.sroa.5.0.i.i.i.i to i32
+  %.sroa.615.4.extract.trunc.i = or i32 %.sroa.011.0.i11.i.i.i, %87
+  %88 = lshr i64 %.sroa.5.0.i.i.i.i, 40
+  %89 = trunc nuw nsw i64 %88 to i16
   store i64 %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %.sroa.31.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.sroa.011.0.i11.i.i.i, ptr %.sroa.4.0..sroa_idx, align 8
+  store i32 %.sroa.615.4.extract.trunc.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 %.sroa.3.0.i.i.i.i, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx, align 4
+  store i8 %.sroa.615.8.extract.trunc.i, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 29
-  store i8 %.sroa.615.9.extract.trunc.i, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 1
-  %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 30
-  store i8 %.sroa.615.10.extract.trunc.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 2
-  %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i16 %.sroa.014.0.extract.trunc.i, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 8
-  %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 34
-  store i8 %.sroa.014.2.extract.trunc.i, ptr %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx, align 2
-  %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 35
-  store i8 %.sroa.014.3.extract.trunc.i, ptr %.sroa.4.sroa.8.0..sroa.4.0..sroa_idx.sroa_idx, align 1
+  store i16 %89, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx, align 1
+  %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i16 %.sroa.014.0.extract.trunc.i, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 34
+  store i8 %.sroa.014.2.extract.trunc.i, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 2
+  %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 35
+  store i8 %.sroa.014.3.extract.trunc.i, ptr %.sroa.4.sroa.7.0..sroa.4.0..sroa_idx.sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %.sroa.0.0.i, ptr %.sroa.5.0..sroa_idx, align 4
   ret void
 
-84:                                               ; preds = %28
-  %85 = landingpad { ptr, i32 }
+90:                                               ; preds = %28
+  %91 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #17
   unreachable
 
-86:                                               ; preds = %28
+92:                                               ; preds = %28
   resume { ptr, i32 } %29
 }
 

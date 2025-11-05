@@ -107,34 +107,34 @@ _ZNSt6vectorIjSaIjEED2Ev.exit27:                  ; preds = %._crit_edge.us.i
   %36 = shl nuw nsw i64 %35, 48
   %37 = zext i8 %.sroa.5.3.us.i to i64
   %38 = shl nuw nsw i64 %37, 40
-  %39 = zext i8 %.sroa.3.3.us.i to i64
-  %40 = shl nuw nsw i64 %39, 32
-  %41 = zext i32 %.sroa.08.3.us.i to i64
-  %.sroa.5.0.insert.insert.i = or disjoint i64 %36, %38
-  %42 = or disjoint i64 %40, %41
-  %.sroa.08.0.insert.insert.i = or disjoint i64 %.sroa.5.0.insert.insert.i, %42
+  %39 = or disjoint i64 %36, %38
+  %40 = zext i8 %.sroa.3.3.us.i to i64
+  %41 = shl nuw nsw i64 %40, 32
+  %42 = zext i32 %.sroa.08.3.us.i to i64
+  %43 = or disjoint i64 %41, %42
+  %44 = or disjoint i64 %39, %43
   tail call void @_ZdlPvm(ptr noundef nonnull %4, i64 noundef 16) #7
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 12) #7
-  %43 = lshr i8 %.sroa.3.3.us.i, 3
-  %44 = and i8 %43, 3
-  %45 = zext nneg i8 %44 to i32
-  %46 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %45, i1 noundef zeroext false)
-  %.sroa.6.8.insert.ext = and i64 %39, 7
+  %45 = lshr i8 %.sroa.3.3.us.i, 3
+  %46 = and i8 %45, 3
+  %47 = zext nneg i8 %46 to i32
+  %48 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %47, i1 noundef zeroext false)
+  %.sroa.6.8.insert.ext = and i64 %40, 7
   %.not = icmp ult i8 %.sroa.8.3.us.i, 2
   %.sroa.5.0.insert.shift = select i1 %.not, i64 0, i64 72057594037927936
-  %.sroa.011.0.insert.insert = or disjoint i64 %.sroa.08.0.insert.insert.i, %.sroa.5.0.insert.shift
+  %.sroa.011.0.insert.insert = or disjoint i64 %44, %.sroa.5.0.insert.shift
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.011.0.insert.insert, 0
-  %.sroa.915.8.insert.ext = zext i32 %46 to i64
+  %.sroa.915.8.insert.ext = zext i32 %48 to i64
   %.sroa.915.8.insert.shift = shl nuw i64 %.sroa.915.8.insert.ext, 32
   %.sroa.6.8.insert.insert = or disjoint i64 %.sroa.915.8.insert.shift, %.sroa.6.8.insert.ext
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.6.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 
 _ZNSt6vectorIjSaIjEED2Ev.exit31:                  ; preds = %2
-  %47 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %3, i64 noundef 12) #7
-  resume { ptr, i32 } %47
+  resume { ptr, i32 } %49
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -205,26 +205,26 @@ define { i64, i64 } @_ZN5ZXing6QRCode17FormatInformation9DecodeMQREj(i32 noundef
   %22 = shl nuw nsw i64 %21, 40
   %23 = zext i8 %.sroa.3.3.us.i to i64
   %24 = shl nuw nsw i64 %23, 32
-  %25 = zext nneg i32 %.sroa.08.3.us.i to i64
-  %26 = or disjoint i64 %24, %22
-  %.sroa.3.0.insert.insert.i = or disjoint i64 %20, %26
+  %25 = or disjoint i64 %24, %22
+  %26 = or disjoint i64 %20, %25
+  %27 = zext nneg i32 %.sroa.08.3.us.i to i64
   tail call void @_ZdlPvm(ptr noundef nonnull %1, i64 noundef 8) #7
-  %sum.shift = lshr i64 %.sroa.3.0.insert.insert.i, 34
-  %27 = trunc nuw nsw i64 %sum.shift to i32
-  %28 = and i32 %27, 7
-  %29 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %28, i1 noundef zeroext true)
+  %sum.shift = lshr i64 %26, 34
+  %28 = trunc nuw nsw i64 %sum.shift to i32
+  %29 = and i32 %28, 7
+  %30 = tail call noundef i32 @_ZN5ZXing6QRCode15ECLevelFromBitsEib(i32 noundef %29, i1 noundef zeroext true)
   %.sroa.7.8.insert.ext = and i64 %23, 3
-  %30 = and i64 %sum.shift, 7
-  %31 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 %30
-  %32 = load i8, ptr %31, align 1, !tbaa !9
-  %33 = icmp eq i8 %.sroa.8.3.us.i, 1
-  %.sroa.6.0.insert.shift = select i1 %33, i64 72057594037927936, i64 0
-  %34 = or disjoint i64 %.sroa.6.0.insert.shift, %25
-  %.sroa.05.0.insert.insert = or disjoint i64 %34, %.sroa.3.0.insert.insert.i
+  %31 = and i64 %sum.shift, 7
+  %32 = getelementptr inbounds nuw i8, ptr @__const._ZN5ZXing6QRCode17FormatInformation9DecodeMQREj.BITS_TO_VERSION, i64 %31
+  %33 = load i8, ptr %32, align 1, !tbaa !9
+  %34 = icmp eq i8 %.sroa.8.3.us.i, 1
+  %.sroa.6.0.insert.shift = select i1 %34, i64 72057594037927936, i64 0
+  %35 = or disjoint i64 %.sroa.6.0.insert.shift, %27
+  %.sroa.05.0.insert.insert = or disjoint i64 %35, %26
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.05.0.insert.insert, 0
-  %.sroa.1110.8.insert.ext = zext i32 %29 to i64
+  %.sroa.1110.8.insert.ext = zext i32 %30 to i64
   %.sroa.1110.8.insert.shift = shl nuw i64 %.sroa.1110.8.insert.ext, 32
-  %.sroa.10.8.insert.ext = zext i8 %32 to i64
+  %.sroa.10.8.insert.ext = zext i8 %33 to i64
   %.sroa.10.8.insert.shift = shl nuw nsw i64 %.sroa.10.8.insert.ext, 8
   %.sroa.10.8.insert.insert = or disjoint i64 %.sroa.10.8.insert.shift, %.sroa.1110.8.insert.shift
   %.sroa.7.8.insert.insert = or disjoint i64 %.sroa.10.8.insert.insert, %.sroa.7.8.insert.ext

@@ -3317,7 +3317,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %1 = phi i32 [ %0, %while.body.lr.ph ], [ %24, %sw.epilog ]
+  %1 = phi i32 [ %0, %while.body.lr.ph ], [ %25, %sw.epilog ]
   %2 = load ptr, ptr %bts, align 8
   %conv.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::UTF16RegexTraits>::BacktrackInsn", ptr %2, i64 %conv.i.i
@@ -3395,44 +3395,45 @@ sw.bb8:                                           ; preds = %while.body
   store ptr %add.ptr.i, ptr %current_.i.i, align 8
   %call2.i = tail call noundef zeroext i8 @_ZN6hermes5regex7ContextINS0_16UTF16RegexTraitsEE22prepareToEnterLoopBodyEPNS0_5StateIS2_EEPKNS0_13BeginLoopInsnERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEE(ptr noundef nonnull align 8 dereferenceable(188) %this, ptr noundef nonnull %s, ptr noundef %fields.sroa.3.0.copyload, ptr noundef nonnull align 8 dereferenceable(1552) %bts)
   %18 = zext i8 %call2.i to i16
+  %19 = or disjoint i16 %18, 256
   br label %return
 
 sw.bb12:                                          ; preds = %while.body, %while.body
   %min = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
-  %19 = load ptr, ptr %min, align 8
+  %20 = load ptr, ptr %min, align 8
   %max = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  %20 = load ptr, ptr %max, align 8
-  %cmp15 = icmp eq ptr %19, %20
+  %21 = load ptr, ptr %max, align 8
+  %cmp15 = icmp eq ptr %20, %21
   br i1 %cmp15, label %sw.epilog.sink.split, label %if.end17
 
 if.end17:                                         ; preds = %sw.bb12
-  %21 = load i8, ptr %forwards_.i, align 8
-  %tobool.i.le = trunc i8 %21 to i1
+  %22 = load i8, ptr %forwards_.i, align 8
+  %tobool.i.le = trunc i8 %22 to i1
   %cmp18 = icmp eq i8 %3, 4
   br i1 %cmp18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end17
   %max.le = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
   %idx.ext = select i1 %tobool.i.le, i64 -1, i64 1
-  %add.ptr = getelementptr inbounds i16, ptr %20, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i16, ptr %21, i64 %idx.ext
   store ptr %add.ptr, ptr %max.le, align 8
   br label %if.end30
 
 if.else:                                          ; preds = %if.end17
   %min.le = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
   %idx.ext26 = select i1 %tobool.i.le, i64 1, i64 -1
-  %add.ptr27 = getelementptr inbounds i16, ptr %19, i64 %idx.ext26
+  %add.ptr27 = getelementptr inbounds i16, ptr %20, i64 %idx.ext26
   store ptr %add.ptr27, ptr %min.le, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then19
   %add.ptr27.sink = phi ptr [ %add.ptr, %if.then19 ], [ %add.ptr27, %if.else ]
-  %22 = getelementptr inbounds nuw i8, ptr %s, i64 16
-  store ptr %add.ptr27.sink, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %s, i64 16
+  store ptr %add.ptr27.sink, ptr %23, align 8
   %continuation = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -20
-  %23 = load i32, ptr %continuation, align 4
+  %24 = load i32, ptr %continuation, align 4
   %ip_31 = getelementptr inbounds nuw i8, ptr %s, i64 40
-  store i32 %23, ptr %ip_31, align 8
+  store i32 %24, ptr %ip_31, align 8
   br label %return
 
 sw.epilog.sink.split:                             ; preds = %sw.bb12, %sw.bb, %sw.bb4
@@ -3442,15 +3443,13 @@ sw.epilog.sink.split:                             ; preds = %sw.bb12, %sw.bb, %s
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %while.body
-  %24 = phi i32 [ %1, %while.body ], [ %sub.i47, %sw.epilog.sink.split ]
-  %tobool.not.i = icmp eq i32 %24, 0
+  %25 = phi i32 [ %1, %while.body ], [ %sub.i47, %sw.epilog.sink.split ]
+  %tobool.not.i = icmp eq i32 %25, 0
   br i1 %tobool.not.i, label %return, label %while.body, !llvm.loop !13
 
 return:                                           ; preds = %sw.epilog, %entry, %sw.bb8, %if.end30, %sw.bb7
-  %retval.sroa.0.0 = phi i16 [ 0, %sw.bb7 ], [ 0, %if.end30 ], [ %18, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
-  %retval.sroa.6.0 = phi i16 [ 256, %sw.bb7 ], [ 256, %if.end30 ], [ 256, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.6.0, %retval.sroa.0.0
-  ret i16 %retval.sroa.0.0.insert.insert
+  %retval.sroa.6.0 = phi i16 [ 256, %sw.bb7 ], [ 256, %if.end30 ], [ %19, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
+  ret i16 %retval.sroa.6.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -6212,7 +6211,7 @@ while.body.lr.ph:                                 ; preds = %entry
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
-  %1 = phi i32 [ %0, %while.body.lr.ph ], [ %24, %sw.epilog ]
+  %1 = phi i32 [ %0, %while.body.lr.ph ], [ %25, %sw.epilog ]
   %2 = load ptr, ptr %bts, align 8
   %conv.i.i = zext i32 %1 to i64
   %add.ptr.i.i = getelementptr inbounds nuw %"union.hermes::regex::Context<hermes::regex::ASCIIRegexTraits>::BacktrackInsn", ptr %2, i64 %conv.i.i
@@ -6290,44 +6289,45 @@ sw.bb8:                                           ; preds = %while.body
   store ptr %add.ptr.i, ptr %current_.i.i, align 8
   %call2.i = tail call noundef zeroext i8 @_ZN6hermes5regex7ContextINS0_16ASCIIRegexTraitsEE22prepareToEnterLoopBodyEPNS0_5StateIS2_EEPKNS0_13BeginLoopInsnERN4llvh11SmallVectorINS3_13BacktrackInsnELj64EEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %s, ptr noundef %fields.sroa.3.0.copyload, ptr noundef nonnull align 8 dereferenceable(1552) %bts)
   %18 = zext i8 %call2.i to i16
+  %19 = or disjoint i16 %18, 256
   br label %return
 
 sw.bb12:                                          ; preds = %while.body, %while.body
   %min = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
-  %19 = load ptr, ptr %min, align 8
+  %20 = load ptr, ptr %min, align 8
   %max = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
-  %20 = load ptr, ptr %max, align 8
-  %cmp15 = icmp eq ptr %19, %20
+  %21 = load ptr, ptr %max, align 8
+  %cmp15 = icmp eq ptr %20, %21
   br i1 %cmp15, label %sw.epilog.sink.split, label %if.end17
 
 if.end17:                                         ; preds = %sw.bb12
-  %21 = load i8, ptr %forwards_.i, align 8
-  %tobool.i.le = trunc i8 %21 to i1
+  %22 = load i8, ptr %forwards_.i, align 8
+  %tobool.i.le = trunc i8 %22 to i1
   %cmp18 = icmp eq i8 %3, 4
   br i1 %cmp18, label %if.then19, label %if.else
 
 if.then19:                                        ; preds = %if.end17
   %max.le = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -8
   %idx.ext = select i1 %tobool.i.le, i64 -1, i64 1
-  %add.ptr = getelementptr inbounds i8, ptr %20, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %21, i64 %idx.ext
   store ptr %add.ptr, ptr %max.le, align 8
   br label %if.end30
 
 if.else:                                          ; preds = %if.end17
   %min.le = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -16
   %idx.ext26 = select i1 %tobool.i.le, i64 1, i64 -1
-  %add.ptr27 = getelementptr inbounds i8, ptr %19, i64 %idx.ext26
+  %add.ptr27 = getelementptr inbounds i8, ptr %20, i64 %idx.ext26
   store ptr %add.ptr27, ptr %min.le, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.else, %if.then19
   %add.ptr27.sink = phi ptr [ %add.ptr, %if.then19 ], [ %add.ptr27, %if.else ]
-  %22 = getelementptr inbounds nuw i8, ptr %s, i64 16
-  store ptr %add.ptr27.sink, ptr %22, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %s, i64 16
+  store ptr %add.ptr27.sink, ptr %23, align 8
   %continuation = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -20
-  %23 = load i32, ptr %continuation, align 4
+  %24 = load i32, ptr %continuation, align 4
   %ip_31 = getelementptr inbounds nuw i8, ptr %s, i64 40
-  store i32 %23, ptr %ip_31, align 8
+  store i32 %24, ptr %ip_31, align 8
   br label %return
 
 sw.epilog.sink.split:                             ; preds = %sw.bb12, %sw.bb, %sw.bb4
@@ -6337,15 +6337,13 @@ sw.epilog.sink.split:                             ; preds = %sw.bb12, %sw.bb, %s
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %while.body
-  %24 = phi i32 [ %1, %while.body ], [ %sub.i47, %sw.epilog.sink.split ]
-  %tobool.not.i = icmp eq i32 %24, 0
+  %25 = phi i32 [ %1, %while.body ], [ %sub.i47, %sw.epilog.sink.split ]
+  %tobool.not.i = icmp eq i32 %25, 0
   br i1 %tobool.not.i, label %return, label %while.body, !llvm.loop !27
 
 return:                                           ; preds = %sw.epilog, %entry, %sw.bb8, %if.end30, %sw.bb7
-  %retval.sroa.0.0 = phi i16 [ 0, %sw.bb7 ], [ 0, %if.end30 ], [ %18, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
-  %retval.sroa.6.0 = phi i16 [ 256, %sw.bb7 ], [ 256, %if.end30 ], [ 256, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.6.0, %retval.sroa.0.0
-  ret i16 %retval.sroa.0.0.insert.insert
+  %retval.sroa.6.0 = phi i16 [ 256, %sw.bb7 ], [ 256, %if.end30 ], [ %19, %sw.bb8 ], [ 0, %entry ], [ 0, %sw.epilog ]
+  ret i16 %retval.sroa.6.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

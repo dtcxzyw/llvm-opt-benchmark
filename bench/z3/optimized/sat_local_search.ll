@@ -1775,7 +1775,7 @@ _ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit: ; preds = %29
 
 _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit39:   ; preds = %52, %_ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
   %.ph = phi ptr [ null, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ %24, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ %24, %_ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit ], [ null, %52 ]
-  %.ph70.not = phi i1 [ false, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ true, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ true, %_ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit ], [ false, %52 ]
+  %.ph70.not = phi i1 [ false, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ %10, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ %10, %_ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit ], [ false, %52 ]
   %.0.i38.ph = phi i32 [ 0, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ %26, %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit ], [ %26, %_ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit ], [ 0, %52 ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !49
   %55 = icmp eq ptr %.pr, null
@@ -1805,8 +1805,7 @@ _ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit41: ; preds = %_ZNK6v
   br label %.critedge.critedge
 
 67:                                               ; preds = %_ZNK6vectorIN3sat12local_search8var_infoELb1EjE4sizeEv.exit41
-  %brmerge.not = and i1 %.ph70.not, %10
-  br i1 %brmerge.not, label %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit, label %.critedge.critedge
+  br i1 %.ph70.not, label %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit, label %.critedge.critedge
 
 _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %67
   %68 = getelementptr inbounds i8, ptr %.ph, i64 -4

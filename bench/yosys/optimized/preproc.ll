@@ -11836,7 +11836,6 @@ define linkonce_odr void @_ZNK5Yosys9arg_map_t8get_valsERKNSt7__cxx1112basic_str
   %31 = load i8, ptr %30, align 8, !tbaa !191, !range !58, !noundef !59
   %32 = trunc nuw i8 %31 to i1
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %spec.select = select i1 %32, ptr %33, ptr null
   %34 = load ptr, ptr %17, align 8, !tbaa !114
   %35 = load ptr, ptr %3, align 8, !tbaa !143
   %36 = ptrtoint ptr %34 to i64
@@ -11899,7 +11898,7 @@ define linkonce_odr void @_ZNK5Yosys9arg_map_t8get_valsERKNSt7__cxx1112basic_str
   unreachable
 
 _ZN5YosysL9all_whiteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %47, %.lr.ph.i, %44, %.thread, %43
-  %.0 = phi ptr [ %42, %43 ], [ %spec.select, %.thread ], [ %33, %44 ], [ %33, %47 ], [ %42, %.lr.ph.i ]
+  %.0 = phi ptr [ %42, %43 ], [ %33, %.thread ], [ %33, %44 ], [ %33, %47 ], [ %42, %.lr.ph.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %63 = load ptr, ptr %2, align 8, !tbaa !12, !noalias !206

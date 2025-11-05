@@ -2666,7 +2666,7 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   br i1 %or.cond, label %154, label %165
 
 154:                                              ; preds = %113
-  br i1 %94, label %155, label %159
+  br i1 %94, label %155, label %160
 
 155:                                              ; preds = %154
   %156 = getelementptr inbounds nuw [11 x i8], ptr %96, i64 %106
@@ -2675,23 +2675,23 @@ define internal fastcc range(i32 0, 2) i32 @TrellisQuantizeBlock(ptr noalias nou
   %.in.in.i211 = getelementptr inbounds nuw i16, ptr @VP8EntropyCost, i64 %.pn.i210
   %.in.i212 = load i16, ptr %.in.in.i211, align 2, !tbaa !46
   %158 = zext i16 %.in.i212 to i64
-  br label %159
+  %159 = mul nsw i64 %158, %45
+  br label %160
 
-159:                                              ; preds = %154, %155
-  %160 = phi i64 [ %158, %155 ], [ 0, %154 ]
-  %161 = mul nsw i64 %160, %45
+160:                                              ; preds = %154, %155
+  %161 = phi i64 [ %159, %155 ], [ 0, %154 ]
   %162 = add nsw i64 %161, %148
   %163 = icmp slt i64 %162, %.1181218
   br i1 %163, label %164, label %165
 
-164:                                              ; preds = %159
+164:                                              ; preds = %160
   br label %165
 
-165:                                              ; preds = %113, %164, %159, %112
-  %.2 = phi i64 [ %.1181218, %112 ], [ %.1181218, %113 ], [ %162, %164 ], [ %.1181218, %159 ]
-  %.sroa.0.2 = phi i32 [ %.sroa.0.1219, %112 ], [ %.sroa.0.1219, %113 ], [ %100, %164 ], [ %.sroa.0.1219, %159 ]
-  %.sroa.6.2 = phi i32 [ %.sroa.6.1220, %112 ], [ %.sroa.6.1220, %113 ], [ %indvars248, %164 ], [ %.sroa.6.1220, %159 ]
-  %.sroa.8.2 = phi i32 [ %.sroa.8.1221, %112 ], [ %.sroa.8.1221, %113 ], [ %spec.select205, %164 ], [ %.sroa.8.1221, %159 ]
+165:                                              ; preds = %113, %164, %160, %112
+  %.2 = phi i64 [ %.1181218, %112 ], [ %.1181218, %113 ], [ %162, %164 ], [ %.1181218, %160 ]
+  %.sroa.0.2 = phi i32 [ %.sroa.0.1219, %112 ], [ %.sroa.0.1219, %113 ], [ %100, %164 ], [ %.sroa.0.1219, %160 ]
+  %.sroa.6.2 = phi i32 [ %.sroa.6.1220, %112 ], [ %.sroa.6.1220, %113 ], [ %indvars248, %164 ], [ %.sroa.6.1220, %160 ]
+  %.sroa.8.2 = phi i32 [ %.sroa.8.1221, %112 ], [ %.sroa.8.1221, %113 ], [ %spec.select205, %164 ], [ %.sroa.8.1221, %160 ]
   br i1 %102, label %101, label %166, !llvm.loop !244
 
 166:                                              ; preds = %165

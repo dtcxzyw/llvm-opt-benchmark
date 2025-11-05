@@ -19373,15 +19373,15 @@ _ZN4llvm11raw_ostreamlsEc.exit143:                ; preds = %323, %325
 328:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit143
   %329 = getelementptr inbounds nuw i8, ptr %311, i64 24
   %.sroa.0.0.copyload.i.i = load i64, ptr %329, align 8, !tbaa !395
+  %330 = or i64 %.sroa.0.0.copyload.i.i, %.sroa.0.0.copyload.i138
   br label %_ZNK5clang8QualType18getLocalQualifiersEv.exit
 
 _ZNK5clang8QualType18getLocalQualifiersEv.exit:   ; preds = %_ZN4llvm11raw_ostreamlsEc.exit143, %328
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i.i, %328 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit143 ]
-  %330 = or i64 %.sroa.0.0.i, %.sroa.0.0.copyload.i138
+  %.sroa.0.0.i = phi i64 [ %330, %328 ], [ %.sroa.0.0.copyload.i138, %_ZN4llvm11raw_ostreamlsEc.exit143 ]
   %.val100 = load ptr, ptr %164, align 8
-  %331 = and i64 %330, 1
+  %331 = and i64 %.sroa.0.0.i, 1
   %.not.i146 = icmp eq i64 %331, 0
-  %332 = and i64 %330, 5
+  %332 = and i64 %.sroa.0.0.i, 5
   %or.cond3.i148 = icmp eq i64 %332, 5
   %333 = getelementptr inbounds nuw i8, ptr %.val100, i64 32
   %334 = load ptr, ptr %333, align 8, !tbaa !551
@@ -19404,7 +19404,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit:   ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleQualifiersEN5clang10QualifiersEb.exit150
 
 342:                                              ; preds = %_ZNK5clang8QualType18getLocalQualifiersEv.exit
-  %343 = and i64 %330, 4
+  %343 = and i64 %.sroa.0.0.i, 4
   %.not2.i147 = icmp eq i64 %343, 0
   br i1 %.not2.i147, label %349, label %344
 
@@ -19656,11 +19656,11 @@ _ZNK5clang4Type20getContainedAutoTypeEv.exit.i:   ; preds = %tailrecurse.backedg
 463:                                              ; preds = %_ZNK5clang4Type20getContainedAutoTypeEv.exit.i
   %464 = getelementptr inbounds nuw i8, ptr %.lcssa114.i, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %464, align 8, !tbaa !395
+  %465 = or i64 %.sroa.0.0.copyload.i.i.i, %.tr108.lcssa.i
   br label %_ZNK5clang8QualType18getLocalQualifiersEv.exit.i
 
 _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %463, %_ZNK5clang4Type20getContainedAutoTypeEv.exit.i
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %463 ], [ 0, %_ZNK5clang4Type20getContainedAutoTypeEv.exit.i ]
-  %465 = or i64 %.sroa.0.0.i.i, %.tr108.lcssa.i
+  %.sroa.0.0.i.i = phi i64 [ %465, %463 ], [ %.tr108.lcssa.i, %_ZNK5clang4Type20getContainedAutoTypeEv.exit.i ]
   switch i32 %.tr109.lcssa.i, label %_ZN4llvm11raw_ostreamlsEc.exit.i412 [
     i32 3, label %466
     i32 0, label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleQualifiersEN5clang10QualifiersEb.exit.i
@@ -19687,9 +19687,9 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit.i: ; preds = %463, %_ZNK5clang4Ty
 
 _ZN4llvm11raw_ostreamlsEc.exit.i412:              ; preds = %474, %472, %_ZNK5clang8QualType18getLocalQualifiersEv.exit.i
   %.val22.i = load ptr, ptr %164, align 8
-  %476 = and i64 %465, 1
+  %476 = and i64 %.sroa.0.0.i.i, 1
   %.not.i25.i = icmp eq i64 %476, 0
-  %477 = and i64 %465, 5
+  %477 = and i64 %.sroa.0.0.i.i, 5
   %or.cond3.i.i = icmp eq i64 %477, 5
   %478 = getelementptr inbounds nuw i8, ptr %.val22.i, i64 32
   %479 = load ptr, ptr %478, align 8, !tbaa !551
@@ -19712,7 +19712,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i412:              ; preds = %474, %472, %_ZNK5cl
   br label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleQualifiersEN5clang10QualifiersEb.exit.i
 
 487:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i412
-  %488 = and i64 %465, 4
+  %488 = and i64 %.sroa.0.0.i.i, 4
   %.not2.i.i = icmp eq i64 %488, 0
   br i1 %.not2.i.i, label %494, label %489
 
@@ -20323,15 +20323,15 @@ _ZN4llvm11raw_ostreamlsEc.exit178:                ; preds = %763, %765
 768:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit178
   %769 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %.sroa.0.0.copyload.i.i181 = load i64, ptr %769, align 8, !tbaa !395
+  %770 = or i64 %.sroa.0.0.copyload.i.i181, %.sroa.0.0.copyload.i139
   br label %_ZNK5clang8QualType18getLocalQualifiersEv.exit183
 
 _ZNK5clang8QualType18getLocalQualifiersEv.exit183: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit178, %768
-  %.sroa.0.0.i182 = phi i64 [ %.sroa.0.0.copyload.i.i181, %768 ], [ 0, %_ZN4llvm11raw_ostreamlsEc.exit178 ]
-  %770 = or i64 %.sroa.0.0.i182, %.sroa.0.0.copyload.i139
+  %.sroa.0.0.i182 = phi i64 [ %770, %768 ], [ %.sroa.0.0.copyload.i139, %_ZN4llvm11raw_ostreamlsEc.exit178 ]
   %.val101 = load ptr, ptr %164, align 8
-  %771 = and i64 %770, 1
+  %771 = and i64 %.sroa.0.0.i182, 1
   %.not.i184 = icmp eq i64 %771, 0
-  %772 = and i64 %770, 5
+  %772 = and i64 %.sroa.0.0.i182, 5
   %or.cond3.i186 = icmp eq i64 %772, 5
   %773 = getelementptr inbounds nuw i8, ptr %.val101, i64 32
   %774 = load ptr, ptr %773, align 8, !tbaa !551
@@ -20354,7 +20354,7 @@ _ZNK5clang8QualType18getLocalQualifiersEv.exit183: ; preds = %_ZN4llvm11raw_ostr
   br label %_ZN12_GLOBAL__N_123MicrosoftCXXNameMangler16mangleQualifiersEN5clang10QualifiersEb.exit188
 
 782:                                              ; preds = %_ZNK5clang8QualType18getLocalQualifiersEv.exit183
-  %783 = and i64 %770, 4
+  %783 = and i64 %.sroa.0.0.i182, 4
   %.not2.i185 = icmp eq i64 %783, 0
   br i1 %.not2.i185, label %789, label %784
 

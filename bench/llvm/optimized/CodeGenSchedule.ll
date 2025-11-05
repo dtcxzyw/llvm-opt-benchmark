@@ -5318,7 +5318,7 @@ _ZN4llvm5APIntC2Ejmbb.exit92.thread.i:            ; preds = %_ZNK4llvm12DenseMap
   %608 = and i32 %605, 63
   %609 = zext nneg i32 %608 to i64
   %610 = shl nuw i64 1, %609
-  br label %615
+  br label %616
 
 _ZN4llvm5APIntC2Ejmbb.exit92.i:                   ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %13, i64 noundef 0, i1 noundef zeroext false) #21
@@ -5331,14 +5331,14 @@ _ZN4llvm5APIntC2Ejmbb.exit92.i:                   ; preds = %_ZNK4llvm12DenseMap
 
 _ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i:        ; preds = %_ZN4llvm5APIntC2Ejmbb.exit92.i
   %.pre417.i = load i64, ptr %13, align 8, !tbaa !102
-  br label %615
+  %615 = or i64 %.pre417.i, %613
+  br label %616
 
-615:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i
-  %616 = phi i32 [ %606, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i ], [ %.pr293.i, %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i ]
-  %617 = phi i64 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i ], [ %.pre417.i, %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i ]
-  %618 = phi i64 [ %610, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i ], [ %613, %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i ]
-  %619 = or i64 %618, %617
-  store i64 %619, ptr %13, align 8, !tbaa !102
+616:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i
+  %617 = phi i32 [ %606, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i ], [ %.pr293.i, %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i ]
+  %618 = phi i64 [ %610, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i ], [ %615, %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i ]
+  %619 = phi i64 [ %610, %_ZN4llvm5APIntC2Ejmbb.exit92.thread.i ], [ %613, %_ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i ]
+  store i64 %618, ptr %13, align 8, !tbaa !102
   br label %_ZN4llvm5APInt6setBitEj.exit.i
 
 620:                                              ; preds = %_ZN4llvm5APIntC2Ejmbb.exit92.i
@@ -5351,9 +5351,9 @@ _ZN4llvm5APIntC2Ejmbb.exit92._crit_edge.i:        ; preds = %_ZN4llvm5APIntC2Ejm
   store i64 %626, ptr %624, align 8, !tbaa !168
   br label %_ZN4llvm5APInt6setBitEj.exit.i
 
-_ZN4llvm5APInt6setBitEj.exit.i:                   ; preds = %620, %615
-  %627 = phi i32 [ %616, %615 ], [ %.pr293.i, %620 ]
-  %628 = phi i64 [ %618, %615 ], [ %613, %620 ]
+_ZN4llvm5APInt6setBitEj.exit.i:                   ; preds = %620, %616
+  %627 = phi i32 [ %617, %616 ], [ %.pr293.i, %620 ]
+  %628 = phi i64 [ %619, %616 ], [ %613, %620 ]
   %629 = load ptr, ptr %12, align 8, !tbaa !85
   %630 = load ptr, ptr %67, align 8, !tbaa !85
   %.not297363.i = icmp eq ptr %629, %630

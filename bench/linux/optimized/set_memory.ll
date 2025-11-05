@@ -1857,7 +1857,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %245 = icmp ne i32 %.pre69, 0
   %246 = and i1 %92, %245
   %247 = and i1 %240, %246
-  br i1 %247, label %248, label %261
+  br i1 %247, label %248, label %262
 
 248:                                              ; preds = %244
   %249 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @init_mm, i64 128), align 64
@@ -1872,19 +1872,19 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__change_page_attr_set_clr
   %258 = icmp ne i32 %257, 1
   %259 = select i1 %256, i1 %258, i1 false
   %260 = select i1 %259, i64 2, i64 0
+  %261 = or disjoint i64 %260, %242
   %.pre.pre = load i32, ptr @kernel_set_to_readonly, align 4
-  br label %261
+  br label %262
 
-261:                                              ; preds = %248, %244
+262:                                              ; preds = %248, %244
   %.pre = phi i32 [ %.pre69, %244 ], [ %.pre.pre, %248 ]
-  %262 = phi i64 [ 0, %244 ], [ %260, %248 ]
+  %263 = phi i64 [ %242, %244 ], [ %261, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %263 = or disjoint i64 %262, %242
   br label %264
 
-264:                                              ; preds = %261, %237
-  %265 = phi i32 [ %.pre, %261 ], [ %.pre69, %237 ]
-  %266 = phi i64 [ %263, %261 ], [ %242, %237 ]
+264:                                              ; preds = %262, %237
+  %265 = phi i32 [ %.pre, %262 ], [ %.pre69, %237 ]
+  %266 = phi i64 [ %263, %262 ], [ %242, %237 ]
   %267 = icmp eq i32 %265, 0
   br i1 %267, label %280, label %268
 

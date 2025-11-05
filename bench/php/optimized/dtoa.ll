@@ -13,7 +13,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %8 = icmp eq i64 %2, 0
-  br i1 %8, label %351, label %9
+  br i1 %8, label %352, label %9
 
 9:                                                ; preds = %3
   %10 = fcmp oeq double %0, 0.000000e+00
@@ -21,7 +21,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
 
 11:                                               ; preds = %9
   store i8 48, ptr %1, align 1, !tbaa !4
-  br label %351
+  br label %352
 
 12:                                               ; preds = %9
   %13 = bitcast double %0 to i64
@@ -31,7 +31,7 @@ define hidden i64 @lexbor_dtoa(double noundef %0, ptr noundef %1, i64 noundef %2
 15:                                               ; preds = %12
   store i8 45, ptr %1, align 1, !tbaa !4
   %16 = icmp samesign eq i64 %2, 1
-  br i1 %16, label %351, label %17
+  br i1 %16, label %352, label %17
 
 17:                                               ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -386,285 +386,287 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %220 = add nsw i32 %219, %216
   store i32 %220, ptr %6, align 4, !tbaa !7
   %221 = icmp sgt i32 %.1.i.i, -9
-  br i1 %221, label %222, label %227
+  br i1 %221, label %225, label %.thread.i.i
 
-222:                                              ; preds = %218
-  %223 = sub nsw i32 1, %.1.i.i
-  %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw i64, ptr @lexbor_grisu2_gen.pow10, i64 %224
-  %226 = load i64, ptr %225, align 8, !tbaa !9
-  br label %227
+.thread.i.i:                                      ; preds = %218
+  %222 = ptrtoint ptr %.3.i.i to i64
+  %223 = ptrtoint ptr %.021 to i64
+  %224 = sub i64 %222, %223
+  br label %lexbor_grisu2.exit
 
-227:                                              ; preds = %222, %218
-  %228 = phi i64 [ %226, %222 ], [ 0, %218 ]
-  %229 = ptrtoint ptr %.3.i.i to i64
-  %230 = ptrtoint ptr %.021 to i64
-  %231 = sub i64 %229, %230
-  %232 = mul i64 %228, %110
-  %233 = icmp uge i64 %215, %232
-  %234 = sub i64 %202, %215
-  %.not21.i120.i.i = icmp ult i64 %234, %112
-  %or.cond22.i121.i.i = or i1 %.not21.i120.i.i, %233
+225:                                              ; preds = %218
+  %226 = sub nsw i32 1, %.1.i.i
+  %227 = zext nneg i32 %226 to i64
+  %228 = getelementptr inbounds nuw i64, ptr @lexbor_grisu2_gen.pow10, i64 %227
+  %229 = load i64, ptr %228, align 8, !tbaa !9
+  %230 = mul i64 %229, %110
+  %231 = ptrtoint ptr %.3.i.i to i64
+  %232 = ptrtoint ptr %.021 to i64
+  %233 = sub i64 %231, %232
+  %234 = icmp uge i64 %215, %230
+  %235 = sub i64 %202, %215
+  %.not21.i120.i.i = icmp ult i64 %235, %112
+  %or.cond22.i121.i.i = or i1 %.not21.i120.i.i, %234
   br i1 %or.cond22.i121.i.i, label %lexbor_grisu2.exit, label %.lr.ph.i122.i.i
 
-.lr.ph.i122.i.i:                                  ; preds = %227
-  %235 = getelementptr i8, ptr %.021, i64 %231
-  %236 = getelementptr i8, ptr %235, i64 -1
-  br label %237
+.lr.ph.i122.i.i:                                  ; preds = %225
+  %236 = getelementptr i8, ptr %.021, i64 %233
+  %237 = getelementptr i8, ptr %236, i64 -1
+  br label %238
 
-237:                                              ; preds = %.critedge2.i124.i.i, %.lr.ph.i122.i.i
-  %.023.i123.i.i = phi i64 [ %215, %.lr.ph.i122.i.i ], [ %238, %.critedge2.i124.i.i ]
-  %238 = add i64 %.023.i123.i.i, %112
-  %239 = icmp ult i64 %238, %232
-  br i1 %239, label %.critedge2.i124.i.i, label %240
+238:                                              ; preds = %.critedge2.i124.i.i, %.lr.ph.i122.i.i
+  %.023.i123.i.i = phi i64 [ %215, %.lr.ph.i122.i.i ], [ %239, %.critedge2.i124.i.i ]
+  %239 = add i64 %.023.i123.i.i, %112
+  %240 = icmp ult i64 %239, %230
+  br i1 %240, label %.critedge2.i124.i.i, label %241
 
-240:                                              ; preds = %237
-  %241 = sub i64 %232, %.023.i123.i.i
-  %242 = sub nuw i64 %238, %232
-  %243 = icmp ugt i64 %241, %242
-  br i1 %243, label %.critedge2.i124.i.i, label %lexbor_grisu2.exit
+241:                                              ; preds = %238
+  %242 = sub i64 %230, %.023.i123.i.i
+  %243 = sub nuw i64 %239, %230
+  %244 = icmp ugt i64 %242, %243
+  br i1 %244, label %.critedge2.i124.i.i, label %lexbor_grisu2.exit
 
-.critedge2.i124.i.i:                              ; preds = %240, %237
-  %244 = load i8, ptr %236, align 1, !tbaa !4
-  %245 = add i8 %244, -1
-  store i8 %245, ptr %236, align 1, !tbaa !4
-  %246 = icmp uge i64 %238, %232
-  %247 = sub i64 %202, %238
-  %.not.i125.i.i = icmp ult i64 %247, %112
-  %or.cond.i126.i.i = or i1 %246, %.not.i125.i.i
-  br i1 %or.cond.i126.i.i, label %lexbor_grisu2.exit, label %237
+.critedge2.i124.i.i:                              ; preds = %241, %238
+  %245 = load i8, ptr %237, align 1, !tbaa !4
+  %246 = add i8 %245, -1
+  store i8 %246, ptr %237, align 1, !tbaa !4
+  %247 = icmp uge i64 %239, %230
+  %248 = sub i64 %202, %239
+  %.not.i125.i.i = icmp ult i64 %248, %112
+  %or.cond.i126.i.i = or i1 %247, %.not.i125.i.i
+  br i1 %or.cond.i126.i.i, label %lexbor_grisu2.exit, label %238
 
 default.unreachable.i.i:                          ; preds = %lexbor_dec_count.exit.i.i
   unreachable
 
-lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.i.i, %240, %.critedge2.i124.i.i, %167, %176, %210, %227
-  %.0.i.i = phi i64 [ %170, %167 ], [ %213, %210 ], [ %181, %176 ], [ %231, %227 ], [ %231, %.critedge2.i124.i.i ], [ %231, %240 ], [ %181, %.critedge2.i.i.i ], [ %181, %193 ]
-  %248 = load i32, ptr %6, align 4, !tbaa !7
-  %249 = trunc i64 %.0.i.i to i32
-  %250 = add nsw i32 %248, %249
-  %251 = icmp sgt i32 %248, -1
-  %252 = icmp slt i32 %250, 22
-  %or.cond.i = select i1 %251, i1 %252, i1 false
-  br i1 %or.cond.i, label %253, label %264
+lexbor_grisu2.exit:                               ; preds = %193, %.critedge2.i.i.i, %241, %.critedge2.i124.i.i, %167, %176, %210, %.thread.i.i, %225
+  %.0.i.i = phi i64 [ %170, %167 ], [ %213, %210 ], [ %181, %176 ], [ %233, %225 ], [ %224, %.thread.i.i ], [ %233, %.critedge2.i124.i.i ], [ %233, %241 ], [ %181, %.critedge2.i.i.i ], [ %181, %193 ]
+  %249 = load i32, ptr %6, align 4, !tbaa !7
+  %250 = trunc i64 %.0.i.i to i32
+  %251 = add nsw i32 %249, %250
+  %252 = icmp sgt i32 %249, -1
+  %253 = icmp slt i32 %251, 22
+  %or.cond.i = select i1 %252, i1 %253, i1 false
+  br i1 %or.cond.i, label %254, label %265
 
-253:                                              ; preds = %lexbor_grisu2.exit
-  %.not128.i = icmp eq i32 %248, 0
-  br i1 %.not128.i, label %262, label %.sink.split.i
+254:                                              ; preds = %lexbor_grisu2.exit
+  %.not128.i = icmp eq i32 %249, 0
+  br i1 %.not128.i, label %263, label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %253
+.sink.split.i:                                    ; preds = %254
   %sext117.i = shl i64 %.0.i.i, 32
-  %254 = ashr exact i64 %sext117.i, 32
-  %255 = getelementptr inbounds i8, ptr %.021, i64 %254
-  %256 = zext nneg i32 %248 to i64
-  %257 = getelementptr inbounds nuw i8, ptr %255, i64 %256
-  %258 = icmp ult ptr %257, %7
-  %259 = ptrtoint ptr %7 to i64
-  %260 = ptrtoint ptr %255 to i64
-  %261 = sub i64 %259, %260
-  %.sink.i = select i1 %258, i64 %256, i64 %261
-  call void @llvm.memset.p0.i64(ptr align 1 %255, i8 48, i64 %.sink.i, i1 false)
-  br label %262
+  %255 = ashr exact i64 %sext117.i, 32
+  %256 = getelementptr inbounds i8, ptr %.021, i64 %255
+  %257 = zext nneg i32 %249 to i64
+  %258 = getelementptr inbounds nuw i8, ptr %256, i64 %257
+  %259 = icmp ult ptr %258, %7
+  %260 = ptrtoint ptr %7 to i64
+  %261 = ptrtoint ptr %256 to i64
+  %262 = sub i64 %260, %261
+  %.sink.i = select i1 %259, i64 %257, i64 %262
+  call void @llvm.memset.p0.i64(ptr align 1 %256, i8 48, i64 %.sink.i, i1 false)
+  br label %263
 
-262:                                              ; preds = %.sink.split.i, %253
-  %263 = sext i32 %250 to i64
+263:                                              ; preds = %.sink.split.i, %254
+  %264 = sext i32 %251 to i64
   br label %lexbor_prettify.exit
 
-264:                                              ; preds = %lexbor_grisu2.exit
-  %265 = add i32 %250, -1
-  %or.cond3.i = icmp ult i32 %265, 21
-  br i1 %or.cond3.i, label %266, label %278
+265:                                              ; preds = %lexbor_grisu2.exit
+  %266 = add i32 %251, -1
+  %or.cond3.i = icmp ult i32 %266, 21
+  br i1 %or.cond3.i, label %267, label %279
 
-266:                                              ; preds = %264
-  %267 = zext nneg i32 %250 to i64
-  %268 = getelementptr inbounds nuw i8, ptr %.021, i64 %267
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 1
-  %270 = sub i32 0, %248
-  %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds i8, ptr %269, i64 %271
-  %.not114.i = icmp ult ptr %272, %7
-  br i1 %.not114.i, label %275, label %273
+267:                                              ; preds = %265
+  %268 = zext nneg i32 %251 to i64
+  %269 = getelementptr inbounds nuw i8, ptr %.021, i64 %268
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 1
+  %271 = sub i32 0, %249
+  %272 = sext i32 %271 to i64
+  %273 = getelementptr inbounds i8, ptr %270, i64 %272
+  %.not114.i = icmp ult ptr %273, %7
+  br i1 %.not114.i, label %276, label %274
 
-273:                                              ; preds = %266
+274:                                              ; preds = %267
   %sext116.i = shl i64 %.0.i.i, 32
-  %274 = ashr exact i64 %sext116.i, 32
+  %275 = ashr exact i64 %sext116.i, 32
   br label %lexbor_prettify.exit
 
-275:                                              ; preds = %266
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %269, ptr align 1 %268, i64 %271, i1 false)
-  store i8 46, ptr %268, align 1, !tbaa !4
-  %276 = shl i64 %.0.i.i, 32
-  %sext115.i = add i64 %276, 4294967296
-  %277 = ashr exact i64 %sext115.i, 32
+276:                                              ; preds = %267
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %270, ptr align 1 %269, i64 %272, i1 false)
+  store i8 46, ptr %269, align 1, !tbaa !4
+  %277 = shl i64 %.0.i.i, 32
+  %sext115.i = add i64 %277, 4294967296
+  %278 = ashr exact i64 %sext115.i, 32
   br label %lexbor_prettify.exit
 
-278:                                              ; preds = %264
-  %279 = add i32 %250, 5
-  %or.cond5.i = icmp ult i32 %279, 6
-  br i1 %or.cond5.i, label %280, label %298
+279:                                              ; preds = %265
+  %280 = add i32 %251, 5
+  %or.cond5.i = icmp ult i32 %280, 6
+  br i1 %or.cond5.i, label %281, label %299
 
-280:                                              ; preds = %278
-  %281 = sub nsw i32 2, %250
-  %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw i8, ptr %.021, i64 %282
+281:                                              ; preds = %279
+  %282 = sub nsw i32 2, %251
+  %283 = zext nneg i32 %282 to i64
+  %284 = getelementptr inbounds nuw i8, ptr %.021, i64 %283
   %sext110.i = shl i64 %.0.i.i, 32
-  %284 = ashr exact i64 %sext110.i, 32
-  %285 = getelementptr inbounds i8, ptr %283, i64 %284
-  %.not111.i = icmp ult ptr %285, %7
-  br i1 %.not111.i, label %286, label %lexbor_prettify.exit
+  %285 = ashr exact i64 %sext110.i, 32
+  %286 = getelementptr inbounds i8, ptr %284, i64 %285
+  %.not111.i = icmp ult ptr %286, %7
+  br i1 %.not111.i, label %287, label %lexbor_prettify.exit
 
-286:                                              ; preds = %280
-  %287 = getelementptr inbounds nuw i8, ptr %.021, i64 2
-  %.not112.i = icmp ult ptr %287, %7
-  br i1 %.not112.i, label %288, label %lexbor_prettify.exit
+287:                                              ; preds = %281
+  %288 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %.not112.i = icmp ult ptr %288, %7
+  br i1 %.not112.i, label %289, label %lexbor_prettify.exit
 
-288:                                              ; preds = %286
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %283, ptr align 1 %.021, i64 %284, i1 false)
+289:                                              ; preds = %287
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %284, ptr align 1 %.021, i64 %285, i1 false)
   store i8 48, ptr %.021, align 1, !tbaa !4
-  %289 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  store i8 46, ptr %289, align 1, !tbaa !4
-  %.not127.i = icmp eq i32 %250, 0
-  br i1 %.not127.i, label %295, label %290
+  %290 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  store i8 46, ptr %290, align 1, !tbaa !4
+  %.not127.i = icmp eq i32 %251, 0
+  br i1 %.not127.i, label %296, label %291
 
-290:                                              ; preds = %288
-  %291 = sub nsw i32 0, %250
-  %292 = zext nneg i32 %291 to i64
-  %293 = getelementptr inbounds nuw i8, ptr %287, i64 %292
-  %.not113.i = icmp ult ptr %293, %7
-  br i1 %.not113.i, label %294, label %lexbor_prettify.exit
+291:                                              ; preds = %289
+  %292 = sub nsw i32 0, %251
+  %293 = zext nneg i32 %292 to i64
+  %294 = getelementptr inbounds nuw i8, ptr %288, i64 %293
+  %.not113.i = icmp ult ptr %294, %7
+  br i1 %.not113.i, label %295, label %lexbor_prettify.exit
 
-294:                                              ; preds = %290
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %287, i8 48, i64 %292, i1 false)
-  br label %295
+295:                                              ; preds = %291
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %288, i8 48, i64 %293, i1 false)
+  br label %296
 
-295:                                              ; preds = %294, %288
-  %296 = add nsw i32 %281, %249
-  %297 = sext i32 %296 to i64
+296:                                              ; preds = %295, %289
+  %297 = add nsw i32 %282, %250
+  %298 = sext i32 %297 to i64
   br label %lexbor_prettify.exit
 
-298:                                              ; preds = %278
-  %299 = icmp eq i32 %249, 1
-  br i1 %299, label %300, label %319
+299:                                              ; preds = %279
+  %300 = icmp eq i32 %250, 1
+  br i1 %300, label %301, label %320
 
-300:                                              ; preds = %298
-  %301 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  %.not109.i = icmp ult ptr %301, %7
-  br i1 %.not109.i, label %302, label %lexbor_prettify.exit
+301:                                              ; preds = %299
+  %302 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  %.not109.i = icmp ult ptr %302, %7
+  br i1 %.not109.i, label %303, label %lexbor_prettify.exit
 
-302:                                              ; preds = %300
-  store i8 101, ptr %301, align 1, !tbaa !4
+303:                                              ; preds = %301
+  store i8 101, ptr %302, align 1, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %303 = getelementptr inbounds nuw i8, ptr %.021, i64 6
-  %.not.i.i24 = icmp ult ptr %303, %7
-  br i1 %.not.i.i24, label %304, label %lexbor_write_exponent.exit.i
+  %304 = getelementptr inbounds nuw i8, ptr %.021, i64 6
+  %.not.i.i24 = icmp ult ptr %304, %7
+  br i1 %.not.i.i24, label %305, label %lexbor_write_exponent.exit.i
 
-304:                                              ; preds = %302
-  %305 = getelementptr inbounds nuw i8, ptr %.021, i64 2
-  %306 = icmp slt i32 %265, 0
-  %spec.select.i.i = select i1 %306, i8 45, i8 43
-  %spec.select24.i.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
-  store i8 %spec.select.i.i, ptr %305, align 1, !tbaa !4
-  %307 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  br label %308
+305:                                              ; preds = %303
+  %306 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %307 = icmp slt i32 %266, 0
+  %spec.select.i.i = select i1 %307, i8 45, i8 43
+  %spec.select24.i.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %266, i1 true)
+  store i8 %spec.select.i.i, ptr %306, align 1, !tbaa !4
+  %308 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  br label %309
 
-308:                                              ; preds = %308, %304
-  %.018.i.i = phi ptr [ %307, %304 ], [ %312, %308 ]
-  %.0.i.i25 = phi i32 [ %spec.select24.i.i, %304 ], [ %313, %308 ]
-  %309 = urem i32 %.0.i.i25, 10
-  %310 = trunc nuw nsw i32 %309 to i8
-  %311 = or disjoint i8 %310, 48
-  %312 = getelementptr inbounds i8, ptr %.018.i.i, i64 -1
-  store i8 %311, ptr %312, align 1, !tbaa !4
-  %313 = udiv i32 %.0.i.i25, 10
+309:                                              ; preds = %309, %305
+  %.018.i.i = phi ptr [ %308, %305 ], [ %313, %309 ]
+  %.0.i.i25 = phi i32 [ %spec.select24.i.i, %305 ], [ %314, %309 ]
+  %310 = urem i32 %.0.i.i25, 10
+  %311 = trunc nuw nsw i32 %310 to i8
+  %312 = or disjoint i8 %311, 48
+  %313 = getelementptr inbounds i8, ptr %.018.i.i, i64 -1
+  store i8 %312, ptr %313, align 1, !tbaa !4
+  %314 = udiv i32 %.0.i.i25, 10
   %.not22.i.i = icmp samesign ult i32 %.0.i.i25, 10
-  br i1 %.not22.i.i, label %314, label %308
+  br i1 %.not22.i.i, label %315, label %309
 
-314:                                              ; preds = %308
+315:                                              ; preds = %309
   %.020.i.i = getelementptr inbounds nuw i8, ptr %.021, i64 3
-  %315 = ptrtoint ptr %307 to i64
-  %316 = ptrtoint ptr %312 to i64
-  %317 = sub i64 %315, %316
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i.i, ptr noundef nonnull align 1 dereferenceable(1) %312, i64 %317, i1 false)
-  %318 = add i64 %317, 3
+  %316 = ptrtoint ptr %308 to i64
+  %317 = ptrtoint ptr %313 to i64
+  %318 = sub i64 %316, %317
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i.i, ptr noundef nonnull align 1 dereferenceable(1) %313, i64 %318, i1 false)
+  %319 = add i64 %318, 3
   br label %lexbor_write_exponent.exit.i
 
-lexbor_write_exponent.exit.i:                     ; preds = %314, %302
-  %.017.i.i = phi i64 [ %318, %314 ], [ 2, %302 ]
+lexbor_write_exponent.exit.i:                     ; preds = %315, %303
+  %.017.i.i = phi i64 [ %319, %315 ], [ 2, %303 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %lexbor_prettify.exit
 
-319:                                              ; preds = %298
-  %320 = getelementptr inbounds nuw i8, ptr %.021, i64 2
-  %321 = shl i64 %.0.i.i, 32
-  %sext.i = add i64 %321, -4294967296
-  %322 = ashr exact i64 %sext.i, 32
-  %323 = getelementptr inbounds i8, ptr %320, i64 %322
-  %.not.i = icmp ult ptr %323, %7
-  br i1 %.not.i, label %326, label %324
+320:                                              ; preds = %299
+  %321 = getelementptr inbounds nuw i8, ptr %.021, i64 2
+  %322 = shl i64 %.0.i.i, 32
+  %sext.i = add i64 %322, -4294967296
+  %323 = ashr exact i64 %sext.i, 32
+  %324 = getelementptr inbounds i8, ptr %321, i64 %323
+  %.not.i = icmp ult ptr %324, %7
+  br i1 %.not.i, label %327, label %325
 
-324:                                              ; preds = %319
-  %325 = ashr exact i64 %321, 32
+325:                                              ; preds = %320
+  %326 = ashr exact i64 %322, 32
   br label %lexbor_prettify.exit
 
-326:                                              ; preds = %319
-  %327 = getelementptr inbounds nuw i8, ptr %.021, i64 1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %320, ptr nonnull align 1 %327, i64 %322, i1 false)
-  store i8 46, ptr %327, align 1, !tbaa !4
-  %sext105.i = add i64 %321, 4294967296
-  %328 = ashr exact i64 %sext105.i, 32
-  %329 = getelementptr inbounds i8, ptr %.021, i64 %328
-  store i8 101, ptr %329, align 1, !tbaa !4
-  %sext106.i = add i64 %321, 8589934592
-  %330 = ashr exact i64 %sext106.i, 32
-  %331 = getelementptr inbounds i8, ptr %.021, i64 %330
+327:                                              ; preds = %320
+  %328 = getelementptr inbounds nuw i8, ptr %.021, i64 1
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %321, ptr nonnull align 1 %328, i64 %323, i1 false)
+  store i8 46, ptr %328, align 1, !tbaa !4
+  %sext105.i = add i64 %322, 4294967296
+  %329 = ashr exact i64 %sext105.i, 32
+  %330 = getelementptr inbounds i8, ptr %.021, i64 %329
+  store i8 101, ptr %330, align 1, !tbaa !4
+  %sext106.i = add i64 %322, 8589934592
+  %331 = ashr exact i64 %sext106.i, 32
+  %332 = getelementptr inbounds i8, ptr %.021, i64 %331
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %332 = getelementptr inbounds nuw i8, ptr %331, i64 4
-  %.not.i118.i = icmp ult ptr %332, %7
-  br i1 %.not.i118.i, label %333, label %lexbor_write_exponent.exit126.i
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 4
+  %.not.i118.i = icmp ult ptr %333, %7
+  br i1 %.not.i118.i, label %334, label %lexbor_write_exponent.exit126.i
 
-333:                                              ; preds = %326
-  %334 = icmp slt i32 %265, 0
-  %spec.select.i120.i = select i1 %334, i8 45, i8 43
-  %spec.select24.i121.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %265, i1 true)
-  store i8 %spec.select.i120.i, ptr %331, align 1, !tbaa !4
-  %335 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  br label %336
+334:                                              ; preds = %327
+  %335 = icmp slt i32 %266, 0
+  %spec.select.i120.i = select i1 %335, i8 45, i8 43
+  %spec.select24.i121.i = call i32 @llvm.abs.i32(i32 range(i32 -2147483648, 2147483647) %266, i1 true)
+  store i8 %spec.select.i120.i, ptr %332, align 1, !tbaa !4
+  %336 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  br label %337
 
-336:                                              ; preds = %336, %333
-  %.018.i122.i = phi ptr [ %335, %333 ], [ %340, %336 ]
-  %.0.i123.i = phi i32 [ %spec.select24.i121.i, %333 ], [ %341, %336 ]
-  %337 = urem i32 %.0.i123.i, 10
-  %338 = trunc nuw nsw i32 %337 to i8
-  %339 = or disjoint i8 %338, 48
-  %340 = getelementptr inbounds i8, ptr %.018.i122.i, i64 -1
-  store i8 %339, ptr %340, align 1, !tbaa !4
-  %341 = udiv i32 %.0.i123.i, 10
+337:                                              ; preds = %337, %334
+  %.018.i122.i = phi ptr [ %336, %334 ], [ %341, %337 ]
+  %.0.i123.i = phi i32 [ %spec.select24.i121.i, %334 ], [ %342, %337 ]
+  %338 = urem i32 %.0.i123.i, 10
+  %339 = trunc nuw nsw i32 %338 to i8
+  %340 = or disjoint i8 %339, 48
+  %341 = getelementptr inbounds i8, ptr %.018.i122.i, i64 -1
+  store i8 %340, ptr %341, align 1, !tbaa !4
+  %342 = udiv i32 %.0.i123.i, 10
   %.not22.i124.i = icmp samesign ult i32 %.0.i123.i, 10
-  br i1 %.not22.i124.i, label %342, label %336
+  br i1 %.not22.i124.i, label %343, label %337
 
-342:                                              ; preds = %336
-  %.020.i125.i = getelementptr inbounds nuw i8, ptr %331, i64 1
-  %343 = ptrtoint ptr %335 to i64
-  %344 = ptrtoint ptr %340 to i64
-  %345 = sub i64 %343, %344
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i125.i, ptr noundef nonnull align 1 dereferenceable(1) %340, i64 %345, i1 false)
-  %346 = add i64 %345, 1
+343:                                              ; preds = %337
+  %.020.i125.i = getelementptr inbounds nuw i8, ptr %332, i64 1
+  %344 = ptrtoint ptr %336 to i64
+  %345 = ptrtoint ptr %341 to i64
+  %346 = sub i64 %344, %345
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.020.i125.i, ptr noundef nonnull align 1 dereferenceable(1) %341, i64 %346, i1 false)
+  %347 = add i64 %346, 1
   br label %lexbor_write_exponent.exit126.i
 
-lexbor_write_exponent.exit126.i:                  ; preds = %342, %326
-  %.017.i119.i = phi i64 [ %346, %342 ], [ 0, %326 ]
+lexbor_write_exponent.exit126.i:                  ; preds = %343, %327
+  %.017.i119.i = phi i64 [ %347, %343 ], [ 0, %327 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %347 = ashr exact i64 %321, 32
-  %348 = add nsw i64 %347, 2
-  %349 = add i64 %348, %.017.i119.i
+  %348 = ashr exact i64 %322, 32
+  %349 = add nsw i64 %348, 2
+  %350 = add i64 %349, %.017.i119.i
   br label %lexbor_prettify.exit
 
-lexbor_prettify.exit:                             ; preds = %262, %273, %275, %280, %286, %290, %295, %300, %lexbor_write_exponent.exit.i, %324, %lexbor_write_exponent.exit126.i
-  %.0.i = phi i64 [ %263, %262 ], [ %274, %273 ], [ %277, %275 ], [ %297, %295 ], [ %.017.i.i, %lexbor_write_exponent.exit.i ], [ %325, %324 ], [ %349, %lexbor_write_exponent.exit126.i ], [ %284, %286 ], [ %284, %280 ], [ %284, %290 ], [ 1, %300 ]
-  %350 = add i64 %.0.i, %.020
-  br label %351
+lexbor_prettify.exit:                             ; preds = %263, %274, %276, %281, %287, %291, %296, %301, %lexbor_write_exponent.exit.i, %325, %lexbor_write_exponent.exit126.i
+  %.0.i = phi i64 [ %264, %263 ], [ %275, %274 ], [ %278, %276 ], [ %298, %296 ], [ %.017.i.i, %lexbor_write_exponent.exit.i ], [ %326, %325 ], [ %350, %lexbor_write_exponent.exit126.i ], [ %285, %287 ], [ %285, %281 ], [ %285, %291 ], [ 1, %301 ]
+  %351 = add i64 %.0.i, %.020
+  br label %352
 
-351:                                              ; preds = %15, %3, %lexbor_prettify.exit, %11
-  %.0 = phi i64 [ 1, %11 ], [ %350, %lexbor_prettify.exit ], [ 0, %3 ], [ 1, %15 ]
+352:                                              ; preds = %15, %3, %lexbor_prettify.exit, %11
+  %.0 = phi i64 [ 1, %11 ], [ %351, %lexbor_prettify.exit ], [ 0, %3 ], [ 1, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0
 }

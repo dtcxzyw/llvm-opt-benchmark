@@ -3181,9 +3181,9 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit106:            ; preds = %91, %.noexc105
 
 .lr.ph247:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit106
   %100 = getelementptr i32, ptr %.sroa.0207.3, i64 %92
-  br label %111
+  br label %112
 
-101:                                              ; preds = %111
+101:                                              ; preds = %112
   %102 = mul i64 %92, %92
   %103 = icmp ugt i64 %102, 2305843009213693951
   br i1 %103, label %.invoke, label %_ZNKSt6vectorIfSaIfEE12_M_check_lenEmPKc.exit.i162
@@ -3215,27 +3215,27 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i164: ; preds = %.noexc171
 
 .noexc108:                                        ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i164, %.noexc171
   %110 = getelementptr inbounds nuw float, ptr %106, i64 %102
+  %111 = mul i64 %102, %indvars.iv296
   br label %_ZNSt6vectorIfSaIfEE6resizeEm.exit109
 
-111:                                              ; preds = %.lr.ph247, %111
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next287, %111 ]
-  %112 = getelementptr i32, ptr %100, i64 %indvars.iv286
-  %113 = trunc nuw nsw i64 %indvars.iv286 to i32
-  store i32 %113, ptr %112, align 4, !tbaa !11
-  %114 = getelementptr inbounds nuw i32, ptr %.sroa.0207.3, i64 %indvars.iv286
-  store i32 %113, ptr %114, align 4, !tbaa !11
+112:                                              ; preds = %.lr.ph247, %112
+  %indvars.iv286 = phi i64 [ 0, %.lr.ph247 ], [ %indvars.iv.next287, %112 ]
+  %113 = getelementptr i32, ptr %100, i64 %indvars.iv286
+  %114 = trunc nuw nsw i64 %indvars.iv286 to i32
+  store i32 %114, ptr %113, align 4, !tbaa !11
+  %115 = getelementptr inbounds nuw i32, ptr %.sroa.0207.3, i64 %indvars.iv286
+  store i32 %114, ptr %115, align 4, !tbaa !11
   %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
   %exitcond289.not = icmp eq i64 %indvars.iv.next287, %92
-  br i1 %exitcond289.not, label %101, label %111, !llvm.loop !121
+  br i1 %exitcond289.not, label %101, label %112, !llvm.loop !121
 
 _ZNSt6vectorIfSaIfEE6resizeEm.exit109:            ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit106, %.noexc108
-  %115 = phi i64 [ %102, %.noexc108 ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit106 ]
+  %116 = phi i64 [ %111, %.noexc108 ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit106 ]
   %.pre-phi = phi i64 [ %105, %.noexc108 ], [ 0, %_ZNSt6vectorIjSaIjEE6resizeEm.exit106 ]
   %.sroa.0194.3 = phi ptr [ %106, %.noexc108 ], [ null, %_ZNSt6vectorIjSaIjEE6resizeEm.exit106 ]
   %.sroa.13.3 = phi ptr [ %110, %.noexc108 ], [ null, %_ZNSt6vectorIjSaIjEE6resizeEm.exit106 ]
-  %116 = load ptr, ptr %29, align 8, !tbaa !91
-  %117 = mul i64 %115, %indvars.iv296
-  %118 = getelementptr inbounds nuw float, ptr %116, i64 %117
+  %117 = load ptr, ptr %29, align 8, !tbaa !91
+  %118 = getelementptr inbounds nuw float, ptr %117, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.sroa.0194.3, ptr align 4 %118, i64 %.pre-phi, i1 false)
   br label %_ZNSt6vectorIfSaIfEED2Ev.exit
 

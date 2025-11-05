@@ -9981,12 +9981,12 @@ _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157: ; preds = %40, %
   %48 = tail call noundef i32 @_ZNK5clang10ASTContext24GetGVALinkageForVariableEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(23216) %47, ptr noundef nonnull %1) #21
   %49 = icmp sgt i32 %48, 2
   %spec.select214 = select i1 %49, i32 8, i32 0
+  %50 = or i32 %spec.select214, %6
   br label %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157.thread
 
 _ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157.thread: ; preds = %38, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157, %27, %23, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit, %40, %2, %10, %15
   %.0210 = phi i1 [ false, %15 ], [ false, %10 ], [ false, %2 ], [ false, %40 ], [ false, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ false, %23 ], [ false, %27 ], [ %49, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157 ], [ false, %38 ]
-  %50 = phi i32 [ 0, %15 ], [ 0, %10 ], [ 0, %2 ], [ 0, %40 ], [ 0, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ 0, %23 ], [ 0, %27 ], [ %spec.select214, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157 ], [ 0, %38 ]
-  %51 = or i32 %50, %6
+  %51 = phi i32 [ %6, %15 ], [ %6, %10 ], [ %6, %2 ], [ %6, %40 ], [ %6, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit ], [ %6, %23 ], [ %6, %27 ], [ %50, %_ZNK5clang4Decl7hasAttrINS_13DLLExportAttrEEEbv.exit.thread157 ], [ %6, %38 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %53 = load i8, ptr %52, align 8
   %54 = shl i8 %53, 4

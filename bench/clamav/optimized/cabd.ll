@@ -2491,16 +2491,16 @@ define internal i32 @cabd_sys_read(ptr noundef captures(none) %0, ptr noundef %1
   %138 = load i8, ptr %.221.i.i, align 1, !tbaa !73
   %139 = zext i8 %138 to i32
   %140 = or i32 %.2.i.i, %139
+  %141 = xor i32 %140, %.018.lcssa.i.i
   br label %cabd_checksum.exit.i
 
 default.unreachable:                              ; preds = %._crit_edge.i.i
   unreachable
 
 cabd_checksum.exit.i:                             ; preds = %137, %._crit_edge.i.i
-  %.0.i.i = phi i32 [ %140, %137 ], [ %125, %._crit_edge.i.i ]
-  %141 = xor i32 %.0.i.i, %.018.lcssa.i.i
+  %.0.i.i = phi i32 [ %141, %137 ], [ %.018.lcssa.i.i, %._crit_edge.i.i ]
   %142 = load i32, ptr %25, align 1
-  %143 = xor i32 %141, %142
+  %143 = xor i32 %142, %.0.i.i
   %.not62.i = icmp eq i32 %143, %118
   br i1 %.not62.i, label %148, label %144
 

@@ -5462,9 +5462,9 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   %wide.trip.count = zext i8 %122 to i64
   br label %126
 
-126:                                              ; preds = %.lr.ph, %158
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %158 ]
-  %127 = phi i32 [ %.promoted, %.lr.ph ], [ %159, %158 ]
+126:                                              ; preds = %.lr.ph, %159
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %159 ]
+  %127 = phi i32 [ %.promoted, %.lr.ph ], [ %160, %159 ]
   %128 = lshr i32 %127, 3
   %129 = zext nneg i32 %128 to i64
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 %129
@@ -5488,7 +5488,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   %145 = shl nuw nsw i32 1, %144
   %146 = and i32 %145, %143
   %.not101 = icmp eq i32 %146, 0
-  br i1 %.not101, label %158, label %147
+  br i1 %.not101, label %159, label %147
 
 147:                                              ; preds = %126
   %148 = lshr i32 %spec.select.i, 3
@@ -5502,20 +5502,20 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_res
   store i32 %155, ptr %4, align 8, !tbaa !49
   %156 = shl i32 %153, 3
   %157 = and i32 %156, 248
-  br label %158
+  %158 = or disjoint i32 %157, %134
+  br label %159
 
-158:                                              ; preds = %147, %126
-  %159 = phi i32 [ %155, %147 ], [ %spec.select.i, %126 ]
-  %.085 = phi i32 [ %157, %147 ], [ 0, %126 ]
-  %160 = or disjoint i32 %.085, %134
-  %161 = trunc nuw i32 %160 to i8
+159:                                              ; preds = %147, %126
+  %160 = phi i32 [ %155, %147 ], [ %spec.select.i, %126 ]
+  %.085 = phi i32 [ %158, %147 ], [ %134, %126 ]
+  %161 = trunc nuw i32 %.085 to i8
   %162 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   store i8 %161, ptr %162, align 1, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %126, !llvm.loop !195
 
-._crit_edge:                                      ; preds = %158
+._crit_edge:                                      ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %30, i64 1042
   store i8 0, ptr %163, align 2, !tbaa !123
   %164 = getelementptr inbounds nuw i8, ptr %30, i64 18

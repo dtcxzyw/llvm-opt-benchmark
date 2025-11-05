@@ -1438,12 +1438,12 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNK5clang4Type19i
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %108 = load i32, ptr %107, align 8, !tbaa !527
   %109 = zext i32 %108 to i64
+  %110 = mul i64 %101, %109
   br label %_ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i
 
 _ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i:    ; preds = %106, %102
-  %.0.shrunk.i.i.i = phi i64 [ %109, %106 ], [ 1, %102 ]
-  %110 = mul i64 %.0.shrunk.i.i.i, %101
-  %111 = add i64 %110, %104
+  %.0.shrunk.i.i.i = phi i64 [ %110, %106 ], [ %101, %102 ]
+  %111 = add i64 %.0.shrunk.i.i.i, %104
   br label %_ZNK5clang6interp7Pointer8getIndexEv.exit
 
 112:                                              ; preds = %100
@@ -1603,12 +1603,12 @@ _ZNK5clang6interp7Pointer8getIndexEv.exit:        ; preds = %_ZNK5clang6interp7P
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %177 = load i32, ptr %176, align 8, !tbaa !527
   %178 = zext i32 %177 to i64
+  %179 = mul i64 %170, %178
   br label %_ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i120
 
 _ZNK5clang6interp7Pointer8elemSizeEv.exit.i.i120: ; preds = %175, %171
-  %.0.shrunk.i.i.i121 = phi i64 [ %178, %175 ], [ 1, %171 ]
-  %179 = mul i64 %.0.shrunk.i.i.i121, %170
-  %180 = add i64 %179, %173
+  %.0.shrunk.i.i.i121 = phi i64 [ %179, %175 ], [ %170, %171 ]
+  %180 = add i64 %.0.shrunk.i.i.i121, %173
   br label %_ZNK5clang6interp7Pointer8getIndexEv.exit149
 
 181:                                              ; preds = %169

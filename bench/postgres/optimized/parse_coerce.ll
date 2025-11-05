@@ -3130,7 +3130,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   %.2429 = phi i32 [ %.1428, %295 ], [ %.1428, %294 ], [ 1009, %309 ], [ 5078, %302 ]
   %.5426 = phi i32 [ %.4425, %295 ], [ %.4425, %294 ], [ %.4425, %309 ], [ 5080, %302 ]
   %.5416 = phi i32 [ %.4415, %295 ], [ %.4415, %294 ], [ %.4415, %309 ], [ 4538, %302 ]
-  br i1 %16, label %.lr.ph792.preheader, label %.loopexit
+  br i1 %16, label %.lr.ph792.preheader, label %.loopexit560
 
 .lr.ph792.preheader:                              ; preds = %314
   %wide.trip.count873 = zext nneg i32 %2 to i64
@@ -3142,38 +3142,37 @@ verify_common_type_from_oids.exit:                ; preds = %252
   %316 = load i32, ptr %315, align 4
   %317 = and i32 %316, -3
   %or.cond27 = icmp eq i32 %317, 5077
-  br i1 %or.cond27, label %.sink.split988, label %318
+  br i1 %or.cond27, label %.sink.split979, label %318
 
 318:                                              ; preds = %.lr.ph792
   switch i32 %316, label %321 [
-    i32 5078, label %.sink.split988
+    i32 5078, label %.sink.split979
     i32 5080, label %319
     i32 4538, label %320
   ]
 
 319:                                              ; preds = %318
-  br label %.sink.split988
+  br label %.sink.split979
 
 320:                                              ; preds = %318
-  br label %.sink.split988
+  br label %.sink.split979
 
-.sink.split988:                                   ; preds = %318, %.lr.ph792, %319, %320
+.sink.split979:                                   ; preds = %318, %.lr.ph792, %319, %320
   %.2429.sink = phi i32 [ %.5416, %320 ], [ %.5426, %319 ], [ %.1431, %.lr.ph792 ], [ %.2429, %318 ]
   store i32 %.2429.sink, ptr %315, align 4
   br label %321
 
-321:                                              ; preds = %.sink.split988, %318
+321:                                              ; preds = %.sink.split979, %318
   %indvars.iv.next871 = add nuw nsw i64 %indvars.iv870, 1
   %exitcond874.not = icmp eq i64 %indvars.iv.next871, %wide.trip.count873
   br i1 %exitcond874.not, label %.loopexit560, label %.lr.ph792, !llvm.loop !17
 
-.loopexit560:                                     ; preds = %321, %.thread554
-  %.0430 = phi i32 [ 0, %.thread554 ], [ %.1431, %321 ]
-  %.0427 = phi i32 [ 0, %.thread554 ], [ %.2429, %321 ]
-  %.3424 = phi i32 [ %.0421.lcssa, %.thread554 ], [ %.5426, %321 ]
-  %.3414 = phi i32 [ %.0411.lcssa, %.thread554 ], [ %.5416, %321 ]
-  %or.cond797 = and i1 %.0344.lcssa, %16
-  br i1 %or.cond797, label %.lr.ph795, label %.loopexit
+.loopexit560:                                     ; preds = %321, %314, %.thread554
+  %.0430 = phi i32 [ 0, %.thread554 ], [ %.1431, %314 ], [ %.1431, %321 ]
+  %.0427 = phi i32 [ 0, %.thread554 ], [ %.2429, %314 ], [ %.2429, %321 ]
+  %.3424 = phi i32 [ %.0421.lcssa, %.thread554 ], [ %.5426, %314 ], [ %.5426, %321 ]
+  %.3414 = phi i32 [ %.0411.lcssa, %.thread554 ], [ %.5416, %314 ], [ %.5416, %321 ]
+  br i1 %.0344.lcssa, label %.lr.ph795, label %.loopexit
 
 .lr.ph795:                                        ; preds = %.loopexit560
   %.not497 = icmp eq i32 %.3370, 0
@@ -3193,9 +3192,9 @@ verify_common_type_from_oids.exit:                ; preds = %252
 326:                                              ; preds = %322
   %327 = load i32, ptr %323, align 4
   switch i32 %327, label %346 [
-    i32 3500, label %.sink.split989
-    i32 2776, label %.sink.split989
-    i32 2283, label %.sink.split989
+    i32 3500, label %.sink.split980
+    i32 2776, label %.sink.split980
+    i32 2283, label %.sink.split980
     i32 2277, label %328
     i32 3831, label %336
     i32 4537, label %341
@@ -3203,12 +3202,12 @@ verify_common_type_from_oids.exit:                ; preds = %252
 
 328:                                              ; preds = %326
   %.not499 = icmp eq i32 %.6356793, 0
-  br i1 %.not499, label %329, label %.sink.split989
+  br i1 %.not499, label %329, label %.sink.split980
 
 329:                                              ; preds = %328
   %330 = tail call i32 @get_array_type(i32 noundef %.3) #4
   %.not500 = icmp eq i32 %330, 0
-  br i1 %.not500, label %331, label %.sink.split989
+  br i1 %.not500, label %331, label %.sink.split980
 
 331:                                              ; preds = %329
   %332 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
@@ -3219,7 +3218,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   unreachable
 
 336:                                              ; preds = %326
-  br i1 %.not498, label %337, label %.sink.split989
+  br i1 %.not498, label %337, label %.sink.split980
 
 337:                                              ; preds = %336
   %338 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
@@ -3229,7 +3228,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   unreachable
 
 341:                                              ; preds = %326
-  br i1 %.not497, label %342, label %.sink.split989
+  br i1 %.not497, label %342, label %.sink.split980
 
 342:                                              ; preds = %341
   %343 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #5
@@ -3238,24 +3237,20 @@ verify_common_type_from_oids.exit:                ; preds = %252
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2765, ptr noundef nonnull @__func__.enforce_generic_type_consistency) #4
   unreachable
 
-.sink.split989:                                   ; preds = %341, %336, %328, %329, %326, %326, %326
+.sink.split980:                                   ; preds = %341, %336, %328, %329, %326, %326, %326
   %.3.sink = phi i32 [ %.3, %326 ], [ %.3, %326 ], [ %.3, %326 ], [ %.6356793, %328 ], [ %330, %329 ], [ %.3363, %336 ], [ %.3370, %341 ]
   %.7357.ph = phi i32 [ %.6356793, %326 ], [ %.6356793, %326 ], [ %.6356793, %326 ], [ %.6356793, %328 ], [ %330, %329 ], [ %.6356793, %336 ], [ %.6356793, %341 ]
   store i32 %.3.sink, ptr %323, align 4
   br label %346
 
-346:                                              ; preds = %.sink.split989, %326, %322
-  %.7357 = phi i32 [ %.6356793, %322 ], [ %.6356793, %326 ], [ %.7357.ph, %.sink.split989 ]
+346:                                              ; preds = %.sink.split980, %326, %322
+  %.7357 = phi i32 [ %.6356793, %322 ], [ %.6356793, %326 ], [ %.7357.ph, %.sink.split980 ]
   %indvars.iv.next876 = add nuw nsw i64 %indvars.iv875, 1
   %exitcond879.not = icmp eq i64 %indvars.iv.next876, %wide.trip.count878
   br i1 %exitcond879.not, label %.loopexit, label %322, !llvm.loop !18
 
-.loopexit:                                        ; preds = %346, %314, %.loopexit560
-  %.3414913 = phi i32 [ %.3414, %.loopexit560 ], [ %.5416, %314 ], [ %.3414, %346 ]
-  %.3424912 = phi i32 [ %.3424, %.loopexit560 ], [ %.5426, %314 ], [ %.3424, %346 ]
-  %.0427911 = phi i32 [ %.0427, %.loopexit560 ], [ %.2429, %314 ], [ %.0427, %346 ]
-  %.0430910 = phi i32 [ %.0430, %.loopexit560 ], [ %.1431, %314 ], [ %.0430, %346 ]
-  %.5355 = phi i32 [ %.3353, %.loopexit560 ], [ %.3353, %314 ], [ %.7357, %346 ]
+.loopexit:                                        ; preds = %346, %.loopexit560
+  %.5355 = phi i32 [ %.3353, %.loopexit560 ], [ %.7357, %346 ]
   switch i32 %3, label %360 [
     i32 3500, label %390
     i32 2776, label %390
@@ -3313,7 +3308,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   ]
 
 367:                                              ; preds = %366, %366
-  %.not491 = icmp eq i32 %.0430910, 0
+  %.not491 = icmp eq i32 %.0430, 0
   br i1 %.not491, label %368, label %390
 
 368:                                              ; preds = %367
@@ -3327,7 +3322,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %12, label %373, label %378
 
 373:                                              ; preds = %372
-  %.not490 = icmp eq i32 %.0427911, 0
+  %.not490 = icmp eq i32 %.0427, 0
   br i1 %.not490, label %374, label %390
 
 374:                                              ; preds = %373
@@ -3341,7 +3336,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %13, label %379, label %384
 
 379:                                              ; preds = %378
-  %.not489 = icmp eq i32 %.3424912, 0
+  %.not489 = icmp eq i32 %.3424, 0
   br i1 %.not489, label %380, label %390
 
 380:                                              ; preds = %379
@@ -3355,7 +3350,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   br i1 %15, label %385, label %390
 
 385:                                              ; preds = %384
-  %.not488 = icmp eq i32 %.3414913, 0
+  %.not488 = icmp eq i32 %.3414, 0
   br i1 %.not488, label %386, label %390
 
 386:                                              ; preds = %385
@@ -3366,7 +3361,7 @@ verify_common_type_from_oids.exit:                ; preds = %252
   unreachable
 
 390:                                              ; preds = %384, %385, %379, %373, %367, %361, %355, %.loopexit, %.loopexit, %.loopexit, %347, %348, %._crit_edge
-  %.0 = phi i32 [ %3, %._crit_edge ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.5355, %347 ], [ %349, %348 ], [ %.3363, %355 ], [ %.3370, %361 ], [ %.0430910, %367 ], [ %.0427911, %373 ], [ %.3424912, %379 ], [ %.3414913, %385 ], [ %3, %384 ]
+  %.0 = phi i32 [ %3, %._crit_edge ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.3, %.loopexit ], [ %.5355, %347 ], [ %349, %348 ], [ %.3363, %355 ], [ %.3370, %361 ], [ %.0430, %367 ], [ %.0427, %373 ], [ %.3424, %379 ], [ %.3414, %385 ], [ %3, %384 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.0
 }

@@ -612,11 +612,13 @@ if.end6.i:                                        ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.end6.i
   %or.cond14.i = fcmp uno double %16, %17
-  %18 = select i1 %or.cond14.i, i32 3, i32 1
+  %18 = select i1 %or.cond14.i, i64 4294967299, i64 4294967297
   br label %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit
 
 _ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit: ; preds = %if.end56, %if.end.i, %if.end6.i, %if.end10.i
-  %retval.sroa.0.0.i = phi i32 [ 0, %if.end56 ], [ 0, %if.end.i ], [ 2, %if.end6.i ], [ %18, %if.end10.i ]
+  %retval.sroa.5.0.i = phi i64 [ 0, %if.end56 ], [ 4294967296, %if.end.i ], [ 4294967298, %if.end6.i ], [ %18, %if.end10.i ]
+  %numericOrder.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.5.0.i to i32
+  %numericOrder.sroa.9.0.extract.shift = lshr i64 %retval.sroa.5.0.i, 32
   switch i32 %kind, label %return [
     i32 1, label %sw.bb59
     i32 2, label %sw.bb96
@@ -658,14 +660,15 @@ if.then66:                                        ; preds = %if.end62
   br label %return
 
 if.end70:                                         ; preds = %if.end62
-  br i1 %or.cond.i, label %if.then72, label %if.end82
+  %tobool.i = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i, label %if.then72, label %if.end82
 
 if.then72:                                        ; preds = %if.end70
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then72.unreachabledefault [
     i32 0, label %sw.bb74
     i32 1, label %sw.bb76
     i32 2, label %sw.bb78
-    i32 3, label %return
+    i32 3, label %if.end82
   ]
 
 sw.bb74:                                          ; preds = %if.then72
@@ -680,10 +683,10 @@ sw.bb78:                                          ; preds = %if.then72
   %call79 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext false) #6
   br label %return
 
-default.unreachable:                              ; preds = %if.then270, %if.then251, %if.then232, %if.then213, %if.then180, %if.then149, %if.then112, %if.then72
+if.then72.unreachabledefault:                     ; preds = %if.then72
   unreachable
 
-if.end82:                                         ; preds = %if.end70
+if.end82:                                         ; preds = %if.then72, %if.end70
   %or.cond2 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
   br i1 %or.cond2, label %if.then85, label %return
 
@@ -715,14 +718,15 @@ if.then104:                                       ; preds = %if.end100
   br label %return
 
 if.end110:                                        ; preds = %if.end100
-  br i1 %or.cond.i, label %if.then112, label %if.end122
+  %tobool.i316 = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i316, label %if.then112, label %if.end122
 
 if.then112:                                       ; preds = %if.end110
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then112.unreachabledefault [
     i32 0, label %sw.bb114
     i32 1, label %sw.bb116
     i32 2, label %sw.bb118
-    i32 3, label %return
+    i32 3, label %if.end122
   ]
 
 sw.bb114:                                         ; preds = %if.then112
@@ -737,7 +741,10 @@ sw.bb118:                                         ; preds = %if.then112
   %call119 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext true) #6
   br label %return
 
-if.end122:                                        ; preds = %if.end110
+if.then112.unreachabledefault:                    ; preds = %if.then112
+  unreachable
+
+if.end122:                                        ; preds = %if.then112, %if.end110
   %or.cond4 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
   br i1 %or.cond4, label %if.then126, label %return
 
@@ -784,14 +791,15 @@ if.then145:                                       ; preds = %_ZN12_GLOBAL__N_123
   br label %return
 
 if.end147:                                        ; preds = %if.end141, %lor.lhs.false.i, %_ZN12_GLOBAL__N_123disjointComparisonTypesEN6hermes4TypeES1_.exit
-  br i1 %or.cond.i, label %if.then149, label %if.end159
+  %tobool.i324 = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i324, label %if.then149, label %if.end159
 
 if.then149:                                       ; preds = %if.end147
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then149.unreachabledefault [
     i32 0, label %sw.bb151
     i32 1, label %sw.bb153
     i32 2, label %sw.bb155
-    i32 3, label %return
+    i32 3, label %if.end159
   ]
 
 sw.bb151:                                         ; preds = %if.then149
@@ -806,7 +814,10 @@ sw.bb155:                                         ; preds = %if.then149
   %call156 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext false) #6
   br label %return
 
-if.end159:                                        ; preds = %if.end147
+if.then149.unreachabledefault:                    ; preds = %if.then149
+  unreachable
+
+if.end159:                                        ; preds = %if.then149, %if.end147
   %or.cond5 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
   br i1 %or.cond5, label %if.then163, label %return
 
@@ -828,14 +839,15 @@ if.then176:                                       ; preds = %sw.bb174
   br label %return
 
 if.end178:                                        ; preds = %sw.bb174
-  br i1 %or.cond.i, label %if.then180, label %if.end190
+  %tobool.i330 = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i330, label %if.then180, label %if.end190
 
 if.then180:                                       ; preds = %if.end178
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then180.unreachabledefault [
     i32 0, label %sw.bb182
     i32 1, label %sw.bb184
     i32 2, label %sw.bb186
-    i32 3, label %return
+    i32 3, label %if.end190
   ]
 
 sw.bb182:                                         ; preds = %if.then180
@@ -850,7 +862,10 @@ sw.bb186:                                         ; preds = %if.then180
   %call187 = tail call noundef ptr @_ZN6hermes9IRBuilder14getLiteralBoolEb(ptr noundef nonnull align 8 dereferenceable(40) %builder, i1 noundef zeroext true) #6
   br label %return
 
-if.end190:                                        ; preds = %if.end178
+if.then180.unreachabledefault:                    ; preds = %if.then180
+  unreachable
+
+if.end190:                                        ; preds = %if.then180, %if.end178
   %or.cond6 = and i1 %cmp.i.i.i.i.i.i.i282, %cmp.i.i.i.i.i.i.i284
   br i1 %or.cond6, label %if.then194, label %return
 
@@ -874,10 +889,11 @@ if.then209:                                       ; preds = %sw.bb205
   br label %return
 
 if.end211:                                        ; preds = %sw.bb205
-  br i1 %or.cond.i, label %if.then213, label %return
+  %tobool.i337 = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i337, label %if.then213, label %return
 
 if.then213:                                       ; preds = %if.end211
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then213.unreachabledefault [
     i32 0, label %sw.bb215
     i32 1, label %sw.bb217
     i32 2, label %sw.bb219
@@ -907,10 +923,11 @@ if.then228:                                       ; preds = %sw.bb224
   br label %return
 
 if.end230:                                        ; preds = %sw.bb224
-  br i1 %or.cond.i, label %if.then232, label %return
+  %tobool.i339 = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i339, label %if.then232, label %return
 
 if.then232:                                       ; preds = %if.end230
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then232.unreachabledefault [
     i32 0, label %sw.bb234
     i32 1, label %sw.bb236
     i32 2, label %sw.bb238
@@ -940,10 +957,11 @@ if.then247:                                       ; preds = %sw.bb243
   br label %return
 
 if.end249:                                        ; preds = %sw.bb243
-  br i1 %or.cond.i, label %if.then251, label %return
+  %tobool.i341 = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i341, label %if.then251, label %return
 
 if.then251:                                       ; preds = %if.end249
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then251.unreachabledefault [
     i32 0, label %sw.bb253
     i32 1, label %sw.bb255
     i32 2, label %sw.bb257
@@ -973,10 +991,11 @@ if.then266:                                       ; preds = %sw.bb262
   br label %return
 
 if.end268:                                        ; preds = %sw.bb262
-  br i1 %or.cond.i, label %if.then270, label %return
+  %tobool.i343 = trunc nuw i64 %numericOrder.sroa.9.0.extract.shift to i1
+  br i1 %tobool.i343, label %if.then270, label %return
 
 if.then270:                                       ; preds = %if.end268
-  switch i32 %retval.sroa.0.0.i, label %default.unreachable [
+  switch i32 %numericOrder.sroa.0.0.extract.trunc, label %if.then270.unreachabledefault [
     i32 0, label %sw.bb272
     i32 1, label %sw.bb274
     i32 2, label %sw.bb276
@@ -1593,8 +1612,20 @@ _ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608: ; preds = %if.then8.i.i60
   %call536 = tail call noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40) %builder, double noundef %conv535) #6
   br label %return
 
-return:                                           ; preds = %if.then180, %if.then149, %if.then112, %if.then72, %if.then270, %if.then251, %if.then232, %if.then213, %if.end6.i353, %if.then.i.i.i484, %if.then419, %if.then.i.i.i469, %if.then397, %if.then.i.i.i454, %if.then375, %if.then.i.i.i439, %if.then354, %if.then.i.i.i424, %if.then318, %if.then.i.i.i308, %if.then39, %if.then.i.i.i, %if.then30, %if.end82, %if.end122, %if.end159, %if.end190, %if.end211, %if.end230, %if.end249, %if.end268, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361, %if.else417, %if.end411, %sw.bb434, %sw.bb478, %sw.bb487, %sw.bb497, %sw.bb507, %sw.bb517, %sw.bb527, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %if.end451, %if.then370, %if.then349, %if.then, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536, %_ZN6hermes5expOpEdd.exit, %if.then491, %if.then482, %if.end475, %if.then473, %if.then447, %if.then438, %if.then415, %if.then393, %if.then345, %if.then339, %if.then310, %if.end303, %sw.bb276, %sw.bb274, %sw.bb272, %if.then266, %sw.bb257, %sw.bb255, %sw.bb253, %if.then247, %sw.bb238, %sw.bb236, %sw.bb234, %if.then228, %sw.bb219, %sw.bb217, %sw.bb215, %if.then209, %if.then194, %sw.bb186, %sw.bb184, %sw.bb182, %if.then176, %if.then163, %sw.bb155, %sw.bb153, %sw.bb151, %if.then145, %if.then139, %if.then126, %sw.bb118, %sw.bb116, %sw.bb114, %if.then104, %if.then98, %if.then85, %sw.bb78, %sw.bb76, %sw.bb74, %if.then66, %if.then60, %sw.bb53, %if.end51, %sw.bb25, %sw.bb
-  %retval.0 = phi ptr [ %call24, %sw.bb ], [ %call26, %sw.bb25 ], [ %call52, %if.end51 ], [ %call54, %sw.bb53 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call75, %sw.bb74 ], [ %call77, %sw.bb76 ], [ %call79, %sw.bb78 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call115, %sw.bb114 ], [ %call117, %sw.bb116 ], [ %call119, %sw.bb118 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call152, %sw.bb151 ], [ %call154, %sw.bb153 ], [ %call156, %sw.bb155 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call183, %sw.bb182 ], [ %call185, %sw.bb184 ], [ %call187, %sw.bb186 ], [ %call216, %sw.bb215 ], [ %call218, %sw.bb217 ], [ %call220, %sw.bb219 ], [ %call210, %if.then209 ], [ %call235, %sw.bb234 ], [ %call237, %sw.bb236 ], [ %call239, %sw.bb238 ], [ %call229, %if.then228 ], [ %call254, %sw.bb253 ], [ %call256, %sw.bb255 ], [ %call258, %sw.bb257 ], [ %call248, %if.then247 ], [ %call273, %sw.bb272 ], [ %call275, %sw.bb274 ], [ %call277, %sw.bb276 ], [ %call267, %if.then266 ], [ %call305, %if.end303 ], [ %call313, %if.then310 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ %call394, %if.then393 ], [ %call416, %if.then415 ], [ %call441, %if.then438 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call485, %if.then482 ], [ %call495, %if.then491 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572 ], [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608 ], [ null, %if.then ], [ %rhs, %if.then349 ], [ %lhs, %if.then370 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ null, %if.end82 ], [ %call37, %if.then30 ], [ %call37, %if.then.i.i.i ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i308 ], [ %call334, %if.then318 ], [ %call334, %if.then.i.i.i424 ], [ %call365, %if.then354 ], [ %call365, %if.then.i.i.i439 ], [ %call386, %if.then375 ], [ %call386, %if.then.i.i.i454 ], [ %call408, %if.then397 ], [ %call408, %if.then.i.i.i469 ], [ %call430, %if.then419 ], [ %call430, %if.then.i.i.i484 ], [ null, %if.end6.i353 ], [ null, %if.then72 ], [ null, %if.then112 ], [ null, %if.then149 ], [ null, %if.then180 ]
+if.then213.unreachabledefault:                    ; preds = %if.then213
+  unreachable
+
+if.then232.unreachabledefault:                    ; preds = %if.then232
+  unreachable
+
+if.then251.unreachabledefault:                    ; preds = %if.then251
+  unreachable
+
+if.then270.unreachabledefault:                    ; preds = %if.then270
+  unreachable
+
+return:                                           ; preds = %if.then270, %if.then251, %if.then232, %if.then213, %if.end6.i353, %if.then.i.i.i484, %if.then419, %if.then.i.i.i469, %if.then397, %if.then.i.i.i454, %if.then375, %if.then.i.i.i439, %if.then354, %if.then.i.i.i424, %if.then318, %if.then.i.i.i308, %if.then39, %if.then.i.i.i, %if.then30, %if.end82, %if.end122, %if.end159, %if.end190, %if.end211, %if.end230, %if.end249, %if.end268, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361, %if.else417, %if.end411, %sw.bb434, %sw.bb478, %sw.bb487, %sw.bb497, %sw.bb507, %sw.bb517, %sw.bb527, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit, %if.end451, %if.then370, %if.then349, %if.then, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536, %_ZN6hermes5expOpEdd.exit, %if.then491, %if.then482, %if.end475, %if.then473, %if.then447, %if.then438, %if.then415, %if.then393, %if.then345, %if.then339, %if.then310, %if.end303, %sw.bb276, %sw.bb274, %sw.bb272, %if.then266, %sw.bb257, %sw.bb255, %sw.bb253, %if.then247, %sw.bb238, %sw.bb236, %sw.bb234, %if.then228, %sw.bb219, %sw.bb217, %sw.bb215, %if.then209, %if.then194, %sw.bb186, %sw.bb184, %sw.bb182, %if.then176, %if.then163, %sw.bb155, %sw.bb153, %sw.bb151, %if.then145, %if.then139, %if.then126, %sw.bb118, %sw.bb116, %sw.bb114, %if.then104, %if.then98, %if.then85, %sw.bb78, %sw.bb76, %sw.bb74, %if.then66, %if.then60, %sw.bb53, %if.end51, %sw.bb25, %sw.bb
+  %retval.0 = phi ptr [ %call24, %sw.bb ], [ %call26, %sw.bb25 ], [ %call52, %if.end51 ], [ %call54, %sw.bb53 ], [ %call61, %if.then60 ], [ %call69, %if.then66 ], [ %call94, %if.then85 ], [ %call75, %sw.bb74 ], [ %call77, %sw.bb76 ], [ %call79, %sw.bb78 ], [ %call99, %if.then98 ], [ %call109, %if.then104 ], [ %call135, %if.then126 ], [ %call115, %sw.bb114 ], [ %call117, %sw.bb116 ], [ %call119, %sw.bb118 ], [ %call140, %if.then139 ], [ %call146, %if.then145 ], [ %call172, %if.then163 ], [ %call152, %sw.bb151 ], [ %call154, %sw.bb153 ], [ %call156, %sw.bb155 ], [ %call177, %if.then176 ], [ %call203, %if.then194 ], [ %call183, %sw.bb182 ], [ %call185, %sw.bb184 ], [ %call187, %sw.bb186 ], [ %call216, %sw.bb215 ], [ %call218, %sw.bb217 ], [ %call220, %sw.bb219 ], [ %call210, %if.then209 ], [ %call235, %sw.bb234 ], [ %call237, %sw.bb236 ], [ %call239, %sw.bb238 ], [ %call229, %if.then228 ], [ %call254, %sw.bb253 ], [ %call256, %sw.bb255 ], [ %call258, %sw.bb257 ], [ %call248, %if.then247 ], [ %call273, %sw.bb272 ], [ %call275, %sw.bb274 ], [ %call277, %sw.bb276 ], [ %call267, %if.then266 ], [ %call305, %if.end303 ], [ %call313, %if.then310 ], [ %call340, %if.then339 ], [ %call346, %if.then345 ], [ %call394, %if.then393 ], [ %call416, %if.then415 ], [ %call441, %if.then438 ], [ %call450, %if.then447 ], [ %call474, %if.then473 ], [ %call476, %if.end475 ], [ %call485, %if.then482 ], [ %call495, %if.then491 ], [ %call505, %_ZN6hermes5expOpEdd.exit ], [ %call515, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit536 ], [ %call525, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit572 ], [ %call536, %_ZNK6hermes13LiteralNumber15truncateToInt32Ev.exit608 ], [ null, %if.then ], [ %rhs, %if.then349 ], [ %lhs, %if.then370 ], [ null, %if.end451 ], [ null, %_ZN12_GLOBAL__N_115getNumericOrderEPN6hermes7LiteralES2_.exit ], [ null, %sw.bb527 ], [ null, %sw.bb517 ], [ null, %sw.bb507 ], [ null, %sw.bb497 ], [ null, %sw.bb487 ], [ null, %sw.bb478 ], [ null, %sw.bb434 ], [ null, %if.end411 ], [ null, %if.else417 ], [ null, %_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE.exit361 ], [ null, %if.end268 ], [ null, %if.then270 ], [ null, %if.end249 ], [ null, %if.then251 ], [ null, %if.end230 ], [ null, %if.then232 ], [ null, %if.end211 ], [ null, %if.then213 ], [ null, %if.end190 ], [ null, %if.end159 ], [ null, %if.end122 ], [ null, %if.end82 ], [ %call37, %if.then30 ], [ %call37, %if.then.i.i.i ], [ %call50, %if.then39 ], [ %call50, %if.then.i.i.i308 ], [ %call334, %if.then318 ], [ %call334, %if.then.i.i.i424 ], [ %call365, %if.then354 ], [ %call365, %if.then.i.i.i439 ], [ %call386, %if.then375 ], [ %call386, %if.then.i.i.i454 ], [ %call408, %if.then397 ], [ %call408, %if.then.i.i.i469 ], [ %call430, %if.then419 ], [ %call430, %if.then.i.i.i484 ], [ null, %if.end6.i353 ]
   ret ptr %retval.0
 }
 

@@ -384,22 +384,22 @@ define void @tiling_callback(ptr noundef readonly captures(none) %0, ptr noundef
   %15 = load i32, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !81
-  call void @dt_mipmap_cache_release_with_caller(ptr noundef %18, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, i32 noundef 388) #14
+  %18 = shl i32 %15, 1
+  %19 = mul i32 %18, %17
+  %.010 = select i1 %.not, i32 0, i32 %19
+  %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !81
+  call void @dt_mipmap_cache_release_with_caller(ptr noundef %20, ptr noundef nonnull %6, ptr noundef nonnull @.str.1, i32 noundef 388) #14
   store float 2.500000e+00, ptr %4, align 4, !tbaa !124
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float 1.000000e+00, ptr %19, align 4, !tbaa !126
-  %20 = shl i32 %15, 1
-  %21 = mul i32 %20, %17
-  %22 = select i1 %.not, i32 0, i32 %21
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %22, ptr %23, align 4, !tbaa !127
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 0, ptr %24, align 4, !tbaa !128
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 1, ptr %25, align 4, !tbaa !129
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 1, ptr %26, align 4, !tbaa !130
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float 1.000000e+00, ptr %21, align 4, !tbaa !126
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %.010, ptr %22, align 4, !tbaa !127
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 0, ptr %23, align 4, !tbaa !128
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 1, ptr %24, align 4, !tbaa !129
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 1, ptr %25, align 4, !tbaa !130
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

@@ -437,19 +437,18 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang5RISCV8LMULType8getScal
 17:                                               ; preds = %15, %12, %9, %6
   %.0 = phi i32 [ %8, %6 ], [ %11, %9 ], [ %14, %12 ], [ %16, %15 ]
   %18 = icmp slt i32 %.0, 0
-  br i1 %18, label %21, label %.thread
+  br i1 %18, label %22, label %.thread
 
 .thread:                                          ; preds = %2, %.split, %17
   %.04 = phi i32 [ %.0, %17 ], [ 0, %.split ], [ 0, %2 ]
   %19 = shl nuw i32 1, %.04
   %20 = zext i32 %19 to i64
-  br label %21
+  %21 = or disjoint i64 %20, 4294967296
+  br label %22
 
-21:                                               ; preds = %17, %.thread
-  %.sroa.0.0 = phi i64 [ %20, %.thread ], [ 0, %17 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %.thread ], [ 0, %17 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+22:                                               ; preds = %17, %.thread
+  %.sroa.2.0 = phi i64 [ %21, %.thread ], [ 0, %17 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -587,16 +586,16 @@ define dso_local void @_ZN5clang5RISCV7RVVType13applyModifierERKNS0_19PrototypeD
   %23 = alloca %"struct.clang::RISCV::LMULType", align 4
   %24 = alloca %"struct.clang::RISCV::LMULType", align 4
   %25 = load i8, ptr %1, align 1, !tbaa !52
-  switch i8 %25, label %70 [
+  switch i8 %25, label %71 [
     i8 1, label %26
     i8 2, label %32
-    i8 3, label %55
-    i8 4, label %57
-    i8 5, label %59
-    i8 6, label %61
-    i8 7, label %63
-    i8 8, label %65
-    i8 0, label %68
+    i8 3, label %56
+    i8 4, label %58
+    i8 5, label %60
+    i8 6, label %62
+    i8 7, label %64
+    i8 8, label %66
+    i8 0, label %69
   ]
 
 26:                                               ; preds = %2
@@ -612,7 +611,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType13applyModifierERKNS0_19PrototypeD
 
 _ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit: ; preds = %26, %31
   store i32 0, ptr %27, align 8, !tbaa !54
-  br label %70
+  br label %71
 
 32:                                               ; preds = %2
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -659,704 +658,626 @@ _ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   %.04.i = phi i32 [ %.0.i, %50 ], [ 0, %.split.i ], [ 0, %32 ]
   %52 = shl nuw i32 1, %.04.i
   %53 = zext i32 %52 to i64
+  %54 = or disjoint i64 %53, 4294967296
   br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit
 
 _ZNK5clang5RISCV8LMULType8getScaleEj.exit:        ; preds = %50, %.thread.i
-  %.sroa.0.0.i = phi i64 [ %53, %.thread.i ], [ 0, %50 ]
-  %.sroa.2.0.i = phi i64 [ 4294967296, %.thread.i ], [ 0, %50 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.i, %.sroa.0.0.i
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i, ptr %54, align 8
-  br label %70
+  %.sroa.2.0.i = phi i64 [ %54, %.thread.i ], [ 0, %50 ]
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i, ptr %55, align 8
+  br label %71
 
-55:                                               ; preds = %2
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 0, ptr %56, align 1, !tbaa !41
-  br label %70
+56:                                               ; preds = %2
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 0, ptr %57, align 1, !tbaa !41
+  br label %71
 
-57:                                               ; preds = %2
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 1, ptr %58, align 1, !tbaa !41
-  br label %70
+58:                                               ; preds = %2
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 1, ptr %59, align 1, !tbaa !41
+  br label %71
 
-59:                                               ; preds = %2
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 2, ptr %60, align 1, !tbaa !41
-  br label %70
+60:                                               ; preds = %2
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 2, ptr %61, align 1, !tbaa !41
+  br label %71
 
-61:                                               ; preds = %2
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 3, ptr %62, align 1, !tbaa !41
-  br label %70
+62:                                               ; preds = %2
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 3, ptr %63, align 1, !tbaa !41
+  br label %71
 
-63:                                               ; preds = %2
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 4, ptr %64, align 1, !tbaa !41
-  br label %70
+64:                                               ; preds = %2
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 4, ptr %65, align 1, !tbaa !41
+  br label %71
 
-65:                                               ; preds = %2
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 32, ptr %66, align 4, !tbaa !48
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 8, ptr %67, align 1, !tbaa !41
-  br label %70
+66:                                               ; preds = %2
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 32, ptr %67, align 4, !tbaa !48
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 8, ptr %68, align 1, !tbaa !41
+  br label %71
 
-68:                                               ; preds = %2
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %69, align 1, !tbaa !41
+69:                                               ; preds = %2
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %70, align 1, !tbaa !41
   br label %.loopexit
 
-70:                                               ; preds = %65, %63, %61, %59, %57, %55, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, %_ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit, %2
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %72 = load i8, ptr %71, align 1, !tbaa !55
-  switch i8 %72, label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit [
-    i8 1, label %73
-    i8 2, label %94
-    i8 3, label %115
-    i8 4, label %136
+71:                                               ; preds = %66, %64, %62, %60, %58, %56, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, %_ZNSt8optionalIjEaSIiEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES3_ISt6__and_IJSt9is_scalarIjES4_IjNSt5decayIS7_E4typeEEEEESt16is_constructibleIjJS7_EESt13is_assignableIRjS7_EEERS0_E4typeEOS7_.exit, %2
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %73 = load i8, ptr %72, align 1, !tbaa !55
+  switch i8 %73, label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit [
+    i8 1, label %74
+    i8 2, label %96
+    i8 3, label %118
+    i8 4, label %140
     i8 5, label %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit
-    i8 6, label %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit52
-    i8 7, label %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit57
-    i8 8, label %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit62
-    i8 9, label %207
-    i8 10, label %219
-    i8 11, label %231
-    i8 12, label %243
-    i8 13, label %254
-    i8 14, label %277
-    i8 15, label %300
-    i8 16, label %323
-    i8 17, label %346
-    i8 18, label %369
-    i8 19, label %392
-    i8 20, label %415
-    i8 21, label %438
-    i8 22, label %461
-    i8 23, label %484
-    i8 24, label %507
-    i8 25, label %530
-    i8 26, label %553
-    i8 27, label %576
-    i8 28, label %600
-    i8 29, label %624
-    i8 30, label %648
-    i8 31, label %672
-    i8 32, label %696
-    i8 33, label %720
-    i8 34, label %744
-    i8 35, label %744
-    i8 36, label %744
-    i8 37, label %744
-    i8 38, label %744
-    i8 39, label %744
-    i8 40, label %744
+    i8 6, label %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit42
+    i8 7, label %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit45
+    i8 8, label %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit48
+    i8 9, label %220
+    i8 10, label %234
+    i8 11, label %248
+    i8 12, label %262
+    i8 13, label %275
+    i8 14, label %299
+    i8 15, label %323
+    i8 16, label %347
+    i8 17, label %371
+    i8 18, label %395
+    i8 19, label %419
+    i8 20, label %443
+    i8 21, label %467
+    i8 22, label %491
+    i8 23, label %515
+    i8 24, label %539
+    i8 25, label %563
+    i8 26, label %587
+    i8 27, label %611
+    i8 28, label %636
+    i8 29, label %661
+    i8 30, label %686
+    i8 31, label %711
+    i8 32, label %736
+    i8 33, label %761
+    i8 34, label %786
+    i8 35, label %786
+    i8 36, label %786
+    i8 37, label %786
+    i8 38, label %786
+    i8 39, label %786
+    i8 40, label %786
   ]
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %75 = load i32, ptr %74, align 4, !tbaa !48
-  %76 = shl i32 %75, 1
-  store i32 %76, ptr %74, align 4, !tbaa !48
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %78 = load i32, ptr %77, align 4, !tbaa !3
-  %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %77, align 4, !tbaa !3
-  %80 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %76)
-  %81 = icmp eq i32 %80, 1
-  br i1 %81, label %.split.i21, label %.thread.i16
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %76 = load i32, ptr %75, align 4, !tbaa !48
+  %77 = shl i32 %76, 1
+  store i32 %77, ptr %75, align 4, !tbaa !48
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %79 = load i32, ptr %78, align 4, !tbaa !3
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %78, align 4, !tbaa !3
+  %81 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %77)
+  %82 = icmp eq i32 %81, 1
+  br i1 %82, label %.split.i19, label %.thread.i16
 
-.split.i21:                                       ; preds = %73
-  %82 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %76, i1 true)
-  switch i32 %82, label %.thread.i16 [
-    i32 3, label %83
-    i32 4, label %85
-    i32 5, label %87
-    i32 6, label %89
+.split.i19:                                       ; preds = %74
+  %83 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %77, i1 true)
+  switch i32 %83, label %.thread.i16 [
+    i32 3, label %84
+    i32 4, label %86
+    i32 5, label %88
+    i32 6, label %90
   ]
 
-83:                                               ; preds = %.split.i21
-  %84 = add nsw i32 %78, 4
-  br label %89
+84:                                               ; preds = %.split.i19
+  %85 = add nsw i32 %79, 4
+  br label %90
 
-85:                                               ; preds = %.split.i21
-  %86 = add nsw i32 %78, 3
-  br label %89
+86:                                               ; preds = %.split.i19
+  %87 = add nsw i32 %79, 3
+  br label %90
 
-87:                                               ; preds = %.split.i21
-  %88 = add nsw i32 %78, 2
-  br label %89
+88:                                               ; preds = %.split.i19
+  %89 = add nsw i32 %79, 2
+  br label %90
 
-89:                                               ; preds = %.split.i21, %87, %85, %83
-  %.0.i22 = phi i32 [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %79, %.split.i21 ]
-  %90 = icmp slt i32 %.0.i22, 0
-  br i1 %90, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit23, label %.thread.i16
+90:                                               ; preds = %.split.i19, %88, %86, %84
+  %.0.i20 = phi i32 [ %85, %84 ], [ %87, %86 ], [ %89, %88 ], [ %80, %.split.i19 ]
+  %91 = icmp slt i32 %.0.i20, 0
+  br i1 %91, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit21, label %.thread.i16
 
-.thread.i16:                                      ; preds = %89, %.split.i21, %73
-  %.04.i17 = phi i32 [ %.0.i22, %89 ], [ 0, %.split.i21 ], [ 0, %73 ]
-  %91 = shl nuw i32 1, %.04.i17
-  %92 = zext i32 %91 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit23
+.thread.i16:                                      ; preds = %90, %.split.i19, %74
+  %.04.i17 = phi i32 [ %.0.i20, %90 ], [ 0, %.split.i19 ], [ 0, %74 ]
+  %92 = shl nuw i32 1, %.04.i17
+  %93 = zext i32 %92 to i64
+  %94 = or disjoint i64 %93, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit21
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit23:      ; preds = %89, %.thread.i16
-  %.sroa.0.0.i18 = phi i64 [ %92, %.thread.i16 ], [ 0, %89 ]
-  %.sroa.2.0.i19 = phi i64 [ 4294967296, %.thread.i16 ], [ 0, %89 ]
-  %.sroa.0.0.insert.insert.i20 = or disjoint i64 %.sroa.2.0.i19, %.sroa.0.0.i18
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i20, ptr %93, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit21:      ; preds = %90, %.thread.i16
+  %.sroa.2.0.i18 = phi i64 [ %94, %.thread.i16 ], [ 0, %90 ]
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i18, ptr %95, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-94:                                               ; preds = %70
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %96 = load i32, ptr %95, align 4, !tbaa !48
-  %97 = shl i32 %96, 2
-  store i32 %97, ptr %95, align 4, !tbaa !48
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %99 = load i32, ptr %98, align 4, !tbaa !3
-  %100 = add nsw i32 %99, 2
-  store i32 %100, ptr %98, align 4, !tbaa !3
-  %101 = tail call range(i32 0, 31) i32 @llvm.ctpop.i32(i32 %97)
-  %102 = icmp eq i32 %101, 1
-  br i1 %102, label %.split.i29, label %.thread.i24
+96:                                               ; preds = %71
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %98 = load i32, ptr %97, align 4, !tbaa !48
+  %99 = shl i32 %98, 2
+  store i32 %99, ptr %97, align 4, !tbaa !48
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %101 = load i32, ptr %100, align 4, !tbaa !3
+  %102 = add nsw i32 %101, 2
+  store i32 %102, ptr %100, align 4, !tbaa !3
+  %103 = tail call range(i32 0, 31) i32 @llvm.ctpop.i32(i32 %99)
+  %104 = icmp eq i32 %103, 1
+  br i1 %104, label %.split.i25, label %.thread.i22
 
-.split.i29:                                       ; preds = %94
-  %103 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %97, i1 true)
-  switch i32 %103, label %.thread.i24 [
-    i32 3, label %104
-    i32 4, label %106
-    i32 5, label %108
-    i32 6, label %110
+.split.i25:                                       ; preds = %96
+  %105 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %99, i1 true)
+  switch i32 %105, label %.thread.i22 [
+    i32 3, label %106
+    i32 4, label %108
+    i32 5, label %110
+    i32 6, label %112
   ]
 
-104:                                              ; preds = %.split.i29
-  %105 = add nsw i32 %99, 5
-  br label %110
+106:                                              ; preds = %.split.i25
+  %107 = add nsw i32 %101, 5
+  br label %112
 
-106:                                              ; preds = %.split.i29
-  %107 = add nsw i32 %99, 4
-  br label %110
+108:                                              ; preds = %.split.i25
+  %109 = add nsw i32 %101, 4
+  br label %112
 
-108:                                              ; preds = %.split.i29
-  %109 = add nsw i32 %99, 3
-  br label %110
+110:                                              ; preds = %.split.i25
+  %111 = add nsw i32 %101, 3
+  br label %112
 
-110:                                              ; preds = %.split.i29, %108, %106, %104
-  %.0.i30 = phi i32 [ %105, %104 ], [ %107, %106 ], [ %109, %108 ], [ %100, %.split.i29 ]
-  %111 = icmp slt i32 %.0.i30, 0
-  br i1 %111, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit31, label %.thread.i24
+112:                                              ; preds = %.split.i25, %110, %108, %106
+  %.0.i26 = phi i32 [ %107, %106 ], [ %109, %108 ], [ %111, %110 ], [ %102, %.split.i25 ]
+  %113 = icmp slt i32 %.0.i26, 0
+  br i1 %113, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit27, label %.thread.i22
 
-.thread.i24:                                      ; preds = %110, %.split.i29, %94
-  %.04.i25 = phi i32 [ %.0.i30, %110 ], [ 0, %.split.i29 ], [ 0, %94 ]
-  %112 = shl nuw i32 1, %.04.i25
-  %113 = zext i32 %112 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit31
+.thread.i22:                                      ; preds = %112, %.split.i25, %96
+  %.04.i23 = phi i32 [ %.0.i26, %112 ], [ 0, %.split.i25 ], [ 0, %96 ]
+  %114 = shl nuw i32 1, %.04.i23
+  %115 = zext i32 %114 to i64
+  %116 = or disjoint i64 %115, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit27
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit31:      ; preds = %110, %.thread.i24
-  %.sroa.0.0.i26 = phi i64 [ %113, %.thread.i24 ], [ 0, %110 ]
-  %.sroa.2.0.i27 = phi i64 [ 4294967296, %.thread.i24 ], [ 0, %110 ]
-  %.sroa.0.0.insert.insert.i28 = or disjoint i64 %.sroa.2.0.i27, %.sroa.0.0.i26
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i28, ptr %114, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit27:      ; preds = %112, %.thread.i22
+  %.sroa.2.0.i24 = phi i64 [ %116, %.thread.i22 ], [ 0, %112 ]
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i24, ptr %117, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-115:                                              ; preds = %70
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %117 = load i32, ptr %116, align 4, !tbaa !48
-  %118 = shl i32 %117, 3
-  store i32 %118, ptr %116, align 4, !tbaa !48
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %120 = load i32, ptr %119, align 4, !tbaa !3
-  %121 = add nsw i32 %120, 3
-  store i32 %121, ptr %119, align 4, !tbaa !3
-  %122 = tail call range(i32 0, 30) i32 @llvm.ctpop.i32(i32 %118)
-  %123 = icmp eq i32 %122, 1
-  br i1 %123, label %.split.i37, label %.thread.i32
+118:                                              ; preds = %71
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %120 = load i32, ptr %119, align 4, !tbaa !48
+  %121 = shl i32 %120, 3
+  store i32 %121, ptr %119, align 4, !tbaa !48
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %123 = load i32, ptr %122, align 4, !tbaa !3
+  %124 = add nsw i32 %123, 3
+  store i32 %124, ptr %122, align 4, !tbaa !3
+  %125 = tail call range(i32 0, 30) i32 @llvm.ctpop.i32(i32 %121)
+  %126 = icmp eq i32 %125, 1
+  br i1 %126, label %.split.i31, label %.thread.i28
 
-.split.i37:                                       ; preds = %115
-  %124 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %118, i1 true)
-  switch i32 %124, label %.thread.i32 [
-    i32 3, label %125
-    i32 4, label %127
-    i32 5, label %129
-    i32 6, label %131
+.split.i31:                                       ; preds = %118
+  %127 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %121, i1 true)
+  switch i32 %127, label %.thread.i28 [
+    i32 3, label %128
+    i32 4, label %130
+    i32 5, label %132
+    i32 6, label %134
   ]
 
-125:                                              ; preds = %.split.i37
-  %126 = add nsw i32 %120, 6
-  br label %131
+128:                                              ; preds = %.split.i31
+  %129 = add nsw i32 %123, 6
+  br label %134
 
-127:                                              ; preds = %.split.i37
-  %128 = add nsw i32 %120, 5
-  br label %131
+130:                                              ; preds = %.split.i31
+  %131 = add nsw i32 %123, 5
+  br label %134
 
-129:                                              ; preds = %.split.i37
-  %130 = add nsw i32 %120, 4
-  br label %131
+132:                                              ; preds = %.split.i31
+  %133 = add nsw i32 %123, 4
+  br label %134
 
-131:                                              ; preds = %.split.i37, %129, %127, %125
-  %.0.i38 = phi i32 [ %126, %125 ], [ %128, %127 ], [ %130, %129 ], [ %121, %.split.i37 ]
-  %132 = icmp slt i32 %.0.i38, 0
-  br i1 %132, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit39, label %.thread.i32
+134:                                              ; preds = %.split.i31, %132, %130, %128
+  %.0.i32 = phi i32 [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %124, %.split.i31 ]
+  %135 = icmp slt i32 %.0.i32, 0
+  br i1 %135, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit33, label %.thread.i28
 
-.thread.i32:                                      ; preds = %131, %.split.i37, %115
-  %.04.i33 = phi i32 [ %.0.i38, %131 ], [ 0, %.split.i37 ], [ 0, %115 ]
-  %133 = shl nuw i32 1, %.04.i33
-  %134 = zext i32 %133 to i64
+.thread.i28:                                      ; preds = %134, %.split.i31, %118
+  %.04.i29 = phi i32 [ %.0.i32, %134 ], [ 0, %.split.i31 ], [ 0, %118 ]
+  %136 = shl nuw i32 1, %.04.i29
+  %137 = zext i32 %136 to i64
+  %138 = or disjoint i64 %137, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit33
+
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit33:      ; preds = %134, %.thread.i28
+  %.sroa.2.0.i30 = phi i64 [ %138, %.thread.i28 ], [ 0, %134 ]
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i30, ptr %139, align 8
+  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
+
+140:                                              ; preds = %71
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 5, ptr %141, align 1, !tbaa !41
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %144 = load i32, ptr %143, align 4, !tbaa !48
+  %145 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %144)
+  %146 = icmp eq i32 %145, 1
+  br i1 %146, label %.split.i37, label %.thread.i34
+
+.split.i37:                                       ; preds = %140
+  %147 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %144, i1 true)
+  switch i32 %147, label %.thread.i34 [
+    i32 3, label %148
+    i32 4, label %151
+    i32 5, label %154
+    i32 6, label %157
+  ]
+
+148:                                              ; preds = %.split.i37
+  %149 = load i32, ptr %142, align 4, !tbaa !3
+  %150 = add nsw i32 %149, 3
+  br label %159
+
+151:                                              ; preds = %.split.i37
+  %152 = load i32, ptr %142, align 4, !tbaa !3
+  %153 = add nsw i32 %152, 2
+  br label %159
+
+154:                                              ; preds = %.split.i37
+  %155 = load i32, ptr %142, align 4, !tbaa !3
+  %156 = add nsw i32 %155, 1
+  br label %159
+
+157:                                              ; preds = %.split.i37
+  %158 = load i32, ptr %142, align 4, !tbaa !3
+  br label %159
+
+159:                                              ; preds = %157, %154, %151, %148
+  %.0.i38 = phi i32 [ %150, %148 ], [ %153, %151 ], [ %156, %154 ], [ %158, %157 ]
+  %160 = icmp slt i32 %.0.i38, 0
+  br i1 %160, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit39, label %.thread.i34
+
+.thread.i34:                                      ; preds = %159, %.split.i37, %140
+  %.04.i35 = phi i32 [ %.0.i38, %159 ], [ 0, %.split.i37 ], [ 0, %140 ]
+  %161 = shl nuw i32 1, %.04.i35
+  %162 = zext i32 %161 to i64
+  %163 = or disjoint i64 %162, 4294967296
   br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit39
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit39:      ; preds = %131, %.thread.i32
-  %.sroa.0.0.i34 = phi i64 [ %134, %.thread.i32 ], [ 0, %131 ]
-  %.sroa.2.0.i35 = phi i64 [ 4294967296, %.thread.i32 ], [ 0, %131 ]
-  %.sroa.0.0.insert.insert.i36 = or disjoint i64 %.sroa.2.0.i35, %.sroa.0.0.i34
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i36, ptr %135, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit39:      ; preds = %159, %.thread.i34
+  %.sroa.2.0.i36 = phi i64 [ %163, %.thread.i34 ], [ 0, %159 ]
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i36, ptr %164, align 8
+  store i32 1, ptr %143, align 4, !tbaa !48
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-136:                                              ; preds = %70
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 5, ptr %137, align 1, !tbaa !41
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %140 = load i32, ptr %139, align 4, !tbaa !48
-  %141 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %140)
-  %142 = icmp eq i32 %141, 1
-  br i1 %142, label %.split.i45, label %.thread.i40
-
-.split.i45:                                       ; preds = %136
-  %143 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %140, i1 true)
-  switch i32 %143, label %.thread.i40 [
-    i32 3, label %144
-    i32 4, label %147
-    i32 5, label %150
-    i32 6, label %153
-  ]
-
-144:                                              ; preds = %.split.i45
-  %145 = load i32, ptr %138, align 4, !tbaa !3
-  %146 = add nsw i32 %145, 3
-  br label %155
-
-147:                                              ; preds = %.split.i45
-  %148 = load i32, ptr %138, align 4, !tbaa !3
-  %149 = add nsw i32 %148, 2
-  br label %155
-
-150:                                              ; preds = %.split.i45
-  %151 = load i32, ptr %138, align 4, !tbaa !3
-  %152 = add nsw i32 %151, 1
-  br label %155
-
-153:                                              ; preds = %.split.i45
-  %154 = load i32, ptr %138, align 4, !tbaa !3
-  br label %155
-
-155:                                              ; preds = %153, %150, %147, %144
-  %.0.i46 = phi i32 [ %146, %144 ], [ %149, %147 ], [ %152, %150 ], [ %154, %153 ]
-  %156 = icmp slt i32 %.0.i46, 0
-  br i1 %156, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit47, label %.thread.i40
-
-.thread.i40:                                      ; preds = %155, %.split.i45, %136
-  %.04.i41 = phi i32 [ %.0.i46, %155 ], [ 0, %.split.i45 ], [ 0, %136 ]
-  %157 = shl nuw i32 1, %.04.i41
-  %158 = zext i32 %157 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit47
-
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit47:      ; preds = %155, %.thread.i40
-  %.sroa.0.0.i42 = phi i64 [ %158, %.thread.i40 ], [ 0, %155 ]
-  %.sroa.2.0.i43 = phi i64 [ 4294967296, %.thread.i40 ], [ 0, %155 ]
-  %.sroa.0.0.insert.insert.i44 = or disjoint i64 %.sroa.2.0.i43, %.sroa.0.0.i42
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i44, ptr %159, align 8
-  store i32 1, ptr %139, align 4, !tbaa !48
+_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit:     ; preds = %71
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %167 = load i32, ptr %166, align 4, !tbaa !48
+  %168 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %167, i1 false)
+  %169 = load i32, ptr %165, align 4, !tbaa !3
+  %170 = add nsw i32 %168, -28
+  %171 = add nsw i32 %170, %169
+  store i32 %171, ptr %165, align 4, !tbaa !3
+  store i32 8, ptr %166, align 4, !tbaa !48
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 6, ptr %172, align 1, !tbaa !41
+  %173 = add nsw i32 %171, 3
+  %174 = icmp slt i32 %171, -3
+  %175 = shl nuw i32 1, %173
+  %176 = zext i32 %175 to i64
+  %177 = or disjoint i64 %176, 4294967296
+  %.sroa.2.0.i.i = select i1 %174, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i, ptr %178, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit:     ; preds = %70
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %162 = load i32, ptr %161, align 4, !tbaa !48
-  %163 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %162, i1 false)
-  %164 = load i32, ptr %160, align 4, !tbaa !3
-  %165 = add nsw i32 %163, -28
-  %166 = add nsw i32 %165, %164
-  store i32 %166, ptr %160, align 4, !tbaa !3
-  store i32 8, ptr %161, align 4, !tbaa !48
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 6, ptr %167, align 1, !tbaa !41
-  %168 = add nsw i32 %166, 3
-  %169 = icmp slt i32 %166, -3
-  %170 = shl nuw i32 1, %168
-  %narrow296 = select i1 %169, i32 0, i32 %170
-  %.sroa.0.0.i.i = zext i32 %narrow296 to i64
-  %.sroa.2.0.i.i = select i1 %169, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.2.0.i.i, %.sroa.0.0.i.i
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i, ptr %171, align 8
+_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit42:   ; preds = %71
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %181 = load i32, ptr %180, align 4, !tbaa !48
+  %182 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %181, i1 false)
+  %183 = load i32, ptr %179, align 4, !tbaa !3
+  %184 = add nsw i32 %182, -27
+  %185 = add nsw i32 %184, %183
+  store i32 %185, ptr %179, align 4, !tbaa !3
+  store i32 16, ptr %180, align 4, !tbaa !48
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 6, ptr %186, align 1, !tbaa !41
+  %187 = add nsw i32 %185, 2
+  %188 = icmp slt i32 %185, -2
+  %189 = shl nuw i32 1, %187
+  %190 = zext i32 %189 to i64
+  %191 = or disjoint i64 %190, 4294967296
+  %.sroa.2.0.i.i41 = select i1 %188, i64 0, i64 %191
+  %192 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i41, ptr %192, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit52:   ; preds = %70
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %174 = load i32, ptr %173, align 4, !tbaa !48
-  %175 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %174, i1 false)
-  %176 = load i32, ptr %172, align 4, !tbaa !3
-  %177 = add nsw i32 %175, -27
-  %178 = add nsw i32 %177, %176
-  store i32 %178, ptr %172, align 4, !tbaa !3
-  store i32 16, ptr %173, align 4, !tbaa !48
-  %179 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 6, ptr %179, align 1, !tbaa !41
-  %180 = add nsw i32 %178, 2
-  %181 = icmp slt i32 %178, -2
-  %182 = shl nuw i32 1, %180
-  %narrow295 = select i1 %181, i32 0, i32 %182
-  %.sroa.0.0.i.i49 = zext i32 %narrow295 to i64
-  %.sroa.2.0.i.i50 = select i1 %181, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i51 = or disjoint i64 %.sroa.2.0.i.i50, %.sroa.0.0.i.i49
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i51, ptr %183, align 8
-  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
-
-_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit57:   ; preds = %70
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %186 = load i32, ptr %185, align 4, !tbaa !48
-  %187 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %186, i1 false)
-  %188 = load i32, ptr %184, align 4, !tbaa !3
-  %189 = add nsw i32 %187, -26
-  %190 = add nsw i32 %189, %188
-  store i32 %190, ptr %184, align 4, !tbaa !3
-  store i32 32, ptr %185, align 4, !tbaa !48
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 6, ptr %191, align 1, !tbaa !41
-  %192 = add nsw i32 %190, 1
-  %193 = icmp slt i32 %190, -1
-  %194 = shl nuw i32 1, %192
-  %narrow294 = select i1 %193, i32 0, i32 %194
-  %.sroa.0.0.i.i54 = zext i32 %narrow294 to i64
-  %.sroa.2.0.i.i55 = select i1 %193, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i56 = or disjoint i64 %.sroa.2.0.i.i55, %.sroa.0.0.i.i54
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i56, ptr %195, align 8
-  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
-
-_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit62:   ; preds = %70
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %198 = load i32, ptr %197, align 4, !tbaa !48
-  %199 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %198, i1 false)
-  %200 = load i32, ptr %196, align 4, !tbaa !3
-  %201 = add nsw i32 %199, -25
-  %202 = add nsw i32 %201, %200
-  store i32 %202, ptr %196, align 4, !tbaa !3
-  store i32 64, ptr %197, align 4, !tbaa !48
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 6, ptr %203, align 1, !tbaa !41
-  %204 = icmp slt i32 %202, 0
-  %205 = shl nuw i32 1, %202
-  %narrow293 = select i1 %204, i32 0, i32 %205
-  %.sroa.0.0.i.i59 = zext i32 %narrow293 to i64
-  %.sroa.2.0.i.i60 = select i1 %204, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i61 = or disjoint i64 %.sroa.2.0.i.i60, %.sroa.0.0.i.i59
+_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit45:   ; preds = %71
+  %193 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %194 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %195 = load i32, ptr %194, align 4, !tbaa !48
+  %196 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %195, i1 false)
+  %197 = load i32, ptr %193, align 4, !tbaa !3
+  %198 = add nsw i32 %196, -26
+  %199 = add nsw i32 %198, %197
+  store i32 %199, ptr %193, align 4, !tbaa !3
+  store i32 32, ptr %194, align 4, !tbaa !48
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 6, ptr %200, align 1, !tbaa !41
+  %201 = add nsw i32 %199, 1
+  %202 = icmp slt i32 %199, -1
+  %203 = shl nuw i32 1, %201
+  %204 = zext i32 %203 to i64
+  %205 = or disjoint i64 %204, 4294967296
+  %.sroa.2.0.i.i44 = select i1 %202, i64 0, i64 %205
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i61, ptr %206, align 8
+  store i64 %.sroa.2.0.i.i44, ptr %206, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-207:                                              ; preds = %70
+_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit48:   ; preds = %71
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %209 = load i32, ptr %208, align 4, !tbaa !48
-  %210 = icmp eq i32 %209, 8
-  br i1 %210, label %211, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i
-
-211:                                              ; preds = %207
-  %212 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %212, align 1, !tbaa !41
+  %210 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %209, i1 false)
+  %211 = load i32, ptr %207, align 4, !tbaa !3
+  %212 = add nsw i32 %210, -25
+  %213 = add nsw i32 %212, %211
+  store i32 %213, ptr %207, align 4, !tbaa !3
+  store i32 64, ptr %208, align 4, !tbaa !48
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 6, ptr %214, align 1, !tbaa !41
+  %215 = icmp slt i32 %213, 0
+  %216 = shl nuw i32 1, %213
+  %217 = zext i32 %216 to i64
+  %218 = or disjoint i64 %217, 4294967296
+  %.sroa.2.0.i.i47 = select i1 %215, i64 0, i64 %218
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i47, ptr %219, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i:      ; preds = %207
-  store i32 8, ptr %208, align 4, !tbaa !48
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %214 = load i32, ptr %213, align 4, !tbaa !3
-  %215 = add nsw i32 %214, 3
-  %216 = icmp slt i32 %214, -3
-  %217 = shl nuw i32 1, %215
-  %narrow292 = select i1 %216, i32 0, i32 %217
-  %.sroa.0.0.i.i64 = zext i32 %narrow292 to i64
-  %.sroa.2.0.i.i65 = select i1 %216, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i66 = or disjoint i64 %.sroa.2.0.i.i65, %.sroa.0.0.i.i64
-  %218 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i66, ptr %218, align 8
+220:                                              ; preds = %71
+  %221 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %222 = load i32, ptr %221, align 4, !tbaa !48
+  %223 = icmp eq i32 %222, 8
+  br i1 %223, label %224, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i
+
+224:                                              ; preds = %220
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %225, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-219:                                              ; preds = %70
-  %220 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %221 = load i32, ptr %220, align 4, !tbaa !48
-  %222 = icmp eq i32 %221, 16
-  br i1 %222, label %223, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i68
-
-223:                                              ; preds = %219
-  %224 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %224, align 1, !tbaa !41
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i:      ; preds = %220
+  store i32 8, ptr %221, align 4, !tbaa !48
+  %226 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %227 = load i32, ptr %226, align 4, !tbaa !3
+  %228 = add nsw i32 %227, 3
+  %229 = icmp slt i32 %227, -3
+  %230 = shl nuw i32 1, %228
+  %231 = zext i32 %230 to i64
+  %232 = or disjoint i64 %231, 4294967296
+  %.sroa.2.0.i.i50 = select i1 %229, i64 0, i64 %232
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i50, ptr %233, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i68:    ; preds = %219
-  store i32 16, ptr %220, align 4, !tbaa !48
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %226 = load i32, ptr %225, align 4, !tbaa !3
-  %227 = add nsw i32 %226, 2
-  %228 = icmp slt i32 %226, -2
-  %229 = shl nuw i32 1, %227
-  %narrow291 = select i1 %228, i32 0, i32 %229
-  %.sroa.0.0.i.i69 = zext i32 %narrow291 to i64
-  %.sroa.2.0.i.i70 = select i1 %228, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i71 = or disjoint i64 %.sroa.2.0.i.i70, %.sroa.0.0.i.i69
-  %230 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i71, ptr %230, align 8
+234:                                              ; preds = %71
+  %235 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %236 = load i32, ptr %235, align 4, !tbaa !48
+  %237 = icmp eq i32 %236, 16
+  br i1 %237, label %238, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i52
+
+238:                                              ; preds = %234
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %239, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-231:                                              ; preds = %70
-  %232 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %233 = load i32, ptr %232, align 4, !tbaa !48
-  %234 = icmp eq i32 %233, 32
-  br i1 %234, label %235, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i74
-
-235:                                              ; preds = %231
-  %236 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %236, align 1, !tbaa !41
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i52:    ; preds = %234
+  store i32 16, ptr %235, align 4, !tbaa !48
+  %240 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %241 = load i32, ptr %240, align 4, !tbaa !3
+  %242 = add nsw i32 %241, 2
+  %243 = icmp slt i32 %241, -2
+  %244 = shl nuw i32 1, %242
+  %245 = zext i32 %244 to i64
+  %246 = or disjoint i64 %245, 4294967296
+  %.sroa.2.0.i.i53 = select i1 %243, i64 0, i64 %246
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i53, ptr %247, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i74:    ; preds = %231
-  store i32 32, ptr %232, align 4, !tbaa !48
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %238 = load i32, ptr %237, align 4, !tbaa !3
-  %239 = add nsw i32 %238, 1
-  %240 = icmp slt i32 %238, -1
-  %241 = shl nuw i32 1, %239
-  %narrow290 = select i1 %240, i32 0, i32 %241
-  %.sroa.0.0.i.i75 = zext i32 %narrow290 to i64
-  %.sroa.2.0.i.i76 = select i1 %240, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i77 = or disjoint i64 %.sroa.2.0.i.i76, %.sroa.0.0.i.i75
-  %242 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i77, ptr %242, align 8
+248:                                              ; preds = %71
+  %249 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %250 = load i32, ptr %249, align 4, !tbaa !48
+  %251 = icmp eq i32 %250, 32
+  br i1 %251, label %252, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i56
+
+252:                                              ; preds = %248
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %253, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-243:                                              ; preds = %70
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %245 = load i32, ptr %244, align 4, !tbaa !48
-  %246 = icmp eq i32 %245, 64
-  br i1 %246, label %247, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i80
-
-247:                                              ; preds = %243
-  %248 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %248, align 1, !tbaa !41
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i56:    ; preds = %248
+  store i32 32, ptr %249, align 4, !tbaa !48
+  %254 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %255 = load i32, ptr %254, align 4, !tbaa !3
+  %256 = add nsw i32 %255, 1
+  %257 = icmp slt i32 %255, -1
+  %258 = shl nuw i32 1, %256
+  %259 = zext i32 %258 to i64
+  %260 = or disjoint i64 %259, 4294967296
+  %.sroa.2.0.i.i57 = select i1 %257, i64 0, i64 %260
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i57, ptr %261, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i80:    ; preds = %243
-  store i32 64, ptr %244, align 4, !tbaa !48
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %250 = load i32, ptr %249, align 4, !tbaa !3
-  %251 = icmp slt i32 %250, 0
-  %252 = shl nuw i32 1, %250
-  %narrow = select i1 %251, i32 0, i32 %252
-  %.sroa.0.0.i.i81 = zext i32 %narrow to i64
-  %.sroa.2.0.i.i82 = select i1 %251, i64 0, i64 4294967296
-  %.sroa.0.0.insert.insert.i.i83 = or disjoint i64 %.sroa.2.0.i.i82, %.sroa.0.0.i.i81
-  %253 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i83, ptr %253, align 8
+262:                                              ; preds = %71
+  %263 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %264 = load i32, ptr %263, align 4, !tbaa !48
+  %265 = icmp eq i32 %264, 64
+  br i1 %265, label %266, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i60
+
+266:                                              ; preds = %262
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %267, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-254:                                              ; preds = %70
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %256 = load i32, ptr %255, align 4, !tbaa !56
-  %.not5.i = icmp slt i32 %256, -3
-  br i1 %.not5.i, label %259, label %257
-
-257:                                              ; preds = %254
-  %258 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %258, align 1, !tbaa !41
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i60:    ; preds = %262
+  store i32 64, ptr %263, align 4, !tbaa !48
+  %268 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %269 = load i32, ptr %268, align 4, !tbaa !3
+  %270 = icmp slt i32 %269, 0
+  %271 = shl nuw i32 1, %269
+  %272 = zext i32 %271 to i64
+  %273 = or disjoint i64 %272, 4294967296
+  %.sroa.2.0.i.i61 = select i1 %270, i64 0, i64 %273
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i61, ptr %274, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-259:                                              ; preds = %254
+275:                                              ; preds = %71
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %277 = load i32, ptr %276, align 4, !tbaa !56
+  %.not5.i = icmp slt i32 %277, -3
+  br i1 %.not5.i, label %280, label %278
+
+278:                                              ; preds = %275
+  %279 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %279, align 1, !tbaa !41
+  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
+
+280:                                              ; preds = %275
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %23, i32 noundef -3) #23
-  %260 = load i32, ptr %23, align 4, !tbaa !54
-  store i32 %260, ptr %255, align 4, !tbaa !54
+  %281 = load i32, ptr %23, align 4, !tbaa !54
+  store i32 %281, ptr %276, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %261 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %262 = load i32, ptr %261, align 4, !tbaa !48
-  %263 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %262)
-  %264 = icmp eq i32 %263, 1
-  br i1 %264, label %.split.i.i, label %.thread.i.i85
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %283 = load i32, ptr %282, align 4, !tbaa !48
+  %284 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %283)
+  %285 = icmp eq i32 %284, 1
+  br i1 %285, label %.split.i.i, label %.thread.i.i63
 
-.split.i.i:                                       ; preds = %259
-  %265 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %262, i1 true)
-  switch i32 %265, label %.thread.i.i85 [
-    i32 3, label %266
-    i32 4, label %268
-    i32 5, label %270
-    i32 6, label %272
+.split.i.i:                                       ; preds = %280
+  %286 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %283, i1 true)
+  switch i32 %286, label %.thread.i.i63 [
+    i32 3, label %287
+    i32 4, label %289
+    i32 5, label %291
+    i32 6, label %293
   ]
 
-266:                                              ; preds = %.split.i.i
-  %267 = add nsw i32 %260, 3
-  br label %272
+287:                                              ; preds = %.split.i.i
+  %288 = add nsw i32 %281, 3
+  br label %293
 
-268:                                              ; preds = %.split.i.i
-  %269 = add nsw i32 %260, 2
-  br label %272
+289:                                              ; preds = %.split.i.i
+  %290 = add nsw i32 %281, 2
+  br label %293
 
-270:                                              ; preds = %.split.i.i
-  %271 = add nsw i32 %260, 1
-  br label %272
+291:                                              ; preds = %.split.i.i
+  %292 = add nsw i32 %281, 1
+  br label %293
 
-272:                                              ; preds = %270, %268, %266, %.split.i.i
-  %.0.i.i = phi i32 [ %267, %266 ], [ %269, %268 ], [ %271, %270 ], [ %260, %.split.i.i ]
-  %273 = icmp slt i32 %.0.i.i, 0
-  br i1 %273, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i86, label %.thread.i.i85
+293:                                              ; preds = %291, %289, %287, %.split.i.i
+  %.0.i.i = phi i32 [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %281, %.split.i.i ]
+  %294 = icmp slt i32 %.0.i.i, 0
+  br i1 %294, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i64, label %.thread.i.i63
 
-.thread.i.i85:                                    ; preds = %272, %.split.i.i, %259
-  %.04.i.i = phi i32 [ %.0.i.i, %272 ], [ 0, %.split.i.i ], [ 0, %259 ]
-  %274 = shl nuw i32 1, %.04.i.i
-  %275 = zext i32 %274 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i86
+.thread.i.i63:                                    ; preds = %293, %.split.i.i, %280
+  %.04.i.i = phi i32 [ %.0.i.i, %293 ], [ 0, %.split.i.i ], [ 0, %280 ]
+  %295 = shl nuw i32 1, %.04.i.i
+  %296 = zext i32 %295 to i64
+  %297 = or disjoint i64 %296, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i64
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i86:    ; preds = %.thread.i.i85, %272
-  %.sroa.0.0.i.i87 = phi i64 [ %275, %.thread.i.i85 ], [ 0, %272 ]
-  %.sroa.2.0.i.i88 = phi i64 [ 4294967296, %.thread.i.i85 ], [ 0, %272 ]
-  %.sroa.0.0.insert.insert.i.i89 = or disjoint i64 %.sroa.2.0.i.i88, %.sroa.0.0.i.i87
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i89, ptr %276, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i64:    ; preds = %.thread.i.i63, %293
+  %.sroa.2.0.i.i65 = phi i64 [ %297, %.thread.i.i63 ], [ 0, %293 ]
+  %298 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i65, ptr %298, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-277:                                              ; preds = %70
-  %278 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %279 = load i32, ptr %278, align 4, !tbaa !56
-  %.not5.i90 = icmp slt i32 %279, -2
-  br i1 %.not5.i90, label %282, label %280
+299:                                              ; preds = %71
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %301 = load i32, ptr %300, align 4, !tbaa !56
+  %.not5.i66 = icmp slt i32 %301, -2
+  br i1 %.not5.i66, label %304, label %302
 
-280:                                              ; preds = %277
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %281, align 1, !tbaa !41
+302:                                              ; preds = %299
+  %303 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %303, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-282:                                              ; preds = %277
+304:                                              ; preds = %299
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %22, i32 noundef -2) #23
-  %283 = load i32, ptr %22, align 4, !tbaa !54
-  store i32 %283, ptr %278, align 4, !tbaa !54
+  %305 = load i32, ptr %22, align 4, !tbaa !54
+  store i32 %305, ptr %300, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  %284 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %285 = load i32, ptr %284, align 4, !tbaa !48
-  %286 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %285)
-  %287 = icmp eq i32 %286, 1
-  br i1 %287, label %.split.i.i97, label %.thread.i.i91
+  %306 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %307 = load i32, ptr %306, align 4, !tbaa !48
+  %308 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %307)
+  %309 = icmp eq i32 %308, 1
+  br i1 %309, label %.split.i.i71, label %.thread.i.i67
 
-.split.i.i97:                                     ; preds = %282
-  %288 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %285, i1 true)
-  switch i32 %288, label %.thread.i.i91 [
-    i32 3, label %289
-    i32 4, label %291
-    i32 5, label %293
-    i32 6, label %295
+.split.i.i71:                                     ; preds = %304
+  %310 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %307, i1 true)
+  switch i32 %310, label %.thread.i.i67 [
+    i32 3, label %311
+    i32 4, label %313
+    i32 5, label %315
+    i32 6, label %317
   ]
 
-289:                                              ; preds = %.split.i.i97
-  %290 = add nsw i32 %283, 3
-  br label %295
+311:                                              ; preds = %.split.i.i71
+  %312 = add nsw i32 %305, 3
+  br label %317
 
-291:                                              ; preds = %.split.i.i97
-  %292 = add nsw i32 %283, 2
-  br label %295
+313:                                              ; preds = %.split.i.i71
+  %314 = add nsw i32 %305, 2
+  br label %317
 
-293:                                              ; preds = %.split.i.i97
-  %294 = add nsw i32 %283, 1
-  br label %295
+315:                                              ; preds = %.split.i.i71
+  %316 = add nsw i32 %305, 1
+  br label %317
 
-295:                                              ; preds = %293, %291, %289, %.split.i.i97
-  %.0.i.i98 = phi i32 [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %283, %.split.i.i97 ]
-  %296 = icmp slt i32 %.0.i.i98, 0
-  br i1 %296, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93, label %.thread.i.i91
+317:                                              ; preds = %315, %313, %311, %.split.i.i71
+  %.0.i.i72 = phi i32 [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %305, %.split.i.i71 ]
+  %318 = icmp slt i32 %.0.i.i72, 0
+  br i1 %318, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i69, label %.thread.i.i67
 
-.thread.i.i91:                                    ; preds = %295, %.split.i.i97, %282
-  %.04.i.i92 = phi i32 [ %.0.i.i98, %295 ], [ 0, %.split.i.i97 ], [ 0, %282 ]
-  %297 = shl nuw i32 1, %.04.i.i92
-  %298 = zext i32 %297 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93
+.thread.i.i67:                                    ; preds = %317, %.split.i.i71, %304
+  %.04.i.i68 = phi i32 [ %.0.i.i72, %317 ], [ 0, %.split.i.i71 ], [ 0, %304 ]
+  %319 = shl nuw i32 1, %.04.i.i68
+  %320 = zext i32 %319 to i64
+  %321 = or disjoint i64 %320, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i69
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93:    ; preds = %.thread.i.i91, %295
-  %.sroa.0.0.i.i94 = phi i64 [ %298, %.thread.i.i91 ], [ 0, %295 ]
-  %.sroa.2.0.i.i95 = phi i64 [ 4294967296, %.thread.i.i91 ], [ 0, %295 ]
-  %.sroa.0.0.insert.insert.i.i96 = or disjoint i64 %.sroa.2.0.i.i95, %.sroa.0.0.i.i94
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i96, ptr %299, align 8
-  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
-
-300:                                              ; preds = %70
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %302 = load i32, ptr %301, align 4, !tbaa !56
-  %.not5.i100 = icmp slt i32 %302, -1
-  br i1 %.not5.i100, label %305, label %303
-
-303:                                              ; preds = %300
-  %304 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %304, align 1, !tbaa !41
-  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
-
-305:                                              ; preds = %300
-  call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %21, i32 noundef -1) #23
-  %306 = load i32, ptr %21, align 4, !tbaa !54
-  store i32 %306, ptr %301, align 4, !tbaa !54
-  call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %307 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %308 = load i32, ptr %307, align 4, !tbaa !48
-  %309 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %308)
-  %310 = icmp eq i32 %309, 1
-  br i1 %310, label %.split.i.i107, label %.thread.i.i101
-
-.split.i.i107:                                    ; preds = %305
-  %311 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %308, i1 true)
-  switch i32 %311, label %.thread.i.i101 [
-    i32 3, label %312
-    i32 4, label %314
-    i32 5, label %316
-    i32 6, label %318
-  ]
-
-312:                                              ; preds = %.split.i.i107
-  %313 = add nsw i32 %306, 3
-  br label %318
-
-314:                                              ; preds = %.split.i.i107
-  %315 = add nsw i32 %306, 2
-  br label %318
-
-316:                                              ; preds = %.split.i.i107
-  %317 = add nsw i32 %306, 1
-  br label %318
-
-318:                                              ; preds = %316, %314, %312, %.split.i.i107
-  %.0.i.i108 = phi i32 [ %313, %312 ], [ %315, %314 ], [ %317, %316 ], [ %306, %.split.i.i107 ]
-  %319 = icmp slt i32 %.0.i.i108, 0
-  br i1 %319, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i103, label %.thread.i.i101
-
-.thread.i.i101:                                   ; preds = %318, %.split.i.i107, %305
-  %.04.i.i102 = phi i32 [ %.0.i.i108, %318 ], [ 0, %.split.i.i107 ], [ 0, %305 ]
-  %320 = shl nuw i32 1, %.04.i.i102
-  %321 = zext i32 %320 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i103
-
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i103:   ; preds = %.thread.i.i101, %318
-  %.sroa.0.0.i.i104 = phi i64 [ %321, %.thread.i.i101 ], [ 0, %318 ]
-  %.sroa.2.0.i.i105 = phi i64 [ 4294967296, %.thread.i.i101 ], [ 0, %318 ]
-  %.sroa.0.0.insert.insert.i.i106 = or disjoint i64 %.sroa.2.0.i.i105, %.sroa.0.0.i.i104
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i69:    ; preds = %.thread.i.i67, %317
+  %.sroa.2.0.i.i70 = phi i64 [ %321, %.thread.i.i67 ], [ 0, %317 ]
   %322 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i106, ptr %322, align 8
+  store i64 %.sroa.2.0.i.i70, ptr %322, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-323:                                              ; preds = %70
+323:                                              ; preds = %71
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %325 = load i32, ptr %324, align 4, !tbaa !56
-  %.not5.i110 = icmp slt i32 %325, 0
-  br i1 %.not5.i110, label %328, label %326
+  %.not5.i74 = icmp slt i32 %325, -1
+  br i1 %.not5.i74, label %328, label %326
 
 326:                                              ; preds = %323
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -1364,1263 +1285,1306 @@ _ZNK5clang5RISCV8LMULType8getScaleEj.exit.i103:   ; preds = %.thread.i.i101, %31
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
 328:                                              ; preds = %323
-  call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef 0) #23
-  %329 = load i32, ptr %20, align 4, !tbaa !54
+  call void @llvm.lifetime.start.p0(ptr nonnull %21)
+  call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %21, i32 noundef -1) #23
+  %329 = load i32, ptr %21, align 4, !tbaa !54
   store i32 %329, ptr %324, align 4, !tbaa !54
-  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %330 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %331 = load i32, ptr %330, align 4, !tbaa !48
   %332 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %331)
   %333 = icmp eq i32 %332, 1
-  br i1 %333, label %.split.i.i117, label %.thread.i.i111
+  br i1 %333, label %.split.i.i79, label %.thread.i.i75
 
-.split.i.i117:                                    ; preds = %328
+.split.i.i79:                                     ; preds = %328
   %334 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %331, i1 true)
-  switch i32 %334, label %.thread.i.i111 [
+  switch i32 %334, label %.thread.i.i75 [
     i32 3, label %335
     i32 4, label %337
     i32 5, label %339
     i32 6, label %341
   ]
 
-335:                                              ; preds = %.split.i.i117
+335:                                              ; preds = %.split.i.i79
   %336 = add nsw i32 %329, 3
   br label %341
 
-337:                                              ; preds = %.split.i.i117
+337:                                              ; preds = %.split.i.i79
   %338 = add nsw i32 %329, 2
   br label %341
 
-339:                                              ; preds = %.split.i.i117
+339:                                              ; preds = %.split.i.i79
   %340 = add nsw i32 %329, 1
   br label %341
 
-341:                                              ; preds = %339, %337, %335, %.split.i.i117
-  %.0.i.i118 = phi i32 [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %329, %.split.i.i117 ]
-  %342 = icmp slt i32 %.0.i.i118, 0
-  br i1 %342, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i113, label %.thread.i.i111
+341:                                              ; preds = %339, %337, %335, %.split.i.i79
+  %.0.i.i80 = phi i32 [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %329, %.split.i.i79 ]
+  %342 = icmp slt i32 %.0.i.i80, 0
+  br i1 %342, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i77, label %.thread.i.i75
 
-.thread.i.i111:                                   ; preds = %341, %.split.i.i117, %328
-  %.04.i.i112 = phi i32 [ %.0.i.i118, %341 ], [ 0, %.split.i.i117 ], [ 0, %328 ]
-  %343 = shl nuw i32 1, %.04.i.i112
+.thread.i.i75:                                    ; preds = %341, %.split.i.i79, %328
+  %.04.i.i76 = phi i32 [ %.0.i.i80, %341 ], [ 0, %.split.i.i79 ], [ 0, %328 ]
+  %343 = shl nuw i32 1, %.04.i.i76
   %344 = zext i32 %343 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i113
+  %345 = or disjoint i64 %344, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i77
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i113:   ; preds = %.thread.i.i111, %341
-  %.sroa.0.0.i.i114 = phi i64 [ %344, %.thread.i.i111 ], [ 0, %341 ]
-  %.sroa.2.0.i.i115 = phi i64 [ 4294967296, %.thread.i.i111 ], [ 0, %341 ]
-  %.sroa.0.0.insert.insert.i.i116 = or disjoint i64 %.sroa.2.0.i.i115, %.sroa.0.0.i.i114
-  %345 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i116, ptr %345, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i77:    ; preds = %.thread.i.i75, %341
+  %.sroa.2.0.i.i78 = phi i64 [ %345, %.thread.i.i75 ], [ 0, %341 ]
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i78, ptr %346, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-346:                                              ; preds = %70
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %348 = load i32, ptr %347, align 4, !tbaa !56
-  %.not5.i120 = icmp slt i32 %348, 1
-  br i1 %.not5.i120, label %351, label %349
+347:                                              ; preds = %71
+  %348 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %349 = load i32, ptr %348, align 4, !tbaa !56
+  %.not5.i82 = icmp slt i32 %349, 0
+  br i1 %.not5.i82, label %352, label %350
 
-349:                                              ; preds = %346
-  %350 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %350, align 1, !tbaa !41
+350:                                              ; preds = %347
+  %351 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %351, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-351:                                              ; preds = %346
+352:                                              ; preds = %347
+  call void @llvm.lifetime.start.p0(ptr nonnull %20)
+  call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %20, i32 noundef 0) #23
+  %353 = load i32, ptr %20, align 4, !tbaa !54
+  store i32 %353, ptr %348, align 4, !tbaa !54
+  call void @llvm.lifetime.end.p0(ptr nonnull %20)
+  %354 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %355 = load i32, ptr %354, align 4, !tbaa !48
+  %356 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %355)
+  %357 = icmp eq i32 %356, 1
+  br i1 %357, label %.split.i.i87, label %.thread.i.i83
+
+.split.i.i87:                                     ; preds = %352
+  %358 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %355, i1 true)
+  switch i32 %358, label %.thread.i.i83 [
+    i32 3, label %359
+    i32 4, label %361
+    i32 5, label %363
+    i32 6, label %365
+  ]
+
+359:                                              ; preds = %.split.i.i87
+  %360 = add nsw i32 %353, 3
+  br label %365
+
+361:                                              ; preds = %.split.i.i87
+  %362 = add nsw i32 %353, 2
+  br label %365
+
+363:                                              ; preds = %.split.i.i87
+  %364 = add nsw i32 %353, 1
+  br label %365
+
+365:                                              ; preds = %363, %361, %359, %.split.i.i87
+  %.0.i.i88 = phi i32 [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %353, %.split.i.i87 ]
+  %366 = icmp slt i32 %.0.i.i88, 0
+  br i1 %366, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i85, label %.thread.i.i83
+
+.thread.i.i83:                                    ; preds = %365, %.split.i.i87, %352
+  %.04.i.i84 = phi i32 [ %.0.i.i88, %365 ], [ 0, %.split.i.i87 ], [ 0, %352 ]
+  %367 = shl nuw i32 1, %.04.i.i84
+  %368 = zext i32 %367 to i64
+  %369 = or disjoint i64 %368, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i85
+
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i85:    ; preds = %.thread.i.i83, %365
+  %.sroa.2.0.i.i86 = phi i64 [ %369, %.thread.i.i83 ], [ 0, %365 ]
+  %370 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i86, ptr %370, align 8
+  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
+
+371:                                              ; preds = %71
+  %372 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %373 = load i32, ptr %372, align 4, !tbaa !56
+  %.not5.i90 = icmp slt i32 %373, 1
+  br i1 %.not5.i90, label %376, label %374
+
+374:                                              ; preds = %371
+  %375 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %375, align 1, !tbaa !41
+  br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
+
+376:                                              ; preds = %371
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %19, i32 noundef 1) #23
-  %352 = load i32, ptr %19, align 4, !tbaa !54
-  store i32 %352, ptr %347, align 4, !tbaa !54
+  %377 = load i32, ptr %19, align 4, !tbaa !54
+  store i32 %377, ptr %372, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %353 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %354 = load i32, ptr %353, align 4, !tbaa !48
-  %355 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %354)
-  %356 = icmp eq i32 %355, 1
-  br i1 %356, label %.split.i.i127, label %.thread.i.i121
+  %378 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %379 = load i32, ptr %378, align 4, !tbaa !48
+  %380 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %379)
+  %381 = icmp eq i32 %380, 1
+  br i1 %381, label %.split.i.i95, label %.thread.i.i91
 
-.split.i.i127:                                    ; preds = %351
-  %357 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %354, i1 true)
-  switch i32 %357, label %.thread.i.i121 [
-    i32 3, label %358
-    i32 4, label %360
-    i32 5, label %362
-    i32 6, label %364
+.split.i.i95:                                     ; preds = %376
+  %382 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %379, i1 true)
+  switch i32 %382, label %.thread.i.i91 [
+    i32 3, label %383
+    i32 4, label %385
+    i32 5, label %387
+    i32 6, label %389
   ]
 
-358:                                              ; preds = %.split.i.i127
-  %359 = add nsw i32 %352, 3
-  br label %364
+383:                                              ; preds = %.split.i.i95
+  %384 = add nsw i32 %377, 3
+  br label %389
 
-360:                                              ; preds = %.split.i.i127
-  %361 = add nsw i32 %352, 2
-  br label %364
+385:                                              ; preds = %.split.i.i95
+  %386 = add nsw i32 %377, 2
+  br label %389
 
-362:                                              ; preds = %.split.i.i127
-  %363 = add nsw i32 %352, 1
-  br label %364
+387:                                              ; preds = %.split.i.i95
+  %388 = add nsw i32 %377, 1
+  br label %389
 
-364:                                              ; preds = %362, %360, %358, %.split.i.i127
-  %.0.i.i128 = phi i32 [ %359, %358 ], [ %361, %360 ], [ %363, %362 ], [ %352, %.split.i.i127 ]
-  %365 = icmp slt i32 %.0.i.i128, 0
-  br i1 %365, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i123, label %.thread.i.i121
+389:                                              ; preds = %387, %385, %383, %.split.i.i95
+  %.0.i.i96 = phi i32 [ %384, %383 ], [ %386, %385 ], [ %388, %387 ], [ %377, %.split.i.i95 ]
+  %390 = icmp slt i32 %.0.i.i96, 0
+  br i1 %390, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93, label %.thread.i.i91
 
-.thread.i.i121:                                   ; preds = %364, %.split.i.i127, %351
-  %.04.i.i122 = phi i32 [ %.0.i.i128, %364 ], [ 0, %.split.i.i127 ], [ 0, %351 ]
-  %366 = shl nuw i32 1, %.04.i.i122
-  %367 = zext i32 %366 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i123
+.thread.i.i91:                                    ; preds = %389, %.split.i.i95, %376
+  %.04.i.i92 = phi i32 [ %.0.i.i96, %389 ], [ 0, %.split.i.i95 ], [ 0, %376 ]
+  %391 = shl nuw i32 1, %.04.i.i92
+  %392 = zext i32 %391 to i64
+  %393 = or disjoint i64 %392, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i123:   ; preds = %.thread.i.i121, %364
-  %.sroa.0.0.i.i124 = phi i64 [ %367, %.thread.i.i121 ], [ 0, %364 ]
-  %.sroa.2.0.i.i125 = phi i64 [ 4294967296, %.thread.i.i121 ], [ 0, %364 ]
-  %.sroa.0.0.insert.insert.i.i126 = or disjoint i64 %.sroa.2.0.i.i125, %.sroa.0.0.i.i124
-  %368 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i126, ptr %368, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93:    ; preds = %.thread.i.i91, %389
+  %.sroa.2.0.i.i94 = phi i64 [ %393, %.thread.i.i91 ], [ 0, %389 ]
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i94, ptr %394, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-369:                                              ; preds = %70
-  %370 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %371 = load i32, ptr %370, align 4, !tbaa !56
-  %.not5.i130 = icmp slt i32 %371, 2
-  br i1 %.not5.i130, label %374, label %372
+395:                                              ; preds = %71
+  %396 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %397 = load i32, ptr %396, align 4, !tbaa !56
+  %.not5.i98 = icmp slt i32 %397, 2
+  br i1 %.not5.i98, label %400, label %398
 
-372:                                              ; preds = %369
-  %373 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %373, align 1, !tbaa !41
+398:                                              ; preds = %395
+  %399 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %399, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-374:                                              ; preds = %369
+400:                                              ; preds = %395
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %18, i32 noundef 2) #23
-  %375 = load i32, ptr %18, align 4, !tbaa !54
-  store i32 %375, ptr %370, align 4, !tbaa !54
+  %401 = load i32, ptr %18, align 4, !tbaa !54
+  store i32 %401, ptr %396, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %376 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %377 = load i32, ptr %376, align 4, !tbaa !48
-  %378 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %377)
-  %379 = icmp eq i32 %378, 1
-  br i1 %379, label %.split.i.i137, label %.thread.i.i131
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %403 = load i32, ptr %402, align 4, !tbaa !48
+  %404 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %403)
+  %405 = icmp eq i32 %404, 1
+  br i1 %405, label %.split.i.i103, label %.thread.i.i99
 
-.split.i.i137:                                    ; preds = %374
-  %380 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %377, i1 true)
-  switch i32 %380, label %.thread.i.i131 [
-    i32 3, label %381
-    i32 4, label %383
-    i32 5, label %385
-    i32 6, label %387
+.split.i.i103:                                    ; preds = %400
+  %406 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %403, i1 true)
+  switch i32 %406, label %.thread.i.i99 [
+    i32 3, label %407
+    i32 4, label %409
+    i32 5, label %411
+    i32 6, label %413
   ]
 
-381:                                              ; preds = %.split.i.i137
-  %382 = add nsw i32 %375, 3
-  br label %387
+407:                                              ; preds = %.split.i.i103
+  %408 = add nsw i32 %401, 3
+  br label %413
 
-383:                                              ; preds = %.split.i.i137
-  %384 = add nsw i32 %375, 2
-  br label %387
+409:                                              ; preds = %.split.i.i103
+  %410 = add nsw i32 %401, 2
+  br label %413
 
-385:                                              ; preds = %.split.i.i137
-  %386 = add nsw i32 %375, 1
-  br label %387
+411:                                              ; preds = %.split.i.i103
+  %412 = add nsw i32 %401, 1
+  br label %413
 
-387:                                              ; preds = %385, %383, %381, %.split.i.i137
-  %.0.i.i138 = phi i32 [ %382, %381 ], [ %384, %383 ], [ %386, %385 ], [ %375, %.split.i.i137 ]
-  %388 = icmp slt i32 %.0.i.i138, 0
-  br i1 %388, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i133, label %.thread.i.i131
+413:                                              ; preds = %411, %409, %407, %.split.i.i103
+  %.0.i.i104 = phi i32 [ %408, %407 ], [ %410, %409 ], [ %412, %411 ], [ %401, %.split.i.i103 ]
+  %414 = icmp slt i32 %.0.i.i104, 0
+  br i1 %414, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i101, label %.thread.i.i99
 
-.thread.i.i131:                                   ; preds = %387, %.split.i.i137, %374
-  %.04.i.i132 = phi i32 [ %.0.i.i138, %387 ], [ 0, %.split.i.i137 ], [ 0, %374 ]
-  %389 = shl nuw i32 1, %.04.i.i132
-  %390 = zext i32 %389 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i133
+.thread.i.i99:                                    ; preds = %413, %.split.i.i103, %400
+  %.04.i.i100 = phi i32 [ %.0.i.i104, %413 ], [ 0, %.split.i.i103 ], [ 0, %400 ]
+  %415 = shl nuw i32 1, %.04.i.i100
+  %416 = zext i32 %415 to i64
+  %417 = or disjoint i64 %416, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i101
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i133:   ; preds = %.thread.i.i131, %387
-  %.sroa.0.0.i.i134 = phi i64 [ %390, %.thread.i.i131 ], [ 0, %387 ]
-  %.sroa.2.0.i.i135 = phi i64 [ 4294967296, %.thread.i.i131 ], [ 0, %387 ]
-  %.sroa.0.0.insert.insert.i.i136 = or disjoint i64 %.sroa.2.0.i.i135, %.sroa.0.0.i.i134
-  %391 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i136, ptr %391, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i101:   ; preds = %.thread.i.i99, %413
+  %.sroa.2.0.i.i102 = phi i64 [ %417, %.thread.i.i99 ], [ 0, %413 ]
+  %418 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i102, ptr %418, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-392:                                              ; preds = %70
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %394 = load i32, ptr %393, align 4, !tbaa !56
-  %.not5.i140 = icmp slt i32 %394, 3
-  br i1 %.not5.i140, label %397, label %395
+419:                                              ; preds = %71
+  %420 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %421 = load i32, ptr %420, align 4, !tbaa !56
+  %.not5.i106 = icmp slt i32 %421, 3
+  br i1 %.not5.i106, label %424, label %422
 
-395:                                              ; preds = %392
-  %396 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %396, align 1, !tbaa !41
+422:                                              ; preds = %419
+  %423 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %423, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-397:                                              ; preds = %392
+424:                                              ; preds = %419
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %17, i32 noundef 3) #23
-  %398 = load i32, ptr %17, align 4, !tbaa !54
-  store i32 %398, ptr %393, align 4, !tbaa !54
+  %425 = load i32, ptr %17, align 4, !tbaa !54
+  store i32 %425, ptr %420, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %399 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %400 = load i32, ptr %399, align 4, !tbaa !48
-  %401 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %400)
-  %402 = icmp eq i32 %401, 1
-  br i1 %402, label %.split.i.i147, label %.thread.i.i141
+  %426 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %427 = load i32, ptr %426, align 4, !tbaa !48
+  %428 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %427)
+  %429 = icmp eq i32 %428, 1
+  br i1 %429, label %.split.i.i111, label %.thread.i.i107
 
-.split.i.i147:                                    ; preds = %397
-  %403 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %400, i1 true)
-  switch i32 %403, label %.thread.i.i141 [
-    i32 3, label %404
-    i32 4, label %406
-    i32 5, label %408
-    i32 6, label %410
+.split.i.i111:                                    ; preds = %424
+  %430 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %427, i1 true)
+  switch i32 %430, label %.thread.i.i107 [
+    i32 3, label %431
+    i32 4, label %433
+    i32 5, label %435
+    i32 6, label %437
   ]
 
-404:                                              ; preds = %.split.i.i147
-  %405 = add nsw i32 %398, 3
-  br label %410
+431:                                              ; preds = %.split.i.i111
+  %432 = add nsw i32 %425, 3
+  br label %437
 
-406:                                              ; preds = %.split.i.i147
-  %407 = add nsw i32 %398, 2
-  br label %410
+433:                                              ; preds = %.split.i.i111
+  %434 = add nsw i32 %425, 2
+  br label %437
 
-408:                                              ; preds = %.split.i.i147
-  %409 = add nsw i32 %398, 1
-  br label %410
+435:                                              ; preds = %.split.i.i111
+  %436 = add nsw i32 %425, 1
+  br label %437
 
-410:                                              ; preds = %408, %406, %404, %.split.i.i147
-  %.0.i.i148 = phi i32 [ %405, %404 ], [ %407, %406 ], [ %409, %408 ], [ %398, %.split.i.i147 ]
-  %411 = icmp slt i32 %.0.i.i148, 0
-  br i1 %411, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i143, label %.thread.i.i141
+437:                                              ; preds = %435, %433, %431, %.split.i.i111
+  %.0.i.i112 = phi i32 [ %432, %431 ], [ %434, %433 ], [ %436, %435 ], [ %425, %.split.i.i111 ]
+  %438 = icmp slt i32 %.0.i.i112, 0
+  br i1 %438, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i109, label %.thread.i.i107
 
-.thread.i.i141:                                   ; preds = %410, %.split.i.i147, %397
-  %.04.i.i142 = phi i32 [ %.0.i.i148, %410 ], [ 0, %.split.i.i147 ], [ 0, %397 ]
-  %412 = shl nuw i32 1, %.04.i.i142
-  %413 = zext i32 %412 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i143
+.thread.i.i107:                                   ; preds = %437, %.split.i.i111, %424
+  %.04.i.i108 = phi i32 [ %.0.i.i112, %437 ], [ 0, %.split.i.i111 ], [ 0, %424 ]
+  %439 = shl nuw i32 1, %.04.i.i108
+  %440 = zext i32 %439 to i64
+  %441 = or disjoint i64 %440, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i109
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i143:   ; preds = %.thread.i.i141, %410
-  %.sroa.0.0.i.i144 = phi i64 [ %413, %.thread.i.i141 ], [ 0, %410 ]
-  %.sroa.2.0.i.i145 = phi i64 [ 4294967296, %.thread.i.i141 ], [ 0, %410 ]
-  %.sroa.0.0.insert.insert.i.i146 = or disjoint i64 %.sroa.2.0.i.i145, %.sroa.0.0.i.i144
-  %414 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i146, ptr %414, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i109:   ; preds = %.thread.i.i107, %437
+  %.sroa.2.0.i.i110 = phi i64 [ %441, %.thread.i.i107 ], [ 0, %437 ]
+  %442 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i110, ptr %442, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-415:                                              ; preds = %70
-  %416 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %417 = load i32, ptr %416, align 4, !tbaa !56
-  %.not.i = icmp sgt i32 %417, -3
-  br i1 %.not.i, label %420, label %418
+443:                                              ; preds = %71
+  %444 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %445 = load i32, ptr %444, align 4, !tbaa !56
+  %.not.i = icmp sgt i32 %445, -3
+  br i1 %.not.i, label %448, label %446
 
-418:                                              ; preds = %415
-  %419 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %419, align 1, !tbaa !41
+446:                                              ; preds = %443
+  %447 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %447, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-420:                                              ; preds = %415
+448:                                              ; preds = %443
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %16, i32 noundef -3) #23
-  %421 = load i32, ptr %16, align 4, !tbaa !54
-  store i32 %421, ptr %416, align 4, !tbaa !54
+  %449 = load i32, ptr %16, align 4, !tbaa !54
+  store i32 %449, ptr %444, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %422 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %423 = load i32, ptr %422, align 4, !tbaa !48
-  %424 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %423)
-  %425 = icmp eq i32 %424, 1
-  br i1 %425, label %.split.i.i156, label %.thread.i.i150
+  %450 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %451 = load i32, ptr %450, align 4, !tbaa !48
+  %452 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %451)
+  %453 = icmp eq i32 %452, 1
+  br i1 %453, label %.split.i.i118, label %.thread.i.i114
 
-.split.i.i156:                                    ; preds = %420
-  %426 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %423, i1 true)
-  switch i32 %426, label %.thread.i.i150 [
-    i32 3, label %427
-    i32 4, label %429
-    i32 5, label %431
-    i32 6, label %433
+.split.i.i118:                                    ; preds = %448
+  %454 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %451, i1 true)
+  switch i32 %454, label %.thread.i.i114 [
+    i32 3, label %455
+    i32 4, label %457
+    i32 5, label %459
+    i32 6, label %461
   ]
 
-427:                                              ; preds = %.split.i.i156
-  %428 = add nsw i32 %421, 3
-  br label %433
+455:                                              ; preds = %.split.i.i118
+  %456 = add nsw i32 %449, 3
+  br label %461
 
-429:                                              ; preds = %.split.i.i156
-  %430 = add nsw i32 %421, 2
-  br label %433
+457:                                              ; preds = %.split.i.i118
+  %458 = add nsw i32 %449, 2
+  br label %461
 
-431:                                              ; preds = %.split.i.i156
-  %432 = add nsw i32 %421, 1
-  br label %433
+459:                                              ; preds = %.split.i.i118
+  %460 = add nsw i32 %449, 1
+  br label %461
 
-433:                                              ; preds = %431, %429, %427, %.split.i.i156
-  %.0.i.i157 = phi i32 [ %428, %427 ], [ %430, %429 ], [ %432, %431 ], [ %421, %.split.i.i156 ]
-  %434 = icmp slt i32 %.0.i.i157, 0
-  br i1 %434, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i152, label %.thread.i.i150
+461:                                              ; preds = %459, %457, %455, %.split.i.i118
+  %.0.i.i119 = phi i32 [ %456, %455 ], [ %458, %457 ], [ %460, %459 ], [ %449, %.split.i.i118 ]
+  %462 = icmp slt i32 %.0.i.i119, 0
+  br i1 %462, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i116, label %.thread.i.i114
 
-.thread.i.i150:                                   ; preds = %433, %.split.i.i156, %420
-  %.04.i.i151 = phi i32 [ %.0.i.i157, %433 ], [ 0, %.split.i.i156 ], [ 0, %420 ]
-  %435 = shl nuw i32 1, %.04.i.i151
-  %436 = zext i32 %435 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i152
+.thread.i.i114:                                   ; preds = %461, %.split.i.i118, %448
+  %.04.i.i115 = phi i32 [ %.0.i.i119, %461 ], [ 0, %.split.i.i118 ], [ 0, %448 ]
+  %463 = shl nuw i32 1, %.04.i.i115
+  %464 = zext i32 %463 to i64
+  %465 = or disjoint i64 %464, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i116
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i152:   ; preds = %.thread.i.i150, %433
-  %.sroa.0.0.i.i153 = phi i64 [ %436, %.thread.i.i150 ], [ 0, %433 ]
-  %.sroa.2.0.i.i154 = phi i64 [ 4294967296, %.thread.i.i150 ], [ 0, %433 ]
-  %.sroa.0.0.insert.insert.i.i155 = or disjoint i64 %.sroa.2.0.i.i154, %.sroa.0.0.i.i153
-  %437 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i155, ptr %437, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i116:   ; preds = %.thread.i.i114, %461
+  %.sroa.2.0.i.i117 = phi i64 [ %465, %.thread.i.i114 ], [ 0, %461 ]
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i117, ptr %466, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-438:                                              ; preds = %70
-  %439 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %440 = load i32, ptr %439, align 4, !tbaa !56
-  %.not.i159 = icmp sgt i32 %440, -2
-  br i1 %.not.i159, label %443, label %441
+467:                                              ; preds = %71
+  %468 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %469 = load i32, ptr %468, align 4, !tbaa !56
+  %.not.i121 = icmp sgt i32 %469, -2
+  br i1 %.not.i121, label %472, label %470
 
-441:                                              ; preds = %438
-  %442 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %442, align 1, !tbaa !41
+470:                                              ; preds = %467
+  %471 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %471, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-443:                                              ; preds = %438
+472:                                              ; preds = %467
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %15, i32 noundef -2) #23
-  %444 = load i32, ptr %15, align 4, !tbaa !54
-  store i32 %444, ptr %439, align 4, !tbaa !54
+  %473 = load i32, ptr %15, align 4, !tbaa !54
+  store i32 %473, ptr %468, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %445 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %446 = load i32, ptr %445, align 4, !tbaa !48
-  %447 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %446)
-  %448 = icmp eq i32 %447, 1
-  br i1 %448, label %.split.i.i166, label %.thread.i.i160
+  %474 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %475 = load i32, ptr %474, align 4, !tbaa !48
+  %476 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %475)
+  %477 = icmp eq i32 %476, 1
+  br i1 %477, label %.split.i.i126, label %.thread.i.i122
 
-.split.i.i166:                                    ; preds = %443
-  %449 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %446, i1 true)
-  switch i32 %449, label %.thread.i.i160 [
-    i32 3, label %450
-    i32 4, label %452
-    i32 5, label %454
-    i32 6, label %456
+.split.i.i126:                                    ; preds = %472
+  %478 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %475, i1 true)
+  switch i32 %478, label %.thread.i.i122 [
+    i32 3, label %479
+    i32 4, label %481
+    i32 5, label %483
+    i32 6, label %485
   ]
 
-450:                                              ; preds = %.split.i.i166
-  %451 = add nsw i32 %444, 3
-  br label %456
+479:                                              ; preds = %.split.i.i126
+  %480 = add nsw i32 %473, 3
+  br label %485
 
-452:                                              ; preds = %.split.i.i166
-  %453 = add nsw i32 %444, 2
-  br label %456
+481:                                              ; preds = %.split.i.i126
+  %482 = add nsw i32 %473, 2
+  br label %485
 
-454:                                              ; preds = %.split.i.i166
-  %455 = add nsw i32 %444, 1
-  br label %456
+483:                                              ; preds = %.split.i.i126
+  %484 = add nsw i32 %473, 1
+  br label %485
 
-456:                                              ; preds = %454, %452, %450, %.split.i.i166
-  %.0.i.i167 = phi i32 [ %451, %450 ], [ %453, %452 ], [ %455, %454 ], [ %444, %.split.i.i166 ]
-  %457 = icmp slt i32 %.0.i.i167, 0
-  br i1 %457, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i162, label %.thread.i.i160
+485:                                              ; preds = %483, %481, %479, %.split.i.i126
+  %.0.i.i127 = phi i32 [ %480, %479 ], [ %482, %481 ], [ %484, %483 ], [ %473, %.split.i.i126 ]
+  %486 = icmp slt i32 %.0.i.i127, 0
+  br i1 %486, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i124, label %.thread.i.i122
 
-.thread.i.i160:                                   ; preds = %456, %.split.i.i166, %443
-  %.04.i.i161 = phi i32 [ %.0.i.i167, %456 ], [ 0, %.split.i.i166 ], [ 0, %443 ]
-  %458 = shl nuw i32 1, %.04.i.i161
-  %459 = zext i32 %458 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i162
+.thread.i.i122:                                   ; preds = %485, %.split.i.i126, %472
+  %.04.i.i123 = phi i32 [ %.0.i.i127, %485 ], [ 0, %.split.i.i126 ], [ 0, %472 ]
+  %487 = shl nuw i32 1, %.04.i.i123
+  %488 = zext i32 %487 to i64
+  %489 = or disjoint i64 %488, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i124
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i162:   ; preds = %.thread.i.i160, %456
-  %.sroa.0.0.i.i163 = phi i64 [ %459, %.thread.i.i160 ], [ 0, %456 ]
-  %.sroa.2.0.i.i164 = phi i64 [ 4294967296, %.thread.i.i160 ], [ 0, %456 ]
-  %.sroa.0.0.insert.insert.i.i165 = or disjoint i64 %.sroa.2.0.i.i164, %.sroa.0.0.i.i163
-  %460 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i165, ptr %460, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i124:   ; preds = %.thread.i.i122, %485
+  %.sroa.2.0.i.i125 = phi i64 [ %489, %.thread.i.i122 ], [ 0, %485 ]
+  %490 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i125, ptr %490, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-461:                                              ; preds = %70
-  %462 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %463 = load i32, ptr %462, align 4, !tbaa !56
-  %.not.i169 = icmp sgt i32 %463, -1
-  br i1 %.not.i169, label %466, label %464
+491:                                              ; preds = %71
+  %492 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %493 = load i32, ptr %492, align 4, !tbaa !56
+  %.not.i129 = icmp sgt i32 %493, -1
+  br i1 %.not.i129, label %496, label %494
 
-464:                                              ; preds = %461
-  %465 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %465, align 1, !tbaa !41
+494:                                              ; preds = %491
+  %495 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %495, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-466:                                              ; preds = %461
+496:                                              ; preds = %491
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %14, i32 noundef -1) #23
-  %467 = load i32, ptr %14, align 4, !tbaa !54
-  store i32 %467, ptr %462, align 4, !tbaa !54
+  %497 = load i32, ptr %14, align 4, !tbaa !54
+  store i32 %497, ptr %492, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %468 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %469 = load i32, ptr %468, align 4, !tbaa !48
-  %470 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %469)
-  %471 = icmp eq i32 %470, 1
-  br i1 %471, label %.split.i.i176, label %.thread.i.i170
+  %498 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %499 = load i32, ptr %498, align 4, !tbaa !48
+  %500 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %499)
+  %501 = icmp eq i32 %500, 1
+  br i1 %501, label %.split.i.i134, label %.thread.i.i130
 
-.split.i.i176:                                    ; preds = %466
-  %472 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %469, i1 true)
-  switch i32 %472, label %.thread.i.i170 [
-    i32 3, label %473
-    i32 4, label %475
-    i32 5, label %477
-    i32 6, label %479
+.split.i.i134:                                    ; preds = %496
+  %502 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %499, i1 true)
+  switch i32 %502, label %.thread.i.i130 [
+    i32 3, label %503
+    i32 4, label %505
+    i32 5, label %507
+    i32 6, label %509
   ]
 
-473:                                              ; preds = %.split.i.i176
-  %474 = add nsw i32 %467, 3
-  br label %479
+503:                                              ; preds = %.split.i.i134
+  %504 = add nsw i32 %497, 3
+  br label %509
 
-475:                                              ; preds = %.split.i.i176
-  %476 = add nsw i32 %467, 2
-  br label %479
+505:                                              ; preds = %.split.i.i134
+  %506 = add nsw i32 %497, 2
+  br label %509
 
-477:                                              ; preds = %.split.i.i176
-  %478 = add nsw i32 %467, 1
-  br label %479
+507:                                              ; preds = %.split.i.i134
+  %508 = add nsw i32 %497, 1
+  br label %509
 
-479:                                              ; preds = %477, %475, %473, %.split.i.i176
-  %.0.i.i177 = phi i32 [ %474, %473 ], [ %476, %475 ], [ %478, %477 ], [ %467, %.split.i.i176 ]
-  %480 = icmp slt i32 %.0.i.i177, 0
-  br i1 %480, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i172, label %.thread.i.i170
+509:                                              ; preds = %507, %505, %503, %.split.i.i134
+  %.0.i.i135 = phi i32 [ %504, %503 ], [ %506, %505 ], [ %508, %507 ], [ %497, %.split.i.i134 ]
+  %510 = icmp slt i32 %.0.i.i135, 0
+  br i1 %510, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i132, label %.thread.i.i130
 
-.thread.i.i170:                                   ; preds = %479, %.split.i.i176, %466
-  %.04.i.i171 = phi i32 [ %.0.i.i177, %479 ], [ 0, %.split.i.i176 ], [ 0, %466 ]
-  %481 = shl nuw i32 1, %.04.i.i171
-  %482 = zext i32 %481 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i172
+.thread.i.i130:                                   ; preds = %509, %.split.i.i134, %496
+  %.04.i.i131 = phi i32 [ %.0.i.i135, %509 ], [ 0, %.split.i.i134 ], [ 0, %496 ]
+  %511 = shl nuw i32 1, %.04.i.i131
+  %512 = zext i32 %511 to i64
+  %513 = or disjoint i64 %512, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i132
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i172:   ; preds = %.thread.i.i170, %479
-  %.sroa.0.0.i.i173 = phi i64 [ %482, %.thread.i.i170 ], [ 0, %479 ]
-  %.sroa.2.0.i.i174 = phi i64 [ 4294967296, %.thread.i.i170 ], [ 0, %479 ]
-  %.sroa.0.0.insert.insert.i.i175 = or disjoint i64 %.sroa.2.0.i.i174, %.sroa.0.0.i.i173
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i175, ptr %483, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i132:   ; preds = %.thread.i.i130, %509
+  %.sroa.2.0.i.i133 = phi i64 [ %513, %.thread.i.i130 ], [ 0, %509 ]
+  %514 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i133, ptr %514, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-484:                                              ; preds = %70
-  %485 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %486 = load i32, ptr %485, align 4, !tbaa !56
-  %.not.i179 = icmp sgt i32 %486, 0
-  br i1 %.not.i179, label %489, label %487
+515:                                              ; preds = %71
+  %516 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %517 = load i32, ptr %516, align 4, !tbaa !56
+  %.not.i137 = icmp sgt i32 %517, 0
+  br i1 %.not.i137, label %520, label %518
 
-487:                                              ; preds = %484
-  %488 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %488, align 1, !tbaa !41
+518:                                              ; preds = %515
+  %519 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %519, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-489:                                              ; preds = %484
+520:                                              ; preds = %515
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %13, i32 noundef 0) #23
-  %490 = load i32, ptr %13, align 4, !tbaa !54
-  store i32 %490, ptr %485, align 4, !tbaa !54
+  %521 = load i32, ptr %13, align 4, !tbaa !54
+  store i32 %521, ptr %516, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %491 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %492 = load i32, ptr %491, align 4, !tbaa !48
-  %493 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %492)
-  %494 = icmp eq i32 %493, 1
-  br i1 %494, label %.split.i.i186, label %.thread.i.i180
+  %522 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %523 = load i32, ptr %522, align 4, !tbaa !48
+  %524 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %523)
+  %525 = icmp eq i32 %524, 1
+  br i1 %525, label %.split.i.i142, label %.thread.i.i138
 
-.split.i.i186:                                    ; preds = %489
-  %495 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %492, i1 true)
-  switch i32 %495, label %.thread.i.i180 [
-    i32 3, label %496
-    i32 4, label %498
-    i32 5, label %500
-    i32 6, label %502
+.split.i.i142:                                    ; preds = %520
+  %526 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %523, i1 true)
+  switch i32 %526, label %.thread.i.i138 [
+    i32 3, label %527
+    i32 4, label %529
+    i32 5, label %531
+    i32 6, label %533
   ]
 
-496:                                              ; preds = %.split.i.i186
-  %497 = add nsw i32 %490, 3
-  br label %502
+527:                                              ; preds = %.split.i.i142
+  %528 = add nsw i32 %521, 3
+  br label %533
 
-498:                                              ; preds = %.split.i.i186
-  %499 = add nsw i32 %490, 2
-  br label %502
+529:                                              ; preds = %.split.i.i142
+  %530 = add nsw i32 %521, 2
+  br label %533
 
-500:                                              ; preds = %.split.i.i186
-  %501 = add nsw i32 %490, 1
-  br label %502
+531:                                              ; preds = %.split.i.i142
+  %532 = add nsw i32 %521, 1
+  br label %533
 
-502:                                              ; preds = %500, %498, %496, %.split.i.i186
-  %.0.i.i187 = phi i32 [ %497, %496 ], [ %499, %498 ], [ %501, %500 ], [ %490, %.split.i.i186 ]
-  %503 = icmp slt i32 %.0.i.i187, 0
-  br i1 %503, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i182, label %.thread.i.i180
+533:                                              ; preds = %531, %529, %527, %.split.i.i142
+  %.0.i.i143 = phi i32 [ %528, %527 ], [ %530, %529 ], [ %532, %531 ], [ %521, %.split.i.i142 ]
+  %534 = icmp slt i32 %.0.i.i143, 0
+  br i1 %534, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i140, label %.thread.i.i138
 
-.thread.i.i180:                                   ; preds = %502, %.split.i.i186, %489
-  %.04.i.i181 = phi i32 [ %.0.i.i187, %502 ], [ 0, %.split.i.i186 ], [ 0, %489 ]
-  %504 = shl nuw i32 1, %.04.i.i181
-  %505 = zext i32 %504 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i182
+.thread.i.i138:                                   ; preds = %533, %.split.i.i142, %520
+  %.04.i.i139 = phi i32 [ %.0.i.i143, %533 ], [ 0, %.split.i.i142 ], [ 0, %520 ]
+  %535 = shl nuw i32 1, %.04.i.i139
+  %536 = zext i32 %535 to i64
+  %537 = or disjoint i64 %536, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i140
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i182:   ; preds = %.thread.i.i180, %502
-  %.sroa.0.0.i.i183 = phi i64 [ %505, %.thread.i.i180 ], [ 0, %502 ]
-  %.sroa.2.0.i.i184 = phi i64 [ 4294967296, %.thread.i.i180 ], [ 0, %502 ]
-  %.sroa.0.0.insert.insert.i.i185 = or disjoint i64 %.sroa.2.0.i.i184, %.sroa.0.0.i.i183
-  %506 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i185, ptr %506, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i140:   ; preds = %.thread.i.i138, %533
+  %.sroa.2.0.i.i141 = phi i64 [ %537, %.thread.i.i138 ], [ 0, %533 ]
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i141, ptr %538, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-507:                                              ; preds = %70
-  %508 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %509 = load i32, ptr %508, align 4, !tbaa !56
-  %.not.i189 = icmp sgt i32 %509, 1
-  br i1 %.not.i189, label %512, label %510
+539:                                              ; preds = %71
+  %540 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %541 = load i32, ptr %540, align 4, !tbaa !56
+  %.not.i145 = icmp sgt i32 %541, 1
+  br i1 %.not.i145, label %544, label %542
 
-510:                                              ; preds = %507
-  %511 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %511, align 1, !tbaa !41
+542:                                              ; preds = %539
+  %543 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %543, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-512:                                              ; preds = %507
+544:                                              ; preds = %539
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %12, i32 noundef 1) #23
-  %513 = load i32, ptr %12, align 4, !tbaa !54
-  store i32 %513, ptr %508, align 4, !tbaa !54
+  %545 = load i32, ptr %12, align 4, !tbaa !54
+  store i32 %545, ptr %540, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %514 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %515 = load i32, ptr %514, align 4, !tbaa !48
-  %516 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %515)
-  %517 = icmp eq i32 %516, 1
-  br i1 %517, label %.split.i.i196, label %.thread.i.i190
+  %546 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %547 = load i32, ptr %546, align 4, !tbaa !48
+  %548 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %547)
+  %549 = icmp eq i32 %548, 1
+  br i1 %549, label %.split.i.i150, label %.thread.i.i146
 
-.split.i.i196:                                    ; preds = %512
-  %518 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %515, i1 true)
-  switch i32 %518, label %.thread.i.i190 [
-    i32 3, label %519
-    i32 4, label %521
-    i32 5, label %523
-    i32 6, label %525
+.split.i.i150:                                    ; preds = %544
+  %550 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %547, i1 true)
+  switch i32 %550, label %.thread.i.i146 [
+    i32 3, label %551
+    i32 4, label %553
+    i32 5, label %555
+    i32 6, label %557
   ]
 
-519:                                              ; preds = %.split.i.i196
-  %520 = add nsw i32 %513, 3
-  br label %525
+551:                                              ; preds = %.split.i.i150
+  %552 = add nsw i32 %545, 3
+  br label %557
 
-521:                                              ; preds = %.split.i.i196
-  %522 = add nsw i32 %513, 2
-  br label %525
+553:                                              ; preds = %.split.i.i150
+  %554 = add nsw i32 %545, 2
+  br label %557
 
-523:                                              ; preds = %.split.i.i196
-  %524 = add nsw i32 %513, 1
-  br label %525
+555:                                              ; preds = %.split.i.i150
+  %556 = add nsw i32 %545, 1
+  br label %557
 
-525:                                              ; preds = %523, %521, %519, %.split.i.i196
-  %.0.i.i197 = phi i32 [ %520, %519 ], [ %522, %521 ], [ %524, %523 ], [ %513, %.split.i.i196 ]
-  %526 = icmp slt i32 %.0.i.i197, 0
-  br i1 %526, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192, label %.thread.i.i190
+557:                                              ; preds = %555, %553, %551, %.split.i.i150
+  %.0.i.i151 = phi i32 [ %552, %551 ], [ %554, %553 ], [ %556, %555 ], [ %545, %.split.i.i150 ]
+  %558 = icmp slt i32 %.0.i.i151, 0
+  br i1 %558, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i148, label %.thread.i.i146
 
-.thread.i.i190:                                   ; preds = %525, %.split.i.i196, %512
-  %.04.i.i191 = phi i32 [ %.0.i.i197, %525 ], [ 0, %.split.i.i196 ], [ 0, %512 ]
-  %527 = shl nuw i32 1, %.04.i.i191
-  %528 = zext i32 %527 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192
+.thread.i.i146:                                   ; preds = %557, %.split.i.i150, %544
+  %.04.i.i147 = phi i32 [ %.0.i.i151, %557 ], [ 0, %.split.i.i150 ], [ 0, %544 ]
+  %559 = shl nuw i32 1, %.04.i.i147
+  %560 = zext i32 %559 to i64
+  %561 = or disjoint i64 %560, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i148
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192:   ; preds = %.thread.i.i190, %525
-  %.sroa.0.0.i.i193 = phi i64 [ %528, %.thread.i.i190 ], [ 0, %525 ]
-  %.sroa.2.0.i.i194 = phi i64 [ 4294967296, %.thread.i.i190 ], [ 0, %525 ]
-  %.sroa.0.0.insert.insert.i.i195 = or disjoint i64 %.sroa.2.0.i.i194, %.sroa.0.0.i.i193
-  %529 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i195, ptr %529, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i148:   ; preds = %.thread.i.i146, %557
+  %.sroa.2.0.i.i149 = phi i64 [ %561, %.thread.i.i146 ], [ 0, %557 ]
+  %562 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i149, ptr %562, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-530:                                              ; preds = %70
-  %531 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %532 = load i32, ptr %531, align 4, !tbaa !56
-  %.not.i199 = icmp sgt i32 %532, 2
-  br i1 %.not.i199, label %535, label %533
+563:                                              ; preds = %71
+  %564 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %565 = load i32, ptr %564, align 4, !tbaa !56
+  %.not.i153 = icmp sgt i32 %565, 2
+  br i1 %.not.i153, label %568, label %566
 
-533:                                              ; preds = %530
-  %534 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %534, align 1, !tbaa !41
+566:                                              ; preds = %563
+  %567 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %567, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-535:                                              ; preds = %530
+568:                                              ; preds = %563
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %11, i32 noundef 2) #23
-  %536 = load i32, ptr %11, align 4, !tbaa !54
-  store i32 %536, ptr %531, align 4, !tbaa !54
+  %569 = load i32, ptr %11, align 4, !tbaa !54
+  store i32 %569, ptr %564, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %537 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %538 = load i32, ptr %537, align 4, !tbaa !48
-  %539 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %538)
-  %540 = icmp eq i32 %539, 1
-  br i1 %540, label %.split.i.i206, label %.thread.i.i200
+  %570 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %571 = load i32, ptr %570, align 4, !tbaa !48
+  %572 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %571)
+  %573 = icmp eq i32 %572, 1
+  br i1 %573, label %.split.i.i158, label %.thread.i.i154
 
-.split.i.i206:                                    ; preds = %535
-  %541 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %538, i1 true)
-  switch i32 %541, label %.thread.i.i200 [
-    i32 3, label %542
-    i32 4, label %544
-    i32 5, label %546
-    i32 6, label %548
+.split.i.i158:                                    ; preds = %568
+  %574 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %571, i1 true)
+  switch i32 %574, label %.thread.i.i154 [
+    i32 3, label %575
+    i32 4, label %577
+    i32 5, label %579
+    i32 6, label %581
   ]
 
-542:                                              ; preds = %.split.i.i206
-  %543 = add nsw i32 %536, 3
-  br label %548
+575:                                              ; preds = %.split.i.i158
+  %576 = add nsw i32 %569, 3
+  br label %581
 
-544:                                              ; preds = %.split.i.i206
-  %545 = add nsw i32 %536, 2
-  br label %548
+577:                                              ; preds = %.split.i.i158
+  %578 = add nsw i32 %569, 2
+  br label %581
 
-546:                                              ; preds = %.split.i.i206
-  %547 = add nsw i32 %536, 1
-  br label %548
+579:                                              ; preds = %.split.i.i158
+  %580 = add nsw i32 %569, 1
+  br label %581
 
-548:                                              ; preds = %546, %544, %542, %.split.i.i206
-  %.0.i.i207 = phi i32 [ %543, %542 ], [ %545, %544 ], [ %547, %546 ], [ %536, %.split.i.i206 ]
-  %549 = icmp slt i32 %.0.i.i207, 0
-  br i1 %549, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i202, label %.thread.i.i200
+581:                                              ; preds = %579, %577, %575, %.split.i.i158
+  %.0.i.i159 = phi i32 [ %576, %575 ], [ %578, %577 ], [ %580, %579 ], [ %569, %.split.i.i158 ]
+  %582 = icmp slt i32 %.0.i.i159, 0
+  br i1 %582, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i156, label %.thread.i.i154
 
-.thread.i.i200:                                   ; preds = %548, %.split.i.i206, %535
-  %.04.i.i201 = phi i32 [ %.0.i.i207, %548 ], [ 0, %.split.i.i206 ], [ 0, %535 ]
-  %550 = shl nuw i32 1, %.04.i.i201
-  %551 = zext i32 %550 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i202
+.thread.i.i154:                                   ; preds = %581, %.split.i.i158, %568
+  %.04.i.i155 = phi i32 [ %.0.i.i159, %581 ], [ 0, %.split.i.i158 ], [ 0, %568 ]
+  %583 = shl nuw i32 1, %.04.i.i155
+  %584 = zext i32 %583 to i64
+  %585 = or disjoint i64 %584, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i156
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i202:   ; preds = %.thread.i.i200, %548
-  %.sroa.0.0.i.i203 = phi i64 [ %551, %.thread.i.i200 ], [ 0, %548 ]
-  %.sroa.2.0.i.i204 = phi i64 [ 4294967296, %.thread.i.i200 ], [ 0, %548 ]
-  %.sroa.0.0.insert.insert.i.i205 = or disjoint i64 %.sroa.2.0.i.i204, %.sroa.0.0.i.i203
-  %552 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i205, ptr %552, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i156:   ; preds = %.thread.i.i154, %581
+  %.sroa.2.0.i.i157 = phi i64 [ %585, %.thread.i.i154 ], [ 0, %581 ]
+  %586 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i157, ptr %586, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-553:                                              ; preds = %70
-  %554 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %555 = load i32, ptr %554, align 4, !tbaa !56
-  %.not.i209 = icmp sgt i32 %555, 3
-  br i1 %.not.i209, label %558, label %556
+587:                                              ; preds = %71
+  %588 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %589 = load i32, ptr %588, align 4, !tbaa !56
+  %.not.i161 = icmp sgt i32 %589, 3
+  br i1 %.not.i161, label %592, label %590
 
-556:                                              ; preds = %553
-  %557 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %557, align 1, !tbaa !41
+590:                                              ; preds = %587
+  %591 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %591, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-558:                                              ; preds = %553
+592:                                              ; preds = %587
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %10, i32 noundef 3) #23
-  %559 = load i32, ptr %10, align 4, !tbaa !54
-  store i32 %559, ptr %554, align 4, !tbaa !54
+  %593 = load i32, ptr %10, align 4, !tbaa !54
+  store i32 %593, ptr %588, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %560 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %561 = load i32, ptr %560, align 4, !tbaa !48
-  %562 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %561)
-  %563 = icmp eq i32 %562, 1
-  br i1 %563, label %.split.i.i216, label %.thread.i.i210
+  %594 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %595 = load i32, ptr %594, align 4, !tbaa !48
+  %596 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %595)
+  %597 = icmp eq i32 %596, 1
+  br i1 %597, label %.split.i.i166, label %.thread.i.i162
 
-.split.i.i216:                                    ; preds = %558
-  %564 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %561, i1 true)
-  switch i32 %564, label %.thread.i.i210 [
-    i32 3, label %565
-    i32 4, label %567
-    i32 5, label %569
-    i32 6, label %571
+.split.i.i166:                                    ; preds = %592
+  %598 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %595, i1 true)
+  switch i32 %598, label %.thread.i.i162 [
+    i32 3, label %599
+    i32 4, label %601
+    i32 5, label %603
+    i32 6, label %605
   ]
 
-565:                                              ; preds = %.split.i.i216
-  %566 = add nsw i32 %559, 3
-  br label %571
+599:                                              ; preds = %.split.i.i166
+  %600 = add nsw i32 %593, 3
+  br label %605
 
-567:                                              ; preds = %.split.i.i216
-  %568 = add nsw i32 %559, 2
-  br label %571
+601:                                              ; preds = %.split.i.i166
+  %602 = add nsw i32 %593, 2
+  br label %605
 
-569:                                              ; preds = %.split.i.i216
-  %570 = add nsw i32 %559, 1
-  br label %571
+603:                                              ; preds = %.split.i.i166
+  %604 = add nsw i32 %593, 1
+  br label %605
 
-571:                                              ; preds = %569, %567, %565, %.split.i.i216
-  %.0.i.i217 = phi i32 [ %566, %565 ], [ %568, %567 ], [ %570, %569 ], [ %559, %.split.i.i216 ]
-  %572 = icmp slt i32 %.0.i.i217, 0
-  br i1 %572, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i212, label %.thread.i.i210
+605:                                              ; preds = %603, %601, %599, %.split.i.i166
+  %.0.i.i167 = phi i32 [ %600, %599 ], [ %602, %601 ], [ %604, %603 ], [ %593, %.split.i.i166 ]
+  %606 = icmp slt i32 %.0.i.i167, 0
+  br i1 %606, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i164, label %.thread.i.i162
 
-.thread.i.i210:                                   ; preds = %571, %.split.i.i216, %558
-  %.04.i.i211 = phi i32 [ %.0.i.i217, %571 ], [ 0, %.split.i.i216 ], [ 0, %558 ]
-  %573 = shl nuw i32 1, %.04.i.i211
-  %574 = zext i32 %573 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i212
+.thread.i.i162:                                   ; preds = %605, %.split.i.i166, %592
+  %.04.i.i163 = phi i32 [ %.0.i.i167, %605 ], [ 0, %.split.i.i166 ], [ 0, %592 ]
+  %607 = shl nuw i32 1, %.04.i.i163
+  %608 = zext i32 %607 to i64
+  %609 = or disjoint i64 %608, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i164
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i212:   ; preds = %.thread.i.i210, %571
-  %.sroa.0.0.i.i213 = phi i64 [ %574, %.thread.i.i210 ], [ 0, %571 ]
-  %.sroa.2.0.i.i214 = phi i64 [ 4294967296, %.thread.i.i210 ], [ 0, %571 ]
-  %.sroa.0.0.insert.insert.i.i215 = or disjoint i64 %.sroa.2.0.i.i214, %.sroa.0.0.i.i213
-  %575 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i215, ptr %575, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i164:   ; preds = %.thread.i.i162, %605
+  %.sroa.2.0.i.i165 = phi i64 [ %609, %.thread.i.i162 ], [ 0, %605 ]
+  %610 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i165, ptr %610, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-576:                                              ; preds = %70
-  %577 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %578 = load i32, ptr %577, align 4, !tbaa !56
-  %579 = icmp slt i32 %578, -3
-  br i1 %579, label %580, label %582
+611:                                              ; preds = %71
+  %612 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %613 = load i32, ptr %612, align 4, !tbaa !56
+  %614 = icmp slt i32 %613, -3
+  br i1 %614, label %615, label %617
 
-580:                                              ; preds = %576
-  %581 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %581, align 1, !tbaa !41
+615:                                              ; preds = %611
+  %616 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %616, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-582:                                              ; preds = %576
+617:                                              ; preds = %611
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef -3) #23
-  %583 = load i32, ptr %9, align 4, !tbaa !54
-  store i32 %583, ptr %577, align 4, !tbaa !54
+  %618 = load i32, ptr %9, align 4, !tbaa !54
+  store i32 %618, ptr %612, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %584 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %585 = load i32, ptr %584, align 4, !tbaa !48
-  %586 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %585)
-  %587 = icmp eq i32 %586, 1
-  br i1 %587, label %.split.i.i225, label %.thread.i.i219
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %620 = load i32, ptr %619, align 4, !tbaa !48
+  %621 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %620)
+  %622 = icmp eq i32 %621, 1
+  br i1 %622, label %.split.i.i173, label %.thread.i.i169
 
-.split.i.i225:                                    ; preds = %582
-  %588 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %585, i1 true)
-  switch i32 %588, label %.thread.i.i219 [
-    i32 3, label %589
-    i32 4, label %591
-    i32 5, label %593
-    i32 6, label %595
+.split.i.i173:                                    ; preds = %617
+  %623 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %620, i1 true)
+  switch i32 %623, label %.thread.i.i169 [
+    i32 3, label %624
+    i32 4, label %626
+    i32 5, label %628
+    i32 6, label %630
   ]
 
-589:                                              ; preds = %.split.i.i225
-  %590 = add nsw i32 %583, 3
-  br label %595
+624:                                              ; preds = %.split.i.i173
+  %625 = add nsw i32 %618, 3
+  br label %630
 
-591:                                              ; preds = %.split.i.i225
-  %592 = add nsw i32 %583, 2
-  br label %595
+626:                                              ; preds = %.split.i.i173
+  %627 = add nsw i32 %618, 2
+  br label %630
 
-593:                                              ; preds = %.split.i.i225
-  %594 = add nsw i32 %583, 1
-  br label %595
+628:                                              ; preds = %.split.i.i173
+  %629 = add nsw i32 %618, 1
+  br label %630
 
-595:                                              ; preds = %593, %591, %589, %.split.i.i225
-  %.0.i.i226 = phi i32 [ %590, %589 ], [ %592, %591 ], [ %594, %593 ], [ %583, %.split.i.i225 ]
-  %596 = icmp slt i32 %.0.i.i226, 0
-  br i1 %596, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i221, label %.thread.i.i219
+630:                                              ; preds = %628, %626, %624, %.split.i.i173
+  %.0.i.i174 = phi i32 [ %625, %624 ], [ %627, %626 ], [ %629, %628 ], [ %618, %.split.i.i173 ]
+  %631 = icmp slt i32 %.0.i.i174, 0
+  br i1 %631, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i171, label %.thread.i.i169
 
-.thread.i.i219:                                   ; preds = %595, %.split.i.i225, %582
-  %.04.i.i220 = phi i32 [ %.0.i.i226, %595 ], [ 0, %.split.i.i225 ], [ 0, %582 ]
-  %597 = shl nuw i32 1, %.04.i.i220
-  %598 = zext i32 %597 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i221
+.thread.i.i169:                                   ; preds = %630, %.split.i.i173, %617
+  %.04.i.i170 = phi i32 [ %.0.i.i174, %630 ], [ 0, %.split.i.i173 ], [ 0, %617 ]
+  %632 = shl nuw i32 1, %.04.i.i170
+  %633 = zext i32 %632 to i64
+  %634 = or disjoint i64 %633, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i171
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i221:   ; preds = %.thread.i.i219, %595
-  %.sroa.0.0.i.i222 = phi i64 [ %598, %.thread.i.i219 ], [ 0, %595 ]
-  %.sroa.2.0.i.i223 = phi i64 [ 4294967296, %.thread.i.i219 ], [ 0, %595 ]
-  %.sroa.0.0.insert.insert.i.i224 = or disjoint i64 %.sroa.2.0.i.i223, %.sroa.0.0.i.i222
-  %599 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i224, ptr %599, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i171:   ; preds = %.thread.i.i169, %630
+  %.sroa.2.0.i.i172 = phi i64 [ %634, %.thread.i.i169 ], [ 0, %630 ]
+  %635 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i172, ptr %635, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-600:                                              ; preds = %70
-  %601 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %602 = load i32, ptr %601, align 4, !tbaa !56
-  %603 = icmp slt i32 %602, -2
-  br i1 %603, label %604, label %606
+636:                                              ; preds = %71
+  %637 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %638 = load i32, ptr %637, align 4, !tbaa !56
+  %639 = icmp slt i32 %638, -2
+  br i1 %639, label %640, label %642
 
-604:                                              ; preds = %600
-  %605 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %605, align 1, !tbaa !41
+640:                                              ; preds = %636
+  %641 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %641, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-606:                                              ; preds = %600
+642:                                              ; preds = %636
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %8, i32 noundef -2) #23
-  %607 = load i32, ptr %8, align 4, !tbaa !54
-  store i32 %607, ptr %601, align 4, !tbaa !54
+  %643 = load i32, ptr %8, align 4, !tbaa !54
+  store i32 %643, ptr %637, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %608 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %609 = load i32, ptr %608, align 4, !tbaa !48
-  %610 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %609)
-  %611 = icmp eq i32 %610, 1
-  br i1 %611, label %.split.i.i234, label %.thread.i.i228
+  %644 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %645 = load i32, ptr %644, align 4, !tbaa !48
+  %646 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %645)
+  %647 = icmp eq i32 %646, 1
+  br i1 %647, label %.split.i.i180, label %.thread.i.i176
 
-.split.i.i234:                                    ; preds = %606
-  %612 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %609, i1 true)
-  switch i32 %612, label %.thread.i.i228 [
-    i32 3, label %613
-    i32 4, label %615
-    i32 5, label %617
-    i32 6, label %619
+.split.i.i180:                                    ; preds = %642
+  %648 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %645, i1 true)
+  switch i32 %648, label %.thread.i.i176 [
+    i32 3, label %649
+    i32 4, label %651
+    i32 5, label %653
+    i32 6, label %655
   ]
 
-613:                                              ; preds = %.split.i.i234
-  %614 = add nsw i32 %607, 3
-  br label %619
+649:                                              ; preds = %.split.i.i180
+  %650 = add nsw i32 %643, 3
+  br label %655
 
-615:                                              ; preds = %.split.i.i234
-  %616 = add nsw i32 %607, 2
-  br label %619
+651:                                              ; preds = %.split.i.i180
+  %652 = add nsw i32 %643, 2
+  br label %655
 
-617:                                              ; preds = %.split.i.i234
-  %618 = add nsw i32 %607, 1
-  br label %619
+653:                                              ; preds = %.split.i.i180
+  %654 = add nsw i32 %643, 1
+  br label %655
 
-619:                                              ; preds = %617, %615, %613, %.split.i.i234
-  %.0.i.i235 = phi i32 [ %614, %613 ], [ %616, %615 ], [ %618, %617 ], [ %607, %.split.i.i234 ]
-  %620 = icmp slt i32 %.0.i.i235, 0
-  br i1 %620, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i230, label %.thread.i.i228
+655:                                              ; preds = %653, %651, %649, %.split.i.i180
+  %.0.i.i181 = phi i32 [ %650, %649 ], [ %652, %651 ], [ %654, %653 ], [ %643, %.split.i.i180 ]
+  %656 = icmp slt i32 %.0.i.i181, 0
+  br i1 %656, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i178, label %.thread.i.i176
 
-.thread.i.i228:                                   ; preds = %619, %.split.i.i234, %606
-  %.04.i.i229 = phi i32 [ %.0.i.i235, %619 ], [ 0, %.split.i.i234 ], [ 0, %606 ]
-  %621 = shl nuw i32 1, %.04.i.i229
-  %622 = zext i32 %621 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i230
+.thread.i.i176:                                   ; preds = %655, %.split.i.i180, %642
+  %.04.i.i177 = phi i32 [ %.0.i.i181, %655 ], [ 0, %.split.i.i180 ], [ 0, %642 ]
+  %657 = shl nuw i32 1, %.04.i.i177
+  %658 = zext i32 %657 to i64
+  %659 = or disjoint i64 %658, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i178
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i230:   ; preds = %.thread.i.i228, %619
-  %.sroa.0.0.i.i231 = phi i64 [ %622, %.thread.i.i228 ], [ 0, %619 ]
-  %.sroa.2.0.i.i232 = phi i64 [ 4294967296, %.thread.i.i228 ], [ 0, %619 ]
-  %.sroa.0.0.insert.insert.i.i233 = or disjoint i64 %.sroa.2.0.i.i232, %.sroa.0.0.i.i231
-  %623 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i233, ptr %623, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i178:   ; preds = %.thread.i.i176, %655
+  %.sroa.2.0.i.i179 = phi i64 [ %659, %.thread.i.i176 ], [ 0, %655 ]
+  %660 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i179, ptr %660, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-624:                                              ; preds = %70
-  %625 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %626 = load i32, ptr %625, align 4, !tbaa !56
-  %627 = icmp slt i32 %626, -1
-  br i1 %627, label %628, label %630
+661:                                              ; preds = %71
+  %662 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %663 = load i32, ptr %662, align 4, !tbaa !56
+  %664 = icmp slt i32 %663, -1
+  br i1 %664, label %665, label %667
 
-628:                                              ; preds = %624
-  %629 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %629, align 1, !tbaa !41
+665:                                              ; preds = %661
+  %666 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %666, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-630:                                              ; preds = %624
+667:                                              ; preds = %661
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef -1) #23
-  %631 = load i32, ptr %7, align 4, !tbaa !54
-  store i32 %631, ptr %625, align 4, !tbaa !54
+  %668 = load i32, ptr %7, align 4, !tbaa !54
+  store i32 %668, ptr %662, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %632 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %633 = load i32, ptr %632, align 4, !tbaa !48
-  %634 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %633)
-  %635 = icmp eq i32 %634, 1
-  br i1 %635, label %.split.i.i243, label %.thread.i.i237
+  %669 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %670 = load i32, ptr %669, align 4, !tbaa !48
+  %671 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %670)
+  %672 = icmp eq i32 %671, 1
+  br i1 %672, label %.split.i.i187, label %.thread.i.i183
 
-.split.i.i243:                                    ; preds = %630
-  %636 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %633, i1 true)
-  switch i32 %636, label %.thread.i.i237 [
-    i32 3, label %637
-    i32 4, label %639
-    i32 5, label %641
-    i32 6, label %643
+.split.i.i187:                                    ; preds = %667
+  %673 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %670, i1 true)
+  switch i32 %673, label %.thread.i.i183 [
+    i32 3, label %674
+    i32 4, label %676
+    i32 5, label %678
+    i32 6, label %680
   ]
 
-637:                                              ; preds = %.split.i.i243
-  %638 = add nsw i32 %631, 3
-  br label %643
+674:                                              ; preds = %.split.i.i187
+  %675 = add nsw i32 %668, 3
+  br label %680
 
-639:                                              ; preds = %.split.i.i243
-  %640 = add nsw i32 %631, 2
-  br label %643
+676:                                              ; preds = %.split.i.i187
+  %677 = add nsw i32 %668, 2
+  br label %680
 
-641:                                              ; preds = %.split.i.i243
-  %642 = add nsw i32 %631, 1
-  br label %643
+678:                                              ; preds = %.split.i.i187
+  %679 = add nsw i32 %668, 1
+  br label %680
 
-643:                                              ; preds = %641, %639, %637, %.split.i.i243
-  %.0.i.i244 = phi i32 [ %638, %637 ], [ %640, %639 ], [ %642, %641 ], [ %631, %.split.i.i243 ]
-  %644 = icmp slt i32 %.0.i.i244, 0
-  br i1 %644, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i239, label %.thread.i.i237
+680:                                              ; preds = %678, %676, %674, %.split.i.i187
+  %.0.i.i188 = phi i32 [ %675, %674 ], [ %677, %676 ], [ %679, %678 ], [ %668, %.split.i.i187 ]
+  %681 = icmp slt i32 %.0.i.i188, 0
+  br i1 %681, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i185, label %.thread.i.i183
 
-.thread.i.i237:                                   ; preds = %643, %.split.i.i243, %630
-  %.04.i.i238 = phi i32 [ %.0.i.i244, %643 ], [ 0, %.split.i.i243 ], [ 0, %630 ]
-  %645 = shl nuw i32 1, %.04.i.i238
-  %646 = zext i32 %645 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i239
+.thread.i.i183:                                   ; preds = %680, %.split.i.i187, %667
+  %.04.i.i184 = phi i32 [ %.0.i.i188, %680 ], [ 0, %.split.i.i187 ], [ 0, %667 ]
+  %682 = shl nuw i32 1, %.04.i.i184
+  %683 = zext i32 %682 to i64
+  %684 = or disjoint i64 %683, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i185
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i239:   ; preds = %.thread.i.i237, %643
-  %.sroa.0.0.i.i240 = phi i64 [ %646, %.thread.i.i237 ], [ 0, %643 ]
-  %.sroa.2.0.i.i241 = phi i64 [ 4294967296, %.thread.i.i237 ], [ 0, %643 ]
-  %.sroa.0.0.insert.insert.i.i242 = or disjoint i64 %.sroa.2.0.i.i241, %.sroa.0.0.i.i240
-  %647 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i242, ptr %647, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i185:   ; preds = %.thread.i.i183, %680
+  %.sroa.2.0.i.i186 = phi i64 [ %684, %.thread.i.i183 ], [ 0, %680 ]
+  %685 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i186, ptr %685, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-648:                                              ; preds = %70
-  %649 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %650 = load i32, ptr %649, align 4, !tbaa !56
-  %651 = icmp slt i32 %650, 0
-  br i1 %651, label %652, label %654
+686:                                              ; preds = %71
+  %687 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %688 = load i32, ptr %687, align 4, !tbaa !56
+  %689 = icmp slt i32 %688, 0
+  br i1 %689, label %690, label %692
 
-652:                                              ; preds = %648
-  %653 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %653, align 1, !tbaa !41
+690:                                              ; preds = %686
+  %691 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %691, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-654:                                              ; preds = %648
+692:                                              ; preds = %686
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %6, i32 noundef 0) #23
-  %655 = load i32, ptr %6, align 4, !tbaa !54
-  store i32 %655, ptr %649, align 4, !tbaa !54
+  %693 = load i32, ptr %6, align 4, !tbaa !54
+  store i32 %693, ptr %687, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %656 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %657 = load i32, ptr %656, align 4, !tbaa !48
-  %658 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %657)
-  %659 = icmp eq i32 %658, 1
-  br i1 %659, label %.split.i.i252, label %.thread.i.i246
+  %694 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %695 = load i32, ptr %694, align 4, !tbaa !48
+  %696 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %695)
+  %697 = icmp eq i32 %696, 1
+  br i1 %697, label %.split.i.i194, label %.thread.i.i190
 
-.split.i.i252:                                    ; preds = %654
-  %660 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %657, i1 true)
-  switch i32 %660, label %.thread.i.i246 [
-    i32 3, label %661
-    i32 4, label %663
-    i32 5, label %665
-    i32 6, label %667
+.split.i.i194:                                    ; preds = %692
+  %698 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %695, i1 true)
+  switch i32 %698, label %.thread.i.i190 [
+    i32 3, label %699
+    i32 4, label %701
+    i32 5, label %703
+    i32 6, label %705
   ]
 
-661:                                              ; preds = %.split.i.i252
-  %662 = add nsw i32 %655, 3
-  br label %667
+699:                                              ; preds = %.split.i.i194
+  %700 = add nsw i32 %693, 3
+  br label %705
 
-663:                                              ; preds = %.split.i.i252
-  %664 = add nsw i32 %655, 2
-  br label %667
+701:                                              ; preds = %.split.i.i194
+  %702 = add nsw i32 %693, 2
+  br label %705
 
-665:                                              ; preds = %.split.i.i252
-  %666 = add nsw i32 %655, 1
-  br label %667
+703:                                              ; preds = %.split.i.i194
+  %704 = add nsw i32 %693, 1
+  br label %705
 
-667:                                              ; preds = %665, %663, %661, %.split.i.i252
-  %.0.i.i253 = phi i32 [ %662, %661 ], [ %664, %663 ], [ %666, %665 ], [ %655, %.split.i.i252 ]
-  %668 = icmp slt i32 %.0.i.i253, 0
-  br i1 %668, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i248, label %.thread.i.i246
+705:                                              ; preds = %703, %701, %699, %.split.i.i194
+  %.0.i.i195 = phi i32 [ %700, %699 ], [ %702, %701 ], [ %704, %703 ], [ %693, %.split.i.i194 ]
+  %706 = icmp slt i32 %.0.i.i195, 0
+  br i1 %706, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192, label %.thread.i.i190
 
-.thread.i.i246:                                   ; preds = %667, %.split.i.i252, %654
-  %.04.i.i247 = phi i32 [ %.0.i.i253, %667 ], [ 0, %.split.i.i252 ], [ 0, %654 ]
-  %669 = shl nuw i32 1, %.04.i.i247
-  %670 = zext i32 %669 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i248
+.thread.i.i190:                                   ; preds = %705, %.split.i.i194, %692
+  %.04.i.i191 = phi i32 [ %.0.i.i195, %705 ], [ 0, %.split.i.i194 ], [ 0, %692 ]
+  %707 = shl nuw i32 1, %.04.i.i191
+  %708 = zext i32 %707 to i64
+  %709 = or disjoint i64 %708, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i248:   ; preds = %.thread.i.i246, %667
-  %.sroa.0.0.i.i249 = phi i64 [ %670, %.thread.i.i246 ], [ 0, %667 ]
-  %.sroa.2.0.i.i250 = phi i64 [ 4294967296, %.thread.i.i246 ], [ 0, %667 ]
-  %.sroa.0.0.insert.insert.i.i251 = or disjoint i64 %.sroa.2.0.i.i250, %.sroa.0.0.i.i249
-  %671 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i251, ptr %671, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192:   ; preds = %.thread.i.i190, %705
+  %.sroa.2.0.i.i193 = phi i64 [ %709, %.thread.i.i190 ], [ 0, %705 ]
+  %710 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i193, ptr %710, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-672:                                              ; preds = %70
-  %673 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %674 = load i32, ptr %673, align 4, !tbaa !56
-  %675 = icmp slt i32 %674, 1
-  br i1 %675, label %676, label %678
+711:                                              ; preds = %71
+  %712 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %713 = load i32, ptr %712, align 4, !tbaa !56
+  %714 = icmp slt i32 %713, 1
+  br i1 %714, label %715, label %717
 
-676:                                              ; preds = %672
-  %677 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %677, align 1, !tbaa !41
+715:                                              ; preds = %711
+  %716 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %716, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-678:                                              ; preds = %672
+717:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1) #23
-  %679 = load i32, ptr %5, align 4, !tbaa !54
-  store i32 %679, ptr %673, align 4, !tbaa !54
+  %718 = load i32, ptr %5, align 4, !tbaa !54
+  store i32 %718, ptr %712, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %680 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %681 = load i32, ptr %680, align 4, !tbaa !48
-  %682 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %681)
-  %683 = icmp eq i32 %682, 1
-  br i1 %683, label %.split.i.i261, label %.thread.i.i255
+  %719 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %720 = load i32, ptr %719, align 4, !tbaa !48
+  %721 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %720)
+  %722 = icmp eq i32 %721, 1
+  br i1 %722, label %.split.i.i201, label %.thread.i.i197
 
-.split.i.i261:                                    ; preds = %678
-  %684 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %681, i1 true)
-  switch i32 %684, label %.thread.i.i255 [
-    i32 3, label %685
-    i32 4, label %687
-    i32 5, label %689
-    i32 6, label %691
+.split.i.i201:                                    ; preds = %717
+  %723 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %720, i1 true)
+  switch i32 %723, label %.thread.i.i197 [
+    i32 3, label %724
+    i32 4, label %726
+    i32 5, label %728
+    i32 6, label %730
   ]
 
-685:                                              ; preds = %.split.i.i261
-  %686 = add nsw i32 %679, 3
-  br label %691
+724:                                              ; preds = %.split.i.i201
+  %725 = add nsw i32 %718, 3
+  br label %730
 
-687:                                              ; preds = %.split.i.i261
-  %688 = add nsw i32 %679, 2
-  br label %691
+726:                                              ; preds = %.split.i.i201
+  %727 = add nsw i32 %718, 2
+  br label %730
 
-689:                                              ; preds = %.split.i.i261
-  %690 = add nsw i32 %679, 1
-  br label %691
+728:                                              ; preds = %.split.i.i201
+  %729 = add nsw i32 %718, 1
+  br label %730
 
-691:                                              ; preds = %689, %687, %685, %.split.i.i261
-  %.0.i.i262 = phi i32 [ %686, %685 ], [ %688, %687 ], [ %690, %689 ], [ %679, %.split.i.i261 ]
-  %692 = icmp slt i32 %.0.i.i262, 0
-  br i1 %692, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i257, label %.thread.i.i255
+730:                                              ; preds = %728, %726, %724, %.split.i.i201
+  %.0.i.i202 = phi i32 [ %725, %724 ], [ %727, %726 ], [ %729, %728 ], [ %718, %.split.i.i201 ]
+  %731 = icmp slt i32 %.0.i.i202, 0
+  br i1 %731, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i199, label %.thread.i.i197
 
-.thread.i.i255:                                   ; preds = %691, %.split.i.i261, %678
-  %.04.i.i256 = phi i32 [ %.0.i.i262, %691 ], [ 0, %.split.i.i261 ], [ 0, %678 ]
-  %693 = shl nuw i32 1, %.04.i.i256
-  %694 = zext i32 %693 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i257
+.thread.i.i197:                                   ; preds = %730, %.split.i.i201, %717
+  %.04.i.i198 = phi i32 [ %.0.i.i202, %730 ], [ 0, %.split.i.i201 ], [ 0, %717 ]
+  %732 = shl nuw i32 1, %.04.i.i198
+  %733 = zext i32 %732 to i64
+  %734 = or disjoint i64 %733, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i199
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i257:   ; preds = %.thread.i.i255, %691
-  %.sroa.0.0.i.i258 = phi i64 [ %694, %.thread.i.i255 ], [ 0, %691 ]
-  %.sroa.2.0.i.i259 = phi i64 [ 4294967296, %.thread.i.i255 ], [ 0, %691 ]
-  %.sroa.0.0.insert.insert.i.i260 = or disjoint i64 %.sroa.2.0.i.i259, %.sroa.0.0.i.i258
-  %695 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i260, ptr %695, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i199:   ; preds = %.thread.i.i197, %730
+  %.sroa.2.0.i.i200 = phi i64 [ %734, %.thread.i.i197 ], [ 0, %730 ]
+  %735 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i200, ptr %735, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-696:                                              ; preds = %70
-  %697 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %698 = load i32, ptr %697, align 4, !tbaa !56
-  %699 = icmp slt i32 %698, 2
-  br i1 %699, label %700, label %702
+736:                                              ; preds = %71
+  %737 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %738 = load i32, ptr %737, align 4, !tbaa !56
+  %739 = icmp slt i32 %738, 2
+  br i1 %739, label %740, label %742
 
-700:                                              ; preds = %696
-  %701 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %701, align 1, !tbaa !41
+740:                                              ; preds = %736
+  %741 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %741, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-702:                                              ; preds = %696
+742:                                              ; preds = %736
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 2) #23
-  %703 = load i32, ptr %4, align 4, !tbaa !54
-  store i32 %703, ptr %697, align 4, !tbaa !54
+  %743 = load i32, ptr %4, align 4, !tbaa !54
+  store i32 %743, ptr %737, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %704 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %705 = load i32, ptr %704, align 4, !tbaa !48
-  %706 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %705)
-  %707 = icmp eq i32 %706, 1
-  br i1 %707, label %.split.i.i270, label %.thread.i.i264
+  %744 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %745 = load i32, ptr %744, align 4, !tbaa !48
+  %746 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %745)
+  %747 = icmp eq i32 %746, 1
+  br i1 %747, label %.split.i.i208, label %.thread.i.i204
 
-.split.i.i270:                                    ; preds = %702
-  %708 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %705, i1 true)
-  switch i32 %708, label %.thread.i.i264 [
-    i32 3, label %709
-    i32 4, label %711
-    i32 5, label %713
-    i32 6, label %715
+.split.i.i208:                                    ; preds = %742
+  %748 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %745, i1 true)
+  switch i32 %748, label %.thread.i.i204 [
+    i32 3, label %749
+    i32 4, label %751
+    i32 5, label %753
+    i32 6, label %755
   ]
 
-709:                                              ; preds = %.split.i.i270
-  %710 = add nsw i32 %703, 3
-  br label %715
+749:                                              ; preds = %.split.i.i208
+  %750 = add nsw i32 %743, 3
+  br label %755
 
-711:                                              ; preds = %.split.i.i270
-  %712 = add nsw i32 %703, 2
-  br label %715
+751:                                              ; preds = %.split.i.i208
+  %752 = add nsw i32 %743, 2
+  br label %755
 
-713:                                              ; preds = %.split.i.i270
-  %714 = add nsw i32 %703, 1
-  br label %715
+753:                                              ; preds = %.split.i.i208
+  %754 = add nsw i32 %743, 1
+  br label %755
 
-715:                                              ; preds = %713, %711, %709, %.split.i.i270
-  %.0.i.i271 = phi i32 [ %710, %709 ], [ %712, %711 ], [ %714, %713 ], [ %703, %.split.i.i270 ]
-  %716 = icmp slt i32 %.0.i.i271, 0
-  br i1 %716, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i266, label %.thread.i.i264
+755:                                              ; preds = %753, %751, %749, %.split.i.i208
+  %.0.i.i209 = phi i32 [ %750, %749 ], [ %752, %751 ], [ %754, %753 ], [ %743, %.split.i.i208 ]
+  %756 = icmp slt i32 %.0.i.i209, 0
+  br i1 %756, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i206, label %.thread.i.i204
 
-.thread.i.i264:                                   ; preds = %715, %.split.i.i270, %702
-  %.04.i.i265 = phi i32 [ %.0.i.i271, %715 ], [ 0, %.split.i.i270 ], [ 0, %702 ]
-  %717 = shl nuw i32 1, %.04.i.i265
-  %718 = zext i32 %717 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i266
+.thread.i.i204:                                   ; preds = %755, %.split.i.i208, %742
+  %.04.i.i205 = phi i32 [ %.0.i.i209, %755 ], [ 0, %.split.i.i208 ], [ 0, %742 ]
+  %757 = shl nuw i32 1, %.04.i.i205
+  %758 = zext i32 %757 to i64
+  %759 = or disjoint i64 %758, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i206
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i266:   ; preds = %.thread.i.i264, %715
-  %.sroa.0.0.i.i267 = phi i64 [ %718, %.thread.i.i264 ], [ 0, %715 ]
-  %.sroa.2.0.i.i268 = phi i64 [ 4294967296, %.thread.i.i264 ], [ 0, %715 ]
-  %.sroa.0.0.insert.insert.i.i269 = or disjoint i64 %.sroa.2.0.i.i268, %.sroa.0.0.i.i267
-  %719 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i269, ptr %719, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i206:   ; preds = %.thread.i.i204, %755
+  %.sroa.2.0.i.i207 = phi i64 [ %759, %.thread.i.i204 ], [ 0, %755 ]
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i207, ptr %760, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-720:                                              ; preds = %70
-  %721 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %722 = load i32, ptr %721, align 4, !tbaa !56
-  %723 = icmp slt i32 %722, 3
-  br i1 %723, label %724, label %726
+761:                                              ; preds = %71
+  %762 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %763 = load i32, ptr %762, align 4, !tbaa !56
+  %764 = icmp slt i32 %763, 3
+  br i1 %764, label %765, label %767
 
-724:                                              ; preds = %720
-  %725 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 10, ptr %725, align 1, !tbaa !41
+765:                                              ; preds = %761
+  %766 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 10, ptr %766, align 1, !tbaa !41
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-726:                                              ; preds = %720
+767:                                              ; preds = %761
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 3) #23
-  %727 = load i32, ptr %3, align 4, !tbaa !54
-  store i32 %727, ptr %721, align 4, !tbaa !54
+  %768 = load i32, ptr %3, align 4, !tbaa !54
+  store i32 %768, ptr %762, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %728 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %729 = load i32, ptr %728, align 4, !tbaa !48
-  %730 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %729)
-  %731 = icmp eq i32 %730, 1
-  br i1 %731, label %.split.i.i279, label %.thread.i.i273
+  %769 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %770 = load i32, ptr %769, align 4, !tbaa !48
+  %771 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %770)
+  %772 = icmp eq i32 %771, 1
+  br i1 %772, label %.split.i.i215, label %.thread.i.i211
 
-.split.i.i279:                                    ; preds = %726
-  %732 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %729, i1 true)
-  switch i32 %732, label %.thread.i.i273 [
-    i32 3, label %733
-    i32 4, label %735
-    i32 5, label %737
-    i32 6, label %739
+.split.i.i215:                                    ; preds = %767
+  %773 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %770, i1 true)
+  switch i32 %773, label %.thread.i.i211 [
+    i32 3, label %774
+    i32 4, label %776
+    i32 5, label %778
+    i32 6, label %780
   ]
 
-733:                                              ; preds = %.split.i.i279
-  %734 = add nsw i32 %727, 3
-  br label %739
+774:                                              ; preds = %.split.i.i215
+  %775 = add nsw i32 %768, 3
+  br label %780
 
-735:                                              ; preds = %.split.i.i279
-  %736 = add nsw i32 %727, 2
-  br label %739
+776:                                              ; preds = %.split.i.i215
+  %777 = add nsw i32 %768, 2
+  br label %780
 
-737:                                              ; preds = %.split.i.i279
-  %738 = add nsw i32 %727, 1
-  br label %739
+778:                                              ; preds = %.split.i.i215
+  %779 = add nsw i32 %768, 1
+  br label %780
 
-739:                                              ; preds = %737, %735, %733, %.split.i.i279
-  %.0.i.i280 = phi i32 [ %734, %733 ], [ %736, %735 ], [ %738, %737 ], [ %727, %.split.i.i279 ]
-  %740 = icmp slt i32 %.0.i.i280, 0
-  br i1 %740, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i275, label %.thread.i.i273
+780:                                              ; preds = %778, %776, %774, %.split.i.i215
+  %.0.i.i216 = phi i32 [ %775, %774 ], [ %777, %776 ], [ %779, %778 ], [ %768, %.split.i.i215 ]
+  %781 = icmp slt i32 %.0.i.i216, 0
+  br i1 %781, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i213, label %.thread.i.i211
 
-.thread.i.i273:                                   ; preds = %739, %.split.i.i279, %726
-  %.04.i.i274 = phi i32 [ %.0.i.i280, %739 ], [ 0, %.split.i.i279 ], [ 0, %726 ]
-  %741 = shl nuw i32 1, %.04.i.i274
-  %742 = zext i32 %741 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i275
+.thread.i.i211:                                   ; preds = %780, %.split.i.i215, %767
+  %.04.i.i212 = phi i32 [ %.0.i.i216, %780 ], [ 0, %.split.i.i215 ], [ 0, %767 ]
+  %782 = shl nuw i32 1, %.04.i.i212
+  %783 = zext i32 %782 to i64
+  %784 = or disjoint i64 %783, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i213
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i275:   ; preds = %.thread.i.i273, %739
-  %.sroa.0.0.i.i276 = phi i64 [ %742, %.thread.i.i273 ], [ 0, %739 ]
-  %.sroa.2.0.i.i277 = phi i64 [ 4294967296, %.thread.i.i273 ], [ 0, %739 ]
-  %.sroa.0.0.insert.insert.i.i278 = or disjoint i64 %.sroa.2.0.i.i277, %.sroa.0.0.i.i276
-  %743 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i.i278, ptr %743, align 8
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i213:   ; preds = %.thread.i.i211, %780
+  %.sroa.2.0.i.i214 = phi i64 [ %784, %.thread.i.i211 ], [ 0, %780 ]
+  %785 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i.i214, ptr %785, align 8
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-744:                                              ; preds = %70, %70, %70, %70, %70, %70, %70
-  %745 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  store i8 1, ptr %745, align 1, !tbaa !46
-  %746 = zext nneg i8 %72 to i32
-  %747 = add nsw i32 %746, -32
-  %748 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %747, ptr %748, align 4, !tbaa !47
+786:                                              ; preds = %71, %71, %71, %71, %71, %71, %71
+  %787 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  store i8 1, ptr %787, align 1, !tbaa !46
+  %788 = zext nneg i8 %73 to i32
+  %789 = add nsw i32 %788, -32
+  %790 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %789, ptr %790, align 4, !tbaa !47
   br label %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
 
-_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit:    ; preds = %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i275, %724, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i266, %700, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i257, %676, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i248, %652, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i239, %628, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i230, %604, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i221, %580, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i212, %556, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i202, %533, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192, %510, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i182, %487, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i172, %464, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i162, %441, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i152, %418, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i143, %395, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i133, %372, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i123, %349, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i113, %326, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i103, %303, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93, %280, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i86, %257, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i80, %247, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i74, %235, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i68, %223, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i, %211, %744, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit62, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit57, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit52, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit47, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit39, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit31, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit23, %70
-  %749 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %750 = load i8, ptr %749, align 1, !tbaa !41
-  %751 = icmp eq i8 %750, 10
-  br i1 %751, label %.loopexit, label %.preheader
+_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit:    ; preds = %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i213, %765, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i206, %740, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i199, %715, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i192, %690, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i185, %665, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i178, %640, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i171, %615, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i164, %590, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i156, %566, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i148, %542, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i140, %518, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i132, %494, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i124, %470, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i116, %446, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i109, %422, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i101, %398, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i93, %374, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i85, %350, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i77, %326, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i69, %302, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i64, %278, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i60, %266, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i56, %252, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i52, %238, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit.i, %224, %786, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit48, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit45, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit42, %_ZN5clang5RISCV7RVVType12applyLog2EEWEj.exit, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit39, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit33, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit27, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit21, %71
+  %791 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %792 = load i8, ptr %791, align 1, !tbaa !41
+  %793 = icmp eq i8 %792, 10
+  br i1 %793, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit
-  %752 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %753 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %754 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %755 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %756 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %757 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %758 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %759
+  %794 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %795 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %796 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %797 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %798 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %799 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %800 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %801
 
-759:                                              ; preds = %.preheader, %789
-  %.0297 = phi i32 [ 0, %.preheader ], [ %790, %789 ]
-  %760 = shl nuw nsw i32 1, %.0297
-  %761 = load i8, ptr %752, align 1, !tbaa !57
-  %762 = zext i8 %761 to i32
-  %763 = and i32 %760, %762
-  %.not.not = icmp eq i32 %763, 0
-  br i1 %.not.not, label %789, label %764
+801:                                              ; preds = %.preheader, %832
+  %.0224 = phi i32 [ 0, %.preheader ], [ %833, %832 ]
+  %802 = shl nuw nsw i32 1, %.0224
+  %803 = load i8, ptr %794, align 1, !tbaa !57
+  %804 = zext i8 %803 to i32
+  %805 = and i32 %802, %804
+  %.not.not = icmp eq i32 %805, 0
+  br i1 %.not.not, label %832, label %806
 
-764:                                              ; preds = %759
-  %765 = trunc nuw nsw i32 %.0297 to i8
-  switch i8 %765, label %default.unreachable [
-    i8 0, label %766
-    i8 1, label %767
-    i8 2, label %768
-    i8 3, label %769
-    i8 4, label %770
-    i8 5, label %771
-    i8 6, label %772
-    i8 7, label %773
+806:                                              ; preds = %801
+  %807 = trunc nuw nsw i32 %.0224 to i8
+  switch i8 %807, label %default.unreachable [
+    i8 0, label %808
+    i8 1, label %809
+    i8 2, label %810
+    i8 3, label %811
+    i8 4, label %812
+    i8 5, label %813
+    i8 6, label %814
+    i8 7, label %815
   ]
 
-766:                                              ; preds = %764
-  store i8 1, ptr %758, align 8, !tbaa !42
-  br label %789
+808:                                              ; preds = %806
+  store i8 1, ptr %800, align 8, !tbaa !42
+  br label %832
 
-767:                                              ; preds = %764
-  store i8 1, ptr %757, align 2, !tbaa !44
-  br label %789
+809:                                              ; preds = %806
+  store i8 1, ptr %799, align 2, !tbaa !44
+  br label %832
 
-768:                                              ; preds = %764
-  store i8 1, ptr %756, align 1, !tbaa !43
-  store i8 1, ptr %757, align 2, !tbaa !44
-  br label %789
+810:                                              ; preds = %806
+  store i8 1, ptr %798, align 1, !tbaa !43
+  store i8 1, ptr %799, align 2, !tbaa !44
+  br label %832
 
-769:                                              ; preds = %764
-  store i8 7, ptr %749, align 1, !tbaa !41
-  br label %789
+811:                                              ; preds = %806
+  store i8 7, ptr %791, align 1, !tbaa !41
+  br label %832
 
-770:                                              ; preds = %764
-  store i8 6, ptr %749, align 1, !tbaa !41
-  br label %789
+812:                                              ; preds = %806
+  store i8 6, ptr %791, align 1, !tbaa !41
+  br label %832
 
-771:                                              ; preds = %764
-  store i8 8, ptr %749, align 1, !tbaa !41
-  br label %789
+813:                                              ; preds = %806
+  store i8 8, ptr %791, align 1, !tbaa !41
+  br label %832
 
-772:                                              ; preds = %764
-  store i8 9, ptr %749, align 1, !tbaa !41
-  br label %789
+814:                                              ; preds = %806
+  store i8 9, ptr %791, align 1, !tbaa !41
+  br label %832
 
-773:                                              ; preds = %764
+815:                                              ; preds = %806
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @_ZN5clang5RISCV8LMULTypeC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %24, i32 noundef 0) #23
-  %774 = load i32, ptr %24, align 4, !tbaa !54
-  store i32 %774, ptr %753, align 4, !tbaa !54
+  %816 = load i32, ptr %24, align 4, !tbaa !54
+  store i32 %816, ptr %795, align 4, !tbaa !54
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %775 = load i32, ptr %754, align 4, !tbaa !48
-  %776 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %775)
-  %777 = icmp eq i32 %776, 1
-  br i1 %777, label %.split.i287, label %.thread.i282
+  %817 = load i32, ptr %796, align 4, !tbaa !48
+  %818 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %817)
+  %819 = icmp eq i32 %818, 1
+  br i1 %819, label %.split.i221, label %.thread.i218
 
-.split.i287:                                      ; preds = %773
-  %778 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %775, i1 true)
-  switch i32 %778, label %.thread.i282 [
-    i32 3, label %779
-    i32 4, label %781
-    i32 5, label %783
-    i32 6, label %785
+.split.i221:                                      ; preds = %815
+  %820 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %817, i1 true)
+  switch i32 %820, label %.thread.i218 [
+    i32 3, label %821
+    i32 4, label %823
+    i32 5, label %825
+    i32 6, label %827
   ]
 
-779:                                              ; preds = %.split.i287
-  %780 = add nsw i32 %774, 3
-  br label %785
+821:                                              ; preds = %.split.i221
+  %822 = add nsw i32 %816, 3
+  br label %827
 
-781:                                              ; preds = %.split.i287
-  %782 = add nsw i32 %774, 2
-  br label %785
+823:                                              ; preds = %.split.i221
+  %824 = add nsw i32 %816, 2
+  br label %827
 
-783:                                              ; preds = %.split.i287
-  %784 = add nsw i32 %774, 1
-  br label %785
+825:                                              ; preds = %.split.i221
+  %826 = add nsw i32 %816, 1
+  br label %827
 
-785:                                              ; preds = %.split.i287, %783, %781, %779
-  %.0.i288 = phi i32 [ %780, %779 ], [ %782, %781 ], [ %784, %783 ], [ %774, %.split.i287 ]
-  %786 = icmp slt i32 %.0.i288, 0
-  br i1 %786, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit289, label %.thread.i282
+827:                                              ; preds = %.split.i221, %825, %823, %821
+  %.0.i222 = phi i32 [ %822, %821 ], [ %824, %823 ], [ %826, %825 ], [ %816, %.split.i221 ]
+  %828 = icmp slt i32 %.0.i222, 0
+  br i1 %828, label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit223, label %.thread.i218
 
-.thread.i282:                                     ; preds = %785, %.split.i287, %773
-  %.04.i283 = phi i32 [ %.0.i288, %785 ], [ 0, %.split.i287 ], [ 0, %773 ]
-  %787 = shl nuw i32 1, %.04.i283
-  %788 = zext i32 %787 to i64
-  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit289
+.thread.i218:                                     ; preds = %827, %.split.i221, %815
+  %.04.i219 = phi i32 [ %.0.i222, %827 ], [ 0, %.split.i221 ], [ 0, %815 ]
+  %829 = shl nuw i32 1, %.04.i219
+  %830 = zext i32 %829 to i64
+  %831 = or disjoint i64 %830, 4294967296
+  br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit223
 
-_ZNK5clang5RISCV8LMULType8getScaleEj.exit289:     ; preds = %785, %.thread.i282
-  %.sroa.0.0.i284 = phi i64 [ %788, %.thread.i282 ], [ 0, %785 ]
-  %.sroa.2.0.i285 = phi i64 [ 4294967296, %.thread.i282 ], [ 0, %785 ]
-  %.sroa.0.0.insert.insert.i286 = or disjoint i64 %.sroa.2.0.i285, %.sroa.0.0.i284
-  store i64 %.sroa.0.0.insert.insert.i286, ptr %755, align 8
-  br label %789
+_ZNK5clang5RISCV8LMULType8getScaleEj.exit223:     ; preds = %827, %.thread.i218
+  %.sroa.2.0.i220 = phi i64 [ %831, %.thread.i218 ], [ 0, %827 ]
+  store i64 %.sroa.2.0.i220, ptr %797, align 8
+  br label %832
 
-default.unreachable:                              ; preds = %764
+default.unreachable:                              ; preds = %806
   unreachable
 
-789:                                              ; preds = %766, %767, %768, %769, %770, %771, %772, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit289, %759
-  %790 = add nuw nsw i32 %.0297, 1
-  %exitcond.not = icmp eq i32 %790, 8
-  br i1 %exitcond.not, label %.loopexit, label %759, !llvm.loop !58
+832:                                              ; preds = %808, %809, %810, %811, %812, %813, %814, %_ZNK5clang5RISCV8LMULType8getScaleEj.exit223, %801
+  %833 = add nuw nsw i32 %.0224, 1
+  %exitcond.not = icmp eq i32 %833, 8
+  br i1 %exitcond.not, label %.loopexit, label %801, !llvm.loop !58
 
-.loopexit:                                        ; preds = %789, %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit, %68
+.loopexit:                                        ; preds = %832, %_ZN5clang5RISCV7RVVType13applyFixedSEWEj.exit, %69
   ret void
 }
 
@@ -7533,14 +7497,13 @@ define dso_local void @_ZN5clang5RISCV7RVVType12applyLog2EEWEj(ptr noundef nonnu
   %.04.i = phi i32 [ %.0.i, %18 ], [ 0, %2 ]
   %20 = shl nuw i32 1, %.04.i
   %21 = zext i32 %20 to i64
+  %22 = or disjoint i64 %21, 4294967296
   br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit
 
 _ZNK5clang5RISCV8LMULType8getScaleEj.exit:        ; preds = %18, %.thread.i
-  %.sroa.0.0.i = phi i64 [ %21, %.thread.i ], [ 0, %18 ]
-  %.sroa.2.0.i = phi i64 [ 4294967296, %.thread.i ], [ 0, %18 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.i, %.sroa.0.0.i
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i, ptr %22, align 8
+  %.sroa.2.0.i = phi i64 [ %22, %.thread.i ], [ 0, %18 ]
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i, ptr %23, align 8
   ret void
 }
 
@@ -7554,7 +7517,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType13applyFixedSEWEj(ptr noundef nonn
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 10, ptr %7, align 1, !tbaa !41
-  br label %29
+  br label %30
 
 8:                                                ; preds = %2
   store i32 %1, ptr %3, align 4, !tbaa !48
@@ -7600,17 +7563,16 @@ define dso_local void @_ZN5clang5RISCV7RVVType13applyFixedSEWEj(ptr noundef nonn
   %.04.i = phi i32 [ %.0.i, %24 ], [ 0, %.split.i ], [ 0, %8 ]
   %26 = shl nuw i32 1, %.04.i
   %27 = zext i32 %26 to i64
+  %28 = or disjoint i64 %27, 4294967296
   br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit
 
 _ZNK5clang5RISCV8LMULType8getScaleEj.exit:        ; preds = %24, %.thread.i
-  %.sroa.0.0.i = phi i64 [ %27, %.thread.i ], [ 0, %24 ]
-  %.sroa.2.0.i = phi i64 [ 4294967296, %.thread.i ], [ 0, %24 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.i, %.sroa.0.0.i
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i, ptr %28, align 8
-  br label %29
+  %.sroa.2.0.i = phi i64 [ %28, %.thread.i ], [ 0, %24 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i, ptr %29, align 8
+  br label %30
 
-29:                                               ; preds = %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, %6
+30:                                               ; preds = %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, %6
   ret void
 }
 
@@ -7632,7 +7594,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType18applyFixedLog2LMULEiNS1_13FixedL
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 10, ptr %9, align 1, !tbaa !41
-  br label %40
+  br label %41
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -7643,7 +7605,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType18applyFixedLog2LMULEiNS1_13FixedL
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 10, ptr %14, align 1, !tbaa !41
-  br label %40
+  br label %41
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -7654,7 +7616,7 @@ define dso_local void @_ZN5clang5RISCV7RVVType18applyFixedLog2LMULEiNS1_13FixedL
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 10, ptr %20, align 1, !tbaa !41
-  br label %40
+  br label %41
 
 21:                                               ; preds = %15, %10, %5, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7699,17 +7661,16 @@ define dso_local void @_ZN5clang5RISCV7RVVType18applyFixedLog2LMULEiNS1_13FixedL
   %.04.i = phi i32 [ %.0.i, %35 ], [ 0, %.split.i ], [ 0, %21 ]
   %37 = shl nuw i32 1, %.04.i
   %38 = zext i32 %37 to i64
+  %39 = or disjoint i64 %38, 4294967296
   br label %_ZNK5clang5RISCV8LMULType8getScaleEj.exit
 
 _ZNK5clang5RISCV8LMULType8getScaleEj.exit:        ; preds = %35, %.thread.i
-  %.sroa.0.0.i = phi i64 [ %38, %.thread.i ], [ 0, %35 ]
-  %.sroa.2.0.i = phi i64 [ 4294967296, %.thread.i ], [ 0, %35 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.i, %.sroa.0.0.i
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.0.0.insert.insert.i, ptr %39, align 8
-  br label %40
+  %.sroa.2.0.i = phi i64 [ %39, %.thread.i ], [ 0, %35 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.2.0.i, ptr %40, align 8
+  br label %41
 
-40:                                               ; preds = %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, %19, %13, %8
+41:                                               ; preds = %_ZNK5clang5RISCV8LMULType8getScaleEj.exit, %19, %13, %8
   ret void
 }
 

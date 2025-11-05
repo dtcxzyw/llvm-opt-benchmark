@@ -74,7 +74,7 @@ $_ZThn24_N5boost10wrapexceptISt12out_of_rangeED0Ev = comdat any
 
 $_ZN5boost10wrapexceptISt12out_of_rangeEC2ERKS2_ = comdat any
 
-$_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_ = comdat any
+$_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_ = comdat any
 
 $_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EE4callIJNS_7Point_2IST_EES16_S16_ETnPNSt9enable_ifIXntsr22Call_operator_needs_FTIDpT_EE5valueEvE4typeELPv0EEENS_4SignEDpRKS18_ = comdat any
 
@@ -218,25 +218,91 @@ define weak_odr dso_local noundef signext i16 @_ZN3igl8copyleft4cgal8orient2DIdE
   %.sroa.4.0..sroa_idx.i7 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %16, ptr %.sroa.4.0..sroa_idx.i7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %17 = call noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %17 = fsub double %12, %9
+  %18 = fsub double %13, %10
+  %19 = fsub double %15, %9
+  %20 = fsub double %16, %10
+  %21 = fneg double %18
+  %22 = fmul double %19, %21
+  %23 = tail call noundef double @llvm.fmuladd.f64(double %17, double %20, double %22)
+  %24 = tail call noundef double @llvm.fabs.f64(double %17)
+  %25 = tail call noundef double @llvm.fabs.f64(double %18)
+  %26 = tail call noundef double @llvm.fabs.f64(double %19)
+  %27 = tail call noundef double @llvm.fabs.f64(double %20)
+  %28 = fcmp olt double %24, %26
+  %.056.i.i.i = select i1 %28, double %26, double %24
+  %29 = fcmp olt double %25, %27
+  %.054.i.i.i = select i1 %29, double %27, double %25
+  %30 = fcmp ogt double %.056.i.i.i, %.054.i.i.i
+  %.157.i.i.i = select i1 %30, double %.054.i.i.i, double %.056.i.i.i
+  %.155.i.i.i = select i1 %30, double %.056.i.i.i, double %.054.i.i.i
+  %31 = fcmp olt double %.157.i.i.i, 1.000000e-146
+  br i1 %31, label %32, label %34
+
+32:                                               ; preds = %3
+  %33 = fcmp oeq double %.157.i.i.i, 0.000000e+00
+  br i1 %33, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
+
+_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11: ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %switch.tableidx = add i32 %17, 1
-  %18 = icmp ult i32 %switch.tableidx, 3
-  br i1 %18, label %switch.lookup, label %19
+  br label %47
 
-19:                                               ; preds = %3
-  %20 = call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr @.str.22, ptr %20, align 16, !tbaa !8
-  call void @__cxa_throw(ptr nonnull %20, ptr nonnull @_ZTIPKc, ptr null) #30
+34:                                               ; preds = %3
+  %35 = fcmp olt double %.155.i.i.i, 0x5FB317E5EF3AB327
+  br i1 %35, label %36, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
+
+36:                                               ; preds = %34
+  %37 = fmul double %.157.i.i.i, 0x3CD0028010000004
+  %38 = fmul double %.155.i.i.i, %37
+  %39 = fcmp ogt double %23, %38
+  br i1 %39, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread, label %40
+
+_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread: ; preds = %36
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %47
+
+40:                                               ; preds = %36
+  %41 = fneg double %38
+  %42 = fcmp uge double %23, %41
+  br i1 %42, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit, label %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9
+
+_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9: ; preds = %40
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %47
+
+_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit: ; preds = %32, %34, %40
+  %43 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %switch.tableidx = add i32 %43, 1
+  %44 = icmp ult i32 %switch.tableidx, 3
+  br i1 %44, label %switch.lookup, label %45
+
+45:                                               ; preds = %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
+  %46 = call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr @.str.22, ptr %46, align 16, !tbaa !8
+  call void @__cxa_throw(ptr nonnull %46, ptr nonnull @_ZTIPKc, ptr null) #30
   unreachable
 
-switch.lookup:                                    ; preds = %3
+switch.lookup:                                    ; preds = %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit
   %switch.idx.cast = trunc nuw i32 %switch.tableidx to i16
   %switch.offset = add nsw i16 %switch.idx.cast, -1
-  ret i16 %switch.offset
+  br label %47
+
+47:                                               ; preds = %switch.lookup, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9
+  %.0 = phi i16 [ -1, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread9 ], [ 0, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread11 ], [ 1, %_ZN4CGAL11orientationINS_5EpickEEENT_11OrientationERKNS_7Point_2IS2_EES7_S7_.exit.thread ], [ %switch.offset, %switch.lookup ]
+  ret i16 %.0
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
@@ -912,192 +978,148 @@ declare double @llvm.fabs.f64(double) #23
 declare void @llvm.x86.sse.stmxcsr(ptr) #24
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK4CGAL8internal25Static_filters_predicates13Orientation_2INS_20Filtered_kernel_baseINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEES6_EEEEEclERKNS_7Point_2IS6_EESE_SE_(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
-  %10 = load double, ptr %1, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %12 = load double, ptr %11, align 8, !tbaa !4
-  %13 = load double, ptr %2, align 8, !tbaa !4
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %15 = load double, ptr %14, align 8, !tbaa !4
-  %16 = load double, ptr %3, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %18 = load double, ptr %17, align 8, !tbaa !4
-  %19 = fsub double %13, %10
-  %20 = fsub double %15, %12
-  %21 = fsub double %16, %10
-  %22 = fsub double %18, %12
-  %23 = fneg double %20
-  %24 = fmul double %21, %23
-  %25 = tail call noundef double @llvm.fmuladd.f64(double %19, double %22, double %24)
-  %26 = tail call noundef double @llvm.fabs.f64(double %19)
-  %27 = tail call noundef double @llvm.fabs.f64(double %20)
-  %28 = tail call noundef double @llvm.fabs.f64(double %21)
-  %29 = tail call noundef double @llvm.fabs.f64(double %22)
-  %30 = fcmp olt double %26, %28
-  %.056 = select i1 %30, double %28, double %26
-  %31 = fcmp olt double %27, %29
-  %.054 = select i1 %31, double %29, double %27
-  %32 = fcmp ogt double %.056, %.054
-  %.157 = select i1 %32, double %.054, double %.056
-  %.155 = select i1 %32, double %.056, double %.054
-  %33 = fcmp olt double %.157, 1.000000e-146
-  br i1 %33, label %34, label %36
-
-34:                                               ; preds = %4
-  %35 = fcmp oeq double %.157, 0.000000e+00
-  br i1 %35, label %_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_.exit, label %45
-
-36:                                               ; preds = %4
-  %37 = fcmp olt double %.155, 0x5FB317E5EF3AB327
-  br i1 %37, label %38, label %45
-
-38:                                               ; preds = %36
-  %39 = fmul double %.157, 0x3CD0028010000004
-  %40 = fmul double %.155, %39
-  %41 = fcmp ogt double %25, %40
-  br i1 %41, label %_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_.exit, label %42
-
-42:                                               ; preds = %38
-  %43 = fneg double %40
-  %44 = fcmp uge double %25, %43
-  br i1 %44, label %45, label %_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_.exit
-
-45:                                               ; preds = %36, %42, %34
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %9)
-  %46 = load i32, ptr %9, align 4
-  %47 = and i32 %46, 24576
+  %10 = load i32, ptr %9, align 4
+  %11 = and i32 %10, 24576
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %7)
-  %48 = load i32, ptr %7, align 4
-  %49 = and i32 %48, -24577
-  %50 = or disjoint i32 %49, 16384
-  store i32 %50, ptr %8, align 4
+  %12 = load i32, ptr %7, align 4
+  %13 = and i32 %12, -24577
+  %14 = or disjoint i32 %13, 16384
+  store i32 %14, ptr %8, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %51 = load double, ptr %1, align 8, !tbaa !4, !noalias !29
-  %52 = fneg double %51
-  %53 = insertelement <2 x double> poison, double %51, i64 0
-  %54 = insertelement <2 x double> %53, double %52, i64 1
-  %55 = load double, ptr %11, align 8, !tbaa !4, !noalias !29
-  %56 = fneg double %55
-  %57 = insertelement <2 x double> poison, double %55, i64 0
-  %58 = insertelement <2 x double> %57, double %56, i64 1
-  %59 = load double, ptr %2, align 8, !tbaa !4, !noalias !32
-  %60 = fneg double %59
-  %61 = insertelement <2 x double> poison, double %60, i64 0
-  %62 = insertelement <2 x double> %61, double %59, i64 1
-  %63 = load double, ptr %14, align 8, !tbaa !4, !noalias !32
-  %64 = fneg double %63
-  %65 = insertelement <2 x double> poison, double %64, i64 0
-  %66 = insertelement <2 x double> %65, double %63, i64 1
-  %67 = load double, ptr %3, align 8, !tbaa !4, !noalias !35
-  %68 = fneg double %67
-  %69 = insertelement <2 x double> poison, double %68, i64 0
-  %70 = insertelement <2 x double> %69, double %67, i64 1
-  %71 = load double, ptr %17, align 8, !tbaa !4, !noalias !35
-  %72 = fneg double %71
-  %73 = insertelement <2 x double> poison, double %72, i64 0
-  %74 = insertelement <2 x double> %73, double %71, i64 1
-  %75 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %62) #26, !srcloc !38
-  %76 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %54) #34, !srcloc !39
-  %77 = fadd <2 x double> %75, %76
-  %78 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %77) #26, !srcloc !38
-  %79 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %66) #26, !srcloc !38
-  %80 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %58) #34, !srcloc !39
-  %81 = fadd <2 x double> %79, %80
-  %82 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %81) #26, !srcloc !38
-  %83 = bitcast <2 x double> %82 to <2 x i64>
-  %84 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %70) #26, !srcloc !38
-  %85 = fadd <2 x double> %76, %84
-  %86 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %85) #26, !srcloc !38
-  %87 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %74) #26, !srcloc !38
-  %88 = fadd <2 x double> %80, %87
-  %89 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %88) #26, !srcloc !38
-  %90 = bitcast <2 x double> %89 to <2 x i64>
-  %91 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %78) #34, !srcloc !39
-  %92 = fneg <2 x double> %91
-  %93 = shufflevector <2 x double> %92, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %94 = xor <2 x i64> %90, <i64 -9223372036854775808, i64 0>
-  %95 = bitcast <2 x i64> %94 to <2 x double>
-  %96 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %95) #26, !srcloc !38
-  %97 = shufflevector <2 x double> %96, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %98 = fmul <2 x double> %91, %96
-  %99 = fmul <2 x double> %91, %97
-  %100 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %99, <2 x double> splat (double 0x7FF0000000000000))
-  %101 = fmul <2 x double> %93, %96
-  %102 = fmul <2 x double> %93, %97
-  %103 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %102, <2 x double> splat (double 0x7FF0000000000000))
-  %104 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %98, <2 x double> %100)
-  %105 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %101, <2 x double> %103)
-  %106 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %104, <2 x double> %105)
-  %107 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %106) #26, !srcloc !38
-  %108 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %86) #34, !srcloc !39
-  %109 = fneg <2 x double> %108
-  %110 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %111 = xor <2 x i64> %83, <i64 -9223372036854775808, i64 0>
-  %112 = bitcast <2 x i64> %111 to <2 x double>
-  %113 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %112) #26, !srcloc !38
-  %114 = shufflevector <2 x double> %113, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %115 = fmul <2 x double> %108, %113
-  %116 = fmul <2 x double> %108, %114
-  %117 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %116, <2 x double> splat (double 0x7FF0000000000000))
-  %118 = fmul <2 x double> %110, %113
-  %119 = fmul <2 x double> %110, %114
-  %120 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %119, <2 x double> splat (double 0x7FF0000000000000))
-  %121 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %115, <2 x double> %117)
-  %122 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %118, <2 x double> %120)
-  %123 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %121, <2 x double> %122)
-  %124 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %123) #26, !srcloc !38
-  %125 = extractelement <2 x double> %107, i64 0
-  %126 = fneg double %125
-  %.sroa.0.8.vec.extract.i.i.i.i = extractelement <2 x double> %124, i64 1
-  %127 = fcmp olt double %.sroa.0.8.vec.extract.i.i.i.i, %126
-  %128 = extractelement <2 x double> %107, i64 1
-  br i1 %127, label %137, label %129
+  %15 = load double, ptr %1, align 8, !tbaa !4, !noalias !29
+  %16 = fneg double %15
+  %17 = insertelement <2 x double> poison, double %15, i64 0
+  %18 = insertelement <2 x double> %17, double %16, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %20 = load double, ptr %19, align 8, !tbaa !4, !noalias !29
+  %21 = fneg double %20
+  %22 = insertelement <2 x double> poison, double %20, i64 0
+  %23 = insertelement <2 x double> %22, double %21, i64 1
+  %24 = load double, ptr %2, align 8, !tbaa !4, !noalias !32
+  %25 = fneg double %24
+  %26 = insertelement <2 x double> poison, double %25, i64 0
+  %27 = insertelement <2 x double> %26, double %24, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %29 = load double, ptr %28, align 8, !tbaa !4, !noalias !32
+  %30 = fneg double %29
+  %31 = insertelement <2 x double> poison, double %30, i64 0
+  %32 = insertelement <2 x double> %31, double %29, i64 1
+  %33 = load double, ptr %3, align 8, !tbaa !4, !noalias !35
+  %34 = fneg double %33
+  %35 = insertelement <2 x double> poison, double %34, i64 0
+  %36 = insertelement <2 x double> %35, double %33, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %38 = load double, ptr %37, align 8, !tbaa !4, !noalias !35
+  %39 = fneg double %38
+  %40 = insertelement <2 x double> poison, double %39, i64 0
+  %41 = insertelement <2 x double> %40, double %38, i64 1
+  %42 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %27) #26, !srcloc !38
+  %43 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %18) #34, !srcloc !39
+  %44 = fadd <2 x double> %42, %43
+  %45 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44) #26, !srcloc !38
+  %46 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %32) #26, !srcloc !38
+  %47 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %23) #34, !srcloc !39
+  %48 = fadd <2 x double> %46, %47
+  %49 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %48) #26, !srcloc !38
+  %50 = bitcast <2 x double> %49 to <2 x i64>
+  %51 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %36) #26, !srcloc !38
+  %52 = fadd <2 x double> %43, %51
+  %53 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %52) #26, !srcloc !38
+  %54 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %41) #26, !srcloc !38
+  %55 = fadd <2 x double> %47, %54
+  %56 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %55) #26, !srcloc !38
+  %57 = bitcast <2 x double> %56 to <2 x i64>
+  %58 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %45) #34, !srcloc !39
+  %59 = fneg <2 x double> %58
+  %60 = shufflevector <2 x double> %59, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %61 = xor <2 x i64> %57, <i64 -9223372036854775808, i64 0>
+  %62 = bitcast <2 x i64> %61 to <2 x double>
+  %63 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %62) #26, !srcloc !38
+  %64 = shufflevector <2 x double> %63, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %65 = fmul <2 x double> %58, %63
+  %66 = fmul <2 x double> %58, %64
+  %67 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %66, <2 x double> splat (double 0x7FF0000000000000))
+  %68 = fmul <2 x double> %60, %63
+  %69 = fmul <2 x double> %60, %64
+  %70 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %69, <2 x double> splat (double 0x7FF0000000000000))
+  %71 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %65, <2 x double> %67)
+  %72 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %68, <2 x double> %70)
+  %73 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %71, <2 x double> %72)
+  %74 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %73) #26, !srcloc !38
+  %75 = call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %53) #34, !srcloc !39
+  %76 = fneg <2 x double> %75
+  %77 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %78 = xor <2 x i64> %50, <i64 -9223372036854775808, i64 0>
+  %79 = bitcast <2 x i64> %78 to <2 x double>
+  %80 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %79) #26, !srcloc !38
+  %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %82 = fmul <2 x double> %75, %80
+  %83 = fmul <2 x double> %75, %81
+  %84 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %83, <2 x double> splat (double 0x7FF0000000000000))
+  %85 = fmul <2 x double> %77, %80
+  %86 = fmul <2 x double> %77, %81
+  %87 = call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %86, <2 x double> splat (double 0x7FF0000000000000))
+  %88 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %82, <2 x double> %84)
+  %89 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %85, <2 x double> %87)
+  %90 = call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %88, <2 x double> %89)
+  %91 = call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %90) #26, !srcloc !38
+  %92 = extractelement <2 x double> %74, i64 0
+  %93 = fneg double %92
+  %.sroa.0.8.vec.extract.i.i.i = extractelement <2 x double> %91, i64 1
+  %94 = fcmp olt double %.sroa.0.8.vec.extract.i.i.i, %93
+  %95 = extractelement <2 x double> %74, i64 1
+  br i1 %94, label %104, label %96
 
-129:                                              ; preds = %45
-  %130 = extractelement <2 x double> %124, i64 0
-  %131 = fneg double %130
-  %132 = fcmp olt double %128, %131
-  br i1 %132, label %137, label %133
+96:                                               ; preds = %4
+  %97 = extractelement <2 x double> %91, i64 0
+  %98 = fneg double %97
+  %99 = fcmp olt double %95, %98
+  br i1 %99, label %104, label %100
 
-133:                                              ; preds = %129
-  %134 = fcmp une double %128, %131
-  %135 = fcmp une double %.sroa.0.8.vec.extract.i.i.i.i, %126
-  %or.cond.not.i.i.i.i.i.i.i = or i1 %135, %134
-  %136 = sext i1 %or.cond.not.i.i.i.i.i.i.i to i32
-  br label %137
+100:                                              ; preds = %96
+  %101 = fcmp une double %95, %98
+  %102 = fcmp une double %.sroa.0.8.vec.extract.i.i.i, %93
+  %or.cond.not.i.i.i.i.i.i = or i1 %102, %101
+  %103 = select i1 %or.cond.not.i.i.i.i.i.i, i64 8589934591, i64 0
+  br label %104
 
-137:                                              ; preds = %133, %129, %45
-  %138 = phi i1 [ false, %45 ], [ false, %129 ], [ %or.cond.not.i.i.i.i.i.i.i, %133 ]
-  %.sroa.0.0.i.i.i.i.i.i.i = phi i32 [ 1, %45 ], [ -1, %129 ], [ %136, %133 ]
+104:                                              ; preds = %4, %96, %100
+  %.sroa.5.0.i.i.i.i.i.i = phi i64 [ 4294967297, %4 ], [ -1, %96 ], [ %103, %100 ]
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.5.0.i.i.i.i.i.i to i32
+  %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.5.0.i.i.i.i.i.i, 32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
+  %.not = icmp eq i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %5)
-  %139 = load i32, ptr %5, align 4
-  %140 = and i32 %139, -24577
-  %141 = or disjoint i32 %140, %47
-  store i32 %141, ptr %6, align 4
+  %105 = load i32, ptr %5, align 4
+  %106 = and i32 %105, -24577
+  %107 = or disjoint i32 %106, %11
+  store i32 %107, ptr %6, align 4
   call void @llvm.x86.sse.ldmxcsr(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %138, label %142, label %_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_.exit
+  br i1 %.not, label %110, label %108
 
-142:                                              ; preds = %137
-  %143 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EE4callIJNS_7Point_2IST_EES16_S16_ETnPNSt9enable_ifIXntsr22Call_operator_needs_FTIDpT_EE5valueEvE4typeELPv0EEENS_4SignEDpRKS18_(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  br label %_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_.exit
+108:                                              ; preds = %104
+  %109 = call noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EE4callIJNS_7Point_2IST_EES16_S16_ETnPNSt9enable_ifIXntsr22Call_operator_needs_FTIDpT_EE5valueEvE4typeELPv0EEENS_4SignEDpRKS18_(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
+  br label %110
 
-_ZNK4CGAL24Filtered_predicate_RT_FTINS_23CartesianKernelFunctors13Orientation_2INS_16Simple_cartesianINS_9cpp_floatEEEEENS2_INS3_IN5boost14multiprecision6numberINS8_8backends16rational_adaptorINSA_15cpp_int_backendILm0ELm0ELNS8_16cpp_integer_typeE1ELNS8_18cpp_int_check_typeE0ESaIyEEEEELNS8_26expression_template_optionE1EEEEEEENS2_INS3_INS_11Interval_ntILb0EEEEEEENS_19Cartesian_converterINS_21Type_equality_wrapperINS_27Cartesian_base_no_ref_countIdNS_5EpickEEEST_EES5_NS_12NT_converterIdS4_EEEENSQ_ISV_SK_NSW_IdSJ_EEEENSQ_ISV_SO_NSW_IdSN_EEEELb1EEclIJNS_7Point_2IST_EES16_S16_EEENS_4SignEDpRKT_.exit: ; preds = %38, %34, %42, %142, %137
-  %.3 = phi i32 [ %143, %142 ], [ %.sroa.0.0.i.i.i.i.i.i.i, %137 ], [ 0, %34 ], [ -1, %42 ], [ 1, %38 ]
+110:                                              ; preds = %104, %108
+  %.3 = phi i32 [ %109, %108 ], [ %.sroa.0.0.extract.trunc.i, %104 ]
   ret i32 %.3
 }
 

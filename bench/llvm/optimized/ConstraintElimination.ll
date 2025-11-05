@@ -11100,9 +11100,9 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_111FactOrChe
   %5 = ptrtoint ptr %0 to i64
   br label %6
 
-6:                                                ; preds = %.lr.ph, %131
-  %.021 = phi ptr [ %.018, %.lr.ph ], [ %.0, %131 ]
-  %.pn20 = phi ptr [ %0, %.lr.ph ], [ %.021, %131 ]
+6:                                                ; preds = %.lr.ph, %134
+  %.021 = phi ptr [ %.018, %.lr.ph ], [ %.0, %134 ]
+  %.pn20 = phi ptr [ %0, %.lr.ph ], [ %.021, %134 ]
   %7 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_"(ptr noundef nonnull %.021, ptr noundef %0)
   br i1 %7, label %8, label %15
 
@@ -11118,7 +11118,7 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_111FactOrChe
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %14, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %11, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %3, i64 60, i1 false), !tbaa.struct !168
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %131
+  br label %134
 
 15:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7.i)
@@ -11143,213 +11143,213 @@ define internal fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_111FactOrChe
     i32 3, label %.split.split.us.i
   ]
 
-.split.us.i:                                      ; preds = %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us.i"
-  %.09.us.i = phi ptr [ %.0.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us.i" ], [ %.021, %15 ]
+.split.us.i:                                      ; preds = %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us.i"
+  %.09.us.i = phi ptr [ %.0.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us.i" ], [ %.021, %15 ]
   %.0.us.i = getelementptr inbounds i8, ptr %.09.us.i, i64 -64
   %18 = getelementptr inbounds i8, ptr %.09.us.i, i64 -16
   %19 = load i32, ptr %18, align 8, !tbaa !258
   %20 = icmp eq i32 %.sroa.713.0.copyload.i, %19
-  br i1 %20, label %22, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i"
+  br i1 %20, label %23, label %21
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i": ; preds = %.split.us.i
-  %21 = icmp ult i32 %.sroa.713.0.copyload.i, %19
-  br i1 %21, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
+21:                                               ; preds = %.split.us.i
+  %22 = icmp ult i32 %.sroa.713.0.copyload.i, %19
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
 
-22:                                               ; preds = %.split.us.i
-  %23 = getelementptr inbounds i8, ptr %.09.us.i, i64 -8
-  %.val19.i.i.us.i = load i32, ptr %23, align 8, !tbaa !261
-  %24 = icmp eq i32 %.val19.i.i.us.i, 0
-  br i1 %24, label %25, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us.i"
+23:                                               ; preds = %.split.us.i
+  %24 = getelementptr inbounds i8, ptr %.09.us.i, i64 -8
+  %.val19.i.i.us.i = load i32, ptr %24, align 8, !tbaa !261
+  %25 = icmp eq i32 %.val19.i.i.us.i, 0
+  br i1 %25, label %26, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us.i"
 
-25:                                               ; preds = %22
-  %26 = load i8, ptr %.sroa.5.0.copyload.i, align 8, !tbaa !210
-  %27 = icmp eq i8 %26, 17
-  br i1 %27, label %31, label %28
+26:                                               ; preds = %23
+  %27 = load i8, ptr %.sroa.5.0.copyload.i, align 8, !tbaa !210
+  %28 = icmp eq i8 %27, 17
+  br i1 %28, label %32, label %29
 
-28:                                               ; preds = %25
-  %29 = load i8, ptr %.sroa.6.0.copyload.i, align 8, !tbaa !210
-  %30 = icmp eq i8 %29, 17
-  br label %31
+29:                                               ; preds = %26
+  %30 = load i8, ptr %.sroa.6.0.copyload.i, align 8, !tbaa !210
+  %31 = icmp eq i8 %30, 17
+  br label %32
 
-31:                                               ; preds = %28, %25
-  %32 = phi i1 [ true, %25 ], [ %30, %28 ]
-  %33 = getelementptr inbounds i8, ptr %.09.us.i, i64 -56
-  %34 = load ptr, ptr %33, align 8, !tbaa !13
-  %35 = load i8, ptr %34, align 8, !tbaa !210
-  %36 = icmp eq i8 %35, 17
-  br i1 %36, label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit", label %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i.us.i"
+32:                                               ; preds = %29, %26
+  %33 = phi i1 [ true, %26 ], [ %31, %29 ]
+  %34 = getelementptr inbounds i8, ptr %.09.us.i, i64 -56
+  %35 = load ptr, ptr %34, align 8, !tbaa !13
+  %36 = load i8, ptr %35, align 8, !tbaa !210
+  %37 = icmp eq i8 %36, 17
+  br i1 %37, label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i"
 
-"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i.us.i": ; preds = %31
-  %37 = getelementptr inbounds i8, ptr %.09.us.i, i64 -48
-  %38 = load ptr, ptr %37, align 8, !tbaa !13
-  %39 = load i8, ptr %38, align 8, !tbaa !210
-  %40 = icmp ne i8 %39, 17
-  %41 = and i1 %32, %40
-  br i1 %41, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i": ; preds = %32
+  %38 = getelementptr inbounds i8, ptr %.09.us.i, i64 -48
+  %39 = load ptr, ptr %38, align 8, !tbaa !13
+  %40 = load i8, ptr %39, align 8, !tbaa !210
+  %41 = icmp ne i8 %40, 17
+  %42 = and i1 %33, %41
+  br i1 %42, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us.i": ; preds = %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i.us.i", %22, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i"
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i", %23, %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.09.us.i, ptr noundef nonnull align 8 dereferenceable(60) %.0.us.i, i64 60, i1 false), !tbaa.struct !168
   br label %.split.us.i, !llvm.loop !573
 
-.split.split.us.i:                                ; preds = %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us25.i"
-  %.09.us21.i = phi ptr [ %.0.us22.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us25.i" ], [ %.021, %15 ]
+.split.split.us.i:                                ; preds = %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us24.i"
+  %.09.us21.i = phi ptr [ %.0.us22.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us24.i" ], [ %.021, %15 ]
   %.0.us22.i = getelementptr inbounds i8, ptr %.09.us21.i, i64 -64
-  %42 = getelementptr inbounds i8, ptr %.09.us21.i, i64 -16
-  %43 = load i32, ptr %42, align 8, !tbaa !258
-  %44 = icmp eq i32 %.sroa.713.0.copyload.i, %43
-  br i1 %44, label %46, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i"
-
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i": ; preds = %.split.split.us.i
-  %45 = icmp ult i32 %.sroa.713.0.copyload.i, %43
-  br i1 %45, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us25.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
+  %43 = getelementptr inbounds i8, ptr %.09.us21.i, i64 -16
+  %44 = load i32, ptr %43, align 8, !tbaa !258
+  %45 = icmp eq i32 %.sroa.713.0.copyload.i, %44
+  br i1 %45, label %48, label %46
 
 46:                                               ; preds = %.split.split.us.i
-  %47 = getelementptr inbounds i8, ptr %.09.us21.i, i64 -8
-  %.val19.i.i.us24.i = load i32, ptr %47, align 8, !tbaa !261
-  %48 = icmp eq i32 %.val19.i.i.us24.i, 0
-  br i1 %48, label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit", label %49
+  %47 = icmp ult i32 %.sroa.713.0.copyload.i, %44
+  br i1 %47, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us24.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
 
-49:                                               ; preds = %46
-  %50 = load ptr, ptr %16, align 8, !tbaa !298
-  %51 = load i8, ptr %50, align 8, !tbaa !210
-  %.not.i.i.i.i.us.i = icmp eq i8 %51, 84
-  br i1 %.not.i.i.i.i.us.i, label %52, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i
+48:                                               ; preds = %.split.split.us.i
+  %49 = getelementptr inbounds i8, ptr %.09.us21.i, i64 -8
+  %.val19.i.i.us23.i = load i32, ptr %49, align 8, !tbaa !261
+  %50 = icmp eq i32 %.val19.i.i.us23.i, 0
+  br i1 %50, label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit", label %51
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds i8, ptr %50, i64 -8
-  %54 = load ptr, ptr %53, align 8, !tbaa !230
-  %55 = ptrtoint ptr %54 to i64
-  %56 = sub i64 %17, %55
-  %57 = lshr exact i64 %56, 5
-  %58 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  %59 = load i32, ptr %58, align 8, !tbaa !231
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"class.llvm::Use", ptr %54, i64 %60
-  %62 = and i64 %57, 4294967295
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !200
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 48
-  %66 = load ptr, ptr %65, align 8, !tbaa !209
-  %67 = getelementptr inbounds i8, ptr %66, i64 -24
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %16, align 8, !tbaa !298
+  %53 = load i8, ptr %52, align 8, !tbaa !210
+  %.not.i.i.i.i.us.i = icmp eq i8 %53, 84
+  br i1 %.not.i.i.i.i.us.i, label %54, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i
+
+54:                                               ; preds = %51
+  %55 = getelementptr inbounds i8, ptr %52, i64 -8
+  %56 = load ptr, ptr %55, align 8, !tbaa !230
+  %57 = ptrtoint ptr %56 to i64
+  %58 = sub i64 %17, %57
+  %59 = lshr exact i64 %58, 5
+  %60 = getelementptr inbounds nuw i8, ptr %52, i64 72
+  %61 = load i32, ptr %60, align 8, !tbaa !231
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"class.llvm::Use", ptr %56, i64 %62
+  %64 = and i64 %59, 4294967295
+  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !200
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  %68 = load ptr, ptr %67, align 8, !tbaa !209
+  %69 = getelementptr inbounds i8, ptr %68, i64 -24
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i: ; preds = %52, %49
-  %.0.i.i.i.us.i = phi ptr [ %50, %49 ], [ %67, %52 ]
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i: ; preds = %54, %51
+  %.0.i.i.i.us.i = phi ptr [ %52, %51 ], [ %69, %54 ]
   %.val21.i.i.us.i = load ptr, ptr %.0.us22.i, align 8
-  %68 = icmp eq i32 %.val19.i.i.us24.i, 3
-  br i1 %68, label %69, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i
+  %70 = icmp eq i32 %.val19.i.i.us23.i, 3
+  br i1 %70, label %71, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i
 
-69:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i
-  %70 = getelementptr inbounds nuw i8, ptr %.val21.i.i.us.i, i64 24
-  %71 = load ptr, ptr %70, align 8, !tbaa !298
-  %72 = load i8, ptr %71, align 8, !tbaa !210
-  %.not.i.i33.i.i.us.i = icmp eq i8 %72, 84
-  br i1 %.not.i.i33.i.i.us.i, label %73, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i
+71:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i
+  %72 = getelementptr inbounds nuw i8, ptr %.val21.i.i.us.i, i64 24
+  %73 = load ptr, ptr %72, align 8, !tbaa !298
+  %74 = load i8, ptr %73, align 8, !tbaa !210
+  %.not.i.i33.i.i.us.i = icmp eq i8 %74, 84
+  br i1 %.not.i.i33.i.i.us.i, label %75, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds i8, ptr %71, i64 -8
-  %75 = load ptr, ptr %74, align 8, !tbaa !230
-  %76 = ptrtoint ptr %.val21.i.i.us.i to i64
-  %77 = ptrtoint ptr %75 to i64
-  %78 = sub i64 %76, %77
-  %79 = lshr exact i64 %78, 5
-  %80 = getelementptr inbounds nuw i8, ptr %71, i64 72
-  %81 = load i32, ptr %80, align 8, !tbaa !231
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"class.llvm::Use", ptr %75, i64 %82
-  %84 = and i64 %79, 4294967295
-  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !200
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 48
-  %88 = load ptr, ptr %87, align 8, !tbaa !209
-  %89 = icmp eq ptr %87, %88
-  br i1 %89, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i, label %90
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %73, i64 -8
+  %77 = load ptr, ptr %76, align 8, !tbaa !230
+  %78 = ptrtoint ptr %.val21.i.i.us.i to i64
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = lshr exact i64 %80, 5
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %83 = load i32, ptr %82, align 8, !tbaa !231
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw %"class.llvm::Use", ptr %77, i64 %84
+  %86 = and i64 %81, 4294967295
+  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
+  %88 = load ptr, ptr %87, align 8, !tbaa !200
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  %90 = load ptr, ptr %89, align 8, !tbaa !209
+  %91 = icmp eq ptr %89, %90
+  br i1 %91, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i, label %92
 
-90:                                               ; preds = %73
-  %91 = getelementptr inbounds i8, ptr %88, i64 -24
-  %92 = load i8, ptr %91, align 8, !tbaa !210
-  %93 = add i8 %92, -30
-  %94 = icmp ult i8 %93, 11
-  %spec.select.i.i7.i.i34.i.i.us.i = select i1 %94, ptr %91, ptr null
+92:                                               ; preds = %75
+  %93 = getelementptr inbounds i8, ptr %90, i64 -24
+  %94 = load i8, ptr %93, align 8, !tbaa !210
+  %95 = add i8 %94, -30
+  %96 = icmp ult i8 %95, 11
+  %spec.select.i.i7.i.i34.i.i.us.i = select i1 %96, ptr %93, ptr null
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i: ; preds = %90, %73, %69, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i
-  %.0.i32.i.i.us.i = phi ptr [ %71, %69 ], [ null, %73 ], [ %spec.select.i.i7.i.i34.i.i.us.i, %90 ], [ %.val21.i.i.us.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i ]
-  %95 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i.us.i, ptr noundef %.0.i32.i.i.us.i) #24
-  br i1 %95, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us25.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i: ; preds = %92, %75, %71, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i
+  %.0.i32.i.i.us.i = phi ptr [ %73, %71 ], [ null, %75 ], [ %spec.select.i.i7.i.i34.i.i.us.i, %92 ], [ %.val21.i.i.us.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.us.i ]
+  %97 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i.us.i, ptr noundef %.0.i32.i.i.us.i) #24
+  br i1 %97, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us24.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.us25.i": ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i"
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.us24.i": ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i, %46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.09.us21.i, ptr noundef nonnull align 8 dereferenceable(60) %.0.us22.i, i64 60, i1 false), !tbaa.struct !168
   br label %.split.split.us.i, !llvm.loop !573
 
-.split.split.i:                                   ; preds = %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.i"
-  %.09.i = phi ptr [ %.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.i" ], [ %.021, %15 ]
+.split.split.i:                                   ; preds = %15, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.i"
+  %.09.i = phi ptr [ %.0.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.i" ], [ %.021, %15 ]
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -64
-  %96 = getelementptr inbounds i8, ptr %.09.i, i64 -16
-  %97 = load i32, ptr %96, align 8, !tbaa !258
-  %98 = icmp eq i32 %.sroa.713.0.copyload.i, %97
-  br i1 %98, label %99, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i"
+  %98 = getelementptr inbounds i8, ptr %.09.i, i64 -16
+  %99 = load i32, ptr %98, align 8, !tbaa !258
+  %100 = icmp eq i32 %.sroa.713.0.copyload.i, %99
+  br i1 %100, label %101, label %132
 
-99:                                               ; preds = %.split.split.i
-  %100 = getelementptr inbounds i8, ptr %.09.i, i64 -8
-  %.val19.i.i.i = load i32, ptr %100, align 8, !tbaa !261
-  %101 = icmp eq i32 %.val19.i.i.i, 0
-  br i1 %101, label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit", label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i
+101:                                              ; preds = %.split.split.i
+  %102 = getelementptr inbounds i8, ptr %.09.i, i64 -8
+  %.val19.i.i.i = load i32, ptr %102, align 8, !tbaa !261
+  %103 = icmp eq i32 %.val19.i.i.i, 0
+  br i1 %103, label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit", label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i: ; preds = %99
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i: ; preds = %101
   %.val21.i.i.i = load ptr, ptr %.0.i, align 8
-  %102 = icmp eq i32 %.val19.i.i.i, 3
-  br i1 %102, label %103, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i
+  %104 = icmp eq i32 %.val19.i.i.i, 3
+  br i1 %104, label %105, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i
 
-103:                                              ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i
-  %104 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 24
-  %105 = load ptr, ptr %104, align 8, !tbaa !298
-  %106 = load i8, ptr %105, align 8, !tbaa !210
-  %.not.i.i33.i.i.i = icmp eq i8 %106, 84
-  br i1 %.not.i.i33.i.i.i, label %107, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i
+105:                                              ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i
+  %106 = getelementptr inbounds nuw i8, ptr %.val21.i.i.i, i64 24
+  %107 = load ptr, ptr %106, align 8, !tbaa !298
+  %108 = load i8, ptr %107, align 8, !tbaa !210
+  %.not.i.i33.i.i.i = icmp eq i8 %108, 84
+  br i1 %.not.i.i33.i.i.i, label %109, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds i8, ptr %105, i64 -8
-  %109 = load ptr, ptr %108, align 8, !tbaa !230
-  %110 = ptrtoint ptr %.val21.i.i.i to i64
-  %111 = ptrtoint ptr %109 to i64
-  %112 = sub i64 %110, %111
-  %113 = lshr exact i64 %112, 5
-  %114 = getelementptr inbounds nuw i8, ptr %105, i64 72
-  %115 = load i32, ptr %114, align 8, !tbaa !231
-  %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"class.llvm::Use", ptr %109, i64 %116
-  %118 = and i64 %113, 4294967295
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
-  %120 = load ptr, ptr %119, align 8, !tbaa !200
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
-  %122 = load ptr, ptr %121, align 8, !tbaa !209
-  %123 = icmp eq ptr %121, %122
-  br i1 %123, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i, label %124
+109:                                              ; preds = %105
+  %110 = getelementptr inbounds i8, ptr %107, i64 -8
+  %111 = load ptr, ptr %110, align 8, !tbaa !230
+  %112 = ptrtoint ptr %.val21.i.i.i to i64
+  %113 = ptrtoint ptr %111 to i64
+  %114 = sub i64 %112, %113
+  %115 = lshr exact i64 %114, 5
+  %116 = getelementptr inbounds nuw i8, ptr %107, i64 72
+  %117 = load i32, ptr %116, align 8, !tbaa !231
+  %118 = zext i32 %117 to i64
+  %119 = getelementptr inbounds nuw %"class.llvm::Use", ptr %111, i64 %118
+  %120 = and i64 %115, 4294967295
+  %121 = getelementptr inbounds nuw ptr, ptr %119, i64 %120
+  %122 = load ptr, ptr %121, align 8, !tbaa !200
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 48
+  %124 = load ptr, ptr %123, align 8, !tbaa !209
+  %125 = icmp eq ptr %123, %124
+  br i1 %125, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i, label %126
 
-124:                                              ; preds = %107
-  %125 = getelementptr inbounds i8, ptr %122, i64 -24
-  %126 = load i8, ptr %125, align 8, !tbaa !210
-  %127 = add i8 %126, -30
-  %128 = icmp ult i8 %127, 11
-  %spec.select.i.i7.i.i34.i.i.i = select i1 %128, ptr %125, ptr null
+126:                                              ; preds = %109
+  %127 = getelementptr inbounds i8, ptr %124, i64 -24
+  %128 = load i8, ptr %127, align 8, !tbaa !210
+  %129 = add i8 %128, -30
+  %130 = icmp ult i8 %129, 11
+  %spec.select.i.i7.i.i34.i.i.i = select i1 %130, ptr %127, ptr null
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i: ; preds = %124, %107, %103, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i
-  %.0.i32.i.i.i = phi ptr [ %105, %103 ], [ null, %107 ], [ %spec.select.i.i7.i.i34.i.i.i, %124 ], [ %.val21.i.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i ]
-  %129 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, ptr noundef %.0.i32.i.i.i) #24
-  br i1 %129, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i: ; preds = %126, %109, %105, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i
+  %.0.i32.i.i.i = phi ptr [ %107, %105 ], [ null, %109 ], [ %spec.select.i.i7.i.i34.i.i.i, %126 ], [ %.val21.i.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i.i ]
+  %131 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.0.0.copyload.i, ptr noundef %.0.i32.i.i.i) #24
+  br i1 %131, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i": ; preds = %.split.split.i
-  %130 = icmp ult i32 %.sroa.713.0.copyload.i, %97
-  br i1 %130, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
+132:                                              ; preds = %.split.split.i
+  %133 = icmp ult i32 %.sroa.713.0.copyload.i, %99
+  br i1 %133, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.i", label %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i", %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread19.i": ; preds = %132, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.09.i, ptr noundef nonnull align 8 dereferenceable(60) %.0.i, i64 60, i1 false), !tbaa.struct !168
   br label %.split.split.i, !llvm.loop !573
 
-"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i", %46, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i", %31, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i.us.i", %99, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i"
-  %.us-phi.i = phi ptr [ %.09.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.i" ], [ %.09.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i ], [ %.09.i, %99 ], [ %.09.us.i, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i.us.i" ], [ %.09.us.i, %31 ], [ %.09.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i" ], [ %.09.us21.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i ], [ %.09.us21.i, %46 ], [ %.09.us21.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us23.i" ]
+"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit": ; preds = %46, %48, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i, %21, %32, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i", %101, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i, %132
+  %.us-phi.i = phi ptr [ %.09.i, %132 ], [ %.09.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i ], [ %.09.i, %101 ], [ %.09.us.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.us.i" ], [ %.09.us.i, %32 ], [ %.09.us.i, %21 ], [ %.09.us21.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.us.i ], [ %.09.us21.i, %48 ], [ %.09.us21.i, %46 ]
   store ptr %.sroa.0.0.copyload.i, ptr %.us-phi.i, align 8
   %.sroa.5.0..09.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
   store ptr %.sroa.5.0.copyload.i, ptr %.sroa.5.0..09.sroa_idx.i, align 8
@@ -11364,14 +11364,14 @@ _ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i.i: ; preds = %124, 
   %.sroa.816.0..09.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 56
   store i32 %.sroa.816.0.copyload.fr.i, ptr %.sroa.816.0..09.sroa_idx.i, align 8, !tbaa !13
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
-  br label %131
+  br label %134
 
-131:                                              ; preds = %8, %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
+134:                                              ; preds = %8, %"_ZSt25__unguarded_linear_insertIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_T0_.exit"
   %.0 = getelementptr inbounds nuw i8, ptr %.021, i64 64
   %.not = icmp eq ptr %.0, %1
   br i1 %.not, label %.loopexit, label %6, !llvm.loop !574
 
-.loopexit:                                        ; preds = %131, %.preheader, %2
+.loopexit:                                        ; preds = %134, %.preheader, %2
   ret void
 }
 
@@ -11569,7 +11569,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iter
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8, !tbaa !258
   %7 = icmp eq i32 %4, %6
-  br i1 %7, label %8, label %89
+  br i1 %7, label %8, label %88
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -11578,7 +11578,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iter
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val19.i = load i32, ptr %11, align 8, !tbaa !261
   %12 = icmp eq i32 %.val19.i, 0
-  br i1 %10, label %13, label %37
+  br i1 %10, label %13, label %36
 
 13:                                               ; preds = %8
   br i1 %12, label %14, label %"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit"
@@ -11603,105 +11603,101 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iter
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %28 = load i8, ptr %27, align 8, !tbaa !210
   %29 = icmp eq i8 %28, 17
-  br i1 %29, label %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i", label %30
+  br i1 %29, label %"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit", label %30
 
 30:                                               ; preds = %24
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !13
   %33 = load i8, ptr %32, align 8, !tbaa !210
   %34 = icmp ne i8 %33, 17
-  br label %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i"
-
-"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i": ; preds = %30, %24
-  %35 = phi i1 [ false, %24 ], [ %34, %30 ]
-  %36 = and i1 %25, %35
+  %35 = and i1 %25, %34
   br label %"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit"
 
-37:                                               ; preds = %8
-  br i1 %12, label %"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit", label %38
+36:                                               ; preds = %8
+  br i1 %12, label %"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit", label %37
 
-38:                                               ; preds = %37
+37:                                               ; preds = %36
   %.val23.i = load ptr, ptr %0, align 8
-  %39 = icmp eq i32 %.val20.i, 3
-  br i1 %39, label %40, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
+  %38 = icmp eq i32 %.val20.i, 3
+  br i1 %38, label %39, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !298
-  %43 = load i8, ptr %42, align 8, !tbaa !210
-  %.not.i.i.i = icmp eq i8 %43, 84
-  br i1 %.not.i.i.i, label %44, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
+39:                                               ; preds = %37
+  %40 = getelementptr inbounds nuw i8, ptr %.val23.i, i64 24
+  %41 = load ptr, ptr %40, align 8, !tbaa !298
+  %42 = load i8, ptr %41, align 8, !tbaa !210
+  %.not.i.i.i = icmp eq i8 %42, 84
+  br i1 %.not.i.i.i, label %43, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %42, i64 -8
-  %46 = load ptr, ptr %45, align 8, !tbaa !230
-  %47 = ptrtoint ptr %.val23.i to i64
-  %48 = ptrtoint ptr %46 to i64
-  %49 = sub i64 %47, %48
-  %50 = lshr exact i64 %49, 5
-  %51 = getelementptr inbounds nuw i8, ptr %42, i64 72
-  %52 = load i32, ptr %51, align 8, !tbaa !231
-  %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.llvm::Use", ptr %46, i64 %53
-  %55 = and i64 %50, 4294967295
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !200
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %59 = load ptr, ptr %58, align 8, !tbaa !209
-  %60 = getelementptr inbounds i8, ptr %59, i64 -24
+43:                                               ; preds = %39
+  %44 = getelementptr inbounds i8, ptr %41, i64 -8
+  %45 = load ptr, ptr %44, align 8, !tbaa !230
+  %46 = ptrtoint ptr %.val23.i to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = lshr exact i64 %48, 5
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 72
+  %51 = load i32, ptr %50, align 8, !tbaa !231
+  %52 = zext i32 %51 to i64
+  %53 = getelementptr inbounds nuw %"class.llvm::Use", ptr %45, i64 %52
+  %54 = and i64 %49, 4294967295
+  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !200
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 48
+  %58 = load ptr, ptr %57, align 8, !tbaa !209
+  %59 = getelementptr inbounds i8, ptr %58, i64 -24
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i: ; preds = %44, %40, %38
-  %.0.i.i = phi ptr [ %42, %40 ], [ %.val23.i, %38 ], [ %60, %44 ]
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i: ; preds = %43, %39, %37
+  %.0.i.i = phi ptr [ %41, %39 ], [ %.val23.i, %37 ], [ %59, %43 ]
   %.val21.i = load ptr, ptr %1, align 8
-  %61 = icmp eq i32 %.val19.i, 3
-  br i1 %61, label %62, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i
+  %60 = icmp eq i32 %.val19.i, 3
+  br i1 %60, label %61, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i
 
-62:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
-  %63 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 24
-  %64 = load ptr, ptr %63, align 8, !tbaa !298
-  %65 = load i8, ptr %64, align 8, !tbaa !210
-  %.not.i.i33.i = icmp eq i8 %65, 84
-  br i1 %.not.i.i33.i, label %66, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i
+61:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
+  %62 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 24
+  %63 = load ptr, ptr %62, align 8, !tbaa !298
+  %64 = load i8, ptr %63, align 8, !tbaa !210
+  %.not.i.i33.i = icmp eq i8 %64, 84
+  br i1 %.not.i.i33.i, label %65, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i
 
-66:                                               ; preds = %62
-  %67 = getelementptr inbounds i8, ptr %64, i64 -8
-  %68 = load ptr, ptr %67, align 8, !tbaa !230
-  %69 = ptrtoint ptr %.val21.i to i64
-  %70 = ptrtoint ptr %68 to i64
-  %71 = sub i64 %69, %70
-  %72 = lshr exact i64 %71, 5
-  %73 = getelementptr inbounds nuw i8, ptr %64, i64 72
-  %74 = load i32, ptr %73, align 8, !tbaa !231
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %"class.llvm::Use", ptr %68, i64 %75
-  %77 = and i64 %72, 4294967295
-  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !200
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
-  %81 = load ptr, ptr %80, align 8, !tbaa !209
-  %82 = icmp eq ptr %80, %81
-  br i1 %82, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i, label %83
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds i8, ptr %63, i64 -8
+  %67 = load ptr, ptr %66, align 8, !tbaa !230
+  %68 = ptrtoint ptr %.val21.i to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = lshr exact i64 %70, 5
+  %72 = getelementptr inbounds nuw i8, ptr %63, i64 72
+  %73 = load i32, ptr %72, align 8, !tbaa !231
+  %74 = zext i32 %73 to i64
+  %75 = getelementptr inbounds nuw %"class.llvm::Use", ptr %67, i64 %74
+  %76 = and i64 %71, 4294967295
+  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %78 = load ptr, ptr %77, align 8, !tbaa !200
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 48
+  %80 = load ptr, ptr %79, align 8, !tbaa !209
+  %81 = icmp eq ptr %79, %80
+  br i1 %81, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i, label %82
 
-83:                                               ; preds = %66
-  %84 = getelementptr inbounds i8, ptr %81, i64 -24
-  %85 = load i8, ptr %84, align 8, !tbaa !210
-  %86 = add i8 %85, -30
-  %87 = icmp ult i8 %86, 11
-  %spec.select.i.i7.i.i34.i = select i1 %87, ptr %84, ptr null
+82:                                               ; preds = %65
+  %83 = getelementptr inbounds i8, ptr %80, i64 -24
+  %84 = load i8, ptr %83, align 8, !tbaa !210
+  %85 = add i8 %84, -30
+  %86 = icmp ult i8 %85, 11
+  %spec.select.i.i7.i.i34.i = select i1 %86, ptr %83, ptr null
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i: ; preds = %83, %66, %62, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
-  %.0.i32.i = phi ptr [ %64, %62 ], [ null, %66 ], [ %spec.select.i.i7.i.i34.i, %83 ], [ %.val21.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i ]
-  %88 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i, ptr noundef %.0.i32.i) #24
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i: ; preds = %82, %65, %61, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i
+  %.0.i32.i = phi ptr [ %63, %61 ], [ null, %65 ], [ %spec.select.i.i7.i.i34.i, %82 ], [ %.val21.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i ]
+  %87 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i, ptr noundef %.0.i32.i) #24
   br label %"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit"
 
-89:                                               ; preds = %2
-  %90 = icmp ult i32 %4, %6
+88:                                               ; preds = %2
+  %89 = icmp ult i32 %4, %6
   br label %"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit"
 
-"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit": ; preds = %13, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i", %37, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i, %89
-  %.0.i = phi i1 [ %36, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i" ], [ %88, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i ], [ %90, %89 ], [ false, %37 ], [ true, %13 ]
+"_ZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_.exit": ; preds = %13, %24, %30, %36, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i, %88
+  %.0.i = phi i1 [ %87, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i ], [ %89, %88 ], [ false, %36 ], [ true, %13 ], [ false, %24 ], [ %35, %30 ]
   ret i1 %.0.i
 }
 
@@ -11724,17 +11720,17 @@ _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph: ; preds = %3
   br label %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph, %.thread
-  %.043 = phi ptr [ %0, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %105, %.thread ]
-  %.01142 = phi i64 [ %7, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %104, %.thread ]
-  %13 = lshr i64 %.01142, 1
-  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FactOrCheck", ptr %.043, i64 %13
+  %.039 = phi ptr [ %0, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %106, %.thread ]
+  %.01138 = phi i64 [ %7, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %105, %.thread ]
+  %13 = lshr i64 %.01138, 1
+  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FactOrCheck", ptr %.039, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load i32, ptr %15, align 8, !tbaa !258
   %.fr = freeze i32 %16
   %17 = load i32, ptr %9, align 8, !tbaa !258
-  %.fr37 = freeze i32 %17
-  %18 = icmp eq i32 %.fr, %.fr37
-  br i1 %18, label %19, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit"
+  %.fr33 = freeze i32 %17
+  %18 = icmp eq i32 %.fr, %.fr33
+  br i1 %18, label %19, label %96
 
 19:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -11742,15 +11738,15 @@ _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit: ; preds = %_ZSt7advan
   %21 = icmp eq i32 %.val20.i.i, 0
   %.val19.i.i = load i32, ptr %10, align 8, !tbaa !261
   %22 = icmp eq i32 %.val19.i.i, 0
-  br i1 %21, label %23, label %45
+  br i1 %21, label %23, label %41
 
 23:                                               ; preds = %19
-  br i1 %22, label %27, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread"
+  br i1 %22, label %27, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread20"
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread": ; preds = %23
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread20": ; preds = %23
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %25 = xor i64 %13, -1
-  %26 = add nsw i64 %.01142, %25
+  %26 = add nsw i64 %.01138, %25
   br label %.thread
 
 27:                                               ; preds = %23
@@ -11764,127 +11760,127 @@ _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit: ; preds = %_ZSt7advan
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = load i8, ptr %34, align 8, !tbaa !210
-  %.fr40 = freeze i8 %35
-  %36 = icmp eq i8 %.fr40, 17
+  %.fr36 = freeze i8 %35
+  %36 = icmp eq i8 %.fr36, 17
   br label %37
 
 37:                                               ; preds = %32, %27
-  %.fr38 = phi i1 [ true, %27 ], [ %36, %32 ]
+  %.fr34 = phi i1 [ true, %27 ], [ %36, %32 ]
   %38 = load ptr, ptr %11, align 8, !tbaa !13
   %39 = load i8, ptr %38, align 8, !tbaa !210
   %40 = icmp eq i8 %39, 17
-  br i1 %40, label %.thread, label %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i"
+  br i1 %40, label %.thread, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit"
 
-"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i": ; preds = %37
-  %41 = load ptr, ptr %12, align 8, !tbaa !13
-  %42 = load i8, ptr %41, align 8, !tbaa !210
-  %.fr39 = freeze i8 %42
-  %43 = icmp ne i8 %.fr39, 17
-  %44 = and i1 %.fr38, %43
-  br i1 %44, label %101, label %.thread
+41:                                               ; preds = %19
+  br i1 %22, label %.thread, label %42
 
-45:                                               ; preds = %19
-  br i1 %22, label %.thread, label %46
-
-46:                                               ; preds = %45
+42:                                               ; preds = %41
   %.val23.i.i = load ptr, ptr %14, align 8
-  %47 = icmp eq i32 %.val20.i.i, 3
-  br i1 %47, label %48, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %43 = icmp eq i32 %.val20.i.i, 3
+  br i1 %43, label %44, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !298
-  %51 = load i8, ptr %50, align 8, !tbaa !210
-  %.not.i.i.i.i = icmp eq i8 %51, 84
-  br i1 %.not.i.i.i.i, label %52, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !298
+  %47 = load i8, ptr %46, align 8, !tbaa !210
+  %.not.i.i.i.i = icmp eq i8 %47, 84
+  br i1 %.not.i.i.i.i, label %48, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-52:                                               ; preds = %48
-  %53 = getelementptr inbounds i8, ptr %50, i64 -8
-  %54 = load ptr, ptr %53, align 8, !tbaa !230
-  %55 = ptrtoint ptr %.val23.i.i to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = lshr exact i64 %57, 5
-  %59 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  %60 = load i32, ptr %59, align 8, !tbaa !231
-  %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"class.llvm::Use", ptr %54, i64 %61
-  %63 = and i64 %58, 4294967295
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %63
-  %65 = load ptr, ptr %64, align 8, !tbaa !200
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
-  %67 = load ptr, ptr %66, align 8, !tbaa !209
-  %68 = getelementptr inbounds i8, ptr %67, i64 -24
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %46, i64 -8
+  %50 = load ptr, ptr %49, align 8, !tbaa !230
+  %51 = ptrtoint ptr %.val23.i.i to i64
+  %52 = ptrtoint ptr %50 to i64
+  %53 = sub i64 %51, %52
+  %54 = lshr exact i64 %53, 5
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 72
+  %56 = load i32, ptr %55, align 8, !tbaa !231
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw %"class.llvm::Use", ptr %50, i64 %57
+  %59 = and i64 %54, 4294967295
+  %60 = getelementptr inbounds nuw ptr, ptr %58, i64 %59
+  %61 = load ptr, ptr %60, align 8, !tbaa !200
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %63 = load ptr, ptr %62, align 8, !tbaa !209
+  %64 = getelementptr inbounds i8, ptr %63, i64 -24
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i: ; preds = %52, %48, %46
-  %.0.i.i.i = phi ptr [ %50, %48 ], [ %.val23.i.i, %46 ], [ %68, %52 ]
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i: ; preds = %48, %44, %42
+  %.0.i.i.i = phi ptr [ %46, %44 ], [ %.val23.i.i, %42 ], [ %64, %48 ]
   %.val21.i.i = load ptr, ptr %2, align 8
-  %69 = icmp eq i32 %.val19.i.i, 3
-  br i1 %69, label %70, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
+  %65 = icmp eq i32 %.val19.i.i, 3
+  br i1 %65, label %66, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-70:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %.val21.i.i, i64 24
-  %72 = load ptr, ptr %71, align 8, !tbaa !298
-  %73 = load i8, ptr %72, align 8, !tbaa !210
-  %.not.i.i33.i.i = icmp eq i8 %73, 84
-  br i1 %.not.i.i33.i.i, label %74, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
+66:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %67 = getelementptr inbounds nuw i8, ptr %.val21.i.i, i64 24
+  %68 = load ptr, ptr %67, align 8, !tbaa !298
+  %69 = load i8, ptr %68, align 8, !tbaa !210
+  %.not.i.i33.i.i = icmp eq i8 %69, 84
+  br i1 %.not.i.i33.i.i, label %70, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %72, i64 -8
-  %76 = load ptr, ptr %75, align 8, !tbaa !230
-  %77 = ptrtoint ptr %.val21.i.i to i64
-  %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = lshr exact i64 %79, 5
-  %81 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  %82 = load i32, ptr %81, align 8, !tbaa !231
-  %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"class.llvm::Use", ptr %76, i64 %83
-  %85 = and i64 %80, 4294967295
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
-  %87 = load ptr, ptr %86, align 8, !tbaa !200
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
-  %89 = load ptr, ptr %88, align 8, !tbaa !209
-  %90 = icmp eq ptr %88, %89
-  br i1 %90, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, label %91
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds i8, ptr %68, i64 -8
+  %72 = load ptr, ptr %71, align 8, !tbaa !230
+  %73 = ptrtoint ptr %.val21.i.i to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %76 = lshr exact i64 %75, 5
+  %77 = getelementptr inbounds nuw i8, ptr %68, i64 72
+  %78 = load i32, ptr %77, align 8, !tbaa !231
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw %"class.llvm::Use", ptr %72, i64 %79
+  %81 = and i64 %76, 4294967295
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
+  %83 = load ptr, ptr %82, align 8, !tbaa !200
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %85 = load ptr, ptr %84, align 8, !tbaa !209
+  %86 = icmp eq ptr %84, %85
+  br i1 %86, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, label %87
 
-91:                                               ; preds = %74
-  %92 = getelementptr inbounds i8, ptr %89, i64 -24
-  %93 = load i8, ptr %92, align 8, !tbaa !210
-  %94 = add i8 %93, -30
-  %95 = icmp ult i8 %94, 11
-  %spec.select.i.i7.i.i34.i.i = select i1 %95, ptr %92, ptr null
+87:                                               ; preds = %70
+  %88 = getelementptr inbounds i8, ptr %85, i64 -24
+  %89 = load i8, ptr %88, align 8, !tbaa !210
+  %90 = add i8 %89, -30
+  %91 = icmp ult i8 %90, 11
+  %spec.select.i.i7.i.i34.i.i = select i1 %91, ptr %88, ptr null
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i: ; preds = %91, %74, %70, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
-  %.0.i32.i.i = phi ptr [ %72, %70 ], [ null, %74 ], [ %spec.select.i.i7.i.i34.i.i, %91 ], [ %.val21.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i ]
-  %96 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef %.0.i32.i.i) #24
-  %97 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %98 = xor i64 %13, -1
-  %99 = add nsw i64 %.01142, %98
-  %spec.select = select i1 %96, i64 %99, i64 %13
-  %spec.select41 = select i1 %96, ptr %97, ptr %.043
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i: ; preds = %87, %70, %66, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %.0.i32.i.i = phi ptr [ %68, %66 ], [ null, %70 ], [ %spec.select.i.i7.i.i34.i.i, %87 ], [ %.val21.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i ]
+  %92 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef %.0.i32.i.i) #24
+  %93 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %94 = xor i64 %13, -1
+  %95 = add nsw i64 %.01138, %94
+  %spec.select = select i1 %92, i64 %95, i64 %13
+  %spec.select37 = select i1 %92, ptr %93, ptr %.039
   br label %.thread
 
-"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit": ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
-  %100 = icmp ult i32 %.fr, %.fr37
-  br i1 %100, label %101, label %.thread
+96:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
+  %97 = icmp ult i32 %.fr, %.fr33
+  br i1 %97, label %102, label %.thread
 
-101:                                              ; preds = %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit"
-  %102 = getelementptr inbounds nuw i8, ptr %14, i64 64
+"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit": ; preds = %37
+  %98 = load ptr, ptr %12, align 8, !tbaa !13
+  %99 = load i8, ptr %98, align 8, !tbaa !210
+  %.fr35 = freeze i8 %99
+  %100 = icmp ne i8 %.fr35, 17
+  %101 = and i1 %.fr34, %100
+  br i1 %101, label %102, label %.thread
+
+102:                                              ; preds = %96, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit"
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %.pn = xor i64 %13, -1
-  %103 = add nsw i64 %.01142, %.pn
+  %104 = add nsw i64 %.01138, %.pn
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread", %101, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit", %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i", %37, %45
-  %104 = phi i64 [ %13, %45 ], [ %13, %37 ], [ %13, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i" ], [ %13, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit" ], [ %103, %101 ], [ %26, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread" ], [ %spec.select, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ]
-  %105 = phi ptr [ %.043, %45 ], [ %.043, %37 ], [ %.043, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i" ], [ %.043, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit" ], [ %102, %101 ], [ %24, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread" ], [ %spec.select41, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ]
-  %106 = icmp sgt i64 %104, 0
-  br i1 %106, label %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !579
+.thread:                                          ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread20", %102, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit", %96, %37, %41
+  %105 = phi i64 [ %13, %41 ], [ %13, %37 ], [ %13, %96 ], [ %13, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit" ], [ %104, %102 ], [ %26, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread20" ], [ %spec.select, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ]
+  %106 = phi ptr [ %.039, %41 ], [ %.039, %37 ], [ %.039, %96 ], [ %.039, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit" ], [ %103, %102 ], [ %24, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckEKSH_EEbT_RT0_.exit.thread20" ], [ %spec.select37, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ]
+  %107 = icmp sgt i64 %105, 0
+  br i1 %107, label %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !579
 
 ._crit_edge:                                      ; preds = %.thread, %3
-  %.0.lcssa = phi ptr [ %0, %3 ], [ %105, %.thread ]
+  %.0.lcssa = phi ptr [ %0, %3 ], [ %106, %.thread ]
   ret ptr %.0.lcssa
 }
 
@@ -11905,17 +11901,17 @@ _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph: ; preds = %3
   br label %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
 
 _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit: ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph, %.thread
-  %.043 = phi ptr [ %0, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %108, %.thread ]
-  %.01142 = phi i64 [ %7, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %107, %.thread ]
-  %13 = lshr i64 %.01142, 1
-  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FactOrCheck", ptr %.043, i64 %13
+  %.039 = phi ptr [ %0, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %106, %.thread ]
+  %.01138 = phi i64 [ %7, %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit.lr.ph ], [ %105, %.thread ]
+  %13 = lshr i64 %.01138, 1
+  %14 = getelementptr inbounds nuw %"struct.(anonymous namespace)::FactOrCheck", ptr %.039, i64 %13
   %15 = load i32, ptr %9, align 8, !tbaa !258
   %.fr = freeze i32 %15
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !258
-  %.fr38 = freeze i32 %17
-  %18 = icmp eq i32 %.fr, %.fr38
-  br i1 %18, label %19, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit"
+  %.fr34 = freeze i32 %17
+  %18 = icmp eq i32 %.fr, %.fr34
+  br i1 %18, label %19, label %92
 
 19:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
   %.val20.i.i = load i32, ptr %10, align 8, !tbaa !261
@@ -11923,10 +11919,10 @@ _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit: ; preds = %_ZSt7advan
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %.val19.i.i = load i32, ptr %21, align 8, !tbaa !261
   %22 = icmp eq i32 %.val19.i.i, 0
-  br i1 %20, label %23, label %45
+  br i1 %20, label %23, label %37
 
 23:                                               ; preds = %19
-  br i1 %22, label %24, label %.thread32
+  br i1 %22, label %24, label %.thread31
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr %11, align 8, !tbaa !13
@@ -11937,142 +11933,136 @@ _ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit: ; preds = %_ZSt7advan
 28:                                               ; preds = %24
   %29 = load ptr, ptr %12, align 8, !tbaa !13
   %30 = load i8, ptr %29, align 8, !tbaa !210
-  %.fr41 = freeze i8 %30
-  %31 = icmp eq i8 %.fr41, 17
+  %.fr37 = freeze i8 %30
+  %31 = icmp eq i8 %.fr37, 17
   br label %32
 
 32:                                               ; preds = %28, %24
-  %.fr39 = phi i1 [ true, %24 ], [ %31, %28 ]
+  %.fr35 = phi i1 [ true, %24 ], [ %31, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !13
   %35 = load i8, ptr %34, align 8, !tbaa !210
   %36 = icmp eq i8 %35, 17
-  br i1 %36, label %.thread35, label %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i"
+  br i1 %36, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit"
 
-.thread35:                                        ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %38 = xor i64 %13, -1
-  %39 = add nsw i64 %.01142, %38
-  br label %.thread
+37:                                               ; preds = %19
+  br i1 %22, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread", label %38
 
-"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i": ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !13
-  %42 = load i8, ptr %41, align 8, !tbaa !210
-  %.fr40 = freeze i8 %42
-  %43 = icmp ne i8 %.fr40, 17
-  %44 = and i1 %.fr39, %43
-  br i1 %44, label %.thread32, label %104
-
-45:                                               ; preds = %19
-  br i1 %22, label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread21", label %49
-
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread21": ; preds = %45
-  %46 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %47 = xor i64 %13, -1
-  %48 = add nsw i64 %.01142, %47
-  br label %.thread
-
-49:                                               ; preds = %45
+38:                                               ; preds = %37
   %.val23.i.i = load ptr, ptr %2, align 8
-  %50 = icmp eq i32 %.val20.i.i, 3
-  br i1 %50, label %51, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %39 = icmp eq i32 %.val20.i.i, 3
+  br i1 %39, label %40, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 24
-  %53 = load ptr, ptr %52, align 8, !tbaa !298
-  %54 = load i8, ptr %53, align 8, !tbaa !210
-  %.not.i.i.i.i = icmp eq i8 %54, 84
-  br i1 %.not.i.i.i.i, label %55, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !298
+  %43 = load i8, ptr %42, align 8, !tbaa !210
+  %.not.i.i.i.i = icmp eq i8 %43, 84
+  br i1 %.not.i.i.i.i, label %44, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %53, i64 -8
-  %57 = load ptr, ptr %56, align 8, !tbaa !230
-  %58 = ptrtoint ptr %.val23.i.i to i64
-  %59 = ptrtoint ptr %57 to i64
-  %60 = sub i64 %58, %59
-  %61 = lshr exact i64 %60, 5
-  %62 = getelementptr inbounds nuw i8, ptr %53, i64 72
-  %63 = load i32, ptr %62, align 8, !tbaa !231
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"class.llvm::Use", ptr %57, i64 %64
-  %66 = and i64 %61, 4294967295
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %66
-  %68 = load ptr, ptr %67, align 8, !tbaa !200
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
-  %70 = load ptr, ptr %69, align 8, !tbaa !209
-  %71 = getelementptr inbounds i8, ptr %70, i64 -24
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %42, i64 -8
+  %46 = load ptr, ptr %45, align 8, !tbaa !230
+  %47 = ptrtoint ptr %.val23.i.i to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  %50 = lshr exact i64 %49, 5
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 72
+  %52 = load i32, ptr %51, align 8, !tbaa !231
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr inbounds nuw %"class.llvm::Use", ptr %46, i64 %53
+  %55 = and i64 %50, 4294967295
+  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %57 = load ptr, ptr %56, align 8, !tbaa !200
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
+  %59 = load ptr, ptr %58, align 8, !tbaa !209
+  %60 = getelementptr inbounds i8, ptr %59, i64 -24
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i: ; preds = %55, %51, %49
-  %.0.i.i.i = phi ptr [ %53, %51 ], [ %.val23.i.i, %49 ], [ %71, %55 ]
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i: ; preds = %44, %40, %38
+  %.0.i.i.i = phi ptr [ %42, %40 ], [ %.val23.i.i, %38 ], [ %60, %44 ]
   %.val21.i.i = load ptr, ptr %14, align 8
-  %72 = icmp eq i32 %.val19.i.i, 3
-  br i1 %72, label %73, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
+  %61 = icmp eq i32 %.val19.i.i, 3
+  br i1 %61, label %62, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-73:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
-  %74 = getelementptr inbounds nuw i8, ptr %.val21.i.i, i64 24
-  %75 = load ptr, ptr %74, align 8, !tbaa !298
-  %76 = load i8, ptr %75, align 8, !tbaa !210
-  %.not.i.i33.i.i = icmp eq i8 %76, 84
-  br i1 %.not.i.i33.i.i, label %77, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
+62:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.val21.i.i, i64 24
+  %64 = load ptr, ptr %63, align 8, !tbaa !298
+  %65 = load i8, ptr %64, align 8, !tbaa !210
+  %.not.i.i33.i.i = icmp eq i8 %65, 84
+  br i1 %.not.i.i33.i.i, label %66, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %75, i64 -8
-  %79 = load ptr, ptr %78, align 8, !tbaa !230
-  %80 = ptrtoint ptr %.val21.i.i to i64
-  %81 = ptrtoint ptr %79 to i64
-  %82 = sub i64 %80, %81
-  %83 = lshr exact i64 %82, 5
-  %84 = getelementptr inbounds nuw i8, ptr %75, i64 72
-  %85 = load i32, ptr %84, align 8, !tbaa !231
-  %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.llvm::Use", ptr %79, i64 %86
-  %88 = and i64 %83, 4294967295
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %88
-  %90 = load ptr, ptr %89, align 8, !tbaa !200
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 48
-  %92 = load ptr, ptr %91, align 8, !tbaa !209
-  %93 = icmp eq ptr %91, %92
-  br i1 %93, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, label %94
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds i8, ptr %64, i64 -8
+  %68 = load ptr, ptr %67, align 8, !tbaa !230
+  %69 = ptrtoint ptr %.val21.i.i to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = sub i64 %69, %70
+  %72 = lshr exact i64 %71, 5
+  %73 = getelementptr inbounds nuw i8, ptr %64, i64 72
+  %74 = load i32, ptr %73, align 8, !tbaa !231
+  %75 = zext i32 %74 to i64
+  %76 = getelementptr inbounds nuw %"class.llvm::Use", ptr %68, i64 %75
+  %77 = and i64 %72, 4294967295
+  %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
+  %79 = load ptr, ptr %78, align 8, !tbaa !200
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
+  %81 = load ptr, ptr %80, align 8, !tbaa !209
+  %82 = icmp eq ptr %80, %81
+  br i1 %82, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, label %83
 
-94:                                               ; preds = %77
-  %95 = getelementptr inbounds i8, ptr %92, i64 -24
-  %96 = load i8, ptr %95, align 8, !tbaa !210
-  %97 = add i8 %96, -30
-  %98 = icmp ult i8 %97, 11
-  %spec.select.i.i7.i.i34.i.i = select i1 %98, ptr %95, ptr null
+83:                                               ; preds = %66
+  %84 = getelementptr inbounds i8, ptr %81, i64 -24
+  %85 = load i8, ptr %84, align 8, !tbaa !210
+  %86 = add i8 %85, -30
+  %87 = icmp ult i8 %86, 11
+  %spec.select.i.i7.i.i34.i.i = select i1 %87, ptr %84, ptr null
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i: ; preds = %94, %77, %73, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
-  %.0.i32.i.i = phi ptr [ %75, %73 ], [ null, %77 ], [ %spec.select.i.i7.i.i34.i.i, %94 ], [ %.val21.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i ]
-  %99 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef %.0.i32.i.i) #24
-  %100 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %101 = xor i64 %13, -1
-  %102 = add nsw i64 %.01142, %101
-  br i1 %99, label %.thread32, label %.thread
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i: ; preds = %83, %66, %62, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %.0.i32.i.i = phi ptr [ %64, %62 ], [ null, %66 ], [ %spec.select.i.i7.i.i34.i.i, %83 ], [ %.val21.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i ]
+  %88 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef %.0.i32.i.i) #24
+  %89 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %90 = xor i64 %13, -1
+  %91 = add nsw i64 %.01138, %90
+  br i1 %88, label %.thread31, label %.thread
 
-"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit": ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
-  %103 = icmp ult i32 %.fr, %.fr38
-  br i1 %103, label %.thread32, label %104
+92:                                               ; preds = %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit
+  %93 = icmp ult i32 %.fr, %.fr34
+  br i1 %93, label %.thread31, label %102
 
-104:                                              ; preds = %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i", %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit"
-  %105 = getelementptr inbounds nuw i8, ptr %14, i64 64
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread": ; preds = %37, %32
+  %94 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  %95 = xor i64 %13, -1
+  %96 = add nsw i64 %.01138, %95
+  br label %.thread
+
+"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit": ; preds = %32
+  %97 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %98 = load ptr, ptr %97, align 8, !tbaa !13
+  %99 = load i8, ptr %98, align 8, !tbaa !210
+  %.fr36 = freeze i8 %99
+  %100 = icmp ne i8 %.fr36, 17
+  %101 = and i1 %.fr35, %100
+  br i1 %101, label %.thread31, label %102
+
+102:                                              ; preds = %92, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit"
+  %103 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %.pn = xor i64 %13, -1
-  %106 = add nsw i64 %.01142, %.pn
+  %104 = add nsw i64 %.01138, %.pn
   br label %.thread
 
-.thread32:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit", %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i", %23, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
+.thread31:                                        ; preds = %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit", %92, %23, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
   br label %.thread
 
-.thread:                                          ; preds = %104, %.thread35, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread21", %.thread32
-  %107 = phi i64 [ %13, %.thread32 ], [ %106, %104 ], [ %102, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ], [ %48, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread21" ], [ %39, %.thread35 ]
-  %108 = phi ptr [ %.043, %.thread32 ], [ %105, %104 ], [ %100, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ], [ %46, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread21" ], [ %37, %.thread35 ]
-  %109 = icmp sgt i64 %107, 0
-  br i1 %109, label %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !580
+.thread:                                          ; preds = %102, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread", %.thread31
+  %105 = phi i64 [ %13, %.thread31 ], [ %104, %102 ], [ %91, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ], [ %96, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread" ]
+  %106 = phi ptr [ %.039, %.thread31 ], [ %103, %102 ], [ %89, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i ], [ %94, %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIKN12_GLOBAL__N_111FactOrCheckEPSH_EEbRT_T0_.exit.thread" ]
+  %107 = icmp sgt i64 %105, 0
+  br i1 %107, label %_ZSt7advanceIPN12_GLOBAL__N_111FactOrCheckElEvRT_T0_.exit, label %._crit_edge, !llvm.loop !580
 
 ._crit_edge:                                      ; preds = %.thread, %3
-  %.0.lcssa = phi ptr [ %0, %3 ], [ %108, %.thread ]
+  %.0.lcssa = phi ptr [ %0, %3 ], [ %106, %.thread ]
   ret ptr %.0.lcssa
 }
 
@@ -12500,21 +12490,21 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPN12_GLOBAL__N_111FactOrCh
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit"
   %.052 = phi ptr [ %18, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %0, %.lr.ph ]
-  %.02051 = phi ptr [ %120, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %2, %.lr.ph ]
+  %.02051 = phi ptr [ %121, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ], [ %2, %.lr.ph ]
   %17 = getelementptr inbounds i8, ptr %.052, i64 %.idx
   %18 = getelementptr inbounds i8, ptr %.052, i64 %.idx44
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %106
-  %.025.i = phi ptr [ %107, %106 ], [ %.02051, %.lr.ph.i.preheader ]
-  %.01824.i = phi ptr [ %.1.i, %106 ], [ %.052, %.lr.ph.i.preheader ]
-  %.01923.i = phi ptr [ %.120.i, %106 ], [ %17, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %107
+  %.025.i = phi ptr [ %108, %107 ], [ %.02051, %.lr.ph.i.preheader ]
+  %.01824.i = phi ptr [ %.1.i, %107 ], [ %.052, %.lr.ph.i.preheader ]
+  %.01923.i = phi ptr [ %.120.i, %107 ], [ %17, %.lr.ph.i.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 48
   %20 = load i32, ptr %19, align 8, !tbaa !258
   %21 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 48
   %22 = load i32, ptr %21, align 8, !tbaa !258
   %23 = icmp eq i32 %20, %22
-  br i1 %23, label %24, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit"
+  br i1 %23, label %24, label %98
 
 24:                                               ; preds = %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 56
@@ -12523,10 +12513,10 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPN12_GLOBAL__N_111FactOrCh
   %27 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 56
   %.val19.i.i = load i32, ptr %27, align 8, !tbaa !261
   %28 = icmp eq i32 %.val19.i.i, 0
-  br i1 %26, label %29, label %51
+  br i1 %26, label %29, label %46
 
 29:                                               ; preds = %24
-  br i1 %28, label %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread"
+  br i1 %28, label %30, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42"
 
 30:                                               ; preds = %29
   %31 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 8
@@ -12548,212 +12538,212 @@ define internal fastcc void @"_ZSt17__merge_sort_loopIPN12_GLOBAL__N_111FactOrCh
   %43 = load ptr, ptr %42, align 8, !tbaa !13
   %44 = load i8, ptr %43, align 8, !tbaa !210
   %45 = icmp eq i8 %44, 17
-  br i1 %45, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42", label %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i"
+  br i1 %45, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit"
 
-"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i": ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !13
-  %48 = load i8, ptr %47, align 8, !tbaa !210
-  %49 = icmp ne i8 %48, 17
-  %50 = and i1 %41, %49
-  br i1 %50, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42"
+46:                                               ; preds = %24
+  br i1 %28, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread", label %47
 
-51:                                               ; preds = %24
-  br i1 %28, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42", label %52
-
-52:                                               ; preds = %51
+47:                                               ; preds = %46
   %.val23.i.i = load ptr, ptr %.01923.i, align 8
-  %53 = icmp eq i32 %.val20.i.i, 3
-  br i1 %53, label %54, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %48 = icmp eq i32 %.val20.i.i, 3
+  br i1 %48, label %49, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 24
-  %56 = load ptr, ptr %55, align 8, !tbaa !298
-  %57 = load i8, ptr %56, align 8, !tbaa !210
-  %.not.i.i.i.i = icmp eq i8 %57, 84
-  br i1 %.not.i.i.i.i, label %58, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+49:                                               ; preds = %47
+  %50 = getelementptr inbounds nuw i8, ptr %.val23.i.i, i64 24
+  %51 = load ptr, ptr %50, align 8, !tbaa !298
+  %52 = load i8, ptr %51, align 8, !tbaa !210
+  %.not.i.i.i.i = icmp eq i8 %52, 84
+  br i1 %.not.i.i.i.i, label %53, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-58:                                               ; preds = %54
-  %59 = getelementptr inbounds i8, ptr %56, i64 -8
-  %60 = load ptr, ptr %59, align 8, !tbaa !230
-  %61 = ptrtoint ptr %.val23.i.i to i64
-  %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = lshr exact i64 %63, 5
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 72
-  %66 = load i32, ptr %65, align 8, !tbaa !231
-  %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.llvm::Use", ptr %60, i64 %67
-  %69 = and i64 %64, 4294967295
-  %70 = getelementptr inbounds nuw ptr, ptr %68, i64 %69
-  %71 = load ptr, ptr %70, align 8, !tbaa !200
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 48
-  %73 = load ptr, ptr %72, align 8, !tbaa !209
-  %74 = getelementptr inbounds i8, ptr %73, i64 -24
+53:                                               ; preds = %49
+  %54 = getelementptr inbounds i8, ptr %51, i64 -8
+  %55 = load ptr, ptr %54, align 8, !tbaa !230
+  %56 = ptrtoint ptr %.val23.i.i to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = lshr exact i64 %58, 5
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 72
+  %61 = load i32, ptr %60, align 8, !tbaa !231
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds nuw %"class.llvm::Use", ptr %55, i64 %62
+  %64 = and i64 %59, 4294967295
+  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !200
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
+  %68 = load ptr, ptr %67, align 8, !tbaa !209
+  %69 = getelementptr inbounds i8, ptr %68, i64 -24
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i: ; preds = %58, %54, %52
-  %.0.i.i.i = phi ptr [ %56, %54 ], [ %.val23.i.i, %52 ], [ %74, %58 ]
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i: ; preds = %53, %49, %47
+  %.0.i.i.i = phi ptr [ %51, %49 ], [ %.val23.i.i, %47 ], [ %69, %53 ]
   %.val21.i.i = load ptr, ptr %.01824.i, align 8
-  %75 = icmp eq i32 %.val19.i.i, 3
-  br i1 %75, label %76, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
+  %70 = icmp eq i32 %.val19.i.i, 3
+  br i1 %70, label %71, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-76:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.val21.i.i, i64 24
-  %78 = load ptr, ptr %77, align 8, !tbaa !298
-  %79 = load i8, ptr %78, align 8, !tbaa !210
-  %.not.i.i33.i.i = icmp eq i8 %79, 84
-  br i1 %.not.i.i33.i.i, label %80, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
+71:                                               ; preds = %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %72 = getelementptr inbounds nuw i8, ptr %.val21.i.i, i64 24
+  %73 = load ptr, ptr %72, align 8, !tbaa !298
+  %74 = load i8, ptr %73, align 8, !tbaa !210
+  %.not.i.i33.i.i = icmp eq i8 %74, 84
+  br i1 %.not.i.i33.i.i, label %75, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %78, i64 -8
-  %82 = load ptr, ptr %81, align 8, !tbaa !230
-  %83 = ptrtoint ptr %.val21.i.i to i64
-  %84 = ptrtoint ptr %82 to i64
-  %85 = sub i64 %83, %84
-  %86 = lshr exact i64 %85, 5
-  %87 = getelementptr inbounds nuw i8, ptr %78, i64 72
-  %88 = load i32, ptr %87, align 8, !tbaa !231
-  %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw %"class.llvm::Use", ptr %82, i64 %89
-  %91 = and i64 %86, 4294967295
-  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
-  %93 = load ptr, ptr %92, align 8, !tbaa !200
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
-  %95 = load ptr, ptr %94, align 8, !tbaa !209
-  %96 = icmp eq ptr %94, %95
-  br i1 %96, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, label %97
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds i8, ptr %73, i64 -8
+  %77 = load ptr, ptr %76, align 8, !tbaa !230
+  %78 = ptrtoint ptr %.val21.i.i to i64
+  %79 = ptrtoint ptr %77 to i64
+  %80 = sub i64 %78, %79
+  %81 = lshr exact i64 %80, 5
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 72
+  %83 = load i32, ptr %82, align 8, !tbaa !231
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw %"class.llvm::Use", ptr %77, i64 %84
+  %86 = and i64 %81, 4294967295
+  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
+  %88 = load ptr, ptr %87, align 8, !tbaa !200
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 48
+  %90 = load ptr, ptr %89, align 8, !tbaa !209
+  %91 = icmp eq ptr %89, %90
+  br i1 %91, label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, label %92
 
-97:                                               ; preds = %80
-  %98 = getelementptr inbounds i8, ptr %95, i64 -24
-  %99 = load i8, ptr %98, align 8, !tbaa !210
-  %100 = add i8 %99, -30
-  %101 = icmp ult i8 %100, 11
-  %spec.select.i.i7.i.i34.i.i = select i1 %101, ptr %98, ptr null
+92:                                               ; preds = %75
+  %93 = getelementptr inbounds i8, ptr %90, i64 -24
+  %94 = load i8, ptr %93, align 8, !tbaa !210
+  %95 = add i8 %94, -30
+  %96 = icmp ult i8 %95, 11
+  %spec.select.i.i7.i.i34.i.i = select i1 %96, ptr %93, ptr null
   br label %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i
 
-_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i: ; preds = %97, %80, %76, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
-  %.0.i32.i.i = phi ptr [ %78, %76 ], [ null, %80 ], [ %spec.select.i.i7.i.i34.i.i, %97 ], [ %.val21.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i ]
-  %102 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef %.0.i32.i.i) #24
-  br i1 %102, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42"
+_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i: ; preds = %92, %75, %71, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i
+  %.0.i32.i.i = phi ptr [ %73, %71 ], [ null, %75 ], [ %spec.select.i.i7.i.i34.i.i, %92 ], [ %.val21.i.i, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit.i.i ]
+  %97 = tail call noundef zeroext i1 @_ZNK4llvm11Instruction11comesBeforeEPKS0_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef %.0.i32.i.i) #24
+  br i1 %97, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit": ; preds = %.lr.ph.i
-  %103 = icmp ult i32 %20, %22
-  br i1 %103, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42"
+98:                                               ; preds = %.lr.ph.i
+  %99 = icmp ult i32 %20, %22
+  br i1 %99, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread": ; preds = %29, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit": ; preds = %40
+  %100 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 16
+  %101 = load ptr, ptr %100, align 8, !tbaa !13
+  %102 = load i8, ptr %101, align 8, !tbaa !210
+  %103 = icmp ne i8 %102, 17
+  %104 = and i1 %41, %103
+  br i1 %104, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread"
+
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42": ; preds = %29, %98, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.025.i, ptr noundef nonnull align 8 dereferenceable(60) %.01923.i, i64 60, i1 false), !tbaa.struct !168
-  %104 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 64
-  br label %106
+  %105 = getelementptr inbounds nuw i8, ptr %.01923.i, i64 64
+  br label %107
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42": ; preds = %40, %51, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZZZL20eliminateConstraintsRN4llvm8FunctionERNS_13DominatorTreeERNS_8LoopInfoERNS_15ScalarEvolutionERNS_25OptimizationRemarkEmitterEENK3$_0clERKN12_GLOBAL__N_111FactOrCheckESE_ENKUlSE_E_clESE_.exit31.i.i", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit"
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread": ; preds = %40, %46, %98, %_ZNK12_GLOBAL__N_111FactOrCheck14getContextInstEv.exit35.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit"
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.025.i, ptr noundef nonnull align 8 dereferenceable(60) %.01824.i, i64 60, i1 false), !tbaa.struct !168
-  %105 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 64
-  br label %106
+  %106 = getelementptr inbounds nuw i8, ptr %.01824.i, i64 64
+  br label %107
 
-106:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread"
-  %.120.i = phi ptr [ %104, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread" ], [ %.01923.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42" ]
-  %.1.i = phi ptr [ %.01824.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread" ], [ %105, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42" ]
-  %107 = getelementptr inbounds nuw i8, ptr %.025.i, i64 64
-  %108 = icmp ne ptr %.1.i, %17
-  %109 = icmp ne ptr %.120.i, %18
-  %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !584
+107:                                              ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42"
+  %.120.i = phi ptr [ %105, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42" ], [ %.01923.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread" ]
+  %.1.i = phi ptr [ %.01824.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread42" ], [ %106, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_.exit.thread" ]
+  %108 = getelementptr inbounds nuw i8, ptr %.025.i, i64 64
+  %109 = icmp ne ptr %.1.i, %17
+  %110 = icmp ne ptr %.120.i, %18
+  %111 = select i1 %109, i1 %110, i1 false
+  br i1 %111, label %.lr.ph.i, label %._crit_edge.i.loopexit, !llvm.loop !584
 
-._crit_edge.i.loopexit:                           ; preds = %106
-  %111 = ptrtoint ptr %17 to i64
-  %112 = ptrtoint ptr %.1.i to i64
-  %113 = sub i64 %111, %112
+._crit_edge.i.loopexit:                           ; preds = %107
+  %112 = ptrtoint ptr %17 to i64
+  %113 = ptrtoint ptr %.1.i to i64
+  %114 = sub i64 %112, %113
   %.not.i.i.i.i.i.i = icmp eq ptr %17, %.1.i
-  br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i, label %114
+  br i1 %.not.i.i.i.i.i.i, label %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i, label %115
 
-114:                                              ; preds = %._crit_edge.i.loopexit
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %107, ptr nonnull align 8 %.1.i, i64 %113, i1 false)
+115:                                              ; preds = %._crit_edge.i.loopexit
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %108, ptr nonnull align 8 %.1.i, i64 %114, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i
 
-_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i: ; preds = %114, %._crit_edge.i.loopexit
-  %115 = getelementptr inbounds i8, ptr %107, i64 %113
-  %116 = ptrtoint ptr %18 to i64
-  %117 = ptrtoint ptr %.120.i to i64
-  %118 = sub i64 %116, %117
+_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i: ; preds = %115, %._crit_edge.i.loopexit
+  %116 = getelementptr inbounds i8, ptr %108, i64 %114
+  %117 = ptrtoint ptr %18 to i64
+  %118 = ptrtoint ptr %.120.i to i64
+  %119 = sub i64 %117, %118
   %.not.i.i.i.i.i21.i = icmp eq ptr %18, %.120.i
-  br i1 %.not.i.i.i.i.i21.i, label %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", label %119
+  br i1 %.not.i.i.i.i.i21.i, label %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", label %120
 
-119:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %115, ptr nonnull align 8 %.120.i, i64 %118, i1 false)
+120:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %116, ptr nonnull align 8 %.120.i, i64 %119, i1 false)
   br label %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit"
 
-"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit": ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i, %119
-  %120 = getelementptr inbounds i8, ptr %115, i64 %118
-  %121 = sub i64 %6, %116
-  %122 = ashr exact i64 %121, 6
-  %.not = icmp slt i64 %122, %5
+"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit": ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i, %120
+  %121 = getelementptr inbounds i8, ptr %116, i64 %119
+  %122 = sub i64 %6, %117
+  %123 = ashr exact i64 %122, 6
+  %.not = icmp slt i64 %123, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph.i.preheader, !llvm.loop !583
 
 ._crit_edge:                                      ; preds = %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit", %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit.us", %4
-  %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit.us" ], [ %120, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
+  %.020.lcssa = phi ptr [ %2, %4 ], [ %13, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit.us" ], [ %121, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
   %.0.lcssa = phi ptr [ %0, %4 ], [ %10, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit.us" ], [ %18, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
-  %.lcssa48 = phi i64 [ %9, %4 ], [ %16, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit.us" ], [ %122, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
+  %.lcssa48 = phi i64 [ %9, %4 ], [ %16, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit.us" ], [ %123, %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit" ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa48)
   %.idx46 = shl nsw i64 %.sroa.speculated, 6
-  %123 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %.idx46
-  %124 = icmp ne i64 %.sroa.speculated, 0
-  %125 = icmp ne ptr %123, %1
-  %126 = and i1 %124, %125
-  br i1 %126, label %.lr.ph.i30, label %._crit_edge.i23
+  %124 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %.idx46
+  %125 = icmp ne i64 %.sroa.speculated, 0
+  %126 = icmp ne ptr %124, %1
+  %127 = and i1 %125, %126
+  br i1 %127, label %.lr.ph.i30, label %._crit_edge.i23
 
-.lr.ph.i30:                                       ; preds = %._crit_edge, %132
-  %.025.i31 = phi ptr [ %133, %132 ], [ %.020.lcssa, %._crit_edge ]
-  %.01824.i32 = phi ptr [ %.1.i35, %132 ], [ %.0.lcssa, %._crit_edge ]
-  %.01923.i33 = phi ptr [ %.120.i34, %132 ], [ %123, %._crit_edge ]
-  %127 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_"(ptr noundef %.01923.i33, ptr noundef %.01824.i32)
-  br i1 %127, label %128, label %130
+.lr.ph.i30:                                       ; preds = %._crit_edge, %133
+  %.025.i31 = phi ptr [ %134, %133 ], [ %.020.lcssa, %._crit_edge ]
+  %.01824.i32 = phi ptr [ %.1.i35, %133 ], [ %.0.lcssa, %._crit_edge ]
+  %.01923.i33 = phi ptr [ %.120.i34, %133 ], [ %124, %._crit_edge ]
+  %128 = tail call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS2_13DominatorTreeERNS2_8LoopInfoERNS2_15ScalarEvolutionERNS2_25OptimizationRemarkEmitterEE3$_0EclIPN12_GLOBAL__N_111FactOrCheckESI_EEbT_T0_"(ptr noundef %.01923.i33, ptr noundef %.01824.i32)
+  br i1 %128, label %129, label %131
 
-128:                                              ; preds = %.lr.ph.i30
+129:                                              ; preds = %.lr.ph.i30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.025.i31, ptr noundef nonnull align 8 dereferenceable(60) %.01923.i33, i64 60, i1 false), !tbaa.struct !168
-  %129 = getelementptr inbounds nuw i8, ptr %.01923.i33, i64 64
-  br label %132
+  %130 = getelementptr inbounds nuw i8, ptr %.01923.i33, i64 64
+  br label %133
 
-130:                                              ; preds = %.lr.ph.i30
+131:                                              ; preds = %.lr.ph.i30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %.025.i31, ptr noundef nonnull align 8 dereferenceable(60) %.01824.i32, i64 60, i1 false), !tbaa.struct !168
-  %131 = getelementptr inbounds nuw i8, ptr %.01824.i32, i64 64
-  br label %132
+  %132 = getelementptr inbounds nuw i8, ptr %.01824.i32, i64 64
+  br label %133
 
-132:                                              ; preds = %130, %128
-  %.120.i34 = phi ptr [ %129, %128 ], [ %.01923.i33, %130 ]
-  %.1.i35 = phi ptr [ %.01824.i32, %128 ], [ %131, %130 ]
-  %133 = getelementptr inbounds nuw i8, ptr %.025.i31, i64 64
-  %134 = icmp ne ptr %.1.i35, %123
-  %135 = icmp ne ptr %.120.i34, %1
-  %136 = select i1 %134, i1 %135, i1 false
-  br i1 %136, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !584
+133:                                              ; preds = %131, %129
+  %.120.i34 = phi ptr [ %130, %129 ], [ %.01923.i33, %131 ]
+  %.1.i35 = phi ptr [ %.01824.i32, %129 ], [ %132, %131 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.025.i31, i64 64
+  %135 = icmp ne ptr %.1.i35, %124
+  %136 = icmp ne ptr %.120.i34, %1
+  %137 = select i1 %135, i1 %136, i1 false
+  br i1 %137, label %.lr.ph.i30, label %._crit_edge.i23, !llvm.loop !584
 
-._crit_edge.i23:                                  ; preds = %132, %._crit_edge
-  %.019.lcssa.i24 = phi ptr [ %123, %._crit_edge ], [ %.120.i34, %132 ]
-  %.018.lcssa.i25 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.1.i35, %132 ]
-  %.0.lcssa.i26 = phi ptr [ %.020.lcssa, %._crit_edge ], [ %133, %132 ]
-  %137 = ptrtoint ptr %123 to i64
-  %138 = ptrtoint ptr %.018.lcssa.i25 to i64
-  %139 = sub i64 %137, %138
-  %.not.i.i.i.i.i.i27 = icmp eq ptr %123, %.018.lcssa.i25
-  br i1 %.not.i.i.i.i.i.i27, label %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28, label %140
+._crit_edge.i23:                                  ; preds = %133, %._crit_edge
+  %.019.lcssa.i24 = phi ptr [ %124, %._crit_edge ], [ %.120.i34, %133 ]
+  %.018.lcssa.i25 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.1.i35, %133 ]
+  %.0.lcssa.i26 = phi ptr [ %.020.lcssa, %._crit_edge ], [ %134, %133 ]
+  %138 = ptrtoint ptr %124 to i64
+  %139 = ptrtoint ptr %.018.lcssa.i25 to i64
+  %140 = sub i64 %138, %139
+  %.not.i.i.i.i.i.i27 = icmp eq ptr %124, %.018.lcssa.i25
+  br i1 %.not.i.i.i.i.i.i27, label %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28, label %141
 
-140:                                              ; preds = %._crit_edge.i23
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i26, ptr align 8 %.018.lcssa.i25, i64 %139, i1 false)
+141:                                              ; preds = %._crit_edge.i23
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %.0.lcssa.i26, ptr align 8 %.018.lcssa.i25, i64 %140, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28
 
-_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28: ; preds = %140, %._crit_edge.i23
+_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28: ; preds = %141, %._crit_edge.i23
   %.not.i.i.i.i.i21.i29 = icmp eq ptr %1, %.019.lcssa.i24
-  br i1 %.not.i.i.i.i.i21.i29, label %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit36", label %141
+  br i1 %.not.i.i.i.i.i21.i29, label %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit36", label %142
 
-141:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28
-  %142 = ptrtoint ptr %.019.lcssa.i24 to i64
-  %143 = sub i64 %6, %142
-  %144 = getelementptr inbounds i8, ptr %.0.lcssa.i26, i64 %139
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %144, ptr align 8 %.019.lcssa.i24, i64 %143, i1 false)
+142:                                              ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28
+  %143 = ptrtoint ptr %.019.lcssa.i24 to i64
+  %144 = sub i64 %6, %143
+  %145 = getelementptr inbounds i8, ptr %.0.lcssa.i26, i64 %140
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %145, ptr align 8 %.019.lcssa.i24, i64 %144, i1 false)
   br label %"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit36"
 
-"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit36": ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28, %141
+"_ZSt12__move_mergeIPN12_GLOBAL__N_111FactOrCheckES2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEET0_T_SK_SK_SK_SJ_T1_.exit36": ; preds = %_ZSt4moveIPN12_GLOBAL__N_111FactOrCheckES2_ET0_T_S4_S3_.exit.i28, %142
   ret void
 }
 

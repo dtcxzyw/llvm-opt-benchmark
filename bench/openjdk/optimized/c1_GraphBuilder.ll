@@ -18946,14 +18946,13 @@ _ZNK10ciMetadata9is_loadedEv.exit289:             ; preds = %559, %562
   %632 = getelementptr inbounds nuw i8, ptr %631, i64 32
   %633 = load ptr, ptr %632, align 8
   %634 = call noundef zeroext i1 %633(ptr noundef nonnull align 8 dereferenceable(24) %.0194390) #20
-  br label %_ZNK10ciMetadata9is_loadedEv.exit293
+  %635 = and i1 %or.cond, %634
+  br i1 %635, label %636, label %.sink.split
 
-_ZNK10ciMetadata9is_loadedEv.exit293:             ; preds = %627, %630
-  %635 = phi i1 [ true, %627 ], [ %634, %630 ]
-  %or.cond12.not = and i1 %or.cond, %635
-  br i1 %or.cond12.not, label %636, label %.sink.split
+_ZNK10ciMetadata9is_loadedEv.exit293:             ; preds = %627
+  br i1 %or.cond, label %636, label %.sink.split
 
-636:                                              ; preds = %_ZNK10ciMetadata9is_loadedEv.exit293
+636:                                              ; preds = %630, %_ZNK10ciMetadata9is_loadedEv.exit293
   %637 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %638 = load ptr, ptr %637, align 8
   %.not.i294 = icmp eq ptr %638, null
@@ -19023,8 +19022,8 @@ _ZNK8ciMethod15is_final_methodEv.exit.thread:     ; preds = %645, %_ZNK10ciMetad
   call void @_ZN12Dependencies18assert_evol_methodEP8ciMethod(ptr noundef nonnull align 8 dereferenceable(192) %668, ptr noundef nonnull %652) #20
   br label %_ZN12GraphBuilder14profile_returnEv.exit.thread
 
-.sink.split:                                      ; preds = %.critedge.thread, %_ZNK10ciMetadata9is_loadedEv.exit293, %_ZNK10ciMetadata9is_loadedEv.exit295, %_ZNK8ciMethod15is_final_methodEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit295.thread, %643
-  %.str.12.sink = phi ptr [ @.str.12, %643 ], [ @.str.12, %_ZNK10ciMetadata9is_loadedEv.exit295.thread ], [ @.str.12, %_ZNK8ciMethod15is_final_methodEv.exit ], [ @.str.13, %_ZNK10ciMetadata9is_loadedEv.exit295 ], [ @.str.13, %_ZNK10ciMetadata9is_loadedEv.exit293 ], [ @.str.13, %.critedge.thread ]
+.sink.split:                                      ; preds = %.critedge.thread, %_ZNK10ciMetadata9is_loadedEv.exit293, %_ZNK10ciMetadata9is_loadedEv.exit295, %630, %_ZNK8ciMethod15is_final_methodEv.exit, %_ZNK10ciMetadata9is_loadedEv.exit295.thread, %643
+  %.str.12.sink = phi ptr [ @.str.12, %643 ], [ @.str.12, %_ZNK10ciMetadata9is_loadedEv.exit295.thread ], [ @.str.12, %_ZNK8ciMethod15is_final_methodEv.exit ], [ @.str.13, %630 ], [ @.str.13, %_ZNK10ciMetadata9is_loadedEv.exit295 ], [ @.str.13, %_ZNK10ciMetadata9is_loadedEv.exit293 ], [ @.str.13, %.critedge.thread ]
   call void @_ZN12GraphBuilder14print_inliningEP8ciMethodPKcb(ptr noundef nonnull align 8 dereferenceable(97) %0, ptr noundef nonnull %.0194390, ptr noundef nonnull %.str.12.sink, i1 noundef zeroext false)
   br label %669
 

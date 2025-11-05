@@ -1037,10 +1037,13 @@ _ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit: ; preds = %.preheader
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader231, label %226, !llvm.loop !99
 
-._crit_edge:                                      ; preds = %235, %.preheader232, %.preheader231
-  %.066.lcssa = phi i32 [ 1, %.preheader231 ], [ 1, %.preheader232 ], [ %238, %235 ]
-  %233 = mul i32 %.066.lcssa, %17
-  %234 = icmp ult i32 %.sroa.43.0, %233
+._crit_edge.loopexit:                             ; preds = %235
+  %233 = mul i32 %238, %17
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %.preheader232, %._crit_edge.loopexit, %.preheader231
+  %.066.lcssa = phi i32 [ 1, %.preheader231 ], [ %233, %._crit_edge.loopexit ], [ 0, %.preheader232 ]
+  %234 = icmp ult i32 %.sroa.43.0, %.066.lcssa
   br i1 %234, label %252, label %.thread210
 
 235:                                              ; preds = %.lr.ph237, %235
@@ -1066,7 +1069,7 @@ _ZNK18expr_pattern_match10match_declEPK9func_declS2_.exit: ; preds = %.preheader
   store ptr %250, ptr %249, align 8, !tbaa !24
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
   %exitcond259 = icmp eq i64 %indvars.iv.next256, %wide.trip.count258
-  br i1 %exitcond259, label %._crit_edge, label %235, !llvm.loop !100
+  br i1 %exitcond259, label %._crit_edge.loopexit, label %235, !llvm.loop !100
 
 252:                                              ; preds = %._crit_edge
   %253 = add nuw i32 %.sroa.43.0, 1

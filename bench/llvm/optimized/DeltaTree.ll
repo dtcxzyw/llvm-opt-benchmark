@@ -649,10 +649,8 @@ _ZN12_GLOBAL__N_113DeltaTreeNode7DoSplitERNS0_12InsertResultE.exit151: ; preds =
   br label %188
 
 188:                                              ; preds = %106, %179, %72, %42, %20
-  %ret.known.tr348 = phi i1 [ %ret.known.tr367, %20 ], [ %ret.known.tr350, %42 ], [ %ret.known.tr349, %179 ], [ %ret.known.tr349, %106 ], [ %ret.known.tr349, %72 ]
-  %.0104 = phi i1 [ false, %20 ], [ false, %42 ], [ true, %179 ], [ false, %106 ], [ false, %72 ]
-  %current.ret.tr156 = or i1 %ret.known.tr348, %.0104
-  ret i1 %current.ret.tr156
+  %ret.known.tr348 = phi i1 [ %ret.known.tr367, %20 ], [ %ret.known.tr350, %42 ], [ true, %179 ], [ %ret.known.tr349, %106 ], [ %ret.known.tr349, %72 ]
+  ret i1 %ret.known.tr348
 }
 
 ; Function Attrs: nobuiltin nounwind

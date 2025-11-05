@@ -2155,7 +2155,6 @@ define hidden void @_ZN5memfd5memfd12MemfdOptions6create17h8d53251b3061a9e6E(ptr
 
 15:                                               ; preds = %4
   %16 = tail call fastcc i64 @_ZN6rustix4path3arg20with_c_str_slow_path17h22ebc6df9d6e2e74E(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i32 %9)
-  %.sroa.519.0.extract.shift.i = and i64 %16, -4294967296
   br label %_ZN6rustix4path3arg10with_c_str17h0efe2f920a83257aE.exit
 
 17:                                               ; preds = %11
@@ -2205,11 +2204,10 @@ define hidden void @_ZN5memfd5memfd12MemfdOptions6create17h8d53251b3061a9e6E(ptr
   br label %_ZN6rustix4path3arg10with_c_str17h0efe2f920a83257aE.exit
 
 _ZN6rustix4path3arg10with_c_str17h0efe2f920a83257aE.exit: ; preds = %15, %32
-  %.sroa.5.1.i = phi i64 [ %.sroa.519.0.extract.shift.i, %15 ], [ %.sroa.5.0.i, %32 ]
+  %.sroa.5.1.i = phi i64 [ %16, %15 ], [ %.sroa.5.0.i, %32 ]
   %.sroa.4.1.i = phi i64 [ %16, %15 ], [ %.sroa.4.0.i, %32 ]
   %.sroa.0.1.i = phi i64 [ %16, %15 ], [ %.sroa.0.0.i, %32 ]
-  %.sroa.0.0.insert.insert.i = or i64 %.sroa.0.1.i, %.sroa.5.1.i
-  %33 = and i64 %.sroa.0.0.insert.insert.i, 65535
+  %33 = and i64 %.sroa.0.1.i, 65535
   %34 = icmp eq i64 %33, 0
   br i1 %34, label %35, label %37
 
@@ -2221,8 +2219,7 @@ _ZN6rustix4path3arg10with_c_str17h0efe2f920a83257aE.exit: ; preds = %15, %32
   br label %43
 
 37:                                               ; preds = %_ZN6rustix4path3arg10with_c_str17h0efe2f920a83257aE.exit
-  %.sroa.4.0.insert.insert.i = or i64 %.sroa.4.1.i, %.sroa.5.1.i
-  %38 = shl i64 %.sroa.4.0.insert.insert.i, 32
+  %38 = shl i64 %.sroa.4.1.i, 32
   %39 = ashr i64 %38, 48
   %.neg.i.i.i.i = mul nsw i64 %39, -4294967296
   %40 = or disjoint i64 %.neg.i.i.i.i, 2

@@ -2429,29 +2429,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %198
   br i1 %.not189.i, label %257, label %237
 
 237:                                              ; preds = %234
-  %238 = getelementptr inbounds nuw i8, ptr %0, i64 262524
-  %239 = load i32, ptr %238, align 4, !tbaa !85
-  %240 = getelementptr inbounds nuw i8, ptr %0, i64 262520
-  %241 = load i32, ptr %240, align 8, !tbaa !84
-  %242 = mul nsw i32 %241, %239
-  %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds nuw i8, ptr %0, i64 262516
-  %245 = load i32, ptr %244, align 4, !tbaa !102
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %247, label %_ZNK2cv3Mat8elemSizeEv.exit.i
+  %238 = getelementptr inbounds nuw i8, ptr %0, i64 262516
+  %239 = load i32, ptr %238, align 4, !tbaa !102
+  %240 = icmp sgt i32 %239, 0
+  br i1 %240, label %241, label %_ZNK2cv3Mat8elemSizeEv.exit.i
 
-247:                                              ; preds = %237
+241:                                              ; preds = %237
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 262524
+  %243 = load i32, ptr %242, align 4, !tbaa !85
+  %244 = getelementptr inbounds nuw i8, ptr %0, i64 262520
+  %245 = load i32, ptr %244, align 8, !tbaa !84
+  %246 = mul nsw i32 %245, %243
+  %247 = sext i32 %246 to i64
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 262584
   %249 = load ptr, ptr %248, align 8, !tbaa !103
-  %250 = zext nneg i32 %245 to i64
+  %250 = zext nneg i32 %239 to i64
   %251 = getelementptr i64, ptr %249, i64 %250
   %252 = getelementptr i8, ptr %251, i64 -8
   %253 = load i64, ptr %252, align 8, !tbaa !54
+  %254 = mul i64 %253, %247
   br label %_ZNK2cv3Mat8elemSizeEv.exit.i
 
-_ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %247, %237
-  %254 = phi i64 [ %253, %247 ], [ 0, %237 ]
-  %255 = mul i64 %254, %243
+_ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
+  %255 = phi i64 [ %254, %241 ], [ 0, %237 ]
   %256 = icmp ult i64 %255, %232
   br i1 %256, label %257, label %.noexc85
 

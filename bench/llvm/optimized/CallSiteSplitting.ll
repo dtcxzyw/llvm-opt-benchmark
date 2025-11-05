@@ -1401,14 +1401,14 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   %475 = call { ptr, i64 } @_ZNK4llvm10BasicBlock19getFirstNonPHIOrDbgEb(ptr noundef nonnull align 8 dereferenceable(80) %474, i1 noundef zeroext true) #15, !noalias !175
   %.fca.0.extract.i.i17.i.i = extractvalue { ptr, i64 } %475, 0
   %.not.i.i18.i.i = icmp eq ptr %.sroa.055.0125.i, %.fca.0.extract.i.i17.i.i
-  br i1 %.not.i.i18.i.i, label %476, label %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.thread.i.i.i
+  br i1 %.not.i.i18.i.i, label %476, label %.loopexit.i.i.i
 
 476:                                              ; preds = %473
   %477 = call { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80) %474) #15, !noalias !175
   %478 = extractvalue { ptr, ptr } %477, 0
   %479 = extractvalue { ptr, ptr } %477, 1
   %.not61.i.i.i.i = icmp eq ptr %478, %479
-  br i1 %.not61.i.i.i.i, label %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.thread.i.i.i, label %.lr.ph60.i.i.i.i
+  br i1 %.not61.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph60.i.i.i.i
 
 .lr.ph60.i.i.i.i:                                 ; preds = %476, %._crit_edge.i.i.i.i
   %.sroa.039.058.i.i.i.i = phi ptr [ %spec.select.i.i.i1.i.i.i.i.i, %._crit_edge.i.i.i.i ], [ %478, %476 ]
@@ -1441,7 +1441,7 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 8
   %497 = load ptr, ptr %496, align 8, !tbaa !117, !noalias !175
   %.not73.i.i.i.i = icmp eq ptr %495, %497
-  br i1 %.not73.i.i.i.i, label %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.thread.i.i.i, label %498
+  br i1 %.not73.i.i.i.i, label %.loopexit.i.i.i, label %498
 
 498:                                              ; preds = %490
   %499 = load ptr, ptr %491, align 8, !tbaa !83, !noalias !175
@@ -1473,9 +1473,9 @@ _ZL31shouldSplitOnPredicatedArgumentRN4llvm8CallBaseERNS_14DomTreeUpdaterE.exit.
   %514 = icmp eq i8 %513, 84
   %spec.select.i.i.i1.i.i.i.i.i = select i1 %514, ptr %512, ptr null
   %.not62.i.i.i.i = icmp eq ptr %spec.select.i.i.i1.i.i.i.i.i, %479
-  br i1 %.not62.i.i.i.i, label %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.thread.i.i.i, label %.lr.ph60.i.i.i.i
+  br i1 %.not62.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph60.i.i.i.i
 
-_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.thread.i.i.i: ; preds = %._crit_edge.i.i.i.i, %490, %476, %473
+.loopexit.i.i.i:                                  ; preds = %._crit_edge.i.i.i.i, %490, %476, %473
   store ptr %95, ptr %26, align 8, !tbaa !25, !alias.scope !175
   store i32 0, ptr %96, align 8, !tbaa !26, !alias.scope !175
   store i32 2, ptr %97, align 4, !tbaa !27, !alias.scope !175
@@ -1625,7 +1625,7 @@ _ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit.i24.i.i: ; preds = %555, %
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !175
   br label %_ZL34shouldSplitOnPHIPredicatedArgumentRN4llvm8CallBaseE.exit.i.i
 
-_ZL34shouldSplitOnPHIPredicatedArgumentRN4llvm8CallBaseE.exit.i.i: ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit.i24.i.i, %_ZL17isPredicatedOnPHIRN4llvm8CallBaseE.exit.thread.i.i.i
+_ZL34shouldSplitOnPHIPredicatedArgumentRN4llvm8CallBaseE.exit.i.i: ; preds = %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj2EED2Ev.exit.i24.i.i, %.loopexit.i.i.i
   %556 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplISt4pairIPNS_10BasicBlockENS_11SmallVectorIS1_IPNS_8ICmpInstEjELj2EEEEEaSEOSA_(ptr noundef nonnull align 8 dereferenceable(128) %25, ptr noundef nonnull align 8 dereferenceable(128) %26)
   %557 = load ptr, ptr %26, align 8, !tbaa !25
   %558 = load i32, ptr %96, align 8, !tbaa !26

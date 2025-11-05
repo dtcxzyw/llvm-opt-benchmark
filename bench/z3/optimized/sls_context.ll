@@ -3519,7 +3519,7 @@ _ZNK17scoped_ptr_vectorIN3sls6pluginEE3getEjPS1_.exit82: ; preds = %_ZNK6vectorI
   %250 = trunc nuw i8 %249 to i1
   br i1 %250, label %.critedge8, label %.lr.ph115
 
-.loopexit:                                        ; preds = %269
+.loopexit:                                        ; preds = %270
   %.pre120 = load i8, ptr %39, align 1, !range !150
   %251 = xor i1 %271, true
   %252 = trunc nuw i8 %.pre120 to i1
@@ -3540,26 +3540,26 @@ _ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit84: ; preds = %.lr.ph115
   %.not59110 = icmp eq i32 %257, 0
   br i1 %.not59110, label %.critedge8, label %.lr.ph113
 
-.lr.ph113:                                        ; preds = %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit84, %269
-  %.050112 = phi ptr [ %272, %269 ], [ %254, %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit84 ]
-  %.1111 = phi i1 [ %271, %269 ], [ false, %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit84 ]
+.lr.ph113:                                        ; preds = %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit84, %270
+  %.050112 = phi ptr [ %272, %270 ], [ %254, %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit84 ]
+  %.1111 = phi i1 [ %271, %270 ], [ false, %_ZNK17scoped_ptr_vectorIN3sls6pluginEE3endEv.exit84 ]
   %261 = load ptr, ptr %.050112, align 8, !tbaa !70
   %.not60 = icmp eq ptr %261, null
   %262 = load i8, ptr %39, align 1, !range !150
   %263 = trunc nuw i8 %262 to i1
   %or.cond69 = select i1 %.not60, i1 true, i1 %263
-  br i1 %or.cond69, label %269, label %264
+  br i1 %or.cond69, label %270, label %264
 
 264:                                              ; preds = %.lr.ph113
   %265 = load ptr, ptr %261, align 8, !tbaa !3
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 64
   %267 = load ptr, ptr %266, align 8
   %268 = tail call noundef zeroext i1 %267(ptr noundef nonnull align 8 dereferenceable(28) %261)
-  br label %269
+  %269 = or i1 %.1111, %268
+  br label %270
 
-269:                                              ; preds = %264, %.lr.ph113
-  %270 = phi i1 [ false, %.lr.ph113 ], [ %268, %264 ]
-  %271 = or i1 %.1111, %270
+270:                                              ; preds = %264, %.lr.ph113
+  %271 = phi i1 [ %.1111, %.lr.ph113 ], [ %269, %264 ]
   %272 = getelementptr inbounds nuw i8, ptr %.050112, i64 8
   %.not59 = icmp eq ptr %272, %260
   br i1 %.not59, label %.loopexit, label %.lr.ph113

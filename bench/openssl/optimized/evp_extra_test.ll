@@ -7718,7 +7718,7 @@ define internal range(i32 0, 2) i32 @test_custom_pmeth(i32 noundef %0) #1 {
   store i1 false, ptr @ctrl_called, align 4
   %27 = load ptr, ptr @testctx, align 8, !tbaa !6
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %28, label %197
+  br i1 %.not, label %28, label %193
 
 28:                                               ; preds = %1
   switch i32 %0, label %53 [
@@ -7839,300 +7839,296 @@ define internal range(i32 0, 2) i32 @test_custom_pmeth(i32 noundef %0) #1 {
 54:                                               ; preds = %49, %45, %41, %37, %33, %29
   %.sink = phi ptr [ %52, %49 ], [ %48, %45 ], [ %44, %41 ], [ %40, %37 ], [ %36, %33 ], [ %32, %29 ]
   %55 = phi i1 [ false, %49 ], [ false, %45 ], [ true, %41 ], [ false, %37 ], [ false, %33 ], [ false, %29 ]
-  %56 = phi i1 [ false, %49 ], [ true, %45 ], [ false, %41 ], [ false, %37 ], [ false, %33 ], [ false, %29 ]
-  %57 = phi i1 [ true, %49 ], [ false, %45 ], [ false, %41 ], [ false, %37 ], [ false, %33 ], [ false, %29 ]
-  %58 = phi i1 [ true, %49 ], [ true, %45 ], [ false, %41 ], [ true, %37 ], [ true, %33 ], [ true, %29 ]
-  %59 = phi i1 [ false, %49 ], [ true, %45 ], [ true, %41 ], [ true, %37 ], [ true, %33 ], [ true, %29 ]
+  %or.cond = phi i1 [ true, %49 ], [ true, %45 ], [ false, %41 ], [ false, %37 ], [ false, %33 ], [ false, %29 ]
+  %or.cond3 = phi i1 [ false, %49 ], [ true, %45 ], [ false, %41 ], [ true, %37 ], [ true, %33 ], [ true, %29 ]
   %.040 = phi i32 [ 1034, %49 ], [ 28, %45 ], [ 1087, %41 ], [ 408, %37 ], [ 116, %33 ], [ 6, %29 ]
   %.036 = phi ptr [ %26, %49 ], [ %26, %45 ], [ null, %41 ], [ %26, %37 ], [ %26, %33 ], [ %26, %29 ]
   %.not55 = phi i1 [ false, %49 ], [ false, %45 ], [ true, %41 ], [ true, %37 ], [ true, %33 ], [ true, %29 ]
   %.035 = phi i32 [ 1, %49 ], [ 1, %45 ], [ 0, %41 ], [ 0, %37 ], [ 0, %33 ], [ 0, %29 ]
   store ptr %.sink, ptr %21, align 8, !tbaa !21
-  %60 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5439, ptr noundef nonnull @.str.144, ptr noundef %.sink) #9
-  %.not44 = icmp eq i32 %60, 0
-  br i1 %.not44, label %.thread, label %61
+  %56 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5439, ptr noundef nonnull @.str.144, ptr noundef %.sink) #9
+  %.not44 = icmp eq i32 %56, 0
+  br i1 %.not44, label %.thread, label %57
 
-61:                                               ; preds = %54
-  %62 = icmp samesign ult i32 %0, 6
-  %63 = load ptr, ptr %21, align 8, !tbaa !21
-  br i1 %62, label %64, label %70
+57:                                               ; preds = %54
+  %58 = icmp samesign ult i32 %0, 6
+  %59 = load ptr, ptr %21, align 8, !tbaa !21
+  br i1 %58, label %60, label %66
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 96
-  %66 = load ptr, ptr %65, align 8, !tbaa !78
-  %67 = icmp ne ptr %66, null
-  %68 = zext i1 %67 to i32
-  %69 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5443, ptr noundef nonnull @.str.710, i32 noundef %68) #9
-  %.not49 = icmp eq i32 %69, 0
-  br i1 %.not49, label %.thread, label %90
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 96
+  %62 = load ptr, ptr %61, align 8, !tbaa !78
+  %63 = icmp ne ptr %62, null
+  %64 = zext i1 %63 to i32
+  %65 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5443, ptr noundef nonnull @.str.710, i32 noundef %64) #9
+  %.not49 = icmp eq i32 %65, 0
+  br i1 %.not49, label %.thread, label %86
 
-70:                                               ; preds = %61
-  %71 = call ptr @EVP_PKEY_new() #9
-  store ptr %71, ptr %21, align 8, !tbaa !21
-  %72 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5450, ptr noundef nonnull @.str.144, ptr noundef %71) #9
-  %.not45 = icmp eq i32 %72, 0
-  br i1 %.not45, label %73, label %74
+66:                                               ; preds = %57
+  %67 = call ptr @EVP_PKEY_new() #9
+  store ptr %67, ptr %21, align 8, !tbaa !21
+  %68 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5450, ptr noundef nonnull @.str.144, ptr noundef %67) #9
+  %.not45 = icmp eq i32 %68, 0
+  br i1 %.not45, label %69, label %70
 
-73:                                               ; preds = %70
-  store ptr %63, ptr %21, align 8, !tbaa !21
+69:                                               ; preds = %66
+  store ptr %59, ptr %21, align 8, !tbaa !21
   br label %.thread
 
-74:                                               ; preds = %70
-  %75 = call i32 @evp_pkey_copy_downgraded(ptr noundef nonnull %21, ptr noundef %63) #9
-  %76 = icmp ne i32 %75, 0
-  %77 = zext i1 %76 to i32
-  %78 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5454, ptr noundef nonnull @.str.711, i32 noundef %77) #9
-  %.not46 = icmp eq i32 %78, 0
-  call void @EVP_PKEY_free(ptr noundef %63) #9
-  br i1 %.not46, label %.thread, label %79
+70:                                               ; preds = %66
+  %71 = call i32 @evp_pkey_copy_downgraded(ptr noundef nonnull %21, ptr noundef %59) #9
+  %72 = icmp ne i32 %71, 0
+  %73 = zext i1 %72 to i32
+  %74 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5454, ptr noundef nonnull @.str.711, i32 noundef %73) #9
+  %.not46 = icmp eq i32 %74, 0
+  call void @EVP_PKEY_free(ptr noundef %59) #9
+  br i1 %.not46, label %.thread, label %75
 
-79:                                               ; preds = %74
-  %80 = load ptr, ptr %21, align 8, !tbaa !21
-  %81 = load i32, ptr %80, align 8, !tbaa !87
-  %.not47 = icmp eq i32 %81, 0
-  br i1 %.not47, label %87, label %82
+75:                                               ; preds = %70
+  %76 = load ptr, ptr %21, align 8, !tbaa !21
+  %77 = load i32, ptr %76, align 8, !tbaa !87
+  %.not47 = icmp eq i32 %77, 0
+  br i1 %.not47, label %83, label %78
 
-82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 96
-  %84 = load ptr, ptr %83, align 8, !tbaa !78
-  %85 = icmp eq ptr %84, null
-  %86 = zext i1 %85 to i32
-  br label %87
+78:                                               ; preds = %75
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 96
+  %80 = load ptr, ptr %79, align 8, !tbaa !78
+  %81 = icmp eq ptr %80, null
+  %82 = zext i1 %81 to i32
+  br label %83
 
-87:                                               ; preds = %82, %79
-  %88 = phi i32 [ 0, %79 ], [ %86, %82 ]
-  %89 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5459, ptr noundef nonnull @.str.712, i32 noundef %88) #9
-  %.not48 = icmp eq i32 %89, 0
-  br i1 %.not48, label %.thread, label %90
+83:                                               ; preds = %78, %75
+  %84 = phi i32 [ 0, %75 ], [ %82, %78 ]
+  %85 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5459, ptr noundef nonnull @.str.712, i32 noundef %84) #9
+  %.not48 = icmp eq i32 %85, 0
+  br i1 %.not48, label %.thread, label %86
 
-90:                                               ; preds = %87, %64
-  %91 = call ptr @EVP_PKEY_meth_find(i32 noundef %.040) #9
-  store ptr %91, ptr @orig_pmeth, align 8, !tbaa !13
-  %92 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5463, ptr noundef nonnull @.str.713, ptr noundef %91) #9
-  %.not50 = icmp eq i32 %92, 0
-  br i1 %.not50, label %.thread, label %93
+86:                                               ; preds = %83, %60
+  %87 = call ptr @EVP_PKEY_meth_find(i32 noundef %.040) #9
+  store ptr %87, ptr @orig_pmeth, align 8, !tbaa !13
+  %88 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5463, ptr noundef nonnull @.str.713, ptr noundef %87) #9
+  %.not50 = icmp eq i32 %88, 0
+  br i1 %.not50, label %.thread, label %89
 
-93:                                               ; preds = %90
-  %94 = load ptr, ptr %21, align 8, !tbaa !21
-  %95 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5464, ptr noundef nonnull @.str.144, ptr noundef %94) #9
-  %.not51 = icmp eq i32 %95, 0
-  br i1 %.not51, label %.thread, label %96
+89:                                               ; preds = %86
+  %90 = load ptr, ptr %21, align 8, !tbaa !21
+  %91 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5464, ptr noundef nonnull @.str.144, ptr noundef %90) #9
+  %.not51 = icmp eq i32 %91, 0
+  br i1 %.not51, label %.thread, label %92
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr @orig_pmeth, align 8, !tbaa !13
-  call void @EVP_PKEY_meth_get0_info(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %97) #9
-  %98 = load i32, ptr %22, align 4, !tbaa !25
-  %99 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5468, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i32 noundef %98, i32 noundef %.040) #9
-  %.not52 = icmp eq i32 %99, 0
-  br i1 %.not52, label %.thread, label %100
+92:                                               ; preds = %89
+  %93 = load ptr, ptr @orig_pmeth, align 8, !tbaa !13
+  call void @EVP_PKEY_meth_get0_info(ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef %93) #9
+  %94 = load i32, ptr %22, align 4, !tbaa !25
+  %95 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5468, ptr noundef nonnull @.str.714, ptr noundef nonnull @.str.715, i32 noundef %94, i32 noundef %.040) #9
+  %.not52 = icmp eq i32 %95, 0
+  br i1 %.not52, label %.thread, label %96
+
+96:                                               ; preds = %92
+  %97 = load i32, ptr %23, align 4, !tbaa !25
+  %98 = call ptr @EVP_PKEY_meth_new(i32 noundef %.040, i32 noundef %97) #9
+  store ptr %98, ptr @custom_pmeth, align 8, !tbaa !13
+  %99 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5469, ptr noundef nonnull @.str.716, ptr noundef %98) #9
+  %.not53 = icmp eq i32 %99, 0
+  br i1 %.not53, label %.thread, label %100
 
 100:                                              ; preds = %96
-  %101 = load i32, ptr %23, align 4, !tbaa !25
-  %102 = call ptr @EVP_PKEY_meth_new(i32 noundef %.040, i32 noundef %101) #9
-  store ptr %102, ptr @custom_pmeth, align 8, !tbaa !13
-  %103 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5469, ptr noundef nonnull @.str.716, ptr noundef %102) #9
-  %.not53 = icmp eq i32 %103, 0
-  br i1 %.not53, label %.thread, label %104
+  br i1 %55, label %101, label %103
 
-104:                                              ; preds = %100
-  br i1 %55, label %105, label %107
+101:                                              ; preds = %100
+  %102 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
+  call void @EVP_PKEY_meth_set_digestsign(ptr noundef %102, ptr noundef nonnull @custom_pmeth_digestsign) #9
+  br label %103
 
-105:                                              ; preds = %104
-  %106 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  call void @EVP_PKEY_meth_set_digestsign(ptr noundef %106, ptr noundef nonnull @custom_pmeth_digestsign) #9
+103:                                              ; preds = %101, %100
+  %104 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
+  br i1 %or.cond, label %105, label %106
+
+105:                                              ; preds = %103
+  call void @EVP_PKEY_meth_set_derive(ptr noundef %104, ptr noundef null, ptr noundef nonnull @custom_pmeth_derive) #9
   br label %107
 
-107:                                              ; preds = %105, %104
-  %or.cond = or i1 %56, %57
-  %108 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  br i1 %or.cond, label %109, label %110
+106:                                              ; preds = %103
+  call void @EVP_PKEY_meth_set_sign(ptr noundef %104, ptr noundef null, ptr noundef nonnull @custom_pmeth_sign) #9
+  br label %107
 
-109:                                              ; preds = %107
-  call void @EVP_PKEY_meth_set_derive(ptr noundef %108, ptr noundef null, ptr noundef nonnull @custom_pmeth_derive) #9
-  br label %111
+107:                                              ; preds = %106, %105
+  br i1 %or.cond3, label %108, label %112
 
-110:                                              ; preds = %107
-  call void @EVP_PKEY_meth_set_sign(ptr noundef %108, ptr noundef null, ptr noundef nonnull @custom_pmeth_sign) #9
-  br label %111
+108:                                              ; preds = %107
+  %109 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
+  call void @EVP_PKEY_meth_set_init(ptr noundef %109, ptr noundef nonnull @custom_pmeth_init) #9
+  %110 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
+  call void @EVP_PKEY_meth_set_cleanup(ptr noundef %110, ptr noundef nonnull @custom_pmeth_cleanup) #9
+  %111 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
+  call void @EVP_PKEY_meth_set_copy(ptr noundef %111, ptr noundef nonnull @custom_pmeth_copy) #9
+  br label %112
 
-111:                                              ; preds = %110, %109
-  %or.cond3 = and i1 %58, %59
-  br i1 %or.cond3, label %112, label %116
-
-112:                                              ; preds = %111
+112:                                              ; preds = %108, %107
   %113 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  call void @EVP_PKEY_meth_set_init(ptr noundef %113, ptr noundef nonnull @custom_pmeth_init) #9
+  call void @EVP_PKEY_meth_set_ctrl(ptr noundef %113, ptr noundef nonnull @custom_pmeth_ctrl, ptr noundef null) #9
   %114 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  call void @EVP_PKEY_meth_set_cleanup(ptr noundef %114, ptr noundef nonnull @custom_pmeth_cleanup) #9
-  %115 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  call void @EVP_PKEY_meth_set_copy(ptr noundef %115, ptr noundef nonnull @custom_pmeth_copy) #9
-  br label %116
+  %115 = call i32 @EVP_PKEY_meth_add0(ptr noundef %114) #9
+  %116 = icmp ne i32 %115, 0
+  %117 = zext i1 %116 to i32
+  %118 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5485, ptr noundef nonnull @.str.42, i32 noundef %117) #9
+  %.not54 = icmp eq i32 %118, 0
+  br i1 %.not54, label %.thread, label %119
 
-116:                                              ; preds = %112, %111
-  %117 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  call void @EVP_PKEY_meth_set_ctrl(ptr noundef %117, ptr noundef nonnull @custom_pmeth_ctrl, ptr noundef null) #9
-  %118 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  %119 = call i32 @EVP_PKEY_meth_add0(ptr noundef %118) #9
-  %120 = icmp ne i32 %119, 0
-  %121 = zext i1 %120 to i32
-  %122 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5485, ptr noundef nonnull @.str.42, i32 noundef %121) #9
-  %.not54 = icmp eq i32 %122, 0
-  br i1 %.not54, label %.thread, label %123
+119:                                              ; preds = %112
+  br i1 %.not55, label %147, label %120
 
-123:                                              ; preds = %116
-  br i1 %.not55, label %151, label %124
+120:                                              ; preds = %119
+  %121 = load ptr, ptr %21, align 8, !tbaa !21
+  %122 = call ptr @EVP_PKEY_CTX_new(ptr noundef %121, ptr noundef null) #9
+  store ptr %122, ptr %20, align 8, !tbaa !23
+  %123 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5490, ptr noundef nonnull @.str.534, ptr noundef %122) #9
+  %.not64 = icmp eq i32 %123, 0
+  br i1 %.not64, label %.thread, label %124
 
-124:                                              ; preds = %123
-  %125 = load ptr, ptr %21, align 8, !tbaa !21
-  %126 = call ptr @EVP_PKEY_CTX_new(ptr noundef %125, ptr noundef null) #9
-  store ptr %126, ptr %20, align 8, !tbaa !23
-  %127 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5490, ptr noundef nonnull @.str.534, ptr noundef %126) #9
-  %.not64 = icmp eq i32 %127, 0
-  br i1 %.not64, label %.thread, label %128
+124:                                              ; preds = %120
+  %125 = call i32 @EVP_PKEY_derive_init(ptr noundef %122) #9
+  %126 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5491, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.43, i32 noundef %125, i32 noundef 1) #9
+  %.not65 = icmp eq i32 %126, 0
+  br i1 %.not65, label %.thread, label %127
 
-128:                                              ; preds = %124
-  %129 = call i32 @EVP_PKEY_derive_init(ptr noundef %126) #9
-  %130 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5491, ptr noundef nonnull @.str.346, ptr noundef nonnull @.str.43, i32 noundef %129, i32 noundef 1) #9
-  %.not65 = icmp eq i32 %130, 0
-  br i1 %.not65, label %.thread, label %131
+127:                                              ; preds = %124
+  %128 = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %122, i32 noundef -1, i32 noundef -1, i32 noundef 9999, i32 noundef 0, ptr noundef null) #9
+  %129 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5494, ptr noundef nonnull @.str.717, ptr noundef nonnull @.str.43, i32 noundef %128, i32 noundef 1) #9
+  %.not66 = icmp eq i32 %129, 0
+  br i1 %.not66, label %.thread, label %130
 
-131:                                              ; preds = %128
-  %132 = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %126, i32 noundef -1, i32 noundef -1, i32 noundef 9999, i32 noundef 0, ptr noundef null) #9
-  %133 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5494, ptr noundef nonnull @.str.717, ptr noundef nonnull @.str.43, i32 noundef %132, i32 noundef 1) #9
-  %.not66 = icmp eq i32 %133, 0
-  br i1 %.not66, label %.thread, label %134
-
-134:                                              ; preds = %131
+130:                                              ; preds = %127
   %.b43 = load i1, ptr @ctrl_called, align 4
-  %135 = zext i1 %.b43 to i32
-  %136 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5495, ptr noundef nonnull @.str.718, ptr noundef nonnull @.str.43, i32 noundef %135, i32 noundef 1) #9
-  %.not67 = icmp eq i32 %136, 0
-  br i1 %.not67, label %.thread, label %137
+  %131 = zext i1 %.b43 to i32
+  %132 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5495, ptr noundef nonnull @.str.718, ptr noundef nonnull @.str.43, i32 noundef %131, i32 noundef 1) #9
+  %.not67 = icmp eq i32 %132, 0
+  br i1 %.not67, label %.thread, label %133
 
-137:                                              ; preds = %134
-  %138 = load ptr, ptr %21, align 8, !tbaa !21
-  %139 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %126, ptr noundef %138) #9
-  %140 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5496, ptr noundef nonnull @.str.719, ptr noundef nonnull @.str.43, i32 noundef %139, i32 noundef 1) #9
-  %.not68 = icmp eq i32 %140, 0
-  br i1 %.not68, label %.thread, label %141
+133:                                              ; preds = %130
+  %134 = load ptr, ptr %21, align 8, !tbaa !21
+  %135 = call i32 @EVP_PKEY_derive_set_peer(ptr noundef %122, ptr noundef %134) #9
+  %136 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5496, ptr noundef nonnull @.str.719, ptr noundef nonnull @.str.43, i32 noundef %135, i32 noundef 1) #9
+  %.not68 = icmp eq i32 %136, 0
+  br i1 %.not68, label %.thread, label %137
 
-141:                                              ; preds = %137
-  %142 = call i32 @EVP_PKEY_derive(ptr noundef %126, ptr noundef null, ptr noundef nonnull %24) #9
-  %143 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5497, ptr noundef nonnull @.str.720, ptr noundef nonnull @.str.43, i32 noundef %142, i32 noundef 1) #9
-  %.not69 = icmp eq i32 %143, 0
-  br i1 %.not69, label %.thread, label %144
+137:                                              ; preds = %133
+  %138 = call i32 @EVP_PKEY_derive(ptr noundef %122, ptr noundef null, ptr noundef nonnull %24) #9
+  %139 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5497, ptr noundef nonnull @.str.720, ptr noundef nonnull @.str.43, i32 noundef %138, i32 noundef 1) #9
+  %.not69 = icmp eq i32 %139, 0
+  br i1 %.not69, label %.thread, label %140
 
-144:                                              ; preds = %141
-  %145 = load i64, ptr %24, align 8, !tbaa !15
-  %146 = call noalias ptr @CRYPTO_malloc(i64 noundef %145, ptr noundef nonnull @.str.18, i32 noundef 5498) #9
-  %147 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5498, ptr noundef nonnull @.str.721, ptr noundef %146) #9
-  %.not70 = icmp eq i32 %147, 0
-  br i1 %.not70, label %.thread, label %148
+140:                                              ; preds = %137
+  %141 = load i64, ptr %24, align 8, !tbaa !15
+  %142 = call noalias ptr @CRYPTO_malloc(i64 noundef %141, ptr noundef nonnull @.str.18, i32 noundef 5498) #9
+  %143 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5498, ptr noundef nonnull @.str.721, ptr noundef %142) #9
+  %.not70 = icmp eq i32 %143, 0
+  br i1 %.not70, label %.thread, label %144
 
-148:                                              ; preds = %144
-  %149 = call i32 @EVP_PKEY_derive(ptr noundef %126, ptr noundef %146, ptr noundef nonnull %24) #9
-  %150 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5499, ptr noundef nonnull @.str.722, ptr noundef nonnull @.str.43, i32 noundef %149, i32 noundef 1) #9
-  %.not71 = icmp eq i32 %150, 0
-  br i1 %.not71, label %.thread, label %189
+144:                                              ; preds = %140
+  %145 = call i32 @EVP_PKEY_derive(ptr noundef %122, ptr noundef %142, ptr noundef nonnull %24) #9
+  %146 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5499, ptr noundef nonnull @.str.722, ptr noundef nonnull @.str.43, i32 noundef %145, i32 noundef 1) #9
+  %.not71 = icmp eq i32 %146, 0
+  br i1 %.not71, label %.thread, label %185
 
-151:                                              ; preds = %123
-  %152 = call ptr @EVP_MD_CTX_new() #9
-  %153 = load ptr, ptr %21, align 8, !tbaa !21
-  %154 = call i32 @EVP_PKEY_get_size(ptr noundef %153) #9
-  %155 = sext i32 %154 to i64
-  store i64 %155, ptr %24, align 8, !tbaa !15
-  %156 = call noalias ptr @CRYPTO_malloc(i64 noundef %155, ptr noundef nonnull @.str.18, i32 noundef 5504) #9
-  %157 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5505, ptr noundef nonnull @.str.177, ptr noundef %152) #9
-  %.not56 = icmp eq i32 %157, 0
-  br i1 %.not56, label %.thread, label %158
+147:                                              ; preds = %119
+  %148 = call ptr @EVP_MD_CTX_new() #9
+  %149 = load ptr, ptr %21, align 8, !tbaa !21
+  %150 = call i32 @EVP_PKEY_get_size(ptr noundef %149) #9
+  %151 = sext i32 %150 to i64
+  store i64 %151, ptr %24, align 8, !tbaa !15
+  %152 = call noalias ptr @CRYPTO_malloc(i64 noundef %151, ptr noundef nonnull @.str.18, i32 noundef 5504) #9
+  %153 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5505, ptr noundef nonnull @.str.177, ptr noundef %148) #9
+  %.not56 = icmp eq i32 %153, 0
+  br i1 %.not56, label %.thread, label %154
 
-158:                                              ; preds = %151
-  %159 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5506, ptr noundef nonnull @.str.723, ptr noundef %156) #9
-  %.not57 = icmp eq i32 %159, 0
-  br i1 %.not57, label %.thread, label %160
+154:                                              ; preds = %147
+  %155 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5506, ptr noundef nonnull @.str.723, ptr noundef %152) #9
+  %.not57 = icmp eq i32 %155, 0
+  br i1 %.not57, label %.thread, label %156
 
-160:                                              ; preds = %158
-  %161 = load ptr, ptr %21, align 8, !tbaa !21
-  %162 = call i32 @EVP_DigestSignInit(ptr noundef %152, ptr noundef nonnull %20, ptr noundef %.036, ptr noundef null, ptr noundef %161) #9
-  %163 = icmp ne i32 %162, 0
-  %164 = zext i1 %163 to i32
-  %165 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5507, ptr noundef nonnull @.str.724, i32 noundef %164) #9
-  %.not58 = icmp eq i32 %165, 0
-  br i1 %.not58, label %.thread, label %166
+156:                                              ; preds = %154
+  %157 = load ptr, ptr %21, align 8, !tbaa !21
+  %158 = call i32 @EVP_DigestSignInit(ptr noundef %148, ptr noundef nonnull %20, ptr noundef %.036, ptr noundef null, ptr noundef %157) #9
+  %159 = icmp ne i32 %158, 0
+  %160 = zext i1 %159 to i32
+  %161 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5507, ptr noundef nonnull @.str.724, i32 noundef %160) #9
+  %.not58 = icmp eq i32 %161, 0
+  br i1 %.not58, label %.thread, label %162
 
-166:                                              ; preds = %160
-  %167 = load ptr, ptr %20, align 8, !tbaa !23
-  %168 = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %167, i32 noundef -1, i32 noundef -1, i32 noundef 9999, i32 noundef 0, ptr noundef null) #9
-  %169 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5510, ptr noundef nonnull @.str.717, ptr noundef nonnull @.str.43, i32 noundef %168, i32 noundef 1) #9
-  %.not59 = icmp eq i32 %169, 0
-  br i1 %.not59, label %.thread, label %170
+162:                                              ; preds = %156
+  %163 = load ptr, ptr %20, align 8, !tbaa !23
+  %164 = call i32 @EVP_PKEY_CTX_ctrl(ptr noundef %163, i32 noundef -1, i32 noundef -1, i32 noundef 9999, i32 noundef 0, ptr noundef null) #9
+  %165 = call i32 @test_int_ge(ptr noundef nonnull @.str.18, i32 noundef 5510, ptr noundef nonnull @.str.717, ptr noundef nonnull @.str.43, i32 noundef %164, i32 noundef 1) #9
+  %.not59 = icmp eq i32 %165, 0
+  br i1 %.not59, label %.thread, label %166
 
-170:                                              ; preds = %166
+166:                                              ; preds = %162
   %.b = load i1, ptr @ctrl_called, align 4
-  %171 = zext i1 %.b to i32
-  %172 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5511, ptr noundef nonnull @.str.718, ptr noundef nonnull @.str.43, i32 noundef %171, i32 noundef 1) #9
-  %.not60 = icmp eq i32 %172, 0
-  br i1 %.not60, label %.thread, label %173
+  %167 = zext i1 %.b to i32
+  %168 = call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 5511, ptr noundef nonnull @.str.718, ptr noundef nonnull @.str.43, i32 noundef %167, i32 noundef 1) #9
+  %.not60 = icmp eq i32 %168, 0
+  br i1 %.not60, label %.thread, label %169
 
-173:                                              ; preds = %170
-  br i1 %55, label %174, label %179
+169:                                              ; preds = %166
+  br i1 %55, label %170, label %175
 
-174:                                              ; preds = %173
-  %175 = call i32 @EVP_DigestSign(ptr noundef %152, ptr noundef %156, ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 5) #9
-  %176 = icmp ne i32 %175, 0
-  %177 = zext i1 %176 to i32
-  %178 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5515, ptr noundef nonnull @.str.725, i32 noundef %177) #9
-  %.not63 = icmp eq i32 %178, 0
-  br i1 %.not63, label %.thread, label %189
+170:                                              ; preds = %169
+  %171 = call i32 @EVP_DigestSign(ptr noundef %148, ptr noundef %152, ptr noundef nonnull %24, ptr noundef nonnull %25, i64 noundef 5) #9
+  %172 = icmp ne i32 %171, 0
+  %173 = zext i1 %172 to i32
+  %174 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5515, ptr noundef nonnull @.str.725, i32 noundef %173) #9
+  %.not63 = icmp eq i32 %174, 0
+  br i1 %.not63, label %.thread, label %185
 
-179:                                              ; preds = %173
-  %180 = call i32 @EVP_DigestUpdate(ptr noundef %152, ptr noundef nonnull %25, i64 noundef 5) #9
-  %181 = icmp ne i32 %180, 0
-  %182 = zext i1 %181 to i32
-  %183 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5518, ptr noundef nonnull @.str.726, i32 noundef %182) #9
-  %.not61 = icmp eq i32 %183, 0
-  br i1 %.not61, label %.thread, label %184
+175:                                              ; preds = %169
+  %176 = call i32 @EVP_DigestUpdate(ptr noundef %148, ptr noundef nonnull %25, i64 noundef 5) #9
+  %177 = icmp ne i32 %176, 0
+  %178 = zext i1 %177 to i32
+  %179 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5518, ptr noundef nonnull @.str.726, i32 noundef %178) #9
+  %.not61 = icmp eq i32 %179, 0
+  br i1 %.not61, label %.thread, label %180
 
-184:                                              ; preds = %179
-  %185 = call i32 @EVP_DigestSignFinal(ptr noundef %152, ptr noundef %156, ptr noundef nonnull %24) #9
-  %186 = icmp ne i32 %185, 0
-  %187 = zext i1 %186 to i32
-  %188 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5519, ptr noundef nonnull @.str.727, i32 noundef %187) #9
-  %.not62 = icmp eq i32 %188, 0
-  br i1 %.not62, label %.thread, label %189
+180:                                              ; preds = %175
+  %181 = call i32 @EVP_DigestSignFinal(ptr noundef %148, ptr noundef %152, ptr noundef nonnull %24) #9
+  %182 = icmp ne i32 %181, 0
+  %183 = zext i1 %182 to i32
+  %184 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 5519, ptr noundef nonnull @.str.727, i32 noundef %183) #9
+  %.not62 = icmp eq i32 %184, 0
+  br i1 %.not62, label %.thread, label %185
 
-189:                                              ; preds = %174, %184, %148
-  %.142 = phi ptr [ null, %148 ], [ %152, %174 ], [ %152, %184 ]
-  %.138 = phi ptr [ %146, %148 ], [ %156, %174 ], [ %156, %184 ]
+185:                                              ; preds = %170, %180, %144
+  %.142 = phi ptr [ null, %144 ], [ %148, %170 ], [ %148, %180 ]
+  %.138 = phi ptr [ %142, %144 ], [ %152, %170 ], [ %152, %180 ]
   br label %.thread
 
-.thread:                                          ; preds = %74, %87, %73, %179, %184, %174, %151, %158, %160, %166, %170, %124, %128, %131, %134, %137, %141, %144, %148, %116, %96, %100, %90, %93, %64, %54, %189, %53
-  %.041 = phi ptr [ null, %53 ], [ %.142, %189 ], [ null, %148 ], [ null, %144 ], [ null, %141 ], [ null, %137 ], [ null, %134 ], [ null, %131 ], [ null, %128 ], [ null, %124 ], [ %152, %174 ], [ %152, %184 ], [ %152, %179 ], [ %152, %170 ], [ %152, %166 ], [ %152, %160 ], [ %152, %158 ], [ %152, %151 ], [ null, %116 ], [ null, %100 ], [ null, %96 ], [ null, %93 ], [ null, %90 ], [ null, %64 ], [ null, %54 ], [ null, %73 ], [ null, %87 ], [ null, %74 ]
-  %.039 = phi i32 [ 0, %53 ], [ 1, %189 ], [ 0, %148 ], [ 0, %144 ], [ 0, %141 ], [ 0, %137 ], [ 0, %134 ], [ 0, %131 ], [ 0, %128 ], [ 0, %124 ], [ 0, %174 ], [ 0, %184 ], [ 0, %179 ], [ 0, %170 ], [ 0, %166 ], [ 0, %160 ], [ 0, %158 ], [ 0, %151 ], [ 0, %116 ], [ 0, %100 ], [ 0, %96 ], [ 0, %93 ], [ 0, %90 ], [ 0, %64 ], [ 0, %54 ], [ 0, %73 ], [ 0, %87 ], [ 0, %74 ]
-  %.037 = phi ptr [ null, %53 ], [ %.138, %189 ], [ %146, %148 ], [ %146, %144 ], [ null, %141 ], [ null, %137 ], [ null, %134 ], [ null, %131 ], [ null, %128 ], [ null, %124 ], [ %156, %174 ], [ %156, %184 ], [ %156, %179 ], [ %156, %170 ], [ %156, %166 ], [ %156, %160 ], [ %156, %158 ], [ %156, %151 ], [ null, %116 ], [ null, %100 ], [ null, %96 ], [ null, %93 ], [ null, %90 ], [ null, %64 ], [ null, %54 ], [ null, %73 ], [ null, %87 ], [ null, %74 ]
-  %.1 = phi i32 [ 0, %53 ], [ %.035, %189 ], [ 1, %148 ], [ 1, %144 ], [ 1, %141 ], [ 1, %137 ], [ 1, %134 ], [ 1, %131 ], [ 1, %128 ], [ 1, %124 ], [ 0, %174 ], [ 0, %184 ], [ 0, %179 ], [ 0, %170 ], [ 0, %166 ], [ 0, %160 ], [ 0, %158 ], [ 0, %151 ], [ %.035, %116 ], [ %.035, %100 ], [ %.035, %96 ], [ %.035, %93 ], [ %.035, %90 ], [ %.035, %64 ], [ %.035, %54 ], [ %.035, %73 ], [ %.035, %87 ], [ %.035, %74 ]
+.thread:                                          ; preds = %70, %83, %69, %175, %180, %170, %147, %154, %156, %162, %166, %120, %124, %127, %130, %133, %137, %140, %144, %112, %92, %96, %86, %89, %60, %54, %185, %53
+  %.041 = phi ptr [ null, %53 ], [ %.142, %185 ], [ null, %144 ], [ null, %140 ], [ null, %137 ], [ null, %133 ], [ null, %130 ], [ null, %127 ], [ null, %124 ], [ null, %120 ], [ %148, %170 ], [ %148, %180 ], [ %148, %175 ], [ %148, %166 ], [ %148, %162 ], [ %148, %156 ], [ %148, %154 ], [ %148, %147 ], [ null, %112 ], [ null, %96 ], [ null, %92 ], [ null, %89 ], [ null, %86 ], [ null, %60 ], [ null, %54 ], [ null, %69 ], [ null, %83 ], [ null, %70 ]
+  %.039 = phi i32 [ 0, %53 ], [ 1, %185 ], [ 0, %144 ], [ 0, %140 ], [ 0, %137 ], [ 0, %133 ], [ 0, %130 ], [ 0, %127 ], [ 0, %124 ], [ 0, %120 ], [ 0, %170 ], [ 0, %180 ], [ 0, %175 ], [ 0, %166 ], [ 0, %162 ], [ 0, %156 ], [ 0, %154 ], [ 0, %147 ], [ 0, %112 ], [ 0, %96 ], [ 0, %92 ], [ 0, %89 ], [ 0, %86 ], [ 0, %60 ], [ 0, %54 ], [ 0, %69 ], [ 0, %83 ], [ 0, %70 ]
+  %.037 = phi ptr [ null, %53 ], [ %.138, %185 ], [ %142, %144 ], [ %142, %140 ], [ null, %137 ], [ null, %133 ], [ null, %130 ], [ null, %127 ], [ null, %124 ], [ null, %120 ], [ %152, %170 ], [ %152, %180 ], [ %152, %175 ], [ %152, %166 ], [ %152, %162 ], [ %152, %156 ], [ %152, %154 ], [ %152, %147 ], [ null, %112 ], [ null, %96 ], [ null, %92 ], [ null, %89 ], [ null, %86 ], [ null, %60 ], [ null, %54 ], [ null, %69 ], [ null, %83 ], [ null, %70 ]
+  %.1 = phi i32 [ 0, %53 ], [ %.035, %185 ], [ 1, %144 ], [ 1, %140 ], [ 1, %137 ], [ 1, %133 ], [ 1, %130 ], [ 1, %127 ], [ 1, %124 ], [ 1, %120 ], [ 0, %170 ], [ 0, %180 ], [ 0, %175 ], [ 0, %166 ], [ 0, %162 ], [ 0, %156 ], [ 0, %154 ], [ 0, %147 ], [ %.035, %112 ], [ %.035, %96 ], [ %.035, %92 ], [ %.035, %89 ], [ %.035, %86 ], [ %.035, %60 ], [ %.035, %54 ], [ %.035, %69 ], [ %.035, %83 ], [ %.035, %70 ]
   call void @CRYPTO_free(ptr noundef %.037, ptr noundef nonnull @.str.18, i32 noundef 5526) #9
   call void @EVP_MD_CTX_free(ptr noundef %.041) #9
   %.not72 = icmp eq i32 %.1, 0
-  br i1 %.not72, label %192, label %190
+  br i1 %.not72, label %188, label %186
 
-190:                                              ; preds = %.thread
-  %191 = load ptr, ptr %20, align 8, !tbaa !23
-  call void @EVP_PKEY_CTX_free(ptr noundef %191) #9
-  br label %192
+186:                                              ; preds = %.thread
+  %187 = load ptr, ptr %20, align 8, !tbaa !23
+  call void @EVP_PKEY_CTX_free(ptr noundef %187) #9
+  br label %188
 
-192:                                              ; preds = %190, %.thread
-  %193 = load ptr, ptr %21, align 8, !tbaa !21
-  call void @EVP_PKEY_free(ptr noundef %193) #9
-  %194 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  %195 = call i32 @EVP_PKEY_meth_remove(ptr noundef %194) #9
-  %196 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
-  call void @EVP_PKEY_meth_free(ptr noundef %196) #9
+188:                                              ; preds = %186, %.thread
+  %189 = load ptr, ptr %21, align 8, !tbaa !21
+  call void @EVP_PKEY_free(ptr noundef %189) #9
+  %190 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
+  %191 = call i32 @EVP_PKEY_meth_remove(ptr noundef %190) #9
+  %192 = load ptr, ptr @custom_pmeth, align 8, !tbaa !13
+  call void @EVP_PKEY_meth_free(ptr noundef %192) #9
   store ptr null, ptr @custom_pmeth, align 8, !tbaa !13
-  br label %197
+  br label %193
 
-197:                                              ; preds = %1, %192
-  %.0 = phi i32 [ %.039, %192 ], [ 1, %1 ]
+193:                                              ; preds = %1, %188
+  %.0 = phi i32 [ %.039, %188 ], [ 1, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)

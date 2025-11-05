@@ -2080,12 +2080,12 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 120
   %49 = load i64, ptr %48, align 8
   %50 = icmp ugt i64 %47, %49
-  %.pre96 = load i64, ptr %11, align 8
+  %.pre95 = load i64, ptr %11, align 8
   br i1 %50, label %58, label %51
 
 51:                                               ; preds = %45
   %52 = load i64, ptr %13, align 8
-  %53 = icmp ugt i64 %.pre96, %52
+  %53 = icmp ugt i64 %.pre95, %52
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %51
@@ -2099,7 +2099,7 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   br label %58
 
 58:                                               ; preds = %._crit_edge, %51, %45
-  %59 = phi i64 [ %.pre, %._crit_edge ], [ %.pre96, %51 ], [ %.pre96, %45 ]
+  %59 = phi i64 [ %.pre, %._crit_edge ], [ %.pre95, %51 ], [ %.pre95, %45 ]
   %60 = tail call zeroext i1 @SnapBuildSnapshotExists(i64 noundef %59) #14
   br i1 %60, label %61, label %69
 
@@ -2214,10 +2214,10 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @ReplicationSlotMarkDirty() #14
   call void @ReplicationSlotSave() #14
-  br i1 %.0, label %119, label %.thread100
+  br i1 %.0, label %119, label %.thread99
 
 118:                                              ; preds = %100
-  br i1 %.0, label %.critedge, label %.thread100
+  br i1 %.0, label %.critedge, label %.thread99
 
 .critedge:                                        ; preds = %118
   tail call void @ReplicationSlotMarkDirty() #14
@@ -2242,11 +2242,11 @@ define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef 
   store i8 0, ptr %6, align 8
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false) #14
   call void @ReplicationSlotsComputeRequiredLSN() #14
-  br label %.thread100
+  br label %.thread99
 
-.thread100:                                       ; preds = %118, %123, %.thread
-  %or.cond94102 = phi i1 [ true, %123 ], [ true, %.thread ], [ false, %118 ]
-  ret i1 %or.cond94102
+.thread99:                                        ; preds = %118, %123, %.thread
+  %.07993101 = phi i1 [ true, %123 ], [ true, %.thread ], [ false, %118 ]
+  ret i1 %.07993101
 }
 
 declare void @ReplicationSlotCreate(ptr noundef, i1 noundef zeroext, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2

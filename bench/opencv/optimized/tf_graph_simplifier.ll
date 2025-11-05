@@ -27529,11 +27529,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %94,
   %112 = getelementptr i64, ptr %110, i64 %111
   %113 = getelementptr i8, ptr %112, i64 -8
   %114 = load i64, ptr %113, align 8, !tbaa !116
+  %115 = mul i64 %114, %103
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %104, %108
-  %115 = phi i64 [ %114, %108 ], [ 0, %104 ]
-  %116 = mul i64 %115, %103
+  %116 = phi i64 [ %115, %108 ], [ 0, %104 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %102, i64 %116, i1 false)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

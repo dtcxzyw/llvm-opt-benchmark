@@ -18392,23 +18392,23 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i2474: ; preds = %_ZN5Yosys7hash
   %7589 = shl i32 %7586, %7588
   %7590 = load i8, ptr %7069, align 1, !tbaa !153, !range !154, !noundef !155
   %7591 = trunc nuw i8 %7590 to i1
-  br i1 %7591, label %7592, label %7596
+  br i1 %7591, label %7592, label %7597
 
 7592:                                             ; preds = %7587
   %7593 = load i8, ptr %7068, align 1, !tbaa !153, !range !154, !noundef !155
   %7594 = trunc nuw i8 %7593 to i1
-  %7595 = select i1 %7594, i32 -1, i32 1
-  br label %7596
+  %7595 = sub nsw i32 0, %7589
+  %7596 = select i1 %7594, i32 %7595, i32 %7589
+  br label %7597
 
-7596:                                             ; preds = %7592, %7587
-  %7597 = phi i32 [ 1, %7587 ], [ %7595, %7592 ]
-  %7598 = mul nsw i32 %7597, %7589
+7597:                                             ; preds = %7592, %7587
+  %7598 = phi i32 [ %7589, %7587 ], [ %7596, %7592 ]
   store i32 %7598, ptr %298, align 8, !tbaa !27
   %7599 = load ptr, ptr %323, align 8, !tbaa !201
   %.not.i.i.i.i.i24.i.i.i.i = icmp eq ptr %7599, null
   br i1 %.not.i.i.i.i.i24.i.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i.i.i.i.i.i106, label %7600
 
-7600:                                             ; preds = %7596
+7600:                                             ; preds = %7597
   %7601 = load ptr, ptr %324, align 8, !tbaa !202
   %7602 = ptrtoint ptr %7601 to i64
   %7603 = ptrtoint ptr %7599 to i64
@@ -18416,7 +18416,7 @@ _ZNK5Yosys6SigMap5applyERNS_5RTLIL6SigBitE.exit.i2474: ; preds = %_ZN5Yosys7hash
   call void @_ZdlPvm(ptr noundef nonnull %7599, i64 noundef %7604) #28
   br label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i.i.i.i.i.i106
 
-_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i.i.i.i.i.i106: ; preds = %7600, %7596
+_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i.i.i.i.i.i106: ; preds = %7600, %7597
   %7605 = load ptr, ptr %325, align 8, !tbaa !194
   %7606 = load ptr, ptr %326, align 8, !tbaa !195
   %.not4.i.i.i.i.i.i.i.i.i.i107 = icmp eq ptr %7605, %7606

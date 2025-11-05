@@ -10796,54 +10796,56 @@ _ZNK2cv11_InputArray6getMatEi.exit128:            ; preds = %99, %96
   %wide.trip.count = and i64 %86, 2147483647
   br label %148
 
-._crit_edge:                                      ; preds = %296, %_ZNK2cv11_InputArray6getMatEi.exit128
-  %.057.lcssa = phi float [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit128 ], [ %.158, %296 ]
-  %.055.lcssa = phi float [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit128 ], [ %.156, %296 ]
+._crit_edge.loopexit:                             ; preds = %296
+  %121 = fadd float %.158, %.156
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK2cv11_InputArray6getMatEi.exit128
+  %.057.lcssa = phi float [ 0.000000e+00, %_ZNK2cv11_InputArray6getMatEi.exit128 ], [ %121, %._crit_edge.loopexit ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %121 = load ptr, ptr %14, align 8, !tbaa !180
-  %.not.i.i.i = icmp eq ptr %121, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, label %122
+  %122 = load ptr, ptr %14, align 8, !tbaa !180
+  %.not.i.i.i = icmp eq ptr %122, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, label %123
 
-122:                                              ; preds = %._crit_edge
-  call void @_ZdlPv(ptr noundef nonnull %121) #29
+123:                                              ; preds = %._crit_edge
+  call void @_ZdlPv(ptr noundef nonnull %122) #29
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge, %122
+_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit:    ; preds = %._crit_edge, %123
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %123 = load ptr, ptr %13, align 8, !tbaa !180
-  %.not.i.i.i129 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i129, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130, label %124
+  %124 = load ptr, ptr %13, align 8, !tbaa !180
+  %.not.i.i.i129 = icmp eq ptr %124, null
+  br i1 %.not.i.i.i129, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130, label %125
 
-124:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %123) #29
+125:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit
+  call void @_ZdlPv(ptr noundef nonnull %124) #29
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, %124
+_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit, %125
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not.i.i.i131 = icmp eq ptr %65, null
-  br i1 %.not.i.i.i131, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132, label %125
+  br i1 %.not.i.i.i131, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132, label %126
 
-125:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130
+126:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130
   call void @_ZdlPv(ptr noundef nonnull %65) #29
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130, %125
-  %126 = load ptr, ptr %8, align 8, !tbaa !180
-  %.not.i.i.i133 = icmp eq ptr %126, null
-  br i1 %.not.i.i.i133, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit134, label %127
+_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit130, %126
+  %127 = load ptr, ptr %8, align 8, !tbaa !180
+  %.not.i.i.i133 = icmp eq ptr %127, null
+  br i1 %.not.i.i.i133, label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit134, label %128
 
-127:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132
-  call void @_ZdlPv(ptr noundef nonnull %126) #29
+128:                                              ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132
+  call void @_ZdlPv(ptr noundef nonnull %127) #29
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit134
 
-_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit134: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132, %127
-  %128 = fadd float %.057.lcssa, %.055.lcssa
+_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit134: ; preds = %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit132, %128
   %129 = sitofp i32 %87 to float
-  %130 = fdiv float %128, %129
+  %130 = fdiv float %.057.lcssa, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @_ZN2cv3mcc11CChartModelD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -11281,7 +11283,7 @@ _ZNK2cv4MatxIdLi4ELi1EE3dotERKS1_.exit160:        ; preds = %267
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %indvars.iv.next222 = add nuw nsw i64 %indvars.iv221, 1
   %exitcond224.not = icmp eq i64 %indvars.iv.next222, %wide.trip.count
-  br i1 %exitcond224.not, label %._crit_edge, label %148, !llvm.loop !320
+  br i1 %exitcond224.not, label %._crit_edge.loopexit, label %148, !llvm.loop !320
 
 297:                                              ; preds = %295, %280
   %.pn76.pn.pn = phi { ptr, i32 } [ %.pn76.pn, %295 ], [ %281, %280 ]

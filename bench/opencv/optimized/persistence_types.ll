@@ -554,22 +554,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %16
   %182 = load i64, ptr %181, align 8, !tbaa !36
   %183 = mul i64 %182, %indvars.iv
   %184 = getelementptr inbounds nuw i8, ptr %180, i64 %183
-  %185 = load i32, ptr %88, align 4, !tbaa !39
-  %186 = sext i32 %185 to i64
-  %187 = load i32, ptr %33, align 4, !tbaa !3
-  %188 = icmp sgt i32 %187, 0
-  br i1 %188, label %189, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %185 = load i32, ptr %33, align 4, !tbaa !3
+  %186 = icmp sgt i32 %185, 0
+  br i1 %186, label %187, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-189:                                              ; preds = %176
-  %190 = zext nneg i32 %187 to i64
+187:                                              ; preds = %176
+  %188 = load i32, ptr %88, align 4, !tbaa !39
+  %189 = sext i32 %188 to i64
+  %190 = zext nneg i32 %185 to i64
   %191 = getelementptr i64, ptr %181, i64 %190
   %192 = getelementptr i8, ptr %191, i64 -8
   %193 = load i64, ptr %192, align 8, !tbaa !36
+  %194 = mul i64 %193, %189
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %176, %189
-  %194 = phi i64 [ %193, %189 ], [ 0, %176 ]
-  %195 = mul i64 %194, %186
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %176, %187
+  %195 = phi i64 [ %194, %187 ], [ 0, %176 ]
   invoke void @_ZN2cv11FileStorage8writeRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvm(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef %184, i64 noundef %195)
           to label %196 unwind label %204
 
@@ -906,24 +906,24 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit190:           ; preds = %290, %_ZNKSt7__cxx1
   store i64 0, ptr %30, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull %29, ptr noundef nonnull %30, i32 noundef -1)
-  %298 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  %299 = load i64, ptr %298, align 8, !tbaa !45
-  %300 = load i32, ptr %33, align 4, !tbaa !3
-  %301 = icmp sgt i32 %300, 0
-  br i1 %301, label %302, label %_ZNK2cv3Mat8elemSizeEv.exit191
+  %298 = load i32, ptr %33, align 4, !tbaa !3
+  %299 = icmp sgt i32 %298, 0
+  br i1 %299, label %300, label %_ZNK2cv3Mat8elemSizeEv.exit191
 
-302:                                              ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit190
+300:                                              ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit190
+  %301 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  %302 = load i64, ptr %301, align 8, !tbaa !45
   %303 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %304 = load ptr, ptr %303, align 8, !tbaa !38
-  %305 = zext nneg i32 %300 to i64
+  %305 = zext nneg i32 %298 to i64
   %306 = getelementptr i64, ptr %304, i64 %305
   %307 = getelementptr i8, ptr %306, i64 -8
   %308 = load i64, ptr %307, align 8, !tbaa !36
+  %309 = mul i64 %308, %302
   br label %_ZNK2cv3Mat8elemSizeEv.exit191
 
-_ZNK2cv3Mat8elemSizeEv.exit191:                   ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit190, %302
-  %309 = phi i64 [ %308, %302 ], [ 0, %_ZN2cvlsERNS_11FileStorageEPKc.exit190 ]
-  %310 = mul i64 %309, %299
+_ZNK2cv3Mat8elemSizeEv.exit191:                   ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit190, %300
+  %310 = phi i64 [ %309, %300 ], [ 0, %_ZN2cvlsERNS_11FileStorageEPKc.exit190 ]
   %311 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %312 = load i64, ptr %311, align 8, !tbaa !50
   %.not = icmp eq i64 %312, 0
@@ -2566,11 +2566,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %150
   %167 = getelementptr i64, ptr %165, i64 %166
   %168 = getelementptr i8, ptr %167, i64 -8
   %169 = load i64, ptr %168, align 8, !tbaa !36
+  %170 = mul i64 %169, %159
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %160, %164
-  %170 = phi i64 [ %169, %164 ], [ 0, %160 ]
-  %171 = mul i64 %170, %159
+  %171 = phi i64 [ %170, %164 ], [ 0, %160 ]
   invoke void @_ZNK2cv8FileNode7readRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvm(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %157, i64 noundef %171)
           to label %172 unwind label %131
 

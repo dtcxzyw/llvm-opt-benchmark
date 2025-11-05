@@ -1400,13 +1400,12 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %59, %66
   %69 = zext i32 %2 to i64
   %70 = icmp slt i64 %.0.i.i, %69
   %71 = zext i1 %70 to i16
+  %72 = or disjoint i16 %71, 256
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %.critedge24, %21, %13, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
-  %.sroa.033.0 = phi i16 [ %71, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 0, %13 ], [ 0, %21 ], [ 0, %.critedge24 ], [ 0, %.critedge ]
-  %.sroa.534.0 = phi i16 [ 256, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 256, %13 ], [ 256, %21 ], [ 0, %.critedge24 ], [ 256, %.critedge ]
-  %.sroa.033.0.insert.insert = or disjoint i16 %.sroa.534.0, %.sroa.033.0
-  ret i16 %.sroa.033.0.insert.insert
+  %.sroa.534.0 = phi i16 [ %72, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 256, %13 ], [ 256, %21 ], [ 0, %.critedge24 ], [ 256, %.critedge ]
+  ret i16 %.sroa.534.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

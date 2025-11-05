@@ -2470,14 +2470,12 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit12: ; preds =
   br label %37
 
 37:                                               ; preds = %33, %30, %.thread
-  %.sroa.019.0 = phi i16 [ 0, %.thread ], [ 1, %30 ], [ 0, %33 ]
-  %.sroa.4.0 = phi i16 [ 0, %.thread ], [ 256, %30 ], [ 256, %33 ]
+  %.sroa.4.0 = phi i16 [ 0, %.thread ], [ 257, %30 ], [ 256, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.019.0.insert.insert = or disjoint i16 %.sroa.4.0, %.sroa.019.0
-  ret i16 %.sroa.019.0.insert.insert
+  ret i16 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

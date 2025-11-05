@@ -30303,10 +30303,10 @@ common.resume:                                    ; preds = %416, %397, %347, %3
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %trunc91 = trunc nuw i32 %385 to i1
   %387 = load float, ptr %386, align 4
-  %.088 = select i1 %trunc91, float %387, float 1.000000e+00
-  %388 = fmul float %.088, %383
+  %388 = fmul float %387, %383
+  %.088 = select i1 %trunc91, float %388, float %383
   store i32 1, ptr %384, align 8
-  store float %388, ptr %386, align 4
+  store float %.088, ptr %386, align 4
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit126.thread"
 
 389:                                              ; preds = %329
@@ -30374,10 +30374,10 @@ common.resume:                                    ; preds = %416, %397, %347, %3
   %405 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %trunc93 = trunc nuw i32 %404 to i1
   %406 = load float, ptr %405, align 4
-  %.089 = select i1 %trunc93, float %406, float 1.000000e+00
-  %407 = fmul float %.089, %402
+  %407 = fmul float %406, %402
+  %.089 = select i1 %trunc93, float %407, float %402
   store i32 1, ptr %403, align 8
-  store float %407, ptr %405, align 4
+  store float %.089, ptr %405, align 4
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h9b54b1c317f73a7bE.exit126.thread"
 
 408:                                              ; preds = %323

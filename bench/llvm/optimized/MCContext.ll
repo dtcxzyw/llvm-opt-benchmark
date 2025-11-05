@@ -8471,19 +8471,18 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm9MCContext24getELFUniqueI
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not8 = icmp eq ptr %10, %15
   %.not = select i1 %.not.not.i, i1 true, i1 %.not8
-  br i1 %.not, label %20, label %16
+  br i1 %.not, label %21, label %16
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %18 = load i32, ptr %17, align 4, !tbaa !268
   %19 = zext i32 %18 to i64
-  br label %20
+  %20 = or disjoint i64 %19, 4294967296
+  br label %21
 
-20:                                               ; preds = %5, %16
-  %.sroa.05.0 = phi i64 [ %19, %16 ], [ 0, %5 ]
-  %.sroa.26.0 = phi i64 [ 4294967296, %16 ], [ 0, %5 ]
-  %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.26.0, %.sroa.05.0
-  ret i64 %.sroa.05.0.insert.insert
+21:                                               ; preds = %5, %16
+  %.sroa.26.0 = phi i64 [ %20, %16 ], [ 0, %5 ]
+  ret i64 %.sroa.26.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

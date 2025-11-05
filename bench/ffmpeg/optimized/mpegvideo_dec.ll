@@ -591,18 +591,18 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_frame_start(ptr noundef initializes
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4264
   %29 = load i32, ptr %28, align 8, !tbaa !105
   %.not38 = icmp eq i32 %29, 0
-  br i1 %.not38, label %30, label %34
+  br i1 %.not38, label %30, label %35
 
 30:                                               ; preds = %18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 4192
   %32 = load i32, ptr %31, align 8, !tbaa !106
   %.not39 = icmp eq i32 %32, 0
   %33 = select i1 %.not39, i32 8, i32 0
-  br label %34
+  %34 = or i32 %33, %27
+  br label %35
 
-34:                                               ; preds = %30, %18
-  %35 = phi i32 [ 0, %18 ], [ %33, %30 ]
-  %36 = or i32 %35, %27
+35:                                               ; preds = %30, %18
+  %36 = phi i32 [ %27, %18 ], [ %34, %30 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 4212
   %38 = load i32, ptr %37, align 4, !tbaa !79
   %39 = icmp ne i32 %38, 3
@@ -615,12 +615,12 @@ define range(i32 -2147483648, 1) i32 @ff_mpv_frame_start(ptr noundef initializes
   %44 = icmp eq i32 %42, 1
   br i1 %44, label %.thread, label %46
 
-.thread:                                          ; preds = %34
+.thread:                                          ; preds = %35
   %45 = or i32 %36, 2
   store i32 %45, ptr %25, align 4, !tbaa !104
   br label %48
 
-46:                                               ; preds = %34
+46:                                               ; preds = %35
   %47 = and i32 %36, -3
   store i32 %47, ptr %25, align 4, !tbaa !104
   %.not40 = icmp eq i32 %42, 3

@@ -1718,10 +1718,7 @@ define dso_local void @intel_pps_backlight_power(ptr noundef readonly captures(n
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 3288
   tail call void @mutex_lock(ptr noundef nonnull %17) #7
   %18 = icmp eq i64 %16, 0
-  br i1 %18, label %._crit_edge, label %19
-
-._crit_edge:                                      ; preds = %12
-  br i1 %1, label %26, label %36
+  br i1 %18, label %26, label %19
 
 19:                                               ; preds = %12
   %20 = tail call fastcc i32 @ilk_get_pp_control(ptr noundef nonnull %14)
@@ -1732,32 +1729,35 @@ define dso_local void @intel_pps_backlight_power(ptr noundef readonly captures(n
   %23 = and i32 %20, 4
   %24 = icmp ne i32 %23, 0
   %25 = xor i1 %1, %24
-  br i1 %25, label %26, label %36
+  br i1 %25, label %27, label %37
 
-26:                                               ; preds = %._crit_edge, %19
-  %27 = icmp eq ptr %3, null
-  br i1 %27, label %31, label %28
+26:                                               ; preds = %12
+  br i1 %1, label %27, label %37
 
-28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %30 = load ptr, ptr %29, align 8
-  br label %31
+27:                                               ; preds = %19, %26
+  %28 = icmp eq ptr %3, null
+  br i1 %28, label %32, label %29
 
-31:                                               ; preds = %28, %26
-  %32 = phi ptr [ %30, %28 ], [ null, %26 ]
-  %33 = select i1 %1, ptr @.str.18, ptr @.str.19
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %32, i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef nonnull %33) #7
-  br i1 %1, label %34, label %35
+29:                                               ; preds = %27
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = load ptr, ptr %30, align 8
+  br label %32
 
-34:                                               ; preds = %31
+32:                                               ; preds = %29, %27
+  %33 = phi ptr [ %31, %29 ], [ null, %27 ]
+  %34 = select i1 %1, ptr @.str.18, ptr @.str.19
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %33, i32 noundef 2, ptr noundef nonnull @.str.17, ptr noundef nonnull %34) #7
+  br i1 %1, label %35, label %36
+
+35:                                               ; preds = %32
   tail call void @intel_pps_backlight_on(ptr noundef nonnull %14)
-  br label %36
+  br label %37
 
-35:                                               ; preds = %31
+36:                                               ; preds = %32
   tail call void @intel_pps_backlight_off(ptr noundef nonnull %14)
-  br label %36
+  br label %37
 
-36:                                               ; preds = %._crit_edge, %35, %34, %19
+37:                                               ; preds = %19, %36, %35, %26
   ret void
 }
 

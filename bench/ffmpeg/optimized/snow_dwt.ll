@@ -378,17 +378,17 @@ avpriv_mirror.exit82.i.us:                        ; preds = %28, %avpriv_mirror.
   %37 = mul nsw i32 %.09.i72.lcssa169.i.us, %12
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i32, ptr %0, i64 %38
-  %40 = icmp sgt i32 %11, -4
-  br i1 %40, label %.lr.ph147.i.us, label %spatial_decompose97i.exit.us
+  %40 = mul nsw i32 %.09.i78.lcssa.i.us, %12
+  %41 = sext i32 %40 to i64
+  %42 = icmp sgt i32 %11, -4
+  br i1 %42, label %.lr.ph147.i.us, label %spatial_decompose97i.exit.us
 
 .lr.ph147.i.us:                                   ; preds = %avpriv_mirror.exit82.i.us, %.lr.ph.split.us
-  %.0.i79172.i.us = phi i32 [ %.09.i78.lcssa.i.us, %avpriv_mirror.exit82.i.us ], [ 0, %.lr.ph.split.us ]
-  %41 = phi ptr [ %36, %avpriv_mirror.exit82.i.us ], [ %0, %.lr.ph.split.us ]
-  %42 = phi ptr [ %33, %avpriv_mirror.exit82.i.us ], [ %0, %.lr.ph.split.us ]
-  %43 = phi ptr [ %39, %avpriv_mirror.exit82.i.us ], [ %0, %.lr.ph.split.us ]
-  %44 = mul nsw i32 %.0.i79172.i.us, %12
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds i32, ptr %0, i64 %45
+  %.0.i79172.i.us = phi i64 [ %41, %avpriv_mirror.exit82.i.us ], [ 0, %.lr.ph.split.us ]
+  %43 = phi ptr [ %36, %avpriv_mirror.exit82.i.us ], [ %0, %.lr.ph.split.us ]
+  %44 = phi ptr [ %33, %avpriv_mirror.exit82.i.us ], [ %0, %.lr.ph.split.us ]
+  %45 = phi ptr [ %39, %avpriv_mirror.exit82.i.us ], [ %0, %.lr.ph.split.us ]
+  %46 = getelementptr inbounds i32, ptr %0, i64 %.0.i79172.i.us
   %47 = shl nsw i32 %13, 1
   %48 = icmp sgt i32 %10, 0
   %wide.trip.count.i.i.us = zext nneg i32 %10 to i64
@@ -396,10 +396,10 @@ avpriv_mirror.exit82.i.us:                        ; preds = %28, %avpriv_mirror.
 
 49:                                               ; preds = %vertical_decompose97iL1.exit.i.us, %.lr.ph147.i.us
   %.0146.i.us = phi i32 [ -4, %.lr.ph147.i.us ], [ %83, %vertical_decompose97iL1.exit.i.us ]
-  %.060145.i.us = phi ptr [ %42, %.lr.ph147.i.us ], [ %.062143.i.us, %vertical_decompose97iL1.exit.i.us ]
+  %.060145.i.us = phi ptr [ %44, %.lr.ph147.i.us ], [ %.062143.i.us, %vertical_decompose97iL1.exit.i.us ]
   %.061144.i.us = phi ptr [ %46, %.lr.ph147.i.us ], [ %66, %vertical_decompose97iL1.exit.i.us ]
-  %.062143.i.us = phi ptr [ %43, %.lr.ph147.i.us ], [ %63, %vertical_decompose97iL1.exit.i.us ]
-  %.063142.i.us = phi ptr [ %41, %.lr.ph147.i.us ], [ %.061144.i.us, %vertical_decompose97iL1.exit.i.us ]
+  %.062143.i.us = phi ptr [ %45, %.lr.ph147.i.us ], [ %65, %vertical_decompose97iL1.exit.i.us ]
+  %.063142.i.us = phi ptr [ %43, %.lr.ph147.i.us ], [ %.061144.i.us, %vertical_decompose97iL1.exit.i.us ]
   %50 = add nsw i32 %.0146.i.us, 3
   br i1 %.not.i.i.us, label %avpriv_mirror.exit88.thread.i.us, label %.preheader.i.us
 
@@ -434,28 +434,28 @@ avpriv_mirror.exit94.loopexit.i.us:               ; preds = %.lr.ph140.i.us, %av
   %58 = mul nsw i32 %.09.i84.lcssa.i.us, %12
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds i32, ptr %0, i64 %59
+  %61 = mul nsw i32 %.09.i90.lcssa.i.us, %12
+  %62 = sext i32 %61 to i64
   br label %avpriv_mirror.exit94.i.us
 
 avpriv_mirror.exit88.thread.i.us:                 ; preds = %49
-  %61 = add nsw i32 %.0146.i.us, 4
+  %63 = add nsw i32 %.0146.i.us, 4
   br label %avpriv_mirror.exit94.i.us
 
 avpriv_mirror.exit94.i.us:                        ; preds = %avpriv_mirror.exit88.thread.i.us, %avpriv_mirror.exit94.loopexit.i.us
-  %62 = phi i32 [ %61, %avpriv_mirror.exit88.thread.i.us ], [ %54, %avpriv_mirror.exit94.loopexit.i.us ]
-  %63 = phi ptr [ %0, %avpriv_mirror.exit88.thread.i.us ], [ %60, %avpriv_mirror.exit94.loopexit.i.us ]
-  %.0.i91.i.us = phi i32 [ 0, %avpriv_mirror.exit88.thread.i.us ], [ %.09.i90.lcssa.i.us, %avpriv_mirror.exit94.loopexit.i.us ]
-  %64 = mul nsw i32 %.0.i91.i.us, %12
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds i32, ptr %0, i64 %65
+  %64 = phi i32 [ %63, %avpriv_mirror.exit88.thread.i.us ], [ %54, %avpriv_mirror.exit94.loopexit.i.us ]
+  %65 = phi ptr [ %0, %avpriv_mirror.exit88.thread.i.us ], [ %60, %avpriv_mirror.exit94.loopexit.i.us ]
+  %.0.i91.i.us = phi i64 [ 0, %avpriv_mirror.exit88.thread.i.us ], [ %62, %avpriv_mirror.exit94.loopexit.i.us ]
+  %66 = getelementptr inbounds i32, ptr %0, i64 %.0.i91.i.us
   %67 = icmp ult i32 %50, %11
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %avpriv_mirror.exit94.i.us
-  tail call fastcc void @horizontal_decompose97i(ptr noundef %63, ptr noundef %1, i32 noundef %10)
+  tail call fastcc void @horizontal_decompose97i(ptr noundef %65, ptr noundef %1, i32 noundef %10)
   br label %69
 
 69:                                               ; preds = %68, %avpriv_mirror.exit94.i.us
-  %70 = icmp ult i32 %62, %11
+  %70 = icmp ult i32 %64, %11
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %69
@@ -474,7 +474,7 @@ avpriv_mirror.exit94.i.us:                        ; preds = %avpriv_mirror.exit8
   %76 = load i32, ptr %75, align 4, !tbaa !26
   %77 = add nsw i32 %76, %74
   %78 = ashr i32 %77, 1
-  %79 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i.i.us
+  %79 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i.i.us
   %80 = load i32, ptr %79, align 4, !tbaa !26
   %81 = add i32 %77, %78
   %82 = sub i32 %80, %81
@@ -496,7 +496,7 @@ vertical_decompose97iH0.exit.i.us:                ; preds = %.lr.ph.i.i.us, %72
   %87 = shl nsw i32 %86, 6
   %88 = getelementptr inbounds nuw i32, ptr %.062143.i.us, i64 %indvars.iv.i98.i.us
   %89 = load i32, ptr %88, align 4, !tbaa !26
-  %90 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i98.i.us
+  %90 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i98.i.us
   %91 = load i32, ptr %90, align 4, !tbaa !26
   %92 = add nsw i32 %91, %89
   %93 = add i32 %87, 671088680
@@ -563,7 +563,7 @@ spatial_decompose97i.exit.us:                     ; preds = %vertical_decompose9
   br i1 %exitcond71.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !32
 
 .lr.ph.split.us66:                                ; preds = %.lr.ph, %spatial_decompose97i.exit.us68
-  %.065.us67 = phi i32 [ %323, %spatial_decompose97i.exit.us68 ], [ 0, %.lr.ph ]
+  %.065.us67 = phi i32 [ %325, %spatial_decompose97i.exit.us68 ], [ 0, %.lr.ph ]
   %122 = ashr i32 %2, %.065.us67
   %123 = ashr i32 %3, %.065.us67
   %124 = shl i32 %4, %.065.us67
@@ -583,400 +583,402 @@ avpriv_mirror.exit48.thread93.i.us:               ; preds = %avpriv_mirror.exit.
   %128 = mul nsw i32 %124, -3
   %129 = sext i32 %128 to i64
   %130 = getelementptr inbounds i32, ptr %0, i64 %129
+  %131 = mul nsw i32 %124, -2
+  %132 = sext i32 %131 to i64
   br label %.lr.ph84.i.us
 
 .lr.ph.i28.us:                                    ; preds = %.preheader70.i.us
-  %131 = shl nsw i32 %125, 1
-  br label %132
+  %133 = shl nsw i32 %125, 1
+  br label %134
 
-132:                                              ; preds = %132, %.lr.ph.i28.us
-  %.09.i71.i.us = phi i32 [ -3, %.lr.ph.i28.us ], [ %.1.i.i30.us, %132 ]
-  %133 = icmp sgt i32 %.09.i71.i.us, 0
-  %spec.select.i.i29.us = select i1 %133, i32 %131, i32 0
+134:                                              ; preds = %134, %.lr.ph.i28.us
+  %.09.i71.i.us = phi i32 [ -3, %.lr.ph.i28.us ], [ %.1.i.i30.us, %134 ]
+  %135 = icmp sgt i32 %.09.i71.i.us, 0
+  %spec.select.i.i29.us = select i1 %135, i32 %133, i32 0
   %.1.i.i30.us = sub nsw i32 %spec.select.i.i29.us, %.09.i71.i.us
-  %134 = icmp ugt i32 %.1.i.i30.us, %125
-  br i1 %134, label %132, label %.lr.ph73.i.us, !llvm.loop !25
+  %136 = icmp ugt i32 %.1.i.i30.us, %125
+  br i1 %136, label %134, label %.lr.ph73.i.us, !llvm.loop !25
 
-.lr.ph73.i.us:                                    ; preds = %132, %avpriv_mirror.exit.i20.us
-  %.pre-phi77 = phi i32 [ -6, %avpriv_mirror.exit.i20.us ], [ %131, %132 ]
-  %.09.i.lcssa90.i.us = phi i32 [ -3, %avpriv_mirror.exit.i20.us ], [ %.1.i.i30.us, %132 ]
-  br label %135
+.lr.ph73.i.us:                                    ; preds = %134, %avpriv_mirror.exit.i20.us
+  %.pre-phi77 = phi i32 [ -6, %avpriv_mirror.exit.i20.us ], [ %133, %134 ]
+  %.09.i.lcssa90.i.us = phi i32 [ -3, %avpriv_mirror.exit.i20.us ], [ %.1.i.i30.us, %134 ]
+  br label %137
 
-135:                                              ; preds = %135, %.lr.ph73.i.us
-  %.09.i4472.i.us = phi i32 [ -2, %.lr.ph73.i.us ], [ %.1.i47.i.us, %135 ]
-  %136 = icmp sgt i32 %.09.i4472.i.us, 0
-  %spec.select.i46.i.us = select i1 %136, i32 %.pre-phi77, i32 0
+137:                                              ; preds = %137, %.lr.ph73.i.us
+  %.09.i4472.i.us = phi i32 [ -2, %.lr.ph73.i.us ], [ %.1.i47.i.us, %137 ]
+  %138 = icmp sgt i32 %.09.i4472.i.us, 0
+  %spec.select.i46.i.us = select i1 %138, i32 %.pre-phi77, i32 0
   %.1.i47.i.us = sub nsw i32 %spec.select.i46.i.us, %.09.i4472.i.us
-  %137 = icmp ugt i32 %.1.i47.i.us, %125
-  br i1 %137, label %135, label %avpriv_mirror.exit48.i.us, !llvm.loop !25
+  %139 = icmp ugt i32 %.1.i47.i.us, %125
+  br i1 %139, label %137, label %avpriv_mirror.exit48.i.us, !llvm.loop !25
 
-avpriv_mirror.exit48.i.us:                        ; preds = %135
-  %138 = mul nsw i32 %.09.i.lcssa90.i.us, %124
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds i32, ptr %0, i64 %139
-  %141 = icmp sgt i32 %123, -2
-  br i1 %141, label %.lr.ph84.i.us, label %spatial_decompose97i.exit.us68
+avpriv_mirror.exit48.i.us:                        ; preds = %137
+  %140 = mul nsw i32 %.09.i.lcssa90.i.us, %124
+  %141 = sext i32 %140 to i64
+  %142 = getelementptr inbounds i32, ptr %0, i64 %141
+  %143 = mul nsw i32 %.1.i47.i.us, %124
+  %144 = sext i32 %143 to i64
+  %145 = icmp sgt i32 %123, -2
+  br i1 %145, label %.lr.ph84.i.us, label %spatial_decompose97i.exit.us68
 
 .lr.ph84.i.us:                                    ; preds = %avpriv_mirror.exit48.i.us, %avpriv_mirror.exit48.thread93.i.us, %.lr.ph.split.us66
-  %.0.i4592.i.us = phi i32 [ %.1.i47.i.us, %avpriv_mirror.exit48.i.us ], [ -2, %avpriv_mirror.exit48.thread93.i.us ], [ 0, %.lr.ph.split.us66 ]
-  %142 = phi ptr [ %140, %avpriv_mirror.exit48.i.us ], [ %130, %avpriv_mirror.exit48.thread93.i.us ], [ %0, %.lr.ph.split.us66 ]
-  %143 = mul nsw i32 %.0.i4592.i.us, %124
-  %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i32, ptr %0, i64 %144
-  %146 = shl nsw i32 %125, 1
-  %147 = icmp sgt i32 %122, 0
+  %.0.i4592.i.us = phi i64 [ %144, %avpriv_mirror.exit48.i.us ], [ %132, %avpriv_mirror.exit48.thread93.i.us ], [ 0, %.lr.ph.split.us66 ]
+  %146 = phi ptr [ %142, %avpriv_mirror.exit48.i.us ], [ %130, %avpriv_mirror.exit48.thread93.i.us ], [ %0, %.lr.ph.split.us66 ]
+  %147 = getelementptr inbounds i32, ptr %0, i64 %.0.i4592.i.us
+  %148 = shl nsw i32 %125, 1
+  %149 = icmp sgt i32 %122, 0
   %wide.trip.count.i.i21.us = zext nneg i32 %122 to i64
-  %148 = ashr i32 %122, 1
-  %149 = add nsw i32 %122, 1
-  %150 = ashr i32 %149, 1
-  %151 = icmp sgt i32 %148, 0
-  %152 = sext i32 %150 to i64
-  %wide.trip.count.i52.us = zext nneg i32 %148 to i64
-  %invariant.gep.i53.us = getelementptr i32, ptr %1, i64 %152
-  %153 = and i32 %122, 1
-  %.not.i35.us = icmp eq i32 %153, 0
-  %154 = add nsw i32 %148, -1
-  %155 = add nsw i32 %154, %153
-  %156 = icmp sgt i32 %155, 0
-  %wide.trip.count44.i46.us = zext nneg i32 %155 to i64
-  %157 = sext i32 %155 to i64
-  %158 = getelementptr inbounds i32, ptr %invariant.gep.i53.us, i64 %157
-  %159 = getelementptr inbounds i32, ptr %1, i64 %157
-  %160 = icmp sgt i32 %148, 1
-  %wide.trip.count49.i40.us = zext nneg i32 %154 to i64
-  %161 = sext i32 %154 to i64
-  %162 = getelementptr inbounds i32, ptr %9, i64 %161
-  br label %163
+  %150 = ashr i32 %122, 1
+  %151 = add nsw i32 %122, 1
+  %152 = ashr i32 %151, 1
+  %153 = icmp sgt i32 %150, 0
+  %154 = sext i32 %152 to i64
+  %wide.trip.count.i52.us = zext nneg i32 %150 to i64
+  %invariant.gep.i53.us = getelementptr i32, ptr %1, i64 %154
+  %155 = and i32 %122, 1
+  %.not.i35.us = icmp eq i32 %155, 0
+  %156 = add nsw i32 %150, -1
+  %157 = add nsw i32 %156, %155
+  %158 = icmp sgt i32 %157, 0
+  %wide.trip.count44.i46.us = zext nneg i32 %157 to i64
+  %159 = sext i32 %157 to i64
+  %160 = getelementptr inbounds i32, ptr %invariant.gep.i53.us, i64 %159
+  %161 = getelementptr inbounds i32, ptr %1, i64 %159
+  %162 = icmp sgt i32 %150, 1
+  %wide.trip.count49.i40.us = zext nneg i32 %156 to i64
+  %163 = sext i32 %156 to i64
+  %164 = getelementptr inbounds i32, ptr %9, i64 %163
+  br label %165
 
-163:                                              ; preds = %vertical_decompose53iL0.exit.i.us, %.lr.ph84.i.us
-  %.083.i.us = phi i32 [ -2, %.lr.ph84.i.us ], [ %175, %vertical_decompose53iL0.exit.i.us ]
-  %.04082.i.us = phi ptr [ %142, %.lr.ph84.i.us ], [ %176, %vertical_decompose53iL0.exit.i.us ]
-  %.04181.i.us = phi ptr [ %145, %.lr.ph84.i.us ], [ %179, %vertical_decompose53iL0.exit.i.us ]
-  %164 = or disjoint i32 %.083.i.us, 1
+165:                                              ; preds = %vertical_decompose53iL0.exit.i.us, %.lr.ph84.i.us
+  %.083.i.us = phi i32 [ -2, %.lr.ph84.i.us ], [ %179, %vertical_decompose53iL0.exit.i.us ]
+  %.04082.i.us = phi ptr [ %146, %.lr.ph84.i.us ], [ %180, %vertical_decompose53iL0.exit.i.us ]
+  %.04181.i.us = phi ptr [ %147, %.lr.ph84.i.us ], [ %181, %vertical_decompose53iL0.exit.i.us ]
+  %166 = or disjoint i32 %.083.i.us, 1
   br i1 %.not.i.i19.us, label %avpriv_mirror.exit54.thread.i.us, label %.preheader.i22.us
 
-.preheader.i22.us:                                ; preds = %163
+.preheader.i22.us:                                ; preds = %165
   %.not.i.us = icmp ult i32 %.083.i.us, %125
   br i1 %.not.i.us, label %avpriv_mirror.exit54.i.us, label %.lr.ph76.i.us
 
 .lr.ph76.i.us:                                    ; preds = %.preheader.i22.us, %.lr.ph76.i.us
-  %.09.i5075.i.us = phi i32 [ %.1.i53.i.us, %.lr.ph76.i.us ], [ %164, %.preheader.i22.us ]
-  %165 = icmp sgt i32 %.09.i5075.i.us, 0
-  %spec.select.i52.i.us = select i1 %165, i32 %146, i32 0
+  %.09.i5075.i.us = phi i32 [ %.1.i53.i.us, %.lr.ph76.i.us ], [ %166, %.preheader.i22.us ]
+  %167 = icmp sgt i32 %.09.i5075.i.us, 0
+  %spec.select.i52.i.us = select i1 %167, i32 %148, i32 0
   %.1.i53.i.us = sub nsw i32 %spec.select.i52.i.us, %.09.i5075.i.us
-  %166 = icmp ugt i32 %.1.i53.i.us, %125
-  br i1 %166, label %.lr.ph76.i.us, label %avpriv_mirror.exit54.i.us, !llvm.loop !25
+  %168 = icmp ugt i32 %.1.i53.i.us, %125
+  br i1 %168, label %.lr.ph76.i.us, label %avpriv_mirror.exit54.i.us, !llvm.loop !25
 
 avpriv_mirror.exit54.i.us:                        ; preds = %.lr.ph76.i.us, %.preheader.i22.us
-  %.09.i50.lcssa.i.us = phi i32 [ %164, %.preheader.i22.us ], [ %.1.i53.i.us, %.lr.ph76.i.us ]
-  %167 = add nsw i32 %.083.i.us, 2
-  %168 = icmp ugt i32 %167, %125
-  br i1 %168, label %.lr.ph79.i.us, label %avpriv_mirror.exit60.loopexit.i.us
+  %.09.i50.lcssa.i.us = phi i32 [ %166, %.preheader.i22.us ], [ %.1.i53.i.us, %.lr.ph76.i.us ]
+  %169 = add nsw i32 %.083.i.us, 2
+  %170 = icmp ugt i32 %169, %125
+  br i1 %170, label %.lr.ph79.i.us, label %avpriv_mirror.exit60.loopexit.i.us
 
 .lr.ph79.i.us:                                    ; preds = %avpriv_mirror.exit54.i.us, %.lr.ph79.i.us
-  %.09.i5678.i.us = phi i32 [ %.1.i59.i.us, %.lr.ph79.i.us ], [ %167, %avpriv_mirror.exit54.i.us ]
-  %169 = icmp sgt i32 %.09.i5678.i.us, 0
-  %spec.select.i58.i.us = select i1 %169, i32 %146, i32 0
+  %.09.i5678.i.us = phi i32 [ %.1.i59.i.us, %.lr.ph79.i.us ], [ %169, %avpriv_mirror.exit54.i.us ]
+  %171 = icmp sgt i32 %.09.i5678.i.us, 0
+  %spec.select.i58.i.us = select i1 %171, i32 %148, i32 0
   %.1.i59.i.us = sub nsw i32 %spec.select.i58.i.us, %.09.i5678.i.us
-  %170 = icmp ugt i32 %.1.i59.i.us, %125
-  br i1 %170, label %.lr.ph79.i.us, label %avpriv_mirror.exit60.loopexit.i.us, !llvm.loop !25
+  %172 = icmp ugt i32 %.1.i59.i.us, %125
+  br i1 %172, label %.lr.ph79.i.us, label %avpriv_mirror.exit60.loopexit.i.us, !llvm.loop !25
 
 avpriv_mirror.exit60.loopexit.i.us:               ; preds = %.lr.ph79.i.us, %avpriv_mirror.exit54.i.us
-  %.09.i56.lcssa.i.us = phi i32 [ %167, %avpriv_mirror.exit54.i.us ], [ %.1.i59.i.us, %.lr.ph79.i.us ]
-  %171 = mul nsw i32 %.09.i50.lcssa.i.us, %124
-  %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds i32, ptr %0, i64 %172
+  %.09.i56.lcssa.i.us = phi i32 [ %169, %avpriv_mirror.exit54.i.us ], [ %.1.i59.i.us, %.lr.ph79.i.us ]
+  %173 = mul nsw i32 %.09.i50.lcssa.i.us, %124
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr inbounds i32, ptr %0, i64 %174
+  %176 = mul nsw i32 %.09.i56.lcssa.i.us, %124
+  %177 = sext i32 %176 to i64
   br label %avpriv_mirror.exit60.i.us
 
-avpriv_mirror.exit54.thread.i.us:                 ; preds = %163
-  %174 = add nsw i32 %.083.i.us, 2
+avpriv_mirror.exit54.thread.i.us:                 ; preds = %165
+  %178 = add nsw i32 %.083.i.us, 2
   br label %avpriv_mirror.exit60.i.us
 
 avpriv_mirror.exit60.i.us:                        ; preds = %avpriv_mirror.exit54.thread.i.us, %avpriv_mirror.exit60.loopexit.i.us
-  %175 = phi i32 [ %174, %avpriv_mirror.exit54.thread.i.us ], [ %167, %avpriv_mirror.exit60.loopexit.i.us ]
-  %176 = phi ptr [ %0, %avpriv_mirror.exit54.thread.i.us ], [ %173, %avpriv_mirror.exit60.loopexit.i.us ]
-  %.0.i57.i.us = phi i32 [ 0, %avpriv_mirror.exit54.thread.i.us ], [ %.09.i56.lcssa.i.us, %avpriv_mirror.exit60.loopexit.i.us ]
-  %177 = mul nsw i32 %.0.i57.i.us, %124
-  %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i32, ptr %0, i64 %178
-  %180 = icmp ult i32 %164, %123
-  br i1 %180, label %181, label %horizontal_decompose53i.exit60.us
+  %179 = phi i32 [ %178, %avpriv_mirror.exit54.thread.i.us ], [ %169, %avpriv_mirror.exit60.loopexit.i.us ]
+  %180 = phi ptr [ %0, %avpriv_mirror.exit54.thread.i.us ], [ %175, %avpriv_mirror.exit60.loopexit.i.us ]
+  %.0.i57.i.us = phi i64 [ 0, %avpriv_mirror.exit54.thread.i.us ], [ %177, %avpriv_mirror.exit60.loopexit.i.us ]
+  %181 = getelementptr inbounds i32, ptr %0, i64 %.0.i57.i.us
+  %182 = icmp ult i32 %166, %123
+  br i1 %182, label %183, label %horizontal_decompose53i.exit60.us
 
-181:                                              ; preds = %avpriv_mirror.exit60.i.us
-  br i1 %151, label %.lr.ph.i54.us, label %._crit_edge.i33.us
+183:                                              ; preds = %avpriv_mirror.exit60.i.us
+  br i1 %153, label %.lr.ph.i54.us, label %._crit_edge.i33.us
 
-.lr.ph.i54.us:                                    ; preds = %181, %.lr.ph.i54.us
-  %indvars.iv.i55.us = phi i64 [ %indvars.iv.next.i58.us, %.lr.ph.i54.us ], [ 0, %181 ]
+.lr.ph.i54.us:                                    ; preds = %183, %.lr.ph.i54.us
+  %indvars.iv.i55.us = phi i64 [ %indvars.iv.next.i58.us, %.lr.ph.i54.us ], [ 0, %183 ]
   %.idx.i56.us = shl nuw nsw i64 %indvars.iv.i55.us, 3
-  %182 = getelementptr inbounds nuw i8, ptr %176, i64 %.idx.i56.us
-  %183 = load i32, ptr %182, align 4, !tbaa !26
-  %184 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i55.us
-  store i32 %183, ptr %184, align 4, !tbaa !26
-  %185 = getelementptr inbounds nuw i8, ptr %182, i64 4
-  %186 = load i32, ptr %185, align 4, !tbaa !26
+  %184 = getelementptr inbounds nuw i8, ptr %180, i64 %.idx.i56.us
+  %185 = load i32, ptr %184, align 4, !tbaa !26
+  %186 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i55.us
+  store i32 %185, ptr %186, align 4, !tbaa !26
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  %188 = load i32, ptr %187, align 4, !tbaa !26
   %gep.i57.us = getelementptr i32, ptr %invariant.gep.i53.us, i64 %indvars.iv.i55.us
-  store i32 %186, ptr %gep.i57.us, align 4, !tbaa !26
+  store i32 %188, ptr %gep.i57.us, align 4, !tbaa !26
   %indvars.iv.next.i58.us = add nuw nsw i64 %indvars.iv.i55.us, 1
   %exitcond.not.i59.us = icmp eq i64 %indvars.iv.next.i58.us, %wide.trip.count.i52.us
   br i1 %exitcond.not.i59.us, label %._crit_edge.i33.us, label %.lr.ph.i54.us, !llvm.loop !33
 
-._crit_edge.i33.us:                               ; preds = %.lr.ph.i54.us, %181
-  %.0.lcssa.i34.us = phi i32 [ 0, %181 ], [ %148, %.lr.ph.i54.us ]
-  br i1 %.not.i35.us, label %194, label %187
+._crit_edge.i33.us:                               ; preds = %.lr.ph.i54.us, %183
+  %.0.lcssa.i34.us = phi i32 [ 0, %183 ], [ %150, %.lr.ph.i54.us ]
+  br i1 %.not.i35.us, label %196, label %189
 
-187:                                              ; preds = %._crit_edge.i33.us
-  %188 = shl nuw nsw i32 %.0.lcssa.i34.us, 1
-  %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw i32, ptr %176, i64 %189
-  %191 = load i32, ptr %190, align 4, !tbaa !26
-  %192 = zext nneg i32 %.0.lcssa.i34.us to i64
-  %193 = getelementptr inbounds nuw i32, ptr %1, i64 %192
-  store i32 %191, ptr %193, align 4, !tbaa !26
-  br label %194
+189:                                              ; preds = %._crit_edge.i33.us
+  %190 = shl nuw nsw i32 %.0.lcssa.i34.us, 1
+  %191 = zext nneg i32 %190 to i64
+  %192 = getelementptr inbounds nuw i32, ptr %180, i64 %191
+  %193 = load i32, ptr %192, align 4, !tbaa !26
+  %194 = zext nneg i32 %.0.lcssa.i34.us to i64
+  %195 = getelementptr inbounds nuw i32, ptr %1, i64 %194
+  store i32 %193, ptr %195, align 4, !tbaa !26
+  br label %196
 
-194:                                              ; preds = %187, %._crit_edge.i33.us
-  %195 = getelementptr inbounds i32, ptr %176, i64 %152
-  br i1 %156, label %.lr.ph35.i47.us, label %._crit_edge36.i36.us
+196:                                              ; preds = %189, %._crit_edge.i33.us
+  %197 = getelementptr inbounds i32, ptr %180, i64 %154
+  br i1 %158, label %.lr.ph35.i47.us, label %._crit_edge36.i36.us
 
-.lr.ph35.i47.us:                                  ; preds = %194, %.lr.ph35.i47.us
-  %indvars.iv41.i48.us = phi i64 [ %indvars.iv.next42.i49.us, %.lr.ph35.i47.us ], [ 0, %194 ]
-  %196 = getelementptr inbounds nuw i32, ptr %invariant.gep.i53.us, i64 %indvars.iv41.i48.us
-  %197 = load i32, ptr %196, align 4, !tbaa !26
-  %198 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv41.i48.us
+.lr.ph35.i47.us:                                  ; preds = %196, %.lr.ph35.i47.us
+  %indvars.iv41.i48.us = phi i64 [ %indvars.iv.next42.i49.us, %.lr.ph35.i47.us ], [ 0, %196 ]
+  %198 = getelementptr inbounds nuw i32, ptr %invariant.gep.i53.us, i64 %indvars.iv41.i48.us
   %199 = load i32, ptr %198, align 4, !tbaa !26
-  %indvars.iv.next42.i49.us = add nuw nsw i64 %indvars.iv41.i48.us, 1
-  %200 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next42.i49.us
+  %200 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv41.i48.us
   %201 = load i32, ptr %200, align 4, !tbaa !26
-  %202 = add nsw i32 %199, %201
-  %203 = sub nsw i32 0, %202
-  %204 = ashr i32 %203, 1
-  %205 = add nsw i32 %204, %197
-  %206 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv41.i48.us
-  store i32 %205, ptr %206, align 4, !tbaa !26
+  %indvars.iv.next42.i49.us = add nuw nsw i64 %indvars.iv41.i48.us, 1
+  %202 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next42.i49.us
+  %203 = load i32, ptr %202, align 4, !tbaa !26
+  %204 = add nsw i32 %201, %203
+  %205 = sub nsw i32 0, %204
+  %206 = ashr i32 %205, 1
+  %207 = add nsw i32 %206, %199
+  %208 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv41.i48.us
+  store i32 %207, ptr %208, align 4, !tbaa !26
   %exitcond45.not.i50.us = icmp eq i64 %indvars.iv.next42.i49.us, %wide.trip.count44.i46.us
   br i1 %exitcond45.not.i50.us, label %._crit_edge36.i36.us, label %.lr.ph35.i47.us, !llvm.loop !34
 
-._crit_edge36.i36.us:                             ; preds = %.lr.ph35.i47.us, %194
-  br i1 %.not.i35.us, label %207, label %lift.exit31.i37.us
+._crit_edge36.i36.us:                             ; preds = %.lr.ph35.i47.us, %196
+  br i1 %.not.i35.us, label %209, label %lift.exit31.i37.us
 
-207:                                              ; preds = %._crit_edge36.i36.us
-  %208 = load i32, ptr %158, align 4, !tbaa !26
-  %209 = load i32, ptr %159, align 4, !tbaa !26
-  %210 = mul nsw i32 %209, -2
-  %211 = ashr exact i32 %210, 1
-  %212 = add nsw i32 %211, %208
-  %213 = getelementptr inbounds i32, ptr %195, i64 %157
-  store i32 %212, ptr %213, align 4, !tbaa !26
+209:                                              ; preds = %._crit_edge36.i36.us
+  %210 = load i32, ptr %160, align 4, !tbaa !26
+  %211 = load i32, ptr %161, align 4, !tbaa !26
+  %212 = mul nsw i32 %211, -2
+  %213 = ashr exact i32 %212, 1
+  %214 = add nsw i32 %213, %210
+  %215 = getelementptr inbounds i32, ptr %197, i64 %159
+  store i32 %214, ptr %215, align 4, !tbaa !26
   br label %lift.exit31.i37.us
 
-lift.exit31.i37.us:                               ; preds = %207, %._crit_edge36.i36.us
-  %214 = load i32, ptr %1, align 4, !tbaa !26
-  %215 = load i32, ptr %195, align 4, !tbaa !26
-  %216 = shl nsw i32 %215, 1
-  %217 = add nsw i32 %216, 2
-  %218 = ashr i32 %217, 2
-  %219 = add nsw i32 %218, %214
-  store i32 %219, ptr %176, align 4, !tbaa !26
-  %220 = getelementptr inbounds nuw i8, ptr %176, i64 4
-  br i1 %160, label %.lr.ph38.i41.us, label %._crit_edge39.i38.us
+lift.exit31.i37.us:                               ; preds = %209, %._crit_edge36.i36.us
+  %216 = load i32, ptr %1, align 4, !tbaa !26
+  %217 = load i32, ptr %197, align 4, !tbaa !26
+  %218 = shl nsw i32 %217, 1
+  %219 = add nsw i32 %218, 2
+  %220 = ashr i32 %219, 2
+  %221 = add nsw i32 %220, %216
+  store i32 %221, ptr %180, align 4, !tbaa !26
+  %222 = getelementptr inbounds nuw i8, ptr %180, i64 4
+  br i1 %162, label %.lr.ph38.i41.us, label %._crit_edge39.i38.us
 
 .lr.ph38.i41.us:                                  ; preds = %lift.exit31.i37.us, %.lr.ph38.i41.us
   %indvars.iv46.i42.us = phi i64 [ %indvars.iv.next47.i43.us, %.lr.ph38.i41.us ], [ 0, %lift.exit31.i37.us ]
-  %221 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv46.i42.us
-  %222 = load i32, ptr %221, align 4, !tbaa !26
-  %223 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv46.i42.us
+  %223 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv46.i42.us
   %224 = load i32, ptr %223, align 4, !tbaa !26
-  %indvars.iv.next47.i43.us = add nuw nsw i64 %indvars.iv46.i42.us, 1
-  %225 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv.next47.i43.us
+  %225 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv46.i42.us
   %226 = load i32, ptr %225, align 4, !tbaa !26
-  %227 = add i32 %224, 2
-  %228 = add i32 %227, %226
-  %229 = ashr i32 %228, 2
-  %230 = add nsw i32 %229, %222
-  %231 = getelementptr inbounds nuw i32, ptr %220, i64 %indvars.iv46.i42.us
-  store i32 %230, ptr %231, align 4, !tbaa !26
+  %indvars.iv.next47.i43.us = add nuw nsw i64 %indvars.iv46.i42.us, 1
+  %227 = getelementptr inbounds nuw i32, ptr %197, i64 %indvars.iv.next47.i43.us
+  %228 = load i32, ptr %227, align 4, !tbaa !26
+  %229 = add i32 %226, 2
+  %230 = add i32 %229, %228
+  %231 = ashr i32 %230, 2
+  %232 = add nsw i32 %231, %224
+  %233 = getelementptr inbounds nuw i32, ptr %222, i64 %indvars.iv46.i42.us
+  store i32 %232, ptr %233, align 4, !tbaa !26
   %exitcond50.not.i44.us = icmp eq i64 %indvars.iv.next47.i43.us, %wide.trip.count49.i40.us
   br i1 %exitcond50.not.i44.us, label %._crit_edge39.i38.us, label %.lr.ph38.i41.us, !llvm.loop !34
 
 ._crit_edge39.i38.us:                             ; preds = %.lr.ph38.i41.us, %lift.exit31.i37.us
-  br i1 %.not.i35.us, label %horizontal_decompose53i.exit60.us, label %232
+  br i1 %.not.i35.us, label %horizontal_decompose53i.exit60.us, label %234
 
-232:                                              ; preds = %._crit_edge39.i38.us
-  %233 = load i32, ptr %162, align 4, !tbaa !26
-  %234 = getelementptr inbounds i32, ptr %195, i64 %161
-  %235 = load i32, ptr %234, align 4, !tbaa !26
-  %236 = shl nsw i32 %235, 1
-  %237 = add nsw i32 %236, 2
-  %238 = ashr i32 %237, 2
-  %239 = add nsw i32 %238, %233
-  %240 = getelementptr inbounds i32, ptr %220, i64 %161
-  store i32 %239, ptr %240, align 4, !tbaa !26
+234:                                              ; preds = %._crit_edge39.i38.us
+  %235 = load i32, ptr %164, align 4, !tbaa !26
+  %236 = getelementptr inbounds i32, ptr %197, i64 %163
+  %237 = load i32, ptr %236, align 4, !tbaa !26
+  %238 = shl nsw i32 %237, 1
+  %239 = add nsw i32 %238, 2
+  %240 = ashr i32 %239, 2
+  %241 = add nsw i32 %240, %235
+  %242 = getelementptr inbounds i32, ptr %222, i64 %163
+  store i32 %241, ptr %242, align 4, !tbaa !26
   br label %horizontal_decompose53i.exit60.us
 
-horizontal_decompose53i.exit60.us:                ; preds = %232, %._crit_edge39.i38.us, %avpriv_mirror.exit60.i.us
-  %241 = icmp ult i32 %175, %123
-  br i1 %241, label %242, label %horizontal_decompose53i.exit.us
+horizontal_decompose53i.exit60.us:                ; preds = %234, %._crit_edge39.i38.us, %avpriv_mirror.exit60.i.us
+  %243 = icmp ult i32 %179, %123
+  br i1 %243, label %244, label %horizontal_decompose53i.exit.us
 
-242:                                              ; preds = %horizontal_decompose53i.exit60.us
-  br i1 %151, label %.lr.ph.i32.us, label %._crit_edge.i.us
+244:                                              ; preds = %horizontal_decompose53i.exit60.us
+  br i1 %153, label %.lr.ph.i32.us, label %._crit_edge.i.us
 
-.lr.ph.i32.us:                                    ; preds = %242, %.lr.ph.i32.us
-  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i32.us ], [ 0, %242 ]
+.lr.ph.i32.us:                                    ; preds = %244, %.lr.ph.i32.us
+  %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i32.us ], [ 0, %244 ]
   %.idx.i.us = shl nuw nsw i64 %indvars.iv.i.us, 3
-  %243 = getelementptr inbounds nuw i8, ptr %179, i64 %.idx.i.us
-  %244 = load i32, ptr %243, align 4, !tbaa !26
-  %245 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.us
-  store i32 %244, ptr %245, align 4, !tbaa !26
-  %246 = getelementptr inbounds nuw i8, ptr %243, i64 4
-  %247 = load i32, ptr %246, align 4, !tbaa !26
+  %245 = getelementptr inbounds nuw i8, ptr %181, i64 %.idx.i.us
+  %246 = load i32, ptr %245, align 4, !tbaa !26
+  %247 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i.us
+  store i32 %246, ptr %247, align 4, !tbaa !26
+  %248 = getelementptr inbounds nuw i8, ptr %245, i64 4
+  %249 = load i32, ptr %248, align 4, !tbaa !26
   %gep.i.us = getelementptr i32, ptr %invariant.gep.i53.us, i64 %indvars.iv.i.us
-  store i32 %247, ptr %gep.i.us, align 4, !tbaa !26
+  store i32 %249, ptr %gep.i.us, align 4, !tbaa !26
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i52.us
   br i1 %exitcond.not.i.us, label %._crit_edge.i.us, label %.lr.ph.i32.us, !llvm.loop !33
 
-._crit_edge.i.us:                                 ; preds = %.lr.ph.i32.us, %242
-  %.0.lcssa.i.us = phi i32 [ 0, %242 ], [ %148, %.lr.ph.i32.us ]
-  br i1 %.not.i35.us, label %255, label %248
+._crit_edge.i.us:                                 ; preds = %.lr.ph.i32.us, %244
+  %.0.lcssa.i.us = phi i32 [ 0, %244 ], [ %150, %.lr.ph.i32.us ]
+  br i1 %.not.i35.us, label %257, label %250
 
-248:                                              ; preds = %._crit_edge.i.us
-  %249 = shl nuw nsw i32 %.0.lcssa.i.us, 1
-  %250 = zext nneg i32 %249 to i64
-  %251 = getelementptr inbounds nuw i32, ptr %179, i64 %250
-  %252 = load i32, ptr %251, align 4, !tbaa !26
-  %253 = zext nneg i32 %.0.lcssa.i.us to i64
-  %254 = getelementptr inbounds nuw i32, ptr %1, i64 %253
-  store i32 %252, ptr %254, align 4, !tbaa !26
-  br label %255
+250:                                              ; preds = %._crit_edge.i.us
+  %251 = shl nuw nsw i32 %.0.lcssa.i.us, 1
+  %252 = zext nneg i32 %251 to i64
+  %253 = getelementptr inbounds nuw i32, ptr %181, i64 %252
+  %254 = load i32, ptr %253, align 4, !tbaa !26
+  %255 = zext nneg i32 %.0.lcssa.i.us to i64
+  %256 = getelementptr inbounds nuw i32, ptr %1, i64 %255
+  store i32 %254, ptr %256, align 4, !tbaa !26
+  br label %257
 
-255:                                              ; preds = %248, %._crit_edge.i.us
-  %256 = getelementptr inbounds i32, ptr %179, i64 %152
-  br i1 %156, label %.lr.ph35.i.us, label %._crit_edge36.i.us
+257:                                              ; preds = %250, %._crit_edge.i.us
+  %258 = getelementptr inbounds i32, ptr %181, i64 %154
+  br i1 %158, label %.lr.ph35.i.us, label %._crit_edge36.i.us
 
-.lr.ph35.i.us:                                    ; preds = %255, %.lr.ph35.i.us
-  %indvars.iv41.i.us = phi i64 [ %indvars.iv.next42.i.us, %.lr.ph35.i.us ], [ 0, %255 ]
-  %257 = getelementptr inbounds nuw i32, ptr %invariant.gep.i53.us, i64 %indvars.iv41.i.us
-  %258 = load i32, ptr %257, align 4, !tbaa !26
-  %259 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv41.i.us
+.lr.ph35.i.us:                                    ; preds = %257, %.lr.ph35.i.us
+  %indvars.iv41.i.us = phi i64 [ %indvars.iv.next42.i.us, %.lr.ph35.i.us ], [ 0, %257 ]
+  %259 = getelementptr inbounds nuw i32, ptr %invariant.gep.i53.us, i64 %indvars.iv41.i.us
   %260 = load i32, ptr %259, align 4, !tbaa !26
-  %indvars.iv.next42.i.us = add nuw nsw i64 %indvars.iv41.i.us, 1
-  %261 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next42.i.us
+  %261 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv41.i.us
   %262 = load i32, ptr %261, align 4, !tbaa !26
-  %263 = add nsw i32 %260, %262
-  %264 = sub nsw i32 0, %263
-  %265 = ashr i32 %264, 1
-  %266 = add nsw i32 %265, %258
-  %267 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv41.i.us
-  store i32 %266, ptr %267, align 4, !tbaa !26
+  %indvars.iv.next42.i.us = add nuw nsw i64 %indvars.iv41.i.us, 1
+  %263 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next42.i.us
+  %264 = load i32, ptr %263, align 4, !tbaa !26
+  %265 = add nsw i32 %262, %264
+  %266 = sub nsw i32 0, %265
+  %267 = ashr i32 %266, 1
+  %268 = add nsw i32 %267, %260
+  %269 = getelementptr inbounds nuw i32, ptr %258, i64 %indvars.iv41.i.us
+  store i32 %268, ptr %269, align 4, !tbaa !26
   %exitcond45.not.i.us = icmp eq i64 %indvars.iv.next42.i.us, %wide.trip.count44.i46.us
   br i1 %exitcond45.not.i.us, label %._crit_edge36.i.us, label %.lr.ph35.i.us, !llvm.loop !34
 
-._crit_edge36.i.us:                               ; preds = %.lr.ph35.i.us, %255
-  br i1 %.not.i35.us, label %268, label %lift.exit31.i.us
+._crit_edge36.i.us:                               ; preds = %.lr.ph35.i.us, %257
+  br i1 %.not.i35.us, label %270, label %lift.exit31.i.us
 
-268:                                              ; preds = %._crit_edge36.i.us
-  %269 = load i32, ptr %158, align 4, !tbaa !26
-  %270 = load i32, ptr %159, align 4, !tbaa !26
-  %271 = mul nsw i32 %270, -2
-  %272 = ashr exact i32 %271, 1
-  %273 = add nsw i32 %272, %269
-  %274 = getelementptr inbounds i32, ptr %256, i64 %157
-  store i32 %273, ptr %274, align 4, !tbaa !26
+270:                                              ; preds = %._crit_edge36.i.us
+  %271 = load i32, ptr %160, align 4, !tbaa !26
+  %272 = load i32, ptr %161, align 4, !tbaa !26
+  %273 = mul nsw i32 %272, -2
+  %274 = ashr exact i32 %273, 1
+  %275 = add nsw i32 %274, %271
+  %276 = getelementptr inbounds i32, ptr %258, i64 %159
+  store i32 %275, ptr %276, align 4, !tbaa !26
   br label %lift.exit31.i.us
 
-lift.exit31.i.us:                                 ; preds = %268, %._crit_edge36.i.us
-  %275 = load i32, ptr %1, align 4, !tbaa !26
-  %276 = load i32, ptr %256, align 4, !tbaa !26
-  %277 = shl nsw i32 %276, 1
-  %278 = add nsw i32 %277, 2
-  %279 = ashr i32 %278, 2
-  %280 = add nsw i32 %279, %275
-  store i32 %280, ptr %179, align 4, !tbaa !26
-  %281 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  br i1 %160, label %.lr.ph38.i.us, label %._crit_edge39.i.us
+lift.exit31.i.us:                                 ; preds = %270, %._crit_edge36.i.us
+  %277 = load i32, ptr %1, align 4, !tbaa !26
+  %278 = load i32, ptr %258, align 4, !tbaa !26
+  %279 = shl nsw i32 %278, 1
+  %280 = add nsw i32 %279, 2
+  %281 = ashr i32 %280, 2
+  %282 = add nsw i32 %281, %277
+  store i32 %282, ptr %181, align 4, !tbaa !26
+  %283 = getelementptr inbounds nuw i8, ptr %181, i64 4
+  br i1 %162, label %.lr.ph38.i.us, label %._crit_edge39.i.us
 
 .lr.ph38.i.us:                                    ; preds = %lift.exit31.i.us, %.lr.ph38.i.us
   %indvars.iv46.i.us = phi i64 [ %indvars.iv.next47.i.us, %.lr.ph38.i.us ], [ 0, %lift.exit31.i.us ]
-  %282 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv46.i.us
-  %283 = load i32, ptr %282, align 4, !tbaa !26
-  %284 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv46.i.us
+  %284 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv46.i.us
   %285 = load i32, ptr %284, align 4, !tbaa !26
-  %indvars.iv.next47.i.us = add nuw nsw i64 %indvars.iv46.i.us, 1
-  %286 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv.next47.i.us
+  %286 = getelementptr inbounds nuw i32, ptr %258, i64 %indvars.iv46.i.us
   %287 = load i32, ptr %286, align 4, !tbaa !26
-  %288 = add i32 %285, 2
-  %289 = add i32 %288, %287
-  %290 = ashr i32 %289, 2
-  %291 = add nsw i32 %290, %283
-  %292 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv46.i.us
-  store i32 %291, ptr %292, align 4, !tbaa !26
+  %indvars.iv.next47.i.us = add nuw nsw i64 %indvars.iv46.i.us, 1
+  %288 = getelementptr inbounds nuw i32, ptr %258, i64 %indvars.iv.next47.i.us
+  %289 = load i32, ptr %288, align 4, !tbaa !26
+  %290 = add i32 %287, 2
+  %291 = add i32 %290, %289
+  %292 = ashr i32 %291, 2
+  %293 = add nsw i32 %292, %285
+  %294 = getelementptr inbounds nuw i32, ptr %283, i64 %indvars.iv46.i.us
+  store i32 %293, ptr %294, align 4, !tbaa !26
   %exitcond50.not.i.us = icmp eq i64 %indvars.iv.next47.i.us, %wide.trip.count49.i40.us
   br i1 %exitcond50.not.i.us, label %._crit_edge39.i.us, label %.lr.ph38.i.us, !llvm.loop !34
 
 ._crit_edge39.i.us:                               ; preds = %.lr.ph38.i.us, %lift.exit31.i.us
-  br i1 %.not.i35.us, label %horizontal_decompose53i.exit.us, label %293
+  br i1 %.not.i35.us, label %horizontal_decompose53i.exit.us, label %295
 
-293:                                              ; preds = %._crit_edge39.i.us
-  %294 = load i32, ptr %162, align 4, !tbaa !26
-  %295 = getelementptr inbounds i32, ptr %256, i64 %161
-  %296 = load i32, ptr %295, align 4, !tbaa !26
-  %297 = shl nsw i32 %296, 1
-  %298 = add nsw i32 %297, 2
-  %299 = ashr i32 %298, 2
-  %300 = add nsw i32 %299, %294
-  %301 = getelementptr inbounds i32, ptr %281, i64 %161
-  store i32 %300, ptr %301, align 4, !tbaa !26
+295:                                              ; preds = %._crit_edge39.i.us
+  %296 = load i32, ptr %164, align 4, !tbaa !26
+  %297 = getelementptr inbounds i32, ptr %258, i64 %163
+  %298 = load i32, ptr %297, align 4, !tbaa !26
+  %299 = shl nsw i32 %298, 1
+  %300 = add nsw i32 %299, 2
+  %301 = ashr i32 %300, 2
+  %302 = add nsw i32 %301, %296
+  %303 = getelementptr inbounds i32, ptr %283, i64 %163
+  store i32 %302, ptr %303, align 4, !tbaa !26
   br label %horizontal_decompose53i.exit.us
 
-horizontal_decompose53i.exit.us:                  ; preds = %293, %._crit_edge39.i.us, %horizontal_decompose53i.exit60.us
-  %or.cond.i23.us = and i1 %147, %180
+horizontal_decompose53i.exit.us:                  ; preds = %295, %._crit_edge39.i.us, %horizontal_decompose53i.exit60.us
+  %or.cond.i23.us = and i1 %149, %182
   br i1 %or.cond.i23.us, label %.lr.ph.i.i24.us, label %vertical_decompose53iH0.exit.i.us
 
 .lr.ph.i.i24.us:                                  ; preds = %horizontal_decompose53i.exit.us, %.lr.ph.i.i24.us
   %indvars.iv.i.i25.us = phi i64 [ %indvars.iv.next.i.i26.us, %.lr.ph.i.i24.us ], [ 0, %horizontal_decompose53i.exit.us ]
-  %302 = getelementptr inbounds nuw i32, ptr %.04181.i.us, i64 %indvars.iv.i.i25.us
-  %303 = load i32, ptr %302, align 4, !tbaa !26
-  %304 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv.i.i25.us
+  %304 = getelementptr inbounds nuw i32, ptr %.04181.i.us, i64 %indvars.iv.i.i25.us
   %305 = load i32, ptr %304, align 4, !tbaa !26
-  %306 = add nsw i32 %305, %303
-  %307 = ashr i32 %306, 1
-  %308 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv.i.i25.us
-  %309 = load i32, ptr %308, align 4, !tbaa !26
-  %310 = sub nsw i32 %309, %307
-  store i32 %310, ptr %308, align 4, !tbaa !26
+  %306 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv.i.i25.us
+  %307 = load i32, ptr %306, align 4, !tbaa !26
+  %308 = add nsw i32 %307, %305
+  %309 = ashr i32 %308, 1
+  %310 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i.i25.us
+  %311 = load i32, ptr %310, align 4, !tbaa !26
+  %312 = sub nsw i32 %311, %309
+  store i32 %312, ptr %310, align 4, !tbaa !26
   %indvars.iv.next.i.i26.us = add nuw nsw i64 %indvars.iv.i.i25.us, 1
   %exitcond.not.i.i27.us = icmp eq i64 %indvars.iv.next.i.i26.us, %wide.trip.count.i.i21.us
   br i1 %exitcond.not.i.i27.us, label %vertical_decompose53iH0.exit.i.us, label %.lr.ph.i.i24.us, !llvm.loop !35
 
 vertical_decompose53iH0.exit.i.us:                ; preds = %.lr.ph.i.i24.us, %horizontal_decompose53i.exit.us
-  %311 = icmp ult i32 %.083.i.us, %123
-  %or.cond69.i.us = and i1 %147, %311
+  %313 = icmp ult i32 %.083.i.us, %123
+  %or.cond69.i.us = and i1 %149, %313
   br i1 %or.cond69.i.us, label %.lr.ph.i63.i.us, label %vertical_decompose53iL0.exit.i.us
 
 .lr.ph.i63.i.us:                                  ; preds = %vertical_decompose53iH0.exit.i.us, %.lr.ph.i63.i.us
   %indvars.iv.i64.i.us = phi i64 [ %indvars.iv.next.i65.i.us, %.lr.ph.i63.i.us ], [ 0, %vertical_decompose53iH0.exit.i.us ]
-  %312 = getelementptr inbounds nuw i32, ptr %.04082.i.us, i64 %indvars.iv.i64.i.us
-  %313 = load i32, ptr %312, align 4, !tbaa !26
-  %314 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv.i64.i.us
+  %314 = getelementptr inbounds nuw i32, ptr %.04082.i.us, i64 %indvars.iv.i64.i.us
   %315 = load i32, ptr %314, align 4, !tbaa !26
-  %316 = add i32 %313, 2
-  %317 = add i32 %316, %315
-  %318 = ashr i32 %317, 2
-  %319 = getelementptr inbounds nuw i32, ptr %.04181.i.us, i64 %indvars.iv.i64.i.us
-  %320 = load i32, ptr %319, align 4, !tbaa !26
-  %321 = add nsw i32 %318, %320
-  store i32 %321, ptr %319, align 4, !tbaa !26
+  %316 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.i64.i.us
+  %317 = load i32, ptr %316, align 4, !tbaa !26
+  %318 = add i32 %315, 2
+  %319 = add i32 %318, %317
+  %320 = ashr i32 %319, 2
+  %321 = getelementptr inbounds nuw i32, ptr %.04181.i.us, i64 %indvars.iv.i64.i.us
+  %322 = load i32, ptr %321, align 4, !tbaa !26
+  %323 = add nsw i32 %320, %322
+  store i32 %323, ptr %321, align 4, !tbaa !26
   %indvars.iv.next.i65.i.us = add nuw nsw i64 %indvars.iv.i64.i.us, 1
   %exitcond.not.i66.i.us = icmp eq i64 %indvars.iv.next.i65.i.us, %wide.trip.count.i.i21.us
   br i1 %exitcond.not.i66.i.us, label %vertical_decompose53iL0.exit.i.us, label %.lr.ph.i63.i.us, !llvm.loop !36
 
 vertical_decompose53iL0.exit.i.us:                ; preds = %.lr.ph.i63.i.us, %vertical_decompose53iH0.exit.i.us
-  %322 = icmp slt i32 %175, %123
-  br i1 %322, label %163, label %spatial_decompose97i.exit.us68, !llvm.loop !37
+  %324 = icmp slt i32 %179, %123
+  br i1 %324, label %165, label %spatial_decompose97i.exit.us68, !llvm.loop !37
 
 spatial_decompose97i.exit.us68:                   ; preds = %vertical_decompose53iL0.exit.i.us, %avpriv_mirror.exit48.i.us
-  %323 = add nuw nsw i32 %.065.us67, 1
-  %exitcond.not = icmp eq i32 %323, %6
+  %325 = add nuw nsw i32 %.065.us67, 1
+  %exitcond.not = icmp eq i32 %325, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us66, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %spatial_decompose97i.exit.us68, %spatial_decompose97i.exit.us, %.lr.ph, %7
@@ -2450,14 +2452,14 @@ avpriv_mirror.exit.loopexit.i41.i.us:             ; preds = %.lr.ph53.i.i.us, %a
   %133 = mul nsw i32 %.09.i38.lcssa.i.i.us, %101
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds i16, ptr %0, i64 %134
+  %136 = mul nsw i32 %.09.i.lcssa.i42.i.us, %101
+  %137 = sext i32 %136 to i64
   br label %avpriv_mirror.exit.i43.i.us
 
 avpriv_mirror.exit.i43.i.us:                      ; preds = %avpriv_mirror.exit.loopexit.i41.i.us, %122
-  %136 = phi ptr [ %0, %122 ], [ %135, %avpriv_mirror.exit.loopexit.i41.i.us ]
-  %.0.i.i44.i.us = phi i32 [ 0, %122 ], [ %.09.i.lcssa.i42.i.us, %avpriv_mirror.exit.loopexit.i41.i.us ]
-  %137 = mul nsw i32 %.0.i.i44.i.us, %101
-  %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds i16, ptr %0, i64 %138
+  %138 = phi ptr [ %0, %122 ], [ %135, %avpriv_mirror.exit.loopexit.i41.i.us ]
+  %.0.i.i44.i.us = phi i64 [ 0, %122 ], [ %137, %avpriv_mirror.exit.loopexit.i41.i.us ]
+  %139 = getelementptr inbounds i16, ptr %0, i64 %.0.i.i44.i.us
   %140 = icmp ult i32 %125, %99
   %or.cond.i45.i.us = and i1 %105, %140
   br i1 %or.cond.i45.i.us, label %.lr.ph.i.i48.i.us, label %vertical_compose53iL0.exit.i.i.us
@@ -2473,7 +2475,7 @@ avpriv_mirror.exit.i43.i.us:                      ; preds = %avpriv_mirror.exit.
   %147 = add nsw i32 %143, 2
   %148 = add nsw i32 %147, %146
   %149 = lshr i32 %148, 2
-  %150 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv.i.i49.i.us
+  %150 = getelementptr inbounds nuw i16, ptr %138, i64 %indvars.iv.i.i49.i.us
   %151 = load i16, ptr %150, align 2, !tbaa !48
   %152 = trunc i32 %149 to i16
   %153 = sub i16 %151, %152
@@ -2492,7 +2494,7 @@ vertical_compose53iL0.exit.i.i.us:                ; preds = %.lr.ph.i.i48.i.us, 
   %155 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv.i46.i.i.us
   %156 = load i16, ptr %155, align 2, !tbaa !48
   %157 = sext i16 %156 to i32
-  %158 = getelementptr inbounds nuw i16, ptr %136, i64 %indvars.iv.i46.i.i.us
+  %158 = getelementptr inbounds nuw i16, ptr %138, i64 %indvars.iv.i46.i.i.us
   %159 = load i16, ptr %158, align 2, !tbaa !48
   %160 = sext i16 %159 to i32
   %161 = add nsw i32 %160, %157
@@ -2785,7 +2787,7 @@ horizontal_compose53i.exit.i.us:                  ; preds = %327, %303
   br label %spatial_compose53i_dy.exit.i.us
 
 spatial_compose53i_dy.exit.i.us:                  ; preds = %horizontal_compose53i.exit.i.us, %253
-  store ptr %136, ptr %94, align 8, !tbaa !38
+  store ptr %138, ptr %94, align 8, !tbaa !38
   store ptr %139, ptr %102, align 8, !tbaa !40
   %338 = add nsw i32 %121, 2
   br label %.sink.split.i.us
@@ -2829,14 +2831,14 @@ avpriv_mirror.exit.loopexit.i.i.us:               ; preds = %.lr.ph87.i.i.us, %a
   %352 = mul nsw i32 %.09.i56.lcssa.i.i.us, %101
   %353 = sext i32 %352 to i64
   %354 = getelementptr inbounds i16, ptr %0, i64 %353
+  %355 = mul nsw i32 %.09.i.lcssa.i.i.us, %101
+  %356 = sext i32 %355 to i64
   br label %avpriv_mirror.exit.i.i.us
 
 avpriv_mirror.exit.i.i.us:                        ; preds = %avpriv_mirror.exit.loopexit.i.i.us, %339
-  %355 = phi ptr [ %0, %339 ], [ %354, %avpriv_mirror.exit.loopexit.i.i.us ]
-  %.0.i.i.i.us = phi i32 [ 0, %339 ], [ %.09.i.lcssa.i.i.us, %avpriv_mirror.exit.loopexit.i.i.us ]
-  %356 = mul nsw i32 %.0.i.i.i.us, %101
-  %357 = sext i32 %356 to i64
-  %358 = getelementptr inbounds i16, ptr %0, i64 %357
+  %357 = phi ptr [ %0, %339 ], [ %354, %avpriv_mirror.exit.loopexit.i.i.us ]
+  %.0.i.i.i.us = phi i64 [ 0, %339 ], [ %356, %avpriv_mirror.exit.loopexit.i.i.us ]
+  %358 = getelementptr inbounds i16, ptr %0, i64 %.0.i.i.i.us
   %359 = icmp ult i32 %344, %99
   %or.cond.i.i.us = and i1 %105, %359
   br i1 %or.cond.i.i.us, label %.lr.ph.i.i.i.us, label %vertical_compose97iL1.exit.i.i.us
@@ -2853,7 +2855,7 @@ avpriv_mirror.exit.i.i.us:                        ; preds = %avpriv_mirror.exit.
   %367 = mul nsw i32 %366, 3
   %368 = add nsw i32 %367, 4
   %369 = lshr i32 %368, 3
-  %370 = getelementptr inbounds nuw i16, ptr %355, i64 %indvars.iv.i.i.i.us
+  %370 = getelementptr inbounds nuw i16, ptr %357, i64 %indvars.iv.i.i.i.us
   %371 = load i16, ptr %370, align 2, !tbaa !48
   %372 = trunc i32 %369 to i16
   %373 = sub i16 %371, %372
@@ -2872,7 +2874,7 @@ vertical_compose97iL1.exit.i.i.us:                ; preds = %.lr.ph.i.i.i.us, %a
   %indvars.iv.i64.i.i.us = phi i64 [ %indvars.iv.next.i65.i.i.us, %.lr.ph.i63.i.i.us ], [ 0, %vertical_compose97iL1.exit.i.i.us ]
   %376 = getelementptr inbounds nuw i16, ptr %342, i64 %indvars.iv.i64.i.i.us
   %377 = load i16, ptr %376, align 2, !tbaa !48
-  %378 = getelementptr inbounds nuw i16, ptr %355, i64 %indvars.iv.i64.i.i.us
+  %378 = getelementptr inbounds nuw i16, ptr %357, i64 %indvars.iv.i64.i.i.us
   %379 = load i16, ptr %378, align 2, !tbaa !48
   %380 = getelementptr inbounds nuw i16, ptr %343, i64 %indvars.iv.i64.i.i.us
   %381 = load i16, ptr %380, align 2, !tbaa !48
@@ -3350,7 +3352,7 @@ snow_horizontal_compose97i.exit.i.us:             ; preds = %705, %678
 spatial_compose97i_dy.exit.i.us:                  ; preds = %snow_horizontal_compose97i.exit.i.us, %567
   store ptr %342, ptr %94, align 8, !tbaa !38
   store ptr %343, ptr %102, align 8, !tbaa !40
-  store ptr %355, ptr %115, align 8, !tbaa !41
+  store ptr %357, ptr %115, align 8, !tbaa !41
   store ptr %358, ptr %116, align 8, !tbaa !42
   br label %.sink.split.i.us
 

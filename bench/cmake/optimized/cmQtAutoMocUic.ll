@@ -23535,7 +23535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527: ; preds = %_Z
   br label %1659
 
 .thread1213:                                      ; preds = %139, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit487, %._crit_edge
-  %.not1237 = phi i1 [ true, %._crit_edge ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit487 ], [ false, %139 ]
+  %.not1237 = phi i1 [ %108, %._crit_edge ], [ false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit487 ], [ false, %139 ]
   %.val455 = load ptr, ptr %127, align 8, !tbaa !302
   %263 = getelementptr i8, ptr %.val397, i64 40
   %.val460 = load ptr, ptr %263, align 8, !tbaa !302
@@ -23581,7 +23581,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit527: ; preds = %_Z
   %286 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %287 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %288 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %or.cond13.not = and i1 %.not1237, %108
   %289 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %290 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %291 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -23964,7 +23963,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i591: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i590
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br i1 %or.cond13.not, label %429, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit594.thread1215
+  br i1 %.not1237, label %429, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit594.thread1215
 
 429:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i591
   %430 = load i64, ptr %89, align 8, !tbaa !32

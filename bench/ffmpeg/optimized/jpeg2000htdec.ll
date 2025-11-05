@@ -3145,10 +3145,10 @@ define internal fastcc void @jpeg2000_decode_sigprop_segment(i8 %.100.val, i16 n
   br label %.preheader91.us.i.us
 
 .preheader91.us.i.us:                             ; preds = %._crit_edge.us.i.us, %31
-  %.lcssa714.us = phi i32 [ %.lcssa23.lcssa3334.us, %31 ], [ %118, %._crit_edge.us.i.us ]
+  %.lcssa714.us = phi i32 [ %.lcssa23.lcssa3334.us, %31 ], [ %119, %._crit_edge.us.i.us ]
   %.sink.i.us.i3.lcssa12.us = phi i32 [ %.sink.i85.us.i20.lcssa.lcssa42.us, %31 ], [ %.sink.i.us.i3.us, %._crit_edge.us.i.us ]
-  %.lcssa111.us = phi i32 [ %.lcssa17.lcssa40.us, %31 ], [ %119, %._crit_edge.us.i.us ]
-  %.lcssa9.us = phi i32 [ %.lcssa16.lcssa39.us, %31 ], [ %120, %._crit_edge.us.i.us ]
+  %.lcssa111.us = phi i32 [ %.lcssa17.lcssa40.us, %31 ], [ %120, %._crit_edge.us.i.us ]
+  %.lcssa9.us = phi i32 [ %.lcssa16.lcssa39.us, %31 ], [ %121, %._crit_edge.us.i.us ]
   %indvars.iv110.i.us = phi i64 [ %indvars.iv75, %31 ], [ %indvars.iv.next111.i.us, %._crit_edge.us.i.us ]
   %indvars.iv.next111.i.us = add nuw nsw i64 %indvars.iv110.i.us, 1
   %invariant.gep.us.i.us = getelementptr i8, ptr %7, i64 %indvars.iv110.i.us
@@ -3156,12 +3156,12 @@ define internal fastcc void @jpeg2000_decode_sigprop_segment(i8 %.100.val, i16 n
   %32 = getelementptr i8, ptr %7, i64 %indvars.iv.next111.i.us
   br label %33
 
-33:                                               ; preds = %117, %.preheader91.us.i.us
-  %34 = phi i32 [ %.lcssa714.us, %.preheader91.us.i.us ], [ %118, %117 ]
-  %.sink.i.us.i5.us = phi i32 [ %.sink.i.us.i3.lcssa12.us, %.preheader91.us.i.us ], [ %.sink.i.us.i3.us, %117 ]
-  %35 = phi i32 [ %.lcssa111.us, %.preheader91.us.i.us ], [ %119, %117 ]
-  %36 = phi i32 [ %.lcssa9.us, %.preheader91.us.i.us ], [ %120, %117 ]
-  %indvars.iv.i.us = phi i64 [ %indvars.iv79, %.preheader91.us.i.us ], [ %indvars.iv.next.i.us, %117 ]
+33:                                               ; preds = %118, %.preheader91.us.i.us
+  %34 = phi i32 [ %.lcssa714.us, %.preheader91.us.i.us ], [ %119, %118 ]
+  %.sink.i.us.i5.us = phi i32 [ %.sink.i.us.i3.lcssa12.us, %.preheader91.us.i.us ], [ %.sink.i.us.i3.us, %118 ]
+  %35 = phi i32 [ %.lcssa111.us, %.preheader91.us.i.us ], [ %120, %118 ]
+  %36 = phi i32 [ %.lcssa9.us, %.preheader91.us.i.us ], [ %121, %118 ]
+  %indvars.iv.i.us = phi i64 [ %indvars.iv79, %.preheader91.us.i.us ], [ %indvars.iv.next.i.us, %118 ]
   %37 = mul nsw i64 %indvars.iv.i.us, %21
   %gep.i.us = getelementptr i32, ptr %invariant.gep.i.us, i64 %37
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -3174,7 +3174,7 @@ define internal fastcc void @jpeg2000_decode_sigprop_segment(i8 %.100.val, i16 n
 
 .thread.us.i.us:                                  ; preds = %33
   %43 = or i8 %40, 16
-  br label %117
+  br label %118
 
 44:                                               ; preds = %33
   %45 = icmp ne i64 %indvars.iv.i.us, %24
@@ -3228,7 +3228,7 @@ define internal fastcc void @jpeg2000_decode_sigprop_segment(i8 %.100.val, i16 n
   %89 = and i8 %88, 1
   %90 = or i8 %40, 16
   %.not81.us.i.us = icmp eq i8 %89, 0
-  br i1 %.not81.us.i.us, label %117, label %91
+  br i1 %.not81.us.i.us, label %118, label %91
 
 91:                                               ; preds = %44
   %92 = icmp eq i32 %36, 0
@@ -3264,32 +3264,31 @@ jpeg2000_peek_bit.exit.us.i.us:                   ; preds = %93, %97, %91
   store i32 %113, ptr %gep.i.us, align 4, !tbaa !22
   %.tr.us.i.us = trunc nuw nsw i32 %106 to i8
   %114 = shl nuw nsw i8 %.tr.us.i.us, 3
-  %115 = or i8 %40, %114
-  %116 = or i8 %115, 20
   %.pre.i.us = load i8, ptr %39, align 1, !tbaa !34
-  br label %117
+  %115 = or i8 %114, %.pre.i.us
+  %116 = or i8 %115, %40
+  %117 = or i8 %116, 20
+  br label %118
 
-117:                                              ; preds = %jpeg2000_peek_bit.exit.us.i.us, %44, %.thread.us.i.us
-  %118 = phi i32 [ %103, %jpeg2000_peek_bit.exit.us.i.us ], [ %34, %44 ], [ %34, %.thread.us.i.us ]
+118:                                              ; preds = %jpeg2000_peek_bit.exit.us.i.us, %44, %.thread.us.i.us
+  %119 = phi i32 [ %103, %jpeg2000_peek_bit.exit.us.i.us ], [ %34, %44 ], [ %34, %.thread.us.i.us ]
   %.sink.i.us.i3.us = phi i32 [ %.sink.i.us.i4.us, %jpeg2000_peek_bit.exit.us.i.us ], [ %.sink.i.us.i5.us, %44 ], [ %.sink.i.us.i5.us, %.thread.us.i.us ]
-  %119 = phi i32 [ %107, %jpeg2000_peek_bit.exit.us.i.us ], [ %35, %44 ], [ %35, %.thread.us.i.us ]
-  %120 = phi i32 [ %108, %jpeg2000_peek_bit.exit.us.i.us ], [ %36, %44 ], [ %36, %.thread.us.i.us ]
-  %121 = phi i8 [ %.pre.i.us, %jpeg2000_peek_bit.exit.us.i.us ], [ %40, %44 ], [ %40, %.thread.us.i.us ]
-  %.078.us.i.us = phi i8 [ %116, %jpeg2000_peek_bit.exit.us.i.us ], [ %90, %44 ], [ %43, %.thread.us.i.us ]
-  %122 = or i8 %.078.us.i.us, %121
+  %120 = phi i32 [ %107, %jpeg2000_peek_bit.exit.us.i.us ], [ %35, %44 ], [ %35, %.thread.us.i.us ]
+  %121 = phi i32 [ %108, %jpeg2000_peek_bit.exit.us.i.us ], [ %36, %44 ], [ %36, %.thread.us.i.us ]
+  %122 = phi i8 [ %117, %jpeg2000_peek_bit.exit.us.i.us ], [ %90, %44 ], [ %43, %.thread.us.i.us ]
   store i8 %122, ptr %39, align 1, !tbaa !34
   %exitcond.not = icmp eq i64 %indvars.iv.next.i.us, %indvars.iv
   br i1 %exitcond.not, label %._crit_edge.us.i.us, label %33, !llvm.loop !70
 
-._crit_edge.us.i.us:                              ; preds = %117
+._crit_edge.us.i.us:                              ; preds = %118
   %exitcond72.not = icmp eq i64 %indvars.iv.next111.i.us, %indvars.iv70
   br i1 %exitcond72.not, label %.preheader.us.i.us, label %.preheader91.us.i.us, !llvm.loop !71
 
 .preheader.us.i.us:                               ; preds = %._crit_edge.us.i.us, %._crit_edge.us103.i.us
-  %.lcssa2331.us = phi i32 [ %153, %._crit_edge.us103.i.us ], [ %118, %._crit_edge.us.i.us ]
+  %.lcssa2331.us = phi i32 [ %153, %._crit_edge.us103.i.us ], [ %119, %._crit_edge.us.i.us ]
   %.sink.i85.us.i20.lcssa29.us = phi i32 [ %.sink.i85.us.i20.us, %._crit_edge.us103.i.us ], [ %.sink.i.us.i3.us, %._crit_edge.us.i.us ]
-  %.lcssa1727.us = phi i32 [ %154, %._crit_edge.us103.i.us ], [ %119, %._crit_edge.us.i.us ]
-  %.lcssa1625.us = phi i32 [ %155, %._crit_edge.us103.i.us ], [ %120, %._crit_edge.us.i.us ]
+  %.lcssa1727.us = phi i32 [ %154, %._crit_edge.us103.i.us ], [ %120, %._crit_edge.us.i.us ]
+  %.lcssa1625.us = phi i32 [ %155, %._crit_edge.us103.i.us ], [ %121, %._crit_edge.us.i.us ]
   %indvars.iv116.i.us = phi i64 [ %indvars.iv.next117.i.us, %._crit_edge.us103.i.us ], [ %indvars.iv75, %._crit_edge.us.i.us ]
   %invariant.gep.us102.i.us = getelementptr i8, ptr %7, i64 %indvars.iv116.i.us
   %invariant.gep122.i.us = getelementptr i32, ptr %6, i64 %indvars.iv116.i.us
@@ -4312,8 +4311,8 @@ define internal fastcc void @jpeg2000_process_stripes_block(ptr noundef nonnull 
   %27 = getelementptr i8, ptr %8, i64 %indvars.iv.next111
   br label %28
 
-28:                                               ; preds = %.preheader91.us, %112
-  %indvars.iv = phi i64 [ %20, %.preheader91.us ], [ %indvars.iv.next, %112 ]
+28:                                               ; preds = %.preheader91.us, %113
+  %indvars.iv = phi i64 [ %20, %.preheader91.us ], [ %indvars.iv.next, %113 ]
   %29 = mul nsw i64 %indvars.iv, %21
   %gep = getelementptr i32, ptr %invariant.gep, i64 %29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4326,7 +4325,7 @@ define internal fastcc void @jpeg2000_process_stripes_block(ptr noundef nonnull 
 
 .thread.us:                                       ; preds = %28
   %35 = or i8 %32, 16
-  br label %112
+  br label %113
 
 36:                                               ; preds = %28
   %37 = icmp ne i64 %indvars.iv, %23
@@ -4380,7 +4379,7 @@ define internal fastcc void @jpeg2000_process_stripes_block(ptr noundef nonnull 
   %81 = and i8 %80, 1
   %82 = or i8 %32, 16
   %.not81.us = icmp eq i8 %81, 0
-  br i1 %.not81.us, label %112, label %83
+  br i1 %.not81.us, label %113, label %83
 
 83:                                               ; preds = %36
   %84 = load i32, ptr %16, align 4, !tbaa !44
@@ -4433,17 +4432,16 @@ jpeg2000_peek_bit.exit.us:                        ; preds = %98, %._crit_edge.i.
   %110 = or i8 %32, %109
   %111 = or i8 %110, 20
   %.pre = load i8, ptr %31, align 1, !tbaa !34
-  br label %112
+  %112 = or i8 %.pre, %111
+  br label %113
 
-112:                                              ; preds = %jpeg2000_peek_bit.exit.us, %36, %.thread.us
-  %113 = phi i8 [ %.pre, %jpeg2000_peek_bit.exit.us ], [ %32, %36 ], [ %32, %.thread.us ]
-  %.078.us = phi i8 [ %111, %jpeg2000_peek_bit.exit.us ], [ %82, %36 ], [ %35, %.thread.us ]
-  %114 = or i8 %113, %.078.us
+113:                                              ; preds = %jpeg2000_peek_bit.exit.us, %36, %.thread.us
+  %114 = phi i8 [ %112, %jpeg2000_peek_bit.exit.us ], [ %82, %36 ], [ %35, %.thread.us ]
   store i8 %114, ptr %31, align 1, !tbaa !34
   %115 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %115, label %28, label %._crit_edge.us, !llvm.loop !70
 
-._crit_edge.us:                                   ; preds = %112
+._crit_edge.us:                                   ; preds = %113
   %116 = icmp samesign ult i64 %indvars.iv.next111, %25
   br i1 %116, label %.preheader91.us, label %.preheader.us.preheader, !llvm.loop !71
 

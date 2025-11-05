@@ -916,78 +916,85 @@ cmsStageFree.exit:                                ; preds = %22, %24
   %32 = load i32, ptr %31, align 4
   %.fr.i = freeze i32 %32
   %33 = icmp ult i32 %.fr.i, 2
-  br i1 %33, label %CubeSize.exit, label %34
+  br i1 %33, label %CubeSize.exit.thread, label %34
 
 34:                                               ; preds = %.lr.ph.i
   %35 = mul i32 %.fr.i, %.01118.i
   %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %35)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
-  br i1 %mul.ov.i, label %CubeSize.exit, label %28
+  br i1 %mul.ov.i, label %CubeSize.exit.thread, label %28
 
 ._crit_edge.i:                                    ; preds = %28
   %36 = icmp ugt i32 %35, 286331153
   %spec.select.i = select i1 %36, i32 0, i32 %35
+  %37 = mul i32 %spec.select.i, %3
   br label %CubeSize.exit
 
-CubeSize.exit:                                    ; preds = %.lr.ph.i, %34, %26, %._crit_edge.i
-  %.0.i = phi i32 [ 1, %26 ], [ %spec.select.i, %._crit_edge.i ], [ 0, %34 ], [ 0, %.lr.ph.i ]
-  %37 = mul i32 %.0.i, %3
+CubeSize.exit.thread:                             ; preds = %34, %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 %37, ptr %38, align 8
+  store i32 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 0, ptr %39, align 4
-  %40 = icmp eq i32 %37, 0
-  br i1 %40, label %41, label %45
+  br label %43
 
-41:                                               ; preds = %CubeSize.exit
-  %42 = load ptr, ptr %18, align 8
-  %.not.i47 = icmp eq ptr %42, null
-  br i1 %.not.i47, label %cmsStageFree.exit48, label %43
+CubeSize.exit:                                    ; preds = %26, %._crit_edge.i
+  %.0.i = phi i32 [ %3, %26 ], [ %37, %._crit_edge.i ]
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i32 %.0.i, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  store i32 0, ptr %41, align 4
+  %42 = icmp eq i32 %.0.i, 0
+  br i1 %42, label %43, label %47
 
-43:                                               ; preds = %41
-  tail call void %42(ptr noundef nonnull %9) #18
+43:                                               ; preds = %CubeSize.exit.thread, %CubeSize.exit
+  %44 = load ptr, ptr %18, align 8
+  %.not.i47 = icmp eq ptr %44, null
+  br i1 %.not.i47, label %cmsStageFree.exit48, label %45
+
+45:                                               ; preds = %43
+  tail call void %44(ptr noundef nonnull %9) #18
   br label %cmsStageFree.exit48
 
-cmsStageFree.exit48:                              ; preds = %41, %43
-  %44 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %9) #18
+cmsStageFree.exit48:                              ; preds = %43, %45
+  %46 = load ptr, ptr %9, align 8
+  tail call void @_cmsFree(ptr noundef %46, ptr noundef nonnull %9) #18
   br label %_cmsStageAllocPlaceholder.exit.thread
 
-45:                                               ; preds = %CubeSize.exit
-  %46 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %37, i32 noundef 2) #18
-  store ptr %46, ptr %20, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %52
+47:                                               ; preds = %CubeSize.exit
+  %48 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %.0.i, i32 noundef 2) #18
+  store ptr %48, ptr %20, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %54
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %18, align 8
-  %.not.i49 = icmp eq ptr %49, null
-  br i1 %.not.i49, label %cmsStageFree.exit50, label %50
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %18, align 8
+  %.not.i49 = icmp eq ptr %51, null
+  br i1 %.not.i49, label %cmsStageFree.exit50, label %52
 
-50:                                               ; preds = %48
-  tail call void %49(ptr noundef nonnull %9) #18
+52:                                               ; preds = %50
+  tail call void %51(ptr noundef nonnull %9) #18
   br label %cmsStageFree.exit50
 
-cmsStageFree.exit50:                              ; preds = %48, %50
-  %51 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %51, ptr noundef nonnull %9) #18
+cmsStageFree.exit50:                              ; preds = %50, %52
+  %53 = load ptr, ptr %9, align 8
+  tail call void @_cmsFree(ptr noundef %53, ptr noundef nonnull %9) #18
   br label %_cmsStageAllocPlaceholder.exit.thread
 
-52:                                               ; preds = %45
+54:                                               ; preds = %47
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %52
-  %wide.trip.count = zext i32 %37 to i64
+.preheader.preheader:                             ; preds = %54
+  %wide.trip.count = zext i32 %.0.i to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %53 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
-  %54 = load i16, ptr %53, align 2
-  %55 = load ptr, ptr %20, align 8
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv
-  store i16 %54, ptr %56, align 2
+  %55 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %56 = load i16, ptr %55, align 2
+  %57 = load ptr, ptr %20, align 8
+  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv
+  store i16 %56, ptr %58, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
@@ -996,26 +1003,26 @@ cmsStageFree.exit50:                              ; preds = %48, %50
   %.pre = load ptr, ptr %20, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %52
-  %57 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %46, %52 ]
-  %58 = tail call ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %57, i32 noundef 0) #18
-  %59 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %58, ptr %59, align 8
-  %60 = icmp eq ptr %58, null
-  br i1 %60, label %61, label %_cmsStageAllocPlaceholder.exit.thread
+.loopexit:                                        ; preds = %.loopexit.loopexit, %54
+  %59 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %48, %54 ]
+  %60 = tail call ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %59, i32 noundef 0) #18
+  %61 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %60, ptr %61, align 8
+  %62 = icmp eq ptr %60, null
+  br i1 %62, label %63, label %_cmsStageAllocPlaceholder.exit.thread
 
-61:                                               ; preds = %.loopexit
-  %62 = load ptr, ptr %18, align 8
-  %.not.i51 = icmp eq ptr %62, null
-  br i1 %.not.i51, label %cmsStageFree.exit52, label %63
+63:                                               ; preds = %.loopexit
+  %64 = load ptr, ptr %18, align 8
+  %.not.i51 = icmp eq ptr %64, null
+  br i1 %.not.i51, label %cmsStageFree.exit52, label %65
 
-63:                                               ; preds = %61
-  tail call void %62(ptr noundef nonnull %9) #18
+65:                                               ; preds = %63
+  tail call void %64(ptr noundef nonnull %9) #18
   br label %cmsStageFree.exit52
 
-cmsStageFree.exit52:                              ; preds = %61, %63
-  %64 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %64, ptr noundef nonnull %9) #18
+cmsStageFree.exit52:                              ; preds = %63, %65
+  %66 = load ptr, ptr %9, align 8
+  tail call void @_cmsFree(ptr noundef %66, ptr noundef nonnull %9) #18
   br label %_cmsStageAllocPlaceholder.exit.thread
 
 _cmsStageAllocPlaceholder.exit.thread:            ; preds = %8, %.loopexit, %cmsStageFree.exit52, %cmsStageFree.exit50, %cmsStageFree.exit48, %cmsStageFree.exit, %7
@@ -1325,78 +1332,85 @@ cmsStageFree.exit:                                ; preds = %22, %24
   %32 = load i32, ptr %31, align 4
   %.fr.i = freeze i32 %32
   %33 = icmp ult i32 %.fr.i, 2
-  br i1 %33, label %CubeSize.exit, label %34
+  br i1 %33, label %CubeSize.exit.thread, label %34
 
 34:                                               ; preds = %.lr.ph.i
   %35 = mul i32 %.fr.i, %.01118.i
   %mul.i = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr.i, i32 %35)
   %mul.ov.i = extractvalue { i32, i1 } %mul.i, 1
-  br i1 %mul.ov.i, label %CubeSize.exit, label %28
+  br i1 %mul.ov.i, label %CubeSize.exit.thread, label %28
 
 ._crit_edge.i:                                    ; preds = %28
   %36 = icmp ugt i32 %35, 286331153
   %spec.select.i = select i1 %36, i32 0, i32 %35
+  %37 = mul i32 %spec.select.i, %3
   br label %CubeSize.exit
 
-CubeSize.exit:                                    ; preds = %.lr.ph.i, %34, %26, %._crit_edge.i
-  %.0.i = phi i32 [ 1, %26 ], [ %spec.select.i, %._crit_edge.i ], [ 0, %34 ], [ 0, %.lr.ph.i ]
-  %37 = mul i32 %.0.i, %3
+CubeSize.exit.thread:                             ; preds = %34, %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 %37, ptr %38, align 8
+  store i32 0, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 20
   store i32 1, ptr %39, align 4
-  %40 = icmp eq i32 %37, 0
-  br i1 %40, label %41, label %45
+  br label %43
 
-41:                                               ; preds = %CubeSize.exit
-  %42 = load ptr, ptr %18, align 8
-  %.not.i47 = icmp eq ptr %42, null
-  br i1 %.not.i47, label %cmsStageFree.exit48, label %43
+CubeSize.exit:                                    ; preds = %26, %._crit_edge.i
+  %.0.i = phi i32 [ %3, %26 ], [ %37, %._crit_edge.i ]
+  %40 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i32 %.0.i, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 20
+  store i32 1, ptr %41, align 4
+  %42 = icmp eq i32 %.0.i, 0
+  br i1 %42, label %43, label %47
 
-43:                                               ; preds = %41
-  tail call void %42(ptr noundef nonnull %9) #18
+43:                                               ; preds = %CubeSize.exit.thread, %CubeSize.exit
+  %44 = load ptr, ptr %18, align 8
+  %.not.i47 = icmp eq ptr %44, null
+  br i1 %.not.i47, label %cmsStageFree.exit48, label %45
+
+45:                                               ; preds = %43
+  tail call void %44(ptr noundef nonnull %9) #18
   br label %cmsStageFree.exit48
 
-cmsStageFree.exit48:                              ; preds = %41, %43
-  %44 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %9) #18
+cmsStageFree.exit48:                              ; preds = %43, %45
+  %46 = load ptr, ptr %9, align 8
+  tail call void @_cmsFree(ptr noundef %46, ptr noundef nonnull %9) #18
   br label %_cmsStageAllocPlaceholder.exit.thread
 
-45:                                               ; preds = %CubeSize.exit
-  %46 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %37, i32 noundef 4) #18
-  store ptr %46, ptr %20, align 8
-  %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %52
+47:                                               ; preds = %CubeSize.exit
+  %48 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %.0.i, i32 noundef 4) #18
+  store ptr %48, ptr %20, align 8
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %50, label %54
 
-48:                                               ; preds = %45
-  %49 = load ptr, ptr %18, align 8
-  %.not.i49 = icmp eq ptr %49, null
-  br i1 %.not.i49, label %cmsStageFree.exit50, label %50
+50:                                               ; preds = %47
+  %51 = load ptr, ptr %18, align 8
+  %.not.i49 = icmp eq ptr %51, null
+  br i1 %.not.i49, label %cmsStageFree.exit50, label %52
 
-50:                                               ; preds = %48
-  tail call void %49(ptr noundef nonnull %9) #18
+52:                                               ; preds = %50
+  tail call void %51(ptr noundef nonnull %9) #18
   br label %cmsStageFree.exit50
 
-cmsStageFree.exit50:                              ; preds = %48, %50
-  %51 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %51, ptr noundef nonnull %9) #18
+cmsStageFree.exit50:                              ; preds = %50, %52
+  %53 = load ptr, ptr %9, align 8
+  tail call void @_cmsFree(ptr noundef %53, ptr noundef nonnull %9) #18
   br label %_cmsStageAllocPlaceholder.exit.thread
 
-52:                                               ; preds = %45
+54:                                               ; preds = %47
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %52
-  %wide.trip.count = zext i32 %37 to i64
+.preheader.preheader:                             ; preds = %54
+  %wide.trip.count = zext i32 %.0.i to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %53 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  %54 = load float, ptr %53, align 4
-  %55 = load ptr, ptr %20, align 8
-  %56 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
-  store float %54, ptr %56, align 4
+  %55 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %56 = load float, ptr %55, align 4
+  %57 = load ptr, ptr %20, align 8
+  %58 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  store float %56, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !25
@@ -1405,26 +1419,26 @@ cmsStageFree.exit50:                              ; preds = %48, %50
   %.pre = load ptr, ptr %20, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %52
-  %57 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %46, %52 ]
-  %58 = tail call ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %57, i32 noundef 1) #18
-  %59 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %58, ptr %59, align 8
-  %60 = icmp eq ptr %58, null
-  br i1 %60, label %61, label %_cmsStageAllocPlaceholder.exit.thread
+.loopexit:                                        ; preds = %.loopexit.loopexit, %54
+  %59 = phi ptr [ %.pre, %.loopexit.loopexit ], [ %48, %54 ]
+  %60 = tail call ptr @_cmsComputeInterpParamsEx(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %59, i32 noundef 1) #18
+  %61 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %60, ptr %61, align 8
+  %62 = icmp eq ptr %60, null
+  br i1 %62, label %63, label %_cmsStageAllocPlaceholder.exit.thread
 
-61:                                               ; preds = %.loopexit
-  %62 = load ptr, ptr %18, align 8
-  %.not.i51 = icmp eq ptr %62, null
-  br i1 %.not.i51, label %cmsStageFree.exit52, label %63
+63:                                               ; preds = %.loopexit
+  %64 = load ptr, ptr %18, align 8
+  %.not.i51 = icmp eq ptr %64, null
+  br i1 %.not.i51, label %cmsStageFree.exit52, label %65
 
-63:                                               ; preds = %61
-  tail call void %62(ptr noundef nonnull %9) #18
+65:                                               ; preds = %63
+  tail call void %64(ptr noundef nonnull %9) #18
   br label %cmsStageFree.exit52
 
-cmsStageFree.exit52:                              ; preds = %61, %63
-  %64 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %64, ptr noundef nonnull %9) #18
+cmsStageFree.exit52:                              ; preds = %63, %65
+  %66 = load ptr, ptr %9, align 8
+  tail call void @_cmsFree(ptr noundef %66, ptr noundef nonnull %9) #18
   br label %_cmsStageAllocPlaceholder.exit.thread
 
 _cmsStageAllocPlaceholder.exit.thread:            ; preds = %8, %.loopexit, %cmsStageFree.exit52, %cmsStageFree.exit50, %cmsStageFree.exit48, %cmsStageFree.exit, %7

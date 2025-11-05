@@ -9052,10 +9052,8 @@ define linkonce_odr hidden i64 @_ZNK4llvm19TargetTransformInfo5ModelINS_12RISCVT
   br label %_ZNK4llvm12RISCVTTIImpl25getVPLegalizationStrategyERKNS_11VPIntrinsicE.exit
 
 _ZNK4llvm12RISCVTTIImpl25getVPLegalizationStrategyERKNS_11VPIntrinsicE.exit: ; preds = %2, %14, %29
-  %.sroa.3.0.i = phi i64 [ 0, %29 ], [ 8589934592, %14 ], [ 8589934592, %2 ]
-  %.sroa.0.0.i = phi i64 [ 0, %29 ], [ 1, %14 ], [ 1, %2 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.0.0.i, %.sroa.3.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.3.0.i = phi i64 [ 0, %29 ], [ 8589934593, %14 ], [ 8589934593, %2 ]
+  ret i64 %.sroa.3.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

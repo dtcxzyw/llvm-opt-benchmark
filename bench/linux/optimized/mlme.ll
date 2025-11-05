@@ -10982,7 +10982,7 @@ default.unreachable219:                           ; preds = %.split121.split.spl
 
 .thread69:                                        ; preds = %611, %178, %655, %615, %583, %576, %.loopexit94, %386
   %658 = phi ptr [ %185, %386 ], [ %185, %655 ], [ %185, %.loopexit94 ], [ %185, %576 ], [ %185, %615 ], [ null, %178 ], [ %185, %583 ], [ %185, %611 ]
-  %659 = phi i1 [ true, %386 ], [ false, %655 ], [ true, %.loopexit94 ], [ true, %576 ], [ true, %615 ], [ true, %178 ], [ true, %583 ], [ true, %611 ]
+  %659 = phi i1 [ %3, %386 ], [ false, %655 ], [ %3, %.loopexit94 ], [ %3, %576 ], [ %3, %615 ], [ %3, %178 ], [ %3, %583 ], [ %3, %611 ]
   %660 = phi ptr [ null, %386 ], [ %406, %655 ], [ %406, %.loopexit94 ], [ %406, %576 ], [ %406, %615 ], [ null, %178 ], [ %406, %583 ], [ %406, %611 ]
   %661 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %662 = load i32, ptr %661, align 4
@@ -11230,48 +11230,47 @@ default.unreachable219:                           ; preds = %.split121.split.spl
   br label %.loopexit
 
 814:                                              ; preds = %806
-  %815 = and i1 %3, %659
-  br i1 %815, label %816, label %819
+  br i1 %659, label %815, label %818
 
-816:                                              ; preds = %814
-  %817 = getelementptr inbounds nuw i8, ptr %0, i64 1280
-  %818 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.180, ptr noundef nonnull %817) #19
+815:                                              ; preds = %814
+  %816 = getelementptr inbounds nuw i8, ptr %0, i64 1280
+  %817 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.180, ptr noundef nonnull %816) #19
   br label %.loopexit
 
-819:                                              ; preds = %814
-  br i1 %697, label %.loopexit, label %820
+818:                                              ; preds = %814
+  br i1 %697, label %.loopexit, label %819
 
-820:                                              ; preds = %819
-  %821 = call i32 @ieee80211_link_use_channel(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef 0) #18
-  %822 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %823 = load i32, ptr %822, align 8
-  %824 = and i32 %823, -2
-  %825 = icmp eq i32 %824, 6
-  br i1 %825, label %.loopexit, label %826
+819:                                              ; preds = %818
+  %820 = call i32 @ieee80211_link_use_channel(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef 0) #18
+  %821 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %822 = load i32, ptr %821, align 8
+  %823 = and i32 %822, -2
+  %824 = icmp eq i32 %823, 6
+  br i1 %824, label %.loopexit, label %825
 
-826:                                              ; preds = %820
-  %827 = icmp ne i32 %821, 0
-  %828 = icmp ne i32 %823, 0
-  %829 = and i1 %827, %828
-  br i1 %829, label %.preheader, label %.loopexit
+825:                                              ; preds = %819
+  %826 = icmp ne i32 %820, 0
+  %827 = icmp ne i32 %822, 0
+  %828 = and i1 %826, %827
+  br i1 %828, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %826, %.preheader
-  %830 = call i32 @ieee80211_chandef_downgrade(ptr noundef nonnull %10) #18
-  %831 = load i32, ptr %4, align 4
-  %832 = or i32 %831, %830
-  store i32 %832, ptr %4, align 4
-  %833 = call i32 @ieee80211_link_use_channel(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef 0) #18
-  %834 = icmp ne i32 %833, 0
-  %835 = load i32, ptr %822, align 8
-  %836 = icmp ne i32 %835, 0
-  %837 = select i1 %834, i1 %836, i1 false
-  br i1 %837, label %.preheader, label %.loopexit, !llvm.loop !221
+.preheader:                                       ; preds = %825, %.preheader
+  %829 = call i32 @ieee80211_chandef_downgrade(ptr noundef nonnull %10) #18
+  %830 = load i32, ptr %4, align 4
+  %831 = or i32 %830, %829
+  store i32 %831, ptr %4, align 4
+  %832 = call i32 @ieee80211_link_use_channel(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef 0) #18
+  %833 = icmp ne i32 %832, 0
+  %834 = load i32, ptr %821, align 8
+  %835 = icmp ne i32 %834, 0
+  %836 = select i1 %833, i1 %835, i1 false
+  br i1 %836, label %.preheader, label %.loopexit, !llvm.loop !221
 
-.loopexit:                                        ; preds = %.preheader, %826, %820, %819, %816, %811, %30
-  %838 = phi i32 [ -22, %811 ], [ -22, %816 ], [ -12, %30 ], [ 0, %819 ], [ %821, %820 ], [ %821, %826 ], [ %833, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %825, %819, %818, %815, %811, %30
+  %837 = phi i32 [ -22, %811 ], [ -22, %815 ], [ -12, %30 ], [ 0, %818 ], [ %820, %819 ], [ %820, %825 ], [ %832, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret i32 %838
+  ret i32 %837
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid

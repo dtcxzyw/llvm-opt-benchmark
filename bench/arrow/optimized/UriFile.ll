@@ -112,9 +112,9 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
 
 .thread78.i:                                      ; preds = %..thread78_crit_edge.i, %.thread.i
   %.fr.i = phi i8 [ %11, %..thread78_crit_edge.i ], [ %.fr, %.thread.i ]
-  %.fr165.i = phi i1 [ false, %..thread78_crit_edge.i ], [ %10, %.thread.i ]
+  %.fr166.i = phi i1 [ false, %..thread78_crit_edge.i ], [ %10, %.thread.i ]
   %12 = icmp eq i8 %.fr.i, 58
-  %brmerge.i = or i1 %12, %.fr165.i
+  %brmerge.i = or i1 %12, %.fr166.i
   br i1 %brmerge.i, label %.thread83.i, label %.thread87.split.us.split.us.i.preheader
 
 .thread87.split.us.split.us.i.preheader:          ; preds = %6, %.thread78.i
@@ -122,7 +122,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
 
 .thread83.i:                                      ; preds = %.thread78.i
   %not..i = xor i1 %12, true
-  %.mux.i = or i1 %.fr165.i, %not..i
+  %.mux.i = or i1 %.fr166.i, %not..i
   %spec.select.i = select i1 %.mux.i, ptr @.str.1, ptr @.str.2
   %13 = select i1 %.mux.i, i64 5, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %1, ptr noundef nonnull align 1 dereferenceable(5) %spec.select.i, i64 %13, i1 false)
@@ -186,8 +186,8 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringA(ptr noundef %0, ptr n
   br i1 %30, label %31, label %thread-pre-split.i
 
 31:                                               ; preds = %28
-  %.not166.i = icmp eq i32 %.061.us97.i, 0
-  br i1 %.not166.i, label %32, label %34
+  %.not167.i = icmp eq i32 %.061.us97.i, 0
+  br i1 %.not167.i, label %32, label %34
 
 32:                                               ; preds = %31
   %33 = tail call ptr @uriEscapeExA(ptr noundef nonnull %29, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5
@@ -456,9 +456,9 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
 
 .thread78.i:                                      ; preds = %..thread78_crit_edge.i, %.thread.i
   %.fr.i = phi i32 [ %11, %..thread78_crit_edge.i ], [ %.fr, %.thread.i ]
-  %.fr161.i = phi i1 [ false, %..thread78_crit_edge.i ], [ %10, %.thread.i ]
+  %.fr162.i = phi i1 [ false, %..thread78_crit_edge.i ], [ %10, %.thread.i ]
   %12 = icmp eq i32 %.fr.i, 58
-  %brmerge.i = or i1 %12, %.fr161.i
+  %brmerge.i = or i1 %12, %.fr162.i
   br i1 %brmerge.i, label %.thread83.i, label %.thread87.split.us.split.us.i.preheader
 
 .thread87.split.us.split.us.i.preheader:          ; preds = %6, %.thread78.i
@@ -466,7 +466,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
 
 .thread83.i:                                      ; preds = %.thread78.i
   %not..i = xor i1 %12, true
-  %.mux.i = or i1 %.fr161.i, %not..i
+  %.mux.i = or i1 %.fr162.i, %not..i
   %spec.select.i = select i1 %.mux.i, ptr @.str.5, ptr @.str.6
   %13 = select i1 %.mux.i, i64 5, i64 8
   %14 = shl nuw nsw i64 %13, 2
@@ -514,7 +514,7 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   %.pre = load i32, ptr %27, align 4, !tbaa !8
   br label %.thread87.split.us.split.us.i
 
-.thread87.split.split.us.i:                       ; preds = %46, %.thread83.i
+.thread87.split.split.us.i:                       ; preds = %.thread83.i, %46
   %.164.us96.i = phi ptr [ %.4.us106.i, %46 ], [ %15, %.thread83.i ]
   %.061.us97.i = phi i32 [ %.162.us103.i, %46 ], [ 1, %.thread83.i ]
   %.060.us98.i = phi ptr [ %.1.us107.i, %46 ], [ %3, %.thread83.i ]
@@ -531,8 +531,8 @@ define range(i32 0, 3) i32 @uriWindowsFilenameToUriStringW(ptr noundef %0, ptr n
   br i1 %31, label %32, label %thread-pre-split.i
 
 32:                                               ; preds = %29
-  %.not162.i = icmp eq i32 %.061.us97.i, 0
-  br i1 %.not162.i, label %33, label %35
+  %.not163.i = icmp eq i32 %.061.us97.i, 0
+  br i1 %.not163.i, label %33, label %35
 
 33:                                               ; preds = %32
   %34 = tail call ptr @uriEscapeExW(ptr noundef nonnull %30, ptr noundef nonnull %.059.us99.i, ptr noundef %.164.us96.i, i32 noundef 0, i32 noundef 0) #5

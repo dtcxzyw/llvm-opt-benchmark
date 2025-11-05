@@ -6749,8 +6749,8 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   %.sroa.12.i.i.sroa.4.0 = phi ptr [ %.sroa.12.i.i.sroa.4.0.copyload, %394 ], [ undef, %390 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i" ]
   %.sroa.12.i.i.sroa.5.0 = phi i64 [ %.sroa.12.i.i.sroa.5.0.copyload, %394 ], [ undef, %390 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i" ]
   %.sroa.10.1.ph.i.i = phi i64 [ %.sroa.28.i.sroa.4.0.copyload.i.i.i, %394 ], [ undef, %390 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i" ]
-  %.sroa.01386.2.insert.insert1632 = phi i64 [ %398, %394 ], [ 24, %390 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i" ]
-  %426 = inttoptr i64 %.sroa.01386.2.insert.insert1632 to ptr
+  %.sroa.0.0.ph.i.i = phi i64 [ %398, %394 ], [ 24, %390 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i" ]
+  %426 = inttoptr i64 %.sroa.0.0.ph.i.i to ptr
   br label %434
 
 427:                                              ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h544f5d509f8a0a73E.exit.i.i", %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h544f5d509f8a0a73E.exit.thread.i.i"
@@ -7652,8 +7652,8 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   %.sroa.12.i.i148.sroa.4.0 = phi ptr [ %.sroa.12.i.i148.sroa.4.0.copyload, %621 ], [ undef, %617 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i372" ]
   %.sroa.12.i.i148.sroa.5.0 = phi i64 [ %.sroa.12.i.i148.sroa.5.0.copyload, %621 ], [ undef, %617 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i372" ]
   %.sroa.10.1.ph.i.i367 = phi i64 [ %.sroa.28.i.sroa.4.0.copyload.i.i.i364, %621 ], [ undef, %617 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i372" ]
-  %.sroa.01386.2.insert.insert1638 = phi i64 [ %625, %621 ], [ 24, %617 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i372" ]
-  %653 = inttoptr i64 %.sroa.01386.2.insert.insert1638 to ptr
+  %.sroa.0.0.ph.i.i368 = phi i64 [ %625, %621 ], [ 24, %617 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i372" ]
+  %653 = inttoptr i64 %.sroa.0.0.ph.i.i368 to ptr
   br label %661
 
 654:                                              ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h3916b248c73e6c1dE.exit.i.i", %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h3916b248c73e6c1dE.exit.thread.i.i"
@@ -8555,8 +8555,8 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   %.sroa.12.i.i391.sroa.4.0 = phi ptr [ %.sroa.12.i.i391.sroa.4.0.copyload, %848 ], [ undef, %844 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i615" ]
   %.sroa.12.i.i391.sroa.5.0 = phi i64 [ %.sroa.12.i.i391.sroa.5.0.copyload, %848 ], [ undef, %844 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i615" ]
   %.sroa.10.1.ph.i.i610 = phi i64 [ %.sroa.28.i.sroa.4.0.copyload.i.i.i607, %848 ], [ undef, %844 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i615" ]
-  %.sroa.01386.2.insert.insert1644 = phi i64 [ %852, %848 ], [ 24, %844 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i615" ]
-  %880 = inttoptr i64 %.sroa.01386.2.insert.insert1644 to ptr
+  %.sroa.0.0.ph.i.i611 = phi i64 [ %852, %848 ], [ 24, %844 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i615" ]
+  %880 = inttoptr i64 %.sroa.0.0.ph.i.i611 to ptr
   br label %888
 
 881:                                              ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h37deb383992a3f53E.exit.i.i", %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h37deb383992a3f53E.exit.thread.i.i"
@@ -9524,8 +9524,8 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   %.sroa.12.i.i648.sroa.4.0 = phi ptr [ %.sroa.12.i.i648.sroa.4.0.copyload, %1092 ], [ undef, %1088 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i872" ]
   %.sroa.12.i.i648.sroa.5.0 = phi i64 [ %.sroa.12.i.i648.sroa.5.0.copyload, %1092 ], [ undef, %1088 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i872" ]
   %.sroa.10.1.ph.i.i867 = phi i64 [ %.sroa.28.i.sroa.4.0.copyload.i.i.i864, %1092 ], [ undef, %1088 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i872" ]
-  %.sroa.01386.2.insert.insert1650 = phi i64 [ %1096, %1092 ], [ 24, %1088 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i872" ]
-  %1124 = inttoptr i64 %.sroa.01386.2.insert.insert1650 to ptr
+  %.sroa.0.0.ph.i.i868 = phi i64 [ %1096, %1092 ], [ 24, %1088 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i872" ]
+  %1124 = inttoptr i64 %.sroa.0.0.ph.i.i868 to ptr
   br label %1132
 
 1125:                                             ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h1ae2953993f741caE.exit.i.i", %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h1ae2953993f741caE.exit.thread.i.i"
@@ -10467,8 +10467,8 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   %.sroa.12.i.i891.sroa.4.0 = phi ptr [ %.sroa.12.i.i891.sroa.4.0.copyload, %1325 ], [ undef, %1321 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1115" ]
   %.sroa.12.i.i891.sroa.5.0 = phi i64 [ %.sroa.12.i.i891.sroa.5.0.copyload, %1325 ], [ undef, %1321 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1115" ]
   %.sroa.10.1.ph.i.i1110 = phi i64 [ %.sroa.28.i.sroa.4.0.copyload.i.i.i1107, %1325 ], [ undef, %1321 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1115" ]
-  %.sroa.01386.2.insert.insert1656 = phi i64 [ %1329, %1325 ], [ 24, %1321 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1115" ]
-  %1357 = inttoptr i64 %.sroa.01386.2.insert.insert1656 to ptr
+  %.sroa.0.0.ph.i.i1111 = phi i64 [ %1329, %1325 ], [ 24, %1321 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1115" ]
+  %1357 = inttoptr i64 %.sroa.0.0.ph.i.i1111 to ptr
   br label %1365
 
 1358:                                             ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h57e92a8128520bb6E.exit.i.i", %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h57e92a8128520bb6E.exit.thread.i.i"
@@ -11406,8 +11406,8 @@ common.resume:                                    ; preds = %1491, %.thread242.i
   %.sroa.12.i.i1134.sroa.4.0 = phi ptr [ %.sroa.12.i.i1134.sroa.4.0.copyload, %1557 ], [ undef, %1553 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1358" ]
   %.sroa.12.i.i1134.sroa.5.0 = phi i64 [ %.sroa.12.i.i1134.sroa.5.0.copyload, %1557 ], [ undef, %1553 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1358" ]
   %.sroa.10.1.ph.i.i1353 = phi i64 [ %.sroa.28.i.sroa.4.0.copyload.i.i.i1350, %1557 ], [ undef, %1553 ], [ undef, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1358" ]
-  %.sroa.01386.2.insert.insert1662 = phi i64 [ %1561, %1557 ], [ 24, %1553 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1358" ]
-  %1589 = inttoptr i64 %.sroa.01386.2.insert.insert1662 to ptr
+  %.sroa.0.0.ph.i.i1354 = phi i64 [ %1561, %1557 ], [ 24, %1553 ], [ 24, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1227dfbe4046a237E.exit.i.i.i1358" ]
+  %1589 = inttoptr i64 %.sroa.0.0.ph.i.i1354 to ptr
   br label %1597
 
 1590:                                             ; preds = %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h74cddaf65cb712bbE.exit.i.i", %"_ZN4tiff7encoder33ImageEncoder$LT$W$C$T$C$K$C$D$GT$6finish17h74cddaf65cb712bbE.exit.thread.i.i"

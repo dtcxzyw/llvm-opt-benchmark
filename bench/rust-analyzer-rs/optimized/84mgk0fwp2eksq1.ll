@@ -13844,17 +13844,17 @@ _ZN4core3ops8function6FnOnce9call_once17h2eee2fa2c2dd2eafE.exit.thread.i6.i.i: ;
   %422 = ptrtoint ptr %.val.i45.i.i.i.i.i to i64
   %423 = sub nuw i64 %421, %422
   %424 = udiv exact i64 %423, 40
+  %425 = or i64 %424, %.sroa.7.0.i.i.i.i.i
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdbcbca3484190e78E.exit.i.i"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdbcbca3484190e78E.exit.i.i": ; preds = %420, %"_ZN4core6option15Option$LT$T$GT$6map_or17he66b7e489da462c4E.exit.i.i.i.i.i"
-  %.sroa.8.0.i.i.i.i.i = phi i64 [ %424, %420 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17he66b7e489da462c4E.exit.i.i.i.i.i" ]
-  %425 = load ptr, ptr %93, align 8, !alias.scope !4101, !noalias !4108, !noundef !23
-  %426 = icmp eq ptr %425, null
+  %.sroa.8.0.i.i.i.i.i = phi i64 [ %425, %420 ], [ %.sroa.7.0.i.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he66b7e489da462c4E.exit.i.i.i.i.i" ]
+  %426 = load ptr, ptr %93, align 8, !alias.scope !4101, !noalias !4108, !noundef !23
+  %427 = icmp eq ptr %426, null
   %.val.i.i.i.i.i = load i64, ptr %94, align 8, !alias.scope !4101, !noalias !4108
-  %427 = icmp eq i64 %.val.i.i.i.i.i, 0
-  %or.cond.i.i.i.i.i = select i1 %426, i1 true, i1 %427
-  %428 = or i64 %.sroa.8.0.i.i.i.i.i, %.sroa.7.0.i.i.i.i.i
-  %429 = icmp eq i64 %428, 0
+  %428 = icmp eq i64 %.val.i.i.i.i.i, 0
+  %or.cond.i.i.i.i.i = select i1 %427, i1 true, i1 %428
+  %429 = icmp eq i64 %.sroa.8.0.i.i.i.i.i, 0
   %430 = select i1 %or.cond.i.i.i.i.i, i1 %429, i1 false
   br i1 %430, label %.critedge.i.i, label %436
 
@@ -14579,26 +14579,25 @@ _ZN4core3ops8function6FnOnce9call_once17h2eee2fa2c2dd2eafE.exit.thread.i6.i.i: ;
   %217 = extractvalue { i64, i1 } %216, 1
   %218 = extractvalue { i64, i1 } %216, 0
   %not..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = xor i1 %217, true
+  %219 = or i64 %218, %215
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h905f9b7170a674eaE.exit.i.i.i.i.i.i.i.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h905f9b7170a674eaE.exit.i.i.i.i.i.i.i.i.i": ; preds = %213, %211, %210, %209, %202
-  %.sroa.056.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %202 ], [ %215, %213 ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %211 ], [ %.val10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %210 ], [ 0, %209 ]
   %.sroa.557.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %202 ], [ %not..i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %213 ], [ true, %211 ], [ true, %210 ], [ true, %209 ]
-  %.sroa.858.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %202 ], [ %218, %213 ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %211 ], [ %.val10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %210 ], [ 0, %209 ]
-  %219 = icmp eq ptr %204, null
-  %220 = ptrtoint ptr %.val3.i46.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %221 = ptrtoint ptr %.val.i45.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %222 = sub nuw i64 %220, %221
-  %223 = lshr exact i64 %222, 2
-  %.sroa.8.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %219, i64 0, i64 %223
-  %224 = icmp eq ptr %203, null
-  %225 = ptrtoint ptr %.val3.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %226 = ptrtoint ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
-  %227 = sub nuw i64 %225, %226
-  %228 = lshr exact i64 %227, 2
-  %.sroa.7.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %224, i64 0, i64 %228
-  %229 = or i64 %.sroa.858.0.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.056.0.i.i.i.i.i.i.i.i.i.i.i.i.i
-  %230 = icmp eq i64 %229, 0
+  %.sroa.858.0.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %202 ], [ %219, %213 ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %211 ], [ %.val10.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %210 ], [ 0, %209 ]
+  %220 = icmp eq ptr %204, null
+  %221 = ptrtoint ptr %.val3.i46.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %222 = ptrtoint ptr %.val.i45.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %223 = sub nuw i64 %221, %222
+  %224 = lshr exact i64 %223, 2
+  %.sroa.8.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %220, i64 0, i64 %224
+  %225 = icmp eq ptr %203, null
+  %226 = ptrtoint ptr %.val3.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %227 = ptrtoint ptr %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i64
+  %228 = sub nuw i64 %226, %227
+  %229 = lshr exact i64 %228, 2
+  %.sroa.7.0.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %225, i64 0, i64 %229
+  %230 = icmp eq i64 %.sroa.858.0.i.i.i.i.i.i.i.i.i.i.i.i.i, 0
   %or.cond8.i.i.i.i.i.i.i.i.i.i.i.i.i = and i1 %.sroa.557.0.i.i.i.i.i.i.i.i.i.i.i.i.i, %230
   %231 = or i64 %.sroa.8.0.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.7.0.i.i.i.i.i.i.i.i.i.i.i.i.i
   %232 = icmp eq i64 %231, 0
@@ -17019,17 +17018,17 @@ _ZN4core3ops8function6FnOnce9call_once17h2eee2fa2c2dd2eafE.exit.thread.i6.i.i: ;
   %628 = ptrtoint ptr %.val.i45.i.i.i.i.i to i64
   %629 = sub nuw i64 %627, %628
   %630 = udiv exact i64 %629, 40
+  %631 = or i64 %630, %.sroa.7.0.i.i.i.i.i
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hae040a4802aab73eE.exit.i.i"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hae040a4802aab73eE.exit.i.i": ; preds = %626, %"_ZN4core6option15Option$LT$T$GT$6map_or17he66b7e489da462c4E.exit.i.i.i.i.i"
-  %.sroa.8.0.i.i.i.i.i = phi i64 [ %630, %626 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17he66b7e489da462c4E.exit.i.i.i.i.i" ]
-  %631 = load ptr, ptr %124, align 8, !alias.scope !5083, !noalias !5090, !noundef !23
-  %632 = icmp eq ptr %631, null
+  %.sroa.8.0.i.i.i.i.i = phi i64 [ %631, %626 ], [ %.sroa.7.0.i.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17he66b7e489da462c4E.exit.i.i.i.i.i" ]
+  %632 = load ptr, ptr %124, align 8, !alias.scope !5083, !noalias !5090, !noundef !23
+  %633 = icmp eq ptr %632, null
   %.val.i.i.i.i.i = load i64, ptr %125, align 8, !alias.scope !5083, !noalias !5090
-  %633 = icmp eq i64 %.val.i.i.i.i.i, 0
-  %or.cond.i.i.i.i.i = select i1 %632, i1 true, i1 %633
-  %634 = or i64 %.sroa.8.0.i.i.i.i.i, %.sroa.7.0.i.i.i.i.i
-  %635 = icmp eq i64 %634, 0
+  %634 = icmp eq i64 %.val.i.i.i.i.i, 0
+  %or.cond.i.i.i.i.i = select i1 %633, i1 true, i1 %634
+  %635 = icmp eq i64 %.sroa.8.0.i.i.i.i.i, 0
   %636 = select i1 %or.cond.i.i.i.i.i, i1 %635, i1 false
   br i1 %636, label %.critedge.i.i, label %642
 

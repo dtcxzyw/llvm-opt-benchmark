@@ -3475,14 +3475,13 @@ cleanup.sink.split:                               ; preds = %if.end13.i.i.i30, %
   %second20 = getelementptr inbounds nuw i8, ptr %call.i.sink.i.sink, i64 4
   %16 = load i32, ptr %second20, align 4
   %17 = zext i32 %16 to i64
+  %18 = or disjoint i64 %17, 4294967296
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4llvh16DenseMapIteratorIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEELb0EEppEv.exit, %cleanup.sink.split, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5beginEv.exit
-  %retval.sroa.0.0 = phi i64 [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5beginEv.exit ], [ %17, %cleanup.sink.split ], [ 0, %_ZN4llvh16DenseMapIteratorIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEELb0EEppEv.exit ]
-  %retval.sroa.3.0 = phi i64 [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5beginEv.exit ], [ 4294967296, %cleanup.sink.split ], [ 0, %_ZN4llvh16DenseMapIteratorIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEELb0EEppEv.exit ]
+  %retval.sroa.3.0 = phi i64 [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E5beginEv.exit ], [ %18, %cleanup.sink.split ], [ 0, %_ZN4llvh16DenseMapIteratorIjjNS_12DenseMapInfoIjEENS_6detail12DenseMapPairIjjEELb0EEppEv.exit ]
   %call1.i.i.i.i41 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %this) #27
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  ret i64 %retval.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

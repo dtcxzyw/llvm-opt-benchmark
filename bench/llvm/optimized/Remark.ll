@@ -141,7 +141,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm7remarks8Argument11getVa
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = call noundef zeroext i1 @_ZNK4llvm9StringRef12getAsIntegerEjRNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(12) %2) #12
   %.pre = load i32, ptr %3, align 8, !tbaa !32
-  br i1 %5, label %19, label %6
+  br i1 %5, label %20, label %6
 
 6:                                                ; preds = %1
   %7 = icmp ult i32 %.pre, 65
@@ -165,27 +165,26 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm7remarks8Argument11getVa
 _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %8, %15
   %.0.i = phi i64 [ %.0.i.i, %8 ], [ %17, %15 ]
   %18 = and i64 %.0.i, 4294967295
-  br label %19
+  %19 = or disjoint i64 %18, 4294967296
+  br label %20
 
-19:                                               ; preds = %1, %_ZNK4llvm5APInt12getSExtValueEv.exit
-  %.sroa.0.0 = phi i64 [ %18, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ 0, %1 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ 0, %1 ]
-  %20 = icmp ugt i32 %.pre, 64
-  br i1 %20, label %21, label %_ZN4llvm5APIntD2Ev.exit
+20:                                               ; preds = %1, %_ZNK4llvm5APInt12getSExtValueEv.exit
+  %.sroa.2.0 = phi i64 [ %19, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ 0, %1 ]
+  %21 = icmp ugt i32 %.pre, 64
+  br i1 %21, label %22, label %_ZN4llvm5APIntD2Ev.exit
 
-21:                                               ; preds = %19
-  %22 = load ptr, ptr %2, align 8, !tbaa !12
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %_ZN4llvm5APIntD2Ev.exit, label %24
+22:                                               ; preds = %20
+  %23 = load ptr, ptr %2, align 8, !tbaa !12
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %_ZN4llvm5APIntD2Ev.exit, label %25
 
-24:                                               ; preds = %21
-  call void @_ZdaPv(ptr noundef nonnull %22) #13
+25:                                               ; preds = %22
+  call void @_ZdaPv(ptr noundef nonnull %23) #13
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %19, %21, %24
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %20, %22, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  ret i64 %.sroa.2.0
 }
 
 declare noundef zeroext i1 @_ZNK4llvm9StringRef12getAsIntegerEjRNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #3

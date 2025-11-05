@@ -15587,6 +15587,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagSt
   %53 = load i8, ptr %52, align 8
   %54 = and i8 %53, 1
   %55 = zext nneg i8 %54 to i32
+  %56 = or disjoint i32 %.010.i.i.i, %55
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L28Tf_MatchesMallocTagTraceNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEppEv.exit.i.i.i12: ; preds = %.lr.ph.i.i.i19, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEptEv.exit26.i.i.i10
@@ -15595,10 +15596,9 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagSt
   br i1 %.not39.i.i.i14, label %_ZN32pxrInternal_v0_24__pxrReserved__L28Tf_MatchesMallocTagTraceNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEptEv.exit.i.i.i7, !llvm.loop !20
 
 _ZN32pxrInternal_v0_24__pxrReserved__L28Tf_MatchesMallocTagTraceNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEppEv.exit.i.i.i12, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEptEv.exit33.i.i.i16, %_ZN32pxrInternal_v0_24__pxrReserved__L28Tf_MatchesMallocTagDebugNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.010.i.i.i15 = phi i32 [ %55, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEptEv.exit33.i.i.i16 ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__L28Tf_MatchesMallocTagDebugNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEppEv.exit.i.i.i12 ]
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %57 = or disjoint i32 %.010.i.i.i15, %.010.i.i.i
-  store i32 %57, ptr %56, align 8
+  %.010.i.i.i15 = phi i32 [ %56, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEptEv.exit33.i.i.i16 ], [ %.010.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__L28Tf_MatchesMallocTagDebugNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %.010.i.i.i, %_ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorIKSt6vectorINS_28Tf_MallocTagStringMatchTable12_MatchStringESaIS3_EELb1EEppEv.exit.i.i.i12 ]
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %.010.i.i.i15, ptr %57, align 8
   %58 = load ptr, ptr %0, align 8
   %59 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
   %60 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %59) #17
@@ -31941,19 +31941,12 @@ _ZNKSt5ctypeIcE6narrowEcc.exit:                   ; preds = %22, %.noexc, %_ZNKS
 .critedge:                                        ; preds = %32, %33
   %37 = getelementptr inbounds nuw i8, ptr %.016.ptr29, i64 8
   %38 = load i32, ptr %37, align 8
-  %.sroa.6.0.extract.shift = and i32 %38, -16777216
-  %39 = and i32 %38, 16711680
-  %40 = and i32 %38, 65535
   br label %.loopexit
 
 .loopexit:                                        ; preds = %28, %33, %.critedge
-  %.sroa.023.0 = phi i32 [ %40, %.critedge ], [ 1024, %33 ], [ 0, %28 ]
-  %.sroa.4.0 = phi i32 [ %39, %.critedge ], [ 0, %33 ], [ 0, %28 ]
-  %.sroa.6.0 = phi i32 [ %.sroa.6.0.extract.shift, %.critedge ], [ 0, %33 ], [ 0, %28 ]
+  %.sroa.6.0 = phi i32 [ %38, %.critedge ], [ 1024, %33 ], [ 0, %28 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
-  %.sroa.4.0.insert.insert = or disjoint i32 %.sroa.4.0, %.sroa.023.0
-  %.sroa.023.0.insert.insert = or disjoint i32 %.sroa.4.0.insert.insert, %.sroa.6.0
-  ret i32 %.sroa.023.0.insert.insert
+  ret i32 %.sroa.6.0
 }
 
 ; Function Attrs: nounwind

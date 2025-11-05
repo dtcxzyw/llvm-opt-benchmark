@@ -1768,12 +1768,12 @@ define dso_local noundef ptr @spgFormNodeTuple(ptr noundef readonly captures(non
   unreachable
 
 .thread:                                          ; preds = %.thread29, %4, %3, %36
-  %spec.select = phi i32 [ 0, %36 ], [ 32768, %3 ], [ 0, %4 ], [ 0, %.thread29 ]
   %.01924 = phi i32 [ %39, %36 ], [ 8, %3 ], [ 16, %4 ], [ %35, %.thread29 ]
   %45 = zext nneg i32 %.01924 to i64
   %46 = tail call ptr @palloc0(i64 noundef %45) #9
-  %47 = or disjoint i32 %.01924, %spec.select
-  %48 = trunc nuw i32 %47 to i16
+  %47 = or disjoint i32 %.01924, 32768
+  %spec.select = select i1 %2, i32 %47, i32 %.01924
+  %48 = trunc nuw i32 %spec.select to i16
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 6
   store i16 %48, ptr %49, align 2
   store i16 -1, ptr %46, align 2

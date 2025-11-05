@@ -221,7 +221,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   br label %.thread198
 
 128:                                              ; preds = %97
-  br i1 %107, label %130, label %.thread198
+  br i1 %107, label %131, label %.thread198
 
 .thread198:                                       ; preds = %128, %116, %109
   %.0210.ph = phi i64 [ -1, %116 ], [ 1, %109 ], [ 1, %128 ]
@@ -230,26 +230,25 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %.0158206.ph = phi ptr [ %125, %116 ], [ %7, %109 ], [ %7, %128 ]
   %.0163204.ph = phi i64 [ %122, %116 ], [ %115, %109 ], [ 0, %128 ]
   %129 = mul nsw i64 %.0210.ph, %101
-  br label %130
+  %130 = mul nsw i64 %.0210.ph, %105
+  br label %131
 
-130:                                              ; preds = %128, %.thread198
-  %131 = phi i64 [ %129, %.thread198 ], [ %5, %128 ]
+131:                                              ; preds = %128, %.thread198
+  %132 = phi i64 [ %129, %.thread198 ], [ %5, %128 ]
   %.0163204225 = phi i64 [ %.0163204.ph, %.thread198 ], [ 0, %128 ]
   %.0158206223 = phi ptr [ %.0158206.ph, %.thread198 ], [ %7, %128 ]
   %.0155208221 = phi ptr [ %.0155208.ph, %.thread198 ], [ %7, %128 ]
-  %132 = phi i1 [ %.ph212, %.thread198 ], [ true, %128 ]
-  %.0210219 = phi i64 [ %.0210.ph, %.thread198 ], [ 1, %128 ]
-  %133 = phi i64 [ %105, %.thread198 ], [ %5, %128 ]
-  %134 = mul nsw i64 %133, %.0210219
+  %133 = phi i1 [ %.ph212, %.thread198 ], [ true, %128 ]
+  %134 = phi i64 [ %130, %.thread198 ], [ %5, %128 ]
   %135 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %105) #7
   %136 = icmp eq ptr %135, null
   br i1 %136, label %137, label %.preheader232
 
-.preheader232:                                    ; preds = %130
+.preheader232:                                    ; preds = %131
   %.not264 = icmp eq i64 %4, 0
   br i1 %.not264, label %.loopexit233, label %.lr.ph263
 
-137:                                              ; preds = %130
+137:                                              ; preds = %131
   %138 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !14
   %139 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !14
   %140 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_s_s, i32 noundef 132, i64 noundef %138, i64 noundef %139, ptr noundef nonnull @.str.8) #6
@@ -259,7 +258,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   %.0152262 = phi i64 [ %252, %249 ], [ 0, %.preheader232 ]
   %.1156261 = phi ptr [ %251, %249 ], [ %.0155208221, %.preheader232 ]
   %.1159259 = phi ptr [ %250, %249 ], [ %.0158206223, %.preheader232 ]
-  br i1 %132, label %141, label %144
+  br i1 %133, label %141, label %144
 
 141:                                              ; preds = %.lr.ph263
   %142 = icmp ult i64 %.0152262, %.0163204225
@@ -493,7 +492,7 @@ define range(i32 -1, 1) i32 @H5T__conv_s_s(ptr noundef readonly captures(address
   br label %249
 
 249:                                              ; preds = %245, %.loopexit
-  %250 = getelementptr inbounds i8, ptr %.1159259, i64 %131
+  %250 = getelementptr inbounds i8, ptr %.1159259, i64 %132
   %251 = getelementptr inbounds i8, ptr %.1156261, i64 %134
   %252 = add nuw i64 %.0152262, 1
   %exitcond.not = icmp eq i64 %252, %4

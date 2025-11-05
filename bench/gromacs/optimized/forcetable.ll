@@ -3053,11 +3053,11 @@ _ZL10fill_tableP11t_tabledataiPK19interaction_const_tb.exit: ; preds = %786, %.p
   %invariant.gep.i = getelementptr i8, ptr %824, i64 %invariant.gep.i.idx
   br label %829
 
-829:                                              ; preds = %861, %.lr.ph.i112
-  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.i112 ], [ %indvars.iv.next.pre-phi.i, %861 ]
-  %.07.i = phi double [ 0.000000e+00, %.lr.ph.i112 ], [ %.1.i, %861 ]
+829:                                              ; preds = %865, %.lr.ph.i112
+  %indvars.iv.i114 = phi i64 [ 0, %.lr.ph.i112 ], [ %indvars.iv.next.pre-phi.i, %865 ]
+  %.07.i = phi double [ 0.000000e+00, %.lr.ph.i112 ], [ %.1.i, %865 ]
   %830 = icmp samesign ult i64 %indvars.iv.i114, %827
-  br i1 %830, label %831, label %856
+  br i1 %830, label %831, label %860
 
 831:                                              ; preds = %829
   %832 = add nuw nsw i64 %indvars.iv.i114, 1
@@ -3084,46 +3084,46 @@ _ZL10fill_tableP11t_tabledataiPK19interaction_const_tb.exit: ; preds = %786, %.p
   %853 = fneg double %837
   %854 = fmul double %852, %853
   %855 = call double @llvm.fmuladd.f64(double %846, double -2.000000e+00, double %854)
-  br label %861
+  %856 = fmul double %.060, %851
+  %857 = fptrunc double %856 to float
+  %858 = fmul double %.060, %855
+  %859 = fptrunc double %858 to float
+  br label %865
 
-856:                                              ; preds = %829
-  %857 = getelementptr inbounds nuw double, ptr %822, i64 %indvars.iv.i114
-  %858 = load double, ptr %857, align 8, !tbaa !85
-  %859 = fneg double %858
-  %860 = fmul double %.07.i, %859
+860:                                              ; preds = %829
+  %861 = getelementptr inbounds nuw double, ptr %822, i64 %indvars.iv.i114
+  %862 = load double, ptr %861, align 8, !tbaa !85
+  %863 = fneg double %862
+  %864 = fmul double %.07.i, %863
   %.phi.trans.insert.i115 = getelementptr inbounds nuw double, ptr %820, i64 %indvars.iv.i114
   %.pre.i116 = load double, ptr %.phi.trans.insert.i115, align 8, !tbaa !85
   %.pre9.i = add nuw nsw i64 %indvars.iv.i114, 1
-  br label %861
+  br label %865
 
-861:                                              ; preds = %856, %831
-  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre9.i, %856 ], [ %832, %831 ]
-  %862 = phi double [ %.pre.i116, %856 ], [ %845, %831 ]
-  %.037.i = phi double [ %860, %856 ], [ %841, %831 ]
-  %.036.i = phi double [ 0.000000e+00, %856 ], [ %851, %831 ]
-  %.035.i = phi double [ 0.000000e+00, %856 ], [ %855, %831 ]
-  %.1.i = phi double [ %.07.i, %856 ], [ %837, %831 ]
-  %863 = mul nsw i64 %indvars.iv.i114, %828
-  %864 = fmul double %.060, %862
-  %865 = fptrunc double %864 to float
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %863
-  store float %865, ptr %gep.i, align 4, !tbaa !19
-  %866 = fmul double %.060, %.037.i
-  %867 = fptrunc double %866 to float
-  %868 = getelementptr i8, ptr %gep.i, i64 4
-  store float %867, ptr %868, align 4, !tbaa !19
-  %869 = fmul double %.060, %.036.i
-  %870 = fptrunc double %869 to float
-  %871 = getelementptr i8, ptr %gep.i, i64 8
-  store float %870, ptr %871, align 4, !tbaa !19
-  %872 = fmul double %.060, %.035.i
-  %873 = fptrunc double %872 to float
+865:                                              ; preds = %860, %831
+  %indvars.iv.next.pre-phi.i = phi i64 [ %.pre9.i, %860 ], [ %832, %831 ]
+  %866 = phi double [ %.pre.i116, %860 ], [ %845, %831 ]
+  %.037.i = phi double [ %864, %860 ], [ %841, %831 ]
+  %.036.i = phi float [ 0.000000e+00, %860 ], [ %857, %831 ]
+  %.035.i = phi float [ 0.000000e+00, %860 ], [ %859, %831 ]
+  %.1.i = phi double [ %.07.i, %860 ], [ %837, %831 ]
+  %867 = mul nsw i64 %indvars.iv.i114, %828
+  %868 = fmul double %.060, %866
+  %869 = fptrunc double %868 to float
+  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %867
+  store float %869, ptr %gep.i, align 4, !tbaa !19
+  %870 = fmul double %.060, %.037.i
+  %871 = fptrunc double %870 to float
+  %872 = getelementptr i8, ptr %gep.i, i64 4
+  store float %871, ptr %872, align 4, !tbaa !19
+  %873 = getelementptr i8, ptr %gep.i, i64 8
+  store float %.036.i, ptr %873, align 4, !tbaa !19
   %874 = getelementptr i8, ptr %gep.i, i64 12
-  store float %873, ptr %874, align 4, !tbaa !19
+  store float %.035.i, ptr %874, align 4, !tbaa !19
   %exitcond.not.i117 = icmp eq i64 %indvars.iv.next.pre-phi.i, %wide.trip.count.i113
   br i1 %exitcond.not.i117, label %_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit, label %829, !llvm.loop !125
 
-_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit: ; preds = %861, %813
+_ZL10copy2tableiiiN3gmx8ArrayRefIKdEES2_S2_fNS0_IfEE.exit: ; preds = %865, %813
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %exitcond162.not = icmp eq i64 %indvars.iv.next160, 3
   br i1 %exitcond162.not, label %287, label %322, !llvm.loop !126

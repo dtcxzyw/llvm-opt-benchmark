@@ -233,12 +233,12 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %72 = mul i32 %69, 1664525
   %73 = add i32 %72, 1013904223
   store i32 %73, ptr %50, align 8, !tbaa !60
+  %74 = fadd nsz double %71, %66
   br label %get_dither_value.exit
 
 get_dither_value.exit:                            ; preds = %.lr.ph, %68
-  %.0.i146 = phi nsz double [ %71, %68 ], [ 0.000000e+00, %.lr.ph ]
-  %74 = fadd nsz double %.0.i146, %66
-  %75 = fptosi double %74 to i32
+  %.0.i146 = phi double [ %74, %68 ], [ %66, %.lr.ph ]
+  %75 = fptosi double %.0.i146 to i32
   %.not.i = icmp ult i32 %75, 256
   %isnotneg.i = icmp sgt i32 %75, -1
   %76 = sext i1 %isnotneg.i to i8
@@ -261,12 +261,12 @@ get_dither_value.exit:                            ; preds = %.lr.ph, %68
   %88 = mul i32 %85, 1664525
   %89 = add i32 %88, 1013904223
   store i32 %89, ptr %50, align 8, !tbaa !60
+  %90 = fadd nsz double %87, %82
   br label %get_dither_value.exit149
 
 get_dither_value.exit149:                         ; preds = %get_dither_value.exit, %84
-  %.0.i148 = phi nsz double [ %87, %84 ], [ 0.000000e+00, %get_dither_value.exit ]
-  %90 = fadd nsz double %.0.i148, %82
-  %91 = fptosi double %90 to i32
+  %.0.i148 = phi double [ %90, %84 ], [ %82, %get_dither_value.exit ]
+  %91 = fptosi double %.0.i148 to i32
   %.not.i133 = icmp ult i32 %91, 256
   %isnotneg.i134 = icmp sgt i32 %91, -1
   %92 = sext i1 %isnotneg.i134 to i8
@@ -290,12 +290,12 @@ get_dither_value.exit149:                         ; preds = %get_dither_value.ex
   %105 = mul i32 %102, 1664525
   %106 = add i32 %105, 1013904223
   store i32 %106, ptr %50, align 8, !tbaa !60
+  %107 = fadd nsz double %104, %99
   br label %get_dither_value.exit152
 
 get_dither_value.exit152:                         ; preds = %get_dither_value.exit149, %101
-  %.0.i151 = phi nsz double [ %104, %101 ], [ 0.000000e+00, %get_dither_value.exit149 ]
-  %107 = fadd nsz double %.0.i151, %99
-  %108 = fptosi double %107 to i32
+  %.0.i151 = phi double [ %107, %101 ], [ %99, %get_dither_value.exit149 ]
+  %108 = fptosi double %.0.i151 to i32
   %.not.i136 = icmp ult i32 %108, 256
   %isnotneg.i137 = icmp sgt i32 %108, -1
   %109 = sext i1 %isnotneg.i137 to i8

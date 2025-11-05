@@ -2145,7 +2145,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %.pre21 = zext i32 %.pre11.pre to i64
   %.pre22 = udiv i64 %.pre, %.pre21
   %.pre23 = trunc i64 %.pre22 to i32
-  br label %.loopexit
+  br label %.loopexit.loopexit
 
 107:                                              ; preds = %99
   %108 = zext i32 %.pre11.pre to i64
@@ -2156,34 +2156,39 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %113 = udiv i64 %112, %108
   %114 = trunc i64 %113 to i32
   %115 = icmp slt i32 %110, %114
-  br i1 %115, label %99, label %.loopexit, !llvm.loop !18
+  br i1 %115, label %99, label %.loopexit.loopexit, !llvm.loop !18
 
-.loopexit:                                        ; preds = %107, %..loopexit.loopexit_crit_edge, %86
-  %.pre-phi19 = phi i32 [ %95, %86 ], [ %.pre23, %..loopexit.loopexit_crit_edge ], [ %114, %107 ]
-  %116 = phi i32 [ %92, %86 ], [ %.pre11.pre, %..loopexit.loopexit_crit_edge ], [ %.pre11.pre, %107 ]
-  %117 = phi i32 [ 0, %86 ], [ %101, %..loopexit.loopexit_crit_edge ], [ %110, %107 ]
-  %118 = icmp eq i32 %117, %.pre-phi19
-  br i1 %118, label %119, label %123
+.loopexit.loopexit:                               ; preds = %107, %..loopexit.loopexit_crit_edge
+  %.pre18.pre-phi = phi i32 [ %.pre23, %..loopexit.loopexit_crit_edge ], [ %114, %107 ]
+  %.ph = phi i32 [ %101, %..loopexit.loopexit_crit_edge ], [ %110, %107 ]
+  %116 = mul i32 %.pre11.pre, %.ph
+  %117 = zext i32 %116 to i64
+  %118 = add nuw nsw i64 %117, 16
+  br label %.loopexit
 
-119:                                              ; preds = %.loopexit
-  %120 = load ptr, ptr %53, align 8
-  %121 = load i64, ptr %31, align 8
-  %122 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %121) #7
-  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %120, ptr noundef nonnull @__func__.find_block_dqentry, ptr noundef nonnull @.str.24, i32 noundef %122) #7
+.loopexit:                                        ; preds = %.loopexit.loopexit, %86
+  %.pre-phi19 = phi i32 [ %.pre18.pre-phi, %.loopexit.loopexit ], [ %95, %86 ]
+  %119 = phi i64 [ %118, %.loopexit.loopexit ], [ 16, %86 ]
+  %120 = phi i32 [ %.ph, %.loopexit.loopexit ], [ 0, %86 ]
+  %121 = icmp eq i32 %120, %.pre-phi19
+  br i1 %121, label %122, label %126
+
+122:                                              ; preds = %.loopexit
+  %123 = load ptr, ptr %53, align 8
+  %124 = load i64, ptr %31, align 8
+  %125 = tail call i32 @from_kqid(ptr noundef nonnull @init_user_ns, i64 %124) #7
+  tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %123, ptr noundef nonnull @__func__.find_block_dqentry, ptr noundef nonnull @.str.24, i32 noundef %125) #7
   br label %131
 
-123:                                              ; preds = %.loopexit
-  %124 = load i32, ptr %21, align 8
-  %125 = zext nneg i32 %124 to i64
-  %126 = shl i64 %78, %125
-  %127 = mul i32 %116, %117
-  %128 = zext i32 %127 to i64
-  %129 = add nuw nsw i64 %128, 16
-  %130 = add i64 %129, %126
+126:                                              ; preds = %.loopexit
+  %127 = load i32, ptr %21, align 8
+  %128 = zext nneg i32 %127 to i64
+  %129 = shl i64 %78, %128
+  %130 = add i64 %119, %129
   br label %131
 
-131:                                              ; preds = %123, %119, %84
-  %132 = phi i64 [ %82, %84 ], [ -5, %119 ], [ %130, %123 ]
+131:                                              ; preds = %126, %122, %84
+  %132 = phi i64 [ %82, %84 ], [ -5, %122 ], [ %130, %126 ]
   tail call void @kfree(ptr noundef nonnull %67) #7
   br label %133
 

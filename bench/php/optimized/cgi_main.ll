@@ -3662,8 +3662,7 @@ define internal void @sapi_cgi_register_variables(ptr noundef %0) #0 {
 
 37:                                               ; preds = %27, %32, %34, %36
   %38 = phi i64 [ %35, %34 ], [ 0, %36 ], [ %20, %27 ], [ %17, %32 ]
-  %.123 = phi i1 [ undef, %34 ], [ undef, %36 ], [ %22, %27 ], [ undef, %32 ]
-  %.1 = phi i1 [ true, %34 ], [ true, %36 ], [ false, %27 ], [ true, %32 ]
+  %.1 = phi i1 [ true, %34 ], [ true, %36 ], [ %22, %27 ], [ true, %32 ]
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 232), align 8, !tbaa !160
   %40 = call i32 %39(i32 noundef 5, ptr noundef nonnull @.str.116, ptr noundef nonnull %3, i64 noundef %38, ptr noundef nonnull %2) #28
   %.not32 = icmp eq i32 %40, 0
@@ -3676,8 +3675,7 @@ define internal void @sapi_cgi_register_variables(ptr noundef %0) #0 {
   br label %44
 
 44:                                               ; preds = %41, %37
-  %brmerge = or i1 %.123, %.1
-  br i1 %brmerge, label %55, label %45, !prof !161
+  br i1 %.1, label %55, label %45, !prof !161
 
 45:                                               ; preds = %44
   %46 = load ptr, ptr %3, align 8, !tbaa !35

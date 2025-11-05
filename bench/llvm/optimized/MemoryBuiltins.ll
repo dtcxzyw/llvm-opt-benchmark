@@ -684,9 +684,9 @@ _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread3: ; preds = %_
 
 _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.thread.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i
   %10 = call noundef i64 @_ZNK4llvm9Attribute13getValueAsIntEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #22
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %11 = and i64 %10, 2
   %.not = icmp eq i64 %11, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread, label %12
 
 12:                                               ; preds = %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
@@ -1721,9 +1721,9 @@ _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread44: ; preds = %
 
 _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.thread.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i
   %67 = call noundef i64 @_ZNK4llvm9Attribute13getValueAsIntEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %68 = and i64 %67, 7
   %.not49 = icmp eq i64 %68, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not49, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread, label %69
 
 69:                                               ; preds = %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit
@@ -2342,9 +2342,9 @@ _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread28: ; preds = %
 
 _ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit: ; preds = %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.thread.i.i, %_ZNK4llvm8CallBase9getFnAttrENS_9Attribute8AttrKindE.exit.i.i
   %85 = call noundef i64 @_ZNK4llvm9Attribute13getValueAsIntEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #22
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %86 = and i64 %85, 4
   %.not32 = icmp eq i64 %86, 0
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %.not32, label %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit.thread, label %87
 
 87:                                               ; preds = %_ZL16checkFnAllocKindPKN4llvm5ValueENS_11AllocFnKindE.exit

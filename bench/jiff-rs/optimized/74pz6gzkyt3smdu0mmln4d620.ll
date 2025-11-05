@@ -1506,10 +1506,10 @@ _ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit531: ; preds = %142, %151, %_ZN4
   %173 = extractvalue { i64, ptr } %172, 0
   %174 = extractvalue { i64, ptr } %172, 1
   %175 = trunc nuw i64 %173 to i1
-  br i1 %175, label %206, label %181
+  br i1 %175, label %208, label %181
 
-common.resume:                                    ; preds = %1256, %1253, %1207, %1205, %1140, %1137, %1122, %1119, %1104, %1101, %1086, %1083, %1062, %1059, %1046, %1043, %1014, %1011, %996, %993, %978, %975, %960, %957, %938, %935, %916, %913, %898, %895, %880, %877, %862, %859, %844, %841, %826, %823, %808, %805, %790, %787, %772, %769, %754, %751, %732, %729, %714, %711, %695, %692, %677, %674, %659, %656, %641, %638, %623, %620, %605, %602, %587, %584, %569, %566, %551, %548, %533, %530, %515, %512, %497, %494, %479, %476, %461, %458, %443, %440, %425, %422, %407, %404, %389, %386, %371, %368, %353, %350, %331, %328, %313, %310, %295, %292, %277, %274, %259, %256, %241, %238, %178, %176
-  %common.resume.op = phi { ptr, i32 } [ %177, %178 ], [ %177, %176 ], [ %239, %241 ], [ %239, %238 ], [ %257, %259 ], [ %257, %256 ], [ %275, %277 ], [ %275, %274 ], [ %293, %295 ], [ %293, %292 ], [ %311, %313 ], [ %311, %310 ], [ %329, %331 ], [ %329, %328 ], [ %351, %353 ], [ %351, %350 ], [ %369, %371 ], [ %369, %368 ], [ %387, %389 ], [ %387, %386 ], [ %405, %407 ], [ %405, %404 ], [ %423, %425 ], [ %423, %422 ], [ %441, %443 ], [ %441, %440 ], [ %459, %461 ], [ %459, %458 ], [ %477, %479 ], [ %477, %476 ], [ %495, %497 ], [ %495, %494 ], [ %513, %515 ], [ %513, %512 ], [ %531, %533 ], [ %531, %530 ], [ %549, %551 ], [ %549, %548 ], [ %567, %569 ], [ %567, %566 ], [ %585, %587 ], [ %585, %584 ], [ %603, %605 ], [ %603, %602 ], [ %621, %623 ], [ %621, %620 ], [ %639, %641 ], [ %639, %638 ], [ %657, %659 ], [ %657, %656 ], [ %675, %677 ], [ %675, %674 ], [ %693, %695 ], [ %693, %692 ], [ %712, %714 ], [ %712, %711 ], [ %730, %732 ], [ %730, %729 ], [ %752, %754 ], [ %752, %751 ], [ %770, %772 ], [ %770, %769 ], [ %788, %790 ], [ %788, %787 ], [ %806, %808 ], [ %806, %805 ], [ %824, %826 ], [ %824, %823 ], [ %842, %844 ], [ %842, %841 ], [ %860, %862 ], [ %860, %859 ], [ %878, %880 ], [ %878, %877 ], [ %896, %898 ], [ %896, %895 ], [ %914, %916 ], [ %914, %913 ], [ %936, %938 ], [ %936, %935 ], [ %958, %960 ], [ %958, %957 ], [ %976, %978 ], [ %976, %975 ], [ %994, %996 ], [ %994, %993 ], [ %1012, %1014 ], [ %1012, %1011 ], [ %1044, %1046 ], [ %1044, %1043 ], [ %1060, %1062 ], [ %1060, %1059 ], [ %1084, %1086 ], [ %1084, %1083 ], [ %1102, %1104 ], [ %1102, %1101 ], [ %1120, %1122 ], [ %1120, %1119 ], [ %1138, %1140 ], [ %1138, %1137 ], [ %1206, %1207 ], [ %1206, %1205 ], [ %1254, %1256 ], [ %1254, %1253 ]
+common.resume:                                    ; preds = %1257, %1254, %1208, %1206, %1141, %1138, %1123, %1120, %1105, %1102, %1087, %1084, %1063, %1060, %1047, %1044, %1015, %1012, %997, %994, %979, %976, %961, %958, %939, %936, %917, %914, %899, %896, %881, %878, %863, %860, %845, %842, %827, %824, %809, %806, %791, %788, %773, %770, %755, %752, %733, %730, %715, %712, %696, %693, %678, %675, %660, %657, %642, %639, %624, %621, %606, %603, %588, %585, %570, %567, %552, %549, %534, %531, %516, %513, %498, %495, %480, %477, %462, %459, %444, %441, %426, %423, %408, %405, %390, %387, %372, %369, %354, %351, %332, %329, %314, %311, %296, %293, %278, %275, %260, %257, %242, %239, %178, %176
+  %common.resume.op = phi { ptr, i32 } [ %177, %178 ], [ %177, %176 ], [ %240, %242 ], [ %240, %239 ], [ %258, %260 ], [ %258, %257 ], [ %276, %278 ], [ %276, %275 ], [ %294, %296 ], [ %294, %293 ], [ %312, %314 ], [ %312, %311 ], [ %330, %332 ], [ %330, %329 ], [ %352, %354 ], [ %352, %351 ], [ %370, %372 ], [ %370, %369 ], [ %388, %390 ], [ %388, %387 ], [ %406, %408 ], [ %406, %405 ], [ %424, %426 ], [ %424, %423 ], [ %442, %444 ], [ %442, %441 ], [ %460, %462 ], [ %460, %459 ], [ %478, %480 ], [ %478, %477 ], [ %496, %498 ], [ %496, %495 ], [ %514, %516 ], [ %514, %513 ], [ %532, %534 ], [ %532, %531 ], [ %550, %552 ], [ %550, %549 ], [ %568, %570 ], [ %568, %567 ], [ %586, %588 ], [ %586, %585 ], [ %604, %606 ], [ %604, %603 ], [ %622, %624 ], [ %622, %621 ], [ %640, %642 ], [ %640, %639 ], [ %658, %660 ], [ %658, %657 ], [ %676, %678 ], [ %676, %675 ], [ %694, %696 ], [ %694, %693 ], [ %713, %715 ], [ %713, %712 ], [ %731, %733 ], [ %731, %730 ], [ %753, %755 ], [ %753, %752 ], [ %771, %773 ], [ %771, %770 ], [ %789, %791 ], [ %789, %788 ], [ %807, %809 ], [ %807, %806 ], [ %825, %827 ], [ %825, %824 ], [ %843, %845 ], [ %843, %842 ], [ %861, %863 ], [ %861, %860 ], [ %879, %881 ], [ %879, %878 ], [ %897, %899 ], [ %897, %896 ], [ %915, %917 ], [ %915, %914 ], [ %937, %939 ], [ %937, %936 ], [ %959, %961 ], [ %959, %958 ], [ %977, %979 ], [ %977, %976 ], [ %995, %997 ], [ %995, %994 ], [ %1013, %1015 ], [ %1013, %1012 ], [ %1045, %1047 ], [ %1045, %1044 ], [ %1061, %1063 ], [ %1061, %1060 ], [ %1085, %1087 ], [ %1085, %1084 ], [ %1103, %1105 ], [ %1103, %1102 ], [ %1121, %1123 ], [ %1121, %1120 ], [ %1139, %1141 ], [ %1139, %1138 ], [ %1207, %1208 ], [ %1207, %1206 ], [ %1255, %1257 ], [ %1255, %1254 ]
   resume { ptr, i32 } %common.resume.op
 
 176:                                              ; preds = %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit531
@@ -1558,7 +1558,7 @@ common.resume:                                    ; preds = %1256, %1253, %1207,
   %191 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %29), !noalias !84
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !87
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !87
-  br label %205
+  br label %207
 
 192:                                              ; preds = %181
   %193 = trunc nuw i64 %182 to i8
@@ -1584,7 +1584,7 @@ common.resume:                                    ; preds = %1256, %1253, %1207,
   %200 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %31), !noalias !84
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !87
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !87
-  br label %205
+  br label %207
 
 201:                                              ; preds = %192
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !87
@@ -1592,21 +1592,22 @@ common.resume:                                    ; preds = %1256, %1253, %1207,
   %202 = trunc i64 %182 to i32
   %203 = shl i32 %202, 8
   %204 = and i32 %203, 65280
+  %205 = or i32 %.sroa.0719.0.ph, %204
+  %206 = or i32 %205, 1
   br label %.lr.ph.preheader
 
-205:                                              ; preds = %195, %185
+207:                                              ; preds = %195, %185
   %.sroa.11724.0 = phi ptr [ %191, %185 ], [ %200, %195 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %32), !noalias !87
-  br label %206
+  br label %208
 
-206:                                              ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i", %205
-  %.sroa.11724.1 = phi ptr [ %.sroa.11724.0, %205 ], [ %174, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i" ]
+208:                                              ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i", %207
+  %.sroa.11724.1 = phi ptr [ %.sroa.11724.0, %207 ], [ %174, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33), !noalias !87
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 
 .lr.ph.preheader:                                 ; preds = %121, %201
-  %.sroa.0721.2.ph = phi i32 [ 0, %121 ], [ 1, %201 ]
-  %.sroa.9722.0.ph = phi i32 [ 0, %121 ], [ %204, %201 ]
+  %.sroa.0721.2.ph = phi i32 [ %.sroa.0719.0.ph, %121 ], [ %206, %201 ]
   %.sroa.11724.2.ph = phi ptr [ %.sroa.7720.0.ph, %121 ], [ %131, %201 ]
   %.sroa.18725.0.ph = phi i64 [ %.sroa.12.0.ph, %121 ], [ %132, %201 ]
   store ptr %.sroa.11724.2.ph, ptr %98, align 8, !alias.scope !70, !noalias !73
@@ -1616,38 +1617,36 @@ common.resume:                                    ; preds = %1256, %1253, %1207,
   br label %.lr.ph
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i": ; preds = %.lr.ph
-  %207 = icmp ugt i64 %.sroa.02.0.i916, %.sroa.18725.0.ph
-  br i1 %207, label %213, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread", !prof !96
+  %209 = icmp ugt i64 %.sroa.02.0.i916, %.sroa.18725.0.ph
+  br i1 %209, label %215, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread", !prof !96
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %211
-  %.sroa.02.0.i916 = phi i64 [ %212, %211 ], [ 0, %.lr.ph.preheader ]
-  %208 = getelementptr inbounds nuw i8, ptr %.sroa.11724.2.ph, i64 %.sroa.02.0.i916
-  %209 = load i8, ptr %208, align 1, !alias.scope !93, !noalias !97, !noundef !13
-  %210 = icmp eq i8 %209, 58
-  br i1 %210, label %211, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i"
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %213
+  %.sroa.02.0.i916 = phi i64 [ %214, %213 ], [ 0, %.lr.ph.preheader ]
+  %210 = getelementptr inbounds nuw i8, ptr %.sroa.11724.2.ph, i64 %.sroa.02.0.i916
+  %211 = load i8, ptr %210, align 1, !alias.scope !93, !noalias !97, !noundef !13
+  %212 = icmp eq i8 %211, 58
+  br i1 %212, label %213, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i"
 
-211:                                              ; preds = %.lr.ph
-  %212 = add nuw nsw i64 %.sroa.02.0.i916, 1
-  %exitcond940.not = icmp eq i64 %212, %umax
+213:                                              ; preds = %.lr.ph
+  %214 = add nuw nsw i64 %.sroa.02.0.i916, 1
+  %exitcond940.not = icmp eq i64 %214, %umax
   br i1 %exitcond940.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread", label %.lr.ph
 
-213:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i"
+215:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i"
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef %.sroa.02.0.i916, i64 noundef %.sroa.18725.0.ph, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ebbfe4fa2bcd65020678261b9eefb9d7.266) #17, !noalias !99
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread": ; preds = %211, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i"
-  %.sroa.02.0.i905960 = phi i64 [ %.sroa.02.0.i916, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i" ], [ %umax, %211 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread": ; preds = %213, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i"
+  %.sroa.02.0.i905960 = phi i64 [ %.sroa.02.0.i916, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i" ], [ %umax, %213 ]
   %.sroa.5.0.i766 = trunc i64 %.sroa.02.0.i905960 to i32
-  %214 = sub nuw i64 %.sroa.18725.0.ph, %.sroa.02.0.i905960
-  %215 = getelementptr inbounds nuw i8, ptr %.sroa.11724.2.ph, i64 %.sroa.02.0.i905960
-  store ptr %215, ptr %98, align 8, !alias.scope !70, !noalias !73
-  store i64 %214, ptr %100, align 8, !alias.scope !70, !noalias !73
-  %216 = or disjoint i32 %.sroa.0721.2.ph, %.sroa.9722.0.ph
-  %.sroa.6.3.insert.insert = or i32 %216, %.sroa.0719.0.ph
+  %216 = sub nuw i64 %.sroa.18725.0.ph, %.sroa.02.0.i905960
+  %217 = getelementptr inbounds nuw i8, ptr %.sroa.11724.2.ph, i64 %.sroa.02.0.i905960
+  store ptr %217, ptr %98, align 8, !alias.scope !70, !noalias !73
+  store i64 %216, ptr %100, align 8, !alias.scope !70, !noalias !73
   %.sroa.6.4.insert.ext = shl i32 %.sroa.5.0.i766, 24
-  %.sroa.6.4.insert.insert = or i32 %.sroa.6.4.insert.ext, %.sroa.0719.0.ph
-  %.sroa.05.0.extract.trunc = trunc i32 %.sroa.6.3.insert.insert to i16
-  %.sroa.2.0.extract.shift = lshr i32 %.sroa.0719.0.ph, 16
+  %.sroa.6.4.insert.insert = or i32 %.sroa.6.4.insert.ext, %.sroa.0721.2.ph
+  %.sroa.05.0.extract.trunc = trunc i32 %.sroa.0721.2.ph to i16
+  %.sroa.2.0.extract.shift = lshr i32 %.sroa.0721.2.ph, 16
   %.sroa.2.0.extract.trunc = trunc nuw nsw i32 %.sroa.2.0.extract.shift to i8
   %.sroa.3.0.extract.shift = lshr i32 %.sroa.6.4.insert.insert, 24
   %.sroa.3.0.extract.trunc = trunc nuw i32 %.sroa.3.0.extract.shift to i8
@@ -1657,2428 +1656,2428 @@ common.resume:                                    ; preds = %1256, %1253, %1207,
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %97, i64 3
   store i8 %.sroa.3.0.extract.trunc, ptr %.sroa.3.0..sroa_idx, align 1
   %.not = icmp eq i64 %.sroa.18725.0.ph, %.sroa.02.0.i905960
-  br i1 %.not, label %219, label %217
+  br i1 %.not, label %220, label %218
 
-217:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread"
-  %218 = load i8, ptr %215, align 1, !noundef !13
-  switch i8 %218, label %220 [
-    i8 37, label %226
-    i8 65, label %244
-    i8 97, label %262
-    i8 66, label %280
-    i8 98, label %298
-    i8 67, label %316
-    i8 99, label %334
-    i8 68, label %356
-    i8 100, label %374
-    i8 101, label %392
-    i8 70, label %410
-    i8 102, label %428
-    i8 71, label %446
-    i8 103, label %464
-    i8 72, label %482
-    i8 104, label %500
-    i8 73, label %518
-    i8 106, label %536
-    i8 107, label %554
-    i8 108, label %572
-    i8 77, label %590
-    i8 109, label %608
-    i8 78, label %626
-    i8 110, label %644
-    i8 80, label %662
-    i8 112, label %680
-    i8 81, label %698
-    i8 113, label %699
-    i8 82, label %717
-    i8 114, label %735
-    i8 83, label %757
-    i8 115, label %775
-    i8 84, label %793
-    i8 116, label %811
-    i8 85, label %829
-    i8 117, label %847
-    i8 86, label %865
-    i8 87, label %883
-    i8 119, label %901
-    i8 88, label %919
-    i8 120, label %941
-    i8 89, label %963
-    i8 121, label %981
-    i8 90, label %999
-    i8 122, label %1017
-    i8 46, label %1018
+218:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread"
+  %219 = load i8, ptr %217, align 1, !noundef !13
+  switch i8 %219, label %221 [
+    i8 37, label %227
+    i8 65, label %245
+    i8 97, label %263
+    i8 66, label %281
+    i8 98, label %299
+    i8 67, label %317
+    i8 99, label %335
+    i8 68, label %357
+    i8 100, label %375
+    i8 101, label %393
+    i8 70, label %411
+    i8 102, label %429
+    i8 71, label %447
+    i8 103, label %465
+    i8 72, label %483
+    i8 104, label %501
+    i8 73, label %519
+    i8 106, label %537
+    i8 107, label %555
+    i8 108, label %573
+    i8 77, label %591
+    i8 109, label %609
+    i8 78, label %627
+    i8 110, label %645
+    i8 80, label %663
+    i8 112, label %681
+    i8 81, label %699
+    i8 113, label %700
+    i8 82, label %718
+    i8 114, label %736
+    i8 83, label %758
+    i8 115, label %776
+    i8 84, label %794
+    i8 116, label %812
+    i8 85, label %830
+    i8 117, label %848
+    i8 86, label %866
+    i8 87, label %884
+    i8 119, label %902
+    i8 88, label %920
+    i8 120, label %942
+    i8 89, label %964
+    i8 121, label %982
+    i8 90, label %1000
+    i8 122, label %1018
+    i8 46, label %1019
   ], !prof !100
 
-219:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread"
+220:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8975cfdf5dc03f07E.exit.i.thread"
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ebbfe4fa2bcd65020678261b9eefb9d7.60) #17
   unreachable
 
-220:                                              ; preds = %217
+221:                                              ; preds = %218
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   call void @llvm.lifetime.start.p0(ptr nonnull %87)
-  store i8 %218, ptr %87, align 1
+  store i8 %219, ptr %87, align 1
   store ptr %87, ptr %88, align 8
   %.sroa.4269.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..escape..Byte$u20$as$u20$core..fmt..Display$GT$3fmt17h61b14394460a36c6E", ptr %.sroa.4269.0..sroa_idx, align 8
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.124, ptr %89, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i64 1, ptr %221, align 8
-  %222 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  store ptr null, ptr %222, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  store ptr %88, ptr %223, align 8
-  %224 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store i64 1, ptr %224, align 8
-  %225 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %89)
+  %222 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  store i64 1, ptr %222, align 8
+  %223 = getelementptr inbounds nuw i8, ptr %89, i64 32
+  store ptr null, ptr %223, align 8
+  %224 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  store ptr %88, ptr %224, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  store i64 1, ptr %225, align 8
+  %226 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %89)
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   call void @llvm.lifetime.end.p0(ptr nonnull %87)
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 
-226:                                              ; preds = %217
-  %227 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %228 = load ptr, ptr %227, align 8, !nonnull !13, !align !46, !noundef !13
-  %229 = call fastcc { i64, ptr } @"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E"(ptr noalias noundef align 8 dereferenceable(8) %228, ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.63, i64 noundef 1)
-  %230 = extractvalue { i64, ptr } %229, 0
-  %231 = extractvalue { i64, ptr } %229, 1
+227:                                              ; preds = %218
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %229 = load ptr, ptr %228, align 8, !nonnull !13, !align !46, !noundef !13
+  %230 = call fastcc { i64, ptr } @"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E"(ptr noalias noundef align 8 dereferenceable(8) %229, ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.63, i64 noundef 1)
+  %231 = extractvalue { i64, ptr } %230, 0
+  %232 = extractvalue { i64, ptr } %230, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %37), !noalias !101
-  store i64 %230, ptr %37, align 8, !noalias !101
-  %232 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %231, ptr %232, align 8, !noalias !101
-  %233 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.64, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" unwind label %238
+  store i64 %231, ptr %37, align 8, !noalias !101
+  %233 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %232, ptr %233, align 8, !noalias !101
+  %234 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.64, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" unwind label %239
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486": ; preds = %226
-  %234 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %230, ptr %231, ptr noundef %233)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486": ; preds = %227
+  %235 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %231, ptr %232, ptr noundef %234)
   call void @llvm.lifetime.end.p0(ptr nonnull %37), !noalias !101
-  %235 = extractvalue { i64, ptr } %234, 0
-  %236 = trunc nuw i64 %235 to i1
-  %237 = extractvalue { i64, ptr } %234, 1
-  br i1 %236, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %236 = extractvalue { i64, ptr } %235, 0
+  %237 = trunc nuw i64 %236 to i1
+  %238 = extractvalue { i64, ptr } %235, 1
+  br i1 %237, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-238:                                              ; preds = %226
-  %239 = landingpad { ptr, i32 }
+239:                                              ; preds = %227
+  %240 = landingpad { ptr, i32 }
           cleanup
-  %240 = icmp eq i64 %230, 0
-  br i1 %240, label %common.resume, label %241
+  %241 = icmp eq i64 %231, 0
+  br i1 %241, label %common.resume, label %242
 
-241:                                              ; preds = %238
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %232)
-          to label %common.resume unwind label %242
+242:                                              ; preds = %239
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %233)
+          to label %common.resume unwind label %243
 
-242:                                              ; preds = %241
-  %243 = landingpad { ptr, i32 }
+243:                                              ; preds = %242
+  %244 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-244:                                              ; preds = %217
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val = load ptr, ptr %245, align 8, !nonnull !13, !align !46, !noundef !13
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val532 = load ptr, ptr %246, align 8
-  %247 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_weekday_full17hf012341aa145c912E"(ptr nonnull %.val, ptr %.val532, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %248 = extractvalue { i64, ptr } %247, 0
-  %249 = extractvalue { i64, ptr } %247, 1
+245:                                              ; preds = %218
+  %246 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val = load ptr, ptr %246, align 8, !nonnull !13, !align !46, !noundef !13
+  %247 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val532 = load ptr, ptr %247, align 8
+  %248 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_weekday_full17hf012341aa145c912E"(ptr nonnull %.val, ptr %.val532, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %249 = extractvalue { i64, ptr } %248, 0
+  %250 = extractvalue { i64, ptr } %248, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %38), !noalias !104
-  store i64 %248, ptr %38, align 8, !noalias !104
-  %250 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %249, ptr %250, align 8, !noalias !104
-  %251 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.65, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" unwind label %256
+  store i64 %249, ptr %38, align 8, !noalias !104
+  %251 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store ptr %250, ptr %251, align 8, !noalias !104
+  %252 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.65, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" unwind label %257
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483": ; preds = %244
-  %252 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %248, ptr %249, ptr noundef %251)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483": ; preds = %245
+  %253 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %249, ptr %250, ptr noundef %252)
   call void @llvm.lifetime.end.p0(ptr nonnull %38), !noalias !104
-  %253 = extractvalue { i64, ptr } %252, 0
-  %254 = trunc nuw i64 %253 to i1
-  %255 = extractvalue { i64, ptr } %252, 1
-  br i1 %254, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %254 = extractvalue { i64, ptr } %253, 0
+  %255 = trunc nuw i64 %254 to i1
+  %256 = extractvalue { i64, ptr } %253, 1
+  br i1 %255, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-256:                                              ; preds = %244
-  %257 = landingpad { ptr, i32 }
+257:                                              ; preds = %245
+  %258 = landingpad { ptr, i32 }
           cleanup
-  %258 = icmp eq i64 %248, 0
-  br i1 %258, label %common.resume, label %259
+  %259 = icmp eq i64 %249, 0
+  br i1 %259, label %common.resume, label %260
 
-259:                                              ; preds = %256
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %250)
-          to label %common.resume unwind label %260
+260:                                              ; preds = %257
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %251)
+          to label %common.resume unwind label %261
 
-260:                                              ; preds = %259
-  %261 = landingpad { ptr, i32 }
+261:                                              ; preds = %260
+  %262 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-262:                                              ; preds = %217
-  %263 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val533 = load ptr, ptr %263, align 8, !nonnull !13, !align !46, !noundef !13
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val534 = load ptr, ptr %264, align 8
-  %265 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_weekday_abbrev17h312ba56c908cbf21E"(ptr nonnull %.val533, ptr %.val534, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %266 = extractvalue { i64, ptr } %265, 0
-  %267 = extractvalue { i64, ptr } %265, 1
+263:                                              ; preds = %218
+  %264 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val533 = load ptr, ptr %264, align 8, !nonnull !13, !align !46, !noundef !13
+  %265 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val534 = load ptr, ptr %265, align 8
+  %266 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_weekday_abbrev17h312ba56c908cbf21E"(ptr nonnull %.val533, ptr %.val534, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %267 = extractvalue { i64, ptr } %266, 0
+  %268 = extractvalue { i64, ptr } %266, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !107
-  store i64 %266, ptr %39, align 8, !noalias !107
-  %268 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %267, ptr %268, align 8, !noalias !107
-  %269 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.66, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" unwind label %274
+  store i64 %267, ptr %39, align 8, !noalias !107
+  %269 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store ptr %268, ptr %269, align 8, !noalias !107
+  %270 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.66, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" unwind label %275
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480": ; preds = %262
-  %270 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %266, ptr %267, ptr noundef %269)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480": ; preds = %263
+  %271 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %267, ptr %268, ptr noundef %270)
   call void @llvm.lifetime.end.p0(ptr nonnull %39), !noalias !107
-  %271 = extractvalue { i64, ptr } %270, 0
-  %272 = trunc nuw i64 %271 to i1
-  %273 = extractvalue { i64, ptr } %270, 1
-  br i1 %272, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %272 = extractvalue { i64, ptr } %271, 0
+  %273 = trunc nuw i64 %272 to i1
+  %274 = extractvalue { i64, ptr } %271, 1
+  br i1 %273, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-274:                                              ; preds = %262
-  %275 = landingpad { ptr, i32 }
+275:                                              ; preds = %263
+  %276 = landingpad { ptr, i32 }
           cleanup
-  %276 = icmp eq i64 %266, 0
-  br i1 %276, label %common.resume, label %277
+  %277 = icmp eq i64 %267, 0
+  br i1 %277, label %common.resume, label %278
 
-277:                                              ; preds = %274
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %268)
-          to label %common.resume unwind label %278
+278:                                              ; preds = %275
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %269)
+          to label %common.resume unwind label %279
 
-278:                                              ; preds = %277
-  %279 = landingpad { ptr, i32 }
+279:                                              ; preds = %278
+  %280 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-280:                                              ; preds = %217
-  %281 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val535 = load ptr, ptr %281, align 8, !nonnull !13, !align !46, !noundef !13
-  %282 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val536 = load ptr, ptr %282, align 8
-  %283 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_month_full17h4523fbb8b01c8ff1E"(ptr nonnull %.val535, ptr %.val536, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %284 = extractvalue { i64, ptr } %283, 0
-  %285 = extractvalue { i64, ptr } %283, 1
+281:                                              ; preds = %218
+  %282 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val535 = load ptr, ptr %282, align 8, !nonnull !13, !align !46, !noundef !13
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val536 = load ptr, ptr %283, align 8
+  %284 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_month_full17h4523fbb8b01c8ff1E"(ptr nonnull %.val535, ptr %.val536, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %285 = extractvalue { i64, ptr } %284, 0
+  %286 = extractvalue { i64, ptr } %284, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !110
-  store i64 %284, ptr %40, align 8, !noalias !110
-  %286 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store ptr %285, ptr %286, align 8, !noalias !110
-  %287 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.67, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" unwind label %292
+  store i64 %285, ptr %40, align 8, !noalias !110
+  %287 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store ptr %286, ptr %287, align 8, !noalias !110
+  %288 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.67, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" unwind label %293
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477": ; preds = %280
-  %288 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %284, ptr %285, ptr noundef %287)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477": ; preds = %281
+  %289 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %285, ptr %286, ptr noundef %288)
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !110
-  %289 = extractvalue { i64, ptr } %288, 0
-  %290 = trunc nuw i64 %289 to i1
-  %291 = extractvalue { i64, ptr } %288, 1
-  br i1 %290, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %290 = extractvalue { i64, ptr } %289, 0
+  %291 = trunc nuw i64 %290 to i1
+  %292 = extractvalue { i64, ptr } %289, 1
+  br i1 %291, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-292:                                              ; preds = %280
-  %293 = landingpad { ptr, i32 }
+293:                                              ; preds = %281
+  %294 = landingpad { ptr, i32 }
           cleanup
-  %294 = icmp eq i64 %284, 0
-  br i1 %294, label %common.resume, label %295
+  %295 = icmp eq i64 %285, 0
+  br i1 %295, label %common.resume, label %296
 
-295:                                              ; preds = %292
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %286)
-          to label %common.resume unwind label %296
+296:                                              ; preds = %293
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %287)
+          to label %common.resume unwind label %297
 
-296:                                              ; preds = %295
-  %297 = landingpad { ptr, i32 }
+297:                                              ; preds = %296
+  %298 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-298:                                              ; preds = %217
-  %299 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val537 = load ptr, ptr %299, align 8, !nonnull !13, !align !46, !noundef !13
-  %300 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val538 = load ptr, ptr %300, align 8
-  %301 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_month_abbrev17hde741f5ecaaed788E"(ptr nonnull %.val537, ptr %.val538, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %302 = extractvalue { i64, ptr } %301, 0
-  %303 = extractvalue { i64, ptr } %301, 1
+299:                                              ; preds = %218
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val537 = load ptr, ptr %300, align 8, !nonnull !13, !align !46, !noundef !13
+  %301 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val538 = load ptr, ptr %301, align 8
+  %302 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_month_abbrev17hde741f5ecaaed788E"(ptr nonnull %.val537, ptr %.val538, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %303 = extractvalue { i64, ptr } %302, 0
+  %304 = extractvalue { i64, ptr } %302, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !113
-  store i64 %302, ptr %41, align 8, !noalias !113
-  %304 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store ptr %303, ptr %304, align 8, !noalias !113
-  %305 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.68, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" unwind label %310
+  store i64 %303, ptr %41, align 8, !noalias !113
+  %305 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store ptr %304, ptr %305, align 8, !noalias !113
+  %306 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.68, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" unwind label %311
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474": ; preds = %298
-  %306 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %302, ptr %303, ptr noundef %305)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474": ; preds = %299
+  %307 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %303, ptr %304, ptr noundef %306)
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !113
-  %307 = extractvalue { i64, ptr } %306, 0
-  %308 = trunc nuw i64 %307 to i1
-  %309 = extractvalue { i64, ptr } %306, 1
-  br i1 %308, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %308 = extractvalue { i64, ptr } %307, 0
+  %309 = trunc nuw i64 %308 to i1
+  %310 = extractvalue { i64, ptr } %307, 1
+  br i1 %309, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-310:                                              ; preds = %298
-  %311 = landingpad { ptr, i32 }
+311:                                              ; preds = %299
+  %312 = landingpad { ptr, i32 }
           cleanup
-  %312 = icmp eq i64 %302, 0
-  br i1 %312, label %common.resume, label %313
+  %313 = icmp eq i64 %303, 0
+  br i1 %313, label %common.resume, label %314
 
-313:                                              ; preds = %310
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %304)
-          to label %common.resume unwind label %314
+314:                                              ; preds = %311
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %305)
+          to label %common.resume unwind label %315
 
-314:                                              ; preds = %313
-  %315 = landingpad { ptr, i32 }
+315:                                              ; preds = %314
+  %316 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-316:                                              ; preds = %217
-  %317 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val541 = load ptr, ptr %317, align 8, !nonnull !13, !align !46, !noundef !13
-  %318 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val542 = load ptr, ptr %318, align 8
-  %319 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$11fmt_century17hc1725a330c4d23f3E"(ptr nonnull %.val541, ptr %.val542, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %320 = extractvalue { i64, ptr } %319, 0
-  %321 = extractvalue { i64, ptr } %319, 1
+317:                                              ; preds = %218
+  %318 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val541 = load ptr, ptr %318, align 8, !nonnull !13, !align !46, !noundef !13
+  %319 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val542 = load ptr, ptr %319, align 8
+  %320 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$11fmt_century17hc1725a330c4d23f3E"(ptr nonnull %.val541, ptr %.val542, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %321 = extractvalue { i64, ptr } %320, 0
+  %322 = extractvalue { i64, ptr } %320, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %42), !noalias !116
-  store i64 %320, ptr %42, align 8, !noalias !116
-  %322 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store ptr %321, ptr %322, align 8, !noalias !116
-  %323 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.69, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" unwind label %328
+  store i64 %321, ptr %42, align 8, !noalias !116
+  %323 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %322, ptr %323, align 8, !noalias !116
+  %324 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.69, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" unwind label %329
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471": ; preds = %316
-  %324 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %320, ptr %321, ptr noundef %323)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471": ; preds = %317
+  %325 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %321, ptr %322, ptr noundef %324)
   call void @llvm.lifetime.end.p0(ptr nonnull %42), !noalias !116
-  %325 = extractvalue { i64, ptr } %324, 0
-  %326 = trunc nuw i64 %325 to i1
-  %327 = extractvalue { i64, ptr } %324, 1
-  br i1 %326, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %326 = extractvalue { i64, ptr } %325, 0
+  %327 = trunc nuw i64 %326 to i1
+  %328 = extractvalue { i64, ptr } %325, 1
+  br i1 %327, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-328:                                              ; preds = %316
-  %329 = landingpad { ptr, i32 }
+329:                                              ; preds = %317
+  %330 = landingpad { ptr, i32 }
           cleanup
-  %330 = icmp eq i64 %320, 0
-  br i1 %330, label %common.resume, label %331
+  %331 = icmp eq i64 %321, 0
+  br i1 %331, label %common.resume, label %332
 
-331:                                              ; preds = %328
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %322)
-          to label %common.resume unwind label %332
+332:                                              ; preds = %329
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %323)
+          to label %common.resume unwind label %333
 
-332:                                              ; preds = %331
-  %333 = landingpad { ptr, i32 }
+333:                                              ; preds = %332
+  %334 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-334:                                              ; preds = %217
-  %335 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
-  %336 = getelementptr inbounds nuw i8, ptr %335, i64 1
-  %337 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %338 = load ptr, ptr %337, align 8, !nonnull !13, !align !46, !noundef !13
-  %339 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %340 = load ptr, ptr %339, align 8, !nonnull !13, !align !46, !noundef !13
-  %341 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom15format_datetime17h6949982d709a51bcE(ptr noalias noundef nonnull readonly align 1 %336, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %335, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %338, ptr noalias noundef nonnull align 8 dereferenceable(8) %340)
-  %342 = extractvalue { i64, ptr } %341, 0
-  %343 = extractvalue { i64, ptr } %341, 1
+335:                                              ; preds = %218
+  %336 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
+  %337 = getelementptr inbounds nuw i8, ptr %336, i64 1
+  %338 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %339 = load ptr, ptr %338, align 8, !nonnull !13, !align !46, !noundef !13
+  %340 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %341 = load ptr, ptr %340, align 8, !nonnull !13, !align !46, !noundef !13
+  %342 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom15format_datetime17h6949982d709a51bcE(ptr noalias noundef nonnull readonly align 1 %337, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %336, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %339, ptr noalias noundef nonnull align 8 dereferenceable(8) %341)
+  %343 = extractvalue { i64, ptr } %342, 0
+  %344 = extractvalue { i64, ptr } %342, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %43), !noalias !119
-  store i64 %342, ptr %43, align 8, !noalias !119
-  %344 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store ptr %343, ptr %344, align 8, !noalias !119
-  %345 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.70, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" unwind label %350
+  store i64 %343, ptr %43, align 8, !noalias !119
+  %345 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store ptr %344, ptr %345, align 8, !noalias !119
+  %346 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.70, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" unwind label %351
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468": ; preds = %334
-  %346 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %342, ptr %343, ptr noundef %345)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468": ; preds = %335
+  %347 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %343, ptr %344, ptr noundef %346)
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !119
-  %347 = extractvalue { i64, ptr } %346, 0
-  %348 = trunc nuw i64 %347 to i1
-  %349 = extractvalue { i64, ptr } %346, 1
-  br i1 %348, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %348 = extractvalue { i64, ptr } %347, 0
+  %349 = trunc nuw i64 %348 to i1
+  %350 = extractvalue { i64, ptr } %347, 1
+  br i1 %349, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-350:                                              ; preds = %334
-  %351 = landingpad { ptr, i32 }
+351:                                              ; preds = %335
+  %352 = landingpad { ptr, i32 }
           cleanup
-  %352 = icmp eq i64 %342, 0
-  br i1 %352, label %common.resume, label %353
+  %353 = icmp eq i64 %343, 0
+  br i1 %353, label %common.resume, label %354
 
-353:                                              ; preds = %350
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %344)
-          to label %common.resume unwind label %354
+354:                                              ; preds = %351
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %345)
+          to label %common.resume unwind label %355
 
-354:                                              ; preds = %353
-  %355 = landingpad { ptr, i32 }
+355:                                              ; preds = %354
+  %356 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-356:                                              ; preds = %217
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val549 = load ptr, ptr %357, align 8, !nonnull !13, !align !46, !noundef !13
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val550 = load ptr, ptr %358, align 8
-  %359 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_american_date17hc1ea94fb035e50acE"(ptr nonnull %.val549, ptr %.val550, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %360 = extractvalue { i64, ptr } %359, 0
-  %361 = extractvalue { i64, ptr } %359, 1
+357:                                              ; preds = %218
+  %358 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val549 = load ptr, ptr %358, align 8, !nonnull !13, !align !46, !noundef !13
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val550 = load ptr, ptr %359, align 8
+  %360 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_american_date17hc1ea94fb035e50acE"(ptr nonnull %.val549, ptr %.val550, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %361 = extractvalue { i64, ptr } %360, 0
+  %362 = extractvalue { i64, ptr } %360, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %44), !noalias !122
-  store i64 %360, ptr %44, align 8, !noalias !122
-  %362 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %361, ptr %362, align 8, !noalias !122
-  %363 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.71, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" unwind label %368
+  store i64 %361, ptr %44, align 8, !noalias !122
+  %363 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store ptr %362, ptr %363, align 8, !noalias !122
+  %364 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.71, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" unwind label %369
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465": ; preds = %356
-  %364 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %360, ptr %361, ptr noundef %363)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465": ; preds = %357
+  %365 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %361, ptr %362, ptr noundef %364)
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !122
-  %365 = extractvalue { i64, ptr } %364, 0
-  %366 = trunc nuw i64 %365 to i1
-  %367 = extractvalue { i64, ptr } %364, 1
-  br i1 %366, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %366 = extractvalue { i64, ptr } %365, 0
+  %367 = trunc nuw i64 %366 to i1
+  %368 = extractvalue { i64, ptr } %365, 1
+  br i1 %367, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-368:                                              ; preds = %356
-  %369 = landingpad { ptr, i32 }
+369:                                              ; preds = %357
+  %370 = landingpad { ptr, i32 }
           cleanup
-  %370 = icmp eq i64 %360, 0
-  br i1 %370, label %common.resume, label %371
+  %371 = icmp eq i64 %361, 0
+  br i1 %371, label %common.resume, label %372
 
-371:                                              ; preds = %368
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %362)
-          to label %common.resume unwind label %372
+372:                                              ; preds = %369
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %363)
+          to label %common.resume unwind label %373
 
-372:                                              ; preds = %371
-  %373 = landingpad { ptr, i32 }
+373:                                              ; preds = %372
+  %374 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-374:                                              ; preds = %217
-  %375 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val545 = load ptr, ptr %375, align 8, !nonnull !13, !align !46, !noundef !13
-  %376 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val546 = load ptr, ptr %376, align 8
-  %377 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_day_zero17h6a78838042883de9E"(ptr nonnull %.val545, ptr %.val546, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %378 = extractvalue { i64, ptr } %377, 0
-  %379 = extractvalue { i64, ptr } %377, 1
+375:                                              ; preds = %218
+  %376 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val545 = load ptr, ptr %376, align 8, !nonnull !13, !align !46, !noundef !13
+  %377 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val546 = load ptr, ptr %377, align 8
+  %378 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_day_zero17h6a78838042883de9E"(ptr nonnull %.val545, ptr %.val546, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %379 = extractvalue { i64, ptr } %378, 0
+  %380 = extractvalue { i64, ptr } %378, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %45), !noalias !125
-  store i64 %378, ptr %45, align 8, !noalias !125
-  %380 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store ptr %379, ptr %380, align 8, !noalias !125
-  %381 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.72, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" unwind label %386
+  store i64 %379, ptr %45, align 8, !noalias !125
+  %381 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %380, ptr %381, align 8, !noalias !125
+  %382 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.72, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" unwind label %387
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462": ; preds = %374
-  %382 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %378, ptr %379, ptr noundef %381)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462": ; preds = %375
+  %383 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %379, ptr %380, ptr noundef %382)
   call void @llvm.lifetime.end.p0(ptr nonnull %45), !noalias !125
-  %383 = extractvalue { i64, ptr } %382, 0
-  %384 = trunc nuw i64 %383 to i1
-  %385 = extractvalue { i64, ptr } %382, 1
-  br i1 %384, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %384 = extractvalue { i64, ptr } %383, 0
+  %385 = trunc nuw i64 %384 to i1
+  %386 = extractvalue { i64, ptr } %383, 1
+  br i1 %385, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-386:                                              ; preds = %374
-  %387 = landingpad { ptr, i32 }
+387:                                              ; preds = %375
+  %388 = landingpad { ptr, i32 }
           cleanup
-  %388 = icmp eq i64 %378, 0
-  br i1 %388, label %common.resume, label %389
+  %389 = icmp eq i64 %379, 0
+  br i1 %389, label %common.resume, label %390
 
-389:                                              ; preds = %386
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %380)
-          to label %common.resume unwind label %390
+390:                                              ; preds = %387
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %381)
+          to label %common.resume unwind label %391
 
-390:                                              ; preds = %389
-  %391 = landingpad { ptr, i32 }
+391:                                              ; preds = %390
+  %392 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-392:                                              ; preds = %217
-  %393 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val551 = load ptr, ptr %393, align 8, !nonnull !13, !align !46, !noundef !13
-  %394 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val552 = load ptr, ptr %394, align 8
-  %395 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$13fmt_day_space17h135bb2cfd4160137E"(ptr nonnull %.val551, ptr %.val552, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %396 = extractvalue { i64, ptr } %395, 0
-  %397 = extractvalue { i64, ptr } %395, 1
+393:                                              ; preds = %218
+  %394 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val551 = load ptr, ptr %394, align 8, !nonnull !13, !align !46, !noundef !13
+  %395 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val552 = load ptr, ptr %395, align 8
+  %396 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$13fmt_day_space17h135bb2cfd4160137E"(ptr nonnull %.val551, ptr %.val552, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %397 = extractvalue { i64, ptr } %396, 0
+  %398 = extractvalue { i64, ptr } %396, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %46), !noalias !128
-  store i64 %396, ptr %46, align 8, !noalias !128
-  %398 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store ptr %397, ptr %398, align 8, !noalias !128
-  %399 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.73, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" unwind label %404
+  store i64 %397, ptr %46, align 8, !noalias !128
+  %399 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %398, ptr %399, align 8, !noalias !128
+  %400 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.73, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" unwind label %405
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459": ; preds = %392
-  %400 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %396, ptr %397, ptr noundef %399)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459": ; preds = %393
+  %401 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %397, ptr %398, ptr noundef %400)
   call void @llvm.lifetime.end.p0(ptr nonnull %46), !noalias !128
-  %401 = extractvalue { i64, ptr } %400, 0
-  %402 = trunc nuw i64 %401 to i1
-  %403 = extractvalue { i64, ptr } %400, 1
-  br i1 %402, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %402 = extractvalue { i64, ptr } %401, 0
+  %403 = trunc nuw i64 %402 to i1
+  %404 = extractvalue { i64, ptr } %401, 1
+  br i1 %403, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-404:                                              ; preds = %392
-  %405 = landingpad { ptr, i32 }
+405:                                              ; preds = %393
+  %406 = landingpad { ptr, i32 }
           cleanup
-  %406 = icmp eq i64 %396, 0
-  br i1 %406, label %common.resume, label %407
+  %407 = icmp eq i64 %397, 0
+  br i1 %407, label %common.resume, label %408
 
-407:                                              ; preds = %404
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %398)
-          to label %common.resume unwind label %408
+408:                                              ; preds = %405
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %399)
+          to label %common.resume unwind label %409
 
-408:                                              ; preds = %407
-  %409 = landingpad { ptr, i32 }
+409:                                              ; preds = %408
+  %410 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-410:                                              ; preds = %217
-  %411 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val555 = load ptr, ptr %411, align 8, !nonnull !13, !align !46, !noundef !13
-  %412 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val556 = load ptr, ptr %412, align 8
-  %413 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_iso_date17h138a33ae0608544aE"(ptr nonnull %.val555, ptr %.val556, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %414 = extractvalue { i64, ptr } %413, 0
-  %415 = extractvalue { i64, ptr } %413, 1
+411:                                              ; preds = %218
+  %412 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val555 = load ptr, ptr %412, align 8, !nonnull !13, !align !46, !noundef !13
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val556 = load ptr, ptr %413, align 8
+  %414 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_iso_date17h138a33ae0608544aE"(ptr nonnull %.val555, ptr %.val556, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %415 = extractvalue { i64, ptr } %414, 0
+  %416 = extractvalue { i64, ptr } %414, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %47), !noalias !131
-  store i64 %414, ptr %47, align 8, !noalias !131
-  %416 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store ptr %415, ptr %416, align 8, !noalias !131
-  %417 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.74, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" unwind label %422
+  store i64 %415, ptr %47, align 8, !noalias !131
+  %417 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store ptr %416, ptr %417, align 8, !noalias !131
+  %418 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.74, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" unwind label %423
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456": ; preds = %410
-  %418 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %414, ptr %415, ptr noundef %417)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456": ; preds = %411
+  %419 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %415, ptr %416, ptr noundef %418)
   call void @llvm.lifetime.end.p0(ptr nonnull %47), !noalias !131
-  %419 = extractvalue { i64, ptr } %418, 0
-  %420 = trunc nuw i64 %419 to i1
-  %421 = extractvalue { i64, ptr } %418, 1
-  br i1 %420, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %420 = extractvalue { i64, ptr } %419, 0
+  %421 = trunc nuw i64 %420 to i1
+  %422 = extractvalue { i64, ptr } %419, 1
+  br i1 %421, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-422:                                              ; preds = %410
-  %423 = landingpad { ptr, i32 }
+423:                                              ; preds = %411
+  %424 = landingpad { ptr, i32 }
           cleanup
-  %424 = icmp eq i64 %414, 0
-  br i1 %424, label %common.resume, label %425
+  %425 = icmp eq i64 %415, 0
+  br i1 %425, label %common.resume, label %426
 
-425:                                              ; preds = %422
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %416)
-          to label %common.resume unwind label %426
+426:                                              ; preds = %423
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %417)
+          to label %common.resume unwind label %427
 
-426:                                              ; preds = %425
-  %427 = landingpad { ptr, i32 }
+427:                                              ; preds = %426
+  %428 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-428:                                              ; preds = %217
-  %429 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val557 = load ptr, ptr %429, align 8, !nonnull !13, !align !46, !noundef !13
-  %430 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val558 = load ptr, ptr %430, align 8
-  %431 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_fractional17h27b5fed0df0e930fE"(ptr nonnull %.val557, ptr %.val558, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %432 = extractvalue { i64, ptr } %431, 0
-  %433 = extractvalue { i64, ptr } %431, 1
+429:                                              ; preds = %218
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val557 = load ptr, ptr %430, align 8, !nonnull !13, !align !46, !noundef !13
+  %431 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val558 = load ptr, ptr %431, align 8
+  %432 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_fractional17h27b5fed0df0e930fE"(ptr nonnull %.val557, ptr %.val558, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %433 = extractvalue { i64, ptr } %432, 0
+  %434 = extractvalue { i64, ptr } %432, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %48), !noalias !134
-  store i64 %432, ptr %48, align 8, !noalias !134
-  %434 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store ptr %433, ptr %434, align 8, !noalias !134
-  %435 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.75, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" unwind label %440
+  store i64 %433, ptr %48, align 8, !noalias !134
+  %435 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store ptr %434, ptr %435, align 8, !noalias !134
+  %436 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.75, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" unwind label %441
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453": ; preds = %428
-  %436 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %432, ptr %433, ptr noundef %435)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453": ; preds = %429
+  %437 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %433, ptr %434, ptr noundef %436)
   call void @llvm.lifetime.end.p0(ptr nonnull %48), !noalias !134
-  %437 = extractvalue { i64, ptr } %436, 0
-  %438 = trunc nuw i64 %437 to i1
-  %439 = extractvalue { i64, ptr } %436, 1
-  br i1 %438, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %438 = extractvalue { i64, ptr } %437, 0
+  %439 = trunc nuw i64 %438 to i1
+  %440 = extractvalue { i64, ptr } %437, 1
+  br i1 %439, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-440:                                              ; preds = %428
-  %441 = landingpad { ptr, i32 }
+441:                                              ; preds = %429
+  %442 = landingpad { ptr, i32 }
           cleanup
-  %442 = icmp eq i64 %432, 0
-  br i1 %442, label %common.resume, label %443
+  %443 = icmp eq i64 %433, 0
+  br i1 %443, label %common.resume, label %444
 
-443:                                              ; preds = %440
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %434)
-          to label %common.resume unwind label %444
+444:                                              ; preds = %441
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %435)
+          to label %common.resume unwind label %445
 
-444:                                              ; preds = %443
-  %445 = landingpad { ptr, i32 }
+445:                                              ; preds = %444
+  %446 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-446:                                              ; preds = %217
-  %447 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val559 = load ptr, ptr %447, align 8, !nonnull !13, !align !46, !noundef !13
-  %448 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val560 = load ptr, ptr %448, align 8
-  %449 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_iso_week_year17h6133573cb79d07e4E"(ptr nonnull %.val559, ptr %.val560, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %450 = extractvalue { i64, ptr } %449, 0
-  %451 = extractvalue { i64, ptr } %449, 1
+447:                                              ; preds = %218
+  %448 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val559 = load ptr, ptr %448, align 8, !nonnull !13, !align !46, !noundef !13
+  %449 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val560 = load ptr, ptr %449, align 8
+  %450 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_iso_week_year17h6133573cb79d07e4E"(ptr nonnull %.val559, ptr %.val560, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %451 = extractvalue { i64, ptr } %450, 0
+  %452 = extractvalue { i64, ptr } %450, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %49), !noalias !137
-  store i64 %450, ptr %49, align 8, !noalias !137
-  %452 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store ptr %451, ptr %452, align 8, !noalias !137
-  %453 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.76, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" unwind label %458
+  store i64 %451, ptr %49, align 8, !noalias !137
+  %453 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store ptr %452, ptr %453, align 8, !noalias !137
+  %454 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.76, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" unwind label %459
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450": ; preds = %446
-  %454 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %450, ptr %451, ptr noundef %453)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450": ; preds = %447
+  %455 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %451, ptr %452, ptr noundef %454)
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !137
-  %455 = extractvalue { i64, ptr } %454, 0
-  %456 = trunc nuw i64 %455 to i1
-  %457 = extractvalue { i64, ptr } %454, 1
-  br i1 %456, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %456 = extractvalue { i64, ptr } %455, 0
+  %457 = trunc nuw i64 %456 to i1
+  %458 = extractvalue { i64, ptr } %455, 1
+  br i1 %457, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-458:                                              ; preds = %446
-  %459 = landingpad { ptr, i32 }
+459:                                              ; preds = %447
+  %460 = landingpad { ptr, i32 }
           cleanup
-  %460 = icmp eq i64 %450, 0
-  br i1 %460, label %common.resume, label %461
+  %461 = icmp eq i64 %451, 0
+  br i1 %461, label %common.resume, label %462
 
-461:                                              ; preds = %458
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %452)
-          to label %common.resume unwind label %462
+462:                                              ; preds = %459
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %453)
+          to label %common.resume unwind label %463
 
-462:                                              ; preds = %461
-  %463 = landingpad { ptr, i32 }
+463:                                              ; preds = %462
+  %464 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-464:                                              ; preds = %217
-  %465 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val561 = load ptr, ptr %465, align 8, !nonnull !13, !align !46, !noundef !13
-  %466 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val562 = load ptr, ptr %466, align 8
-  %467 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_iso_week_year217h28d855665b369c4eE"(ptr nonnull %.val561, ptr %.val562, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %468 = extractvalue { i64, ptr } %467, 0
-  %469 = extractvalue { i64, ptr } %467, 1
+465:                                              ; preds = %218
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val561 = load ptr, ptr %466, align 8, !nonnull !13, !align !46, !noundef !13
+  %467 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val562 = load ptr, ptr %467, align 8
+  %468 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_iso_week_year217h28d855665b369c4eE"(ptr nonnull %.val561, ptr %.val562, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %469 = extractvalue { i64, ptr } %468, 0
+  %470 = extractvalue { i64, ptr } %468, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !140
-  store i64 %468, ptr %50, align 8, !noalias !140
-  %470 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %469, ptr %470, align 8, !noalias !140
-  %471 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.77, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" unwind label %476
+  store i64 %469, ptr %50, align 8, !noalias !140
+  %471 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store ptr %470, ptr %471, align 8, !noalias !140
+  %472 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.77, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" unwind label %477
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447": ; preds = %464
-  %472 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %468, ptr %469, ptr noundef %471)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447": ; preds = %465
+  %473 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %469, ptr %470, ptr noundef %472)
   call void @llvm.lifetime.end.p0(ptr nonnull %50), !noalias !140
-  %473 = extractvalue { i64, ptr } %472, 0
-  %474 = trunc nuw i64 %473 to i1
-  %475 = extractvalue { i64, ptr } %472, 1
-  br i1 %474, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %474 = extractvalue { i64, ptr } %473, 0
+  %475 = trunc nuw i64 %474 to i1
+  %476 = extractvalue { i64, ptr } %473, 1
+  br i1 %475, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-476:                                              ; preds = %464
-  %477 = landingpad { ptr, i32 }
+477:                                              ; preds = %465
+  %478 = landingpad { ptr, i32 }
           cleanup
-  %478 = icmp eq i64 %468, 0
-  br i1 %478, label %common.resume, label %479
+  %479 = icmp eq i64 %469, 0
+  br i1 %479, label %common.resume, label %480
 
-479:                                              ; preds = %476
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %470)
-          to label %common.resume unwind label %480
+480:                                              ; preds = %477
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %471)
+          to label %common.resume unwind label %481
 
-480:                                              ; preds = %479
-  %481 = landingpad { ptr, i32 }
+481:                                              ; preds = %480
+  %482 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-482:                                              ; preds = %217
-  %483 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val563 = load ptr, ptr %483, align 8, !nonnull !13, !align !46, !noundef !13
-  %484 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val564 = load ptr, ptr %484, align 8
-  %485 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_hour24_zero17h1d03320f12b7a9a1E"(ptr nonnull %.val563, ptr %.val564, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %486 = extractvalue { i64, ptr } %485, 0
-  %487 = extractvalue { i64, ptr } %485, 1
+483:                                              ; preds = %218
+  %484 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val563 = load ptr, ptr %484, align 8, !nonnull !13, !align !46, !noundef !13
+  %485 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val564 = load ptr, ptr %485, align 8
+  %486 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_hour24_zero17h1d03320f12b7a9a1E"(ptr nonnull %.val563, ptr %.val564, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %487 = extractvalue { i64, ptr } %486, 0
+  %488 = extractvalue { i64, ptr } %486, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %51), !noalias !143
-  store i64 %486, ptr %51, align 8, !noalias !143
-  %488 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store ptr %487, ptr %488, align 8, !noalias !143
-  %489 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.78, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" unwind label %494
+  store i64 %487, ptr %51, align 8, !noalias !143
+  %489 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store ptr %488, ptr %489, align 8, !noalias !143
+  %490 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.78, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" unwind label %495
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444": ; preds = %482
-  %490 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %486, ptr %487, ptr noundef %489)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444": ; preds = %483
+  %491 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %487, ptr %488, ptr noundef %490)
   call void @llvm.lifetime.end.p0(ptr nonnull %51), !noalias !143
-  %491 = extractvalue { i64, ptr } %490, 0
-  %492 = trunc nuw i64 %491 to i1
-  %493 = extractvalue { i64, ptr } %490, 1
-  br i1 %492, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %492 = extractvalue { i64, ptr } %491, 0
+  %493 = trunc nuw i64 %492 to i1
+  %494 = extractvalue { i64, ptr } %491, 1
+  br i1 %493, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-494:                                              ; preds = %482
-  %495 = landingpad { ptr, i32 }
+495:                                              ; preds = %483
+  %496 = landingpad { ptr, i32 }
           cleanup
-  %496 = icmp eq i64 %486, 0
-  br i1 %496, label %common.resume, label %497
+  %497 = icmp eq i64 %487, 0
+  br i1 %497, label %common.resume, label %498
 
-497:                                              ; preds = %494
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %488)
-          to label %common.resume unwind label %498
+498:                                              ; preds = %495
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %489)
+          to label %common.resume unwind label %499
 
-498:                                              ; preds = %497
-  %499 = landingpad { ptr, i32 }
+499:                                              ; preds = %498
+  %500 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-500:                                              ; preds = %217
-  %501 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val539 = load ptr, ptr %501, align 8, !nonnull !13, !align !46, !noundef !13
-  %502 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val540 = load ptr, ptr %502, align 8
-  %503 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_month_abbrev17hde741f5ecaaed788E"(ptr nonnull %.val539, ptr %.val540, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %504 = extractvalue { i64, ptr } %503, 0
-  %505 = extractvalue { i64, ptr } %503, 1
+501:                                              ; preds = %218
+  %502 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val539 = load ptr, ptr %502, align 8, !nonnull !13, !align !46, !noundef !13
+  %503 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val540 = load ptr, ptr %503, align 8
+  %504 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_month_abbrev17hde741f5ecaaed788E"(ptr nonnull %.val539, ptr %.val540, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %505 = extractvalue { i64, ptr } %504, 0
+  %506 = extractvalue { i64, ptr } %504, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !146
-  store i64 %504, ptr %52, align 8, !noalias !146
-  %506 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store ptr %505, ptr %506, align 8, !noalias !146
-  %507 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.68, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" unwind label %512
+  store i64 %505, ptr %52, align 8, !noalias !146
+  %507 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr %506, ptr %507, align 8, !noalias !146
+  %508 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.68, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" unwind label %513
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441": ; preds = %500
-  %508 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %504, ptr %505, ptr noundef %507)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441": ; preds = %501
+  %509 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %505, ptr %506, ptr noundef %508)
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !146
-  %509 = extractvalue { i64, ptr } %508, 0
-  %510 = trunc nuw i64 %509 to i1
-  %511 = extractvalue { i64, ptr } %508, 1
-  br i1 %510, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %510 = extractvalue { i64, ptr } %509, 0
+  %511 = trunc nuw i64 %510 to i1
+  %512 = extractvalue { i64, ptr } %509, 1
+  br i1 %511, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-512:                                              ; preds = %500
-  %513 = landingpad { ptr, i32 }
+513:                                              ; preds = %501
+  %514 = landingpad { ptr, i32 }
           cleanup
-  %514 = icmp eq i64 %504, 0
-  br i1 %514, label %common.resume, label %515
+  %515 = icmp eq i64 %505, 0
+  br i1 %515, label %common.resume, label %516
 
-515:                                              ; preds = %512
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %506)
-          to label %common.resume unwind label %516
+516:                                              ; preds = %513
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %507)
+          to label %common.resume unwind label %517
 
-516:                                              ; preds = %515
-  %517 = landingpad { ptr, i32 }
+517:                                              ; preds = %516
+  %518 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-518:                                              ; preds = %217
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val565 = load ptr, ptr %519, align 8, !nonnull !13, !align !46, !noundef !13
-  %520 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val566 = load ptr, ptr %520, align 8
-  %521 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_hour12_zero17hfefbc0d6f4f53009E"(ptr nonnull %.val565, ptr %.val566, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %522 = extractvalue { i64, ptr } %521, 0
-  %523 = extractvalue { i64, ptr } %521, 1
+519:                                              ; preds = %218
+  %520 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val565 = load ptr, ptr %520, align 8, !nonnull !13, !align !46, !noundef !13
+  %521 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val566 = load ptr, ptr %521, align 8
+  %522 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_hour12_zero17hfefbc0d6f4f53009E"(ptr nonnull %.val565, ptr %.val566, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %523 = extractvalue { i64, ptr } %522, 0
+  %524 = extractvalue { i64, ptr } %522, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !149
-  store i64 %522, ptr %53, align 8, !noalias !149
-  %524 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %523, ptr %524, align 8, !noalias !149
-  %525 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.78, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" unwind label %530
+  store i64 %523, ptr %53, align 8, !noalias !149
+  %525 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store ptr %524, ptr %525, align 8, !noalias !149
+  %526 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.78, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" unwind label %531
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438": ; preds = %518
-  %526 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %522, ptr %523, ptr noundef %525)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438": ; preds = %519
+  %527 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %523, ptr %524, ptr noundef %526)
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !149
-  %527 = extractvalue { i64, ptr } %526, 0
-  %528 = trunc nuw i64 %527 to i1
-  %529 = extractvalue { i64, ptr } %526, 1
-  br i1 %528, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %528 = extractvalue { i64, ptr } %527, 0
+  %529 = trunc nuw i64 %528 to i1
+  %530 = extractvalue { i64, ptr } %527, 1
+  br i1 %529, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-530:                                              ; preds = %518
-  %531 = landingpad { ptr, i32 }
+531:                                              ; preds = %519
+  %532 = landingpad { ptr, i32 }
           cleanup
-  %532 = icmp eq i64 %522, 0
-  br i1 %532, label %common.resume, label %533
+  %533 = icmp eq i64 %523, 0
+  br i1 %533, label %common.resume, label %534
 
-533:                                              ; preds = %530
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %524)
-          to label %common.resume unwind label %534
+534:                                              ; preds = %531
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %525)
+          to label %common.resume unwind label %535
 
-534:                                              ; preds = %533
-  %535 = landingpad { ptr, i32 }
+535:                                              ; preds = %534
+  %536 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-536:                                              ; preds = %217
-  %537 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val567 = load ptr, ptr %537, align 8, !nonnull !13, !align !46, !noundef !13
-  %538 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val568 = load ptr, ptr %538, align 8
-  %539 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_day_of_year17h7e2bec4d7ef2f8caE"(ptr nonnull %.val567, ptr %.val568, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %540 = extractvalue { i64, ptr } %539, 0
-  %541 = extractvalue { i64, ptr } %539, 1
+537:                                              ; preds = %218
+  %538 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val567 = load ptr, ptr %538, align 8, !nonnull !13, !align !46, !noundef !13
+  %539 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val568 = load ptr, ptr %539, align 8
+  %540 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_day_of_year17h7e2bec4d7ef2f8caE"(ptr nonnull %.val567, ptr %.val568, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %541 = extractvalue { i64, ptr } %540, 0
+  %542 = extractvalue { i64, ptr } %540, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !152
-  store i64 %540, ptr %54, align 8, !noalias !152
-  %542 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr %541, ptr %542, align 8, !noalias !152
-  %543 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.79, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" unwind label %548
+  store i64 %541, ptr %54, align 8, !noalias !152
+  %543 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store ptr %542, ptr %543, align 8, !noalias !152
+  %544 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.79, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" unwind label %549
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435": ; preds = %536
-  %544 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %540, ptr %541, ptr noundef %543)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435": ; preds = %537
+  %545 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %541, ptr %542, ptr noundef %544)
   call void @llvm.lifetime.end.p0(ptr nonnull %54), !noalias !152
-  %545 = extractvalue { i64, ptr } %544, 0
-  %546 = trunc nuw i64 %545 to i1
-  %547 = extractvalue { i64, ptr } %544, 1
-  br i1 %546, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %546 = extractvalue { i64, ptr } %545, 0
+  %547 = trunc nuw i64 %546 to i1
+  %548 = extractvalue { i64, ptr } %545, 1
+  br i1 %547, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-548:                                              ; preds = %536
-  %549 = landingpad { ptr, i32 }
+549:                                              ; preds = %537
+  %550 = landingpad { ptr, i32 }
           cleanup
-  %550 = icmp eq i64 %540, 0
-  br i1 %550, label %common.resume, label %551
+  %551 = icmp eq i64 %541, 0
+  br i1 %551, label %common.resume, label %552
 
-551:                                              ; preds = %548
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %542)
-          to label %common.resume unwind label %552
+552:                                              ; preds = %549
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %543)
+          to label %common.resume unwind label %553
 
-552:                                              ; preds = %551
-  %553 = landingpad { ptr, i32 }
+553:                                              ; preds = %552
+  %554 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-554:                                              ; preds = %217
-  %555 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val569 = load ptr, ptr %555, align 8, !nonnull !13, !align !46, !noundef !13
-  %556 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val570 = load ptr, ptr %556, align 8
-  %557 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_hour24_space17ha70cbd85532fa095E"(ptr nonnull %.val569, ptr %.val570, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %558 = extractvalue { i64, ptr } %557, 0
-  %559 = extractvalue { i64, ptr } %557, 1
+555:                                              ; preds = %218
+  %556 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val569 = load ptr, ptr %556, align 8, !nonnull !13, !align !46, !noundef !13
+  %557 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val570 = load ptr, ptr %557, align 8
+  %558 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_hour24_space17ha70cbd85532fa095E"(ptr nonnull %.val569, ptr %.val570, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %559 = extractvalue { i64, ptr } %558, 0
+  %560 = extractvalue { i64, ptr } %558, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !155
-  store i64 %558, ptr %55, align 8, !noalias !155
-  %560 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store ptr %559, ptr %560, align 8, !noalias !155
-  %561 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.80, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" unwind label %566
+  store i64 %559, ptr %55, align 8, !noalias !155
+  %561 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %560, ptr %561, align 8, !noalias !155
+  %562 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.80, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" unwind label %567
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432": ; preds = %554
-  %562 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %558, ptr %559, ptr noundef %561)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432": ; preds = %555
+  %563 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %559, ptr %560, ptr noundef %562)
   call void @llvm.lifetime.end.p0(ptr nonnull %55), !noalias !155
-  %563 = extractvalue { i64, ptr } %562, 0
-  %564 = trunc nuw i64 %563 to i1
-  %565 = extractvalue { i64, ptr } %562, 1
-  br i1 %564, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %564 = extractvalue { i64, ptr } %563, 0
+  %565 = trunc nuw i64 %564 to i1
+  %566 = extractvalue { i64, ptr } %563, 1
+  br i1 %565, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-566:                                              ; preds = %554
-  %567 = landingpad { ptr, i32 }
+567:                                              ; preds = %555
+  %568 = landingpad { ptr, i32 }
           cleanup
-  %568 = icmp eq i64 %558, 0
-  br i1 %568, label %common.resume, label %569
+  %569 = icmp eq i64 %559, 0
+  br i1 %569, label %common.resume, label %570
 
-569:                                              ; preds = %566
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %560)
-          to label %common.resume unwind label %570
+570:                                              ; preds = %567
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %561)
+          to label %common.resume unwind label %571
 
-570:                                              ; preds = %569
-  %571 = landingpad { ptr, i32 }
+571:                                              ; preds = %570
+  %572 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-572:                                              ; preds = %217
-  %573 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val571 = load ptr, ptr %573, align 8, !nonnull !13, !align !46, !noundef !13
-  %574 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val572 = load ptr, ptr %574, align 8
-  %575 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_hour12_space17he34ad6543407e161E"(ptr nonnull %.val571, ptr %.val572, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %576 = extractvalue { i64, ptr } %575, 0
-  %577 = extractvalue { i64, ptr } %575, 1
+573:                                              ; preds = %218
+  %574 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val571 = load ptr, ptr %574, align 8, !nonnull !13, !align !46, !noundef !13
+  %575 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val572 = load ptr, ptr %575, align 8
+  %576 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_hour12_space17he34ad6543407e161E"(ptr nonnull %.val571, ptr %.val572, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %577 = extractvalue { i64, ptr } %576, 0
+  %578 = extractvalue { i64, ptr } %576, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !158
-  store i64 %576, ptr %56, align 8, !noalias !158
-  %578 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store ptr %577, ptr %578, align 8, !noalias !158
-  %579 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.81, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" unwind label %584
+  store i64 %577, ptr %56, align 8, !noalias !158
+  %579 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store ptr %578, ptr %579, align 8, !noalias !158
+  %580 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.81, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" unwind label %585
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429": ; preds = %572
-  %580 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %576, ptr %577, ptr noundef %579)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429": ; preds = %573
+  %581 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %577, ptr %578, ptr noundef %580)
   call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !158
-  %581 = extractvalue { i64, ptr } %580, 0
-  %582 = trunc nuw i64 %581 to i1
-  %583 = extractvalue { i64, ptr } %580, 1
-  br i1 %582, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %582 = extractvalue { i64, ptr } %581, 0
+  %583 = trunc nuw i64 %582 to i1
+  %584 = extractvalue { i64, ptr } %581, 1
+  br i1 %583, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-584:                                              ; preds = %572
-  %585 = landingpad { ptr, i32 }
+585:                                              ; preds = %573
+  %586 = landingpad { ptr, i32 }
           cleanup
-  %586 = icmp eq i64 %576, 0
-  br i1 %586, label %common.resume, label %587
+  %587 = icmp eq i64 %577, 0
+  br i1 %587, label %common.resume, label %588
 
-587:                                              ; preds = %584
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %578)
-          to label %common.resume unwind label %588
+588:                                              ; preds = %585
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %579)
+          to label %common.resume unwind label %589
 
-588:                                              ; preds = %587
-  %589 = landingpad { ptr, i32 }
+589:                                              ; preds = %588
+  %590 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-590:                                              ; preds = %217
-  %591 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val573 = load ptr, ptr %591, align 8, !nonnull !13, !align !46, !noundef !13
-  %592 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val574 = load ptr, ptr %592, align 8
-  %593 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$10fmt_minute17hb37cce2aed4714a0E"(ptr nonnull %.val573, ptr %.val574, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %594 = extractvalue { i64, ptr } %593, 0
-  %595 = extractvalue { i64, ptr } %593, 1
+591:                                              ; preds = %218
+  %592 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val573 = load ptr, ptr %592, align 8, !nonnull !13, !align !46, !noundef !13
+  %593 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val574 = load ptr, ptr %593, align 8
+  %594 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$10fmt_minute17hb37cce2aed4714a0E"(ptr nonnull %.val573, ptr %.val574, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %595 = extractvalue { i64, ptr } %594, 0
+  %596 = extractvalue { i64, ptr } %594, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !161
-  store i64 %594, ptr %57, align 8, !noalias !161
-  %596 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store ptr %595, ptr %596, align 8, !noalias !161
-  %597 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.82, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" unwind label %602
+  store i64 %595, ptr %57, align 8, !noalias !161
+  %597 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store ptr %596, ptr %597, align 8, !noalias !161
+  %598 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.82, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" unwind label %603
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426": ; preds = %590
-  %598 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %594, ptr %595, ptr noundef %597)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426": ; preds = %591
+  %599 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %595, ptr %596, ptr noundef %598)
   call void @llvm.lifetime.end.p0(ptr nonnull %57), !noalias !161
-  %599 = extractvalue { i64, ptr } %598, 0
-  %600 = trunc nuw i64 %599 to i1
-  %601 = extractvalue { i64, ptr } %598, 1
-  br i1 %600, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %600 = extractvalue { i64, ptr } %599, 0
+  %601 = trunc nuw i64 %600 to i1
+  %602 = extractvalue { i64, ptr } %599, 1
+  br i1 %601, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-602:                                              ; preds = %590
-  %603 = landingpad { ptr, i32 }
+603:                                              ; preds = %591
+  %604 = landingpad { ptr, i32 }
           cleanup
-  %604 = icmp eq i64 %594, 0
-  br i1 %604, label %common.resume, label %605
+  %605 = icmp eq i64 %595, 0
+  br i1 %605, label %common.resume, label %606
 
-605:                                              ; preds = %602
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %596)
-          to label %common.resume unwind label %606
+606:                                              ; preds = %603
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %597)
+          to label %common.resume unwind label %607
 
-606:                                              ; preds = %605
-  %607 = landingpad { ptr, i32 }
+607:                                              ; preds = %606
+  %608 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-608:                                              ; preds = %217
-  %609 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val543 = load ptr, ptr %609, align 8, !nonnull !13, !align !46, !noundef !13
-  %610 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val544 = load ptr, ptr %610, align 8
-  %611 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$9fmt_month17h4ac2da2ace3425e3E"(ptr nonnull %.val543, ptr %.val544, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %612 = extractvalue { i64, ptr } %611, 0
-  %613 = extractvalue { i64, ptr } %611, 1
+609:                                              ; preds = %218
+  %610 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val543 = load ptr, ptr %610, align 8, !nonnull !13, !align !46, !noundef !13
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val544 = load ptr, ptr %611, align 8
+  %612 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$9fmt_month17h4ac2da2ace3425e3E"(ptr nonnull %.val543, ptr %.val544, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %613 = extractvalue { i64, ptr } %612, 0
+  %614 = extractvalue { i64, ptr } %612, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !164
-  store i64 %612, ptr %58, align 8, !noalias !164
-  %614 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store ptr %613, ptr %614, align 8, !noalias !164
-  %615 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.83, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" unwind label %620
+  store i64 %613, ptr %58, align 8, !noalias !164
+  %615 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store ptr %614, ptr %615, align 8, !noalias !164
+  %616 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.83, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" unwind label %621
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423": ; preds = %608
-  %616 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %612, ptr %613, ptr noundef %615)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423": ; preds = %609
+  %617 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %613, ptr %614, ptr noundef %616)
   call void @llvm.lifetime.end.p0(ptr nonnull %58), !noalias !164
-  %617 = extractvalue { i64, ptr } %616, 0
-  %618 = trunc nuw i64 %617 to i1
-  %619 = extractvalue { i64, ptr } %616, 1
-  br i1 %618, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %618 = extractvalue { i64, ptr } %617, 0
+  %619 = trunc nuw i64 %618 to i1
+  %620 = extractvalue { i64, ptr } %617, 1
+  br i1 %619, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-620:                                              ; preds = %608
-  %621 = landingpad { ptr, i32 }
+621:                                              ; preds = %609
+  %622 = landingpad { ptr, i32 }
           cleanup
-  %622 = icmp eq i64 %612, 0
-  br i1 %622, label %common.resume, label %623
+  %623 = icmp eq i64 %613, 0
+  br i1 %623, label %common.resume, label %624
 
-623:                                              ; preds = %620
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %614)
-          to label %common.resume unwind label %624
+624:                                              ; preds = %621
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %615)
+          to label %common.resume unwind label %625
 
-624:                                              ; preds = %623
-  %625 = landingpad { ptr, i32 }
+625:                                              ; preds = %624
+  %626 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-626:                                              ; preds = %217
-  %627 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val575 = load ptr, ptr %627, align 8, !nonnull !13, !align !46, !noundef !13
-  %628 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val576 = load ptr, ptr %628, align 8
-  %629 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_nanoseconds17had4cf89601f3a047E"(ptr nonnull %.val575, ptr %.val576, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %630 = extractvalue { i64, ptr } %629, 0
-  %631 = extractvalue { i64, ptr } %629, 1
+627:                                              ; preds = %218
+  %628 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val575 = load ptr, ptr %628, align 8, !nonnull !13, !align !46, !noundef !13
+  %629 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val576 = load ptr, ptr %629, align 8
+  %630 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_nanoseconds17had4cf89601f3a047E"(ptr nonnull %.val575, ptr %.val576, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %631 = extractvalue { i64, ptr } %630, 0
+  %632 = extractvalue { i64, ptr } %630, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !167
-  store i64 %630, ptr %59, align 8, !noalias !167
-  %632 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr %631, ptr %632, align 8, !noalias !167
-  %633 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.84, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" unwind label %638
+  store i64 %631, ptr %59, align 8, !noalias !167
+  %633 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store ptr %632, ptr %633, align 8, !noalias !167
+  %634 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.84, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" unwind label %639
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420": ; preds = %626
-  %634 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %630, ptr %631, ptr noundef %633)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420": ; preds = %627
+  %635 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %631, ptr %632, ptr noundef %634)
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !167
-  %635 = extractvalue { i64, ptr } %634, 0
-  %636 = trunc nuw i64 %635 to i1
-  %637 = extractvalue { i64, ptr } %634, 1
-  br i1 %636, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %636 = extractvalue { i64, ptr } %635, 0
+  %637 = trunc nuw i64 %636 to i1
+  %638 = extractvalue { i64, ptr } %635, 1
+  br i1 %637, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-638:                                              ; preds = %626
-  %639 = landingpad { ptr, i32 }
+639:                                              ; preds = %627
+  %640 = landingpad { ptr, i32 }
           cleanup
-  %640 = icmp eq i64 %630, 0
-  br i1 %640, label %common.resume, label %641
+  %641 = icmp eq i64 %631, 0
+  br i1 %641, label %common.resume, label %642
 
-641:                                              ; preds = %638
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %632)
-          to label %common.resume unwind label %642
+642:                                              ; preds = %639
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %633)
+          to label %common.resume unwind label %643
 
-642:                                              ; preds = %641
-  %643 = landingpad { ptr, i32 }
+643:                                              ; preds = %642
+  %644 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-644:                                              ; preds = %217
-  %645 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %646 = load ptr, ptr %645, align 8, !nonnull !13, !align !46, !noundef !13
-  %647 = call fastcc { i64, ptr } @"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E"(ptr noalias noundef align 8 dereferenceable(8) %646, ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.85, i64 noundef 1)
-  %648 = extractvalue { i64, ptr } %647, 0
-  %649 = extractvalue { i64, ptr } %647, 1
+645:                                              ; preds = %218
+  %646 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %647 = load ptr, ptr %646, align 8, !nonnull !13, !align !46, !noundef !13
+  %648 = call fastcc { i64, ptr } @"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E"(ptr noalias noundef align 8 dereferenceable(8) %647, ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.85, i64 noundef 1)
+  %649 = extractvalue { i64, ptr } %648, 0
+  %650 = extractvalue { i64, ptr } %648, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !170
-  store i64 %648, ptr %60, align 8, !noalias !170
-  %650 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr %649, ptr %650, align 8, !noalias !170
-  %651 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.86, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" unwind label %656
+  store i64 %649, ptr %60, align 8, !noalias !170
+  %651 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store ptr %650, ptr %651, align 8, !noalias !170
+  %652 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.86, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" unwind label %657
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417": ; preds = %644
-  %652 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %648, ptr %649, ptr noundef %651)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417": ; preds = %645
+  %653 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %649, ptr %650, ptr noundef %652)
   call void @llvm.lifetime.end.p0(ptr nonnull %60), !noalias !170
-  %653 = extractvalue { i64, ptr } %652, 0
-  %654 = trunc nuw i64 %653 to i1
-  %655 = extractvalue { i64, ptr } %652, 1
-  br i1 %654, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %654 = extractvalue { i64, ptr } %653, 0
+  %655 = trunc nuw i64 %654 to i1
+  %656 = extractvalue { i64, ptr } %653, 1
+  br i1 %655, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-656:                                              ; preds = %644
-  %657 = landingpad { ptr, i32 }
+657:                                              ; preds = %645
+  %658 = landingpad { ptr, i32 }
           cleanup
-  %658 = icmp eq i64 %648, 0
-  br i1 %658, label %common.resume, label %659
+  %659 = icmp eq i64 %649, 0
+  br i1 %659, label %common.resume, label %660
 
-659:                                              ; preds = %656
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %650)
-          to label %common.resume unwind label %660
+660:                                              ; preds = %657
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %651)
+          to label %common.resume unwind label %661
 
-660:                                              ; preds = %659
-  %661 = landingpad { ptr, i32 }
+661:                                              ; preds = %660
+  %662 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-662:                                              ; preds = %217
-  %663 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val577 = load ptr, ptr %663, align 8, !nonnull !13, !align !46, !noundef !13
-  %664 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val578 = load ptr, ptr %664, align 8
-  %665 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_ampm_lower17h0d05701908a84a30E"(ptr nonnull %.val577, ptr %.val578, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %666 = extractvalue { i64, ptr } %665, 0
-  %667 = extractvalue { i64, ptr } %665, 1
+663:                                              ; preds = %218
+  %664 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val577 = load ptr, ptr %664, align 8, !nonnull !13, !align !46, !noundef !13
+  %665 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val578 = load ptr, ptr %665, align 8
+  %666 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_ampm_lower17h0d05701908a84a30E"(ptr nonnull %.val577, ptr %.val578, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %667 = extractvalue { i64, ptr } %666, 0
+  %668 = extractvalue { i64, ptr } %666, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !173
-  store i64 %666, ptr %61, align 8, !noalias !173
-  %668 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store ptr %667, ptr %668, align 8, !noalias !173
-  %669 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.87, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" unwind label %674
+  store i64 %667, ptr %61, align 8, !noalias !173
+  %669 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %668, ptr %669, align 8, !noalias !173
+  %670 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.87, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" unwind label %675
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414": ; preds = %662
-  %670 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %666, ptr %667, ptr noundef %669)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414": ; preds = %663
+  %671 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %667, ptr %668, ptr noundef %670)
   call void @llvm.lifetime.end.p0(ptr nonnull %61), !noalias !173
-  %671 = extractvalue { i64, ptr } %670, 0
-  %672 = trunc nuw i64 %671 to i1
-  %673 = extractvalue { i64, ptr } %670, 1
-  br i1 %672, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %672 = extractvalue { i64, ptr } %671, 0
+  %673 = trunc nuw i64 %672 to i1
+  %674 = extractvalue { i64, ptr } %671, 1
+  br i1 %673, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-674:                                              ; preds = %662
-  %675 = landingpad { ptr, i32 }
+675:                                              ; preds = %663
+  %676 = landingpad { ptr, i32 }
           cleanup
-  %676 = icmp eq i64 %666, 0
-  br i1 %676, label %common.resume, label %677
+  %677 = icmp eq i64 %667, 0
+  br i1 %677, label %common.resume, label %678
 
-677:                                              ; preds = %674
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %668)
-          to label %common.resume unwind label %678
+678:                                              ; preds = %675
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %669)
+          to label %common.resume unwind label %679
 
-678:                                              ; preds = %677
-  %679 = landingpad { ptr, i32 }
+679:                                              ; preds = %678
+  %680 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-680:                                              ; preds = %217
-  %681 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val579 = load ptr, ptr %681, align 8, !nonnull !13, !align !46, !noundef !13
-  %682 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val580 = load ptr, ptr %682, align 8
-  %683 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_ampm_upper17h41c2f27bc31a72d1E"(ptr nonnull %.val579, ptr %.val580, i8 %.sroa.2.0.extract.trunc)
-  %684 = extractvalue { i64, ptr } %683, 0
-  %685 = extractvalue { i64, ptr } %683, 1
+681:                                              ; preds = %218
+  %682 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val579 = load ptr, ptr %682, align 8, !nonnull !13, !align !46, !noundef !13
+  %683 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val580 = load ptr, ptr %683, align 8
+  %684 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_ampm_upper17h41c2f27bc31a72d1E"(ptr nonnull %.val579, ptr %.val580, i8 %.sroa.2.0.extract.trunc)
+  %685 = extractvalue { i64, ptr } %684, 0
+  %686 = extractvalue { i64, ptr } %684, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %62), !noalias !176
-  store i64 %684, ptr %62, align 8, !noalias !176
-  %686 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %685, ptr %686, align 8, !noalias !176
-  %687 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.88, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" unwind label %692
+  store i64 %685, ptr %62, align 8, !noalias !176
+  %687 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr %686, ptr %687, align 8, !noalias !176
+  %688 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.88, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" unwind label %693
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411": ; preds = %680
-  %688 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %684, ptr %685, ptr noundef %687)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411": ; preds = %681
+  %689 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %685, ptr %686, ptr noundef %688)
   call void @llvm.lifetime.end.p0(ptr nonnull %62), !noalias !176
-  %689 = extractvalue { i64, ptr } %688, 0
-  %690 = trunc nuw i64 %689 to i1
-  %691 = extractvalue { i64, ptr } %688, 1
-  br i1 %690, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %690 = extractvalue { i64, ptr } %689, 0
+  %691 = trunc nuw i64 %690 to i1
+  %692 = extractvalue { i64, ptr } %689, 1
+  br i1 %691, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-692:                                              ; preds = %680
-  %693 = landingpad { ptr, i32 }
+693:                                              ; preds = %681
+  %694 = landingpad { ptr, i32 }
           cleanup
-  %694 = icmp eq i64 %684, 0
-  br i1 %694, label %common.resume, label %695
+  %695 = icmp eq i64 %685, 0
+  br i1 %695, label %common.resume, label %696
 
-695:                                              ; preds = %692
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %686)
-          to label %common.resume unwind label %696
+696:                                              ; preds = %693
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %687)
+          to label %common.resume unwind label %697
 
-696:                                              ; preds = %695
-  %697 = landingpad { ptr, i32 }
+697:                                              ; preds = %696
+  %698 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-698:                                              ; preds = %217
-  switch i8 %.sroa.3.0.extract.trunc, label %1027 [
-    i8 0, label %1033
-    i8 1, label %1049
+699:                                              ; preds = %218
+  switch i8 %.sroa.3.0.extract.trunc, label %1028 [
+    i8 0, label %1034
+    i8 1, label %1050
   ], !prof !179
 
-699:                                              ; preds = %217
-  %700 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val582 = load ptr, ptr %700, align 8, !nonnull !13, !align !46, !noundef !13
-  %701 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val583 = load ptr, ptr %701, align 8
-  %702 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$11fmt_quarter17h6b62e856c5a14864E"(ptr nonnull %.val582, ptr %.val583, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %703 = extractvalue { i64, ptr } %702, 0
-  %704 = extractvalue { i64, ptr } %702, 1
+700:                                              ; preds = %218
+  %701 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val582 = load ptr, ptr %701, align 8, !nonnull !13, !align !46, !noundef !13
+  %702 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val583 = load ptr, ptr %702, align 8
+  %703 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$11fmt_quarter17h6b62e856c5a14864E"(ptr nonnull %.val582, ptr %.val583, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %704 = extractvalue { i64, ptr } %703, 0
+  %705 = extractvalue { i64, ptr } %703, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %63), !noalias !180
-  store i64 %703, ptr %63, align 8, !noalias !180
-  %705 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store ptr %704, ptr %705, align 8, !noalias !180
-  %706 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.93, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" unwind label %711
+  store i64 %704, ptr %63, align 8, !noalias !180
+  %706 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store ptr %705, ptr %706, align 8, !noalias !180
+  %707 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.93, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" unwind label %712
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408": ; preds = %699
-  %707 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %703, ptr %704, ptr noundef %706)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408": ; preds = %700
+  %708 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %704, ptr %705, ptr noundef %707)
   call void @llvm.lifetime.end.p0(ptr nonnull %63), !noalias !180
-  %708 = extractvalue { i64, ptr } %707, 0
-  %709 = trunc nuw i64 %708 to i1
-  %710 = extractvalue { i64, ptr } %707, 1
-  br i1 %709, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %709 = extractvalue { i64, ptr } %708, 0
+  %710 = trunc nuw i64 %709 to i1
+  %711 = extractvalue { i64, ptr } %708, 1
+  br i1 %710, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-711:                                              ; preds = %699
-  %712 = landingpad { ptr, i32 }
+712:                                              ; preds = %700
+  %713 = landingpad { ptr, i32 }
           cleanup
-  %713 = icmp eq i64 %703, 0
-  br i1 %713, label %common.resume, label %714
+  %714 = icmp eq i64 %704, 0
+  br i1 %714, label %common.resume, label %715
 
-714:                                              ; preds = %711
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %705)
-          to label %common.resume unwind label %715
+715:                                              ; preds = %712
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %706)
+          to label %common.resume unwind label %716
 
-715:                                              ; preds = %714
-  %716 = landingpad { ptr, i32 }
+716:                                              ; preds = %715
+  %717 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-717:                                              ; preds = %217
-  %718 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val584 = load ptr, ptr %718, align 8, !nonnull !13, !align !46, !noundef !13
-  %719 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val585 = load ptr, ptr %719, align 8
-  %720 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_clock_nosecs17h0be0d48142282105E"(ptr nonnull %.val584, ptr %.val585, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %721 = extractvalue { i64, ptr } %720, 0
-  %722 = extractvalue { i64, ptr } %720, 1
+718:                                              ; preds = %218
+  %719 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val584 = load ptr, ptr %719, align 8, !nonnull !13, !align !46, !noundef !13
+  %720 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val585 = load ptr, ptr %720, align 8
+  %721 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_clock_nosecs17h0be0d48142282105E"(ptr nonnull %.val584, ptr %.val585, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %722 = extractvalue { i64, ptr } %721, 0
+  %723 = extractvalue { i64, ptr } %721, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %64), !noalias !183
-  store i64 %721, ptr %64, align 8, !noalias !183
-  %723 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store ptr %722, ptr %723, align 8, !noalias !183
-  %724 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.94, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" unwind label %729
+  store i64 %722, ptr %64, align 8, !noalias !183
+  %724 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store ptr %723, ptr %724, align 8, !noalias !183
+  %725 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.94, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" unwind label %730
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405": ; preds = %717
-  %725 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %721, ptr %722, ptr noundef %724)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405": ; preds = %718
+  %726 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %722, ptr %723, ptr noundef %725)
   call void @llvm.lifetime.end.p0(ptr nonnull %64), !noalias !183
-  %726 = extractvalue { i64, ptr } %725, 0
-  %727 = trunc nuw i64 %726 to i1
-  %728 = extractvalue { i64, ptr } %725, 1
-  br i1 %727, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %727 = extractvalue { i64, ptr } %726, 0
+  %728 = trunc nuw i64 %727 to i1
+  %729 = extractvalue { i64, ptr } %726, 1
+  br i1 %728, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-729:                                              ; preds = %717
-  %730 = landingpad { ptr, i32 }
+730:                                              ; preds = %718
+  %731 = landingpad { ptr, i32 }
           cleanup
-  %731 = icmp eq i64 %721, 0
-  br i1 %731, label %common.resume, label %732
+  %732 = icmp eq i64 %722, 0
+  br i1 %732, label %common.resume, label %733
 
-732:                                              ; preds = %729
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %723)
-          to label %common.resume unwind label %733
+733:                                              ; preds = %730
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %724)
+          to label %common.resume unwind label %734
 
-733:                                              ; preds = %732
-  %734 = landingpad { ptr, i32 }
+734:                                              ; preds = %733
+  %735 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-735:                                              ; preds = %217
-  %736 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
-  %737 = getelementptr inbounds nuw i8, ptr %736, i64 1
-  %738 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %739 = load ptr, ptr %738, align 8, !nonnull !13, !align !46, !noundef !13
-  %740 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %741 = load ptr, ptr %740, align 8, !nonnull !13, !align !46, !noundef !13
-  %742 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom18format_12hour_time17h2da8b24d62a38a9bE(ptr noalias noundef nonnull readonly align 1 %737, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %736, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %739, ptr noalias noundef nonnull align 8 dereferenceable(8) %741)
-  %743 = extractvalue { i64, ptr } %742, 0
-  %744 = extractvalue { i64, ptr } %742, 1
+736:                                              ; preds = %218
+  %737 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
+  %738 = getelementptr inbounds nuw i8, ptr %737, i64 1
+  %739 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %740 = load ptr, ptr %739, align 8, !nonnull !13, !align !46, !noundef !13
+  %741 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %742 = load ptr, ptr %741, align 8, !nonnull !13, !align !46, !noundef !13
+  %743 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom18format_12hour_time17h2da8b24d62a38a9bE(ptr noalias noundef nonnull readonly align 1 %738, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %737, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %740, ptr noalias noundef nonnull align 8 dereferenceable(8) %742)
+  %744 = extractvalue { i64, ptr } %743, 0
+  %745 = extractvalue { i64, ptr } %743, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %65), !noalias !186
-  store i64 %743, ptr %65, align 8, !noalias !186
-  %745 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store ptr %744, ptr %745, align 8, !noalias !186
-  %746 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.95, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" unwind label %751
+  store i64 %744, ptr %65, align 8, !noalias !186
+  %746 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store ptr %745, ptr %746, align 8, !noalias !186
+  %747 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.95, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" unwind label %752
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402": ; preds = %735
-  %747 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %743, ptr %744, ptr noundef %746)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402": ; preds = %736
+  %748 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %744, ptr %745, ptr noundef %747)
   call void @llvm.lifetime.end.p0(ptr nonnull %65), !noalias !186
-  %748 = extractvalue { i64, ptr } %747, 0
-  %749 = trunc nuw i64 %748 to i1
-  %750 = extractvalue { i64, ptr } %747, 1
-  br i1 %749, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %749 = extractvalue { i64, ptr } %748, 0
+  %750 = trunc nuw i64 %749 to i1
+  %751 = extractvalue { i64, ptr } %748, 1
+  br i1 %750, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-751:                                              ; preds = %735
-  %752 = landingpad { ptr, i32 }
+752:                                              ; preds = %736
+  %753 = landingpad { ptr, i32 }
           cleanup
-  %753 = icmp eq i64 %743, 0
-  br i1 %753, label %common.resume, label %754
+  %754 = icmp eq i64 %744, 0
+  br i1 %754, label %common.resume, label %755
 
-754:                                              ; preds = %751
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %745)
-          to label %common.resume unwind label %755
+755:                                              ; preds = %752
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %746)
+          to label %common.resume unwind label %756
 
-755:                                              ; preds = %754
-  %756 = landingpad { ptr, i32 }
+756:                                              ; preds = %755
+  %757 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-757:                                              ; preds = %217
-  %758 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val586 = load ptr, ptr %758, align 8, !nonnull !13, !align !46, !noundef !13
-  %759 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val587 = load ptr, ptr %759, align 8
-  %760 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$10fmt_second17h97cae22ef8b5460dE"(ptr nonnull %.val586, ptr %.val587, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %761 = extractvalue { i64, ptr } %760, 0
-  %762 = extractvalue { i64, ptr } %760, 1
+758:                                              ; preds = %218
+  %759 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val586 = load ptr, ptr %759, align 8, !nonnull !13, !align !46, !noundef !13
+  %760 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val587 = load ptr, ptr %760, align 8
+  %761 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$10fmt_second17h97cae22ef8b5460dE"(ptr nonnull %.val586, ptr %.val587, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %762 = extractvalue { i64, ptr } %761, 0
+  %763 = extractvalue { i64, ptr } %761, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %66), !noalias !189
-  store i64 %761, ptr %66, align 8, !noalias !189
-  %763 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store ptr %762, ptr %763, align 8, !noalias !189
-  %764 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.96, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" unwind label %769
+  store i64 %762, ptr %66, align 8, !noalias !189
+  %764 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store ptr %763, ptr %764, align 8, !noalias !189
+  %765 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.96, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" unwind label %770
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399": ; preds = %757
-  %765 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %761, ptr %762, ptr noundef %764)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399": ; preds = %758
+  %766 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %762, ptr %763, ptr noundef %765)
   call void @llvm.lifetime.end.p0(ptr nonnull %66), !noalias !189
-  %766 = extractvalue { i64, ptr } %765, 0
-  %767 = trunc nuw i64 %766 to i1
-  %768 = extractvalue { i64, ptr } %765, 1
-  br i1 %767, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %767 = extractvalue { i64, ptr } %766, 0
+  %768 = trunc nuw i64 %767 to i1
+  %769 = extractvalue { i64, ptr } %766, 1
+  br i1 %768, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-769:                                              ; preds = %757
-  %770 = landingpad { ptr, i32 }
+770:                                              ; preds = %758
+  %771 = landingpad { ptr, i32 }
           cleanup
-  %771 = icmp eq i64 %761, 0
-  br i1 %771, label %common.resume, label %772
+  %772 = icmp eq i64 %762, 0
+  br i1 %772, label %common.resume, label %773
 
-772:                                              ; preds = %769
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %763)
-          to label %common.resume unwind label %773
+773:                                              ; preds = %770
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %764)
+          to label %common.resume unwind label %774
 
-773:                                              ; preds = %772
-  %774 = landingpad { ptr, i32 }
+774:                                              ; preds = %773
+  %775 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-775:                                              ; preds = %217
-  %776 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val588 = load ptr, ptr %776, align 8, !nonnull !13, !align !46, !noundef !13
-  %777 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val589 = load ptr, ptr %777, align 8
-  %778 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$13fmt_timestamp17h86fec2e0c53e83b0E"(ptr %.val588, ptr %.val589, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %779 = extractvalue { i64, ptr } %778, 0
-  %780 = extractvalue { i64, ptr } %778, 1
+776:                                              ; preds = %218
+  %777 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val588 = load ptr, ptr %777, align 8, !nonnull !13, !align !46, !noundef !13
+  %778 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val589 = load ptr, ptr %778, align 8
+  %779 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$13fmt_timestamp17h86fec2e0c53e83b0E"(ptr %.val588, ptr %.val589, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %780 = extractvalue { i64, ptr } %779, 0
+  %781 = extractvalue { i64, ptr } %779, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %67), !noalias !192
-  store i64 %779, ptr %67, align 8, !noalias !192
-  %781 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store ptr %780, ptr %781, align 8, !noalias !192
-  %782 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.97, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" unwind label %787
+  store i64 %780, ptr %67, align 8, !noalias !192
+  %782 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store ptr %781, ptr %782, align 8, !noalias !192
+  %783 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.97, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" unwind label %788
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396": ; preds = %775
-  %783 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %779, ptr %780, ptr noundef %782)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396": ; preds = %776
+  %784 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %780, ptr %781, ptr noundef %783)
   call void @llvm.lifetime.end.p0(ptr nonnull %67), !noalias !192
-  %784 = extractvalue { i64, ptr } %783, 0
-  %785 = trunc nuw i64 %784 to i1
-  %786 = extractvalue { i64, ptr } %783, 1
-  br i1 %785, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %785 = extractvalue { i64, ptr } %784, 0
+  %786 = trunc nuw i64 %785 to i1
+  %787 = extractvalue { i64, ptr } %784, 1
+  br i1 %786, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-787:                                              ; preds = %775
-  %788 = landingpad { ptr, i32 }
+788:                                              ; preds = %776
+  %789 = landingpad { ptr, i32 }
           cleanup
-  %789 = icmp eq i64 %779, 0
-  br i1 %789, label %common.resume, label %790
+  %790 = icmp eq i64 %780, 0
+  br i1 %790, label %common.resume, label %791
 
-790:                                              ; preds = %787
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %781)
-          to label %common.resume unwind label %791
+791:                                              ; preds = %788
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %782)
+          to label %common.resume unwind label %792
 
-791:                                              ; preds = %790
-  %792 = landingpad { ptr, i32 }
+792:                                              ; preds = %791
+  %793 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-793:                                              ; preds = %217
-  %794 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val590 = load ptr, ptr %794, align 8, !nonnull !13, !align !46, !noundef !13
-  %795 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val591 = load ptr, ptr %795, align 8
-  %796 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_clock_secs17h3891583a8e487d28E"(ptr nonnull %.val590, ptr %.val591, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %797 = extractvalue { i64, ptr } %796, 0
-  %798 = extractvalue { i64, ptr } %796, 1
+794:                                              ; preds = %218
+  %795 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val590 = load ptr, ptr %795, align 8, !nonnull !13, !align !46, !noundef !13
+  %796 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val591 = load ptr, ptr %796, align 8
+  %797 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_clock_secs17h3891583a8e487d28E"(ptr nonnull %.val590, ptr %.val591, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %798 = extractvalue { i64, ptr } %797, 0
+  %799 = extractvalue { i64, ptr } %797, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !195
-  store i64 %797, ptr %68, align 8, !noalias !195
-  %799 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store ptr %798, ptr %799, align 8, !noalias !195
-  %800 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.98, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" unwind label %805
+  store i64 %798, ptr %68, align 8, !noalias !195
+  %800 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store ptr %799, ptr %800, align 8, !noalias !195
+  %801 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.98, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" unwind label %806
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393": ; preds = %793
-  %801 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %797, ptr %798, ptr noundef %800)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393": ; preds = %794
+  %802 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %798, ptr %799, ptr noundef %801)
   call void @llvm.lifetime.end.p0(ptr nonnull %68), !noalias !195
-  %802 = extractvalue { i64, ptr } %801, 0
-  %803 = trunc nuw i64 %802 to i1
-  %804 = extractvalue { i64, ptr } %801, 1
-  br i1 %803, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %803 = extractvalue { i64, ptr } %802, 0
+  %804 = trunc nuw i64 %803 to i1
+  %805 = extractvalue { i64, ptr } %802, 1
+  br i1 %804, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-805:                                              ; preds = %793
-  %806 = landingpad { ptr, i32 }
+806:                                              ; preds = %794
+  %807 = landingpad { ptr, i32 }
           cleanup
-  %807 = icmp eq i64 %797, 0
-  br i1 %807, label %common.resume, label %808
+  %808 = icmp eq i64 %798, 0
+  br i1 %808, label %common.resume, label %809
 
-808:                                              ; preds = %805
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %799)
-          to label %common.resume unwind label %809
+809:                                              ; preds = %806
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %800)
+          to label %common.resume unwind label %810
 
-809:                                              ; preds = %808
-  %810 = landingpad { ptr, i32 }
+810:                                              ; preds = %809
+  %811 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-811:                                              ; preds = %217
-  %812 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %813 = load ptr, ptr %812, align 8, !nonnull !13, !align !46, !noundef !13
-  %814 = call fastcc { i64, ptr } @"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E"(ptr noalias noundef align 8 dereferenceable(8) %813, ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.99, i64 noundef 1)
-  %815 = extractvalue { i64, ptr } %814, 0
-  %816 = extractvalue { i64, ptr } %814, 1
+812:                                              ; preds = %218
+  %813 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %814 = load ptr, ptr %813, align 8, !nonnull !13, !align !46, !noundef !13
+  %815 = call fastcc { i64, ptr } @"_ZN68_$LT$jiff..fmt..StdFmtWrite$LT$W$GT$$u20$as$u20$jiff..fmt..Write$GT$9write_str17ha633faf6b1f1d458E"(ptr noalias noundef align 8 dereferenceable(8) %814, ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.99, i64 noundef 1)
+  %816 = extractvalue { i64, ptr } %815, 0
+  %817 = extractvalue { i64, ptr } %815, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %69), !noalias !198
-  store i64 %815, ptr %69, align 8, !noalias !198
-  %817 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store ptr %816, ptr %817, align 8, !noalias !198
-  %818 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.100, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" unwind label %823
+  store i64 %816, ptr %69, align 8, !noalias !198
+  %818 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store ptr %817, ptr %818, align 8, !noalias !198
+  %819 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.100, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" unwind label %824
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390": ; preds = %811
-  %819 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %815, ptr %816, ptr noundef %818)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390": ; preds = %812
+  %820 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %816, ptr %817, ptr noundef %819)
   call void @llvm.lifetime.end.p0(ptr nonnull %69), !noalias !198
-  %820 = extractvalue { i64, ptr } %819, 0
-  %821 = trunc nuw i64 %820 to i1
-  %822 = extractvalue { i64, ptr } %819, 1
-  br i1 %821, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %821 = extractvalue { i64, ptr } %820, 0
+  %822 = trunc nuw i64 %821 to i1
+  %823 = extractvalue { i64, ptr } %820, 1
+  br i1 %822, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-823:                                              ; preds = %811
-  %824 = landingpad { ptr, i32 }
+824:                                              ; preds = %812
+  %825 = landingpad { ptr, i32 }
           cleanup
-  %825 = icmp eq i64 %815, 0
-  br i1 %825, label %common.resume, label %826
+  %826 = icmp eq i64 %816, 0
+  br i1 %826, label %common.resume, label %827
 
-826:                                              ; preds = %823
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %817)
-          to label %common.resume unwind label %827
+827:                                              ; preds = %824
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %818)
+          to label %common.resume unwind label %828
 
-827:                                              ; preds = %826
-  %828 = landingpad { ptr, i32 }
+828:                                              ; preds = %827
+  %829 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-829:                                              ; preds = %217
-  %830 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val592 = load ptr, ptr %830, align 8, !nonnull !13, !align !46, !noundef !13
-  %831 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val593 = load ptr, ptr %831, align 8
-  %832 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_week_sun17h4280912c8f014a62E"(ptr nonnull %.val592, ptr %.val593, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %833 = extractvalue { i64, ptr } %832, 0
-  %834 = extractvalue { i64, ptr } %832, 1
+830:                                              ; preds = %218
+  %831 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val592 = load ptr, ptr %831, align 8, !nonnull !13, !align !46, !noundef !13
+  %832 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val593 = load ptr, ptr %832, align 8
+  %833 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_week_sun17h4280912c8f014a62E"(ptr nonnull %.val592, ptr %.val593, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %834 = extractvalue { i64, ptr } %833, 0
+  %835 = extractvalue { i64, ptr } %833, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %70), !noalias !201
-  store i64 %833, ptr %70, align 8, !noalias !201
-  %835 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store ptr %834, ptr %835, align 8, !noalias !201
-  %836 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.101, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" unwind label %841
+  store i64 %834, ptr %70, align 8, !noalias !201
+  %836 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store ptr %835, ptr %836, align 8, !noalias !201
+  %837 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.101, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" unwind label %842
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387": ; preds = %829
-  %837 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %833, ptr %834, ptr noundef %836)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387": ; preds = %830
+  %838 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %834, ptr %835, ptr noundef %837)
   call void @llvm.lifetime.end.p0(ptr nonnull %70), !noalias !201
-  %838 = extractvalue { i64, ptr } %837, 0
-  %839 = trunc nuw i64 %838 to i1
-  %840 = extractvalue { i64, ptr } %837, 1
-  br i1 %839, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %839 = extractvalue { i64, ptr } %838, 0
+  %840 = trunc nuw i64 %839 to i1
+  %841 = extractvalue { i64, ptr } %838, 1
+  br i1 %840, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-841:                                              ; preds = %829
-  %842 = landingpad { ptr, i32 }
+842:                                              ; preds = %830
+  %843 = landingpad { ptr, i32 }
           cleanup
-  %843 = icmp eq i64 %833, 0
-  br i1 %843, label %common.resume, label %844
+  %844 = icmp eq i64 %834, 0
+  br i1 %844, label %common.resume, label %845
 
-844:                                              ; preds = %841
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %835)
-          to label %common.resume unwind label %845
+845:                                              ; preds = %842
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %836)
+          to label %common.resume unwind label %846
 
-845:                                              ; preds = %844
-  %846 = landingpad { ptr, i32 }
+846:                                              ; preds = %845
+  %847 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-847:                                              ; preds = %217
-  %848 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val594 = load ptr, ptr %848, align 8, !nonnull !13, !align !46, !noundef !13
-  %849 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val595 = load ptr, ptr %849, align 8
-  %850 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_weekday_mon17ha868d9c38d1acd37E"(ptr nonnull %.val594, ptr %.val595, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %851 = extractvalue { i64, ptr } %850, 0
-  %852 = extractvalue { i64, ptr } %850, 1
+848:                                              ; preds = %218
+  %849 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val594 = load ptr, ptr %849, align 8, !nonnull !13, !align !46, !noundef !13
+  %850 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val595 = load ptr, ptr %850, align 8
+  %851 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_weekday_mon17ha868d9c38d1acd37E"(ptr nonnull %.val594, ptr %.val595, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %852 = extractvalue { i64, ptr } %851, 0
+  %853 = extractvalue { i64, ptr } %851, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %71), !noalias !204
-  store i64 %851, ptr %71, align 8, !noalias !204
-  %853 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr %852, ptr %853, align 8, !noalias !204
-  %854 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.102, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" unwind label %859
+  store i64 %852, ptr %71, align 8, !noalias !204
+  %854 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store ptr %853, ptr %854, align 8, !noalias !204
+  %855 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.102, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" unwind label %860
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384": ; preds = %847
-  %855 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %851, ptr %852, ptr noundef %854)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384": ; preds = %848
+  %856 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %852, ptr %853, ptr noundef %855)
   call void @llvm.lifetime.end.p0(ptr nonnull %71), !noalias !204
-  %856 = extractvalue { i64, ptr } %855, 0
-  %857 = trunc nuw i64 %856 to i1
-  %858 = extractvalue { i64, ptr } %855, 1
-  br i1 %857, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %857 = extractvalue { i64, ptr } %856, 0
+  %858 = trunc nuw i64 %857 to i1
+  %859 = extractvalue { i64, ptr } %856, 1
+  br i1 %858, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-859:                                              ; preds = %847
-  %860 = landingpad { ptr, i32 }
+860:                                              ; preds = %848
+  %861 = landingpad { ptr, i32 }
           cleanup
-  %861 = icmp eq i64 %851, 0
-  br i1 %861, label %common.resume, label %862
+  %862 = icmp eq i64 %852, 0
+  br i1 %862, label %common.resume, label %863
 
-862:                                              ; preds = %859
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %853)
-          to label %common.resume unwind label %863
+863:                                              ; preds = %860
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %854)
+          to label %common.resume unwind label %864
 
-863:                                              ; preds = %862
-  %864 = landingpad { ptr, i32 }
+864:                                              ; preds = %863
+  %865 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-865:                                              ; preds = %217
-  %866 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val596 = load ptr, ptr %866, align 8, !nonnull !13, !align !46, !noundef !13
-  %867 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val597 = load ptr, ptr %867, align 8
-  %868 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_week_iso17h2b74b9a0fe1b5451E"(ptr nonnull %.val596, ptr %.val597, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %869 = extractvalue { i64, ptr } %868, 0
-  %870 = extractvalue { i64, ptr } %868, 1
+866:                                              ; preds = %218
+  %867 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val596 = load ptr, ptr %867, align 8, !nonnull !13, !align !46, !noundef !13
+  %868 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val597 = load ptr, ptr %868, align 8
+  %869 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_week_iso17h2b74b9a0fe1b5451E"(ptr nonnull %.val596, ptr %.val597, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %870 = extractvalue { i64, ptr } %869, 0
+  %871 = extractvalue { i64, ptr } %869, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %72), !noalias !207
-  store i64 %869, ptr %72, align 8, !noalias !207
-  %871 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %870, ptr %871, align 8, !noalias !207
-  %872 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.103, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" unwind label %877
+  store i64 %870, ptr %72, align 8, !noalias !207
+  %872 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store ptr %871, ptr %872, align 8, !noalias !207
+  %873 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.103, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" unwind label %878
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381": ; preds = %865
-  %873 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %869, ptr %870, ptr noundef %872)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381": ; preds = %866
+  %874 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %870, ptr %871, ptr noundef %873)
   call void @llvm.lifetime.end.p0(ptr nonnull %72), !noalias !207
-  %874 = extractvalue { i64, ptr } %873, 0
-  %875 = trunc nuw i64 %874 to i1
-  %876 = extractvalue { i64, ptr } %873, 1
-  br i1 %875, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %875 = extractvalue { i64, ptr } %874, 0
+  %876 = trunc nuw i64 %875 to i1
+  %877 = extractvalue { i64, ptr } %874, 1
+  br i1 %876, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-877:                                              ; preds = %865
-  %878 = landingpad { ptr, i32 }
+878:                                              ; preds = %866
+  %879 = landingpad { ptr, i32 }
           cleanup
-  %879 = icmp eq i64 %869, 0
-  br i1 %879, label %common.resume, label %880
+  %880 = icmp eq i64 %870, 0
+  br i1 %880, label %common.resume, label %881
 
-880:                                              ; preds = %877
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %871)
-          to label %common.resume unwind label %881
+881:                                              ; preds = %878
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %872)
+          to label %common.resume unwind label %882
 
-881:                                              ; preds = %880
-  %882 = landingpad { ptr, i32 }
+882:                                              ; preds = %881
+  %883 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-883:                                              ; preds = %217
-  %884 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val598 = load ptr, ptr %884, align 8, !nonnull !13, !align !46, !noundef !13
-  %885 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val599 = load ptr, ptr %885, align 8
-  %886 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_week_mon17h91b22b602314731cE"(ptr nonnull %.val598, ptr %.val599, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %887 = extractvalue { i64, ptr } %886, 0
-  %888 = extractvalue { i64, ptr } %886, 1
+884:                                              ; preds = %218
+  %885 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val598 = load ptr, ptr %885, align 8, !nonnull !13, !align !46, !noundef !13
+  %886 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val599 = load ptr, ptr %886, align 8
+  %887 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_week_mon17h91b22b602314731cE"(ptr nonnull %.val598, ptr %.val599, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %888 = extractvalue { i64, ptr } %887, 0
+  %889 = extractvalue { i64, ptr } %887, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %73), !noalias !210
-  store i64 %887, ptr %73, align 8, !noalias !210
-  %889 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store ptr %888, ptr %889, align 8, !noalias !210
-  %890 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.104, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" unwind label %895
+  store i64 %888, ptr %73, align 8, !noalias !210
+  %890 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store ptr %889, ptr %890, align 8, !noalias !210
+  %891 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.104, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" unwind label %896
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378": ; preds = %883
-  %891 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %887, ptr %888, ptr noundef %890)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378": ; preds = %884
+  %892 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %888, ptr %889, ptr noundef %891)
   call void @llvm.lifetime.end.p0(ptr nonnull %73), !noalias !210
-  %892 = extractvalue { i64, ptr } %891, 0
-  %893 = trunc nuw i64 %892 to i1
-  %894 = extractvalue { i64, ptr } %891, 1
-  br i1 %893, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %893 = extractvalue { i64, ptr } %892, 0
+  %894 = trunc nuw i64 %893 to i1
+  %895 = extractvalue { i64, ptr } %892, 1
+  br i1 %894, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-895:                                              ; preds = %883
-  %896 = landingpad { ptr, i32 }
+896:                                              ; preds = %884
+  %897 = landingpad { ptr, i32 }
           cleanup
-  %897 = icmp eq i64 %887, 0
-  br i1 %897, label %common.resume, label %898
+  %898 = icmp eq i64 %888, 0
+  br i1 %898, label %common.resume, label %899
 
-898:                                              ; preds = %895
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %889)
-          to label %common.resume unwind label %899
+899:                                              ; preds = %896
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %890)
+          to label %common.resume unwind label %900
 
-899:                                              ; preds = %898
-  %900 = landingpad { ptr, i32 }
+900:                                              ; preds = %899
+  %901 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-901:                                              ; preds = %217
-  %902 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val600 = load ptr, ptr %902, align 8, !nonnull !13, !align !46, !noundef !13
-  %903 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val601 = load ptr, ptr %903, align 8
-  %904 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_weekday_sun17h881503b9006bca26E"(ptr nonnull %.val600, ptr %.val601, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %905 = extractvalue { i64, ptr } %904, 0
-  %906 = extractvalue { i64, ptr } %904, 1
+902:                                              ; preds = %218
+  %903 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val600 = load ptr, ptr %903, align 8, !nonnull !13, !align !46, !noundef !13
+  %904 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val601 = load ptr, ptr %904, align 8
+  %905 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15fmt_weekday_sun17h881503b9006bca26E"(ptr nonnull %.val600, ptr %.val601, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %906 = extractvalue { i64, ptr } %905, 0
+  %907 = extractvalue { i64, ptr } %905, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %74), !noalias !213
-  store i64 %905, ptr %74, align 8, !noalias !213
-  %907 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %906, ptr %907, align 8, !noalias !213
-  %908 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.105, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" unwind label %913
+  store i64 %906, ptr %74, align 8, !noalias !213
+  %908 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store ptr %907, ptr %908, align 8, !noalias !213
+  %909 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.105, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" unwind label %914
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375": ; preds = %901
-  %909 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %905, ptr %906, ptr noundef %908)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375": ; preds = %902
+  %910 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %906, ptr %907, ptr noundef %909)
   call void @llvm.lifetime.end.p0(ptr nonnull %74), !noalias !213
-  %910 = extractvalue { i64, ptr } %909, 0
-  %911 = trunc nuw i64 %910 to i1
-  %912 = extractvalue { i64, ptr } %909, 1
-  br i1 %911, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %911 = extractvalue { i64, ptr } %910, 0
+  %912 = trunc nuw i64 %911 to i1
+  %913 = extractvalue { i64, ptr } %910, 1
+  br i1 %912, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-913:                                              ; preds = %901
-  %914 = landingpad { ptr, i32 }
+914:                                              ; preds = %902
+  %915 = landingpad { ptr, i32 }
           cleanup
-  %915 = icmp eq i64 %905, 0
-  br i1 %915, label %common.resume, label %916
+  %916 = icmp eq i64 %906, 0
+  br i1 %916, label %common.resume, label %917
 
-916:                                              ; preds = %913
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %907)
-          to label %common.resume unwind label %917
+917:                                              ; preds = %914
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %908)
+          to label %common.resume unwind label %918
 
-917:                                              ; preds = %916
-  %918 = landingpad { ptr, i32 }
+918:                                              ; preds = %917
+  %919 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-919:                                              ; preds = %217
-  %920 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
-  %921 = getelementptr inbounds nuw i8, ptr %920, i64 1
-  %922 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %923 = load ptr, ptr %922, align 8, !nonnull !13, !align !46, !noundef !13
-  %924 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %925 = load ptr, ptr %924, align 8, !nonnull !13, !align !46, !noundef !13
-  %926 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom11format_time17h92b62a8f847e7b69E(ptr noalias noundef nonnull readonly align 1 %921, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %920, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %923, ptr noalias noundef nonnull align 8 dereferenceable(8) %925)
-  %927 = extractvalue { i64, ptr } %926, 0
-  %928 = extractvalue { i64, ptr } %926, 1
+920:                                              ; preds = %218
+  %921 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
+  %922 = getelementptr inbounds nuw i8, ptr %921, i64 1
+  %923 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %924 = load ptr, ptr %923, align 8, !nonnull !13, !align !46, !noundef !13
+  %925 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %926 = load ptr, ptr %925, align 8, !nonnull !13, !align !46, !noundef !13
+  %927 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom11format_time17h92b62a8f847e7b69E(ptr noalias noundef nonnull readonly align 1 %922, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %921, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %924, ptr noalias noundef nonnull align 8 dereferenceable(8) %926)
+  %928 = extractvalue { i64, ptr } %927, 0
+  %929 = extractvalue { i64, ptr } %927, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %75), !noalias !216
-  store i64 %927, ptr %75, align 8, !noalias !216
-  %929 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store ptr %928, ptr %929, align 8, !noalias !216
-  %930 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.106, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" unwind label %935
+  store i64 %928, ptr %75, align 8, !noalias !216
+  %930 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store ptr %929, ptr %930, align 8, !noalias !216
+  %931 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.106, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" unwind label %936
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372": ; preds = %919
-  %931 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %927, ptr %928, ptr noundef %930)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372": ; preds = %920
+  %932 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %928, ptr %929, ptr noundef %931)
   call void @llvm.lifetime.end.p0(ptr nonnull %75), !noalias !216
-  %932 = extractvalue { i64, ptr } %931, 0
-  %933 = trunc nuw i64 %932 to i1
-  %934 = extractvalue { i64, ptr } %931, 1
-  br i1 %933, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %933 = extractvalue { i64, ptr } %932, 0
+  %934 = trunc nuw i64 %933 to i1
+  %935 = extractvalue { i64, ptr } %932, 1
+  br i1 %934, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-935:                                              ; preds = %919
-  %936 = landingpad { ptr, i32 }
+936:                                              ; preds = %920
+  %937 = landingpad { ptr, i32 }
           cleanup
-  %937 = icmp eq i64 %927, 0
-  br i1 %937, label %common.resume, label %938
+  %938 = icmp eq i64 %928, 0
+  br i1 %938, label %common.resume, label %939
 
-938:                                              ; preds = %935
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %929)
-          to label %common.resume unwind label %939
+939:                                              ; preds = %936
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %930)
+          to label %common.resume unwind label %940
 
-939:                                              ; preds = %938
-  %940 = landingpad { ptr, i32 }
+940:                                              ; preds = %939
+  %941 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-941:                                              ; preds = %217
-  %942 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
-  %943 = getelementptr inbounds nuw i8, ptr %942, i64 1
-  %944 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %945 = load ptr, ptr %944, align 8, !nonnull !13, !align !46, !noundef !13
-  %946 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %947 = load ptr, ptr %946, align 8, !nonnull !13, !align !46, !noundef !13
-  %948 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom11format_date17he78df0b36004be96E(ptr noalias noundef nonnull readonly align 1 %943, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %942, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %945, ptr noalias noundef nonnull align 8 dereferenceable(8) %947)
-  %949 = extractvalue { i64, ptr } %948, 0
-  %950 = extractvalue { i64, ptr } %948, 1
+942:                                              ; preds = %218
+  %943 = load ptr, ptr %0, align 8, !nonnull !13, !align !42, !noundef !13
+  %944 = getelementptr inbounds nuw i8, ptr %943, i64 1
+  %945 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %946 = load ptr, ptr %945, align 8, !nonnull !13, !align !46, !noundef !13
+  %947 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %948 = load ptr, ptr %947, align 8, !nonnull !13, !align !46, !noundef !13
+  %949 = call { i64, ptr } @_ZN4jiff3fmt7strtime6Custom11format_date17he78df0b36004be96E(ptr noalias noundef nonnull readonly align 1 %944, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %943, ptr noalias noundef nonnull readonly align 1 dereferenceable(4) %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %946, ptr noalias noundef nonnull align 8 dereferenceable(8) %948)
+  %950 = extractvalue { i64, ptr } %949, 0
+  %951 = extractvalue { i64, ptr } %949, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %76), !noalias !219
-  store i64 %949, ptr %76, align 8, !noalias !219
-  %951 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  store ptr %950, ptr %951, align 8, !noalias !219
-  %952 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.107, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" unwind label %957
+  store i64 %950, ptr %76, align 8, !noalias !219
+  %952 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store ptr %951, ptr %952, align 8, !noalias !219
+  %953 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.107, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" unwind label %958
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369": ; preds = %941
-  %953 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %949, ptr %950, ptr noundef %952)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369": ; preds = %942
+  %954 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %950, ptr %951, ptr noundef %953)
   call void @llvm.lifetime.end.p0(ptr nonnull %76), !noalias !219
-  %954 = extractvalue { i64, ptr } %953, 0
-  %955 = trunc nuw i64 %954 to i1
-  %956 = extractvalue { i64, ptr } %953, 1
-  br i1 %955, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %955 = extractvalue { i64, ptr } %954, 0
+  %956 = trunc nuw i64 %955 to i1
+  %957 = extractvalue { i64, ptr } %954, 1
+  br i1 %956, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-957:                                              ; preds = %941
-  %958 = landingpad { ptr, i32 }
+958:                                              ; preds = %942
+  %959 = landingpad { ptr, i32 }
           cleanup
-  %959 = icmp eq i64 %949, 0
-  br i1 %959, label %common.resume, label %960
+  %960 = icmp eq i64 %950, 0
+  br i1 %960, label %common.resume, label %961
 
-960:                                              ; preds = %957
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %951)
-          to label %common.resume unwind label %961
+961:                                              ; preds = %958
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %952)
+          to label %common.resume unwind label %962
 
-961:                                              ; preds = %960
-  %962 = landingpad { ptr, i32 }
+962:                                              ; preds = %961
+  %963 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-963:                                              ; preds = %217
-  %964 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val553 = load ptr, ptr %964, align 8, !nonnull !13, !align !46, !noundef !13
-  %965 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val554 = load ptr, ptr %965, align 8
-  %966 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8fmt_year17h4d0b3d6470b53626E"(ptr nonnull %.val553, ptr %.val554, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %967 = extractvalue { i64, ptr } %966, 0
-  %968 = extractvalue { i64, ptr } %966, 1
+964:                                              ; preds = %218
+  %965 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val553 = load ptr, ptr %965, align 8, !nonnull !13, !align !46, !noundef !13
+  %966 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val554 = load ptr, ptr %966, align 8
+  %967 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8fmt_year17h4d0b3d6470b53626E"(ptr nonnull %.val553, ptr %.val554, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %968 = extractvalue { i64, ptr } %967, 0
+  %969 = extractvalue { i64, ptr } %967, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %77), !noalias !222
-  store i64 %967, ptr %77, align 8, !noalias !222
-  %969 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  store ptr %968, ptr %969, align 8, !noalias !222
-  %970 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.108, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" unwind label %975
+  store i64 %968, ptr %77, align 8, !noalias !222
+  %970 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  store ptr %969, ptr %970, align 8, !noalias !222
+  %971 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.108, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" unwind label %976
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366": ; preds = %963
-  %971 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %967, ptr %968, ptr noundef %970)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366": ; preds = %964
+  %972 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %968, ptr %969, ptr noundef %971)
   call void @llvm.lifetime.end.p0(ptr nonnull %77), !noalias !222
-  %972 = extractvalue { i64, ptr } %971, 0
-  %973 = trunc nuw i64 %972 to i1
-  %974 = extractvalue { i64, ptr } %971, 1
-  br i1 %973, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %973 = extractvalue { i64, ptr } %972, 0
+  %974 = trunc nuw i64 %973 to i1
+  %975 = extractvalue { i64, ptr } %972, 1
+  br i1 %974, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-975:                                              ; preds = %963
-  %976 = landingpad { ptr, i32 }
+976:                                              ; preds = %964
+  %977 = landingpad { ptr, i32 }
           cleanup
-  %977 = icmp eq i64 %967, 0
-  br i1 %977, label %common.resume, label %978
+  %978 = icmp eq i64 %968, 0
+  br i1 %978, label %common.resume, label %979
 
-978:                                              ; preds = %975
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %969)
-          to label %common.resume unwind label %979
+979:                                              ; preds = %976
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %970)
+          to label %common.resume unwind label %980
 
-979:                                              ; preds = %978
-  %980 = landingpad { ptr, i32 }
+980:                                              ; preds = %979
+  %981 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-981:                                              ; preds = %217
-  %982 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val547 = load ptr, ptr %982, align 8, !nonnull !13, !align !46, !noundef !13
-  %983 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val548 = load ptr, ptr %983, align 8
-  %984 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$9fmt_year217hdb3a72e5499c8357E"(ptr nonnull %.val547, ptr %.val548, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %985 = extractvalue { i64, ptr } %984, 0
-  %986 = extractvalue { i64, ptr } %984, 1
+982:                                              ; preds = %218
+  %983 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val547 = load ptr, ptr %983, align 8, !nonnull !13, !align !46, !noundef !13
+  %984 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val548 = load ptr, ptr %984, align 8
+  %985 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$9fmt_year217hdb3a72e5499c8357E"(ptr nonnull %.val547, ptr %.val548, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %986 = extractvalue { i64, ptr } %985, 0
+  %987 = extractvalue { i64, ptr } %985, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %78), !noalias !225
-  store i64 %985, ptr %78, align 8, !noalias !225
-  %987 = getelementptr inbounds nuw i8, ptr %78, i64 8
-  store ptr %986, ptr %987, align 8, !noalias !225
-  %988 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.109, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" unwind label %993
+  store i64 %986, ptr %78, align 8, !noalias !225
+  %988 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store ptr %987, ptr %988, align 8, !noalias !225
+  %989 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.109, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" unwind label %994
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363": ; preds = %981
-  %989 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %985, ptr %986, ptr noundef %988)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363": ; preds = %982
+  %990 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %986, ptr %987, ptr noundef %989)
   call void @llvm.lifetime.end.p0(ptr nonnull %78), !noalias !225
-  %990 = extractvalue { i64, ptr } %989, 0
-  %991 = trunc nuw i64 %990 to i1
-  %992 = extractvalue { i64, ptr } %989, 1
-  br i1 %991, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %991 = extractvalue { i64, ptr } %990, 0
+  %992 = trunc nuw i64 %991 to i1
+  %993 = extractvalue { i64, ptr } %990, 1
+  br i1 %992, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-993:                                              ; preds = %981
-  %994 = landingpad { ptr, i32 }
+994:                                              ; preds = %982
+  %995 = landingpad { ptr, i32 }
           cleanup
-  %995 = icmp eq i64 %985, 0
-  br i1 %995, label %common.resume, label %996
+  %996 = icmp eq i64 %986, 0
+  br i1 %996, label %common.resume, label %997
 
-996:                                              ; preds = %993
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %987)
-          to label %common.resume unwind label %997
+997:                                              ; preds = %994
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %988)
+          to label %common.resume unwind label %998
 
-997:                                              ; preds = %996
-  %998 = landingpad { ptr, i32 }
+998:                                              ; preds = %997
+  %999 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-999:                                              ; preds = %217
-  %1000 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val602 = load ptr, ptr %1000, align 8, !nonnull !13, !align !46, !noundef !13
-  %1001 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val603 = load ptr, ptr %1001, align 8
-  %1002 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_tzabbrev17hb8e5e19a142b4beeE"(ptr nonnull %.val602, ptr %.val603, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
-  %1003 = extractvalue { i64, ptr } %1002, 0
-  %1004 = extractvalue { i64, ptr } %1002, 1
+1000:                                             ; preds = %218
+  %1001 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val602 = load ptr, ptr %1001, align 8, !nonnull !13, !align !46, !noundef !13
+  %1002 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val603 = load ptr, ptr %1002, align 8
+  %1003 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$12fmt_tzabbrev17hb8e5e19a142b4beeE"(ptr nonnull %.val602, ptr %.val603, ptr noalias noundef readonly align 1 dereferenceable(4) %97)
+  %1004 = extractvalue { i64, ptr } %1003, 0
+  %1005 = extractvalue { i64, ptr } %1003, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %79), !noalias !228
-  store i64 %1003, ptr %79, align 8, !noalias !228
-  %1005 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  store ptr %1004, ptr %1005, align 8, !noalias !228
-  %1006 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.110, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" unwind label %1011
+  store i64 %1004, ptr %79, align 8, !noalias !228
+  %1006 = getelementptr inbounds nuw i8, ptr %79, i64 8
+  store ptr %1005, ptr %1006, align 8, !noalias !228
+  %1007 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.110, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" unwind label %1012
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360": ; preds = %999
-  %1007 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1003, ptr %1004, ptr noundef %1006)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360": ; preds = %1000
+  %1008 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1004, ptr %1005, ptr noundef %1007)
   call void @llvm.lifetime.end.p0(ptr nonnull %79), !noalias !228
-  %1008 = extractvalue { i64, ptr } %1007, 0
-  %1009 = trunc nuw i64 %1008 to i1
-  %1010 = extractvalue { i64, ptr } %1007, 1
-  br i1 %1009, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %1009 = extractvalue { i64, ptr } %1008, 0
+  %1010 = trunc nuw i64 %1009 to i1
+  %1011 = extractvalue { i64, ptr } %1008, 1
+  br i1 %1010, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-1011:                                             ; preds = %999
-  %1012 = landingpad { ptr, i32 }
+1012:                                             ; preds = %1000
+  %1013 = landingpad { ptr, i32 }
           cleanup
-  %1013 = icmp eq i64 %1003, 0
-  br i1 %1013, label %common.resume, label %1014
+  %1014 = icmp eq i64 %1004, 0
+  br i1 %1014, label %common.resume, label %1015
 
-1014:                                             ; preds = %1011
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1005)
-          to label %common.resume unwind label %1015
+1015:                                             ; preds = %1012
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1006)
+          to label %common.resume unwind label %1016
 
-1015:                                             ; preds = %1014
-  %1016 = landingpad { ptr, i32 }
+1016:                                             ; preds = %1015
+  %1017 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1017:                                             ; preds = %217
-  switch i8 %.sroa.3.0.extract.trunc, label %1065 [
-    i8 0, label %1071
-    i8 1, label %1089
-    i8 2, label %1107
-    i8 3, label %1125
+1018:                                             ; preds = %218
+  switch i8 %.sroa.3.0.extract.trunc, label %1066 [
+    i8 0, label %1072
+    i8 1, label %1090
+    i8 2, label %1108
+    i8 3, label %1126
   ], !prof !231
 
-1018:                                             ; preds = %217
-  %1019 = call fastcc noundef zeroext i1 @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E"(ptr noalias noundef align 8 dereferenceable(40) %0)
-  br i1 %1019, label %1149, label %1143, !prof !8
+1019:                                             ; preds = %218
+  %1020 = call fastcc noundef zeroext i1 @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E"(ptr noalias noundef align 8 dereferenceable(40) %0)
+  br i1 %1020, label %1150, label %1144, !prof !8
 
-1020:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486", %1265
+1021:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486", %1266
   call void @llvm.experimental.noalias.scope.decl(metadata !232)
-  %1021 = load i64, ptr %100, align 8, !alias.scope !232, !noundef !13
-  %1022 = icmp eq i64 %1021, 0
-  br i1 %1022, label %1023, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit", !prof !3
+  %1022 = load i64, ptr %100, align 8, !alias.scope !232, !noundef !13
+  %1023 = icmp eq i64 %1022, 0
+  br i1 %1023, label %1024, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit", !prof !3
 
-1023:                                             ; preds = %1020
+1024:                                             ; preds = %1021
   call void @_ZN4core5slice5index26slice_start_index_len_fail17h05ef7a11a2121cb4E(i64 noundef 1, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ebbfe4fa2bcd65020678261b9eefb9d7.125) #17, !noalias !232
   unreachable
 
-"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit": ; preds = %1020
-  %1024 = load ptr, ptr %98, align 8, !alias.scope !232, !nonnull !13, !align !42, !noundef !13
-  %1025 = add i64 %1021, -1
-  %1026 = getelementptr inbounds nuw i8, ptr %1024, i64 1
-  store ptr %1026, ptr %98, align 8, !alias.scope !232
-  store i64 %1025, ptr %100, align 8, !alias.scope !232
+"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit": ; preds = %1021
+  %1025 = load ptr, ptr %98, align 8, !alias.scope !232, !nonnull !13, !align !42, !noundef !13
+  %1026 = add i64 %1022, -1
+  %1027 = getelementptr inbounds nuw i8, ptr %1025, i64 1
+  store ptr %1027, ptr %98, align 8, !alias.scope !232
+  store i64 %1026, ptr %100, align 8, !alias.scope !232
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 
-1027:                                             ; preds = %698
+1028:                                             ; preds = %699
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.92, ptr %96, align 8
-  %1028 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  store i64 1, ptr %1028, align 8
-  %1029 = getelementptr inbounds nuw i8, ptr %96, i64 32
-  store ptr null, ptr %1029, align 8
-  %1030 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %1030, align 8
-  %1031 = getelementptr inbounds nuw i8, ptr %96, i64 24
-  store i64 0, ptr %1031, align 8
-  %1032 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %96)
+  %1029 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  store i64 1, ptr %1029, align 8
+  %1030 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  store ptr null, ptr %1030, align 8
+  %1031 = getelementptr inbounds nuw i8, ptr %96, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %1031, align 8
+  %1032 = getelementptr inbounds nuw i8, ptr %96, i64 24
+  store i64 0, ptr %1032, align 8
+  %1033 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %96)
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 
-1033:                                             ; preds = %698
-  %1034 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_iana_nocolon17h2755cab5845e4a93E"(ptr noalias noundef align 8 dereferenceable(40) %0)
-  %1035 = extractvalue { i64, ptr } %1034, 0
-  %1036 = extractvalue { i64, ptr } %1034, 1
+1034:                                             ; preds = %699
+  %1035 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_iana_nocolon17h2755cab5845e4a93E"(ptr noalias noundef align 8 dereferenceable(40) %0)
+  %1036 = extractvalue { i64, ptr } %1035, 0
+  %1037 = extractvalue { i64, ptr } %1035, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %80), !noalias !235
-  store i64 %1035, ptr %80, align 8, !noalias !235
-  %1037 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %1036, ptr %1037, align 8, !noalias !235
-  %1038 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.89, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" unwind label %1043
+  store i64 %1036, ptr %80, align 8, !noalias !235
+  %1038 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  store ptr %1037, ptr %1038, align 8, !noalias !235
+  %1039 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.89, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" unwind label %1044
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357": ; preds = %1033
-  %1039 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1035, ptr %1036, ptr noundef %1038)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357": ; preds = %1034
+  %1040 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1036, ptr %1037, ptr noundef %1039)
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !235
-  %1040 = extractvalue { i64, ptr } %1039, 0
-  %1041 = trunc nuw i64 %1040 to i1
-  %1042 = extractvalue { i64, ptr } %1039, 1
-  br i1 %1041, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %1041 = extractvalue { i64, ptr } %1040, 0
+  %1042 = trunc nuw i64 %1041 to i1
+  %1043 = extractvalue { i64, ptr } %1040, 1
+  br i1 %1042, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-1043:                                             ; preds = %1033
-  %1044 = landingpad { ptr, i32 }
+1044:                                             ; preds = %1034
+  %1045 = landingpad { ptr, i32 }
           cleanup
-  %1045 = icmp eq i64 %1035, 0
-  br i1 %1045, label %common.resume, label %1046
+  %1046 = icmp eq i64 %1036, 0
+  br i1 %1046, label %common.resume, label %1047
 
-1046:                                             ; preds = %1043
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1037)
-          to label %common.resume unwind label %1047
+1047:                                             ; preds = %1044
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1038)
+          to label %common.resume unwind label %1048
 
-1047:                                             ; preds = %1046
-  %1048 = landingpad { ptr, i32 }
+1048:                                             ; preds = %1047
+  %1049 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1049:                                             ; preds = %698
-  %1050 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_iana_colon17h373875332df2aeccE"(ptr noalias noundef align 8 dereferenceable(40) %0)
-  %1051 = extractvalue { i64, ptr } %1050, 0
-  %1052 = extractvalue { i64, ptr } %1050, 1
+1050:                                             ; preds = %699
+  %1051 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$14fmt_iana_colon17h373875332df2aeccE"(ptr noalias noundef align 8 dereferenceable(40) %0)
+  %1052 = extractvalue { i64, ptr } %1051, 0
+  %1053 = extractvalue { i64, ptr } %1051, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %81), !noalias !238
-  store i64 %1051, ptr %81, align 8, !noalias !238
-  %1053 = getelementptr inbounds nuw i8, ptr %81, i64 8
-  store ptr %1052, ptr %1053, align 8, !noalias !238
-  %1054 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.90, i64 noundef range(i64 9, 43) 10)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" unwind label %1059
+  store i64 %1052, ptr %81, align 8, !noalias !238
+  %1054 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store ptr %1053, ptr %1054, align 8, !noalias !238
+  %1055 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.90, i64 noundef range(i64 9, 43) 10)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" unwind label %1060
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354": ; preds = %1049
-  %1055 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1051, ptr %1052, ptr noundef %1054)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354": ; preds = %1050
+  %1056 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1052, ptr %1053, ptr noundef %1055)
   call void @llvm.lifetime.end.p0(ptr nonnull %81), !noalias !238
-  %1056 = extractvalue { i64, ptr } %1055, 0
-  %1057 = trunc nuw i64 %1056 to i1
-  %1058 = extractvalue { i64, ptr } %1055, 1
-  br i1 %1057, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %1057 = extractvalue { i64, ptr } %1056, 0
+  %1058 = trunc nuw i64 %1057 to i1
+  %1059 = extractvalue { i64, ptr } %1056, 1
+  br i1 %1058, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-1059:                                             ; preds = %1049
-  %1060 = landingpad { ptr, i32 }
+1060:                                             ; preds = %1050
+  %1061 = landingpad { ptr, i32 }
           cleanup
-  %1061 = icmp eq i64 %1051, 0
-  br i1 %1061, label %common.resume, label %1062
+  %1062 = icmp eq i64 %1052, 0
+  br i1 %1062, label %common.resume, label %1063
 
-1062:                                             ; preds = %1059
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1053)
-          to label %common.resume unwind label %1063
+1063:                                             ; preds = %1060
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1054)
+          to label %common.resume unwind label %1064
 
-1063:                                             ; preds = %1062
-  %1064 = landingpad { ptr, i32 }
+1064:                                             ; preds = %1063
+  %1065 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1065:                                             ; preds = %1017
+1066:                                             ; preds = %1018
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.116, ptr %95, align 8
-  %1066 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  store i64 1, ptr %1066, align 8
-  %1067 = getelementptr inbounds nuw i8, ptr %95, i64 32
-  store ptr null, ptr %1067, align 8
-  %1068 = getelementptr inbounds nuw i8, ptr %95, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %1068, align 8
-  %1069 = getelementptr inbounds nuw i8, ptr %95, i64 24
-  store i64 0, ptr %1069, align 8
-  %1070 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %95)
+  %1067 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  store i64 1, ptr %1067, align 8
+  %1068 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  store ptr null, ptr %1068, align 8
+  %1069 = getelementptr inbounds nuw i8, ptr %95, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %1069, align 8
+  %1070 = getelementptr inbounds nuw i8, ptr %95, i64 24
+  store i64 0, ptr %1070, align 8
+  %1071 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %95)
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 
-1071:                                             ; preds = %1017
-  %1072 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val604 = load ptr, ptr %1072, align 8, !nonnull !13, !align !46, !noundef !13
-  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val605 = load ptr, ptr %1073, align 8
-  %1074 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_offset_nocolon17h4cefb714e43372a0E"(ptr nonnull %.val604, ptr %.val605)
-  %1075 = extractvalue { i64, ptr } %1074, 0
-  %1076 = extractvalue { i64, ptr } %1074, 1
+1072:                                             ; preds = %1018
+  %1073 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val604 = load ptr, ptr %1073, align 8, !nonnull !13, !align !46, !noundef !13
+  %1074 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val605 = load ptr, ptr %1074, align 8
+  %1075 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_offset_nocolon17h4cefb714e43372a0E"(ptr nonnull %.val604, ptr %.val605)
+  %1076 = extractvalue { i64, ptr } %1075, 0
+  %1077 = extractvalue { i64, ptr } %1075, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %82), !noalias !241
-  store i64 %1075, ptr %82, align 8, !noalias !241
-  %1077 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  store ptr %1076, ptr %1077, align 8, !noalias !241
-  %1078 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.111, i64 noundef range(i64 9, 43) 9)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" unwind label %1083
+  store i64 %1076, ptr %82, align 8, !noalias !241
+  %1078 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  store ptr %1077, ptr %1078, align 8, !noalias !241
+  %1079 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.111, i64 noundef range(i64 9, 43) 9)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" unwind label %1084
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351": ; preds = %1071
-  %1079 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1075, ptr %1076, ptr noundef %1078)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351": ; preds = %1072
+  %1080 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1076, ptr %1077, ptr noundef %1079)
   call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !241
-  %1080 = extractvalue { i64, ptr } %1079, 0
-  %1081 = trunc nuw i64 %1080 to i1
-  %1082 = extractvalue { i64, ptr } %1079, 1
-  br i1 %1081, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %1081 = extractvalue { i64, ptr } %1080, 0
+  %1082 = trunc nuw i64 %1081 to i1
+  %1083 = extractvalue { i64, ptr } %1080, 1
+  br i1 %1082, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-1083:                                             ; preds = %1071
-  %1084 = landingpad { ptr, i32 }
+1084:                                             ; preds = %1072
+  %1085 = landingpad { ptr, i32 }
           cleanup
-  %1085 = icmp eq i64 %1075, 0
-  br i1 %1085, label %common.resume, label %1086
+  %1086 = icmp eq i64 %1076, 0
+  br i1 %1086, label %common.resume, label %1087
 
-1086:                                             ; preds = %1083
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1077)
-          to label %common.resume unwind label %1087
+1087:                                             ; preds = %1084
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1078)
+          to label %common.resume unwind label %1088
 
-1087:                                             ; preds = %1086
-  %1088 = landingpad { ptr, i32 }
+1088:                                             ; preds = %1087
+  %1089 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1089:                                             ; preds = %1017
-  %1090 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val606 = load ptr, ptr %1090, align 8, !nonnull !13, !align !46, !noundef !13
-  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val607 = load ptr, ptr %1091, align 8
-  %1092 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_offset_colon17ha97584bffec6e345E"(ptr nonnull %.val606, ptr %.val607)
-  %1093 = extractvalue { i64, ptr } %1092, 0
-  %1094 = extractvalue { i64, ptr } %1092, 1
+1090:                                             ; preds = %1018
+  %1091 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val606 = load ptr, ptr %1091, align 8, !nonnull !13, !align !46, !noundef !13
+  %1092 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val607 = load ptr, ptr %1092, align 8
+  %1093 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$16fmt_offset_colon17ha97584bffec6e345E"(ptr nonnull %.val606, ptr %.val607)
+  %1094 = extractvalue { i64, ptr } %1093, 0
+  %1095 = extractvalue { i64, ptr } %1093, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %83), !noalias !244
-  store i64 %1093, ptr %83, align 8, !noalias !244
-  %1095 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  store ptr %1094, ptr %1095, align 8, !noalias !244
-  %1096 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.112, i64 noundef range(i64 9, 43) 10)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" unwind label %1101
+  store i64 %1094, ptr %83, align 8, !noalias !244
+  %1096 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  store ptr %1095, ptr %1096, align 8, !noalias !244
+  %1097 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.112, i64 noundef range(i64 9, 43) 10)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" unwind label %1102
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348": ; preds = %1089
-  %1097 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1093, ptr %1094, ptr noundef %1096)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348": ; preds = %1090
+  %1098 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1094, ptr %1095, ptr noundef %1097)
   call void @llvm.lifetime.end.p0(ptr nonnull %83), !noalias !244
-  %1098 = extractvalue { i64, ptr } %1097, 0
-  %1099 = trunc nuw i64 %1098 to i1
-  %1100 = extractvalue { i64, ptr } %1097, 1
-  br i1 %1099, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %1099 = extractvalue { i64, ptr } %1098, 0
+  %1100 = trunc nuw i64 %1099 to i1
+  %1101 = extractvalue { i64, ptr } %1098, 1
+  br i1 %1100, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-1101:                                             ; preds = %1089
-  %1102 = landingpad { ptr, i32 }
+1102:                                             ; preds = %1090
+  %1103 = landingpad { ptr, i32 }
           cleanup
-  %1103 = icmp eq i64 %1093, 0
-  br i1 %1103, label %common.resume, label %1104
+  %1104 = icmp eq i64 %1094, 0
+  br i1 %1104, label %common.resume, label %1105
 
-1104:                                             ; preds = %1101
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1095)
-          to label %common.resume unwind label %1105
+1105:                                             ; preds = %1102
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1096)
+          to label %common.resume unwind label %1106
 
-1105:                                             ; preds = %1104
-  %1106 = landingpad { ptr, i32 }
+1106:                                             ; preds = %1105
+  %1107 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1107:                                             ; preds = %1017
-  %1108 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val608 = load ptr, ptr %1108, align 8, !nonnull !13, !align !46, !noundef !13
-  %1109 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val609 = load ptr, ptr %1109, align 8
-  %1110 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_offset_colon217h449eb8fbda98baf4E"(ptr nonnull %.val608, ptr %.val609)
-  %1111 = extractvalue { i64, ptr } %1110, 0
-  %1112 = extractvalue { i64, ptr } %1110, 1
+1108:                                             ; preds = %1018
+  %1109 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val608 = load ptr, ptr %1109, align 8, !nonnull !13, !align !46, !noundef !13
+  %1110 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val609 = load ptr, ptr %1110, align 8
+  %1111 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_offset_colon217h449eb8fbda98baf4E"(ptr nonnull %.val608, ptr %.val609)
+  %1112 = extractvalue { i64, ptr } %1111, 0
+  %1113 = extractvalue { i64, ptr } %1111, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %84), !noalias !247
-  store i64 %1111, ptr %84, align 8, !noalias !247
-  %1113 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %1112, ptr %1113, align 8, !noalias !247
-  %1114 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.113, i64 noundef range(i64 9, 43) 11)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" unwind label %1119
+  store i64 %1112, ptr %84, align 8, !noalias !247
+  %1114 = getelementptr inbounds nuw i8, ptr %84, i64 8
+  store ptr %1113, ptr %1114, align 8, !noalias !247
+  %1115 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.113, i64 noundef range(i64 9, 43) 11)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" unwind label %1120
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345": ; preds = %1107
-  %1115 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1111, ptr %1112, ptr noundef %1114)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345": ; preds = %1108
+  %1116 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1112, ptr %1113, ptr noundef %1115)
   call void @llvm.lifetime.end.p0(ptr nonnull %84), !noalias !247
-  %1116 = extractvalue { i64, ptr } %1115, 0
-  %1117 = trunc nuw i64 %1116 to i1
-  %1118 = extractvalue { i64, ptr } %1115, 1
-  br i1 %1117, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %1117 = extractvalue { i64, ptr } %1116, 0
+  %1118 = trunc nuw i64 %1117 to i1
+  %1119 = extractvalue { i64, ptr } %1116, 1
+  br i1 %1118, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-1119:                                             ; preds = %1107
-  %1120 = landingpad { ptr, i32 }
+1120:                                             ; preds = %1108
+  %1121 = landingpad { ptr, i32 }
           cleanup
-  %1121 = icmp eq i64 %1111, 0
-  br i1 %1121, label %common.resume, label %1122
+  %1122 = icmp eq i64 %1112, 0
+  br i1 %1122, label %common.resume, label %1123
 
-1122:                                             ; preds = %1119
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1113)
-          to label %common.resume unwind label %1123
+1123:                                             ; preds = %1120
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1114)
+          to label %common.resume unwind label %1124
 
-1123:                                             ; preds = %1122
-  %1124 = landingpad { ptr, i32 }
+1124:                                             ; preds = %1123
+  %1125 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1125:                                             ; preds = %1017
-  %1126 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val610 = load ptr, ptr %1126, align 8, !nonnull !13, !align !46, !noundef !13
-  %1127 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val611 = load ptr, ptr %1127, align 8
-  %1128 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_offset_colon317h490e011e970357d6E"(ptr nonnull %.val610, ptr %.val611)
-  %1129 = extractvalue { i64, ptr } %1128, 0
-  %1130 = extractvalue { i64, ptr } %1128, 1
+1126:                                             ; preds = %1018
+  %1127 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val610 = load ptr, ptr %1127, align 8, !nonnull !13, !align !46, !noundef !13
+  %1128 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val611 = load ptr, ptr %1128, align 8
+  %1129 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$17fmt_offset_colon317h490e011e970357d6E"(ptr nonnull %.val610, ptr %.val611)
+  %1130 = extractvalue { i64, ptr } %1129, 0
+  %1131 = extractvalue { i64, ptr } %1129, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %85), !noalias !250
-  store i64 %1129, ptr %85, align 8, !noalias !250
-  %1131 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  store ptr %1130, ptr %1131, align 8, !noalias !250
-  %1132 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.114, i64 noundef range(i64 9, 43) 12)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" unwind label %1137
+  store i64 %1130, ptr %85, align 8, !noalias !250
+  %1132 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  store ptr %1131, ptr %1132, align 8, !noalias !250
+  %1133 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.114, i64 noundef range(i64 9, 43) 12)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" unwind label %1138
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342": ; preds = %1125
-  %1133 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1129, ptr %1130, ptr noundef %1132)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342": ; preds = %1126
+  %1134 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1130, ptr %1131, ptr noundef %1133)
   call void @llvm.lifetime.end.p0(ptr nonnull %85), !noalias !250
-  %1134 = extractvalue { i64, ptr } %1133, 0
-  %1135 = trunc nuw i64 %1134 to i1
-  %1136 = extractvalue { i64, ptr } %1133, 1
-  br i1 %1135, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1020
+  %1135 = extractvalue { i64, ptr } %1134, 0
+  %1136 = trunc nuw i64 %1135 to i1
+  %1137 = extractvalue { i64, ptr } %1134, 1
+  br i1 %1136, label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread", label %1021
 
-1137:                                             ; preds = %1125
-  %1138 = landingpad { ptr, i32 }
+1138:                                             ; preds = %1126
+  %1139 = landingpad { ptr, i32 }
           cleanup
-  %1139 = icmp eq i64 %1129, 0
-  br i1 %1139, label %common.resume, label %1140
+  %1140 = icmp eq i64 %1130, 0
+  br i1 %1140, label %common.resume, label %1141
 
-1140:                                             ; preds = %1137
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1131)
-          to label %common.resume unwind label %1141
+1141:                                             ; preds = %1138
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1132)
+          to label %common.resume unwind label %1142
 
-1141:                                             ; preds = %1140
-  %1142 = landingpad { ptr, i32 }
+1142:                                             ; preds = %1141
+  %1143 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1143:                                             ; preds = %1018
+1144:                                             ; preds = %1019
   call void @llvm.lifetime.start.p0(ptr nonnull %94)
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.118, ptr %94, align 8
-  %1144 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  store i64 1, ptr %1144, align 8
-  %1145 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  store ptr null, ptr %1145, align 8
-  %1146 = getelementptr inbounds nuw i8, ptr %94, i64 16
-  store ptr inttoptr (i64 8 to ptr), ptr %1146, align 8
-  %1147 = getelementptr inbounds nuw i8, ptr %94, i64 24
-  store i64 0, ptr %1147, align 8
-  %1148 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %94)
+  %1145 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  store i64 1, ptr %1145, align 8
+  %1146 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  store ptr null, ptr %1146, align 8
+  %1147 = getelementptr inbounds nuw i8, ptr %94, i64 16
+  store ptr inttoptr (i64 8 to ptr), ptr %1147, align 8
+  %1148 = getelementptr inbounds nuw i8, ptr %94, i64 24
+  store i64 0, ptr %1148, align 8
+  %1149 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %94)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 
-1149:                                             ; preds = %1018
+1150:                                             ; preds = %1019
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
-  %1150 = load ptr, ptr %98, align 8, !nonnull !13, !align !42, !noundef !13
-  %1151 = load i64, ptr %100, align 8, !noundef !13
+  %1151 = load ptr, ptr %98, align 8, !nonnull !13, !align !42, !noundef !13
+  %1152 = load i64, ptr %100, align 8, !noundef !13
   call void @llvm.experimental.noalias.scope.decl(metadata !253)
-  %.not924 = icmp eq i64 %1151, 0
+  %.not924 = icmp eq i64 %1152, 0
   br i1 %.not924, label %._crit_edge920.thread, label %.lr.ph919
 
 ._crit_edge920:                                   ; preds = %.lr.ph919
-  %1152 = icmp eq i64 %.sroa.06.0.i489917, 0
-  br i1 %1152, label %._crit_edge920.thread, label %._crit_edge920.thread962
+  %1153 = icmp eq i64 %.sroa.06.0.i489917, 0
+  br i1 %1153, label %._crit_edge920.thread, label %._crit_edge920.thread962
 
-.lr.ph919:                                        ; preds = %1149, %1156
-  %.sroa.06.0.i489917 = phi i64 [ %1157, %1156 ], [ 0, %1149 ]
-  %1153 = getelementptr inbounds nuw i8, ptr %1150, i64 %.sroa.06.0.i489917
-  %1154 = load i8, ptr %1153, align 1, !alias.scope !253, !noalias !256, !noundef !13
-  %1155 = add i8 %1154, -48
-  %or.cond53.i512 = icmp ult i8 %1155, 10
-  br i1 %or.cond53.i512, label %1156, label %._crit_edge920
+.lr.ph919:                                        ; preds = %1150, %1157
+  %.sroa.06.0.i489917 = phi i64 [ %1158, %1157 ], [ 0, %1150 ]
+  %1154 = getelementptr inbounds nuw i8, ptr %1151, i64 %.sroa.06.0.i489917
+  %1155 = load i8, ptr %1154, align 1, !alias.scope !253, !noalias !256, !noundef !13
+  %1156 = add i8 %1155, -48
+  %or.cond53.i512 = icmp ult i8 %1156, 10
+  br i1 %or.cond53.i512, label %1157, label %._crit_edge920
 
-1156:                                             ; preds = %.lr.ph919
-  %1157 = add nuw i64 %.sroa.06.0.i489917, 1
-  %exitcond941.not = icmp eq i64 %1157, %1151
+1157:                                             ; preds = %.lr.ph919
+  %1158 = add nuw i64 %.sroa.06.0.i489917, 1
+  %exitcond941.not = icmp eq i64 %1158, %1152
   br i1 %exitcond941.not, label %._crit_edge920.thread962.thread, label %.lr.ph919
 
 ._crit_edge920.thread962:                         ; preds = %._crit_edge920
-  %1158 = icmp ugt i64 %.sroa.06.0.i489917, %1151
-  br i1 %1158, label %1159, label %._crit_edge920.thread962.thread, !prof !258
+  %1159 = icmp ugt i64 %.sroa.06.0.i489917, %1152
+  br i1 %1159, label %1160, label %._crit_edge920.thread962.thread, !prof !258
 
-1159:                                             ; preds = %._crit_edge920.thread962
+1160:                                             ; preds = %._crit_edge920.thread962
   call void @_ZN4core6option13unwrap_failed17h1fc5fce77a97a273E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ebbfe4fa2bcd65020678261b9eefb9d7.263) #17, !noalias !259
   unreachable
 
-._crit_edge920.thread962.thread:                  ; preds = %1156, %._crit_edge920.thread962
-  %.sroa.06.0.i489.lcssa964966 = phi i64 [ %.sroa.06.0.i489917, %._crit_edge920.thread962 ], [ %1151, %1156 ]
-  %1160 = getelementptr inbounds nuw i8, ptr %1150, i64 %.sroa.06.0.i489.lcssa964966
-  %1161 = sub nuw i64 %1151, %.sroa.06.0.i489.lcssa964966
+._crit_edge920.thread962.thread:                  ; preds = %1157, %._crit_edge920.thread962
+  %.sroa.06.0.i489.lcssa964966 = phi i64 [ %.sroa.06.0.i489917, %._crit_edge920.thread962 ], [ %1152, %1157 ]
+  %1161 = getelementptr inbounds nuw i8, ptr %1151, i64 %.sroa.06.0.i489.lcssa964966
+  %1162 = sub nuw i64 %1152, %.sroa.06.0.i489.lcssa964966
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !259
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
-  br label %1162
+  br label %1163
 
-1162:                                             ; preds = %.critedge.i, %._crit_edge920.thread962.thread
-  %.sroa.013.0.i = phi i64 [ 0, %._crit_edge920.thread962.thread ], [ %1190, %.critedge.i ]
-  %.sroa.027.0.i = phi ptr [ %1150, %._crit_edge920.thread962.thread ], [ %1165, %.critedge.i ]
-  %1163 = icmp eq ptr %.sroa.027.0.i, %1160
-  br i1 %1163, label %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit, label %1164
+1163:                                             ; preds = %.critedge.i, %._crit_edge920.thread962.thread
+  %.sroa.013.0.i = phi i64 [ 0, %._crit_edge920.thread962.thread ], [ %1191, %.critedge.i ]
+  %.sroa.027.0.i = phi ptr [ %1151, %._crit_edge920.thread962.thread ], [ %1166, %.critedge.i ]
+  %1164 = icmp eq ptr %.sroa.027.0.i, %1161
+  br i1 %1164, label %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit, label %1165
 
-1164:                                             ; preds = %1162
-  %1165 = getelementptr inbounds nuw i8, ptr %.sroa.027.0.i, i64 1
-  %1166 = load i8, ptr %.sroa.027.0.i, align 1, !alias.scope !260, !noalias !256, !noundef !13
-  %1167 = icmp ugt i8 %1166, 47
-  %1168 = add i8 %1166, -48
-  br i1 %1167, label %1169, label %1171, !prof !8
+1165:                                             ; preds = %1163
+  %1166 = getelementptr inbounds nuw i8, ptr %.sroa.027.0.i, i64 1
+  %1167 = load i8, ptr %.sroa.027.0.i, align 1, !alias.scope !260, !noalias !256, !noundef !13
+  %1168 = icmp ugt i8 %1167, 47
+  %1169 = add i8 %1167, -48
+  br i1 %1168, label %1170, label %1172, !prof !8
 
-1169:                                             ; preds = %1164
-  %1170 = icmp ugt i8 %1168, 9
-  br i1 %1170, label %1180, label %1177, !prof !3
+1170:                                             ; preds = %1165
+  %1171 = icmp ugt i8 %1169, 9
+  br i1 %1171, label %1181, label %1178, !prof !3
 
-1171:                                             ; preds = %1164
+1172:                                             ; preds = %1165
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !263
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !263
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !263
-  store i8 %1166, ptr %17, align 1, !noalias !263
+  store i8 %1167, ptr %17, align 1, !noalias !263
   store ptr %17, ptr %18, align 8, !noalias !263
   %.sroa.417.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..escape..Byte$u20$as$u20$core..fmt..Display$GT$3fmt17h61b14394460a36c6E", ptr %.sroa.417.0..sroa_idx.i, align 8, !noalias !263
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.319, ptr %19, align 8, !noalias !263
-  %1172 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 1, ptr %1172, align 8, !noalias !263
-  %1173 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store ptr null, ptr %1173, align 8, !noalias !263
-  %1174 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store ptr %18, ptr %1174, align 8, !noalias !263
-  %1175 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  store i64 1, ptr %1175, align 8, !noalias !263
-  %1176 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19), !noalias !256
+  %1173 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 1, ptr %1173, align 8, !noalias !263
+  %1174 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store ptr null, ptr %1174, align 8, !noalias !263
+  %1175 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %18, ptr %1175, align 8, !noalias !263
+  %1176 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  store i64 1, ptr %1176, align 8, !noalias !263
+  %1177 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19), !noalias !256
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !263
   br label %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit
 
-1177:                                             ; preds = %1169
-  %1178 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.013.0.i, i64 10)
-  %1179 = extractvalue { i64, i1 } %1178, 1
-  br i1 %1179, label %.thread874, label %.critedge.i, !prof !3
+1178:                                             ; preds = %1170
+  %1179 = call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %.sroa.013.0.i, i64 10)
+  %1180 = extractvalue { i64, i1 } %1179, 1
+  br i1 %1180, label %.thread874, label %.critedge.i, !prof !3
 
-1180:                                             ; preds = %1169
+1181:                                             ; preds = %1170
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !263
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !263
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !263
-  store i8 %1166, ptr %14, align 1, !noalias !263
+  store i8 %1167, ptr %14, align 1, !noalias !263
   store ptr %14, ptr %15, align 8, !noalias !263
   %.sroa.421.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..escape..Byte$u20$as$u20$core..fmt..Display$GT$3fmt17h61b14394460a36c6E", ptr %.sroa.421.0..sroa_idx.i, align 8, !noalias !263
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.319, ptr %16, align 8, !noalias !263
-  %1181 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i64 1, ptr %1181, align 8, !noalias !263
-  %1182 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr null, ptr %1182, align 8, !noalias !263
-  %1183 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store ptr %15, ptr %1183, align 8, !noalias !263
-  %1184 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store i64 1, ptr %1184, align 8, !noalias !263
-  %1185 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16), !noalias !256
+  %1182 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i64 1, ptr %1182, align 8, !noalias !263
+  %1183 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr null, ptr %1183, align 8, !noalias !263
+  %1184 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store ptr %15, ptr %1184, align 8, !noalias !263
+  %1185 = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store i64 1, ptr %1185, align 8, !noalias !263
+  %1186 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16), !noalias !256
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !263
   br label %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit
 
-.critedge.i:                                      ; preds = %1177
-  %1186 = zext nneg i8 %1168 to i64
-  %1187 = extractvalue { i64, i1 } %1178, 0
-  %1188 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %1187, i64 %1186)
-  %1189 = extractvalue { i64, i1 } %1188, 1
-  %1190 = extractvalue { i64, i1 } %1188, 0
-  br i1 %1189, label %.thread874, label %1162, !prof !92
+.critedge.i:                                      ; preds = %1178
+  %1187 = zext nneg i8 %1169 to i64
+  %1188 = extractvalue { i64, i1 } %1179, 0
+  %1189 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %1188, i64 %1187)
+  %1190 = extractvalue { i64, i1 } %1189, 1
+  %1191 = extractvalue { i64, i1 } %1189, 0
+  br i1 %1190, label %.thread874, label %1163, !prof !92
 
-.thread874:                                       ; preds = %.critedge.i, %1177
+.thread874:                                       ; preds = %.critedge.i, %1178
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !263
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !263
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !263
-  store ptr %1150, ptr %11, align 8, !noalias !263
-  %1191 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 %.sroa.06.0.i489.lcssa964966, ptr %1191, align 8, !noalias !263
+  store ptr %1151, ptr %11, align 8, !noalias !263
+  %1192 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 %.sroa.06.0.i489.lcssa964966, ptr %1192, align 8, !noalias !263
   store ptr %11, ptr %12, align 8, !noalias !263
   %.sroa.425.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr @"_ZN72_$LT$jiff..shared..util..escape..Bytes$u20$as$u20$core..fmt..Display$GT$3fmt17h437ed408f4fbe4ccE", ptr %.sroa.425.0..sroa_idx.i, align 8, !noalias !263
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.322, ptr %13, align 8, !noalias !263
-  %1192 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 2, ptr %1192, align 8, !noalias !263
-  %1193 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store ptr null, ptr %1193, align 8, !noalias !263
-  %1194 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store ptr %12, ptr %1194, align 8, !noalias !263
-  %1195 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i64 1, ptr %1195, align 8, !noalias !263
-  %1196 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13), !noalias !256
+  %1193 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 2, ptr %1193, align 8, !noalias !263
+  %1194 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store ptr null, ptr %1194, align 8, !noalias !263
+  %1195 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store ptr %12, ptr %1195, align 8, !noalias !263
+  %1196 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i64 1, ptr %1196, align 8, !noalias !263
+  %1197 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13), !noalias !256
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !263
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !263
   br label %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit
 
-_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit: ; preds = %1162
-  %1197 = inttoptr i64 %.sroa.013.0.i to ptr
+_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit: ; preds = %1163
+  %1198 = inttoptr i64 %.sroa.013.0.i to ptr
   br label %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit
 
-_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit: ; preds = %1171, %1180, %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit, %.thread874
-  %.sroa.6.0.i = phi ptr [ %1196, %.thread874 ], [ %1197, %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit ], [ %1185, %1180 ], [ %1176, %1171 ]
-  %1198 = phi i64 [ 1, %.thread874 ], [ 0, %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit ], [ 1, %1180 ], [ 1, %1171 ]
+_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit: ; preds = %1172, %1181, %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit, %.thread874
+  %.sroa.6.0.i = phi ptr [ %1197, %.thread874 ], [ %1198, %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit ], [ %1186, %1181 ], [ %1177, %1172 ]
+  %1199 = phi i64 [ 1, %.thread874 ], [ 0, %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit.loopexit ], [ 1, %1181 ], [ 1, %1172 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !259
-  store i64 %1198, ptr %20, align 8, !noalias !259
-  %1199 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %.sroa.6.0.i, ptr %1199, align 8, !noalias !259
-  %1200 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.256, i64 noundef 42)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498" unwind label %1205, !noalias !256
+  store i64 %1199, ptr %20, align 8, !noalias !259
+  %1200 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %.sroa.6.0.i, ptr %1200, align 8, !noalias !259
+  %1201 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.256, i64 noundef 42)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498" unwind label %1206, !noalias !256
 
 "_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498": ; preds = %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit
-  %1201 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h92a4da12f8644917E"(i64 noundef %1198, ptr noundef %.sroa.6.0.i, ptr noundef %1200), !noalias !256
+  %1202 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h92a4da12f8644917E"(i64 noundef %1199, ptr noundef %.sroa.6.0.i, ptr noundef %1201), !noalias !256
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !259
-  %1202 = extractvalue { i64, ptr } %1201, 0
-  %1203 = extractvalue { i64, ptr } %1201, 1
-  %1204 = trunc nuw i64 %1202 to i1
-  br i1 %1204, label %1232, label %1210
+  %1203 = extractvalue { i64, ptr } %1202, 0
+  %1204 = extractvalue { i64, ptr } %1202, 1
+  %1205 = trunc nuw i64 %1203 to i1
+  br i1 %1205, label %1233, label %1211
 
-1205:                                             ; preds = %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit
-  %1206 = landingpad { ptr, i32 }
+1206:                                             ; preds = %_ZN4jiff4util5parse3i6417h7a1dfa963dd68f8fE.exit
+  %1207 = landingpad { ptr, i32 }
           cleanup
-  br i1 %1163, label %common.resume, label %1207
+  br i1 %1164, label %common.resume, label %1208
 
-1207:                                             ; preds = %1205
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1199)
-          to label %common.resume unwind label %1208
+1208:                                             ; preds = %1206
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1200)
+          to label %common.resume unwind label %1209
 
-1208:                                             ; preds = %1207
-  %1209 = landingpad { ptr, i32 }
+1209:                                             ; preds = %1208
+  %1210 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19, !noalias !256
   unreachable
 
-1210:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498"
-  %1211 = ptrtoint ptr %1203 to i64
-  store i64 %1211, ptr %26, align 8, !noalias !259
+1211:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498"
+  %1212 = ptrtoint ptr %1204 to i64
+  store i64 %1212, ptr %26, align 8, !noalias !259
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !259
-  %1212 = icmp slt ptr %1203, null
-  %1213 = icmp sgt ptr %1203, inttoptr (i64 255 to ptr)
-  %or.cond.i500 = or i1 %1212, %1213
-  %1214 = trunc nuw i64 %1211 to i8
-  br i1 %or.cond.i500, label %1215, label %1222, !prof !3
+  %1213 = icmp slt ptr %1204, null
+  %1214 = icmp sgt ptr %1204, inttoptr (i64 255 to ptr)
+  %or.cond.i500 = or i1 %1213, %1214
+  %1215 = trunc nuw i64 %1212 to i8
+  br i1 %or.cond.i500, label %1216, label %1223, !prof !3
 
-1215:                                             ; preds = %1210
+1216:                                             ; preds = %1211
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !259
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !259
   store ptr %26, ptr %21, align 8, !noalias !259
   %.sroa.441.0..sroa_idx.i508 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i64$GT$3fmt17h40b427f40fae239aE", ptr %.sroa.441.0..sroa_idx.i508, align 8, !noalias !259
-  %1216 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.258, ptr %1216, align 8, !noalias !259
+  %1217 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.258, ptr %1217, align 8, !noalias !259
   %.sroa.445.0..sroa_idx.i509 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h9106702443b61e4aE", ptr %.sroa.445.0..sroa_idx.i509, align 8, !noalias !259
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.260, ptr %22, align 8, !noalias !259
-  %1217 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 2, ptr %1217, align 8, !noalias !259
-  %1218 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr null, ptr %1218, align 8, !noalias !259
-  %1219 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %21, ptr %1219, align 8, !noalias !259
-  %1220 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store i64 2, ptr %1220, align 8, !noalias !259
-  %1221 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22), !noalias !256
+  %1218 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i64 2, ptr %1218, align 8, !noalias !259
+  %1219 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store ptr null, ptr %1219, align 8, !noalias !259
+  %1220 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %21, ptr %1220, align 8, !noalias !259
+  %1221 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store i64 2, ptr %1221, align 8, !noalias !259
+  %1222 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22), !noalias !256
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !259
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !259
-  br label %1231
+  br label %1232
 
-1222:                                             ; preds = %1210
-  store i8 %1214, ptr %25, align 1, !noalias !259
-  %1223 = icmp eq i64 %1161, 0
-  br i1 %1223, label %1224, label %1230, !prof !3
+1223:                                             ; preds = %1211
+  store i8 %1215, ptr %25, align 1, !noalias !259
+  %1224 = icmp eq i64 %1162, 0
+  br i1 %1224, label %1225, label %1231, !prof !3
 
-1224:                                             ; preds = %1222
+1225:                                             ; preds = %1223
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !259
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !259
   store ptr %25, ptr %23, align 8, !noalias !259
   %.sroa.450.0..sroa_idx.i507 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h9106702443b61e4aE", ptr %.sroa.450.0..sroa_idx.i507, align 8, !noalias !259
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.262, ptr %24, align 8, !noalias !259
-  %1225 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 2, ptr %1225, align 8, !noalias !259
-  %1226 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr null, ptr %1226, align 8, !noalias !259
-  %1227 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %23, ptr %1227, align 8, !noalias !259
-  %1228 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store i64 1, ptr %1228, align 8, !noalias !259
-  %1229 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24), !noalias !256
+  %1226 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 2, ptr %1226, align 8, !noalias !259
+  %1227 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store ptr null, ptr %1227, align 8, !noalias !259
+  %1228 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr %23, ptr %1228, align 8, !noalias !259
+  %1229 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store i64 1, ptr %1229, align 8, !noalias !259
+  %1230 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24), !noalias !256
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !259
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !259
-  br label %1231
+  br label %1232
 
-1230:                                             ; preds = %1222
+1231:                                             ; preds = %1223
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !259
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !259
   br label %._crit_edge920.thread
 
-1231:                                             ; preds = %1224, %1215
-  %.sroa.11718.0 = phi ptr [ %1221, %1215 ], [ %1229, %1224 ]
+1232:                                             ; preds = %1225, %1216
+  %.sroa.11718.0 = phi ptr [ %1222, %1216 ], [ %1230, %1225 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !259
-  br label %1232
+  br label %1233
 
-1232:                                             ; preds = %1231, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498"
-  %.sroa.11718.1 = phi ptr [ %.sroa.11718.0, %1231 ], [ %1203, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498" ]
+1233:                                             ; preds = %1232, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498"
+  %.sroa.11718.1 = phi ptr [ %.sroa.11718.0, %1232 ], [ %1204, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i.i498" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !259
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 
-._crit_edge920.thread:                            ; preds = %1149, %1230, %._crit_edge920
-  %.sroa.18.0.ph = phi i64 [ %1151, %._crit_edge920 ], [ %1161, %1230 ], [ 0, %1149 ]
-  %1233 = phi ptr [ %1150, %._crit_edge920 ], [ %1160, %1230 ], [ %1150, %1149 ]
-  %.sroa.9.0.ph = phi i8 [ undef, %._crit_edge920 ], [ %1214, %1230 ], [ undef, %1149 ]
-  %.sroa.0716.2.ph = phi i8 [ 0, %._crit_edge920 ], [ 1, %1230 ], [ 0, %1149 ]
-  store ptr %1233, ptr %98, align 8
+._crit_edge920.thread:                            ; preds = %1150, %1231, %._crit_edge920
+  %.sroa.18.0.ph = phi i64 [ %1152, %._crit_edge920 ], [ %1162, %1231 ], [ 0, %1150 ]
+  %1234 = phi ptr [ %1151, %._crit_edge920 ], [ %1161, %1231 ], [ %1151, %1150 ]
+  %.sroa.9.0.ph = phi i8 [ undef, %._crit_edge920 ], [ %1215, %1231 ], [ undef, %1150 ]
+  %.sroa.0716.2.ph = phi i8 [ 0, %._crit_edge920 ], [ 1, %1231 ], [ 0, %1150 ]
+  store ptr %1234, ptr %98, align 8
   store i64 %.sroa.18.0.ph, ptr %100, align 8
-  %1234 = getelementptr inbounds nuw i8, ptr %93, i64 2
-  store i8 %.sroa.2.0.extract.trunc, ptr %1234, align 1
+  %1235 = getelementptr inbounds nuw i8, ptr %93, i64 2
+  store i8 %.sroa.2.0.extract.trunc, ptr %1235, align 1
   store i8 %.sroa.0716.2.ph, ptr %93, align 1
-  %1235 = getelementptr inbounds nuw i8, ptr %93, i64 1
-  store i8 %.sroa.9.0.ph, ptr %1235, align 1
-  %1236 = getelementptr inbounds nuw i8, ptr %93, i64 3
-  store i8 %.sroa.3.0.extract.trunc, ptr %1236, align 1
+  %1236 = getelementptr inbounds nuw i8, ptr %93, i64 1
+  store i8 %.sroa.9.0.ph, ptr %1236, align 1
+  %1237 = getelementptr inbounds nuw i8, ptr %93, i64 3
+  store i8 %.sroa.3.0.extract.trunc, ptr %1237, align 1
   %.not340 = icmp eq i64 %.sroa.18.0.ph, 0
-  br i1 %.not340, label %1240, label %1237
+  br i1 %.not340, label %1241, label %1238
 
-1237:                                             ; preds = %._crit_edge920.thread
-  %1238 = load i8, ptr %1233, align 1, !noundef !13
-  %1239 = icmp eq i8 %1238, 102
-  br i1 %1239, label %1241, label %1259, !prof !8
+1238:                                             ; preds = %._crit_edge920.thread
+  %1239 = load i8, ptr %1234, align 1, !noundef !13
+  %1240 = icmp eq i8 %1239, 102
+  br i1 %1240, label %1242, label %1260, !prof !8
 
-1240:                                             ; preds = %._crit_edge920.thread
+1241:                                             ; preds = %._crit_edge920.thread
   call void @_ZN4core9panicking18panic_bounds_check17h2d3ab0b83311a572E(i64 noundef 0, i64 noundef 0, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ebbfe4fa2bcd65020678261b9eefb9d7.60) #17
   unreachable
 
-1241:                                             ; preds = %1237
-  %1242 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val612 = load ptr, ptr %1242, align 8, !nonnull !13, !align !46, !noundef !13
-  %1243 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.val613 = load ptr, ptr %1243, align 8
-  %1244 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_dot_fractional17h8e84bfedf35a55f3E"(ptr nonnull %.val612, ptr %.val613, ptr noalias noundef readonly align 1 dereferenceable(4) %93)
-  %1245 = extractvalue { i64, ptr } %1244, 0
-  %1246 = extractvalue { i64, ptr } %1244, 1
+1242:                                             ; preds = %1238
+  %1243 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val612 = load ptr, ptr %1243, align 8, !nonnull !13, !align !46, !noundef !13
+  %1244 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.val613 = load ptr, ptr %1244, align 8
+  %1245 = call fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$18fmt_dot_fractional17h8e84bfedf35a55f3E"(ptr nonnull %.val612, ptr %.val613, ptr noalias noundef readonly align 1 dereferenceable(4) %93)
+  %1246 = extractvalue { i64, ptr } %1245, 0
+  %1247 = extractvalue { i64, ptr } %1245, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %86), !noalias !264
-  store i64 %1245, ptr %86, align 8, !noalias !264
-  %1247 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store ptr %1246, ptr %1247, align 8, !noalias !264
-  %1248 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.119, i64 noundef range(i64 9, 43) 10)
-          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i" unwind label %1253
+  store i64 %1246, ptr %86, align 8, !noalias !264
+  %1248 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  store ptr %1247, ptr %1248, align 8, !noalias !264
+  %1249 = invoke noundef ptr @_ZN4jiff5error5Error21adhoc_from_static_str17h6acc086a3b5ac1feE(ptr noalias noundef nonnull readonly align 1 @anon.ebbfe4fa2bcd65020678261b9eefb9d7.119, i64 noundef range(i64 9, 43) 10)
+          to label %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i" unwind label %1254
 
-"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i": ; preds = %1241
-  %1249 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1245, ptr %1246, ptr noundef %1248)
+"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i": ; preds = %1242
+  %1250 = call { i64, ptr } @"_ZN96_$LT$core..result..Result$LT$T$C$jiff..error..Error$GT$$u20$as$u20$jiff..error..ErrorContext$GT$7context3imp17h020bcfe7f969653fE"(i64 noundef %1246, ptr %1247, ptr noundef %1249)
   call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !264
-  %1250 = extractvalue { i64, ptr } %1249, 0
-  %1251 = trunc nuw i64 %1250 to i1
-  %1252 = extractvalue { i64, ptr } %1249, 1
-  br i1 %1251, label %1268, label %1265
+  %1251 = extractvalue { i64, ptr } %1250, 0
+  %1252 = trunc nuw i64 %1251 to i1
+  %1253 = extractvalue { i64, ptr } %1250, 1
+  br i1 %1252, label %1269, label %1266
 
-1253:                                             ; preds = %1241
-  %1254 = landingpad { ptr, i32 }
+1254:                                             ; preds = %1242
+  %1255 = landingpad { ptr, i32 }
           cleanup
-  %1255 = icmp eq i64 %1245, 0
-  br i1 %1255, label %common.resume, label %1256
+  %1256 = icmp eq i64 %1246, 0
+  br i1 %1256, label %common.resume, label %1257
 
-1256:                                             ; preds = %1253
-  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1247)
-          to label %common.resume unwind label %1257
+1257:                                             ; preds = %1254
+  invoke void @"_ZN4core3ptr39drop_in_place$LT$jiff..error..Error$GT$17hf3ea909f0bc4c02dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %1248)
+          to label %common.resume unwind label %1258
 
-1257:                                             ; preds = %1256
-  %1258 = landingpad { ptr, i32 }
+1258:                                             ; preds = %1257
+  %1259 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #19
   unreachable
 
-1259:                                             ; preds = %1237
+1260:                                             ; preds = %1238
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
-  store i8 %1238, ptr %90, align 1
+  store i8 %1239, ptr %90, align 1
   store ptr %90, ptr %91, align 8
   %.sroa.4336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr @"_ZN71_$LT$jiff..shared..util..escape..Byte$u20$as$u20$core..fmt..Display$GT$3fmt17h61b14394460a36c6E", ptr %.sroa.4336.0..sroa_idx, align 8
   store ptr @anon.ebbfe4fa2bcd65020678261b9eefb9d7.122, ptr %92, align 8
-  %1260 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  store i64 2, ptr %1260, align 8
-  %1261 = getelementptr inbounds nuw i8, ptr %92, i64 32
-  store ptr null, ptr %1261, align 8
-  %1262 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  store ptr %91, ptr %1262, align 8
-  %1263 = getelementptr inbounds nuw i8, ptr %92, i64 24
-  store i64 1, ptr %1263, align 8
-  %1264 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %92)
+  %1261 = getelementptr inbounds nuw i8, ptr %92, i64 8
+  store i64 2, ptr %1261, align 8
+  %1262 = getelementptr inbounds nuw i8, ptr %92, i64 32
+  store ptr null, ptr %1262, align 8
+  %1263 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  store ptr %91, ptr %1263, align 8
+  %1264 = getelementptr inbounds nuw i8, ptr %92, i64 24
+  store i64 1, ptr %1264, align 8
+  %1265 = call noundef ptr @_ZN4jiff5error5Error15adhoc_from_args17hb38b2a9143298703E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %90)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
-  br label %1268
+  br label %1269
 
-1265:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i"
+1266:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
-  br label %1020
+  br label %1021
 
-"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread": ; preds = %220, %1027, %1065, %1143, %1232, %1268, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342", %114, %206, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit"
-  %.sroa.59.1 = phi ptr [ undef, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ %225, %220 ], [ %1032, %1027 ], [ %1070, %1065 ], [ %.sroa.11718.1, %1232 ], [ %.sroa.59.2, %1268 ], [ %1148, %1143 ], [ %237, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ %255, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ %273, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ %291, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ %309, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ %327, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ %349, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ %367, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ %385, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ %403, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ %421, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ %439, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ %457, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ %475, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ %493, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ %511, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ %529, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ %547, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ %565, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ %583, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ %601, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ %619, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ %637, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ %655, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ %673, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ %691, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ %1042, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ %1058, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ %710, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ %728, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ %750, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ %768, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ %786, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ %804, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ %822, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ %840, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ %858, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ %876, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ %894, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ %912, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ %934, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ %956, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ %974, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ %992, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ %1010, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ %1082, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ %1100, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ %1118, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ %1136, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ %.sroa.11724.1, %206 ], [ %119, %114 ]
-  %.sroa.0.1 = phi i64 [ 0, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ 1, %220 ], [ 1, %1027 ], [ 1, %1065 ], [ 1, %1232 ], [ 1, %1268 ], [ 1, %1143 ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ 1, %206 ], [ 1, %114 ]
+"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread": ; preds = %221, %1028, %1066, %1144, %1233, %1269, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345", %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342", %114, %208, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit"
+  %.sroa.59.1 = phi ptr [ undef, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ %226, %221 ], [ %1033, %1028 ], [ %1071, %1066 ], [ %.sroa.11718.1, %1233 ], [ %.sroa.59.2, %1269 ], [ %1149, %1144 ], [ %238, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ %256, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ %274, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ %292, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ %310, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ %328, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ %350, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ %368, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ %386, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ %404, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ %422, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ %440, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ %458, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ %476, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ %494, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ %512, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ %530, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ %548, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ %566, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ %584, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ %602, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ %620, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ %638, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ %656, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ %674, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ %692, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ %1043, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ %1059, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ %711, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ %729, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ %751, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ %769, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ %787, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ %805, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ %823, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ %841, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ %859, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ %877, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ %895, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ %913, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ %935, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ %957, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ %975, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ %993, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ %1011, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ %1083, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ %1101, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ %1119, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ %1137, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ %.sroa.11724.1, %208 ], [ %119, %114 ]
+  %.sroa.0.1 = phi i64 [ 0, %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$8bump_fmt17hccc0efb51a61b585E.exit" ], [ 1, %221 ], [ 1, %1028 ], [ 1, %1066 ], [ 1, %1233 ], [ 1, %1269 ], [ 1, %1144 ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i486" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i483" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i480" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i477" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i474" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i471" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i468" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i465" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i462" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i459" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i456" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i453" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i450" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i447" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i444" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i441" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i438" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i435" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i432" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i429" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i426" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i423" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i420" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i417" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i414" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i411" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i357" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i354" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i408" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i405" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i402" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i399" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i396" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i393" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i390" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i387" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i384" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i381" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i378" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i375" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i372" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i369" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i366" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i363" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i360" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i351" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i348" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i345" ], [ 1, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i342" ], [ 1, %208 ], [ 1, %114 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
-  %1266 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
-  %1267 = insertvalue { i64, ptr } %1266, ptr %.sroa.59.1, 1
-  ret { i64, ptr } %1267
+  %1267 = insertvalue { i64, ptr } poison, i64 %.sroa.0.1, 0
+  %1268 = insertvalue { i64, ptr } %1267, ptr %.sroa.59.1, 1
+  ret { i64, ptr } %1268
 
-1268:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i", %1259
-  %.sroa.59.2 = phi ptr [ %1264, %1259 ], [ %1252, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i" ]
+1269:                                             ; preds = %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i", %1260
+  %.sroa.59.2 = phi ptr [ %1265, %1260 ], [ %1253, %"_ZN50_$LT$$RF$str$u20$as$u20$jiff..error..IntoError$GT$10into_error17hae9734e79381c828E.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %93)
   br label %"_ZN4jiff3fmt7strtime6format22Formatter$LT$W$C$L$GT$15parse_extension17hf988faba826853bcE.exit.thread"
 }

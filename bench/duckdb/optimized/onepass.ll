@@ -1274,16 +1274,19 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301: ; preds = %_ZNK
   %378 = sext i32 %377 to i64
   %379 = getelementptr inbounds i32, ptr %59, i64 %378
   %.not = icmp eq ptr %376, %379
-  br i1 %.not, label %._crit_edge473, label %107, !llvm.loop !110
+  br i1 %.not, label %._crit_edge473.loopexit, label %107, !llvm.loop !110
 
-._crit_edge473:                                   ; preds = %375, %86
-  %.0169.lcssa = phi i32 [ 1, %86 ], [ %.5174.ph, %375 ]
-  %380 = mul nsw i32 %.0169.lcssa, %26
-  %381 = sext i32 %380 to i64
+._crit_edge473.loopexit:                          ; preds = %375
+  %380 = mul nsw i32 %.5174.ph, %26
+  br label %._crit_edge473
+
+._crit_edge473:                                   ; preds = %._crit_edge473.loopexit, %86
+  %.0169.lcssa = phi i32 [ %26, %86 ], [ %380, %._crit_edge473.loopexit ]
+  %381 = sext i32 %.0169.lcssa to i64
   %382 = load i64, ptr %29, align 8, !tbaa !80
   %383 = sub nsw i64 %382, %381
   store i64 %383, ptr %29, align 8, !tbaa !80
-  %384 = icmp slt i32 %380, 0
+  %384 = icmp slt i32 %.0169.lcssa, 0
   br i1 %384, label %.noexc.i305, label %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, !prof !81
 
 .noexc.i305:                                      ; preds = %._crit_edge473
@@ -1294,7 +1297,7 @@ _ZNK10duckdb_re210SparseSetTIvE8containsEi.exit.thread.i.i.i301: ; preds = %_ZNK
   unreachable
 
 _ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %._crit_edge473
-  %385 = zext nneg i32 %380 to i64
+  %385 = zext nneg i32 %.0169.lcssa to i64
   %386 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %385) #15
           to label %_ZN10duckdb_re28PODArrayIhEC2Ei.exit unwind label %393
 
@@ -1313,7 +1316,7 @@ _ZN10duckdb_re28PODArrayIhEC2Ei.exit:             ; preds = %_ZNSt15__new_alloca
 
 _ZN10duckdb_re28PODArrayIhED2Ev.exit:             ; preds = %390, %_ZN10duckdb_re28PODArrayIhEC2Ei.exit
   %391 = phi ptr [ %.pre488, %390 ], [ %386, %_ZN10duckdb_re28PODArrayIhEC2Ei.exit ]
-  store i32 %380, ptr %387, align 8, !tbaa !73
+  store i32 %.0169.lcssa, ptr %387, align 8, !tbaa !73
   %392 = load ptr, ptr %2, align 8, !tbaa !97
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %391, ptr align 1 %392, i64 %381, i1 false)
   br label %_ZN10duckdb_re210SparseSetTIvED2Ev.exit313

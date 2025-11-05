@@ -9596,23 +9596,16 @@ if.end6.i:                                        ; preds = %if.end.i
   %13 = load ptr, ptr %m_data.i, align 8, !tbaa !377
   %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %13, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !267
-  %retval.sroa.6.0.extract.shift.i = and i32 %14, -16777216
-  %15 = and i32 %14, 16711680
-  %16 = and i32 %14, 65535
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end6.i, %if.end.i, %land.lhs.true22.i.i, %land.lhs.true9.i.i, %if.end
-  %retval.sroa.6.0.i = phi i32 [ %retval.sroa.6.0.extract.shift.i, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end ]
-  %retval.sroa.4.0.i = phi i32 [ %15, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end ]
-  %retval.sroa.0.0.i = phi i32 [ %16, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end ]
-  %retval.sroa.4.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.i, %retval.sroa.6.0.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.insert.insert.i, %retval.sroa.0.0.i
-  store i32 %retval.sroa.0.0.insert.insert.i, ptr %n, align 4
+  %retval.sroa.4.0.i = phi i32 [ %14, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end ]
+  store i32 %retval.sroa.4.0.i, ptr %n, align 4
   %call3 = tail call noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef %L)
   %vtable.i = load ptr, ptr %call3, align 8, !tbaa !87
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %17 = load ptr, ptr %vfn.i, align 8
-  %call.i11 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %call3)
+  %15 = load ptr, ptr %vfn.i, align 8
+  %call.i11 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %call3)
   %call5 = call noundef zeroext i8 @_ZNK7MapNode11getMaxLevelEPK14NodeDefManager(ptr noundef nonnull align 4 dereferenceable(4) %n, ptr noundef %call.i11)
   %conv = uitofp i8 %call5 to double
   call void @lua_pushnumber(ptr noundef %L, double noundef %conv)
@@ -9715,23 +9708,16 @@ if.end6.i:                                        ; preds = %if.end.i
   %13 = load ptr, ptr %m_data.i, align 8, !tbaa !377
   %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %13, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !267
-  %retval.sroa.6.0.extract.shift.i = and i32 %14, -16777216
-  %15 = and i32 %14, 16711680
-  %16 = and i32 %14, 65535
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end6.i, %if.end.i, %land.lhs.true22.i.i, %land.lhs.true9.i.i, %if.end
-  %retval.sroa.6.0.i = phi i32 [ %retval.sroa.6.0.extract.shift.i, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end ]
-  %retval.sroa.4.0.i = phi i32 [ %15, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end ]
-  %retval.sroa.0.0.i = phi i32 [ %16, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end ]
-  %retval.sroa.4.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.i, %retval.sroa.6.0.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.insert.insert.i, %retval.sroa.0.0.i
-  store i32 %retval.sroa.0.0.insert.insert.i, ptr %n, align 4
+  %retval.sroa.4.0.i = phi i32 [ %14, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end ]
+  store i32 %retval.sroa.4.0.i, ptr %n, align 4
   %call3 = tail call noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef %L)
   %vtable.i = load ptr, ptr %call3, align 8, !tbaa !87
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %17 = load ptr, ptr %vfn.i, align 8
-  %call.i11 = tail call noundef ptr %17(ptr noundef nonnull align 8 dereferenceable(8) %call3)
+  %15 = load ptr, ptr %vfn.i, align 8
+  %call.i11 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(8) %call3)
   %call5 = call noundef zeroext i8 @_ZNK7MapNode8getLevelEPK14NodeDefManager(ptr noundef nonnull align 4 dereferenceable(4) %n, ptr noundef %call.i11)
   %conv = uitofp i8 %call5 to double
   call void @lua_pushnumber(ptr noundef %L, double noundef %conv)
@@ -9844,32 +9830,25 @@ if.end6.i:                                        ; preds = %if.end.i
   %14 = load ptr, ptr %m_data.i, align 8, !tbaa !377
   %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %14, i64 %idxprom.i
   %15 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !267
-  %retval.sroa.6.0.extract.shift.i = and i32 %15, -16777216
-  %16 = and i32 %15, 16711680
-  %17 = and i32 %15, 65535
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end6.i, %if.end.i, %land.lhs.true22.i.i, %land.lhs.true9.i.i, %if.end6
-  %retval.sroa.6.0.i = phi i32 [ %retval.sroa.6.0.extract.shift.i, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end6 ]
-  %retval.sroa.4.0.i = phi i32 [ %16, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end6 ]
-  %retval.sroa.0.0.i = phi i32 [ %17, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end6 ]
-  %retval.sroa.4.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.i, %retval.sroa.6.0.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.insert.insert.i, %retval.sroa.0.0.i
-  store i32 %retval.sroa.0.0.insert.insert.i, ptr %n, align 4
+  %retval.sroa.4.0.i = phi i32 [ %15, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end6 ]
+  store i32 %retval.sroa.4.0.i, ptr %n, align 4
   %call8 = tail call noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef %L)
   %vtable.i = load ptr, ptr %call8, align 8, !tbaa !87
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %18 = load ptr, ptr %vfn.i, align 8
-  %call.i22 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %call8)
+  %16 = load ptr, ptr %vfn.i, align 8
+  %call.i22 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %call8)
   %call11 = call noundef signext i8 @_ZN7MapNode8setLevelEPK14NodeDefManagers(ptr noundef nonnull align 4 dereferenceable(4) %n, ptr noundef %call.i22, i16 noundef signext %level.0)
   %conv12 = sitofp i8 %call11 to double
   call void @lua_pushnumber(ptr noundef %L, double noundef %conv12)
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !267
-  %19 = load i16, ptr %m_area.i, align 2, !tbaa !369
-  %conv3.i.i28 = sext i16 %19 to i32
+  %17 = load i16, ptr %m_area.i, align 2, !tbaa !369
+  %conv3.i.i28 = sext i16 %17 to i32
   %cmp.not.i.i29 = icmp slt i32 %conv.i.i, %conv3.i.i28
-  %20 = load i16, ptr %MaxEdge.i.i, align 2
-  %conv7.i.i31 = sext i16 %20 to i32
+  %18 = load i16, ptr %MaxEdge.i.i, align 2
+  %conv7.i.i31 = sext i16 %18 to i32
   %cmp8.not.i.i32 = icmp sgt i32 %conv.i.i, %conv7.i.i31
   %or.cond.i.i33 = select i1 %cmp.not.i.i29, i1 true, i1 %cmp8.not.i.i32
   br i1 %or.cond.i.i33, label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit, label %land.lhs.true9.i.i34
@@ -9877,12 +9856,12 @@ _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; pre
 land.lhs.true9.i.i34:                             ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
   %conv10.i.i35 = ashr i32 %p.sroa.0.0.extract.trunc.i.i, 16
   %Y12.i.i36 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %21 = load i16, ptr %Y12.i.i36, align 2, !tbaa !371
-  %conv13.i.i37 = sext i16 %21 to i32
+  %19 = load i16, ptr %Y12.i.i36, align 2, !tbaa !371
+  %conv13.i.i37 = sext i16 %19 to i32
   %cmp14.not.i.i38 = icmp slt i32 %conv10.i.i35, %conv13.i.i37
   %Y19.i.i39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load i16, ptr %Y19.i.i39, align 2
-  %conv20.i.i40 = sext i16 %22 to i32
+  %20 = load i16, ptr %Y19.i.i39, align 2
+  %conv20.i.i40 = sext i16 %20 to i32
   %cmp21.not.i.i41 = icmp sgt i32 %conv10.i.i35, %conv20.i.i40
   %or.cond39.i.i42 = select i1 %cmp14.not.i.i38, i1 true, i1 %cmp21.not.i.i41
   br i1 %or.cond39.i.i42, label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit, label %land.lhs.true22.i.i43
@@ -9892,34 +9871,34 @@ land.lhs.true22.i.i43:                            ; preds = %land.lhs.true9.i.i3
   %tr.sh.diff.i.i45 = trunc nuw i48 %sh.diff.i.i44 to i32
   %conv23.i.i46 = ashr i32 %tr.sh.diff.i.i45, 16
   %Z25.i.i47 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %23 = load i16, ptr %Z25.i.i47, align 2, !tbaa !372
-  %conv26.i.i48 = sext i16 %23 to i32
+  %21 = load i16, ptr %Z25.i.i47, align 2, !tbaa !372
+  %conv26.i.i48 = sext i16 %21 to i32
   %cmp27.not.i.i49 = icmp sge i32 %conv23.i.i46, %conv26.i.i48
   %Z31.i.i50 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %24 = load i16, ptr %Z31.i.i50, align 2
-  %conv32.i.i51 = sext i16 %24 to i32
+  %22 = load i16, ptr %Z31.i.i50, align 2
+  %conv32.i.i51 = sext i16 %22 to i32
   %cmp33.i.i52 = icmp sle i32 %conv23.i.i46, %conv32.i.i51
   %or.cond.i53 = select i1 %cmp27.not.i.i49, i1 %cmp33.i.i52, i1 false
   br i1 %or.cond.i53, label %if.end.i54, label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit
 
 if.end.i54:                                       ; preds = %land.lhs.true22.i.i43
   %m_data.i55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %25 = load ptr, ptr %m_data.i55, align 8, !tbaa !377
+  %23 = load ptr, ptr %m_data.i55, align 8, !tbaa !377
   %sub.i.i.i56 = sub nsw i32 %conv23.i.i46, %conv26.i.i48
   %m_cache_extent.i.i.i57 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %Y.i.i.i58 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %26 = load i16, ptr %Y.i.i.i58, align 2, !tbaa !375
-  %conv3.i.i.i59 = sext i16 %26 to i32
+  %24 = load i16, ptr %Y.i.i.i58, align 2, !tbaa !375
+  %conv3.i.i.i59 = sext i16 %24 to i32
   %mul.i.i.i60 = mul nsw i32 %sub.i.i.i56, %conv3.i.i.i59
-  %27 = load i16, ptr %m_cache_extent.i.i.i57, align 4, !tbaa !376
-  %conv5.i.i.i61 = sext i16 %27 to i32
+  %25 = load i16, ptr %m_cache_extent.i.i.i57, align 4, !tbaa !376
+  %conv5.i.i.i61 = sext i16 %25 to i32
   %sub11.i.i.i62 = sub nsw i32 %conv10.i.i35, %conv13.i.i37
   %mul622.i.i.i63 = add i32 %sub11.i.i.i62, %mul.i.i.i60
   %add.i.i.i64 = mul i32 %mul622.i.i.i63, %conv5.i.i.i61
   %sub20.i.i.i65 = sub nsw i32 %conv.i.i, %conv3.i.i28
   %add21.i.i.i66 = add nsw i32 %sub20.i.i.i65, %add.i.i.i64
   %idxprom.i67 = sext i32 %add21.i.i.i66 to i64
-  %arrayidx.i68 = getelementptr inbounds %struct.MapNode, ptr %25, i64 %idxprom.i67
+  %arrayidx.i68 = getelementptr inbounds %struct.MapNode, ptr %23, i64 %idxprom.i67
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %arrayidx.i68, align 4, !tbaa.struct !267
   br label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit
 
@@ -10033,32 +10012,25 @@ if.end6.i:                                        ; preds = %if.end.i
   %14 = load ptr, ptr %m_data.i, align 8, !tbaa !377
   %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %14, i64 %idxprom.i
   %15 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !267
-  %retval.sroa.6.0.extract.shift.i = and i32 %15, -16777216
-  %16 = and i32 %15, 16711680
-  %17 = and i32 %15, 65535
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end6.i, %if.end.i, %land.lhs.true22.i.i, %land.lhs.true9.i.i, %if.end6
-  %retval.sroa.6.0.i = phi i32 [ %retval.sroa.6.0.extract.shift.i, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end6 ]
-  %retval.sroa.4.0.i = phi i32 [ %16, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %if.end6 ]
-  %retval.sroa.0.0.i = phi i32 [ %17, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end6 ]
-  %retval.sroa.4.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.i, %retval.sroa.6.0.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.insert.insert.i, %retval.sroa.0.0.i
-  store i32 %retval.sroa.0.0.insert.insert.i, ptr %n, align 4
+  %retval.sroa.4.0.i = phi i32 [ %15, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %if.end6 ]
+  store i32 %retval.sroa.4.0.i, ptr %n, align 4
   %call8 = tail call noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef %L)
   %vtable.i = load ptr, ptr %call8, align 8, !tbaa !87
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 8
-  %18 = load ptr, ptr %vfn.i, align 8
-  %call.i22 = tail call noundef ptr %18(ptr noundef nonnull align 8 dereferenceable(8) %call8)
+  %16 = load ptr, ptr %vfn.i, align 8
+  %call.i22 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %call8)
   %call11 = call noundef signext i8 @_ZN7MapNode8addLevelEPK14NodeDefManagers(ptr noundef nonnull align 4 dereferenceable(4) %n, ptr noundef %call.i22, i16 noundef signext %level.0)
   %conv12 = sitofp i8 %call11 to double
   call void @lua_pushnumber(ptr noundef %L, double noundef %conv12)
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %n, align 4, !tbaa.struct !267
-  %19 = load i16, ptr %m_area.i, align 2, !tbaa !369
-  %conv3.i.i28 = sext i16 %19 to i32
+  %17 = load i16, ptr %m_area.i, align 2, !tbaa !369
+  %conv3.i.i28 = sext i16 %17 to i32
   %cmp.not.i.i29 = icmp slt i32 %conv.i.i, %conv3.i.i28
-  %20 = load i16, ptr %MaxEdge.i.i, align 2
-  %conv7.i.i31 = sext i16 %20 to i32
+  %18 = load i16, ptr %MaxEdge.i.i, align 2
+  %conv7.i.i31 = sext i16 %18 to i32
   %cmp8.not.i.i32 = icmp sgt i32 %conv.i.i, %conv7.i.i31
   %or.cond.i.i33 = select i1 %cmp.not.i.i29, i1 true, i1 %cmp8.not.i.i32
   br i1 %or.cond.i.i33, label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit, label %land.lhs.true9.i.i34
@@ -10066,12 +10038,12 @@ _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; pre
 land.lhs.true9.i.i34:                             ; preds = %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
   %conv10.i.i35 = ashr i32 %p.sroa.0.0.extract.trunc.i.i, 16
   %Y12.i.i36 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %21 = load i16, ptr %Y12.i.i36, align 2, !tbaa !371
-  %conv13.i.i37 = sext i16 %21 to i32
+  %19 = load i16, ptr %Y12.i.i36, align 2, !tbaa !371
+  %conv13.i.i37 = sext i16 %19 to i32
   %cmp14.not.i.i38 = icmp slt i32 %conv10.i.i35, %conv13.i.i37
   %Y19.i.i39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %22 = load i16, ptr %Y19.i.i39, align 2
-  %conv20.i.i40 = sext i16 %22 to i32
+  %20 = load i16, ptr %Y19.i.i39, align 2
+  %conv20.i.i40 = sext i16 %20 to i32
   %cmp21.not.i.i41 = icmp sgt i32 %conv10.i.i35, %conv20.i.i40
   %or.cond39.i.i42 = select i1 %cmp14.not.i.i38, i1 true, i1 %cmp21.not.i.i41
   br i1 %or.cond39.i.i42, label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit, label %land.lhs.true22.i.i43
@@ -10081,34 +10053,34 @@ land.lhs.true22.i.i43:                            ; preds = %land.lhs.true9.i.i3
   %tr.sh.diff.i.i45 = trunc nuw i48 %sh.diff.i.i44 to i32
   %conv23.i.i46 = ashr i32 %tr.sh.diff.i.i45, 16
   %Z25.i.i47 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %23 = load i16, ptr %Z25.i.i47, align 2, !tbaa !372
-  %conv26.i.i48 = sext i16 %23 to i32
+  %21 = load i16, ptr %Z25.i.i47, align 2, !tbaa !372
+  %conv26.i.i48 = sext i16 %21 to i32
   %cmp27.not.i.i49 = icmp sge i32 %conv23.i.i46, %conv26.i.i48
   %Z31.i.i50 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %24 = load i16, ptr %Z31.i.i50, align 2
-  %conv32.i.i51 = sext i16 %24 to i32
+  %22 = load i16, ptr %Z31.i.i50, align 2
+  %conv32.i.i51 = sext i16 %22 to i32
   %cmp33.i.i52 = icmp sle i32 %conv23.i.i46, %conv32.i.i51
   %or.cond.i53 = select i1 %cmp27.not.i.i49, i1 %cmp33.i.i52, i1 false
   br i1 %or.cond.i53, label %if.end.i54, label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit
 
 if.end.i54:                                       ; preds = %land.lhs.true22.i.i43
   %m_data.i55 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %25 = load ptr, ptr %m_data.i55, align 8, !tbaa !377
+  %23 = load ptr, ptr %m_data.i55, align 8, !tbaa !377
   %sub.i.i.i56 = sub nsw i32 %conv23.i.i46, %conv26.i.i48
   %m_cache_extent.i.i.i57 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %Y.i.i.i58 = getelementptr inbounds nuw i8, ptr %1, i64 22
-  %26 = load i16, ptr %Y.i.i.i58, align 2, !tbaa !375
-  %conv3.i.i.i59 = sext i16 %26 to i32
+  %24 = load i16, ptr %Y.i.i.i58, align 2, !tbaa !375
+  %conv3.i.i.i59 = sext i16 %24 to i32
   %mul.i.i.i60 = mul nsw i32 %sub.i.i.i56, %conv3.i.i.i59
-  %27 = load i16, ptr %m_cache_extent.i.i.i57, align 4, !tbaa !376
-  %conv5.i.i.i61 = sext i16 %27 to i32
+  %25 = load i16, ptr %m_cache_extent.i.i.i57, align 4, !tbaa !376
+  %conv5.i.i.i61 = sext i16 %25 to i32
   %sub11.i.i.i62 = sub nsw i32 %conv10.i.i35, %conv13.i.i37
   %mul622.i.i.i63 = add i32 %sub11.i.i.i62, %mul.i.i.i60
   %add.i.i.i64 = mul i32 %mul622.i.i.i63, %conv5.i.i.i61
   %sub20.i.i.i65 = sub nsw i32 %conv.i.i, %conv3.i.i28
   %add21.i.i.i66 = add nsw i32 %sub20.i.i.i65, %add.i.i.i64
   %idxprom.i67 = sext i32 %add21.i.i.i66 to i64
-  %arrayidx.i68 = getelementptr inbounds %struct.MapNode, ptr %25, i64 %idxprom.i67
+  %arrayidx.i68 = getelementptr inbounds %struct.MapNode, ptr %23, i64 %idxprom.i67
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %arrayidx.i68, align 4, !tbaa.struct !267
   br label %_ZN16VoxelManipulator15setNodeNoEmergeERKN3irr4core8vector3dIsEE7MapNode.exit
 

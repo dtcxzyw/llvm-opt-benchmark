@@ -15946,10 +15946,8 @@ define hidden range(i32 0, -254) i32 @_ZN15tree_sitter_cli9highlight17hex_string
   br i1 %10, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i38", label %11
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit.thread": ; preds = %2, %21, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit", %29
-  %.sroa.4.sroa.0.0 = phi i32 [ %30, %29 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit" ], [ 0, %21 ], [ 0, %2 ]
-  %.sroa.0.0 = phi i32 [ 1, %29 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit" ], [ 0, %21 ], [ 0, %2 ]
-  %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.0, %.sroa.4.sroa.0.0
-  ret i32 %.sroa.0.0.insert.insert
+  %.sroa.4.sroa.0.0 = phi i32 [ %31, %29 ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit" ], [ 0, %21 ], [ 0, %2 ]
+  ret i32 %.sroa.4.sroa.0.0
 
 11:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   tail call void @_ZN4core3str16slice_error_fail17hae3b26614aa3049fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i64 noundef 1, i64 noundef 3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4ccd1cf6e450bc7ecae6e75709804d9d.361) #25
@@ -16008,6 +16006,7 @@ define hidden range(i32 0, -254) i32 @_ZN15tree_sitter_cli9highlight17hex_string
   %.sroa.010.0.insert.ext = zext i8 %.fca.1.extract to i32
   %.sroa.010.0.insert.insert = or disjoint i32 %.sroa.4.0.insert.insert14, %.sroa.010.0.insert.ext
   %30 = shl nuw i32 %.sroa.010.0.insert.insert, 8
+  %31 = or disjoint i32 %30, 1
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h63a23cb5116f5886E.exit.thread"
 }
 

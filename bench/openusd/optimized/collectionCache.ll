@@ -2498,99 +2498,97 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdImaging_CollectionCache3
   %12 = zext i32 %11 to i64
   %13 = shl nuw i64 %12, 32
   %14 = zext i32 %10 to i64
+  %15 = or disjoint i64 %13, %14
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %3, %8
-  %.sroa.7.0 = phi i64 [ %14, %8 ], [ 0, %3 ]
-  %.sroa.11.0 = phi i64 [ %13, %8 ], [ 0, %3 ]
+  %.sroa.11.0 = phi i64 [ %15, %8 ], [ 0, %3 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %15 unwind label %27
+          to label %16 unwind label %28
 
-15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.014.030 = load ptr, ptr %16, align 8
+16:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %.sroa.014.030 = load ptr, ptr %17, align 8
   %.not2931 = icmp eq ptr %.sroa.014.030, null
   br i1 %.not2931, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %31
-  %.sroa.014.032 = phi ptr [ %.sroa.014.0, %31 ], [ %.sroa.014.030, %15 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.014.032, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.014.032, i64 16
-  %19 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBase16_HasEmptyRuleMapEv(ptr noundef nonnull align 8 dereferenceable(184) %18)
-          to label %.noexc unwind label %29
+.lr.ph:                                           ; preds = %16, %32
+  %.sroa.014.032 = phi ptr [ %.sroa.014.0, %32 ], [ %.sroa.014.030, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.014.032, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.014.032, i64 16
+  %20 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBase16_HasEmptyRuleMapEv(ptr noundef nonnull align 8 dereferenceable(184) %19)
+          to label %.noexc unwind label %30
 
 .noexc:                                           ; preds = %.lr.ph
-  br i1 %19, label %22, label %20
+  br i1 %20, label %23, label %21
 
-20:                                               ; preds = %.noexc
-  %21 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBase24_IsPathIncludedByRuleMapERKNS_7SdfPathEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(184) %18, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef null)
-          to label %.noexc10 unwind label %29
+21:                                               ; preds = %.noexc
+  %22 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBase24_IsPathIncludedByRuleMapERKNS_7SdfPathEPNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(184) %19, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef null)
+          to label %.noexc10 unwind label %30
 
-.noexc10:                                         ; preds = %20
-  %.sroa.0.0.insert.ext.i.i = zext i1 %21 to i64
+.noexc10:                                         ; preds = %21
+  %.sroa.0.0.insert.ext.i.i = zext i1 %22 to i64
   br label %.noexc11
 
-22:                                               ; preds = %.noexc
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.014.032, i64 136
-  %24 = invoke i64 @_ZNK32pxrInternal_v0_24__pxrReserved__38UsdObjectCollectionExpressionEvaluator5MatchERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 4 dereferenceable(8) %2)
-          to label %.noexc11 unwind label %29
+23:                                               ; preds = %.noexc
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.014.032, i64 136
+  %25 = invoke i64 @_ZNK32pxrInternal_v0_24__pxrReserved__38UsdObjectCollectionExpressionEvaluator5MatchERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(8) %2)
+          to label %.noexc11 unwind label %30
 
-.noexc11:                                         ; preds = %22, %.noexc10
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.ext.i.i, %.noexc10 ], [ %24, %22 ]
-  %25 = and i64 %.sroa.0.0.i, 1
-  %.not = icmp eq i64 %25, 0
-  br i1 %.not, label %31, label %26
+.noexc11:                                         ; preds = %23, %.noexc10
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.ext.i.i, %.noexc10 ], [ %25, %23 ]
+  %26 = and i64 %.sroa.0.0.i, 1
+  %.not = icmp eq i64 %26, 0
+  br i1 %.not, label %32, label %27
 
-26:                                               ; preds = %.noexc11
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %31 unwind label %29
+27:                                               ; preds = %.noexc11
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %32 unwind label %30
 
-27:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
-  %28 = landingpad { ptr, i32 }
+28:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
+  %29 = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %35
 
-29:                                               ; preds = %22, %20, %.lr.ph, %26
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %23, %21, %.lr.ph, %27
+  %31 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
-  br label %34
+  br label %35
 
-31:                                               ; preds = %.noexc11, %26
+32:                                               ; preds = %.noexc11, %27
   %.sroa.014.0 = load ptr, ptr %.sroa.014.032, align 8
   %.not29 = icmp eq ptr %.sroa.014.0, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %31, %15
+._crit_edge:                                      ; preds = %32, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %7, label %32, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
+  br i1 %7, label %33, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-32:                                               ; preds = %._crit_edge
+33:                                               ; preds = %._crit_edge
   fence syncscope("singlethread") seq_cst
-  %33 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  %34 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__26UsdImaging_CollectionCache32ComputeCollectionsContainingPathERKNS_7SdfPathEE16TraceKeyData_156, ptr %5, align 8
-  %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %33) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.11.0, i64 noundef %34) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._crit_edge, %32
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._crit_edge, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-34:                                               ; preds = %29, %27
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %28, %27 ]
+35:                                               ; preds = %30, %28
+  %.pn = phi { ptr, i32 } [ %31, %30 ], [ %29, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %7, label %35, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12
+  br i1 %7, label %36, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12
 
-35:                                               ; preds = %34
+36:                                               ; preds = %35
   fence syncscope("singlethread") seq_cst
-  %36 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
+  %37 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !17
   store ptr @_ZZNK32pxrInternal_v0_24__pxrReserved__26UsdImaging_CollectionCache32ComputeCollectionsContainingPathERKNS_7SdfPathEE16TraceKeyData_156, ptr %4, align 8
-  %.sroa.7.12.insert.insert23 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.sroa.7.12.insert.insert23, i64 noundef %36) #17
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.sroa.11.0, i64 noundef %37) #17
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12: ; preds = %34, %35
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12: ; preds = %35, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 }

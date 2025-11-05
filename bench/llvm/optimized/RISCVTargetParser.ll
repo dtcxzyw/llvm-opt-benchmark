@@ -396,11 +396,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9Stri
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %bcmp.i.i7 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) @.str.11, i64 4)
   %11 = icmp eq i32 %bcmp.i.i7, 0
+  %12 = xor i1 %2, %11
   br label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit
 
 _ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit:           ; preds = %.split11.us, %8
-  %12 = phi i1 [ false, %.split11.us ], [ %11, %8 ]
-  %13 = xor i1 %2, %12
+  %13 = phi i1 [ %2, %.split11.us ], [ %12, %8 ]
   %14 = xor i1 %13, true
   br label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit
 
@@ -480,11 +480,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %bcmp.i.i7.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.11, i64 4)
   %13 = icmp eq i32 %bcmp.i.i7.i, 0
+  %14 = xor i1 %2, %13
   br label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i
 
 _ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i:         ; preds = %10, %.split11.us.i
-  %14 = phi i1 [ false, %.split11.us.i ], [ %13, %10 ]
-  %15 = xor i1 %2, %14
+  %15 = phi i1 [ %2, %.split11.us.i ], [ %14, %10 ]
   %16 = xor i1 %15, true
   br label %_ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit
 
@@ -1495,13 +1495,12 @@ define dso_local range(i16 0, 272) i16 @_ZN4llvm10RISCVVType16getSameRatioLMULEj
   %25 = sub nuw nsw i32 8, %24
   %26 = select i1 %10, i32 %24, i32 %25
   %27 = trunc nuw nsw i32 %26 to i16
+  %28 = or disjoint i16 %27, 256
   br label %_ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread
 
 _ZN4llvm10RISCVVTypeL11isValidLMULEjb.exit.thread: ; preds = %15, %22
-  %.sroa.0.0 = phi i16 [ %27, %22 ], [ 0, %15 ]
-  %.sroa.2.0 = phi i16 [ 256, %22 ], [ 0, %15 ]
-  %.sroa.0.0.insert.insert = or i16 %.sroa.2.0, %.sroa.0.0
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = phi i16 [ %28, %22 ], [ 0, %15 ]
+  ret i16 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

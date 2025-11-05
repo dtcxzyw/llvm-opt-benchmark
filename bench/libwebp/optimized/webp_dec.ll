@@ -1810,7 +1810,7 @@ WebPCheckCropDimensions.exit:                     ; preds = %15
   %79 = mul nsw i32 %6, 3
   %80 = sdiv i32 %79, 4
   %81 = icmp slt i32 %78, %80
-  br i1 %81, label %82, label %89
+  br i1 %81, label %82, label %90
 
 82:                                               ; preds = %76
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -1818,12 +1818,12 @@ WebPCheckCropDimensions.exit:                     ; preds = %15
   %85 = mul nsw i32 %8, 3
   %86 = sdiv i32 %85, 4
   %87 = icmp slt i32 %84, %86
-  %88 = zext i1 %87 to i32
-  br label %89
+  %88 = or i1 %69, %87
+  %89 = zext i1 %88 to i32
+  br label %90
 
-89:                                               ; preds = %82, %76
-  %90 = phi i32 [ 0, %76 ], [ %88, %82 ]
-  %91 = or i32 %90, %70
+90:                                               ; preds = %82, %76
+  %91 = phi i32 [ %70, %76 ], [ %89, %82 ]
   store i32 %91, ptr %71, align 8, !tbaa !101
   store i32 0, ptr %75, align 8, !tbaa !102
   br label %WebPCheckCropDimensions.exit.thread
@@ -1833,8 +1833,8 @@ WebPCheckCropDimensions.exit:                     ; preds = %15
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %WebPCheckCropDimensions.exit.thread
 
-WebPCheckCropDimensions.exit.thread:              ; preds = %15, %.thread78, %67, %89, %.critedge74, %WebPCheckCropDimensions.exit
-  %.064 = phi i32 [ 0, %WebPCheckCropDimensions.exit ], [ 0, %.critedge74 ], [ 1, %89 ], [ 1, %67 ], [ 1, %.thread78 ], [ 0, %15 ]
+WebPCheckCropDimensions.exit.thread:              ; preds = %15, %.thread78, %67, %90, %.critedge74, %WebPCheckCropDimensions.exit
+  %.064 = phi i32 [ 0, %WebPCheckCropDimensions.exit ], [ 0, %.critedge74 ], [ 1, %90 ], [ 1, %67 ], [ 1, %.thread78 ], [ 0, %15 ]
   ret i32 %.064
 }
 

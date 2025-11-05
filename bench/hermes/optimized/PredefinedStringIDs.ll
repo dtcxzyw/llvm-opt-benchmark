@@ -72,13 +72,12 @@ if.end:                                           ; preds = %init.end
   %second = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %second, align 4
   %8 = zext i32 %7 to i64
+  %9 = or disjoint i64 %8, 4294967296
   br label %return
 
 return:                                           ; preds = %init.end, %if.end
-  %retval.sroa.0.0 = phi i64 [ %8, %if.end ], [ 0, %init.end ]
-  %retval.sroa.2.0 = phi i64 [ 4294967296, %if.end ], [ 0, %init.end ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.2.0 = phi i64 [ %9, %if.end ], [ 0, %init.end ]
+  ret i64 %retval.sroa.2.0
 }
 
 ; Function Attrs: nofree nounwind

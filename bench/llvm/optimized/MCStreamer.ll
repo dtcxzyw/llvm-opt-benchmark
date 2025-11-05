@@ -1476,12 +1476,12 @@ define dso_local noundef i32 @_ZN4llvm10MCStreamer19emitSLEB128IntValueEl(ptr no
   %23 = icmp eq i64 %22, 0
   %.not31.i = or i1 %21, %23
   %spec.select = select i1 %.not31.i, i8 -128, i8 0
+  %24 = or disjoint i8 %spec.select, %17
   br label %.thread
 
 .thread:                                          ; preds = %15, %20
-  %24 = phi i1 [ %.not31.i, %20 ], [ false, %15 ]
-  %25 = phi i8 [ %spec.select, %20 ], [ 0, %15 ]
-  %.025.i = or disjoint i8 %25, %17
+  %25 = phi i1 [ %.not31.i, %20 ], [ false, %15 ]
+  %.025.i = phi i8 [ %24, %20 ], [ %17, %15 ]
   %26 = load ptr, ptr %13, align 8, !tbaa !241
   %27 = load ptr, ptr %14, align 8, !tbaa !240
   %.not.i.i = icmp ult ptr %26, %27
@@ -1498,7 +1498,7 @@ define dso_local noundef i32 @_ZN4llvm10MCStreamer19emitSLEB128IntValueEl(ptr no
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %30, %28
-  br i1 %24, label %15, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit, !llvm.loop !282
+  br i1 %25, label %15, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit, !llvm.loop !282
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i
   %32 = load ptr, ptr %12, align 8, !tbaa !224

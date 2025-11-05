@@ -2610,12 +2610,12 @@ while.end.i:                                      ; preds = %if.end.i, %for.body
   %.lcssa8.i = phi i8 [ %85, %for.body ], [ %88, %if.end.i ]
   %.lcssa.i = phi i8 [ %86, %for.body ], [ %89, %if.end.i ]
   %cmp10.i = icmp ult i8 %.lcssa8.i, %.lcssa.i
+  %90 = xor i1 %cmp10.i, %tobool64
   br label %_ZNK5eastl8str_lessIPKcEclES2_S2_.exit
 
 _ZNK5eastl8str_lessIPKcEclES2_S2_.exit:           ; preds = %while.body.i, %while.end.i
-  %retval.0.i = phi i1 [ %cmp10.i, %while.end.i ], [ false, %while.body.i ]
-  %90 = xor i1 %retval.0.i, %tobool64
-  %cmp87 = xor i1 %90, true
+  %retval.0.i = phi i1 [ %90, %while.end.i ], [ %tobool64, %while.body.i ]
+  %cmp87 = xor i1 %retval.0.i, true
   %call96 = call noundef i32 (i1, ptr, ptr, i32, ptr, ...) @_ZN2EA8UnitTest12TestInternal19EATEST_VERIFY_F_IMPEbRiPKciS4_z(i1 noundef zeroext %cmp87, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 208, ptr noundef nonnull @.str.13, i64 noundef %i.02261, ptr noundef nonnull %82, ptr noundef nonnull %cond, ptr noundef nonnull %83)
   %inc = add nuw nsw i64 %i.02261, 1
   %exitcond2297.not = icmp eq i64 %inc, 10

@@ -956,29 +956,29 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14, %
   %21 = load ptr, ptr %20, align 8, !tbaa !35
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %21, ptr %22, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !36
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !37
-  %27 = mul nsw i32 %26, %24
-  %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %30 = load i32, ptr %29, align 4, !tbaa !38
-  %31 = icmp sgt i32 %30, 0
-  br i1 %31, label %32, label %39
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %26, label %40
 
-32:                                               ; preds = %19
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %28 = load i32, ptr %27, align 4, !tbaa !37
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load i32, ptr %29, align 8, !tbaa !38
+  %31 = mul nsw i32 %30, %28
+  %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %34 = load ptr, ptr %33, align 8, !tbaa !39
-  %35 = zext nneg i32 %30 to i64
+  %35 = zext nneg i32 %24 to i64
   %36 = getelementptr i64, ptr %34, i64 %35
   %37 = getelementptr i8, ptr %36, i64 -8
   %38 = load i64, ptr %37, align 8, !tbaa !40
-  br label %39
+  %39 = mul i64 %38, %32
+  br label %40
 
-39:                                               ; preds = %32, %19
-  %40 = phi i64 [ %38, %32 ], [ 0, %19 ]
-  %41 = mul i64 %40, %28
+40:                                               ; preds = %26, %19
+  %41 = phi i64 [ %39, %26 ], [ 0, %19 ]
   %42 = getelementptr inbounds nuw i8, ptr %21, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %42, ptr %43, align 8, !tbaa !17
@@ -991,14 +991,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14, %
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %48, label %51
 
-48:                                               ; preds = %39
+48:                                               ; preds = %40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %21, ptr %49, align 8, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 0, ptr %50, align 4, !tbaa !21
   br label %_ZN2cv11RBaseStream6setPosEi.exit
 
-51:                                               ; preds = %39
+51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %53 = load i32, ptr %52, align 4, !tbaa !21
   store i32 0, ptr %52, align 4, !tbaa !21
@@ -3295,9 +3295,9 @@ attributes #24 = { noreturn }
 !33 = !{!"_ZTSN2cv7MatStepE", !34, i64 0, !6, i64 8}
 !34 = !{!"p1 long", !9, i64 0}
 !35 = !{!28, !8, i64 16}
-!36 = !{!28, !11, i64 12}
-!37 = !{!28, !11, i64 8}
-!38 = !{!28, !11, i64 4}
+!36 = !{!28, !11, i64 4}
+!37 = !{!28, !11, i64 12}
+!38 = !{!28, !11, i64 8}
 !39 = !{!28, !34, i64 72}
 !40 = !{!26, !26, i64 0}
 !41 = !{!6, !6, i64 0}

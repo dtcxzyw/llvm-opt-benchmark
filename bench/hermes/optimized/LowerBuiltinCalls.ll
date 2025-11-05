@@ -3858,13 +3858,12 @@ if.end15:                                         ; preds = %if.end
   %second17 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load i8, ptr %second17, align 1
   %9 = zext i8 %8 to i16
+  %10 = or disjoint i16 %9, 256
   br label %return
 
 return:                                           ; preds = %if.end, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findERKS3_.exit, %if.end15
-  %retval.sroa.0.0 = phi i16 [ %9, %if.end15 ], [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findERKS3_.exit ], [ 0, %if.end ]
-  %retval.sroa.4.0 = phi i16 [ 256, %if.end15 ], [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findERKS3_.exit ], [ 0, %if.end ]
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.4.0, %retval.sroa.0.0
-  ret i16 %retval.sroa.0.0.insert.insert
+  %retval.sroa.4.0 = phi i16 [ %10, %if.end15 ], [ 0, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findERKS3_.exit ], [ 0, %if.end ]
+  ret i16 %retval.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3910,10 +3909,6 @@ for.body.i:                                       ; preds = %for.inc94.i, %for.b
   %InstList.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.074.i, i64 56
   %cmp.i30.not68.i = icmp eq ptr %2, %InstList.i.i
   br i1 %cmp.i30.not68.i, label %for.inc94.i, label %for.body13.i
-
-for.cond11.critedge.i:                            ; preds = %if.end.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findERKS3_.exit.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i.i)
-  br label %for.cond11.backedge.i
 
 for.body13.i:                                     ; preds = %for.body.i, %for.cond11.backedge.i
   %changed.170.i = phi i1 [ %changed.1.be.i, %for.cond11.backedge.i ], [ %changed.073.i, %for.body.i ]
@@ -4011,7 +4006,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_E
   %idx.ext.i.i1.i.i = zext i32 %15 to i64
   %add.ptr.i.i2.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair", ptr %14, i64 %idx.ext.i.i1.i.i
   %cmp.i.i.i = icmp eq ptr %cond.sink.i.i.ph.pn.i.i.i, %add.ptr.i.i2.i.i
-  br i1 %cmp.i.i.i, label %for.cond11.critedge.i, label %if.end.i.i
+  br i1 %cmp.i.i.i, label %_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.thread.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findERKS3_.exit.i.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %cond.sink.i.i.ph.pn.i.i.i, i64 8
@@ -4028,9 +4023,13 @@ if.end.i.i:                                       ; preds = %_ZN4llvh12DenseMapB
   %add.ptr.i.i5.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.9", ptr %19, i64 %idx.ext.i.i4.i.i
   %cmp.i1318.i.i = icmp ne ptr %18, %add.ptr.i.i5.i.i
   %cmp.i13.not.i.i = select i1 %call.i.i.i.i, i1 %cmp.i1318.i.i, i1 false
-  br i1 %cmp.i13.not.i.i, label %if.end15.i.i, label %for.cond11.critedge.i
+  br i1 %cmp.i13.not.i.i, label %_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.i, label %_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.thread.i
 
-if.end15.i.i:                                     ; preds = %if.end.i.i
+_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.thread.i: ; preds = %if.end.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes10IdentifierEiNS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findERKS3_.exit.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i.i)
+  br label %for.cond11.backedge.i
+
+_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.i: ; preds = %if.end.i.i
   %second17.i.i = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i8, ptr %second17.i.i, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp6.i.i)
@@ -4039,14 +4038,14 @@ if.end15.i.i:                                     ; preds = %if.end.i.i
   %cmp.i.i47.not.i = icmp eq ptr %retval.sroa.0.0.copyload.i45.i, %retval.sroa.0.0.copyload.i46.i
   br i1 %cmp.i.i47.not.i, label %if.end67.i, label %land.rhs.i
 
-land.rhs.i:                                       ; preds = %if.end15.i.i
+land.rhs.i:                                       ; preds = %_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.i
   %call62.i = call noundef nonnull align 8 dereferenceable(656) ptr @_ZNK6hermes8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(304) %F) #12
   %staticBuiltins.i = getelementptr inbounds nuw i8, ptr %call62.i, i64 635
   %22 = load i8, ptr %staticBuiltins.i, align 1
   %tobool64.i = trunc i8 %22 to i1
   br i1 %tobool64.i, label %if.end67.i, label %for.cond11.backedge.i
 
-if.end67.i:                                       ; preds = %land.rhs.i, %if.end15.i.i
+if.end67.i:                                       ; preds = %land.rhs.i, %_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.i
   call void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(40) %builder.i, ptr noundef nonnull %it.sroa.0.069.i) #12
   %location_.i.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.069.i, i64 120
   %retval.sroa.0.0.copyload.i48.i = load ptr, ptr %location_.i.i, align 8
@@ -4141,8 +4140,8 @@ if.then.i.i.i:                                    ; preds = %if.end91.i
   call void @free(ptr noundef %34) #12
   br label %for.cond11.backedge.i
 
-for.cond11.backedge.i:                            ; preds = %if.then.i.i.i, %if.end91.i, %land.rhs.i, %if.end37.i, %if.end32.i, %if.end27.i, %if.end22.i, %if.end.i, %for.body13.i, %for.cond11.critedge.i
-  %changed.1.be.i = phi i1 [ %changed.170.i, %if.end.i ], [ %changed.170.i, %if.end22.i ], [ %changed.170.i, %if.end27.i ], [ %changed.170.i, %if.end37.i ], [ %changed.170.i, %land.rhs.i ], [ %changed.170.i, %if.end32.i ], [ %changed.170.i, %for.body13.i ], [ %changed.170.i, %for.cond11.critedge.i ], [ true, %if.end91.i ], [ true, %if.then.i.i.i ]
+for.cond11.backedge.i:                            ; preds = %if.then.i.i.i, %if.end91.i, %land.rhs.i, %_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.thread.i, %if.end37.i, %if.end32.i, %if.end27.i, %if.end22.i, %if.end.i, %for.body13.i
+  %changed.1.be.i = phi i1 [ %changed.170.i, %if.end.i ], [ %changed.170.i, %if.end22.i ], [ %changed.170.i, %if.end27.i ], [ %changed.170.i, %if.end37.i ], [ %changed.170.i, %land.rhs.i ], [ %changed.170.i, %if.end32.i ], [ %changed.170.i, %for.body13.i ], [ true, %if.end91.i ], [ true, %if.then.i.i.i ], [ %changed.170.i, %_ZN6hermes3hbc24LowerBuiltinCallsContext17findBuiltinMethodENS_10IdentifierES2_.exit.thread.i ]
   %cmp.i30.not.i = icmp eq ptr %3, %InstList.i.i
   br i1 %cmp.i30.not.i, label %for.inc94.i, label %for.body13.i, !llvm.loop !7
 

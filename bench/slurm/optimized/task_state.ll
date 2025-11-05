@@ -322,9 +322,9 @@ define dso_local noundef zeroext i1 @task_state_first_exit(ptr noundef %0) local
 ._crit_edge:                                      ; preds = %9, %.lr.ph
   %.0.lcssa.ph = phi i32 [ %12, %9 ], [ %.022, %.lr.ph ]
   %14 = icmp eq i32 %.0.lcssa.ph, 0
+  %.not37 = or i1 %14, %8
   tail call void @list_iterator_destroy(ptr noundef %3) #6
-  %spec.select.not = or i1 %14, %8
-  br i1 %spec.select.not, label %21, label %15
+  br i1 %.not37, label %21, label %15
 
 15:                                               ; preds = %._crit_edge
   %16 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #6
@@ -386,9 +386,9 @@ define dso_local noundef zeroext i1 @task_state_first_abnormal_exit(ptr noundef 
 ._crit_edge:                                      ; preds = %9, %.lr.ph
   %.0.lcssa.ph = phi i32 [ %12, %9 ], [ %.022, %.lr.ph ]
   %14 = icmp eq i32 %.0.lcssa.ph, 0
+  %.not37 = or i1 %14, %8
   tail call void @list_iterator_destroy(ptr noundef %3) #6
-  %spec.select.not = or i1 %14, %8
-  br i1 %spec.select.not, label %21, label %15
+  br i1 %.not37, label %21, label %15
 
 15:                                               ; preds = %._crit_edge
   %16 = tail call ptr @list_iterator_create(ptr noundef nonnull %0) #6

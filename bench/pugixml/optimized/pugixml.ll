@@ -41650,10 +41650,8 @@ _ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread: ; preds = 
 
 47:                                               ; preds = %1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread
   %.sroa.33.0 = phi i32 [ 0, %46 ], [ 0, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread ], [ 3, %37 ], [ 4, %38 ], [ 4, %39 ], [ 4, %40 ], [ 4, %41 ], [ 5, %42 ], [ 5, %43 ], [ 6, %44 ], [ 7, %45 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 6, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 3, %1 ]
-  %.sroa.17.0 = phi i64 [ 0, %46 ], [ 0, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread ], [ 17179869184, %37 ], [ 17179869184, %38 ], [ 17179869184, %39 ], [ 17179869184, %40 ], [ 17179869184, %41 ], [ 8589934592, %42 ], [ 8589934592, %43 ], [ 8589934592, %44 ], [ 4294967296, %45 ], [ 17179869184, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 17179869184, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 8589934592, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 8589934592, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 17179869184, %1 ]
-  %.sroa.0.0 = phi i64 [ 0, %46 ], [ 0, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread ], [ 4, %37 ], [ 5, %38 ], [ 6, %39 ], [ 7, %40 ], [ 8, %41 ], [ 9, %42 ], [ 10, %43 ], [ 11, %44 ], [ 15, %45 ], [ 1, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 2, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 12, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 13, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 3, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0, %.sroa.17.0
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.insert.insert, 0
+  %.sroa.17.0 = phi i64 [ 0, %46 ], [ 0, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36.thread ], [ 17179869188, %37 ], [ 17179869189, %38 ], [ 17179869190, %39 ], [ 17179869191, %40 ], [ 17179869192, %41 ], [ 8589934601, %42 ], [ 8589934602, %43 ], [ 8589934603, %44 ], [ 4294967311, %45 ], [ 17179869185, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit ], [ 17179869186, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit20 ], [ 8589934604, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit28 ], [ 8589934605, %_ZNK4pugi4impl12_GLOBAL__N_118xpath_lexer_stringeqEPKc.exit36 ], [ 17179869187, %1 ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.17.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.33.0, 1
   ret { i64, i32 } %.fca.1.insert
 }
@@ -44769,15 +44767,15 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw17re
   %4 = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_allocator_capture", align 8
   %5 = load i32, ptr %0, align 8, !tbaa !432
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %._crit_edge51
+  br i1 %6, label %7, label %._crit_edge49
 
-._crit_edge51:                                    ; preds = %2
+._crit_edge49:                                    ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !404
-  %.phi.trans.insert52 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre53 = load ptr, ptr %.phi.trans.insert52, align 8, !tbaa !406
-  %.pre54 = ptrtoint ptr %.pre53 to i64
-  br label %99
+  %.phi.trans.insert50 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.pre51 = load ptr, ptr %.phi.trans.insert50, align 8, !tbaa !406
+  %.pre52 = ptrtoint ptr %.pre51 to i64
+  br label %100
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -44788,7 +44786,7 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw17re
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = icmp sgt i64 %14, 32
-  br i1 %15, label %16, label %99
+  br i1 %15, label %16, label %100
 
 16:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -44858,15 +44856,15 @@ define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw17re
 49:                                               ; preds = %35
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %99
 
 _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %32, %45
   %.0.i = phi ptr [ %34, %32 ], [ %48, %45 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %.0.i, i8 0, i64 %25, i1 false)
   %51 = load ptr, ptr %10, align 8, !tbaa !404
   %52 = load ptr, ptr %8, align 8, !tbaa !406
-  %.not3247 = icmp eq ptr %51, %52
-  br i1 %.not3247, label %._crit_edge, label %.lr.ph
+  %.not3245 = icmp eq ptr %51, %52
+  br i1 %.not3245, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit
   %53 = add i64 %.0, -1
@@ -44878,9 +44876,9 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %32, %45
   br label %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.thread
 
 54:                                               ; preds = %.lr.ph, %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread
-  %.02849 = phi ptr [ %51, %.lr.ph ], [ %87, %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread ]
-  %.02948 = phi ptr [ %51, %.lr.ph ], [ %.1, %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread ]
-  %55 = getelementptr inbounds nuw i8, ptr %.02849, i64 8
+  %.02847 = phi ptr [ %51, %.lr.ph ], [ %88, %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread ]
+  %.02946 = phi ptr [ %51, %.lr.ph ], [ %.1, %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread ]
+  %55 = getelementptr inbounds nuw i8, ptr %.02847, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %55, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i.i = icmp eq ptr %.sroa.0.0.copyload.i, null
@@ -44888,14 +44886,14 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %32, %45
 
 56:                                               ; preds = %54
   invoke void @_ZN4pugi8xml_nodeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.noexc36.thread unwind label %85
+          to label %.noexc36.thread unwind label %86
 
 .noexc36.thread:                                  ; preds = %56
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %59
 
 .noexc36:                                         ; preds = %54
-  %57 = load i64, ptr %.02849, align 8, !tbaa !60
+  %57 = load i64, ptr %.02847, align 8, !tbaa !60
   %58 = inttoptr i64 %57 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not35 = icmp eq i64 %57, 0
@@ -44923,7 +44921,7 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %32, %45
   %74 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02834.i
   %75 = load ptr, ptr %74, align 8, !tbaa !51
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit, label %77
+  br i1 %76, label %83, label %77
 
 77:                                               ; preds = %73
   %78 = icmp eq ptr %75, %60
@@ -44936,136 +44934,136 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit: ; preds = %32, %45
   %.not.not.i = icmp ugt i64 %80, %53
   br i1 %.not.not.i, label %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread, label %73, !llvm.loop !599
 
-_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit: ; preds = %73
-  %83 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02834.i
-  store ptr %60, ptr %83, align 8, !tbaa !51
-  %84 = getelementptr inbounds nuw i8, ptr %.02948, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.02948, ptr noundef nonnull align 8 dereferenceable(16) %.02849, i64 16, i1 false), !tbaa.struct !310
+83:                                               ; preds = %73
+  %84 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02834.i
+  store ptr %60, ptr %84, align 8, !tbaa !51
+  %85 = getelementptr inbounds nuw i8, ptr %.02946, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.02946, ptr noundef nonnull align 8 dereferenceable(16) %.02847, i64 16, i1 false), !tbaa.struct !310
   br label %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread
 
-85:                                               ; preds = %56
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %56
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %98
+  br label %99
 
-_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread: ; preds = %77, %79, %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit, %.noexc36
-  %.1 = phi ptr [ %84, %_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit ], [ %.02948, %.noexc36 ], [ %.02948, %79 ], [ %.02948, %77 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.02849, i64 16
-  %88 = load ptr, ptr %8, align 8, !tbaa !406
-  %.not32 = icmp eq ptr %87, %88
+_ZN4pugi4impl12_GLOBAL__N_111hash_insertEPPKvmS3_.exit.thread: ; preds = %79, %77, %83, %.noexc36
+  %.1 = phi ptr [ %85, %83 ], [ %.02946, %.noexc36 ], [ %.02946, %77 ], [ %.02946, %79 ]
+  %88 = getelementptr inbounds nuw i8, ptr %.02847, i64 16
+  %89 = load ptr, ptr %8, align 8, !tbaa !406
+  %.not32 = icmp eq ptr %88, %89
   br i1 %.not32, label %._crit_edge, label %54, !llvm.loop !600
 
 _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.thread: ; preds = %41, %44, %._crit_edge
-  %89 = load ptr, ptr %1, align 8, !tbaa !350
-  %90 = load ptr, ptr %17, align 8, !tbaa !350
-  %.not9.i.i = icmp eq ptr %89, %90
+  %90 = load ptr, ptr %1, align 8, !tbaa !350
+  %91 = load ptr, ptr %17, align 8, !tbaa !350
+  %.not9.i.i = icmp eq ptr %90, %91
   br i1 %.not9.i.i, label %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.thread, %.noexc.i
-  %.010.i.i = phi ptr [ %91, %.noexc.i ], [ %89, %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.thread ]
-  %91 = load ptr, ptr %.010.i.i, align 8, !tbaa !371
-  %92 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8, !tbaa !51
-  invoke void %92(ptr noundef nonnull %.010.i.i)
-          to label %.noexc.i unwind label %93
+  %.010.i.i = phi ptr [ %92, %.noexc.i ], [ %90, %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.thread ]
+  %92 = load ptr, ptr %.010.i.i, align 8, !tbaa !371
+  %93 = load ptr, ptr @_ZN4pugi4impl12_GLOBAL__N_138xml_memory_management_function_storageIiE10deallocateE, align 8, !tbaa !51
+  invoke void %93(ptr noundef nonnull %.010.i.i)
+          to label %.noexc.i unwind label %94
 
 .noexc.i:                                         ; preds = %.lr.ph.i.i
-  %.not.i.i37 = icmp eq ptr %91, %90
+  %.not.i.i37 = icmp eq ptr %92, %91
   br i1 %.not.i.i37, label %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, label %.lr.ph.i.i, !llvm.loop !408
 
-93:                                               ; preds = %.lr.ph.i.i
-  %94 = landingpad { ptr, i32 }
+94:                                               ; preds = %.lr.ph.i.i
+  %95 = landingpad { ptr, i32 }
           catch ptr null
-  %95 = extractvalue { ptr, i32 } %94, 0
-  call void @__clang_call_terminate(ptr %95) #50
+  %96 = extractvalue { ptr, i32 } %95, 0
+  call void @__clang_call_terminate(ptr %96) #50
   unreachable
 
 _ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit: ; preds = %.noexc.i, %_ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.thread
-  store ptr %90, ptr %1, align 8, !tbaa !350
-  %96 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %97 = load i64, ptr %96, align 8, !tbaa !351
-  store i64 %97, ptr %26, align 8, !tbaa !351
+  store ptr %91, ptr %1, align 8, !tbaa !350
+  %97 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %98 = load i64, ptr %97, align 8, !tbaa !351
+  store i64 %98, ptr %26, align 8, !tbaa !351
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %132
+  br label %133
 
-98:                                               ; preds = %85, %49
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %50, %49 ]
+99:                                               ; preds = %86, %49
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %50, %49 ]
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn
 
-99:                                               ; preds = %._crit_edge51, %7
-  %.pre-phi = phi i64 [ %.pre54, %._crit_edge51 ], [ %12, %7 ]
-  %100 = phi ptr [ %.pre53, %._crit_edge51 ], [ %9, %7 ]
-  %101 = phi ptr [ %.pre, %._crit_edge51 ], [ %11, %7 ]
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %103
+100:                                              ; preds = %._crit_edge49, %7
+  %.pre-phi = phi i64 [ %.pre52, %._crit_edge49 ], [ %12, %7 ]
+  %101 = phi ptr [ %.pre51, %._crit_edge49 ], [ %9, %7 ]
+  %102 = phi ptr [ %.pre, %._crit_edge49 ], [ %11, %7 ]
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %104
 
-103:                                              ; preds = %107, %99
-  %.019.i = phi ptr [ %101, %99 ], [ %108, %107 ]
-  %104 = ptrtoint ptr %.019.i to i64
-  %105 = sub i64 %.pre-phi, %104
-  %106 = icmp sgt i64 %105, 16
-  br i1 %106, label %107, label %.critedge.i
+104:                                              ; preds = %108, %100
+  %.019.i = phi ptr [ %102, %100 ], [ %109, %108 ]
+  %105 = ptrtoint ptr %.019.i to i64
+  %106 = sub i64 %.pre-phi, %105
+  %107 = icmp sgt i64 %106, 16
+  br i1 %107, label %108, label %.critedge.i
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
-  %109 = load ptr, ptr %.019.i, align 8, !tbaa !54
-  %110 = load ptr, ptr %108, align 8, !tbaa !54
-  %111 = icmp ne ptr %109, %110
-  %112 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
-  %113 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
-  %114 = load ptr, ptr %112, align 8
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
+  %110 = load ptr, ptr %.019.i, align 8, !tbaa !54
+  %111 = load ptr, ptr %109, align 8, !tbaa !54
+  %112 = icmp ne ptr %110, %111
+  %113 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %.019.i, i64 24
   %115 = load ptr, ptr %113, align 8
-  %116 = icmp ne ptr %114, %115
-  %117 = select i1 %111, i1 true, i1 %116
-  br i1 %117, label %103, label %.critedge.i, !llvm.loop !601
+  %116 = load ptr, ptr %114, align 8
+  %117 = icmp ne ptr %115, %116
+  %118 = select i1 %112, i1 true, i1 %117
+  br i1 %118, label %104, label %.critedge.i, !llvm.loop !601
 
-.critedge.i:                                      ; preds = %107, %103
-  %118 = icmp eq ptr %.019.i, %100
-  br i1 %118, label %_ZN4pugi4impl12_GLOBAL__N_16uniqueIPNS_10xpath_nodeEEET_S5_S5_.exit, label %.preheader.i
+.critedge.i:                                      ; preds = %108, %104
+  %119 = icmp eq ptr %.019.i, %101
+  br i1 %119, label %_ZN4pugi4impl12_GLOBAL__N_16uniqueIPNS_10xpath_nodeEEET_S5_S5_.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge.i
   %.12022.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
-  %.not23.i38 = icmp eq ptr %.12022.i, %100
+  %.not23.i38 = icmp eq ptr %.12022.i, %101
   br i1 %.not23.i38, label %._crit_edge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %130
-  %.12026.i = phi ptr [ %.120.i, %130 ], [ %.12022.i, %.preheader.i ]
-  %.025.i = phi ptr [ %.1.i, %130 ], [ %.019.i, %.preheader.i ]
-  %.019.pn24.i = phi ptr [ %.12026.i, %130 ], [ %.019.i, %.preheader.i ]
-  %119 = load ptr, ptr %.12026.i, align 8, !tbaa !54
-  %120 = load ptr, ptr %.025.i, align 8, !tbaa !54
-  %121 = icmp ne ptr %119, %120
-  %122 = getelementptr inbounds nuw i8, ptr %.019.pn24.i, i64 24
-  %123 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
-  %124 = load ptr, ptr %122, align 8
+.lr.ph.i:                                         ; preds = %.preheader.i, %131
+  %.12026.i = phi ptr [ %.120.i, %131 ], [ %.12022.i, %.preheader.i ]
+  %.025.i = phi ptr [ %.1.i, %131 ], [ %.019.i, %.preheader.i ]
+  %.019.pn24.i = phi ptr [ %.12026.i, %131 ], [ %.019.i, %.preheader.i ]
+  %120 = load ptr, ptr %.12026.i, align 8, !tbaa !54
+  %121 = load ptr, ptr %.025.i, align 8, !tbaa !54
+  %122 = icmp ne ptr %120, %121
+  %123 = getelementptr inbounds nuw i8, ptr %.019.pn24.i, i64 24
+  %124 = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %125 = load ptr, ptr %123, align 8
-  %126 = icmp ne ptr %124, %125
-  %127 = select i1 %121, i1 true, i1 %126
-  br i1 %127, label %128, label %130
+  %126 = load ptr, ptr %124, align 8
+  %127 = icmp ne ptr %125, %126
+  %128 = select i1 %122, i1 true, i1 %127
+  br i1 %128, label %129, label %131
 
-128:                                              ; preds = %.lr.ph.i
-  %129 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull align 8 dereferenceable(16) %.12026.i, i64 16, i1 false), !tbaa.struct !310
-  br label %130
+129:                                              ; preds = %.lr.ph.i
+  %130 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %130, ptr noundef nonnull align 8 dereferenceable(16) %.12026.i, i64 16, i1 false), !tbaa.struct !310
+  br label %131
 
-130:                                              ; preds = %128, %.lr.ph.i
-  %.1.i = phi ptr [ %129, %128 ], [ %.025.i, %.lr.ph.i ]
+131:                                              ; preds = %129, %.lr.ph.i
+  %.1.i = phi ptr [ %130, %129 ], [ %.025.i, %.lr.ph.i ]
   %.120.i = getelementptr inbounds nuw i8, ptr %.12026.i, i64 16
-  %.not.i39 = icmp eq ptr %.120.i, %100
+  %.not.i39 = icmp eq ptr %.120.i, %101
   br i1 %.not.i39, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !602
 
-._crit_edge.i:                                    ; preds = %130, %.preheader.i
-  %.0.lcssa.i = phi ptr [ %.019.i, %.preheader.i ], [ %.1.i, %130 ]
-  %131 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
+._crit_edge.i:                                    ; preds = %131, %.preheader.i
+  %.0.lcssa.i = phi ptr [ %.019.i, %.preheader.i ], [ %.1.i, %131 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 16
   br label %_ZN4pugi4impl12_GLOBAL__N_16uniqueIPNS_10xpath_nodeEEET_S5_S5_.exit
 
 _ZN4pugi4impl12_GLOBAL__N_16uniqueIPNS_10xpath_nodeEEET_S5_S5_.exit: ; preds = %.critedge.i, %._crit_edge.i
-  %.018.i = phi ptr [ %131, %._crit_edge.i ], [ %.019.i, %.critedge.i ]
-  store ptr %.018.i, ptr %102, align 8, !tbaa !406
-  br label %132
+  %.018.i = phi ptr [ %132, %._crit_edge.i ], [ %.019.i, %.critedge.i ]
+  store ptr %.018.i, ptr %103, align 8, !tbaa !406
+  br label %133
 
-132:                                              ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, %_ZN4pugi4impl12_GLOBAL__N_16uniqueIPNS_10xpath_nodeEEET_S5_S5_.exit
+133:                                              ; preds = %_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev.exit, %_ZN4pugi4impl12_GLOBAL__N_16uniqueIPNS_10xpath_nodeEEET_S5_S5_.exit
   ret void
 }
 

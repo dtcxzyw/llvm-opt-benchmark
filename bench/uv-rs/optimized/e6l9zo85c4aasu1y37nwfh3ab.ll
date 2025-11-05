@@ -36766,15 +36766,15 @@ define void @_ZN2uv8commands7project3run46read_recursion_depth_from_environment_
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load i64, ptr %11, align 8, !noundef !4
   switch i64 %12, label %15 [
-    i64 0, label %.loopexit
+    i64 0, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit"
     i64 1, label %13
   ]
 
 13:                                               ; preds = %8
   %14 = load i8, ptr %10, align 1, !alias.scope !6331, !noundef !4
   switch i8 %14, label %.lr.ph.i.preheader [
-    i8 43, label %.loopexit
-    i8 45, label %.loopexit
+    i8 43, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit"
+    i8 45, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit"
   ]
 
 .lr.ph.i.preheader:                               ; preds = %16, %20, %13
@@ -36813,7 +36813,7 @@ define void @_ZN2uv8commands7project3run46read_recursion_depth_from_environment_
   %.sroa.016.1.i = phi i32 [ %47, %43 ], [ %.sroa.016.0.i, %.preheader51.i ]
   %22 = zext i32 %.sroa.016.1.i to i64
   %23 = shl nuw i64 %22, 32
-  br label %.loopexit
+  br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit"
 
 24:                                               ; preds = %.preheader51.i
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i, i64 1
@@ -36824,17 +36824,17 @@ define void @_ZN2uv8commands7project3run46read_recursion_depth_from_environment_
   %30 = zext i8 %29 to i32
   %31 = add nsw i32 %30, -48
   %32 = icmp ugt i32 %31, 9
-  br i1 %32, label %.loopexit, label %33
+  br i1 %32, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit", label %33
 
 33:                                               ; preds = %24
   %34 = extractvalue { i32, i1 } %27, 1
-  br i1 %34, label %.loopexit, label %35
+  br i1 %34, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit", label %35
 
 35:                                               ; preds = %33
   %36 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %28, i32 %31)
   %37 = extractvalue { i32, i1 } %36, 1
   %38 = add nuw i32 %31, %28
-  br i1 %37, label %.loopexit, label %.preheader51.i
+  br i1 %37, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit", label %.preheader51.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %43
   %.sroa.03.159.i = phi ptr [ %46, %43 ], [ %.sroa.03.159.i.ph, %.lr.ph.i.preheader ]
@@ -36844,7 +36844,7 @@ define void @_ZN2uv8commands7project3run46read_recursion_depth_from_environment_
   %40 = zext i8 %39 to i32
   %41 = add nsw i32 %40, -48
   %42 = icmp ugt i32 %41, 9
-  br i1 %42, label %.loopexit, label %43
+  br i1 %42, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit", label %43
 
 43:                                               ; preds = %.lr.ph.i
   %44 = mul i32 %.sroa.016.257.i, 10
@@ -36859,20 +36859,18 @@ define void @_ZN2uv8commands7project3run46read_recursion_depth_from_environment_
   %50 = icmp eq i64 %49, -9223372036854775808
   br i1 %50, label %"_ZN4core3ptr39drop_in_place$LT$std..env..VarError$GT$17hcbca6476cf835735E.exit", label %65
 
-51:                                               ; preds = %.loopexit
+51:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit"
   %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h51f869c3053de018E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #41
           to label %64 unwind label %62
 
-.loopexit:                                        ; preds = %35, %33, %24, %.lr.ph.i, %.loopexit.i, %13, %13, %8
-  %.sroa.0.0.i = phi i64 [ 0, %.loopexit.i ], [ 1, %8 ], [ 1, %13 ], [ 1, %13 ], [ 1, %.lr.ph.i ], [ 1, %24 ], [ 1, %33 ], [ 1, %35 ]
-  %.sroa.8.0.insert.insert.i = phi i64 [ %23, %.loopexit.i ], [ %12, %8 ], [ 256, %13 ], [ 256, %13 ], [ 256, %.lr.ph.i ], [ 512, %35 ], [ 512, %33 ], [ 256, %24 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.8.0.insert.insert.i, %.sroa.0.0.i
-  invoke void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$12with_context17hf3c88516169ec7a8E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, i64 %.sroa.0.0.insert.insert.i)
+"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit": ; preds = %35, %33, %24, %.lr.ph.i, %.loopexit.i, %13, %13, %8
+  %.sroa.8.0.insert.insert.i = phi i64 [ %23, %.loopexit.i ], [ 1, %8 ], [ 257, %13 ], [ 257, %13 ], [ 257, %.lr.ph.i ], [ 257, %24 ], [ 513, %33 ], [ 513, %35 ]
+  invoke void @"_ZN6anyhow7context92_$LT$impl$u20$anyhow..Context$LT$T$C$E$GT$$u20$for$u20$core..result..Result$LT$T$C$E$GT$$GT$12with_context17hf3c88516169ec7a8E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %0, i64 %.sroa.8.0.insert.insert.i)
           to label %53 unwind label %51
 
-53:                                               ; preds = %.loopexit
+53:                                               ; preds = %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !6334
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$14current_memory17hd89dd873d3feb2afE.llvm.3578168313137804029"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5, i64 noundef 1, i64 noundef 1)
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 8

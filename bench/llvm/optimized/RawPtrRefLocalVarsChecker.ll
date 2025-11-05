@@ -5224,14 +5224,12 @@ _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread76: ; preds = %24, %24, %24, %24
   br i1 %.not94, label %.lr.ph115, label %.loopexit, !llvm.loop !273
 
 .loopexit:                                        ; preds = %._crit_edge110, %._crit_edge, %81
-  %.not9498 = phi i1 [ true, %81 ], [ false, %._crit_edge ], [ false, %._crit_edge110 ]
-  %.3 = phi i1 [ %87, %81 ], [ undef, %._crit_edge ], [ undef, %._crit_edge110 ]
+  %.not9498 = phi i1 [ %87, %81 ], [ false, %._crit_edge ], [ false, %._crit_edge110 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %spec.select = and i1 %.not9498, %.3
   br label %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread
 
 _ZNK5clang7VarDecl14isLocalVarDeclEv.exit.thread: ; preds = %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i, %2, %.thread, %.loopexit, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit ], [ %spec.select, %.loopexit ], [ false, %.thread ], [ false, %2 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i ]
+  %.0 = phi i1 [ false, %_ZNK5clang7VarDecl14isLocalVarDeclEv.exit ], [ %.not9498, %.loopexit ], [ false, %.thread ], [ false, %2 ], [ false, %_ZNK5clang4Decl21getLexicalDeclContextEv.exit.i ]
   ret i1 %.0
 }
 

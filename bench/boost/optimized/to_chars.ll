@@ -6428,17 +6428,20 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE8generateImEET_S5_Pmm.exi
   %1253 = mul i64 %.0910.i1390, %.0910.i1390
   %1254 = lshr i32 %.0811.i1389, 1
   %.not13.i1393 = icmp samesign ult i32 %.0811.i1389, 2
-  br i1 %.not13.i1393, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394, label %.lr.ph.i1387, !llvm.loop !46
+  br i1 %.not13.i1393, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394.loopexit, label %.lr.ph.i1387, !llvm.loop !46
 
-_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394: ; preds = %.lr.ph.i1387, %1245
-  %.0.lcssa.i1386 = phi i64 [ 1, %1245 ], [ %spec.select.i1392, %.lr.ph.i1387 ]
-  %1255 = mul i64 %.0.lcssa.i1386, %1248
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394.loopexit: ; preds = %.lr.ph.i1387
+  %1255 = mul i64 %spec.select.i1392, %1248
+  br label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394
+
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394: ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394.loopexit, %1245
+  %.0.lcssa.i1386 = phi i64 [ %1248, %1245 ], [ %1255, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394.loopexit ]
   %1256 = and i32 %518, 1
   %.not1087 = icmp eq i32 %1256, 0
   br i1 %.not1087, label %1264, label %1257
 
 1257:                                             ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394
-  %1258 = and i64 %1255, 4294967295
+  %1258 = and i64 %.0.lcssa.i1386, 4294967295
   %1259 = mul nuw nsw i64 %1258, 10
   %1260 = lshr i64 %1259, 32
   %1261 = trunc nuw nsw i64 %1260 to i8
@@ -6448,7 +6451,7 @@ _ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394: ; preds = %.lr.p
   br label %1264
 
 1264:                                             ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394, %1257
-  %.0993 = phi i64 [ %1259, %1257 ], [ %1255, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394 ]
+  %.0993 = phi i64 [ %1259, %1257 ], [ %.0.lcssa.i1386, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394 ]
   %.45 = phi ptr [ %1263, %1257 ], [ %.32045, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394 ]
   %1265 = icmp samesign ugt i32 %1234, 1
   br i1 %1265, label %.lr.ph2501.preheader, label %.thread2128
@@ -6506,12 +6509,15 @@ _ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1394: ; preds = %.lr.p
   %1285 = mul i64 %.0910.i1399, %.0910.i1399
   %1286 = lshr i32 %.0811.i1398, 1
   %.not13.i1402 = icmp samesign ult i32 %.0811.i1398, 2
-  br i1 %.not13.i1402, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403, label %.lr.ph.i1396, !llvm.loop !46
+  br i1 %.not13.i1402, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403.loopexit, label %.lr.ph.i1396, !llvm.loop !46
 
-_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403: ; preds = %.lr.ph.i1396, %1281
-  %.0.lcssa.i1395 = phi i64 [ 1, %1281 ], [ %spec.select.i1401, %.lr.ph.i1396 ]
-  %1287 = mul i64 %.0.lcssa.i1395, %1279
-  %1288 = and i64 %1287, 4294967295
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403.loopexit: ; preds = %.lr.ph.i1396
+  %1287 = mul i64 %spec.select.i1401, %1279
+  br label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403
+
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403: ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403.loopexit, %1281
+  %.0.lcssa.i1395 = phi i64 [ %1279, %1281 ], [ %1287, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1403.loopexit ]
+  %1288 = and i64 %.0.lcssa.i1395, 4294967295
   %1289 = mul nuw nsw i64 %1288, 10
   br label %1290
 
@@ -6593,16 +6599,19 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   %1328 = mul i64 %.0910.i1410, %.0910.i1410
   %1329 = lshr i32 %.0811.i1409, 1
   %.not13.i1413 = icmp samesign ult i32 %.0811.i1409, 2
-  br i1 %.not13.i1413, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414, label %.lr.ph.i1407, !llvm.loop !46
+  br i1 %.not13.i1413, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414.loopexit, label %.lr.ph.i1407, !llvm.loop !46
 
-_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414: ; preds = %.lr.ph.i1407, %1320
-  %.0.lcssa.i1406 = phi i64 [ 1, %1320 ], [ %spec.select.i1412, %.lr.ph.i1407 ]
-  %1330 = mul i64 %.0.lcssa.i1406, %1323
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414.loopexit: ; preds = %.lr.ph.i1407
+  %1330 = mul i64 %spec.select.i1412, %1323
+  br label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414
+
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414: ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414.loopexit, %1320
+  %.0.lcssa.i1406 = phi i64 [ %1323, %1320 ], [ %1330, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414.loopexit ]
   %1331 = icmp eq i32 %.09172043, 0
   br i1 %1331, label %1376, label %1332
 
 1332:                                             ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414
-  %1333 = and i64 %1330, 4294967295
+  %1333 = and i64 %.0.lcssa.i1406, 4294967295
   %1334 = mul nuw nsw i64 %1333, 100
   br label %1335
 
@@ -6698,7 +6707,7 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   %1377 = phi i32 [ %.pre2631, %1358 ], [ %517, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
   %1378 = phi i32 [ %.pre2630, %1358 ], [ %522, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
   %1379 = phi i64 [ %.pre2629, %1358 ], [ %.fr2381, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
-  %.6999 = phi i64 [ %.3996, %1358 ], [ %1330, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
+  %.6999 = phi i64 [ %.3996, %1358 ], [ %.0.lcssa.i1406, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
   %.4992 = phi i32 [ %.2990, %1358 ], [ %1234, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
   %.20937 = phi i32 [ %.18935, %1358 ], [ 0, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
   %.24896 = phi i32 [ %.22894, %1358 ], [ %.08722044.fr, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1414 ]
@@ -6924,12 +6933,15 @@ _ZN5boost8charconv6detail22fixed_point_calculatorILm3EE26generate_and_discard_lo
   %1495 = mul i64 %.0910.i1439, %.0910.i1439
   %1496 = lshr i32 %.0811.i1438, 1
   %.not13.i1442 = icmp samesign ult i32 %.0811.i1438, 2
-  br i1 %.not13.i1442, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443, label %.lr.ph.i1436, !llvm.loop !46
+  br i1 %.not13.i1442, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443.loopexit, label %.lr.ph.i1436, !llvm.loop !46
 
-_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443: ; preds = %.lr.ph.i1436, %1491
-  %.0.lcssa.i1435 = phi i64 [ 1, %1491 ], [ %spec.select.i1441, %.lr.ph.i1436 ]
-  %1497 = mul i64 %.0.lcssa.i1435, %1489
-  %1498 = and i64 %1497, 4294967295
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443.loopexit: ; preds = %.lr.ph.i1436
+  %1497 = mul i64 %spec.select.i1441, %1489
+  br label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443
+
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443: ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443.loopexit, %1491
+  %.0.lcssa.i1435 = phi i64 [ %1489, %1491 ], [ %1497, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1443.loopexit ]
+  %1498 = and i64 %.0.lcssa.i1435, 4294967295
   %1499 = mul nuw nsw i64 %1498, 10
   br label %1500
 
@@ -7024,16 +7036,19 @@ _ZN5boost8charconv6detailL65check_rounding_condition_subsegment_boundary_with_ne
   %1543 = mul i64 %.0910.i1451, %.0910.i1451
   %1544 = lshr i32 %.0811.i1450, 1
   %.not13.i1454 = icmp samesign ult i32 %.0811.i1450, 2
-  br i1 %.not13.i1454, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455, label %.lr.ph.i1448, !llvm.loop !46
+  br i1 %.not13.i1454, label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455.loopexit, label %.lr.ph.i1448, !llvm.loop !46
 
-_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455: ; preds = %.lr.ph.i1448, %1535
-  %.0.lcssa.i1447 = phi i64 [ 1, %1535 ], [ %spec.select.i1453, %.lr.ph.i1448 ]
-  %1545 = mul i64 %.0.lcssa.i1447, %1539
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455.loopexit: ; preds = %.lr.ph.i1448
+  %1545 = mul i64 %spec.select.i1453, %1539
+  br label %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455
+
+_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455: ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455.loopexit, %1535
+  %.0.lcssa.i1447 = phi i64 [ %1539, %1535 ], [ %1545, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455.loopexit ]
   %1546 = icmp eq i32 %.09172043, 0
   br i1 %1546, label %1588, label %1547
 
 1547:                                             ; preds = %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455
-  %1548 = and i64 %1545, 4294967295
+  %1548 = and i64 %.0.lcssa.i1447, 4294967295
   %1549 = mul nuw nsw i64 %1548, 100
   br label %1550
 
@@ -7126,7 +7141,7 @@ _ZN5boost8charconv6detail18has_further_digitsILj0ELj9ENS1_24extended_cache_long_
   %1590 = phi i32 [ %.pre2633, %1573 ], [ %522, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]
   %1591 = phi i64 [ %.pre2632, %1573 ], [ %.fr2381, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]
   %.51006 = phi i32 [ %.31004, %1573 ], [ %1398, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]
-  %.4981 = phi i64 [ %.1978, %1573 ], [ %1545, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]
+  %.4981 = phi i64 [ %.1978, %1573 ], [ %.0.lcssa.i1447, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]
   %.26943 = phi i32 [ %.24941, %1573 ], [ 0, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]
   %.30902 = phi i32 [ %.28900, %1573 ], [ %.08722044.fr, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]
   %.60 = phi ptr [ %.57, %1573 ], [ %.32045, %_ZN5boost8charconv6detail13compute_powerImiEET_S3_T0_.exit1455 ]

@@ -7636,27 +7636,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %49, %
 
 63:                                               ; preds = %54
   %64 = icmp eq i32 %39, 1
-  br i1 %64, label %68, label %65
+  br i1 %64, label %70, label %65
 
 65:                                               ; preds = %63
   %66 = sdiv i32 %1, %39
   %67 = mul nsw i32 %66, %39
   %.recomposed = srem i32 %1, %39
-  br label %68
+  %68 = mul nsw i32 %.recomposed, %35
+  %69 = sext i32 %68 to i64
+  br label %70
 
-68:                                               ; preds = %63, %65
-  %.0107 = phi i32 [ %.recomposed, %65 ], [ 0, %63 ]
+70:                                               ; preds = %63, %65
+  %.0107 = phi i64 [ %69, %65 ], [ 0, %63 ]
   %.0106 = phi i32 [ %66, %65 ], [ %1, %63 ]
-  %69 = load ptr, ptr %25, align 8, !tbaa !22
-  %70 = sext i32 %.0106 to i64
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %72 = load i32, ptr %71, align 4, !tbaa !17
-  %73 = sext i32 %72 to i64
-  %74 = mul nsw i64 %73, %70
-  %75 = getelementptr inbounds nuw i8, ptr %69, i64 %74
-  %76 = mul nsw i32 %.0107, %35
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %75, i64 %77
+  %71 = load ptr, ptr %25, align 8, !tbaa !22
+  %72 = sext i32 %.0106 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %74 = load i32, ptr %73, align 4, !tbaa !17
+  %75 = sext i32 %74 to i64
+  %76 = mul nsw i64 %75, %72
+  %77 = getelementptr inbounds nuw i8, ptr %71, i64 %76
+  %78 = getelementptr inbounds i8, ptr %77, i64 %.0107
   br label %.loopexit
 
 79:                                               ; preds = %12
@@ -7894,8 +7894,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148: ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %178
 
-.loopexit:                                        ; preds = %147, %132, %154, %._crit_edge, %118, %57, %68, %81
-  %.1 = phi ptr [ %89, %81 ], [ %62, %57 ], [ %78, %68 ], [ %131, %118 ], [ %155, %154 ], [ %168, %._crit_edge ], [ %133, %132 ], [ %.4, %147 ]
+.loopexit:                                        ; preds = %147, %132, %154, %._crit_edge, %118, %57, %70, %81
+  %.1 = phi ptr [ %89, %81 ], [ %62, %57 ], [ %78, %70 ], [ %131, %118 ], [ %155, %154 ], [ %168, %._crit_edge ], [ %133, %132 ], [ %.4, %147 ]
   ret ptr %.1
 
 178:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit

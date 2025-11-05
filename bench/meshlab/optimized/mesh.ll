@@ -19901,151 +19901,151 @@ _ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit:    ; preds = %22, %121
   %.0.i56 = phi double [ -1.000000e+00, %140 ], [ %136, %138 ], [ 1.000000e+00, %132 ]
   %142 = tail call double @acos(double noundef %.0.i56) #38
   %143 = fcmp ogt double %142, 0x3FF921FB54442D18
+  %144 = and i1 %.010.i, %143
   br label %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58
 
 _ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58:  ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit, %141
-  %.010.i57 = phi i1 [ %143, %141 ], [ false, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit ]
-  %144 = fmul double %37, %37
-  %145 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %144)
-  %146 = tail call double @llvm.fmuladd.f64(double %42, double %42, double %145)
-  %sqrt.i.i59 = tail call noundef double @llvm.sqrt.f64(double %146)
-  %147 = fmul double %47, %47
-  %148 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %147)
-  %149 = tail call double @llvm.fmuladd.f64(double %50, double %50, double %148)
-  %sqrt.i27.i = tail call noundef double @llvm.sqrt.f64(double %149)
-  %150 = fsub double %30, %43
-  %151 = fsub double %34, %46
-  %152 = fsub double %39, %49
-  %153 = fmul double %151, %151
-  %154 = tail call double @llvm.fmuladd.f64(double %150, double %150, double %153)
-  %155 = tail call double @llvm.fmuladd.f64(double %152, double %152, double %154)
-  %sqrt.i28.i = tail call noundef double @llvm.sqrt.f64(double %155)
-  %156 = fadd double %sqrt.i.i59, %sqrt.i27.i
-  %157 = fadd double %sqrt.i28.i, %156
-  %158 = fmul double %157, 5.000000e-01
-  %159 = fsub double %156, %158
-  %160 = fmul double %158, %159
-  %161 = fadd double %sqrt.i.i59, %sqrt.i28.i
-  %162 = fsub double %161, %158
-  %163 = fmul double %162, %160
-  %164 = fadd double %sqrt.i27.i, %sqrt.i28.i
-  %165 = fsub double %164, %158
-  %166 = fmul double %165, %163
-  %167 = fcmp ugt double %166, 0.000000e+00
-  br i1 %167, label %168, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit
+  %.010.i57 = phi i1 [ %144, %141 ], [ false, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit ]
+  %145 = fmul double %37, %37
+  %146 = tail call double @llvm.fmuladd.f64(double %32, double %32, double %145)
+  %147 = tail call double @llvm.fmuladd.f64(double %42, double %42, double %146)
+  %sqrt.i.i59 = tail call noundef double @llvm.sqrt.f64(double %147)
+  %148 = fmul double %47, %47
+  %149 = tail call double @llvm.fmuladd.f64(double %44, double %44, double %148)
+  %150 = tail call double @llvm.fmuladd.f64(double %50, double %50, double %149)
+  %sqrt.i27.i = tail call noundef double @llvm.sqrt.f64(double %150)
+  %151 = fsub double %30, %43
+  %152 = fsub double %34, %46
+  %153 = fsub double %39, %49
+  %154 = fmul double %152, %152
+  %155 = tail call double @llvm.fmuladd.f64(double %151, double %151, double %154)
+  %156 = tail call double @llvm.fmuladd.f64(double %153, double %153, double %155)
+  %sqrt.i28.i = tail call noundef double @llvm.sqrt.f64(double %156)
+  %157 = fadd double %sqrt.i.i59, %sqrt.i27.i
+  %158 = fadd double %sqrt.i28.i, %157
+  %159 = fmul double %158, 5.000000e-01
+  %160 = fsub double %157, %159
+  %161 = fmul double %159, %160
+  %162 = fadd double %sqrt.i.i59, %sqrt.i28.i
+  %163 = fsub double %162, %159
+  %164 = fmul double %163, %161
+  %165 = fadd double %sqrt.i27.i, %sqrt.i28.i
+  %166 = fsub double %165, %159
+  %167 = fmul double %166, %164
+  %168 = fcmp ugt double %167, 0.000000e+00
+  br i1 %168, label %169, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit
 
-168:                                              ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58
-  %169 = fmul double %166, 8.000000e+00
-  %170 = fmul double %sqrt.i.i59, %sqrt.i27.i
-  %171 = fmul double %sqrt.i28.i, %170
-  %172 = fmul double %171, %158
-  %173 = fdiv double %169, %172
+169:                                              ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58
+  %170 = fmul double %167, 8.000000e+00
+  %171 = fmul double %sqrt.i.i59, %sqrt.i27.i
+  %172 = fmul double %sqrt.i28.i, %171
+  %173 = fmul double %172, %159
+  %174 = fdiv double %170, %173
   br label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit
 
-_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit: ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58, %168
-  %.0.i60 = phi double [ %173, %168 ], [ 0.000000e+00, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58 ]
-  %174 = fmul double %64, %64
-  %175 = tail call double @llvm.fmuladd.f64(double %61, double %61, double %174)
-  %176 = tail call double @llvm.fmuladd.f64(double %67, double %67, double %175)
-  %sqrt.i27.i62 = tail call noundef double @llvm.sqrt.f64(double %176)
-  %177 = fsub double %43, %60
-  %178 = fsub double %46, %63
-  %179 = fsub double %49, %66
-  %180 = fmul double %178, %178
-  %181 = tail call double @llvm.fmuladd.f64(double %177, double %177, double %180)
-  %182 = tail call double @llvm.fmuladd.f64(double %179, double %179, double %181)
-  %sqrt.i28.i63 = tail call noundef double @llvm.sqrt.f64(double %182)
-  %183 = fadd double %sqrt.i27.i, %sqrt.i27.i62
-  %184 = fadd double %sqrt.i28.i63, %183
-  %185 = fmul double %184, 5.000000e-01
-  %186 = fsub double %183, %185
-  %187 = fmul double %185, %186
-  %188 = fadd double %sqrt.i27.i, %sqrt.i28.i63
-  %189 = fsub double %188, %185
-  %190 = fmul double %189, %187
-  %191 = fadd double %sqrt.i27.i62, %sqrt.i28.i63
-  %192 = fsub double %191, %185
-  %193 = fmul double %192, %190
-  %194 = fcmp ugt double %193, 0.000000e+00
-  br i1 %194, label %195, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65
+_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit: ; preds = %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58, %169
+  %.0.i60 = phi double [ %174, %169 ], [ 0.000000e+00, %_ZN3vcg5AngleIdEET_RKNS_6Point3IS1_EES5_.exit58 ]
+  %175 = fmul double %64, %64
+  %176 = tail call double @llvm.fmuladd.f64(double %61, double %61, double %175)
+  %177 = tail call double @llvm.fmuladd.f64(double %67, double %67, double %176)
+  %sqrt.i27.i62 = tail call noundef double @llvm.sqrt.f64(double %177)
+  %178 = fsub double %43, %60
+  %179 = fsub double %46, %63
+  %180 = fsub double %49, %66
+  %181 = fmul double %179, %179
+  %182 = tail call double @llvm.fmuladd.f64(double %178, double %178, double %181)
+  %183 = tail call double @llvm.fmuladd.f64(double %180, double %180, double %182)
+  %sqrt.i28.i63 = tail call noundef double @llvm.sqrt.f64(double %183)
+  %184 = fadd double %sqrt.i27.i, %sqrt.i27.i62
+  %185 = fadd double %sqrt.i28.i63, %184
+  %186 = fmul double %185, 5.000000e-01
+  %187 = fsub double %184, %186
+  %188 = fmul double %186, %187
+  %189 = fadd double %sqrt.i27.i, %sqrt.i28.i63
+  %190 = fsub double %189, %186
+  %191 = fmul double %190, %188
+  %192 = fadd double %sqrt.i27.i62, %sqrt.i28.i63
+  %193 = fsub double %192, %186
+  %194 = fmul double %193, %191
+  %195 = fcmp ugt double %194, 0.000000e+00
+  br i1 %195, label %196, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65
 
-195:                                              ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit
-  %196 = fmul double %193, 8.000000e+00
-  %197 = fmul double %sqrt.i27.i, %sqrt.i27.i62
-  %198 = fmul double %sqrt.i28.i63, %197
-  %199 = fmul double %198, %185
-  %200 = fdiv double %196, %199
+196:                                              ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit
+  %197 = fmul double %194, 8.000000e+00
+  %198 = fmul double %sqrt.i27.i, %sqrt.i27.i62
+  %199 = fmul double %sqrt.i28.i63, %198
+  %200 = fmul double %199, %186
+  %201 = fdiv double %197, %200
   br label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65
 
-_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65: ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit, %195
-  %.0.i64 = phi double [ %200, %195 ], [ 0.000000e+00, %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit ]
-  %201 = fcmp olt double %.0.i64, %.0.i60
-  %.sroa.speculated87 = select i1 %201, double %.0.i64, double %.0.i60
-  %202 = fmul double %78, %78
-  %203 = tail call double @llvm.fmuladd.f64(double %77, double %77, double %202)
-  %204 = tail call double @llvm.fmuladd.f64(double %79, double %79, double %203)
-  %sqrt.i.i66 = tail call noundef double @llvm.sqrt.f64(double %204)
-  %205 = fmul double %81, %81
-  %206 = tail call double @llvm.fmuladd.f64(double %80, double %80, double %205)
-  %207 = tail call double @llvm.fmuladd.f64(double %82, double %82, double %206)
-  %sqrt.i27.i67 = tail call noundef double @llvm.sqrt.f64(double %207)
-  %208 = fadd double %sqrt.i.i66, %sqrt.i27.i67
-  %209 = fadd double %sqrt.i28.i63, %208
-  %210 = fmul double %209, 5.000000e-01
-  %211 = fsub double %208, %210
-  %212 = fmul double %210, %211
-  %213 = fadd double %sqrt.i.i66, %sqrt.i28.i63
-  %214 = fsub double %213, %210
-  %215 = fmul double %214, %212
-  %216 = fadd double %sqrt.i27.i67, %sqrt.i28.i63
-  %217 = fsub double %216, %210
-  %218 = fmul double %217, %215
-  %219 = fcmp ugt double %218, 0.000000e+00
-  br i1 %219, label %220, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70
+_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65: ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit, %196
+  %.0.i64 = phi double [ %201, %196 ], [ 0.000000e+00, %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit ]
+  %202 = fcmp olt double %.0.i64, %.0.i60
+  %.sroa.speculated87 = select i1 %202, double %.0.i64, double %.0.i60
+  %203 = fmul double %78, %78
+  %204 = tail call double @llvm.fmuladd.f64(double %77, double %77, double %203)
+  %205 = tail call double @llvm.fmuladd.f64(double %79, double %79, double %204)
+  %sqrt.i.i66 = tail call noundef double @llvm.sqrt.f64(double %205)
+  %206 = fmul double %81, %81
+  %207 = tail call double @llvm.fmuladd.f64(double %80, double %80, double %206)
+  %208 = tail call double @llvm.fmuladd.f64(double %82, double %82, double %207)
+  %sqrt.i27.i67 = tail call noundef double @llvm.sqrt.f64(double %208)
+  %209 = fadd double %sqrt.i.i66, %sqrt.i27.i67
+  %210 = fadd double %sqrt.i28.i63, %209
+  %211 = fmul double %210, 5.000000e-01
+  %212 = fsub double %209, %211
+  %213 = fmul double %211, %212
+  %214 = fadd double %sqrt.i.i66, %sqrt.i28.i63
+  %215 = fsub double %214, %211
+  %216 = fmul double %215, %213
+  %217 = fadd double %sqrt.i27.i67, %sqrt.i28.i63
+  %218 = fsub double %217, %211
+  %219 = fmul double %218, %216
+  %220 = fcmp ugt double %219, 0.000000e+00
+  br i1 %220, label %221, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70
 
-220:                                              ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65
-  %221 = fmul double %218, 8.000000e+00
-  %222 = fmul double %sqrt.i.i66, %sqrt.i27.i67
-  %223 = fmul double %sqrt.i28.i63, %222
-  %224 = fmul double %223, %210
-  %225 = fdiv double %221, %224
+221:                                              ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65
+  %222 = fmul double %219, 8.000000e+00
+  %223 = fmul double %sqrt.i.i66, %sqrt.i27.i67
+  %224 = fmul double %sqrt.i28.i63, %223
+  %225 = fmul double %224, %211
+  %226 = fdiv double %222, %225
   br label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70
 
-_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70: ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65, %220
-  %.0.i69 = phi double [ %225, %220 ], [ 0.000000e+00, %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65 ]
-  %226 = fmul double %93, %93
-  %227 = tail call double @llvm.fmuladd.f64(double %92, double %92, double %226)
-  %228 = tail call double @llvm.fmuladd.f64(double %94, double %94, double %227)
-  %sqrt.i27.i72 = tail call noundef double @llvm.sqrt.f64(double %228)
-  %229 = fadd double %sqrt.i27.i72, %sqrt.i27.i67
-  %230 = fadd double %sqrt.i27.i62, %229
-  %231 = fmul double %230, 5.000000e-01
-  %232 = fsub double %229, %231
-  %233 = fmul double %231, %232
-  %234 = fadd double %sqrt.i27.i67, %sqrt.i27.i62
-  %235 = fsub double %234, %231
-  %236 = fmul double %235, %233
-  %237 = fadd double %sqrt.i27.i72, %sqrt.i27.i62
-  %238 = fsub double %237, %231
-  %239 = fmul double %238, %236
-  %240 = fcmp ugt double %239, 0.000000e+00
-  br i1 %240, label %241, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit75
+_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70: ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65, %221
+  %.0.i69 = phi double [ %226, %221 ], [ 0.000000e+00, %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit65 ]
+  %227 = fmul double %93, %93
+  %228 = tail call double @llvm.fmuladd.f64(double %92, double %92, double %227)
+  %229 = tail call double @llvm.fmuladd.f64(double %94, double %94, double %228)
+  %sqrt.i27.i72 = tail call noundef double @llvm.sqrt.f64(double %229)
+  %230 = fadd double %sqrt.i27.i72, %sqrt.i27.i67
+  %231 = fadd double %sqrt.i27.i62, %230
+  %232 = fmul double %231, 5.000000e-01
+  %233 = fsub double %230, %232
+  %234 = fmul double %232, %233
+  %235 = fadd double %sqrt.i27.i67, %sqrt.i27.i62
+  %236 = fsub double %235, %232
+  %237 = fmul double %236, %234
+  %238 = fadd double %sqrt.i27.i72, %sqrt.i27.i62
+  %239 = fsub double %238, %232
+  %240 = fmul double %239, %237
+  %241 = fcmp ugt double %240, 0.000000e+00
+  br i1 %241, label %242, label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit75
 
-241:                                              ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70
-  %242 = fmul double %239, 8.000000e+00
-  %243 = fmul double %sqrt.i27.i72, %sqrt.i27.i67
-  %244 = fmul double %sqrt.i27.i62, %243
-  %245 = fmul double %244, %231
-  %246 = fdiv double %242, %245
+242:                                              ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70
+  %243 = fmul double %240, 8.000000e+00
+  %244 = fmul double %sqrt.i27.i72, %sqrt.i27.i67
+  %245 = fmul double %sqrt.i27.i62, %244
+  %246 = fmul double %245, %232
+  %247 = fdiv double %243, %246
   br label %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit75
 
-_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit75: ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70, %241
-  %.0.i74 = phi double [ %246, %241 ], [ 0.000000e+00, %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70 ]
-  %247 = fcmp olt double %.0.i74, %.0.i69
-  %.sroa.speculated = select i1 %247, double %.0.i74, double %.0.i69
-  %248 = fcmp uge double %.sroa.speculated87, %.sroa.speculated
-  %249 = and i1 %.010.i, %.010.i57
-  %or.cond = or i1 %249, %248
+_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit75: ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70, %242
+  %.0.i74 = phi double [ %247, %242 ], [ 0.000000e+00, %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit70 ]
+  %248 = fcmp olt double %.0.i74, %.0.i69
+  %.sroa.speculated = select i1 %248, double %.0.i74, double %.0.i69
+  %249 = fcmp uge double %.sroa.speculated87, %.sroa.speculated
+  %or.cond = or i1 %.010.i57, %249
   br i1 %or.cond, label %252, label %250
 
 250:                                              ; preds = %_ZN3vcg12QualityRadiiIdEET_RKNS_6Point3IS1_EES5_S5_.exit75
@@ -22228,18 +22228,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %231 = fmul double %214, %230
   %232 = fptoui double %231 to i8
   %.not363 = icmp eq i32 %147, 7
-  br i1 %.not363, label %238, label %233
+  br i1 %.not363, label %239, label %233
 
 233:                                              ; preds = %213
   %234 = load ptr, ptr %13, align 8
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 224
   %236 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %235) #38
   %237 = call double @atof(ptr noundef %236) #39
-  br label %238
+  %238 = fmul double %214, %237
+  br label %239
 
-238:                                              ; preds = %233, %213
-  %239 = phi double [ %237, %233 ], [ 1.000000e+00, %213 ]
-  %240 = fmul double %214, %239
+239:                                              ; preds = %233, %213
+  %240 = phi double [ %238, %233 ], [ %214, %213 ]
   %241 = fptoui double %240 to i8
   %242 = getelementptr inbounds nuw i8, ptr %.sroa.0631.0.ph, i64 100
   %.sroa.4623.0.insert.ext = zext i8 %241 to i32
@@ -22260,7 +22260,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   store i32 %.sroa.0637.0.ph, ptr %244, align 1
   br label %245
 
-245:                                              ; preds = %238, %243, %175
+245:                                              ; preds = %239, %243, %175
   %246 = getelementptr inbounds nuw i8, ptr %.sroa.0631.0.ph, i64 120
   br label %.outer.backedge
 

@@ -1268,10 +1268,10 @@ define hidden void @b2SolvePrismaticJoint(ptr noundef captures(none) %0, ptr nou
   %252 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %253 = load float, ptr %252, align 4, !tbaa !122
   %254 = fmul float %249, %253
-  br label %264
+  br label %265
 
 255:                                              ; preds = %207
-  br i1 %2, label %256, label %264
+  br i1 %2, label %256, label %265
 
 256:                                              ; preds = %255
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -1281,33 +1281,33 @@ define hidden void @b2SolvePrismaticJoint(ptr noundef captures(none) %0, ptr nou
   %261 = load float, ptr %260, align 4, !tbaa !124
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %263 = load float, ptr %262, align 4, !tbaa !125
-  br label %264
+  %264 = fmul float %261, %221
+  br label %265
 
-264:                                              ; preds = %255, %256, %251
+265:                                              ; preds = %255, %256, %251
   %.0324 = phi float [ 0.000000e+00, %251 ], [ %263, %256 ], [ 0.000000e+00, %255 ]
-  %.0322 = phi float [ 1.000000e+00, %251 ], [ %261, %256 ], [ 1.000000e+00, %255 ]
+  %.0322 = phi float [ %221, %251 ], [ %264, %256 ], [ %221, %255 ]
   %.0321 = phi float [ %254, %251 ], [ %259, %256 ], [ 0.000000e+00, %255 ]
-  %265 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %266 = load float, ptr %265, align 4, !tbaa !74
-  %267 = fsub float %236, %242
-  %268 = fsub float %238, %244
-  %269 = fmul float %73, %267
-  %270 = fmul float %76, %268
-  %271 = fadd float %269, %270
-  %272 = fmul float %84, %240
-  %273 = fadd float %272, %271
-  %274 = fmul float %87, %246
-  %275 = fsub float %273, %274
-  %276 = fmul float %.0322, %221
-  %277 = fadd float %275, %.0321
-  %278 = fmul float %276, %277
-  %279 = fmul float %.0324, %266
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %267 = load float, ptr %266, align 4, !tbaa !74
+  %268 = fsub float %236, %242
+  %269 = fsub float %238, %244
+  %270 = fmul float %73, %268
+  %271 = fmul float %76, %269
+  %272 = fadd float %270, %271
+  %273 = fmul float %84, %240
+  %274 = fadd float %273, %272
+  %275 = fmul float %87, %246
+  %276 = fsub float %274, %275
+  %277 = fadd float %276, %.0321
+  %278 = fmul float %.0322, %277
+  %279 = fmul float %.0324, %267
   %280 = fsub float %278, %279
-  %281 = fadd float %266, %280
+  %281 = fadd float %267, %280
   %282 = fcmp ogt float %281, 0.000000e+00
   %283 = select i1 %282, float %281, float 0.000000e+00
-  store float %283, ptr %265, align 4, !tbaa !74
-  %284 = fsub float %283, %266
+  store float %283, ptr %266, align 4, !tbaa !74
+  %284 = fsub float %283, %267
   %285 = fmul float %73, %284
   %286 = fmul float %76, %284
   %287 = fmul float %84, %284
@@ -1330,11 +1330,11 @@ define hidden void @b2SolvePrismaticJoint(ptr noundef captures(none) %0, ptr nou
   %300 = fsub float %246, %299
   br label %301
 
-301:                                              ; preds = %264, %185
-  %.2317 = phi float [ %300, %264 ], [ %.1316, %185 ]
-  %.sroa.0178.2 = phi <2 x float> [ %.sroa.03.4.vec.insert.i483, %264 ], [ %.sroa.0178.1, %185 ]
-  %.2 = phi float [ %294, %264 ], [ %.1, %185 ]
-  %.sroa.0201.2 = phi <2 x float> [ %.sroa.03.4.vec.insert.i477, %264 ], [ %.sroa.0201.1, %185 ]
+301:                                              ; preds = %265, %185
+  %.2317 = phi float [ %300, %265 ], [ %.1316, %185 ]
+  %.sroa.0178.2 = phi <2 x float> [ %.sroa.03.4.vec.insert.i483, %265 ], [ %.sroa.0178.1, %185 ]
+  %.2 = phi float [ %294, %265 ], [ %.1, %185 ]
+  %.sroa.0201.2 = phi <2 x float> [ %.sroa.03.4.vec.insert.i477, %265 ], [ %.sroa.0201.1, %185 ]
   br i1 %2, label %302, label %326
 
 302:                                              ; preds = %301

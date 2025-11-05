@@ -2875,7 +2875,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit2: ; preds = %_ZStls
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 0, 17179869192) i64 @_ZN11opencv_testL17getConversionInfoEi(i32 noundef %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 0, 17179869189) i64 @_ZN11opencv_testL17getConversionInfoEi(i32 noundef %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::Message", align 8
   %3 = alloca %"class.testing::internal::AssertHelper", align 8
   switch i32 %0, label %18 [
@@ -3160,10 +3160,8 @@ _ZN7testing7MessagelsIA24_cEERS0_RKT_.exit:       ; preds = %18
   resume { ptr, i32 } %.pn.pn
 
 32:                                               ; preds = %1, %1, %1, %1, %1, %23, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.sroa.19.0 = phi i64 [ 0, %23 ], [ 8589934592, %4 ], [ 12884901888, %5 ], [ 17179869184, %6 ], [ 4294967296, %7 ], [ 12884901888, %8 ], [ 8589934592, %9 ], [ 17179869184, %10 ], [ 8589934592, %11 ], [ 4294967296, %12 ], [ 12884901888, %13 ], [ 17179869184, %14 ], [ 4294967296, %15 ], [ 12884901888, %16 ], [ 17179869184, %17 ], [ 4294967296, %1 ], [ 4294967296, %1 ], [ 4294967296, %1 ], [ 4294967296, %1 ], [ 4294967296, %1 ]
-  %.sroa.0.0 = phi i64 [ 0, %23 ], [ 1, %4 ], [ 1, %5 ], [ 1, %6 ], [ 2, %7 ], [ 2, %8 ], [ 3, %9 ], [ 2, %10 ], [ 4, %11 ], [ 3, %12 ], [ 3, %13 ], [ 3, %14 ], [ 4, %15 ], [ 4, %16 ], [ 4, %17 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0, %.sroa.19.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.19.0 = phi i64 [ 0, %23 ], [ 8589934593, %4 ], [ 12884901889, %5 ], [ 17179869185, %6 ], [ 4294967298, %7 ], [ 12884901890, %8 ], [ 8589934595, %9 ], [ 17179869186, %10 ], [ 8589934596, %11 ], [ 4294967299, %12 ], [ 12884901891, %13 ], [ 17179869187, %14 ], [ 4294967300, %15 ], [ 12884901892, %16 ], [ 17179869188, %17 ], [ 4294967297, %1 ], [ 4294967297, %1 ], [ 4294967297, %1 ], [ 4294967297, %1 ], [ 4294967297, %1 ]
+  ret i64 %.sroa.19.0
 }
 
 declare void @_ZN2cv3MatC1ENS_5Size_IiEEi(ptr noundef nonnull align 8 dereferenceable(96), i64, i32 noundef) unnamed_addr #0

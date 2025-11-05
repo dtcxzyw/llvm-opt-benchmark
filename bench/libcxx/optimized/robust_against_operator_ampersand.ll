@@ -3638,7 +3638,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal31match
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !200, !noalias !232
   %.not.i.i = icmp eq i32 %6, 2
-  br i1 %.not.i.i, label %7, label %.critedge.i
+  br i1 %.not.i.i, label %7, label %12
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3646,55 +3646,55 @@ define linkonce_odr noundef zeroext i1 @_ZNK5clang12ast_matchers8internal31match
   %10 = and i8 %9, 63
   %switch.tableidx = add nsw i8 %10, -5
   %11 = icmp ult i8 %switch.tableidx, 36
-  br i1 %11, label %switch.hole_check, label %.critedge.i
+  br i1 %11, label %switch.hole_check, label %12
 
-.critedge.i:                                      ; preds = %switch.hole_check, %7, %4
-  %12 = tail call i64 @_ZN5clang12ast_matchers8internal23equivalentUnaryOperatorINS_19CXXOperatorCallExprEEESt8optionalINS_17UnaryOperatorKindEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !232
-  %13 = and i64 %12, 4294967296
-  %.not.i = icmp eq i64 %13, 0
-  br i1 %.not.i, label %_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit, label %14
+12:                                               ; preds = %switch.hole_check, %7, %4
+  %13 = tail call i64 @_ZN5clang12ast_matchers8internal23equivalentUnaryOperatorINS_19CXXOperatorCallExprEEESt8optionalINS_17UnaryOperatorKindEERKT_(ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !232
+  %14 = and i64 %13, 4294967296
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit, label %15
 
-14:                                               ; preds = %.critedge.i
-  %.sroa.04.0.extract.trunc.i = trunc i64 %12 to i32
-  %15 = tail call { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE(i32 noundef %.sroa.04.0.extract.trunc.i), !noalias !232
-  br label %18
+15:                                               ; preds = %12
+  %.sroa.04.0.extract.trunc.i = trunc i64 %13 to i32
+  %16 = tail call { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE(i32 noundef %.sroa.04.0.extract.trunc.i), !noalias !232
+  br label %19
 
 switch.hole_check:                                ; preds = %7
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 55834574079, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.critedge.i
+  br i1 %switch.lobit, label %switch.lookup, label %12
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang12ast_matchers8internal31matcher_hasOperatorName0MatcherINS_19CXXOperatorCallExprENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7matchesERKS3_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE, i64 %16
+  %17 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK5clang12ast_matchers8internal31matcher_hasOperatorName0MatcherINS_19CXXOperatorCallExprENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7matchesERKS3_PNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
-  %17 = tail call { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef %switch.load), !noalias !232
-  br label %18
+  %18 = tail call { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef %switch.load), !noalias !232
+  br label %19
 
-18:                                               ; preds = %14, %switch.lookup
-  %.sink15.i = phi { ptr, i64 } [ %15, %14 ], [ %17, %switch.lookup ]
-  %19 = extractvalue { ptr, i64 } %.sink15.i, 0
-  %20 = extractvalue { ptr, i64 } %.sink15.i, 1
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !62
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !18
-  %.not.i4 = icmp eq i64 %20, %24
-  br i1 %.not.i4, label %25, label %_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit
+19:                                               ; preds = %15, %switch.lookup
+  %.sink20.i = phi { ptr, i64 } [ %16, %15 ], [ %18, %switch.lookup ]
+  %20 = extractvalue { ptr, i64 } %.sink20.i, 0
+  %21 = extractvalue { ptr, i64 } %.sink20.i, 1
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %23 = load ptr, ptr %22, align 8, !tbaa !62
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load i64, ptr %24, align 8, !tbaa !18
+  %.not.i4 = icmp eq i64 %21, %25
+  br i1 %.not.i4, label %26, label %_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit
 
-25:                                               ; preds = %18
-  %26 = icmp eq i64 %20, 0
-  br i1 %26, label %_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit, label %27
+26:                                               ; preds = %19
+  %27 = icmp eq i64 %21, 0
+  br i1 %27, label %_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit, label %28
 
-27:                                               ; preds = %25
-  %bcmp.i = tail call i32 @bcmp(ptr %19, ptr %22, i64 %20)
-  %28 = icmp eq i32 %bcmp.i, 0
+28:                                               ; preds = %26
+  %bcmp.i = tail call i32 @bcmp(ptr %20, ptr %23, i64 %21)
+  %29 = icmp eq i32 %bcmp.i, 0
   br label %_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit
 
-_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit: ; preds = %27, %25, %18, %.critedge.i
-  %29 = phi i1 [ false, %.critedge.i ], [ true, %25 ], [ false, %18 ], [ %28, %27 ]
-  ret i1 %29
+_ZN5clang12ast_matchers8internal9getOpNameERKNS_19CXXOperatorCallExprE.exit: ; preds = %28, %26, %19, %12
+  %30 = phi i1 [ false, %12 ], [ true, %26 ], [ false, %19 ], [ %29, %28 ]
+  ret i1 %30
 }
 
 declare { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE(i32 noundef) local_unnamed_addr #1

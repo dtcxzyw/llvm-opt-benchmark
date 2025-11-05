@@ -2573,31 +2573,34 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12T
   %37 = zext i32 %13 to i64
   %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %11, i64 %37
   %39 = icmp eq ptr %.sroa.0.1.i.i, %38
-  br i1 %39, label %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit, label %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit.thread
+  br i1 %39, label %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit, label %40
 
-_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit: ; preds = %3, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i
-  store i64 0, ptr %.sroa.0, align 8
+40:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
+  %42 = load i32, ptr %41, align 4, !tbaa !277
+  %43 = zext i32 %42 to i64
+  %44 = or disjoint i64 %43, 4294967296
+  br label %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit
+
+_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit: ; preds = %3, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, %40
+  %.sroa.2.0.i = phi i64 [ 0, %3 ], [ %44, %40 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i ]
+  store i64 %.sroa.2.0.i, ptr %.sroa.0, align 8
   %.not = icmp samesign ult i64 %7, 4294967296
-  %spec.select = select i1 %.not, ptr %.sroa.0, ptr %.sroa.05
-  br label %46
+  br i1 %.not, label %50, label %45
 
-_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
-  %41 = load i32, ptr %40, align 4, !tbaa !277
-  %42 = zext i32 %41 to i64
-  %.sroa.05.0.insert.insert.i14 = or disjoint i64 %42, 4294967296
-  store i64 %.sroa.05.0.insert.insert.i14, ptr %.sroa.0, align 8
-  %.not15 = icmp samesign ult i64 %7, 4294967296
-  br i1 %.not15, label %46, label %43
+45:                                               ; preds = %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit
+  %46 = and i64 %.sroa.2.0.i, 4294967296
+  %.not10 = icmp eq i64 %46, 0
+  br i1 %.not10, label %50, label %47
 
-43:                                               ; preds = %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit.thread
-  %44 = and i64 %7, 4294967295
-  %45 = icmp eq i64 %44, 0
-  %. = select i1 %45, ptr %.sroa.05, ptr %.sroa.0
-  br label %46
+47:                                               ; preds = %45
+  %48 = and i64 %7, 4294967295
+  %49 = icmp eq i64 %48, 0
+  %. = select i1 %49, ptr %.sroa.05, ptr %.sroa.0
+  br label %50
 
-46:                                               ; preds = %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit.thread, %43
-  %.sroa.0.0.in = phi ptr [ %., %43 ], [ %.sroa.0, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit.thread ], [ %spec.select, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit ]
+50:                                               ; preds = %47, %45, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit
+  %.sroa.0.0.in = phi ptr [ %.sroa.0, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit ], [ %.sroa.05, %45 ], [ %., %47 ]
   %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.05)
@@ -2659,89 +2662,101 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionENS3_11bugreporter1
   %32 = zext i32 %8 to i64
   %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.122", ptr %6, i64 %32
   %.not13 = icmp eq ptr %.sroa.0.1.i, %33
-  br i1 %.not13, label %34, label %.critedge.sink.split
+  br i1 %.not13, label %37, label %34
 
 34:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %36 = load i32, ptr %35, align 8, !tbaa !291
-  %.not14 = icmp eq i32 %36, 10
-  br i1 %.not14, label %37, label %.critedge
-
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %39 = load ptr, ptr %38, align 8, !tbaa !298
-  %.not.i = icmp eq ptr %39, null
-  br i1 %.not.i, label %.critedge, label %40
-
-40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %42 = load ptr, ptr %41, align 8, !tbaa !301
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 520
-  %44 = load i32, ptr %43, align 8, !tbaa !302
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %.loopexit.i.i, label %46
-
-46:                                               ; preds = %40
-  %47 = ptrtoint ptr %39 to i64
-  %48 = trunc i64 %47 to i32
-  %49 = lshr i32 %48, 4
-  %50 = lshr i32 %48, 9
-  %51 = xor i32 %49, %50
-  %52 = add i32 %44, -1
-  %.01826.i.i.i.i = and i32 %52, %51
-  %53 = zext nneg i32 %.01826.i.i.i.i to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %42, i64 %53
-  %55 = load ptr, ptr %54, align 8, !tbaa !303
-  %56 = icmp eq ptr %39, %55
-  br i1 %56, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, label %.lr.ph.i.i.i.i, !prof !304
-
-.lr.ph.i.i.i.i:                                   ; preds = %46, %59
-  %57 = phi ptr [ %64, %59 ], [ %55, %46 ]
-  %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %59 ], [ %.01826.i.i.i.i, %46 ]
-  %.01627.i.i.i.i = phi i32 [ %60, %59 ], [ 1, %46 ]
-  %58 = icmp eq ptr %57, inttoptr (i64 -4096 to ptr)
-  br i1 %58, label %.loopexit.i.i, label %59, !prof !217
-
-59:                                               ; preds = %.lr.ph.i.i.i.i
-  %60 = add i32 %.01627.i.i.i.i, 1
-  %61 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
-  %.018.i.i.i.i = and i32 %61, %52
-  %62 = zext i32 %.018.i.i.i.i to i64
-  %63 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %42, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !303
-  %65 = icmp eq ptr %39, %64
-  br i1 %65, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, label %.lr.ph.i.i.i.i, !prof !305, !llvm.loop !306
-
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %40
-  %66 = zext i32 %44 to i64
-  %67 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %42, i64 %66
-  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i
-
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i: ; preds = %59, %.loopexit.i.i, %46
-  %.sroa.0.1.i.i = phi ptr [ %67, %.loopexit.i.i ], [ %54, %46 ], [ %63, %59 ]
-  %68 = zext i32 %44 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %42, i64 %68
-  %70 = icmp eq ptr %.sroa.0.1.i.i, %69
-  br i1 %70, label %.critedge, label %.critedge.sink.split
-
-.critedge.sink.split:                             ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit
-  %.sroa.0.1.i.i.sink = phi ptr [ %.sroa.0.1.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit ], [ %.sroa.0.1.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.sink, i64 8
-  %72 = load i32, ptr %71, align 4, !tbaa !277
-  %73 = zext i32 %72 to i64
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
+  %36 = load i32, ptr %35, align 4, !tbaa !277
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.sink.split, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, %37, %34, %2
-  %.sroa.012.0 = phi i64 [ 0, %2 ], [ 0, %34 ], [ 0, %37 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i ], [ %73, %.critedge.sink.split ]
-  %.sroa.3.0 = phi i64 [ 0, %2 ], [ 0, %34 ], [ 0, %37 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i ], [ 4294967296, %.critedge.sink.split ]
-  %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.012.0
+37:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento9MemRegionENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %39 = load i32, ptr %38, align 8, !tbaa !291
+  %.not14 = icmp eq i32 %39, 10
+  br i1 %.not14, label %40, label %.critedge
+
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %42 = load ptr, ptr %41, align 8, !tbaa !298
+  %.not.i = icmp eq ptr %42, null
+  br i1 %.not.i, label %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit, label %43
+
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 504
+  %45 = load ptr, ptr %44, align 8, !tbaa !301
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 520
+  %47 = load i32, ptr %46, align 8, !tbaa !302
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %.loopexit.i.i, label %49
+
+49:                                               ; preds = %43
+  %50 = ptrtoint ptr %42 to i64
+  %51 = trunc i64 %50 to i32
+  %52 = lshr i32 %51, 4
+  %53 = lshr i32 %51, 9
+  %54 = xor i32 %52, %53
+  %55 = add i32 %47, -1
+  %.01826.i.i.i.i = and i32 %55, %54
+  %56 = zext nneg i32 %.01826.i.i.i.i to i64
+  %57 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %45, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !303
+  %59 = icmp eq ptr %42, %58
+  br i1 %59, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, label %.lr.ph.i.i.i.i, !prof !304
+
+.lr.ph.i.i.i.i:                                   ; preds = %49, %62
+  %60 = phi ptr [ %67, %62 ], [ %58, %49 ]
+  %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %62 ], [ %.01826.i.i.i.i, %49 ]
+  %.01627.i.i.i.i = phi i32 [ %63, %62 ], [ 1, %49 ]
+  %61 = icmp eq ptr %60, inttoptr (i64 -4096 to ptr)
+  br i1 %61, label %.loopexit.i.i, label %62, !prof !217
+
+62:                                               ; preds = %.lr.ph.i.i.i.i
+  %63 = add i32 %.01627.i.i.i.i, 1
+  %64 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
+  %.018.i.i.i.i = and i32 %64, %55
+  %65 = zext i32 %.018.i.i.i.i to i64
+  %66 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %45, i64 %65
+  %67 = load ptr, ptr %66, align 8, !tbaa !303
+  %68 = icmp eq ptr %42, %67
+  br i1 %68, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, label %.lr.ph.i.i.i.i, !prof !305, !llvm.loop !306
+
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i, %43
+  %69 = zext i32 %47 to i64
+  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %45, i64 %69
+  br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i
+
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i: ; preds = %62, %.loopexit.i.i, %49
+  %.sroa.0.1.i.i = phi ptr [ %70, %.loopexit.i.i ], [ %57, %49 ], [ %66, %62 ]
+  %71 = zext i32 %47 to i64
+  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %45, i64 %71
+  %73 = icmp eq ptr %.sroa.0.1.i.i, %72
+  br i1 %73, label %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit, label %74
+
+74:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
+  %76 = load i32, ptr %75, align 4, !tbaa !277
+  %77 = zext i32 %76 to i64
+  %78 = or disjoint i64 %77, 4294967296
+  br label %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit
+
+_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit: ; preds = %40, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i, %74
+  %.sroa.2.0.i = phi i64 [ 0, %40 ], [ %78, %74 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit.i ]
+  %.sroa.012.0.extract.trunc = trunc i64 %.sroa.2.0.i to i32
+  %79 = and i64 %.sroa.2.0.i, 1095216660480
+  br label %.critedge
+
+.critedge:                                        ; preds = %34, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit, %37, %2
+  %.sroa.012.0 = phi i32 [ undef, %2 ], [ %36, %34 ], [ %.sroa.012.0.extract.trunc, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit ], [ undef, %37 ]
+  %.sroa.3.0 = phi i64 [ 0, %2 ], [ 4294967296, %34 ], [ %79, %_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE.exit ], [ 0, %37 ]
+  %.sroa.012.0.insert.ext = zext i32 %.sroa.012.0 to i64
+  %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.012.0.insert.ext
   ret i64 %.sroa.012.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang4ento22PathSensitiveBugReport22getInterestingnessKindEPKNS0_7SymExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1000) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %38, label %3
+  br i1 %.not, label %39, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -2792,19 +2807,18 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12T
   %31 = zext i32 %7 to i64
   %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %31
   %33 = icmp eq ptr %.sroa.0.1.i, %32
-  br i1 %33, label %38, label %34
+  br i1 %33, label %39, label %34
 
 34:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
   %36 = load i32, ptr %35, align 4, !tbaa !277
   %37 = zext i32 %36 to i64
-  br label %38
+  %38 = or disjoint i64 %37, 4294967296
+  br label %39
 
-38:                                               ; preds = %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit, %2
-  %.sroa.05.0 = phi i64 [ 0, %2 ], [ %37, %34 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit ]
-  %.sroa.2.0 = phi i64 [ 0, %2 ], [ 4294967296, %34 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit ]
-  %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.05.0
-  ret i64 %.sroa.05.0.insert.insert
+39:                                               ; preds = %34, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit, %2
+  %.sroa.2.0 = phi i64 [ 0, %2 ], [ %38, %34 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS3_11bugreporter12TrackingKindENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_S8_EEEES6_S8_SA_SD_E4findES6_.exit ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26538,13 +26552,13 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %60
+  br label %61
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, %46
   %51 = phi ptr [ %50, %46 ], [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %60, label %52
+  br i1 %.not, label %61, label %52
 
 52:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
   %53 = phi ptr [ %44, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14 ], [ %51, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
@@ -26554,13 +26568,12 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4
   %57 = zext i32 %56 to i64
   %58 = shl nuw i64 %57, 32
   %59 = zext i32 %.sroa.02.0.i.i to i64
-  br label %60
+  %60 = or disjoint i64 %58, %59
+  br label %61
 
-60:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread, %52
-  %.sroa.012.0 = phi i64 [ %59, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
-  %.sroa.3.0 = phi i64 [ %58, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
-  %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.012.0
-  ret i64 %.sroa.012.0.insert.insert
+61:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread, %52
+  %.sroa.3.0 = phi i64 [ %60, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
+  ret i64 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

@@ -15893,15 +15893,18 @@ define internal fastcc void @get_visual_weight(ptr noundef nonnull writeonly cap
 ._crit_edge.us:                                   ; preds = %19
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %27 = icmp samesign ult i64 %indvars.iv.next68, %10
-  br i1 %27, label %.lr.ph.us, label %._crit_edge53, !llvm.loop !544
+  br i1 %27, label %.lr.ph.us, label %._crit_edge53.loopexit62, !llvm.loop !544
 
-._crit_edge53:                                    ; preds = %._crit_edge.us, %.lr.ph52, %11
-  %.036.lcssa = phi i32 [ 0, %11 ], [ 0, %.lr.ph52 ], [ %22, %._crit_edge.us ]
-  %.034.lcssa = phi i32 [ 0, %11 ], [ 0, %.lr.ph52 ], [ %24, %._crit_edge.us ]
-  %.033.lcssa = phi i32 [ 0, %11 ], [ 0, %.lr.ph52 ], [ %25, %._crit_edge.us ]
-  %28 = mul nsw i32 %.033.lcssa, %.034.lcssa
-  %29 = mul nsw i32 %.036.lcssa, %.036.lcssa
-  %30 = sub nsw i32 %28, %29
+._crit_edge53.loopexit62:                         ; preds = %._crit_edge.us
+  %28 = mul nsw i32 %22, %22
+  br label %._crit_edge53
+
+._crit_edge53:                                    ; preds = %.lr.ph52, %._crit_edge53.loopexit62, %11
+  %.036.lcssa = phi i32 [ 0, %11 ], [ %28, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
+  %.034.lcssa = phi i32 [ 0, %11 ], [ %24, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
+  %.033.lcssa = phi i32 [ 0, %11 ], [ %25, %._crit_edge53.loopexit62 ], [ 0, %.lr.ph52 ]
+  %29 = mul nsw i32 %.033.lcssa, %.034.lcssa
+  %30 = sub nsw i32 %29, %.036.lcssa
   %31 = icmp ult i32 %30, 255
   br i1 %31, label %32, label %40
 

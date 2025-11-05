@@ -4277,7 +4277,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread42: ; preds = %2, %_ZN
   %18 = load ptr, ptr %17, align 8, !tbaa !434
   %19 = tail call noundef i64 @_ZNK5clang10ASTContext25getTargetNullPointerValueENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %18, i64 %1) #16
   %20 = icmp eq i64 %19, 0
-  br label %65
+  br label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56
 
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %8, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4290,7 +4290,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %8, %_ZNK5
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = load i8, ptr %25, align 16
   %27 = icmp eq i8 %26, 5
-  br i1 %27, label %65, label %28
+  br i1 %27, label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56, label %28
 
 28:                                               ; preds = %24
   %29 = and i8 %26, -2
@@ -4301,7 +4301,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %8, %_ZNK5
   %31 = load ptr, ptr %21, align 8, !tbaa !434
   %32 = tail call noundef i64 @_ZNK5clang10ASTContext28getConstantArrayElementCountEPKNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %31, ptr noundef nonnull %23) #16
   %33 = icmp eq i64 %32, 0
-  br i1 %33, label %65, label %.critedge
+  br i1 %33, label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56, label %.critedge
 
 .critedge:                                        ; preds = %30, %28
   %34 = load ptr, ptr %21, align 8, !tbaa !434
@@ -4331,7 +4331,7 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread: ; preds = %8, %_ZNK5
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
   %49 = load i8, ptr %48, align 8
   %50 = trunc i8 %49 to i1
-  br label %65
+  br label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56
 
 51:                                               ; preds = %36
   %52 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -4359,14 +4359,8 @@ _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread: ; preds = %51,
   %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull %.1.i3353) #16
   br label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56
 
-_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56: ; preds = %54, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread
-  %64 = phi i1 [ false, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread ], [ true, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ true, %54 ]
-  %.5 = phi i1 [ %63, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread ], [ true, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ true, %54 ]
-  %spec.select = or i1 %64, %.5
-  br label %65
-
-65:                                               ; preds = %45, %24, %30, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread42
-  %.0 = phi i1 [ %20, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread42 ], [ %50, %45 ], [ %spec.select, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56 ], [ true, %30 ], [ true, %24 ]
+_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread56: ; preds = %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit, %54, %45, %24, %30, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread42
+  %.0 = phi i1 [ %20, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread42 ], [ %50, %45 ], [ true, %30 ], [ true, %24 ], [ %63, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit.thread ], [ true, %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit ], [ true, %54 ]
   ret i1 %.0
 }
 

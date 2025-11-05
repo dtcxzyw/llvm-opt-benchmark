@@ -1215,7 +1215,7 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
 
 18:                                               ; preds = %13, %8, %2
   %19 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.native_kick_ap, i32 noundef %0) #22
-  br label %254
+  br label %252
 
 20:                                               ; preds = %13
   tail call void @mtrr_save_state() #23
@@ -1232,7 +1232,7 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
   store ptr %1, ptr %28, align 8
   %29 = tail call i32 @irq_init_percpu_irqstack(i32 noundef %0) #23
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %254
+  br i1 %30, label %31, label %252
 
 31:                                               ; preds = %20
   %32 = load ptr, ptr @real_mode_header, align 8
@@ -1409,7 +1409,7 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
 
 137:                                              ; preds = %132
   %138 = tail call i32 %135(i32 noundef %6, i64 noundef %40) #23
-  br label %233
+  br label %231
 
 139:                                              ; preds = %132
   %140 = getelementptr inbounds nuw i8, ptr %133, i64 216
@@ -1419,7 +1419,7 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
 
 143:                                              ; preds = %139
   %144 = tail call i32 %141(i32 noundef %6, i64 noundef %40) #23
-  br label %233
+  br label %231
 
 145:                                              ; preds = %139
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !28
@@ -1555,11 +1555,11 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
 
 221:                                              ; preds = %219
   %222 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.26, i64 noundef %215) #22
+  %223 = or i32 %.us-phi19, %.us-phi
   br label %.thread13
 
 .thread13:                                        ; preds = %193, %192, %221, %219
-  %223 = phi i32 [ %.us-phi, %221 ], [ 0, %219 ], [ 0, %192 ], [ 0, %193 ]
-  %224 = phi i32 [ %.us-phi19, %221 ], [ %.us-phi19, %219 ], [ 0, %192 ], [ 0, %193 ]
+  %224 = phi i32 [ %223, %221 ], [ %.us-phi19, %219 ], [ 0, %192 ], [ 0, %193 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !32
   %225 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #23, !srcloc !33
   %226 = icmp ult i8 %225, 2
@@ -1573,50 +1573,46 @@ define dso_local i32 @native_kick_ap(i32 noundef %0, ptr noundef %1) #2 align 16
   tail call void @llvm.write_register.i64(metadata !0, i64 %230)
   br label %231
 
-231:                                              ; preds = %228, %.thread13
-  %232 = or i32 %224, %223
-  br label %233
+231:                                              ; preds = %.thread13, %228, %143, %137
+  %232 = phi i32 [ %138, %137 ], [ %144, %143 ], [ %224, %228 ], [ %224, %.thread13 ]
+  %233 = icmp eq i32 %232, 0
+  br i1 %233, label %252, label %234
 
-233:                                              ; preds = %231, %143, %137
-  %234 = phi i32 [ %138, %137 ], [ %144, %143 ], [ %232, %231 ]
-  %235 = icmp eq i32 %234, 0
-  br i1 %235, label %254, label %236
+234:                                              ; preds = %231
+  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @smp_ops, i64 64), align 8
+  %236 = icmp eq ptr %235, @native_kick_ap
+  %237 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_platform, i64 96), align 8
+  %238 = icmp ne i32 %237, 0
+  %239 = select i1 %236, i1 %238, i1 false
+  br i1 %239, label %240, label %250
 
-236:                                              ; preds = %233
-  %237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @smp_ops, i64 64), align 8
-  %238 = icmp eq ptr %237, @native_kick_ap
-  %239 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_platform, i64 96), align 8
-  %240 = icmp ne i32 %239, 0
-  %241 = select i1 %238, i1 %240, i1 false
-  br i1 %241, label %242, label %252
+240:                                              ; preds = %234
+  %241 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #23
+  %242 = load i32, ptr @smpboot_warm_reset_vector_count, align 4
+  %243 = add i32 %242, -1
+  store i32 %243, ptr @smpboot_warm_reset_vector_count, align 4
+  %244 = icmp eq i32 %243, 0
+  br i1 %244, label %245, label %249
 
-242:                                              ; preds = %236
-  %243 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @rtc_lock) #23
-  %244 = load i32, ptr @smpboot_warm_reset_vector_count, align 4
-  %245 = add i32 %244, -1
-  store i32 %245, ptr @smpboot_warm_reset_vector_count, align 4
-  %246 = icmp eq i32 %245, 0
-  br i1 %246, label %247, label %251
-
-247:                                              ; preds = %242
+245:                                              ; preds = %240
   tail call void @rtc_cmos_write(i8 noundef zeroext 0, i8 noundef zeroext 15) #23
-  %248 = load i64, ptr @page_offset_base, align 8
-  %249 = add i64 %248, 1127
-  %250 = inttoptr i64 %249 to ptr
-  store volatile i32 0, ptr %250, align 4
-  br label %251
+  %246 = load i64, ptr @page_offset_base, align 8
+  %247 = add i64 %246, 1127
+  %248 = inttoptr i64 %247 to ptr
+  store volatile i32 0, ptr %248, align 4
+  br label %249
 
-251:                                              ; preds = %247, %242
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtc_lock, i64 noundef %243) #23
+249:                                              ; preds = %245, %240
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @rtc_lock, i64 noundef %241) #23
+  br label %250
+
+250:                                              ; preds = %234, %249
+  %251 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %232, i32 noundef %0) #22
   br label %252
 
-252:                                              ; preds = %236, %251
-  %253 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.3, i32 noundef %234, i32 noundef %0) #22
-  br label %254
-
-254:                                              ; preds = %252, %233, %20, %18
-  %255 = phi i32 [ -22, %18 ], [ %29, %20 ], [ %234, %252 ], [ 0, %233 ]
-  ret i32 %255
+252:                                              ; preds = %250, %231, %20, %18
+  %253 = phi i32 [ -22, %18 ], [ %29, %20 ], [ %232, %250 ], [ 0, %231 ]
+  ret i32 %253
 }
 
 ; Function Attrs: null_pointer_is_valid

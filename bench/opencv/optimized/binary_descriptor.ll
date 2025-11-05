@@ -6697,11 +6697,11 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %147 = sitofp i32 %146 to double
   br label %305
 
-._crit_edge:                                      ; preds = %212, %.preheader
-  %.0462.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1463, %212 ]
-  %.0456.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1457, %212 ]
-  %.0454.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1455, %212 ]
-  %.0452.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1453, %212 ]
+._crit_edge:                                      ; preds = %213, %.preheader
+  %.0462.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1463, %213 ]
+  %.0456.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1457, %213 ]
+  %.0454.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1455, %213 ]
+  %.0452.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %.1453, %213 ]
   %148 = fsub float %.0472504, %86
   %149 = fadd float %85, %.0473503
   %150 = getelementptr inbounds nuw double, ptr %104, i64 %indvars.iv527
@@ -6765,14 +6765,14 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %197 = add nsw i16 %162, 1
   br label %270
 
-.lr.ph:                                           ; preds = %.preheader, %212
-  %indvars.iv = phi i32 [ %indvars.iv.next, %212 ], [ 0, %.preheader ]
-  %.0452499 = phi float [ %.1453, %212 ], [ 0.000000e+00, %.preheader ]
-  %.0454498 = phi float [ %.1455, %212 ], [ 0.000000e+00, %.preheader ]
-  %.0456497 = phi float [ %.1457, %212 ], [ 0.000000e+00, %.preheader ]
-  %.0462495 = phi float [ %.1463, %212 ], [ 0.000000e+00, %.preheader ]
-  %.0470494 = phi float [ %233, %212 ], [ %.0472504, %.preheader ]
-  %.0471493 = phi float [ %234, %212 ], [ %.0473503, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %213
+  %indvars.iv = phi i32 [ %indvars.iv.next, %213 ], [ 0, %.preheader ]
+  %.0452499 = phi float [ %.1453, %213 ], [ 0.000000e+00, %.preheader ]
+  %.0454498 = phi float [ %.1455, %213 ], [ 0.000000e+00, %.preheader ]
+  %.0456497 = phi float [ %.1457, %213 ], [ 0.000000e+00, %.preheader ]
+  %.0462495 = phi float [ %.1463, %213 ], [ 0.000000e+00, %.preheader ]
+  %.0470494 = phi float [ %233, %213 ], [ %.0472504, %.preheader ]
+  %.0471493 = phi float [ %234, %213 ], [ %.0473503, %.preheader ]
   %198 = tail call noundef float @llvm.round.f32(float %.0470494)
   %199 = fptosi float %198 to i16
   %200 = icmp slt i16 %199, 0
@@ -6788,16 +6788,16 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %_ZNSt12_Vector_base
   %206 = tail call noundef float @llvm.round.f32(float %.0471493)
   %207 = fptosi float %206 to i16
   %208 = icmp slt i16 %207, 0
-  br i1 %208, label %212, label %209
+  br i1 %208, label %213, label %209
 
 209:                                              ; preds = %204
   %210 = tail call i16 @llvm.smin.i16(i16 %.0468, i16 %207)
   %211 = sext i16 %210 to i32
-  br label %212
+  %212 = mul nsw i32 %103, %211
+  br label %213
 
-212:                                              ; preds = %204, %209
-  %213 = phi i32 [ %211, %209 ], [ 0, %204 ]
-  %214 = mul nsw i32 %213, %103
+213:                                              ; preds = %204, %209
+  %214 = phi i32 [ %212, %209 ], [ 0, %204 ]
   %215 = add nsw i32 %214, %205
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds i16, ptr %.0466, i64 %216

@@ -7286,22 +7286,21 @@ av_opt_child_next.exit.thread:                    ; preds = %.preheader, %av_opt
 41:                                               ; preds = %36
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.0.i47.ph, i64 48
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !21
-  br i1 %.not40, label %._crit_edge, label %42
+  br i1 %.not40, label %43, label %42
 
 42:                                               ; preds = %41
   %.not41 = icmp eq i32 %.pre, %1
-  br i1 %.not41, label %._crit_edge, label %.backedge.backedge
+  br i1 %.not41, label %.thread, label %.backedge.backedge
 
-._crit_edge:                                      ; preds = %41, %42
-  %43 = phi i32 [ %1, %42 ], [ %.pre, %41 ]
-  %44 = and i32 %43, %1
-  %.not42 = icmp eq i32 %44, %1
-  br i1 %.not42, label %45, label %.backedge.backedge
+43:                                               ; preds = %41
+  %44 = and i32 %.pre, %1
+  %45 = icmp eq i32 %44, %1
+  br i1 %45, label %.thread, label %.backedge.backedge
 
-45:                                               ; preds = %._crit_edge
+.thread:                                          ; preds = %42, %43
   br i1 %.not43, label %49, label %46
 
-46:                                               ; preds = %45
+46:                                               ; preds = %.thread
   %47 = call i32 @av_opt_is_set_to_default(ptr noundef nonnull %0, ptr noundef nonnull %.0.i47.ph)
   %48 = icmp sgt i32 %47, 0
   br i1 %48, label %.backedge.backedge, label %._crit_edge57
@@ -7310,8 +7309,8 @@ av_opt_child_next.exit.thread:                    ; preds = %.preheader, %av_opt
   %.pre58 = load ptr, ptr %.0.i47.ph, align 8, !tbaa !14
   br label %49
 
-49:                                               ; preds = %._crit_edge57, %45
-  %50 = phi ptr [ %.pre58, %._crit_edge57 ], [ %37, %45 ]
+49:                                               ; preds = %._crit_edge57, %.thread
+  %50 = phi ptr [ %.pre58, %._crit_edge57 ], [ %37, %.thread ]
   %51 = call i32 @av_opt_get(ptr noundef nonnull %0, ptr noundef %50, i32 noundef 0, ptr noundef nonnull %10)
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %53, label %55
@@ -7325,7 +7324,7 @@ av_opt_child_next.exit.thread:                    ; preds = %.preheader, %av_opt
   %.not44 = icmp eq ptr %56, null
   br i1 %.not44, label %.backedge.backedge, label %57
 
-.backedge.backedge:                               ; preds = %55, %61, %36, %42, %._crit_edge, %46
+.backedge.backedge:                               ; preds = %55, %61, %36, %42, %43, %46
   br label %.backedge, !llvm.loop !113
 
 57:                                               ; preds = %55

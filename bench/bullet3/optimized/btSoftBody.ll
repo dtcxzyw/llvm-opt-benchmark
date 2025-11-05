@@ -43914,9 +43914,9 @@ _ZNK14GivensRotation14columnRotationER11btMatrix3x3.exit23: ; preds = %64
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_Z26singularValueDecompositionRK11btMatrix2x2R14GivensRotationS1_S3_f(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3, float noundef %4) local_unnamed_addr #16 comdat {
   %.sroa.0 = alloca float, align 4
-  %.sroa.13 = alloca float, align 4
+  %.sroa.11 = alloca float, align 4
+  %.sroa.16 = alloca float, align 4
   %.sroa.18 = alloca float, align 4
-  %.sroa.22 = alloca float, align 4
   store float 1.000000e+00, ptr %2, align 4, !tbaa !1247
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float 1.000000e+00, ptr %6, align 4, !tbaa !1251
@@ -43925,9 +43925,9 @@ define linkonce_odr dso_local void @_Z26singularValueDecompositionRK11btMatrix2x
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store float 0.000000e+00, ptr %8, align 4, !tbaa !1249
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.11)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.18)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.22)
   %9 = load float, ptr %0, align 4, !tbaa !234
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load float, ptr %spec.select.i.i, align 4, !tbaa !234
@@ -43960,195 +43960,222 @@ define linkonce_odr dso_local void @_Z26singularValueDecompositionRK11btMatrix2x
   %28 = phi float [ %23, %22 ], [ 1.000000e+00, %5 ]
   %.sroa.0.0.copyload = load float, ptr %0, align 4, !tbaa !234
   store float %.sroa.0.0.copyload, ptr %.sroa.0, align 4, !tbaa !234
-  %.sroa.13.0.copyload = load float, ptr %14, align 4, !tbaa !234
-  store float %.sroa.13.0.copyload, ptr %.sroa.13, align 4, !tbaa !234
-  %.sroa.18.0.copyload = load float, ptr %12, align 4, !tbaa !234
+  %.sroa.11.0.copyload = load float, ptr %14, align 4, !tbaa !234
+  store float %.sroa.11.0.copyload, ptr %.sroa.11, align 4, !tbaa !234
+  %.sroa.16.0.copyload = load float, ptr %12, align 4, !tbaa !234
+  store float %.sroa.16.0.copyload, ptr %.sroa.16, align 4, !tbaa !234
+  %.sroa.18.0.copyload = load float, ptr %spec.select.i.i, align 4, !tbaa !234
   store float %.sroa.18.0.copyload, ptr %.sroa.18, align 4, !tbaa !234
-  %.sroa.22.0.copyload = load float, ptr %spec.select.i.i, align 4, !tbaa !234
-  store float %.sroa.22.0.copyload, ptr %.sroa.22, align 4, !tbaa !234
   %29 = load i32, ptr %1, align 4, !tbaa !1242
-  %30 = icmp eq i32 %29, 0
+  %.fr123 = freeze i32 %29
+  %30 = icmp eq i32 %.fr123, 0
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %32 = load i32, ptr %31, align 4, !tbaa !1244
-  %33 = icmp eq i32 %32, 0
-  %34 = icmp eq i32 %29, 1
-  %35 = icmp eq i32 %32, 1
-  br label %36
+  %.fr = freeze i32 %32
+  %33 = icmp eq i32 %.fr, 0
+  %34 = icmp eq i32 %.fr123, 1
+  %35 = icmp eq i32 %.fr, 1
+  br i1 %30, label %.split, label %.split.us
 
-36:                                               ; preds = %_ZN11btMatrix2x2clEii.exit37.i.i, %26
-  %37 = phi i1 [ true, %26 ], [ false, %_ZN11btMatrix2x2clEii.exit37.i.i ]
-  %38 = phi i1 [ false, %26 ], [ true, %_ZN11btMatrix2x2clEii.exit37.i.i ]
-  %.038.i.i = phi i32 [ 0, %26 ], [ 1, %_ZN11btMatrix2x2clEii.exit37.i.i ]
-  %39 = or i32 %.038.i.i, %29
-  %or.cond.i.i.i = icmp eq i32 %39, 0
-  br i1 %or.cond.i.i.i, label %_ZN11btMatrix2x2clEii.exit.i.i, label %40
+.split.us:                                        ; preds = %26, %_ZN11btMatrix2x2clEii.exit37.i.i.us
+  %or.cond3.i.i.i.us = phi i1 [ false, %_ZN11btMatrix2x2clEii.exit37.i.i.us ], [ %34, %26 ]
+  %36 = phi i1 [ true, %_ZN11btMatrix2x2clEii.exit37.i.i.us ], [ false, %26 ]
+  %or.cond3.i15.i.i.us = phi i1 [ false, %_ZN11btMatrix2x2clEii.exit37.i.i.us ], [ %35, %26 ]
+  %37 = phi i1 [ false, %_ZN11btMatrix2x2clEii.exit37.i.i.us ], [ true, %26 ]
+  %.038.i.i.us = phi i32 [ 1, %_ZN11btMatrix2x2clEii.exit37.i.i.us ], [ 0, %26 ]
+  %or.cond7.i.i.i.us = and i1 %34, %36
+  %.sroa.16.0..sroa.16.0..sroa.16.val = load float, ptr %.sroa.16, align 4
+  %.sroa.18.0..sroa.18.0..sroa.18.val = load float, ptr %.sroa.18, align 4
+  %.sroa.0.0..sroa.0.0..sroa.0.val = load float, ptr %.sroa.0, align 4
+  %spec.select.idx.i.i.i.sroa.sel.us.val = select i1 %or.cond7.i.i.i.us, float %.sroa.18.0..sroa.18.0..sroa.18.val, float %.sroa.0.0..sroa.0.0..sroa.0.val
+  %38 = select i1 %or.cond3.i.i.i.us, float %.sroa.16.0..sroa.16.0..sroa.16.val, float %spec.select.idx.i.i.i.sroa.sel.us.val
+  %39 = or i32 %.038.i.i.us, %.fr
+  %or.cond.i14.i.i.us = icmp eq i32 %39, 0
+  %brmerge22.i.us = or i1 %or.cond3.i15.i.i.us, %or.cond.i14.i.i.us
+  %40 = select i1 %or.cond.i14.i.i.us, float %.sroa.0.0..sroa.0.0..sroa.0.val, float %.sroa.16.0..sroa.16.0..sroa.16.val
+  %.mux23.i.us = select i1 %or.cond.i14.i.i.us, ptr %.sroa.0, ptr %.sroa.16
+  br i1 %brmerge22.i.us, label %_ZN11btMatrix2x2clEii.exit21.i.i.us, label %41
 
-40:                                               ; preds = %36
-  %or.cond3.i.i.i = and i1 %34, %37
-  br i1 %or.cond3.i.i.i, label %_ZN11btMatrix2x2clEii.exit.i.i, label %41
-
-41:                                               ; preds = %40
-  %or.cond5.i.i.i = and i1 %30, %38
-  br i1 %or.cond5.i.i.i, label %_ZN11btMatrix2x2clEii.exit.i.i, label %42
+41:                                               ; preds = %.split.us
+  %or.cond5.i16.i.i.us = and i1 %33, %36
+  br i1 %or.cond5.i16.i.i.us, label %_ZN11btMatrix2x2clEii.exit21.i.i.us, label %42
 
 42:                                               ; preds = %41
-  %or.cond7.i.i.i = and i1 %34, %38
-  %spec.select.idx.i.i.i.sroa.sel = select i1 %or.cond7.i.i.i, ptr %.sroa.22, ptr %.sroa.0
-  br label %_ZN11btMatrix2x2clEii.exit.i.i
+  %or.cond7.i17.i.i.us = and i1 %35, %36
+  %43 = select i1 %or.cond7.i17.i.i.us, float %.sroa.18.0..sroa.18.0..sroa.18.val, float %.sroa.0.0..sroa.0.0..sroa.0.val
+  br label %_ZN11btMatrix2x2clEii.exit21.i.i.us
 
-_ZN11btMatrix2x2clEii.exit.i.i:                   ; preds = %42, %41, %40, %36
-  %.0.i.i.i = phi ptr [ %.sroa.0, %36 ], [ %spec.select.idx.i.i.i.sroa.sel, %42 ], [ %.sroa.18, %40 ], [ %.sroa.13, %41 ]
-  %43 = load float, ptr %.0.i.i.i, align 4, !tbaa !234
-  %44 = or i32 %.038.i.i, %32
-  %or.cond.i14.i.i = icmp eq i32 %44, 0
-  br i1 %or.cond.i14.i.i, label %_ZN11btMatrix2x2clEii.exit21.i.i, label %45
+_ZN11btMatrix2x2clEii.exit21.i.i.us:              ; preds = %41, %42, %.split.us
+  %44 = phi float [ %40, %.split.us ], [ %43, %42 ], [ %.sroa.11.0.copyload, %41 ]
+  %45 = fneg float %44
+  %46 = fmul float %27, %45
+  %47 = tail call float @llvm.fmuladd.f32(float %28, float %38, float %46)
+  %spec.select.idx.i26.i.i.sroa.sel.us = select i1 %or.cond7.i.i.i.us, ptr %.sroa.18, ptr %.sroa.0
+  %.0.i28.i.i.us = select i1 %or.cond3.i.i.i.us, ptr %.sroa.16, ptr %spec.select.idx.i26.i.i.sroa.sel.us
+  store float %47, ptr %.0.i28.i.i.us, align 4, !tbaa !234
+  %48 = fmul float %44, %28
+  %49 = tail call float @llvm.fmuladd.f32(float %27, float %38, float %48)
+  br i1 %brmerge22.i.us, label %_ZN11btMatrix2x2clEii.exit37.i.i.us, label %50
 
-45:                                               ; preds = %_ZN11btMatrix2x2clEii.exit.i.i
-  %or.cond3.i15.i.i = and i1 %35, %37
-  br i1 %or.cond3.i15.i.i, label %_ZN11btMatrix2x2clEii.exit21.i.i, label %46
+50:                                               ; preds = %_ZN11btMatrix2x2clEii.exit21.i.i.us
+  %or.cond5.i32.i.i.us = and i1 %33, %36
+  br i1 %or.cond5.i32.i.i.us, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit, label %51
 
-46:                                               ; preds = %45
-  %or.cond5.i16.i.i = and i1 %33, %38
-  br i1 %or.cond5.i16.i.i, label %_ZN11btMatrix2x2clEii.exit21.i.i, label %47
+51:                                               ; preds = %50
+  %or.cond7.i33.i.i.us = and i1 %35, %36
+  %spec.select.idx.i34.i.i.sroa.sel.us = select i1 %or.cond7.i33.i.i.us, ptr %.sroa.18, ptr %.sroa.0
+  br label %_ZN11btMatrix2x2clEii.exit37.i.i.us
 
-47:                                               ; preds = %46
-  %or.cond7.i17.i.i = and i1 %35, %38
-  %spec.select.idx.i18.i.i.sroa.sel = select i1 %or.cond7.i17.i.i, ptr %.sroa.22, ptr %.sroa.0
-  br label %_ZN11btMatrix2x2clEii.exit21.i.i
+_ZN11btMatrix2x2clEii.exit37.i.i.us:              ; preds = %51, %_ZN11btMatrix2x2clEii.exit21.i.i.us
+  %.0.i36.i.i.us = phi ptr [ %.mux23.i.us, %_ZN11btMatrix2x2clEii.exit21.i.i.us ], [ %spec.select.idx.i34.i.i.sroa.sel.us, %51 ]
+  store float %49, ptr %.0.i36.i.i.us, align 4, !tbaa !234
+  br i1 %37, label %.split.us, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split, !llvm.loop !1253
 
-_ZN11btMatrix2x2clEii.exit21.i.i:                 ; preds = %47, %46, %45, %_ZN11btMatrix2x2clEii.exit.i.i
-  %.0.i20.i.i = phi ptr [ %.sroa.0, %_ZN11btMatrix2x2clEii.exit.i.i ], [ %spec.select.idx.i18.i.i.sroa.sel, %47 ], [ %.sroa.18, %45 ], [ %.sroa.13, %46 ]
-  %48 = load float, ptr %.0.i20.i.i, align 4, !tbaa !234
-  %49 = fneg float %48
-  %50 = fmul float %27, %49
-  %51 = tail call float @llvm.fmuladd.f32(float %28, float %43, float %50)
-  br i1 %or.cond.i.i.i, label %_ZN11btMatrix2x2clEii.exit29.i.i, label %52
+.split:                                           ; preds = %26
+  br i1 %33, label %.split.split.preheader, label %.split.split.us.split
 
-52:                                               ; preds = %_ZN11btMatrix2x2clEii.exit21.i.i
-  %or.cond3.i23.i.i = and i1 %34, %37
-  br i1 %or.cond3.i23.i.i, label %_ZN11btMatrix2x2clEii.exit29.i.i, label %53
-
-53:                                               ; preds = %52
-  %or.cond5.i24.i.i = and i1 %30, %38
-  br i1 %or.cond5.i24.i.i, label %_ZN11btMatrix2x2clEii.exit29.i.i, label %54
-
-54:                                               ; preds = %53
-  %or.cond7.i25.i.i = and i1 %34, %38
-  %spec.select.idx.i26.i.i.sroa.sel = select i1 %or.cond7.i25.i.i, ptr %.sroa.22, ptr %.sroa.0
-  br label %_ZN11btMatrix2x2clEii.exit29.i.i
-
-_ZN11btMatrix2x2clEii.exit29.i.i:                 ; preds = %54, %53, %52, %_ZN11btMatrix2x2clEii.exit21.i.i
-  %.0.i28.i.i = phi ptr [ %.sroa.0, %_ZN11btMatrix2x2clEii.exit21.i.i ], [ %spec.select.idx.i26.i.i.sroa.sel, %54 ], [ %.sroa.18, %52 ], [ %.sroa.13, %53 ]
-  store float %51, ptr %.0.i28.i.i, align 4, !tbaa !234
-  %55 = fmul float %48, %28
-  %56 = tail call float @llvm.fmuladd.f32(float %27, float %43, float %55)
-  br i1 %or.cond.i14.i.i, label %_ZN11btMatrix2x2clEii.exit37.i.i, label %57
-
-57:                                               ; preds = %_ZN11btMatrix2x2clEii.exit29.i.i
-  %or.cond3.i31.i.i = and i1 %35, %37
-  br i1 %or.cond3.i31.i.i, label %_ZN11btMatrix2x2clEii.exit37.i.i, label %58
-
-58:                                               ; preds = %57
-  %or.cond5.i32.i.i = and i1 %33, %38
-  br i1 %or.cond5.i32.i.i, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit, label %59
-
-59:                                               ; preds = %58
-  %or.cond7.i33.i.i = and i1 %35, %38
-  %spec.select.idx.i34.i.i.sroa.sel = select i1 %or.cond7.i33.i.i, ptr %.sroa.22, ptr %.sroa.0
-  br label %_ZN11btMatrix2x2clEii.exit37.i.i
-
-_ZN11btMatrix2x2clEii.exit37.i.i:                 ; preds = %59, %57, %_ZN11btMatrix2x2clEii.exit29.i.i
-  %.0.i36.i.i = phi ptr [ %.sroa.0, %_ZN11btMatrix2x2clEii.exit29.i.i ], [ %spec.select.idx.i34.i.i.sroa.sel, %59 ], [ %.sroa.18, %57 ]
-  store float %56, ptr %.0.i36.i.i, align 4, !tbaa !234
-  br i1 %37, label %36, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split, !llvm.loop !1253
-
-_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split: ; preds = %_ZN11btMatrix2x2clEii.exit37.i.i
-  %.sroa.13.0..sroa.13.0..sroa.13.0..sroa.13.4..pr = load float, ptr %.sroa.13, align 4, !tbaa !234
+.split.split.preheader:                           ; preds = %.split
+  %52 = fmul float %.sroa.0.0.copyload, %28
+  %53 = tail call float @llvm.fmuladd.f32(float %27, float %.sroa.0.0.copyload, float %52)
+  store float %53, ptr %.sroa.0, align 4, !tbaa !234
+  %.sroa.11.0..sroa.11.0..sroa.11.val130 = load float, ptr %.sroa.11, align 4
+  %54 = fneg float %.sroa.11.0..sroa.11.0..sroa.11.val130
+  %55 = fmul float %27, %54
+  %56 = tail call float @llvm.fmuladd.f32(float %28, float %.sroa.11.0..sroa.11.0..sroa.11.val130, float %55)
+  store float %56, ptr %.sroa.11, align 4, !tbaa !234
+  %57 = fmul float %.sroa.11.0..sroa.11.0..sroa.11.val130, %28
+  %58 = tail call float @llvm.fmuladd.f32(float %27, float %.sroa.11.0..sroa.11.0..sroa.11.val130, float %57)
   br label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
 
-_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit: ; preds = %58, %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split
-  %.sroa.13.0..sroa.13.4. = phi float [ %.sroa.13.0..sroa.13.0..sroa.13.0..sroa.13.4..pr, %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split ], [ %56, %58 ]
+.split.split.us.split:                            ; preds = %.split
+  br i1 %35, label %.split.split.us.split.split, label %.split.split.us.split.split.us
+
+.split.split.us.split.split.us:                   ; preds = %.split.split.us.split, %.split.split.us.split.split.us
+  %.sroa.0.0. = phi float [ %65, %.split.split.us.split.split.us ], [ %.sroa.0.0.copyload, %.split.split.us.split ]
+  %spec.select114 = phi ptr [ %.sroa.11, %.split.split.us.split.split.us ], [ %.sroa.0, %.split.split.us.split ]
+  %59 = phi i1 [ false, %.split.split.us.split.split.us ], [ true, %.split.split.us.split ]
+  %.0.i.i.i.us93.us = select i1 %59, ptr %.sroa.0, ptr %spec.select114
+  %60 = load float, ptr %.0.i.i.i.us93.us, align 4, !tbaa !234
+  %61 = fneg float %.sroa.0.0.
+  %62 = fmul float %27, %61
+  %63 = tail call float @llvm.fmuladd.f32(float %28, float %60, float %62)
+  store float %63, ptr %.0.i.i.i.us93.us, align 4, !tbaa !234
+  %64 = fmul float %.sroa.0.0., %28
+  %65 = tail call float @llvm.fmuladd.f32(float %27, float %60, float %64)
+  store float %65, ptr %.sroa.0, align 4, !tbaa !234
+  br i1 %59, label %.split.split.us.split.split.us, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split, !llvm.loop !1253
+
+.split.split.us.split.split:                      ; preds = %.split.split.us.split, %.split.split.us.split.split
+  %66 = phi i1 [ true, %.split.split.us.split.split ], [ false, %.split.split.us.split ]
+  %or.cond3.i15.i.i.us87 = phi i1 [ false, %.split.split.us.split.split ], [ true, %.split.split.us.split ]
+  %.sroa.0.0..sroa.0.0..sroa.0.val124 = load float, ptr %.sroa.0, align 4
+  %.sroa.11.0..sroa.11.0..sroa.11.val = load float, ptr %.sroa.11, align 4
+  %spec.select116.val = select i1 %66, float %.sroa.11.0..sroa.11.0..sroa.11.val, float %.sroa.0.0..sroa.0.0..sroa.0.val124
+  %67 = select i1 %or.cond3.i15.i.i.us87, float %.sroa.0.0..sroa.0.0..sroa.0.val124, float %spec.select116.val
+  %.sroa.16.0..sroa.16.0..sroa.16.val126 = load float, ptr %.sroa.16, align 4
+  %.sroa.18.0..sroa.18.0..sroa.18.val127 = load float, ptr %.sroa.18, align 4
+  %spec.select117.val = select i1 %66, float %.sroa.18.0..sroa.18.0..sroa.18.val127, float %.sroa.0.0..sroa.0.0..sroa.0.val124
+  %68 = select i1 %or.cond3.i15.i.i.us87, float %.sroa.16.0..sroa.16.0..sroa.16.val126, float %spec.select117.val
+  %69 = fneg float %68
+  %70 = fmul float %27, %69
+  %71 = tail call float @llvm.fmuladd.f32(float %28, float %67, float %70)
+  %spec.select118 = select i1 %66, ptr %.sroa.11, ptr %.sroa.0
+  %.0.i28.i.i.us103 = select i1 %or.cond3.i15.i.i.us87, ptr %.sroa.0, ptr %spec.select118
+  store float %71, ptr %.0.i28.i.i.us103, align 4, !tbaa !234
+  %72 = fmul float %68, %28
+  %73 = tail call float @llvm.fmuladd.f32(float %27, float %67, float %72)
+  %spec.select.idx.i34.i.i.sroa.sel.us106 = select i1 %66, ptr %.sroa.18, ptr %.sroa.0
+  %spec.select119 = select i1 %or.cond3.i15.i.i.us87, ptr %.sroa.16, ptr %spec.select.idx.i34.i.i.sroa.sel.us106
+  store float %73, ptr %spec.select119, align 4, !tbaa !234
+  br i1 %or.cond3.i15.i.i.us87, label %.split.split.us.split.split, label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split, !llvm.loop !1253
+
+_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split: ; preds = %_ZN11btMatrix2x2clEii.exit37.i.i.us, %.split.split.us.split.split.us, %.split.split.us.split.split
+  %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.4..pr = load float, ptr %.sroa.11, align 4, !tbaa !234
+  br label %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
+
+_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit: ; preds = %50, %.split.split.preheader, %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split
+  %.sroa.11.0..sroa.11.4. = phi float [ %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.4..pr, %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exitthread-pre-split ], [ %58, %.split.split.preheader ], [ %49, %50 ]
   %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0. = load float, ptr %.sroa.0, align 4, !tbaa !234
-  %.sroa.22.0..sroa.22.0..sroa.22.0..sroa.22.12. = load float, ptr %.sroa.22, align 4, !tbaa !234
-  %60 = fcmp oeq float %.sroa.13.0..sroa.13.4., 0.000000e+00
-  br i1 %60, label %61, label %62
+  %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12. = load float, ptr %.sroa.18, align 4, !tbaa !234
+  %74 = fcmp oeq float %.sroa.11.0..sroa.11.4., 0.000000e+00
+  br i1 %74, label %75, label %76
 
-61:                                               ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
+75:                                               ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
   store float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %2, align 4, !tbaa !234
-  br label %86
+  br label %100
 
-62:                                               ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
-  %63 = fsub float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %.sroa.22.0..sroa.22.0..sroa.22.0..sroa.22.12.
-  %64 = fmul float %63, 5.000000e-01
-  %65 = fmul float %.sroa.13.0..sroa.13.4., %.sroa.13.0..sroa.13.4.
-  %66 = tail call float @llvm.fmuladd.f32(float %64, float %64, float %65)
-  %67 = fcmp ogt float %66, 0x3E80000000000000
-  br i1 %67, label %68, label %85
+76:                                               ; preds = %_Z18polarDecompositionRK11btMatrix2x2R14GivensRotationS1_.exit
+  %77 = fsub float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12.
+  %78 = fmul float %77, 5.000000e-01
+  %79 = fmul float %.sroa.11.0..sroa.11.4., %.sroa.11.0..sroa.11.4.
+  %80 = tail call float @llvm.fmuladd.f32(float %78, float %78, float %79)
+  %81 = fcmp ogt float %80, 0x3E80000000000000
+  br i1 %81, label %82, label %99
 
-68:                                               ; preds = %62
-  %sqrt84 = tail call float @llvm.sqrt.f32(float %66)
-  %69 = fcmp ogt float %64, 0.000000e+00
-  %70 = fneg float %sqrt84
-  %.pn.p = select i1 %69, float %sqrt84, float %70
-  %.pn = fadd float %64, %.pn.p
-  %.067 = fdiv float %.sroa.13.0..sroa.13.4., %.pn
-  %71 = tail call float @llvm.fmuladd.f32(float %.067, float %.067, float 1.000000e+00)
-  %sqrt = tail call float @llvm.sqrt.f32(float %71)
-  %72 = fdiv float 1.000000e+00, %sqrt
-  %73 = fneg float %.067
-  %74 = fmul float %72, %73
-  %75 = fmul float %72, %72
-  %76 = fmul float %72, 2.000000e+00
-  %77 = fmul float %76, %74
-  %78 = fmul float %.sroa.13.0..sroa.13.4., %77
-  %79 = fmul float %74, %74
-  %80 = fneg float %78
-  %81 = tail call float @llvm.fmuladd.f32(float %75, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %80)
-  %82 = tail call float @llvm.fmuladd.f32(float %79, float %.sroa.22.0..sroa.22.0..sroa.22.0..sroa.22.12., float %81)
-  store float %82, ptr %2, align 4, !tbaa !234
-  %83 = tail call float @llvm.fmuladd.f32(float %79, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %78)
-  %84 = tail call float @llvm.fmuladd.f32(float %75, float %.sroa.22.0..sroa.22.0..sroa.22.0..sroa.22.12., float %83)
-  br label %86
+82:                                               ; preds = %76
+  %sqrt84 = tail call float @llvm.sqrt.f32(float %80)
+  %83 = fcmp ogt float %78, 0.000000e+00
+  %84 = fneg float %sqrt84
+  %.pn.p = select i1 %83, float %sqrt84, float %84
+  %.pn = fadd float %78, %.pn.p
+  %.067 = fdiv float %.sroa.11.0..sroa.11.4., %.pn
+  %85 = tail call float @llvm.fmuladd.f32(float %.067, float %.067, float 1.000000e+00)
+  %sqrt = tail call float @llvm.sqrt.f32(float %85)
+  %86 = fdiv float 1.000000e+00, %sqrt
+  %87 = fneg float %.067
+  %88 = fmul float %86, %87
+  %89 = fmul float %86, %86
+  %90 = fmul float %86, 2.000000e+00
+  %91 = fmul float %90, %88
+  %92 = fmul float %.sroa.11.0..sroa.11.4., %91
+  %93 = fmul float %88, %88
+  %94 = fneg float %92
+  %95 = tail call float @llvm.fmuladd.f32(float %89, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %94)
+  %96 = tail call float @llvm.fmuladd.f32(float %93, float %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., float %95)
+  store float %96, ptr %2, align 4, !tbaa !234
+  %97 = tail call float @llvm.fmuladd.f32(float %93, float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., float %92)
+  %98 = tail call float @llvm.fmuladd.f32(float %89, float %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., float %97)
+  br label %100
 
-85:                                               ; preds = %62
+99:                                               ; preds = %76
   store float %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., ptr %2, align 4, !tbaa !234
-  br label %86
+  br label %100
 
-86:                                               ; preds = %68, %85, %61
-  %.sink = phi float [ %84, %68 ], [ %.sroa.22.0..sroa.22.0..sroa.22.0..sroa.22.12., %85 ], [ %.sroa.22.0..sroa.22.0..sroa.22.0..sroa.22.12., %61 ]
-  %87 = phi float [ %82, %68 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %85 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %61 ]
-  %.065 = phi float [ %74, %68 ], [ 0.000000e+00, %85 ], [ 0.000000e+00, %61 ]
-  %.0 = phi float [ %72, %68 ], [ 1.000000e+00, %85 ], [ 1.000000e+00, %61 ]
+100:                                              ; preds = %82, %99, %75
+  %.sink = phi float [ %98, %82 ], [ %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., %99 ], [ %.sroa.18.0..sroa.18.0..sroa.18.0..sroa.18.12., %75 ]
+  %101 = phi float [ %96, %82 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %99 ], [ %.sroa.0.0..sroa.0.0..sroa.0.0..sroa.0.0., %75 ]
+  %.065 = phi float [ %88, %82 ], [ 0.000000e+00, %99 ], [ 0.000000e+00, %75 ]
+  %.0 = phi float [ %86, %82 ], [ 1.000000e+00, %99 ], [ 1.000000e+00, %75 ]
   store float %.sink, ptr %6, align 4, !tbaa !234
-  %88 = fcmp olt float %87, %.sink
-  br i1 %88, label %89, label %91
+  %102 = fcmp olt float %101, %.sink
+  br i1 %102, label %103, label %105
 
-89:                                               ; preds = %86
+103:                                              ; preds = %100
   store float %.sink, ptr %2, align 4, !tbaa !234
-  store float %87, ptr %6, align 4, !tbaa !234
-  %90 = fneg float %.065
-  br label %91
+  store float %101, ptr %6, align 4, !tbaa !234
+  %104 = fneg float %.065
+  br label %105
 
-91:                                               ; preds = %86, %89
-  %.0.sink = phi float [ %90, %89 ], [ %.0, %86 ]
-  %.065.sink = phi float [ %.0, %89 ], [ %.065, %86 ]
-  %92 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store float %.0.sink, ptr %92, align 4, !tbaa !1245
-  %93 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store float %.065.sink, ptr %93, align 4, !tbaa !1246
-  %94 = load float, ptr %19, align 4, !tbaa !1245
-  %95 = load float, ptr %20, align 4, !tbaa !1246
-  %96 = fneg float %.065.sink
-  %97 = fmul float %95, %96
-  %98 = tail call float @llvm.fmuladd.f32(float %94, float %.0.sink, float %97)
-  %99 = fmul float %94, %.065.sink
-  %100 = tail call float @llvm.fmuladd.f32(float %95, float %.0.sink, float %99)
-  store float %98, ptr %19, align 4, !tbaa !1245
-  store float %100, ptr %20, align 4, !tbaa !1246
+105:                                              ; preds = %100, %103
+  %.0.sink = phi float [ %104, %103 ], [ %.0, %100 ]
+  %.065.sink = phi float [ %.0, %103 ], [ %.065, %100 ]
+  %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store float %.0.sink, ptr %106, align 4, !tbaa !1245
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store float %.065.sink, ptr %107, align 4, !tbaa !1246
+  %108 = load float, ptr %19, align 4, !tbaa !1245
+  %109 = load float, ptr %20, align 4, !tbaa !1246
+  %110 = fneg float %.065.sink
+  %111 = fmul float %109, %110
+  %112 = tail call float @llvm.fmuladd.f32(float %108, float %.0.sink, float %111)
+  %113 = fmul float %108, %.065.sink
+  %114 = tail call float @llvm.fmuladd.f32(float %109, float %.0.sink, float %113)
+  store float %112, ptr %19, align 4, !tbaa !1245
+  store float %114, ptr %20, align 4, !tbaa !1246
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.13)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.11)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.16)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.18)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.22)
   ret void
 }
 
@@ -52550,7 +52577,7 @@ _ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i: ; pred
   %344 = load float, ptr %2, align 4, !tbaa !234
   %345 = fadd float %344, 0x3E80000000000000
   %346 = fcmp ogt float %341, %345
-  br i1 %346, label %.thread111.loopexit.i, label %347
+  br i1 %346, label %.thread111.i, label %347
 
 347:                                              ; preds = %343
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -52695,26 +52722,20 @@ _ZN9btVector313safeNormalizeEv.exit.i:            ; preds = %441, %436
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %442, label %.thread111.loopexit.i, label %443
+  br i1 %442, label %.thread111.i, label %443
 
 443:                                              ; preds = %_ZN9btVector313safeNormalizeEv.exit.i, %339
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.thread111.loopexit.i, label %339, !llvm.loop !1315
+  br i1 %exitcond.not.i, label %.thread111.i, label %339, !llvm.loop !1315
 
-.thread111.loopexit.i:                            ; preds = %443, %_ZN9btVector313safeNormalizeEv.exit.i, %343
-  %.not.lcssa.ph.i = phi i1 [ false, %443 ], [ true, %343 ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ]
-  %.2.ph.i = phi i1 [ undef, %443 ], [ false, %343 ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ]
-  %444 = and i1 %.not.lcssa.ph.i, %.2.ph.i
-  br label %.thread111.i
-
-.thread111.i:                                     ; preds = %.thread111.loopexit.i, %.thread107.i, %295
-  %spec.select.i = phi i1 [ false, %.thread107.i ], [ %444, %.thread111.loopexit.i ], [ false, %295 ]
+.thread111.i:                                     ; preds = %443, %_ZN9btVector313safeNormalizeEv.exit.i, %343, %.thread107.i, %295
+  %.not.lcssa.i = phi i1 [ false, %.thread107.i ], [ false, %295 ], [ false, %443 ], [ false, %343 ], [ true, %_ZN9btVector313safeNormalizeEv.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit
 
 _ZL28continuousCollisionDetectionPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_R9btVector3.exit: ; preds = %4, %.thread111.i, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit
-  %.0 = phi i1 [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit ], [ %spec.select.i, %.thread111.i ], [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i ], [ false, %4 ]
+  %.0 = phi i1 [ false, %_ZL15bernsteinVFTestPKN10btSoftBody4FaceEPKNS_4NodeERKfS7_.exit ], [ %.not.lcssa.i, %.thread111.i ], [ false, %_ZL18hasSeparatingPlanePKN10btSoftBody4FaceEPKNS_4NodeERKf.exit.thread.i ], [ false, %4 ]
   ret i1 %.0
 }
 

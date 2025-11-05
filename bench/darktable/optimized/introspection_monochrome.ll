@@ -769,13 +769,13 @@ define internal range(i32 0, 2) i32 @_monochrome_draw(ptr noundef %0, ptr nounde
   %103 = fptosi float %102 to i32
   %104 = call i32 @llvm.smax.i32(i32 %103, i32 0)
   %105 = bitcast i32 %104 to float
+  %106 = fmul reassoc nsz arcp contract afn float %105, %105
+  %107 = fpext reassoc nsz arcp contract afn float %106 to double
+  %108 = fmul reassoc nsz arcp contract afn double %107, 0x404AB1EBE1650A46
   br label %_color_filter.exit
 
 _color_filter.exit:                               ; preds = %81, %98, %100
-  %106 = phi float [ %105, %100 ], [ 0x3FDA40F800000000, %98 ], [ 1.000000e+00, %81 ]
-  %107 = fmul reassoc nsz arcp contract afn float %106, %106
-  %108 = fpext reassoc nsz arcp contract afn float %107 to double
-  %109 = fmul reassoc nsz arcp contract afn double %108, 0x404AB1EBE1650A46
+  %109 = phi double [ %108, %100 ], [ 0x4021F7F52A55F099, %98 ], [ 0x404AB1EBE1650A46, %81 ]
   store double %109, ptr %6, align 8, !tbaa !134
   %110 = load ptr, ptr %47, align 8, !tbaa !124
   call void @cmsDoTransform(ptr noundef %110, ptr noundef nonnull %6, ptr noundef nonnull %5, i32 noundef 1) #21

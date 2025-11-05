@@ -3416,29 +3416,29 @@ define linkonce_odr hidden void @_ZN2cv18filterSpecklesImplIhEEvRNS_3MatEiiiS2_(
   br i1 %16, label %37, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !29
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !38
-  %22 = mul nsw i32 %21, %19
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !151
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %27, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !151
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %21, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-27:                                               ; preds = %17
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %23 = load i32, ptr %22, align 4, !tbaa !29
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = load i32, ptr %24, align 8, !tbaa !38
+  %26 = mul nsw i32 %25, %23
+  %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8, !tbaa !94
-  %30 = zext nneg i32 %25 to i64
+  %30 = zext nneg i32 %19 to i64
   %31 = getelementptr i64, ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8, !tbaa !95
+  %34 = mul i64 %33, %27
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
-  %34 = phi i64 [ %33, %27 ], [ 0, %17 ]
-  %35 = mul i64 %34, %23
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %21
+  %35 = phi i64 [ %34, %21 ], [ 0, %17 ]
   %36 = icmp ult i64 %35, %12
   br i1 %36, label %37, label %38
 
@@ -3743,29 +3743,29 @@ define linkonce_odr hidden void @_ZN2cv18filterSpecklesImplIsEEvRNS_3MatEiiiS2_(
   br i1 %16, label %37, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %19 = load i32, ptr %18, align 4, !tbaa !29
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !38
-  %22 = mul nsw i32 %21, %19
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %25 = load i32, ptr %24, align 4, !tbaa !151
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %27, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %19 = load i32, ptr %18, align 4, !tbaa !151
+  %20 = icmp sgt i32 %19, 0
+  br i1 %20, label %21, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-27:                                               ; preds = %17
+21:                                               ; preds = %17
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %23 = load i32, ptr %22, align 4, !tbaa !29
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %25 = load i32, ptr %24, align 8, !tbaa !38
+  %26 = mul nsw i32 %25, %23
+  %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %29 = load ptr, ptr %28, align 8, !tbaa !94
-  %30 = zext nneg i32 %25 to i64
+  %30 = zext nneg i32 %19 to i64
   %31 = getelementptr i64, ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8, !tbaa !95
+  %34 = mul i64 %33, %27
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %27
-  %34 = phi i64 [ %33, %27 ], [ 0, %17 ]
-  %35 = mul i64 %34, %23
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %17, %21
+  %35 = phi i64 [ %34, %21 ], [ 0, %17 ]
   %36 = icmp ult i64 %35, %12
   br i1 %36, label %37, label %38
 

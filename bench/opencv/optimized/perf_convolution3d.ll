@@ -2504,13 +2504,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %562
   %572 = getelementptr i64, ptr %570, i64 %571
   %573 = getelementptr i8, ptr %572, i64 -8
   %574 = load i64, ptr %573, align 8, !tbaa !10
+  %575 = mul i64 %574, %564
+  %576 = add i64 %575, 1023
+  %577 = lshr i64 %576, 10
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %565, %568
-  %575 = phi i64 [ %574, %568 ], [ 0, %565 ]
-  %576 = mul i64 %575, %564
-  %577 = add i64 %576, 1023
-  %578 = lshr i64 %577, 10
+  %578 = phi i64 [ %577, %568 ], [ 0, %565 ]
   %579 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i64 noundef %578)
           to label %_ZNSolsEm.exit unwind label %.loopexit.split-lp
 
@@ -2543,13 +2543,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit336: ; preds = %582
   %593 = getelementptr i64, ptr %591, i64 %592
   %594 = getelementptr i8, ptr %593, i64 -8
   %595 = load i64, ptr %594, align 8, !tbaa !10
+  %596 = mul i64 %595, %584
+  %597 = add i64 %596, 1023
+  %598 = lshr i64 %597, 10
   br label %_ZNK2cv3Mat8elemSizeEv.exit337
 
 _ZNK2cv3Mat8elemSizeEv.exit337:                   ; preds = %585, %589
-  %596 = phi i64 [ %595, %589 ], [ 0, %585 ]
-  %597 = mul i64 %596, %584
-  %598 = add i64 %597, 1023
-  %599 = lshr i64 %598, 10
+  %599 = phi i64 [ %598, %589 ], [ 0, %585 ]
   %600 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %579, i64 noundef %599)
           to label %_ZNSolsEm.exit339 unwind label %.loopexit.split-lp
 

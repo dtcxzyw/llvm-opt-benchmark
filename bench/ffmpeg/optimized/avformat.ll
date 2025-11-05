@@ -2210,8 +2210,7 @@ define noundef i32 @avformat_transfer_internal_stream_timing_info(ptr noundef re
 
 27:                                               ; preds = %.thread, %25, %19
   %28 = phi i1 [ true, %19 ], [ false, %25 ], [ false, %.thread ]
-  %.sroa.12.0155 = phi i64 [ %18, %19 ], [ %.sroa.12.0156, %25 ], [ %.sroa.12.0156, %.thread ]
-  %.sroa.041.0153 = phi i64 [ %.sroa.041.0.insert.ext, %19 ], [ 0, %25 ], [ 0, %.thread ]
+  %.sroa.12.0155 = phi i64 [ %.sroa.041.0.insert.insert, %19 ], [ %.sroa.12.0156, %25 ], [ %.sroa.12.0156, %.thread ]
   %.sroa.027.0 = phi i32 [ %.sroa.027.0.extract.trunc, %19 ], [ %.sroa.027.0.copyload, %25 ], [ 0, %.thread ]
   %.sroa.13.0 = phi i32 [ %.sroa.13.0.extract.trunc, %19 ], [ %.sroa.13.0.copyload, %25 ], [ 1, %.thread ]
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2295,8 +2294,7 @@ define noundef i32 @avformat_transfer_internal_stream_timing_info(ptr noundef re
   br i1 %28, label %65, label %.thread162
 
 65:                                               ; preds = %.thread157
-  %.sroa.041.0.insert.insert50 = or disjoint i64 %.sroa.041.0153, %.sroa.12.0155
-  %.sroa.01.0.insert.insert.i110 = tail call i64 @llvm.fshl.i64(i64 %.sroa.041.0.insert.insert50, i64 %.sroa.041.0.insert.insert50, i64 32)
+  %.sroa.01.0.insert.insert.i110 = tail call i64 @llvm.fshl.i64(i64 %.sroa.12.0155, i64 %.sroa.12.0155, i64 32)
   %.sroa.0.0.extract.trunc.i133 = trunc i64 %.sroa.01.0.insert.insert.i110 to i32
   %.sroa.2.0.extract.shift.i134 = lshr i64 %.sroa.01.0.insert.insert.i110, 32
   %.sroa.2.0.extract.trunc.i135 = trunc nuw i64 %.sroa.2.0.extract.shift.i134 to i32
@@ -2348,8 +2346,7 @@ define noundef i32 @avformat_transfer_internal_stream_timing_info(ptr noundef re
   br i1 %or.cond9, label %92, label %102
 
 92:                                               ; preds = %90
-  %.sroa.041.0.insert.insert54 = or disjoint i64 %.sroa.041.0153, %.sroa.12.0155
-  %.sroa.01.0.insert.insert.i111 = tail call i64 @llvm.fshl.i64(i64 %.sroa.041.0.insert.insert54, i64 %.sroa.041.0.insert.insert54, i64 32)
+  %.sroa.01.0.insert.insert.i111 = tail call i64 @llvm.fshl.i64(i64 %.sroa.12.0155, i64 %.sroa.12.0155, i64 32)
   %.sroa.0.0.extract.trunc.i142 = trunc i64 %.sroa.01.0.insert.insert.i111 to i32
   %.sroa.2.0.extract.shift.i143 = lshr i64 %.sroa.01.0.insert.insert.i111, 32
   %.sroa.2.0.extract.trunc.i144 = trunc nuw i64 %.sroa.2.0.extract.shift.i143 to i32

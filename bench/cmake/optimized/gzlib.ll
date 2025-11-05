@@ -183,7 +183,7 @@ define internal fastcc noalias noundef ptr @gz_open(ptr noundef %0, i32 noundef 
   %62 = select i1 %61, i32 512, i32 1024
   %63 = or disjoint i32 %62, %43
   %64 = select i1 %57, i32 0, i32 %63
-  %65 = or disjoint i32 %64, %41
+  %65 = or disjoint i32 %41, %64
   %66 = tail call i32 (ptr, i32, ...) @open(ptr noundef nonnull %0, i32 noundef %65, i32 noundef 438) #13
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %66, ptr %67, align 4, !tbaa !25

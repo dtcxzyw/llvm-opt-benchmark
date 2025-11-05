@@ -3620,12 +3620,12 @@ _ZN5serde2de9SeqAccess12next_element17h50d52fef09443701E.exit: ; preds = %28
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN175_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u8$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb40dedfc1f4cffa9E"(i64 noundef %0) unnamed_addr #0 {
+define hidden range(i64 1, -4294967294) i64 @"_ZN175_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u8$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417hb40dedfc1f4cffa9E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = add i64 %0, -256
   %or.cond = icmp ult i64 %4, -255
-  br i1 %or.cond, label %5, label %10, !prof !299
+  br i1 %or.cond, label %5, label %11, !prof !299
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3636,25 +3636,24 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN175_$LT$serde..de..impls..$LT$i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = zext i32 %7 to i64
   %9 = shl nuw i64 %8, 32
-  br label %12
+  %10 = or disjoint i64 %9, 1
+  br label %13
 
-10:                                               ; preds = %1
-  %11 = shl nuw nsw i64 %0, 8
-  br label %12
+11:                                               ; preds = %1
+  %12 = shl nuw nsw i64 %0, 8
+  br label %13
 
-12:                                               ; preds = %10, %5
-  %.sroa.0.0 = phi i64 [ 0, %10 ], [ 1, %5 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %11, %10 ], [ %9, %5 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+13:                                               ; preds = %11, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %12, %11 ], [ %10, %5 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hc6914f7b1ca549b8E"(i8 noundef %0) unnamed_addr #0 {
+define hidden range(i64 1, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$8visit_i817hc6914f7b1ca549b8E"(i8 noundef %0) unnamed_addr #0 {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = icmp sgt i8 %0, 0
-  br i1 %4, label %11, label %5, !prof !300
+  br i1 %4, label %12, label %5, !prof !300
 
 5:                                                ; preds = %1
   %6 = sext i8 %0 to i64
@@ -3666,18 +3665,17 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = zext i32 %8 to i64
   %10 = shl nuw i64 %9, 32
-  br label %14
+  %11 = or disjoint i64 %10, 1
+  br label %15
 
-11:                                               ; preds = %1
-  %12 = zext nneg i8 %0 to i64
-  %13 = shl nuw nsw i64 %12, 16
-  br label %14
+12:                                               ; preds = %1
+  %13 = zext nneg i8 %0 to i64
+  %14 = shl nuw nsw i64 %13, 16
+  br label %15
 
-14:                                               ; preds = %11, %5
-  %.sroa.0.0 = phi i64 [ 0, %11 ], [ 1, %5 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %13, %11 ], [ %10, %5 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+15:                                               ; preds = %12, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %14, %12 ], [ %11, %5 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3738,12 +3736,12 @@ define hidden i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseria
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i3217h59ed5ecb1ebe3b94E"(i32 noundef %0) unnamed_addr #0 {
+define hidden range(i64 1, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i3217h59ed5ecb1ebe3b94E"(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = add i32 %0, -65536
   %or.cond = icmp ult i32 %4, -65535
-  br i1 %or.cond, label %5, label %11, !prof !301
+  br i1 %or.cond, label %5, label %12, !prof !301
 
 5:                                                ; preds = %1
   %6 = sext i32 %0 to i64
@@ -3755,27 +3753,26 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = zext i32 %8 to i64
   %10 = shl nuw i64 %9, 32
-  br label %14
+  %11 = or disjoint i64 %10, 1
+  br label %15
 
-11:                                               ; preds = %1
-  %12 = shl nuw i32 %0, 16
-  %13 = zext i32 %12 to i64
-  br label %14
+12:                                               ; preds = %1
+  %13 = shl nuw i32 %0, 16
+  %14 = zext i32 %13 to i64
+  br label %15
 
-14:                                               ; preds = %11, %5
-  %.sroa.0.0 = phi i64 [ 0, %11 ], [ 1, %5 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %13, %11 ], [ %10, %5 ]
-  %.sroa.0.0.insert.insert = or i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+15:                                               ; preds = %12, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %14, %12 ], [ %11, %5 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h57c7a7dca7d8301aE"(i64 noundef %0) unnamed_addr #0 {
+define hidden range(i64 1, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_i6417h57c7a7dca7d8301aE"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = add i64 %0, -1
   %or.cond = icmp ult i64 %4, 65535
-  br i1 %or.cond, label %10, label %5, !prof !300
+  br i1 %or.cond, label %11, label %5, !prof !300
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3786,17 +3783,16 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = zext i32 %7 to i64
   %9 = shl nuw i64 %8, 32
-  br label %12
+  %10 = or disjoint i64 %9, 1
+  br label %13
 
-10:                                               ; preds = %1
-  %11 = shl nuw nsw i64 %0, 16
-  br label %12
+11:                                               ; preds = %1
+  %12 = shl nuw nsw i64 %0, 16
+  br label %13
 
-12:                                               ; preds = %10, %5
-  %.sroa.0.0 = phi i64 [ 0, %10 ], [ 1, %5 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %11, %10 ], [ %9, %5 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+13:                                               ; preds = %11, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %12, %11 ], [ %10, %5 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3828,12 +3824,12 @@ define hidden i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseria
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u3217h4ac38b566fe82ecaE"(i32 noundef %0) unnamed_addr #0 {
+define hidden range(i64 1, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u3217h4ac38b566fe82ecaE"(i32 noundef %0) unnamed_addr #0 {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = add i32 %0, -65536
   %or.cond = icmp ult i32 %4, -65535
-  br i1 %or.cond, label %5, label %11, !prof !299
+  br i1 %or.cond, label %5, label %12, !prof !299
 
 5:                                                ; preds = %1
   %6 = zext i32 %0 to i64
@@ -3845,27 +3841,26 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %9 = zext i32 %8 to i64
   %10 = shl nuw i64 %9, 32
-  br label %14
+  %11 = or disjoint i64 %10, 1
+  br label %15
 
-11:                                               ; preds = %1
-  %12 = shl nuw i32 %0, 16
-  %13 = zext i32 %12 to i64
-  br label %14
+12:                                               ; preds = %1
+  %13 = shl nuw i32 %0, 16
+  %14 = zext i32 %13 to i64
+  br label %15
 
-14:                                               ; preds = %11, %5
-  %.sroa.0.0 = phi i64 [ 0, %11 ], [ 1, %5 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %13, %11 ], [ %10, %5 ]
-  %.sroa.0.0.insert.insert = or i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+15:                                               ; preds = %12, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %14, %12 ], [ %11, %5 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6bcf69adf0df131cE"(i64 noundef %0) unnamed_addr #0 {
+define hidden range(i64 1, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..num..nonzero..NonZero$LT$u16$GT$$GT$..deserialize..NonZeroVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6bcf69adf0df131cE"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [0 x i8], align 1
   %3 = alloca [24 x i8], align 8
   %4 = add i64 %0, -65536
   %or.cond = icmp ult i64 %4, -65535
-  br i1 %or.cond, label %5, label %10, !prof !299
+  br i1 %or.cond, label %5, label %11, !prof !299
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -3876,17 +3871,16 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN176_$LT$serde..de..impls..$LT$i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %8 = zext i32 %7 to i64
   %9 = shl nuw i64 %8, 32
-  br label %12
+  %10 = or disjoint i64 %9, 1
+  br label %13
 
-10:                                               ; preds = %1
-  %11 = shl nuw nsw i64 %0, 16
-  br label %12
+11:                                               ; preds = %1
+  %12 = shl nuw nsw i64 %0, 16
+  br label %13
 
-12:                                               ; preds = %10, %5
-  %.sroa.0.0 = phi i64 [ 0, %10 ], [ 1, %5 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %11, %10 ], [ %9, %5 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+13:                                               ; preds = %11, %5
+  %.sroa.3.0.insert.insert = phi i64 [ %12, %11 ], [ %10, %5 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3906,30 +3900,29 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN212_$LT$ruff_linter..rules..iso
   br i1 %7, label %11, label %12
 
 11:                                               ; preds = %6
-  br i1 %10, label %18, label %20
+  br i1 %10, label %19, label %21
 
 12:                                               ; preds = %6
-  br i1 %10, label %13, label %20
+  br i1 %10, label %13, label %21
 
 13:                                               ; preds = %12
   %14 = extractvalue { i32, i32 } %8, 1
   br label %15
 
-15:                                               ; preds = %2, %18, %13
-  %.sroa.81.0 = phi i32 [ %19, %18 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
+15:                                               ; preds = %2, %19, %13
+  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
-  br label %20
+  %18 = or disjoint i64 %17, 1
+  br label %21
 
-18:                                               ; preds = %11
-  %19 = extractvalue { i32, i32 } %8, 1
+19:                                               ; preds = %11
+  %20 = extractvalue { i32, i32 } %8, 1
   br label %15
 
-20:                                               ; preds = %11, %12, %15
-  %.sroa.0.2 = phi i64 [ 1, %15 ], [ 0, %12 ], [ 0, %11 ]
-  %.sroa.6.0.insert.insert = phi i64 [ %17, %15 ], [ 0, %12 ], [ 256, %11 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.insert, %.sroa.0.2
-  ret i64 %.sroa.0.0.insert.insert
+21:                                               ; preds = %11, %12, %15
+  %.sroa.6.0.insert.insert = phi i64 [ %18, %15 ], [ 0, %12 ], [ 256, %11 ]
+  ret i64 %.sroa.6.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3959,30 +3952,29 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN212_$LT$ruff_linter..rules..iso
   br i1 %10, label %14, label %15
 
 14:                                               ; preds = %9
-  br i1 %13, label %21, label %23
+  br i1 %13, label %22, label %24
 
 15:                                               ; preds = %9
-  br i1 %13, label %16, label %23
+  br i1 %13, label %16, label %24
 
 16:                                               ; preds = %15
   %17 = extractvalue { i32, i32 } %11, 1
   br label %18
 
-18:                                               ; preds = %21, %16, %6
-  %.sroa.81.0 = phi i32 [ %8, %6 ], [ %22, %21 ], [ %17, %16 ]
+18:                                               ; preds = %22, %16, %6
+  %.sroa.81.0 = phi i32 [ %8, %6 ], [ %23, %22 ], [ %17, %16 ]
   %19 = zext i32 %.sroa.81.0 to i64
   %20 = shl nuw i64 %19, 32
-  br label %23
+  %21 = or disjoint i64 %20, 1
+  br label %24
 
-21:                                               ; preds = %14
-  %22 = extractvalue { i32, i32 } %11, 1
+22:                                               ; preds = %14
+  %23 = extractvalue { i32, i32 } %11, 1
   br label %18
 
-23:                                               ; preds = %15, %14, %18
-  %.sroa.0.2 = phi i64 [ 1, %18 ], [ 0, %14 ], [ 0, %15 ]
-  %.sroa.6.0.insert.insert = phi i64 [ %20, %18 ], [ 256, %14 ], [ 0, %15 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.insert, %.sroa.0.2
-  ret i64 %.sroa.0.0.insert.insert
+24:                                               ; preds = %15, %14, %18
+  %.sroa.6.0.insert.insert = phi i64 [ %21, %18 ], [ 0, %15 ], [ 256, %14 ]
+  ret i64 %.sroa.6.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4123,10 +4115,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..iso
   br i1 %88, label %89, label %7, !prof !303
 
 89:                                               ; preds = %154, %85, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6"
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6" ], [ 0, %85 ], [ 0, %154 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %168, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6" ], [ 0, %85 ], [ 256, %154 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.0.insert.insert = phi i64 [ %169, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit6" ], [ 0, %85 ], [ 256, %154 ]
+  ret i64 %.sroa.4.0.insert.insert
 
 90:                                               ; preds = %17
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -4239,7 +4229,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..iso
 
 162:                                              ; preds = %158
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8026ca068ee1455eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %169
+          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %170
 
 163:                                              ; preds = %7
   %164 = load i64, ptr %3, align 8, !range !33, !alias.scope !308, !noundef !3
@@ -4254,10 +4244,11 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..iso
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %167 = zext i32 %12 to i64
   %168 = shl nuw i64 %167, 32
+  %169 = or disjoint i64 %168, 1
   br label %89
 
-169:                                              ; preds = %162
-  %170 = landingpad { ptr, i32 }
+170:                                              ; preds = %162
+  %171 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #13
   unreachable
@@ -4269,31 +4260,30 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..iso
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hb9641d848fbb794fE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h441031d5f2746019E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.11, i64 noundef 19)
-  br i1 %3, label %10, label %4
+  br i1 %3, label %11, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h441031d5f2746019E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.12, i64 noundef 19)
-  br i1 %5, label %10, label %6, !prof !303
+  br i1 %5, label %11, label %6, !prof !303
 
 6:                                                ; preds = %4
   %7 = tail call noundef i32 @_ZN5serde2de5Error15unknown_variant17hcb023826aea2568eE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.13, i64 noundef 2)
   %8 = zext i32 %7 to i64
   %9 = shl nuw i64 %8, 32
-  br label %10
+  %10 = or disjoint i64 %9, 1
+  br label %11
 
-10:                                               ; preds = %4, %2, %6
-  %.sroa.0.0 = phi i64 [ 1, %6 ], [ 0, %2 ], [ 0, %4 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 0, %2 ], [ 256, %4 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+11:                                               ; preds = %4, %2, %6
+  %.sroa.4.0.insert.insert = phi i64 [ %10, %6 ], [ 0, %2 ], [ 256, %4 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6fae67b55a54a718E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   switch i64 %0, label %3 [
-    i64 0, label %9
-    i64 1, label %8
+    i64 0, label %10
+    i64 1, label %9
   ], !prof !304
 
 3:                                                ; preds = %1
@@ -4305,16 +4295,15 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN217_$LT$ruff_linter..rules..iso
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %6 = zext i32 %5 to i64
   %7 = shl nuw i64 %6, 32
-  br label %9
+  %8 = or disjoint i64 %7, 1
+  br label %10
 
-8:                                                ; preds = %1
-  br label %9
+9:                                                ; preds = %1
+  br label %10
 
-9:                                                ; preds = %1, %8, %3
-  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 0, %8 ], [ %0, %1 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %7, %3 ], [ 256, %8 ], [ %0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+10:                                               ; preds = %1, %9, %3
+  %.sroa.4.0.insert.insert = phi i64 [ %8, %3 ], [ 256, %9 ], [ %0, %1 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4344,30 +4333,29 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN230_$LT$ruff_linter..rules..fla
   br i1 %10, label %14, label %15
 
 14:                                               ; preds = %9
-  br i1 %13, label %21, label %23
+  br i1 %13, label %22, label %24
 
 15:                                               ; preds = %9
-  br i1 %13, label %16, label %23
+  br i1 %13, label %16, label %24
 
 16:                                               ; preds = %15
   %17 = extractvalue { i32, i32 } %11, 1
   br label %18
 
-18:                                               ; preds = %21, %16, %6
-  %.sroa.81.0 = phi i32 [ %8, %6 ], [ %22, %21 ], [ %17, %16 ]
+18:                                               ; preds = %22, %16, %6
+  %.sroa.81.0 = phi i32 [ %8, %6 ], [ %23, %22 ], [ %17, %16 ]
   %19 = zext i32 %.sroa.81.0 to i64
   %20 = shl nuw i64 %19, 32
-  br label %23
+  %21 = or disjoint i64 %20, 1
+  br label %24
 
-21:                                               ; preds = %14
-  %22 = extractvalue { i32, i32 } %11, 1
+22:                                               ; preds = %14
+  %23 = extractvalue { i32, i32 } %11, 1
   br label %18
 
-23:                                               ; preds = %15, %14, %18
-  %.sroa.0.2 = phi i64 [ 1, %18 ], [ 0, %14 ], [ 0, %15 ]
-  %.sroa.6.0.insert.insert = phi i64 [ %20, %18 ], [ 256, %14 ], [ 0, %15 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.insert, %.sroa.0.2
-  ret i64 %.sroa.0.0.insert.insert
+24:                                               ; preds = %15, %14, %18
+  %.sroa.6.0.insert.insert = phi i64 [ %21, %18 ], [ 0, %15 ], [ 256, %14 ]
+  ret i64 %.sroa.6.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4387,30 +4375,29 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN230_$LT$ruff_linter..rules..fla
   br i1 %7, label %11, label %12
 
 11:                                               ; preds = %6
-  br i1 %10, label %18, label %20
+  br i1 %10, label %19, label %21
 
 12:                                               ; preds = %6
-  br i1 %10, label %13, label %20
+  br i1 %10, label %13, label %21
 
 13:                                               ; preds = %12
   %14 = extractvalue { i32, i32 } %8, 1
   br label %15
 
-15:                                               ; preds = %2, %18, %13
-  %.sroa.81.0 = phi i32 [ %19, %18 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
+15:                                               ; preds = %2, %19, %13
+  %.sroa.81.0 = phi i32 [ %20, %19 ], [ %14, %13 ], [ %.sroa.525.0.extract.trunc, %2 ]
   %16 = zext i32 %.sroa.81.0 to i64
   %17 = shl nuw i64 %16, 32
-  br label %20
+  %18 = or disjoint i64 %17, 1
+  br label %21
 
-18:                                               ; preds = %11
-  %19 = extractvalue { i32, i32 } %8, 1
+19:                                               ; preds = %11
+  %20 = extractvalue { i32, i32 } %8, 1
   br label %15
 
-20:                                               ; preds = %11, %12, %15
-  %.sroa.0.2 = phi i64 [ 1, %15 ], [ 0, %12 ], [ 0, %11 ]
-  %.sroa.6.0.insert.insert = phi i64 [ %17, %15 ], [ 0, %12 ], [ 256, %11 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0.insert.insert, %.sroa.0.2
-  ret i64 %.sroa.0.0.insert.insert
+21:                                               ; preds = %11, %12, %15
+  %.sroa.6.0.insert.insert = phi i64 [ %18, %15 ], [ 0, %12 ], [ 256, %11 ]
+  ret i64 %.sroa.6.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4587,10 +4574,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..fla
   br i1 %36, label %37, label %11, !prof !303
 
 37:                                               ; preds = %41, %33, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit7"
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit7" ], [ 0, %33 ], [ 0, %41 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %58, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit7" ], [ 0, %33 ], [ 256, %41 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.0.insert.insert = phi i64 [ %59, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit7" ], [ 0, %33 ], [ 256, %41 ]
+  ret i64 %.sroa.4.0.insert.insert
 
 38:                                               ; preds = %2
   %39 = load i8, ptr %0, align 1, !noundef !3
@@ -4616,7 +4601,7 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..fla
 
 52:                                               ; preds = %48
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h8026ca068ee1455eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
-          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %59
+          to label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h88ac961a1c35ea56E.exit" unwind label %60
 
 53:                                               ; preds = %11
   %54 = load i64, ptr %3, align 8, !range !33, !alias.scope !321, !noundef !3
@@ -4631,10 +4616,11 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..fla
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %57 = zext i32 %16 to i64
   %58 = shl nuw i64 %57, 32
+  %59 = or disjoint i64 %58, 1
   br label %37
 
-59:                                               ; preds = %52
-  %60 = landingpad { ptr, i32 }
+60:                                               ; preds = %52
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #13
   unreachable
@@ -4646,31 +4632,30 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..fla
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..flake8_tidy_imports..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..Strictness$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h86cfa165a603d03bE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h441031d5f2746019E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.7, i64 noundef 7)
-  br i1 %3, label %10, label %4
+  br i1 %3, label %11, label %4
 
 4:                                                ; preds = %2
   %5 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h441031d5f2746019E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.8, i64 noundef 3)
-  br i1 %5, label %10, label %6, !prof !303
+  br i1 %5, label %11, label %6, !prof !303
 
 6:                                                ; preds = %4
   %7 = tail call noundef i32 @_ZN5serde2de5Error15unknown_variant17hcb023826aea2568eE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 @anon.3ad9ebd857cb0b454a8dc2c2c5ba4fc7.9, i64 noundef 2)
   %8 = zext i32 %7 to i64
   %9 = shl nuw i64 %8, 32
-  br label %10
+  %10 = or disjoint i64 %9, 1
+  br label %11
 
-10:                                               ; preds = %4, %2, %6
-  %.sroa.0.0 = phi i64 [ 1, %6 ], [ 0, %2 ], [ 0, %4 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 0, %2 ], [ 256, %4 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+11:                                               ; preds = %4, %2, %6
+  %.sroa.4.0.insert.insert = phi i64 [ %10, %6 ], [ 0, %2 ], [ 256, %4 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..flake8_tidy_imports..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..Strictness$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h10ffa39891e449a2E"(i64 noundef %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   switch i64 %0, label %3 [
-    i64 0, label %9
-    i64 1, label %8
+    i64 0, label %10
+    i64 1, label %9
   ], !prof !304
 
 3:                                                ; preds = %1
@@ -4682,16 +4667,15 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN235_$LT$ruff_linter..rules..fla
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %6 = zext i32 %5 to i64
   %7 = shl nuw i64 %6, 32
-  br label %9
+  %8 = or disjoint i64 %7, 1
+  br label %10
 
-8:                                                ; preds = %1
-  br label %9
+9:                                                ; preds = %1
+  br label %10
 
-9:                                                ; preds = %1, %8, %3
-  %.sroa.0.0 = phi i64 [ 1, %3 ], [ 0, %8 ], [ %0, %1 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %7, %3 ], [ 256, %8 ], [ %0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+10:                                               ; preds = %1, %9, %3
+  %.sroa.4.0.insert.insert = phi i64 [ %8, %3 ], [ 256, %9 ], [ %0, %1 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5801,7 +5785,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h24e
   %2 = alloca [24 x i8], align 8
   switch i8 %0, label %3 [
     i8 0, label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6fae67b55a54a718E.exit"
-    i8 1, label %9
+    i8 1, label %10
   ], !prof !304
 
 3:                                                ; preds = %1
@@ -5814,16 +5798,15 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h24e
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = zext i32 %6 to i64
   %8 = shl nuw i64 %7, 32
+  %9 = or disjoint i64 %8, 1
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6fae67b55a54a718E.exit"
 
-9:                                                ; preds = %1
+10:                                               ; preds = %1
   br label %"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6fae67b55a54a718E.exit"
 
-"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6fae67b55a54a718E.exit": ; preds = %1, %3, %9
-  %.sroa.0.0.i = phi i64 [ 1, %3 ], [ 0, %9 ], [ 0, %1 ]
-  %.sroa.4.0.insert.insert.i = phi i64 [ %8, %3 ], [ 256, %9 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+"_ZN217_$LT$ruff_linter..rules..isort..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..isort..settings..RelativeImportsOrder$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h6fae67b55a54a718E.exit": ; preds = %1, %3, %10
+  %.sroa.4.0.insert.insert.i = phi i64 [ %9, %3 ], [ 256, %10 ], [ 0, %1 ]
+  ret i64 %.sroa.4.0.insert.insert.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5831,7 +5814,7 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h3d9
   %2 = alloca [24 x i8], align 8
   switch i8 %0, label %3 [
     i8 0, label %"_ZN235_$LT$ruff_linter..rules..flake8_tidy_imports..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..Strictness$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h10ffa39891e449a2E.exit"
-    i8 1, label %9
+    i8 1, label %10
   ], !prof !304
 
 3:                                                ; preds = %1
@@ -5844,16 +5827,15 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5serde2de7Visitor8visit_u817h3d9
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = zext i32 %6 to i64
   %8 = shl nuw i64 %7, 32
+  %9 = or disjoint i64 %8, 1
   br label %"_ZN235_$LT$ruff_linter..rules..flake8_tidy_imports..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..Strictness$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h10ffa39891e449a2E.exit"
 
-9:                                                ; preds = %1
+10:                                               ; preds = %1
   br label %"_ZN235_$LT$ruff_linter..rules..flake8_tidy_imports..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..Strictness$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h10ffa39891e449a2E.exit"
 
-"_ZN235_$LT$ruff_linter..rules..flake8_tidy_imports..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..Strictness$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h10ffa39891e449a2E.exit": ; preds = %1, %3, %9
-  %.sroa.0.0.i = phi i64 [ 1, %3 ], [ 0, %9 ], [ 0, %1 ]
-  %.sroa.4.0.insert.insert.i = phi i64 [ %8, %3 ], [ 256, %9 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+"_ZN235_$LT$ruff_linter..rules..flake8_tidy_imports..settings.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..flake8_tidy_imports..settings..Strictness$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_u6417h10ffa39891e449a2E.exit": ; preds = %1, %3, %10
+  %.sroa.4.0.insert.insert.i = phi i64 [ %9, %3 ], [ 256, %10 ], [ 0, %1 ]
+  ret i64 %.sroa.4.0.insert.insert.i
 }
 
 ; Function Attrs: nonlazybind uwtable

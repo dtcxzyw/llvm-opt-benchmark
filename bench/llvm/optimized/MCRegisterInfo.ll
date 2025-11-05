@@ -831,7 +831,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm14MCRegisterInfo13getLLV
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
   %4 = load ptr, ptr %.in, align 8, !tbaa !67
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %26, label %5
+  br i1 %.not, label %27, label %5
 
 5:                                                ; preds = %3
   %.in14.v = select i1 %2, i64 124, i64 120
@@ -861,25 +861,24 @@ _ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i: ; pr
 _ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit: ; preds = %_ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i, %5
   %.0.lcssa.i.i = phi ptr [ %4, %5 ], [ %.1.i.i, %_ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i ]
   %.not15 = icmp eq ptr %.0.lcssa.i.i, %9
-  br i1 %.not15, label %26, label %18
+  br i1 %.not15, label %27, label %18
 
 18:                                               ; preds = %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit
   %19 = load i32, ptr %.0.lcssa.i.i, align 4, !tbaa !69
   %20 = zext i32 %19 to i64
   %21 = icmp eq i64 %1, %20
-  br i1 %21, label %22, label %26
+  br i1 %21, label %22, label %27
 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !72
   %25 = zext i32 %24 to i64
-  br label %26
+  %26 = or disjoint i64 %25, 4294967296
+  br label %27
 
-26:                                               ; preds = %22, %18, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit, %3
-  %.sroa.017.0 = phi i64 [ 0, %3 ], [ %25, %22 ], [ 0, %18 ], [ 0, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit ]
-  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 4294967296, %22 ], [ 0, %18 ], [ 0, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit ]
-  %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.017.0
-  ret i64 %.sroa.017.0.insert.insert
+27:                                               ; preds = %22, %18, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit, %3
+  %.sroa.2.0 = phi i64 [ 0, %3 ], [ %26, %22 ], [ 0, %18 ], [ 0, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -887,7 +886,7 @@ define dso_local noundef i64 @_ZNK4llvm14MCRegisterInfo31getDwarfRegNumFromDwarf
   %.in.i = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %.in.i, align 8, !tbaa !67
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %.critedge, label %4
+  br i1 %.not.i, label %.thread, label %4
 
 4:                                                ; preds = %2
   %.in14.i = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -916,13 +915,13 @@ _ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i.i: ; 
 _ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i: ; preds = %_ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i.i, %4
   %.0.lcssa.i.i.i = phi ptr [ %3, %4 ], [ %.1.i.i.i, %_ZSt7advanceIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairElEvRT_T0_.exit.i.i.i ]
   %.not15.i = icmp eq ptr %.0.lcssa.i.i.i, %8
-  br i1 %.not15.i, label %.critedge, label %17
+  br i1 %.not15.i, label %.thread, label %17
 
 17:                                               ; preds = %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i
   %18 = load i32, ptr %.0.lcssa.i.i.i, align 4, !tbaa !69
   %19 = zext i32 %18 to i64
   %20 = icmp eq i64 %1, %19
-  br i1 %20, label %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit, label %.critedge
+  br i1 %20, label %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit, label %.thread
 
 _ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit: ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 4
@@ -936,11 +935,11 @@ _ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit: ; preds = %17
   %sext = shl i64 %26, 32
   %29 = ashr exact i64 %sext, 32
   %.07 = select i1 %28, i64 %1, i64 %29
-  br label %.critedge
+  br label %.thread
 
-.critedge:                                        ; preds = %2, %17, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i, %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit
-  %spec.select = phi i64 [ %.07, %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit ], [ %1, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i ], [ %1, %17 ], [ %1, %2 ]
-  ret i64 %spec.select
+.thread:                                          ; preds = %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit, %2, %17, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i
+  %30 = phi i64 [ %1, %_ZSt11lower_boundIPKN4llvm14MCRegisterInfo16DwarfLLVMRegPairES2_ET_S5_S5_RKT0_.exit.i ], [ %1, %17 ], [ %1, %2 ], [ %.07, %_ZNK4llvm14MCRegisterInfo13getLLVMRegNumEmb.exit ]
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

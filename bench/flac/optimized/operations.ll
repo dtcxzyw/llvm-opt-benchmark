@@ -152,7 +152,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %20 = load i32, ptr %19, align 4, !tbaa !17
   %.not7 = icmp eq i32 %20, 0
-  br i1 %.not7, label %688, label %21
+  br i1 %.not7, label %689, label %21
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -180,7 +180,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 39:                                               ; preds = %do_major_operation_on_file.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %do_major_operation_on_file.exit.i ]
-  %.035.i = phi i32 [ 1, %.lr.ph.i ], [ %684, %do_major_operation_on_file.exit.i ]
+  %.035.i = phi i32 [ 1, %.lr.ph.i ], [ %.0.i.i, %do_major_operation_on_file.exit.i ]
   %40 = load ptr, ptr %24, align 8, !tbaa !19
   %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !16
@@ -221,7 +221,8 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 
 60:                                               ; preds = %58, %.critedge.i.i
   call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %43, ptr noundef nonnull @.str.4, ptr noundef nonnull %42) #10
-  br label %do_major_operation_on_file.exit.sink.split.i
+  call void @FLAC__metadata_chain_delete(ptr noundef %43) #10
+  br label %do_major_operation_on_file.exit.i
 
 61:                                               ; preds = %58, %.critedge.i.i
   %62 = load ptr, ptr %25, align 8, !tbaa !20
@@ -1037,7 +1038,7 @@ define dso_local range(i32 0, 2) i32 @do_operations(ptr noundef readonly capture
 .thread.i.i:                                      ; preds = %.loopexit.i.i.i, %.critedge.sink.split.i.i.i
   %.3.i.i.i = phi i32 [ 0, %.critedge.sink.split.i.i.i ], [ 1, %.loopexit.i.i.i ]
   call void @FLAC__metadata_iterator_delete(ptr noundef %67) #10
-  br label %do_major_operation_on_file.exit.sink.split.i
+  br label %684
 
 537:                                              ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1356,7 +1357,7 @@ do_major_operation__remove_all.exit.i.i:          ; preds = %662, %652
 665:                                              ; preds = %do_major_operation__remove_all.exit.i.i, %do_major_operation__remove.exit.i.i, %do_major_operation__append.exit.i.i
   %.046.i.i = phi i32 [ %.0.i.i.i, %do_major_operation__append.exit.i.i ], [ %.016.lcssa.i.i.i, %do_major_operation__remove.exit.i.i ], [ %.0.lcssa.i.i.i, %do_major_operation__remove_all.exit.i.i ]
   %.not.i.i = icmp eq i32 %.046.i.i, 0
-  br i1 %.not.i.i, label %do_major_operation_on_file.exit.sink.split.i, label %.thread130.i.i
+  br i1 %.not.i.i, label %684, label %.thread130.i.i
 
 .thread130.i.i:                                   ; preds = %665, %664, %663
   %666 = load i32, ptr %26, align 4, !tbaa !64
@@ -1386,504 +1387,504 @@ do_major_operation__remove_all.exit.i.i:          ; preds = %662, %652
 677:                                              ; preds = %675, %672
   %.2.i.i = phi i32 [ %674, %672 ], [ %676, %675 ]
   %.not55.i.i = icmp eq i32 %.2.i.i, 0
-  br i1 %.not55.i.i, label %678, label %do_major_operation_on_file.exit.sink.split.i
+  br i1 %.not55.i.i, label %678, label %684
 
 678:                                              ; preds = %677
   %679 = call i32 @FLAC__metadata_chain_status(ptr noundef %43) #10
   call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %43, ptr noundef nonnull @.str.5, ptr noundef nonnull %42) #10
   %680 = icmp eq i32 %679, 9
-  br i1 %680, label %681, label %do_major_operation_on_file.exit.sink.split.i
+  br i1 %680, label %681, label %684
 
 681:                                              ; preds = %678
   %682 = load ptr, ptr @stderr, align 8, !tbaa !37
   %683 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %682, i32 noundef 1, ptr noundef nonnull @.str.6) #10
-  br label %do_major_operation_on_file.exit.sink.split.i
+  br label %684
 
-do_major_operation_on_file.exit.sink.split.i:     ; preds = %681, %678, %677, %665, %.thread.i.i, %60
-  %.0.i.ph.i = phi i32 [ 0, %60 ], [ %.2.i.i, %677 ], [ 0, %665 ], [ 0, %681 ], [ 0, %678 ], [ %.3.i.i.i, %.thread.i.i ]
+684:                                              ; preds = %681, %678, %677, %665, %.thread.i.i
+  %.1.i.i = phi i32 [ %.2.i.i, %677 ], [ 0, %665 ], [ 0, %681 ], [ 0, %678 ], [ %.3.i.i.i, %.thread.i.i ]
   call void @FLAC__metadata_chain_delete(ptr noundef %43) #10
+  %685 = and i32 %.1.i.i, %.035.i
   br label %do_major_operation_on_file.exit.i
 
-do_major_operation_on_file.exit.i:                ; preds = %do_major_operation_on_file.exit.sink.split.i, %61
-  %.0.i.i = phi i32 [ 0, %61 ], [ %.0.i.ph.i, %do_major_operation_on_file.exit.sink.split.i ]
-  %684 = and i32 %.0.i.i, %.035.i
+do_major_operation_on_file.exit.i:                ; preds = %684, %61, %60
+  %.0.i.i = phi i32 [ %685, %684 ], [ 0, %60 ], [ 0, %61 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %685 = load i32, ptr %22, align 8, !tbaa !18
-  %686 = zext i32 %685 to i64
-  %687 = icmp samesign ult i64 %indvars.iv.next.i, %686
-  br i1 %687, label %39, label %do_major_operation.exit, !llvm.loop !69
+  %686 = load i32, ptr %22, align 8, !tbaa !18
+  %687 = zext i32 %686 to i64
+  %688 = icmp samesign ult i64 %indvars.iv.next.i, %687
+  br i1 %688, label %39, label %do_major_operation.exit, !llvm.loop !69
 
-688:                                              ; preds = %18
-  %689 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %690 = load i32, ptr %689, align 8, !tbaa !70
-  %.not8 = icmp eq i32 %690, 0
-  br i1 %.not8, label %do_major_operation.exit, label %691
+689:                                              ; preds = %18
+  %690 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %691 = load i32, ptr %690, align 8, !tbaa !70
+  %.not8 = icmp eq i32 %691, 0
+  br i1 %.not8, label %do_major_operation.exit, label %692
 
-691:                                              ; preds = %688
-  %692 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %693 = load i32, ptr %692, align 8, !tbaa !18
-  %.not38.i = icmp eq i32 %693, 0
+692:                                              ; preds = %689
+  %693 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %694 = load i32, ptr %693, align 8, !tbaa !18
+  %.not38.i = icmp eq i32 %694, 0
   br i1 %.not38.i, label %do_major_operation.exit, label %.lr.ph.i9
 
-.lr.ph.i9:                                        ; preds = %691
-  %694 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %695 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %696 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %697 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %698 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %699 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %700 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  br label %701
+.lr.ph.i9:                                        ; preds = %692
+  %695 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %696 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %697 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %698 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %699 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %700 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %701 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  br label %702
 
-701:                                              ; preds = %do_shorthand_operations_on_file.exit.i, %.lr.ph.i9
+702:                                              ; preds = %do_shorthand_operations_on_file.exit.i, %.lr.ph.i9
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.i9 ], [ %indvars.iv.next.i13, %do_shorthand_operations_on_file.exit.i ]
-  %.032.i = phi i32 [ 1, %.lr.ph.i9 ], [ %769, %do_shorthand_operations_on_file.exit.i ]
-  %702 = load ptr, ptr %694, align 8, !tbaa !19
-  %703 = getelementptr inbounds nuw ptr, ptr %702, i64 %indvars.iv.i10
-  %704 = load ptr, ptr %703, align 8, !tbaa !16
+  %.032.i = phi i32 [ 1, %.lr.ph.i9 ], [ %770, %do_shorthand_operations_on_file.exit.i ]
+  %703 = load ptr, ptr %695, align 8, !tbaa !19
+  %704 = getelementptr inbounds nuw ptr, ptr %703, i64 %indvars.iv.i10
+  %705 = load ptr, ptr %704, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !59
-  %705 = load i32, ptr %695, align 4, !tbaa !64
-  %706 = call ptr @FLAC__metadata_chain_new() #10
-  %707 = icmp eq ptr %706, null
-  br i1 %707, label %708, label %709
+  %706 = load i32, ptr %696, align 4, !tbaa !64
+  %707 = call ptr @FLAC__metadata_chain_new() #10
+  %708 = icmp eq ptr %707, null
+  br i1 %708, label %709, label %710
 
-708:                                              ; preds = %701
+709:                                              ; preds = %702
   call void @die(ptr noundef nonnull @.str.1) #10
-  br label %709
+  br label %710
 
-709:                                              ; preds = %708, %701
-  %710 = call i32 @FLAC__metadata_chain_read(ptr noundef %706, ptr noundef %704) #10
-  %.not.i.i11 = icmp eq i32 %710, 0
-  br i1 %.not.i.i11, label %712, label %.preheader59.i.i
+710:                                              ; preds = %709, %702
+  %711 = call i32 @FLAC__metadata_chain_read(ptr noundef %707, ptr noundef %705) #10
+  %.not.i.i11 = icmp eq i32 %711, 0
+  br i1 %.not.i.i11, label %713, label %.preheader59.i.i
 
-.preheader59.i.i:                                 ; preds = %709
-  %711 = load i32, ptr %697, align 8, !tbaa !71
-  %.not70.i.i = icmp eq i32 %711, 0
+.preheader59.i.i:                                 ; preds = %710
+  %712 = load i32, ptr %698, align 8, !tbaa !71
+  %.not70.i.i = icmp eq i32 %712, 0
   br i1 %.not70.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader59.i.i
-  %.pre.i.i = load ptr, ptr %696, align 8, !tbaa !20
-  br label %715
+  %.pre.i.i = load ptr, ptr %697, align 8, !tbaa !20
+  br label %716
 
-712:                                              ; preds = %709
-  call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %706, ptr noundef nonnull @.str.4, ptr noundef %704) #10
+713:                                              ; preds = %710
+  call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %707, ptr noundef nonnull @.str.4, ptr noundef %705) #10
   br label %do_shorthand_operations_on_file.exit.i
 
-.preheader.i.i:                                   ; preds = %727
-  %713 = icmp ne i32 %728, 0
-  %714 = select i1 %713, i1 %732, i1 false
-  br i1 %714, label %.lr.ph67.i.i, label %._crit_edge.i.i
+.preheader.i.i:                                   ; preds = %728
+  %714 = icmp ne i32 %729, 0
+  %715 = select i1 %714, i1 %733, i1 false
+  br i1 %715, label %.lr.ph67.i.i, label %._crit_edge.i.i
 
-715:                                              ; preds = %727, %.lr.ph.i.i
-  %716 = phi i32 [ %711, %.lr.ph.i.i ], [ %728, %727 ]
-  %717 = phi ptr [ %.pre.i.i, %.lr.ph.i.i ], [ %729, %727 ]
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %727 ]
-  %.05362.i.i = phi i32 [ %705, %.lr.ph.i.i ], [ %spec.select.i.i, %727 ]
-  %718 = getelementptr inbounds nuw %struct.Operation, ptr %717, i64 %indvars.iv.i.i
-  %719 = load i32, ptr %718, align 8, !tbaa !21
-  %.not58.i.i = icmp eq i32 %719, 31
-  br i1 %.not58.i.i, label %727, label %720
+716:                                              ; preds = %728, %.lr.ph.i.i
+  %717 = phi i32 [ %712, %.lr.ph.i.i ], [ %729, %728 ]
+  %718 = phi ptr [ %.pre.i.i, %.lr.ph.i.i ], [ %730, %728 ]
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %728 ]
+  %.05362.i.i = phi i32 [ %706, %.lr.ph.i.i ], [ %spec.select.i.i, %728 ]
+  %719 = getelementptr inbounds nuw %struct.Operation, ptr %718, i64 %indvars.iv.i.i
+  %720 = load i32, ptr %719, align 8, !tbaa !21
+  %.not58.i.i = icmp eq i32 %720, 31
+  br i1 %.not58.i.i, label %728, label %721
 
-720:                                              ; preds = %715
-  %721 = load i32, ptr %698, align 4, !tbaa !23
-  %722 = load i32, ptr %699, align 8, !tbaa !26
-  %723 = call fastcc i32 @do_shorthand_operation(ptr noundef %704, i32 noundef %721, ptr noundef %706, ptr noundef nonnull %718, ptr noundef %5, i32 noundef %722)
-  %724 = and i32 %723, 1
-  %.pre76.i.i = load ptr, ptr %696, align 8, !tbaa !20
-  %.pre77.i.i = load i32, ptr %697, align 8, !tbaa !71
+721:                                              ; preds = %716
+  %722 = load i32, ptr %699, align 4, !tbaa !23
+  %723 = load i32, ptr %700, align 8, !tbaa !26
+  %724 = call fastcc i32 @do_shorthand_operation(ptr noundef %705, i32 noundef %722, ptr noundef %707, ptr noundef nonnull %719, ptr noundef %5, i32 noundef %723)
+  %725 = and i32 %724, 1
+  %.pre76.i.i = load ptr, ptr %697, align 8, !tbaa !20
+  %.pre77.i.i = load i32, ptr %698, align 8, !tbaa !71
   %.phi.trans.insert.i.i = getelementptr inbounds nuw %struct.Operation, ptr %.pre76.i.i, i64 %indvars.iv.i.i
   %.pre79.i.i = load i32, ptr %.phi.trans.insert.i.i, align 8, !tbaa !21
-  %725 = icmp eq i32 %.pre79.i.i, 34
-  %726 = select i1 %725, i32 0, i32 %.05362.i.i
-  br label %727
+  %726 = icmp eq i32 %.pre79.i.i, 34
+  %727 = select i1 %726, i32 0, i32 %.05362.i.i
+  br label %728
 
-727:                                              ; preds = %720, %715
-  %spec.select.i.i = phi i32 [ %726, %720 ], [ %.05362.i.i, %715 ]
-  %728 = phi i32 [ %.pre77.i.i, %720 ], [ %716, %715 ]
-  %729 = phi ptr [ %.pre76.i.i, %720 ], [ %717, %715 ]
-  %.2.i.i12 = phi i32 [ %724, %720 ], [ 1, %715 ]
+728:                                              ; preds = %721, %716
+  %spec.select.i.i = phi i32 [ %727, %721 ], [ %.05362.i.i, %716 ]
+  %729 = phi i32 [ %.pre77.i.i, %721 ], [ %717, %716 ]
+  %730 = phi ptr [ %.pre76.i.i, %721 ], [ %718, %716 ]
+  %.2.i.i12 = phi i32 [ %725, %721 ], [ 1, %716 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %730 = zext i32 %728 to i64
-  %731 = icmp samesign ult i64 %indvars.iv.next.i.i, %730
-  %732 = icmp ne i32 %.2.i.i12, 0
-  %733 = select i1 %731, i1 %732, i1 false
-  br i1 %733, label %715, label %.preheader.i.i, !llvm.loop !72
+  %731 = zext i32 %729 to i64
+  %732 = icmp samesign ult i64 %indvars.iv.next.i.i, %731
+  %733 = icmp ne i32 %.2.i.i12, 0
+  %734 = select i1 %732, i1 %733, i1 false
+  br i1 %734, label %716, label %.preheader.i.i, !llvm.loop !72
 
-.lr.ph67.i.i:                                     ; preds = %.preheader.i.i, %744
-  %734 = phi i32 [ %745, %744 ], [ %728, %.preheader.i.i ]
-  %indvars.iv73.i.i = phi i64 [ %indvars.iv.next74.i.i, %744 ], [ 0, %.preheader.i.i ]
-  %735 = load ptr, ptr %696, align 8, !tbaa !20
-  %736 = getelementptr inbounds nuw %struct.Operation, ptr %735, i64 %indvars.iv73.i.i
-  %737 = load i32, ptr %736, align 8, !tbaa !21
-  %738 = icmp eq i32 %737, 31
-  br i1 %738, label %739, label %744
+.lr.ph67.i.i:                                     ; preds = %.preheader.i.i, %745
+  %735 = phi i32 [ %746, %745 ], [ %729, %.preheader.i.i ]
+  %indvars.iv73.i.i = phi i64 [ %indvars.iv.next74.i.i, %745 ], [ 0, %.preheader.i.i ]
+  %736 = load ptr, ptr %697, align 8, !tbaa !20
+  %737 = getelementptr inbounds nuw %struct.Operation, ptr %736, i64 %indvars.iv73.i.i
+  %738 = load i32, ptr %737, align 8, !tbaa !21
+  %739 = icmp eq i32 %738, 31
+  br i1 %739, label %740, label %745
 
-739:                                              ; preds = %.lr.ph67.i.i
-  %740 = load i32, ptr %698, align 4, !tbaa !23
-  %741 = load i32, ptr %699, align 8, !tbaa !26
-  %742 = call fastcc i32 @do_shorthand_operation(ptr noundef %704, i32 noundef %740, ptr noundef %706, ptr noundef nonnull %736, ptr noundef %5, i32 noundef %741)
-  %743 = and i32 %742, 1
-  %.pre78.i.i = load i32, ptr %697, align 8, !tbaa !71
-  br label %744
+740:                                              ; preds = %.lr.ph67.i.i
+  %741 = load i32, ptr %699, align 4, !tbaa !23
+  %742 = load i32, ptr %700, align 8, !tbaa !26
+  %743 = call fastcc i32 @do_shorthand_operation(ptr noundef %705, i32 noundef %741, ptr noundef %707, ptr noundef nonnull %737, ptr noundef %5, i32 noundef %742)
+  %744 = and i32 %743, 1
+  %.pre78.i.i = load i32, ptr %698, align 8, !tbaa !71
+  br label %745
 
-744:                                              ; preds = %739, %.lr.ph67.i.i
-  %745 = phi i32 [ %.pre78.i.i, %739 ], [ %734, %.lr.ph67.i.i ]
-  %.4.i.i = phi i32 [ %743, %739 ], [ 1, %.lr.ph67.i.i ]
+745:                                              ; preds = %740, %.lr.ph67.i.i
+  %746 = phi i32 [ %.pre78.i.i, %740 ], [ %735, %.lr.ph67.i.i ]
+  %.4.i.i = phi i32 [ %744, %740 ], [ 1, %.lr.ph67.i.i ]
   %indvars.iv.next74.i.i = add nuw nsw i64 %indvars.iv73.i.i, 1
-  %746 = zext i32 %745 to i64
-  %747 = icmp samesign ult i64 %indvars.iv.next74.i.i, %746
-  %748 = icmp ne i32 %.4.i.i, 0
-  %749 = select i1 %747, i1 %748, i1 false
-  br i1 %749, label %.lr.ph67.i.i, label %._crit_edge.i.i, !llvm.loop !73
+  %747 = zext i32 %746 to i64
+  %748 = icmp samesign ult i64 %indvars.iv.next74.i.i, %747
+  %749 = icmp ne i32 %.4.i.i, 0
+  %750 = select i1 %748, i1 %749, i1 false
+  br i1 %750, label %.lr.ph67.i.i, label %._crit_edge.i.i, !llvm.loop !73
 
-._crit_edge.i.i:                                  ; preds = %744, %.preheader.i.i, %.preheader59.i.i
-  %.053.lcssa84.i.i = phi i32 [ %spec.select.i.i, %.preheader.i.i ], [ %705, %.preheader59.i.i ], [ %spec.select.i.i, %744 ]
-  %.3.lcssa.i.i = phi i32 [ %.2.i.i12, %.preheader.i.i ], [ 1, %.preheader59.i.i ], [ %.4.i.i, %744 ]
-  %.lcssa.i.i = phi i1 [ %732, %.preheader.i.i ], [ true, %.preheader59.i.i ], [ %748, %744 ]
-  %750 = load i32, ptr %5, align 4
-  %751 = icmp ne i32 %750, 0
-  %or.cond.i.i = select i1 %.lcssa.i.i, i1 %751, i1 false
-  br i1 %or.cond.i.i, label %752, label %do_shorthand_operations_on_file.exit.i
+._crit_edge.i.i:                                  ; preds = %745, %.preheader.i.i, %.preheader59.i.i
+  %.053.lcssa84.i.i = phi i32 [ %spec.select.i.i, %.preheader.i.i ], [ %706, %.preheader59.i.i ], [ %spec.select.i.i, %745 ]
+  %.3.lcssa.i.i = phi i32 [ %.2.i.i12, %.preheader.i.i ], [ 1, %.preheader59.i.i ], [ %.4.i.i, %745 ]
+  %.lcssa.i.i = phi i1 [ %733, %.preheader.i.i ], [ true, %.preheader59.i.i ], [ %749, %745 ]
+  %751 = load i32, ptr %5, align 4
+  %752 = icmp ne i32 %751, 0
+  %or.cond.i.i = select i1 %.lcssa.i.i, i1 %752, i1 false
+  br i1 %or.cond.i.i, label %753, label %do_shorthand_operations_on_file.exit.i
 
-752:                                              ; preds = %._crit_edge.i.i
+753:                                              ; preds = %._crit_edge.i.i
   %.not56.i.i = icmp eq i32 %.053.lcssa84.i.i, 0
-  br i1 %.not56.i.i, label %754, label %753
+  br i1 %.not56.i.i, label %755, label %754
 
-753:                                              ; preds = %752
-  call void @FLAC__metadata_chain_sort_padding(ptr noundef %706) #10
-  br label %754
+754:                                              ; preds = %753
+  call void @FLAC__metadata_chain_sort_padding(ptr noundef %707) #10
+  br label %755
 
-754:                                              ; preds = %753, %752
-  %755 = load ptr, ptr %700, align 8, !tbaa !67
-  %756 = icmp eq ptr %755, null
-  br i1 %756, label %757, label %760
+755:                                              ; preds = %754, %753
+  %756 = load ptr, ptr %701, align 8, !tbaa !67
+  %757 = icmp eq ptr %756, null
+  br i1 %757, label %758, label %761
 
-757:                                              ; preds = %754
-  %758 = load i32, ptr %0, align 8, !tbaa !68
-  %759 = call i32 @FLAC__metadata_chain_write(ptr noundef %706, i32 noundef %.053.lcssa84.i.i, i32 noundef %758) #10
-  br label %762
+758:                                              ; preds = %755
+  %759 = load i32, ptr %0, align 8, !tbaa !68
+  %760 = call i32 @FLAC__metadata_chain_write(ptr noundef %707, i32 noundef %.053.lcssa84.i.i, i32 noundef %759) #10
+  br label %763
 
-760:                                              ; preds = %754
-  %761 = call i32 @FLAC__metadata_chain_write_new_file(ptr noundef %706, ptr noundef nonnull %755, i32 noundef %.053.lcssa84.i.i) #10
-  br label %762
+761:                                              ; preds = %755
+  %762 = call i32 @FLAC__metadata_chain_write_new_file(ptr noundef %707, ptr noundef nonnull %756, i32 noundef %.053.lcssa84.i.i) #10
+  br label %763
 
-762:                                              ; preds = %760, %757
-  %.5.i.i = phi i32 [ %759, %757 ], [ %761, %760 ]
+763:                                              ; preds = %761, %758
+  %.5.i.i = phi i32 [ %760, %758 ], [ %762, %761 ]
   %.not57.i.i = icmp eq i32 %.5.i.i, 0
-  br i1 %.not57.i.i, label %763, label %do_shorthand_operations_on_file.exit.i
+  br i1 %.not57.i.i, label %764, label %do_shorthand_operations_on_file.exit.i
 
-763:                                              ; preds = %762
-  %764 = call i32 @FLAC__metadata_chain_status(ptr noundef %706) #10
-  call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %706, ptr noundef nonnull @.str.5, ptr noundef %704) #10
-  %765 = icmp eq i32 %764, 9
-  br i1 %765, label %766, label %do_shorthand_operations_on_file.exit.i
+764:                                              ; preds = %763
+  %765 = call i32 @FLAC__metadata_chain_status(ptr noundef %707) #10
+  call void (ptr, ptr, ...) @print_error_with_chain_status(ptr noundef %707, ptr noundef nonnull @.str.5, ptr noundef %705) #10
+  %766 = icmp eq i32 %765, 9
+  br i1 %766, label %767, label %do_shorthand_operations_on_file.exit.i
 
-766:                                              ; preds = %763
-  %767 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %768 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %767, i32 noundef 1, ptr noundef nonnull @.str.6) #10
+767:                                              ; preds = %764
+  %768 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %769 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %768, i32 noundef 1, ptr noundef nonnull @.str.6) #10
   br label %do_shorthand_operations_on_file.exit.i
 
-do_shorthand_operations_on_file.exit.i:           ; preds = %766, %763, %762, %._crit_edge.i.i, %712
-  %.051.i.i = phi i32 [ %.5.i.i, %762 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ 0, %712 ], [ 0, %766 ], [ 0, %763 ]
-  call void @FLAC__metadata_chain_delete(ptr noundef %706) #10
+do_shorthand_operations_on_file.exit.i:           ; preds = %767, %764, %763, %._crit_edge.i.i, %713
+  %.051.i.i = phi i32 [ %.5.i.i, %763 ], [ %.3.lcssa.i.i, %._crit_edge.i.i ], [ 0, %713 ], [ 0, %767 ], [ 0, %764 ]
+  call void @FLAC__metadata_chain_delete(ptr noundef %707) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %769 = and i32 %.051.i.i, %.032.i
+  %770 = and i32 %.051.i.i, %.032.i
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i10, 1
-  %770 = load i32, ptr %692, align 8, !tbaa !18
-  %771 = zext i32 %770 to i64
-  %772 = icmp samesign ult i64 %indvars.iv.next.i13, %771
-  br i1 %772, label %701, label %._crit_edge.i, !llvm.loop !74
+  %771 = load i32, ptr %693, align 8, !tbaa !18
+  %772 = zext i32 %771 to i64
+  %773 = icmp samesign ult i64 %indvars.iv.next.i13, %772
+  br i1 %773, label %702, label %._crit_edge.i, !llvm.loop !74
 
 ._crit_edge.i:                                    ; preds = %do_shorthand_operations_on_file.exit.i
-  %773 = icmp eq i32 %769, 0
   %774 = icmp eq i32 %770, 0
-  %brmerge.i = or i1 %773, %774
-  %not..i = xor i1 %773, true
+  %775 = icmp eq i32 %771, 0
+  %brmerge.i = or i1 %774, %775
+  %not..i = xor i1 %774, true
   %.mux.i = zext i1 %not..i to i32
   br i1 %brmerge.i, label %do_major_operation.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge.i
-  %775 = load i32, ptr %697, align 8, !tbaa !71
-  %.not39.i = icmp eq i32 %775, 0
+  %776 = load i32, ptr %698, align 8, !tbaa !71
+  %.not39.i = icmp eq i32 %776, 0
   br i1 %.not39.i, label %do_major_operation.exit, label %.lr.ph36.i.preheader
 
 .lr.ph36.i.preheader:                             ; preds = %.preheader.i
-  %776 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %777 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %778 = getelementptr inbounds nuw i8, ptr %2, i64 36
+  %777 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %778 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %779 = getelementptr inbounds nuw i8, ptr %2, i64 36
   br label %.lr.ph36.i
 
-.lr.ph36.i:                                       ; preds = %.lr.ph36.i.preheader, %895
-  %779 = phi i32 [ %896, %895 ], [ %775, %.lr.ph36.i.preheader ]
-  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %895 ], [ 0, %.lr.ph36.i.preheader ]
-  %.235.i = phi i32 [ %.3.i, %895 ], [ 1, %.lr.ph36.i.preheader ]
-  %780 = load ptr, ptr %696, align 8, !tbaa !20
-  %781 = getelementptr inbounds nuw %struct.Operation, ptr %780, i64 %indvars.iv45.i
-  %782 = load i32, ptr %781, align 8, !tbaa !21
-  switch i32 %782, label %895 [
+.lr.ph36.i:                                       ; preds = %.lr.ph36.i.preheader, %896
+  %780 = phi i32 [ %897, %896 ], [ %776, %.lr.ph36.i.preheader ]
+  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %896 ], [ 0, %.lr.ph36.i.preheader ]
+  %.235.i = phi i32 [ %.3.i, %896 ], [ 1, %.lr.ph36.i.preheader ]
+  %781 = load ptr, ptr %697, align 8, !tbaa !20
+  %782 = getelementptr inbounds nuw %struct.Operation, ptr %781, i64 %indvars.iv45.i
+  %783 = load i32, ptr %782, align 8, !tbaa !21
+  switch i32 %783, label %896 [
     i32 32, label %.sink.split.i
-    i32 33, label %783
+    i32 33, label %784
   ]
 
-783:                                              ; preds = %.lr.ph36.i
+784:                                              ; preds = %.lr.ph36.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %783, %.lr.ph36.i
-  %.not97.i = phi i1 [ false, %783 ], [ true, %.lr.ph36.i ]
-  %784 = load ptr, ptr %694, align 8, !tbaa !19
-  %785 = load i32, ptr %692, align 8, !tbaa !18
-  %786 = load i32, ptr %0, align 8, !tbaa !68
+.sink.split.i:                                    ; preds = %784, %.lr.ph36.i
+  %.not97.i = phi i1 [ false, %784 ], [ true, %.lr.ph36.i ]
+  %785 = load ptr, ptr %695, align 8, !tbaa !19
+  %786 = load i32, ptr %693, align 8, !tbaa !18
+  %787 = load i32, ptr %0, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %.not172.i = icmp eq i32 %785, 0
+  %.not172.i = icmp eq i32 %786, 0
   br i1 %.not172.i, label %._crit_edge.i17, label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %.sink.split.i
-  %wide.trip.count.i = zext i32 %785 to i64
-  br label %788
+  %wide.trip.count.i = zext i32 %786 to i64
+  br label %789
 
-787:                                              ; preds = %836
+788:                                              ; preds = %837
   %indvars.iv.next.i16 = add nuw nsw i64 %indvars.iv.i15, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i16, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i17, label %788, !llvm.loop !75
+  br i1 %exitcond.not.i, label %._crit_edge.i17, label %789, !llvm.loop !75
 
-788:                                              ; preds = %787, %.lr.ph.i14
-  %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i16, %787 ]
-  %.not101160.i = phi i1 [ false, %.lr.ph.i14 ], [ true, %787 ]
-  %.080158.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.181.i, %787 ]
-  %.082157.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.183.i, %787 ]
-  %.084156.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.185.i, %787 ]
-  %789 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %790 = load ptr, ptr %789, align 8, !tbaa !16
-  %791 = call i32 @FLAC__metadata_get_streaminfo(ptr noundef %790, ptr noundef nonnull %2) #10
-  %.not100.i = icmp eq i32 %791, 0
-  br i1 %.not100.i, label %792, label %797
+789:                                              ; preds = %788, %.lr.ph.i14
+  %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i16, %788 ]
+  %.not101160.i = phi i1 [ false, %.lr.ph.i14 ], [ true, %788 ]
+  %.080158.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.181.i, %788 ]
+  %.082157.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.183.i, %788 ]
+  %.084156.i = phi i32 [ 0, %.lr.ph.i14 ], [ %.185.i, %788 ]
+  %790 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %791 = load ptr, ptr %790, align 8, !tbaa !16
+  %792 = call i32 @FLAC__metadata_get_streaminfo(ptr noundef %791, ptr noundef nonnull %2) #10
+  %.not100.i = icmp eq i32 %792, 0
+  br i1 %.not100.i, label %793, label %798
 
-792:                                              ; preds = %788
-  %793 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %794 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %795 = load ptr, ptr %793, align 8, !tbaa !16
-  %796 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %794, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef %795) #10
+793:                                              ; preds = %789
+  %794 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %795 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %796 = load ptr, ptr %794, align 8, !tbaa !16
+  %797 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %795, i32 noundef 1, ptr noundef nonnull @.str.81, ptr noundef %796) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-797:                                              ; preds = %788
-  %798 = load i32, ptr %776, align 8, !tbaa !32
-  br i1 %.not101160.i, label %802, label %799
+798:                                              ; preds = %789
+  %799 = load i32, ptr %777, align 8, !tbaa !32
+  br i1 %.not101160.i, label %803, label %800
 
-799:                                              ; preds = %797
-  %800 = load i32, ptr %777, align 8, !tbaa !32
-  %801 = load i32, ptr %778, align 4, !tbaa !32
-  br label %822
+800:                                              ; preds = %798
+  %801 = load i32, ptr %778, align 8, !tbaa !32
+  %802 = load i32, ptr %779, align 4, !tbaa !32
+  br label %823
 
-802:                                              ; preds = %797
-  %.not102.i = icmp eq i32 %.084156.i, %798
-  br i1 %.not102.i, label %808, label %803
+803:                                              ; preds = %798
+  %.not102.i = icmp eq i32 %.084156.i, %799
+  br i1 %.not102.i, label %809, label %804
 
-803:                                              ; preds = %802
-  %804 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %805 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %806 = load ptr, ptr %804, align 8, !tbaa !16
-  %807 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %805, i32 noundef 1, ptr noundef nonnull @.str.82, ptr noundef %806, i32 noundef %798, i32 noundef %.084156.i) #10
+804:                                              ; preds = %803
+  %805 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %806 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %807 = load ptr, ptr %805, align 8, !tbaa !16
+  %808 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %806, i32 noundef 1, ptr noundef nonnull @.str.82, ptr noundef %807, i32 noundef %799, i32 noundef %.084156.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-808:                                              ; preds = %802
-  %809 = load i32, ptr %777, align 8, !tbaa !32
-  %.not103.i = icmp eq i32 %.082157.i, %809
-  br i1 %.not103.i, label %815, label %810
+809:                                              ; preds = %803
+  %810 = load i32, ptr %778, align 8, !tbaa !32
+  %.not103.i = icmp eq i32 %.082157.i, %810
+  br i1 %.not103.i, label %816, label %811
 
-810:                                              ; preds = %808
-  %811 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %812 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %813 = load ptr, ptr %811, align 8, !tbaa !16
-  %814 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %812, i32 noundef 1, ptr noundef nonnull @.str.83, ptr noundef %813, i32 noundef %809, i32 noundef %.082157.i) #10
+811:                                              ; preds = %809
+  %812 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %813 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %814 = load ptr, ptr %812, align 8, !tbaa !16
+  %815 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %813, i32 noundef 1, ptr noundef nonnull @.str.83, ptr noundef %814, i32 noundef %810, i32 noundef %.082157.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-815:                                              ; preds = %808
-  %816 = load i32, ptr %778, align 4, !tbaa !32
-  %.not104.i = icmp eq i32 %.080158.i, %816
-  br i1 %.not104.i, label %822, label %817
+816:                                              ; preds = %809
+  %817 = load i32, ptr %779, align 4, !tbaa !32
+  %.not104.i = icmp eq i32 %.080158.i, %817
+  br i1 %.not104.i, label %823, label %818
 
-817:                                              ; preds = %815
-  %818 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %819 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %820 = load ptr, ptr %818, align 8, !tbaa !16
-  %821 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %819, i32 noundef 1, ptr noundef nonnull @.str.84, ptr noundef %820, i32 noundef %816, i32 noundef %.080158.i) #10
+818:                                              ; preds = %816
+  %819 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %820 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %821 = load ptr, ptr %819, align 8, !tbaa !16
+  %822 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %820, i32 noundef 1, ptr noundef nonnull @.str.84, ptr noundef %821, i32 noundef %817, i32 noundef %.080158.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-822:                                              ; preds = %815, %799
-  %.185.i = phi i32 [ %798, %799 ], [ %.084156.i, %815 ]
-  %.183.i = phi i32 [ %800, %799 ], [ %.082157.i, %815 ]
-  %.181.i = phi i32 [ %801, %799 ], [ %.080158.i, %815 ]
-  %823 = call i32 @grabbag__replaygain_is_valid_sample_frequency(i32 noundef %.185.i) #10
-  %.not105.i = icmp eq i32 %823, 0
-  br i1 %.not105.i, label %824, label %829
+823:                                              ; preds = %816, %800
+  %.185.i = phi i32 [ %799, %800 ], [ %.084156.i, %816 ]
+  %.183.i = phi i32 [ %801, %800 ], [ %.082157.i, %816 ]
+  %.181.i = phi i32 [ %802, %800 ], [ %.080158.i, %816 ]
+  %824 = call i32 @grabbag__replaygain_is_valid_sample_frequency(i32 noundef %.185.i) #10
+  %.not105.i = icmp eq i32 %824, 0
+  br i1 %.not105.i, label %825, label %830
 
-824:                                              ; preds = %822
-  %825 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %826 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %827 = load ptr, ptr %825, align 8, !tbaa !16
-  %828 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %826, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef %827, i32 noundef %.185.i) #10
+825:                                              ; preds = %823
+  %826 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %827 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %828 = load ptr, ptr %826, align 8, !tbaa !16
+  %829 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %827, i32 noundef 1, ptr noundef nonnull @.str.85, ptr noundef %828, i32 noundef %.185.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-829:                                              ; preds = %822
-  %830 = add i32 %.181.i, -3
-  %or.cond.i = icmp ult i32 %830, -2
-  br i1 %or.cond.i, label %831, label %836
+830:                                              ; preds = %823
+  %831 = add i32 %.181.i, -3
+  %or.cond.i = icmp ult i32 %831, -2
+  br i1 %or.cond.i, label %832, label %837
 
-831:                                              ; preds = %829
-  %832 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %833 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %834 = load ptr, ptr %832, align 8, !tbaa !16
-  %835 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %833, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef %834, i32 noundef %.181.i) #10
+832:                                              ; preds = %830
+  %833 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %834 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %835 = load ptr, ptr %833, align 8, !tbaa !16
+  %836 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %834, i32 noundef 1, ptr noundef nonnull @.str.86, ptr noundef %835, i32 noundef %.181.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-836:                                              ; preds = %829
-  %837 = add i32 %.183.i, -33
-  %or.cond3.i = icmp ult i32 %837, -29
-  br i1 %or.cond3.i, label %838, label %787
+837:                                              ; preds = %830
+  %838 = add i32 %.183.i, -33
+  %or.cond3.i = icmp ult i32 %838, -29
+  br i1 %or.cond3.i, label %839, label %788
 
-838:                                              ; preds = %836
-  %839 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv.i15
-  %840 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %841 = load ptr, ptr %839, align 8, !tbaa !16
-  %842 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %840, i32 noundef 1, ptr noundef nonnull @.str.87, ptr noundef %841, i32 noundef %.183.i, i32 noundef 4, i32 noundef 32) #10
+839:                                              ; preds = %837
+  %840 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv.i15
+  %841 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %842 = load ptr, ptr %840, align 8, !tbaa !16
+  %843 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %841, i32 noundef 1, ptr noundef nonnull @.str.87, ptr noundef %842, i32 noundef %.183.i, i32 noundef 4, i32 noundef 32) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-._crit_edge.i17:                                  ; preds = %787, %.sink.split.i
-  %.084.lcssa.i = phi i32 [ 0, %.sink.split.i ], [ %.185.i, %787 ]
-  %843 = call i32 @grabbag__replaygain_init(i32 noundef %.084.lcssa.i) #10
-  %.not.i18 = icmp eq i32 %843, 0
-  br i1 %.not.i18, label %844, label %847
+._crit_edge.i17:                                  ; preds = %788, %.sink.split.i
+  %.084.lcssa.i = phi i32 [ 0, %.sink.split.i ], [ %.185.i, %788 ]
+  %844 = call i32 @grabbag__replaygain_init(i32 noundef %.084.lcssa.i) #10
+  %.not.i18 = icmp eq i32 %844, 0
+  br i1 %.not.i18, label %845, label %848
 
-844:                                              ; preds = %._crit_edge.i17
-  %845 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %846 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %845, i32 noundef 1, ptr noundef nonnull @.str.88) #10
+845:                                              ; preds = %._crit_edge.i17
+  %846 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %847 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %846, i32 noundef 1, ptr noundef nonnull @.str.88) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-847:                                              ; preds = %._crit_edge.i17
-  %848 = zext i32 %785 to i64
-  %849 = call ptr @safe_malloc_mul_2op_(i64 noundef 4, i64 noundef %848) #10
-  %850 = icmp eq ptr %849, null
-  br i1 %850, label %854, label %851
+848:                                              ; preds = %._crit_edge.i17
+  %849 = zext i32 %786 to i64
+  %850 = call ptr @safe_malloc_mul_2op_(i64 noundef 4, i64 noundef %849) #10
+  %851 = icmp eq ptr %850, null
+  br i1 %851, label %855, label %852
 
-851:                                              ; preds = %847
-  %852 = call ptr @safe_malloc_mul_2op_(i64 noundef 4, i64 noundef %848) #10
-  %853 = icmp eq ptr %852, null
-  br i1 %853, label %854, label %855
+852:                                              ; preds = %848
+  %853 = call ptr @safe_malloc_mul_2op_(i64 noundef 4, i64 noundef %849) #10
+  %854 = icmp eq ptr %853, null
+  br i1 %854, label %855, label %856
 
-854:                                              ; preds = %851, %847
+855:                                              ; preds = %852, %848
   call void @die(ptr noundef nonnull @.str.89) #10
-  br label %855
+  br label %856
 
-855:                                              ; preds = %854, %851
-  %.187.i = phi ptr [ null, %854 ], [ %852, %851 ]
+856:                                              ; preds = %855, %852
+  %.187.i = phi ptr [ null, %855 ], [ %853, %852 ]
   br i1 %.not172.i, label %._crit_edge165.thread.i, label %.lr.ph164.i
 
-._crit_edge165.thread.i:                          ; preds = %855
+._crit_edge165.thread.i:                          ; preds = %856
   call void @grabbag__replaygain_get_album(ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   br label %._crit_edge170.i
 
-856:                                              ; preds = %.lr.ph164.i
+857:                                              ; preds = %.lr.ph164.i
   %indvars.iv.next228.i = add nuw nsw i64 %indvars.iv227.i, 1
-  %exitcond231.not.i = icmp eq i64 %indvars.iv.next228.i, %848
+  %exitcond231.not.i = icmp eq i64 %indvars.iv.next228.i, %849
   br i1 %exitcond231.not.i, label %._crit_edge165.i, label %.lr.ph164.i, !llvm.loop !76
 
-.lr.ph164.i:                                      ; preds = %855, %856
-  %indvars.iv227.i = phi i64 [ %indvars.iv.next228.i, %856 ], [ 0, %855 ]
-  %857 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv227.i
-  %858 = load ptr, ptr %857, align 8, !tbaa !16
-  %859 = getelementptr inbounds nuw float, ptr %849, i64 %indvars.iv227.i
-  %860 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv227.i
-  %861 = call ptr @grabbag__replaygain_analyze_file(ptr noundef %858, ptr noundef %859, ptr noundef %860) #10
-  %.not99.i = icmp eq ptr %861, null
-  br i1 %.not99.i, label %856, label %862
+.lr.ph164.i:                                      ; preds = %856, %857
+  %indvars.iv227.i = phi i64 [ %indvars.iv.next228.i, %857 ], [ 0, %856 ]
+  %858 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv227.i
+  %859 = load ptr, ptr %858, align 8, !tbaa !16
+  %860 = getelementptr inbounds nuw float, ptr %850, i64 %indvars.iv227.i
+  %861 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv227.i
+  %862 = call ptr @grabbag__replaygain_analyze_file(ptr noundef %859, ptr noundef %860, ptr noundef %861) #10
+  %.not99.i = icmp eq ptr %862, null
+  br i1 %.not99.i, label %857, label %863
 
-862:                                              ; preds = %.lr.ph164.i
-  %863 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv227.i
-  %864 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %865 = load ptr, ptr %863, align 8, !tbaa !16
-  %866 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %864, i32 noundef 1, ptr noundef nonnull @.str.90, ptr noundef %865, ptr noundef nonnull %861) #10
-  call void @free(ptr noundef %849) #10
+863:                                              ; preds = %.lr.ph164.i
+  %864 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv227.i
+  %865 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %866 = load ptr, ptr %864, align 8, !tbaa !16
+  %867 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %865, i32 noundef 1, ptr noundef nonnull @.str.90, ptr noundef %866, ptr noundef nonnull %862) #10
+  call void @free(ptr noundef %850) #10
   call void @free(ptr noundef %.187.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-._crit_edge165.i:                                 ; preds = %856
+._crit_edge165.i:                                 ; preds = %857
   call void @grabbag__replaygain_get_album(ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   br i1 %.not97.i, label %.lr.ph169.split.us.i, label %.lr.ph169.split.i
 
-.lr.ph169.split.us.i:                             ; preds = %._crit_edge165.i, %876
-  %indvars.iv237.i = phi i64 [ %indvars.iv.next238.i, %876 ], [ 0, %._crit_edge165.i ]
-  %867 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv237.i
-  %868 = load ptr, ptr %867, align 8, !tbaa !16
-  %869 = load float, ptr %3, align 4, !tbaa !77
-  %870 = load float, ptr %4, align 4, !tbaa !77
-  %871 = getelementptr inbounds nuw float, ptr %849, i64 %indvars.iv237.i
-  %872 = load float, ptr %871, align 4, !tbaa !77
-  %873 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv237.i
-  %874 = load float, ptr %873, align 4, !tbaa !77
-  %875 = call ptr @grabbag__replaygain_store_to_file(ptr noundef %868, float noundef %869, float noundef %870, float noundef %872, float noundef %874, i32 noundef %786) #10
-  %.not98.us.i = icmp eq ptr %875, null
-  br i1 %.not98.us.i, label %876, label %.split.us.i
+.lr.ph169.split.us.i:                             ; preds = %._crit_edge165.i, %877
+  %indvars.iv237.i = phi i64 [ %indvars.iv.next238.i, %877 ], [ 0, %._crit_edge165.i ]
+  %868 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv237.i
+  %869 = load ptr, ptr %868, align 8, !tbaa !16
+  %870 = load float, ptr %3, align 4, !tbaa !77
+  %871 = load float, ptr %4, align 4, !tbaa !77
+  %872 = getelementptr inbounds nuw float, ptr %850, i64 %indvars.iv237.i
+  %873 = load float, ptr %872, align 4, !tbaa !77
+  %874 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv237.i
+  %875 = load float, ptr %874, align 4, !tbaa !77
+  %876 = call ptr @grabbag__replaygain_store_to_file(ptr noundef %869, float noundef %870, float noundef %871, float noundef %873, float noundef %875, i32 noundef %787) #10
+  %.not98.us.i = icmp eq ptr %876, null
+  br i1 %.not98.us.i, label %877, label %.split.us.i
 
-876:                                              ; preds = %.lr.ph169.split.us.i
+877:                                              ; preds = %.lr.ph169.split.us.i
   %indvars.iv.next238.i = add nuw nsw i64 %indvars.iv237.i, 1
-  %exitcond241.not.i = icmp eq i64 %indvars.iv.next238.i, %848
+  %exitcond241.not.i = icmp eq i64 %indvars.iv.next238.i, %849
   br i1 %exitcond241.not.i, label %._crit_edge170.i, label %.lr.ph169.split.us.i, !llvm.loop !79
 
 .lr.ph169.split.i:                                ; preds = %._crit_edge165.i, %.lr.ph169.split.i
   %indvars.iv232.i = phi i64 [ %indvars.iv.next233.i, %.lr.ph169.split.i ], [ 0, %._crit_edge165.i ]
-  %877 = load ptr, ptr @stdout, align 8, !tbaa !37
-  %878 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv232.i
-  %879 = load ptr, ptr %878, align 8, !tbaa !16
-  %880 = load float, ptr %3, align 4, !tbaa !77
-  %881 = fpext float %880 to double
-  %882 = load float, ptr %4, align 4, !tbaa !77
-  %883 = fpext float %882 to double
-  %884 = getelementptr inbounds nuw float, ptr %849, i64 %indvars.iv232.i
-  %885 = load float, ptr %884, align 4, !tbaa !77
-  %886 = fpext float %885 to double
-  %887 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv232.i
-  %888 = load float, ptr %887, align 4, !tbaa !77
-  %889 = fpext float %888 to double
-  %890 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %877, i32 noundef 1, ptr noundef nonnull @.str.92, ptr noundef %879, double noundef %881, double noundef %883, double noundef %886, double noundef %889) #10
+  %878 = load ptr, ptr @stdout, align 8, !tbaa !37
+  %879 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv232.i
+  %880 = load ptr, ptr %879, align 8, !tbaa !16
+  %881 = load float, ptr %3, align 4, !tbaa !77
+  %882 = fpext float %881 to double
+  %883 = load float, ptr %4, align 4, !tbaa !77
+  %884 = fpext float %883 to double
+  %885 = getelementptr inbounds nuw float, ptr %850, i64 %indvars.iv232.i
+  %886 = load float, ptr %885, align 4, !tbaa !77
+  %887 = fpext float %886 to double
+  %888 = getelementptr inbounds nuw float, ptr %.187.i, i64 %indvars.iv232.i
+  %889 = load float, ptr %888, align 4, !tbaa !77
+  %890 = fpext float %889 to double
+  %891 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %878, i32 noundef 1, ptr noundef nonnull @.str.92, ptr noundef %880, double noundef %882, double noundef %884, double noundef %887, double noundef %890) #10
   %indvars.iv.next233.i = add nuw nsw i64 %indvars.iv232.i, 1
-  %exitcond236.not.i = icmp eq i64 %indvars.iv.next233.i, %848
+  %exitcond236.not.i = icmp eq i64 %indvars.iv.next233.i, %849
   br i1 %exitcond236.not.i, label %._crit_edge170.i, label %.lr.ph169.split.i, !llvm.loop !79
 
 .split.us.i:                                      ; preds = %.lr.ph169.split.us.i
-  %891 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv237.i
-  %892 = load ptr, ptr @stderr, align 8, !tbaa !37
-  %893 = load ptr, ptr %891, align 8, !tbaa !16
-  %894 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %892, i32 noundef 1, ptr noundef nonnull @.str.91, ptr noundef %893, ptr noundef nonnull %875) #10
-  call void @free(ptr noundef nonnull %849) #10
+  %892 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv237.i
+  %893 = load ptr, ptr @stderr, align 8, !tbaa !37
+  %894 = load ptr, ptr %892, align 8, !tbaa !16
+  %895 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %893, i32 noundef 1, ptr noundef nonnull @.str.91, ptr noundef %894, ptr noundef nonnull %876) #10
+  call void @free(ptr noundef nonnull %850) #10
   call void @free(ptr noundef nonnull %.187.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-._crit_edge170.i:                                 ; preds = %.lr.ph169.split.i, %876, %._crit_edge165.thread.i
-  call void @free(ptr noundef %849) #10
+._crit_edge170.i:                                 ; preds = %.lr.ph169.split.i, %877, %._crit_edge165.thread.i
+  call void @free(ptr noundef %850) #10
   call void @free(ptr noundef %.187.i) #10
   br label %do_shorthand_operation__add_replay_gain.exit
 
-do_shorthand_operation__add_replay_gain.exit:     ; preds = %792, %803, %810, %817, %824, %831, %838, %844, %862, %.split.us.i, %._crit_edge170.i
-  %.088.i = phi i32 [ 0, %831 ], [ 0, %838 ], [ 0, %824 ], [ 0, %803 ], [ 0, %810 ], [ 0, %817 ], [ 0, %792 ], [ 0, %862 ], [ 0, %.split.us.i ], [ 1, %._crit_edge170.i ], [ 0, %844 ]
+do_shorthand_operation__add_replay_gain.exit:     ; preds = %793, %804, %811, %818, %825, %832, %839, %845, %863, %.split.us.i, %._crit_edge170.i
+  %.088.i = phi i32 [ 0, %832 ], [ 0, %839 ], [ 0, %825 ], [ 0, %804 ], [ 0, %811 ], [ 0, %818 ], [ 0, %793 ], [ 0, %863 ], [ 0, %.split.us.i ], [ 1, %._crit_edge170.i ], [ 0, %845 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.pre = load i32, ptr %697, align 8, !tbaa !71
-  br label %895
+  %.pre = load i32, ptr %698, align 8, !tbaa !71
+  br label %896
 
-895:                                              ; preds = %do_shorthand_operation__add_replay_gain.exit, %.lr.ph36.i
-  %896 = phi i32 [ %779, %.lr.ph36.i ], [ %.pre, %do_shorthand_operation__add_replay_gain.exit ]
+896:                                              ; preds = %do_shorthand_operation__add_replay_gain.exit, %.lr.ph36.i
+  %897 = phi i32 [ %780, %.lr.ph36.i ], [ %.pre, %do_shorthand_operation__add_replay_gain.exit ]
   %.3.i = phi i32 [ %.235.i, %.lr.ph36.i ], [ %.088.i, %do_shorthand_operation__add_replay_gain.exit ]
   %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %897 = zext i32 %896 to i64
-  %898 = icmp samesign ult i64 %indvars.iv.next46.i, %897
-  br i1 %898, label %.lr.ph36.i, label %do_major_operation.exit, !llvm.loop !80
+  %898 = zext i32 %897 to i64
+  %899 = icmp samesign ult i64 %indvars.iv.next46.i, %898
+  br i1 %899, label %.lr.ph36.i, label %do_major_operation.exit, !llvm.loop !80
 
-do_major_operation.exit:                          ; preds = %do_major_operation_on_file.exit.i, %895, %.preheader.i, %._crit_edge.i, %691, %21, %688, %15
-  %.0 = phi i32 [ 1, %15 ], [ 1, %688 ], [ 1, %21 ], [ %.mux.i, %._crit_edge.i ], [ 1, %.preheader.i ], [ 1, %691 ], [ %.3.i, %895 ], [ %684, %do_major_operation_on_file.exit.i ]
+do_major_operation.exit:                          ; preds = %do_major_operation_on_file.exit.i, %896, %.preheader.i, %._crit_edge.i, %692, %21, %689, %15
+  %.0 = phi i32 [ 1, %15 ], [ 1, %689 ], [ 1, %21 ], [ %.mux.i, %._crit_edge.i ], [ 1, %.preheader.i ], [ 1, %692 ], [ %.3.i, %896 ], [ %.0.i.i, %do_major_operation_on_file.exit.i ]
   ret i32 %.0
 }
 

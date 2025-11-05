@@ -331,8 +331,8 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
   %149 = lshr i32 %148, 1
   %150 = add nuw nsw i32 %149, %1
   %151 = icmp sgt i32 %4, 0
-  %or.cond964 = and i1 %.not497, %151
-  br i1 %or.cond964, label %.preheader594.us.preheader, label %.loopexit593
+  %or.cond965 = and i1 %.not497, %151
+  br i1 %or.cond965, label %.preheader594.us.preheader, label %.loopexit593
 
 .preheader594.us.preheader:                       ; preds = %._crit_edge622
   %smax = call i32 @llvm.smax.i32(i32 %1, i32 1)
@@ -713,8 +713,8 @@ gv_calloc.exit530:                                ; preds = %269
 
 gv_calloc.exit535:                                ; preds = %gv_calloc.exit530
   store ptr %278, ptr %270, align 8, !tbaa !39
-  %.not956 = icmp eq i32 %4, 1
-  br i1 %.not956, label %._crit_edge685, label %.lr.ph684.preheader
+  %.not957 = icmp eq i32 %4, 1
+  br i1 %.not957, label %._crit_edge685, label %.lr.ph684.preheader
 
 .lr.ph684.preheader:                              ; preds = %gv_calloc.exit535
   %wide.trip.count854 = zext nneg i32 %4 to i64
@@ -842,7 +842,7 @@ gv_calloc.exit550:                                ; preds = %300
   %.4693 = add i32 %.3702, 1
   %328 = sext i32 %.4693 to i64
   %wide.trip.count875 = zext i32 %indvars.iv864 to i64
-  %invariant.gep954 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv877
+  %invariant.gep955 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv877
   br label %.lr.ph697
 
 .lr.ph692:                                        ; preds = %.lr.ph692.preheader, %334
@@ -891,8 +891,8 @@ gv_calloc.exit550:                                ; preds = %300
   store float %343, ptr %341, align 4, !tbaa !15
   %344 = fpext float %343 to double
   %345 = fadd double %.1474694, %344
-  %gep955 = getelementptr inbounds nuw double, ptr %invariant.gep954, i64 %indvars.iv870
-  %346 = getelementptr inbounds nuw i8, ptr %gep955, i64 8
+  %gep956 = getelementptr inbounds nuw double, ptr %invariant.gep955, i64 %indvars.iv870
+  %346 = getelementptr inbounds nuw i8, ptr %gep956, i64 8
   %347 = load double, ptr %346, align 8, !tbaa !20
   %348 = fsub double %347, %344
   store double %348, ptr %346, align 8, !tbaa !20

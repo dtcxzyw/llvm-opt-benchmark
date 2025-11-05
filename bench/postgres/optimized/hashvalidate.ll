@@ -385,11 +385,11 @@ list_length.exit:                                 ; preds = %198, %.thread
 201:                                              ; preds = %list_length.exit
   %202 = getelementptr inbounds nuw i8, ptr %.092.lcssa, i64 4
   %203 = load i32, ptr %202, align 4
+  %204 = mul i32 %203, %203
   br label %list_length.exit118
 
 list_length.exit118:                              ; preds = %list_length.exit, %201
-  %204 = phi i32 [ %203, %201 ], [ 0, %list_length.exit ]
-  %205 = mul i32 %204, %204
+  %205 = phi i32 [ %204, %201 ], [ 0, %list_length.exit ]
   %.not107 = icmp eq i32 %200, %205
   br i1 %.not107, label %211, label %206
 

@@ -1138,13 +1138,13 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %.ph = phi i32 [ 0, %209 ], [ %215, %211 ]
   br label %216
 
-216:                                              ; preds = %.preheader208, %258
-  %217 = phi i64 [ %240, %258 ], [ %116, %.preheader208 ]
-  %218 = phi i32 [ %259, %258 ], [ %117, %.preheader208 ]
-  %219 = phi i32 [ %.sink102, %258 ], [ %122, %.preheader208 ]
-  %220 = phi i32 [ %264, %258 ], [ 1, %.preheader208 ]
-  %221 = phi i32 [ %223, %258 ], [ %.ph, %.preheader208 ]
-  %222 = phi i32 [ %265, %258 ], [ 256, %.preheader208 ]
+216:                                              ; preds = %.preheader208, %259
+  %217 = phi i64 [ %240, %259 ], [ %116, %.preheader208 ]
+  %218 = phi i32 [ %260, %259 ], [ %117, %.preheader208 ]
+  %219 = phi i32 [ %.sink102, %259 ], [ %122, %.preheader208 ]
+  %220 = phi i32 [ %265, %259 ], [ 1, %.preheader208 ]
+  %221 = phi i32 [ %223, %259 ], [ %.ph, %.preheader208 ]
+  %222 = phi i32 [ %261, %259 ], [ 256, %.preheader208 ]
   %223 = shl i32 %221, 1
   %224 = and i32 %223, %222
   %225 = add i32 %222, %220
@@ -1177,39 +1177,39 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
   %245 = zext i16 %244 to i32
   %246 = mul i32 %243, %245
   %247 = icmp uge i32 %241, %246
-  br i1 %247, label %253, label %248
+  br i1 %247, label %254, label %248
 
 248:                                              ; preds = %239
   %249 = sub nsw i32 2048, %245
   %250 = lshr i32 %249, 5
   %251 = trunc i32 %250 to i16
   %252 = add i16 %244, %251
-  br label %258
+  %253 = xor i32 %224, %222
+  br label %259
 
-253:                                              ; preds = %239
-  %254 = sub i32 %242, %246
-  %255 = sub nuw i32 %241, %246
-  store i32 %255, ptr %70, align 4
-  %256 = lshr i16 %244, 5
-  %257 = sub i16 %244, %256
-  br label %258
+254:                                              ; preds = %239
+  %255 = sub i32 %242, %246
+  %256 = sub nuw i32 %241, %246
+  store i32 %256, ptr %70, align 4
+  %257 = lshr i16 %244, 5
+  %258 = sub i16 %244, %257
+  br label %259
 
-258:                                              ; preds = %253, %248
-  %.sink102 = phi i32 [ %254, %253 ], [ %246, %248 ]
-  %259 = phi i32 [ %255, %253 ], [ %241, %248 ]
-  %260 = phi i32 [ 0, %253 ], [ %222, %248 ]
-  %261 = phi i16 [ %257, %253 ], [ %252, %248 ]
+259:                                              ; preds = %254, %248
+  %.sink102 = phi i32 [ %255, %254 ], [ %246, %248 ]
+  %260 = phi i32 [ %256, %254 ], [ %241, %248 ]
+  %261 = phi i32 [ %224, %254 ], [ %253, %248 ]
+  %262 = phi i16 [ %258, %254 ], [ %252, %248 ]
   store i32 %.sink102, ptr %0, align 8
-  store i16 %261, ptr %228, align 2
-  %262 = shl nuw nsw i32 %220, 1
-  %263 = zext i1 %247 to i32
-  %264 = or disjoint i32 %262, %263
-  %265 = xor i32 %260, %224
+  store i16 %262, ptr %228, align 2
+  %263 = shl nuw nsw i32 %220, 1
+  %264 = zext i1 %247 to i32
+  %265 = or disjoint i32 %263, %264
   %266 = icmp ult i32 %220, 128
   br i1 %266, label %216, label %.loopexit, !llvm.loop !15
 
-.loopexit:                                        ; preds = %258, %193
-  %267 = phi i32 [ %198, %193 ], [ %264, %258 ]
+.loopexit:                                        ; preds = %259, %193
+  %267 = phi i32 [ %198, %193 ], [ %265, %259 ]
   %268 = trunc i32 %267 to i8
   %269 = load ptr, ptr %2, align 8
   %270 = add i64 %92, 1

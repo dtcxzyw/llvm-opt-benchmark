@@ -224,9 +224,12 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %41, %43, %45, %47
   %wide.trip.count = and i64 %11, 2147483647
   br label %183
 
-._crit_edge:                                      ; preds = %183, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
-  %52 = phi i32 [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ], [ %193, %183 ]
-  %53 = mul nsw i32 %52, %21
+._crit_edge.loopexit:                             ; preds = %183
+  %52 = mul nsw i32 %193, %21
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt6vectorIiSaIiEE6resizeEm.exit
+  %53 = phi i32 [ %52, %._crit_edge.loopexit ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit ]
   store i32 %53, ptr %48, align 8, !tbaa !23
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %55 = sext i32 %53 to i64
@@ -535,7 +538,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit95:             ; preds = %157, %159, %161, %1
   store i32 %193, ptr %48, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %183, !llvm.loop !78
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %183, !llvm.loop !78
 
 ._crit_edge139:                                   ; preds = %232, %.ph.lver.orig, %_ZNSt6vectorIiSaIiEE6resizeEm.exit95
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 256

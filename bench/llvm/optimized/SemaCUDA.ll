@@ -3986,50 +3986,59 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %.sroa.0316.6.lcssa = phi i32 [ %.sroa.0316.0.lcssa, %.critedge111 ], [ %.sroa.0316.7.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   %.sroa.12323.6.lcssa = phi i8 [ %.sroa.12323.0.lcssa, %.critedge111 ], [ %.sroa.12323.7.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   %739 = trunc nuw i8 %.sroa.12323.6.lcssa to i1
-  %740 = icmp eq i32 %.sroa.0316.6.lcssa, 0
-  %741 = icmp eq i32 %.sroa.0316.6.lcssa, 2
-  %.not12 = select i1 %739, i1 %740, i1 false
-  %.not9 = select i1 %739, i1 %741, i1 false
-  %or.cond11 = or i1 %108, %.not9
-  br i1 %or.cond11, label %745, label %742
+  br i1 %739, label %740, label %744
 
-742:                                              ; preds = %.critedge115
-  %743 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
-  %744 = call noundef ptr @_ZN5clang14CUDADeviceAttr14CreateImplicitERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE(ptr noundef nonnull align 8 dereferenceable(23216) %743, i64 0, i32 noundef 0) #16
-  call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %744) #16
-  br label %745
+740:                                              ; preds = %.critedge115
+  %741 = icmp eq i32 %.sroa.0316.6.lcssa, 0
+  br i1 %741, label %744, label %742
 
-745:                                              ; preds = %742, %.critedge115
-  %or.cond14 = or i1 %56, %.not12
-  br i1 %or.cond14, label %749, label %746
+742:                                              ; preds = %740
+  %743 = icmp eq i32 %.sroa.0316.6.lcssa, 2
+  %spec.select116 = or i1 %108, %743
+  br i1 %spec.select116, label %748, label %745
 
-746:                                              ; preds = %745
-  %747 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
-  %748 = call noundef ptr @_ZN5clang12CUDAHostAttr14CreateImplicitERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE(ptr noundef nonnull align 8 dereferenceable(23216) %747, i64 0, i32 noundef 0) #16
+744:                                              ; preds = %740, %.critedge115
+  %.not12 = phi i1 [ %56, %.critedge115 ], [ true, %740 ]
+  br i1 %108, label %748, label %745
+
+745:                                              ; preds = %742, %744
+  %.not12348 = phi i1 [ %56, %742 ], [ %.not12, %744 ]
+  %746 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %747 = call noundef ptr @_ZN5clang14CUDADeviceAttr14CreateImplicitERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE(ptr noundef nonnull align 8 dereferenceable(23216) %746, i64 0, i32 noundef 0) #16
+  call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %747) #16
+  br i1 %.not12348, label %752, label %749
+
+748:                                              ; preds = %742, %744
+  %.not12349 = phi i1 [ %56, %742 ], [ %.not12, %744 ]
+  br i1 %.not12349, label %752, label %749
+
+749:                                              ; preds = %745, %748
+  %750 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang8SemaBase13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
+  %751 = call noundef ptr @_ZN5clang12CUDAHostAttr14CreateImplicitERNS_10ASTContextENS_11SourceRangeENS0_8SpellingE(ptr noundef nonnull align 8 dereferenceable(23216) %750, i64 0, i32 noundef 0) #16
   br label %.sink.split
 
-.sink.split:                                      ; preds = %746, %445, %736
-  %.sink = phi ptr [ %738, %736 ], [ %447, %445 ], [ %748, %746 ]
-  %.8.ph = phi i1 [ true, %736 ], [ true, %445 ], [ false, %746 ]
+.sink.split:                                      ; preds = %749, %445, %736
+  %.sink = phi ptr [ %738, %736 ], [ %447, %445 ], [ %751, %749 ]
+  %.8.ph = phi i1 [ true, %736 ], [ true, %445 ], [ false, %749 ]
   call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %3, ptr noundef %.sink) #16
-  br label %749
+  br label %752
 
-749:                                              ; preds = %.sink.split, %745
-  %.8 = phi i1 [ false, %745 ], [ %.8.ph, %.sink.split ]
-  %750 = load ptr, ptr %13, align 8, !tbaa !417
-  %751 = icmp eq ptr %750, %126
-  br i1 %751, label %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit, label %752
+752:                                              ; preds = %.sink.split, %745, %748
+  %.8 = phi i1 [ false, %748 ], [ false, %745 ], [ %.8.ph, %.sink.split ]
+  %753 = load ptr, ptr %13, align 8, !tbaa !417
+  %754 = icmp eq ptr %753, %126
+  br i1 %754, label %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit, label %755
 
-752:                                              ; preds = %749
-  call void @free(ptr noundef %750) #16
+755:                                              ; preds = %752
+  call void @free(ptr noundef %753) #16
   br label %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit: ; preds = %749, %752
+_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit: ; preds = %752, %755
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %.not.i.i173 = icmp eq ptr %113, null
-  br i1 %.not.i.i173, label %_ZN5clang4Sema11ContextRAIID2Ev.exit, label %753
+  br i1 %.not.i.i173, label %_ZN5clang4Sema11ContextRAIID2Ev.exit, label %756
 
-753:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit
+756:                                              ; preds = %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit
   store ptr %113, ptr %112, align 8, !tbaa !471
   store ptr %115, ptr %114, align 8, !tbaa !1103
   store i64 %117, ptr %116, align 8, !tbaa !407
@@ -4037,8 +4046,8 @@ _ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit: ; preds = %74
   store i32 %121, ptr %120, align 8, !tbaa !1105
   br label %_ZN5clang4Sema11ContextRAIID2Ev.exit
 
-_ZN5clang4Sema11ContextRAIID2Ev.exit:             ; preds = %753, %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit, %107
-  %.087 = phi i1 [ false, %107 ], [ %.8, %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit ], [ %.8, %753 ]
+_ZN5clang4Sema11ContextRAIID2Ev.exit:             ; preds = %756, %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit, %107
+  %.087 = phi i1 [ false, %107 ], [ %.8, %_ZN4llvm11SmallVectorIPKN5clang16CXXBaseSpecifierELj16EED2Ev.exit ], [ %.8, %756 ]
   ret i1 %.087
 }
 
@@ -5134,8 +5143,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_11DeclContextEEEDaPT0_.exit
 _ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit: ; preds = %38
   %40 = load i24, ptr %39, align 8
   %41 = and i24 %40, 131072
-  %.not61 = icmp eq i24 %41, 0
-  br i1 %.not61, label %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread54, label %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread
+  %.not60 = icmp eq i24 %41, 0
+  br i1 %.not60, label %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread54, label %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread
 
 _ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread54: ; preds = %38, %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit
   %42 = tail call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #16
@@ -5169,24 +5178,24 @@ _ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread54: ; preds = %38
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56, label %.lr.ph.i.i.i.i.i, !llvm.loop !455
 
 _ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not62 = icmp eq ptr %.sroa.07.1.i.i.i.i, %51
-  br i1 %.not62, label %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56, label %.thread59
+  %.not61 = icmp eq ptr %.sroa.07.1.i.i.i.i, %51
+  br i1 %.not61, label %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56, label %.critedge
 
 _ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56: ; preds = %56, %45, %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread54, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit
   %58 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_14CUDADeviceAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %1)
-  br i1 %58, label %.thread59, label %59
+  br i1 %58, label %.critedge, label %59
 
 59:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56
   %60 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_16CUDAConstantAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %1)
-  br i1 %60, label %.thread59, label %69
+  br i1 %60, label %.critedge, label %69
 
-.thread59:                                        ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56, %59
-  %61 = phi i1 [ false, %59 ], [ false, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56 ], [ true, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit ]
+.critedge:                                        ; preds = %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56, %59
+  %61 = phi i1 [ false, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit.thread56 ], [ false, %59 ], [ true, %_ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit ]
   %62 = zext i1 %61 to i32
   %63 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_137HasAllowedCUDADeviceStaticInitializerERN5clang8SemaCUDAEPNS0_7VarDeclENS_24CUDAInitializerCheckKindE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %1, i32 noundef %62)
   br i1 %63, label %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread, label %64
 
-64:                                               ; preds = %.thread59
+64:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %65, align 8, !tbaa !403
@@ -5263,7 +5272,7 @@ thread-pre-split.thread:                          ; preds = %76, %80, %83, %thre
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread
 
-_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread: ; preds = %30, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_11DeclContextEEEDaPT0_.exit, %.thread59, %thread-pre-split.thread, %64, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_11DeclContextEEEDaPT0_.exit.thread, %26, %28, %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit
+_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit.thread: ; preds = %30, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_11DeclContextEEEDaPT0_.exit, %.critedge, %thread-pre-split.thread, %64, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_11DeclContextEEEDaPT0_.exit.thread, %26, %28, %_ZN12_GLOBAL__N_114IsDependentVarEPN5clang7VarDeclE.exit
   ret void
 }
 

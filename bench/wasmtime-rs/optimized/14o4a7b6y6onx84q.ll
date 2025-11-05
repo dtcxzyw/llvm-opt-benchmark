@@ -2748,7 +2748,7 @@ _ZN5gimli4read6abbrev12Abbreviation18parse_has_children17hb63a2aaa31d4b03bE.exit
   store i64 %111, ptr %11, align 8, !alias.scope !652, !noalias !655
   %113 = load i8, ptr %100, align 1, !alias.scope !661, !noalias !665
   %114 = icmp ugt i8 %113, 3
-  br i1 %114, label %.loopexit.loopexit137.i.i, label %117
+  br i1 %114, label %.loopexit.i.i, label %117
 
 115:                                              ; preds = %109
   %116 = ptrtoint ptr %100 to i64
@@ -2829,7 +2829,7 @@ _ZN5gimli4read6abbrev12Abbreviation18parse_has_children17hb63a2aaa31d4b03bE.exit
   store i64 %148, ptr %11, align 8, !alias.scope !732, !noalias !735
   %150 = load i8, ptr %137, align 1, !alias.scope !741, !noalias !745
   %151 = icmp ugt i8 %150, 3
-  br i1 %151, label %.loopexit.loopexit137.i.i, label %154
+  br i1 %151, label %.loopexit.loopexit137.i.i.loopexit355, label %154
 
 152:                                              ; preds = %146
   %153 = ptrtoint ptr %137 to i64
@@ -2904,7 +2904,7 @@ _ZN5gimli4read6abbrev12Abbreviation18parse_has_children17hb63a2aaa31d4b03bE.exit
   store i64 %182, ptr %11, align 8, !alias.scope !816, !noalias !819
   %184 = load i8, ptr %171, align 1, !alias.scope !825, !noalias !829
   %185 = icmp ugt i8 %184, 3
-  br i1 %185, label %.loopexit.loopexit137.i.i, label %188
+  br i1 %185, label %.loopexit.i.i, label %188
 
 186:                                              ; preds = %180
   %187 = ptrtoint ptr %171 to i64
@@ -2921,7 +2921,7 @@ _ZN5gimli4read6abbrev12Abbreviation18parse_has_children17hb63a2aaa31d4b03bE.exit
   %.promoted.i.i.i.i.i = phi i64 [ %182, %188 ], [ %170, %169 ], [ %160, %159 ]
   %.sroa.14.0.off0.i.i.i.i = phi i16 [ %191, %188 ], [ %176, %169 ], [ %164, %159 ]
   switch i16 %.sroa.14.0.off0.i.i.i.i, label %227 [
-    i16 0, label %.loopexit.loopexit137.i.i
+    i16 0, label %.loopexit.i.i
     i16 33, label %197
   ]
 
@@ -2930,7 +2930,7 @@ _ZN5gimli4read6abbrev12Abbreviation18parse_has_children17hb63a2aaa31d4b03bE.exit
   %195 = phi i64 [ %148, %154 ], [ %136, %135 ], [ %126, %125 ]
   %.sroa.14138.0.off0.i.i.i = phi i16 [ %157, %154 ], [ %142, %135 ], [ %130, %125 ]
   %196 = icmp eq i16 %.sroa.14138.0.off0.i.i.i, 0
-  br i1 %196, label %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.i, label %.loopexit.loopexit137.i.i
+  br i1 %196, label %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.i, label %.loopexit.loopexit137.i.i.loopexit355
 
 197:                                              ; preds = %192
   call void @llvm.experimental.noalias.scope.decl(metadata !831)
@@ -3010,21 +3010,17 @@ _ZN5gimli4read6abbrev12Abbreviation18parse_has_children17hb63a2aaa31d4b03bE.exit
   invoke void @_ZN5gimli4read6abbrev10Attributes4push17h3f629ece527874b0E(ptr noalias noundef nonnull align 8 dereferenceable(96) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %5)
           to label %85 unwind label %225, !noalias !581
 
-.loopexit.loopexit137.i.i:                        ; preds = %193, %147, %192, %181, %110
-  %.sroa.10.sroa.10.1.ph.ph.i.i = phi i64 [ 0, %110 ], [ 0, %181 ], [ 0, %192 ], [ 0, %147 ], [ %.sroa.10.sroa.10.0.i.i, %193 ]
-  %.sroa.10.sroa.0.1.ph.ph.i.i = phi i64 [ 9, %192 ], [ 6, %181 ], [ 6, %110 ], [ 6, %147 ], [ 13, %193 ]
-  %.sroa.29.1.ph.ph.i.i = phi i64 [ undef, %110 ], [ undef, %181 ], [ undef, %192 ], [ undef, %147 ], [ %.sroa.29.0.i.i, %193 ]
-  %230 = and i64 %.sroa.10.sroa.10.1.ph.ph.i.i, -65536
-  %231 = and i64 %.sroa.10.sroa.10.1.ph.ph.i.i, 65280
+.loopexit.loopexit137.i.i.loopexit355:            ; preds = %147, %193
+  %.sroa.10.sroa.10.1.ph.ph.i.i.ph = phi i64 [ %.sroa.10.sroa.10.0.i.i, %193 ], [ 0, %147 ]
+  %.sroa.10.sroa.0.1.ph.ph.i.i.ph356 = phi i64 [ 13, %193 ], [ 6, %147 ]
+  %.sroa.29.1.ph.ph.i.i.ph = phi i64 [ %.sroa.29.0.i.i, %193 ], [ undef, %147 ]
+  %230 = and i64 %.sroa.10.sroa.10.1.ph.ph.i.i.ph, -256
+  %231 = or disjoint i64 %230, %.sroa.10.sroa.0.1.ph.ph.i.i.ph356
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %208, %.loopexit.loopexit137.i.i, %206, %186, %178, %166, %152, %144, %132, %115, %107, %95
-  %.sroa.10.sroa.14.1.ph.i.i = phi i64 [ 0, %206 ], [ 0, %115 ], [ 0, %107 ], [ 0, %95 ], [ 0, %152 ], [ 0, %144 ], [ 0, %132 ], [ 0, %186 ], [ 0, %178 ], [ 0, %166 ], [ %230, %.loopexit.loopexit137.i.i ], [ 0, %208 ]
-  %.sroa.10.sroa.10.1.ph.i.i = phi i64 [ 0, %206 ], [ 0, %115 ], [ 0, %107 ], [ 0, %95 ], [ 0, %152 ], [ 0, %144 ], [ 0, %132 ], [ 0, %186 ], [ 0, %178 ], [ 0, %166 ], [ %231, %.loopexit.loopexit137.i.i ], [ 0, %208 ]
-  %.sroa.10.sroa.0.1.ph.i.i = phi i64 [ 19, %206 ], [ 19, %115 ], [ 19, %107 ], [ 19, %95 ], [ 19, %152 ], [ 19, %144 ], [ 19, %132 ], [ 19, %186 ], [ 19, %178 ], [ 19, %166 ], [ %.sroa.10.sroa.0.1.ph.ph.i.i, %.loopexit.loopexit137.i.i ], [ 7, %208 ]
-  %.sroa.29.1.ph.i.i = phi i64 [ %207, %206 ], [ %116, %115 ], [ %108, %107 ], [ %96, %95 ], [ %153, %152 ], [ %145, %144 ], [ %133, %132 ], [ %187, %186 ], [ %179, %178 ], [ %167, %166 ], [ %.sroa.29.1.ph.ph.i.i, %.loopexit.loopexit137.i.i ], [ undef, %208 ]
-  %.sroa.10.sroa.10.0.insert.insert29.i.i = or disjoint i64 %.sroa.10.sroa.10.1.ph.i.i, %.sroa.10.sroa.14.1.ph.i.i
-  %.sroa.10.sroa.0.0.insert.insert25.i.i = or disjoint i64 %.sroa.10.sroa.10.0.insert.insert29.i.i, %.sroa.10.sroa.0.1.ph.i.i
+.loopexit.i.i:                                    ; preds = %110, %181, %192, %208, %.loopexit.loopexit137.i.i.loopexit355, %206, %186, %178, %166, %152, %144, %132, %115, %107, %95
+  %.sroa.10.sroa.10.1.ph.i.i = phi i64 [ 19, %206 ], [ 19, %115 ], [ 19, %107 ], [ 19, %95 ], [ 19, %152 ], [ 19, %144 ], [ 19, %132 ], [ 19, %186 ], [ 19, %178 ], [ 19, %166 ], [ %231, %.loopexit.loopexit137.i.i.loopexit355 ], [ 7, %208 ], [ 6, %110 ], [ 6, %181 ], [ 9, %192 ]
+  %.sroa.29.1.ph.i.i = phi i64 [ %207, %206 ], [ %116, %115 ], [ %108, %107 ], [ %96, %95 ], [ %153, %152 ], [ %145, %144 ], [ %133, %132 ], [ %187, %186 ], [ %179, %178 ], [ %167, %166 ], [ %.sroa.29.1.ph.ph.i.i.ph, %.loopexit.loopexit137.i.i.loopexit355 ], [ undef, %208 ], [ undef, %192 ], [ undef, %181 ], [ undef, %110 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !863)
   %232 = load i64, ptr %6, align 8, !range !79, !alias.scope !863, !noalias !581, !noundef !4
   %233 = icmp eq i64 %232, 0
@@ -3088,7 +3084,7 @@ _ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.i
           to label %247 unwind label %.loopexit92
 
 .loopexit91:                                      ; preds = %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.i, %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.thread.i
-  %.sroa.585.0142.ph.i = phi i64 [ %.sroa.10.sroa.0.0.insert.insert25.i.i, %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.thread.i ], [ %.sroa.585.0.copyload.i, %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.i ]
+  %.sroa.585.0142.ph.i = phi i64 [ %.sroa.10.sroa.10.1.ph.i.i, %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.thread.i ], [ %.sroa.585.0.copyload.i, %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.i ]
   %.sroa.887.0140.ph.i = phi i64 [ %.sroa.29.1.ph.i.i, %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.thread.i ], [ %.sroa.887.0.copyload.i, %_ZN5gimli4read6abbrev12Abbreviation16parse_attributes17h0f7465d03aeeefd5E.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.989.i)
   %.sroa.9.sroa.9.0.extract.shift34 = lshr i64 %.sroa.585.0142.ph.i, 8

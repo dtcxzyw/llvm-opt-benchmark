@@ -3689,7 +3689,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZNK5clang12ast_matchers8interna
   br label %.thread
 
 .thread:                                          ; preds = %15, %36, %33, %29, %25
-  %.1612 = phi i1 [ %27, %25 ], [ %27, %29 ], [ %27, %33 ], [ %27, %36 ], [ undef, %15 ]
+  %.1612 = phi i1 [ %27, %25 ], [ %27, %29 ], [ %27, %33 ], [ %27, %36 ], [ false, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre9 = load i8, ptr %12, align 8, !tbaa !607, !range !216
   %37 = trunc nuw i8 %.pre9 to i1
@@ -3712,11 +3712,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZNK5clang12ast_matchers8interna
   br label %_ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit8
 
 _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit8: ; preds = %3, %.thread, %38, %42, %45
-  %not..117 = phi i1 [ %24, %.thread ], [ %24, %38 ], [ %24, %42 ], [ %24, %45 ], [ false, %3 ]
-  %.216 = phi i1 [ %.1612, %.thread ], [ %.1612, %38 ], [ %.1612, %42 ], [ %.1612, %45 ], [ undef, %3 ]
+  %not..115 = phi i1 [ %.1612, %.thread ], [ %.1612, %38 ], [ %.1612, %42 ], [ %.1612, %45 ], [ false, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %spec.select = and i1 %.216, %not..117
-  ret i1 %spec.select
+  ret i1 %not..115
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -6254,7 +6252,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit136:             ; preds = %191
   %195 = load i16, ptr %194, align 8
   %196 = and i16 %195, 511
   %.not186 = icmp eq i16 %196, 73
-  br i1 %.not186, label %197, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
+  br i1 %.not186, label %197, label %.critedge
 
 197:                                              ; preds = %.critedge88
   %198 = load ptr, ptr %2, align 8, !tbaa !62
@@ -6265,14 +6263,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit136:             ; preds = %191
   %.sroa.0.0.copyload.i138 = load i64, ptr %202, align 8, !tbaa !37
   %203 = tail call noundef ptr @_ZNK5clang10ASTContext14getAsArrayTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %201, i64 %.sroa.0.0.copyload.i138) #27
   %.not.i.i.i139 = icmp eq ptr %203, null
-  br i1 %.not.i.i.i139, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %204
+  br i1 %.not.i.i.i139, label %.critedge, label %204
 
 204:                                              ; preds = %197
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %206 = load i8, ptr %205, align 16
   %207 = and i8 %206, -2
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %207, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, label %.critedge
 
 _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %204
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6384,16 +6382,11 @@ _ZN4llvm5APIntD2Ev.exit143:                       ; preds = %_ZN4llvm5APIntD2Ev.
 _ZN5clang4Expr10EvalResultD2Ev.exit:              ; preds = %250, %252
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %not. = xor i1 %212, true
-  br label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
-
-_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread: ; preds = %197, %204, %_ZN5clang4Expr10EvalResultD2Ev.exit, %.critedge88
-  %cond1 = phi i1 [ true, %.critedge88 ], [ %not., %_ZN5clang4Expr10EvalResultD2Ev.exit ], [ true, %204 ], [ true, %197 ]
-  %.16 = phi i1 [ false, %.critedge88 ], [ %.14, %_ZN5clang4Expr10EvalResultD2Ev.exit ], [ false, %204 ], [ false, %197 ]
-  %spec.select = or i1 %cond1, %.16
+  %253 = or i1 %.14, %not.
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit132.thread, %191, %_ZN4llvmeqENS_9StringRefES0_.exit136, %130, %_ZNK5clang9NamedDecl7getNameEv.exit, %_ZN4llvmneENS_9StringRefES0_.exit, %125, %114, %87, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit, %23, %61, %_ZNK5clang8QualType16isConstQualifiedEv.exit, %95, %100, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, %_ZNK5clang4Type13isIntegerTypeEv.exit, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit
-  %.0 = phi i1 [ false, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ false, %23 ], [ false, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ %spec.select, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread ], [ false, %100 ], [ false, %95 ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ false, %61 ], [ false, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ false, %87 ], [ true, %_ZN4llvmneENS_9StringRefES0_.exit ], [ true, %125 ], [ true, %114 ], [ true, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ true, %130 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit136 ], [ false, %191 ], [ false, %_ZNK5clang9NamedDecl7getNameEv.exit132.thread ]
+.critedge:                                        ; preds = %_ZNK5clang9NamedDecl7getNameEv.exit132.thread, %191, %_ZN4llvmeqENS_9StringRefES0_.exit136, %130, %.critedge88, %_ZN5clang4Expr10EvalResultD2Ev.exit, %204, %197, %_ZNK5clang9NamedDecl7getNameEv.exit, %_ZN4llvmneENS_9StringRefES0_.exit, %125, %114, %87, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit, %23, %61, %_ZNK5clang8QualType16isConstQualifiedEv.exit, %95, %100, %_ZNK5clang4Type13isIntegerTypeEv.exit, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit
+  %.0 = phi i1 [ false, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ false, %23 ], [ false, %_ZNK5clang4Type13isIntegerTypeEv.exit ], [ false, %100 ], [ false, %95 ], [ false, %_ZNK5clang8QualType16isConstQualifiedEv.exit ], [ false, %61 ], [ false, %_ZNK5clang4Type6castAsINS_11PointerTypeEEEPKT_v.exit ], [ false, %87 ], [ true, %_ZN4llvmneENS_9StringRefES0_.exit ], [ true, %125 ], [ true, %114 ], [ true, %_ZNK5clang9NamedDecl7getNameEv.exit ], [ true, %.critedge88 ], [ %253, %_ZN5clang4Expr10EvalResultD2Ev.exit ], [ true, %204 ], [ true, %197 ], [ true, %130 ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit136 ], [ false, %191 ], [ false, %_ZNK5clang9NamedDecl7getNameEv.exit132.thread ]
   ret i1 %.0
 }
 

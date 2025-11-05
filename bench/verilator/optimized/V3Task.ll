@@ -16150,15 +16150,15 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %_ZNK6AstVar6basicpE
   br i1 %631, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread372
 
 _ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread: ; preds = %_ZNK6AstVar6basicpEv.exit243, %_ZNK6AstVar6basicpEv.exit243, %_ZNK6AstVar6basicpEv.exit243, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit
+  %632 = mul nsw i32 %120, %.050812
   br label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread372
 
 _ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread372: ; preds = %_ZNK6AstVar6basicpEv.exit243, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
-  %632 = phi i32 [ %120, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread ], [ 1, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit ], [ 1, %_ZNK6AstVar6basicpEv.exit243 ]
+  %633 = phi i32 [ %632, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread ], [ %.050812, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit ], [ %.050812, %_ZNK6AstVar6basicpEv.exit243 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %633 = mul nsw i32 %632, %.050812
   store i32 %633, ptr %31, align 4, !tbaa !42
   invoke void @_Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %30, ptr noundef nonnull align 4 dereferenceable(4) %31)
           to label %634 unwind label %687
@@ -44145,15 +44145,15 @@ _ZNK13AstBasicDType13isDpiLogicVecEv.exit:        ; preds = %_ZNK6AstVar6basicpE
   br i1 %553, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread, label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread312
 
 _ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread: ; preds = %_ZNK6AstVar6basicpEv.exit231, %_ZNK6AstVar6basicpEv.exit231, %_ZNK6AstVar6basicpEv.exit231, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit
+  %554 = mul nsw i32 %139, %.087558
   br label %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread312
 
 _ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread312: ; preds = %_ZNK6AstVar6basicpEv.exit231, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread
-  %554 = phi i32 [ %139, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread ], [ 1, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit ], [ 1, %_ZNK6AstVar6basicpEv.exit231 ]
+  %555 = phi i32 [ %554, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit.thread ], [ %.087558, %_ZNK13AstBasicDType13isDpiLogicVecEv.exit ], [ %.087558, %_ZNK6AstVar6basicpEv.exit231 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %555 = mul nsw i32 %554, %.087558
   store i32 %555, ptr %21, align 4, !tbaa !42
   invoke void @_Z8cvtToStrIiENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 4 dereferenceable(4) %21)
           to label %556 unwind label %609

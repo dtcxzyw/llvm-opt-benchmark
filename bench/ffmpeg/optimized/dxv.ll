@@ -4600,12 +4600,12 @@ bytestream2_get_byte.exit:                        ; preds = %798, %799
   %833 = load i16, ptr %825, align 1, !tbaa !41
   %834 = zext i16 %833 to i32
   %835 = add nuw nsw i32 %834, 1
+  %836 = mul nuw nsw i32 %835, %822
   br label %bytestream2_get_le16.exit
 
 bytestream2_get_le16.exit:                        ; preds = %830, %831
-  %.0.i424 = phi i32 [ 1, %830 ], [ %835, %831 ]
-  %836 = mul nuw nsw i32 %.0.i424, %822
-  %837 = zext nneg i32 %836 to i64
+  %.0.i424 = phi i32 [ %822, %830 ], [ %836, %831 ]
+  %837 = zext nneg i32 %.0.i424 to i64
   %838 = ptrtoint ptr %12 to i64
   %839 = ptrtoint ptr %1 to i64
   %840 = sub i64 %838, %839
@@ -4618,13 +4618,13 @@ bytestream2_get_le16.exit:                        ; preds = %830, %831
   %845 = getelementptr inbounds i8, ptr %12, i64 %844
   %846 = load i16, ptr %845, align 1, !tbaa !41
   store i16 %846, ptr %12, align 1, !tbaa !41
-  %847 = sub nsw i32 2, %836
+  %847 = sub nsw i32 2, %.0.i424
   %848 = sext i32 %847 to i64
   %849 = getelementptr inbounds i8, ptr %12, i64 %848
   %850 = load i16, ptr %849, align 1, !tbaa !41
   %851 = getelementptr inbounds nuw i8, ptr %12, i64 2
   store i16 %850, ptr %851, align 1, !tbaa !41
-  %852 = sub nsw i32 4, %836
+  %852 = sub nsw i32 4, %.0.i424
   %853 = sext i32 %852 to i64
   %854 = getelementptr inbounds i8, ptr %12, i64 %853
   %855 = load i32, ptr %854, align 1, !tbaa !41

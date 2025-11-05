@@ -5731,14 +5731,13 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
   %.else.val2010 = load i8, ptr %.01602, align 4
   %675 = and i8 %.else.val2010, 1
   %676 = icmp eq i8 %675, 0
-  br label %.cont2007
+  %677 = and i1 %265, %676
+  br i1 %677, label %678, label %proto_item_set_generated.exit1765
 
-.cont2007:                                        ; preds = %674, %.else2009
-  %677 = phi i1 [ true, %674 ], [ %676, %.else2009 ]
-  %or.cond7 = and i1 %265, %677
-  br i1 %or.cond7, label %678, label %proto_item_set_generated.exit1765
+.cont2007:                                        ; preds = %674
+  br i1 %265, label %678, label %proto_item_set_generated.exit1765
 
-678:                                              ; preds = %.cont2007
+678:                                              ; preds = %.else2009, %.cont2007
   switch i32 %.01594, label %693 [
     i32 1, label %679
     i32 2, label %686
@@ -5786,14 +5785,13 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
   %.else.val2006 = load i8, ptr %.01602, align 4
   %700 = and i8 %.else.val2006, 1
   %701 = icmp eq i8 %700, 0
-  br label %.cont2003
+  %702 = and i1 %265, %701
+  br i1 %702, label %703, label %proto_item_set_generated.exit1765
 
-.cont2003:                                        ; preds = %699, %.else2005
-  %702 = phi i1 [ true, %699 ], [ %701, %.else2005 ]
-  %or.cond9 = and i1 %265, %702
-  br i1 %or.cond9, label %703, label %proto_item_set_generated.exit1765
+.cont2003:                                        ; preds = %699
+  br i1 %265, label %703, label %proto_item_set_generated.exit1765
 
-703:                                              ; preds = %.cont2003
+703:                                              ; preds = %.else2005, %.cont2003
   %704 = getelementptr ptr, ptr %16, i64 %.01595
   %705 = load ptr, ptr %704, align 8
   %.not1714 = icmp eq ptr %705, null
@@ -5880,14 +5878,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1998 = load i8, ptr %.01602, align 4
   %740 = and i8 %.else.val1998, 1
   %741 = icmp eq i8 %740, 0
-  br label %.cont1995
+  %742 = and i1 %265, %741
+  br i1 %742, label %743, label %proto_item_set_generated.exit1765
 
-.cont1995:                                        ; preds = %739, %.else1997
-  %742 = phi i1 [ true, %739 ], [ %741, %.else1997 ]
-  %or.cond11 = and i1 %265, %742
-  br i1 %or.cond11, label %743, label %proto_item_set_generated.exit1765
+.cont1995:                                        ; preds = %739
+  br i1 %265, label %743, label %proto_item_set_generated.exit1765
 
-743:                                              ; preds = %.cont1995
+743:                                              ; preds = %.else1997, %.cont1995
   %744 = getelementptr ptr, ptr %16, i64 %.01595
   %745 = load ptr, ptr %744, align 8
   %746 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %745, i8 noundef zeroext 8, i32 noundef 1)
@@ -5966,14 +5963,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1990 = load i8, ptr %.01602, align 4
   %779 = and i8 %.else.val1990, 1
   %780 = icmp eq i8 %779, 0
-  br label %.cont1987
+  %781 = and i1 %265, %780
+  br i1 %781, label %782, label %proto_item_set_generated.exit1765
 
-.cont1987:                                        ; preds = %778, %.else1989
-  %781 = phi i1 [ true, %778 ], [ %780, %.else1989 ]
-  %or.cond13 = and i1 %265, %781
-  br i1 %or.cond13, label %782, label %proto_item_set_generated.exit1765
+.cont1987:                                        ; preds = %778
+  br i1 %265, label %782, label %proto_item_set_generated.exit1765
 
-782:                                              ; preds = %.cont1987
+782:                                              ; preds = %.else1989, %.cont1987
   switch i32 %.01594, label %797 [
     i32 2, label %783
     i32 1, label %790
@@ -6027,14 +6023,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1986 = load i8, ptr %.01602, align 4
   %810 = and i8 %.else.val1986, 1
   %811 = icmp eq i8 %810, 0
-  br label %.cont1983
+  %812 = and i1 %265, %811
+  br i1 %812, label %813, label %proto_item_set_generated.exit1765
 
-.cont1983:                                        ; preds = %809, %.else1985
-  %812 = phi i1 [ true, %809 ], [ %811, %.else1985 ]
-  %or.cond15 = and i1 %265, %812
-  br i1 %or.cond15, label %813, label %proto_item_set_generated.exit1765
+.cont1983:                                        ; preds = %809
+  br i1 %265, label %813, label %proto_item_set_generated.exit1765
 
-813:                                              ; preds = %.cont1983
+813:                                              ; preds = %.else1985, %.cont1983
   %814 = getelementptr ptr, ptr %16, i64 %.01595
   %815 = load ptr, ptr %814, align 8
   %816 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %815, i8 noundef zeroext 12, i32 noundef 1)
@@ -6150,14 +6145,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1974 = load i8, ptr %.01602, align 4
   %863 = and i8 %.else.val1974, 1
   %864 = icmp eq i8 %863, 0
-  br label %.cont1971
+  %865 = and i1 %265, %864
+  br i1 %865, label %866, label %proto_item_set_generated.exit1765
 
-.cont1971:                                        ; preds = %862, %.else1973
-  %865 = phi i1 [ true, %862 ], [ %864, %.else1973 ]
-  %or.cond85 = and i1 %265, %865
-  br i1 %or.cond85, label %866, label %proto_item_set_generated.exit1765
+.cont1971:                                        ; preds = %862
+  br i1 %265, label %866, label %proto_item_set_generated.exit1765
 
-866:                                              ; preds = %.cont1971
+866:                                              ; preds = %.else1973, %.cont1971
   %867 = zext nneg i32 %.01594 to i64
   %868 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %867
   %869 = getelementptr i8, ptr %868, i64 56
@@ -6224,14 +6218,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1966 = load i8, ptr %.01602, align 4
   %897 = and i8 %.else.val1966, 1
   %898 = icmp eq i8 %897, 0
-  br label %.cont1963
+  %899 = and i1 %265, %898
+  br i1 %899, label %900, label %proto_item_set_generated.exit1765
 
-.cont1963:                                        ; preds = %896, %.else1965
-  %899 = phi i1 [ true, %896 ], [ %898, %.else1965 ]
-  %or.cond17 = and i1 %265, %899
-  br i1 %or.cond17, label %900, label %proto_item_set_generated.exit1765
+.cont1963:                                        ; preds = %896
+  br i1 %265, label %900, label %proto_item_set_generated.exit1765
 
-900:                                              ; preds = %.cont1963
+900:                                              ; preds = %.else1965, %.cont1963
   %901 = icmp eq i32 %.01594, 2
   br i1 %901, label %902, label %.critedge1749
 
@@ -6351,14 +6344,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1962 = load i8, ptr %.01602, align 4
   %961 = and i8 %.else.val1962, 1
   %962 = icmp eq i8 %961, 0
-  br label %.cont1959
+  %963 = and i1 %265, %962
+  br i1 %963, label %964, label %proto_item_set_generated.exit1765
 
-.cont1959:                                        ; preds = %960, %.else1961
-  %963 = phi i1 [ true, %960 ], [ %962, %.else1961 ]
-  %or.cond19 = and i1 %265, %963
-  br i1 %or.cond19, label %964, label %proto_item_set_generated.exit1765
+.cont1959:                                        ; preds = %960
+  br i1 %265, label %964, label %proto_item_set_generated.exit1765
 
-964:                                              ; preds = %.cont1959
+964:                                              ; preds = %.else1961, %.cont1959
   %965 = zext nneg i32 %.01594 to i64
   %966 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %965
   %967 = getelementptr i8, ptr %966, i64 56
@@ -6380,14 +6372,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1958 = load i8, ptr %.01602, align 4
   %975 = and i8 %.else.val1958, 1
   %976 = icmp eq i8 %975, 0
-  br label %.cont1955
+  %977 = and i1 %265, %976
+  br i1 %977, label %978, label %proto_item_set_generated.exit1765
 
-.cont1955:                                        ; preds = %974, %.else1957
-  %977 = phi i1 [ true, %974 ], [ %976, %.else1957 ]
-  %or.cond21 = and i1 %265, %977
-  br i1 %or.cond21, label %978, label %proto_item_set_generated.exit1765
+.cont1955:                                        ; preds = %974
+  br i1 %265, label %978, label %proto_item_set_generated.exit1765
 
-978:                                              ; preds = %.cont1955
+978:                                              ; preds = %.else1957, %.cont1955
   %979 = getelementptr ptr, ptr %16, i64 %.01595
   %980 = load ptr, ptr %979, align 8
   %981 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %980, i8 noundef zeroext 18, i32 noundef 1)
@@ -6416,14 +6407,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1954 = load i8, ptr %.01602, align 4
   %990 = and i8 %.else.val1954, 1
   %991 = icmp eq i8 %990, 0
-  br label %.cont1951
+  %992 = and i1 %265, %991
+  br i1 %992, label %993, label %proto_item_set_generated.exit1765
 
-.cont1951:                                        ; preds = %989, %.else1953
-  %992 = phi i1 [ true, %989 ], [ %991, %.else1953 ]
-  %or.cond23 = and i1 %265, %992
-  br i1 %or.cond23, label %993, label %proto_item_set_generated.exit1765
+.cont1951:                                        ; preds = %989
+  br i1 %265, label %993, label %proto_item_set_generated.exit1765
 
-993:                                              ; preds = %.cont1951
+993:                                              ; preds = %.else1953, %.cont1951
   %994 = zext nneg i32 %.01594 to i64
   %995 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %994
   %996 = getelementptr i8, ptr %995, i64 56
@@ -6445,14 +6435,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1950 = load i8, ptr %.01602, align 4
   %1003 = and i8 %.else.val1950, 1
   %1004 = icmp eq i8 %1003, 0
-  br label %.cont1947
+  %1005 = and i1 %265, %1004
+  br i1 %1005, label %1006, label %proto_item_set_generated.exit1765
 
-.cont1947:                                        ; preds = %1002, %.else1949
-  %1005 = phi i1 [ true, %1002 ], [ %1004, %.else1949 ]
-  %or.cond25 = and i1 %265, %1005
-  br i1 %or.cond25, label %1006, label %proto_item_set_generated.exit1765
+.cont1947:                                        ; preds = %1002
+  br i1 %265, label %1006, label %proto_item_set_generated.exit1765
 
-1006:                                             ; preds = %.cont1947
+1006:                                             ; preds = %.else1949, %.cont1947
   %1007 = getelementptr ptr, ptr %16, i64 %.01595
   %1008 = load ptr, ptr %1007, align 8
   %1009 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1008, i8 noundef zeroext 20, i32 noundef 1)
@@ -6481,14 +6470,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1946 = load i8, ptr %.01602, align 4
   %1018 = and i8 %.else.val1946, 1
   %1019 = icmp eq i8 %1018, 0
-  br label %.cont1943
+  %1020 = and i1 %265, %1019
+  br i1 %1020, label %1021, label %proto_item_set_generated.exit1765
 
-.cont1943:                                        ; preds = %1017, %.else1945
-  %1020 = phi i1 [ true, %1017 ], [ %1019, %.else1945 ]
-  %or.cond27 = and i1 %265, %1020
-  br i1 %or.cond27, label %1021, label %proto_item_set_generated.exit1765
+.cont1943:                                        ; preds = %1017
+  br i1 %265, label %1021, label %proto_item_set_generated.exit1765
 
-1021:                                             ; preds = %.cont1943
+1021:                                             ; preds = %.else1945, %.cont1943
   %1022 = zext nneg i32 %.01594 to i64
   %1023 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1022
   %1024 = getelementptr i8, ptr %1023, i64 56
@@ -6703,14 +6691,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1930 = load i8, ptr %.01602, align 4
   %1121 = and i8 %.else.val1930, 1
   %1122 = icmp eq i8 %1121, 0
-  br label %.cont1927
+  %1123 = and i1 %265, %1122
+  br i1 %1123, label %1124, label %proto_item_set_generated.exit1765
 
-.cont1927:                                        ; preds = %1120, %.else1929
-  %1123 = phi i1 [ true, %1120 ], [ %1122, %.else1929 ]
-  %or.cond31 = and i1 %265, %1123
-  br i1 %or.cond31, label %1124, label %proto_item_set_generated.exit1765
+.cont1927:                                        ; preds = %1120
+  br i1 %265, label %1124, label %proto_item_set_generated.exit1765
 
-1124:                                             ; preds = %.cont1927
+1124:                                             ; preds = %.else1929, %.cont1927
   %1125 = zext nneg i32 %.01594 to i64
   %1126 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1125
   %1127 = getelementptr i8, ptr %1126, i64 56
@@ -6732,14 +6719,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1926 = load i8, ptr %.01602, align 4
   %1135 = and i8 %.else.val1926, 1
   %1136 = icmp eq i8 %1135, 0
-  br label %.cont1923
+  %1137 = and i1 %265, %1136
+  br i1 %1137, label %1138, label %proto_item_set_generated.exit1765
 
-.cont1923:                                        ; preds = %1134, %.else1925
-  %1137 = phi i1 [ true, %1134 ], [ %1136, %.else1925 ]
-  %or.cond33 = and i1 %265, %1137
-  br i1 %or.cond33, label %1138, label %proto_item_set_generated.exit1765
+.cont1923:                                        ; preds = %1134
+  br i1 %265, label %1138, label %proto_item_set_generated.exit1765
 
-1138:                                             ; preds = %.cont1923
+1138:                                             ; preds = %.else1925, %.cont1923
   %1139 = getelementptr ptr, ptr %16, i64 %.01595
   %1140 = load ptr, ptr %1139, align 8
   %1141 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1140, i8 noundef zeroext 26, i32 noundef 1)
@@ -6770,14 +6756,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1922 = load i8, ptr %.01602, align 4
   %1153 = and i8 %.else.val1922, 1
   %1154 = icmp eq i8 %1153, 0
-  br label %.cont1919
+  %1155 = and i1 %265, %1154
+  br i1 %1155, label %1156, label %proto_item_set_generated.exit1765
 
-.cont1919:                                        ; preds = %1152, %.else1921
-  %1155 = phi i1 [ true, %1152 ], [ %1154, %.else1921 ]
-  %or.cond35 = and i1 %265, %1155
-  br i1 %or.cond35, label %1156, label %proto_item_set_generated.exit1765
+.cont1919:                                        ; preds = %1152
+  br i1 %265, label %1156, label %proto_item_set_generated.exit1765
 
-1156:                                             ; preds = %.cont1919
+1156:                                             ; preds = %.else1921, %.cont1919
   %1157 = zext nneg i32 %.01594 to i64
   %1158 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1157
   %1159 = getelementptr i8, ptr %1158, i64 56
@@ -6809,14 +6794,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1918 = load i8, ptr %.01602, align 4
   %1173 = and i8 %.else.val1918, 1
   %1174 = icmp eq i8 %1173, 0
-  br label %.cont1915
+  %1175 = and i1 %265, %1174
+  br i1 %1175, label %1176, label %proto_item_set_generated.exit1765
 
-.cont1915:                                        ; preds = %1172, %.else1917
-  %1175 = phi i1 [ true, %1172 ], [ %1174, %.else1917 ]
-  %or.cond37 = and i1 %265, %1175
-  br i1 %or.cond37, label %1176, label %proto_item_set_generated.exit1765
+.cont1915:                                        ; preds = %1172
+  br i1 %265, label %1176, label %proto_item_set_generated.exit1765
 
-1176:                                             ; preds = %.cont1915
+1176:                                             ; preds = %.else1917, %.cont1915
   %1177 = zext nneg i32 %.01594 to i64
   %1178 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1177
   %1179 = getelementptr i8, ptr %1178, i64 56
@@ -6840,14 +6824,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1914 = load i8, ptr %.01602, align 4
   %1189 = and i8 %.else.val1914, 1
   %1190 = icmp eq i8 %1189, 0
-  br label %.cont1911
+  %1191 = and i1 %265, %1190
+  br i1 %1191, label %1192, label %proto_item_set_generated.exit1765
 
-.cont1911:                                        ; preds = %1188, %.else1913
-  %1191 = phi i1 [ true, %1188 ], [ %1190, %.else1913 ]
-  %or.cond39 = and i1 %265, %1191
-  br i1 %or.cond39, label %1192, label %proto_item_set_generated.exit1765
+.cont1911:                                        ; preds = %1188
+  br i1 %265, label %1192, label %proto_item_set_generated.exit1765
 
-1192:                                             ; preds = %.cont1911
+1192:                                             ; preds = %.else1913, %.cont1911
   %1193 = getelementptr ptr, ptr %16, i64 %.01595
   %1194 = load ptr, ptr %1193, align 8
   %1195 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1194, i8 noundef zeroext 29, i32 noundef 1)
@@ -6908,14 +6891,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1906 = load i8, ptr %.01602, align 4
   %1217 = and i8 %.else.val1906, 1
   %1218 = icmp eq i8 %1217, 0
-  br label %.cont1903
+  %1219 = and i1 %265, %1218
+  br i1 %1219, label %1220, label %proto_item_set_generated.exit1765
 
-.cont1903:                                        ; preds = %1216, %.else1905
-  %1219 = phi i1 [ true, %1216 ], [ %1218, %.else1905 ]
-  %or.cond41 = and i1 %265, %1219
-  br i1 %or.cond41, label %1220, label %proto_item_set_generated.exit1765
+.cont1903:                                        ; preds = %1216
+  br i1 %265, label %1220, label %proto_item_set_generated.exit1765
 
-1220:                                             ; preds = %.cont1903
+1220:                                             ; preds = %.else1905, %.cont1903
   %1221 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %1222 = load ptr, ptr %1221, align 8
   %1223 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1222, i8 noundef zeroext 31, i32 noundef 1)
@@ -6986,14 +6968,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1902 = load i8, ptr %.01602, align 4
   %1251 = and i8 %.else.val1902, 1
   %1252 = icmp eq i8 %1251, 0
-  br label %.cont1899
+  %1253 = and i1 %265, %1252
+  br i1 %1253, label %1254, label %proto_item_set_generated.exit1765
 
-.cont1899:                                        ; preds = %1250, %.else1901
-  %1253 = phi i1 [ true, %1250 ], [ %1252, %.else1901 ]
-  %or.cond43 = and i1 %265, %1253
-  br i1 %or.cond43, label %1254, label %proto_item_set_generated.exit1765
+.cont1899:                                        ; preds = %1250
+  br i1 %265, label %1254, label %proto_item_set_generated.exit1765
 
-1254:                                             ; preds = %.cont1899
+1254:                                             ; preds = %.else1901, %.cont1899
   %1255 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %1256 = load ptr, ptr %1255, align 8
   %1257 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1256, i8 noundef zeroext 31, i32 noundef 2)
@@ -7021,14 +7002,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1898 = load i8, ptr %.01602, align 4
   %1266 = and i8 %.else.val1898, 1
   %1267 = icmp eq i8 %1266, 0
-  br label %.cont1895
+  %1268 = and i1 %265, %1267
+  br i1 %1268, label %1269, label %proto_item_set_generated.exit1765
 
-.cont1895:                                        ; preds = %1265, %.else1897
-  %1268 = phi i1 [ true, %1265 ], [ %1267, %.else1897 ]
-  %or.cond45 = and i1 %265, %1268
-  br i1 %or.cond45, label %1269, label %proto_item_set_generated.exit1765
+.cont1895:                                        ; preds = %1265
+  br i1 %265, label %1269, label %proto_item_set_generated.exit1765
 
-1269:                                             ; preds = %.cont1895
+1269:                                             ; preds = %.else1897, %.cont1895
   %1270 = zext nneg i32 %.01594 to i64
   %1271 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1270
   %1272 = getelementptr i8, ptr %1271, i64 56
@@ -7058,14 +7038,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1894 = load i8, ptr %.01602, align 4
   %1284 = and i8 %.else.val1894, 1
   %1285 = icmp eq i8 %1284, 0
-  br label %.cont1891
+  %1286 = and i1 %265, %1285
+  br i1 %1286, label %1287, label %proto_item_set_generated.exit1765
 
-.cont1891:                                        ; preds = %1283, %.else1893
-  %1286 = phi i1 [ true, %1283 ], [ %1285, %.else1893 ]
-  %or.cond47 = and i1 %265, %1286
-  br i1 %or.cond47, label %1287, label %proto_item_set_generated.exit1765
+.cont1891:                                        ; preds = %1283
+  br i1 %265, label %1287, label %proto_item_set_generated.exit1765
 
-1287:                                             ; preds = %.cont1891
+1287:                                             ; preds = %.else1893, %.cont1891
   %1288 = zext nneg i32 %.01594 to i64
   %1289 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1288
   %1290 = getelementptr i8, ptr %1289, i64 56
@@ -7087,14 +7066,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1890 = load i8, ptr %.01602, align 4
   %1298 = and i8 %.else.val1890, 1
   %1299 = icmp eq i8 %1298, 0
-  br label %.cont1887
+  %1300 = and i1 %265, %1299
+  br i1 %1300, label %1301, label %proto_item_set_generated.exit1765
 
-.cont1887:                                        ; preds = %1297, %.else1889
-  %1300 = phi i1 [ true, %1297 ], [ %1299, %.else1889 ]
-  %or.cond49 = and i1 %265, %1300
-  br i1 %or.cond49, label %1301, label %proto_item_set_generated.exit1765
+.cont1887:                                        ; preds = %1297
+  br i1 %265, label %1301, label %proto_item_set_generated.exit1765
 
-1301:                                             ; preds = %.cont1887
+1301:                                             ; preds = %.else1889, %.cont1887
   %1302 = getelementptr ptr, ptr %16, i64 %.01595
   %1303 = load ptr, ptr %1302, align 8
   %1304 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1303, i8 noundef zeroext 35, i32 noundef 1)
@@ -7123,14 +7101,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1886 = load i8, ptr %.01602, align 4
   %1314 = and i8 %.else.val1886, 1
   %1315 = icmp eq i8 %1314, 0
-  br label %.cont1883
+  %1316 = and i1 %265, %1315
+  br i1 %1316, label %1317, label %proto_item_set_generated.exit1765
 
-.cont1883:                                        ; preds = %1313, %.else1885
-  %1316 = phi i1 [ true, %1313 ], [ %1315, %.else1885 ]
-  %or.cond51 = and i1 %265, %1316
-  br i1 %or.cond51, label %1317, label %proto_item_set_generated.exit1765
+.cont1883:                                        ; preds = %1313
+  br i1 %265, label %1317, label %proto_item_set_generated.exit1765
 
-1317:                                             ; preds = %.cont1883
+1317:                                             ; preds = %.else1885, %.cont1883
   %1318 = zext nneg i32 %.01594 to i64
   %1319 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1318
   %1320 = getelementptr i8, ptr %1319, i64 56
@@ -7324,14 +7301,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1866 = load i8, ptr %.01602, align 4
   %1402 = and i8 %.else.val1866, 1
   %1403 = icmp eq i8 %1402, 0
-  br label %.cont1863
+  %1404 = and i1 %265, %1403
+  br i1 %1404, label %1405, label %proto_item_set_generated.exit1765
 
-.cont1863:                                        ; preds = %1401, %.else1865
-  %1404 = phi i1 [ true, %1401 ], [ %1403, %.else1865 ]
-  %or.cond53 = and i1 %265, %1404
-  br i1 %or.cond53, label %1405, label %proto_item_set_generated.exit1765
+.cont1863:                                        ; preds = %1401
+  br i1 %265, label %1405, label %proto_item_set_generated.exit1765
 
-1405:                                             ; preds = %.cont1863
+1405:                                             ; preds = %.else1865, %.cont1863
   %1406 = zext nneg i32 %.01594 to i64
   %1407 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1406
   %1408 = getelementptr i8, ptr %1407, i64 56
@@ -7360,14 +7336,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1862 = load i8, ptr %.01602, align 4
   %1419 = and i8 %.else.val1862, 1
   %1420 = icmp eq i8 %1419, 0
-  br label %.cont1859
+  %1421 = and i1 %265, %1420
+  br i1 %1421, label %1422, label %proto_item_set_generated.exit1765
 
-.cont1859:                                        ; preds = %1418, %.else1861
-  %1421 = phi i1 [ true, %1418 ], [ %1420, %.else1861 ]
-  %or.cond55 = and i1 %265, %1421
-  br i1 %or.cond55, label %1422, label %proto_item_set_generated.exit1765
+.cont1859:                                        ; preds = %1418
+  br i1 %265, label %1422, label %proto_item_set_generated.exit1765
 
-1422:                                             ; preds = %.cont1859
+1422:                                             ; preds = %.else1861, %.cont1859
   %1423 = zext nneg i32 %.01594 to i64
   %1424 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1423
   %1425 = getelementptr i8, ptr %1424, i64 56
@@ -7388,14 +7363,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1858 = load i8, ptr %.01602, align 4
   %1432 = and i8 %.else.val1858, 1
   %1433 = icmp eq i8 %1432, 0
-  br label %.cont1855
+  %1434 = and i1 %265, %1433
+  br i1 %1434, label %1435, label %proto_item_set_generated.exit1765
 
-.cont1855:                                        ; preds = %1431, %.else1857
-  %1434 = phi i1 [ true, %1431 ], [ %1433, %.else1857 ]
-  %or.cond57 = and i1 %265, %1434
-  br i1 %or.cond57, label %1435, label %proto_item_set_generated.exit1765
+.cont1855:                                        ; preds = %1431
+  br i1 %265, label %1435, label %proto_item_set_generated.exit1765
 
-1435:                                             ; preds = %.cont1855
+1435:                                             ; preds = %.else1857, %.cont1855
   %1436 = getelementptr ptr, ptr %16, i64 %.01595
   %1437 = load ptr, ptr %1436, align 8
   %1438 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1437, i8 noundef zeroext 43, i32 noundef 1)
@@ -7456,14 +7430,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1850 = load i8, ptr %.01602, align 4
   %1460 = and i8 %.else.val1850, 1
   %1461 = icmp eq i8 %1460, 0
-  br label %.cont1847
+  %1462 = and i1 %265, %1461
+  br i1 %1462, label %1463, label %proto_item_set_generated.exit1765
 
-.cont1847:                                        ; preds = %1459, %.else1849
-  %1462 = phi i1 [ true, %1459 ], [ %1461, %.else1849 ]
-  %or.cond59 = and i1 %265, %1462
-  br i1 %or.cond59, label %1463, label %proto_item_set_generated.exit1765
+.cont1847:                                        ; preds = %1459
+  br i1 %265, label %1463, label %proto_item_set_generated.exit1765
 
-1463:                                             ; preds = %.cont1847
+1463:                                             ; preds = %.else1849, %.cont1847
   %1464 = getelementptr ptr, ptr %16, i64 %.01595
   %1465 = load ptr, ptr %1464, align 8
   %1466 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1465, i8 noundef zeroext 57, i32 noundef 1)
@@ -7492,14 +7465,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1846 = load i8, ptr %.01602, align 4
   %1476 = and i8 %.else.val1846, 1
   %1477 = icmp eq i8 %1476, 0
-  br label %.cont1843
+  %1478 = and i1 %265, %1477
+  br i1 %1478, label %1479, label %proto_item_set_generated.exit1765
 
-.cont1843:                                        ; preds = %1475, %.else1845
-  %1478 = phi i1 [ true, %1475 ], [ %1477, %.else1845 ]
-  %or.cond61 = and i1 %265, %1478
-  br i1 %or.cond61, label %1479, label %proto_item_set_generated.exit1765
+.cont1843:                                        ; preds = %1475
+  br i1 %265, label %1479, label %proto_item_set_generated.exit1765
 
-1479:                                             ; preds = %.cont1843
+1479:                                             ; preds = %.else1845, %.cont1843
   %1480 = zext nneg i32 %.01594 to i64
   %1481 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1480
   %1482 = getelementptr i8, ptr %1481, i64 56
@@ -7521,14 +7493,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1842 = load i8, ptr %.01602, align 4
   %1490 = and i8 %.else.val1842, 1
   %1491 = icmp eq i8 %1490, 0
-  br label %.cont1839
+  %1492 = and i1 %265, %1491
+  br i1 %1492, label %1493, label %proto_item_set_generated.exit1765
 
-.cont1839:                                        ; preds = %1489, %.else1841
-  %1492 = phi i1 [ true, %1489 ], [ %1491, %.else1841 ]
-  %or.cond63 = and i1 %265, %1492
-  br i1 %or.cond63, label %1493, label %proto_item_set_generated.exit1765
+.cont1839:                                        ; preds = %1489
+  br i1 %265, label %1493, label %proto_item_set_generated.exit1765
 
-1493:                                             ; preds = %.cont1839
+1493:                                             ; preds = %.else1841, %.cont1839
   %1494 = getelementptr ptr, ptr %16, i64 %.01595
   %1495 = load ptr, ptr %1494, align 8
   %1496 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1495, i8 noundef zeroext 46, i32 noundef 1)
@@ -7557,14 +7528,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1838 = load i8, ptr %.01602, align 4
   %1506 = and i8 %.else.val1838, 1
   %1507 = icmp eq i8 %1506, 0
-  br label %.cont1835
+  %1508 = and i1 %265, %1507
+  br i1 %1508, label %1509, label %proto_item_set_generated.exit1765
 
-.cont1835:                                        ; preds = %1505, %.else1837
-  %1508 = phi i1 [ true, %1505 ], [ %1507, %.else1837 ]
-  %or.cond65 = and i1 %265, %1508
-  br i1 %or.cond65, label %1509, label %proto_item_set_generated.exit1765
+.cont1835:                                        ; preds = %1505
+  br i1 %265, label %1509, label %proto_item_set_generated.exit1765
 
-1509:                                             ; preds = %.cont1835
+1509:                                             ; preds = %.else1837, %.cont1835
   %1510 = zext nneg i32 %.01594 to i64
   %1511 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1510
   %1512 = getelementptr i8, ptr %1511, i64 56
@@ -7586,14 +7556,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1834 = load i8, ptr %.01602, align 4
   %1520 = and i8 %.else.val1834, 1
   %1521 = icmp eq i8 %1520, 0
-  br label %.cont1831
+  %1522 = and i1 %265, %1521
+  br i1 %1522, label %1523, label %proto_item_set_generated.exit1765
 
-.cont1831:                                        ; preds = %1519, %.else1833
-  %1522 = phi i1 [ true, %1519 ], [ %1521, %.else1833 ]
-  %or.cond67 = and i1 %265, %1522
-  br i1 %or.cond67, label %1523, label %proto_item_set_generated.exit1765
+.cont1831:                                        ; preds = %1519
+  br i1 %265, label %1523, label %proto_item_set_generated.exit1765
 
-1523:                                             ; preds = %.cont1831
+1523:                                             ; preds = %.else1833, %.cont1831
   %1524 = getelementptr ptr, ptr %16, i64 %.01595
   %1525 = load ptr, ptr %1524, align 8
   %1526 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1525, i8 noundef zeroext 48, i32 noundef 1)
@@ -7634,14 +7603,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1830 = load i8, ptr %.01602, align 4
   %1542 = and i8 %.else.val1830, 1
   %1543 = icmp eq i8 %1542, 0
-  br label %.cont1827
+  %1544 = and i1 %265, %1543
+  br i1 %1544, label %1545, label %proto_item_set_generated.exit1765
 
-.cont1827:                                        ; preds = %1541, %.else1829
-  %1544 = phi i1 [ true, %1541 ], [ %1543, %.else1829 ]
-  %or.cond69 = and i1 %265, %1544
-  br i1 %or.cond69, label %1545, label %proto_item_set_generated.exit1765
+.cont1827:                                        ; preds = %1541
+  br i1 %265, label %1545, label %proto_item_set_generated.exit1765
 
-1545:                                             ; preds = %.cont1827
+1545:                                             ; preds = %.else1829, %.cont1827
   %1546 = zext nneg i32 %.01594 to i64
   %1547 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1546
   %1548 = getelementptr i8, ptr %1547, i64 56
@@ -7663,14 +7631,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1826 = load i8, ptr %.01602, align 4
   %1556 = and i8 %.else.val1826, 1
   %1557 = icmp eq i8 %1556, 0
-  br label %.cont1823
+  %1558 = and i1 %265, %1557
+  br i1 %1558, label %1559, label %proto_item_set_generated.exit1765
 
-.cont1823:                                        ; preds = %1555, %.else1825
-  %1558 = phi i1 [ true, %1555 ], [ %1557, %.else1825 ]
-  %or.cond71 = and i1 %265, %1558
-  br i1 %or.cond71, label %1559, label %proto_item_set_generated.exit1765
+.cont1823:                                        ; preds = %1555
+  br i1 %265, label %1559, label %proto_item_set_generated.exit1765
 
-1559:                                             ; preds = %.cont1823
+1559:                                             ; preds = %.else1825, %.cont1823
   %1560 = getelementptr ptr, ptr %16, i64 %.01595
   %1561 = load ptr, ptr %1560, align 8
   %1562 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1561, i8 noundef zeroext 53, i32 noundef 1)
@@ -7698,14 +7665,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1822 = load i8, ptr %.01602, align 4
   %1571 = and i8 %.else.val1822, 1
   %1572 = icmp eq i8 %1571, 0
-  br label %.cont1819
+  %1573 = and i1 %265, %1572
+  br i1 %1573, label %1574, label %proto_item_set_generated.exit1765
 
-.cont1819:                                        ; preds = %1570, %.else1821
-  %1573 = phi i1 [ true, %1570 ], [ %1572, %.else1821 ]
-  %or.cond73 = and i1 %265, %1573
-  br i1 %or.cond73, label %1574, label %proto_item_set_generated.exit1765
+.cont1819:                                        ; preds = %1570
+  br i1 %265, label %1574, label %proto_item_set_generated.exit1765
 
-1574:                                             ; preds = %.cont1819
+1574:                                             ; preds = %.else1821, %.cont1819
   %1575 = zext nneg i32 %.01594 to i64
   %1576 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1575
   %1577 = getelementptr i8, ptr %1576, i64 56
@@ -7726,14 +7692,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1818 = load i8, ptr %.01602, align 4
   %1584 = and i8 %.else.val1818, 1
   %1585 = icmp eq i8 %1584, 0
-  br label %.cont1815
+  %1586 = and i1 %265, %1585
+  br i1 %1586, label %1587, label %proto_item_set_generated.exit1765
 
-.cont1815:                                        ; preds = %1583, %.else1817
-  %1586 = phi i1 [ true, %1583 ], [ %1585, %.else1817 ]
-  %or.cond75 = and i1 %265, %1586
-  br i1 %or.cond75, label %1587, label %proto_item_set_generated.exit1765
+.cont1815:                                        ; preds = %1583
+  br i1 %265, label %1587, label %proto_item_set_generated.exit1765
 
-1587:                                             ; preds = %.cont1815
+1587:                                             ; preds = %.else1817, %.cont1815
   %1588 = getelementptr ptr, ptr %16, i64 %.01595
   %1589 = load ptr, ptr %1588, align 8
   %1590 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1589, i8 noundef zeroext 54, i32 noundef 1)
@@ -7765,14 +7730,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1814 = load i8, ptr %.01602, align 4
   %1601 = and i8 %.else.val1814, 1
   %1602 = icmp eq i8 %1601, 0
-  br label %.cont1811
+  %1603 = and i1 %265, %1602
+  br i1 %1603, label %1604, label %proto_item_set_generated.exit1765
 
-.cont1811:                                        ; preds = %1600, %.else1813
-  %1603 = phi i1 [ true, %1600 ], [ %1602, %.else1813 ]
-  %or.cond77 = and i1 %265, %1603
-  br i1 %or.cond77, label %1604, label %proto_item_set_generated.exit1765
+.cont1811:                                        ; preds = %1600
+  br i1 %265, label %1604, label %proto_item_set_generated.exit1765
 
-1604:                                             ; preds = %.cont1811
+1604:                                             ; preds = %.else1813, %.cont1811
   %1605 = zext nneg i32 %.01594 to i64
   %1606 = getelementptr %struct._direction_info_t, ptr %.01593, i64 %1605
   %1607 = getelementptr i8, ptr %1606, i64 56
@@ -7793,14 +7757,13 @@ control_proc_can_add_frame_even_if_complete.exit.thread: ; preds = %718, %717, %
   %.else.val1810 = load i8, ptr %.01602, align 4
   %1614 = and i8 %.else.val1810, 1
   %1615 = icmp eq i8 %1614, 0
-  br label %.cont1807
+  %1616 = and i1 %265, %1615
+  br i1 %1616, label %1617, label %proto_item_set_generated.exit1765
 
-.cont1807:                                        ; preds = %1613, %.else1809
-  %1616 = phi i1 [ true, %1613 ], [ %1615, %.else1809 ]
-  %or.cond79 = and i1 %265, %1616
-  br i1 %or.cond79, label %1617, label %proto_item_set_generated.exit1765
+.cont1807:                                        ; preds = %1613
+  br i1 %265, label %1617, label %proto_item_set_generated.exit1765
 
-1617:                                             ; preds = %.cont1807
+1617:                                             ; preds = %.else1809, %.cont1807
   %1618 = getelementptr ptr, ptr %16, i64 %.01595
   %1619 = load ptr, ptr %1618, align 8
   %1620 = call fastcc zeroext i1 @control_proc_can_add_frame(ptr noundef %1, ptr noundef %1619, i8 noundef zeroext 59, i32 noundef 1)
@@ -7904,8 +7867,8 @@ default.unreachable:                              ; preds = %316
   store i32 %1670, ptr %1668, align 4
   br label %proto_item_set_generated.exit1765
 
-proto_item_set_generated.exit1765:                ; preds = %.cont1851.thread, %1405, %1413, %.cont1867.thread, %1385, %1391, %.cont1871.thread, %1367, %1373, %1353, %1357, %.cont1879.thread, %1317, %1325, %1269, %1277, %.cont1907.thread, %1156, %1164, %.cont1931.thread, %1103, %1109, %.cont1939.thread, %.cont1967.thread, %.cont1975.thread, %.cont1979.thread, %.cont1991.thread, %.cont1999.thread, %.cont2011.thread, %.cont2015.thread, %.cont2019.thread, %.cont2023.thread, %587, %604, %597, %.cont2027.thread, %541, %558, %551, %1612, %.cont1807, %1625, %1621, %1599, %.cont1811, %1604, %1597, %1582, %.cont1815, %1595, %1591, %1569, %.cont1819, %1574, %1553, %.cont1823, %1567, %1563, %1539, %.cont1827, %1545, %1537, %1535, %1533, %1517, %.cont1831, %1531, %1527, %1503, %.cont1835, %1509, %1487, %.cont1839, %1501, %1497, %1473, %.cont1843, %1479, %1457, %.cont1847, %1471, %1467, %1445, %1455, %1449, %.cont1851, %1430, %.cont1855, %1443, %1439, %1417, %.cont1859, %1422, %1397, %.cont1863, %1379, %1395, %.cont1867, %1363, %1377, %.cont1871, %1341, %1361, %1348, %.cont1875, %1329, %1339, %1333, %.cont1879, %1311, %.cont1883, %1295, %.cont1887, %1309, %1305, %1281, %.cont1891, %1287, %1263, %.cont1895, %1248, %.cont1899, %1261, %1258, %1214, %.cont1903, %1227, %1224, %1202, %1212, %1206, %.cont1907, %1184, %.cont1911, %1200, %1196, %1168, %.cont1915, %1176, %1148, %.cont1919, %1132, %.cont1923, %1146, %1142, %1115, %.cont1927, %1124, %1093, %1113, %.cont1931, %1092, %1029, %1041, %1039, %1036, %.cont1939, %1016, %.cont1943, %1021, %1001, %.cont1947, %1014, %1010, %988, %.cont1951, %993, %972, %.cont1955, %986, %982, %958, %.cont1959, %964, %889, %.cont1963, %956, %955, %947, %942, %937, %929, %923, %917, %911, %906, %874, %887, %885, %882, %.cont1967, %860, %.cont1971, %866, %848, %858, %852, %.cont1975, %826, %846, %844, %841, %836, %.cont1979, %799, %.cont1983, %821, %818, %776, %.cont1987, %797, %794, %787, %765, %774, %768, %.cont1991, %737, %.cont1995, %753, %749, %725, %735, %729, %.cont1999, %695, %.cont2003, %control_proc_can_add_frame_even_if_complete.exit.thread, %control_proc_can_add_frame_even_if_complete.exit, %672, %.cont2007, %693, %690, %683, %657, %670, %668, %665, %.cont2011, %637, %655, %653, %650, %.cont2015, %614, %635, %629, %.cont2019, %610, %564, %608, %582, %.cont2023, %529, %562, %540, %537, %.cont2027, %1627, %410, %407, %1629, %1632, %404, %1667, %1664, %.cont, %450, %406, %1639
-  %.22215 = phi i32 [ %.3, %1639 ], [ %.1, %406 ], [ %.32219, %450 ], [ %.22217, %.cont ], [ %.22217, %1664 ], [ %.22217, %1667 ], [ %.12227, %404 ], [ %1446, %.cont1851.thread ], [ %1400, %1405 ], [ %1400, %1413 ], [ %1382, %.cont1867.thread ], [ %1382, %1385 ], [ %1382, %1391 ], [ %1364, %.cont1871.thread ], [ %1364, %1367 ], [ %1364, %1373 ], [ %1342, %1353 ], [ %1342, %1357 ], [ %1330, %.cont1879.thread ], [ %1312, %1317 ], [ %1312, %1325 ], [ %1264, %1269 ], [ %1264, %1277 ], [ %1203, %.cont1907.thread ], [ %1151, %1156 ], [ %1151, %1164 ], [ %1100, %.cont1931.thread ], [ %1100, %1103 ], [ %1100, %1109 ], [ %470, %.cont1939.thread ], [ %875, %.cont1967.thread ], [ %849, %.cont1975.thread ], [ %829, %.cont1979.thread ], [ %.4, %.cont1991.thread ], [ %726, %.cont1999.thread ], [ %658, %.cont2011.thread ], [ %643, %.cont2015.thread ], [ %626, %.cont2019.thread ], [ %575, %.cont2023.thread ], [ %575, %587 ], [ %575, %604 ], [ %575, %597 ], [ %504, %.cont2027.thread ], [ %504, %541 ], [ %504, %558 ], [ %504, %551 ], [ %470, %1612 ], [ %470, %.cont1807 ], [ %470, %1625 ], [ %470, %1621 ], [ %470, %1599 ], [ %470, %.cont1811 ], [ %470, %1604 ], [ %1598, %1597 ], [ %470, %1582 ], [ %470, %.cont1815 ], [ %470, %1595 ], [ %470, %1591 ], [ %470, %1569 ], [ %470, %.cont1819 ], [ %470, %1574 ], [ %1554, %1553 ], [ %1554, %.cont1823 ], [ %1554, %1567 ], [ %1554, %1563 ], [ %1540, %1539 ], [ %1540, %.cont1827 ], [ %1540, %1545 ], [ %1538, %1537 ], [ %1536, %1535 ], [ %1534, %1533 ], [ %1518, %1517 ], [ %1518, %.cont1831 ], [ %1518, %1531 ], [ %1518, %1527 ], [ %1504, %1503 ], [ %1504, %.cont1835 ], [ %1504, %1509 ], [ %1488, %1487 ], [ %1488, %.cont1839 ], [ %1488, %1501 ], [ %1488, %1497 ], [ %1474, %1473 ], [ %1474, %.cont1843 ], [ %1474, %1479 ], [ %1458, %1457 ], [ %1458, %.cont1847 ], [ %1458, %1471 ], [ %1458, %1467 ], [ %1446, %1445 ], [ %1446, %1455 ], [ %1446, %1449 ], [ %1446, %.cont1851 ], [ %470, %1430 ], [ %470, %.cont1855 ], [ %470, %1443 ], [ %470, %1439 ], [ %470, %1417 ], [ %470, %.cont1859 ], [ %470, %1422 ], [ %1400, %1397 ], [ %1400, %.cont1863 ], [ %1382, %1379 ], [ %1382, %1395 ], [ %1382, %.cont1867 ], [ %1364, %1363 ], [ %1364, %1377 ], [ %1364, %.cont1871 ], [ %1342, %1341 ], [ %1342, %1361 ], [ %1342, %1348 ], [ %1342, %.cont1875 ], [ %1330, %1329 ], [ %1330, %1339 ], [ %1330, %1333 ], [ %1330, %.cont1879 ], [ %1312, %1311 ], [ %1312, %.cont1883 ], [ %1296, %1295 ], [ %1296, %.cont1887 ], [ %1296, %1309 ], [ %1296, %1305 ], [ %1282, %1281 ], [ %1282, %.cont1891 ], [ %1282, %1287 ], [ %1264, %1263 ], [ %1264, %.cont1895 ], [ %1249, %1248 ], [ %1249, %.cont1899 ], [ %1249, %1261 ], [ %1249, %1258 ], [ %1215, %1214 ], [ %1215, %.cont1903 ], [ %1215, %1227 ], [ %1215, %1224 ], [ %1203, %1202 ], [ %1203, %1212 ], [ %1203, %1206 ], [ %1203, %.cont1907 ], [ %1187, %1184 ], [ %1187, %.cont1911 ], [ %1187, %1200 ], [ %1187, %1196 ], [ %1171, %1168 ], [ %1171, %.cont1915 ], [ %1171, %1176 ], [ %1151, %1148 ], [ %1151, %.cont1919 ], [ %1133, %1132 ], [ %1133, %.cont1923 ], [ %1133, %1146 ], [ %1133, %1142 ], [ %1119, %1115 ], [ %1119, %.cont1927 ], [ %1119, %1124 ], [ %1100, %1093 ], [ %1100, %1113 ], [ %1100, %.cont1931 ], [ %1071, %1092 ], [ %470, %1029 ], [ %470, %1041 ], [ %470, %1039 ], [ %470, %1036 ], [ %470, %.cont1939 ], [ %470, %1016 ], [ %470, %.cont1943 ], [ %470, %1021 ], [ %470, %1001 ], [ %470, %.cont1947 ], [ %470, %1014 ], [ %470, %1010 ], [ %470, %988 ], [ %470, %.cont1951 ], [ %470, %993 ], [ %973, %972 ], [ %973, %.cont1955 ], [ %973, %986 ], [ %973, %982 ], [ %959, %958 ], [ %959, %.cont1959 ], [ %959, %964 ], [ %895, %889 ], [ %895, %.cont1963 ], [ %895, %956 ], [ %895, %955 ], [ %895, %947 ], [ %895, %942 ], [ %895, %937 ], [ %895, %929 ], [ %895, %923 ], [ %895, %917 ], [ %895, %911 ], [ %895, %906 ], [ %875, %874 ], [ %875, %887 ], [ %875, %885 ], [ %875, %882 ], [ %875, %.cont1967 ], [ %861, %860 ], [ %861, %.cont1971 ], [ %861, %866 ], [ %849, %848 ], [ %849, %858 ], [ %849, %852 ], [ %849, %.cont1975 ], [ %829, %826 ], [ %829, %846 ], [ %829, %844 ], [ %829, %841 ], [ %829, %836 ], [ %829, %.cont1979 ], [ %808, %799 ], [ %808, %.cont1983 ], [ %808, %821 ], [ %808, %818 ], [ %777, %776 ], [ %777, %.cont1987 ], [ %777, %797 ], [ %777, %794 ], [ %777, %787 ], [ %.4, %765 ], [ %.4, %774 ], [ %.4, %768 ], [ %.4, %.cont1991 ], [ %738, %737 ], [ %738, %.cont1995 ], [ %738, %753 ], [ %738, %749 ], [ %726, %725 ], [ %726, %735 ], [ %726, %729 ], [ %726, %.cont1999 ], [ %698, %695 ], [ %698, %.cont2003 ], [ %698, %control_proc_can_add_frame_even_if_complete.exit.thread ], [ %698, %control_proc_can_add_frame_even_if_complete.exit ], [ %673, %672 ], [ %673, %.cont2007 ], [ %673, %693 ], [ %673, %690 ], [ %673, %683 ], [ %658, %657 ], [ %658, %670 ], [ %658, %668 ], [ %658, %665 ], [ %658, %.cont2011 ], [ %643, %637 ], [ %643, %655 ], [ %643, %653 ], [ %643, %650 ], [ %643, %.cont2015 ], [ %626, %614 ], [ %626, %635 ], [ %626, %629 ], [ %626, %.cont2019 ], [ %613, %610 ], [ %575, %564 ], [ %575, %608 ], [ %575, %582 ], [ %575, %.cont2023 ], [ %504, %529 ], [ %504, %562 ], [ %504, %540 ], [ %504, %537 ], [ %504, %.cont2027 ], [ %1628, %1627 ], [ %.0, %410 ], [ %.0, %407 ], [ %.0, %1629 ], [ %1638, %1632 ]
+proto_item_set_generated.exit1765:                ; preds = %.else1809, %.else1813, %.else1817, %.else1821, %.else1825, %.else1829, %.else1833, %.else1837, %.else1841, %.else1845, %.else1849, %.else1857, %.else1861, %.else1865, %.else1885, %.else1889, %.else1893, %.else1897, %.else1901, %.else1905, %.else1913, %.else1917, %.else1921, %.else1925, %.else1929, %.else1945, %.else1949, %.else1953, %.else1957, %.else1961, %.else1965, %.else1973, %.else1985, %.else1989, %.else1997, %.else2005, %.else2009, %.cont1851.thread, %1405, %1413, %.cont1867.thread, %1385, %1391, %.cont1871.thread, %1367, %1373, %1353, %1357, %.cont1879.thread, %1317, %1325, %1269, %1277, %.cont1907.thread, %1156, %1164, %.cont1931.thread, %1103, %1109, %.cont1939.thread, %.cont1967.thread, %.cont1975.thread, %.cont1979.thread, %.cont1991.thread, %.cont1999.thread, %.cont2011.thread, %.cont2015.thread, %.cont2019.thread, %.cont2023.thread, %587, %604, %597, %.cont2027.thread, %541, %558, %551, %1612, %.cont1807, %1625, %1621, %1599, %.cont1811, %1604, %1597, %1582, %.cont1815, %1595, %1591, %1569, %.cont1819, %1574, %1553, %.cont1823, %1567, %1563, %1539, %.cont1827, %1545, %1537, %1535, %1533, %1517, %.cont1831, %1531, %1527, %1503, %.cont1835, %1509, %1487, %.cont1839, %1501, %1497, %1473, %.cont1843, %1479, %1457, %.cont1847, %1471, %1467, %1445, %1455, %1449, %.cont1851, %1430, %.cont1855, %1443, %1439, %1417, %.cont1859, %1422, %1397, %.cont1863, %1379, %1395, %.cont1867, %1363, %1377, %.cont1871, %1341, %1361, %1348, %.cont1875, %1329, %1339, %1333, %.cont1879, %1311, %.cont1883, %1295, %.cont1887, %1309, %1305, %1281, %.cont1891, %1287, %1263, %.cont1895, %1248, %.cont1899, %1261, %1258, %1214, %.cont1903, %1227, %1224, %1202, %1212, %1206, %.cont1907, %1184, %.cont1911, %1200, %1196, %1168, %.cont1915, %1176, %1148, %.cont1919, %1132, %.cont1923, %1146, %1142, %1115, %.cont1927, %1124, %1093, %1113, %.cont1931, %1092, %1029, %1041, %1039, %1036, %.cont1939, %1016, %.cont1943, %1021, %1001, %.cont1947, %1014, %1010, %988, %.cont1951, %993, %972, %.cont1955, %986, %982, %958, %.cont1959, %964, %889, %.cont1963, %956, %955, %947, %942, %937, %929, %923, %917, %911, %906, %874, %887, %885, %882, %.cont1967, %860, %.cont1971, %866, %848, %858, %852, %.cont1975, %826, %846, %844, %841, %836, %.cont1979, %799, %.cont1983, %821, %818, %776, %.cont1987, %797, %794, %787, %765, %774, %768, %.cont1991, %737, %.cont1995, %753, %749, %725, %735, %729, %.cont1999, %695, %.cont2003, %control_proc_can_add_frame_even_if_complete.exit.thread, %control_proc_can_add_frame_even_if_complete.exit, %672, %.cont2007, %693, %690, %683, %657, %670, %668, %665, %.cont2011, %637, %655, %653, %650, %.cont2015, %614, %635, %629, %.cont2019, %610, %564, %608, %582, %.cont2023, %529, %562, %540, %537, %.cont2027, %1627, %410, %407, %1629, %1632, %404, %1667, %1664, %.cont, %450, %406, %1639
+  %.22215 = phi i32 [ %.3, %1639 ], [ %.1, %406 ], [ %.32219, %450 ], [ %.22217, %.cont ], [ %.22217, %1664 ], [ %.22217, %1667 ], [ %.12227, %404 ], [ %1446, %.cont1851.thread ], [ %1400, %1405 ], [ %1400, %1413 ], [ %1382, %.cont1867.thread ], [ %1382, %1385 ], [ %1382, %1391 ], [ %1364, %.cont1871.thread ], [ %1364, %1367 ], [ %1364, %1373 ], [ %1342, %1353 ], [ %1342, %1357 ], [ %1330, %.cont1879.thread ], [ %1312, %1317 ], [ %1312, %1325 ], [ %1264, %1269 ], [ %1264, %1277 ], [ %1203, %.cont1907.thread ], [ %1151, %1156 ], [ %1151, %1164 ], [ %1100, %.cont1931.thread ], [ %1100, %1103 ], [ %1100, %1109 ], [ %470, %.cont1939.thread ], [ %875, %.cont1967.thread ], [ %849, %.cont1975.thread ], [ %829, %.cont1979.thread ], [ %.4, %.cont1991.thread ], [ %726, %.cont1999.thread ], [ %658, %.cont2011.thread ], [ %643, %.cont2015.thread ], [ %626, %.cont2019.thread ], [ %575, %.cont2023.thread ], [ %575, %587 ], [ %575, %604 ], [ %575, %597 ], [ %504, %.cont2027.thread ], [ %504, %541 ], [ %504, %558 ], [ %504, %551 ], [ %470, %1612 ], [ %470, %.cont1807 ], [ %470, %1625 ], [ %470, %1621 ], [ %470, %1599 ], [ %470, %.cont1811 ], [ %470, %1604 ], [ %1598, %1597 ], [ %470, %1582 ], [ %470, %.cont1815 ], [ %470, %1595 ], [ %470, %1591 ], [ %470, %1569 ], [ %470, %.cont1819 ], [ %470, %1574 ], [ %1554, %1553 ], [ %1554, %.cont1823 ], [ %1554, %1567 ], [ %1554, %1563 ], [ %1540, %1539 ], [ %1540, %.cont1827 ], [ %1540, %1545 ], [ %1538, %1537 ], [ %1536, %1535 ], [ %1534, %1533 ], [ %1518, %1517 ], [ %1518, %.cont1831 ], [ %1518, %1531 ], [ %1518, %1527 ], [ %1504, %1503 ], [ %1504, %.cont1835 ], [ %1504, %1509 ], [ %1488, %1487 ], [ %1488, %.cont1839 ], [ %1488, %1501 ], [ %1488, %1497 ], [ %1474, %1473 ], [ %1474, %.cont1843 ], [ %1474, %1479 ], [ %1458, %1457 ], [ %1458, %.cont1847 ], [ %1458, %1471 ], [ %1458, %1467 ], [ %1446, %1445 ], [ %1446, %1455 ], [ %1446, %1449 ], [ %1446, %.cont1851 ], [ %470, %1430 ], [ %470, %.cont1855 ], [ %470, %1443 ], [ %470, %1439 ], [ %470, %1417 ], [ %470, %.cont1859 ], [ %470, %1422 ], [ %1400, %1397 ], [ %1400, %.cont1863 ], [ %1382, %1379 ], [ %1382, %1395 ], [ %1382, %.cont1867 ], [ %1364, %1363 ], [ %1364, %1377 ], [ %1364, %.cont1871 ], [ %1342, %1341 ], [ %1342, %1361 ], [ %1342, %1348 ], [ %1342, %.cont1875 ], [ %1330, %1329 ], [ %1330, %1339 ], [ %1330, %1333 ], [ %1330, %.cont1879 ], [ %1312, %1311 ], [ %1312, %.cont1883 ], [ %1296, %1295 ], [ %1296, %.cont1887 ], [ %1296, %1309 ], [ %1296, %1305 ], [ %1282, %1281 ], [ %1282, %.cont1891 ], [ %1282, %1287 ], [ %1264, %1263 ], [ %1264, %.cont1895 ], [ %1249, %1248 ], [ %1249, %.cont1899 ], [ %1249, %1261 ], [ %1249, %1258 ], [ %1215, %1214 ], [ %1215, %.cont1903 ], [ %1215, %1227 ], [ %1215, %1224 ], [ %1203, %1202 ], [ %1203, %1212 ], [ %1203, %1206 ], [ %1203, %.cont1907 ], [ %1187, %1184 ], [ %1187, %.cont1911 ], [ %1187, %1200 ], [ %1187, %1196 ], [ %1171, %1168 ], [ %1171, %.cont1915 ], [ %1171, %1176 ], [ %1151, %1148 ], [ %1151, %.cont1919 ], [ %1133, %1132 ], [ %1133, %.cont1923 ], [ %1133, %1146 ], [ %1133, %1142 ], [ %1119, %1115 ], [ %1119, %.cont1927 ], [ %1119, %1124 ], [ %1100, %1093 ], [ %1100, %1113 ], [ %1100, %.cont1931 ], [ %1071, %1092 ], [ %470, %1029 ], [ %470, %1041 ], [ %470, %1039 ], [ %470, %1036 ], [ %470, %.cont1939 ], [ %470, %1016 ], [ %470, %.cont1943 ], [ %470, %1021 ], [ %470, %1001 ], [ %470, %.cont1947 ], [ %470, %1014 ], [ %470, %1010 ], [ %470, %988 ], [ %470, %.cont1951 ], [ %470, %993 ], [ %973, %972 ], [ %973, %.cont1955 ], [ %973, %986 ], [ %973, %982 ], [ %959, %958 ], [ %959, %.cont1959 ], [ %959, %964 ], [ %895, %889 ], [ %895, %.cont1963 ], [ %895, %956 ], [ %895, %955 ], [ %895, %947 ], [ %895, %942 ], [ %895, %937 ], [ %895, %929 ], [ %895, %923 ], [ %895, %917 ], [ %895, %911 ], [ %895, %906 ], [ %875, %874 ], [ %875, %887 ], [ %875, %885 ], [ %875, %882 ], [ %875, %.cont1967 ], [ %861, %860 ], [ %861, %.cont1971 ], [ %861, %866 ], [ %849, %848 ], [ %849, %858 ], [ %849, %852 ], [ %849, %.cont1975 ], [ %829, %826 ], [ %829, %846 ], [ %829, %844 ], [ %829, %841 ], [ %829, %836 ], [ %829, %.cont1979 ], [ %808, %799 ], [ %808, %.cont1983 ], [ %808, %821 ], [ %808, %818 ], [ %777, %776 ], [ %777, %.cont1987 ], [ %777, %797 ], [ %777, %794 ], [ %777, %787 ], [ %.4, %765 ], [ %.4, %774 ], [ %.4, %768 ], [ %.4, %.cont1991 ], [ %738, %737 ], [ %738, %.cont1995 ], [ %738, %753 ], [ %738, %749 ], [ %726, %725 ], [ %726, %735 ], [ %726, %729 ], [ %726, %.cont1999 ], [ %698, %695 ], [ %698, %.cont2003 ], [ %698, %control_proc_can_add_frame_even_if_complete.exit.thread ], [ %698, %control_proc_can_add_frame_even_if_complete.exit ], [ %673, %672 ], [ %673, %.cont2007 ], [ %673, %693 ], [ %673, %690 ], [ %673, %683 ], [ %658, %657 ], [ %658, %670 ], [ %658, %668 ], [ %658, %665 ], [ %658, %.cont2011 ], [ %643, %637 ], [ %643, %655 ], [ %643, %653 ], [ %643, %650 ], [ %643, %.cont2015 ], [ %626, %614 ], [ %626, %635 ], [ %626, %629 ], [ %626, %.cont2019 ], [ %613, %610 ], [ %575, %564 ], [ %575, %608 ], [ %575, %582 ], [ %575, %.cont2023 ], [ %504, %529 ], [ %504, %562 ], [ %504, %540 ], [ %504, %537 ], [ %504, %.cont2027 ], [ %1628, %1627 ], [ %.0, %410 ], [ %.0, %407 ], [ %.0, %1629 ], [ %1638, %1632 ], [ %673, %.else2009 ], [ %698, %.else2005 ], [ %738, %.else1997 ], [ %777, %.else1989 ], [ %808, %.else1985 ], [ %861, %.else1973 ], [ %895, %.else1965 ], [ %959, %.else1961 ], [ %973, %.else1957 ], [ %470, %.else1953 ], [ %470, %.else1949 ], [ %470, %.else1945 ], [ %1119, %.else1929 ], [ %1133, %.else1925 ], [ %1151, %.else1921 ], [ %1171, %.else1917 ], [ %1187, %.else1913 ], [ %1215, %.else1905 ], [ %1249, %.else1901 ], [ %1264, %.else1897 ], [ %1282, %.else1893 ], [ %1296, %.else1889 ], [ %1312, %.else1885 ], [ %1400, %.else1865 ], [ %470, %.else1861 ], [ %470, %.else1857 ], [ %1458, %.else1849 ], [ %1474, %.else1845 ], [ %1488, %.else1841 ], [ %1504, %.else1837 ], [ %1518, %.else1833 ], [ %1540, %.else1829 ], [ %1554, %.else1825 ], [ %470, %.else1821 ], [ %470, %.else1817 ], [ %470, %.else1813 ], [ %470, %.else1809 ]
   store i32 1, ptr %13, align 16
   store ptr %10, ptr %30, align 8
   store i32 1, ptr %31, align 16

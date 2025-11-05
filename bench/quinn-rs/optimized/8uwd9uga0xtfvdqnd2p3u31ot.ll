@@ -1099,7 +1099,7 @@ define internal fastcc noundef ptr @_ZN9quinn_udp3imp4send17h538c269d3bcd1a8fE(p
     i8 35, label %54
   ]
 
-.loopexit107:                                     ; preds = %137, %71, %.thread, %89, %96, %109, %113, %120, %.noexc79, %132
+.loopexit106:                                     ; preds = %137, %71, %.thread, %89, %96, %109, %113, %120, %.noexc79, %132
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %49
@@ -1109,8 +1109,8 @@ define internal fastcc noundef ptr @_ZN9quinn_udp3imp4send17h538c269d3bcd1a8fE(p
           cleanup
   br label %49
 
-49:                                               ; preds = %.loopexit.split-lp, %.loopexit107
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit107 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+49:                                               ; preds = %.loopexit.split-lp, %.loopexit106
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit106 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hb858fcf5550044c4E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #18
           to label %142 unwind label %140
 
@@ -1136,7 +1136,7 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit78.thread:
   br label %.loopexit
 
 _ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit.thread: ; preds = %111, %61, %50
-  %.pre-phi = phi i64 [ %.pre112, %111 ], [ %51, %61 ], [ %51, %50 ]
+  %.pre-phi = phi i64 [ %.pre111, %111 ], [ %51, %61 ], [ %51, %50 ]
   %57 = phi ptr [ %.pre, %111 ], [ %47, %61 ], [ %47, %50 ]
   %58 = and i64 %.pre-phi, 3
   switch i64 %58, label %default.unreachable [
@@ -1180,7 +1180,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
 
 71:                                               ; preds = %69
   %72 = invoke noundef i8 @_ZN12tracing_core8callsite15DefaultCallsite8register17h2255f81eb7667e37E(ptr noundef nonnull align 8 @_ZN9quinn_udp3imp4send10__CALLSITE17hf6821c0d5eff89d6E)
-          to label %73 unwind label %.loopexit107
+          to label %73 unwind label %.loopexit106
 
 73:                                               ; preds = %71
   %74 = icmp eq i8 %72, 0
@@ -1190,7 +1190,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   %.sroa.06.093 = phi i8 [ %72, %73 ], [ %70, %69 ], [ %70, %69 ]
   %75 = load ptr, ptr @_ZN9quinn_udp3imp4send10__CALLSITE17hf6821c0d5eff89d6E, align 8, !nonnull !5, !align !6, !noundef !5
   %76 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h79c82975f1d755d5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %75, i8 noundef %.sroa.06.093)
-          to label %77 unwind label %.loopexit107
+          to label %77 unwind label %.loopexit106
 
 77:                                               ; preds = %.thread
   br i1 %76, label %78, label %.thread94
@@ -1228,7 +1228,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   store ptr %92, ptr %.sroa.520.0..sroa_idx21, align 8
   store i64 %94, ptr %.sroa.623.0..sroa_idx24, align 8
   %95 = invoke { ptr, ptr } @_ZN3log6logger17hee1dafc15e2b57e5E()
-          to label %96 unwind label %.loopexit107
+          to label %96 unwind label %.loopexit106
 
 96:                                               ; preds = %89
   %97 = extractvalue { ptr, ptr } %95, 0
@@ -1236,7 +1236,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %100 = load ptr, ptr %99, align 8, !invariant.load !5, !nonnull !5
   %101 = invoke noundef zeroext i1 %100(ptr noundef align 1 %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
-          to label %102 unwind label %.loopexit107
+          to label %102 unwind label %.loopexit106
 
 102:                                              ; preds = %96
   br i1 %101, label %103, label %111
@@ -1279,7 +1279,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hfcd250a03a6c4879E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %90, ptr noundef nonnull align 1 %97, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %98, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-          to label %110 unwind label %.loopexit107
+          to label %110 unwind label %.loopexit106
 
 .thread96.invoke:                                 ; preds = %112, %78, %108, %103
   invoke void @_ZN4core6option13expect_failed17h89918c64c89b4471E(ptr noalias noundef nonnull readonly align 1 @anon.3b32b8fd91e47b7024bed3f1642a2f1c.25, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3b32b8fd91e47b7024bed3f1642a2f1c.33) #19
@@ -1300,7 +1300,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
 111:                                              ; preds = %102, %110, %85, %.thread94, %133
   store atomic i64 1, ptr %31 monotonic, align 8
   %.pre = load ptr, ptr %18, align 8
-  %.pre112 = ptrtoint ptr %.pre to i64
+  %.pre111 = ptrtoint ptr %.pre to i64
   br label %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit.thread
 
 112:                                              ; preds = %78
@@ -1329,7 +1329,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   store ptr %80, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN12tracing_core5event5Event8dispatch17ha4ef22fc47242eeeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %79, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
-          to label %.noexc unwind label %.loopexit107
+          to label %.noexc unwind label %.loopexit106
 
 .noexc:                                           ; preds = %113
   %114 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17h4bd33b52b8179ae2E monotonic, align 1, !noalias !35
@@ -1353,7 +1353,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   store ptr %123, ptr %.sroa.5.0..sroa_idx2.i, align 8, !noalias !35
   store i64 %125, ptr %.sroa.6.0..sroa_idx4.i, align 8, !noalias !35
   %126 = invoke { ptr, ptr } @_ZN3log6logger17hee1dafc15e2b57e5E()
-          to label %.noexc79 unwind label %.loopexit107
+          to label %.noexc79 unwind label %.loopexit106
 
 .noexc79:                                         ; preds = %120
   %127 = extractvalue { ptr, ptr } %126, 0
@@ -1361,7 +1361,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = load ptr, ptr %129, align 8, !invariant.load !5, !nonnull !5
   %131 = invoke noundef zeroext i1 %130(ptr noundef align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5)
-          to label %.noexc80 unwind label %.loopexit107
+          to label %.noexc80 unwind label %.loopexit106
 
 .noexc80:                                         ; preds = %.noexc79
   br i1 %131, label %132, label %133
@@ -1370,7 +1370,7 @@ default.unreachable:                              ; preds = %_ZN3std2io5error14r
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !35
   invoke void @_ZN7tracing15__macro_support13__tracing_log17hfcd250a03a6c4879E(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %121, ptr noundef nonnull align 1 %127, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %128, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
-          to label %.noexc81 unwind label %.loopexit107
+          to label %.noexc81 unwind label %.loopexit106
 
 .noexc81:                                         ; preds = %132
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !35
@@ -1392,15 +1392,15 @@ _ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit78: ; pred
 
 135:                                              ; preds = %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit78
   %136 = load atomic i8, ptr %25 monotonic, align 8
-  %.not106 = icmp eq i8 %136, 0
-  br i1 %.not106, label %137, label %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit78.thread
+  %.not105 = icmp eq i8 %136, 0
+  br i1 %.not105, label %137, label %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit78.thread
 
 137:                                              ; preds = %135
   store atomic i8 1, ptr %25 monotonic, align 8
   %138 = load atomic i8, ptr %25 monotonic, align 8
   %139 = icmp ne i8 %138, 0
   invoke fastcc void @_ZN9quinn_udp3imp11prepare_msg17h47f3f1b14578f1bbE(ptr noalias noundef readonly align 8 dereferenceable(88) %2, ptr noalias noundef readonly align 8 dereferenceable(136) %20, ptr noalias noundef align 8 dereferenceable(56) %23, ptr noalias noundef align 8 dereferenceable(16) %22, ptr noalias noundef align 8 dereferenceable(88) %21, i1 noundef zeroext %139)
-          to label %54 unwind label %.loopexit107
+          to label %54 unwind label %.loopexit106
 
 .loopexit:                                        ; preds = %54, %3, %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit78.thread
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZN3std2io5error14repr_bitpacked11decode_repr17hcc5b30ab2cc56112E.exit78.thread ], [ null, %3 ], [ null, %54 ]

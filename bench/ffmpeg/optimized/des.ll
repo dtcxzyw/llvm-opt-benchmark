@@ -291,22 +291,22 @@ define internal fastcc void @av_des_crypt_mac(ptr noundef readonly captures(none
   %.037182.us = phi i64 [ %135, %des_encdec.exit157.us ], [ %12, %.lr.ph ]
   %.039181.us = phi ptr [ %137, %des_encdec.exit157.us ], [ %2, %.lr.ph ]
   %.not43.us = icmp eq ptr %.039181.us, null
-  br i1 %.not43.us, label %22, label %19
+  br i1 %.not43.us, label %23, label %19
 
 19:                                               ; preds = %.lr.ph.split.us
   %20 = load i64, ptr %.039181.us, align 1, !tbaa !9
   %21 = tail call noundef i64 @llvm.bswap.i64(i64 %20)
-  br label %22
+  %22 = xor i64 %21, %.037182.us
+  br label %23
 
-22:                                               ; preds = %19, %.lr.ph.split.us
-  %23 = phi i64 [ %21, %19 ], [ 0, %.lr.ph.split.us ]
-  %24 = xor i64 %23, %.037182.us
+23:                                               ; preds = %19, %.lr.ph.split.us
+  %24 = phi i64 [ %22, %19 ], [ %.037182.us, %.lr.ph.split.us ]
   br label %25
 
-25:                                               ; preds = %25, %22
-  %.011.i.i92.us = phi i64 [ 0, %22 ], [ %31, %25 ]
-  %.0710.i.i93.us = phi i32 [ 0, %22 ], [ %32, %25 ]
-  %.089.i.i94.us = phi ptr [ @IP_shuffle, %22 ], [ %26, %25 ]
+25:                                               ; preds = %25, %23
+  %.011.i.i92.us = phi i64 [ 0, %23 ], [ %31, %25 ]
+  %.0710.i.i93.us = phi i32 [ 0, %23 ], [ %32, %25 ]
+  %.089.i.i94.us = phi ptr [ @IP_shuffle, %23 ], [ %26, %25 ]
   %26 = getelementptr inbounds nuw i8, ptr %.089.i.i94.us, i64 1
   %27 = load i8, ptr %.089.i.i94.us, align 1, !tbaa !9
   %28 = zext nneg i8 %27 to i64

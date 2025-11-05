@@ -72,13 +72,13 @@ define ptr @ossl_bsearch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nou
 
 .critedge.split.loop.exit81:                      ; preds = %26
   %31 = trunc nuw nsw i64 %indvars.iv to i32
+  %32 = mul nsw i32 %3, %31
+  %33 = sext i32 %32 to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %.critedge.split.loop.exit81
-  %.236.lcssa = phi i32 [ %31, %.critedge.split.loop.exit81 ], [ 0, %.preheader ]
-  %32 = mul nsw i32 %.236.lcssa, %3
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 %33
+  %.236.lcssa = phi i64 [ %33, %.critedge.split.loop.exit81 ], [ 0, %.preheader ]
+  %34 = getelementptr inbounds i8, ptr %1, i64 %.236.lcssa
   br label %35
 
 35:                                               ; preds = %.critedge, %.thread, %._crit_edge, %6

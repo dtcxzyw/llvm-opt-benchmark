@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load i32, ptr @va_align, align 64
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %21, label %4
+  br i1 %3, label %38, label %4
 
 4:                                                ; preds = %1
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8
@@ -35,7 +35,7 @@ define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 alig
   %11 = add nsw i32 %10, 2
   %12 = and i32 %11, %2
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %23, label %14
+  br i1 %13, label %21, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 44
@@ -44,43 +44,38 @@ define dso_local i64 @align_vdso_addr(i64 noundef %0) local_unnamed_addr #0 alig
   %18 = icmp eq i32 %17, 0
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
   %20 = select i1 %18, i64 0, i64 %19
-  br label %23
+  br label %21
 
-21:                                               ; preds = %1
-  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
-  br label %39
-
-23:                                               ; preds = %14, %4
+21:                                               ; preds = %14, %4
   %.ph = phi i64 [ %20, %14 ], [ 0, %4 ]
-  %24 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
-  %25 = load volatile i64, ptr %6, align 8
-  %26 = trunc i64 %25 to i32
-  %27 = shl i32 %26, 2
-  %28 = ashr i32 %27, 31
-  %29 = add nsw i32 %28, 2
-  %30 = and i32 %29, %2
-  %31 = icmp eq i32 %30, 0
-  br i1 %31, label %39, label %32
+  %22 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
+  %23 = load volatile i64, ptr %6, align 8
+  %24 = trunc i64 %23 to i32
+  %25 = shl i32 %24, 2
+  %26 = ashr i32 %25, 31
+  %27 = add nsw i32 %26, 2
+  %28 = and i32 %27, %2
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %38, label %30
 
-32:                                               ; preds = %23
-  %33 = getelementptr inbounds nuw i8, ptr %6, i64 44
-  %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, 4194304
-  %36 = icmp eq i32 %35, 0
-  %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
-  %38 = select i1 %36, i64 0, i64 %37
-  br label %39
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 44
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 4194304
+  %34 = icmp eq i32 %33, 0
+  %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
+  %36 = select i1 %34, i64 0, i64 %35
+  %37 = and i64 %36, %22
+  br label %38
 
-39:                                               ; preds = %21, %32, %23
-  %40 = phi i64 [ %24, %23 ], [ %22, %21 ], [ %24, %32 ]
-  %41 = phi i64 [ %.ph, %23 ], [ 0, %21 ], [ %.ph, %32 ]
-  %42 = phi i64 [ 0, %23 ], [ 0, %21 ], [ %38, %32 ]
-  %43 = add i64 %41, %0
-  %44 = xor i64 %41, -1
-  %45 = and i64 %43, %44
-  %46 = and i64 %42, %40
-  %47 = or i64 %46, %45
-  ret i64 %47
+38:                                               ; preds = %1, %30, %21
+  %39 = phi i64 [ %.ph, %21 ], [ %.ph, %30 ], [ 0, %1 ]
+  %40 = phi i64 [ 0, %21 ], [ %37, %30 ], [ 0, %1 ]
+  %41 = add i64 %39, %0
+  %42 = xor i64 %39, -1
+  %43 = and i64 %41, %42
+  %44 = or i64 %43, %40
+  ret i64 %44
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
@@ -243,7 +238,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = and i64 %4, 16
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %115
+  br i1 %12, label %13, label %112
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -287,7 +282,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   %40 = phi i64 [ %29, %35 ], [ %29, %33 ], [ 1073741824, %21 ], [ %27, %26 ]
   %41 = phi i64 [ %38, %35 ], [ %34, %33 ], [ 2147483648, %21 ], [ 2147483648, %26 ]
   %42 = icmp ult i64 %41, %2
-  br i1 %42, label %115, label %43
+  br i1 %42, label %112, label %43
 
 43:                                               ; preds = %39
   %44 = icmp eq i64 %1, 0
@@ -303,7 +298,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
 
 51:                                               ; preds = %45
   %52 = icmp eq ptr %48, null
-  br i1 %52, label %115, label %53
+  br i1 %52, label %112, label %53
 
 53:                                               ; preds = %51
   %54 = add i64 %47, %2
@@ -316,7 +311,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   %61 = tail call i64 @llvm.usub.sat.i64(i64 %60, i64 %59)
   %62 = select i1 %58, i64 %60, i64 %61
   %63 = icmp ugt i64 %54, %62
-  br i1 %63, label %64, label %115
+  br i1 %63, label %64, label %112
 
 64:                                               ; preds = %53, %45, %43
   store i64 0, ptr %6, align 8
@@ -332,12 +327,12 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %69, ptr %70, align 8
   %71 = icmp eq ptr %0, null
-  br i1 %71, label %113, label %72
+  br i1 %71, label %110, label %72
 
 72:                                               ; preds = %64
   %73 = load i32, ptr @va_align, align 64
   %74 = icmp slt i32 %73, 0
-  br i1 %74, label %90, label %75
+  br i1 %74, label %.critedge, label %75
 
 75:                                               ; preds = %72
   %76 = load volatile i64, ptr %8, align 8
@@ -347,7 +342,7 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   %80 = add nsw i32 %79, 2
   %81 = and i32 %80, %73
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %92, label %83
+  br i1 %82, label %90, label %83
 
 83:                                               ; preds = %75
   %84 = getelementptr inbounds nuw i8, ptr %8, i64 44
@@ -356,50 +351,45 @@ define dso_local i64 @arch_get_unmapped_area(ptr noundef readnone captures(addre
   %87 = icmp eq i32 %86, 0
   %88 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
   %89 = select i1 %87, i64 0, i64 %88
-  br label %92
+  br label %90
 
-90:                                               ; preds = %72
-  %91 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
-  br label %108
+90:                                               ; preds = %75, %83
+  %91 = phi i64 [ 0, %75 ], [ %89, %83 ]
+  store i64 %91, ptr %68, align 8
+  %92 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
+  %93 = load volatile i64, ptr %8, align 8
+  %94 = trunc i64 %93 to i32
+  %95 = shl i32 %94, 2
+  %96 = ashr i32 %95, 31
+  %97 = add nsw i32 %96, 2
+  %98 = and i32 %97, %73
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %.critedge, label %100
 
-92:                                               ; preds = %83, %75
-  %.ph = phi i64 [ %89, %83 ], [ 0, %75 ]
-  store i64 %.ph, ptr %68, align 8
-  %93 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
-  %94 = load volatile i64, ptr %8, align 8
-  %95 = trunc i64 %94 to i32
-  %96 = shl i32 %95, 2
-  %97 = ashr i32 %96, 31
-  %98 = add nsw i32 %97, 2
-  %99 = and i32 %98, %73
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %108, label %101
+100:                                              ; preds = %90
+  %101 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %102 = load i32, ptr %101, align 4
+  %103 = and i32 %102, 4194304
+  %104 = icmp eq i32 %103, 0
+  %105 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
+  %106 = select i1 %104, i64 0, i64 %105
+  %107 = and i64 %106, %92
+  br label %.critedge
 
-101:                                              ; preds = %92
-  %102 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %103 = load i32, ptr %102, align 4
-  %104 = and i32 %103, 4194304
-  %105 = icmp eq i32 %104, 0
-  %106 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
-  %107 = select i1 %105, i64 0, i64 %106
-  br label %108
+.critedge:                                        ; preds = %72, %100, %90
+  %108 = phi i64 [ 0, %90 ], [ %107, %100 ], [ 0, %72 ]
+  %109 = add i64 %108, %69
+  store i64 %109, ptr %70, align 8
+  br label %110
 
-108:                                              ; preds = %90, %101, %92
-  %109 = phi i64 [ %93, %92 ], [ %91, %90 ], [ %93, %101 ]
-  %110 = phi i64 [ 0, %92 ], [ 0, %90 ], [ %107, %101 ]
-  %111 = and i64 %110, %109
-  %112 = add i64 %111, %69
-  store i64 %112, ptr %70, align 8
-  br label %113
+110:                                              ; preds = %.critedge, %64
+  %111 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #9
+  br label %112
 
-113:                                              ; preds = %108, %64
-  %114 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #9
-  br label %115
-
-115:                                              ; preds = %113, %53, %51, %39, %5
-  %116 = phi i64 [ %114, %113 ], [ %1, %5 ], [ -12, %39 ], [ %47, %53 ], [ %47, %51 ]
+112:                                              ; preds = %110, %53, %51, %39, %5
+  %113 = phi i64 [ %111, %110 ], [ %1, %5 ], [ -12, %39 ], [ %47, %53 ], [ %47, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %116
+  ret i64 %113
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -440,12 +430,12 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
 22:                                               ; preds = %20, %14
   %23 = phi i64 [ %19, %14 ], [ %21, %20 ]
   %24 = icmp ult i64 %23, %2
-  br i1 %24, label %129, label %25
+  br i1 %24, label %126, label %25
 
 25:                                               ; preds = %22
   %26 = and i64 %4, 16
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %28, label %129
+  br i1 %27, label %28, label %126
 
 28:                                               ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -455,7 +445,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   %33 = and i64 %4, 64
   %34 = icmp eq i64 %33, 0
   %35 = or i1 %34, %32
-  br i1 %35, label %36, label %127
+  br i1 %35, label %36, label %124
 
 36:                                               ; preds = %28
   %37 = icmp eq i64 %1, 0
@@ -469,7 +459,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
 41:                                               ; preds = %38
   %42 = tail call ptr @find_vma(ptr noundef %10, i64 noundef %39) #9
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %129, label %44
+  br i1 %43, label %126, label %44
 
 44:                                               ; preds = %41
   %45 = add i64 %39, %2
@@ -482,7 +472,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   %52 = tail call i64 @llvm.usub.sat.i64(i64 %51, i64 %50)
   %53 = select i1 %49, i64 %51, i64 %52
   %54 = icmp ugt i64 %45, %53
-  br i1 %54, label %55, label %129
+  br i1 %54, label %55, label %126
 
 55:                                               ; preds = %44, %38, %36
   %56 = phi i64 [ %39, %44 ], [ %39, %38 ], [ 0, %36 ]
@@ -524,12 +514,12 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i64 %79, ptr %80, align 8
   %81 = icmp eq ptr %0, null
-  br i1 %81, label %123, label %82
+  br i1 %81, label %120, label %82
 
 82:                                               ; preds = %77
   %83 = load i32, ptr @va_align, align 64
   %84 = icmp slt i32 %83, 0
-  br i1 %84, label %100, label %85
+  br i1 %84, label %.critedge, label %85
 
 85:                                               ; preds = %82
   %86 = load volatile i64, ptr %8, align 8
@@ -539,7 +529,7 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   %90 = add nsw i32 %89, 2
   %91 = and i32 %90, %83
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %102, label %93
+  br i1 %92, label %100, label %93
 
 93:                                               ; preds = %85
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 44
@@ -548,56 +538,51 @@ define dso_local i64 @arch_get_unmapped_area_topdown(ptr noundef readnone captur
   %97 = icmp eq i32 %96, 0
   %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
   %99 = select i1 %97, i64 0, i64 %98
-  br label %102
+  br label %100
 
-100:                                              ; preds = %82
-  %101 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
-  br label %118
+100:                                              ; preds = %85, %93
+  %101 = phi i64 [ 0, %85 ], [ %99, %93 ]
+  store i64 %101, ptr %78, align 8
+  %102 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
+  %103 = load volatile i64, ptr %8, align 8
+  %104 = trunc i64 %103 to i32
+  %105 = shl i32 %104, 2
+  %106 = ashr i32 %105, 31
+  %107 = add nsw i32 %106, 2
+  %108 = and i32 %107, %83
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %.critedge, label %110
 
-102:                                              ; preds = %93, %85
-  %.ph = phi i64 [ %99, %93 ], [ 0, %85 ]
-  store i64 %.ph, ptr %78, align 8
-  %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 16), align 16
-  %104 = load volatile i64, ptr %8, align 8
-  %105 = trunc i64 %104 to i32
-  %106 = shl i32 %105, 2
-  %107 = ashr i32 %106, 31
-  %108 = add nsw i32 %107, 2
-  %109 = and i32 %108, %83
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %118, label %111
+110:                                              ; preds = %100
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %112 = load i32, ptr %111, align 4
+  %113 = and i32 %112, 4194304
+  %114 = icmp eq i32 %113, 0
+  %115 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
+  %116 = select i1 %114, i64 0, i64 %115
+  %117 = and i64 %116, %102
+  br label %.critedge
 
-111:                                              ; preds = %102
-  %112 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %113 = load i32, ptr %112, align 4
-  %114 = and i32 %113, 4194304
-  %115 = icmp eq i32 %114, 0
-  %116 = load i64, ptr getelementptr inbounds nuw (i8, ptr @va_align, i64 8), align 8
-  %117 = select i1 %115, i64 0, i64 %116
-  br label %118
+.critedge:                                        ; preds = %82, %110, %100
+  %118 = phi i64 [ 0, %100 ], [ %117, %110 ], [ 0, %82 ]
+  %119 = add i64 %118, %79
+  store i64 %119, ptr %80, align 8
+  br label %120
 
-118:                                              ; preds = %100, %111, %102
-  %119 = phi i64 [ %103, %102 ], [ %101, %100 ], [ %103, %111 ]
-  %120 = phi i64 [ 0, %102 ], [ 0, %100 ], [ %117, %111 ]
-  %121 = and i64 %120, %119
-  %122 = add i64 %121, %79
-  store i64 %122, ptr %80, align 8
-  br label %123
+120:                                              ; preds = %.critedge, %77
+  %121 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #9
+  %122 = and i64 %121, 4095
+  %123 = icmp eq i64 %122, 0
+  br i1 %123, label %126, label %124
 
-123:                                              ; preds = %118, %77
-  %124 = call i64 @vm_unmapped_area(ptr noundef nonnull %6) #9
-  %125 = and i64 %124, 4095
-  %126 = icmp eq i64 %125, 0
-  br i1 %126, label %129, label %127
+124:                                              ; preds = %120, %28
+  %125 = call i64 @arch_get_unmapped_area(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
+  br label %126
 
-127:                                              ; preds = %123, %28
-  %128 = call i64 @arch_get_unmapped_area(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4)
-  br label %129
-
-129:                                              ; preds = %127, %123, %44, %41, %25, %22
-  %130 = phi i64 [ %128, %127 ], [ -12, %22 ], [ %1, %25 ], [ %39, %44 ], [ %39, %41 ], [ %124, %123 ]
+126:                                              ; preds = %124, %120, %44, %41, %25, %22
+  %127 = phi i64 [ %125, %124 ], [ -12, %22 ], [ %1, %25 ], [ %39, %44 ], [ %39, %41 ], [ %121, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i64 %130
+  ret i64 %127
 }
 
 ; Function Attrs: null_pointer_is_valid

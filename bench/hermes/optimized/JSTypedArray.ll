@@ -350,7 +350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 65552) i32 @_ZN6hermes2vm16JSTypedArrayBase31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr noundef readonly captures(none) %selfObj, ptr nonnull readnone align 8 captures(none) %runtime, i32 noundef %index) #0 align 2 {
+define hidden range(i32 0, 65551) i32 @_ZN6hermes2vm16JSTypedArrayBase31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr noundef readonly captures(none) %selfObj, ptr nonnull readnone align 8 captures(none) %runtime, i32 noundef %index) #0 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %selfObj, i64 24
   %0 = load i32, ptr %length_.i, align 4
@@ -366,14 +366,12 @@ if.end:                                           ; preds = %entry
 
 if.then10:                                        ; preds = %if.end
   %2 = and i32 %bf.load8, 4
-  %3 = xor i32 %2, 6
+  %3 = xor i32 %2, 65542
   br label %return
 
 return:                                           ; preds = %if.then10, %if.end, %entry
-  %retval.sroa.3.0 = phi i32 [ 0, %entry ], [ 65536, %if.end ], [ 65536, %if.then10 ]
-  %retval.sroa.0.0 = phi i32 [ 0, %entry ], [ 14, %if.end ], [ %3, %if.then10 ]
-  %retval.sroa.0.0.insert.insert = or i32 %retval.sroa.0.0, %retval.sroa.3.0
-  ret i32 %retval.sroa.0.0.insert.insert
+  %retval.sroa.3.0 = phi i32 [ 0, %entry ], [ 65550, %if.end ], [ %3, %if.then10 ]
+  ret i32 %retval.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

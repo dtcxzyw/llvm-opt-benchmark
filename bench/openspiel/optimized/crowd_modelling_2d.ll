@@ -8590,66 +8590,68 @@ define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState7Rewards
   %66 = tail call double @llvm.fmuladd.f64(double %59, double %65, double %.02541)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %38
-  br i1 %exitcond.not, label %._crit_edge, label %49, !llvm.loop !68
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %49, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %49, %.preheader
-  %.025.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %66, %49 ]
-  %.023.lcssa = phi double [ 1.000000e+00, %.preheader ], [ %60, %49 ]
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %68 = load i32, ptr %67, align 8
-  %69 = sext i32 %68 to i64
-  %70 = icmp ult i32 %68, 5
-  br i1 %70, label %_ZNKSt5arrayIiLm5EE2atEm.exit33, label %71
+._crit_edge.loopexit:                             ; preds = %49
+  %67 = fadd double %66, %60
+  br label %._crit_edge
 
-71:                                               ; preds = %._crit_edge
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.115, i64 noundef %69, i64 noundef 5) #28
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
+  %.025.lcssa = phi double [ 2.000000e+00, %.preheader ], [ %67, %._crit_edge.loopexit ]
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %69 = load i32, ptr %68, align 8
+  %70 = sext i32 %69 to i64
+  %71 = icmp ult i32 %69, 5
+  br i1 %71, label %_ZNKSt5arrayIiLm5EE2atEm.exit33, label %72
+
+72:                                               ; preds = %._crit_edge
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.115, i64 noundef %70, i64 noundef 5) #28
   unreachable
 
 _ZNKSt5arrayIiLm5EE2atEm.exit33:                  ; preds = %._crit_edge
-  %72 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %69
-  %73 = load i32, ptr %72, align 4
-  %74 = tail call i32 @llvm.abs.i32(i32 %73, i1 true)
-  %75 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %69
-  %76 = load i32, ptr %75, align 4
-  %77 = tail call i32 @llvm.abs.i32(i32 %76, i1 true)
-  %78 = add nuw nsw i32 %77, %74
-  %79 = uitofp nneg i32 %78 to double
-  %80 = fneg double %79
-  %81 = load i32, ptr %18, align 8
-  %82 = sitofp i32 %81 to double
-  %83 = fdiv double %80, %82
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %85 = load i8, ptr %84, align 8
-  %86 = trunc i8 %85 to i1
-  br i1 %86, label %87, label %96
+  %73 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveXE, i64 %70
+  %74 = load i32, ptr %73, align 4
+  %75 = tail call i32 @llvm.abs.i32(i32 %74, i1 true)
+  %76 = getelementptr inbounds nuw i32, ptr @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState14kActionToMoveYE, i64 %70
+  %77 = load i32, ptr %76, align 4
+  %78 = tail call i32 @llvm.abs.i32(i32 %77, i1 true)
+  %79 = add nuw nsw i32 %78, %75
+  %80 = uitofp nneg i32 %79 to double
+  %81 = fneg double %80
+  %82 = load i32, ptr %18, align 8
+  %83 = sitofp i32 %82 to double
+  %84 = fdiv double %81, %83
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %86 = load i8, ptr %85, align 8
+  %87 = trunc i8 %86 to i1
+  br i1 %87, label %88, label %97
 
-87:                                               ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit33
-  %88 = load i32, ptr %14, align 4
-  %89 = load i32, ptr %16, align 8
-  %90 = tail call fastcc noundef i32 @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_17MergeXYEiii(i32 noundef %88, i32 noundef %89, i32 noundef %81)
-  %91 = zext nneg i32 %90 to i64
-  %92 = load ptr, ptr %13, align 8
-  %93 = getelementptr inbounds nuw double, ptr %92, i64 %91
-  %94 = load double, ptr %93, align 8
-  %95 = fmul double %83, %94
-  br label %96
+88:                                               ; preds = %_ZNKSt5arrayIiLm5EE2atEm.exit33
+  %89 = load i32, ptr %14, align 4
+  %90 = load i32, ptr %16, align 8
+  %91 = tail call fastcc noundef i32 @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_17MergeXYEiii(i32 noundef %89, i32 noundef %90, i32 noundef %82)
+  %92 = zext nneg i32 %91 to i64
+  %93 = load ptr, ptr %13, align 8
+  %94 = getelementptr inbounds nuw double, ptr %93, i64 %92
+  %95 = load double, ptr %94, align 8
+  %96 = fmul double %84, %95
+  br label %97
 
-96:                                               ; preds = %87, %_ZNKSt5arrayIiLm5EE2atEm.exit33
-  %.022 = phi double [ %95, %87 ], [ %83, %_ZNKSt5arrayIiLm5EE2atEm.exit33 ]
+97:                                               ; preds = %88, %_ZNKSt5arrayIiLm5EE2atEm.exit33
+  %.022 = phi double [ %96, %88 ], [ %84, %_ZNKSt5arrayIiLm5EE2atEm.exit33 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %97 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  %98 = fadd double %.025.lcssa, %.023.lcssa
-  %99 = fadd double %98, %.022
+  %98 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
+  %99 = fadd double %.025.lcssa, %.022
   %100 = fadd double %27, %99
-  store ptr %97, ptr %0, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %97, i64 8
+  store ptr %98, ptr %0, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %101, ptr %102, align 8
-  store double %100, ptr %97, align 8
+  store double %100, ptr %98, align 8
   br label %103
 
-103:                                              ; preds = %96, %45, %5
-  %.sink = phi ptr [ %101, %96 ], [ %47, %45 ], [ %7, %5 ]
+103:                                              ; preds = %97, %45, %5
+  %.sink = phi ptr [ %101, %97 ], [ %47, %45 ], [ %7, %5 ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink, ptr %104, align 8
   ret void

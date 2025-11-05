@@ -1025,7 +1025,7 @@ _ZL13days_in_monthmm.exit.i:                      ; preds = %1
   %spec.select.i.i = add i32 %19, %26
   %27 = zext i32 %spec.select.i.i to i64
   %28 = icmp samesign ugt i64 %spec.store.select1.i, 1
-  %. = tail call i64 @llvm.umin.i64(i64 %15, i64 %27)
+  %.62.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %27)
   br i1 %28, label %_ZL13days_in_monthmm.exit32.us.i, label %_ZL17daynumber_in_yearmmm.exit
 
 _ZL13days_in_monthmm.exit.thread.i:               ; preds = %1
@@ -1034,7 +1034,7 @@ _ZL13days_in_monthmm.exit.thread.i:               ; preds = %1
   %spec.select.i34.i = add i32 %19, %30
   %31 = zext i32 %spec.select.i34.i to i64
   %32 = icmp samesign ugt i64 %spec.store.select1.i, 1
-  %.29 = tail call i64 @llvm.umin.i64(i64 %15, i64 %31)
+  %..i = tail call i64 @llvm.umin.i64(i64 %15, i64 %31)
   br i1 %32, label %_ZL13days_in_monthmm.exit32.i, label %_ZL17daynumber_in_yearmmm.exit
 
 _ZL13days_in_monthmm.exit32.us.i:                 ; preds = %_ZL13days_in_monthmm.exit.i, %_ZL13days_in_monthmm.exit32.us.i
@@ -1068,10 +1068,10 @@ _ZL13days_in_monthmm.exit32.i:                    ; preds = %_ZL13days_in_monthm
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %spec.store.select1.i
   br i1 %exitcond.not.i, label %_ZL17daynumber_in_yearmmm.exit, label %_ZL13days_in_monthmm.exit32.i, !llvm.loop !81
 
-_ZL17daynumber_in_yearmmm.exit:                   ; preds = %_ZL13days_in_monthmm.exit32.i, %_ZL13days_in_monthmm.exit32.us.i, %_ZL13days_in_monthmm.exit.thread.i, %_ZL13days_in_monthmm.exit.i
-  %.01845.i = phi i64 [ %., %_ZL13days_in_monthmm.exit.i ], [ %.29, %_ZL13days_in_monthmm.exit.thread.i ], [ %., %_ZL13days_in_monthmm.exit32.us.i ], [ %.29, %_ZL13days_in_monthmm.exit32.i ]
-  %.017.lcssa.i = phi i32 [ 0, %_ZL13days_in_monthmm.exit.i ], [ 0, %_ZL13days_in_monthmm.exit.thread.i ], [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ %44, %_ZL13days_in_monthmm.exit32.i ]
-  %45 = trunc nuw i64 %.01845.i to i32
+_ZL17daynumber_in_yearmmm.exit:                   ; preds = %_ZL13days_in_monthmm.exit32.i, %_ZL13days_in_monthmm.exit32.us.i, %_ZL13days_in_monthmm.exit.i, %_ZL13days_in_monthmm.exit.thread.i
+  %.01848.i = phi i64 [ %..i, %_ZL13days_in_monthmm.exit.thread.i ], [ %.62.i, %_ZL13days_in_monthmm.exit.i ], [ %.62.i, %_ZL13days_in_monthmm.exit32.us.i ], [ %..i, %_ZL13days_in_monthmm.exit32.i ]
+  %.017.lcssa.i = phi i32 [ 0, %_ZL13days_in_monthmm.exit.thread.i ], [ 0, %_ZL13days_in_monthmm.exit.i ], [ %38, %_ZL13days_in_monthmm.exit32.us.i ], [ %44, %_ZL13days_in_monthmm.exit32.i ]
+  %45 = trunc nuw i64 %.01848.i to i32
   %46 = add i32 %.017.lcssa.i, %45
   %47 = sitofp i32 %46 to double
   %48 = icmp sgt i64 %4, 1859
@@ -1159,71 +1159,71 @@ _ZL12days_in_yearl.exit30.split.us:               ; preds = %._crit_edge
   br i1 %.not24.us64, label %.split.us, label %_ZL13days_in_monthmm.exit42.us
 
 _ZL13days_in_monthmm.exit42.us:                   ; preds = %_ZL12days_in_yearl.exit30.split.us, %_ZL13days_in_monthmm.exit42.us
-  %18 = phi i1 [ %28, %_ZL13days_in_monthmm.exit42.us ], [ false, %_ZL12days_in_yearl.exit30.split.us ]
-  %19 = phi i32 [ %27, %_ZL13days_in_monthmm.exit42.us ], [ 31, %_ZL12days_in_yearl.exit30.split.us ]
-  %.1.us66 = phi i32 [ %21, %_ZL13days_in_monthmm.exit42.us ], [ %15, %_ZL12days_in_yearl.exit30.split.us ]
-  %.021.us65 = phi i32 [ %22, %_ZL13days_in_monthmm.exit42.us ], [ 1, %_ZL12days_in_yearl.exit30.split.us ]
-  %or.cond.i40.us = and i1 %18, %17
-  %20 = zext i1 %or.cond.i40.us to i32
+  %18 = phi i1 [ %29, %_ZL13days_in_monthmm.exit42.us ], [ false, %_ZL12days_in_yearl.exit30.split.us ]
+  %19 = phi i32 [ %28, %_ZL13days_in_monthmm.exit42.us ], [ 31, %_ZL12days_in_yearl.exit30.split.us ]
+  %.1.us66 = phi i32 [ %22, %_ZL13days_in_monthmm.exit42.us ], [ %15, %_ZL12days_in_yearl.exit30.split.us ]
+  %.021.us65 = phi i32 [ %23, %_ZL13days_in_monthmm.exit42.us ], [ 1, %_ZL12days_in_yearl.exit30.split.us ]
+  %20 = and i1 %17, %18
+  %21 = zext i1 %20 to i32
   %spec.select.i41.us = add i32 %19, %.1.us66
-  %21 = add i32 %spec.select.i41.us, %20
-  %22 = add i32 %.021.us65, 1
-  %23 = tail call i32 @llvm.umin.i32(i32 %22, i32 12)
-  %24 = icmp eq i32 %22, 0
-  %narrow.us = select i1 %24, i32 1, i32 %23
+  %22 = add i32 %spec.select.i41.us, %21
+  %23 = add i32 %.021.us65, 1
+  %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 12)
+  %25 = icmp eq i32 %23, 0
+  %narrow.us = select i1 %25, i32 1, i32 %24
   %spec.store.select2.i.us = zext nneg i32 %narrow.us to i64
-  %25 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i.us
-  %26 = getelementptr i8, ptr %25, i64 -4
-  %27 = load i32, ptr %26, align 4, !tbaa !78
-  %28 = icmp eq i32 %narrow.us, 2
-  %or.cond.i.us = and i1 %17, %28
-  %29 = zext i1 %or.cond.i.us to i32
-  %spec.select.i34.us = add i32 %27, %21
-  %30 = add i32 %spec.select.i34.us, %29
-  %.not24.us = icmp ugt i32 %30, %3
+  %26 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i.us
+  %27 = getelementptr i8, ptr %26, i64 -4
+  %28 = load i32, ptr %27, align 4, !tbaa !78
+  %29 = icmp eq i32 %narrow.us, 2
+  %or.cond.i.us = and i1 %17, %29
+  %30 = zext i1 %or.cond.i.us to i32
+  %spec.select.i34.us = add i32 %28, %22
+  %31 = add i32 %spec.select.i34.us, %30
+  %.not24.us = icmp ugt i32 %31, %3
   br i1 %.not24.us, label %.split.us, label %_ZL13days_in_monthmm.exit42.us, !llvm.loop !84
 
 _ZL12days_in_yearl.exit30.split:                  ; preds = %._crit_edge
-  %31 = add i32 %.0.lcssa, -366
+  %32 = add i32 %.0.lcssa, -366
   %spec.select.i344457 = add i32 %.0.lcssa, -335
   %.not244558 = icmp ugt i32 %spec.select.i344457, %3
   br i1 %.not244558, label %.split.us, label %_ZL13days_in_monthmm.exit42
 
 _ZL13days_in_monthmm.exit42:                      ; preds = %_ZL12days_in_yearl.exit30.split, %_ZL13days_in_monthmm.exit42
-  %32 = phi i1 [ %42, %_ZL13days_in_monthmm.exit42 ], [ false, %_ZL12days_in_yearl.exit30.split ]
-  %33 = phi i32 [ %41, %_ZL13days_in_monthmm.exit42 ], [ 31, %_ZL12days_in_yearl.exit30.split ]
-  %.160 = phi i32 [ %35, %_ZL13days_in_monthmm.exit42 ], [ %31, %_ZL12days_in_yearl.exit30.split ]
-  %.02159 = phi i32 [ %36, %_ZL13days_in_monthmm.exit42 ], [ 1, %_ZL12days_in_yearl.exit30.split ]
-  %34 = zext i1 %32 to i32
-  %spec.select.i41 = add i32 %33, %.160
-  %35 = add i32 %spec.select.i41, %34
-  %36 = add i32 %.02159, 1
-  %37 = tail call i32 @llvm.umin.i32(i32 %36, i32 12)
-  %38 = icmp eq i32 %36, 0
-  %narrow = select i1 %38, i32 1, i32 %37
+  %33 = phi i1 [ %43, %_ZL13days_in_monthmm.exit42 ], [ false, %_ZL12days_in_yearl.exit30.split ]
+  %34 = phi i32 [ %42, %_ZL13days_in_monthmm.exit42 ], [ 31, %_ZL12days_in_yearl.exit30.split ]
+  %.160 = phi i32 [ %36, %_ZL13days_in_monthmm.exit42 ], [ %32, %_ZL12days_in_yearl.exit30.split ]
+  %.02159 = phi i32 [ %37, %_ZL13days_in_monthmm.exit42 ], [ 1, %_ZL12days_in_yearl.exit30.split ]
+  %35 = zext i1 %33 to i32
+  %spec.select.i41 = add i32 %34, %.160
+  %36 = add i32 %spec.select.i41, %35
+  %37 = add i32 %.02159, 1
+  %38 = tail call i32 @llvm.umin.i32(i32 %37, i32 12)
+  %39 = icmp eq i32 %37, 0
+  %narrow = select i1 %39, i32 1, i32 %38
   %spec.store.select2.i = zext nneg i32 %narrow to i64
-  %39 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i
-  %40 = getelementptr i8, ptr %39, i64 -4
-  %41 = load i32, ptr %40, align 4, !tbaa !78
-  %42 = icmp eq i32 %narrow, 2
-  %43 = zext i1 %42 to i32
-  %spec.select.i3444 = add i32 %41, %35
-  %44 = add i32 %spec.select.i3444, %43
-  %.not2445 = icmp ugt i32 %44, %3
+  %40 = getelementptr i32, ptr @__const._ZL13days_in_monthmm.month_table, i64 %spec.store.select2.i
+  %41 = getelementptr i8, ptr %40, i64 -4
+  %42 = load i32, ptr %41, align 4, !tbaa !78
+  %43 = icmp eq i32 %narrow, 2
+  %44 = zext i1 %43 to i32
+  %spec.select.i3444 = add i32 %42, %36
+  %45 = add i32 %spec.select.i3444, %44
+  %.not2445 = icmp ugt i32 %45, %3
   br i1 %.not2445, label %.split.us, label %_ZL13days_in_monthmm.exit42, !llvm.loop !84
 
 .split.us:                                        ; preds = %_ZL13days_in_monthmm.exit42, %_ZL13days_in_monthmm.exit42.us, %_ZL12days_in_yearl.exit30.split, %_ZL12days_in_yearl.exit30.split.us
-  %.us-phi = phi i32 [ 1, %_ZL12days_in_yearl.exit30.split.us ], [ 1, %_ZL12days_in_yearl.exit30.split ], [ %22, %_ZL13days_in_monthmm.exit42.us ], [ %36, %_ZL13days_in_monthmm.exit42 ]
-  %.us-phi56 = phi i32 [ %15, %_ZL12days_in_yearl.exit30.split.us ], [ %31, %_ZL12days_in_yearl.exit30.split ], [ %21, %_ZL13days_in_monthmm.exit42.us ], [ %35, %_ZL13days_in_monthmm.exit42 ]
-  %45 = add nuw i32 %3, 1
-  %46 = sub i32 %45, %.us-phi56
-  %47 = uitofp i32 %.022.lcssa to double
-  %48 = uitofp i32 %.us-phi to double
-  %49 = fmul double %48, 1.000000e+02
-  %50 = tail call double @llvm.fmuladd.f64(double %47, double 1.000000e+04, double %49)
-  %51 = uitofp i32 %46 to double
-  %52 = fadd double %50, %51
-  ret double %52
+  %.us-phi = phi i32 [ 1, %_ZL12days_in_yearl.exit30.split.us ], [ 1, %_ZL12days_in_yearl.exit30.split ], [ %23, %_ZL13days_in_monthmm.exit42.us ], [ %37, %_ZL13days_in_monthmm.exit42 ]
+  %.us-phi56 = phi i32 [ %15, %_ZL12days_in_yearl.exit30.split.us ], [ %32, %_ZL12days_in_yearl.exit30.split ], [ %22, %_ZL13days_in_monthmm.exit42.us ], [ %36, %_ZL13days_in_monthmm.exit42 ]
+  %46 = add nuw i32 %3, 1
+  %47 = sub i32 %46, %.us-phi56
+  %48 = uitofp i32 %.022.lcssa to double
+  %49 = uitofp i32 %.us-phi to double
+  %50 = fmul double %49, 1.000000e+02
+  %51 = tail call double @llvm.fmuladd.f64(double %48, double 1.000000e+04, double %50)
+  %52 = uitofp i32 %47 to double
+  %53 = fadd double %51, %52
+  ret double %53
 }
 
 ; Function Attrs: nounwind

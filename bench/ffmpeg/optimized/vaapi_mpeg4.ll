@@ -104,7 +104,7 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mpeg4_start_frame(ptr nound
   %82 = add i16 %81, 3
   %83 = and i16 %82, 3
   %84 = icmp eq i32 %80, 3
-  br i1 %84, label %85, label %95
+  br i1 %84, label %85, label %96
 
 85:                                               ; preds = %4
   %86 = getelementptr inbounds nuw i8, ptr %8, i64 1088
@@ -116,11 +116,11 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mpeg4_start_frame(ptr nound
   %92 = shl i16 %91, 2
   %93 = add i16 %92, 12
   %94 = and i16 %93, 12
-  br label %95
+  %95 = or disjoint i16 %94, 2
+  br label %96
 
-95:                                               ; preds = %4, %85
-  %96 = phi i16 [ %94, %85 ], [ 0, %4 ]
-  %97 = or disjoint i16 %96, %83
+96:                                               ; preds = %4, %85
+  %97 = phi i16 [ %95, %85 ], [ %83, %4 ]
   %98 = getelementptr inbounds nuw i8, ptr %8, i64 3344
   %99 = load i32, ptr %98, align 8, !tbaa !84
   %100 = trunc i32 %99 to i16
@@ -139,29 +139,29 @@ define internal range(i32 -2147483648, 1) i32 @vaapi_mpeg4_start_frame(ptr nound
     i32 23, label %109
   ]
 
-105:                                              ; preds = %95
+105:                                              ; preds = %96
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
-106:                                              ; preds = %95
+106:                                              ; preds = %96
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
-107:                                              ; preds = %95
+107:                                              ; preds = %96
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
-108:                                              ; preds = %95
+108:                                              ; preds = %96
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
-109:                                              ; preds = %95
+109:                                              ; preds = %96
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
-110:                                              ; preds = %95
+110:                                              ; preds = %96
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
-111:                                              ; preds = %95
+111:                                              ; preds = %96
   br label %mpeg4_get_intra_dc_vlc_thr.exit
 
-mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %95, %105, %106, %107, %108, %109, %110, %111
-  %.0.i = phi i16 [ 0, %111 ], [ 64, %105 ], [ 96, %106 ], [ 128, %107 ], [ 160, %108 ], [ 192, %109 ], [ 224, %110 ], [ 32, %95 ]
+mpeg4_get_intra_dc_vlc_thr.exit:                  ; preds = %96, %105, %106, %107, %108, %109, %110, %111
+  %.0.i = phi i16 [ 0, %111 ], [ 64, %105 ], [ 96, %106 ], [ 128, %107 ], [ 160, %108 ], [ 192, %109 ], [ 224, %110 ], [ 32, %96 ]
   %112 = or disjoint i16 %103, %.0.i
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 4224
   %114 = load i32, ptr %113, align 8, !tbaa !86

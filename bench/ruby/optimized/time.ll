@@ -9564,10 +9564,10 @@ obj2ubits.exit:                                   ; preds = %obj2int.exit.i
 
 57:                                               ; preds = %33, %obj2ubits.exit
   %58 = phi i64 [ %56, %obj2ubits.exit ], [ 8192, %33 ]
-  %59 = and i64 %34, -536862721
+  %59 = and i64 %34, -8380417
   %60 = or disjoint i64 %58, %59
   %61 = icmp eq i64 %5, 4
-  br i1 %61, label %83, label %62
+  br i1 %61, label %84, label %62
 
 62:                                               ; preds = %57
   %63 = icmp eq i64 %5, 0
@@ -9615,15 +9615,15 @@ obj2int.exit.i17:                                 ; preds = %76, %74
 obj2ubits.exit20:                                 ; preds = %obj2int.exit.i17
   %81 = shl i64 %.0.i3.i.i18, 18
   %82 = and i64 %81, 8126464
-  br label %83
+  %83 = or disjoint i64 %82, %60
+  br label %84
 
-83:                                               ; preds = %57, %obj2ubits.exit20
-  %84 = phi i64 [ %82, %obj2ubits.exit20 ], [ 0, %57 ]
-  %85 = or disjoint i64 %84, %60
+84:                                               ; preds = %57, %obj2ubits.exit20
+  %85 = phi i64 [ %83, %obj2ubits.exit20 ], [ %60, %57 ]
   %86 = icmp eq i64 %6, 4
   br i1 %86, label %108, label %87
 
-87:                                               ; preds = %83
+87:                                               ; preds = %84
   %88 = icmp eq i64 %6, 0
   %89 = and i64 %6, 7
   %90 = icmp ne i64 %89, 0
@@ -9671,34 +9671,35 @@ obj2ubits.exit28:                                 ; preds = %obj2int.exit.i25
   %107 = and i64 %106, 528482304
   br label %108
 
-108:                                              ; preds = %83, %obj2ubits.exit28
-  %109 = phi i64 [ %107, %obj2ubits.exit28 ], [ 0, %83 ]
-  %110 = or disjoint i64 %109, %85
-  %111 = icmp eq i64 %7, 4
-  br i1 %111, label %112, label %114
+108:                                              ; preds = %84, %obj2ubits.exit28
+  %109 = phi i64 [ %107, %obj2ubits.exit28 ], [ 0, %84 ]
+  %110 = and i64 %85, -528482305
+  %111 = or disjoint i64 %109, %110
+  %112 = icmp eq i64 %7, 4
+  br i1 %112, label %113, label %115
 
-112:                                              ; preds = %108
-  %113 = and i64 %110, -270582939649
-  br label %121
+113:                                              ; preds = %108
+  %114 = and i64 %111, -270582939649
+  br label %122
 
-114:                                              ; preds = %108
+115:                                              ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %115 = call fastcc i32 @obj2subsecx(i64 noundef %7, ptr noundef %11)
-  %116 = zext nneg i32 %115 to i64
-  %117 = shl nuw nsw i64 %116, 32
-  %118 = and i64 %110, -270582939649
-  %119 = or disjoint i64 %117, %118
-  %120 = load i64, ptr %11, align 8, !tbaa !11
+  %116 = call fastcc i32 @obj2subsecx(i64 noundef %7, ptr noundef %11)
+  %117 = zext nneg i32 %116 to i64
+  %118 = shl nuw nsw i64 %117, 32
+  %119 = and i64 %111, -270582939649
+  %120 = or disjoint i64 %118, %119
+  %121 = load i64, ptr %11, align 8, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %121
+  br label %122
 
-121:                                              ; preds = %114, %112
-  %.sink29 = phi i64 [ %113, %112 ], [ %119, %114 ]
-  %.sink = phi i64 [ 1, %112 ], [ %120, %114 ]
+122:                                              ; preds = %115, %113
+  %.sink29 = phi i64 [ %114, %113 ], [ %120, %115 ]
+  %.sink = phi i64 [ 1, %113 ], [ %121, %115 ]
   store i64 %.sink29, ptr %12, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.sink, ptr %122, align 8, !tbaa !82
-  %123 = tail call fastcc i64 @time_init_vtm(i64 noundef %1, ptr noundef nonnull byval(%struct.vtm) align 8 %10, i64 noundef %8)
+  %123 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %.sink, ptr %123, align 8, !tbaa !82
+  %124 = tail call fastcc i64 @time_init_vtm(i64 noundef %1, ptr noundef nonnull byval(%struct.vtm) align 8 %10, i64 noundef %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i64 %1
 }

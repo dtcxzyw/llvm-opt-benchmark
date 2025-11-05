@@ -14512,7 +14512,7 @@ define dso_local i32 @skb_cow_data(ptr noundef %0, i32 noundef %1, ptr noundef w
   %115 = load i8, ptr %114, align 2
   %116 = and i8 %115, 1
   %117 = icmp eq i8 %116, 0
-  br i1 %117, label %130, label %118
+  br i1 %117, label %131, label %118
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %76, i64 192
@@ -14526,15 +14526,15 @@ define dso_local i32 @skb_cow_data(ptr noundef %0, i32 noundef %1, ptr noundef w
   %127 = and i32 %126, 65535
   %128 = icmp ne i32 %127, 1
   %129 = zext i1 %128 to i32
-  br label %130
+  %130 = or i32 %111, %129
+  br label %131
 
-130:                                              ; preds = %118, %113
-  %131 = phi i32 [ 0, %113 ], [ %129, %118 ]
-  %132 = or i32 %131, %111
+131:                                              ; preds = %118, %113
+  %132 = phi i32 [ %111, %113 ], [ %130, %118 ]
   %133 = icmp eq i32 %132, 0
   br i1 %133, label %134, label %148
 
-134:                                              ; preds = %130
+134:                                              ; preds = %131
   %135 = getelementptr inbounds nuw i8, ptr %76, i64 192
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %76, i64 188
@@ -14552,7 +14552,7 @@ define dso_local i32 @skb_cow_data(ptr noundef %0, i32 noundef %1, ptr noundef w
   %147 = icmp eq ptr %146, null
   br i1 %147, label %172, label %148
 
-148:                                              ; preds = %144, %134, %130, %110
+148:                                              ; preds = %144, %134, %131, %110
   %149 = icmp eq i32 %111, 0
   br i1 %149, label %150, label %152
 

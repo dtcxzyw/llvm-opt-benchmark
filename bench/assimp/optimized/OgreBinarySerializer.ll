@@ -3323,7 +3323,7 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadSubMeshNamesEPNS0
 
 31:                                               ; preds = %.lr.ph, %95
   %32 = phi ptr [ %22, %.lr.ph ], [ %.pre31, %95 ]
-  %33 = phi ptr [ %21, %.lr.ph ], [ %99, %95 ]
+  %33 = phi ptr [ %21, %.lr.ph ], [ %100, %95 ]
   %34 = phi ptr [ %18, %.lr.ph ], [ %.pre, %95 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 2
@@ -3341,8 +3341,8 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer16ReadSubMeshNamesEPNS0
   call void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-common.resume:                                    ; preds = %108, %50, %42
-  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %51, %50 ], [ %109, %108 ]
+common.resume:                                    ; preds = %109, %50, %42
+  %common.resume.op = phi { ptr, i32 } [ %43, %42 ], [ %51, %50 ], [ %110, %109 ]
   resume { ptr, i32 } %common.resume.op
 
 42:                                               ; preds = %39
@@ -3501,42 +3501,42 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %.pre35 = sub i64 %.pre32, %.pre33
   %.pre37 = and i64 %.pre35, 4294967295
   %98 = icmp eq i64 %.pre37, 0
+  %99 = or i1 %97, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %99 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
-  %.not9 = or i1 %97, %98
-  br i1 %.not9, label %._crit_edge, label %31, !llvm.loop !13
+  %100 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
+  br i1 %99, label %._crit_edge, label %31, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %95, %16
   %.lcssa18 = phi ptr [ %18, %16 ], [ %.pre, %95 ]
-  %.lcssa15 = phi ptr [ %21, %16 ], [ %99, %95 ]
+  %.lcssa15 = phi ptr [ %21, %16 ], [ %100, %95 ]
   %.lcssa12 = phi ptr [ %22, %16 ], [ %.pre31, %95 ]
   %.lcssa = phi i1 [ %27, %16 ], [ %98, %95 ]
-  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %100
+  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %101
 
-100:                                              ; preds = %._crit_edge
-  %101 = getelementptr inbounds i8, ptr %.lcssa12, i64 -6
-  store ptr %101, ptr %.lcssa15, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %.lcssa18, i64 40
-  %103 = load ptr, ptr %102, align 8
-  %104 = icmp ugt ptr %101, %103
-  br i1 %104, label %105, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+101:                                              ; preds = %._crit_edge
+  %102 = getelementptr inbounds i8, ptr %.lcssa12, i64 -6
+  store ptr %102, ptr %.lcssa15, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %.lcssa18, i64 40
+  %104 = load ptr, ptr %103, align 8
+  %105 = icmp ugt ptr %102, %104
+  br i1 %105, label %106, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
 
-105:                                              ; preds = %100
-  %106 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %106, ptr noundef nonnull @.str.71)
-          to label %107 unwind label %108
+106:                                              ; preds = %101
+  %107 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %107, ptr noundef nonnull @.str.71)
+          to label %108 unwind label %109
 
-107:                                              ; preds = %105
-  call void @__cxa_throw(ptr nonnull %106, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+108:                                              ; preds = %106
+  call void @__cxa_throw(ptr nonnull %107, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-108:                                              ; preds = %105
-  %109 = landingpad { ptr, i32 }
+109:                                              ; preds = %106
+  %110 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %106) #26
+  call void @__cxa_free_exception(ptr nonnull %107) #26
   br label %common.resume
 
-_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %._crit_edge.thread, %100, %._crit_edge, %2
+_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %._crit_edge.thread, %101, %._crit_edge, %2
   ret void
 }
 
@@ -4131,9 +4131,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   call void @__cxa_throw(ptr nonnull %77, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-common.resume:                                    ; preds = %145, %92, %79
-  %.sink = phi ptr [ %143, %145 ], [ %90, %92 ], [ %77, %79 ]
-  %common.resume.op = phi { ptr, i32 } [ %146, %145 ], [ %93, %92 ], [ %80, %79 ]
+common.resume:                                    ; preds = %146, %92, %79
+  %.sink = phi ptr [ %144, %146 ], [ %90, %92 ], [ %77, %79 ]
+  %common.resume.op = phi { ptr, i32 } [ %147, %146 ], [ %93, %92 ], [ %80, %79 ]
   call void @__cxa_free_exception(ptr nonnull %.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -4262,39 +4262,39 @@ _ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit: ; preds = %99, %
   %.pre37 = sub i64 %.pre34, %.pre35
   %.pre39 = and i64 %.pre37, 4294967295
   %135 = icmp eq i64 %.pre39, 0
-  %.not2 = or i1 %134, %135
-  br i1 %.not2, label %._crit_edge, label %33, !llvm.loop !17
+  %136 = or i1 %134, %135
+  br i1 %136, label %._crit_edge, label %33, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %132, %15
   %.lcssa23 = phi ptr [ %17, %15 ], [ %.pre, %132 ]
   %.lcssa11 = phi ptr [ %21, %15 ], [ %.pre33, %132 ]
   %.lcssa = phi i1 [ %26, %15 ], [ %135, %132 ]
-  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %136
+  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %137
 
-136:                                              ; preds = %._crit_edge
-  %137 = getelementptr inbounds nuw i8, ptr %.lcssa23, i64 24
-  %138 = getelementptr inbounds i8, ptr %.lcssa11, i64 -6
-  store ptr %138, ptr %137, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %.lcssa23, i64 40
-  %140 = load ptr, ptr %139, align 8
-  %141 = icmp ugt ptr %138, %140
-  br i1 %141, label %142, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+137:                                              ; preds = %._crit_edge
+  %138 = getelementptr inbounds nuw i8, ptr %.lcssa23, i64 24
+  %139 = getelementptr inbounds i8, ptr %.lcssa11, i64 -6
+  store ptr %139, ptr %138, align 8
+  %140 = getelementptr inbounds nuw i8, ptr %.lcssa23, i64 40
+  %141 = load ptr, ptr %140, align 8
+  %142 = icmp ugt ptr %139, %141
+  br i1 %142, label %143, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
 
-142:                                              ; preds = %136
-  %143 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull @.str.71)
-          to label %144 unwind label %145
+143:                                              ; preds = %137
+  %144 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %144, ptr noundef nonnull @.str.71)
+          to label %145 unwind label %146
 
-144:                                              ; preds = %142
-  call void @__cxa_throw(ptr nonnull %143, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+145:                                              ; preds = %143
+  call void @__cxa_throw(ptr nonnull %144, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-145:                                              ; preds = %142
-  %146 = landingpad { ptr, i32 }
+146:                                              ; preds = %143
+  %147 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit, %136, %._crit_edge, %2
+_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %_ZNSt6vectorIPN6Assimp4Ogre4PoseESaIS3_EE9push_backERKS3_.exit, %137, %._crit_edge, %2
   ret void
 }
 
@@ -4451,8 +4451,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   call void @__cxa_throw(ptr nonnull %74, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-common.resume:                                    ; preds = %130, %115, %76
-  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %116, %115 ], [ %131, %130 ]
+common.resume:                                    ; preds = %131, %115, %76
+  %common.resume.op = phi { ptr, i32 } [ %77, %76 ], [ %116, %115 ], [ %132, %131 ]
   resume { ptr, i32 } %common.resume.op
 
 76:                                               ; preds = %73
@@ -4559,40 +4559,40 @@ _ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit: ; preds = %
   %.pre46 = sub i64 %.pre43, %.pre44
   %.pre48 = and i64 %.pre46, 4294967295
   %120 = icmp eq i64 %.pre48, 0
-  %.not5 = or i1 %119, %120
-  br i1 %.not5, label %._crit_edge, label %33, !llvm.loop !18
+  %121 = or i1 %119, %120
+  br i1 %121, label %._crit_edge, label %33, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %117, %15
   %.lcssa28 = phi ptr [ %17, %15 ], [ %.pre, %117 ]
   %.lcssa13 = phi ptr [ %21, %15 ], [ %.pre42, %117 ]
   %.lcssa = phi i1 [ %26, %15 ], [ %120, %117 ]
-  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %121
+  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %122
 
-121:                                              ; preds = %._crit_edge
-  %122 = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 24
-  %123 = getelementptr inbounds i8, ptr %.lcssa13, i64 -6
-  store ptr %123, ptr %122, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 40
-  %125 = load ptr, ptr %124, align 8
-  %126 = icmp ugt ptr %123, %125
-  br i1 %126, label %127, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+122:                                              ; preds = %._crit_edge
+  %123 = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 24
+  %124 = getelementptr inbounds i8, ptr %.lcssa13, i64 -6
+  store ptr %124, ptr %123, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %.lcssa28, i64 40
+  %126 = load ptr, ptr %125, align 8
+  %127 = icmp ugt ptr %124, %126
+  br i1 %127, label %128, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
 
-127:                                              ; preds = %121
-  %128 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %128, ptr noundef nonnull @.str.71)
-          to label %129 unwind label %130
+128:                                              ; preds = %122
+  %129 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %129, ptr noundef nonnull @.str.71)
+          to label %130 unwind label %131
 
-129:                                              ; preds = %127
-  call void @__cxa_throw(ptr nonnull %128, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+130:                                              ; preds = %128
+  call void @__cxa_throw(ptr nonnull %129, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-130:                                              ; preds = %127
-  %131 = landingpad { ptr, i32 }
+131:                                              ; preds = %128
+  %132 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %128) #26
+  call void @__cxa_free_exception(ptr nonnull %129) #26
   br label %common.resume
 
-_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit, %121, %._crit_edge, %2
+_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit, %122, %._crit_edge, %2
   ret void
 }
 
@@ -5778,40 +5778,40 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer29ReadGeometryVertexDec
   %.pre20 = sub i64 %.pre17, %.pre18
   %.pre22 = and i64 %.pre20, 4294967295
   %40 = icmp eq i64 %.pre22, 0
-  %.not2 = or i1 %39, %40
-  br i1 %.not2, label %._crit_edge, label %.lr.ph, !llvm.loop !22
+  %41 = or i1 %39, %40
+  br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %37, %14
   %.lcssa6 = phi ptr [ %16, %14 ], [ %.pre, %37 ]
   %.lcssa3 = phi ptr [ %20, %14 ], [ %.pre16, %37 ]
   %.lcssa = phi i1 [ %25, %14 ], [ %40, %37 ]
-  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %41
+  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %42
 
-41:                                               ; preds = %._crit_edge
-  %42 = getelementptr inbounds nuw i8, ptr %.lcssa6, i64 24
-  %43 = getelementptr inbounds i8, ptr %.lcssa3, i64 -6
-  store ptr %43, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %.lcssa6, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp ugt ptr %43, %45
-  br i1 %46, label %47, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+42:                                               ; preds = %._crit_edge
+  %43 = getelementptr inbounds nuw i8, ptr %.lcssa6, i64 24
+  %44 = getelementptr inbounds i8, ptr %.lcssa3, i64 -6
+  store ptr %44, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %.lcssa6, i64 40
+  %46 = load ptr, ptr %45, align 8
+  %47 = icmp ugt ptr %44, %46
+  br i1 %47, label %48, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
 
-47:                                               ; preds = %41
-  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull @.str.71)
-          to label %49 unwind label %50
+48:                                               ; preds = %42
+  %49 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull @.str.71)
+          to label %50 unwind label %51
 
-49:                                               ; preds = %47
-  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+50:                                               ; preds = %48
+  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+51:                                               ; preds = %48
+  %52 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %48) #26
-  resume { ptr, i32 } %51
+  tail call void @__cxa_free_exception(ptr nonnull %49) #26
+  resume { ptr, i32 } %52
 
-_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %.lr.ph, %41, %._crit_edge, %2
+_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %.lr.ph, %42, %._crit_edge, %2
   ret void
 }
 
@@ -10443,8 +10443,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-common.resume:                                    ; preds = %161, %124, %119, %55
-  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %120, %119 ], [ %125, %124 ], [ %162, %161 ]
+common.resume:                                    ; preds = %162, %124, %119, %55
+  %common.resume.op = phi { ptr, i32 } [ %56, %55 ], [ %120, %119 ], [ %125, %124 ], [ %163, %162 ]
   resume { ptr, i32 } %common.resume.op
 
 55:                                               ; preds = %52
@@ -10652,116 +10652,116 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit20: ; preds = %_ZNSt7__cxx
   %.pre46 = sub i64 %.pre43, %.pre44
   %.pre48 = and i64 %.pre46, 4294967295
   %151 = icmp eq i64 %.pre48, 0
-  %.not7 = or i1 %150, %151
-  br i1 %.not7, label %._crit_edge, label %.lr.ph, !llvm.loop !42
+  %152 = or i1 %150, %151
+  br i1 %152, label %._crit_edge, label %.lr.ph, !llvm.loop !42
 
 ._crit_edge:                                      ; preds = %148, %126
   %.lcssa32 = phi ptr [ %127, %126 ], [ %.pre, %148 ]
   %.lcssa29 = phi ptr [ %131, %126 ], [ %.pre42, %148 ]
   %.lcssa = phi i1 [ %136, %126 ], [ %151, %148 ]
-  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %152
+  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %153
 
-152:                                              ; preds = %._crit_edge
-  %153 = getelementptr inbounds nuw i8, ptr %.lcssa32, i64 24
-  %154 = getelementptr inbounds i8, ptr %.lcssa29, i64 -6
-  store ptr %154, ptr %153, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.lcssa32, i64 40
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp ugt ptr %154, %156
-  br i1 %157, label %158, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+153:                                              ; preds = %._crit_edge
+  %154 = getelementptr inbounds nuw i8, ptr %.lcssa32, i64 24
+  %155 = getelementptr inbounds i8, ptr %.lcssa29, i64 -6
+  store ptr %155, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %.lcssa32, i64 40
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp ugt ptr %155, %157
+  br i1 %158, label %159, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
 
-158:                                              ; preds = %152
-  %159 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull @.str.71)
-          to label %160 unwind label %161
+159:                                              ; preds = %153
+  %160 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %160, ptr noundef nonnull @.str.71)
+          to label %161 unwind label %162
 
-160:                                              ; preds = %158
-  call void @__cxa_throw(ptr nonnull %159, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+161:                                              ; preds = %159
+  call void @__cxa_throw(ptr nonnull %160, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-161:                                              ; preds = %158
-  %162 = landingpad { ptr, i32 }
+162:                                              ; preds = %159
+  %163 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %159) #26
+  call void @__cxa_free_exception(ptr nonnull %160) #26
   br label %common.resume
 
-_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %.lr.ph, %152, %._crit_edge, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
-  %163 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %167 = load ptr, ptr %166, align 8
-  %.not.i21 = icmp eq ptr %165, %167
-  br i1 %.not.i21, label %171, label %168
+_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %.lr.ph, %153, %._crit_edge, %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadIfEET_v.exit
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %166 = load ptr, ptr %165, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %168 = load ptr, ptr %167, align 8
+  %.not.i21 = icmp eq ptr %166, %168
+  br i1 %.not.i21, label %172, label %169
 
-168:                                              ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
-  store ptr %6, ptr %165, align 8
-  %169 = load ptr, ptr %164, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
-  store ptr %170, ptr %164, align 8
+169:                                              ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+  store ptr %6, ptr %166, align 8
+  %170 = load ptr, ptr %165, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  store ptr %171, ptr %165, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit
 
-171:                                              ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
-  %172 = load ptr, ptr %163, align 8
-  %173 = ptrtoint ptr %165 to i64
-  %174 = ptrtoint ptr %172 to i64
-  %175 = sub i64 %173, %174
-  %176 = icmp eq i64 %175, 9223372036854775800
-  br i1 %176, label %177, label %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+172:                                              ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+  %173 = load ptr, ptr %164, align 8
+  %174 = ptrtoint ptr %166 to i64
+  %175 = ptrtoint ptr %173 to i64
+  %176 = sub i64 %174, %175
+  %177 = icmp eq i64 %176, 9223372036854775800
+  br i1 %177, label %178, label %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
-177:                                              ; preds = %171
+178:                                              ; preds = %172
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.72) #27
   unreachable
 
-_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %171
-  %178 = ashr exact i64 %175, 3
-  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %178, i64 1)
-  %179 = add nsw i64 %.sroa.speculated.i.i.i, %178
-  %180 = icmp ult i64 %179, %178
-  %181 = call i64 @llvm.umin.i64(i64 %179, i64 1152921504606846975)
-  %182 = select i1 %180, i64 1152921504606846975, i64 %181
-  %.not.i.i.i = icmp ne i64 %182, 0
+_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %172
+  %179 = ashr exact i64 %176, 3
+  %.sroa.speculated.i.i.i = call i64 @llvm.umax.i64(i64 %179, i64 1)
+  %180 = add nsw i64 %.sroa.speculated.i.i.i, %179
+  %181 = icmp ult i64 %180, %179
+  %182 = call i64 @llvm.umin.i64(i64 %180, i64 1152921504606846975)
+  %183 = select i1 %181, i64 1152921504606846975, i64 %182
+  %.not.i.i.i = icmp ne i64 %183, 0
   call void @llvm.assume(i1 %.not.i.i.i)
-  %183 = shl nuw nsw i64 %182, 3
-  %184 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %183) #28
-  %185 = getelementptr inbounds i8, ptr %184, i64 %175
-  store ptr %6, ptr %185, align 8
-  %186 = icmp sgt i64 %175, 0
-  br i1 %186, label %187, label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  %184 = shl nuw nsw i64 %183, 3
+  %185 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %184) #28
+  %186 = getelementptr inbounds i8, ptr %185, i64 %176
+  store ptr %6, ptr %186, align 8
+  %187 = icmp sgt i64 %176, 0
+  br i1 %187, label %188, label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-187:                                              ; preds = %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %184, ptr align 8 %172, i64 %175, i1 false)
+188:                                              ; preds = %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %185, ptr align 8 %173, i64 %176, i1 false)
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
-_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %187, %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %188 = getelementptr inbounds nuw i8, ptr %185, i64 8
-  %.not.i17.i.i = icmp eq ptr %172, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %189
+_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %188, %_ZNKSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  %.not.i17.i.i = icmp eq ptr %173, null
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %190
 
-189:                                              ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %172, i64 noundef %175) #29
+190:                                              ; preds = %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %173, i64 noundef %176) #29
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %189, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  store ptr %184, ptr %163, align 8
-  store ptr %188, ptr %164, align 8
-  %190 = getelementptr inbounds nuw ptr, ptr %184, i64 %182
-  store ptr %190, ptr %166, align 8
+_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %190, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
+  store ptr %185, ptr %164, align 8
+  store ptr %189, ptr %165, align 8
+  %191 = getelementptr inbounds nuw ptr, ptr %185, i64 %183
+  store ptr %191, ptr %167, align 8
   br label %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit
 
-_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit: ; preds = %168, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %191 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
+_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE9push_backERKS3_.exit: ; preds = %169, %_ZNSt6vectorIPN6Assimp4Ogre9AnimationESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
+  %192 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %192 = getelementptr inbounds nuw i8, ptr %6, i64 88
-  %193 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %194 = load ptr, ptr %193, align 8
-  %195 = load ptr, ptr %192, align 8
-  %196 = ptrtoint ptr %194 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %6, i64 88
+  %194 = getelementptr inbounds nuw i8, ptr %6, i64 96
+  %195 = load ptr, ptr %194, align 8
+  %196 = load ptr, ptr %193, align 8
   %197 = ptrtoint ptr %195 to i64
-  %198 = sub i64 %196, %197
-  %199 = sdiv exact i64 %198, 112
-  store i64 %199, ptr %5, align 8
-  call void @_ZN6Assimp6Logger12verboseDebugIJRA5_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA3_S2_RfRA7_S2_mRA9_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %191, ptr noundef nonnull align 1 dereferenceable(5) @.str.57, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 dereferenceable(3) @.str.61, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 1 dereferenceable(7) @.str.62, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.63)
+  %198 = ptrtoint ptr %196 to i64
+  %199 = sub i64 %197, %198
+  %200 = sdiv exact i64 %199, 112
+  store i64 %200, ptr %5, align 8
+  call void @_ZN6Assimp6Logger12verboseDebugIJRA5_KcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA3_S2_RfRA7_S2_mRA9_S2_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(12) %192, ptr noundef nonnull align 1 dereferenceable(5) @.str.57, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 1 dereferenceable(3) @.str.61, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 1 dereferenceable(7) @.str.62, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(9) @.str.63)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -11036,8 +11036,8 @@ define hidden void @_ZN6Assimp4Ogre20OgreBinarySerializer26ReadSkeletonAnimation
   tail call void @__cxa_throw(ptr nonnull %15, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
   unreachable
 
-common.resume:                                    ; preds = %81, %17
-  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %.pn.pn, %81 ]
+common.resume:                                    ; preds = %82, %17
+  %common.resume.op = phi { ptr, i32 } [ %18, %17 ], [ %.pn.pn, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 17:                                               ; preds = %14
@@ -11069,7 +11069,7 @@ _ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit: ; preds = %3
   %27 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_free_exception(ptr nonnull %24) #26
-  br label %81
+  br label %82
 
 28:                                               ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer4ReadItEET_v.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -11130,7 +11130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %2
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %69, %76, %79
+.loopexit.split-lp:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %70, %77, %80
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -11147,78 +11147,78 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %2
   %.pre42 = and i64 %.pre40, 4294967295
   %59 = icmp eq i64 %.pre42, 0
   %60 = icmp ne i16 %55, 16656
-  %.not13 = or i1 %60, %59
-  br i1 %.not13, label %._crit_edge, label %.lr.ph, !llvm.loop !43
+  %61 = or i1 %60, %59
+  br i1 %61, label %._crit_edge, label %.lr.ph, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %58, %.preheader
   %.lcssa25 = phi ptr [ %32, %.preheader ], [ %.pre, %58 ]
   %.lcssa19 = phi ptr [ %36, %.preheader ], [ %.pre36, %58 ]
   %.lcssa = phi i1 [ %41, %.preheader ], [ %59, %58 ]
-  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %61
+  br i1 %.lcssa, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit, label %62
 
-61:                                               ; preds = %._crit_edge
-  %62 = getelementptr inbounds nuw i8, ptr %.lcssa25, i64 24
-  %63 = getelementptr inbounds i8, ptr %.lcssa19, i64 -6
-  store ptr %63, ptr %62, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %.lcssa25, i64 40
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp ugt ptr %63, %65
-  br i1 %66, label %67, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+62:                                               ; preds = %._crit_edge
+  %63 = getelementptr inbounds nuw i8, ptr %.lcssa25, i64 24
+  %64 = getelementptr inbounds i8, ptr %.lcssa19, i64 -6
+  store ptr %64, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %.lcssa25, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp ugt ptr %64, %66
+  br i1 %67, label %68, label %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
 
-67:                                               ; preds = %61
-  %68 = call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %68, ptr noundef nonnull @.str.71)
-          to label %69 unwind label %70
+68:                                               ; preds = %62
+  %69 = call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull @.str.71)
+          to label %70 unwind label %71
 
-69:                                               ; preds = %67
-  invoke void @__cxa_throw(ptr nonnull %68, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
+70:                                               ; preds = %68
+  invoke void @__cxa_throw(ptr nonnull %69, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZNSt13runtime_errorD2Ev) #27
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %69
+.noexc:                                           ; preds = %70
   unreachable
 
-70:                                               ; preds = %67
-  %71 = landingpad { ptr, i32 }
+71:                                               ; preds = %68
+  %72 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_free_exception(ptr nonnull %68) #26
+  call void @__cxa_free_exception(ptr nonnull %69) #26
   br label %.body
 
-_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %43, %61, %._crit_edge
-  %72 = getelementptr inbounds nuw i8, ptr %2, i64 96
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %75 = load ptr, ptr %74, align 8
-  %.not.i = icmp eq ptr %73, %75
-  br i1 %.not.i, label %79, label %76
+_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit: ; preds = %43, %62, %._crit_edge
+  %73 = getelementptr inbounds nuw i8, ptr %2, i64 96
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %76 = load ptr, ptr %75, align 8
+  %.not.i = icmp eq ptr %74, %76
+  br i1 %.not.i, label %80, label %77
 
-76:                                               ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
-  invoke void @_ZN6Assimp4Ogre20VertexAnimationTrackC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %73, ptr noundef nonnull align 8 dereferenceable(112) %5)
+77:                                               ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+  invoke void @_ZN6Assimp4Ogre20VertexAnimationTrackC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(112) %74, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %.noexc16 unwind label %.loopexit.split-lp
 
-.noexc16:                                         ; preds = %76
-  %77 = load ptr, ptr %72, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 112
-  store ptr %78, ptr %72, align 8
+.noexc16:                                         ; preds = %77
+  %78 = load ptr, ptr %73, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 112
+  store ptr %79, ptr %73, align 8
   br label %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE9push_backERKS2_.exit
 
-79:                                               ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
-  %80 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  invoke void @_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr %73, ptr noundef nonnull align 8 dereferenceable(112) %5)
+80:                                               ; preds = %_ZN6Assimp4Ogre20OgreBinarySerializer14RollbackHeaderEv.exit
+  %81 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  invoke void @_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %81, ptr %74, ptr noundef nonnull align 8 dereferenceable(112) %5)
           to label %_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE9push_backERKS2_.exit unwind label %.loopexit.split-lp
 
-_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE9push_backERKS2_.exit: ; preds = %.noexc16, %79
+_ZNSt6vectorIN6Assimp4Ogre20VertexAnimationTrackESaIS2_EE9push_backERKS2_.exit: ; preds = %.noexc16, %80
   call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %70, %56
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %71, %70 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %71, %56
+  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %72, %71 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6Assimp4Ogre20VertexAnimationTrackD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %5) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %81
+  br label %82
 
-81:                                               ; preds = %.body, %26
+82:                                               ; preds = %.body, %26
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %27, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume

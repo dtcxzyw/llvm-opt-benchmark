@@ -7261,32 +7261,32 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit486:        ; preds = %1198, %_ZNSt6vector
   %1268 = ashr exact i64 %1267, 3
   %1269 = add nsw i64 %1268, -1
   %.not235 = icmp eq i64 %.02251149, %1258
-  br i1 %.not235, label %1272, label %1270
+  br i1 %.not235, label %1273, label %1270
 
 1270:                                             ; preds = %1262
   %1271 = add i64 %.02251149, 1
-  br label %1273
+  %1272 = mul i64 %1268, %1271
+  br label %1274
 
-1272:                                             ; preds = %1262
-  br i1 %547, label %1273, label %.critedge
+1273:                                             ; preds = %1262
+  br i1 %547, label %1274, label %.critedge
 
-1273:                                             ; preds = %1272, %1270
-  %.0221 = phi i64 [ %1271, %1270 ], [ 0, %1272 ]
+1274:                                             ; preds = %1273, %1270
+  %.0221 = phi i64 [ %1272, %1270 ], [ 0, %1273 ]
   %.not1163 = icmp eq ptr %1263, %1264
   br i1 %.not1163, label %._crit_edge1148, label %.lr.ph1147
 
-.lr.ph1147:                                       ; preds = %1273
-  %1274 = mul i64 %1268, %.02251149
-  %1275 = mul i64 %.0221, %1268
-  %1276 = trunc i64 %1274 to i32
-  %1277 = trunc i64 %1275 to i32
-  %1278 = add i64 %1269, %1275
+.lr.ph1147:                                       ; preds = %1274
+  %1275 = mul i64 %1268, %.02251149
+  %1276 = trunc i64 %1275 to i32
+  %1277 = trunc i64 %.0221 to i32
+  %1278 = add i64 %1269, %.0221
   %1279 = trunc i64 %1278 to i32
-  %1280 = add i64 %1269, %1274
+  %1280 = add i64 %1269, %1275
   %1281 = trunc i64 %1280 to i32
-  %1282 = add i64 %1269, %1274
+  %1282 = add i64 %1269, %1275
   %1283 = trunc i64 %1282 to i32
-  %1284 = add i64 %1269, %1275
+  %1284 = add i64 %1269, %.0221
   %1285 = trunc i64 %1284 to i32
   br label %1286
 
@@ -7296,7 +7296,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit486:        ; preds = %1198, %_ZNSt6vector
   br i1 %.not237, label %1525, label %1287
 
 1287:                                             ; preds = %1286
-  %1288 = add i64 %.02201144, %1274
+  %1288 = add i64 %.02201144, %1275
   %1289 = trunc i64 %1288 to i32
   br i1 %1259, label %1290, label %1395
 
@@ -7371,7 +7371,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit506:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i503, %1293
   %1316 = phi ptr [ %1315, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i503 ], [ %.pre1227, %1293 ]
   %1317 = phi ptr [ %1313, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i503 ], [ %1295, %1293 ]
-  %1318 = add i64 %.02201144, %1275
+  %1318 = add i64 %.02201144, %.0221
   %1319 = trunc i64 %1318 to i32
   %.not.i.i507 = icmp eq ptr %1317, %1316
   br i1 %.not.i.i507, label %1323, label %1320
@@ -7687,7 +7687,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit546:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i543, %1399
   %1422 = phi ptr [ %1421, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i543 ], [ %.pre1224, %1399 ]
   %1423 = phi ptr [ %1419, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i543 ], [ %1401, %1399 ]
-  %1424 = add i64 %.02201144, %1275
+  %1424 = add i64 %.02201144, %.0221
   %1425 = trunc i64 %1424 to i32
   %1426 = add i32 %1425, 1
   %.not.i.i547 = icmp eq ptr %1423, %1422
@@ -8714,12 +8714,12 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit586:        ; preds = %1729, %_ZNSt6vector
   %exitcond1199.not = icmp eq i64 %1752, %1268
   br i1 %exitcond1199.not, label %._crit_edge1148, label %1286, !llvm.loop !59
 
-._crit_edge1148:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit586, %1273
+._crit_edge1148:                                  ; preds = %_ZNSt6vectorIiSaIiEE9push_backEOi.exit586, %1274
   %1753 = add i64 %.02251149, 1
   %.not234 = icmp ugt i64 %1753, %1258
   br i1 %.not234, label %.critedge, label %1262, !llvm.loop !60
 
-.critedge:                                        ; preds = %1272, %._crit_edge1148
+.critedge:                                        ; preds = %1273, %._crit_edge1148
   %1754 = load ptr, ptr %137, align 8
   %1755 = load ptr, ptr %8, align 8
   %.not1164 = icmp eq ptr %1754, %1755

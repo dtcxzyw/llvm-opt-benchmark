@@ -8333,25 +8333,28 @@ define noundef ptr @wolfSSL_get_system_CA_dirs(ptr noundef writeonly captures(ad
 ; Function Attrs: nounwind uwtable
 define range(i32 -461, 2) i32 @wolfSSL_CTX_load_system_CA_certs(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
-  br i1 %2, label %.lr.ph.split.i, label %LoadSystemCaCertsNix.exit
+  br i1 %2, label %.lr.ph.split.i, label %LoadSystemCaCertsNix.exit.thread
 
-.lr.ph.split.i:                                   ; preds = %1, %.lr.ph.split.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.i ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @systemCaDirs, i64 %indvars.iv.i
-  %4 = load ptr, ptr %3, align 8, !tbaa !218
-  %5 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef %4, i32 noundef 1)
-  %.not.i.not = icmp ne i32 %5, 1
+3:                                                ; preds = %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp ne i64 %indvars.iv.next.i, 3
-  %or.cond.not3 = select i1 %.not.i.not, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not3, label %.lr.ph.split.i, label %LoadSystemCaCertsNix.exit, !llvm.loop !220
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !220
 
-LoadSystemCaCertsNix.exit:                        ; preds = %.lr.ph.split.i, %1
-  %.not = phi i1 [ true, %1 ], [ %.not.i.not, %.lr.ph.split.i ]
-  %spec.select.i = zext i1 %2 to i32
-  %or.cond.not = and i1 %2, %.not
-  %spec.store.select = select i1 %or.cond.not, i32 -461, i32 %spec.select.i
-  ret i32 %spec.store.select
+.lr.ph.split.i:                                   ; preds = %1, %3
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %3 ], [ 0, %1 ]
+  %4 = getelementptr inbounds nuw ptr, ptr @systemCaDirs, i64 %indvars.iv.i
+  %5 = load ptr, ptr %4, align 8, !tbaa !218
+  %6 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef nonnull %0, ptr noundef null, ptr noundef %5, i32 noundef 1)
+  %.not.i.not = icmp eq i32 %6, 1
+  br i1 %.not.i.not, label %LoadSystemCaCertsNix.exit.thread, label %3
+
+LoadSystemCaCertsNix.exit.thread:                 ; preds = %.lr.ph.split.i, %1
+  %spec.select.i4 = zext i1 %2 to i32
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %3, %LoadSystemCaCertsNix.exit.thread
+  %7 = phi i32 [ %spec.select.i4, %LoadSystemCaCertsNix.exit.thread ], [ -461, %3 ]
+  ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable

@@ -647,7 +647,7 @@ define internal fastcc range(i64 0, 280384055017472) i64 @"_ZN102_$LT$core..iter
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !36, !nonnull !6, !noundef !6
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread", label %7
+  br i1 %6, label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h53688f39182df32aE.exit", label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -789,16 +789,12 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.i.i: ;
   %85 = load i8, ptr %84, align 1, !noundef !6
   %.sroa.3.0.insert.ext5.i = zext i8 %85 to i64
   %.sroa.3.0.insert.shift6.i = shl nuw nsw i64 %.sroa.3.0.insert.ext5.i, 40
-  %86 = or disjoint i64 %.sroa.3.0.insert.shift6.i, 4294967296
+  %86 = or disjoint i64 %.sroa.3.0.insert.shift6.i, %10
+  %87 = or disjoint i64 %86, 4294967296
   br label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h53688f39182df32aE.exit"
 
-"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h53688f39182df32aE.exit": ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.i.i, %80
-  %.sroa.2.0.insert.insert.i = phi i64 [ %86, %80 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.i.i ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.insert.i, %10
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread"
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread": ; preds = %1, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h53688f39182df32aE.exit"
-  %.sroa.0.0.insert.insert = phi i64 [ %.sroa.0.0.insert.insert.i, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h53688f39182df32aE.exit" ], [ 8589934592, %1 ]
+"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h53688f39182df32aE.exit": ; preds = %1, %80, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.i.i
+  %.sroa.0.0.insert.insert = phi i64 [ %87, %80 ], [ %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17h19e85228b5549235E.exit.i.i ], [ 8589934592, %1 ]
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -977,7 +973,7 @@ define internal fastcc range(i64 0, -281466386776064) i64 @"_ZN102_$LT$core..ite
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !63, !nonnull !6, !noundef !6
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread", label %7
+  br i1 %6, label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17hca7d4f4c11b0d468E.exit", label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1119,16 +1115,12 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread
   %84 = load i16, ptr %83, align 2, !noundef !6
   %85 = zext i16 %84 to i64
   %86 = shl nuw i64 %85, 48
-  %87 = or disjoint i64 %86, 4294967296
+  %87 = or disjoint i64 %86, %10
+  %88 = or disjoint i64 %87, 4294967296
   br label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17hca7d4f4c11b0d468E.exit"
 
-"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17hca7d4f4c11b0d468E.exit": ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.i.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread.i.i
-  %.sroa.2.0.insert.insert.i = phi i64 [ %87, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread.i.i ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.i.i ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.insert.i, %10
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread"
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread": ; preds = %1, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17hca7d4f4c11b0d468E.exit"
-  %.sroa.0.0.insert.insert = phi i64 [ %.sroa.0.0.insert.insert.i, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17hca7d4f4c11b0d468E.exit" ], [ 8589934592, %1 ]
+"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17hca7d4f4c11b0d468E.exit": ; preds = %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread.i.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.i.i
+  %.sroa.0.0.insert.insert = phi i64 [ %88, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.thread.i.i ], [ %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17h08ac25b881ee8f6dE.exit.i.i ], [ 8589934592, %1 ]
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -1304,7 +1296,7 @@ define internal fastcc range(i64 0, -281466386776064) i64 @"_ZN102_$LT$core..ite
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !90, !nonnull !6, !noundef !6
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread", label %7
+  br i1 %6, label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h782373f953f12715E.exit", label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1446,16 +1438,12 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread
   %84 = load i16, ptr %83, align 2, !noundef !6
   %85 = zext i16 %84 to i64
   %86 = shl nuw i64 %85, 48
-  %87 = or disjoint i64 %86, 4294967296
+  %87 = or disjoint i64 %86, %10
+  %88 = or disjoint i64 %87, 4294967296
   br label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h782373f953f12715E.exit"
 
-"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h782373f953f12715E.exit": ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.i.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread.i.i
-  %.sroa.2.0.insert.insert.i = phi i64 [ %87, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread.i.i ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.i.i ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.insert.i, %10
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread"
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread": ; preds = %1, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h782373f953f12715E.exit"
-  %.sroa.0.0.insert.insert = phi i64 [ %.sroa.0.0.insert.insert.i, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h782373f953f12715E.exit" ], [ 8589934592, %1 ]
+"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17h782373f953f12715E.exit": ; preds = %1, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread.i.i, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.i.i
+  %.sroa.0.0.insert.insert = phi i64 [ %88, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.thread.i.i ], [ %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17hf6cb5079467878e8E.exit.i.i ], [ 8589934592, %1 ]
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -1796,7 +1784,7 @@ define internal fastcc range(i64 0, 280384055017472) i64 @"_ZN102_$LT$core..iter
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !135, !nonnull !6, !noundef !6
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread", label %7
+  br i1 %6, label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17he42982b5951c0eb6E.exit", label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1938,16 +1926,12 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.i.i: ;
   %85 = load i8, ptr %84, align 1, !noundef !6
   %.sroa.3.0.insert.ext5.i = zext i8 %85 to i64
   %.sroa.3.0.insert.shift6.i = shl nuw nsw i64 %.sroa.3.0.insert.ext5.i, 40
-  %86 = or disjoint i64 %.sroa.3.0.insert.shift6.i, 4294967296
+  %86 = or disjoint i64 %.sroa.3.0.insert.shift6.i, %10
+  %87 = or disjoint i64 %86, 4294967296
   br label %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17he42982b5951c0eb6E.exit"
 
-"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17he42982b5951c0eb6E.exit": ; preds = %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.i.i, %80
-  %.sroa.2.0.insert.insert.i = phi i64 [ %86, %80 ], [ 0, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.i.i ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.insert.i, %10
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread"
-
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf22ae0337d891037E.exit.thread": ; preds = %1, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17he42982b5951c0eb6E.exit"
-  %.sroa.0.0.insert.insert = phi i64 [ %.sroa.0.0.insert.insert.i, %"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17he42982b5951c0eb6E.exit" ], [ 8589934592, %1 ]
+"_ZN115_$LT$polars_expr..idx_table..single_key..SingleKeyIdxTable$LT$T$GT$$u20$as$u20$polars_expr..idx_table..IdxTable$GT$12probe_subset28_$u7b$$u7b$closure$u7d$$u7d$17he42982b5951c0eb6E.exit": ; preds = %1, %80, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.i.i
+  %.sroa.0.0.insert.insert = phi i64 [ %87, %80 ], [ %10, %_ZN12polars_arrow5array5Array17is_null_unchecked17hc2e632e29c44ba33E.exit.i.i ], [ 8589934592, %1 ]
   ret i64 %.sroa.0.0.insert.insert
 }
 

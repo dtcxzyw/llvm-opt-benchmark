@@ -2014,7 +2014,7 @@ define internal fastcc void @vgacon_set_cursor_size(i32 noundef %0, i32 noundef 
   %9 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @vga_lock) #13
   %10 = load i8, ptr @vga_video_type, align 1
   %11 = icmp ugt i8 %10, 33
-  br i1 %11, label %12, label %35
+  br i1 %11, label %12, label %37
 
 12:                                               ; preds = %8
   %13 = load i16, ptr @vga_video_port_reg, align 2
@@ -2045,20 +2045,20 @@ define internal fastcc void @vgacon_set_cursor_size(i32 noundef %0, i32 noundef 
   %32 = zext i8 %31 to i32
   %33 = and i8 %27, -32
   %34 = zext i8 %33 to i32
-  br label %35
+  %35 = or i32 %0, %32
+  %36 = or i32 %1, %34
+  br label %37
 
-35:                                               ; preds = %12, %8
-  %36 = phi i32 [ %34, %12 ], [ 0, %8 ]
-  %37 = phi i32 [ %32, %12 ], [ 0, %8 ]
-  %38 = or i32 %37, %0
-  %39 = or i32 %36, %1
+37:                                               ; preds = %12, %8
+  %38 = phi i32 [ %36, %12 ], [ %1, %8 ]
+  %39 = phi i32 [ %35, %12 ], [ %0, %8 ]
   %40 = load i16, ptr @vga_video_port_reg, align 2
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 10, i16 %40) #13, !srcloc !8
   %41 = tail call i64 @llvm.read_register.i64(metadata !0)
   %42 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %41) #13, !srcloc !7
   %43 = extractvalue { i64, i64, i64, i64, i64 } %42, 4
   tail call void @llvm.write_register.i64(metadata !0, i64 %43)
-  %44 = trunc i32 %38 to i8
+  %44 = trunc i32 %39 to i8
   %45 = load i16, ptr @vga_video_port_val, align 2
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %44, i16 %45) #13, !srcloc !8
   %46 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -2071,7 +2071,7 @@ define internal fastcc void @vgacon_set_cursor_size(i32 noundef %0, i32 noundef 
   %51 = tail call { i64, i64, i64, i64, i64 } asm sideeffect "# ALT: oldnstr\0A661:\0A\09999:\0A\09.pushsection .discard.retpoline_safe\0A\09.long 999b\0A\09.popsection\0A\09call *$5;\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (((1 << 1) << 16) $| (( 3*32+21)))\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09call BUG_func\0A6651:\0A.popsection\0A", "={di},={si},={dx},={cx},={rsp},*m,{rsp},~{memory},~{cc},~{rax},~{r8},~{r9},~{r10},~{r11},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @pv_ops, i64 %50) #13, !srcloc !7
   %52 = extractvalue { i64, i64, i64, i64, i64 } %51, 4
   tail call void @llvm.write_register.i64(metadata !0, i64 %52)
-  %53 = trunc i32 %39 to i8
+  %53 = trunc i32 %38 to i8
   %54 = load i16, ptr @vga_video_port_val, align 2
   tail call void asm sideeffect "outb ${0:b}, ${1:w}", "{ax},N{dx},~{dirflag},~{fpsr},~{flags}"(i8 %53, i16 %54) #13, !srcloc !8
   %55 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -2081,7 +2081,7 @@ define internal fastcc void @vgacon_set_cursor_size(i32 noundef %0, i32 noundef 
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull @vga_lock, i64 noundef %9) #13
   br label %58
 
-58:                                               ; preds = %35, %2
+58:                                               ; preds = %37, %2
   ret void
 }
 

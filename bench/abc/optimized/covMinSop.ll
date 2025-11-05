@@ -1754,14 +1754,14 @@ define void @Min_SopDist1Merge(ptr noundef captures(none) %0) local_unnamed_addr
 
 Min_CubeCountLits.exit.loopexit.i:                ; preds = %76
   %77 = shl i32 %spec.select.i.i, 22
+  %78 = or disjoint i32 %77, %47
   br label %Min_CubesXor.exit
 
 Min_CubesXor.exit:                                ; preds = %._crit_edge.i25, %Min_CubeCountLits.exit.loopexit.i
-  %.013.lcssa.i.i = phi i32 [ 0, %._crit_edge.i25 ], [ %77, %Min_CubeCountLits.exit.loopexit.i ]
-  %78 = or disjoint i32 %.013.lcssa.i.i, %47
-  store i32 %78, ptr %40, align 8
+  %.013.lcssa.i.i = phi i32 [ %47, %._crit_edge.i25 ], [ %78, %Min_CubeCountLits.exit.loopexit.i ]
+  store i32 %.013.lcssa.i.i, ptr %40, align 8
   %79 = load ptr, ptr %4, align 8, !tbaa !12
-  %80 = lshr exact i32 %.013.lcssa.i.i, 22
+  %80 = lshr i32 %.013.lcssa.i.i, 22
   %81 = zext nneg i32 %80 to i64
   %82 = getelementptr inbounds nuw ptr, ptr %79, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !14

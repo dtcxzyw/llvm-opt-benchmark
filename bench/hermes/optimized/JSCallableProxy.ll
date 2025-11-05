@@ -73,16 +73,16 @@ if.end.i:                                         ; preds = %entry
   br label %_ZN6hermes2vm15JSCallableProxy13isConstructorERNS0_7RuntimeE.exit
 
 _ZN6hermes2vm15JSCallableProxy13isConstructorERNS0_7RuntimeE.exit: ; preds = %if.then.i, %if.end.i
-  %retval.sroa.0.0.i = phi i32 [ %bf.value.i.i, %if.then.i ], [ %call5.i, %if.end.i ]
+  %retval.sroa.4.0.i = phi i32 [ %bf.value.i.i, %if.then.i ], [ %call5.i, %if.end.i ]
   %4 = load i32, ptr %nativeCallFrameDepth_.i.i, align 8
   %dec.i.i = add i32 %4, -1
   store i32 %dec.i.i, ptr %nativeCallFrameDepth_.i.i, align 8
-  %bf.cast.i.i14.mask = and i32 %retval.sroa.0.0.i, 255
+  %bf.cast.i.i14.mask = and i32 %retval.sroa.4.0.i, 255
   %cmp.i = icmp eq i32 %bf.cast.i.i14.mask, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %_ZN6hermes2vm15JSCallableProxy13isConstructorERNS0_7RuntimeE.exit
-  %5 = and i32 %retval.sroa.0.0.i, 256
+  %5 = and i32 %retval.sroa.4.0.i, 256
   %bf.cast.i.i5.not = icmp eq i32 %5, 0
   br i1 %bf.cast.i.i5.not, label %if.then8, label %if.end10
 
@@ -371,18 +371,14 @@ if.end:                                           ; preds = %entry
   %2 = inttoptr i64 %add.i.i.i.i.i to ptr
   %cond.i.i.i.i = select i1 %cmp.i.not.i.i.i.i, ptr null, ptr %2
   %call5 = tail call i32 @_ZN6hermes2vm13isConstructorERNS0_7RuntimeEPNS0_8CallableE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef %cond.i.i.i.i) #5
-  %retval.sroa.4.0.extract.shift = and i32 %call5, -65536
-  %3 = and i32 %call5, 65535
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end, %if.then
-  %retval.sroa.0.0 = phi i32 [ %bf.value.i, %if.then ], [ %3, %if.end ]
-  %retval.sroa.4.0 = phi i32 [ 0, %if.then ], [ %retval.sroa.4.0.extract.shift, %if.end ]
-  %4 = load i32, ptr %nativeCallFrameDepth_.i, align 8
-  %dec.i = add i32 %4, -1
+  %retval.sroa.4.0 = phi i32 [ %bf.value.i, %if.then ], [ %call5, %if.end ]
+  %3 = load i32, ptr %nativeCallFrameDepth_.i, align 8
+  %dec.i = add i32 %3, -1
   store i32 %dec.i, ptr %nativeCallFrameDepth_.i, align 8
-  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.4.0, %retval.sroa.0.0
-  ret i32 %retval.sroa.0.0.insert.insert
+  ret i32 %retval.sroa.4.0
 }
 
 declare noundef i32 @_ZN6hermes2vm7Runtime18raiseStackOverflowENS1_17StackOverflowKindE(ptr noundef nonnull align 8 dereferenceable(9832), i32 noundef) local_unnamed_addr #0

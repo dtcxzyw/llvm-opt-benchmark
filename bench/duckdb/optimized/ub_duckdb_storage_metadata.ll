@@ -3861,12 +3861,15 @@ _ZN6duckdb6vectorIhLb1EEixEm.exit:                ; preds = %.lr.ph.i
   %73 = or i64 %72, %.08.i
   %74 = add nuw i64 %.067.i, 1
   %exitcond89.not = icmp eq i64 %74, %54
-  br i1 %exitcond89.not, label %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit, label %.lr.ph.i, !llvm.loop !129
+  br i1 %exitcond89.not, label %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit.loopexit, label %.lr.ph.i, !llvm.loop !129
 
-_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit: ; preds = %_ZN6duckdb6vectorIhLb1EEixEm.exit, %_ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pairIKlS1_EEE4findERS7_.exit
-  %.0.lcssa.i = phi i64 [ 0, %_ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pairIKlS1_EEE4findERS7_.exit ], [ %73, %_ZN6duckdb6vectorIhLb1EEixEm.exit ]
-  %75 = or i64 %.0.lcssa.i, %22
-  %76 = icmp eq i64 %75, -1
+_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit.loopexit: ; preds = %_ZN6duckdb6vectorIhLb1EEixEm.exit
+  %75 = or i64 %73, %22
+  br label %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit
+
+_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit: ; preds = %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit.loopexit, %_ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pairIKlS1_EEE4findERS7_.exit
+  %.0.lcssa.i = phi i64 [ %22, %_ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pairIKlS1_EEE4findERS7_.exit ], [ %75, %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit.loopexit ]
+  %76 = icmp eq i64 %.0.lcssa.i, -1
   br i1 %76, label %77, label %91
 
 77:                                               ; preds = %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit
@@ -3894,7 +3897,7 @@ _ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pair
   br label %92
 
 91:                                               ; preds = %_ZN6duckdb13MetadataBlock19FreeBlocksToIntegerEv.exit
-  tail call void @_ZN6duckdb13MetadataBlock21FreeBlocksFromIntegerEm(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef %75)
+  tail call void @_ZN6duckdb13MetadataBlock21FreeBlocksFromIntegerEm(ptr noundef nonnull align 8 dereferenceable(48) %47, i64 noundef %.0.lcssa.i)
   br label %92
 
 92:                                               ; preds = %91, %_ZNSt13unordered_mapIlN6duckdb13MetadataBlockESt4hashIlESt8equal_toIlESaISt4pairIKlS1_EEE5eraseENSt8__detail14_Node_iteratorIS8_Lb0ELb0EEE.exit

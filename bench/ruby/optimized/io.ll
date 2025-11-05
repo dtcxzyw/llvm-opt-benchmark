@@ -23729,7 +23729,7 @@ rb_io_check_byte_readable.exit:                   ; preds = %rb_io_check_closed.
 
 io_set_read_length.exit:                          ; preds = %63, %66, %67, %70
   %72 = load i64, ptr %6, align 8, !tbaa !23
-  br label %162
+  br label %161
 
 73:                                               ; preds = %rb_io_check_byte_readable.exit
   %74 = load i64, ptr %62, align 8, !tbaa !25, !noalias !322
@@ -23766,7 +23766,7 @@ read_buffered_data.exit:                          ; preds = %RSTRING_PTR.exit
   %91 = load i32, ptr %78, align 4, !tbaa !42
   %92 = sub i32 %91, %spec.select.i
   store i32 %92, ptr %78, align 4, !tbaa !42
-  br label %145
+  br label %144
 
 read_buffered_data.exit.thread:                   ; preds = %RSTRING_PTR.exit
   %93 = load i32, ptr %51, align 8, !tbaa !7
@@ -23817,107 +23817,106 @@ rb_fd_set_nonblock.exit:                          ; preds = %read_buffered_data.
 
 io_setstrbuf.exit41:                              ; preds = %101, %103, %109, %116
   %117 = phi i64 [ %102, %101 ], [ %.pre51, %103 ], [ %.pre, %116 ], [ %.pre51, %109 ]
-  %.017.i40 = phi i32 [ 1, %101 ], [ 0, %103 ], [ 0, %116 ], [ 0, %109 ]
-  %118 = or i32 %.017.i40, %.017.i
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %48, ptr %119, align 8, !tbaa !262
-  %120 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 1, ptr %120, align 8, !tbaa !263
-  %121 = load i32, ptr %51, align 8, !tbaa !7
-  %122 = getelementptr inbounds nuw i8, ptr %7, i64 20
-  store i32 %121, ptr %122, align 4, !tbaa !264
-  %123 = inttoptr i64 %117 to ptr
-  %124 = load i64, ptr %123, align 8, !tbaa !25, !noalias !325
-  %125 = and i64 %124, 8192
-  %.not.i.i42 = icmp eq i64 %125, 0
-  %126 = getelementptr inbounds nuw i8, ptr %123, i64 24
-  br i1 %.not.i.i42, label %RSTRING_PTR.exit45, label %127
+  %.017.i40 = phi i32 [ 1, %101 ], [ %.017.i, %103 ], [ %.017.i, %116 ], [ %.017.i, %109 ]
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %48, ptr %118, align 8, !tbaa !262
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 1, ptr %119, align 8, !tbaa !263
+  %120 = load i32, ptr %51, align 8, !tbaa !7
+  %121 = getelementptr inbounds nuw i8, ptr %7, i64 20
+  store i32 %120, ptr %121, align 4, !tbaa !264
+  %122 = inttoptr i64 %117 to ptr
+  %123 = load i64, ptr %122, align 8, !tbaa !25, !noalias !325
+  %124 = and i64 %123, 8192
+  %.not.i.i42 = icmp eq i64 %124, 0
+  %125 = getelementptr inbounds nuw i8, ptr %122, i64 24
+  br i1 %.not.i.i42, label %RSTRING_PTR.exit45, label %126
 
-127:                                              ; preds = %io_setstrbuf.exit41
-  %.sroa.2.0.copyload.i43 = load ptr, ptr %126, align 8
+126:                                              ; preds = %io_setstrbuf.exit41
+  %.sroa.2.0.copyload.i43 = load ptr, ptr %125, align 8
   br label %RSTRING_PTR.exit45
 
-RSTRING_PTR.exit45:                               ; preds = %io_setstrbuf.exit41, %127
-  %.sroa.2.0.i44 = phi ptr [ %.sroa.2.0.copyload.i43, %127 ], [ %126, %io_setstrbuf.exit41 ]
-  %128 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %.sroa.2.0.i44, ptr %128, align 8, !tbaa !268
-  %129 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i64 %.0.i, ptr %129, align 8, !tbaa !269
-  %130 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  store ptr null, ptr %130, align 8, !tbaa !270
-  %131 = ptrtoint ptr %7 to i64
-  %132 = call i64 @rb_str_locktmp_ensure(i64 noundef %117, ptr noundef nonnull @io_read_memory_call, i64 noundef %131) #28
-  %133 = icmp slt i64 %132, 0
-  br i1 %133, label %134, label %145
+RSTRING_PTR.exit45:                               ; preds = %io_setstrbuf.exit41, %126
+  %.sroa.2.0.i44 = phi ptr [ %.sroa.2.0.copyload.i43, %126 ], [ %125, %io_setstrbuf.exit41 ]
+  %127 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %.sroa.2.0.i44, ptr %127, align 8, !tbaa !268
+  %128 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i64 %.0.i, ptr %128, align 8, !tbaa !269
+  %129 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  store ptr null, ptr %129, align 8, !tbaa !270
+  %130 = ptrtoint ptr %7 to i64
+  %131 = call i64 @rb_str_locktmp_ensure(i64 noundef %117, ptr noundef nonnull @io_read_memory_call, i64 noundef %130) #28
+  %132 = icmp slt i64 %131, 0
+  br i1 %132, label %133, label %144
 
-134:                                              ; preds = %RSTRING_PTR.exit45
-  %135 = call ptr @rb_errno_ptr() #28
-  %136 = load i32, ptr %135, align 4, !tbaa !20
-  %137 = icmp eq i32 %136, 11
-  br i1 %137, label %138, label %142
+133:                                              ; preds = %RSTRING_PTR.exit45
+  %134 = call ptr @rb_errno_ptr() #28
+  %135 = load i32, ptr %134, align 4, !tbaa !20
+  %136 = icmp eq i32 %135, 11
+  br i1 %136, label %137, label %141
 
-138:                                              ; preds = %134
+137:                                              ; preds = %133
   %.not32 = icmp eq i64 %4, 0
-  br i1 %.not32, label %139, label %141
+  br i1 %.not32, label %138, label %140
 
-139:                                              ; preds = %138
-  %140 = load i64, ptr @sym_wait_readable, align 8, !tbaa !23
-  br label %162
+138:                                              ; preds = %137
+  %139 = load i64, ptr @sym_wait_readable, align 8, !tbaa !23
+  br label %161
 
-141:                                              ; preds = %138
+140:                                              ; preds = %137
   call void @rb_readwrite_syserr_fail(i32 noundef 0, i32 noundef 11, ptr noundef nonnull @.str.289) #31
   unreachable
 
-142:                                              ; preds = %134
-  %143 = getelementptr inbounds nuw i8, ptr %48, i64 32
-  %144 = load i64, ptr %143, align 8, !tbaa !40
-  call void @rb_syserr_fail_path_in(ptr noundef nonnull @.str.188, i32 noundef %136, i64 noundef %144) #30
+141:                                              ; preds = %133
+  %142 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %143 = load i64, ptr %142, align 8, !tbaa !40
+  call void @rb_syserr_fail_path_in(ptr noundef nonnull @.str.188, i32 noundef %135, i64 noundef %143) #30
   unreachable
 
-145:                                              ; preds = %read_buffered_data.exit, %RSTRING_PTR.exit45
-  %.028 = phi i64 [ %132, %RSTRING_PTR.exit45 ], [ %83, %read_buffered_data.exit ]
-  %.027 = phi i32 [ %118, %RSTRING_PTR.exit45 ], [ %.017.i, %read_buffered_data.exit ]
-  %146 = load i64, ptr %6, align 8, !tbaa !23
-  %147 = inttoptr i64 %146 to ptr
-  %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
-  %149 = load i64, ptr %148, align 8, !tbaa !65
-  %.not.i46 = icmp eq i64 %149, %.028
-  br i1 %.not.i46, label %io_set_read_length.exit48, label %150
+144:                                              ; preds = %read_buffered_data.exit, %RSTRING_PTR.exit45
+  %.028 = phi i64 [ %131, %RSTRING_PTR.exit45 ], [ %83, %read_buffered_data.exit ]
+  %.027 = phi i32 [ %.017.i40, %RSTRING_PTR.exit45 ], [ %.017.i, %read_buffered_data.exit ]
+  %145 = load i64, ptr %6, align 8, !tbaa !23
+  %146 = inttoptr i64 %145 to ptr
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
+  %148 = load i64, ptr %147, align 8, !tbaa !65
+  %.not.i46 = icmp eq i64 %148, %.028
+  br i1 %.not.i46, label %io_set_read_length.exit48, label %149
 
-150:                                              ; preds = %145
-  call void @rb_str_modify(i64 noundef %146) #28
-  call void @rb_str_set_len(i64 noundef %146, i64 noundef range(i64 0, -9223372036854775808) %.028) #28
+149:                                              ; preds = %144
+  call void @rb_str_modify(i64 noundef %145) #28
+  call void @rb_str_set_len(i64 noundef %145, i64 noundef range(i64 0, -9223372036854775808) %.028) #28
   %.not8.i47 = icmp eq i32 %.027, 0
-  br i1 %.not8.i47, label %io_set_read_length.exit48, label %151
+  br i1 %.not8.i47, label %io_set_read_length.exit48, label %150
 
-151:                                              ; preds = %150
-  %152 = call i64 @rb_str_capacity(i64 noundef %146) #33
-  %153 = sub i64 %152, %.028
-  %154 = icmp ugt i64 %153, 4096
-  br i1 %154, label %155, label %io_set_read_length.exit48
+150:                                              ; preds = %149
+  %151 = call i64 @rb_str_capacity(i64 noundef %145) #33
+  %152 = sub i64 %151, %.028
+  %153 = icmp ugt i64 %152, 4096
+  br i1 %153, label %154, label %io_set_read_length.exit48
 
-155:                                              ; preds = %151
-  %156 = call i64 @rb_str_resize(i64 noundef %146, i64 noundef range(i64 0, -9223372036854775808) %.028) #28
+154:                                              ; preds = %150
+  %155 = call i64 @rb_str_resize(i64 noundef %145, i64 noundef range(i64 0, -9223372036854775808) %.028) #28
   br label %io_set_read_length.exit48
 
-io_set_read_length.exit48:                        ; preds = %145, %150, %151, %155
-  %157 = icmp eq i64 %.028, 0
-  br i1 %157, label %158, label %160
+io_set_read_length.exit48:                        ; preds = %144, %149, %150, %154
+  %156 = icmp eq i64 %.028, 0
+  br i1 %156, label %157, label %159
 
-158:                                              ; preds = %io_set_read_length.exit48
+157:                                              ; preds = %io_set_read_length.exit48
   %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %162, label %159
+  br i1 %.not, label %161, label %158
 
-159:                                              ; preds = %158
+158:                                              ; preds = %157
   call void @rb_eof_error() #31
   unreachable
 
-160:                                              ; preds = %io_set_read_length.exit48
-  %161 = load i64, ptr %6, align 8, !tbaa !23
-  br label %162
+159:                                              ; preds = %io_set_read_length.exit48
+  %160 = load i64, ptr %6, align 8, !tbaa !23
+  br label %161
 
-162:                                              ; preds = %158, %160, %139, %io_set_read_length.exit
-  %.0 = phi i64 [ %72, %io_set_read_length.exit ], [ %140, %139 ], [ %161, %160 ], [ 4, %158 ]
+161:                                              ; preds = %157, %159, %138, %io_set_read_length.exit
+  %.0 = phi i64 [ %72, %io_set_read_length.exit ], [ %139, %138 ], [ %160, %159 ], [ 4, %157 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }

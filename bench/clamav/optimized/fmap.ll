@@ -896,58 +896,58 @@ fmap_unneed_page.exit:                            ; preds = %33, %37, %38, %39
 define noalias noundef ptr @fmap_open_memory(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @sysconf(i32 noundef 30) #19
   %5 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #20
-  %.not33 = icmp eq ptr %5, null
-  br i1 %.not33, label %6, label %7
+  %.not32 = icmp eq ptr %5, null
+  br i1 %.not32, label %27, label %6
 
 6:                                                ; preds = %3
-  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #19
-  br label %.thread
-
-7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %0, ptr %8, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store i64 %1, ptr %9, align 8, !tbaa !25
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  store i64 %1, ptr %10, align 8, !tbaa !26
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %0, ptr %7, align 8, !tbaa !20
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store i64 %1, ptr %8, align 8, !tbaa !25
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  store i64 %1, ptr %9, align 8, !tbaa !26
   %sext = shl i64 %4, 32
-  %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %11, ptr %12, align 8, !tbaa !28
-  %13 = udiv i64 %1, %11
-  %14 = urem i64 %1, %11
-  %15 = icmp ne i64 %14, 0
-  %16 = zext i1 %15 to i64
-  %17 = add i64 %13, %16
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %17, ptr %18, align 8, !tbaa !27
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  store ptr @unmap_malloc, ptr %19, align 8, !tbaa !18
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 104
-  store ptr @mem_need, ptr %20, align 8, !tbaa !29
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  store ptr @mem_need_offstr, ptr %21, align 8, !tbaa !30
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  store ptr @mem_gets, ptr %22, align 8, !tbaa !31
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  store ptr @mem_unneed_off, ptr %23, align 8, !tbaa !32
+  %10 = ashr exact i64 %sext, 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %10, ptr %11, align 8, !tbaa !28
+  %12 = udiv i64 %1, %10
+  %13 = urem i64 %1, %10
+  %14 = icmp ne i64 %13, 0
+  %15 = zext i1 %14 to i64
+  %16 = add i64 %12, %15
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %16, ptr %17, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 96
+  store ptr @unmap_malloc, ptr %18, align 8, !tbaa !18
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 104
+  store ptr @mem_need, ptr %19, align 8, !tbaa !29
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 112
+  store ptr @mem_need_offstr, ptr %20, align 8, !tbaa !30
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  store ptr @mem_gets, ptr %21, align 8, !tbaa !31
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  store ptr @mem_unneed_off, ptr %22, align 8, !tbaa !32
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.thread, label %24
+  br i1 %.not, label %.critedge, label %23
 
-24:                                               ; preds = %7
-  %25 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %2) #19
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  store ptr %25, ptr %26, align 8, !tbaa !17
-  %27 = icmp eq ptr %25, null
-  br i1 %27, label %28, label %.thread
+23:                                               ; preds = %6
+  %24 = tail call ptr @cli_safer_strdup(ptr noundef nonnull %2) #19
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  store ptr %24, ptr %25, align 8, !tbaa !17
+  %26 = icmp eq ptr %24, null
+  br i1 %26, label %28, label %.critedge
 
-28:                                               ; preds = %24
+27:                                               ; preds = %3
+  tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #19
+  br label %.critedge
+
+28:                                               ; preds = %23
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.10) #19
   tail call void @free(ptr noundef nonnull %5) #19
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %6, %7, %24, %28
-  %.0 = phi ptr [ null, %28 ], [ %5, %24 ], [ %5, %7 ], [ null, %6 ]
+.critedge:                                        ; preds = %27, %23, %6, %28
+  %.0 = phi ptr [ null, %28 ], [ null, %27 ], [ %5, %6 ], [ %5, %23 ]
   ret ptr %.0
 }
 
@@ -1112,44 +1112,44 @@ define internal void @mem_unneed_off(ptr readnone captures(none) %0, i64 %1, i64
 define noalias noundef ptr @cl_fmap_open_memory(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @sysconf(i32 noundef 30) #19
   %4 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #20
-  %.not33.i = icmp eq ptr %4, null
-  br i1 %.not33.i, label %5, label %6
+  %.not32.i = icmp eq ptr %4, null
+  br i1 %.not32.i, label %22, label %5
 
 5:                                                ; preds = %2
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %0, ptr %6, align 8, !tbaa !20
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store i64 %1, ptr %7, align 8, !tbaa !25
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store i64 %1, ptr %8, align 8, !tbaa !26
+  %sext.i = shl i64 %3, 32
+  %9 = ashr exact i64 %sext.i, 32
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i64 %9, ptr %10, align 8, !tbaa !28
+  %11 = udiv i64 %1, %9
+  %12 = urem i64 %1, %9
+  %13 = icmp ne i64 %12, 0
+  %14 = zext i1 %13 to i64
+  %15 = add i64 %11, %14
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i64 %15, ptr %16, align 8, !tbaa !27
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store ptr @unmap_malloc, ptr %17, align 8, !tbaa !18
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  store ptr @mem_need, ptr %18, align 8, !tbaa !29
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  store ptr @mem_need_offstr, ptr %19, align 8, !tbaa !30
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 120
+  store ptr @mem_gets, ptr %20, align 8, !tbaa !31
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  store ptr @mem_unneed_off, ptr %21, align 8, !tbaa !32
+  br label %fmap_open_memory.exit
+
+22:                                               ; preds = %2
   tail call void (ptr, ...) @cli_warnmsg(ptr noundef nonnull @.str.9) #19
   br label %fmap_open_memory.exit
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %0, ptr %7, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i64 %1, ptr %8, align 8, !tbaa !25
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store i64 %1, ptr %9, align 8, !tbaa !26
-  %sext.i = shl i64 %3, 32
-  %10 = ashr exact i64 %sext.i, 32
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i64 %10, ptr %11, align 8, !tbaa !28
-  %12 = udiv i64 %1, %10
-  %13 = urem i64 %1, %10
-  %14 = icmp ne i64 %13, 0
-  %15 = zext i1 %14 to i64
-  %16 = add i64 %12, %15
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i64 %16, ptr %17, align 8, !tbaa !27
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr @unmap_malloc, ptr %18, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store ptr @mem_need, ptr %19, align 8, !tbaa !29
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store ptr @mem_need_offstr, ptr %20, align 8, !tbaa !30
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 120
-  store ptr @mem_gets, ptr %21, align 8, !tbaa !31
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr @mem_unneed_off, ptr %22, align 8, !tbaa !32
-  br label %fmap_open_memory.exit
-
-fmap_open_memory.exit:                            ; preds = %5, %6
+fmap_open_memory.exit:                            ; preds = %5, %22
   ret ptr %4
 }
 

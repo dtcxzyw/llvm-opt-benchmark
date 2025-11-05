@@ -212,12 +212,8 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
   br label %.thread
 
 95:                                               ; preds = %45, %46, %47, %48, %49, %50, %.thread98, %.thread
-  %.sroa.182.1 = phi i64 [ %118, %.thread ], [ 42949672960, %45 ], [ 55834574848, %46 ], [ 38654705664, %47 ], [ 395136991232, %48 ], [ 167503724544, %49 ], [ 0, %50 ], [ 146028888064, %.thread98 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.0, %.thread ], [ 0, %45 ], [ 0, %46 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %.thread98 ]
-  %.sroa.0.1 = phi i64 [ %116, %.thread ], [ 0, %45 ], [ 0, %46 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %.thread98 ]
-  %.sroa.11.0.insert.insert = or i64 %.sroa.11.1, %.sroa.182.1
-  %.sroa.0.0.insert.insert = or i64 %.sroa.11.0.insert.insert, %.sroa.0.1
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.182.1 = phi i64 [ %120, %.thread ], [ 42949672960, %45 ], [ 55834574848, %46 ], [ 38654705664, %47 ], [ 395136991232, %48 ], [ 167503724544, %49 ], [ 0, %50 ], [ 146028888064, %.thread98 ]
+  ret i64 %.sroa.182.1
 
 .thread105:                                       ; preds = %67, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i87", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i84", %79
   %.sroa.4.0.i85.ph107 = phi i32 [ %89, %79 ], [ %68, %67 ], [ %77, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit15.i87" ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha20c69c52a784c76E.exit13.i84" ]
@@ -273,6 +269,8 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
   %116 = and i64 %.sroa.0.0, 255
   %117 = zext i32 %.sroa.182.0 to i64
   %118 = shl nuw i64 %117, 32
+  %119 = or disjoint i64 %118, %.sroa.11.0
+  %120 = or disjoint i64 %119, %116
   br label %95
 }
 
@@ -673,15 +671,14 @@ switch.lookup:
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %56 = phi i64 [ %46, %.thread38 ], [ %52, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %57 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %58
 
 58:                                               ; preds = %51, %55
@@ -807,15 +804,14 @@ switch.lookup:
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %56 = phi i64 [ %46, %.thread38 ], [ %52, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %57 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %58
 
 58:                                               ; preds = %51, %55
@@ -1053,14 +1049,13 @@ switch.lookup:
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %56 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %57
 
 57:                                               ; preds = %51, %55
@@ -1196,14 +1191,13 @@ switch.lookup:
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %56 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %57
 
 57:                                               ; preds = %51, %55
@@ -1451,14 +1445,13 @@ switch.lookup:
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %56 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %57
 
 57:                                               ; preds = %51, %55
@@ -1594,14 +1587,13 @@ switch.lookup:
   br i1 %54, label %57, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %56 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %57
 
 57:                                               ; preds = %51, %55
@@ -1736,15 +1728,14 @@ switch.lookup:
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %56 = phi i64 [ %46, %.thread38 ], [ %52, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %57 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %58
 
 58:                                               ; preds = %51, %55
@@ -2090,15 +2081,14 @@ switch.lookup:
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %.thread38, %51
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %51 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %51 ]
   %56 = phi i64 [ %46, %.thread38 ], [ %52, %51 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %51 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %51 ]
   %57 = phi i64 [ %50, %.thread38 ], [ %53, %51 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %58
 
 58:                                               ; preds = %51, %55
@@ -2598,7 +2588,7 @@ switch.lookup:
   br label %62
 
 62:                                               ; preds = %.thread62.thread, %58, %60, %.thread62
-  %.not71 = phi i1 [ false, %.thread62 ], [ true, %60 ], [ true, %58 ], [ false, %.thread62.thread ]
+  %.not71 = phi i1 [ false, %.thread62 ], [ %switch.masked, %60 ], [ %switch.masked, %58 ], [ false, %.thread62.thread ]
   %63 = phi i64 [ %56, %.thread62 ], [ %56, %60 ], [ %56, %58 ], [ %31, %.thread62.thread ]
   %64 = phi ptr [ %53, %.thread62 ], [ %53, %60 ], [ %53, %58 ], [ %15, %.thread62.thread ]
   %.sroa.4.0.i.ph6570 = phi i32 [ %.sroa.4.0.i.ph65, %.thread62 ], [ %.sroa.4.0.i.ph65, %60 ], [ %.sroa.4.0.i.ph65, %58 ], [ %28, %.thread62.thread ]
@@ -2610,12 +2600,11 @@ switch.lookup:
   ]
 
 65:                                               ; preds = %62
-  %or.cond3.not = and i1 %.not71, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph119, i32 %.sroa.4.0.i.ph6570
-  %.51 = zext i1 %or.cond3.not to i64
+  %.0..sroa.619.0 = select i1 %.not71, i32 %.sroa.619.0.ph119, i32 %.sroa.4.0.i.ph6570
+  %.51 = zext i1 %.not71 to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
-  %.sroa.46.0.i = select i1 %or.cond3.not, i64 0, i64 %.sroa.619.0.insert.shift
+  %.sroa.46.0.i = select i1 %.not71, i64 0, i64 %.sroa.619.0.insert.shift
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.46.0.i, %.51
   %.sroa.544.0.extract.shift = lshr exact i64 %.sroa.46.0.i, 16
   %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
@@ -3511,7 +3500,7 @@ switch.lookup:
   br label %63
 
 63:                                               ; preds = %.thread65.thread, %59, %61, %.thread65
-  %.not74 = phi i1 [ false, %.thread65 ], [ true, %61 ], [ true, %59 ], [ false, %.thread65.thread ]
+  %.not74 = phi i1 [ false, %.thread65 ], [ %switch.masked, %61 ], [ %switch.masked, %59 ], [ false, %.thread65.thread ]
   %64 = phi i64 [ %57, %.thread65 ], [ %57, %61 ], [ %57, %59 ], [ %32, %.thread65.thread ]
   %65 = phi ptr [ %54, %.thread65 ], [ %54, %61 ], [ %54, %59 ], [ %16, %.thread65.thread ]
   %.sroa.4.0.i.ph6873 = phi i32 [ %.sroa.4.0.i.ph68, %.thread65 ], [ %.sroa.4.0.i.ph68, %61 ], [ %.sroa.4.0.i.ph68, %59 ], [ %29, %.thread65.thread ]
@@ -3525,12 +3514,11 @@ switch.lookup:
   ]
 
 68:                                               ; preds = %63
-  %or.cond3.not = and i1 %.not74, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph154, i32 %.sroa.4.0.i.ph6873
+  %.0..sroa.619.0 = select i1 %.not74, i32 %.sroa.619.0.ph154, i32 %.sroa.4.0.i.ph6873
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
-  %.sroa.34.0.insert.insert.i = select i1 %or.cond3.not, i64 4864, i64 %.sroa.619.0.insert.shift
-  %.sroa.03.0.insert.insert.i = select i1 %or.cond3.not, i64 4866, i64 %.sroa.619.0.insert.shift
+  %.sroa.34.0.insert.insert.i = select i1 %.not74, i64 4864, i64 %.sroa.619.0.insert.shift
+  %.sroa.03.0.insert.insert.i = select i1 %.not74, i64 4866, i64 %.sroa.619.0.insert.shift
   %.sroa.544.0.extract.shift = lshr i64 %.sroa.03.0.insert.insert.i, 16
   %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
   br label %.loopexit
@@ -4591,7 +4579,7 @@ switch.lookup:
   br label %60
 
 60:                                               ; preds = %.thread64.thread, %56, %58, %.thread64
-  %.not73 = phi i1 [ false, %.thread64 ], [ true, %58 ], [ true, %56 ], [ false, %.thread64.thread ]
+  %.not73 = phi i1 [ false, %.thread64 ], [ %switch.masked, %58 ], [ %switch.masked, %56 ], [ false, %.thread64.thread ]
   %61 = phi i64 [ %54, %.thread64 ], [ %54, %58 ], [ %54, %56 ], [ %29, %.thread64.thread ]
   %62 = phi ptr [ %51, %.thread64 ], [ %51, %58 ], [ %51, %56 ], [ %13, %.thread64.thread ]
   %.sroa.4.0.i.ph6772 = phi i32 [ %.sroa.4.0.i.ph67, %.thread64 ], [ %.sroa.4.0.i.ph67, %58 ], [ %.sroa.4.0.i.ph67, %56 ], [ %26, %.thread64.thread ]
@@ -4605,12 +4593,11 @@ switch.lookup:
   ]
 
 65:                                               ; preds = %60
-  %or.cond3.not = and i1 %.not73, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph105, i32 %.sroa.4.0.i.ph6772
+  %.0..sroa.619.0 = select i1 %.not73, i32 %.sroa.619.0.ph105, i32 %.sroa.4.0.i.ph6772
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
-  %.sroa.34.0.insert.insert.i = select i1 %or.cond3.not, i64 4864, i64 %.sroa.619.0.insert.shift
-  %.sroa.03.0.insert.insert.i = select i1 %or.cond3.not, i64 4866, i64 %.sroa.619.0.insert.shift
+  %.sroa.34.0.insert.insert.i = select i1 %.not73, i64 4864, i64 %.sroa.619.0.insert.shift
+  %.sroa.03.0.insert.insert.i = select i1 %.not73, i64 4866, i64 %.sroa.619.0.insert.shift
   %.sroa.544.0.extract.shift = lshr i64 %.sroa.03.0.insert.insert.i, 16
   %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
   br label %.loopexit
@@ -5062,7 +5049,7 @@ switch.lookup:
   br label %62
 
 62:                                               ; preds = %.thread62.thread, %58, %60, %.thread62
-  %.not71 = phi i1 [ false, %.thread62 ], [ true, %60 ], [ true, %58 ], [ false, %.thread62.thread ]
+  %.not71 = phi i1 [ false, %.thread62 ], [ %switch.masked, %60 ], [ %switch.masked, %58 ], [ false, %.thread62.thread ]
   %63 = phi i64 [ %56, %.thread62 ], [ %56, %60 ], [ %56, %58 ], [ %31, %.thread62.thread ]
   %64 = phi ptr [ %53, %.thread62 ], [ %53, %60 ], [ %53, %58 ], [ %15, %.thread62.thread ]
   %.sroa.4.0.i.ph6570 = phi i32 [ %.sroa.4.0.i.ph65, %.thread62 ], [ %.sroa.4.0.i.ph65, %60 ], [ %.sroa.4.0.i.ph65, %58 ], [ %28, %.thread62.thread ]
@@ -5074,12 +5061,11 @@ switch.lookup:
   ]
 
 65:                                               ; preds = %62
-  %or.cond3.not = and i1 %.not71, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph119, i32 %.sroa.4.0.i.ph6570
-  %.51 = zext i1 %or.cond3.not to i64
+  %.0..sroa.619.0 = select i1 %.not71, i32 %.sroa.619.0.ph119, i32 %.sroa.4.0.i.ph6570
+  %.51 = zext i1 %.not71 to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
-  %.sroa.46.0.i = select i1 %or.cond3.not, i64 0, i64 %.sroa.619.0.insert.shift
+  %.sroa.46.0.i = select i1 %.not71, i64 0, i64 %.sroa.619.0.insert.shift
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.46.0.i, %.51
   %.sroa.544.0.extract.shift = lshr exact i64 %.sroa.46.0.i, 16
   %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
@@ -5976,7 +5962,7 @@ switch.lookup:
   br label %64
 
 64:                                               ; preds = %.thread64.thread, %60, %62, %.thread64
-  %.not73 = phi i1 [ false, %.thread64 ], [ true, %62 ], [ true, %60 ], [ false, %.thread64.thread ]
+  %.not73 = phi i1 [ false, %.thread64 ], [ %switch.masked, %62 ], [ %switch.masked, %60 ], [ false, %.thread64.thread ]
   %65 = phi i64 [ %58, %.thread64 ], [ %58, %62 ], [ %58, %60 ], [ %33, %.thread64.thread ]
   %66 = phi ptr [ %55, %.thread64 ], [ %55, %62 ], [ %55, %60 ], [ %17, %.thread64.thread ]
   %.sroa.4.0.i.ph6772 = phi i32 [ %.sroa.4.0.i.ph67, %.thread64 ], [ %.sroa.4.0.i.ph67, %62 ], [ %.sroa.4.0.i.ph67, %60 ], [ %30, %.thread64.thread ]
@@ -5988,12 +5974,11 @@ switch.lookup:
   ]
 
 67:                                               ; preds = %64
-  %or.cond3.not = and i1 %.not73, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph126, i32 %.sroa.4.0.i.ph6772
+  %.0..sroa.619.0 = select i1 %.not73, i32 %.sroa.619.0.ph126, i32 %.sroa.4.0.i.ph6772
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
-  %.sroa.34.0.insert.insert.i = select i1 %or.cond3.not, i64 4864, i64 %.sroa.619.0.insert.shift
-  %.sroa.03.0.insert.insert.i = select i1 %or.cond3.not, i64 4866, i64 %.sroa.619.0.insert.shift
+  %.sroa.34.0.insert.insert.i = select i1 %.not73, i64 4864, i64 %.sroa.619.0.insert.shift
+  %.sroa.03.0.insert.insert.i = select i1 %.not73, i64 4866, i64 %.sroa.619.0.insert.shift
   %.sroa.544.0.extract.shift = lshr i64 %.sroa.03.0.insert.insert.i, 16
   %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
   br label %.loopexit

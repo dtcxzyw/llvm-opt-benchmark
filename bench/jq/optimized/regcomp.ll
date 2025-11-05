@@ -627,11 +627,11 @@ map_position_value.exit29.i.i:                    ; preds = %127, %123, %map_pos
   %152 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %151
   %153 = load i16, ptr %152, align 2, !tbaa !68
   %154 = sext i16 %153 to i32
+  %155 = mul nsw i32 %137, %154
   br label %distance_value.exit.i.i.i
 
 distance_value.exit.i.i.i:                        ; preds = %150, %146, %142
-  %.0.i.i.i.i = phi i32 [ %154, %150 ], [ 0, %142 ], [ 1, %146 ]
-  %155 = mul nsw i32 %.0.i.i.i.i, %137
+  %.0.i.i.i.i = phi i32 [ %155, %150 ], [ 0, %142 ], [ %137, %146 ]
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %157 = load i32, ptr %156, align 4, !tbaa !53
   %158 = icmp eq i32 %157, -1
@@ -648,16 +648,16 @@ distance_value.exit.i.i.i:                        ; preds = %150, %146, %142
   %165 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %164
   %166 = load i16, ptr %165, align 2, !tbaa !68
   %167 = sext i16 %166 to i32
+  %168 = mul nsw i32 %138, %167
   br label %distance_value.exit21.i.i.i
 
 distance_value.exit21.i.i.i:                      ; preds = %163, %159, %distance_value.exit.i.i.i
-  %.0.i20.i.i.i = phi i32 [ %167, %163 ], [ 0, %distance_value.exit.i.i.i ], [ 1, %159 ]
-  %168 = mul nsw i32 %.0.i20.i.i.i, %138
-  %169 = icmp sgt i32 %168, %155
+  %.0.i20.i.i.i = phi i32 [ %168, %163 ], [ 0, %distance_value.exit.i.i.i ], [ %138, %159 ]
+  %169 = icmp sgt i32 %.0.i20.i.i.i, %.0.i.i.i.i
   br i1 %169, label %comp_distance_value.exit.sink.split.i.i, label %170
 
 170:                                              ; preds = %distance_value.exit21.i.i.i
-  %171 = icmp slt i32 %168, %155
+  %171 = icmp slt i32 %.0.i20.i.i.i, %.0.i.i.i.i
   br i1 %171, label %select_opt_exact.exit.i, label %172
 
 172:                                              ; preds = %170
@@ -706,11 +706,11 @@ select_opt_exact.exit.i:                          ; preds = %comp_distance_value
   %196 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %195
   %197 = load i16, ptr %196, align 2, !tbaa !68
   %198 = sext i16 %197 to i32
+  %199 = mul nsw i32 %181, %198
   br label %distance_value.exit.i.i30.i
 
 distance_value.exit.i.i30.i:                      ; preds = %194, %190, %186
-  %.0.i.i.i31.i = phi i32 [ %198, %194 ], [ 0, %186 ], [ 1, %190 ]
-  %199 = mul nsw i32 %181, %.0.i.i.i31.i
+  %.0.i.i.i31.i = phi i32 [ %199, %194 ], [ 0, %186 ], [ %181, %190 ]
   %200 = getelementptr inbounds nuw i8, ptr %5, i64 164
   %201 = load i32, ptr %200, align 4, !tbaa !53
   %202 = icmp eq i32 %201, -1
@@ -727,16 +727,16 @@ distance_value.exit.i.i30.i:                      ; preds = %194, %190, %186
   %209 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %208
   %210 = load i16, ptr %209, align 2, !tbaa !68
   %211 = sext i16 %210 to i32
+  %212 = mul nsw i32 %182, %211
   br label %distance_value.exit21.i.i32.i
 
 distance_value.exit21.i.i32.i:                    ; preds = %207, %203, %distance_value.exit.i.i30.i
-  %.0.i20.i.i33.i = phi i32 [ %211, %207 ], [ 0, %distance_value.exit.i.i30.i ], [ 1, %203 ]
-  %212 = mul nsw i32 %.0.i20.i.i33.i, %182
-  %213 = icmp sgt i32 %212, %199
+  %.0.i20.i.i33.i = phi i32 [ %212, %207 ], [ 0, %distance_value.exit.i.i30.i ], [ %182, %203 ]
+  %213 = icmp sgt i32 %.0.i20.i.i33.i, %.0.i.i.i31.i
   br i1 %213, label %comp_opt_exact_or_map.exit.i, label %214
 
 214:                                              ; preds = %distance_value.exit21.i.i32.i
-  %215 = icmp slt i32 %212, %199
+  %215 = icmp slt i32 %.0.i20.i.i33.i, %.0.i.i.i31.i
   br i1 %215, label %comp_opt_exact_or_map.exit.thread.i.thread, label %216
 
 216:                                              ; preds = %214
@@ -14042,11 +14042,11 @@ map_position_value.exit29:                        ; preds = %map_position_value.
   %63 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !68
   %65 = sext i16 %64 to i32
+  %66 = mul nsw i32 %48, %65
   br label %distance_value.exit.i
 
 distance_value.exit.i:                            ; preds = %61, %57, %53
-  %.0.i.i = phi i32 [ %65, %61 ], [ 0, %53 ], [ 1, %57 ]
-  %66 = mul nsw i32 %.0.i.i, %48
+  %.0.i.i = phi i32 [ %66, %61 ], [ 0, %53 ], [ %48, %57 ]
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !53
   %69 = icmp eq i32 %68, -1
@@ -14063,16 +14063,16 @@ distance_value.exit.i:                            ; preds = %61, %57, %53
   %76 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !68
   %78 = sext i16 %77 to i32
+  %79 = mul nsw i32 %49, %78
   br label %distance_value.exit21.i
 
 distance_value.exit21.i:                          ; preds = %74, %70, %distance_value.exit.i
-  %.0.i20.i = phi i32 [ %78, %74 ], [ 0, %distance_value.exit.i ], [ 1, %70 ]
-  %79 = mul nsw i32 %.0.i20.i, %49
-  %80 = icmp sgt i32 %79, %66
+  %.0.i20.i = phi i32 [ %79, %74 ], [ 0, %distance_value.exit.i ], [ %49, %70 ]
+  %80 = icmp sgt i32 %.0.i20.i, %.0.i.i
   br i1 %80, label %comp_distance_value.exit.sink.split, label %81
 
 81:                                               ; preds = %distance_value.exit21.i
-  %82 = icmp slt i32 %79, %66
+  %82 = icmp slt i32 %.0.i20.i, %.0.i.i
   br i1 %82, label %comp_distance_value.exit, label %83
 
 83:                                               ; preds = %81
@@ -14341,14 +14341,14 @@ concat_opt_exact.exit88:                          ; preds = %._crit_edge.i62, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %concat_opt_exact.exit88, %concat_opt_exact.exit
-  %.sink127 = phi i64 [ 24, %concat_opt_exact.exit ], [ 72, %concat_opt_exact.exit88 ]
-  %.sink124 = phi i64 [ 28, %concat_opt_exact.exit ], [ 76, %concat_opt_exact.exit88 ]
+  %.sink125 = phi i64 [ 24, %concat_opt_exact.exit ], [ 72, %concat_opt_exact.exit88 ]
+  %.sink122 = phi i64 [ 28, %concat_opt_exact.exit ], [ 76, %concat_opt_exact.exit88 ]
   %.fr.i.sink = phi i32 [ %.fr.i, %concat_opt_exact.exit ], [ %.fr.i66, %concat_opt_exact.exit88 ]
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink127
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink125
   %121 = load i32, ptr %120, align 4, !tbaa !54
   %122 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %123 = load i32, ptr %122, align 4, !tbaa !53
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink124
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink122
   %125 = load i32, ptr %124, align 4, !tbaa !53
   %126 = and i32 %125, 2
   %storemerge.i.i = or i32 %126, %123
@@ -14442,11 +14442,11 @@ concat_opt_exact.exit88:                          ; preds = %._crit_edge.i62, %1
   %172 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %171
   %173 = load i16, ptr %172, align 2, !tbaa !68
   %174 = sext i16 %173 to i32
+  %175 = mul nsw i32 %157, %174
   br label %distance_value.exit.i.i
 
 distance_value.exit.i.i:                          ; preds = %170, %166, %162
-  %.0.i.i.i = phi i32 [ %174, %170 ], [ 0, %162 ], [ 1, %166 ]
-  %175 = mul nsw i32 %.0.i.i.i, %157
+  %.0.i.i.i = phi i32 [ %175, %170 ], [ 0, %162 ], [ %157, %166 ]
   %176 = getelementptr inbounds nuw i8, ptr %2, i64 164
   %177 = load i32, ptr %176, align 4, !tbaa !53
   %178 = icmp eq i32 %177, -1
@@ -14463,16 +14463,16 @@ distance_value.exit.i.i:                          ; preds = %170, %166, %162
   %185 = getelementptr inbounds nuw i16, ptr @distance_value.dist_vals, i64 %184
   %186 = load i16, ptr %185, align 2, !tbaa !68
   %187 = sext i16 %186 to i32
+  %188 = mul nsw i32 %158, %187
   br label %distance_value.exit21.i.i
 
 distance_value.exit21.i.i:                        ; preds = %183, %179, %distance_value.exit.i.i
-  %.0.i20.i.i = phi i32 [ %187, %183 ], [ 0, %distance_value.exit.i.i ], [ 1, %179 ]
-  %188 = mul nsw i32 %.0.i20.i.i, %158
-  %189 = icmp sgt i32 %188, %175
+  %.0.i20.i.i = phi i32 [ %188, %183 ], [ 0, %distance_value.exit.i.i ], [ %158, %179 ]
+  %189 = icmp sgt i32 %.0.i20.i.i, %.0.i.i.i
   br i1 %189, label %comp_distance_value.exit.sink.split.i, label %190
 
 190:                                              ; preds = %distance_value.exit21.i.i
-  %191 = icmp slt i32 %188, %175
+  %191 = icmp slt i32 %.0.i20.i.i, %.0.i.i.i
   br i1 %191, label %select_opt_map.exit, label %192
 
 192:                                              ; preds = %190

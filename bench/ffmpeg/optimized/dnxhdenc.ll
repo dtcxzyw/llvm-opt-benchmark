@@ -4046,63 +4046,62 @@ define internal noundef i32 @dnxhd_mb_var_thread(ptr noundef readonly captures(n
   br label %.preheader132.us.us
 
 ._crit_edge142.us.loopexit:                       ; preds = %._crit_edge.us.us
-  %134 = ashr i32 %148, 8
-  %135 = ashr i32 %150, 8
+  %134 = ashr i32 %149, 8
+  %135 = ashr i32 %151, 8
+  %136 = mul nsw i32 %134, %134
+  %137 = sub nsw i32 %135, %136
   br label %._crit_edge142.us
 
 ._crit_edge142.us:                                ; preds = %.preheader132.lr.ph.us, %._crit_edge142.us.loopexit
-  %.us-phi.us = phi i32 [ %134, %._crit_edge142.us.loopexit ], [ 0, %.preheader132.lr.ph.us ]
-  %.us-phi145.us = phi i32 [ %135, %._crit_edge142.us.loopexit ], [ 0, %.preheader132.lr.ph.us ]
-  %136 = mul nsw i32 %.us-phi.us, %.us-phi.us
-  %137 = sub nsw i32 %.us-phi145.us, %136
-  %138 = trunc i64 %indvars.iv180 to i32
-  %139 = add i32 %122, %138
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %140
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  store i32 %137, ptr %142, align 4, !tbaa !140
-  store i32 %139, ptr %141, align 4, !tbaa !148
+  %138 = phi i32 [ %137, %._crit_edge142.us.loopexit ], [ 0, %.preheader132.lr.ph.us ]
+  %139 = trunc i64 %indvars.iv180 to i32
+  %140 = add i32 %122, %139
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %141
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
+  store i32 %138, ptr %143, align 4, !tbaa !140
+  store i32 %140, ptr %142, align 4, !tbaa !148
   %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
   %exitcond184.not = icmp eq i64 %indvars.iv.next181, %wide.trip.count183
   br i1 %exitcond184.not, label %.loopexit131, label %.preheader132.lr.ph.us, !llvm.loop !219
 
 .preheader132.us.us:                              ; preds = %.preheader132.us.us.preheader, %._crit_edge.us.us
-  %.0108141.us.us = phi i32 [ %153, %._crit_edge.us.us ], [ 0, %.preheader132.us.us.preheader ]
-  %.0113140.us.us = phi i32 [ %150, %._crit_edge.us.us ], [ 0, %.preheader132.us.us.preheader ]
-  %.0114139.us.us = phi i32 [ %148, %._crit_edge.us.us ], [ 0, %.preheader132.us.us.preheader ]
-  %.0118138.us.us = phi ptr [ %152, %._crit_edge.us.us ], [ %132, %.preheader132.us.us.preheader ]
-  br label %143
+  %.0108141.us.us = phi i32 [ %154, %._crit_edge.us.us ], [ 0, %.preheader132.us.us.preheader ]
+  %.0113140.us.us = phi i32 [ %151, %._crit_edge.us.us ], [ 0, %.preheader132.us.us.preheader ]
+  %.0114139.us.us = phi i32 [ %149, %._crit_edge.us.us ], [ 0, %.preheader132.us.us.preheader ]
+  %.0118138.us.us = phi ptr [ %153, %._crit_edge.us.us ], [ %132, %.preheader132.us.us.preheader ]
+  br label %144
 
-143:                                              ; preds = %143, %.preheader132.us.us
-  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %143 ], [ 0, %.preheader132.us.us ]
-  %.1135.us.us = phi i32 [ %150, %143 ], [ %.0113140.us.us, %.preheader132.us.us ]
-  %.1115134.us.us = phi i32 [ %148, %143 ], [ %.0114139.us.us, %.preheader132.us.us ]
-  %144 = getelementptr inbounds nuw i16, ptr %.0118138.us.us, i64 %indvars.iv176
-  %145 = load i16, ptr %144, align 2, !tbaa !156
-  %146 = lshr i16 %145, 6
-  %147 = zext nneg i16 %146 to i32
-  %148 = add nsw i32 %.1115134.us.us, %147
-  %149 = mul nuw nsw i32 %147, %147
-  %150 = add nsw i32 %149, %.1135.us.us
+144:                                              ; preds = %144, %.preheader132.us.us
+  %indvars.iv176 = phi i64 [ %indvars.iv.next177, %144 ], [ 0, %.preheader132.us.us ]
+  %.1135.us.us = phi i32 [ %151, %144 ], [ %.0113140.us.us, %.preheader132.us.us ]
+  %.1115134.us.us = phi i32 [ %149, %144 ], [ %.0114139.us.us, %.preheader132.us.us ]
+  %145 = getelementptr inbounds nuw i16, ptr %.0118138.us.us, i64 %indvars.iv176
+  %146 = load i16, ptr %145, align 2, !tbaa !156
+  %147 = lshr i16 %146, 6
+  %148 = zext nneg i16 %147 to i32
+  %149 = add nsw i32 %.1115134.us.us, %148
+  %150 = mul nuw nsw i32 %148, %148
+  %151 = add nsw i32 %150, %.1135.us.us
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
-  %151 = icmp samesign ult i64 %indvars.iv.next177, %133
-  br i1 %151, label %143, label %._crit_edge.us.us, !llvm.loop !220
+  %152 = icmp samesign ult i64 %indvars.iv.next177, %133
+  br i1 %152, label %144, label %._crit_edge.us.us, !llvm.loop !220
 
-._crit_edge.us.us:                                ; preds = %143
-  %152 = getelementptr inbounds i8, ptr %.0118138.us.us, i64 %121
-  %153 = add nuw nsw i32 %.0108141.us.us, 1
-  %exitcond179.not = icmp eq i32 %153, %125
+._crit_edge.us.us:                                ; preds = %144
+  %153 = getelementptr inbounds i8, ptr %.0118138.us.us, i64 %121
+  %154 = add nuw nsw i32 %.0108141.us.us, 1
+  %exitcond179.not = icmp eq i32 %154, %125
   br i1 %exitcond179.not, label %._crit_edge142.us.loopexit, label %.preheader132.us.us, !llvm.loop !221
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %154 = trunc i64 %indvars.iv to i32
-  %155 = add i32 %122, %154
-  %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %156
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 4
-  store i32 0, ptr %158, align 4, !tbaa !140
-  store i32 %155, ptr %157, align 4, !tbaa !148
+  %155 = trunc i64 %indvars.iv to i32
+  %156 = add i32 %122, %155
+  %157 = zext i32 %156 to i64
+  %158 = getelementptr inbounds nuw %struct.RCCMPEntry, ptr %124, i64 %157
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 4
+  store i32 0, ptr %159, align 4, !tbaa !140
+  store i32 %156, ptr %158, align 4, !tbaa !148
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit131, label %.lr.ph.split, !llvm.loop !219

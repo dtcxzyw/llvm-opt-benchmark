@@ -3506,8 +3506,8 @@ define hidden noundef zeroext i1 @_ZN10BlockBegin9try_mergeEP10ValueStackb(ptr n
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 64
-  %.not175 = icmp eq i32 %11, 0
-  br i1 %.not175, label %12, label %.critedge7
+  %.not176 = icmp eq i32 %11, 0
+  br i1 %.not176, label %12, label %.critedge7
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -3562,16 +3562,16 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %43 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %.lr.ph193, label %.critedge
+  br i1 %45, label %.lr.ph194, label %.critedge
 
-.lr.ph193:                                        ; preds = %42
+.lr.ph194:                                        ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   br label %47
 
-47:                                               ; preds = %.lr.ph193, %74
-  %.0129192 = phi i32 [ 0, %.lr.ph193 ], [ %76, %74 ]
+47:                                               ; preds = %.lr.ph194, %74
+  %.0129193 = phi i32 [ 0, %.lr.ph194 ], [ %76, %74 ]
   %48 = load ptr, ptr %46, align 8
-  %49 = sext i32 %.0129192 to i64
+  %49 = sext i32 %.0129193 to i64
   %50 = getelementptr inbounds ptr, ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %cond = icmp eq ptr %51, null
@@ -3585,8 +3585,8 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %57 = and i64 %49, 63
   %58 = shl nuw i64 1, %57
   %59 = and i64 %56, %58
-  %.not178 = icmp eq i64 %59, 0
-  br i1 %.not178, label %.thread.sink.split, label %60
+  %.not179 = icmp eq i64 %59, 0
+  br i1 %.not179, label %.thread.sink.split, label %60
 
 60:                                               ; preds = %52
   %61 = getelementptr inbounds nuw i8, ptr %51, i64 24
@@ -3615,37 +3615,37 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 
 74:                                               ; preds = %47, %.thread, %71
   %75 = phi i32 [ %73, %71 ], [ 1, %.thread ], [ 1, %47 ]
-  %76 = add nsw i32 %75, %.0129192
+  %76 = add nsw i32 %75, %.0129193
   %77 = icmp slt i32 %76, %44
   br i1 %77, label %47, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %74, %42, %_ZN10ValueStack4copyENS_4KindEi.exit
   %78 = load i32, ptr %9, align 4
   %79 = and i32 %78, 128
-  %.not176 = icmp eq i32 %79, 0
-  br i1 %.not176, label %.critedge4, label %80
+  %.not177 = icmp eq i32 %79, 0
+  br i1 %.not177, label %.critedge4, label %80
 
 80:                                               ; preds = %.critedge
   %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 48
   %82 = load i32, ptr %81, align 4
   %83 = icmp sgt i32 %82, 0
-  br i1 %83, label %.lr.ph195, label %.critedge2
+  br i1 %83, label %.lr.ph196, label %.critedge2
 
-.lr.ph195:                                        ; preds = %80
+.lr.ph196:                                        ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 56
   br label %85
 
-85:                                               ; preds = %.lr.ph195, %95
-  %.1194 = phi i32 [ 0, %.lr.ph195 ], [ %97, %95 ]
+85:                                               ; preds = %.lr.ph196, %95
+  %.1195 = phi i32 [ 0, %.lr.ph196 ], [ %97, %95 ]
   %86 = load ptr, ptr %84, align 8
-  %87 = sext i32 %.1194 to i64
+  %87 = sext i32 %.1195 to i64
   %88 = getelementptr inbounds ptr, ptr %86, i64 %87
   %89 = load ptr, ptr %88, align 8
-  %cond164 = icmp eq ptr %89, null
-  br i1 %cond164, label %95, label %90
+  %cond166 = icmp eq ptr %89, null
+  br i1 %cond166, label %95, label %90
 
 90:                                               ; preds = %85
-  call void @_ZN10ValueStack19setup_phi_for_stackEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %0, i32 noundef %.1194) #14
+  call void @_ZN10ValueStack19setup_phi_for_stackEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %0, i32 noundef %.1195) #14
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -3654,7 +3654,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 
 95:                                               ; preds = %85, %90
   %96 = phi i32 [ %94, %90 ], [ 1, %85 ]
-  %97 = add nsw i32 %96, %.1194
+  %97 = add nsw i32 %96, %.1195
   %98 = icmp slt i32 %97, %82
   br i1 %98, label %85, label %.critedge2, !llvm.loop !26
 
@@ -3664,20 +3664,20 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %101 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
   %102 = load i32, ptr %101, align 8
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph198, label %.critedge4
+  br i1 %103, label %.lr.ph199, label %.critedge4
 
-.lr.ph198:                                        ; preds = %.critedge2
+.lr.ph199:                                        ; preds = %.critedge2
   %104 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
   br label %105
 
-105:                                              ; preds = %.lr.ph198, %144
-  %.2196 = phi i32 [ 0, %.lr.ph198 ], [ %146, %144 ]
+105:                                              ; preds = %.lr.ph199, %144
+  %.2197 = phi i32 [ 0, %.lr.ph199 ], [ %146, %144 ]
   %106 = load ptr, ptr %104, align 8
-  %107 = sext i32 %.2196 to i64
+  %107 = sext i32 %.2197 to i64
   %108 = getelementptr inbounds ptr, ptr %106, i64 %107
   %109 = load ptr, ptr %108, align 8
-  %cond165 = icmp eq ptr %109, null
-  br i1 %cond165, label %144, label %110
+  %cond167 = icmp eq ptr %109, null
+  br i1 %cond167, label %144, label %110
 
 110:                                              ; preds = %105
   %111 = load ptr, ptr %100, align 8
@@ -3687,8 +3687,8 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %115 = and i64 %107, 63
   %116 = shl nuw i64 1, %115
   %117 = and i64 %114, %116
-  %.not177 = icmp eq i64 %117, 0
-  br i1 %.not177, label %118, label %.thread172.sink.split
+  %.not178 = icmp eq i64 %117, 0
+  br i1 %.not178, label %118, label %.thread172.sink.split
 
 118:                                              ; preds = %110
   %119 = getelementptr inbounds nuw i8, ptr %109, i64 24
@@ -3696,10 +3696,10 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, 2
-  br i1 %123, label %124, label %134
+  br i1 %123, label %124, label %135
 
 124:                                              ; preds = %118
-  %125 = add nsw i32 %.2196, 1
+  %125 = add nsw i32 %.2197, 1
   %126 = sext i32 %125 to i64
   %127 = lshr i64 %126, 6
   %128 = getelementptr inbounds nuw i64, ptr %111, i64 %127
@@ -3708,18 +3708,17 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %131 = shl nuw i64 1, %130
   %132 = and i64 %129, %131
   %133 = icmp ne i64 %132, 0
-  br label %134
+  %134 = or i1 %2, %133
+  br i1 %134, label %.thread172.sink.split, label %.thread172
 
-134:                                              ; preds = %118, %124
-  %135 = phi i1 [ false, %118 ], [ %133, %124 ]
-  %or.cond = or i1 %2, %135
-  br i1 %or.cond, label %.thread172.sink.split, label %.thread172
+135:                                              ; preds = %118
+  br i1 %2, label %.thread172.sink.split, label %.thread172
 
-.thread172.sink.split:                            ; preds = %110, %134
-  call void @_ZN10ValueStack19setup_phi_for_localEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %0, i32 noundef %.2196) #14
+.thread172.sink.split:                            ; preds = %110, %124, %135
+  call void @_ZN10ValueStack19setup_phi_for_localEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i.i, ptr noundef nonnull %0, i32 noundef %.2197) #14
   br label %.thread172
 
-.thread172:                                       ; preds = %.thread172.sink.split, %134
+.thread172:                                       ; preds = %.thread172.sink.split, %135, %124
   %136 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %137 = load ptr, ptr %136, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 12
@@ -3734,7 +3733,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 
 144:                                              ; preds = %105, %.thread172, %141
   %145 = phi i32 [ %143, %141 ], [ 1, %.thread172 ], [ 1, %105 ]
-  %146 = add nsw i32 %145, %.2196
+  %146 = add nsw i32 %145, %.2197
   %147 = icmp slt i32 %146, %102
   br i1 %147, label %105, label %.critedge4, !llvm.loop !27
 
@@ -3755,8 +3754,8 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 
 154:                                              ; preds = %150
   %155 = and i32 %152, 128
-  %.not174 = icmp eq i32 %155, 0
-  br i1 %.not174, label %.critedge7, label %156
+  %.not175 = icmp eq i32 %155, 0
+  br i1 %.not175, label %.critedge7, label %156
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -3770,13 +3769,13 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   br label %162
 
 162:                                              ; preds = %.lr.ph, %212
-  %.3180 = phi i32 [ 0, %.lr.ph ], [ %214, %212 ]
+  %.3181 = phi i32 [ 0, %.lr.ph ], [ %214, %212 ]
   %163 = load ptr, ptr %160, align 8
-  %164 = sext i32 %.3180 to i64
+  %164 = sext i32 %.3181 to i64
   %165 = getelementptr inbounds ptr, ptr %163, i64 %164
   %166 = load ptr, ptr %165, align 8
-  %cond166 = icmp eq ptr %166, null
-  br i1 %cond166, label %212, label %167
+  %cond168 = icmp eq ptr %166, null
+  br i1 %cond168, label %212, label %167
 
 167:                                              ; preds = %162
   %168 = load ptr, ptr %161, align 8
@@ -3818,11 +3817,11 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   store ptr null, ptr %194, align 8
   %.pre = load ptr, ptr %161, align 8
   %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %164
-  %.pre200 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre201 = load ptr, ptr %.phi.trans.insert, align 8
   br label %195
 
 195:                                              ; preds = %187, %172
-  %196 = phi ptr [ %.pre200, %187 ], [ %170, %172 ]
+  %196 = phi ptr [ %.pre201, %187 ], [ %170, %172 ]
   %.not155 = icmp eq ptr %166, %196
   br i1 %.not155, label %203, label %197
 
@@ -3849,7 +3848,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 
 212:                                              ; preds = %162, %203, %209
   %213 = phi i32 [ %211, %209 ], [ 1, %203 ], [ 1, %162 ]
-  %214 = add nsw i32 %213, %.3180
+  %214 = add nsw i32 %213, %.3181
   %215 = icmp slt i32 %214, %158
   br i1 %215, label %162, label %.critedge7, !llvm.loop !28
 
@@ -3857,21 +3856,21 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %217 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %218 = load i32, ptr %217, align 4
   %219 = icmp sgt i32 %218, 0
-  br i1 %219, label %.lr.ph187, label %.critedge9
+  br i1 %219, label %.lr.ph188, label %.critedge9
 
-.lr.ph187:                                        ; preds = %216
+.lr.ph188:                                        ; preds = %216
   %220 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %221 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %222
 
-222:                                              ; preds = %.lr.ph187, %246
-  %.4185 = phi i32 [ 0, %.lr.ph187 ], [ %248, %246 ]
+222:                                              ; preds = %.lr.ph188, %246
+  %.4186 = phi i32 [ 0, %.lr.ph188 ], [ %248, %246 ]
   %223 = load ptr, ptr %220, align 8
-  %224 = sext i32 %.4185 to i64
+  %224 = sext i32 %.4186 to i64
   %225 = getelementptr inbounds ptr, ptr %223, i64 %224
   %226 = load ptr, ptr %225, align 8
-  %cond167 = icmp eq ptr %226, null
-  br i1 %cond167, label %246, label %227
+  %cond169 = icmp eq ptr %226, null
+  br i1 %cond169, label %246, label %227
 
 227:                                              ; preds = %222
   %228 = load ptr, ptr %221, align 8
@@ -3895,7 +3894,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   br i1 %.not152, label %241, label %240
 
 240:                                              ; preds = %237, %235
-  tail call void @_ZN10ValueStack19setup_phi_for_stackEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull %0, i32 noundef %.4185) #14
+  tail call void @_ZN10ValueStack19setup_phi_for_stackEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull %0, i32 noundef %.4186) #14
   br label %241
 
 241:                                              ; preds = %227, %237, %240
@@ -3907,7 +3906,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 
 246:                                              ; preds = %222, %241
   %247 = phi i32 [ %245, %241 ], [ 1, %222 ]
-  %248 = add nsw i32 %247, %.4185
+  %248 = add nsw i32 %247, %.4186
   %249 = icmp slt i32 %248, %218
   br i1 %249, label %222, label %.critedge9, !llvm.loop !29
 
@@ -3915,21 +3914,21 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   %250 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %251 = load i32, ptr %250, align 4
   %252 = icmp sgt i32 %251, 0
-  br i1 %252, label %.lr.ph191, label %.critedge7
+  br i1 %252, label %.lr.ph192, label %.critedge7
 
-.lr.ph191:                                        ; preds = %.critedge9
+.lr.ph192:                                        ; preds = %.critedge9
   %253 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %254 = getelementptr inbounds nuw i8, ptr %1, i64 32
   br label %255
 
-255:                                              ; preds = %.lr.ph191, %297
-  %.5188 = phi i32 [ 0, %.lr.ph191 ], [ %299, %297 ]
+255:                                              ; preds = %.lr.ph192, %297
+  %.5189 = phi i32 [ 0, %.lr.ph192 ], [ %299, %297 ]
   %256 = load ptr, ptr %253, align 8
-  %257 = sext i32 %.5188 to i64
+  %257 = sext i32 %.5189 to i64
   %258 = getelementptr inbounds ptr, ptr %256, i64 %257
   %259 = load ptr, ptr %258, align 8
-  %cond168 = icmp eq ptr %259, null
-  br i1 %cond168, label %297, label %260
+  %cond170 = icmp eq ptr %259, null
+  br i1 %cond170, label %297, label %260
 
 260:                                              ; preds = %255
   %261 = load ptr, ptr %254, align 8
@@ -3975,7 +3974,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
   br i1 %.not149, label %288, label %287
 
 287:                                              ; preds = %284, %282
-  tail call void @_ZN10ValueStack19setup_phi_for_localEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull %0, i32 noundef %.5188) #14
+  tail call void @_ZN10ValueStack19setup_phi_for_localEP10BlockBegini(ptr noundef nonnull align 8 dereferenceable(81) %6, ptr noundef nonnull %0, i32 noundef %.5189) #14
   br label %288
 
 288:                                              ; preds = %278, %287, %284, %281
@@ -3993,7 +3992,7 @@ _ZN10ValueStack4copyENS_4KindEi.exit:             ; preds = %_ZN22CompilationRes
 
 297:                                              ; preds = %255, %288, %294
   %298 = phi i32 [ %296, %294 ], [ 1, %288 ], [ 1, %255 ]
-  %299 = add nsw i32 %298, %.5188
+  %299 = add nsw i32 %298, %.5189
   %300 = icmp slt i32 %299, %251
   br i1 %300, label %255, label %.critedge7, !llvm.loop !30
 

@@ -6441,7 +6441,7 @@ define internal fastcc range(i16 0, 258) i16 @"_ZZL12findArgPartsPN4llvm8Argumen
   %12 = and i16 %11, 1
   %.not.i = icmp ne i16 %12, 0
   %.not57 = select i1 %9, i1 true, i1 %.not.i
-  br i1 %.not57, label %159, label %13
+  br i1 %.not57, label %158, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %1, i64 -32
@@ -6678,13 +6678,12 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %85, %92
   br label %150
 
 150:                                              ; preds = %128, %126, %115, %111, %144
-  %.sroa.056.3 = phi i16 [ 1, %144 ], [ 0, %111 ], [ 0, %115 ], [ 0, %126 ], [ 0, %128 ]
+  %.sroa.056.3 = phi i16 [ 257, %144 ], [ 256, %111 ], [ 256, %115 ], [ 256, %126 ], [ 256, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %151
 
 151:                                              ; preds = %150, %66, %77, %_ZNK4llvm5APInt18getSignificantBitsEv.exit, %_ZN4llvm5APIntC2Ejmbb.exit
-  %.sroa.056.1 = phi i16 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit ], [ 0, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ], [ %.sroa.056.3, %150 ], [ 0, %66 ], [ 0, %77 ]
-  %.sroa.10.1 = phi i16 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit ], [ 256, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ], [ 256, %150 ], [ 256, %66 ], [ 256, %77 ]
+  %.sroa.10.1 = phi i16 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit ], [ 256, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ], [ %.sroa.056.3, %150 ], [ 256, %66 ], [ 256, %77 ]
   %152 = load i32, ptr %20, align 8, !tbaa !154
   %153 = icmp ugt i32 %152, 64
   br i1 %153, label %154, label %_ZN4llvm5APIntD2Ev.exit
@@ -6700,11 +6699,10 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %85, %92
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %151, %154, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %158 = or i16 %.sroa.10.1, %.sroa.056.1
-  br label %159
+  br label %158
 
-159:                                              ; preds = %4, %_ZN4llvm5APIntD2Ev.exit
-  %.sroa.056.0.insert.insert = phi i16 [ %158, %_ZN4llvm5APIntD2Ev.exit ], [ 256, %4 ]
+158:                                              ; preds = %4, %_ZN4llvm5APIntD2Ev.exit
+  %.sroa.056.0.insert.insert = phi i16 [ %.sroa.10.1, %_ZN4llvm5APIntD2Ev.exit ], [ 256, %4 ]
   ret i16 %.sroa.056.0.insert.insert
 }
 
@@ -6720,7 +6718,7 @@ define internal fastcc range(i16 0, 258) i16 @"_ZZL12findArgPartsPN4llvm8Argumen
   %12 = and i16 %11, 1
   %.not.i = icmp ne i16 %12, 0
   %.not57 = select i1 %9, i1 true, i1 %.not.i
-  br i1 %.not57, label %159, label %13
+  br i1 %.not57, label %158, label %13
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds i8, ptr %1, i64 -32
@@ -6957,13 +6955,12 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %85, %92
   br label %150
 
 150:                                              ; preds = %128, %126, %115, %111, %144
-  %.sroa.056.3 = phi i16 [ 1, %144 ], [ 0, %111 ], [ 0, %115 ], [ 0, %126 ], [ 0, %128 ]
+  %.sroa.056.3 = phi i16 [ 257, %144 ], [ 256, %111 ], [ 256, %115 ], [ 256, %126 ], [ 256, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %151
 
 151:                                              ; preds = %150, %66, %77, %_ZNK4llvm5APInt18getSignificantBitsEv.exit, %_ZN4llvm5APIntC2Ejmbb.exit
-  %.sroa.056.1 = phi i16 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit ], [ 0, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ], [ %.sroa.056.3, %150 ], [ 0, %66 ], [ 0, %77 ]
-  %.sroa.10.1 = phi i16 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit ], [ 256, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ], [ 256, %150 ], [ 256, %66 ], [ 256, %77 ]
+  %.sroa.10.1 = phi i16 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit ], [ 256, %_ZNK4llvm5APInt18getSignificantBitsEv.exit ], [ %.sroa.056.3, %150 ], [ 256, %66 ], [ 256, %77 ]
   %152 = load i32, ptr %20, align 8, !tbaa !154
   %153 = icmp ugt i32 %152, 64
   br i1 %153, label %154, label %_ZN4llvm5APIntD2Ev.exit
@@ -6979,11 +6976,10 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %85, %92
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %151, %154, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %158 = or i16 %.sroa.10.1, %.sroa.056.1
-  br label %159
+  br label %158
 
-159:                                              ; preds = %4, %_ZN4llvm5APIntD2Ev.exit
-  %.sroa.056.0.insert.insert = phi i16 [ %158, %_ZN4llvm5APIntD2Ev.exit ], [ 256, %4 ]
+158:                                              ; preds = %4, %_ZN4llvm5APIntD2Ev.exit
+  %.sroa.056.0.insert.insert = phi i16 [ %.sroa.10.1, %_ZN4llvm5APIntD2Ev.exit ], [ 256, %4 ]
   ret i16 %.sroa.056.0.insert.insert
 }
 

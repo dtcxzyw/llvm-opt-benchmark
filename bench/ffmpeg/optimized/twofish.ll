@@ -306,510 +306,528 @@ gfmul.exit148.i:                                  ; preds = %.lr.ph.i140.i, %gfm
   %108 = icmp samesign ugt i8 %.020.i151.i, 1
   %109 = icmp ne i8 %.113.i157.i, 0
   %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %.lr.ph.i150.i, label %gfmul.exit158.i, !llvm.loop !11
+  br i1 %110, label %.lr.ph.i150.i, label %gfmul.exit158.loopexit.i, !llvm.loop !11
 
-gfmul.exit158.i:                                  ; preds = %.lr.ph.i150.i, %gfmul.exit148.i
-  %.011.lcssa.i149.i = phi i8 [ 0, %gfmul.exit148.i ], [ %spec.select.i155.i, %.lr.ph.i150.i ]
+gfmul.exit158.loopexit.i:                         ; preds = %.lr.ph.i150.i
+  %111 = xor i8 %spec.select.i155.i, %.011.lcssa.i139.i
+  br label %gfmul.exit158.i
+
+gfmul.exit158.i:                                  ; preds = %gfmul.exit158.loopexit.i, %gfmul.exit148.i
+  %.011.lcssa.i149.i = phi i8 [ %.011.lcssa.i139.i, %gfmul.exit148.i ], [ %111, %gfmul.exit158.loopexit.i ]
   br i1 %.not380.i, label %gfmul.exit168.i, label %.lr.ph.i160.i
 
 .lr.ph.i160.i:                                    ; preds = %gfmul.exit158.i, %.lr.ph.i160.i
-  %.020.i161.i = phi i8 [ %115, %.lr.ph.i160.i ], [ -126, %gfmul.exit158.i ]
+  %.020.i161.i = phi i8 [ %116, %.lr.ph.i160.i ], [ -126, %gfmul.exit158.i ]
   %.01119.i162.i = phi i8 [ %spec.select.i165.i, %.lr.ph.i160.i ], [ 0, %gfmul.exit158.i ]
   %.01218.i163.i = phi i8 [ %.113.i167.i, %.lr.ph.i160.i ], [ %.sroa.0.2.extract.trunc.i, %gfmul.exit158.i ]
-  %111 = and i8 %.020.i161.i, 1
-  %.not.i164.i = icmp eq i8 %111, 0
-  %112 = select i1 %.not.i164.i, i8 0, i8 %.01218.i163.i
-  %spec.select.i165.i = xor i8 %112, %.01119.i162.i
-  %113 = shl i8 %.01218.i163.i, 1
-  %114 = xor i8 %113, 77
+  %112 = and i8 %.020.i161.i, 1
+  %.not.i164.i = icmp eq i8 %112, 0
+  %113 = select i1 %.not.i164.i, i8 0, i8 %.01218.i163.i
+  %spec.select.i165.i = xor i8 %113, %.01119.i162.i
+  %114 = shl i8 %.01218.i163.i, 1
+  %115 = xor i8 %114, 77
   %.not1617.i166.i = icmp slt i8 %.01218.i163.i, 0
-  %.113.i167.i = select i1 %.not1617.i166.i, i8 %114, i8 %113
-  %115 = lshr i8 %.020.i161.i, 1
-  %116 = icmp ugt i8 %.020.i161.i, 1
-  %117 = icmp ne i8 %.113.i167.i, 0
-  %118 = select i1 %116, i1 %117, i1 false
-  br i1 %118, label %.lr.ph.i160.i, label %gfmul.exit168.i, !llvm.loop !11
+  %.113.i167.i = select i1 %.not1617.i166.i, i8 %115, i8 %114
+  %116 = lshr i8 %.020.i161.i, 1
+  %117 = icmp ugt i8 %.020.i161.i, 1
+  %118 = icmp ne i8 %.113.i167.i, 0
+  %119 = select i1 %117, i1 %118, i1 false
+  br i1 %119, label %.lr.ph.i160.i, label %gfmul.exit168.i.loopexit, !llvm.loop !11
 
-gfmul.exit168.i:                                  ; preds = %.lr.ph.i160.i, %gfmul.exit158.i
-  %.011.lcssa.i159.i = phi i8 [ 0, %gfmul.exit158.i ], [ %spec.select.i165.i, %.lr.ph.i160.i ]
+gfmul.exit168.i.loopexit:                         ; preds = %.lr.ph.i160.i
+  %120 = xor i8 %spec.select.i165.i, %.011.lcssa.i149.i
+  br label %gfmul.exit168.i
+
+gfmul.exit168.i:                                  ; preds = %gfmul.exit168.i.loopexit, %gfmul.exit158.i
+  %.011.lcssa.i159.i = phi i8 [ %.011.lcssa.i149.i, %gfmul.exit158.i ], [ %120, %gfmul.exit168.i.loopexit ]
   br i1 %.not381.i, label %gfmul.exit178.i, label %.lr.ph.i170.i
 
 .lr.ph.i170.i:                                    ; preds = %gfmul.exit168.i, %.lr.ph.i170.i
-  %.020.i171.i = phi i8 [ %123, %.lr.ph.i170.i ], [ -13, %gfmul.exit168.i ]
+  %.020.i171.i = phi i8 [ %125, %.lr.ph.i170.i ], [ -13, %gfmul.exit168.i ]
   %.01119.i172.i = phi i8 [ %spec.select.i175.i, %.lr.ph.i170.i ], [ 0, %gfmul.exit168.i ]
   %.01218.i173.i = phi i8 [ %.113.i177.i, %.lr.ph.i170.i ], [ %.sroa.0.3.extract.trunc.i, %gfmul.exit168.i ]
-  %119 = and i8 %.020.i171.i, 1
-  %.not.i174.i = icmp eq i8 %119, 0
-  %120 = select i1 %.not.i174.i, i8 0, i8 %.01218.i173.i
-  %spec.select.i175.i = xor i8 %120, %.01119.i172.i
-  %121 = shl i8 %.01218.i173.i, 1
-  %122 = xor i8 %121, 77
+  %121 = and i8 %.020.i171.i, 1
+  %.not.i174.i = icmp eq i8 %121, 0
+  %122 = select i1 %.not.i174.i, i8 0, i8 %.01218.i173.i
+  %spec.select.i175.i = xor i8 %122, %.01119.i172.i
+  %123 = shl i8 %.01218.i173.i, 1
+  %124 = xor i8 %123, 77
   %.not1617.i176.i = icmp slt i8 %.01218.i173.i, 0
-  %.113.i177.i = select i1 %.not1617.i176.i, i8 %122, i8 %121
-  %123 = lshr i8 %.020.i171.i, 1
-  %124 = icmp ugt i8 %.020.i171.i, 1
-  %125 = icmp ne i8 %.113.i177.i, 0
-  %126 = select i1 %124, i1 %125, i1 false
-  br i1 %126, label %.lr.ph.i170.i, label %gfmul.exit178.i, !llvm.loop !11
+  %.113.i177.i = select i1 %.not1617.i176.i, i8 %124, i8 %123
+  %125 = lshr i8 %.020.i171.i, 1
+  %126 = icmp ugt i8 %.020.i171.i, 1
+  %127 = icmp ne i8 %.113.i177.i, 0
+  %128 = select i1 %126, i1 %127, i1 false
+  br i1 %128, label %.lr.ph.i170.i, label %gfmul.exit178.i, !llvm.loop !11
 
 gfmul.exit178.i:                                  ; preds = %.lr.ph.i170.i, %gfmul.exit168.i
   %.011.lcssa.i169.i = phi i8 [ 0, %gfmul.exit168.i ], [ %spec.select.i175.i, %.lr.ph.i170.i ]
   br i1 %.not382.i, label %gfmul.exit188.i, label %.lr.ph.i180.i
 
 .lr.ph.i180.i:                                    ; preds = %gfmul.exit178.i, %.lr.ph.i180.i
-  %.020.i181.i = phi i8 [ %131, %.lr.ph.i180.i ], [ 30, %gfmul.exit178.i ]
+  %.020.i181.i = phi i8 [ %133, %.lr.ph.i180.i ], [ 30, %gfmul.exit178.i ]
   %.01119.i182.i = phi i8 [ %spec.select.i185.i, %.lr.ph.i180.i ], [ 0, %gfmul.exit178.i ]
   %.01218.i183.i = phi i8 [ %.113.i187.i, %.lr.ph.i180.i ], [ %.sroa.19.4.extract.trunc.i, %gfmul.exit178.i ]
-  %127 = and i8 %.020.i181.i, 1
-  %.not.i184.i = icmp eq i8 %127, 0
-  %128 = select i1 %.not.i184.i, i8 0, i8 %.01218.i183.i
-  %spec.select.i185.i = xor i8 %128, %.01119.i182.i
-  %129 = shl i8 %.01218.i183.i, 1
-  %130 = xor i8 %129, 77
+  %129 = and i8 %.020.i181.i, 1
+  %.not.i184.i = icmp eq i8 %129, 0
+  %130 = select i1 %.not.i184.i, i8 0, i8 %.01218.i183.i
+  %spec.select.i185.i = xor i8 %130, %.01119.i182.i
+  %131 = shl i8 %.01218.i183.i, 1
+  %132 = xor i8 %131, 77
   %.not1617.i186.i = icmp slt i8 %.01218.i183.i, 0
-  %.113.i187.i = select i1 %.not1617.i186.i, i8 %130, i8 %129
-  %131 = lshr i8 %.020.i181.i, 1
-  %132 = icmp samesign ugt i8 %.020.i181.i, 1
-  %133 = icmp ne i8 %.113.i187.i, 0
-  %134 = select i1 %132, i1 %133, i1 false
-  br i1 %134, label %.lr.ph.i180.i, label %gfmul.exit188.i, !llvm.loop !11
+  %.113.i187.i = select i1 %.not1617.i186.i, i8 %132, i8 %131
+  %133 = lshr i8 %.020.i181.i, 1
+  %134 = icmp samesign ugt i8 %.020.i181.i, 1
+  %135 = icmp ne i8 %.113.i187.i, 0
+  %136 = select i1 %134, i1 %135, i1 false
+  br i1 %136, label %.lr.ph.i180.i, label %gfmul.exit188.i, !llvm.loop !11
 
 gfmul.exit188.i:                                  ; preds = %.lr.ph.i180.i, %gfmul.exit178.i
   %.011.lcssa.i179.i = phi i8 [ 0, %gfmul.exit178.i ], [ %spec.select.i185.i, %.lr.ph.i180.i ]
   br i1 %.not383.i, label %gfmul.exit198.i, label %.lr.ph.i190.i
 
 .lr.ph.i190.i:                                    ; preds = %gfmul.exit188.i, %.lr.ph.i190.i
-  %.020.i191.i = phi i8 [ %139, %.lr.ph.i190.i ], [ -58, %gfmul.exit188.i ]
+  %.020.i191.i = phi i8 [ %141, %.lr.ph.i190.i ], [ -58, %gfmul.exit188.i ]
   %.01119.i192.i = phi i8 [ %spec.select.i195.i, %.lr.ph.i190.i ], [ 0, %gfmul.exit188.i ]
   %.01218.i193.i = phi i8 [ %.113.i197.i, %.lr.ph.i190.i ], [ %.sroa.19.5.extract.trunc.i, %gfmul.exit188.i ]
-  %135 = and i8 %.020.i191.i, 1
-  %.not.i194.i = icmp eq i8 %135, 0
-  %136 = select i1 %.not.i194.i, i8 0, i8 %.01218.i193.i
-  %spec.select.i195.i = xor i8 %136, %.01119.i192.i
-  %137 = shl i8 %.01218.i193.i, 1
-  %138 = xor i8 %137, 77
+  %137 = and i8 %.020.i191.i, 1
+  %.not.i194.i = icmp eq i8 %137, 0
+  %138 = select i1 %.not.i194.i, i8 0, i8 %.01218.i193.i
+  %spec.select.i195.i = xor i8 %138, %.01119.i192.i
+  %139 = shl i8 %.01218.i193.i, 1
+  %140 = xor i8 %139, 77
   %.not1617.i196.i = icmp slt i8 %.01218.i193.i, 0
-  %.113.i197.i = select i1 %.not1617.i196.i, i8 %138, i8 %137
-  %139 = lshr i8 %.020.i191.i, 1
-  %140 = icmp ugt i8 %.020.i191.i, 1
-  %141 = icmp ne i8 %.113.i197.i, 0
-  %142 = select i1 %140, i1 %141, i1 false
-  br i1 %142, label %.lr.ph.i190.i, label %gfmul.exit198.i, !llvm.loop !11
+  %.113.i197.i = select i1 %.not1617.i196.i, i8 %140, i8 %139
+  %141 = lshr i8 %.020.i191.i, 1
+  %142 = icmp ugt i8 %.020.i191.i, 1
+  %143 = icmp ne i8 %.113.i197.i, 0
+  %144 = select i1 %142, i1 %143, i1 false
+  br i1 %144, label %.lr.ph.i190.i, label %gfmul.exit198.i, !llvm.loop !11
 
 gfmul.exit198.i:                                  ; preds = %.lr.ph.i190.i, %gfmul.exit188.i
   %.011.lcssa.i189.i = phi i8 [ 0, %gfmul.exit188.i ], [ %spec.select.i195.i, %.lr.ph.i190.i ]
   br i1 %.not384.i, label %gfmul.exit208.i, label %.lr.ph.i200.i
 
 .lr.ph.i200.i:                                    ; preds = %gfmul.exit198.i, %.lr.ph.i200.i
-  %.020.i201.i = phi i8 [ %147, %.lr.ph.i200.i ], [ 104, %gfmul.exit198.i ]
+  %.020.i201.i = phi i8 [ %149, %.lr.ph.i200.i ], [ 104, %gfmul.exit198.i ]
   %.01119.i202.i = phi i8 [ %spec.select.i205.i, %.lr.ph.i200.i ], [ 0, %gfmul.exit198.i ]
   %.01218.i203.i = phi i8 [ %.113.i207.i, %.lr.ph.i200.i ], [ %.sroa.19.6.extract.trunc.i, %gfmul.exit198.i ]
-  %143 = and i8 %.020.i201.i, 1
-  %.not.i204.i = icmp eq i8 %143, 0
-  %144 = select i1 %.not.i204.i, i8 0, i8 %.01218.i203.i
-  %spec.select.i205.i = xor i8 %144, %.01119.i202.i
-  %145 = shl i8 %.01218.i203.i, 1
-  %146 = xor i8 %145, 77
+  %145 = and i8 %.020.i201.i, 1
+  %.not.i204.i = icmp eq i8 %145, 0
+  %146 = select i1 %.not.i204.i, i8 0, i8 %.01218.i203.i
+  %spec.select.i205.i = xor i8 %146, %.01119.i202.i
+  %147 = shl i8 %.01218.i203.i, 1
+  %148 = xor i8 %147, 77
   %.not1617.i206.i = icmp slt i8 %.01218.i203.i, 0
-  %.113.i207.i = select i1 %.not1617.i206.i, i8 %146, i8 %145
-  %147 = lshr i8 %.020.i201.i, 1
-  %148 = icmp samesign ugt i8 %.020.i201.i, 1
-  %149 = icmp ne i8 %.113.i207.i, 0
-  %150 = select i1 %148, i1 %149, i1 false
-  br i1 %150, label %.lr.ph.i200.i, label %gfmul.exit208.i, !llvm.loop !11
+  %.113.i207.i = select i1 %.not1617.i206.i, i8 %148, i8 %147
+  %149 = lshr i8 %.020.i201.i, 1
+  %150 = icmp samesign ugt i8 %.020.i201.i, 1
+  %151 = icmp ne i8 %.113.i207.i, 0
+  %152 = select i1 %150, i1 %151, i1 false
+  br i1 %152, label %.lr.ph.i200.i, label %gfmul.exit208.i, !llvm.loop !11
 
 gfmul.exit208.i:                                  ; preds = %.lr.ph.i200.i, %gfmul.exit198.i
   %.011.lcssa.i199.i = phi i8 [ 0, %gfmul.exit198.i ], [ %spec.select.i205.i, %.lr.ph.i200.i ]
   br i1 %.not385.i, label %gfmul.exit218.i, label %.lr.ph.i210.i
 
 .lr.ph.i210.i:                                    ; preds = %gfmul.exit208.i, %.lr.ph.i210.i
-  %.020.i211.i = phi i8 [ %155, %.lr.ph.i210.i ], [ -27, %gfmul.exit208.i ]
+  %.020.i211.i = phi i8 [ %157, %.lr.ph.i210.i ], [ -27, %gfmul.exit208.i ]
   %.01119.i212.i = phi i8 [ %spec.select.i215.i, %.lr.ph.i210.i ], [ 0, %gfmul.exit208.i ]
   %.01218.i213.i = phi i8 [ %.113.i217.i, %.lr.ph.i210.i ], [ %.sroa.19.7.extract.trunc.i, %gfmul.exit208.i ]
-  %151 = and i8 %.020.i211.i, 1
-  %.not.i214.i = icmp eq i8 %151, 0
-  %152 = select i1 %.not.i214.i, i8 0, i8 %.01218.i213.i
-  %spec.select.i215.i = xor i8 %152, %.01119.i212.i
-  %153 = shl i8 %.01218.i213.i, 1
-  %154 = xor i8 %153, 77
+  %153 = and i8 %.020.i211.i, 1
+  %.not.i214.i = icmp eq i8 %153, 0
+  %154 = select i1 %.not.i214.i, i8 0, i8 %.01218.i213.i
+  %spec.select.i215.i = xor i8 %154, %.01119.i212.i
+  %155 = shl i8 %.01218.i213.i, 1
+  %156 = xor i8 %155, 77
   %.not1617.i216.i = icmp slt i8 %.01218.i213.i, 0
-  %.113.i217.i = select i1 %.not1617.i216.i, i8 %154, i8 %153
-  %155 = lshr i8 %.020.i211.i, 1
-  %156 = icmp ugt i8 %.020.i211.i, 1
-  %157 = icmp ne i8 %.113.i217.i, 0
-  %158 = select i1 %156, i1 %157, i1 false
-  br i1 %158, label %.lr.ph.i210.i, label %gfmul.exit218.i, !llvm.loop !11
+  %.113.i217.i = select i1 %.not1617.i216.i, i8 %156, i8 %155
+  %157 = lshr i8 %.020.i211.i, 1
+  %158 = icmp ugt i8 %.020.i211.i, 1
+  %159 = icmp ne i8 %.113.i217.i, 0
+  %160 = select i1 %158, i1 %159, i1 false
+  br i1 %160, label %.lr.ph.i210.i, label %gfmul.exit218.i, !llvm.loop !11
 
 gfmul.exit218.i:                                  ; preds = %.lr.ph.i210.i, %gfmul.exit208.i
   %.011.lcssa.i209.i = phi i8 [ 0, %gfmul.exit208.i ], [ %spec.select.i215.i, %.lr.ph.i210.i ]
   br i1 %.not.i, label %gfmul.exit228.i, label %.lr.ph.i220.i
 
 .lr.ph.i220.i:                                    ; preds = %gfmul.exit218.i, %.lr.ph.i220.i
-  %.020.i221.i = phi i8 [ %163, %.lr.ph.i220.i ], [ 2, %gfmul.exit218.i ]
+  %.020.i221.i = phi i8 [ %165, %.lr.ph.i220.i ], [ 2, %gfmul.exit218.i ]
   %.01119.i222.i = phi i8 [ %spec.select.i225.i, %.lr.ph.i220.i ], [ 0, %gfmul.exit218.i ]
   %.01218.i223.i = phi i8 [ %.113.i227.i, %.lr.ph.i220.i ], [ %.sroa.0.0.extract.trunc.i, %gfmul.exit218.i ]
-  %159 = and i8 %.020.i221.i, 1
-  %.not.i224.i = icmp eq i8 %159, 0
-  %160 = select i1 %.not.i224.i, i8 0, i8 %.01218.i223.i
-  %spec.select.i225.i = xor i8 %160, %.01119.i222.i
-  %161 = shl i8 %.01218.i223.i, 1
-  %162 = xor i8 %161, 77
+  %161 = and i8 %.020.i221.i, 1
+  %.not.i224.i = icmp eq i8 %161, 0
+  %162 = select i1 %.not.i224.i, i8 0, i8 %.01218.i223.i
+  %spec.select.i225.i = xor i8 %162, %.01119.i222.i
+  %163 = shl i8 %.01218.i223.i, 1
+  %164 = xor i8 %163, 77
   %.not1617.i226.i = icmp slt i8 %.01218.i223.i, 0
-  %.113.i227.i = select i1 %.not1617.i226.i, i8 %162, i8 %161
-  %163 = lshr i8 %.020.i221.i, 1
-  %164 = icmp samesign ugt i8 %.020.i221.i, 1
-  %165 = icmp ne i8 %.113.i227.i, 0
-  %166 = select i1 %164, i1 %165, i1 false
-  br i1 %166, label %.lr.ph.i220.i, label %gfmul.exit228.i, !llvm.loop !11
+  %.113.i227.i = select i1 %.not1617.i226.i, i8 %164, i8 %163
+  %165 = lshr i8 %.020.i221.i, 1
+  %166 = icmp samesign ugt i8 %.020.i221.i, 1
+  %167 = icmp ne i8 %.113.i227.i, 0
+  %168 = select i1 %166, i1 %167, i1 false
+  br i1 %168, label %.lr.ph.i220.i, label %gfmul.exit228.i, !llvm.loop !11
 
 gfmul.exit228.i:                                  ; preds = %.lr.ph.i220.i, %gfmul.exit218.i
   %.011.lcssa.i219.i = phi i8 [ 0, %gfmul.exit218.i ], [ %spec.select.i225.i, %.lr.ph.i220.i ]
   br i1 %.not379.i, label %gfmul.exit238.i, label %.lr.ph.i230.i
 
 .lr.ph.i230.i:                                    ; preds = %gfmul.exit228.i, %.lr.ph.i230.i
-  %.020.i231.i = phi i8 [ %171, %.lr.ph.i230.i ], [ -95, %gfmul.exit228.i ]
+  %.020.i231.i = phi i8 [ %173, %.lr.ph.i230.i ], [ -95, %gfmul.exit228.i ]
   %.01119.i232.i = phi i8 [ %spec.select.i235.i, %.lr.ph.i230.i ], [ 0, %gfmul.exit228.i ]
   %.01218.i233.i = phi i8 [ %.113.i237.i, %.lr.ph.i230.i ], [ %.sroa.0.1.extract.trunc.i, %gfmul.exit228.i ]
-  %167 = and i8 %.020.i231.i, 1
-  %.not.i234.i = icmp eq i8 %167, 0
-  %168 = select i1 %.not.i234.i, i8 0, i8 %.01218.i233.i
-  %spec.select.i235.i = xor i8 %168, %.01119.i232.i
-  %169 = shl i8 %.01218.i233.i, 1
-  %170 = xor i8 %169, 77
+  %169 = and i8 %.020.i231.i, 1
+  %.not.i234.i = icmp eq i8 %169, 0
+  %170 = select i1 %.not.i234.i, i8 0, i8 %.01218.i233.i
+  %spec.select.i235.i = xor i8 %170, %.01119.i232.i
+  %171 = shl i8 %.01218.i233.i, 1
+  %172 = xor i8 %171, 77
   %.not1617.i236.i = icmp slt i8 %.01218.i233.i, 0
-  %.113.i237.i = select i1 %.not1617.i236.i, i8 %170, i8 %169
-  %171 = lshr i8 %.020.i231.i, 1
-  %172 = icmp ugt i8 %.020.i231.i, 1
-  %173 = icmp ne i8 %.113.i237.i, 0
-  %174 = select i1 %172, i1 %173, i1 false
-  br i1 %174, label %.lr.ph.i230.i, label %gfmul.exit238.i, !llvm.loop !11
+  %.113.i237.i = select i1 %.not1617.i236.i, i8 %172, i8 %171
+  %173 = lshr i8 %.020.i231.i, 1
+  %174 = icmp ugt i8 %.020.i231.i, 1
+  %175 = icmp ne i8 %.113.i237.i, 0
+  %176 = select i1 %174, i1 %175, i1 false
+  br i1 %176, label %.lr.ph.i230.i, label %gfmul.exit238.loopexit.i, !llvm.loop !11
 
-gfmul.exit238.i:                                  ; preds = %.lr.ph.i230.i, %gfmul.exit228.i
-  %.011.lcssa.i229.i = phi i8 [ 0, %gfmul.exit228.i ], [ %spec.select.i235.i, %.lr.ph.i230.i ]
+gfmul.exit238.loopexit.i:                         ; preds = %.lr.ph.i230.i
+  %177 = xor i8 %spec.select.i235.i, %.011.lcssa.i219.i
+  br label %gfmul.exit238.i
+
+gfmul.exit238.i:                                  ; preds = %gfmul.exit238.loopexit.i, %gfmul.exit228.i
+  %.011.lcssa.i229.i = phi i8 [ %.011.lcssa.i219.i, %gfmul.exit228.i ], [ %177, %gfmul.exit238.loopexit.i ]
   br i1 %.not380.i, label %gfmul.exit248.i, label %.lr.ph.i240.i
 
 .lr.ph.i240.i:                                    ; preds = %gfmul.exit238.i, %.lr.ph.i240.i
-  %.020.i241.i = phi i8 [ %179, %.lr.ph.i240.i ], [ -4, %gfmul.exit238.i ]
+  %.020.i241.i = phi i8 [ %182, %.lr.ph.i240.i ], [ -4, %gfmul.exit238.i ]
   %.01119.i242.i = phi i8 [ %spec.select.i245.i, %.lr.ph.i240.i ], [ 0, %gfmul.exit238.i ]
   %.01218.i243.i = phi i8 [ %.113.i247.i, %.lr.ph.i240.i ], [ %.sroa.0.2.extract.trunc.i, %gfmul.exit238.i ]
-  %175 = and i8 %.020.i241.i, 1
-  %.not.i244.i = icmp eq i8 %175, 0
-  %176 = select i1 %.not.i244.i, i8 0, i8 %.01218.i243.i
-  %spec.select.i245.i = xor i8 %176, %.01119.i242.i
-  %177 = shl i8 %.01218.i243.i, 1
-  %178 = xor i8 %177, 77
+  %178 = and i8 %.020.i241.i, 1
+  %.not.i244.i = icmp eq i8 %178, 0
+  %179 = select i1 %.not.i244.i, i8 0, i8 %.01218.i243.i
+  %spec.select.i245.i = xor i8 %179, %.01119.i242.i
+  %180 = shl i8 %.01218.i243.i, 1
+  %181 = xor i8 %180, 77
   %.not1617.i246.i = icmp slt i8 %.01218.i243.i, 0
-  %.113.i247.i = select i1 %.not1617.i246.i, i8 %178, i8 %177
-  %179 = lshr i8 %.020.i241.i, 1
-  %180 = icmp ugt i8 %.020.i241.i, 1
-  %181 = icmp ne i8 %.113.i247.i, 0
-  %182 = select i1 %180, i1 %181, i1 false
-  br i1 %182, label %.lr.ph.i240.i, label %gfmul.exit248.i, !llvm.loop !11
+  %.113.i247.i = select i1 %.not1617.i246.i, i8 %181, i8 %180
+  %182 = lshr i8 %.020.i241.i, 1
+  %183 = icmp ugt i8 %.020.i241.i, 1
+  %184 = icmp ne i8 %.113.i247.i, 0
+  %185 = select i1 %183, i1 %184, i1 false
+  br i1 %185, label %.lr.ph.i240.i, label %gfmul.exit248.i.loopexit, !llvm.loop !11
 
-gfmul.exit248.i:                                  ; preds = %.lr.ph.i240.i, %gfmul.exit238.i
-  %.011.lcssa.i239.i = phi i8 [ 0, %gfmul.exit238.i ], [ %spec.select.i245.i, %.lr.ph.i240.i ]
+gfmul.exit248.i.loopexit:                         ; preds = %.lr.ph.i240.i
+  %186 = xor i8 %spec.select.i245.i, %.011.lcssa.i229.i
+  br label %gfmul.exit248.i
+
+gfmul.exit248.i:                                  ; preds = %gfmul.exit248.i.loopexit, %gfmul.exit238.i
+  %.011.lcssa.i239.i = phi i8 [ %.011.lcssa.i229.i, %gfmul.exit238.i ], [ %186, %gfmul.exit248.i.loopexit ]
   br i1 %.not381.i, label %gfmul.exit258.i, label %.lr.ph.i250.i
 
 .lr.ph.i250.i:                                    ; preds = %gfmul.exit248.i, %.lr.ph.i250.i
-  %.020.i251.i = phi i8 [ %187, %.lr.ph.i250.i ], [ -63, %gfmul.exit248.i ]
+  %.020.i251.i = phi i8 [ %191, %.lr.ph.i250.i ], [ -63, %gfmul.exit248.i ]
   %.01119.i252.i = phi i8 [ %spec.select.i255.i, %.lr.ph.i250.i ], [ 0, %gfmul.exit248.i ]
   %.01218.i253.i = phi i8 [ %.113.i257.i, %.lr.ph.i250.i ], [ %.sroa.0.3.extract.trunc.i, %gfmul.exit248.i ]
-  %183 = and i8 %.020.i251.i, 1
-  %.not.i254.i = icmp eq i8 %183, 0
-  %184 = select i1 %.not.i254.i, i8 0, i8 %.01218.i253.i
-  %spec.select.i255.i = xor i8 %184, %.01119.i252.i
-  %185 = shl i8 %.01218.i253.i, 1
-  %186 = xor i8 %185, 77
+  %187 = and i8 %.020.i251.i, 1
+  %.not.i254.i = icmp eq i8 %187, 0
+  %188 = select i1 %.not.i254.i, i8 0, i8 %.01218.i253.i
+  %spec.select.i255.i = xor i8 %188, %.01119.i252.i
+  %189 = shl i8 %.01218.i253.i, 1
+  %190 = xor i8 %189, 77
   %.not1617.i256.i = icmp slt i8 %.01218.i253.i, 0
-  %.113.i257.i = select i1 %.not1617.i256.i, i8 %186, i8 %185
-  %187 = lshr i8 %.020.i251.i, 1
-  %188 = icmp ugt i8 %.020.i251.i, 1
-  %189 = icmp ne i8 %.113.i257.i, 0
-  %190 = select i1 %188, i1 %189, i1 false
-  br i1 %190, label %.lr.ph.i250.i, label %gfmul.exit258.i, !llvm.loop !11
+  %.113.i257.i = select i1 %.not1617.i256.i, i8 %190, i8 %189
+  %191 = lshr i8 %.020.i251.i, 1
+  %192 = icmp ugt i8 %.020.i251.i, 1
+  %193 = icmp ne i8 %.113.i257.i, 0
+  %194 = select i1 %192, i1 %193, i1 false
+  br i1 %194, label %.lr.ph.i250.i, label %gfmul.exit258.i, !llvm.loop !11
 
 gfmul.exit258.i:                                  ; preds = %.lr.ph.i250.i, %gfmul.exit248.i
   %.011.lcssa.i249.i = phi i8 [ 0, %gfmul.exit248.i ], [ %spec.select.i255.i, %.lr.ph.i250.i ]
   br i1 %.not382.i, label %gfmul.exit268.i, label %.lr.ph.i260.i
 
 .lr.ph.i260.i:                                    ; preds = %gfmul.exit258.i, %.lr.ph.i260.i
-  %.020.i261.i = phi i8 [ %195, %.lr.ph.i260.i ], [ 71, %gfmul.exit258.i ]
+  %.020.i261.i = phi i8 [ %199, %.lr.ph.i260.i ], [ 71, %gfmul.exit258.i ]
   %.01119.i262.i = phi i8 [ %spec.select.i265.i, %.lr.ph.i260.i ], [ 0, %gfmul.exit258.i ]
   %.01218.i263.i = phi i8 [ %.113.i267.i, %.lr.ph.i260.i ], [ %.sroa.19.4.extract.trunc.i, %gfmul.exit258.i ]
-  %191 = and i8 %.020.i261.i, 1
-  %.not.i264.i = icmp eq i8 %191, 0
-  %192 = select i1 %.not.i264.i, i8 0, i8 %.01218.i263.i
-  %spec.select.i265.i = xor i8 %192, %.01119.i262.i
-  %193 = shl i8 %.01218.i263.i, 1
-  %194 = xor i8 %193, 77
+  %195 = and i8 %.020.i261.i, 1
+  %.not.i264.i = icmp eq i8 %195, 0
+  %196 = select i1 %.not.i264.i, i8 0, i8 %.01218.i263.i
+  %spec.select.i265.i = xor i8 %196, %.01119.i262.i
+  %197 = shl i8 %.01218.i263.i, 1
+  %198 = xor i8 %197, 77
   %.not1617.i266.i = icmp slt i8 %.01218.i263.i, 0
-  %.113.i267.i = select i1 %.not1617.i266.i, i8 %194, i8 %193
-  %195 = lshr i8 %.020.i261.i, 1
-  %196 = icmp samesign ugt i8 %.020.i261.i, 1
-  %197 = icmp ne i8 %.113.i267.i, 0
-  %198 = select i1 %196, i1 %197, i1 false
-  br i1 %198, label %.lr.ph.i260.i, label %gfmul.exit268.i, !llvm.loop !11
+  %.113.i267.i = select i1 %.not1617.i266.i, i8 %198, i8 %197
+  %199 = lshr i8 %.020.i261.i, 1
+  %200 = icmp samesign ugt i8 %.020.i261.i, 1
+  %201 = icmp ne i8 %.113.i267.i, 0
+  %202 = select i1 %200, i1 %201, i1 false
+  br i1 %202, label %.lr.ph.i260.i, label %gfmul.exit268.i, !llvm.loop !11
 
 gfmul.exit268.i:                                  ; preds = %.lr.ph.i260.i, %gfmul.exit258.i
   %.011.lcssa.i259.i = phi i8 [ 0, %gfmul.exit258.i ], [ %spec.select.i265.i, %.lr.ph.i260.i ]
   br i1 %.not383.i, label %gfmul.exit278.i, label %.lr.ph.i270.i
 
 .lr.ph.i270.i:                                    ; preds = %gfmul.exit268.i, %.lr.ph.i270.i
-  %.020.i271.i = phi i8 [ %203, %.lr.ph.i270.i ], [ -82, %gfmul.exit268.i ]
+  %.020.i271.i = phi i8 [ %207, %.lr.ph.i270.i ], [ -82, %gfmul.exit268.i ]
   %.01119.i272.i = phi i8 [ %spec.select.i275.i, %.lr.ph.i270.i ], [ 0, %gfmul.exit268.i ]
   %.01218.i273.i = phi i8 [ %.113.i277.i, %.lr.ph.i270.i ], [ %.sroa.19.5.extract.trunc.i, %gfmul.exit268.i ]
-  %199 = and i8 %.020.i271.i, 1
-  %.not.i274.i = icmp eq i8 %199, 0
-  %200 = select i1 %.not.i274.i, i8 0, i8 %.01218.i273.i
-  %spec.select.i275.i = xor i8 %200, %.01119.i272.i
-  %201 = shl i8 %.01218.i273.i, 1
-  %202 = xor i8 %201, 77
+  %203 = and i8 %.020.i271.i, 1
+  %.not.i274.i = icmp eq i8 %203, 0
+  %204 = select i1 %.not.i274.i, i8 0, i8 %.01218.i273.i
+  %spec.select.i275.i = xor i8 %204, %.01119.i272.i
+  %205 = shl i8 %.01218.i273.i, 1
+  %206 = xor i8 %205, 77
   %.not1617.i276.i = icmp slt i8 %.01218.i273.i, 0
-  %.113.i277.i = select i1 %.not1617.i276.i, i8 %202, i8 %201
-  %203 = lshr i8 %.020.i271.i, 1
-  %204 = icmp ugt i8 %.020.i271.i, 1
-  %205 = icmp ne i8 %.113.i277.i, 0
-  %206 = select i1 %204, i1 %205, i1 false
-  br i1 %206, label %.lr.ph.i270.i, label %gfmul.exit278.i, !llvm.loop !11
+  %.113.i277.i = select i1 %.not1617.i276.i, i8 %206, i8 %205
+  %207 = lshr i8 %.020.i271.i, 1
+  %208 = icmp ugt i8 %.020.i271.i, 1
+  %209 = icmp ne i8 %.113.i277.i, 0
+  %210 = select i1 %208, i1 %209, i1 false
+  br i1 %210, label %.lr.ph.i270.i, label %gfmul.exit278.i, !llvm.loop !11
 
 gfmul.exit278.i:                                  ; preds = %.lr.ph.i270.i, %gfmul.exit268.i
   %.011.lcssa.i269.i = phi i8 [ 0, %gfmul.exit268.i ], [ %spec.select.i275.i, %.lr.ph.i270.i ]
   br i1 %.not384.i, label %gfmul.exit288.i, label %.lr.ph.i280.i
 
 .lr.ph.i280.i:                                    ; preds = %gfmul.exit278.i, %.lr.ph.i280.i
-  %.020.i281.i = phi i8 [ %211, %.lr.ph.i280.i ], [ 61, %gfmul.exit278.i ]
+  %.020.i281.i = phi i8 [ %215, %.lr.ph.i280.i ], [ 61, %gfmul.exit278.i ]
   %.01119.i282.i = phi i8 [ %spec.select.i285.i, %.lr.ph.i280.i ], [ 0, %gfmul.exit278.i ]
   %.01218.i283.i = phi i8 [ %.113.i287.i, %.lr.ph.i280.i ], [ %.sroa.19.6.extract.trunc.i, %gfmul.exit278.i ]
-  %207 = and i8 %.020.i281.i, 1
-  %.not.i284.i = icmp eq i8 %207, 0
-  %208 = select i1 %.not.i284.i, i8 0, i8 %.01218.i283.i
-  %spec.select.i285.i = xor i8 %208, %.01119.i282.i
-  %209 = shl i8 %.01218.i283.i, 1
-  %210 = xor i8 %209, 77
+  %211 = and i8 %.020.i281.i, 1
+  %.not.i284.i = icmp eq i8 %211, 0
+  %212 = select i1 %.not.i284.i, i8 0, i8 %.01218.i283.i
+  %spec.select.i285.i = xor i8 %212, %.01119.i282.i
+  %213 = shl i8 %.01218.i283.i, 1
+  %214 = xor i8 %213, 77
   %.not1617.i286.i = icmp slt i8 %.01218.i283.i, 0
-  %.113.i287.i = select i1 %.not1617.i286.i, i8 %210, i8 %209
-  %211 = lshr i8 %.020.i281.i, 1
-  %212 = icmp samesign ugt i8 %.020.i281.i, 1
-  %213 = icmp ne i8 %.113.i287.i, 0
-  %214 = select i1 %212, i1 %213, i1 false
-  br i1 %214, label %.lr.ph.i280.i, label %gfmul.exit288.i, !llvm.loop !11
+  %.113.i287.i = select i1 %.not1617.i286.i, i8 %214, i8 %213
+  %215 = lshr i8 %.020.i281.i, 1
+  %216 = icmp samesign ugt i8 %.020.i281.i, 1
+  %217 = icmp ne i8 %.113.i287.i, 0
+  %218 = select i1 %216, i1 %217, i1 false
+  br i1 %218, label %.lr.ph.i280.i, label %gfmul.exit288.i, !llvm.loop !11
 
 gfmul.exit288.i:                                  ; preds = %.lr.ph.i280.i, %gfmul.exit278.i
   %.011.lcssa.i279.i = phi i8 [ 0, %gfmul.exit278.i ], [ %spec.select.i285.i, %.lr.ph.i280.i ]
   br i1 %.not385.i, label %gfmul.exit298.i, label %.lr.ph.i290.i
 
 .lr.ph.i290.i:                                    ; preds = %gfmul.exit288.i, %.lr.ph.i290.i
-  %.020.i291.i = phi i8 [ %219, %.lr.ph.i290.i ], [ 25, %gfmul.exit288.i ]
+  %.020.i291.i = phi i8 [ %223, %.lr.ph.i290.i ], [ 25, %gfmul.exit288.i ]
   %.01119.i292.i = phi i8 [ %spec.select.i295.i, %.lr.ph.i290.i ], [ 0, %gfmul.exit288.i ]
   %.01218.i293.i = phi i8 [ %.113.i297.i, %.lr.ph.i290.i ], [ %.sroa.19.7.extract.trunc.i, %gfmul.exit288.i ]
-  %215 = and i8 %.020.i291.i, 1
-  %.not.i294.i = icmp eq i8 %215, 0
-  %216 = select i1 %.not.i294.i, i8 0, i8 %.01218.i293.i
-  %spec.select.i295.i = xor i8 %216, %.01119.i292.i
-  %217 = shl i8 %.01218.i293.i, 1
-  %218 = xor i8 %217, 77
+  %219 = and i8 %.020.i291.i, 1
+  %.not.i294.i = icmp eq i8 %219, 0
+  %220 = select i1 %.not.i294.i, i8 0, i8 %.01218.i293.i
+  %spec.select.i295.i = xor i8 %220, %.01119.i292.i
+  %221 = shl i8 %.01218.i293.i, 1
+  %222 = xor i8 %221, 77
   %.not1617.i296.i = icmp slt i8 %.01218.i293.i, 0
-  %.113.i297.i = select i1 %.not1617.i296.i, i8 %218, i8 %217
-  %219 = lshr i8 %.020.i291.i, 1
-  %220 = icmp samesign ugt i8 %.020.i291.i, 1
-  %221 = icmp ne i8 %.113.i297.i, 0
-  %222 = select i1 %220, i1 %221, i1 false
-  br i1 %222, label %.lr.ph.i290.i, label %gfmul.exit298.i, !llvm.loop !11
+  %.113.i297.i = select i1 %.not1617.i296.i, i8 %222, i8 %221
+  %223 = lshr i8 %.020.i291.i, 1
+  %224 = icmp samesign ugt i8 %.020.i291.i, 1
+  %225 = icmp ne i8 %.113.i297.i, 0
+  %226 = select i1 %224, i1 %225, i1 false
+  br i1 %226, label %.lr.ph.i290.i, label %gfmul.exit298.i, !llvm.loop !11
 
 gfmul.exit298.i:                                  ; preds = %.lr.ph.i290.i, %gfmul.exit288.i
   %.011.lcssa.i289.i = phi i8 [ 0, %gfmul.exit288.i ], [ %spec.select.i295.i, %.lr.ph.i290.i ]
   br i1 %.not.i, label %gfmul.exit308.i, label %.lr.ph.i300.i
 
 .lr.ph.i300.i:                                    ; preds = %gfmul.exit298.i, %.lr.ph.i300.i
-  %.020.i301.i = phi i8 [ %227, %.lr.ph.i300.i ], [ -92, %gfmul.exit298.i ]
+  %.020.i301.i = phi i8 [ %231, %.lr.ph.i300.i ], [ -92, %gfmul.exit298.i ]
   %.01119.i302.i = phi i8 [ %spec.select.i305.i, %.lr.ph.i300.i ], [ 0, %gfmul.exit298.i ]
   %.01218.i303.i = phi i8 [ %.113.i307.i, %.lr.ph.i300.i ], [ %.sroa.0.0.extract.trunc.i, %gfmul.exit298.i ]
-  %223 = and i8 %.020.i301.i, 1
-  %.not.i304.i = icmp eq i8 %223, 0
-  %224 = select i1 %.not.i304.i, i8 0, i8 %.01218.i303.i
-  %spec.select.i305.i = xor i8 %224, %.01119.i302.i
-  %225 = shl i8 %.01218.i303.i, 1
-  %226 = xor i8 %225, 77
+  %227 = and i8 %.020.i301.i, 1
+  %.not.i304.i = icmp eq i8 %227, 0
+  %228 = select i1 %.not.i304.i, i8 0, i8 %.01218.i303.i
+  %spec.select.i305.i = xor i8 %228, %.01119.i302.i
+  %229 = shl i8 %.01218.i303.i, 1
+  %230 = xor i8 %229, 77
   %.not1617.i306.i = icmp slt i8 %.01218.i303.i, 0
-  %.113.i307.i = select i1 %.not1617.i306.i, i8 %226, i8 %225
-  %227 = lshr i8 %.020.i301.i, 1
-  %228 = icmp ugt i8 %.020.i301.i, 1
-  %229 = icmp ne i8 %.113.i307.i, 0
-  %230 = select i1 %228, i1 %229, i1 false
-  br i1 %230, label %.lr.ph.i300.i, label %gfmul.exit308.i, !llvm.loop !11
+  %.113.i307.i = select i1 %.not1617.i306.i, i8 %230, i8 %229
+  %231 = lshr i8 %.020.i301.i, 1
+  %232 = icmp ugt i8 %.020.i301.i, 1
+  %233 = icmp ne i8 %.113.i307.i, 0
+  %234 = select i1 %232, i1 %233, i1 false
+  br i1 %234, label %.lr.ph.i300.i, label %gfmul.exit308.i, !llvm.loop !11
 
 gfmul.exit308.i:                                  ; preds = %.lr.ph.i300.i, %gfmul.exit298.i
   %.011.lcssa.i299.i = phi i8 [ 0, %gfmul.exit298.i ], [ %spec.select.i305.i, %.lr.ph.i300.i ]
   br i1 %.not379.i, label %gfmul.exit318.i, label %.lr.ph.i310.i
 
 .lr.ph.i310.i:                                    ; preds = %gfmul.exit308.i, %.lr.ph.i310.i
-  %.020.i311.i = phi i8 [ %235, %.lr.ph.i310.i ], [ 85, %gfmul.exit308.i ]
+  %.020.i311.i = phi i8 [ %239, %.lr.ph.i310.i ], [ 85, %gfmul.exit308.i ]
   %.01119.i312.i = phi i8 [ %spec.select.i315.i, %.lr.ph.i310.i ], [ 0, %gfmul.exit308.i ]
   %.01218.i313.i = phi i8 [ %.113.i317.i, %.lr.ph.i310.i ], [ %.sroa.0.1.extract.trunc.i, %gfmul.exit308.i ]
-  %231 = and i8 %.020.i311.i, 1
-  %.not.i314.i = icmp eq i8 %231, 0
-  %232 = select i1 %.not.i314.i, i8 0, i8 %.01218.i313.i
-  %spec.select.i315.i = xor i8 %232, %.01119.i312.i
-  %233 = shl i8 %.01218.i313.i, 1
-  %234 = xor i8 %233, 77
+  %235 = and i8 %.020.i311.i, 1
+  %.not.i314.i = icmp eq i8 %235, 0
+  %236 = select i1 %.not.i314.i, i8 0, i8 %.01218.i313.i
+  %spec.select.i315.i = xor i8 %236, %.01119.i312.i
+  %237 = shl i8 %.01218.i313.i, 1
+  %238 = xor i8 %237, 77
   %.not1617.i316.i = icmp slt i8 %.01218.i313.i, 0
-  %.113.i317.i = select i1 %.not1617.i316.i, i8 %234, i8 %233
-  %235 = lshr i8 %.020.i311.i, 1
-  %236 = icmp samesign ugt i8 %.020.i311.i, 1
-  %237 = icmp ne i8 %.113.i317.i, 0
-  %238 = select i1 %236, i1 %237, i1 false
-  br i1 %238, label %.lr.ph.i310.i, label %gfmul.exit318.i, !llvm.loop !11
+  %.113.i317.i = select i1 %.not1617.i316.i, i8 %238, i8 %237
+  %239 = lshr i8 %.020.i311.i, 1
+  %240 = icmp samesign ugt i8 %.020.i311.i, 1
+  %241 = icmp ne i8 %.113.i317.i, 0
+  %242 = select i1 %240, i1 %241, i1 false
+  br i1 %242, label %.lr.ph.i310.i, label %gfmul.exit318.loopexit.i, !llvm.loop !11
 
-gfmul.exit318.i:                                  ; preds = %.lr.ph.i310.i, %gfmul.exit308.i
-  %.011.lcssa.i309.i = phi i8 [ 0, %gfmul.exit308.i ], [ %spec.select.i315.i, %.lr.ph.i310.i ]
+gfmul.exit318.loopexit.i:                         ; preds = %.lr.ph.i310.i
+  %243 = xor i8 %spec.select.i315.i, %.011.lcssa.i299.i
+  br label %gfmul.exit318.i
+
+gfmul.exit318.i:                                  ; preds = %gfmul.exit318.loopexit.i, %gfmul.exit308.i
+  %.011.lcssa.i309.i = phi i8 [ %.011.lcssa.i299.i, %gfmul.exit308.i ], [ %243, %gfmul.exit318.loopexit.i ]
   br i1 %.not380.i, label %gfmul.exit328.i, label %.lr.ph.i320.i
 
 .lr.ph.i320.i:                                    ; preds = %gfmul.exit318.i, %.lr.ph.i320.i
-  %.020.i321.i = phi i8 [ %243, %.lr.ph.i320.i ], [ -121, %gfmul.exit318.i ]
+  %.020.i321.i = phi i8 [ %248, %.lr.ph.i320.i ], [ -121, %gfmul.exit318.i ]
   %.01119.i322.i = phi i8 [ %spec.select.i325.i, %.lr.ph.i320.i ], [ 0, %gfmul.exit318.i ]
   %.01218.i323.i = phi i8 [ %.113.i327.i, %.lr.ph.i320.i ], [ %.sroa.0.2.extract.trunc.i, %gfmul.exit318.i ]
-  %239 = and i8 %.020.i321.i, 1
-  %.not.i324.i = icmp eq i8 %239, 0
-  %240 = select i1 %.not.i324.i, i8 0, i8 %.01218.i323.i
-  %spec.select.i325.i = xor i8 %240, %.01119.i322.i
-  %241 = shl i8 %.01218.i323.i, 1
-  %242 = xor i8 %241, 77
+  %244 = and i8 %.020.i321.i, 1
+  %.not.i324.i = icmp eq i8 %244, 0
+  %245 = select i1 %.not.i324.i, i8 0, i8 %.01218.i323.i
+  %spec.select.i325.i = xor i8 %245, %.01119.i322.i
+  %246 = shl i8 %.01218.i323.i, 1
+  %247 = xor i8 %246, 77
   %.not1617.i326.i = icmp slt i8 %.01218.i323.i, 0
-  %.113.i327.i = select i1 %.not1617.i326.i, i8 %242, i8 %241
-  %243 = lshr i8 %.020.i321.i, 1
-  %244 = icmp ugt i8 %.020.i321.i, 1
-  %245 = icmp ne i8 %.113.i327.i, 0
-  %246 = select i1 %244, i1 %245, i1 false
-  br i1 %246, label %.lr.ph.i320.i, label %gfmul.exit328.i, !llvm.loop !11
+  %.113.i327.i = select i1 %.not1617.i326.i, i8 %247, i8 %246
+  %248 = lshr i8 %.020.i321.i, 1
+  %249 = icmp ugt i8 %.020.i321.i, 1
+  %250 = icmp ne i8 %.113.i327.i, 0
+  %251 = select i1 %249, i1 %250, i1 false
+  br i1 %251, label %.lr.ph.i320.i, label %gfmul.exit328.i.loopexit, !llvm.loop !11
 
-gfmul.exit328.i:                                  ; preds = %.lr.ph.i320.i, %gfmul.exit318.i
-  %.011.lcssa.i319.i = phi i8 [ 0, %gfmul.exit318.i ], [ %spec.select.i325.i, %.lr.ph.i320.i ]
+gfmul.exit328.i.loopexit:                         ; preds = %.lr.ph.i320.i
+  %252 = xor i8 %spec.select.i325.i, %.011.lcssa.i309.i
+  br label %gfmul.exit328.i
+
+gfmul.exit328.i:                                  ; preds = %gfmul.exit328.i.loopexit, %gfmul.exit318.i
+  %.011.lcssa.i319.i = phi i8 [ %.011.lcssa.i309.i, %gfmul.exit318.i ], [ %252, %gfmul.exit328.i.loopexit ]
   br i1 %.not381.i, label %gfmul.exit338.i, label %.lr.ph.i330.i
 
 .lr.ph.i330.i:                                    ; preds = %gfmul.exit328.i, %.lr.ph.i330.i
-  %.020.i331.i = phi i8 [ %251, %.lr.ph.i330.i ], [ 90, %gfmul.exit328.i ]
+  %.020.i331.i = phi i8 [ %257, %.lr.ph.i330.i ], [ 90, %gfmul.exit328.i ]
   %.01119.i332.i = phi i8 [ %spec.select.i335.i, %.lr.ph.i330.i ], [ 0, %gfmul.exit328.i ]
   %.01218.i333.i = phi i8 [ %.113.i337.i, %.lr.ph.i330.i ], [ %.sroa.0.3.extract.trunc.i, %gfmul.exit328.i ]
-  %247 = and i8 %.020.i331.i, 1
-  %.not.i334.i = icmp eq i8 %247, 0
-  %248 = select i1 %.not.i334.i, i8 0, i8 %.01218.i333.i
-  %spec.select.i335.i = xor i8 %248, %.01119.i332.i
-  %249 = shl i8 %.01218.i333.i, 1
-  %250 = xor i8 %249, 77
+  %253 = and i8 %.020.i331.i, 1
+  %.not.i334.i = icmp eq i8 %253, 0
+  %254 = select i1 %.not.i334.i, i8 0, i8 %.01218.i333.i
+  %spec.select.i335.i = xor i8 %254, %.01119.i332.i
+  %255 = shl i8 %.01218.i333.i, 1
+  %256 = xor i8 %255, 77
   %.not1617.i336.i = icmp slt i8 %.01218.i333.i, 0
-  %.113.i337.i = select i1 %.not1617.i336.i, i8 %250, i8 %249
-  %251 = lshr i8 %.020.i331.i, 1
-  %252 = icmp samesign ugt i8 %.020.i331.i, 1
-  %253 = icmp ne i8 %.113.i337.i, 0
-  %254 = select i1 %252, i1 %253, i1 false
-  br i1 %254, label %.lr.ph.i330.i, label %gfmul.exit338.i, !llvm.loop !11
+  %.113.i337.i = select i1 %.not1617.i336.i, i8 %256, i8 %255
+  %257 = lshr i8 %.020.i331.i, 1
+  %258 = icmp samesign ugt i8 %.020.i331.i, 1
+  %259 = icmp ne i8 %.113.i337.i, 0
+  %260 = select i1 %258, i1 %259, i1 false
+  br i1 %260, label %.lr.ph.i330.i, label %gfmul.exit338.i, !llvm.loop !11
 
 gfmul.exit338.i:                                  ; preds = %.lr.ph.i330.i, %gfmul.exit328.i
   %.011.lcssa.i329.i = phi i8 [ 0, %gfmul.exit328.i ], [ %spec.select.i335.i, %.lr.ph.i330.i ]
   br i1 %.not382.i, label %gfmul.exit348.i, label %.lr.ph.i340.i
 
 .lr.ph.i340.i:                                    ; preds = %gfmul.exit338.i, %.lr.ph.i340.i
-  %.020.i341.i = phi i8 [ %259, %.lr.ph.i340.i ], [ 88, %gfmul.exit338.i ]
+  %.020.i341.i = phi i8 [ %265, %.lr.ph.i340.i ], [ 88, %gfmul.exit338.i ]
   %.01119.i342.i = phi i8 [ %spec.select.i345.i, %.lr.ph.i340.i ], [ 0, %gfmul.exit338.i ]
   %.01218.i343.i = phi i8 [ %.113.i347.i, %.lr.ph.i340.i ], [ %.sroa.19.4.extract.trunc.i, %gfmul.exit338.i ]
-  %255 = and i8 %.020.i341.i, 1
-  %.not.i344.i = icmp eq i8 %255, 0
-  %256 = select i1 %.not.i344.i, i8 0, i8 %.01218.i343.i
-  %spec.select.i345.i = xor i8 %256, %.01119.i342.i
-  %257 = shl i8 %.01218.i343.i, 1
-  %258 = xor i8 %257, 77
+  %261 = and i8 %.020.i341.i, 1
+  %.not.i344.i = icmp eq i8 %261, 0
+  %262 = select i1 %.not.i344.i, i8 0, i8 %.01218.i343.i
+  %spec.select.i345.i = xor i8 %262, %.01119.i342.i
+  %263 = shl i8 %.01218.i343.i, 1
+  %264 = xor i8 %263, 77
   %.not1617.i346.i = icmp slt i8 %.01218.i343.i, 0
-  %.113.i347.i = select i1 %.not1617.i346.i, i8 %258, i8 %257
-  %259 = lshr i8 %.020.i341.i, 1
-  %260 = icmp samesign ugt i8 %.020.i341.i, 1
-  %261 = icmp ne i8 %.113.i347.i, 0
-  %262 = select i1 %260, i1 %261, i1 false
-  br i1 %262, label %.lr.ph.i340.i, label %gfmul.exit348.i, !llvm.loop !11
+  %.113.i347.i = select i1 %.not1617.i346.i, i8 %264, i8 %263
+  %265 = lshr i8 %.020.i341.i, 1
+  %266 = icmp samesign ugt i8 %.020.i341.i, 1
+  %267 = icmp ne i8 %.113.i347.i, 0
+  %268 = select i1 %266, i1 %267, i1 false
+  br i1 %268, label %.lr.ph.i340.i, label %gfmul.exit348.i, !llvm.loop !11
 
 gfmul.exit348.i:                                  ; preds = %.lr.ph.i340.i, %gfmul.exit338.i
   %.011.lcssa.i339.i = phi i8 [ 0, %gfmul.exit338.i ], [ %spec.select.i345.i, %.lr.ph.i340.i ]
   br i1 %.not383.i, label %gfmul.exit358.i, label %.lr.ph.i350.i
 
 .lr.ph.i350.i:                                    ; preds = %gfmul.exit348.i, %.lr.ph.i350.i
-  %.020.i351.i = phi i8 [ %267, %.lr.ph.i350.i ], [ -37, %gfmul.exit348.i ]
+  %.020.i351.i = phi i8 [ %273, %.lr.ph.i350.i ], [ -37, %gfmul.exit348.i ]
   %.01119.i352.i = phi i8 [ %spec.select.i355.i, %.lr.ph.i350.i ], [ 0, %gfmul.exit348.i ]
   %.01218.i353.i = phi i8 [ %.113.i357.i, %.lr.ph.i350.i ], [ %.sroa.19.5.extract.trunc.i, %gfmul.exit348.i ]
-  %263 = and i8 %.020.i351.i, 1
-  %.not.i354.i = icmp eq i8 %263, 0
-  %264 = select i1 %.not.i354.i, i8 0, i8 %.01218.i353.i
-  %spec.select.i355.i = xor i8 %264, %.01119.i352.i
-  %265 = shl i8 %.01218.i353.i, 1
-  %266 = xor i8 %265, 77
+  %269 = and i8 %.020.i351.i, 1
+  %.not.i354.i = icmp eq i8 %269, 0
+  %270 = select i1 %.not.i354.i, i8 0, i8 %.01218.i353.i
+  %spec.select.i355.i = xor i8 %270, %.01119.i352.i
+  %271 = shl i8 %.01218.i353.i, 1
+  %272 = xor i8 %271, 77
   %.not1617.i356.i = icmp slt i8 %.01218.i353.i, 0
-  %.113.i357.i = select i1 %.not1617.i356.i, i8 %266, i8 %265
-  %267 = lshr i8 %.020.i351.i, 1
-  %268 = icmp ugt i8 %.020.i351.i, 1
-  %269 = icmp ne i8 %.113.i357.i, 0
-  %270 = select i1 %268, i1 %269, i1 false
-  br i1 %270, label %.lr.ph.i350.i, label %gfmul.exit358.i, !llvm.loop !11
+  %.113.i357.i = select i1 %.not1617.i356.i, i8 %272, i8 %271
+  %273 = lshr i8 %.020.i351.i, 1
+  %274 = icmp ugt i8 %.020.i351.i, 1
+  %275 = icmp ne i8 %.113.i357.i, 0
+  %276 = select i1 %274, i1 %275, i1 false
+  br i1 %276, label %.lr.ph.i350.i, label %gfmul.exit358.i, !llvm.loop !11
 
 gfmul.exit358.i:                                  ; preds = %.lr.ph.i350.i, %gfmul.exit348.i
   %.011.lcssa.i349.i = phi i8 [ 0, %gfmul.exit348.i ], [ %spec.select.i355.i, %.lr.ph.i350.i ]
   br i1 %.not384.i, label %gfmul.exit368.i, label %.lr.ph.i360.i
 
 .lr.ph.i360.i:                                    ; preds = %gfmul.exit358.i, %.lr.ph.i360.i
-  %.020.i361.i = phi i8 [ %275, %.lr.ph.i360.i ], [ -98, %gfmul.exit358.i ]
+  %.020.i361.i = phi i8 [ %281, %.lr.ph.i360.i ], [ -98, %gfmul.exit358.i ]
   %.01119.i362.i = phi i8 [ %spec.select.i365.i, %.lr.ph.i360.i ], [ 0, %gfmul.exit358.i ]
   %.01218.i363.i = phi i8 [ %.113.i367.i, %.lr.ph.i360.i ], [ %.sroa.19.6.extract.trunc.i, %gfmul.exit358.i ]
-  %271 = and i8 %.020.i361.i, 1
-  %.not.i364.i = icmp eq i8 %271, 0
-  %272 = select i1 %.not.i364.i, i8 0, i8 %.01218.i363.i
-  %spec.select.i365.i = xor i8 %272, %.01119.i362.i
-  %273 = shl i8 %.01218.i363.i, 1
-  %274 = xor i8 %273, 77
+  %277 = and i8 %.020.i361.i, 1
+  %.not.i364.i = icmp eq i8 %277, 0
+  %278 = select i1 %.not.i364.i, i8 0, i8 %.01218.i363.i
+  %spec.select.i365.i = xor i8 %278, %.01119.i362.i
+  %279 = shl i8 %.01218.i363.i, 1
+  %280 = xor i8 %279, 77
   %.not1617.i366.i = icmp slt i8 %.01218.i363.i, 0
-  %.113.i367.i = select i1 %.not1617.i366.i, i8 %274, i8 %273
-  %275 = lshr i8 %.020.i361.i, 1
-  %276 = icmp ugt i8 %.020.i361.i, 1
-  %277 = icmp ne i8 %.113.i367.i, 0
-  %278 = select i1 %276, i1 %277, i1 false
-  br i1 %278, label %.lr.ph.i360.i, label %gfmul.exit368.i, !llvm.loop !11
+  %.113.i367.i = select i1 %.not1617.i366.i, i8 %280, i8 %279
+  %281 = lshr i8 %.020.i361.i, 1
+  %282 = icmp ugt i8 %.020.i361.i, 1
+  %283 = icmp ne i8 %.113.i367.i, 0
+  %284 = select i1 %282, i1 %283, i1 false
+  br i1 %284, label %.lr.ph.i360.i, label %gfmul.exit368.i, !llvm.loop !11
 
 gfmul.exit368.i:                                  ; preds = %.lr.ph.i360.i, %gfmul.exit358.i
   %.011.lcssa.i359.i = phi i8 [ 0, %gfmul.exit358.i ], [ %spec.select.i365.i, %.lr.ph.i360.i ]
   br i1 %.not385.i, label %tf_RS.exit, label %.lr.ph.i370.i
 
 .lr.ph.i370.i:                                    ; preds = %gfmul.exit368.i, %.lr.ph.i370.i
-  %.020.i371.i = phi i8 [ %283, %.lr.ph.i370.i ], [ 3, %gfmul.exit368.i ]
+  %.020.i371.i = phi i8 [ %289, %.lr.ph.i370.i ], [ 3, %gfmul.exit368.i ]
   %.01119.i372.i = phi i8 [ %spec.select.i375.i, %.lr.ph.i370.i ], [ 0, %gfmul.exit368.i ]
   %.01218.i373.i = phi i8 [ %.113.i377.i, %.lr.ph.i370.i ], [ %.sroa.19.7.extract.trunc.i, %gfmul.exit368.i ]
-  %279 = and i8 %.020.i371.i, 1
-  %.not.i374.i = icmp eq i8 %279, 0
-  %280 = select i1 %.not.i374.i, i8 0, i8 %.01218.i373.i
-  %spec.select.i375.i = xor i8 %280, %.01119.i372.i
-  %281 = shl i8 %.01218.i373.i, 1
-  %282 = xor i8 %281, 77
+  %285 = and i8 %.020.i371.i, 1
+  %.not.i374.i = icmp eq i8 %285, 0
+  %286 = select i1 %.not.i374.i, i8 0, i8 %.01218.i373.i
+  %spec.select.i375.i = xor i8 %286, %.01119.i372.i
+  %287 = shl i8 %.01218.i373.i, 1
+  %288 = xor i8 %287, 77
   %.not1617.i376.i = icmp slt i8 %.01218.i373.i, 0
-  %.113.i377.i = select i1 %.not1617.i376.i, i8 %282, i8 %281
-  %283 = lshr i8 %.020.i371.i, 1
-  %284 = icmp samesign ugt i8 %.020.i371.i, 1
-  %285 = icmp ne i8 %.113.i377.i, 0
-  %286 = select i1 %284, i1 %285, i1 false
-  br i1 %286, label %.lr.ph.i370.i, label %tf_RS.exit, !llvm.loop !11
+  %.113.i377.i = select i1 %.not1617.i376.i, i8 %288, i8 %287
+  %289 = lshr i8 %.020.i371.i, 1
+  %290 = icmp samesign ugt i8 %.020.i371.i, 1
+  %291 = icmp ne i8 %.113.i377.i, 0
+  %292 = select i1 %290, i1 %291, i1 false
+  br i1 %292, label %.lr.ph.i370.i, label %tf_RS.exit, !llvm.loop !11
 
 tf_RS.exit:                                       ; preds = %.lr.ph.i370.i, %gfmul.exit368.i
   %.011.lcssa.i369.i = phi i8 [ 0, %gfmul.exit368.i ], [ %spec.select.i375.i, %.lr.ph.i370.i ]
-  %287 = xor i8 %.011.lcssa.i309.i, %.011.lcssa.i299.i
-  %288 = xor i8 %287, %.011.lcssa.i319.i
-  %289 = xor i8 %288, %.011.lcssa.i329.i
-  %290 = xor i8 %289, %.011.lcssa.i339.i
-  %291 = xor i8 %290, %.011.lcssa.i349.i
-  %292 = xor i8 %291, %.011.lcssa.i359.i
-  %293 = xor i8 %.011.lcssa.i229.i, %.011.lcssa.i219.i
-  %294 = xor i8 %293, %.011.lcssa.i239.i
-  %295 = xor i8 %294, %.011.lcssa.i249.i
-  %296 = xor i8 %295, %.011.lcssa.i259.i
-  %297 = xor i8 %296, %.011.lcssa.i269.i
-  %298 = xor i8 %297, %.011.lcssa.i279.i
-  %299 = xor i8 %298, %.011.lcssa.i289.i
-  %300 = xor i8 %.011.lcssa.i149.i, %.011.lcssa.i139.i
-  %301 = xor i8 %300, %.011.lcssa.i159.i
-  %302 = xor i8 %301, %.011.lcssa.i169.i
+  %293 = xor i8 %.011.lcssa.i319.i, %.011.lcssa.i329.i
+  %294 = xor i8 %293, %.011.lcssa.i339.i
+  %295 = xor i8 %294, %.011.lcssa.i349.i
+  %296 = xor i8 %295, %.011.lcssa.i359.i
+  %297 = xor i8 %.011.lcssa.i239.i, %.011.lcssa.i249.i
+  %298 = xor i8 %297, %.011.lcssa.i259.i
+  %299 = xor i8 %298, %.011.lcssa.i269.i
+  %300 = xor i8 %299, %.011.lcssa.i279.i
+  %301 = xor i8 %300, %.011.lcssa.i289.i
+  %302 = xor i8 %.011.lcssa.i159.i, %.011.lcssa.i169.i
   %303 = xor i8 %302, %.011.lcssa.i179.i
   %304 = xor i8 %303, %.011.lcssa.i189.i
   %305 = xor i8 %304, %.011.lcssa.i199.i
@@ -821,10 +839,10 @@ tf_RS.exit:                                       ; preds = %.lr.ph.i370.i, %gfm
   %311 = xor i8 %310, %.011.lcssa.i119.i
   %312 = xor i8 %311, %.011.lcssa.i129.i
   %313 = xor i8 %312, %.sroa.0.0.extract.trunc.i
-  %314 = xor i8 %292, %.011.lcssa.i369.i
+  %314 = xor i8 %296, %.011.lcssa.i369.i
   %.sroa.6.0.insert.ext.i = zext i8 %314 to i32
   %.sroa.6.0.insert.shift.i = shl nuw i32 %.sroa.6.0.insert.ext.i, 24
-  %.sroa.5.0.insert.ext.i = zext i8 %299 to i32
+  %.sroa.5.0.insert.ext.i = zext i8 %301 to i32
   %.sroa.5.0.insert.shift.i = shl nuw nsw i32 %.sroa.5.0.insert.ext.i, 16
   %.sroa.5.0.insert.insert.i = or disjoint i32 %.sroa.6.0.insert.shift.i, %.sroa.5.0.insert.shift.i
   %.sroa.4.0.insert.ext.i = zext i8 %306 to i32

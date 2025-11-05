@@ -5106,12 +5106,15 @@ select.unfold.i:                                  ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %.159.i, i64 1
   %34 = add i64 %.13458.i, -1
   %.not.i = icmp eq i64 %34, 0
-  br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !102
+  br i1 %.not.i, label %.critedge.loopexit.i, label %.lr.ph.i, !llvm.loop !102
 
-.critedge.i:                                      ; preds = %select.unfold.i, %19
-  %.038.lcssa.i = phi i64 [ 0, %19 ], [ %32, %select.unfold.i ]
-  %35 = mul nsw i64 %.038.lcssa.i, %.036.i
-  store i64 %35, ptr %2, align 8, !tbaa !45
+.critedge.loopexit.i:                             ; preds = %select.unfold.i
+  %35 = mul nsw i64 %32, %.036.i
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %19
+  %.038.lcssa.i = phi i64 [ 0, %19 ], [ %35, %.critedge.loopexit.i ]
+  store i64 %.038.lcssa.i, ptr %2, align 8, !tbaa !45
   br label %.loopexit.sink.split.i
 
 36:                                               ; preds = %27, %25, %.lr.ph.i

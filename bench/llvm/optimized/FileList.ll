@@ -545,15 +545,13 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i:    ; preds = %179
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i:    ; preds = %179
   %bcmp.i.i.i22.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(13) %.sroa.0.0.copyload.i.i15.i, ptr noundef nonnull dereferenceable(13) @.str.21, i64 13), !noalias !72
   %185 = icmp eq i32 %bcmp.i.i.i22.i.i.i, 0
-  %186 = select i1 %185, i16 7, i16 0
+  %186 = select i1 %185, i16 263, i16 256
   br label %_ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i
 
 _ZN12_GLOBAL__N_114Implementation13parseLanguageEPKN4llvm4json6ObjectE.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i, %.thread47.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i, %179, %175
-  %.sroa.025.0.i.i.i = phi i16 [ 0, %175 ], [ 0, %.thread47.i.i.i ], [ 6, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i ], [ 0, %179 ], [ %186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i ], [ 5, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i.i.i ], [ 4, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i ]
-  %.sroa.226.0.i.i.i = phi i16 [ 0, %175 ], [ 256, %.thread47.i.i.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i ], [ 256, %179 ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i.i.i ], [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i ]
+  %.sroa.226.0.i.i.i = phi i16 [ 0, %175 ], [ 256, %.thread47.i.i.i ], [ 262, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i13.i.i.i ], [ 256, %179 ], [ %186, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i21.i.i.i ], [ 261, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i5.i.i.i ], [ 260, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !72
-  %.sroa.025.0.insert.insert.i.i.i = or disjoint i16 %.sroa.226.0.i.i.i, %.sroa.025.0.i.i.i
-  store i16 %.sroa.025.0.insert.insert.i.i.i, ptr %21, align 2, !noalias !72
+  store i16 %.sroa.226.0.i.i.i, ptr %21, align 2, !noalias !72
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !72
   store i64 %.sroa.05.0.copyload.i.i.i, ptr %22, align 8, !tbaa !61, !noalias !72
   store i64 %.sroa.9.0.copyload.i.i.i, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !tbaa !62, !noalias !72
@@ -613,7 +611,7 @@ _ZN5clang10installapi10HeaderFileC2EN4llvm9StringRefENS0_10HeaderTypeES3_St8opti
   store ptr %107, ptr %106, align 8, !tbaa !93, !noalias !72
   store i64 0, ptr %108, align 8, !tbaa !97, !noalias !72
   store i8 0, ptr %107, align 8, !tbaa !51, !noalias !72
-  store i16 %.sroa.025.0.insert.insert.i.i.i, ptr %109, align 8, !noalias !72
+  store i16 %.sroa.226.0.i.i.i, ptr %109, align 8, !noalias !72
   store i8 0, ptr %110, align 2, !tbaa !140, !noalias !72
   store i8 0, ptr %111, align 1, !tbaa !141, !noalias !72
   store i8 0, ptr %112, align 4, !tbaa !142, !noalias !72

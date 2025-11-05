@@ -266,13 +266,13 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   %26 = getelementptr i8, ptr %.0239.lcssa304, i64 %.0.lcssa308
   %27 = getelementptr i8, ptr %.0239.lcssa304, i64 %.0.in.lcssa307
   switch i64 %.0.in.lcssa307, label %default.unreachable295 [
-    i64 1, label %63
+    i64 1, label %64
     i64 7, label %28
     i64 6, label %33
     i64 5, label %41
-    i64 4, label %46
-    i64 3, label %51
-    i64 2, label %57
+    i64 4, label %47
+    i64 3, label %52
+    i64 2, label %58
   ]
 
 28:                                               ; preds = %._crit_edge.thread
@@ -300,55 +300,55 @@ define internal fastcc void @RC2_cbc_encrypt(ptr noundef readonly captures(none)
   %43 = load i8, ptr %42, align 1, !tbaa !16
   %44 = zext i8 %43 to i32
   %45 = or i32 %.3, %44
-  br label %46
+  %46 = xor i32 %45, %.0229.lcssa306
+  br label %47
 
-46:                                               ; preds = %41, %._crit_edge.thread
+47:                                               ; preds = %41, %._crit_edge.thread
   %.4243 = phi ptr [ %42, %41 ], [ %27, %._crit_edge.thread ]
-  %.4 = phi i32 [ %45, %41 ], [ 0, %._crit_edge.thread ]
-  %47 = getelementptr inbounds i8, ptr %.4243, i64 -1
-  %48 = load i8, ptr %47, align 1, !tbaa !16
-  %49 = zext i8 %48 to i32
-  %50 = shl nuw i32 %49, 24
-  br label %51
+  %.4 = phi i32 [ %46, %41 ], [ %.0229.lcssa306, %._crit_edge.thread ]
+  %48 = getelementptr inbounds i8, ptr %.4243, i64 -1
+  %49 = load i8, ptr %48, align 1, !tbaa !16
+  %50 = zext i8 %49 to i32
+  %51 = shl nuw i32 %50, 24
+  br label %52
 
-51:                                               ; preds = %46, %._crit_edge.thread
-  %.5244 = phi ptr [ %47, %46 ], [ %27, %._crit_edge.thread ]
-  %.1236 = phi i32 [ %50, %46 ], [ 0, %._crit_edge.thread ]
-  %.5 = phi i32 [ %.4, %46 ], [ 0, %._crit_edge.thread ]
-  %52 = getelementptr inbounds i8, ptr %.5244, i64 -1
-  %53 = load i8, ptr %52, align 1, !tbaa !16
-  %54 = zext i8 %53 to i32
-  %55 = shl nuw nsw i32 %54, 16
-  %56 = or disjoint i32 %55, %.1236
-  br label %57
+52:                                               ; preds = %47, %._crit_edge.thread
+  %.5244 = phi ptr [ %48, %47 ], [ %27, %._crit_edge.thread ]
+  %.1236 = phi i32 [ %51, %47 ], [ 0, %._crit_edge.thread ]
+  %.5 = phi i32 [ %.4, %47 ], [ %.0229.lcssa306, %._crit_edge.thread ]
+  %53 = getelementptr inbounds i8, ptr %.5244, i64 -1
+  %54 = load i8, ptr %53, align 1, !tbaa !16
+  %55 = zext i8 %54 to i32
+  %56 = shl nuw nsw i32 %55, 16
+  %57 = or disjoint i32 %56, %.1236
+  br label %58
 
-57:                                               ; preds = %51, %._crit_edge.thread
-  %.6245 = phi ptr [ %52, %51 ], [ %27, %._crit_edge.thread ]
-  %.2237 = phi i32 [ %56, %51 ], [ 0, %._crit_edge.thread ]
-  %.6 = phi i32 [ %.5, %51 ], [ 0, %._crit_edge.thread ]
-  %58 = getelementptr inbounds i8, ptr %.6245, i64 -1
-  %59 = load i8, ptr %58, align 1, !tbaa !16
-  %60 = zext i8 %59 to i32
-  %61 = shl nuw nsw i32 %60, 8
-  %62 = or i32 %61, %.2237
-  br label %63
+58:                                               ; preds = %52, %._crit_edge.thread
+  %.6245 = phi ptr [ %53, %52 ], [ %27, %._crit_edge.thread ]
+  %.2237 = phi i32 [ %57, %52 ], [ 0, %._crit_edge.thread ]
+  %.6 = phi i32 [ %.5, %52 ], [ %.0229.lcssa306, %._crit_edge.thread ]
+  %59 = getelementptr inbounds i8, ptr %.6245, i64 -1
+  %60 = load i8, ptr %59, align 1, !tbaa !16
+  %61 = zext i8 %60 to i32
+  %62 = shl nuw nsw i32 %61, 8
+  %63 = or i32 %62, %.2237
+  br label %64
 
 default.unreachable295:                           ; preds = %._crit_edge277.thread, %._crit_edge.thread
   unreachable
 
-63:                                               ; preds = %57, %._crit_edge.thread
-  %.7246 = phi ptr [ %58, %57 ], [ %27, %._crit_edge.thread ]
-  %.3238 = phi i32 [ %62, %57 ], [ 0, %._crit_edge.thread ]
-  %.7 = phi i32 [ %.6, %57 ], [ 0, %._crit_edge.thread ]
-  %64 = getelementptr inbounds i8, ptr %.7246, i64 -1
-  %65 = load i8, ptr %64, align 1, !tbaa !16
-  %66 = zext i8 %65 to i32
-  %67 = or i32 %.3238, %66
-  %68 = xor i32 %67, %.0231.lcssa305
-  %69 = xor i32 %.7, %.0229.lcssa306
-  store i32 %68, ptr %7, align 4, !tbaa !26
+64:                                               ; preds = %58, %._crit_edge.thread
+  %.7246 = phi ptr [ %59, %58 ], [ %27, %._crit_edge.thread ]
+  %.3238 = phi i32 [ %63, %58 ], [ 0, %._crit_edge.thread ]
+  %.7 = phi i32 [ %.6, %58 ], [ %.0229.lcssa306, %._crit_edge.thread ]
+  %65 = getelementptr inbounds i8, ptr %.7246, i64 -1
+  %66 = load i8, ptr %65, align 1, !tbaa !16
+  %67 = zext i8 %66 to i32
+  %68 = or i32 %.3238, %67
+  %69 = xor i32 %68, %.0231.lcssa305
+  store i32 %69, ptr %7, align 4, !tbaa !26
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %69, ptr %70, align 4, !tbaa !26
+  store i32 %.7, ptr %70, align 4, !tbaa !26
   call fastcc void @RC2_encrypt(ptr noundef %7, ptr noundef %3)
   %71 = load i32, ptr %7, align 4, !tbaa !26
   store i32 %71, ptr %.0247.lcssa303, align 1
@@ -521,9 +521,9 @@ default.unreachable295:                           ; preds = %._crit_edge277.thre
   store i8 %168, ptr %169, align 1, !tbaa !16
   br label %170
 
-170:                                              ; preds = %._crit_edge277, %167, %._crit_edge, %63
-  %.1228.sink = phi i32 [ %71, %63 ], [ %21, %._crit_edge ], [ %122, %167 ], [ %89, %._crit_edge277 ]
-  %.1226.sink = phi i32 [ %73, %63 ], [ %23, %._crit_edge ], [ %134, %167 ], [ %102, %._crit_edge277 ]
+170:                                              ; preds = %._crit_edge277, %167, %._crit_edge, %64
+  %.1228.sink = phi i32 [ %71, %64 ], [ %21, %._crit_edge ], [ %122, %167 ], [ %89, %._crit_edge277 ]
+  %.1226.sink = phi i32 [ %73, %64 ], [ %23, %._crit_edge ], [ %134, %167 ], [ %102, %._crit_edge277 ]
   store i32 %.1228.sink, ptr %4, align 1
   store i32 %.1226.sink, ptr %9, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

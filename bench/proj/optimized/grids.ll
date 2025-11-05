@@ -19664,15 +19664,15 @@ _ZNK5osgeo4proj22HorizontalShiftGridSet6gridAtEdd.exit.thread31: ; preds = %_ZN5
   %179 = fsub double %158, %161
   br label %180
 
-180:                                              ; preds = %244, %177
-  %.0126.i = phi ptr [ %126, %177 ], [ %.1127.i, %244 ]
-  %.0111.i = phi i32 [ 10, %177 ], [ %243, %244 ]
-  %.0107.i = phi ptr [ %133, %177 ], [ %.3.i, %244 ]
-  %.sroa.040.1.i = phi double [ %.sroa.040.0.i, %177 ], [ %.sroa.040.4.i, %244 ]
-  %.sroa.23.0.i = phi double [ %158, %177 ], [ %.sroa.23.2.i, %244 ]
-  %.sroa.058.0.i = phi double [ %178, %177 ], [ %.sroa.058.3.i, %244 ]
-  %.sroa.19.0.i = phi double [ %179, %177 ], [ %.sroa.19.3.i, %244 ]
-  %.0.i = phi ptr [ %125, %177 ], [ %.2.i, %244 ]
+180:                                              ; preds = %247, %177
+  %.0126.i = phi ptr [ %126, %177 ], [ %.1127.i, %247 ]
+  %.0111.i = phi i32 [ 10, %177 ], [ %246, %247 ]
+  %.0107.i = phi ptr [ %133, %177 ], [ %.3.i, %247 ]
+  %.sroa.040.1.i = phi double [ %.sroa.040.0.i, %177 ], [ %.sroa.040.4.i, %247 ]
+  %.sroa.23.0.i = phi double [ %158, %177 ], [ %.sroa.23.2.i, %247 ]
+  %.sroa.058.0.i = phi double [ %178, %177 ], [ %.sroa.058.3.i, %247 ]
+  %.sroa.19.0.i = phi double [ %179, %177 ], [ %.sroa.19.3.i, %247 ]
+  %.0.i = phi ptr [ %125, %177 ], [ %.2.i, %247 ]
   %181 = tail call fastcc { double, double } @_ZN5osgeo4projL20pj_hgrid_interpolateE5PJ_LPPKNS0_19HorizontalShiftGridEb(double %.sroa.058.0.i, double %.sroa.19.0.i, ptr noundef %.0.i, i1 noundef zeroext true)
   %182 = extractvalue { double, double } %181, 0
   %183 = extractvalue { double, double } %181, 1
@@ -19759,7 +19759,7 @@ _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSet
 233:                                              ; preds = %231, %225, %223
   %.sroa.040.3.i = phi double [ %224, %223 ], [ %232, %231 ], [ %220, %225 ]
   %234 = fsub double %3, %218
-  br label %242
+  br label %245
 
 235:                                              ; preds = %188
   %236 = fadd double %.sroa.058.0.i, %182
@@ -19768,34 +19768,33 @@ _ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSet
   %239 = fsub double %238, %.sroa.23.0.i
   %240 = fsub double %.sroa.058.0.i, %237
   %241 = fsub double %.sroa.19.0.i, %239
-  br label %242
+  %242 = fmul double %239, %239
+  %243 = tail call double @llvm.fmuladd.f64(double %237, double %237, double %242)
+  %244 = fcmp ogt double %243, 0x3AF357C299A88EA7
+  br label %245
 
-242:                                              ; preds = %235, %233
+245:                                              ; preds = %235, %233
   %.1127.i = phi ptr [ %201, %233 ], [ %.0126.i, %235 ]
-  %.sroa.032.2.i = phi double [ 0x7FEFFFFFFFFFFFFF, %233 ], [ %237, %235 ]
+  %.sroa.032.2.i = phi i1 [ true, %233 ], [ %244, %235 ]
   %.3.i = phi ptr [ %213, %233 ], [ %.0107.i, %235 ]
-  %.sroa.7.2.i = phi double [ 0x7FEFFFFFFFFFFFFF, %233 ], [ %239, %235 ]
   %.sroa.040.4.i = phi double [ %.sroa.040.3.i, %233 ], [ %.sroa.040.1.i, %235 ]
   %.sroa.23.2.i = phi double [ %234, %233 ], [ %.sroa.23.0.i, %235 ]
   %.sroa.058.3.i = phi double [ %216, %233 ], [ %240, %235 ]
   %.sroa.19.3.i = phi double [ %219, %233 ], [ %241, %235 ]
   %.2.i = phi ptr [ %198, %233 ], [ %.0.i, %235 ]
-  %243 = add nsw i32 %.0111.i, -1
-  %.not.i22 = icmp eq i32 %243, 0
-  br i1 %.not.i22, label %.critedge121.i, label %244
+  %246 = add nsw i32 %.0111.i, -1
+  %.not.i22 = icmp eq i32 %246, 0
+  br i1 %.not.i22, label %.critedge121.i, label %247
 
-244:                                              ; preds = %242
-  %245 = fmul double %.sroa.7.2.i, %.sroa.7.2.i
-  %246 = tail call double @llvm.fmuladd.f64(double %.sroa.032.2.i, double %.sroa.032.2.i, double %245)
-  %247 = fcmp ogt double %246, 0x3AF357C299A88EA7
-  br i1 %247, label %180, label %.critedge.i, !llvm.loop !497
+247:                                              ; preds = %245
+  br i1 %.sroa.032.2.i, label %180, label %.critedge.i, !llvm.loop !497
 
-.critedge121.i:                                   ; preds = %242
+.critedge121.i:                                   ; preds = %245
   tail call void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %0, i32 noundef 3, ptr noundef nonnull @.str.122)
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef %0, i32 noundef 2052)
   br label %.thread.sink.split
 
-.critedge.i:                                      ; preds = %244
+.critedge.i:                                      ; preds = %247
   br i1 %189, label %.critedge.thread.i, label %248
 
 .critedge.thread.i:                               ; preds = %203, %_ZN5osgeo4projL8findGridERKSt6vectorISt10unique_ptrINS0_22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EERK5PJ_LPRPS3_.exit.i, %190, %199, %.critedge.i

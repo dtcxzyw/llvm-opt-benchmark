@@ -1181,7 +1181,7 @@ reset_all_predictors.exit:                        ; preds = %8
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !64
   %.not25 = icmp eq i32 %17, 2
-  br i1 %.not25, label %770, label %.preheader
+  br i1 %.not25, label %768, label %.preheader
 
 .preheader:                                       ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 22476
@@ -1207,7 +1207,7 @@ reset_all_predictors.exit:                        ; preds = %8
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %35
   %28 = phi i32 [ %.pre740, %.loopexit.loopexit ], [ %36, %35 ]
-  %29 = phi ptr [ %750, %.loopexit.loopexit ], [ %37, %35 ]
+  %29 = phi ptr [ %748, %.loopexit.loopexit ], [ %37, %35 ]
   %30 = sext i32 %28 to i64
   %31 = getelementptr inbounds i8, ptr @ff_aac_pred_sfb_max, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !58
@@ -1270,7 +1270,7 @@ reset_all_predictors.exit:                        ; preds = %8
   %60 = icmp eq i32 %.sroa.6100.0.copyload.i, 1
   %61 = icmp sgt i32 %.sroa.094.0.copyload.i, 536870912
   %or.cond.i = select i1 %60, i1 %61, i1 false
-  br i1 %or.cond.i, label %62, label %100
+  br i1 %or.cond.i, label %62, label %97
 
 62:                                               ; preds = %59, %52
   %63 = sext i32 %.sroa.094.0.copyload.i to i64
@@ -1344,147 +1344,146 @@ av_div_sf.exit:                                   ; preds = %.lr.ph.i, %62
   %96 = icmp slt i32 %.sroa.7.0.extract.trunc11.i, -149
   %or.cond.i69 = select i1 %95, i1 true, i1 %96
   %..i70 = select i1 %or.cond.i69, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i68
-  %.sroa.6126.0.extract.shift.i = and i64 %..i70, -4294967296
-  %97 = shl i64 %..i70, 32
-  %98 = ashr exact i64 %97, 32
-  %99 = add i64 %.sroa.6126.0.extract.shift.i, -4294967296
-  br label %100
+  br label %97
 
-100:                                              ; preds = %av_div_sf.exit, %59
-  %.sroa.0121.0.i = phi i64 [ %98, %av_div_sf.exit ], [ 0, %59 ]
-  %.sroa.6126.0.i = phi i64 [ %99, %av_div_sf.exit ], [ -4294967296, %59 ]
-  %101 = icmp sgt i32 %.sroa.6.0.copyload.i, 1
-  br i1 %101, label %105, label %102
+97:                                               ; preds = %av_div_sf.exit, %59
+  %.sroa.6126.0.i = phi i64 [ %..i70, %av_div_sf.exit ], [ 0, %59 ]
+  %98 = icmp sgt i32 %.sroa.6.0.copyload.i, 1
+  br i1 %98, label %102, label %99
 
-102:                                              ; preds = %100
-  %103 = icmp eq i32 %.sroa.6.0.copyload.i, 1
-  %104 = icmp sgt i32 %.sroa.082.0.copyload.i, 536870912
-  %or.cond5.i = select i1 %103, i1 %104, i1 false
-  br i1 %or.cond5.i, label %105, label %140
+99:                                               ; preds = %97
+  %100 = icmp eq i32 %.sroa.6.0.copyload.i, 1
+  %101 = icmp sgt i32 %.sroa.082.0.copyload.i, 536870912
+  %or.cond5.i = select i1 %100, i1 %101, i1 false
+  br i1 %or.cond5.i, label %102, label %137
 
-105:                                              ; preds = %102, %100
-  %106 = sext i32 %.sroa.082.0.copyload.i to i64
-  %107 = sdiv i64 1098878309078401024, %106
-  %108 = sub nsw i32 0, %.sroa.6.0.copyload.i
-  %109 = add nsw i64 %107, 2147483648
-  %.not19.i72 = icmp ult i64 %109, 4294967296
+102:                                              ; preds = %99, %97
+  %103 = sext i32 %.sroa.082.0.copyload.i to i64
+  %104 = sdiv i64 1098878309078401024, %103
+  %105 = sub nsw i32 0, %.sroa.6.0.copyload.i
+  %106 = add nsw i64 %104, 2147483648
+  %.not19.i72 = icmp ult i64 %106, 4294967296
   br i1 %.not19.i72, label %av_div_sf.exit89, label %.lr.ph.i73
 
-.lr.ph.i73:                                       ; preds = %105, %.lr.ph.i73
-  %.021.i74 = phi i64 [ %110, %.lr.ph.i73 ], [ %107, %105 ]
-  %.sroa.9.020.i75 = phi i32 [ %111, %.lr.ph.i73 ], [ %108, %105 ]
-  %110 = sdiv i64 %.021.i74, 2
-  %111 = add nsw i32 %.sroa.9.020.i75, -1
-  %112 = add nsw i64 %110, 2147483648
-  %.not.i76 = icmp ult i64 %112, 4294967296
+.lr.ph.i73:                                       ; preds = %102, %.lr.ph.i73
+  %.021.i74 = phi i64 [ %107, %.lr.ph.i73 ], [ %104, %102 ]
+  %.sroa.9.020.i75 = phi i32 [ %108, %.lr.ph.i73 ], [ %105, %102 ]
+  %107 = sdiv i64 %.021.i74, 2
+  %108 = add nsw i32 %.sroa.9.020.i75, -1
+  %109 = add nsw i64 %107, 2147483648
+  %.not.i76 = icmp ult i64 %109, 4294967296
   br i1 %.not.i76, label %av_div_sf.exit89, label %.lr.ph.i73, !llvm.loop !133
 
-av_div_sf.exit89:                                 ; preds = %.lr.ph.i73, %105
-  %.sroa.9.0.lcssa.i77 = phi i32 [ %108, %105 ], [ %111, %.lr.ph.i73 ]
-  %.0.lcssa.i78 = phi i64 [ %107, %105 ], [ %110, %.lr.ph.i73 ]
+av_div_sf.exit89:                                 ; preds = %.lr.ph.i73, %102
+  %.sroa.9.0.lcssa.i77 = phi i32 [ %105, %102 ], [ %108, %.lr.ph.i73 ]
+  %.0.lcssa.i78 = phi i64 [ %104, %102 ], [ %107, %.lr.ph.i73 ]
   %.sroa.9.0.insert.ext.i79 = zext i32 %.sroa.9.0.lcssa.i77 to i64
   %.sroa.0.0.extract.trunc.i.i80 = trunc nsw i64 %.0.lcssa.i78 to i32
-  %113 = add i32 %.sroa.0.0.extract.trunc.i.i80, 1073741824
-  %114 = icmp slt i32 %113, 1
-  %115 = add nuw nsw i64 %.sroa.9.0.insert.ext.i79, 1
-  %116 = and i64 %115, 4294967295
-  %.sroa.5.0.i.i81 = select i1 %114, i64 %116, i64 %.sroa.9.0.insert.ext.i79
-  %117 = zext i1 %114 to i32
-  %.sroa.0.0.i.i82 = ashr i32 %.sroa.0.0.extract.trunc.i.i80, %117
+  %110 = add i32 %.sroa.0.0.extract.trunc.i.i80, 1073741824
+  %111 = icmp slt i32 %110, 1
+  %112 = add nuw nsw i64 %.sroa.9.0.insert.ext.i79, 1
+  %113 = and i64 %112, 4294967295
+  %.sroa.5.0.i.i81 = select i1 %111, i64 %113, i64 %.sroa.9.0.insert.ext.i79
+  %114 = zext i1 %111 to i32
+  %.sroa.0.0.i.i82 = ashr i32 %.sroa.0.0.extract.trunc.i.i80, %114
   %.sroa.2.0.insert.shift.i.i83 = shl nuw i64 %.sroa.5.0.i.i81, 32
   %.sroa.02.0.insert.ext.i.i84 = zext i32 %.sroa.0.0.i.i82 to i64
   %.sroa.02.0.insert.insert.i.i85 = or disjoint i64 %.sroa.2.0.insert.shift.i.i83, %.sroa.02.0.insert.ext.i.i84
   %.sroa.9.0.extract.trunc14.i86 = trunc nuw i64 %.sroa.5.0.i.i81 to i32
-  %118 = icmp eq i32 %.sroa.0.0.i.i82, 0
-  %119 = icmp slt i32 %.sroa.9.0.extract.trunc14.i86, -149
-  %or.cond.i87 = select i1 %118, i1 true, i1 %119
+  %115 = icmp eq i32 %.sroa.0.0.i.i82, 0
+  %116 = icmp slt i32 %.sroa.9.0.extract.trunc14.i86, -149
+  %or.cond.i87 = select i1 %115, i1 true, i1 %116
   %..i88 = select i1 %or.cond.i87, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i85
   %.sroa.0.0.extract.trunc.i28 = trunc i64 %..i88 to i32
   %.sroa.3.0.extract.shift.i29 = and i64 %..i88, -4294967296
-  %120 = ashr i32 %.sroa.0.0.extract.trunc.i28, 31
-  %121 = xor i32 %120, %.sroa.0.0.extract.trunc.i28
-  %122 = sub nsw i32 %121, %120
-  %123 = add i32 %122, 2097151
-  %124 = and i32 %122, 64
-  %125 = add i32 %123, %124
-  %126 = and i32 %125, -4194304
-  %127 = xor i32 %126, %120
-  %128 = sub nsw i32 %127, %120
+  %117 = ashr i32 %.sroa.0.0.extract.trunc.i28, 31
+  %118 = xor i32 %117, %.sroa.0.0.extract.trunc.i28
+  %119 = sub nsw i32 %118, %117
+  %120 = add i32 %119, 2097151
+  %121 = and i32 %119, 64
+  %122 = add i32 %120, %121
+  %123 = and i32 %122, -4194304
+  %124 = xor i32 %123, %117
+  %125 = sub nsw i32 %124, %117
   %sext.i91 = shl i64 %.sroa.0107.0.copyload.i, 32
-  %129 = ashr exact i64 %sext.i91, 32
-  %130 = sext i32 %128 to i64
-  %131 = mul nsw i64 %129, %130
-  %132 = lshr i64 %131, 29
+  %126 = ashr exact i64 %sext.i91, 32
+  %127 = sext i32 %125 to i64
+  %128 = mul nsw i64 %126, %127
+  %129 = lshr i64 %128, 29
   %.sroa.05.0.insert.insert.i31 = add i64 %.sroa.0107.0.copyload.i, -4294967296
   %.sroa.25.0.extract.shift16.i93 = add i64 %.sroa.05.0.insert.insert.i31, %.sroa.3.0.extract.shift.i29
-  %.sroa.0.0.extract.trunc.i.i95 = trunc i64 %132 to i32
+  %.sroa.0.0.extract.trunc.i.i95 = trunc i64 %129 to i32
   %.sroa.5.0.extract.shift.i.i96 = lshr i64 %.sroa.25.0.extract.shift16.i93, 32
-  %133 = add i32 %.sroa.0.0.extract.trunc.i.i95, 1073741824
-  %134 = icmp slt i32 %133, 1
-  %135 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i96, 1
-  %136 = and i64 %135, 4294967295
-  %.sroa.5.0.i.i97 = select i1 %134, i64 %136, i64 %.sroa.5.0.extract.shift.i.i96
-  %137 = zext i1 %134 to i32
-  %.sroa.0.0.i.i98 = ashr i32 %.sroa.0.0.extract.trunc.i.i95, %137
+  %130 = add i32 %.sroa.0.0.extract.trunc.i.i95, 1073741824
+  %131 = icmp slt i32 %130, 1
+  %132 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i96, 1
+  %133 = and i64 %132, 4294967295
+  %.sroa.5.0.i.i97 = select i1 %131, i64 %133, i64 %.sroa.5.0.extract.shift.i.i96
+  %134 = zext i1 %131 to i32
+  %.sroa.0.0.i.i98 = ashr i32 %.sroa.0.0.extract.trunc.i.i95, %134
   %.sroa.2.0.insert.shift.i.i99 = shl nuw i64 %.sroa.5.0.i.i97, 32
   %.sroa.02.0.insert.ext.i.i100 = zext i32 %.sroa.0.0.i.i98 to i64
   %.sroa.02.0.insert.insert.i.i101 = or disjoint i64 %.sroa.2.0.insert.shift.i.i99, %.sroa.02.0.insert.ext.i.i100
   %.sroa.7.0.extract.trunc11.i102 = trunc nuw i64 %.sroa.5.0.i.i97 to i32
-  %138 = icmp eq i32 %.sroa.0.0.i.i98, 0
-  %139 = icmp slt i32 %.sroa.7.0.extract.trunc11.i102, -149
-  %or.cond.i103 = select i1 %138, i1 true, i1 %139
+  %135 = icmp eq i32 %.sroa.0.0.i.i98, 0
+  %136 = icmp slt i32 %.sroa.7.0.extract.trunc11.i102, -149
+  %or.cond.i103 = select i1 %135, i1 true, i1 %136
   %..i104 = select i1 %or.cond.i103, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i101
-  br label %140
+  br label %137
 
-140:                                              ; preds = %av_div_sf.exit89, %102
-  %.sroa.0120.0.insert.insert.i = phi i64 [ %..i104, %av_div_sf.exit89 ], [ 0, %102 ]
+137:                                              ; preds = %av_div_sf.exit89, %99
+  %.sroa.0120.0.insert.insert.i = phi i64 [ %..i104, %av_div_sf.exit89 ], [ 0, %99 ]
+  %.sroa.7.0.extract.shift.i105 = and i64 %.sroa.6126.0.i, -4294967296
+  %sext.i106 = shl i64 %.sroa.6126.0.i, 32
+  %138 = ashr exact i64 %sext.i106, 32
   %sext15.i107 = shl i64 %.sroa.0115.0.copyload.i, 32
-  %141 = ashr exact i64 %sext15.i107, 32
-  %142 = mul nsw i64 %.sroa.0121.0.i, %141
-  %143 = lshr i64 %142, 29
-  %.sroa.2.0.insert.shift.i109 = add i64 %.sroa.6126.0.i, %.sroa.0115.0.copyload.i
-  %.sroa.0.0.extract.trunc.i.i110 = trunc i64 %143 to i32
+  %139 = ashr exact i64 %sext15.i107, 32
+  %140 = mul nsw i64 %138, %139
+  %141 = lshr i64 %140, 29
+  %.sroa.25.0.extract.shift16.i108 = add i64 %.sroa.7.0.extract.shift.i105, -4294967296
+  %.sroa.2.0.insert.shift.i109 = add i64 %.sroa.25.0.extract.shift16.i108, %.sroa.0115.0.copyload.i
+  %.sroa.0.0.extract.trunc.i.i110 = trunc i64 %141 to i32
   %.sroa.5.0.extract.shift.i.i111 = lshr i64 %.sroa.2.0.insert.shift.i109, 32
-  %144 = add i32 %.sroa.0.0.extract.trunc.i.i110, 1073741824
-  %145 = icmp slt i32 %144, 1
-  %146 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i111, 1
-  %147 = and i64 %146, 4294967295
-  %.sroa.5.0.i.i112 = select i1 %145, i64 %147, i64 %.sroa.5.0.extract.shift.i.i111
-  %148 = zext i1 %145 to i32
-  %.sroa.0.0.i.i113 = ashr i32 %.sroa.0.0.extract.trunc.i.i110, %148
+  %142 = add i32 %.sroa.0.0.extract.trunc.i.i110, 1073741824
+  %143 = icmp slt i32 %142, 1
+  %144 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i111, 1
+  %145 = and i64 %144, 4294967295
+  %.sroa.5.0.i.i112 = select i1 %143, i64 %145, i64 %.sroa.5.0.extract.shift.i.i111
+  %146 = zext i1 %143 to i32
+  %.sroa.0.0.i.i113 = ashr i32 %.sroa.0.0.extract.trunc.i.i110, %146
   %.sroa.2.0.insert.shift.i.i114 = shl nuw i64 %.sroa.5.0.i.i112, 32
   %.sroa.02.0.insert.ext.i.i115 = zext i32 %.sroa.0.0.i.i113 to i64
   %.sroa.02.0.insert.insert.i.i116 = or disjoint i64 %.sroa.2.0.insert.shift.i.i114, %.sroa.02.0.insert.ext.i.i115
   %.sroa.7.0.extract.trunc11.i117 = trunc nuw i64 %.sroa.5.0.i.i112 to i32
-  %149 = icmp eq i32 %.sroa.0.0.i.i113, 0
-  %150 = icmp slt i32 %.sroa.7.0.extract.trunc11.i117, -149
-  %or.cond.i118 = select i1 %149, i1 true, i1 %150
+  %147 = icmp eq i32 %.sroa.0.0.i.i113, 0
+  %148 = icmp slt i32 %.sroa.7.0.extract.trunc11.i117, -149
+  %or.cond.i118 = select i1 %147, i1 true, i1 %148
   %..i119 = select i1 %or.cond.i118, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i116
   %.sroa.7.0.extract.shift.i120 = and i64 %.sroa.0120.0.insert.insert.i, -4294967296
   %sext.i121 = shl i64 %.sroa.0120.0.insert.insert.i, 32
-  %151 = ashr exact i64 %sext.i121, 32
+  %149 = ashr exact i64 %sext.i121, 32
   %sext15.i122 = shl i64 %.sroa.0111.0.copyload.i, 32
-  %152 = ashr exact i64 %sext15.i122, 32
-  %153 = mul nsw i64 %151, %152
-  %154 = lshr i64 %153, 29
+  %150 = ashr exact i64 %sext15.i122, 32
+  %151 = mul nsw i64 %149, %150
+  %152 = lshr i64 %151, 29
   %.sroa.25.0.extract.shift16.i123 = add i64 %.sroa.0111.0.copyload.i, -4294967296
   %.sroa.2.0.insert.shift.i124 = add i64 %.sroa.25.0.extract.shift16.i123, %.sroa.7.0.extract.shift.i120
-  %.sroa.0.0.extract.trunc.i.i125 = trunc i64 %154 to i32
+  %.sroa.0.0.extract.trunc.i.i125 = trunc i64 %152 to i32
   %.sroa.5.0.extract.shift.i.i126 = lshr i64 %.sroa.2.0.insert.shift.i124, 32
-  %155 = add i32 %.sroa.0.0.extract.trunc.i.i125, 1073741824
-  %156 = icmp slt i32 %155, 1
-  %157 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i126, 1
-  %158 = and i64 %157, 4294967295
-  %.sroa.5.0.i.i127 = select i1 %156, i64 %158, i64 %.sroa.5.0.extract.shift.i.i126
-  %159 = zext i1 %156 to i32
-  %.sroa.0.0.i.i128 = ashr i32 %.sroa.0.0.extract.trunc.i.i125, %159
+  %153 = add i32 %.sroa.0.0.extract.trunc.i.i125, 1073741824
+  %154 = icmp slt i32 %153, 1
+  %155 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i126, 1
+  %156 = and i64 %155, 4294967295
+  %.sroa.5.0.i.i127 = select i1 %154, i64 %156, i64 %.sroa.5.0.extract.shift.i.i126
+  %157 = zext i1 %154 to i32
+  %.sroa.0.0.i.i128 = ashr i32 %.sroa.0.0.extract.trunc.i.i125, %157
   %.sroa.2.0.insert.shift.i.i129 = shl nuw i64 %.sroa.5.0.i.i127, 32
   %.sroa.02.0.insert.ext.i.i130 = zext i32 %.sroa.0.0.i.i128 to i64
   %.sroa.02.0.insert.insert.i.i131 = or disjoint i64 %.sroa.2.0.insert.shift.i.i129, %.sroa.02.0.insert.ext.i.i130
   %.sroa.7.0.extract.trunc11.i132 = trunc nuw i64 %.sroa.5.0.i.i127 to i32
-  %160 = icmp eq i32 %.sroa.0.0.i.i128, 0
-  %161 = icmp slt i32 %.sroa.7.0.extract.trunc11.i132, -149
-  %or.cond.i133 = select i1 %160, i1 true, i1 %161
+  %158 = icmp eq i32 %.sroa.0.0.i.i128, 0
+  %159 = icmp slt i32 %.sroa.7.0.extract.trunc11.i132, -149
+  %or.cond.i133 = select i1 %158, i1 true, i1 %159
   %..i134 = select i1 %or.cond.i133, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i131
   %.sroa.012.0.extract.trunc.i = trunc i64 %..i119 to i32
   %.sroa.414.0.extract.shift.i = lshr i64 %..i119, 32
@@ -1492,344 +1491,344 @@ av_div_sf.exit89:                                 ; preds = %.lr.ph.i73, %105
   %.sroa.09.0.extract.trunc.i = trunc i64 %..i134 to i32
   %.sroa.4.0.extract.shift.i = lshr i64 %..i134, 32
   %.sroa.4.0.extract.trunc.i = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %162 = sub nsw i32 %.sroa.414.0.extract.trunc.i, %.sroa.4.0.extract.trunc.i
-  %163 = icmp slt i32 %162, -31
-  br i1 %163, label %av_add_sf.exit, label %164
+  %160 = sub nsw i32 %.sroa.414.0.extract.trunc.i, %.sroa.4.0.extract.trunc.i
+  %161 = icmp slt i32 %160, -31
+  br i1 %161, label %av_add_sf.exit, label %162
 
-164:                                              ; preds = %140
-  %165 = icmp slt i32 %162, 0
-  br i1 %165, label %166, label %185
+162:                                              ; preds = %137
+  %163 = icmp slt i32 %160, 0
+  br i1 %163, label %164, label %183
 
-166:                                              ; preds = %164
-  %167 = sub nsw i32 0, %162
-  %168 = ashr i32 %.sroa.012.0.extract.trunc.i, %167
-  %169 = add nsw i32 %168, %.sroa.09.0.extract.trunc.i
-  %170 = add i32 %169, 1073741824
-  %171 = icmp slt i32 %170, 1
-  %172 = zext i1 %171 to i32
-  %.sroa.0.0.i.i135 = ashr i32 %169, %172
+164:                                              ; preds = %162
+  %165 = sub nsw i32 0, %160
+  %166 = ashr i32 %.sroa.012.0.extract.trunc.i, %165
+  %167 = add nsw i32 %166, %.sroa.09.0.extract.trunc.i
+  %168 = add i32 %167, 1073741824
+  %169 = icmp slt i32 %168, 1
+  %170 = zext i1 %169 to i32
+  %.sroa.0.0.i.i135 = ashr i32 %167, %170
   %.not.i.i = icmp eq i32 %.sroa.0.0.i.i135, 0
   br i1 %.not.i.i, label %av_normalize_sf.exit.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %166
-  %173 = zext i1 %171 to i64
-  %.sroa.5.0.i.i136 = add nuw nsw i64 %.sroa.4.0.extract.shift.i, %173
+.preheader.i.i:                                   ; preds = %164
+  %171 = zext i1 %169 to i64
+  %.sroa.5.0.i.i136 = add nuw nsw i64 %.sroa.4.0.extract.shift.i, %171
   %.sroa.8.0.extract.trunc.i.i = trunc i64 %.sroa.5.0.i.i136 to i32
-  %174 = add i32 %.sroa.0.0.i.i135, 536870911
-  %175 = icmp ult i32 %174, 1073741823
-  br i1 %175, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %172 = add i32 %.sroa.0.0.i.i135, 536870911
+  %173 = icmp ult i32 %172, 1073741823
+  br i1 %173, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.sroa.0.08.i.i = phi i32 [ %176, %.lr.ph.i.i ], [ %.sroa.0.0.i.i135, %.preheader.i.i ]
-  %.sroa.8.07.i.i = phi i32 [ %177, %.lr.ph.i.i ], [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ]
-  %176 = shl nsw i32 %.sroa.0.08.i.i, 1
-  %177 = add nsw i32 %.sroa.8.07.i.i, -1
-  %178 = add nsw i32 %176, 536870911
-  %179 = icmp ult i32 %178, 1073741823
-  br i1 %179, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !134
+  %.sroa.0.08.i.i = phi i32 [ %174, %.lr.ph.i.i ], [ %.sroa.0.0.i.i135, %.preheader.i.i ]
+  %.sroa.8.07.i.i = phi i32 [ %175, %.lr.ph.i.i ], [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ]
+  %174 = shl nsw i32 %.sroa.0.08.i.i, 1
+  %175 = add nsw i32 %.sroa.8.07.i.i, -1
+  %176 = add nsw i32 %174, 536870911
+  %177 = icmp ult i32 %176, 1073741823
+  br i1 %177, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !134
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
-  %.sroa.8.0.lcssa.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ], [ %177, %.lr.ph.i.i ]
-  %.sroa.0.0.lcssa.i.i = phi i32 [ %.sroa.0.0.i.i135, %.preheader.i.i ], [ %176, %.lr.ph.i.i ]
-  %180 = icmp slt i32 %.sroa.8.0.lcssa.i.i, -149
+  %.sroa.8.0.lcssa.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i.i, %.preheader.i.i ], [ %175, %.lr.ph.i.i ]
+  %.sroa.0.0.lcssa.i.i = phi i32 [ %.sroa.0.0.i.i135, %.preheader.i.i ], [ %174, %.lr.ph.i.i ]
+  %178 = icmp slt i32 %.sroa.8.0.lcssa.i.i, -149
   %spec.select.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i, i32 -149)
-  %spec.select6.i.i = select i1 %180, i32 0, i32 %.sroa.0.0.lcssa.i.i
-  %181 = zext i32 %spec.select.i.i to i64
-  %182 = shl nuw i64 %181, 32
-  %183 = zext i32 %spec.select6.i.i to i64
-  %184 = or disjoint i64 %182, %183
+  %spec.select6.i.i = select i1 %178, i32 0, i32 %.sroa.0.0.lcssa.i.i
+  %179 = zext i32 %spec.select.i.i to i64
+  %180 = shl nuw i64 %179, 32
+  %181 = zext i32 %spec.select6.i.i to i64
+  %182 = or disjoint i64 %180, %181
   br label %av_normalize_sf.exit.i
 
-av_normalize_sf.exit.i:                           ; preds = %._crit_edge.i.i, %166
-  %.sroa.05.0.insert.insert.i.i = phi i64 [ %184, %._crit_edge.i.i ], [ -639950127104, %166 ]
+av_normalize_sf.exit.i:                           ; preds = %._crit_edge.i.i, %164
+  %.sroa.05.0.insert.insert.i.i = phi i64 [ %182, %._crit_edge.i.i ], [ -639950127104, %164 ]
   %.sroa.5.0.extract.shift.i = lshr i64 %.sroa.05.0.insert.insert.i.i, 32
   br label %av_add_sf.exit
 
-185:                                              ; preds = %164
-  %186 = icmp samesign ult i32 %162, 32
-  br i1 %186, label %187, label %av_add_sf.exit
+183:                                              ; preds = %162
+  %184 = icmp samesign ult i32 %160, 32
+  br i1 %184, label %185, label %av_add_sf.exit
 
-187:                                              ; preds = %185
-  %188 = ashr i32 %.sroa.09.0.extract.trunc.i, %162
-  %189 = add nsw i32 %188, %.sroa.012.0.extract.trunc.i
-  %190 = add i32 %189, 1073741824
-  %191 = icmp slt i32 %190, 1
-  %192 = zext i1 %191 to i32
-  %.sroa.0.0.i24.i = ashr i32 %189, %192
+185:                                              ; preds = %183
+  %186 = ashr i32 %.sroa.09.0.extract.trunc.i, %160
+  %187 = add nsw i32 %186, %.sroa.012.0.extract.trunc.i
+  %188 = add i32 %187, 1073741824
+  %189 = icmp slt i32 %188, 1
+  %190 = zext i1 %189 to i32
+  %.sroa.0.0.i24.i = ashr i32 %187, %190
   %.not.i29.i = icmp eq i32 %.sroa.0.0.i24.i, 0
   br i1 %.not.i29.i, label %av_normalize_sf.exit41.i, label %.preheader.i30.i
 
-.preheader.i30.i:                                 ; preds = %187
-  %193 = zext i1 %191 to i64
-  %.sroa.5.0.i23.i = add nuw nsw i64 %.sroa.414.0.extract.shift.i, %193
+.preheader.i30.i:                                 ; preds = %185
+  %191 = zext i1 %189 to i64
+  %.sroa.5.0.i23.i = add nuw nsw i64 %.sroa.414.0.extract.shift.i, %191
   %.sroa.8.0.extract.trunc.i31.i = trunc i64 %.sroa.5.0.i23.i to i32
-  %194 = add i32 %.sroa.0.0.i24.i, 536870911
-  %195 = icmp ult i32 %194, 1073741823
-  br i1 %195, label %.lr.ph.i38.i, label %._crit_edge.i32.i
+  %192 = add i32 %.sroa.0.0.i24.i, 536870911
+  %193 = icmp ult i32 %192, 1073741823
+  br i1 %193, label %.lr.ph.i38.i, label %._crit_edge.i32.i
 
 .lr.ph.i38.i:                                     ; preds = %.preheader.i30.i, %.lr.ph.i38.i
-  %.sroa.0.08.i39.i = phi i32 [ %196, %.lr.ph.i38.i ], [ %.sroa.0.0.i24.i, %.preheader.i30.i ]
-  %.sroa.8.07.i40.i = phi i32 [ %197, %.lr.ph.i38.i ], [ %.sroa.8.0.extract.trunc.i31.i, %.preheader.i30.i ]
-  %196 = shl nsw i32 %.sroa.0.08.i39.i, 1
-  %197 = add nsw i32 %.sroa.8.07.i40.i, -1
-  %198 = add nsw i32 %196, 536870911
-  %199 = icmp ult i32 %198, 1073741823
-  br i1 %199, label %.lr.ph.i38.i, label %._crit_edge.i32.i, !llvm.loop !134
+  %.sroa.0.08.i39.i = phi i32 [ %194, %.lr.ph.i38.i ], [ %.sroa.0.0.i24.i, %.preheader.i30.i ]
+  %.sroa.8.07.i40.i = phi i32 [ %195, %.lr.ph.i38.i ], [ %.sroa.8.0.extract.trunc.i31.i, %.preheader.i30.i ]
+  %194 = shl nsw i32 %.sroa.0.08.i39.i, 1
+  %195 = add nsw i32 %.sroa.8.07.i40.i, -1
+  %196 = add nsw i32 %194, 536870911
+  %197 = icmp ult i32 %196, 1073741823
+  br i1 %197, label %.lr.ph.i38.i, label %._crit_edge.i32.i, !llvm.loop !134
 
 ._crit_edge.i32.i:                                ; preds = %.lr.ph.i38.i, %.preheader.i30.i
-  %.sroa.8.0.lcssa.i33.i = phi i32 [ %.sroa.8.0.extract.trunc.i31.i, %.preheader.i30.i ], [ %197, %.lr.ph.i38.i ]
-  %.sroa.0.0.lcssa.i34.i = phi i32 [ %.sroa.0.0.i24.i, %.preheader.i30.i ], [ %196, %.lr.ph.i38.i ]
-  %200 = icmp slt i32 %.sroa.8.0.lcssa.i33.i, -149
+  %.sroa.8.0.lcssa.i33.i = phi i32 [ %.sroa.8.0.extract.trunc.i31.i, %.preheader.i30.i ], [ %195, %.lr.ph.i38.i ]
+  %.sroa.0.0.lcssa.i34.i = phi i32 [ %.sroa.0.0.i24.i, %.preheader.i30.i ], [ %194, %.lr.ph.i38.i ]
+  %198 = icmp slt i32 %.sroa.8.0.lcssa.i33.i, -149
   %spec.select.i35.i = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i, i32 -149)
-  %spec.select6.i36.i = select i1 %200, i32 0, i32 %.sroa.0.0.lcssa.i34.i
-  %201 = zext i32 %spec.select.i35.i to i64
-  %202 = shl nuw i64 %201, 32
-  %203 = zext i32 %spec.select6.i36.i to i64
-  %204 = or disjoint i64 %202, %203
+  %spec.select6.i36.i = select i1 %198, i32 0, i32 %.sroa.0.0.lcssa.i34.i
+  %199 = zext i32 %spec.select.i35.i to i64
+  %200 = shl nuw i64 %199, 32
+  %201 = zext i32 %spec.select6.i36.i to i64
+  %202 = or disjoint i64 %200, %201
   br label %av_normalize_sf.exit41.i
 
-av_normalize_sf.exit41.i:                         ; preds = %._crit_edge.i32.i, %187
-  %.sroa.05.0.insert.insert.i37.i = phi i64 [ %204, %._crit_edge.i32.i ], [ -639950127104, %187 ]
+av_normalize_sf.exit41.i:                         ; preds = %._crit_edge.i32.i, %185
+  %.sroa.05.0.insert.insert.i37.i = phi i64 [ %202, %._crit_edge.i32.i ], [ -639950127104, %185 ]
   %.sroa.5.0.extract.shift18.i = lshr i64 %.sroa.05.0.insert.insert.i37.i, 32
   br label %av_add_sf.exit
 
-av_add_sf.exit:                                   ; preds = %140, %av_normalize_sf.exit.i, %185, %av_normalize_sf.exit41.i
-  %.sroa.016.0.i = phi i64 [ %.sroa.05.0.insert.insert.i.i, %av_normalize_sf.exit.i ], [ %.sroa.05.0.insert.insert.i37.i, %av_normalize_sf.exit41.i ], [ %..i134, %140 ], [ %..i119, %185 ]
-  %.sroa.5.0.i = phi i64 [ %.sroa.5.0.extract.shift.i, %av_normalize_sf.exit.i ], [ %.sroa.5.0.extract.shift18.i, %av_normalize_sf.exit41.i ], [ %.sroa.4.0.extract.shift.i, %140 ], [ %.sroa.414.0.extract.shift.i, %185 ]
+av_add_sf.exit:                                   ; preds = %137, %av_normalize_sf.exit.i, %183, %av_normalize_sf.exit41.i
+  %.sroa.016.0.i = phi i64 [ %.sroa.05.0.insert.insert.i.i, %av_normalize_sf.exit.i ], [ %.sroa.05.0.insert.insert.i37.i, %av_normalize_sf.exit41.i ], [ %..i134, %137 ], [ %..i119, %183 ]
+  %.sroa.5.0.i = phi i64 [ %.sroa.5.0.extract.shift.i, %av_normalize_sf.exit.i ], [ %.sroa.5.0.extract.shift18.i, %av_normalize_sf.exit41.i ], [ %.sroa.4.0.extract.shift.i, %137 ], [ %.sroa.414.0.extract.shift.i, %183 ]
   %.sroa.0.0.extract.trunc.i32 = trunc i64 %.sroa.016.0.i to i32
   %.neg693 = lshr i32 %.sroa.0.0.extract.trunc.i32, 31
-  %205 = ashr i32 %.sroa.0.0.extract.trunc.i32, 31
-  %206 = xor i32 %205, %.sroa.0.0.extract.trunc.i32
-  %207 = or disjoint i32 %.neg693, 2097152
-  %208 = add i32 %207, %206
-  %209 = and i32 %208, -4194304
-  %210 = xor i32 %209, %205
-  %211 = sub nsw i32 %210, %205
-  br i1 %.not.i, label %predict.exit, label %212
+  %203 = ashr i32 %.sroa.0.0.extract.trunc.i32, 31
+  %204 = xor i32 %203, %.sroa.0.0.extract.trunc.i32
+  %205 = or disjoint i32 %.neg693, 2097152
+  %206 = add i32 %205, %204
+  %207 = and i32 %206, -4194304
+  %208 = xor i32 %207, %203
+  %209 = sub nsw i32 %208, %203
+  br i1 %.not.i, label %predict.exit, label %210
 
-212:                                              ; preds = %av_add_sf.exit
+210:                                              ; preds = %av_add_sf.exit
   %.sroa.5134.0.extract.trunc.i = trunc nuw i64 %.sroa.5.0.i to i32
   %.neg.i = add nsw i32 %.sroa.5134.0.extract.trunc.i, -28
-  %213 = sub nsw i32 28, %.sroa.5134.0.extract.trunc.i
-  %214 = icmp sgt i32 %.sroa.5134.0.extract.trunc.i, -3
-  br i1 %214, label %215, label %predict.exit
+  %211 = sub nsw i32 28, %.sroa.5134.0.extract.trunc.i
+  %212 = icmp sgt i32 %.sroa.5134.0.extract.trunc.i, -3
+  br i1 %212, label %213, label %predict.exit
 
-215:                                              ; preds = %212
-  %216 = icmp slt i32 %.sroa.5134.0.extract.trunc.i, 28
-  br i1 %216, label %217, label %222
+213:                                              ; preds = %210
+  %214 = icmp slt i32 %.sroa.5134.0.extract.trunc.i, 28
+  br i1 %214, label %215, label %220
 
-217:                                              ; preds = %215
-  %218 = sub nsw i32 27, %.sroa.5134.0.extract.trunc.i
-  %219 = shl nuw nsw i32 1, %218
-  %220 = add nsw i32 %211, %219
-  %221 = ashr i32 %220, %213
+215:                                              ; preds = %213
+  %216 = sub nsw i32 27, %.sroa.5134.0.extract.trunc.i
+  %217 = shl nuw nsw i32 1, %216
+  %218 = add nsw i32 %209, %217
+  %219 = ashr i32 %218, %211
   br label %predict.exit.sink.split
 
-222:                                              ; preds = %215
-  %223 = shl i32 %211, %.neg.i
+220:                                              ; preds = %213
+  %221 = shl i32 %209, %.neg.i
   br label %predict.exit.sink.split
 
-predict.exit.sink.split:                          ; preds = %222, %217
-  %.sink795 = phi i32 [ %221, %217 ], [ %223, %222 ]
-  %224 = load i32, ptr %48, align 4, !tbaa !64
-  %225 = add i32 %224, %.sink795
-  store i32 %225, ptr %48, align 4, !tbaa !64
+predict.exit.sink.split:                          ; preds = %220, %215
+  %.sink795 = phi i32 [ %219, %215 ], [ %221, %220 ]
+  %222 = load i32, ptr %48, align 4, !tbaa !64
+  %223 = add i32 %222, %.sink795
+  store i32 %223, ptr %48, align 4, !tbaa !64
   br label %predict.exit
 
-predict.exit:                                     ; preds = %predict.exit.sink.split, %av_add_sf.exit, %212
-  %226 = load i32, ptr %48, align 4, !tbaa !64
-  %227 = icmp slt i32 %226, -2147483646
-  %spec.select9.i = select i1 %227, i32 -1073741824, i32 %226
-  %228 = add i32 %spec.select9.i, 1073741824
-  %229 = icmp slt i32 %228, 1
-  %230 = zext i1 %229 to i32
-  %.sroa.0.0.i.i137 = ashr i32 %spec.select9.i, %230
+predict.exit:                                     ; preds = %predict.exit.sink.split, %av_add_sf.exit, %210
+  %224 = load i32, ptr %48, align 4, !tbaa !64
+  %225 = icmp slt i32 %224, -2147483646
+  %spec.select9.i = select i1 %225, i32 -1073741824, i32 %224
+  %226 = add i32 %spec.select9.i, 1073741824
+  %227 = icmp slt i32 %226, 1
+  %228 = zext i1 %227 to i32
+  %.sroa.0.0.i.i137 = ashr i32 %spec.select9.i, %228
   %.not.i.i138 = icmp eq i32 %.sroa.0.0.i.i137, 0
   br i1 %.not.i.i138, label %av_int2sf.exit, label %.preheader.i.i139
 
 .preheader.i.i139:                                ; preds = %predict.exit
-  %spec.select.i = select i1 %227, i32 29, i32 28
-  %.sroa.5.0.i.i140 = add nuw nsw i32 %spec.select.i, %230
-  %231 = add i32 %.sroa.0.0.i.i137, 536870911
-  %232 = icmp ult i32 %231, 1073741823
-  br i1 %232, label %.lr.ph.i.i148, label %._crit_edge.i.i141
+  %spec.select.i = select i1 %225, i32 29, i32 28
+  %.sroa.5.0.i.i140 = add nuw nsw i32 %spec.select.i, %228
+  %229 = add i32 %.sroa.0.0.i.i137, 536870911
+  %230 = icmp ult i32 %229, 1073741823
+  br i1 %230, label %.lr.ph.i.i148, label %._crit_edge.i.i141
 
 .lr.ph.i.i148:                                    ; preds = %.preheader.i.i139, %.lr.ph.i.i148
-  %.sroa.0.08.i.i149 = phi i32 [ %233, %.lr.ph.i.i148 ], [ %.sroa.0.0.i.i137, %.preheader.i.i139 ]
-  %.sroa.8.07.i.i150 = phi i32 [ %234, %.lr.ph.i.i148 ], [ %.sroa.5.0.i.i140, %.preheader.i.i139 ]
-  %233 = shl nsw i32 %.sroa.0.08.i.i149, 1
-  %234 = add nsw i32 %.sroa.8.07.i.i150, -1
-  %235 = add nsw i32 %233, 536870911
-  %236 = icmp ult i32 %235, 1073741823
-  br i1 %236, label %.lr.ph.i.i148, label %._crit_edge.i.i141, !llvm.loop !134
+  %.sroa.0.08.i.i149 = phi i32 [ %231, %.lr.ph.i.i148 ], [ %.sroa.0.0.i.i137, %.preheader.i.i139 ]
+  %.sroa.8.07.i.i150 = phi i32 [ %232, %.lr.ph.i.i148 ], [ %.sroa.5.0.i.i140, %.preheader.i.i139 ]
+  %231 = shl nsw i32 %.sroa.0.08.i.i149, 1
+  %232 = add nsw i32 %.sroa.8.07.i.i150, -1
+  %233 = add nsw i32 %231, 536870911
+  %234 = icmp ult i32 %233, 1073741823
+  br i1 %234, label %.lr.ph.i.i148, label %._crit_edge.i.i141, !llvm.loop !134
 
 ._crit_edge.i.i141:                               ; preds = %.lr.ph.i.i148, %.preheader.i.i139
-  %.sroa.8.0.lcssa.i.i142 = phi i32 [ %.sroa.5.0.i.i140, %.preheader.i.i139 ], [ %234, %.lr.ph.i.i148 ]
-  %.sroa.0.0.lcssa.i.i143 = phi i32 [ %.sroa.0.0.i.i137, %.preheader.i.i139 ], [ %233, %.lr.ph.i.i148 ]
-  %237 = icmp slt i32 %.sroa.8.0.lcssa.i.i142, -149
+  %.sroa.8.0.lcssa.i.i142 = phi i32 [ %.sroa.5.0.i.i140, %.preheader.i.i139 ], [ %232, %.lr.ph.i.i148 ]
+  %.sroa.0.0.lcssa.i.i143 = phi i32 [ %.sroa.0.0.i.i137, %.preheader.i.i139 ], [ %231, %.lr.ph.i.i148 ]
+  %235 = icmp slt i32 %.sroa.8.0.lcssa.i.i142, -149
   %spec.select.i.i144 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i142, i32 -149)
-  %spec.select6.i.i145 = select i1 %237, i32 0, i32 %.sroa.0.0.lcssa.i.i143
-  %238 = zext i32 %spec.select.i.i144 to i64
-  %239 = shl nuw i64 %238, 32
-  %240 = zext i32 %spec.select6.i.i145 to i64
-  %241 = or disjoint i64 %239, %240
+  %spec.select6.i.i145 = select i1 %235, i32 0, i32 %.sroa.0.0.lcssa.i.i143
+  %236 = zext i32 %spec.select.i.i144 to i64
+  %237 = shl nuw i64 %236, 32
+  %238 = zext i32 %spec.select6.i.i145 to i64
+  %239 = or disjoint i64 %237, %238
   br label %av_int2sf.exit
 
 av_int2sf.exit:                                   ; preds = %predict.exit, %._crit_edge.i.i141
-  %.sroa.05.0.insert.insert.i.i147 = phi i64 [ %241, %._crit_edge.i.i141 ], [ -639950127104, %predict.exit ]
-  %242 = sub i64 0, %..i119
+  %.sroa.05.0.insert.insert.i.i147 = phi i64 [ %239, %._crit_edge.i.i141 ], [ -639950127104, %predict.exit ]
+  %240 = sub i64 0, %..i119
   %.sroa.012.0.extract.trunc.i.i = trunc i64 %.sroa.05.0.insert.insert.i.i147 to i32
   %.sroa.414.0.extract.shift.i.i = lshr i64 %.sroa.05.0.insert.insert.i.i147, 32
   %.sroa.414.0.extract.trunc.i.i = trunc nuw i64 %.sroa.414.0.extract.shift.i.i to i32
-  %.sroa.09.0.extract.trunc.i.i = trunc i64 %242 to i32
-  %243 = sub nsw i32 %.sroa.414.0.extract.trunc.i.i, %.sroa.414.0.extract.trunc.i
-  %244 = icmp slt i32 %243, -31
-  br i1 %244, label %av_sub_sf.exit, label %245
+  %.sroa.09.0.extract.trunc.i.i = trunc i64 %240 to i32
+  %241 = sub nsw i32 %.sroa.414.0.extract.trunc.i.i, %.sroa.414.0.extract.trunc.i
+  %242 = icmp slt i32 %241, -31
+  br i1 %242, label %av_sub_sf.exit, label %243
 
-245:                                              ; preds = %av_int2sf.exit
-  %246 = icmp slt i32 %243, 0
-  br i1 %246, label %247, label %266
+243:                                              ; preds = %av_int2sf.exit
+  %244 = icmp slt i32 %241, 0
+  br i1 %244, label %245, label %264
 
-247:                                              ; preds = %245
-  %248 = sub nsw i32 0, %243
-  %249 = ashr i32 %.sroa.012.0.extract.trunc.i.i, %248
-  %250 = add nsw i32 %249, %.sroa.09.0.extract.trunc.i.i
-  %251 = add i32 %250, 1073741824
-  %252 = icmp slt i32 %251, 1
-  %253 = zext i1 %252 to i32
-  %.sroa.0.0.i.i.i = ashr i32 %250, %253
+245:                                              ; preds = %243
+  %246 = sub nsw i32 0, %241
+  %247 = ashr i32 %.sroa.012.0.extract.trunc.i.i, %246
+  %248 = add nsw i32 %247, %.sroa.09.0.extract.trunc.i.i
+  %249 = add i32 %248, 1073741824
+  %250 = icmp slt i32 %249, 1
+  %251 = zext i1 %250 to i32
+  %.sroa.0.0.i.i.i = ashr i32 %248, %251
   %.not.i.i.i = icmp eq i32 %.sroa.0.0.i.i.i, 0
   br i1 %.not.i.i.i, label %av_normalize_sf.exit.i.i, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %247
-  %254 = zext i1 %252 to i64
-  %.sroa.5.0.i.i.i = add nuw nsw i64 %.sroa.414.0.extract.shift.i, %254
+.preheader.i.i.i:                                 ; preds = %245
+  %252 = zext i1 %250 to i64
+  %.sroa.5.0.i.i.i = add nuw nsw i64 %.sroa.414.0.extract.shift.i, %252
   %.sroa.8.0.extract.trunc.i.i.i = trunc i64 %.sroa.5.0.i.i.i to i32
-  %255 = add i32 %.sroa.0.0.i.i.i, 536870911
-  %256 = icmp ult i32 %255, 1073741823
-  br i1 %256, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %253 = add i32 %.sroa.0.0.i.i.i, 536870911
+  %254 = icmp ult i32 %253, 1073741823
+  br i1 %254, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  %.sroa.0.08.i.i.i = phi i32 [ %257, %.lr.ph.i.i.i ], [ %.sroa.0.0.i.i.i, %.preheader.i.i.i ]
-  %.sroa.8.07.i.i.i = phi i32 [ %258, %.lr.ph.i.i.i ], [ %.sroa.8.0.extract.trunc.i.i.i, %.preheader.i.i.i ]
-  %257 = shl nsw i32 %.sroa.0.08.i.i.i, 1
-  %258 = add nsw i32 %.sroa.8.07.i.i.i, -1
-  %259 = add nsw i32 %257, 536870911
-  %260 = icmp ult i32 %259, 1073741823
-  br i1 %260, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !134
+  %.sroa.0.08.i.i.i = phi i32 [ %255, %.lr.ph.i.i.i ], [ %.sroa.0.0.i.i.i, %.preheader.i.i.i ]
+  %.sroa.8.07.i.i.i = phi i32 [ %256, %.lr.ph.i.i.i ], [ %.sroa.8.0.extract.trunc.i.i.i, %.preheader.i.i.i ]
+  %255 = shl nsw i32 %.sroa.0.08.i.i.i, 1
+  %256 = add nsw i32 %.sroa.8.07.i.i.i, -1
+  %257 = add nsw i32 %255, 536870911
+  %258 = icmp ult i32 %257, 1073741823
+  br i1 %258, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !134
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i
-  %.sroa.8.0.lcssa.i.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i.i.i, %.preheader.i.i.i ], [ %258, %.lr.ph.i.i.i ]
-  %.sroa.0.0.lcssa.i.i.i = phi i32 [ %.sroa.0.0.i.i.i, %.preheader.i.i.i ], [ %257, %.lr.ph.i.i.i ]
-  %261 = icmp slt i32 %.sroa.8.0.lcssa.i.i.i, -149
+  %.sroa.8.0.lcssa.i.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i.i.i, %.preheader.i.i.i ], [ %256, %.lr.ph.i.i.i ]
+  %.sroa.0.0.lcssa.i.i.i = phi i32 [ %.sroa.0.0.i.i.i, %.preheader.i.i.i ], [ %255, %.lr.ph.i.i.i ]
+  %259 = icmp slt i32 %.sroa.8.0.lcssa.i.i.i, -149
   %spec.select.i.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i.i, i32 -149)
-  %spec.select6.i.i.i = select i1 %261, i32 0, i32 %.sroa.0.0.lcssa.i.i.i
-  %262 = zext i32 %spec.select.i.i.i to i64
-  %263 = shl nuw i64 %262, 32
-  %264 = zext i32 %spec.select6.i.i.i to i64
-  %265 = or disjoint i64 %263, %264
+  %spec.select6.i.i.i = select i1 %259, i32 0, i32 %.sroa.0.0.lcssa.i.i.i
+  %260 = zext i32 %spec.select.i.i.i to i64
+  %261 = shl nuw i64 %260, 32
+  %262 = zext i32 %spec.select6.i.i.i to i64
+  %263 = or disjoint i64 %261, %262
   br label %av_normalize_sf.exit.i.i
 
-av_normalize_sf.exit.i.i:                         ; preds = %._crit_edge.i.i.i, %247
-  %.sroa.05.0.insert.insert.i.i.i = phi i64 [ %265, %._crit_edge.i.i.i ], [ -639950127104, %247 ]
+av_normalize_sf.exit.i.i:                         ; preds = %._crit_edge.i.i.i, %245
+  %.sroa.05.0.insert.insert.i.i.i = phi i64 [ %263, %._crit_edge.i.i.i ], [ -639950127104, %245 ]
   %.sroa.5.0.extract.shift.i.i152 = lshr i64 %.sroa.05.0.insert.insert.i.i.i, 32
   br label %av_sub_sf.exit
 
-266:                                              ; preds = %245
-  %267 = icmp samesign ult i32 %243, 32
-  br i1 %267, label %268, label %av_sub_sf.exit
+264:                                              ; preds = %243
+  %265 = icmp samesign ult i32 %241, 32
+  br i1 %265, label %266, label %av_sub_sf.exit
 
-268:                                              ; preds = %266
-  %269 = ashr i32 %.sroa.09.0.extract.trunc.i.i, %243
-  %270 = add nsw i32 %269, %.sroa.012.0.extract.trunc.i.i
-  %271 = add i32 %270, 1073741824
-  %272 = icmp slt i32 %271, 1
-  %273 = zext i1 %272 to i32
-  %.sroa.0.0.i24.i.i = ashr i32 %270, %273
+266:                                              ; preds = %264
+  %267 = ashr i32 %.sroa.09.0.extract.trunc.i.i, %241
+  %268 = add nsw i32 %267, %.sroa.012.0.extract.trunc.i.i
+  %269 = add i32 %268, 1073741824
+  %270 = icmp slt i32 %269, 1
+  %271 = zext i1 %270 to i32
+  %.sroa.0.0.i24.i.i = ashr i32 %268, %271
   %.not.i29.i.i = icmp eq i32 %.sroa.0.0.i24.i.i, 0
   br i1 %.not.i29.i.i, label %av_normalize_sf.exit41.i.i, label %.preheader.i30.i.i
 
-.preheader.i30.i.i:                               ; preds = %268
-  %274 = zext i1 %272 to i64
-  %.sroa.5.0.i23.i.i = add nuw nsw i64 %.sroa.414.0.extract.shift.i.i, %274
+.preheader.i30.i.i:                               ; preds = %266
+  %272 = zext i1 %270 to i64
+  %.sroa.5.0.i23.i.i = add nuw nsw i64 %.sroa.414.0.extract.shift.i.i, %272
   %.sroa.8.0.extract.trunc.i31.i.i = trunc i64 %.sroa.5.0.i23.i.i to i32
-  %275 = add i32 %.sroa.0.0.i24.i.i, 536870911
-  %276 = icmp ult i32 %275, 1073741823
-  br i1 %276, label %.lr.ph.i38.i.i, label %._crit_edge.i32.i.i
+  %273 = add i32 %.sroa.0.0.i24.i.i, 536870911
+  %274 = icmp ult i32 %273, 1073741823
+  br i1 %274, label %.lr.ph.i38.i.i, label %._crit_edge.i32.i.i
 
 .lr.ph.i38.i.i:                                   ; preds = %.preheader.i30.i.i, %.lr.ph.i38.i.i
-  %.sroa.0.08.i39.i.i = phi i32 [ %277, %.lr.ph.i38.i.i ], [ %.sroa.0.0.i24.i.i, %.preheader.i30.i.i ]
-  %.sroa.8.07.i40.i.i = phi i32 [ %278, %.lr.ph.i38.i.i ], [ %.sroa.8.0.extract.trunc.i31.i.i, %.preheader.i30.i.i ]
-  %277 = shl nsw i32 %.sroa.0.08.i39.i.i, 1
-  %278 = add nsw i32 %.sroa.8.07.i40.i.i, -1
-  %279 = add nsw i32 %277, 536870911
-  %280 = icmp ult i32 %279, 1073741823
-  br i1 %280, label %.lr.ph.i38.i.i, label %._crit_edge.i32.i.i, !llvm.loop !134
+  %.sroa.0.08.i39.i.i = phi i32 [ %275, %.lr.ph.i38.i.i ], [ %.sroa.0.0.i24.i.i, %.preheader.i30.i.i ]
+  %.sroa.8.07.i40.i.i = phi i32 [ %276, %.lr.ph.i38.i.i ], [ %.sroa.8.0.extract.trunc.i31.i.i, %.preheader.i30.i.i ]
+  %275 = shl nsw i32 %.sroa.0.08.i39.i.i, 1
+  %276 = add nsw i32 %.sroa.8.07.i40.i.i, -1
+  %277 = add nsw i32 %275, 536870911
+  %278 = icmp ult i32 %277, 1073741823
+  br i1 %278, label %.lr.ph.i38.i.i, label %._crit_edge.i32.i.i, !llvm.loop !134
 
 ._crit_edge.i32.i.i:                              ; preds = %.lr.ph.i38.i.i, %.preheader.i30.i.i
-  %.sroa.8.0.lcssa.i33.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i31.i.i, %.preheader.i30.i.i ], [ %278, %.lr.ph.i38.i.i ]
-  %.sroa.0.0.lcssa.i34.i.i = phi i32 [ %.sroa.0.0.i24.i.i, %.preheader.i30.i.i ], [ %277, %.lr.ph.i38.i.i ]
-  %281 = icmp slt i32 %.sroa.8.0.lcssa.i33.i.i, -149
+  %.sroa.8.0.lcssa.i33.i.i = phi i32 [ %.sroa.8.0.extract.trunc.i31.i.i, %.preheader.i30.i.i ], [ %276, %.lr.ph.i38.i.i ]
+  %.sroa.0.0.lcssa.i34.i.i = phi i32 [ %.sroa.0.0.i24.i.i, %.preheader.i30.i.i ], [ %275, %.lr.ph.i38.i.i ]
+  %279 = icmp slt i32 %.sroa.8.0.lcssa.i33.i.i, -149
   %spec.select.i35.i.i = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i.i, i32 -149)
-  %spec.select6.i36.i.i = select i1 %281, i32 0, i32 %.sroa.0.0.lcssa.i34.i.i
-  %282 = zext i32 %spec.select.i35.i.i to i64
-  %283 = shl nuw i64 %282, 32
-  %284 = zext i32 %spec.select6.i36.i.i to i64
-  %285 = or disjoint i64 %283, %284
+  %spec.select6.i36.i.i = select i1 %279, i32 0, i32 %.sroa.0.0.lcssa.i34.i.i
+  %280 = zext i32 %spec.select.i35.i.i to i64
+  %281 = shl nuw i64 %280, 32
+  %282 = zext i32 %spec.select6.i36.i.i to i64
+  %283 = or disjoint i64 %281, %282
   br label %av_normalize_sf.exit41.i.i
 
-av_normalize_sf.exit41.i.i:                       ; preds = %._crit_edge.i32.i.i, %268
-  %.sroa.05.0.insert.insert.i37.i.i = phi i64 [ %285, %._crit_edge.i32.i.i ], [ -639950127104, %268 ]
+av_normalize_sf.exit41.i.i:                       ; preds = %._crit_edge.i32.i.i, %266
+  %.sroa.05.0.insert.insert.i37.i.i = phi i64 [ %283, %._crit_edge.i32.i.i ], [ -639950127104, %266 ]
   %.sroa.5.0.extract.shift18.i.i = lshr i64 %.sroa.05.0.insert.insert.i37.i.i, 32
   br label %av_sub_sf.exit
 
-av_sub_sf.exit:                                   ; preds = %av_int2sf.exit, %av_normalize_sf.exit.i.i, %266, %av_normalize_sf.exit41.i.i
-  %.sroa.016.0.i.i = phi i64 [ %.sroa.05.0.insert.insert.i.i.i, %av_normalize_sf.exit.i.i ], [ %.sroa.05.0.insert.insert.i37.i.i, %av_normalize_sf.exit41.i.i ], [ %242, %av_int2sf.exit ], [ %.sroa.05.0.insert.insert.i.i147, %266 ]
-  %.sroa.5.0.i.i151 = phi i64 [ %.sroa.5.0.extract.shift.i.i152, %av_normalize_sf.exit.i.i ], [ %.sroa.5.0.extract.shift18.i.i, %av_normalize_sf.exit41.i.i ], [ %.sroa.414.0.extract.shift.i, %av_int2sf.exit ], [ %.sroa.414.0.extract.shift.i.i, %266 ]
+av_sub_sf.exit:                                   ; preds = %av_int2sf.exit, %av_normalize_sf.exit.i.i, %264, %av_normalize_sf.exit41.i.i
+  %.sroa.016.0.i.i = phi i64 [ %.sroa.05.0.insert.insert.i.i.i, %av_normalize_sf.exit.i.i ], [ %.sroa.05.0.insert.insert.i37.i.i, %av_normalize_sf.exit41.i.i ], [ %240, %av_int2sf.exit ], [ %.sroa.05.0.insert.insert.i.i147, %264 ]
+  %.sroa.5.0.i.i151 = phi i64 [ %.sroa.5.0.extract.shift.i.i152, %av_normalize_sf.exit.i.i ], [ %.sroa.5.0.extract.shift18.i.i, %av_normalize_sf.exit41.i.i ], [ %.sroa.414.0.extract.shift.i, %av_int2sf.exit ], [ %.sroa.414.0.extract.shift.i.i, %264 ]
   %sext15.i153 = shl i64 %.sroa.0107.0.copyload.i, 32
-  %286 = ashr exact i64 %sext15.i153, 32
-  %287 = mul nsw i64 %286, 973078528
-  %288 = lshr i64 %287, 29
+  %284 = ashr exact i64 %sext15.i153, 32
+  %285 = mul nsw i64 %284, 973078528
+  %286 = lshr i64 %285, 29
   %.sroa.2.0.insert.shift.i154 = add i64 %.sroa.0107.0.copyload.i, -4294967296
-  %.sroa.0.0.extract.trunc.i.i155 = trunc i64 %288 to i32
+  %.sroa.0.0.extract.trunc.i.i155 = trunc i64 %286 to i32
   %.sroa.5.0.extract.shift.i.i156 = lshr i64 %.sroa.2.0.insert.shift.i154, 32
-  %289 = add i32 %.sroa.0.0.extract.trunc.i.i155, 1073741824
-  %290 = icmp slt i32 %289, 1
-  %291 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i156, 1
-  %292 = and i64 %291, 4294967295
-  %.sroa.5.0.i.i157 = select i1 %290, i64 %292, i64 %.sroa.5.0.extract.shift.i.i156
-  %293 = zext i1 %290 to i32
-  %.sroa.0.0.i.i158 = ashr i32 %.sroa.0.0.extract.trunc.i.i155, %293
+  %287 = add i32 %.sroa.0.0.extract.trunc.i.i155, 1073741824
+  %288 = icmp slt i32 %287, 1
+  %289 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i156, 1
+  %290 = and i64 %289, 4294967295
+  %.sroa.5.0.i.i157 = select i1 %288, i64 %290, i64 %.sroa.5.0.extract.shift.i.i156
+  %291 = zext i1 %288 to i32
+  %.sroa.0.0.i.i158 = ashr i32 %.sroa.0.0.extract.trunc.i.i155, %291
   %.sroa.2.0.insert.shift.i.i159 = shl nuw i64 %.sroa.5.0.i.i157, 32
   %.sroa.02.0.insert.ext.i.i160 = zext i32 %.sroa.0.0.i.i158 to i64
   %.sroa.02.0.insert.insert.i.i161 = or disjoint i64 %.sroa.2.0.insert.shift.i.i159, %.sroa.02.0.insert.ext.i.i160
   %.sroa.7.0.extract.trunc11.i162 = trunc nuw i64 %.sroa.5.0.i.i157 to i32
-  %294 = icmp eq i32 %.sroa.0.0.i.i158, 0
-  %295 = icmp slt i32 %.sroa.7.0.extract.trunc11.i162, -149
-  %or.cond.i163 = select i1 %294, i1 true, i1 %295
+  %292 = icmp eq i32 %.sroa.0.0.i.i158, 0
+  %293 = icmp slt i32 %.sroa.7.0.extract.trunc11.i162, -149
+  %or.cond.i163 = select i1 %292, i1 true, i1 %293
   %..i164 = select i1 %or.cond.i163, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i161
   %.sroa.7.0.extract.shift.i165 = and i64 %.sroa.0111.0.copyload.i, -4294967296
   %sext15.i167 = shl i64 %.sroa.016.0.i.i, 32
-  %296 = ashr exact i64 %sext15.i167, 32
-  %297 = mul nsw i64 %296, %152
-  %298 = lshr i64 %297, 29
+  %294 = ashr exact i64 %sext15.i167, 32
+  %295 = mul nsw i64 %294, %150
+  %296 = lshr i64 %295, 29
   %.sroa.25.0.extract.shift16.i168 = add i64 %.sroa.7.0.extract.shift.i165, -4294967296
-  %.sroa.0.0.extract.trunc.i.i170 = trunc i64 %298 to i32
-  %299 = lshr exact i64 %.sroa.25.0.extract.shift16.i168, 32
-  %300 = add nuw nsw i64 %299, %.sroa.5.0.i.i151
-  %301 = add i32 %.sroa.0.0.extract.trunc.i.i170, 1073741824
-  %302 = icmp slt i32 %301, 1
-  %303 = zext i1 %302 to i64
-  %.sroa.5.0.i.i172.v = add nuw nsw i64 %300, %303
-  %304 = zext i1 %302 to i32
-  %.sroa.0.0.i.i173 = ashr i32 %.sroa.0.0.extract.trunc.i.i170, %304
+  %.sroa.0.0.extract.trunc.i.i170 = trunc i64 %296 to i32
+  %297 = lshr exact i64 %.sroa.25.0.extract.shift16.i168, 32
+  %298 = add nuw nsw i64 %297, %.sroa.5.0.i.i151
+  %299 = add i32 %.sroa.0.0.extract.trunc.i.i170, 1073741824
+  %300 = icmp slt i32 %299, 1
+  %301 = zext i1 %300 to i64
+  %.sroa.5.0.i.i172.v = add nuw nsw i64 %298, %301
+  %302 = zext i1 %300 to i32
+  %.sroa.0.0.i.i173 = ashr i32 %.sroa.0.0.extract.trunc.i.i170, %302
   %.sroa.5.0.i.i172 = shl i64 %.sroa.5.0.i.i172.v, 32
   %.sroa.02.0.insert.ext.i.i175 = zext i32 %.sroa.0.0.i.i173 to i64
   %.sroa.02.0.insert.insert.i.i176 = or disjoint i64 %.sroa.5.0.i.i172, %.sroa.02.0.insert.ext.i.i175
   %.sroa.7.0.extract.trunc11.i177 = trunc i64 %.sroa.5.0.i.i172.v to i32
-  %305 = icmp eq i32 %.sroa.0.0.i.i173, 0
-  %306 = icmp slt i32 %.sroa.7.0.extract.trunc11.i177, -149
-  %or.cond.i178 = select i1 %305, i1 true, i1 %306
+  %303 = icmp eq i32 %.sroa.0.0.i.i173, 0
+  %304 = icmp slt i32 %.sroa.7.0.extract.trunc11.i177, -149
+  %or.cond.i178 = select i1 %303, i1 true, i1 %304
   %..i179 = select i1 %or.cond.i178, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i176
   %.sroa.012.0.extract.trunc.i180 = trunc i64 %..i164 to i32
   %.sroa.414.0.extract.shift.i181 = lshr i64 %..i164, 32
@@ -1837,161 +1836,161 @@ av_sub_sf.exit:                                   ; preds = %av_int2sf.exit, %av
   %.sroa.09.0.extract.trunc.i183 = trunc i64 %..i179 to i32
   %.sroa.4.0.extract.shift.i184 = lshr i64 %..i179, 32
   %.sroa.4.0.extract.trunc.i185 = trunc nuw i64 %.sroa.4.0.extract.shift.i184 to i32
-  %307 = sub nsw i32 %.sroa.414.0.extract.trunc.i182, %.sroa.4.0.extract.trunc.i185
-  %308 = icmp slt i32 %307, -31
-  br i1 %308, label %av_add_sf.exit223, label %309
+  %305 = sub nsw i32 %.sroa.414.0.extract.trunc.i182, %.sroa.4.0.extract.trunc.i185
+  %306 = icmp slt i32 %305, -31
+  br i1 %306, label %av_add_sf.exit223, label %307
 
-309:                                              ; preds = %av_sub_sf.exit
-  %310 = icmp slt i32 %307, 0
-  br i1 %310, label %311, label %330
+307:                                              ; preds = %av_sub_sf.exit
+  %308 = icmp slt i32 %305, 0
+  br i1 %308, label %309, label %328
 
-311:                                              ; preds = %309
-  %312 = sub nsw i32 0, %307
-  %313 = ashr i32 %.sroa.012.0.extract.trunc.i180, %312
-  %314 = add nsw i32 %313, %.sroa.09.0.extract.trunc.i183
-  %315 = add i32 %314, 1073741824
-  %316 = icmp slt i32 %315, 1
-  %317 = zext i1 %316 to i32
-  %.sroa.0.0.i.i207 = ashr i32 %314, %317
+309:                                              ; preds = %307
+  %310 = sub nsw i32 0, %305
+  %311 = ashr i32 %.sroa.012.0.extract.trunc.i180, %310
+  %312 = add nsw i32 %311, %.sroa.09.0.extract.trunc.i183
+  %313 = add i32 %312, 1073741824
+  %314 = icmp slt i32 %313, 1
+  %315 = zext i1 %314 to i32
+  %.sroa.0.0.i.i207 = ashr i32 %312, %315
   %.not.i.i208 = icmp eq i32 %.sroa.0.0.i.i207, 0
   br i1 %.not.i.i208, label %av_normalize_sf.exit.i217, label %.preheader.i.i209
 
-.preheader.i.i209:                                ; preds = %311
-  %318 = zext i1 %316 to i64
-  %.sroa.5.0.i.i210 = add nuw nsw i64 %.sroa.4.0.extract.shift.i184, %318
+.preheader.i.i209:                                ; preds = %309
+  %316 = zext i1 %314 to i64
+  %.sroa.5.0.i.i210 = add nuw nsw i64 %.sroa.4.0.extract.shift.i184, %316
   %.sroa.8.0.extract.trunc.i.i211 = trunc i64 %.sroa.5.0.i.i210 to i32
-  %319 = add i32 %.sroa.0.0.i.i207, 536870911
-  %320 = icmp ult i32 %319, 1073741823
-  br i1 %320, label %.lr.ph.i.i220, label %._crit_edge.i.i212
+  %317 = add i32 %.sroa.0.0.i.i207, 536870911
+  %318 = icmp ult i32 %317, 1073741823
+  br i1 %318, label %.lr.ph.i.i220, label %._crit_edge.i.i212
 
 .lr.ph.i.i220:                                    ; preds = %.preheader.i.i209, %.lr.ph.i.i220
-  %.sroa.0.08.i.i221 = phi i32 [ %321, %.lr.ph.i.i220 ], [ %.sroa.0.0.i.i207, %.preheader.i.i209 ]
-  %.sroa.8.07.i.i222 = phi i32 [ %322, %.lr.ph.i.i220 ], [ %.sroa.8.0.extract.trunc.i.i211, %.preheader.i.i209 ]
-  %321 = shl nsw i32 %.sroa.0.08.i.i221, 1
-  %322 = add nsw i32 %.sroa.8.07.i.i222, -1
-  %323 = add nsw i32 %321, 536870911
-  %324 = icmp ult i32 %323, 1073741823
-  br i1 %324, label %.lr.ph.i.i220, label %._crit_edge.i.i212, !llvm.loop !134
+  %.sroa.0.08.i.i221 = phi i32 [ %319, %.lr.ph.i.i220 ], [ %.sroa.0.0.i.i207, %.preheader.i.i209 ]
+  %.sroa.8.07.i.i222 = phi i32 [ %320, %.lr.ph.i.i220 ], [ %.sroa.8.0.extract.trunc.i.i211, %.preheader.i.i209 ]
+  %319 = shl nsw i32 %.sroa.0.08.i.i221, 1
+  %320 = add nsw i32 %.sroa.8.07.i.i222, -1
+  %321 = add nsw i32 %319, 536870911
+  %322 = icmp ult i32 %321, 1073741823
+  br i1 %322, label %.lr.ph.i.i220, label %._crit_edge.i.i212, !llvm.loop !134
 
 ._crit_edge.i.i212:                               ; preds = %.lr.ph.i.i220, %.preheader.i.i209
-  %.sroa.8.0.lcssa.i.i213 = phi i32 [ %.sroa.8.0.extract.trunc.i.i211, %.preheader.i.i209 ], [ %322, %.lr.ph.i.i220 ]
-  %.sroa.0.0.lcssa.i.i214 = phi i32 [ %.sroa.0.0.i.i207, %.preheader.i.i209 ], [ %321, %.lr.ph.i.i220 ]
-  %325 = icmp slt i32 %.sroa.8.0.lcssa.i.i213, -149
+  %.sroa.8.0.lcssa.i.i213 = phi i32 [ %.sroa.8.0.extract.trunc.i.i211, %.preheader.i.i209 ], [ %320, %.lr.ph.i.i220 ]
+  %.sroa.0.0.lcssa.i.i214 = phi i32 [ %.sroa.0.0.i.i207, %.preheader.i.i209 ], [ %319, %.lr.ph.i.i220 ]
+  %323 = icmp slt i32 %.sroa.8.0.lcssa.i.i213, -149
   %spec.select.i.i215 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i213, i32 -149)
-  %spec.select6.i.i216 = select i1 %325, i32 0, i32 %.sroa.0.0.lcssa.i.i214
-  %326 = zext i32 %spec.select.i.i215 to i64
-  %327 = shl nuw i64 %326, 32
-  %328 = zext i32 %spec.select6.i.i216 to i64
-  %329 = or disjoint i64 %327, %328
+  %spec.select6.i.i216 = select i1 %323, i32 0, i32 %.sroa.0.0.lcssa.i.i214
+  %324 = zext i32 %spec.select.i.i215 to i64
+  %325 = shl nuw i64 %324, 32
+  %326 = zext i32 %spec.select6.i.i216 to i64
+  %327 = or disjoint i64 %325, %326
   br label %av_normalize_sf.exit.i217
 
-av_normalize_sf.exit.i217:                        ; preds = %._crit_edge.i.i212, %311
-  %.sroa.05.0.insert.insert.i.i218 = phi i64 [ %329, %._crit_edge.i.i212 ], [ -639950127104, %311 ]
+av_normalize_sf.exit.i217:                        ; preds = %._crit_edge.i.i212, %309
+  %.sroa.05.0.insert.insert.i.i218 = phi i64 [ %327, %._crit_edge.i.i212 ], [ -639950127104, %309 ]
   %.sroa.5.0.extract.shift.i219 = lshr i64 %.sroa.05.0.insert.insert.i.i218, 32
   br label %av_add_sf.exit223
 
-330:                                              ; preds = %309
-  %331 = icmp samesign ult i32 %307, 32
-  br i1 %331, label %332, label %av_add_sf.exit223
+328:                                              ; preds = %307
+  %329 = icmp samesign ult i32 %305, 32
+  br i1 %329, label %330, label %av_add_sf.exit223
 
-332:                                              ; preds = %330
-  %333 = ashr i32 %.sroa.09.0.extract.trunc.i183, %307
-  %334 = add nsw i32 %333, %.sroa.012.0.extract.trunc.i180
-  %335 = add i32 %334, 1073741824
-  %336 = icmp slt i32 %335, 1
-  %337 = zext i1 %336 to i32
-  %.sroa.0.0.i24.i191 = ashr i32 %334, %337
+330:                                              ; preds = %328
+  %331 = ashr i32 %.sroa.09.0.extract.trunc.i183, %305
+  %332 = add nsw i32 %331, %.sroa.012.0.extract.trunc.i180
+  %333 = add i32 %332, 1073741824
+  %334 = icmp slt i32 %333, 1
+  %335 = zext i1 %334 to i32
+  %.sroa.0.0.i24.i191 = ashr i32 %332, %335
   %.not.i29.i192 = icmp eq i32 %.sroa.0.0.i24.i191, 0
   br i1 %.not.i29.i192, label %av_normalize_sf.exit41.i201, label %.preheader.i30.i193
 
-.preheader.i30.i193:                              ; preds = %332
-  %338 = zext i1 %336 to i64
-  %.sroa.5.0.i23.i194 = add nuw nsw i64 %.sroa.414.0.extract.shift.i181, %338
+.preheader.i30.i193:                              ; preds = %330
+  %336 = zext i1 %334 to i64
+  %.sroa.5.0.i23.i194 = add nuw nsw i64 %.sroa.414.0.extract.shift.i181, %336
   %.sroa.8.0.extract.trunc.i31.i195 = trunc i64 %.sroa.5.0.i23.i194 to i32
-  %339 = add i32 %.sroa.0.0.i24.i191, 536870911
-  %340 = icmp ult i32 %339, 1073741823
-  br i1 %340, label %.lr.ph.i38.i204, label %._crit_edge.i32.i196
+  %337 = add i32 %.sroa.0.0.i24.i191, 536870911
+  %338 = icmp ult i32 %337, 1073741823
+  br i1 %338, label %.lr.ph.i38.i204, label %._crit_edge.i32.i196
 
 .lr.ph.i38.i204:                                  ; preds = %.preheader.i30.i193, %.lr.ph.i38.i204
-  %.sroa.0.08.i39.i205 = phi i32 [ %341, %.lr.ph.i38.i204 ], [ %.sroa.0.0.i24.i191, %.preheader.i30.i193 ]
-  %.sroa.8.07.i40.i206 = phi i32 [ %342, %.lr.ph.i38.i204 ], [ %.sroa.8.0.extract.trunc.i31.i195, %.preheader.i30.i193 ]
-  %341 = shl nsw i32 %.sroa.0.08.i39.i205, 1
-  %342 = add nsw i32 %.sroa.8.07.i40.i206, -1
-  %343 = add nsw i32 %341, 536870911
-  %344 = icmp ult i32 %343, 1073741823
-  br i1 %344, label %.lr.ph.i38.i204, label %._crit_edge.i32.i196, !llvm.loop !134
+  %.sroa.0.08.i39.i205 = phi i32 [ %339, %.lr.ph.i38.i204 ], [ %.sroa.0.0.i24.i191, %.preheader.i30.i193 ]
+  %.sroa.8.07.i40.i206 = phi i32 [ %340, %.lr.ph.i38.i204 ], [ %.sroa.8.0.extract.trunc.i31.i195, %.preheader.i30.i193 ]
+  %339 = shl nsw i32 %.sroa.0.08.i39.i205, 1
+  %340 = add nsw i32 %.sroa.8.07.i40.i206, -1
+  %341 = add nsw i32 %339, 536870911
+  %342 = icmp ult i32 %341, 1073741823
+  br i1 %342, label %.lr.ph.i38.i204, label %._crit_edge.i32.i196, !llvm.loop !134
 
 ._crit_edge.i32.i196:                             ; preds = %.lr.ph.i38.i204, %.preheader.i30.i193
-  %.sroa.8.0.lcssa.i33.i197 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i195, %.preheader.i30.i193 ], [ %342, %.lr.ph.i38.i204 ]
-  %.sroa.0.0.lcssa.i34.i198 = phi i32 [ %.sroa.0.0.i24.i191, %.preheader.i30.i193 ], [ %341, %.lr.ph.i38.i204 ]
-  %345 = icmp slt i32 %.sroa.8.0.lcssa.i33.i197, -149
+  %.sroa.8.0.lcssa.i33.i197 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i195, %.preheader.i30.i193 ], [ %340, %.lr.ph.i38.i204 ]
+  %.sroa.0.0.lcssa.i34.i198 = phi i32 [ %.sroa.0.0.i24.i191, %.preheader.i30.i193 ], [ %339, %.lr.ph.i38.i204 ]
+  %343 = icmp slt i32 %.sroa.8.0.lcssa.i33.i197, -149
   %spec.select.i35.i199 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i197, i32 -149)
-  %spec.select6.i36.i200 = select i1 %345, i32 0, i32 %.sroa.0.0.lcssa.i34.i198
-  %346 = zext i32 %spec.select.i35.i199 to i64
-  %347 = shl nuw i64 %346, 32
-  %348 = zext i32 %spec.select6.i36.i200 to i64
-  %349 = or disjoint i64 %347, %348
+  %spec.select6.i36.i200 = select i1 %343, i32 0, i32 %.sroa.0.0.lcssa.i34.i198
+  %344 = zext i32 %spec.select.i35.i199 to i64
+  %345 = shl nuw i64 %344, 32
+  %346 = zext i32 %spec.select6.i36.i200 to i64
+  %347 = or disjoint i64 %345, %346
   br label %av_normalize_sf.exit41.i201
 
-av_normalize_sf.exit41.i201:                      ; preds = %._crit_edge.i32.i196, %332
-  %.sroa.05.0.insert.insert.i37.i202 = phi i64 [ %349, %._crit_edge.i32.i196 ], [ -639950127104, %332 ]
+av_normalize_sf.exit41.i201:                      ; preds = %._crit_edge.i32.i196, %330
+  %.sroa.05.0.insert.insert.i37.i202 = phi i64 [ %347, %._crit_edge.i32.i196 ], [ -639950127104, %330 ]
   %.sroa.5.0.extract.shift18.i203 = lshr i64 %.sroa.05.0.insert.insert.i37.i202, 32
   br label %av_add_sf.exit223
 
-av_add_sf.exit223:                                ; preds = %av_sub_sf.exit, %av_normalize_sf.exit.i217, %330, %av_normalize_sf.exit41.i201
-  %.sroa.016.0.i186 = phi i64 [ %.sroa.05.0.insert.insert.i.i218, %av_normalize_sf.exit.i217 ], [ %.sroa.05.0.insert.insert.i37.i202, %av_normalize_sf.exit41.i201 ], [ %..i179, %av_sub_sf.exit ], [ %..i164, %330 ]
-  %.sroa.5.0.i187 = phi i64 [ %.sroa.5.0.extract.shift.i219, %av_normalize_sf.exit.i217 ], [ %.sroa.5.0.extract.shift18.i203, %av_normalize_sf.exit41.i201 ], [ %.sroa.4.0.extract.shift.i184, %av_sub_sf.exit ], [ %.sroa.414.0.extract.shift.i181, %330 ]
+av_add_sf.exit223:                                ; preds = %av_sub_sf.exit, %av_normalize_sf.exit.i217, %328, %av_normalize_sf.exit41.i201
+  %.sroa.016.0.i186 = phi i64 [ %.sroa.05.0.insert.insert.i.i218, %av_normalize_sf.exit.i217 ], [ %.sroa.05.0.insert.insert.i37.i202, %av_normalize_sf.exit41.i201 ], [ %..i179, %av_sub_sf.exit ], [ %..i164, %328 ]
+  %.sroa.5.0.i187 = phi i64 [ %.sroa.5.0.extract.shift.i219, %av_normalize_sf.exit.i217 ], [ %.sroa.5.0.extract.shift18.i203, %av_normalize_sf.exit41.i201 ], [ %.sroa.4.0.extract.shift.i184, %av_sub_sf.exit ], [ %.sroa.414.0.extract.shift.i181, %328 ]
   %.sroa.5.0.insert.shift.i188 = shl nuw i64 %.sroa.5.0.i187, 32
   %.sroa.0.0.extract.trunc.i56 = trunc i64 %.sroa.016.0.i186 to i32
-  %350 = ashr i32 %.sroa.0.0.extract.trunc.i56, 31
-  %351 = xor i32 %350, %.sroa.0.0.extract.trunc.i56
-  %352 = sub nsw i32 %351, %350
-  %353 = and i32 %352, -4194304
-  %354 = xor i32 %353, %350
-  %355 = sub nsw i32 %354, %350
-  %.sroa.05.0.insert.ext.i58 = zext i32 %355 to i64
+  %348 = ashr i32 %.sroa.0.0.extract.trunc.i56, 31
+  %349 = xor i32 %348, %.sroa.0.0.extract.trunc.i56
+  %350 = sub nsw i32 %349, %348
+  %351 = and i32 %350, -4194304
+  %352 = xor i32 %351, %348
+  %353 = sub nsw i32 %352, %348
+  %.sroa.05.0.insert.ext.i58 = zext i32 %353 to i64
   %.sroa.05.0.insert.insert.i59 = or disjoint i64 %.sroa.5.0.insert.shift.i188, %.sroa.05.0.insert.ext.i58
   store i64 %.sroa.05.0.insert.insert.i59, ptr %55, align 4
-  %356 = mul nsw i64 %152, %152
-  %357 = lshr i64 %356, 29
+  %354 = mul nsw i64 %150, %150
+  %355 = lshr i64 %354, 29
   %.sroa.2.0.insert.shift.i228 = add i64 %.sroa.25.0.extract.shift16.i168, %.sroa.0111.0.copyload.i
-  %.sroa.0.0.extract.trunc.i.i229 = trunc i64 %357 to i32
+  %.sroa.0.0.extract.trunc.i.i229 = trunc i64 %355 to i32
   %.sroa.5.0.extract.shift.i.i230 = lshr i64 %.sroa.2.0.insert.shift.i228, 32
-  %358 = add i32 %.sroa.0.0.extract.trunc.i.i229, 1073741824
-  %359 = icmp slt i32 %358, 1
-  %360 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i230, 1
-  %361 = and i64 %360, 4294967295
-  %.sroa.5.0.i.i231 = select i1 %359, i64 %361, i64 %.sroa.5.0.extract.shift.i.i230
-  %362 = zext i1 %359 to i32
-  %.sroa.0.0.i.i232 = ashr i32 %.sroa.0.0.extract.trunc.i.i229, %362
+  %356 = add i32 %.sroa.0.0.extract.trunc.i.i229, 1073741824
+  %357 = icmp slt i32 %356, 1
+  %358 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i230, 1
+  %359 = and i64 %358, 4294967295
+  %.sroa.5.0.i.i231 = select i1 %357, i64 %359, i64 %.sroa.5.0.extract.shift.i.i230
+  %360 = zext i1 %357 to i32
+  %.sroa.0.0.i.i232 = ashr i32 %.sroa.0.0.extract.trunc.i.i229, %360
   %.sroa.2.0.insert.shift.i.i233 = shl nuw i64 %.sroa.5.0.i.i231, 32
   %.sroa.02.0.insert.ext.i.i234 = zext i32 %.sroa.0.0.i.i232 to i64
   %.sroa.02.0.insert.insert.i.i235 = or disjoint i64 %.sroa.2.0.insert.shift.i.i233, %.sroa.02.0.insert.ext.i.i234
   %.sroa.7.0.extract.trunc11.i236 = trunc nuw i64 %.sroa.5.0.i.i231 to i32
-  %363 = icmp eq i32 %.sroa.0.0.i.i232, 0
-  %364 = icmp slt i32 %.sroa.7.0.extract.trunc11.i236, -149
-  %or.cond.i237 = select i1 %363, i1 true, i1 %364
+  %361 = icmp eq i32 %.sroa.0.0.i.i232, 0
+  %362 = icmp slt i32 %.sroa.7.0.extract.trunc11.i236, -149
+  %or.cond.i237 = select i1 %361, i1 true, i1 %362
   %..i238 = select i1 %or.cond.i237, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i235
-  %365 = mul nsw i64 %296, %296
-  %366 = lshr i64 %365, 29
+  %363 = mul nsw i64 %294, %294
+  %364 = lshr i64 %363, 29
   %reass.add = shl i64 %.sroa.5.0.i.i151, 33
   %.sroa.2.0.insert.shift.i243 = add i64 %reass.add, -4294967296
-  %.sroa.0.0.extract.trunc.i.i244 = trunc i64 %366 to i32
+  %.sroa.0.0.extract.trunc.i.i244 = trunc i64 %364 to i32
   %.sroa.5.0.extract.shift.i.i245 = lshr exact i64 %.sroa.2.0.insert.shift.i243, 32
-  %367 = add i32 %.sroa.0.0.extract.trunc.i.i244, 1073741824
-  %368 = icmp slt i32 %367, 1
-  %369 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i245, 1
-  %370 = and i64 %369, 4294967294
-  %.sroa.5.0.i.i246 = select i1 %368, i64 %370, i64 %.sroa.5.0.extract.shift.i.i245
-  %371 = zext i1 %368 to i32
-  %.sroa.0.0.i.i247 = ashr i32 %.sroa.0.0.extract.trunc.i.i244, %371
+  %365 = add i32 %.sroa.0.0.extract.trunc.i.i244, 1073741824
+  %366 = icmp slt i32 %365, 1
+  %367 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i245, 1
+  %368 = and i64 %367, 4294967294
+  %.sroa.5.0.i.i246 = select i1 %366, i64 %368, i64 %.sroa.5.0.extract.shift.i.i245
+  %369 = zext i1 %366 to i32
+  %.sroa.0.0.i.i247 = ashr i32 %.sroa.0.0.extract.trunc.i.i244, %369
   %.sroa.2.0.insert.shift.i.i248 = shl nuw i64 %.sroa.5.0.i.i246, 32
   %.sroa.02.0.insert.ext.i.i249 = zext i32 %.sroa.0.0.i.i247 to i64
   %.sroa.02.0.insert.insert.i.i250 = or disjoint i64 %.sroa.2.0.insert.shift.i.i248, %.sroa.02.0.insert.ext.i.i249
   %.sroa.7.0.extract.trunc11.i251 = trunc nuw i64 %.sroa.5.0.i.i246 to i32
-  %372 = icmp eq i32 %.sroa.0.0.i.i247, 0
-  %373 = icmp slt i32 %.sroa.7.0.extract.trunc11.i251, -149
-  %or.cond.i252 = select i1 %372, i1 true, i1 %373
+  %370 = icmp eq i32 %.sroa.0.0.i.i247, 0
+  %371 = icmp slt i32 %.sroa.7.0.extract.trunc11.i251, -149
+  %or.cond.i252 = select i1 %370, i1 true, i1 %371
   %..i253 = select i1 %or.cond.i252, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i250
   %.sroa.012.0.extract.trunc.i254 = trunc i64 %..i238 to i32
   %.sroa.414.0.extract.shift.i255 = lshr i64 %..i238, 32
@@ -1999,131 +1998,131 @@ av_add_sf.exit223:                                ; preds = %av_sub_sf.exit, %av
   %.sroa.09.0.extract.trunc.i257 = trunc i64 %..i253 to i32
   %.sroa.4.0.extract.shift.i258 = lshr i64 %..i253, 32
   %.sroa.4.0.extract.trunc.i259 = trunc nuw i64 %.sroa.4.0.extract.shift.i258 to i32
-  %374 = sub nsw i32 %.sroa.414.0.extract.trunc.i256, %.sroa.4.0.extract.trunc.i259
-  %375 = icmp slt i32 %374, -31
-  br i1 %375, label %av_add_sf.exit297, label %376
+  %372 = sub nsw i32 %.sroa.414.0.extract.trunc.i256, %.sroa.4.0.extract.trunc.i259
+  %373 = icmp slt i32 %372, -31
+  br i1 %373, label %av_add_sf.exit297, label %374
 
-376:                                              ; preds = %av_add_sf.exit223
-  %377 = icmp slt i32 %374, 0
-  br i1 %377, label %378, label %397
+374:                                              ; preds = %av_add_sf.exit223
+  %375 = icmp slt i32 %372, 0
+  br i1 %375, label %376, label %395
 
-378:                                              ; preds = %376
-  %379 = sub nsw i32 0, %374
-  %380 = ashr i32 %.sroa.012.0.extract.trunc.i254, %379
-  %381 = add nsw i32 %380, %.sroa.09.0.extract.trunc.i257
-  %382 = add i32 %381, 1073741824
-  %383 = icmp slt i32 %382, 1
-  %384 = zext i1 %383 to i32
-  %.sroa.0.0.i.i281 = ashr i32 %381, %384
+376:                                              ; preds = %374
+  %377 = sub nsw i32 0, %372
+  %378 = ashr i32 %.sroa.012.0.extract.trunc.i254, %377
+  %379 = add nsw i32 %378, %.sroa.09.0.extract.trunc.i257
+  %380 = add i32 %379, 1073741824
+  %381 = icmp slt i32 %380, 1
+  %382 = zext i1 %381 to i32
+  %.sroa.0.0.i.i281 = ashr i32 %379, %382
   %.not.i.i282 = icmp eq i32 %.sroa.0.0.i.i281, 0
   br i1 %.not.i.i282, label %av_normalize_sf.exit.i291, label %.preheader.i.i283
 
-.preheader.i.i283:                                ; preds = %378
-  %385 = zext i1 %383 to i64
-  %.sroa.5.0.i.i284 = add nuw nsw i64 %.sroa.4.0.extract.shift.i258, %385
+.preheader.i.i283:                                ; preds = %376
+  %383 = zext i1 %381 to i64
+  %.sroa.5.0.i.i284 = add nuw nsw i64 %.sroa.4.0.extract.shift.i258, %383
   %.sroa.8.0.extract.trunc.i.i285 = trunc i64 %.sroa.5.0.i.i284 to i32
-  %386 = add i32 %.sroa.0.0.i.i281, 536870911
-  %387 = icmp ult i32 %386, 1073741823
-  br i1 %387, label %.lr.ph.i.i294, label %._crit_edge.i.i286
+  %384 = add i32 %.sroa.0.0.i.i281, 536870911
+  %385 = icmp ult i32 %384, 1073741823
+  br i1 %385, label %.lr.ph.i.i294, label %._crit_edge.i.i286
 
 .lr.ph.i.i294:                                    ; preds = %.preheader.i.i283, %.lr.ph.i.i294
-  %.sroa.0.08.i.i295 = phi i32 [ %388, %.lr.ph.i.i294 ], [ %.sroa.0.0.i.i281, %.preheader.i.i283 ]
-  %.sroa.8.07.i.i296 = phi i32 [ %389, %.lr.ph.i.i294 ], [ %.sroa.8.0.extract.trunc.i.i285, %.preheader.i.i283 ]
-  %388 = shl nsw i32 %.sroa.0.08.i.i295, 1
-  %389 = add nsw i32 %.sroa.8.07.i.i296, -1
-  %390 = add nsw i32 %388, 536870911
-  %391 = icmp ult i32 %390, 1073741823
-  br i1 %391, label %.lr.ph.i.i294, label %._crit_edge.i.i286, !llvm.loop !134
+  %.sroa.0.08.i.i295 = phi i32 [ %386, %.lr.ph.i.i294 ], [ %.sroa.0.0.i.i281, %.preheader.i.i283 ]
+  %.sroa.8.07.i.i296 = phi i32 [ %387, %.lr.ph.i.i294 ], [ %.sroa.8.0.extract.trunc.i.i285, %.preheader.i.i283 ]
+  %386 = shl nsw i32 %.sroa.0.08.i.i295, 1
+  %387 = add nsw i32 %.sroa.8.07.i.i296, -1
+  %388 = add nsw i32 %386, 536870911
+  %389 = icmp ult i32 %388, 1073741823
+  br i1 %389, label %.lr.ph.i.i294, label %._crit_edge.i.i286, !llvm.loop !134
 
 ._crit_edge.i.i286:                               ; preds = %.lr.ph.i.i294, %.preheader.i.i283
-  %.sroa.8.0.lcssa.i.i287 = phi i32 [ %.sroa.8.0.extract.trunc.i.i285, %.preheader.i.i283 ], [ %389, %.lr.ph.i.i294 ]
-  %.sroa.0.0.lcssa.i.i288 = phi i32 [ %.sroa.0.0.i.i281, %.preheader.i.i283 ], [ %388, %.lr.ph.i.i294 ]
-  %392 = icmp slt i32 %.sroa.8.0.lcssa.i.i287, -149
+  %.sroa.8.0.lcssa.i.i287 = phi i32 [ %.sroa.8.0.extract.trunc.i.i285, %.preheader.i.i283 ], [ %387, %.lr.ph.i.i294 ]
+  %.sroa.0.0.lcssa.i.i288 = phi i32 [ %.sroa.0.0.i.i281, %.preheader.i.i283 ], [ %386, %.lr.ph.i.i294 ]
+  %390 = icmp slt i32 %.sroa.8.0.lcssa.i.i287, -149
   %spec.select.i.i289 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i287, i32 -149)
-  %spec.select6.i.i290 = select i1 %392, i32 0, i32 %.sroa.0.0.lcssa.i.i288
-  %393 = zext i32 %spec.select.i.i289 to i64
-  %394 = shl nuw i64 %393, 32
-  %395 = zext i32 %spec.select6.i.i290 to i64
-  %396 = or disjoint i64 %394, %395
+  %spec.select6.i.i290 = select i1 %390, i32 0, i32 %.sroa.0.0.lcssa.i.i288
+  %391 = zext i32 %spec.select.i.i289 to i64
+  %392 = shl nuw i64 %391, 32
+  %393 = zext i32 %spec.select6.i.i290 to i64
+  %394 = or disjoint i64 %392, %393
   br label %av_normalize_sf.exit.i291
 
-av_normalize_sf.exit.i291:                        ; preds = %._crit_edge.i.i286, %378
-  %.sroa.05.0.insert.insert.i.i292 = phi i64 [ %396, %._crit_edge.i.i286 ], [ -639950127104, %378 ]
+av_normalize_sf.exit.i291:                        ; preds = %._crit_edge.i.i286, %376
+  %.sroa.05.0.insert.insert.i.i292 = phi i64 [ %394, %._crit_edge.i.i286 ], [ -639950127104, %376 ]
   %.sroa.5.0.extract.shift.i293 = lshr i64 %.sroa.05.0.insert.insert.i.i292, 32
   br label %av_add_sf.exit297
 
-397:                                              ; preds = %376
-  %398 = icmp samesign ult i32 %374, 32
-  br i1 %398, label %399, label %av_add_sf.exit297
+395:                                              ; preds = %374
+  %396 = icmp samesign ult i32 %372, 32
+  br i1 %396, label %397, label %av_add_sf.exit297
 
-399:                                              ; preds = %397
-  %400 = ashr i32 %.sroa.09.0.extract.trunc.i257, %374
-  %401 = add nsw i32 %400, %.sroa.012.0.extract.trunc.i254
-  %402 = add i32 %401, 1073741824
-  %403 = icmp slt i32 %402, 1
-  %404 = zext i1 %403 to i32
-  %.sroa.0.0.i24.i265 = ashr i32 %401, %404
+397:                                              ; preds = %395
+  %398 = ashr i32 %.sroa.09.0.extract.trunc.i257, %372
+  %399 = add nsw i32 %398, %.sroa.012.0.extract.trunc.i254
+  %400 = add i32 %399, 1073741824
+  %401 = icmp slt i32 %400, 1
+  %402 = zext i1 %401 to i32
+  %.sroa.0.0.i24.i265 = ashr i32 %399, %402
   %.not.i29.i266 = icmp eq i32 %.sroa.0.0.i24.i265, 0
   br i1 %.not.i29.i266, label %av_normalize_sf.exit41.i275, label %.preheader.i30.i267
 
-.preheader.i30.i267:                              ; preds = %399
-  %405 = zext i1 %403 to i64
-  %.sroa.5.0.i23.i268 = add nuw nsw i64 %.sroa.414.0.extract.shift.i255, %405
+.preheader.i30.i267:                              ; preds = %397
+  %403 = zext i1 %401 to i64
+  %.sroa.5.0.i23.i268 = add nuw nsw i64 %.sroa.414.0.extract.shift.i255, %403
   %.sroa.8.0.extract.trunc.i31.i269 = trunc i64 %.sroa.5.0.i23.i268 to i32
-  %406 = add i32 %.sroa.0.0.i24.i265, 536870911
-  %407 = icmp ult i32 %406, 1073741823
-  br i1 %407, label %.lr.ph.i38.i278, label %._crit_edge.i32.i270
+  %404 = add i32 %.sroa.0.0.i24.i265, 536870911
+  %405 = icmp ult i32 %404, 1073741823
+  br i1 %405, label %.lr.ph.i38.i278, label %._crit_edge.i32.i270
 
 .lr.ph.i38.i278:                                  ; preds = %.preheader.i30.i267, %.lr.ph.i38.i278
-  %.sroa.0.08.i39.i279 = phi i32 [ %408, %.lr.ph.i38.i278 ], [ %.sroa.0.0.i24.i265, %.preheader.i30.i267 ]
-  %.sroa.8.07.i40.i280 = phi i32 [ %409, %.lr.ph.i38.i278 ], [ %.sroa.8.0.extract.trunc.i31.i269, %.preheader.i30.i267 ]
-  %408 = shl nsw i32 %.sroa.0.08.i39.i279, 1
-  %409 = add nsw i32 %.sroa.8.07.i40.i280, -1
-  %410 = add nsw i32 %408, 536870911
-  %411 = icmp ult i32 %410, 1073741823
-  br i1 %411, label %.lr.ph.i38.i278, label %._crit_edge.i32.i270, !llvm.loop !134
+  %.sroa.0.08.i39.i279 = phi i32 [ %406, %.lr.ph.i38.i278 ], [ %.sroa.0.0.i24.i265, %.preheader.i30.i267 ]
+  %.sroa.8.07.i40.i280 = phi i32 [ %407, %.lr.ph.i38.i278 ], [ %.sroa.8.0.extract.trunc.i31.i269, %.preheader.i30.i267 ]
+  %406 = shl nsw i32 %.sroa.0.08.i39.i279, 1
+  %407 = add nsw i32 %.sroa.8.07.i40.i280, -1
+  %408 = add nsw i32 %406, 536870911
+  %409 = icmp ult i32 %408, 1073741823
+  br i1 %409, label %.lr.ph.i38.i278, label %._crit_edge.i32.i270, !llvm.loop !134
 
 ._crit_edge.i32.i270:                             ; preds = %.lr.ph.i38.i278, %.preheader.i30.i267
-  %.sroa.8.0.lcssa.i33.i271 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i269, %.preheader.i30.i267 ], [ %409, %.lr.ph.i38.i278 ]
-  %.sroa.0.0.lcssa.i34.i272 = phi i32 [ %.sroa.0.0.i24.i265, %.preheader.i30.i267 ], [ %408, %.lr.ph.i38.i278 ]
-  %412 = icmp slt i32 %.sroa.8.0.lcssa.i33.i271, -149
+  %.sroa.8.0.lcssa.i33.i271 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i269, %.preheader.i30.i267 ], [ %407, %.lr.ph.i38.i278 ]
+  %.sroa.0.0.lcssa.i34.i272 = phi i32 [ %.sroa.0.0.i24.i265, %.preheader.i30.i267 ], [ %406, %.lr.ph.i38.i278 ]
+  %410 = icmp slt i32 %.sroa.8.0.lcssa.i33.i271, -149
   %spec.select.i35.i273 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i271, i32 -149)
-  %spec.select6.i36.i274 = select i1 %412, i32 0, i32 %.sroa.0.0.lcssa.i34.i272
-  %413 = zext i32 %spec.select.i35.i273 to i64
-  %414 = shl nuw i64 %413, 32
-  %415 = zext i32 %spec.select6.i36.i274 to i64
-  %416 = or disjoint i64 %414, %415
+  %spec.select6.i36.i274 = select i1 %410, i32 0, i32 %.sroa.0.0.lcssa.i34.i272
+  %411 = zext i32 %spec.select.i35.i273 to i64
+  %412 = shl nuw i64 %411, 32
+  %413 = zext i32 %spec.select6.i36.i274 to i64
+  %414 = or disjoint i64 %412, %413
   br label %av_normalize_sf.exit41.i275
 
-av_normalize_sf.exit41.i275:                      ; preds = %._crit_edge.i32.i270, %399
-  %.sroa.05.0.insert.insert.i37.i276 = phi i64 [ %416, %._crit_edge.i32.i270 ], [ -639950127104, %399 ]
+av_normalize_sf.exit41.i275:                      ; preds = %._crit_edge.i32.i270, %397
+  %.sroa.05.0.insert.insert.i37.i276 = phi i64 [ %414, %._crit_edge.i32.i270 ], [ -639950127104, %397 ]
   %.sroa.5.0.extract.shift18.i277 = lshr i64 %.sroa.05.0.insert.insert.i37.i276, 32
   br label %av_add_sf.exit297
 
-av_add_sf.exit297:                                ; preds = %av_add_sf.exit223, %av_normalize_sf.exit.i291, %397, %av_normalize_sf.exit41.i275
-  %.sroa.016.0.i260 = phi i64 [ %.sroa.05.0.insert.insert.i.i292, %av_normalize_sf.exit.i291 ], [ %.sroa.05.0.insert.insert.i37.i276, %av_normalize_sf.exit41.i275 ], [ %..i253, %av_add_sf.exit223 ], [ %..i238, %397 ]
-  %.sroa.5.0.i261 = phi i64 [ %.sroa.5.0.extract.shift.i293, %av_normalize_sf.exit.i291 ], [ %.sroa.5.0.extract.shift18.i277, %av_normalize_sf.exit41.i275 ], [ %.sroa.4.0.extract.shift.i258, %av_add_sf.exit223 ], [ %.sroa.414.0.extract.shift.i255, %397 ]
+av_add_sf.exit297:                                ; preds = %av_add_sf.exit223, %av_normalize_sf.exit.i291, %395, %av_normalize_sf.exit41.i275
+  %.sroa.016.0.i260 = phi i64 [ %.sroa.05.0.insert.insert.i.i292, %av_normalize_sf.exit.i291 ], [ %.sroa.05.0.insert.insert.i37.i276, %av_normalize_sf.exit41.i275 ], [ %..i253, %av_add_sf.exit223 ], [ %..i238, %395 ]
+  %.sroa.5.0.i261 = phi i64 [ %.sroa.5.0.extract.shift.i293, %av_normalize_sf.exit.i291 ], [ %.sroa.5.0.extract.shift18.i277, %av_normalize_sf.exit41.i275 ], [ %.sroa.4.0.extract.shift.i258, %av_add_sf.exit223 ], [ %.sroa.414.0.extract.shift.i255, %395 ]
   %.sroa.5.0.insert.shift.i262 = shl nuw i64 %.sroa.5.0.i261, 32
-  %417 = sext i32 %.sroa.082.0.copyload.i to i64
-  %418 = mul nsw i64 %417, 973078528
-  %419 = lshr i64 %418, 29
-  %.sroa.0.0.extract.trunc.i.i300 = trunc i64 %419 to i32
-  %420 = add i32 %.sroa.6.0.copyload.i, -1
-  %.sroa.5.0.extract.shift.i.i301 = zext i32 %420 to i64
-  %421 = add i32 %.sroa.0.0.extract.trunc.i.i300, 1073741824
-  %422 = icmp slt i32 %421, 1
-  %423 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i301, 1
-  %424 = and i64 %423, 4294967295
-  %.sroa.5.0.i.i302 = select i1 %422, i64 %424, i64 %.sroa.5.0.extract.shift.i.i301
-  %425 = zext i1 %422 to i32
-  %.sroa.0.0.i.i303 = ashr i32 %.sroa.0.0.extract.trunc.i.i300, %425
+  %415 = sext i32 %.sroa.082.0.copyload.i to i64
+  %416 = mul nsw i64 %415, 973078528
+  %417 = lshr i64 %416, 29
+  %.sroa.0.0.extract.trunc.i.i300 = trunc i64 %417 to i32
+  %418 = add i32 %.sroa.6.0.copyload.i, -1
+  %.sroa.5.0.extract.shift.i.i301 = zext i32 %418 to i64
+  %419 = add i32 %.sroa.0.0.extract.trunc.i.i300, 1073741824
+  %420 = icmp slt i32 %419, 1
+  %421 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i301, 1
+  %422 = and i64 %421, 4294967295
+  %.sroa.5.0.i.i302 = select i1 %420, i64 %422, i64 %.sroa.5.0.extract.shift.i.i301
+  %423 = zext i1 %420 to i32
+  %.sroa.0.0.i.i303 = ashr i32 %.sroa.0.0.extract.trunc.i.i300, %423
   %.sroa.2.0.insert.shift.i.i304 = shl nuw i64 %.sroa.5.0.i.i302, 32
   %.sroa.02.0.insert.ext.i.i305 = zext i32 %.sroa.0.0.i.i303 to i64
   %.sroa.02.0.insert.insert.i.i306 = or disjoint i64 %.sroa.2.0.insert.shift.i.i304, %.sroa.02.0.insert.ext.i.i305
   %.sroa.7.0.extract.trunc11.i307 = trunc nuw i64 %.sroa.5.0.i.i302 to i32
-  %426 = icmp eq i32 %.sroa.0.0.i.i303, 0
-  %427 = icmp slt i32 %.sroa.7.0.extract.trunc11.i307, -149
-  %or.cond.i308 = select i1 %426, i1 true, i1 %427
+  %424 = icmp eq i32 %.sroa.0.0.i.i303, 0
+  %425 = icmp slt i32 %.sroa.7.0.extract.trunc11.i307, -149
+  %or.cond.i308 = select i1 %424, i1 true, i1 %425
   %..i309 = select i1 %or.cond.i308, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i306
   %.sroa.9.0.insert.shift69.i = add i64 %.sroa.5.0.insert.shift.i262, -4294967296
   %.sroa.047.0.insert.insert55.i = or i64 %.sroa.9.0.insert.shift69.i, %.sroa.016.0.i260
@@ -2133,166 +2132,166 @@ av_add_sf.exit297:                                ; preds = %av_add_sf.exit223, 
   %.sroa.09.0.extract.trunc.i313 = trunc i64 %.sroa.016.0.i260 to i32
   %.sroa.4.0.extract.shift.i314 = lshr exact i64 %.sroa.9.0.insert.shift69.i, 32
   %.sroa.4.0.extract.trunc.i315 = trunc nuw i64 %.sroa.4.0.extract.shift.i314 to i32
-  %428 = sub nsw i32 %.sroa.414.0.extract.trunc.i312, %.sroa.4.0.extract.trunc.i315
-  %429 = icmp slt i32 %428, -31
-  br i1 %429, label %av_add_sf.exit353, label %430
+  %426 = sub nsw i32 %.sroa.414.0.extract.trunc.i312, %.sroa.4.0.extract.trunc.i315
+  %427 = icmp slt i32 %426, -31
+  br i1 %427, label %av_add_sf.exit353, label %428
 
-430:                                              ; preds = %av_add_sf.exit297
-  %431 = icmp slt i32 %428, 0
-  br i1 %431, label %432, label %451
+428:                                              ; preds = %av_add_sf.exit297
+  %429 = icmp slt i32 %426, 0
+  br i1 %429, label %430, label %449
 
-432:                                              ; preds = %430
-  %433 = sub nsw i32 0, %428
-  %434 = ashr i32 %.sroa.012.0.extract.trunc.i310, %433
-  %435 = add nsw i32 %434, %.sroa.09.0.extract.trunc.i313
-  %436 = add i32 %435, 1073741824
-  %437 = icmp slt i32 %436, 1
-  %438 = zext i1 %437 to i32
-  %.sroa.0.0.i.i337 = ashr i32 %435, %438
+430:                                              ; preds = %428
+  %431 = sub nsw i32 0, %426
+  %432 = ashr i32 %.sroa.012.0.extract.trunc.i310, %431
+  %433 = add nsw i32 %432, %.sroa.09.0.extract.trunc.i313
+  %434 = add i32 %433, 1073741824
+  %435 = icmp slt i32 %434, 1
+  %436 = zext i1 %435 to i32
+  %.sroa.0.0.i.i337 = ashr i32 %433, %436
   %.not.i.i338 = icmp eq i32 %.sroa.0.0.i.i337, 0
   br i1 %.not.i.i338, label %av_normalize_sf.exit.i347, label %.preheader.i.i339
 
-.preheader.i.i339:                                ; preds = %432
-  %439 = zext i1 %437 to i64
-  %.sroa.5.0.i.i340 = add nuw nsw i64 %.sroa.4.0.extract.shift.i314, %439
+.preheader.i.i339:                                ; preds = %430
+  %437 = zext i1 %435 to i64
+  %.sroa.5.0.i.i340 = add nuw nsw i64 %.sroa.4.0.extract.shift.i314, %437
   %.sroa.8.0.extract.trunc.i.i341 = trunc i64 %.sroa.5.0.i.i340 to i32
-  %440 = add i32 %.sroa.0.0.i.i337, 536870911
-  %441 = icmp ult i32 %440, 1073741823
-  br i1 %441, label %.lr.ph.i.i350, label %._crit_edge.i.i342
+  %438 = add i32 %.sroa.0.0.i.i337, 536870911
+  %439 = icmp ult i32 %438, 1073741823
+  br i1 %439, label %.lr.ph.i.i350, label %._crit_edge.i.i342
 
 .lr.ph.i.i350:                                    ; preds = %.preheader.i.i339, %.lr.ph.i.i350
-  %.sroa.0.08.i.i351 = phi i32 [ %442, %.lr.ph.i.i350 ], [ %.sroa.0.0.i.i337, %.preheader.i.i339 ]
-  %.sroa.8.07.i.i352 = phi i32 [ %443, %.lr.ph.i.i350 ], [ %.sroa.8.0.extract.trunc.i.i341, %.preheader.i.i339 ]
-  %442 = shl nsw i32 %.sroa.0.08.i.i351, 1
-  %443 = add nsw i32 %.sroa.8.07.i.i352, -1
-  %444 = add nsw i32 %442, 536870911
-  %445 = icmp ult i32 %444, 1073741823
-  br i1 %445, label %.lr.ph.i.i350, label %._crit_edge.i.i342, !llvm.loop !134
+  %.sroa.0.08.i.i351 = phi i32 [ %440, %.lr.ph.i.i350 ], [ %.sroa.0.0.i.i337, %.preheader.i.i339 ]
+  %.sroa.8.07.i.i352 = phi i32 [ %441, %.lr.ph.i.i350 ], [ %.sroa.8.0.extract.trunc.i.i341, %.preheader.i.i339 ]
+  %440 = shl nsw i32 %.sroa.0.08.i.i351, 1
+  %441 = add nsw i32 %.sroa.8.07.i.i352, -1
+  %442 = add nsw i32 %440, 536870911
+  %443 = icmp ult i32 %442, 1073741823
+  br i1 %443, label %.lr.ph.i.i350, label %._crit_edge.i.i342, !llvm.loop !134
 
 ._crit_edge.i.i342:                               ; preds = %.lr.ph.i.i350, %.preheader.i.i339
-  %.sroa.8.0.lcssa.i.i343 = phi i32 [ %.sroa.8.0.extract.trunc.i.i341, %.preheader.i.i339 ], [ %443, %.lr.ph.i.i350 ]
-  %.sroa.0.0.lcssa.i.i344 = phi i32 [ %.sroa.0.0.i.i337, %.preheader.i.i339 ], [ %442, %.lr.ph.i.i350 ]
-  %446 = icmp slt i32 %.sroa.8.0.lcssa.i.i343, -149
+  %.sroa.8.0.lcssa.i.i343 = phi i32 [ %.sroa.8.0.extract.trunc.i.i341, %.preheader.i.i339 ], [ %441, %.lr.ph.i.i350 ]
+  %.sroa.0.0.lcssa.i.i344 = phi i32 [ %.sroa.0.0.i.i337, %.preheader.i.i339 ], [ %440, %.lr.ph.i.i350 ]
+  %444 = icmp slt i32 %.sroa.8.0.lcssa.i.i343, -149
   %spec.select.i.i345 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i343, i32 -149)
-  %spec.select6.i.i346 = select i1 %446, i32 0, i32 %.sroa.0.0.lcssa.i.i344
-  %447 = zext i32 %spec.select.i.i345 to i64
-  %448 = shl nuw i64 %447, 32
-  %449 = zext i32 %spec.select6.i.i346 to i64
-  %450 = or disjoint i64 %448, %449
+  %spec.select6.i.i346 = select i1 %444, i32 0, i32 %.sroa.0.0.lcssa.i.i344
+  %445 = zext i32 %spec.select.i.i345 to i64
+  %446 = shl nuw i64 %445, 32
+  %447 = zext i32 %spec.select6.i.i346 to i64
+  %448 = or disjoint i64 %446, %447
   br label %av_normalize_sf.exit.i347
 
-av_normalize_sf.exit.i347:                        ; preds = %._crit_edge.i.i342, %432
-  %.sroa.05.0.insert.insert.i.i348 = phi i64 [ %450, %._crit_edge.i.i342 ], [ -639950127104, %432 ]
+av_normalize_sf.exit.i347:                        ; preds = %._crit_edge.i.i342, %430
+  %.sroa.05.0.insert.insert.i.i348 = phi i64 [ %448, %._crit_edge.i.i342 ], [ -639950127104, %430 ]
   %.sroa.5.0.extract.shift.i349 = lshr i64 %.sroa.05.0.insert.insert.i.i348, 32
   br label %av_add_sf.exit353
 
-451:                                              ; preds = %430
-  %452 = icmp samesign ult i32 %428, 32
-  br i1 %452, label %453, label %av_add_sf.exit353
+449:                                              ; preds = %428
+  %450 = icmp samesign ult i32 %426, 32
+  br i1 %450, label %451, label %av_add_sf.exit353
 
-453:                                              ; preds = %451
-  %454 = ashr i32 %.sroa.09.0.extract.trunc.i313, %428
-  %455 = add nsw i32 %454, %.sroa.012.0.extract.trunc.i310
-  %456 = add i32 %455, 1073741824
-  %457 = icmp slt i32 %456, 1
-  %458 = zext i1 %457 to i32
-  %.sroa.0.0.i24.i321 = ashr i32 %455, %458
+451:                                              ; preds = %449
+  %452 = ashr i32 %.sroa.09.0.extract.trunc.i313, %426
+  %453 = add nsw i32 %452, %.sroa.012.0.extract.trunc.i310
+  %454 = add i32 %453, 1073741824
+  %455 = icmp slt i32 %454, 1
+  %456 = zext i1 %455 to i32
+  %.sroa.0.0.i24.i321 = ashr i32 %453, %456
   %.not.i29.i322 = icmp eq i32 %.sroa.0.0.i24.i321, 0
   br i1 %.not.i29.i322, label %av_normalize_sf.exit41.i331, label %.preheader.i30.i323
 
-.preheader.i30.i323:                              ; preds = %453
-  %459 = zext i1 %457 to i64
-  %.sroa.5.0.i23.i324 = add nuw nsw i64 %.sroa.414.0.extract.shift.i311, %459
+.preheader.i30.i323:                              ; preds = %451
+  %457 = zext i1 %455 to i64
+  %.sroa.5.0.i23.i324 = add nuw nsw i64 %.sroa.414.0.extract.shift.i311, %457
   %.sroa.8.0.extract.trunc.i31.i325 = trunc i64 %.sroa.5.0.i23.i324 to i32
-  %460 = add i32 %.sroa.0.0.i24.i321, 536870911
-  %461 = icmp ult i32 %460, 1073741823
-  br i1 %461, label %.lr.ph.i38.i334, label %._crit_edge.i32.i326
+  %458 = add i32 %.sroa.0.0.i24.i321, 536870911
+  %459 = icmp ult i32 %458, 1073741823
+  br i1 %459, label %.lr.ph.i38.i334, label %._crit_edge.i32.i326
 
 .lr.ph.i38.i334:                                  ; preds = %.preheader.i30.i323, %.lr.ph.i38.i334
-  %.sroa.0.08.i39.i335 = phi i32 [ %462, %.lr.ph.i38.i334 ], [ %.sroa.0.0.i24.i321, %.preheader.i30.i323 ]
-  %.sroa.8.07.i40.i336 = phi i32 [ %463, %.lr.ph.i38.i334 ], [ %.sroa.8.0.extract.trunc.i31.i325, %.preheader.i30.i323 ]
-  %462 = shl nsw i32 %.sroa.0.08.i39.i335, 1
-  %463 = add nsw i32 %.sroa.8.07.i40.i336, -1
-  %464 = add nsw i32 %462, 536870911
-  %465 = icmp ult i32 %464, 1073741823
-  br i1 %465, label %.lr.ph.i38.i334, label %._crit_edge.i32.i326, !llvm.loop !134
+  %.sroa.0.08.i39.i335 = phi i32 [ %460, %.lr.ph.i38.i334 ], [ %.sroa.0.0.i24.i321, %.preheader.i30.i323 ]
+  %.sroa.8.07.i40.i336 = phi i32 [ %461, %.lr.ph.i38.i334 ], [ %.sroa.8.0.extract.trunc.i31.i325, %.preheader.i30.i323 ]
+  %460 = shl nsw i32 %.sroa.0.08.i39.i335, 1
+  %461 = add nsw i32 %.sroa.8.07.i40.i336, -1
+  %462 = add nsw i32 %460, 536870911
+  %463 = icmp ult i32 %462, 1073741823
+  br i1 %463, label %.lr.ph.i38.i334, label %._crit_edge.i32.i326, !llvm.loop !134
 
 ._crit_edge.i32.i326:                             ; preds = %.lr.ph.i38.i334, %.preheader.i30.i323
-  %.sroa.8.0.lcssa.i33.i327 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i325, %.preheader.i30.i323 ], [ %463, %.lr.ph.i38.i334 ]
-  %.sroa.0.0.lcssa.i34.i328 = phi i32 [ %.sroa.0.0.i24.i321, %.preheader.i30.i323 ], [ %462, %.lr.ph.i38.i334 ]
-  %466 = icmp slt i32 %.sroa.8.0.lcssa.i33.i327, -149
+  %.sroa.8.0.lcssa.i33.i327 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i325, %.preheader.i30.i323 ], [ %461, %.lr.ph.i38.i334 ]
+  %.sroa.0.0.lcssa.i34.i328 = phi i32 [ %.sroa.0.0.i24.i321, %.preheader.i30.i323 ], [ %460, %.lr.ph.i38.i334 ]
+  %464 = icmp slt i32 %.sroa.8.0.lcssa.i33.i327, -149
   %spec.select.i35.i329 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i327, i32 -149)
-  %spec.select6.i36.i330 = select i1 %466, i32 0, i32 %.sroa.0.0.lcssa.i34.i328
-  %467 = zext i32 %spec.select.i35.i329 to i64
-  %468 = shl nuw i64 %467, 32
-  %469 = zext i32 %spec.select6.i36.i330 to i64
-  %470 = or disjoint i64 %468, %469
+  %spec.select6.i36.i330 = select i1 %464, i32 0, i32 %.sroa.0.0.lcssa.i34.i328
+  %465 = zext i32 %spec.select.i35.i329 to i64
+  %466 = shl nuw i64 %465, 32
+  %467 = zext i32 %spec.select6.i36.i330 to i64
+  %468 = or disjoint i64 %466, %467
   br label %av_normalize_sf.exit41.i331
 
-av_normalize_sf.exit41.i331:                      ; preds = %._crit_edge.i32.i326, %453
-  %.sroa.05.0.insert.insert.i37.i332 = phi i64 [ %470, %._crit_edge.i32.i326 ], [ -639950127104, %453 ]
+av_normalize_sf.exit41.i331:                      ; preds = %._crit_edge.i32.i326, %451
+  %.sroa.05.0.insert.insert.i37.i332 = phi i64 [ %468, %._crit_edge.i32.i326 ], [ -639950127104, %451 ]
   %.sroa.5.0.extract.shift18.i333 = lshr i64 %.sroa.05.0.insert.insert.i37.i332, 32
   br label %av_add_sf.exit353
 
-av_add_sf.exit353:                                ; preds = %av_add_sf.exit297, %av_normalize_sf.exit.i347, %451, %av_normalize_sf.exit41.i331
-  %.sroa.016.0.i316 = phi i64 [ %.sroa.05.0.insert.insert.i.i348, %av_normalize_sf.exit.i347 ], [ %.sroa.05.0.insert.insert.i37.i332, %av_normalize_sf.exit41.i331 ], [ %.sroa.047.0.insert.insert55.i, %av_add_sf.exit297 ], [ %..i309, %451 ]
-  %.sroa.5.0.i317 = phi i64 [ %.sroa.5.0.extract.shift.i349, %av_normalize_sf.exit.i347 ], [ %.sroa.5.0.extract.shift18.i333, %av_normalize_sf.exit41.i331 ], [ %.sroa.4.0.extract.shift.i314, %av_add_sf.exit297 ], [ %.sroa.414.0.extract.shift.i311, %451 ]
+av_add_sf.exit353:                                ; preds = %av_add_sf.exit297, %av_normalize_sf.exit.i347, %449, %av_normalize_sf.exit41.i331
+  %.sroa.016.0.i316 = phi i64 [ %.sroa.05.0.insert.insert.i.i348, %av_normalize_sf.exit.i347 ], [ %.sroa.05.0.insert.insert.i37.i332, %av_normalize_sf.exit41.i331 ], [ %.sroa.047.0.insert.insert55.i, %av_add_sf.exit297 ], [ %..i309, %449 ]
+  %.sroa.5.0.i317 = phi i64 [ %.sroa.5.0.extract.shift.i349, %av_normalize_sf.exit.i347 ], [ %.sroa.5.0.extract.shift18.i333, %av_normalize_sf.exit41.i331 ], [ %.sroa.4.0.extract.shift.i314, %av_add_sf.exit297 ], [ %.sroa.414.0.extract.shift.i311, %449 ]
   %.sroa.5.0.insert.shift.i318 = shl nuw i64 %.sroa.5.0.i317, 32
   %.sroa.0.0.extract.trunc.i52 = trunc i64 %.sroa.016.0.i316 to i32
-  %471 = ashr i32 %.sroa.0.0.extract.trunc.i52, 31
-  %472 = xor i32 %471, %.sroa.0.0.extract.trunc.i52
-  %473 = sub nsw i32 %472, %471
-  %474 = and i32 %473, -4194304
-  %475 = xor i32 %474, %471
-  %476 = sub nsw i32 %475, %471
-  %.sroa.05.0.insert.ext.i54 = zext i32 %476 to i64
+  %469 = ashr i32 %.sroa.0.0.extract.trunc.i52, 31
+  %470 = xor i32 %469, %.sroa.0.0.extract.trunc.i52
+  %471 = sub nsw i32 %470, %469
+  %472 = and i32 %471, -4194304
+  %473 = xor i32 %472, %469
+  %474 = sub nsw i32 %473, %469
+  %.sroa.05.0.insert.ext.i54 = zext i32 %474 to i64
   %.sroa.05.0.insert.insert.i55 = or disjoint i64 %.sroa.5.0.insert.shift.i318, %.sroa.05.0.insert.ext.i54
   store i64 %.sroa.05.0.insert.insert.i55, ptr %57, align 4
   %sext15.i354 = shl i64 %.sroa.0109.0.copyload.i, 32
-  %477 = ashr exact i64 %sext15.i354, 32
-  %478 = mul nsw i64 %477, 973078528
-  %479 = lshr i64 %478, 29
+  %475 = ashr exact i64 %sext15.i354, 32
+  %476 = mul nsw i64 %475, 973078528
+  %477 = lshr i64 %476, 29
   %.sroa.2.0.insert.shift.i355 = add i64 %.sroa.0109.0.copyload.i, -4294967296
-  %.sroa.0.0.extract.trunc.i.i356 = trunc i64 %479 to i32
+  %.sroa.0.0.extract.trunc.i.i356 = trunc i64 %477 to i32
   %.sroa.5.0.extract.shift.i.i357 = lshr i64 %.sroa.2.0.insert.shift.i355, 32
-  %480 = add i32 %.sroa.0.0.extract.trunc.i.i356, 1073741824
-  %481 = icmp slt i32 %480, 1
-  %482 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i357, 1
-  %483 = and i64 %482, 4294967295
-  %.sroa.5.0.i.i358 = select i1 %481, i64 %483, i64 %.sroa.5.0.extract.shift.i.i357
-  %484 = zext i1 %481 to i32
-  %.sroa.0.0.i.i359 = ashr i32 %.sroa.0.0.extract.trunc.i.i356, %484
+  %478 = add i32 %.sroa.0.0.extract.trunc.i.i356, 1073741824
+  %479 = icmp slt i32 %478, 1
+  %480 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i357, 1
+  %481 = and i64 %480, 4294967295
+  %.sroa.5.0.i.i358 = select i1 %479, i64 %481, i64 %.sroa.5.0.extract.shift.i.i357
+  %482 = zext i1 %479 to i32
+  %.sroa.0.0.i.i359 = ashr i32 %.sroa.0.0.extract.trunc.i.i356, %482
   %.sroa.2.0.insert.shift.i.i360 = shl nuw i64 %.sroa.5.0.i.i358, 32
   %.sroa.02.0.insert.ext.i.i361 = zext i32 %.sroa.0.0.i.i359 to i64
   %.sroa.02.0.insert.insert.i.i362 = or disjoint i64 %.sroa.2.0.insert.shift.i.i360, %.sroa.02.0.insert.ext.i.i361
   %.sroa.7.0.extract.trunc11.i363 = trunc nuw i64 %.sroa.5.0.i.i358 to i32
-  %485 = icmp eq i32 %.sroa.0.0.i.i359, 0
-  %486 = icmp slt i32 %.sroa.7.0.extract.trunc11.i363, -149
-  %or.cond.i364 = select i1 %485, i1 true, i1 %486
+  %483 = icmp eq i32 %.sroa.0.0.i.i359, 0
+  %484 = icmp slt i32 %.sroa.7.0.extract.trunc11.i363, -149
+  %or.cond.i364 = select i1 %483, i1 true, i1 %484
   %..i365 = select i1 %or.cond.i364, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i362
   %.sroa.7.0.extract.shift.i366 = and i64 %.sroa.0115.0.copyload.i, -4294967296
   %sext15.i368 = shl i64 %.sroa.05.0.insert.insert.i.i147, 32
-  %487 = ashr exact i64 %sext15.i368, 32
-  %488 = mul nsw i64 %487, %141
-  %489 = lshr i64 %488, 29
+  %485 = ashr exact i64 %sext15.i368, 32
+  %486 = mul nsw i64 %485, %139
+  %487 = lshr i64 %486, 29
   %.sroa.25.0.extract.shift16.i369 = add i64 %.sroa.7.0.extract.shift.i366, -4294967296
   %.sroa.2.0.insert.shift.i370 = add i64 %.sroa.05.0.insert.insert.i.i147, %.sroa.25.0.extract.shift16.i369
-  %.sroa.0.0.extract.trunc.i.i371 = trunc i64 %489 to i32
+  %.sroa.0.0.extract.trunc.i.i371 = trunc i64 %487 to i32
   %.sroa.5.0.extract.shift.i.i372 = lshr i64 %.sroa.2.0.insert.shift.i370, 32
-  %490 = add i32 %.sroa.0.0.extract.trunc.i.i371, 1073741824
-  %491 = icmp slt i32 %490, 1
-  %492 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i372, 1
-  %493 = and i64 %492, 4294967295
-  %.sroa.5.0.i.i373 = select i1 %491, i64 %493, i64 %.sroa.5.0.extract.shift.i.i372
-  %494 = zext i1 %491 to i32
-  %.sroa.0.0.i.i374 = ashr i32 %.sroa.0.0.extract.trunc.i.i371, %494
+  %488 = add i32 %.sroa.0.0.extract.trunc.i.i371, 1073741824
+  %489 = icmp slt i32 %488, 1
+  %490 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i372, 1
+  %491 = and i64 %490, 4294967295
+  %.sroa.5.0.i.i373 = select i1 %489, i64 %491, i64 %.sroa.5.0.extract.shift.i.i372
+  %492 = zext i1 %489 to i32
+  %.sroa.0.0.i.i374 = ashr i32 %.sroa.0.0.extract.trunc.i.i371, %492
   %.sroa.2.0.insert.shift.i.i375 = shl nuw i64 %.sroa.5.0.i.i373, 32
   %.sroa.02.0.insert.ext.i.i376 = zext i32 %.sroa.0.0.i.i374 to i64
   %.sroa.02.0.insert.insert.i.i377 = or disjoint i64 %.sroa.2.0.insert.shift.i.i375, %.sroa.02.0.insert.ext.i.i376
   %.sroa.7.0.extract.trunc11.i378 = trunc nuw i64 %.sroa.5.0.i.i373 to i32
-  %495 = icmp eq i32 %.sroa.0.0.i.i374, 0
-  %496 = icmp slt i32 %.sroa.7.0.extract.trunc11.i378, -149
-  %or.cond.i379 = select i1 %495, i1 true, i1 %496
+  %493 = icmp eq i32 %.sroa.0.0.i.i374, 0
+  %494 = icmp slt i32 %.sroa.7.0.extract.trunc11.i378, -149
+  %or.cond.i379 = select i1 %493, i1 true, i1 %494
   %..i380 = select i1 %or.cond.i379, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i377
   %.sroa.012.0.extract.trunc.i381 = trunc i64 %..i365 to i32
   %.sroa.414.0.extract.shift.i382 = lshr i64 %..i365, 32
@@ -2300,162 +2299,162 @@ av_add_sf.exit353:                                ; preds = %av_add_sf.exit297, 
   %.sroa.09.0.extract.trunc.i384 = trunc i64 %..i380 to i32
   %.sroa.4.0.extract.shift.i385 = lshr i64 %..i380, 32
   %.sroa.4.0.extract.trunc.i386 = trunc nuw i64 %.sroa.4.0.extract.shift.i385 to i32
-  %497 = sub nsw i32 %.sroa.414.0.extract.trunc.i383, %.sroa.4.0.extract.trunc.i386
-  %498 = icmp slt i32 %497, -31
-  br i1 %498, label %av_add_sf.exit424, label %499
+  %495 = sub nsw i32 %.sroa.414.0.extract.trunc.i383, %.sroa.4.0.extract.trunc.i386
+  %496 = icmp slt i32 %495, -31
+  br i1 %496, label %av_add_sf.exit424, label %497
 
-499:                                              ; preds = %av_add_sf.exit353
-  %500 = icmp slt i32 %497, 0
-  br i1 %500, label %501, label %520
+497:                                              ; preds = %av_add_sf.exit353
+  %498 = icmp slt i32 %495, 0
+  br i1 %498, label %499, label %518
 
-501:                                              ; preds = %499
-  %502 = sub nsw i32 0, %497
-  %503 = ashr i32 %.sroa.012.0.extract.trunc.i381, %502
-  %504 = add nsw i32 %503, %.sroa.09.0.extract.trunc.i384
-  %505 = add i32 %504, 1073741824
-  %506 = icmp slt i32 %505, 1
-  %507 = zext i1 %506 to i32
-  %.sroa.0.0.i.i408 = ashr i32 %504, %507
+499:                                              ; preds = %497
+  %500 = sub nsw i32 0, %495
+  %501 = ashr i32 %.sroa.012.0.extract.trunc.i381, %500
+  %502 = add nsw i32 %501, %.sroa.09.0.extract.trunc.i384
+  %503 = add i32 %502, 1073741824
+  %504 = icmp slt i32 %503, 1
+  %505 = zext i1 %504 to i32
+  %.sroa.0.0.i.i408 = ashr i32 %502, %505
   %.not.i.i409 = icmp eq i32 %.sroa.0.0.i.i408, 0
   br i1 %.not.i.i409, label %av_normalize_sf.exit.i418, label %.preheader.i.i410
 
-.preheader.i.i410:                                ; preds = %501
-  %508 = zext i1 %506 to i64
-  %.sroa.5.0.i.i411 = add nuw nsw i64 %.sroa.4.0.extract.shift.i385, %508
+.preheader.i.i410:                                ; preds = %499
+  %506 = zext i1 %504 to i64
+  %.sroa.5.0.i.i411 = add nuw nsw i64 %.sroa.4.0.extract.shift.i385, %506
   %.sroa.8.0.extract.trunc.i.i412 = trunc i64 %.sroa.5.0.i.i411 to i32
-  %509 = add i32 %.sroa.0.0.i.i408, 536870911
-  %510 = icmp ult i32 %509, 1073741823
-  br i1 %510, label %.lr.ph.i.i421, label %._crit_edge.i.i413
+  %507 = add i32 %.sroa.0.0.i.i408, 536870911
+  %508 = icmp ult i32 %507, 1073741823
+  br i1 %508, label %.lr.ph.i.i421, label %._crit_edge.i.i413
 
 .lr.ph.i.i421:                                    ; preds = %.preheader.i.i410, %.lr.ph.i.i421
-  %.sroa.0.08.i.i422 = phi i32 [ %511, %.lr.ph.i.i421 ], [ %.sroa.0.0.i.i408, %.preheader.i.i410 ]
-  %.sroa.8.07.i.i423 = phi i32 [ %512, %.lr.ph.i.i421 ], [ %.sroa.8.0.extract.trunc.i.i412, %.preheader.i.i410 ]
-  %511 = shl nsw i32 %.sroa.0.08.i.i422, 1
-  %512 = add nsw i32 %.sroa.8.07.i.i423, -1
-  %513 = add nsw i32 %511, 536870911
-  %514 = icmp ult i32 %513, 1073741823
-  br i1 %514, label %.lr.ph.i.i421, label %._crit_edge.i.i413, !llvm.loop !134
+  %.sroa.0.08.i.i422 = phi i32 [ %509, %.lr.ph.i.i421 ], [ %.sroa.0.0.i.i408, %.preheader.i.i410 ]
+  %.sroa.8.07.i.i423 = phi i32 [ %510, %.lr.ph.i.i421 ], [ %.sroa.8.0.extract.trunc.i.i412, %.preheader.i.i410 ]
+  %509 = shl nsw i32 %.sroa.0.08.i.i422, 1
+  %510 = add nsw i32 %.sroa.8.07.i.i423, -1
+  %511 = add nsw i32 %509, 536870911
+  %512 = icmp ult i32 %511, 1073741823
+  br i1 %512, label %.lr.ph.i.i421, label %._crit_edge.i.i413, !llvm.loop !134
 
 ._crit_edge.i.i413:                               ; preds = %.lr.ph.i.i421, %.preheader.i.i410
-  %.sroa.8.0.lcssa.i.i414 = phi i32 [ %.sroa.8.0.extract.trunc.i.i412, %.preheader.i.i410 ], [ %512, %.lr.ph.i.i421 ]
-  %.sroa.0.0.lcssa.i.i415 = phi i32 [ %.sroa.0.0.i.i408, %.preheader.i.i410 ], [ %511, %.lr.ph.i.i421 ]
-  %515 = icmp slt i32 %.sroa.8.0.lcssa.i.i414, -149
+  %.sroa.8.0.lcssa.i.i414 = phi i32 [ %.sroa.8.0.extract.trunc.i.i412, %.preheader.i.i410 ], [ %510, %.lr.ph.i.i421 ]
+  %.sroa.0.0.lcssa.i.i415 = phi i32 [ %.sroa.0.0.i.i408, %.preheader.i.i410 ], [ %509, %.lr.ph.i.i421 ]
+  %513 = icmp slt i32 %.sroa.8.0.lcssa.i.i414, -149
   %spec.select.i.i416 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i414, i32 -149)
-  %spec.select6.i.i417 = select i1 %515, i32 0, i32 %.sroa.0.0.lcssa.i.i415
-  %516 = zext i32 %spec.select.i.i416 to i64
-  %517 = shl nuw i64 %516, 32
-  %518 = zext i32 %spec.select6.i.i417 to i64
-  %519 = or disjoint i64 %517, %518
+  %spec.select6.i.i417 = select i1 %513, i32 0, i32 %.sroa.0.0.lcssa.i.i415
+  %514 = zext i32 %spec.select.i.i416 to i64
+  %515 = shl nuw i64 %514, 32
+  %516 = zext i32 %spec.select6.i.i417 to i64
+  %517 = or disjoint i64 %515, %516
   br label %av_normalize_sf.exit.i418
 
-av_normalize_sf.exit.i418:                        ; preds = %._crit_edge.i.i413, %501
-  %.sroa.05.0.insert.insert.i.i419 = phi i64 [ %519, %._crit_edge.i.i413 ], [ -639950127104, %501 ]
+av_normalize_sf.exit.i418:                        ; preds = %._crit_edge.i.i413, %499
+  %.sroa.05.0.insert.insert.i.i419 = phi i64 [ %517, %._crit_edge.i.i413 ], [ -639950127104, %499 ]
   %.sroa.5.0.extract.shift.i420 = lshr i64 %.sroa.05.0.insert.insert.i.i419, 32
   br label %av_add_sf.exit424
 
-520:                                              ; preds = %499
-  %521 = icmp samesign ult i32 %497, 32
-  br i1 %521, label %522, label %av_add_sf.exit424
+518:                                              ; preds = %497
+  %519 = icmp samesign ult i32 %495, 32
+  br i1 %519, label %520, label %av_add_sf.exit424
 
-522:                                              ; preds = %520
-  %523 = ashr i32 %.sroa.09.0.extract.trunc.i384, %497
-  %524 = add nsw i32 %523, %.sroa.012.0.extract.trunc.i381
-  %525 = add i32 %524, 1073741824
-  %526 = icmp slt i32 %525, 1
-  %527 = zext i1 %526 to i32
-  %.sroa.0.0.i24.i392 = ashr i32 %524, %527
+520:                                              ; preds = %518
+  %521 = ashr i32 %.sroa.09.0.extract.trunc.i384, %495
+  %522 = add nsw i32 %521, %.sroa.012.0.extract.trunc.i381
+  %523 = add i32 %522, 1073741824
+  %524 = icmp slt i32 %523, 1
+  %525 = zext i1 %524 to i32
+  %.sroa.0.0.i24.i392 = ashr i32 %522, %525
   %.not.i29.i393 = icmp eq i32 %.sroa.0.0.i24.i392, 0
   br i1 %.not.i29.i393, label %av_normalize_sf.exit41.i402, label %.preheader.i30.i394
 
-.preheader.i30.i394:                              ; preds = %522
-  %528 = zext i1 %526 to i64
-  %.sroa.5.0.i23.i395 = add nuw nsw i64 %.sroa.414.0.extract.shift.i382, %528
+.preheader.i30.i394:                              ; preds = %520
+  %526 = zext i1 %524 to i64
+  %.sroa.5.0.i23.i395 = add nuw nsw i64 %.sroa.414.0.extract.shift.i382, %526
   %.sroa.8.0.extract.trunc.i31.i396 = trunc i64 %.sroa.5.0.i23.i395 to i32
-  %529 = add i32 %.sroa.0.0.i24.i392, 536870911
-  %530 = icmp ult i32 %529, 1073741823
-  br i1 %530, label %.lr.ph.i38.i405, label %._crit_edge.i32.i397
+  %527 = add i32 %.sroa.0.0.i24.i392, 536870911
+  %528 = icmp ult i32 %527, 1073741823
+  br i1 %528, label %.lr.ph.i38.i405, label %._crit_edge.i32.i397
 
 .lr.ph.i38.i405:                                  ; preds = %.preheader.i30.i394, %.lr.ph.i38.i405
-  %.sroa.0.08.i39.i406 = phi i32 [ %531, %.lr.ph.i38.i405 ], [ %.sroa.0.0.i24.i392, %.preheader.i30.i394 ]
-  %.sroa.8.07.i40.i407 = phi i32 [ %532, %.lr.ph.i38.i405 ], [ %.sroa.8.0.extract.trunc.i31.i396, %.preheader.i30.i394 ]
-  %531 = shl nsw i32 %.sroa.0.08.i39.i406, 1
-  %532 = add nsw i32 %.sroa.8.07.i40.i407, -1
-  %533 = add nsw i32 %531, 536870911
-  %534 = icmp ult i32 %533, 1073741823
-  br i1 %534, label %.lr.ph.i38.i405, label %._crit_edge.i32.i397, !llvm.loop !134
+  %.sroa.0.08.i39.i406 = phi i32 [ %529, %.lr.ph.i38.i405 ], [ %.sroa.0.0.i24.i392, %.preheader.i30.i394 ]
+  %.sroa.8.07.i40.i407 = phi i32 [ %530, %.lr.ph.i38.i405 ], [ %.sroa.8.0.extract.trunc.i31.i396, %.preheader.i30.i394 ]
+  %529 = shl nsw i32 %.sroa.0.08.i39.i406, 1
+  %530 = add nsw i32 %.sroa.8.07.i40.i407, -1
+  %531 = add nsw i32 %529, 536870911
+  %532 = icmp ult i32 %531, 1073741823
+  br i1 %532, label %.lr.ph.i38.i405, label %._crit_edge.i32.i397, !llvm.loop !134
 
 ._crit_edge.i32.i397:                             ; preds = %.lr.ph.i38.i405, %.preheader.i30.i394
-  %.sroa.8.0.lcssa.i33.i398 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i396, %.preheader.i30.i394 ], [ %532, %.lr.ph.i38.i405 ]
-  %.sroa.0.0.lcssa.i34.i399 = phi i32 [ %.sroa.0.0.i24.i392, %.preheader.i30.i394 ], [ %531, %.lr.ph.i38.i405 ]
-  %535 = icmp slt i32 %.sroa.8.0.lcssa.i33.i398, -149
+  %.sroa.8.0.lcssa.i33.i398 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i396, %.preheader.i30.i394 ], [ %530, %.lr.ph.i38.i405 ]
+  %.sroa.0.0.lcssa.i34.i399 = phi i32 [ %.sroa.0.0.i24.i392, %.preheader.i30.i394 ], [ %529, %.lr.ph.i38.i405 ]
+  %533 = icmp slt i32 %.sroa.8.0.lcssa.i33.i398, -149
   %spec.select.i35.i400 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i398, i32 -149)
-  %spec.select6.i36.i401 = select i1 %535, i32 0, i32 %.sroa.0.0.lcssa.i34.i399
-  %536 = zext i32 %spec.select.i35.i400 to i64
-  %537 = shl nuw i64 %536, 32
-  %538 = zext i32 %spec.select6.i36.i401 to i64
-  %539 = or disjoint i64 %537, %538
+  %spec.select6.i36.i401 = select i1 %533, i32 0, i32 %.sroa.0.0.lcssa.i34.i399
+  %534 = zext i32 %spec.select.i35.i400 to i64
+  %535 = shl nuw i64 %534, 32
+  %536 = zext i32 %spec.select6.i36.i401 to i64
+  %537 = or disjoint i64 %535, %536
   br label %av_normalize_sf.exit41.i402
 
-av_normalize_sf.exit41.i402:                      ; preds = %._crit_edge.i32.i397, %522
-  %.sroa.05.0.insert.insert.i37.i403 = phi i64 [ %539, %._crit_edge.i32.i397 ], [ -639950127104, %522 ]
+av_normalize_sf.exit41.i402:                      ; preds = %._crit_edge.i32.i397, %520
+  %.sroa.05.0.insert.insert.i37.i403 = phi i64 [ %537, %._crit_edge.i32.i397 ], [ -639950127104, %520 ]
   %.sroa.5.0.extract.shift18.i404 = lshr i64 %.sroa.05.0.insert.insert.i37.i403, 32
   br label %av_add_sf.exit424
 
-av_add_sf.exit424:                                ; preds = %av_add_sf.exit353, %av_normalize_sf.exit.i418, %520, %av_normalize_sf.exit41.i402
-  %.sroa.016.0.i387 = phi i64 [ %.sroa.05.0.insert.insert.i.i419, %av_normalize_sf.exit.i418 ], [ %.sroa.05.0.insert.insert.i37.i403, %av_normalize_sf.exit41.i402 ], [ %..i380, %av_add_sf.exit353 ], [ %..i365, %520 ]
-  %.sroa.5.0.i388 = phi i64 [ %.sroa.5.0.extract.shift.i420, %av_normalize_sf.exit.i418 ], [ %.sroa.5.0.extract.shift18.i404, %av_normalize_sf.exit41.i402 ], [ %.sroa.4.0.extract.shift.i385, %av_add_sf.exit353 ], [ %.sroa.414.0.extract.shift.i382, %520 ]
+av_add_sf.exit424:                                ; preds = %av_add_sf.exit353, %av_normalize_sf.exit.i418, %518, %av_normalize_sf.exit41.i402
+  %.sroa.016.0.i387 = phi i64 [ %.sroa.05.0.insert.insert.i.i419, %av_normalize_sf.exit.i418 ], [ %.sroa.05.0.insert.insert.i37.i403, %av_normalize_sf.exit41.i402 ], [ %..i380, %av_add_sf.exit353 ], [ %..i365, %518 ]
+  %.sroa.5.0.i388 = phi i64 [ %.sroa.5.0.extract.shift.i420, %av_normalize_sf.exit.i418 ], [ %.sroa.5.0.extract.shift18.i404, %av_normalize_sf.exit41.i402 ], [ %.sroa.4.0.extract.shift.i385, %av_add_sf.exit353 ], [ %.sroa.414.0.extract.shift.i382, %518 ]
   %.sroa.5.0.insert.shift.i389 = shl nuw i64 %.sroa.5.0.i388, 32
   %.sroa.0.0.extract.trunc.i48 = trunc i64 %.sroa.016.0.i387 to i32
-  %540 = ashr i32 %.sroa.0.0.extract.trunc.i48, 31
-  %541 = xor i32 %540, %.sroa.0.0.extract.trunc.i48
-  %542 = sub nsw i32 %541, %540
-  %543 = and i32 %542, -4194304
-  %544 = xor i32 %543, %540
-  %545 = sub nsw i32 %544, %540
-  %.sroa.05.0.insert.ext.i50 = zext i32 %545 to i64
+  %538 = ashr i32 %.sroa.0.0.extract.trunc.i48, 31
+  %539 = xor i32 %538, %.sroa.0.0.extract.trunc.i48
+  %540 = sub nsw i32 %539, %538
+  %541 = and i32 %540, -4194304
+  %542 = xor i32 %541, %538
+  %543 = sub nsw i32 %542, %538
+  %.sroa.05.0.insert.ext.i50 = zext i32 %543 to i64
   %.sroa.05.0.insert.insert.i51 = or disjoint i64 %.sroa.5.0.insert.shift.i389, %.sroa.05.0.insert.ext.i50
   store i64 %.sroa.05.0.insert.insert.i51, ptr %47, align 4
-  %546 = mul nsw i64 %141, %141
-  %547 = lshr i64 %546, 29
+  %544 = mul nsw i64 %139, %139
+  %545 = lshr i64 %544, 29
   %.sroa.2.0.insert.shift.i429 = add i64 %.sroa.25.0.extract.shift16.i369, %.sroa.0115.0.copyload.i
-  %.sroa.0.0.extract.trunc.i.i430 = trunc i64 %547 to i32
+  %.sroa.0.0.extract.trunc.i.i430 = trunc i64 %545 to i32
   %.sroa.5.0.extract.shift.i.i431 = lshr i64 %.sroa.2.0.insert.shift.i429, 32
-  %548 = add i32 %.sroa.0.0.extract.trunc.i.i430, 1073741824
-  %549 = icmp slt i32 %548, 1
-  %550 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i431, 1
-  %551 = and i64 %550, 4294967295
-  %.sroa.5.0.i.i432 = select i1 %549, i64 %551, i64 %.sroa.5.0.extract.shift.i.i431
-  %552 = zext i1 %549 to i32
-  %.sroa.0.0.i.i433 = ashr i32 %.sroa.0.0.extract.trunc.i.i430, %552
+  %546 = add i32 %.sroa.0.0.extract.trunc.i.i430, 1073741824
+  %547 = icmp slt i32 %546, 1
+  %548 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i431, 1
+  %549 = and i64 %548, 4294967295
+  %.sroa.5.0.i.i432 = select i1 %547, i64 %549, i64 %.sroa.5.0.extract.shift.i.i431
+  %550 = zext i1 %547 to i32
+  %.sroa.0.0.i.i433 = ashr i32 %.sroa.0.0.extract.trunc.i.i430, %550
   %.sroa.2.0.insert.shift.i.i434 = shl nuw i64 %.sroa.5.0.i.i432, 32
   %.sroa.02.0.insert.ext.i.i435 = zext i32 %.sroa.0.0.i.i433 to i64
   %.sroa.02.0.insert.insert.i.i436 = or disjoint i64 %.sroa.2.0.insert.shift.i.i434, %.sroa.02.0.insert.ext.i.i435
   %.sroa.7.0.extract.trunc11.i437 = trunc nuw i64 %.sroa.5.0.i.i432 to i32
-  %553 = icmp eq i32 %.sroa.0.0.i.i433, 0
-  %554 = icmp slt i32 %.sroa.7.0.extract.trunc11.i437, -149
-  %or.cond.i438 = select i1 %553, i1 true, i1 %554
+  %551 = icmp eq i32 %.sroa.0.0.i.i433, 0
+  %552 = icmp slt i32 %.sroa.7.0.extract.trunc11.i437, -149
+  %or.cond.i438 = select i1 %551, i1 true, i1 %552
   %..i439 = select i1 %or.cond.i438, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i436
   %.sroa.7.0.extract.shift.i440 = and i64 %.sroa.05.0.insert.insert.i.i147, -4294967296
-  %555 = mul nsw i64 %487, %487
-  %556 = lshr i64 %555, 29
+  %553 = mul nsw i64 %485, %485
+  %554 = lshr i64 %553, 29
   %.sroa.25.0.extract.shift16.i443 = add i64 %.sroa.05.0.insert.insert.i.i147, -4294967296
   %.sroa.2.0.insert.shift.i444 = add i64 %.sroa.25.0.extract.shift16.i443, %.sroa.7.0.extract.shift.i440
-  %.sroa.0.0.extract.trunc.i.i445 = trunc i64 %556 to i32
+  %.sroa.0.0.extract.trunc.i.i445 = trunc i64 %554 to i32
   %.sroa.5.0.extract.shift.i.i446 = lshr i64 %.sroa.2.0.insert.shift.i444, 32
-  %557 = add i32 %.sroa.0.0.extract.trunc.i.i445, 1073741824
-  %558 = icmp slt i32 %557, 1
-  %559 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i446, 1
-  %560 = and i64 %559, 4294967295
-  %.sroa.5.0.i.i447 = select i1 %558, i64 %560, i64 %.sroa.5.0.extract.shift.i.i446
-  %561 = zext i1 %558 to i32
-  %.sroa.0.0.i.i448 = ashr i32 %.sroa.0.0.extract.trunc.i.i445, %561
+  %555 = add i32 %.sroa.0.0.extract.trunc.i.i445, 1073741824
+  %556 = icmp slt i32 %555, 1
+  %557 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i446, 1
+  %558 = and i64 %557, 4294967295
+  %.sroa.5.0.i.i447 = select i1 %556, i64 %558, i64 %.sroa.5.0.extract.shift.i.i446
+  %559 = zext i1 %556 to i32
+  %.sroa.0.0.i.i448 = ashr i32 %.sroa.0.0.extract.trunc.i.i445, %559
   %.sroa.2.0.insert.shift.i.i449 = shl nuw i64 %.sroa.5.0.i.i447, 32
   %.sroa.02.0.insert.ext.i.i450 = zext i32 %.sroa.0.0.i.i448 to i64
   %.sroa.02.0.insert.insert.i.i451 = or disjoint i64 %.sroa.2.0.insert.shift.i.i449, %.sroa.02.0.insert.ext.i.i450
   %.sroa.7.0.extract.trunc11.i452 = trunc nuw i64 %.sroa.5.0.i.i447 to i32
-  %562 = icmp eq i32 %.sroa.0.0.i.i448, 0
-  %563 = icmp slt i32 %.sroa.7.0.extract.trunc11.i452, -149
-  %or.cond.i453 = select i1 %562, i1 true, i1 %563
+  %560 = icmp eq i32 %.sroa.0.0.i.i448, 0
+  %561 = icmp slt i32 %.sroa.7.0.extract.trunc11.i452, -149
+  %or.cond.i453 = select i1 %560, i1 true, i1 %561
   %..i454 = select i1 %or.cond.i453, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i451
   %.sroa.012.0.extract.trunc.i455 = trunc i64 %..i439 to i32
   %.sroa.414.0.extract.shift.i456 = lshr i64 %..i439, 32
@@ -2463,131 +2462,131 @@ av_add_sf.exit424:                                ; preds = %av_add_sf.exit353, 
   %.sroa.09.0.extract.trunc.i458 = trunc i64 %..i454 to i32
   %.sroa.4.0.extract.shift.i459 = lshr i64 %..i454, 32
   %.sroa.4.0.extract.trunc.i460 = trunc nuw i64 %.sroa.4.0.extract.shift.i459 to i32
-  %564 = sub nsw i32 %.sroa.414.0.extract.trunc.i457, %.sroa.4.0.extract.trunc.i460
-  %565 = icmp slt i32 %564, -31
-  br i1 %565, label %av_add_sf.exit498, label %566
+  %562 = sub nsw i32 %.sroa.414.0.extract.trunc.i457, %.sroa.4.0.extract.trunc.i460
+  %563 = icmp slt i32 %562, -31
+  br i1 %563, label %av_add_sf.exit498, label %564
 
-566:                                              ; preds = %av_add_sf.exit424
-  %567 = icmp slt i32 %564, 0
-  br i1 %567, label %568, label %587
+564:                                              ; preds = %av_add_sf.exit424
+  %565 = icmp slt i32 %562, 0
+  br i1 %565, label %566, label %585
 
-568:                                              ; preds = %566
-  %569 = sub nsw i32 0, %564
-  %570 = ashr i32 %.sroa.012.0.extract.trunc.i455, %569
-  %571 = add nsw i32 %570, %.sroa.09.0.extract.trunc.i458
-  %572 = add i32 %571, 1073741824
-  %573 = icmp slt i32 %572, 1
-  %574 = zext i1 %573 to i32
-  %.sroa.0.0.i.i482 = ashr i32 %571, %574
+566:                                              ; preds = %564
+  %567 = sub nsw i32 0, %562
+  %568 = ashr i32 %.sroa.012.0.extract.trunc.i455, %567
+  %569 = add nsw i32 %568, %.sroa.09.0.extract.trunc.i458
+  %570 = add i32 %569, 1073741824
+  %571 = icmp slt i32 %570, 1
+  %572 = zext i1 %571 to i32
+  %.sroa.0.0.i.i482 = ashr i32 %569, %572
   %.not.i.i483 = icmp eq i32 %.sroa.0.0.i.i482, 0
   br i1 %.not.i.i483, label %av_normalize_sf.exit.i492, label %.preheader.i.i484
 
-.preheader.i.i484:                                ; preds = %568
-  %575 = zext i1 %573 to i64
-  %.sroa.5.0.i.i485 = add nuw nsw i64 %.sroa.4.0.extract.shift.i459, %575
+.preheader.i.i484:                                ; preds = %566
+  %573 = zext i1 %571 to i64
+  %.sroa.5.0.i.i485 = add nuw nsw i64 %.sroa.4.0.extract.shift.i459, %573
   %.sroa.8.0.extract.trunc.i.i486 = trunc i64 %.sroa.5.0.i.i485 to i32
-  %576 = add i32 %.sroa.0.0.i.i482, 536870911
-  %577 = icmp ult i32 %576, 1073741823
-  br i1 %577, label %.lr.ph.i.i495, label %._crit_edge.i.i487
+  %574 = add i32 %.sroa.0.0.i.i482, 536870911
+  %575 = icmp ult i32 %574, 1073741823
+  br i1 %575, label %.lr.ph.i.i495, label %._crit_edge.i.i487
 
 .lr.ph.i.i495:                                    ; preds = %.preheader.i.i484, %.lr.ph.i.i495
-  %.sroa.0.08.i.i496 = phi i32 [ %578, %.lr.ph.i.i495 ], [ %.sroa.0.0.i.i482, %.preheader.i.i484 ]
-  %.sroa.8.07.i.i497 = phi i32 [ %579, %.lr.ph.i.i495 ], [ %.sroa.8.0.extract.trunc.i.i486, %.preheader.i.i484 ]
-  %578 = shl nsw i32 %.sroa.0.08.i.i496, 1
-  %579 = add nsw i32 %.sroa.8.07.i.i497, -1
-  %580 = add nsw i32 %578, 536870911
-  %581 = icmp ult i32 %580, 1073741823
-  br i1 %581, label %.lr.ph.i.i495, label %._crit_edge.i.i487, !llvm.loop !134
+  %.sroa.0.08.i.i496 = phi i32 [ %576, %.lr.ph.i.i495 ], [ %.sroa.0.0.i.i482, %.preheader.i.i484 ]
+  %.sroa.8.07.i.i497 = phi i32 [ %577, %.lr.ph.i.i495 ], [ %.sroa.8.0.extract.trunc.i.i486, %.preheader.i.i484 ]
+  %576 = shl nsw i32 %.sroa.0.08.i.i496, 1
+  %577 = add nsw i32 %.sroa.8.07.i.i497, -1
+  %578 = add nsw i32 %576, 536870911
+  %579 = icmp ult i32 %578, 1073741823
+  br i1 %579, label %.lr.ph.i.i495, label %._crit_edge.i.i487, !llvm.loop !134
 
 ._crit_edge.i.i487:                               ; preds = %.lr.ph.i.i495, %.preheader.i.i484
-  %.sroa.8.0.lcssa.i.i488 = phi i32 [ %.sroa.8.0.extract.trunc.i.i486, %.preheader.i.i484 ], [ %579, %.lr.ph.i.i495 ]
-  %.sroa.0.0.lcssa.i.i489 = phi i32 [ %.sroa.0.0.i.i482, %.preheader.i.i484 ], [ %578, %.lr.ph.i.i495 ]
-  %582 = icmp slt i32 %.sroa.8.0.lcssa.i.i488, -149
+  %.sroa.8.0.lcssa.i.i488 = phi i32 [ %.sroa.8.0.extract.trunc.i.i486, %.preheader.i.i484 ], [ %577, %.lr.ph.i.i495 ]
+  %.sroa.0.0.lcssa.i.i489 = phi i32 [ %.sroa.0.0.i.i482, %.preheader.i.i484 ], [ %576, %.lr.ph.i.i495 ]
+  %580 = icmp slt i32 %.sroa.8.0.lcssa.i.i488, -149
   %spec.select.i.i490 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i488, i32 -149)
-  %spec.select6.i.i491 = select i1 %582, i32 0, i32 %.sroa.0.0.lcssa.i.i489
-  %583 = zext i32 %spec.select.i.i490 to i64
-  %584 = shl nuw i64 %583, 32
-  %585 = zext i32 %spec.select6.i.i491 to i64
-  %586 = or disjoint i64 %584, %585
+  %spec.select6.i.i491 = select i1 %580, i32 0, i32 %.sroa.0.0.lcssa.i.i489
+  %581 = zext i32 %spec.select.i.i490 to i64
+  %582 = shl nuw i64 %581, 32
+  %583 = zext i32 %spec.select6.i.i491 to i64
+  %584 = or disjoint i64 %582, %583
   br label %av_normalize_sf.exit.i492
 
-av_normalize_sf.exit.i492:                        ; preds = %._crit_edge.i.i487, %568
-  %.sroa.05.0.insert.insert.i.i493 = phi i64 [ %586, %._crit_edge.i.i487 ], [ -639950127104, %568 ]
+av_normalize_sf.exit.i492:                        ; preds = %._crit_edge.i.i487, %566
+  %.sroa.05.0.insert.insert.i.i493 = phi i64 [ %584, %._crit_edge.i.i487 ], [ -639950127104, %566 ]
   %.sroa.5.0.extract.shift.i494 = lshr i64 %.sroa.05.0.insert.insert.i.i493, 32
   br label %av_add_sf.exit498
 
-587:                                              ; preds = %566
-  %588 = icmp samesign ult i32 %564, 32
-  br i1 %588, label %589, label %av_add_sf.exit498
+585:                                              ; preds = %564
+  %586 = icmp samesign ult i32 %562, 32
+  br i1 %586, label %587, label %av_add_sf.exit498
 
-589:                                              ; preds = %587
-  %590 = ashr i32 %.sroa.09.0.extract.trunc.i458, %564
-  %591 = add nsw i32 %590, %.sroa.012.0.extract.trunc.i455
-  %592 = add i32 %591, 1073741824
-  %593 = icmp slt i32 %592, 1
-  %594 = zext i1 %593 to i32
-  %.sroa.0.0.i24.i466 = ashr i32 %591, %594
+587:                                              ; preds = %585
+  %588 = ashr i32 %.sroa.09.0.extract.trunc.i458, %562
+  %589 = add nsw i32 %588, %.sroa.012.0.extract.trunc.i455
+  %590 = add i32 %589, 1073741824
+  %591 = icmp slt i32 %590, 1
+  %592 = zext i1 %591 to i32
+  %.sroa.0.0.i24.i466 = ashr i32 %589, %592
   %.not.i29.i467 = icmp eq i32 %.sroa.0.0.i24.i466, 0
   br i1 %.not.i29.i467, label %av_normalize_sf.exit41.i476, label %.preheader.i30.i468
 
-.preheader.i30.i468:                              ; preds = %589
-  %595 = zext i1 %593 to i64
-  %.sroa.5.0.i23.i469 = add nuw nsw i64 %.sroa.414.0.extract.shift.i456, %595
+.preheader.i30.i468:                              ; preds = %587
+  %593 = zext i1 %591 to i64
+  %.sroa.5.0.i23.i469 = add nuw nsw i64 %.sroa.414.0.extract.shift.i456, %593
   %.sroa.8.0.extract.trunc.i31.i470 = trunc i64 %.sroa.5.0.i23.i469 to i32
-  %596 = add i32 %.sroa.0.0.i24.i466, 536870911
-  %597 = icmp ult i32 %596, 1073741823
-  br i1 %597, label %.lr.ph.i38.i479, label %._crit_edge.i32.i471
+  %594 = add i32 %.sroa.0.0.i24.i466, 536870911
+  %595 = icmp ult i32 %594, 1073741823
+  br i1 %595, label %.lr.ph.i38.i479, label %._crit_edge.i32.i471
 
 .lr.ph.i38.i479:                                  ; preds = %.preheader.i30.i468, %.lr.ph.i38.i479
-  %.sroa.0.08.i39.i480 = phi i32 [ %598, %.lr.ph.i38.i479 ], [ %.sroa.0.0.i24.i466, %.preheader.i30.i468 ]
-  %.sroa.8.07.i40.i481 = phi i32 [ %599, %.lr.ph.i38.i479 ], [ %.sroa.8.0.extract.trunc.i31.i470, %.preheader.i30.i468 ]
-  %598 = shl nsw i32 %.sroa.0.08.i39.i480, 1
-  %599 = add nsw i32 %.sroa.8.07.i40.i481, -1
-  %600 = add nsw i32 %598, 536870911
-  %601 = icmp ult i32 %600, 1073741823
-  br i1 %601, label %.lr.ph.i38.i479, label %._crit_edge.i32.i471, !llvm.loop !134
+  %.sroa.0.08.i39.i480 = phi i32 [ %596, %.lr.ph.i38.i479 ], [ %.sroa.0.0.i24.i466, %.preheader.i30.i468 ]
+  %.sroa.8.07.i40.i481 = phi i32 [ %597, %.lr.ph.i38.i479 ], [ %.sroa.8.0.extract.trunc.i31.i470, %.preheader.i30.i468 ]
+  %596 = shl nsw i32 %.sroa.0.08.i39.i480, 1
+  %597 = add nsw i32 %.sroa.8.07.i40.i481, -1
+  %598 = add nsw i32 %596, 536870911
+  %599 = icmp ult i32 %598, 1073741823
+  br i1 %599, label %.lr.ph.i38.i479, label %._crit_edge.i32.i471, !llvm.loop !134
 
 ._crit_edge.i32.i471:                             ; preds = %.lr.ph.i38.i479, %.preheader.i30.i468
-  %.sroa.8.0.lcssa.i33.i472 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i470, %.preheader.i30.i468 ], [ %599, %.lr.ph.i38.i479 ]
-  %.sroa.0.0.lcssa.i34.i473 = phi i32 [ %.sroa.0.0.i24.i466, %.preheader.i30.i468 ], [ %598, %.lr.ph.i38.i479 ]
-  %602 = icmp slt i32 %.sroa.8.0.lcssa.i33.i472, -149
+  %.sroa.8.0.lcssa.i33.i472 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i470, %.preheader.i30.i468 ], [ %597, %.lr.ph.i38.i479 ]
+  %.sroa.0.0.lcssa.i34.i473 = phi i32 [ %.sroa.0.0.i24.i466, %.preheader.i30.i468 ], [ %596, %.lr.ph.i38.i479 ]
+  %600 = icmp slt i32 %.sroa.8.0.lcssa.i33.i472, -149
   %spec.select.i35.i474 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i472, i32 -149)
-  %spec.select6.i36.i475 = select i1 %602, i32 0, i32 %.sroa.0.0.lcssa.i34.i473
-  %603 = zext i32 %spec.select.i35.i474 to i64
-  %604 = shl nuw i64 %603, 32
-  %605 = zext i32 %spec.select6.i36.i475 to i64
-  %606 = or disjoint i64 %604, %605
+  %spec.select6.i36.i475 = select i1 %600, i32 0, i32 %.sroa.0.0.lcssa.i34.i473
+  %601 = zext i32 %spec.select.i35.i474 to i64
+  %602 = shl nuw i64 %601, 32
+  %603 = zext i32 %spec.select6.i36.i475 to i64
+  %604 = or disjoint i64 %602, %603
   br label %av_normalize_sf.exit41.i476
 
-av_normalize_sf.exit41.i476:                      ; preds = %._crit_edge.i32.i471, %589
-  %.sroa.05.0.insert.insert.i37.i477 = phi i64 [ %606, %._crit_edge.i32.i471 ], [ -639950127104, %589 ]
+av_normalize_sf.exit41.i476:                      ; preds = %._crit_edge.i32.i471, %587
+  %.sroa.05.0.insert.insert.i37.i477 = phi i64 [ %604, %._crit_edge.i32.i471 ], [ -639950127104, %587 ]
   %.sroa.5.0.extract.shift18.i478 = lshr i64 %.sroa.05.0.insert.insert.i37.i477, 32
   br label %av_add_sf.exit498
 
-av_add_sf.exit498:                                ; preds = %av_add_sf.exit424, %av_normalize_sf.exit.i492, %587, %av_normalize_sf.exit41.i476
-  %.sroa.016.0.i461 = phi i64 [ %.sroa.05.0.insert.insert.i.i493, %av_normalize_sf.exit.i492 ], [ %.sroa.05.0.insert.insert.i37.i477, %av_normalize_sf.exit41.i476 ], [ %..i454, %av_add_sf.exit424 ], [ %..i439, %587 ]
-  %.sroa.5.0.i462 = phi i64 [ %.sroa.5.0.extract.shift.i494, %av_normalize_sf.exit.i492 ], [ %.sroa.5.0.extract.shift18.i478, %av_normalize_sf.exit41.i476 ], [ %.sroa.4.0.extract.shift.i459, %av_add_sf.exit424 ], [ %.sroa.414.0.extract.shift.i456, %587 ]
+av_add_sf.exit498:                                ; preds = %av_add_sf.exit424, %av_normalize_sf.exit.i492, %585, %av_normalize_sf.exit41.i476
+  %.sroa.016.0.i461 = phi i64 [ %.sroa.05.0.insert.insert.i.i493, %av_normalize_sf.exit.i492 ], [ %.sroa.05.0.insert.insert.i37.i477, %av_normalize_sf.exit41.i476 ], [ %..i454, %av_add_sf.exit424 ], [ %..i439, %585 ]
+  %.sroa.5.0.i462 = phi i64 [ %.sroa.5.0.extract.shift.i494, %av_normalize_sf.exit.i492 ], [ %.sroa.5.0.extract.shift18.i478, %av_normalize_sf.exit41.i476 ], [ %.sroa.4.0.extract.shift.i459, %av_add_sf.exit424 ], [ %.sroa.414.0.extract.shift.i456, %585 ]
   %.sroa.5.0.insert.shift.i463 = shl nuw i64 %.sroa.5.0.i462, 32
-  %607 = sext i32 %.sroa.094.0.copyload.i to i64
-  %608 = mul nsw i64 %607, 973078528
-  %609 = lshr i64 %608, 29
-  %.sroa.0.0.extract.trunc.i.i501 = trunc i64 %609 to i32
-  %610 = add i32 %.sroa.6100.0.copyload.i, -1
-  %.sroa.5.0.extract.shift.i.i502 = zext i32 %610 to i64
-  %611 = add i32 %.sroa.0.0.extract.trunc.i.i501, 1073741824
-  %612 = icmp slt i32 %611, 1
-  %613 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i502, 1
-  %614 = and i64 %613, 4294967295
-  %.sroa.5.0.i.i503 = select i1 %612, i64 %614, i64 %.sroa.5.0.extract.shift.i.i502
-  %615 = zext i1 %612 to i32
-  %.sroa.0.0.i.i504 = ashr i32 %.sroa.0.0.extract.trunc.i.i501, %615
+  %605 = sext i32 %.sroa.094.0.copyload.i to i64
+  %606 = mul nsw i64 %605, 973078528
+  %607 = lshr i64 %606, 29
+  %.sroa.0.0.extract.trunc.i.i501 = trunc i64 %607 to i32
+  %608 = add i32 %.sroa.6100.0.copyload.i, -1
+  %.sroa.5.0.extract.shift.i.i502 = zext i32 %608 to i64
+  %609 = add i32 %.sroa.0.0.extract.trunc.i.i501, 1073741824
+  %610 = icmp slt i32 %609, 1
+  %611 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i502, 1
+  %612 = and i64 %611, 4294967295
+  %.sroa.5.0.i.i503 = select i1 %610, i64 %612, i64 %.sroa.5.0.extract.shift.i.i502
+  %613 = zext i1 %610 to i32
+  %.sroa.0.0.i.i504 = ashr i32 %.sroa.0.0.extract.trunc.i.i501, %613
   %.sroa.2.0.insert.shift.i.i505 = shl nuw i64 %.sroa.5.0.i.i503, 32
   %.sroa.02.0.insert.ext.i.i506 = zext i32 %.sroa.0.0.i.i504 to i64
   %.sroa.02.0.insert.insert.i.i507 = or disjoint i64 %.sroa.2.0.insert.shift.i.i505, %.sroa.02.0.insert.ext.i.i506
   %.sroa.7.0.extract.trunc11.i508 = trunc nuw i64 %.sroa.5.0.i.i503 to i32
-  %616 = icmp eq i32 %.sroa.0.0.i.i504, 0
-  %617 = icmp slt i32 %.sroa.7.0.extract.trunc11.i508, -149
-  %or.cond.i509 = select i1 %616, i1 true, i1 %617
+  %614 = icmp eq i32 %.sroa.0.0.i.i504, 0
+  %615 = icmp slt i32 %.sroa.7.0.extract.trunc11.i508, -149
+  %or.cond.i509 = select i1 %614, i1 true, i1 %615
   %..i510 = select i1 %or.cond.i509, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i507
   %.sroa.9.0.insert.shift74.i = add i64 %.sroa.5.0.insert.shift.i463, -4294967296
   %.sroa.047.0.insert.insert59.i = or i64 %.sroa.9.0.insert.shift74.i, %.sroa.016.0.i461
@@ -2597,380 +2596,380 @@ av_add_sf.exit498:                                ; preds = %av_add_sf.exit424, 
   %.sroa.09.0.extract.trunc.i514 = trunc i64 %.sroa.016.0.i461 to i32
   %.sroa.4.0.extract.shift.i515 = lshr exact i64 %.sroa.9.0.insert.shift74.i, 32
   %.sroa.4.0.extract.trunc.i516 = trunc nuw i64 %.sroa.4.0.extract.shift.i515 to i32
-  %618 = sub nsw i32 %.sroa.414.0.extract.trunc.i513, %.sroa.4.0.extract.trunc.i516
-  %619 = icmp slt i32 %618, -31
-  br i1 %619, label %av_add_sf.exit554, label %620
+  %616 = sub nsw i32 %.sroa.414.0.extract.trunc.i513, %.sroa.4.0.extract.trunc.i516
+  %617 = icmp slt i32 %616, -31
+  br i1 %617, label %av_add_sf.exit554, label %618
 
-620:                                              ; preds = %av_add_sf.exit498
-  %621 = icmp slt i32 %618, 0
-  br i1 %621, label %622, label %641
+618:                                              ; preds = %av_add_sf.exit498
+  %619 = icmp slt i32 %616, 0
+  br i1 %619, label %620, label %639
 
-622:                                              ; preds = %620
-  %623 = sub nsw i32 0, %618
-  %624 = ashr i32 %.sroa.012.0.extract.trunc.i511, %623
-  %625 = add nsw i32 %624, %.sroa.09.0.extract.trunc.i514
-  %626 = add i32 %625, 1073741824
-  %627 = icmp slt i32 %626, 1
-  %628 = zext i1 %627 to i32
-  %.sroa.0.0.i.i538 = ashr i32 %625, %628
+620:                                              ; preds = %618
+  %621 = sub nsw i32 0, %616
+  %622 = ashr i32 %.sroa.012.0.extract.trunc.i511, %621
+  %623 = add nsw i32 %622, %.sroa.09.0.extract.trunc.i514
+  %624 = add i32 %623, 1073741824
+  %625 = icmp slt i32 %624, 1
+  %626 = zext i1 %625 to i32
+  %.sroa.0.0.i.i538 = ashr i32 %623, %626
   %.not.i.i539 = icmp eq i32 %.sroa.0.0.i.i538, 0
   br i1 %.not.i.i539, label %av_normalize_sf.exit.i548, label %.preheader.i.i540
 
-.preheader.i.i540:                                ; preds = %622
-  %629 = zext i1 %627 to i64
-  %.sroa.5.0.i.i541 = add nuw nsw i64 %.sroa.4.0.extract.shift.i515, %629
+.preheader.i.i540:                                ; preds = %620
+  %627 = zext i1 %625 to i64
+  %.sroa.5.0.i.i541 = add nuw nsw i64 %.sroa.4.0.extract.shift.i515, %627
   %.sroa.8.0.extract.trunc.i.i542 = trunc i64 %.sroa.5.0.i.i541 to i32
-  %630 = add i32 %.sroa.0.0.i.i538, 536870911
-  %631 = icmp ult i32 %630, 1073741823
-  br i1 %631, label %.lr.ph.i.i551, label %._crit_edge.i.i543
+  %628 = add i32 %.sroa.0.0.i.i538, 536870911
+  %629 = icmp ult i32 %628, 1073741823
+  br i1 %629, label %.lr.ph.i.i551, label %._crit_edge.i.i543
 
 .lr.ph.i.i551:                                    ; preds = %.preheader.i.i540, %.lr.ph.i.i551
-  %.sroa.0.08.i.i552 = phi i32 [ %632, %.lr.ph.i.i551 ], [ %.sroa.0.0.i.i538, %.preheader.i.i540 ]
-  %.sroa.8.07.i.i553 = phi i32 [ %633, %.lr.ph.i.i551 ], [ %.sroa.8.0.extract.trunc.i.i542, %.preheader.i.i540 ]
-  %632 = shl nsw i32 %.sroa.0.08.i.i552, 1
-  %633 = add nsw i32 %.sroa.8.07.i.i553, -1
-  %634 = add nsw i32 %632, 536870911
-  %635 = icmp ult i32 %634, 1073741823
-  br i1 %635, label %.lr.ph.i.i551, label %._crit_edge.i.i543, !llvm.loop !134
+  %.sroa.0.08.i.i552 = phi i32 [ %630, %.lr.ph.i.i551 ], [ %.sroa.0.0.i.i538, %.preheader.i.i540 ]
+  %.sroa.8.07.i.i553 = phi i32 [ %631, %.lr.ph.i.i551 ], [ %.sroa.8.0.extract.trunc.i.i542, %.preheader.i.i540 ]
+  %630 = shl nsw i32 %.sroa.0.08.i.i552, 1
+  %631 = add nsw i32 %.sroa.8.07.i.i553, -1
+  %632 = add nsw i32 %630, 536870911
+  %633 = icmp ult i32 %632, 1073741823
+  br i1 %633, label %.lr.ph.i.i551, label %._crit_edge.i.i543, !llvm.loop !134
 
 ._crit_edge.i.i543:                               ; preds = %.lr.ph.i.i551, %.preheader.i.i540
-  %.sroa.8.0.lcssa.i.i544 = phi i32 [ %.sroa.8.0.extract.trunc.i.i542, %.preheader.i.i540 ], [ %633, %.lr.ph.i.i551 ]
-  %.sroa.0.0.lcssa.i.i545 = phi i32 [ %.sroa.0.0.i.i538, %.preheader.i.i540 ], [ %632, %.lr.ph.i.i551 ]
-  %636 = icmp slt i32 %.sroa.8.0.lcssa.i.i544, -149
+  %.sroa.8.0.lcssa.i.i544 = phi i32 [ %.sroa.8.0.extract.trunc.i.i542, %.preheader.i.i540 ], [ %631, %.lr.ph.i.i551 ]
+  %.sroa.0.0.lcssa.i.i545 = phi i32 [ %.sroa.0.0.i.i538, %.preheader.i.i540 ], [ %630, %.lr.ph.i.i551 ]
+  %634 = icmp slt i32 %.sroa.8.0.lcssa.i.i544, -149
   %spec.select.i.i546 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i544, i32 -149)
-  %spec.select6.i.i547 = select i1 %636, i32 0, i32 %.sroa.0.0.lcssa.i.i545
-  %637 = zext i32 %spec.select.i.i546 to i64
-  %638 = shl nuw i64 %637, 32
-  %639 = zext i32 %spec.select6.i.i547 to i64
-  %640 = or disjoint i64 %638, %639
+  %spec.select6.i.i547 = select i1 %634, i32 0, i32 %.sroa.0.0.lcssa.i.i545
+  %635 = zext i32 %spec.select.i.i546 to i64
+  %636 = shl nuw i64 %635, 32
+  %637 = zext i32 %spec.select6.i.i547 to i64
+  %638 = or disjoint i64 %636, %637
   br label %av_normalize_sf.exit.i548
 
-av_normalize_sf.exit.i548:                        ; preds = %._crit_edge.i.i543, %622
-  %.sroa.05.0.insert.insert.i.i549 = phi i64 [ %640, %._crit_edge.i.i543 ], [ -639950127104, %622 ]
+av_normalize_sf.exit.i548:                        ; preds = %._crit_edge.i.i543, %620
+  %.sroa.05.0.insert.insert.i.i549 = phi i64 [ %638, %._crit_edge.i.i543 ], [ -639950127104, %620 ]
   %.sroa.5.0.extract.shift.i550 = lshr i64 %.sroa.05.0.insert.insert.i.i549, 32
   br label %av_add_sf.exit554
 
-641:                                              ; preds = %620
-  %642 = icmp samesign ult i32 %618, 32
-  br i1 %642, label %643, label %av_add_sf.exit554
+639:                                              ; preds = %618
+  %640 = icmp samesign ult i32 %616, 32
+  br i1 %640, label %641, label %av_add_sf.exit554
 
-643:                                              ; preds = %641
-  %644 = ashr i32 %.sroa.09.0.extract.trunc.i514, %618
-  %645 = add nsw i32 %644, %.sroa.012.0.extract.trunc.i511
-  %646 = add i32 %645, 1073741824
-  %647 = icmp slt i32 %646, 1
-  %648 = zext i1 %647 to i32
-  %.sroa.0.0.i24.i522 = ashr i32 %645, %648
+641:                                              ; preds = %639
+  %642 = ashr i32 %.sroa.09.0.extract.trunc.i514, %616
+  %643 = add nsw i32 %642, %.sroa.012.0.extract.trunc.i511
+  %644 = add i32 %643, 1073741824
+  %645 = icmp slt i32 %644, 1
+  %646 = zext i1 %645 to i32
+  %.sroa.0.0.i24.i522 = ashr i32 %643, %646
   %.not.i29.i523 = icmp eq i32 %.sroa.0.0.i24.i522, 0
   br i1 %.not.i29.i523, label %av_normalize_sf.exit41.i532, label %.preheader.i30.i524
 
-.preheader.i30.i524:                              ; preds = %643
-  %649 = zext i1 %647 to i64
-  %.sroa.5.0.i23.i525 = add nuw nsw i64 %.sroa.414.0.extract.shift.i512, %649
+.preheader.i30.i524:                              ; preds = %641
+  %647 = zext i1 %645 to i64
+  %.sroa.5.0.i23.i525 = add nuw nsw i64 %.sroa.414.0.extract.shift.i512, %647
   %.sroa.8.0.extract.trunc.i31.i526 = trunc i64 %.sroa.5.0.i23.i525 to i32
-  %650 = add i32 %.sroa.0.0.i24.i522, 536870911
-  %651 = icmp ult i32 %650, 1073741823
-  br i1 %651, label %.lr.ph.i38.i535, label %._crit_edge.i32.i527
+  %648 = add i32 %.sroa.0.0.i24.i522, 536870911
+  %649 = icmp ult i32 %648, 1073741823
+  br i1 %649, label %.lr.ph.i38.i535, label %._crit_edge.i32.i527
 
 .lr.ph.i38.i535:                                  ; preds = %.preheader.i30.i524, %.lr.ph.i38.i535
-  %.sroa.0.08.i39.i536 = phi i32 [ %652, %.lr.ph.i38.i535 ], [ %.sroa.0.0.i24.i522, %.preheader.i30.i524 ]
-  %.sroa.8.07.i40.i537 = phi i32 [ %653, %.lr.ph.i38.i535 ], [ %.sroa.8.0.extract.trunc.i31.i526, %.preheader.i30.i524 ]
-  %652 = shl nsw i32 %.sroa.0.08.i39.i536, 1
-  %653 = add nsw i32 %.sroa.8.07.i40.i537, -1
-  %654 = add nsw i32 %652, 536870911
-  %655 = icmp ult i32 %654, 1073741823
-  br i1 %655, label %.lr.ph.i38.i535, label %._crit_edge.i32.i527, !llvm.loop !134
+  %.sroa.0.08.i39.i536 = phi i32 [ %650, %.lr.ph.i38.i535 ], [ %.sroa.0.0.i24.i522, %.preheader.i30.i524 ]
+  %.sroa.8.07.i40.i537 = phi i32 [ %651, %.lr.ph.i38.i535 ], [ %.sroa.8.0.extract.trunc.i31.i526, %.preheader.i30.i524 ]
+  %650 = shl nsw i32 %.sroa.0.08.i39.i536, 1
+  %651 = add nsw i32 %.sroa.8.07.i40.i537, -1
+  %652 = add nsw i32 %650, 536870911
+  %653 = icmp ult i32 %652, 1073741823
+  br i1 %653, label %.lr.ph.i38.i535, label %._crit_edge.i32.i527, !llvm.loop !134
 
 ._crit_edge.i32.i527:                             ; preds = %.lr.ph.i38.i535, %.preheader.i30.i524
-  %.sroa.8.0.lcssa.i33.i528 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i526, %.preheader.i30.i524 ], [ %653, %.lr.ph.i38.i535 ]
-  %.sroa.0.0.lcssa.i34.i529 = phi i32 [ %.sroa.0.0.i24.i522, %.preheader.i30.i524 ], [ %652, %.lr.ph.i38.i535 ]
-  %656 = icmp slt i32 %.sroa.8.0.lcssa.i33.i528, -149
+  %.sroa.8.0.lcssa.i33.i528 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i526, %.preheader.i30.i524 ], [ %651, %.lr.ph.i38.i535 ]
+  %.sroa.0.0.lcssa.i34.i529 = phi i32 [ %.sroa.0.0.i24.i522, %.preheader.i30.i524 ], [ %650, %.lr.ph.i38.i535 ]
+  %654 = icmp slt i32 %.sroa.8.0.lcssa.i33.i528, -149
   %spec.select.i35.i530 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i528, i32 -149)
-  %spec.select6.i36.i531 = select i1 %656, i32 0, i32 %.sroa.0.0.lcssa.i34.i529
-  %657 = zext i32 %spec.select.i35.i530 to i64
-  %658 = shl nuw i64 %657, 32
-  %659 = zext i32 %spec.select6.i36.i531 to i64
-  %660 = or disjoint i64 %658, %659
+  %spec.select6.i36.i531 = select i1 %654, i32 0, i32 %.sroa.0.0.lcssa.i34.i529
+  %655 = zext i32 %spec.select.i35.i530 to i64
+  %656 = shl nuw i64 %655, 32
+  %657 = zext i32 %spec.select6.i36.i531 to i64
+  %658 = or disjoint i64 %656, %657
   br label %av_normalize_sf.exit41.i532
 
-av_normalize_sf.exit41.i532:                      ; preds = %._crit_edge.i32.i527, %643
-  %.sroa.05.0.insert.insert.i37.i533 = phi i64 [ %660, %._crit_edge.i32.i527 ], [ -639950127104, %643 ]
+av_normalize_sf.exit41.i532:                      ; preds = %._crit_edge.i32.i527, %641
+  %.sroa.05.0.insert.insert.i37.i533 = phi i64 [ %658, %._crit_edge.i32.i527 ], [ -639950127104, %641 ]
   %.sroa.5.0.extract.shift18.i534 = lshr i64 %.sroa.05.0.insert.insert.i37.i533, 32
   br label %av_add_sf.exit554
 
-av_add_sf.exit554:                                ; preds = %av_add_sf.exit498, %av_normalize_sf.exit.i548, %641, %av_normalize_sf.exit41.i532
-  %.sroa.016.0.i517 = phi i64 [ %.sroa.05.0.insert.insert.i.i549, %av_normalize_sf.exit.i548 ], [ %.sroa.05.0.insert.insert.i37.i533, %av_normalize_sf.exit41.i532 ], [ %.sroa.047.0.insert.insert59.i, %av_add_sf.exit498 ], [ %..i510, %641 ]
-  %.sroa.5.0.i518 = phi i64 [ %.sroa.5.0.extract.shift.i550, %av_normalize_sf.exit.i548 ], [ %.sroa.5.0.extract.shift18.i534, %av_normalize_sf.exit41.i532 ], [ %.sroa.4.0.extract.shift.i515, %av_add_sf.exit498 ], [ %.sroa.414.0.extract.shift.i512, %641 ]
+av_add_sf.exit554:                                ; preds = %av_add_sf.exit498, %av_normalize_sf.exit.i548, %639, %av_normalize_sf.exit41.i532
+  %.sroa.016.0.i517 = phi i64 [ %.sroa.05.0.insert.insert.i.i549, %av_normalize_sf.exit.i548 ], [ %.sroa.05.0.insert.insert.i37.i533, %av_normalize_sf.exit41.i532 ], [ %.sroa.047.0.insert.insert59.i, %av_add_sf.exit498 ], [ %..i510, %639 ]
+  %.sroa.5.0.i518 = phi i64 [ %.sroa.5.0.extract.shift.i550, %av_normalize_sf.exit.i548 ], [ %.sroa.5.0.extract.shift18.i534, %av_normalize_sf.exit41.i532 ], [ %.sroa.4.0.extract.shift.i515, %av_add_sf.exit498 ], [ %.sroa.414.0.extract.shift.i512, %639 ]
   %.sroa.5.0.insert.shift.i519 = shl nuw i64 %.sroa.5.0.i518, 32
   %.sroa.0.0.extract.trunc.i44 = trunc i64 %.sroa.016.0.i517 to i32
-  %661 = ashr i32 %.sroa.0.0.extract.trunc.i44, 31
-  %662 = xor i32 %661, %.sroa.0.0.extract.trunc.i44
-  %663 = sub nsw i32 %662, %661
-  %664 = and i32 %663, -4194304
-  %665 = xor i32 %664, %661
-  %666 = sub nsw i32 %665, %661
-  %.sroa.05.0.insert.ext.i46 = zext i32 %666 to i64
+  %659 = ashr i32 %.sroa.0.0.extract.trunc.i44, 31
+  %660 = xor i32 %659, %.sroa.0.0.extract.trunc.i44
+  %661 = sub nsw i32 %660, %659
+  %662 = and i32 %661, -4194304
+  %663 = xor i32 %662, %659
+  %664 = sub nsw i32 %663, %659
+  %.sroa.05.0.insert.ext.i46 = zext i32 %664 to i64
   %.sroa.05.0.insert.insert.i47 = or disjoint i64 %.sroa.5.0.insert.shift.i519, %.sroa.05.0.insert.ext.i46
   store i64 %.sroa.05.0.insert.insert.i47, ptr %56, align 4
-  %667 = mul nsw i64 %487, %.sroa.0121.0.i
-  %668 = lshr i64 %667, 29
-  %.sroa.2.0.insert.shift.i559 = add i64 %.sroa.05.0.insert.insert.i.i147, %.sroa.6126.0.i
-  %.sroa.0.0.extract.trunc.i.i560 = trunc i64 %668 to i32
+  %665 = mul nsw i64 %485, %138
+  %666 = lshr i64 %665, 29
+  %.sroa.2.0.insert.shift.i559 = add i64 %.sroa.05.0.insert.insert.i.i147, %.sroa.25.0.extract.shift16.i108
+  %.sroa.0.0.extract.trunc.i.i560 = trunc i64 %666 to i32
   %.sroa.5.0.extract.shift.i.i561 = lshr i64 %.sroa.2.0.insert.shift.i559, 32
-  %669 = add i32 %.sroa.0.0.extract.trunc.i.i560, 1073741824
-  %670 = icmp slt i32 %669, 1
-  %671 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i561, 1
-  %672 = and i64 %671, 4294967295
-  %.sroa.5.0.i.i562 = select i1 %670, i64 %672, i64 %.sroa.5.0.extract.shift.i.i561
-  %673 = zext i1 %670 to i32
-  %.sroa.0.0.i.i563 = ashr i32 %.sroa.0.0.extract.trunc.i.i560, %673
+  %667 = add i32 %.sroa.0.0.extract.trunc.i.i560, 1073741824
+  %668 = icmp slt i32 %667, 1
+  %669 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i561, 1
+  %670 = and i64 %669, 4294967295
+  %.sroa.5.0.i.i562 = select i1 %668, i64 %670, i64 %.sroa.5.0.extract.shift.i.i561
+  %671 = zext i1 %668 to i32
+  %.sroa.0.0.i.i563 = ashr i32 %.sroa.0.0.extract.trunc.i.i560, %671
   %.sroa.2.0.insert.shift.i.i564 = shl nuw i64 %.sroa.5.0.i.i562, 32
   %.sroa.02.0.insert.ext.i.i565 = zext i32 %.sroa.0.0.i.i563 to i64
   %.sroa.02.0.insert.insert.i.i566 = or disjoint i64 %.sroa.2.0.insert.shift.i.i564, %.sroa.02.0.insert.ext.i.i565
   %.sroa.7.0.extract.trunc11.i567 = trunc nuw i64 %.sroa.5.0.i.i562 to i32
-  %674 = icmp eq i32 %.sroa.0.0.i.i563, 0
-  %675 = icmp slt i32 %.sroa.7.0.extract.trunc11.i567, -149
-  %or.cond.i568 = select i1 %674, i1 true, i1 %675
+  %672 = icmp eq i32 %.sroa.0.0.i.i563, 0
+  %673 = icmp slt i32 %.sroa.7.0.extract.trunc11.i567, -149
+  %or.cond.i568 = select i1 %672, i1 true, i1 %673
   %..i569 = select i1 %or.cond.i568, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i566
-  %676 = sub i64 0, %..i569
+  %674 = sub i64 0, %..i569
   %.sroa.012.0.extract.trunc.i.i570 = trunc i64 %.sroa.0115.0.copyload.i to i32
   %.sroa.414.0.extract.shift.i.i571 = lshr i64 %.sroa.0115.0.copyload.i, 32
   %.sroa.414.0.extract.trunc.i.i572 = trunc nuw i64 %.sroa.414.0.extract.shift.i.i571 to i32
-  %.sroa.09.0.extract.trunc.i.i573 = trunc i64 %676 to i32
+  %.sroa.09.0.extract.trunc.i.i573 = trunc i64 %674 to i32
   %.sroa.4.0.extract.shift.i.i574 = lshr i64 %..i569, 32
   %.sroa.4.0.extract.trunc.i.i575 = trunc nuw i64 %.sroa.4.0.extract.shift.i.i574 to i32
-  %677 = sub nsw i32 %.sroa.414.0.extract.trunc.i.i572, %.sroa.4.0.extract.trunc.i.i575
-  %678 = icmp slt i32 %677, -31
-  br i1 %678, label %av_sub_sf.exit613, label %679
+  %675 = sub nsw i32 %.sroa.414.0.extract.trunc.i.i572, %.sroa.4.0.extract.trunc.i.i575
+  %676 = icmp slt i32 %675, -31
+  br i1 %676, label %av_sub_sf.exit613, label %677
 
-679:                                              ; preds = %av_add_sf.exit554
-  %680 = icmp slt i32 %677, 0
-  br i1 %680, label %681, label %700
+677:                                              ; preds = %av_add_sf.exit554
+  %678 = icmp slt i32 %675, 0
+  br i1 %678, label %679, label %698
 
-681:                                              ; preds = %679
-  %682 = sub nsw i32 0, %677
-  %683 = ashr i32 %.sroa.012.0.extract.trunc.i.i570, %682
-  %684 = add nsw i32 %683, %.sroa.09.0.extract.trunc.i.i573
-  %685 = add i32 %684, 1073741824
-  %686 = icmp slt i32 %685, 1
-  %687 = zext i1 %686 to i32
-  %.sroa.0.0.i.i.i597 = ashr i32 %684, %687
+679:                                              ; preds = %677
+  %680 = sub nsw i32 0, %675
+  %681 = ashr i32 %.sroa.012.0.extract.trunc.i.i570, %680
+  %682 = add nsw i32 %681, %.sroa.09.0.extract.trunc.i.i573
+  %683 = add i32 %682, 1073741824
+  %684 = icmp slt i32 %683, 1
+  %685 = zext i1 %684 to i32
+  %.sroa.0.0.i.i.i597 = ashr i32 %682, %685
   %.not.i.i.i598 = icmp eq i32 %.sroa.0.0.i.i.i597, 0
   br i1 %.not.i.i.i598, label %av_normalize_sf.exit.i.i607, label %.preheader.i.i.i599
 
-.preheader.i.i.i599:                              ; preds = %681
-  %688 = zext i1 %686 to i64
-  %.sroa.5.0.i.i.i600 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i574, %688
+.preheader.i.i.i599:                              ; preds = %679
+  %686 = zext i1 %684 to i64
+  %.sroa.5.0.i.i.i600 = add nuw nsw i64 %.sroa.4.0.extract.shift.i.i574, %686
   %.sroa.8.0.extract.trunc.i.i.i601 = trunc i64 %.sroa.5.0.i.i.i600 to i32
-  %689 = add i32 %.sroa.0.0.i.i.i597, 536870911
-  %690 = icmp ult i32 %689, 1073741823
-  br i1 %690, label %.lr.ph.i.i.i610, label %._crit_edge.i.i.i602
+  %687 = add i32 %.sroa.0.0.i.i.i597, 536870911
+  %688 = icmp ult i32 %687, 1073741823
+  br i1 %688, label %.lr.ph.i.i.i610, label %._crit_edge.i.i.i602
 
 .lr.ph.i.i.i610:                                  ; preds = %.preheader.i.i.i599, %.lr.ph.i.i.i610
-  %.sroa.0.08.i.i.i611 = phi i32 [ %691, %.lr.ph.i.i.i610 ], [ %.sroa.0.0.i.i.i597, %.preheader.i.i.i599 ]
-  %.sroa.8.07.i.i.i612 = phi i32 [ %692, %.lr.ph.i.i.i610 ], [ %.sroa.8.0.extract.trunc.i.i.i601, %.preheader.i.i.i599 ]
-  %691 = shl nsw i32 %.sroa.0.08.i.i.i611, 1
-  %692 = add nsw i32 %.sroa.8.07.i.i.i612, -1
-  %693 = add nsw i32 %691, 536870911
-  %694 = icmp ult i32 %693, 1073741823
-  br i1 %694, label %.lr.ph.i.i.i610, label %._crit_edge.i.i.i602, !llvm.loop !134
+  %.sroa.0.08.i.i.i611 = phi i32 [ %689, %.lr.ph.i.i.i610 ], [ %.sroa.0.0.i.i.i597, %.preheader.i.i.i599 ]
+  %.sroa.8.07.i.i.i612 = phi i32 [ %690, %.lr.ph.i.i.i610 ], [ %.sroa.8.0.extract.trunc.i.i.i601, %.preheader.i.i.i599 ]
+  %689 = shl nsw i32 %.sroa.0.08.i.i.i611, 1
+  %690 = add nsw i32 %.sroa.8.07.i.i.i612, -1
+  %691 = add nsw i32 %689, 536870911
+  %692 = icmp ult i32 %691, 1073741823
+  br i1 %692, label %.lr.ph.i.i.i610, label %._crit_edge.i.i.i602, !llvm.loop !134
 
 ._crit_edge.i.i.i602:                             ; preds = %.lr.ph.i.i.i610, %.preheader.i.i.i599
-  %.sroa.8.0.lcssa.i.i.i603 = phi i32 [ %.sroa.8.0.extract.trunc.i.i.i601, %.preheader.i.i.i599 ], [ %692, %.lr.ph.i.i.i610 ]
-  %.sroa.0.0.lcssa.i.i.i604 = phi i32 [ %.sroa.0.0.i.i.i597, %.preheader.i.i.i599 ], [ %691, %.lr.ph.i.i.i610 ]
-  %695 = icmp slt i32 %.sroa.8.0.lcssa.i.i.i603, -149
+  %.sroa.8.0.lcssa.i.i.i603 = phi i32 [ %.sroa.8.0.extract.trunc.i.i.i601, %.preheader.i.i.i599 ], [ %690, %.lr.ph.i.i.i610 ]
+  %.sroa.0.0.lcssa.i.i.i604 = phi i32 [ %.sroa.0.0.i.i.i597, %.preheader.i.i.i599 ], [ %689, %.lr.ph.i.i.i610 ]
+  %693 = icmp slt i32 %.sroa.8.0.lcssa.i.i.i603, -149
   %spec.select.i.i.i605 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i.i.i603, i32 -149)
-  %spec.select6.i.i.i606 = select i1 %695, i32 0, i32 %.sroa.0.0.lcssa.i.i.i604
-  %696 = zext i32 %spec.select.i.i.i605 to i64
-  %697 = shl nuw i64 %696, 32
-  %698 = zext i32 %spec.select6.i.i.i606 to i64
-  %699 = or disjoint i64 %697, %698
+  %spec.select6.i.i.i606 = select i1 %693, i32 0, i32 %.sroa.0.0.lcssa.i.i.i604
+  %694 = zext i32 %spec.select.i.i.i605 to i64
+  %695 = shl nuw i64 %694, 32
+  %696 = zext i32 %spec.select6.i.i.i606 to i64
+  %697 = or disjoint i64 %695, %696
   br label %av_normalize_sf.exit.i.i607
 
-av_normalize_sf.exit.i.i607:                      ; preds = %._crit_edge.i.i.i602, %681
-  %.sroa.05.0.insert.insert.i.i.i608 = phi i64 [ %699, %._crit_edge.i.i.i602 ], [ -639950127104, %681 ]
+av_normalize_sf.exit.i.i607:                      ; preds = %._crit_edge.i.i.i602, %679
+  %.sroa.05.0.insert.insert.i.i.i608 = phi i64 [ %697, %._crit_edge.i.i.i602 ], [ -639950127104, %679 ]
   %.sroa.5.0.extract.shift.i.i609 = lshr i64 %.sroa.05.0.insert.insert.i.i.i608, 32
   br label %av_sub_sf.exit613
 
-700:                                              ; preds = %679
-  %701 = icmp samesign ult i32 %677, 32
-  br i1 %701, label %702, label %av_sub_sf.exit613
+698:                                              ; preds = %677
+  %699 = icmp samesign ult i32 %675, 32
+  br i1 %699, label %700, label %av_sub_sf.exit613
 
-702:                                              ; preds = %700
-  %703 = ashr i32 %.sroa.09.0.extract.trunc.i.i573, %677
-  %704 = add nsw i32 %703, %.sroa.012.0.extract.trunc.i.i570
-  %705 = add i32 %704, 1073741824
-  %706 = icmp slt i32 %705, 1
-  %707 = zext i1 %706 to i32
-  %.sroa.0.0.i24.i.i581 = ashr i32 %704, %707
+700:                                              ; preds = %698
+  %701 = ashr i32 %.sroa.09.0.extract.trunc.i.i573, %675
+  %702 = add nsw i32 %701, %.sroa.012.0.extract.trunc.i.i570
+  %703 = add i32 %702, 1073741824
+  %704 = icmp slt i32 %703, 1
+  %705 = zext i1 %704 to i32
+  %.sroa.0.0.i24.i.i581 = ashr i32 %702, %705
   %.not.i29.i.i582 = icmp eq i32 %.sroa.0.0.i24.i.i581, 0
   br i1 %.not.i29.i.i582, label %av_normalize_sf.exit41.i.i591, label %.preheader.i30.i.i583
 
-.preheader.i30.i.i583:                            ; preds = %702
-  %708 = zext i1 %706 to i64
-  %.sroa.5.0.i23.i.i584 = add nuw nsw i64 %.sroa.414.0.extract.shift.i.i571, %708
+.preheader.i30.i.i583:                            ; preds = %700
+  %706 = zext i1 %704 to i64
+  %.sroa.5.0.i23.i.i584 = add nuw nsw i64 %.sroa.414.0.extract.shift.i.i571, %706
   %.sroa.8.0.extract.trunc.i31.i.i585 = trunc i64 %.sroa.5.0.i23.i.i584 to i32
-  %709 = add i32 %.sroa.0.0.i24.i.i581, 536870911
-  %710 = icmp ult i32 %709, 1073741823
-  br i1 %710, label %.lr.ph.i38.i.i594, label %._crit_edge.i32.i.i586
+  %707 = add i32 %.sroa.0.0.i24.i.i581, 536870911
+  %708 = icmp ult i32 %707, 1073741823
+  br i1 %708, label %.lr.ph.i38.i.i594, label %._crit_edge.i32.i.i586
 
 .lr.ph.i38.i.i594:                                ; preds = %.preheader.i30.i.i583, %.lr.ph.i38.i.i594
-  %.sroa.0.08.i39.i.i595 = phi i32 [ %711, %.lr.ph.i38.i.i594 ], [ %.sroa.0.0.i24.i.i581, %.preheader.i30.i.i583 ]
-  %.sroa.8.07.i40.i.i596 = phi i32 [ %712, %.lr.ph.i38.i.i594 ], [ %.sroa.8.0.extract.trunc.i31.i.i585, %.preheader.i30.i.i583 ]
-  %711 = shl nsw i32 %.sroa.0.08.i39.i.i595, 1
-  %712 = add nsw i32 %.sroa.8.07.i40.i.i596, -1
-  %713 = add nsw i32 %711, 536870911
-  %714 = icmp ult i32 %713, 1073741823
-  br i1 %714, label %.lr.ph.i38.i.i594, label %._crit_edge.i32.i.i586, !llvm.loop !134
+  %.sroa.0.08.i39.i.i595 = phi i32 [ %709, %.lr.ph.i38.i.i594 ], [ %.sroa.0.0.i24.i.i581, %.preheader.i30.i.i583 ]
+  %.sroa.8.07.i40.i.i596 = phi i32 [ %710, %.lr.ph.i38.i.i594 ], [ %.sroa.8.0.extract.trunc.i31.i.i585, %.preheader.i30.i.i583 ]
+  %709 = shl nsw i32 %.sroa.0.08.i39.i.i595, 1
+  %710 = add nsw i32 %.sroa.8.07.i40.i.i596, -1
+  %711 = add nsw i32 %709, 536870911
+  %712 = icmp ult i32 %711, 1073741823
+  br i1 %712, label %.lr.ph.i38.i.i594, label %._crit_edge.i32.i.i586, !llvm.loop !134
 
 ._crit_edge.i32.i.i586:                           ; preds = %.lr.ph.i38.i.i594, %.preheader.i30.i.i583
-  %.sroa.8.0.lcssa.i33.i.i587 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i.i585, %.preheader.i30.i.i583 ], [ %712, %.lr.ph.i38.i.i594 ]
-  %.sroa.0.0.lcssa.i34.i.i588 = phi i32 [ %.sroa.0.0.i24.i.i581, %.preheader.i30.i.i583 ], [ %711, %.lr.ph.i38.i.i594 ]
-  %715 = icmp slt i32 %.sroa.8.0.lcssa.i33.i.i587, -149
+  %.sroa.8.0.lcssa.i33.i.i587 = phi i32 [ %.sroa.8.0.extract.trunc.i31.i.i585, %.preheader.i30.i.i583 ], [ %710, %.lr.ph.i38.i.i594 ]
+  %.sroa.0.0.lcssa.i34.i.i588 = phi i32 [ %.sroa.0.0.i24.i.i581, %.preheader.i30.i.i583 ], [ %709, %.lr.ph.i38.i.i594 ]
+  %713 = icmp slt i32 %.sroa.8.0.lcssa.i33.i.i587, -149
   %spec.select.i35.i.i589 = tail call i32 @llvm.smax.i32(i32 %.sroa.8.0.lcssa.i33.i.i587, i32 -149)
-  %spec.select6.i36.i.i590 = select i1 %715, i32 0, i32 %.sroa.0.0.lcssa.i34.i.i588
-  %716 = zext i32 %spec.select.i35.i.i589 to i64
-  %717 = shl nuw i64 %716, 32
-  %718 = zext i32 %spec.select6.i36.i.i590 to i64
-  %719 = or disjoint i64 %717, %718
+  %spec.select6.i36.i.i590 = select i1 %713, i32 0, i32 %.sroa.0.0.lcssa.i34.i.i588
+  %714 = zext i32 %spec.select.i35.i.i589 to i64
+  %715 = shl nuw i64 %714, 32
+  %716 = zext i32 %spec.select6.i36.i.i590 to i64
+  %717 = or disjoint i64 %715, %716
   br label %av_normalize_sf.exit41.i.i591
 
-av_normalize_sf.exit41.i.i591:                    ; preds = %._crit_edge.i32.i.i586, %702
-  %.sroa.05.0.insert.insert.i37.i.i592 = phi i64 [ %719, %._crit_edge.i32.i.i586 ], [ -639950127104, %702 ]
+av_normalize_sf.exit41.i.i591:                    ; preds = %._crit_edge.i32.i.i586, %700
+  %.sroa.05.0.insert.insert.i37.i.i592 = phi i64 [ %717, %._crit_edge.i32.i.i586 ], [ -639950127104, %700 ]
   %.sroa.5.0.extract.shift18.i.i593 = lshr i64 %.sroa.05.0.insert.insert.i37.i.i592, 32
   br label %av_sub_sf.exit613
 
-av_sub_sf.exit613:                                ; preds = %av_add_sf.exit554, %av_normalize_sf.exit.i.i607, %700, %av_normalize_sf.exit41.i.i591
-  %.sroa.016.0.i.i576 = phi i64 [ %.sroa.05.0.insert.insert.i.i.i608, %av_normalize_sf.exit.i.i607 ], [ %.sroa.05.0.insert.insert.i37.i.i592, %av_normalize_sf.exit41.i.i591 ], [ %676, %av_add_sf.exit554 ], [ %.sroa.0115.0.copyload.i, %700 ]
-  %.sroa.5.0.i.i577 = phi i64 [ %.sroa.5.0.extract.shift.i.i609, %av_normalize_sf.exit.i.i607 ], [ %.sroa.5.0.extract.shift18.i.i593, %av_normalize_sf.exit41.i.i591 ], [ %.sroa.4.0.extract.shift.i.i574, %av_add_sf.exit554 ], [ %.sroa.414.0.extract.shift.i.i571, %700 ]
+av_sub_sf.exit613:                                ; preds = %av_add_sf.exit554, %av_normalize_sf.exit.i.i607, %698, %av_normalize_sf.exit41.i.i591
+  %.sroa.016.0.i.i576 = phi i64 [ %.sroa.05.0.insert.insert.i.i.i608, %av_normalize_sf.exit.i.i607 ], [ %.sroa.05.0.insert.insert.i37.i.i592, %av_normalize_sf.exit41.i.i591 ], [ %674, %av_add_sf.exit554 ], [ %.sroa.0115.0.copyload.i, %698 ]
+  %.sroa.5.0.i.i577 = phi i64 [ %.sroa.5.0.extract.shift.i.i609, %av_normalize_sf.exit.i.i607 ], [ %.sroa.5.0.extract.shift18.i.i593, %av_normalize_sf.exit41.i.i591 ], [ %.sroa.4.0.extract.shift.i.i574, %av_add_sf.exit554 ], [ %.sroa.414.0.extract.shift.i.i571, %698 ]
   %sext15.i614 = shl i64 %.sroa.016.0.i.i576, 32
-  %720 = ashr exact i64 %sext15.i614, 32
-  %721 = mul nsw i64 %720, 1023410176
-  %722 = lshr i64 %721, 29
-  %.sroa.0.0.extract.trunc.i.i616 = trunc i64 %722 to i32
-  %723 = add nuw nsw i64 %.sroa.5.0.i.i577, 4294967295
-  %.sroa.5.0.extract.shift.i.i617 = and i64 %723, 4294967295
-  %724 = add i32 %.sroa.0.0.extract.trunc.i.i616, 1073741824
-  %725 = icmp slt i32 %724, 1
-  %.sroa.5.0.i.i618 = select i1 %725, i64 %.sroa.5.0.i.i577, i64 %.sroa.5.0.extract.shift.i.i617
-  %726 = zext i1 %725 to i32
-  %.sroa.0.0.i.i619 = ashr i32 %.sroa.0.0.extract.trunc.i.i616, %726
+  %718 = ashr exact i64 %sext15.i614, 32
+  %719 = mul nsw i64 %718, 1023410176
+  %720 = lshr i64 %719, 29
+  %.sroa.0.0.extract.trunc.i.i616 = trunc i64 %720 to i32
+  %721 = add nuw nsw i64 %.sroa.5.0.i.i577, 4294967295
+  %.sroa.5.0.extract.shift.i.i617 = and i64 %721, 4294967295
+  %722 = add i32 %.sroa.0.0.extract.trunc.i.i616, 1073741824
+  %723 = icmp slt i32 %722, 1
+  %.sroa.5.0.i.i618 = select i1 %723, i64 %.sroa.5.0.i.i577, i64 %.sroa.5.0.extract.shift.i.i617
+  %724 = zext i1 %723 to i32
+  %.sroa.0.0.i.i619 = ashr i32 %.sroa.0.0.extract.trunc.i.i616, %724
   %.sroa.2.0.insert.shift.i.i620 = shl nuw i64 %.sroa.5.0.i.i618, 32
   %.sroa.02.0.insert.ext.i.i621 = zext i32 %.sroa.0.0.i.i619 to i64
   %.sroa.02.0.insert.insert.i.i622 = or disjoint i64 %.sroa.2.0.insert.shift.i.i620, %.sroa.02.0.insert.ext.i.i621
   %.sroa.7.0.extract.trunc11.i623 = trunc nuw i64 %.sroa.5.0.i.i618 to i32
-  %727 = icmp eq i32 %.sroa.0.0.i.i619, 0
-  %728 = icmp slt i32 %.sroa.7.0.extract.trunc11.i623, -149
-  %or.cond.i624 = select i1 %727, i1 true, i1 %728
+  %725 = icmp eq i32 %.sroa.0.0.i.i619, 0
+  %726 = icmp slt i32 %.sroa.7.0.extract.trunc11.i623, -149
+  %or.cond.i624 = select i1 %725, i1 true, i1 %726
   %..i625 = select i1 %or.cond.i624, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i622
   %.sroa.0.0.extract.trunc.i40 = trunc i64 %..i625 to i32
   %.sroa.3.0.extract.shift.i41 = and i64 %..i625, -4294967296
-  %729 = ashr i32 %.sroa.0.0.extract.trunc.i40, 31
-  %730 = xor i32 %729, %.sroa.0.0.extract.trunc.i40
-  %731 = sub nsw i32 %730, %729
-  %732 = and i32 %731, -4194304
-  %733 = xor i32 %732, %729
-  %734 = sub nsw i32 %733, %729
-  %.sroa.05.0.insert.ext.i42 = zext i32 %734 to i64
+  %727 = ashr i32 %.sroa.0.0.extract.trunc.i40, 31
+  %728 = xor i32 %727, %.sroa.0.0.extract.trunc.i40
+  %729 = sub nsw i32 %728, %727
+  %730 = and i32 %729, -4194304
+  %731 = xor i32 %730, %727
+  %732 = sub nsw i32 %731, %727
+  %.sroa.05.0.insert.ext.i42 = zext i32 %732 to i64
   %.sroa.05.0.insert.insert.i43 = or disjoint i64 %.sroa.3.0.extract.shift.i41, %.sroa.05.0.insert.ext.i42
   store i64 %.sroa.05.0.insert.insert.i43, ptr %54, align 4
-  %735 = mul nsw i64 %487, 1023410176
-  %736 = lshr i64 %735, 29
-  %.sroa.0.0.extract.trunc.i.i628 = trunc i64 %736 to i32
+  %733 = mul nsw i64 %485, 1023410176
+  %734 = lshr i64 %733, 29
+  %.sroa.0.0.extract.trunc.i.i628 = trunc i64 %734 to i32
   %.sroa.5.0.extract.shift.i.i629 = lshr i64 %.sroa.25.0.extract.shift16.i443, 32
-  %737 = add i32 %.sroa.0.0.extract.trunc.i.i628, 1073741824
-  %738 = icmp slt i32 %737, 1
-  %739 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i629, 1
-  %740 = and i64 %739, 4294967295
-  %.sroa.5.0.i.i630 = select i1 %738, i64 %740, i64 %.sroa.5.0.extract.shift.i.i629
-  %741 = zext i1 %738 to i32
-  %.sroa.0.0.i.i631 = ashr i32 %.sroa.0.0.extract.trunc.i.i628, %741
+  %735 = add i32 %.sroa.0.0.extract.trunc.i.i628, 1073741824
+  %736 = icmp slt i32 %735, 1
+  %737 = add nuw nsw i64 %.sroa.5.0.extract.shift.i.i629, 1
+  %738 = and i64 %737, 4294967295
+  %.sroa.5.0.i.i630 = select i1 %736, i64 %738, i64 %.sroa.5.0.extract.shift.i.i629
+  %739 = zext i1 %736 to i32
+  %.sroa.0.0.i.i631 = ashr i32 %.sroa.0.0.extract.trunc.i.i628, %739
   %.sroa.2.0.insert.shift.i.i632 = shl nuw i64 %.sroa.5.0.i.i630, 32
   %.sroa.02.0.insert.ext.i.i633 = zext i32 %.sroa.0.0.i.i631 to i64
   %.sroa.02.0.insert.insert.i.i634 = or disjoint i64 %.sroa.2.0.insert.shift.i.i632, %.sroa.02.0.insert.ext.i.i633
   %.sroa.7.0.extract.trunc11.i635 = trunc nuw i64 %.sroa.5.0.i.i630 to i32
-  %742 = icmp eq i32 %.sroa.0.0.i.i631, 0
-  %743 = icmp slt i32 %.sroa.7.0.extract.trunc11.i635, -149
-  %or.cond.i636 = select i1 %742, i1 true, i1 %743
+  %740 = icmp eq i32 %.sroa.0.0.i.i631, 0
+  %741 = icmp slt i32 %.sroa.7.0.extract.trunc11.i635, -149
+  %or.cond.i636 = select i1 %740, i1 true, i1 %741
   %..i637 = select i1 %or.cond.i636, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i634
   %.sroa.0.0.extract.trunc.i36 = trunc i64 %..i637 to i32
   %.sroa.3.0.extract.shift.i37 = and i64 %..i637, -4294967296
-  %744 = ashr i32 %.sroa.0.0.extract.trunc.i36, 31
-  %745 = xor i32 %744, %.sroa.0.0.extract.trunc.i36
-  %746 = sub nsw i32 %745, %744
-  %747 = and i32 %746, -4194304
-  %748 = xor i32 %747, %744
-  %749 = sub nsw i32 %748, %744
-  %.sroa.05.0.insert.ext.i38 = zext i32 %749 to i64
+  %742 = ashr i32 %.sroa.0.0.extract.trunc.i36, 31
+  %743 = xor i32 %742, %.sroa.0.0.extract.trunc.i36
+  %744 = sub nsw i32 %743, %742
+  %745 = and i32 %744, -4194304
+  %746 = xor i32 %745, %742
+  %747 = sub nsw i32 %746, %742
+  %.sroa.05.0.insert.ext.i38 = zext i32 %747 to i64
   %.sroa.05.0.insert.insert.i39 = or disjoint i64 %.sroa.3.0.extract.shift.i37, %.sroa.05.0.insert.ext.i38
   store i64 %.sroa.05.0.insert.insert.i39, ptr %53, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %750 = load ptr, ptr %23, align 16, !tbaa !97
-  %751 = getelementptr inbounds nuw i16, ptr %750, i64 %indvars.iv.next738
-  %752 = load i16, ptr %751, align 2, !tbaa !76
-  %753 = zext i16 %752 to i64
-  %754 = icmp samesign ult i64 %indvars.iv.next, %753
-  br i1 %754, label %45, label %.loopexit.loopexit, !llvm.loop !135
+  %748 = load ptr, ptr %23, align 16, !tbaa !97
+  %749 = getelementptr inbounds nuw i16, ptr %748, i64 %indvars.iv.next738
+  %750 = load i16, ptr %749, align 2, !tbaa !76
+  %751 = zext i16 %750 to i64
+  %752 = icmp samesign ult i64 %indvars.iv.next, %751
+  br i1 %752, label %45, label %.loopexit.loopexit, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader
-  %755 = getelementptr inbounds nuw i8, ptr %1, i64 108
-  %756 = load i32, ptr %755, align 4, !tbaa !136
-  %.not26 = icmp eq i32 %756, 0
-  br i1 %.not26, label %reset_predictor_group.exit, label %757
+  %753 = getelementptr inbounds nuw i8, ptr %1, i64 108
+  %754 = load i32, ptr %753, align 4, !tbaa !136
+  %.not26 = icmp eq i32 %754, 0
+  br i1 %.not26, label %reset_predictor_group.exit, label %755
 
-757:                                              ; preds = %._crit_edge
-  %758 = getelementptr inbounds nuw i8, ptr %1, i64 40336
-  %759 = load ptr, ptr %758, align 16, !tbaa !58
-  %760 = icmp slt i32 %756, 673
-  br i1 %760, label %.lr.ph.preheader.i, label %reset_predictor_group.exit
+755:                                              ; preds = %._crit_edge
+  %756 = getelementptr inbounds nuw i8, ptr %1, i64 40336
+  %757 = load ptr, ptr %756, align 16, !tbaa !58
+  %758 = icmp slt i32 %754, 673
+  br i1 %758, label %.lr.ph.preheader.i, label %reset_predictor_group.exit
 
-.lr.ph.preheader.i:                               ; preds = %757
-  %761 = add i32 %756, -1
-  %762 = sext i32 %761 to i64
+.lr.ph.preheader.i:                               ; preds = %755
+  %759 = add i32 %754, -1
+  %760 = sext i32 %759 to i64
   br label %.lr.ph.i638
 
 .lr.ph.i638:                                      ; preds = %.lr.ph.i638, %.lr.ph.preheader.i
-  %indvars.iv.i639 = phi i64 [ %762, %.lr.ph.preheader.i ], [ %indvars.iv.next.i640, %.lr.ph.i638 ]
-  %763 = getelementptr inbounds %struct.PredictorStateFixed, ptr %759, i64 %indvars.iv.i639
-  %764 = getelementptr inbounds nuw i8, ptr %763, i64 32
-  %765 = getelementptr inbounds nuw i8, ptr %763, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %763, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %764, i8 0, i64 16, i1 false)
-  store i32 536870912, ptr %765, align 4, !tbaa !119
-  %766 = getelementptr inbounds nuw i8, ptr %763, i64 20
-  store i32 1, ptr %766, align 4, !tbaa !122
-  %767 = getelementptr inbounds nuw i8, ptr %763, i64 24
-  store i32 536870912, ptr %767, align 4, !tbaa !123
-  %768 = getelementptr inbounds nuw i8, ptr %763, i64 28
-  store i32 1, ptr %768, align 4, !tbaa !124
+  %indvars.iv.i639 = phi i64 [ %760, %.lr.ph.preheader.i ], [ %indvars.iv.next.i640, %.lr.ph.i638 ]
+  %761 = getelementptr inbounds %struct.PredictorStateFixed, ptr %757, i64 %indvars.iv.i639
+  %762 = getelementptr inbounds nuw i8, ptr %761, i64 32
+  %763 = getelementptr inbounds nuw i8, ptr %761, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %761, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %762, i8 0, i64 16, i1 false)
+  store i32 536870912, ptr %763, align 4, !tbaa !119
+  %764 = getelementptr inbounds nuw i8, ptr %761, i64 20
+  store i32 1, ptr %764, align 4, !tbaa !122
+  %765 = getelementptr inbounds nuw i8, ptr %761, i64 24
+  store i32 536870912, ptr %765, align 4, !tbaa !123
+  %766 = getelementptr inbounds nuw i8, ptr %761, i64 28
+  store i32 1, ptr %766, align 4, !tbaa !124
   %indvars.iv.next.i640 = add nsw i64 %indvars.iv.i639, 30
-  %769 = icmp slt i64 %indvars.iv.i639, 642
-  br i1 %769, label %.lr.ph.i638, label %reset_predictor_group.exit, !llvm.loop !137
+  %767 = icmp slt i64 %indvars.iv.i639, 642
+  br i1 %767, label %.lr.ph.i638, label %reset_predictor_group.exit, !llvm.loop !137
 
-770:                                              ; preds = %15
-  %771 = getelementptr inbounds nuw i8, ptr %1, i64 40336
-  %772 = load ptr, ptr %771, align 16, !tbaa !58
-  br label %773
+768:                                              ; preds = %15
+  %769 = getelementptr inbounds nuw i8, ptr %1, i64 40336
+  %770 = load ptr, ptr %769, align 16, !tbaa !58
+  br label %771
 
-773:                                              ; preds = %773, %770
-  %indvars.iv.i641 = phi i64 [ 0, %770 ], [ %indvars.iv.next.i642, %773 ]
-  %774 = getelementptr inbounds nuw %struct.PredictorStateFixed, ptr %772, i64 %indvars.iv.i641
-  %775 = getelementptr inbounds nuw i8, ptr %774, i64 32
-  %776 = getelementptr inbounds nuw i8, ptr %774, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %774, i8 0, i64 16, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %775, i8 0, i64 16, i1 false)
-  store i32 536870912, ptr %776, align 4, !tbaa !119
-  %777 = getelementptr inbounds nuw i8, ptr %774, i64 20
-  store i32 1, ptr %777, align 4, !tbaa !122
-  %778 = getelementptr inbounds nuw i8, ptr %774, i64 24
-  store i32 536870912, ptr %778, align 4, !tbaa !123
-  %779 = getelementptr inbounds nuw i8, ptr %774, i64 28
-  store i32 1, ptr %779, align 4, !tbaa !124
+771:                                              ; preds = %771, %768
+  %indvars.iv.i641 = phi i64 [ 0, %768 ], [ %indvars.iv.next.i642, %771 ]
+  %772 = getelementptr inbounds nuw %struct.PredictorStateFixed, ptr %770, i64 %indvars.iv.i641
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 32
+  %774 = getelementptr inbounds nuw i8, ptr %772, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %772, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %773, i8 0, i64 16, i1 false)
+  store i32 536870912, ptr %774, align 4, !tbaa !119
+  %775 = getelementptr inbounds nuw i8, ptr %772, i64 20
+  store i32 1, ptr %775, align 4, !tbaa !122
+  %776 = getelementptr inbounds nuw i8, ptr %772, i64 24
+  store i32 536870912, ptr %776, align 4, !tbaa !123
+  %777 = getelementptr inbounds nuw i8, ptr %772, i64 28
+  store i32 1, ptr %777, align 4, !tbaa !124
   %indvars.iv.next.i642 = add nuw nsw i64 %indvars.iv.i641, 1
   %exitcond.not.i643 = icmp eq i64 %indvars.iv.next.i642, 672
-  br i1 %exitcond.not.i643, label %reset_predictor_group.exit, label %773, !llvm.loop !125
+  br i1 %exitcond.not.i643, label %reset_predictor_group.exit, label %771, !llvm.loop !125
 
-reset_predictor_group.exit:                       ; preds = %.lr.ph.i638, %773, %757, %._crit_edge
+reset_predictor_group.exit:                       ; preds = %.lr.ph.i638, %771, %755, %._crit_edge
   ret void
 }
 

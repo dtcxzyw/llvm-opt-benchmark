@@ -321,17 +321,17 @@ define hidden void @cdef_filter_block_c(ptr noundef writeonly captures(address_i
   %60 = sub nsw i64 %46, %57
   %61 = getelementptr inbounds i16, ptr %3, i64 %60
   %62 = load i16, ptr %61, align 2
-  %63 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
-  %64 = load i32, ptr %63, align 4
-  %65 = sext i16 %59 to i32
-  br i1 %.not.i, label %constrain.exit.thread, label %67
+  %63 = sext i16 %59 to i32
+  br i1 %.not.i, label %constrain.exit.thread, label %65
 
 constrain.exit.thread:                            ; preds = %53
-  %66 = sext i16 %62 to i32
+  %64 = sext i16 %62 to i32
   br label %constrain.exit182
 
-67:                                               ; preds = %53
-  %68 = sub nsw i32 %65, %49
+65:                                               ; preds = %53
+  %66 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %67 = load i32, ptr %66, align 4
+  %68 = sub nsw i32 %63, %49
   %69 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %68, i1 true)
   %70 = lshr i32 %69, %spec.select25.i
   %71 = sub nsw i32 %4, %70
@@ -341,7 +341,7 @@ constrain.exit.thread:                            ; preds = %53
   %73 = sub nsw i32 0, %72
   %.inv.i26.i = icmp slt i32 %68, 0
   %74 = select i1 %.inv.i26.i, i32 %73, i32 %72
-  %75 = mul nsw i32 %74, %64
+  %75 = mul nsw i32 %74, %67
   %76 = trunc i32 %75 to i16
   %77 = add i16 %.0160217, %76
   %78 = sext i16 %62 to i32
@@ -355,23 +355,23 @@ constrain.exit.thread:                            ; preds = %53
   %84 = sub nsw i32 0, %83
   %.inv.i26.i180 = icmp slt i32 %79, 0
   %85 = select i1 %.inv.i26.i180, i32 %84, i32 %83
+  %86 = mul nsw i32 %85, %67
+  %87 = trunc i32 %86 to i16
   br label %constrain.exit182
 
-constrain.exit182:                                ; preds = %constrain.exit.thread, %67
-  %86 = phi i32 [ %78, %67 ], [ %66, %constrain.exit.thread ]
-  %87 = phi i16 [ %77, %67 ], [ %.0160217, %constrain.exit.thread ]
-  %.0.i181 = phi i32 [ %85, %67 ], [ 0, %constrain.exit.thread ]
-  %88 = mul nsw i32 %.0.i181, %64
-  %89 = trunc i32 %88 to i16
-  %90 = add i16 %87, %89
+constrain.exit182:                                ; preds = %constrain.exit.thread, %65
+  %88 = phi i32 [ %78, %65 ], [ %64, %constrain.exit.thread ]
+  %89 = phi i16 [ %77, %65 ], [ %.0160217, %constrain.exit.thread ]
+  %.0.i181 = phi i16 [ %87, %65 ], [ 0, %constrain.exit.thread ]
+  %90 = add i16 %.0.i181, %89
   %.not170 = icmp eq i16 %59, 30000
-  %91 = tail call i32 @llvm.smax.i32(i32 %.0161216, i32 %65)
+  %91 = tail call i32 @llvm.smax.i32(i32 %.0161216, i32 %63)
   %.1 = select i1 %.not170, i32 %.0161216, i32 %91
   %.not171 = icmp eq i16 %62, 30000
-  %92 = tail call i32 @llvm.smax.i32(i32 %.1, i32 %86)
+  %92 = tail call i32 @llvm.smax.i32(i32 %.1, i32 %88)
   %.2 = select i1 %.not171, i32 %.1, i32 %92
-  %93 = tail call i32 @llvm.smin.i32(i32 %.0162215, i32 %65)
-  %94 = tail call i32 @llvm.smin.i32(i32 %93, i32 %86)
+  %93 = tail call i32 @llvm.smin.i32(i32 %.0162215, i32 %63)
+  %94 = tail call i32 @llvm.smin.i32(i32 %93, i32 %88)
   %95 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4
   %97 = sext i32 %96 to i64
@@ -408,11 +408,11 @@ constrain.exit182:                                ; preds = %constrain.exit.thre
   %120 = tail call i32 @llvm.smin.i32(i32 %119, i32 %113)
   %121 = tail call i32 @llvm.smin.i32(i32 %120, i32 %115)
   %122 = tail call i32 @llvm.smin.i32(i32 %121, i32 %117)
-  %123 = getelementptr inbounds nuw i32, ptr @cdef_sec_taps, i64 %indvars.iv
-  %124 = load i32, ptr %123, align 4
-  br i1 %.not.i183, label %constrain.exit210, label %125
+  br i1 %.not.i183, label %constrain.exit210, label %123
 
-125:                                              ; preds = %constrain.exit182
+123:                                              ; preds = %constrain.exit182
+  %124 = getelementptr inbounds nuw i32, ptr @cdef_sec_taps, i64 %indvars.iv
+  %125 = load i32, ptr %124, align 4
   %126 = sub nsw i32 %111, %49
   %127 = tail call i32 @llvm.abs.i32(i32 range(i32 -65535, 65536) %126, i1 true)
   %128 = lshr i32 %127, %spec.select25.i184
@@ -423,7 +423,7 @@ constrain.exit182:                                ; preds = %constrain.exit.thre
   %131 = sub nsw i32 0, %130
   %.inv.i26.i187 = icmp slt i32 %126, 0
   %132 = select i1 %.inv.i26.i187, i32 %131, i32 %130
-  %133 = mul nsw i32 %132, %124
+  %133 = mul nsw i32 %132, %125
   %134 = trunc i32 %133 to i16
   %135 = add i16 %90, %134
   %136 = sub nsw i32 %113, %49
@@ -436,7 +436,7 @@ constrain.exit182:                                ; preds = %constrain.exit.thre
   %141 = sub nsw i32 0, %140
   %.inv.i26.i194 = icmp slt i32 %136, 0
   %142 = select i1 %.inv.i26.i194, i32 %141, i32 %140
-  %143 = mul nsw i32 %142, %124
+  %143 = mul nsw i32 %142, %125
   %144 = trunc i32 %143 to i16
   %145 = add i16 %135, %144
   %146 = sub nsw i32 %115, %49
@@ -449,7 +449,7 @@ constrain.exit182:                                ; preds = %constrain.exit.thre
   %151 = sub nsw i32 0, %150
   %.inv.i26.i201 = icmp slt i32 %146, 0
   %152 = select i1 %.inv.i26.i201, i32 %151, i32 %150
-  %153 = mul nsw i32 %152, %124
+  %153 = mul nsw i32 %152, %125
   %154 = trunc i32 %153 to i16
   %155 = add i16 %145, %154
   %156 = sub nsw i32 %117, %49
@@ -462,14 +462,14 @@ constrain.exit182:                                ; preds = %constrain.exit.thre
   %161 = sub nsw i32 0, %160
   %.inv.i26.i208 = icmp slt i32 %156, 0
   %162 = select i1 %.inv.i26.i208, i32 %161, i32 %160
+  %163 = mul nsw i32 %162, %125
+  %164 = trunc i32 %163 to i16
   br label %constrain.exit210
 
-constrain.exit210:                                ; preds = %constrain.exit182, %125
-  %163 = phi i16 [ %155, %125 ], [ %90, %constrain.exit182 ]
-  %.0.i209 = phi i32 [ %162, %125 ], [ 0, %constrain.exit182 ]
-  %164 = mul nsw i32 %.0.i209, %124
-  %165 = trunc i32 %164 to i16
-  %166 = add i16 %163, %165
+constrain.exit210:                                ; preds = %constrain.exit182, %123
+  %165 = phi i16 [ %155, %123 ], [ %90, %constrain.exit182 ]
+  %.0.i209 = phi i16 [ %164, %123 ], [ 0, %constrain.exit182 ]
+  %166 = add i16 %.0.i209, %165
   br i1 %54, label %53, label %167, !llvm.loop !13
 
 167:                                              ; preds = %constrain.exit210

@@ -1420,7 +1420,7 @@ define dso_local zeroext i1 @drm_property_change_valid_get(ptr noundef readonly 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %42 = load i32, ptr %41, align 4
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %59, label %44
+  br i1 %43, label %60, label %44
 
 44:                                               ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1441,11 +1441,11 @@ define dso_local zeroext i1 @drm_property_change_valid_get(ptr noundef readonly 
 
 57:                                               ; preds = %47
   %58 = xor i64 %54, -1
-  br label %59
+  %59 = and i64 %1, %58
+  br label %60
 
-59:                                               ; preds = %57, %40
-  %60 = phi i64 [ -1, %40 ], [ %58, %57 ]
-  %61 = and i64 %60, %1
+60:                                               ; preds = %57, %40
+  %61 = phi i64 [ %1, %40 ], [ %59, %57 ]
   %62 = icmp eq i64 %61, 0
   br label %.loopexit
 
@@ -1516,8 +1516,8 @@ define dso_local zeroext i1 @drm_property_change_valid_get(ptr noundef readonly 
   %107 = select i1 %104, i1 true, i1 %106
   br i1 %107, label %.loopexit, label %99, !llvm.loop !57
 
-.loopexit:                                        ; preds = %99, %89, %87, %80, %74, %68, %66, %59, %33, %28, %19, %14, %3
-  %108 = phi i1 [ %62, %59 ], [ %98, %89 ], [ false, %3 ], [ false, %14 ], [ false, %28 ], [ true, %74 ], [ true, %66 ], [ false, %68 ], [ true, %87 ], [ %22, %19 ], [ %36, %33 ], [ false, %80 ], [ %104, %99 ]
+.loopexit:                                        ; preds = %99, %89, %87, %80, %74, %68, %66, %60, %33, %28, %19, %14, %3
+  %108 = phi i1 [ %62, %60 ], [ %98, %89 ], [ false, %3 ], [ false, %14 ], [ false, %28 ], [ true, %74 ], [ true, %66 ], [ false, %68 ], [ true, %87 ], [ %22, %19 ], [ %36, %33 ], [ false, %80 ], [ %104, %99 ]
   ret i1 %108
 }
 

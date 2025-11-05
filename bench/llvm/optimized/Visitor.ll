@@ -2062,15 +2062,12 @@ _ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit: ; preds = %.prehe
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !489
   %37 = tail call i64 @_ZN5clang10installapi17InstallAPIContext17findAndRecordFileEPKNS_9FileEntryERKNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(320) %34, ptr noundef nonnull %31, ptr noundef nonnull align 8 dereferenceable(3288) %36) #18
-  %spec.select = and i64 %37, 4294967296
-  %38 = and i64 %37, 4294967295
+  %38 = and i64 %37, 8589934591
   br label %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread
 
 _ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit.thread: ; preds = %32, %19, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit, %2
-  %.sroa.012.0 = phi i64 [ 0, %2 ], [ 0, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ 0, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %19 ], [ %38, %32 ]
-  %.sroa.2.0 = phi i64 [ 0, %2 ], [ 0, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ 0, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %19 ], [ %spec.select, %32 ]
-  %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.012.0
-  ret i64 %.sroa.012.0.insert.insert
+  %.sroa.2.0 = phi i64 [ 0, %2 ], [ 0, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit ], [ 0, %_ZNK5clang13SourceManager17getFileEntryForIDENS_6FileIDE.exit ], [ 0, %_ZNK5clang13SourceManager20getFileEntryRefForIDENS_6FileIDE.exit.i ], [ 0, %19 ], [ %38, %32 ]
+  ret i64 %.sroa.2.0
 }
 
 declare i64 @_ZN5clang10installapi17InstallAPIContext17findAndRecordFileEPKNS_9FileEntryERKNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(320), ptr noundef, ptr noundef nonnull align 8 dereferenceable(3288)) local_unnamed_addr #1
@@ -5449,11 +5446,11 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %293, %308, %_ZN
 _ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %331, %.lr.ph.i.i.i.i.i
   %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %326, %331 ]
   %333 = icmp ne ptr %.sroa.07.0.i.i.ph.i.i, %326
+  %334 = or i1 %.090, %333
   br label %_ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit
 
 _ZNK5clang4Decl7hasAttrINS_8WeakAttrEEEbv.exit:   ; preds = %317, %320, %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i
-  %334 = phi i1 [ false, %317 ], [ false, %320 ], [ %333, %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
-  %335 = or i1 %.090, %334
+  %335 = phi i1 [ %.090, %317 ], [ %.090, %320 ], [ %334, %_ZN5clangneENS_22specific_attr_iteratorINS_8WeakAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
   %336 = load ptr, ptr %283, align 8, !tbaa !488
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 208
   %338 = load ptr, ptr %337, align 8, !tbaa !506

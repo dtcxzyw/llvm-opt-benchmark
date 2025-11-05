@@ -5951,6 +5951,7 @@ Vec_IntClearAppend.exit380:                       ; preds = %Vec_IntPush.exit.i3
   %.pre = load ptr, ptr %91, align 8, !tbaa !105
   %.phi.trans.insert = getelementptr i8, ptr %.pre, i64 8
   %.val263.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !32
+  %619 = mul nsw i32 %.lcssa, %2
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %446, %Abc_Clock.exit334
@@ -5958,19 +5959,18 @@ Vec_IntClearAppend.exit380:                       ; preds = %Vec_IntPush.exit.i3
   %.val248486 = phi ptr [ %.val248496, %446 ], [ %.val248496, %Abc_Clock.exit334 ], [ %.val248487, %.thread.loopexit ]
   %.pre.i.i359469 = phi ptr [ %.pre.i.i359467, %446 ], [ %.pre.i.i359467, %Abc_Clock.exit334 ], [ %.pre.i.i359470, %.thread.loopexit ]
   %.3 = phi i32 [ %448, %446 ], [ %.1186434, %Abc_Clock.exit334 ], [ %448, %.thread.loopexit ]
-  %.0177 = phi i32 [ 0, %446 ], [ 0, %Abc_Clock.exit334 ], [ %.lcssa, %.thread.loopexit ]
+  %.0177 = phi i32 [ 0, %446 ], [ 0, %Abc_Clock.exit334 ], [ %619, %.thread.loopexit ]
   %.0175 = phi i32 [ %444, %446 ], [ %444, %Abc_Clock.exit334 ], [ %.0175.ph, %.thread.loopexit ]
-  %619 = load ptr, ptr %4, align 8, !tbaa !105
-  %620 = mul nsw i32 %.0177, %2
-  %621 = getelementptr i8, ptr %619, i64 8
+  %620 = load ptr, ptr %4, align 8, !tbaa !105
+  %621 = getelementptr i8, ptr %620, i64 8
   %.val261 = load ptr, ptr %621, align 8, !tbaa !32
   %622 = getelementptr inbounds nuw i32, ptr %.val261, i64 %indvars.iv455
-  store i32 %620, ptr %622, align 4, !tbaa !35
+  store i32 %.0177, ptr %622, align 4, !tbaa !35
   %623 = load ptr, ptr %82, align 8, !tbaa !105
   %624 = getelementptr i8, ptr %623, i64 8
   %.val262 = load ptr, ptr %624, align 8, !tbaa !32
   %625 = getelementptr inbounds nuw i32, ptr %.val262, i64 %indvars.iv455
-  store i32 %620, ptr %625, align 4, !tbaa !35
+  store i32 %.0177, ptr %625, align 4, !tbaa !35
   %626 = getelementptr inbounds nuw i32, ptr %.val263, i64 %indvars.iv455
   store i32 %.0175, ptr %626, align 4, !tbaa !35
   call void @sat_solver_delete(ptr noundef %439) #27

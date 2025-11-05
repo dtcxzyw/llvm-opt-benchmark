@@ -5309,9 +5309,7 @@ _ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7decl
   br label %_ZN4llvm7AArch6418parseArchExtensionENS_9StringRefE.exit.thread
 
 _ZN4llvm7AArch6418parseArchExtensionENS_9StringRefE.exit.thread: ; preds = %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %20, %21, %16
-  %22 = phi i1 [ true, %16 ], [ true, %21 ], [ true, %20 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i ]
-  %.07 = phi i1 [ false, %16 ], [ true, %21 ], [ true, %20 ], [ undef, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ undef, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i ]
-  %spec.select10 = and i1 %22, %.07
+  %spec.select10 = phi i1 [ false, %16 ], [ true, %21 ], [ true, %20 ], [ false, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread ], [ false, %_ZSteqIN4llvm9StringRefES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT0_EEclsr3stdE7declvalIRKT_EEEbEE5valueEbE4typeES5_RKSt8optionalIS6_E.exit.thread.i ]
   ret i1 %spec.select10
 }
 

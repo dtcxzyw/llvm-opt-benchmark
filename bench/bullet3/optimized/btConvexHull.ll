@@ -2549,95 +2549,98 @@ _Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit109: ; pr
   br i1 %131, label %.thread193, label %.lr.ph
 
 .lr.ph:                                           ; preds = %128
-  br i1 %5, label %.lr.ph.i136.us, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread
+  br i1 %5, label %.lr.ph.i136.us, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread.preheader
 
-.lr.ph.i136.us:                                   ; preds = %.lr.ph, %181
-  %.062218.us = phi float [ %182, %181 ], [ %130, %.lr.ph ]
-  %.063217.us = phi i32 [ %.1.i141.us, %181 ], [ %.068220, %.lr.ph ]
-  %132 = fmul float %.062218.us, 0x3F91DF46A0000000
-  %133 = tail call noundef float @sinf(float noundef %132) #21, !tbaa !46
-  %134 = tail call noundef float @cosf(float noundef %132) #21, !tbaa !46
-  %135 = fmul float %32, %133
-  %136 = fmul float %33, %133
-  %137 = fmul float %34, %133
-  %138 = fmul float %37, %134
-  %139 = fmul float %39, %134
-  %140 = fmul float %41, %134
-  %141 = fadd float %135, %138
+_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread.preheader: ; preds = %.lr.ph
+  %132 = and i32 %.068220, %.013.lcssa.i
+  br label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread
+
+.lr.ph.i136.us:                                   ; preds = %.lr.ph, %182
+  %.062218.us = phi float [ %183, %182 ], [ %130, %.lr.ph ]
+  %.063217.us = phi i32 [ %.1.i141.us, %182 ], [ %.068220, %.lr.ph ]
+  %133 = fmul float %.062218.us, 0x3F91DF46A0000000
+  %134 = tail call noundef float @sinf(float noundef %133) #21, !tbaa !46
+  %135 = tail call noundef float @cosf(float noundef %133) #21, !tbaa !46
+  %136 = fmul float %32, %134
+  %137 = fmul float %33, %134
+  %138 = fmul float %34, %134
+  %139 = fmul float %37, %135
+  %140 = fmul float %39, %135
+  %141 = fmul float %41, %135
   %142 = fadd float %136, %139
   %143 = fadd float %137, %140
-  %144 = fmul float %141, 0x3F999999A0000000
+  %144 = fadd float %138, %141
   %145 = fmul float %142, 0x3F999999A0000000
   %146 = fmul float %143, 0x3F999999A0000000
-  %147 = fadd float %14, %144
-  %148 = fadd float %10, %145
-  %149 = fadd float %11, %146
-  br label %150
+  %147 = fmul float %144, 0x3F999999A0000000
+  %148 = fadd float %14, %145
+  %149 = fadd float %10, %146
+  %150 = fadd float %11, %147
+  br label %151
 
-150:                                              ; preds = %178, %.lr.ph.i136.us
-  %indvars.iv.i138.us = phi i64 [ 0, %.lr.ph.i136.us ], [ %indvars.iv.next.i142.us, %178 ]
-  %.01314.i139.us = phi i32 [ -1, %.lr.ph.i136.us ], [ %.1.i141.us, %178 ]
-  %151 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i138.us
-  %152 = load i32, ptr %151, align 4, !tbaa !46
-  %.not.i140.us = icmp eq i32 %152, 0
-  br i1 %.not.i140.us, label %178, label %153
+151:                                              ; preds = %179, %.lr.ph.i136.us
+  %indvars.iv.i138.us = phi i64 [ 0, %.lr.ph.i136.us ], [ %indvars.iv.next.i142.us, %179 ]
+  %.01314.i139.us = phi i32 [ -1, %.lr.ph.i136.us ], [ %.1.i141.us, %179 ]
+  %152 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i138.us
+  %153 = load i32, ptr %152, align 4, !tbaa !46
+  %.not.i140.us = icmp eq i32 %153, 0
+  br i1 %.not.i140.us, label %179, label %154
 
-153:                                              ; preds = %150
-  %154 = icmp eq i32 %.01314.i139.us, -1
-  br i1 %154, label %176, label %155
+154:                                              ; preds = %151
+  %155 = icmp eq i32 %.01314.i139.us, -1
+  br i1 %155, label %177, label %156
 
-155:                                              ; preds = %153
-  %156 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %indvars.iv.i138.us
-  %157 = load float, ptr %156, align 4, !tbaa !4
-  %158 = getelementptr inbounds nuw i8, ptr %156, i64 4
-  %159 = load float, ptr %158, align 4, !tbaa !4
-  %160 = fmul float %148, %159
-  %161 = tail call float @llvm.fmuladd.f32(float %157, float %147, float %160)
-  %162 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  %163 = load float, ptr %162, align 4, !tbaa !4
-  %164 = tail call noundef float @llvm.fmuladd.f32(float %163, float %149, float %161)
-  %165 = sext i32 %.01314.i139.us to i64
-  %166 = getelementptr inbounds %class.btVector3, ptr %0, i64 %165
-  %167 = load float, ptr %166, align 4, !tbaa !4
-  %168 = getelementptr inbounds nuw i8, ptr %166, i64 4
-  %169 = load float, ptr %168, align 4, !tbaa !4
-  %170 = fmul float %148, %169
-  %171 = tail call float @llvm.fmuladd.f32(float %167, float %147, float %170)
-  %172 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %173 = load float, ptr %172, align 4, !tbaa !4
-  %174 = tail call noundef float @llvm.fmuladd.f32(float %173, float %149, float %171)
-  %175 = fcmp ogt float %164, %174
-  br i1 %175, label %176, label %178
+156:                                              ; preds = %154
+  %157 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %indvars.iv.i138.us
+  %158 = load float, ptr %157, align 4, !tbaa !4
+  %159 = getelementptr inbounds nuw i8, ptr %157, i64 4
+  %160 = load float, ptr %159, align 4, !tbaa !4
+  %161 = fmul float %149, %160
+  %162 = tail call float @llvm.fmuladd.f32(float %158, float %148, float %161)
+  %163 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  %164 = load float, ptr %163, align 4, !tbaa !4
+  %165 = tail call noundef float @llvm.fmuladd.f32(float %164, float %150, float %162)
+  %166 = sext i32 %.01314.i139.us to i64
+  %167 = getelementptr inbounds %class.btVector3, ptr %0, i64 %166
+  %168 = load float, ptr %167, align 4, !tbaa !4
+  %169 = getelementptr inbounds nuw i8, ptr %167, i64 4
+  %170 = load float, ptr %169, align 4, !tbaa !4
+  %171 = fmul float %149, %170
+  %172 = tail call float @llvm.fmuladd.f32(float %168, float %148, float %171)
+  %173 = getelementptr inbounds nuw i8, ptr %167, i64 8
+  %174 = load float, ptr %173, align 4, !tbaa !4
+  %175 = tail call noundef float @llvm.fmuladd.f32(float %174, float %150, float %172)
+  %176 = fcmp ogt float %165, %175
+  br i1 %176, label %177, label %179
 
-176:                                              ; preds = %155, %153
-  %177 = trunc nuw nsw i64 %indvars.iv.i138.us to i32
-  br label %178
+177:                                              ; preds = %156, %154
+  %178 = trunc nuw nsw i64 %indvars.iv.i138.us to i32
+  br label %179
 
-178:                                              ; preds = %176, %155, %150
-  %.1.i141.us = phi i32 [ %177, %176 ], [ %.01314.i139.us, %155 ], [ %.01314.i139.us, %150 ]
+179:                                              ; preds = %177, %156, %151
+  %.1.i141.us = phi i32 [ %178, %177 ], [ %.01314.i139.us, %156 ], [ %.01314.i139.us, %151 ]
   %indvars.iv.next.i142.us = add nuw nsw i64 %indvars.iv.i138.us, 1
   %exitcond.not.i143.us = icmp eq i64 %indvars.iv.next.i142.us, %wide.trip.count.i
-  br i1 %exitcond.not.i143.us, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us, label %150, !llvm.loop !75
+  br i1 %exitcond.not.i143.us, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us, label %151, !llvm.loop !75
 
-_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us: ; preds = %178
-  %179 = icmp eq i32 %.063217.us, %.013.lcssa.i
-  %180 = icmp eq i32 %.1.i141.us, %.013.lcssa.i
-  %or.cond79.us = and i1 %179, %180
-  br i1 %or.cond79.us, label %.critedge.sink.split, label %181
+_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us: ; preds = %179
+  %180 = icmp eq i32 %.063217.us, %.013.lcssa.i
+  %181 = icmp eq i32 %.1.i141.us, %.013.lcssa.i
+  %or.cond79.us = and i1 %180, %181
+  br i1 %or.cond79.us, label %.critedge.sink.split, label %182
 
-181:                                              ; preds = %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us
-  %182 = fadd float %.062218.us, 5.000000e+00
-  %183 = fcmp ugt float %182, %indvar.conv
-  br i1 %183, label %.thread193, label %.lr.ph.i136.us, !llvm.loop !76
+182:                                              ; preds = %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.us
+  %183 = fadd float %.062218.us, 5.000000e+00
+  %184 = fcmp ugt float %183, %indvar.conv
+  br i1 %184, label %.thread193, label %.lr.ph.i136.us, !llvm.loop !76
 
-_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread: ; preds = %.lr.ph, %188
-  %.062218 = phi float [ %189, %188 ], [ %130, %.lr.ph ]
-  %.063217 = phi i32 [ -1, %188 ], [ %.068220, %.lr.ph ]
-  %184 = fmul float %.062218, 0x3F91DF46A0000000
-  %185 = tail call noundef float @sinf(float noundef %184) #21, !tbaa !46
-  %186 = tail call noundef float @cosf(float noundef %184) #21, !tbaa !46
-  %187 = and i32 %.063217, %.013.lcssa.i
-  %or.cond79198 = icmp eq i32 %187, -1
+_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread: ; preds = %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread.preheader, %188
+  %.062218 = phi float [ %189, %188 ], [ %130, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread.preheader ]
+  %.063217 = phi i32 [ %.013.lcssa.i, %188 ], [ %132, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread.preheader ]
+  %185 = fmul float %.062218, 0x3F91DF46A0000000
+  %186 = tail call noundef float @sinf(float noundef %185) #21, !tbaa !46
+  %187 = tail call noundef float @cosf(float noundef %185) #21, !tbaa !46
+  %or.cond79198 = icmp eq i32 %.063217, -1
   br i1 %or.cond79198, label %.critedge.sink.split, label %188
 
 188:                                              ; preds = %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread
@@ -2645,7 +2648,7 @@ _Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.threa
   %190 = fcmp ugt float %189, %indvar.conv
   br i1 %190, label %.thread193, label %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit144.thread, !llvm.loop !76
 
-.thread193:                                       ; preds = %188, %181, %128, %127
+.thread193:                                       ; preds = %188, %182, %128, %127
   %.int = add nuw nsw i32 %.067221.int, 45
   %191 = icmp samesign ugt i32 %.067221.int, 315
   br i1 %191, label %.thread208, label %.preheader, !llvm.loop !77

@@ -2829,12 +2829,12 @@ define void @_ZN9grpc_core21StatefulSessionFilter4Call24OnServerTrailingMetadata
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !45
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 17
-  %10 = load i8, ptr %9, align 1, !range !73
-  %11 = and i16 %8, 512
-  %.not.not = icmp ne i16 %11, 0
-  %12 = trunc nuw i8 %10 to i1
-  %.0.i = select i1 %.not.not, i1 %12, i1 false
+  %9 = and i16 %8, 512
+  %.not.i.i.i = icmp ne i16 %9, 0
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 17
+  %11 = load i8, ptr %10, align 1, !range !73
+  %12 = trunc nuw i8 %11 to i1
+  %.0.i = select i1 %.not.i.i.i, i1 %12, i1 false
   br i1 %.0.i, label %13, label %23
 
 13:                                               ; preds = %6
@@ -9067,12 +9067,12 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail17AllocatedCallable
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %.cast.i, i64 2
   %27 = load i16, ptr %26, align 2, !tbaa !45, !noalias !552
-  %28 = getelementptr inbounds nuw i8, ptr %.cast.i, i64 17
-  %29 = load i8, ptr %28, align 1, !range !73, !noalias !552
-  %30 = and i16 %27, 512
-  %.not.not.i.i.i = icmp ne i16 %30, 0
-  %31 = trunc nuw i8 %29 to i1
-  %.0.i.i.i.i = select i1 %.not.not.i.i.i, i1 %31, i1 false
+  %28 = and i16 %27, 512
+  %.not.i.i.i.i.i.i = icmp ne i16 %28, 0
+  %29 = getelementptr inbounds nuw i8, ptr %.cast.i, i64 17
+  %30 = load i8, ptr %29, align 1, !range !73, !noalias !552
+  %31 = trunc nuw i8 %30 to i1
+  %.0.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %31, i1 false
   br i1 %.0.i.i.i.i, label %32, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit
 
 32:                                               ; preds = %25

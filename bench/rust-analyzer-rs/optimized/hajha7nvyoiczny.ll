@@ -21293,12 +21293,12 @@ _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit: ; pre
   %53 = load i8, ptr %28, align 1, !range !1487, !noalias !5592, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !5592
   %54 = trunc nuw i8 %53 to i1
+  %55 = or i1 %44, %54
   br label %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit112
 
 _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit112: ; preds = %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit, %51
-  %.0.i111 = phi i1 [ %54, %51 ], [ true, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit ]
-  %55 = or i1 %44, %.0.i111
-  %56 = zext i1 %55 to i8
+  %.0.i111 = phi i1 [ %55, %51 ], [ true, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit ]
+  %56 = zext i1 %.0.i111 to i8
   store i8 %56, ptr %1, align 1, !noalias !5589
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %58 = load i32, ptr %57, align 4, !range !1493, !noundef !9
@@ -21587,7 +21587,7 @@ _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit126: ; 
   %199 = tail call noundef align 16 dereferenceable(64) ptr @"_ZN110_$LT$hir_def..body..Body$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$hir_def..hir..Expr$GT$$GT$$GT$5index17h0a3ee76193f793b2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %2, i32 noundef %198, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bc7b273225b5f56df674db017bc9edca.568.llvm.3864848197730831337), !noalias !5670
   %200 = load i8, ptr %199, align 16, !range !5582, !noalias !5670, !noundef !9
   %201 = icmp eq i8 %200, 28
-  br i1 %201, label %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit128, label %202
+  br i1 %201, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split", label %202
 
 202:                                              ; preds = %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit126
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !5673
@@ -21597,11 +21597,7 @@ _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit126: ; 
   %204 = load i8, ptr %20, align 1, !range !1487, !noalias !5673, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !5673
   %205 = trunc nuw i8 %204 to i1
-  br label %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit128
-
-_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit128: ; preds = %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit126, %202
-  %.0.i127 = phi i1 [ %205, %202 ], [ true, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit126 ]
-  %206 = or i1 %195, %.0.i127
+  %206 = or i1 %195, %205
   %207 = zext i1 %206 to i8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split"
 
@@ -21641,7 +21637,7 @@ _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit130: ; 
   %227 = tail call noundef align 16 dereferenceable(64) ptr @"_ZN110_$LT$hir_def..body..Body$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$hir_def..hir..Expr$GT$$GT$$GT$5index17h0a3ee76193f793b2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %2, i32 noundef %226, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bc7b273225b5f56df674db017bc9edca.568.llvm.3864848197730831337), !noalias !5682
   %228 = load i8, ptr %227, align 16, !range !5582, !noalias !5682, !noundef !9
   %229 = icmp eq i8 %228, 28
-  br i1 %229, label %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit132, label %230
+  br i1 %229, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split", label %230
 
 230:                                              ; preds = %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit130
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !5685
@@ -21651,11 +21647,7 @@ _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit130: ; 
   %232 = load i8, ptr %18, align 1, !range !1487, !noalias !5685, !noundef !9
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !5685
   %233 = trunc nuw i8 %232 to i1
-  br label %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit132
-
-_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit132: ; preds = %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit130, %230
-  %.0.i131 = phi i1 [ %233, %230 ], [ true, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit130 ]
-  %234 = or i1 %223, %.0.i131
+  %234 = or i1 %223, %233
   %235 = zext i1 %234 to i8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split"
 
@@ -21755,7 +21747,7 @@ _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit136: ; 
   %281 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %282 = load i32, ptr %281, align 16, !noundef !9
   %283 = tail call noundef zeroext i1 @_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE(ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %2, i32 noundef %282), !noalias !5711
-  %284 = or i1 %55, %283
+  %284 = or i1 %.0.i111, %283
   %285 = zext i1 %284 to i8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split"
 
@@ -22081,8 +22073,8 @@ _ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit150: ; 
   %443 = zext i1 %442 to i8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split": ; preds = %431, %404, %376, %280, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit136, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit134, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit132, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit128, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit150, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit124, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit116, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit114, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit138, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit146
-  %.sink278 = phi i8 [ %360, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit146 ], [ %310, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit138 ], [ %69, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit114 ], [ %80, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit116 ], [ %175, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit124 ], [ %392, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit150 ], [ %207, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit128 ], [ %235, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit132 ], [ %246, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit134 ], [ %279, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit136 ], [ %285, %280 ], [ %382, %376 ], [ %411, %404 ], [ %443, %431 ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit.sink.split": ; preds = %230, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit130, %202, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit126, %431, %404, %376, %280, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit136, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit134, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit150, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit124, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit116, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit114, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit138, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit146
+  %.sink278 = phi i8 [ %360, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit146 ], [ %310, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit138 ], [ %69, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit114 ], [ %80, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit116 ], [ %175, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit124 ], [ %392, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit150 ], [ %246, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit134 ], [ %279, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit136 ], [ %285, %280 ], [ %382, %376 ], [ %411, %404 ], [ %443, %431 ], [ %207, %202 ], [ 1, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit126 ], [ %235, %230 ], [ 1, %_ZN6hir_ty9consteval13eval_to_const11has_closure17h56ee66f17f1a05abE.exit130 ]
   store i8 %.sink278, ptr %1, align 1, !noalias !9
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h30a5e2b9927ac740E.exit"
 

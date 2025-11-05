@@ -403,7 +403,7 @@ define internal i32 @async_write(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %150, label %12
+  br i1 %.not, label %149, label %12
 
 12:                                               ; preds = %8
   store i32 0, ptr %10, align 4, !tbaa !19
@@ -417,10 +417,10 @@ define internal i32 @async_write(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 5
   br label %18
 
-18:                                               ; preds = %136, %13
-  %.sroa.0147.0 = phi ptr [ %1, %13 ], [ %42, %136 ]
-  %.sroa.11.0 = phi i64 [ %14, %13 ], [ %43, %136 ]
-  %.241 = phi i64 [ 0, %13 ], [ %128, %136 ]
+18:                                               ; preds = %135, %13
+  %.sroa.0147.0 = phi ptr [ %1, %13 ], [ %42, %135 ]
+  %.sroa.11.0 = phi i64 [ %14, %13 ], [ %43, %135 ]
+  %.241 = phi i64 [ 0, %13 ], [ %127, %135 ]
   %.not51 = icmp eq i64 %.sroa.11.0, 0
   br i1 %.not51, label %.thread281, label %19
 
@@ -593,79 +593,77 @@ PACKET_get_length_prefixed_2.exit103:             ; preds = %76
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %40, %46
-  %125 = phi i1 [ false, %46 ], [ false, %40 ], [ true, %.thread.loopexit ]
-  %.0156 = phi i1 [ false, %46 ], [ false, %40 ], [ %124, %.thread.loopexit ]
-  %126 = add i64 %.241, 5
-  %127 = add i64 %126, %33
-  %128 = add i64 %127, %36
-  br label %129
+  %or.cond = phi i1 [ false, %46 ], [ false, %40 ], [ %124, %.thread.loopexit ]
+  %125 = add i64 %.241, 5
+  %126 = add i64 %125, %33
+  %127 = add i64 %126, %36
+  br label %128
 
-129:                                              ; preds = %130, %.thread
-  %.sroa.6145.2 = phi i64 [ %37, %.thread ], [ %133, %130 ]
-  %.sroa.0144.2 = phi ptr [ %41, %.thread ], [ %132, %130 ]
+128:                                              ; preds = %129, %.thread
+  %.sroa.6145.2 = phi i64 [ %37, %.thread ], [ %132, %129 ]
+  %.sroa.0144.2 = phi ptr [ %41, %.thread ], [ %131, %129 ]
   %.not.i.i116 = icmp eq i64 %.sroa.6145.2, 0
-  br i1 %.not.i.i116, label %136, label %130
+  br i1 %.not.i.i116, label %135, label %129
 
-130:                                              ; preds = %129
-  %131 = load i8, ptr %.sroa.0144.2, align 1, !tbaa !22
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0144.2, i64 1
-  %133 = add nsw i64 %.sroa.6145.2, -1
+129:                                              ; preds = %128
+  %130 = load i8, ptr %.sroa.0144.2, align 1, !tbaa !22
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0144.2, i64 1
+  %132 = add nsw i64 %.sroa.6145.2, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @__const.async_write.smallrec, i64 5, i1 false)
   store i8 %20, ptr %4, align 1, !tbaa !22
   store i8 %23, ptr %15, align 1, !tbaa !22
   store i8 %26, ptr %16, align 1, !tbaa !22
-  store i8 %131, ptr %17, align 1, !tbaa !22
-  %134 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 6) #6
-  %135 = icmp sgt i32 %134, 0
+  store i8 %130, ptr %17, align 1, !tbaa !22
+  %133 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 6) #6
+  %134 = icmp sgt i32 %133, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %135, label %129, label %PACKET_get_1.exit76.thread, !llvm.loop !24
+  br i1 %134, label %128, label %PACKET_get_1.exit76.thread, !llvm.loop !24
 
-136:                                              ; preds = %129
-  %137 = icmp eq i8 %20, 20
-  %or.cond = and i1 %125, %.0156
-  %or.cond289 = select i1 %137, i1 true, i1 %or.cond
-  br i1 %or.cond289, label %138, label %18
+135:                                              ; preds = %128
+  %136 = icmp eq i8 %20, 20
+  %or.cond289 = select i1 %136, i1 true, i1 %or.cond
+  br i1 %or.cond289, label %137, label %18
 
-138:                                              ; preds = %136
+137:                                              ; preds = %135
   store i1 false, ptr @fragment, align 4
   br label %.thread281
 
-.thread281:                                       ; preds = %18, %138, %12
-  %.039 = phi i64 [ 0, %12 ], [ %128, %138 ], [ %.241, %18 ]
-  %139 = trunc i64 %.039 to i32
-  %140 = icmp sgt i32 %2, %139
-  br i1 %140, label %141, label %.thread285
+.thread281:                                       ; preds = %18, %137, %12
+  %.039 = phi i64 [ 0, %12 ], [ %127, %137 ], [ %.241, %18 ]
+  %138 = trunc i64 %.039 to i32
+  %139 = icmp sgt i32 %2, %138
+  br i1 %139, label %140, label %.thread285
 
-141:                                              ; preds = %.thread281
-  %142 = getelementptr inbounds nuw i8, ptr %1, i64 %.039
-  %143 = sub i32 %2, %139
-  %144 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef %142, i32 noundef %143) #6
-  %145 = icmp slt i32 %144, 1
-  br i1 %145, label %.thread285, label %148
+140:                                              ; preds = %.thread281
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 %.039
+  %142 = sub i32 %2, %138
+  %143 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef %141, i32 noundef %142) #6
+  %144 = icmp slt i32 %143, 1
+  br i1 %144, label %.thread285, label %147
 
-.thread285:                                       ; preds = %.thread281, %141
-  %.046288 = phi i32 [ %144, %141 ], [ 0, %.thread281 ]
-  %146 = call i32 @BIO_test_flags(ptr noundef nonnull %5, i32 noundef 2) #6
-  %.not69 = icmp eq i32 %146, 0
-  br i1 %.not69, label %148, label %147
+.thread285:                                       ; preds = %.thread281, %140
+  %.046288 = phi i32 [ %143, %140 ], [ 0, %.thread281 ]
+  %145 = call i32 @BIO_test_flags(ptr noundef nonnull %5, i32 noundef 2) #6
+  %.not69 = icmp eq i32 %145, 0
+  br i1 %.not69, label %147, label %146
 
-147:                                              ; preds = %.thread285
+146:                                              ; preds = %.thread285
   call void @BIO_set_flags(ptr noundef %0, i32 noundef 10) #6
   br label %PACKET_get_1.exit76.thread
 
-148:                                              ; preds = %.thread285, %141
-  %.046287 = phi i32 [ %.046288, %.thread285 ], [ %144, %141 ]
-  %149 = add i32 %.046287, %139
+147:                                              ; preds = %.thread285, %140
+  %.046287 = phi i32 [ %.046288, %.thread285 ], [ %143, %140 ]
+  %148 = add i32 %.046287, %138
   br label %PACKET_get_1.exit76.thread
 
-150:                                              ; preds = %8
+149:                                              ; preds = %8
   store i32 1, ptr %10, align 4, !tbaa !19
   tail call void @BIO_set_flags(ptr noundef %0, i32 noundef 10) #6
   br label %PACKET_get_1.exit76.thread
 
-PACKET_get_1.exit76.thread:                       ; preds = %76, %72, %69, %63, %53, %49, %45, %29, %24, %21, %19, %.critedge, %98, %88, %114, %116, %130, %150, %148, %147, %3
-  %.035 = phi i32 [ 0, %3 ], [ %.046288, %147 ], [ %149, %148 ], [ 0, %150 ], [ -1, %130 ], [ -1, %116 ], [ -1, %114 ], [ -1, %88 ], [ -1, %98 ], [ -1, %.critedge ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %45 ], [ -1, %49 ], [ -1, %53 ], [ -1, %63 ], [ -1, %69 ], [ -1, %72 ], [ -1, %76 ]
+PACKET_get_1.exit76.thread:                       ; preds = %76, %72, %69, %63, %53, %49, %45, %29, %24, %21, %19, %.critedge, %98, %88, %114, %116, %129, %149, %147, %146, %3
+  %.035 = phi i32 [ 0, %3 ], [ %.046288, %146 ], [ %148, %147 ], [ 0, %149 ], [ -1, %129 ], [ -1, %116 ], [ -1, %114 ], [ -1, %88 ], [ -1, %98 ], [ -1, %.critedge ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %45 ], [ -1, %49 ], [ -1, %53 ], [ -1, %63 ], [ -1, %69 ], [ -1, %72 ], [ -1, %76 ]
   ret i32 %.035
 }
 

@@ -3085,11 +3085,12 @@ _Z25proper_unit_for_byte_sizem.exit67:            ; preds = %.thread76, %_Z24byt
 ._crit_edge.loopexit:                             ; preds = %104
   %.pre = load i64, ptr %31, align 8
   %.pre91 = load i64, ptr %3, align 8
+  %110 = mul i64 %.pre, %.149
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZN17ShenandoahFreeSet14clear_internalEv.exit
-  %110 = phi i64 [ %23, %_ZN17ShenandoahFreeSet14clear_internalEv.exit ], [ %.pre91, %._crit_edge.loopexit ]
-  %111 = phi i64 [ %32, %_ZN17ShenandoahFreeSet14clear_internalEv.exit ], [ %.pre, %._crit_edge.loopexit ]
+  %111 = phi i64 [ %23, %_ZN17ShenandoahFreeSet14clear_internalEv.exit ], [ %.pre91, %._crit_edge.loopexit ]
+  %112 = phi i64 [ 0, %_ZN17ShenandoahFreeSet14clear_internalEv.exit ], [ %110, %._crit_edge.loopexit ]
   %.053.lcssa = phi i64 [ %23, %_ZN17ShenandoahFreeSet14clear_internalEv.exit ], [ %.3, %._crit_edge.loopexit ]
   %.050.lcssa = phi i64 [ 0, %_ZN17ShenandoahFreeSet14clear_internalEv.exit ], [ %.252, %._crit_edge.loopexit ]
   %.048.lcssa = phi i64 [ 0, %_ZN17ShenandoahFreeSet14clear_internalEv.exit ], [ %.149, %._crit_edge.loopexit ]
@@ -3102,14 +3103,13 @@ _Z25proper_unit_for_byte_sizem.exit67:            ; preds = %.thread76, %_Z24byt
   store i64 %.050.lcssa, ptr %8, align 8
   store i64 %.048.lcssa, ptr %30, align 8
   store i64 %.046.lcssa, ptr %10, align 8
-  %112 = mul i64 %111, %.048.lcssa
   store i64 %112, ptr %9, align 8
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %110, ptr %113, align 8
+  store i64 %111, ptr %113, align 8
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i64 -1, ptr %114, align 8
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 %110, ptr %115, align 8
+  store i64 %111, ptr %115, align 8
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 -1, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 184

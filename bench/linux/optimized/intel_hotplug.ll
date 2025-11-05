@@ -852,13 +852,13 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %87 = phi ptr [ %85, %83 ], [ null, %82 ]
   call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %87, i32 noundef 2, ptr noundef nonnull @.str.17) #8
   call void @mutex_unlock(ptr noundef %5) #8
-  br label %211
+  br label %210
 
 88:                                               ; preds = %78
   call void @drm_connector_list_iter_begin(ptr noundef %4, ptr noundef nonnull %3) #8
   %89 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %3) #8
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %188, label %91
+  br i1 %90, label %189, label %91
 
 91:                                               ; preds = %88
   %92 = or i32 %16, %14
@@ -1020,11 +1020,11 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %.us-phi24 = phi ptr [ %136, %.thread12.us ], [ %183, %.thread12 ]
   %.us-phi25 = phi i32 [ %137, %.thread12.us ], [ %184, %.thread12 ]
   %187 = xor i32 %.us-phi22, -1
-  br label %188
+  %188 = and i32 %.us-phi23, %187
+  br label %189
 
-188:                                              ; preds = %.split21.us, %88
-  %189 = phi i32 [ -1, %88 ], [ %187, %.split21.us ]
-  %190 = phi i32 [ 0, %88 ], [ %.us-phi23, %.split21.us ]
+189:                                              ; preds = %.split21.us, %88
+  %190 = phi i32 [ 0, %88 ], [ %188, %.split21.us ]
   %191 = phi ptr [ null, %88 ], [ %.us-phi24, %.split21.us ]
   %192 = phi i32 [ 0, %88 ], [ %.us-phi25, %.split21.us ]
   call void @drm_connector_list_iter_end(ptr noundef nonnull %3) #8
@@ -1032,11 +1032,11 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   %193 = icmp eq i32 %192, 1
   br i1 %193, label %194, label %195
 
-194:                                              ; preds = %188
+194:                                              ; preds = %189
   call void @drm_kms_helper_connector_hotplug_event(ptr noundef %191) #8
   br label %198
 
-195:                                              ; preds = %188
+195:                                              ; preds = %189
   %196 = icmp sgt i32 %192, 0
   br i1 %196, label %197, label %198
 
@@ -1054,22 +1054,21 @@ define internal void @i915_hotplug_work_func(ptr noundef %0) #1 align 16 {
   br label %202
 
 202:                                              ; preds = %200, %198
-  %203 = and i32 %190, %189
-  %204 = icmp eq i32 %203, 0
-  br i1 %204, label %211, label %205
+  %203 = icmp eq i32 %190, 0
+  br i1 %203, label %210, label %204
 
-205:                                              ; preds = %202
+204:                                              ; preds = %202
   call void @_raw_spin_lock_irq(ptr noundef %12) #8
-  %206 = load i32, ptr %15, align 4
-  %207 = or i32 %206, %203
-  store i32 %207, ptr %15, align 4
+  %205 = load i32, ptr %15, align 4
+  %206 = or i32 %205, %190
+  store i32 %206, ptr %15, align 4
   call void @_raw_spin_unlock_irq(ptr noundef %12) #8
-  %208 = getelementptr i8, ptr %0, i64 2056
-  %209 = load ptr, ptr %208, align 8
-  %210 = call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %209, ptr noundef %0, i64 noundef 1000) #8
-  br label %211
+  %207 = getelementptr i8, ptr %0, i64 2056
+  %208 = load ptr, ptr %207, align 8
+  %209 = call zeroext i1 @mod_delayed_work_on(i32 noundef 64, ptr noundef %208, ptr noundef %0, i64 noundef 1000) #8
+  br label %210
 
-211:                                              ; preds = %205, %202, %86
+210:                                              ; preds = %204, %202, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

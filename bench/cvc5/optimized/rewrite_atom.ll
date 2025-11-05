@@ -606,10 +606,8 @@ define hidden range(i16 0, 258) i16 @_ZN4cvc58internal6theory5arith8rewriter28tr
   br label %10
 
 10:                                               ; preds = %7, %7, %7, %9, %8
-  %.sroa.0.0 = phi i16 [ 0, %9 ], [ 1, %8 ], [ 0, %7 ], [ 0, %7 ], [ 0, %7 ]
-  %.sroa.7.0 = phi i16 [ 0, %9 ], [ 256, %8 ], [ 256, %7 ], [ 256, %7 ], [ 256, %7 ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.7.0, %.sroa.0.0
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.7.0 = phi i16 [ 0, %9 ], [ 257, %8 ], [ 256, %7 ], [ 256, %7 ], [ 256, %7 ]
+  ret i16 %.sroa.7.0
 }
 
 ; Function Attrs: mustprogress uwtable

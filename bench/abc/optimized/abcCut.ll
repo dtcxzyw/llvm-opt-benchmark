@@ -741,7 +741,7 @@ define ptr @Abc_NodeGetCuts(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %.not40 = icmp eq i32 %2, 0
   %11 = or i1 %.not40, %10
   %.not41 = icmp eq i32 %3, 0
-  br i1 %.not41, label %38, label %12
+  br i1 %.not41, label %36, label %12
 
 12:                                               ; preds = %.thread
   %.val = load ptr, ptr %1, align 8, !tbaa !48
@@ -784,28 +784,24 @@ define ptr @Abc_NodeGetCuts(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %30 = getelementptr i8, ptr %29, i64 44
   %.val50 = load i32, ptr %30, align 4, !tbaa !30
   %31 = icmp sgt i32 %.val50, 1
-  br i1 %31, label %32, label %35
+  br i1 %31, label %32, label %36
 
 32:                                               ; preds = %24
   %33 = tail call i32 @Abc_NodeIsMuxControlType(ptr noundef nonnull %29) #13
   %.not43 = icmp eq i32 %33, 0
   %34 = select i1 %.not43, i32 2, i32 0
-  br label %35
+  %35 = or disjoint i32 %34, %25
+  br label %36
 
-35:                                               ; preds = %32, %24
-  %36 = phi i32 [ 0, %24 ], [ %34, %32 ]
-  %37 = or disjoint i32 %36, %25
-  br label %38
+36:                                               ; preds = %24, %32, %.thread
+  %.0 = phi i32 [ 0, %.thread ], [ %25, %24 ], [ %35, %32 ]
+  %37 = tail call ptr @Cut_ManReadParams(ptr noundef %0) #13
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
+  %39 = load i32, ptr %38, align 4, !tbaa !44
+  %.not44 = icmp eq i32 %39, 0
+  br i1 %.not44, label %._crit_edge, label %40
 
-38:                                               ; preds = %35, %.thread
-  %.0 = phi i32 [ %37, %35 ], [ 0, %.thread ]
-  %39 = tail call ptr @Cut_ManReadParams(ptr noundef %0) #13
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
-  %41 = load i32, ptr %40, align 4, !tbaa !44
-  %.not44 = icmp eq i32 %41, 0
-  br i1 %.not44, label %._crit_edge, label %42
-
-._crit_edge:                                      ; preds = %38
+._crit_edge:                                      ; preds = %36
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre75 = load i32, ptr %.phi.trans.insert74, align 8, !tbaa !50
   %.phi.trans.insert76 = getelementptr i8, ptr %1, i64 32
@@ -813,79 +809,79 @@ define ptr @Abc_NodeGetCuts(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 
   %.val53.val.pre = load i32, ptr %.val53.pre, align 4, !tbaa !41
   %.phi.trans.insert79 = getelementptr i8, ptr %.val53.pre, i64 4
   %.val62.val.pre = load i32, ptr %.phi.trans.insert79, align 4, !tbaa !41
-  br label %76
+  br label %74
 
-42:                                               ; preds = %38
-  %43 = tail call ptr @Cut_ManReadNodeAttrs(ptr noundef %0) #13
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = load i32, ptr %44, align 8, !tbaa !50
-  %46 = getelementptr i8, ptr %43, i64 8
-  %.val58 = load ptr, ptr %46, align 8, !tbaa !46
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i32, ptr %.val58, i64 %47
-  %49 = load i32, ptr %48, align 4, !tbaa !41
-  %.not45 = icmp eq i32 %49, 0
-  br i1 %.not45, label %52, label %50
+40:                                               ; preds = %36
+  %41 = tail call ptr @Cut_ManReadNodeAttrs(ptr noundef %0) #13
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %43 = load i32, ptr %42, align 8, !tbaa !50
+  %44 = getelementptr i8, ptr %41, i64 8
+  %.val58 = load ptr, ptr %44, align 8, !tbaa !46
+  %45 = sext i32 %43 to i64
+  %46 = getelementptr inbounds i32, ptr %.val58, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !41
+  %.not45 = icmp eq i32 %47, 0
+  br i1 %.not45, label %50, label %48
 
-50:                                               ; preds = %42
+48:                                               ; preds = %40
   tail call void @Cut_ManIncrementDagNodes(ptr noundef %0) #13
-  %.pre = load i32, ptr %44, align 8, !tbaa !50
-  %.val59.pre = load ptr, ptr %46, align 8, !tbaa !46
+  %.pre = load i32, ptr %42, align 8, !tbaa !50
+  %.val59.pre = load ptr, ptr %44, align 8, !tbaa !46
   %.phi.trans.insert71 = sext i32 %.pre to i64
   %.phi.trans.insert72 = getelementptr inbounds i32, ptr %.val59.pre, i64 %.phi.trans.insert71
   %.pre73 = load i32, ptr %.phi.trans.insert72, align 4, !tbaa !41
-  %51 = icmp eq i32 %.pre73, 0
-  br label %52
+  %49 = icmp eq i32 %.pre73, 0
+  br label %50
 
-52:                                               ; preds = %50, %42
-  %.not46 = phi i1 [ %51, %50 ], [ true, %42 ]
-  %.val59 = phi ptr [ %.val59.pre, %50 ], [ %.val58, %42 ]
-  %53 = phi i32 [ %.pre, %50 ], [ %45, %42 ]
+50:                                               ; preds = %48, %40
+  %.not46 = phi i1 [ %49, %48 ], [ true, %40 ]
+  %.val59 = phi ptr [ %.val59.pre, %48 ], [ %.val58, %40 ]
+  %51 = phi i32 [ %.pre, %48 ], [ %43, %40 ]
   %.val48 = load ptr, ptr %1, align 8, !tbaa !48
-  %54 = getelementptr i8, ptr %1, i64 32
-  %.val49 = load ptr, ptr %54, align 8, !tbaa !49
-  %55 = getelementptr i8, ptr %.val48, i64 32
-  %.val48.val = load ptr, ptr %55, align 8, !tbaa !3
+  %52 = getelementptr i8, ptr %1, i64 32
+  %.val49 = load ptr, ptr %52, align 8, !tbaa !49
+  %53 = getelementptr i8, ptr %.val48, i64 32
+  %.val48.val = load ptr, ptr %53, align 8, !tbaa !3
   %.val49.val = load i32, ptr %.val49, align 4, !tbaa !41
-  %56 = getelementptr i8, ptr %.val48.val, i64 8
-  %.val48.val.val = load ptr, ptr %56, align 8, !tbaa !26
-  %57 = sext i32 %.val49.val to i64
-  %58 = getelementptr inbounds ptr, ptr %.val48.val.val, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !27
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !50
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr %.val59, i64 %62
-  %64 = load i32, ptr %63, align 4, !tbaa !41
-  %65 = getelementptr i8, ptr %.val49, i64 4
-  %.val57.val = load i32, ptr %65, align 4, !tbaa !41
-  %66 = sext i32 %.val57.val to i64
-  %67 = getelementptr inbounds ptr, ptr %.val48.val.val, i64 %66
-  %68 = load ptr, ptr %67, align 8, !tbaa !27
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %70 = load i32, ptr %69, align 8, !tbaa !50
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i32, ptr %.val59, i64 %71
-  %73 = load i32, ptr %72, align 4, !tbaa !41
-  %74 = shl i32 %73, 1
-  %75 = or i32 %74, %64
-  br label %76
+  %54 = getelementptr i8, ptr %.val48.val, i64 8
+  %.val48.val.val = load ptr, ptr %54, align 8, !tbaa !26
+  %55 = sext i32 %.val49.val to i64
+  %56 = getelementptr inbounds ptr, ptr %.val48.val.val, i64 %55
+  %57 = load ptr, ptr %56, align 8, !tbaa !27
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %59 = load i32, ptr %58, align 8, !tbaa !50
+  %60 = sext i32 %59 to i64
+  %61 = getelementptr inbounds i32, ptr %.val59, i64 %60
+  %62 = load i32, ptr %61, align 4, !tbaa !41
+  %63 = getelementptr i8, ptr %.val49, i64 4
+  %.val57.val = load i32, ptr %63, align 4, !tbaa !41
+  %64 = sext i32 %.val57.val to i64
+  %65 = getelementptr inbounds ptr, ptr %.val48.val.val, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !27
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  %68 = load i32, ptr %67, align 8, !tbaa !50
+  %69 = sext i32 %68 to i64
+  %70 = getelementptr inbounds i32, ptr %.val59, i64 %69
+  %71 = load i32, ptr %70, align 4, !tbaa !41
+  %72 = shl i32 %71, 1
+  %73 = or i32 %72, %62
+  br label %74
 
-76:                                               ; preds = %._crit_edge, %52
-  %.val62.val = phi i32 [ %.val57.val, %52 ], [ %.val62.val.pre, %._crit_edge ]
-  %.val53.val = phi i32 [ %.val49.val, %52 ], [ %.val53.val.pre, %._crit_edge ]
-  %77 = phi i32 [ %53, %52 ], [ %.pre75, %._crit_edge ]
-  %.039.in = phi i1 [ %.not46, %52 ], [ %11, %._crit_edge ]
-  %.1 = phi i32 [ %75, %52 ], [ %.0, %._crit_edge ]
+74:                                               ; preds = %._crit_edge, %50
+  %.val62.val = phi i32 [ %.val57.val, %50 ], [ %.val62.val.pre, %._crit_edge ]
+  %.val53.val = phi i32 [ %.val49.val, %50 ], [ %.val53.val.pre, %._crit_edge ]
+  %75 = phi i32 [ %51, %50 ], [ %.pre75, %._crit_edge ]
+  %.039.in = phi i1 [ %.not46, %50 ], [ %11, %._crit_edge ]
+  %.1 = phi i32 [ %73, %50 ], [ %.0, %._crit_edge ]
   %.039 = zext i1 %.039.in to i32
-  %78 = getelementptr i8, ptr %1, i64 20
-  %.val63 = load i32, ptr %78, align 4
-  %79 = lshr i32 %.val63, 10
+  %76 = getelementptr i8, ptr %1, i64 20
+  %.val63 = load i32, ptr %76, align 4
+  %77 = lshr i32 %.val63, 10
+  %78 = and i32 %77, 1
+  %79 = lshr i32 %.val63, 11
   %80 = and i32 %79, 1
-  %81 = lshr i32 %.val63, 11
-  %82 = and i32 %81, 1
-  %83 = tail call ptr @Cut_NodeComputeCuts(ptr noundef %0, i32 noundef %77, i32 noundef %.val53.val, i32 noundef %.val62.val, i32 noundef %80, i32 noundef %82, i32 noundef %.039, i32 noundef %.1) #13
-  ret ptr %83
+  %81 = tail call ptr @Cut_NodeComputeCuts(ptr noundef %0, i32 noundef %75, i32 noundef %.val53.val, i32 noundef %.val62.val, i32 noundef %78, i32 noundef %80, i32 noundef %.039, i32 noundef %.1) #13
+  ret ptr %81
 }
 
 declare void @Npn_ManSaveOne(ptr noundef, i32 noundef) local_unnamed_addr #1

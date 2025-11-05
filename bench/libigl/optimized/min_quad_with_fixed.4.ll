@@ -141,21 +141,20 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1E
   %49 = call noundef double @llvm.fabs.f64(double %48)
   %50 = load double, ptr %.048.i.i.sroa.phi, align 8, !tbaa !20
   %51 = call noundef double @llvm.fabs.f64(double %50)
+  %52 = fadd double %49, %51
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i: ; preds = %47, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i
-  %.0.i.i.i56.i.i = phi double [ %49, %47 ], [ %46, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i ]
-  %.0.i.i.i19.i.i = phi double [ %51, %47 ], [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i ]
-  %52 = fadd double %.0.i.i.i56.i.i, %.0.i.i.i19.i.i
-  %53 = fcmp ogt double %52, %41
+  %.0.i.i.i56.i.i = phi double [ %52, %47 ], [ %46, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i ]
+  %53 = fcmp ogt double %.0.i.i.i56.i.i, %41
   br i1 %53, label %54, label %55
 
 54:                                               ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
-  store double %52, ptr %19, align 16, !tbaa !12
+  store double %.0.i.i.i56.i.i, ptr %19, align 16, !tbaa !12
   br label %55
 
 55:                                               ; preds = %54, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
-  %56 = phi double [ %52, %54 ], [ %41, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i ]
+  %56 = phi double [ %.0.i.i.i56.i.i, %54 ], [ %41, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i ]
   br i1 %.not.i.i.i.i.i.not.i.i, label %40, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKd.exit.i.i.i.i.i, !llvm.loop !23
 
 57:                                               ; preds = %30, %28
@@ -190,13 +189,13 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %78, label %79, label %.split.loop.exit
 
 79:                                               ; preds = %.preheader
-  br i1 %75, label %.preheader, label %.split.loop.exit268, !llvm.loop !25
+  br i1 %75, label %.preheader, label %.split.loop.exit267, !llvm.loop !25
 
 .split.loop.exit:                                 ; preds = %.preheader
   %80 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit268
+  br label %.split.loop.exit267
 
-.split.loop.exit268:                              ; preds = %79, %.split.loop.exit
+.split.loop.exit267:                              ; preds = %79, %.split.loop.exit
   %.0169 = phi i32 [ %80, %.split.loop.exit ], [ -1, %79 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !10
   %81 = sext i32 %.0169 to i64
@@ -217,10 +216,10 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   store double %91, ptr %87, align 8, !tbaa !20
   br label %103
 
-92:                                               ; preds = %.split.loop.exit268, %101
-  %93 = phi double [ %84, %.split.loop.exit268 ], [ %102, %101 ]
-  %94 = phi i1 [ true, %.split.loop.exit268 ], [ false, %101 ]
-  %indvars.iv262 = phi i64 [ 0, %.split.loop.exit268 ], [ 1, %101 ]
+92:                                               ; preds = %.split.loop.exit267, %101
+  %93 = phi double [ %84, %.split.loop.exit267 ], [ %102, %101 ]
+  %94 = phi i1 [ true, %.split.loop.exit267 ], [ false, %101 ]
+  %indvars.iv262 = phi i64 [ 0, %.split.loop.exit267 ], [ 1, %101 ]
   %.not = icmp eq i64 %indvars.iv262, %85
   br i1 %.not, label %101, label %95
 

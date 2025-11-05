@@ -231,19 +231,19 @@ define range(i32 -1, 1) i32 @ff_rtp_check_and_send_back_rr(ptr noundef %0, ptr n
   %53 = icmp eq i32 %42, %48
   %54 = icmp slt i32 %52, 1
   %or.cond5 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond5, label %59, label %55
+  br i1 %or.cond5, label %60, label %55
 
 55:                                               ; preds = %25
   %56 = shl i32 %52, 8
   %57 = udiv i32 %56, %49
   %58 = shl i32 %57, 24
-  br label %59
+  %59 = or disjoint i32 %58, %46
+  br label %60
 
-59:                                               ; preds = %25, %55
-  %.073 = phi i32 [ %58, %55 ], [ 0, %25 ]
-  %60 = or disjoint i32 %.073, %46
+60:                                               ; preds = %25, %55
+  %.073 = phi i32 [ %59, %55 ], [ %46, %25 ]
   %61 = load ptr, ptr %5, align 8, !tbaa !31
-  call void @avio_wb32(ptr noundef %61, i32 noundef %60) #13
+  call void @avio_wb32(ptr noundef %61, i32 noundef %.073) #13
   %62 = load ptr, ptr %5, align 8, !tbaa !31
   call void @avio_wb32(ptr noundef %62, i32 noundef %39) #13
   %63 = load ptr, ptr %5, align 8, !tbaa !31
@@ -256,7 +256,7 @@ define range(i32 -1, 1) i32 @ff_rtp_check_and_send_back_rr(ptr noundef %0, ptr n
   %69 = icmp eq i64 %68, -9223372036854775808
   br i1 %69, label %79, label %70
 
-70:                                               ; preds = %59
+70:                                               ; preds = %60
   %71 = lshr i64 %68, 16
   %72 = trunc i64 %71 to i32
   %73 = call i64 @av_gettime_relative() #13
@@ -267,9 +267,9 @@ define range(i32 -1, 1) i32 @ff_rtp_check_and_send_back_rr(ptr noundef %0, ptr n
   %78 = trunc i64 %77 to i32
   br label %79
 
-79:                                               ; preds = %59, %70
-  %.sink91 = phi i32 [ %72, %70 ], [ 0, %59 ]
-  %.sink90 = phi i32 [ %78, %70 ], [ 0, %59 ]
+79:                                               ; preds = %60, %70
+  %.sink91 = phi i32 [ %72, %70 ], [ 0, %60 ]
+  %.sink90 = phi i32 [ %78, %70 ], [ 0, %60 ]
   %80 = load ptr, ptr %5, align 8, !tbaa !31
   call void @avio_wb32(ptr noundef %80, i32 noundef %.sink91) #13
   %81 = load ptr, ptr %5, align 8, !tbaa !31

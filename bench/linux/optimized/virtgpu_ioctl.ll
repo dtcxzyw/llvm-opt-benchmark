@@ -1332,7 +1332,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 62142
   %13 = load i8, ptr %12, align 2, !range !5, !noundef !6
   %14 = icmp eq i8 %13, 0
-  br i1 %14, label %132, label %15
+  br i1 %14, label %130, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 62136
@@ -1340,7 +1340,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
   %18 = icmp eq i8 %17, 0
   %19 = icmp ugt i32 %9, 4
   %20 = select i1 %18, i1 true, i1 %19
-  br i1 %20, label %132, label %21
+  br i1 %20, label %130, label %21
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1353,7 +1353,7 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
 27:                                               ; preds = %21
   %28 = ptrtoint ptr %25 to i64
   %29 = trunc i64 %28 to i32
-  br label %132
+  br label %130
 
 30:                                               ; preds = %21
   %31 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -1461,13 +1461,13 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %90 = load i64, ptr %89, align 8
   %91 = icmp eq i64 %90, 0
-  br i1 %91, label %111, label %92
+  br i1 %91, label %109, label %92
 
 92:                                               ; preds = %.loopexit8
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %94, 0
-  br i1 %95, label %107, label %96
+  br i1 %95, label %.loopexit, label %96
 
 96:                                               ; preds = %92
   %97 = zext i32 %94 to i64
@@ -1484,59 +1484,55 @@ define internal i32 @virtio_gpu_context_init_ioctl(ptr noundef readonly captures
 
 105:                                              ; preds = %98
   %106 = xor i64 %102, -1
-  br label %107
+  %107 = and i64 %90, %106
+  %108 = icmp eq i64 %107, 0
+  br i1 %108, label %109, label %.loopexit
 
-107:                                              ; preds = %105, %92
-  %108 = phi i64 [ -1, %92 ], [ %106, %105 ]
-  %109 = and i64 %108, %90
-  %110 = icmp eq i64 %109, 0
-  br i1 %110, label %111, label %.loopexit
+109:                                              ; preds = %105, %.loopexit8
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 129
+  %111 = load i8, ptr %110, align 1, !range !5, !noundef !6
+  %112 = icmp eq i8 %111, 0
+  br i1 %112, label %120, label %113
 
-111:                                              ; preds = %107, %.loopexit8
-  %112 = getelementptr inbounds nuw i8, ptr %8, i64 129
-  %113 = load i8, ptr %112, align 1, !range !5, !noundef !6
-  %114 = icmp eq i8 %113, 0
-  br i1 %114, label %122, label %115
-
-115:                                              ; preds = %111
-  %116 = load i32, ptr %8, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %118 = load i32, ptr %117, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  %120 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %119) #6
-  %121 = trunc i64 %120 to i32
-  tail call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %116, i32 noundef %118, i32 noundef %121, ptr noundef nonnull %119) #6
+113:                                              ; preds = %109
+  %114 = load i32, ptr %8, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %116 = load i32, ptr %115, align 4
+  %117 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %118 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %117) #6
+  %119 = trunc i64 %118 to i32
+  tail call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %114, i32 noundef %116, i32 noundef %119, ptr noundef nonnull %117) #6
   br label %virtio_gpu_create_context_locked.exit
 
-122:                                              ; preds = %111
+120:                                              ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !7
-  %123 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
-  %124 = inttoptr i64 %123 to ptr
-  %125 = call ptr @__get_task_comm(ptr noundef nonnull %4, i64 noundef 16, ptr noundef %124) #6
-  %126 = load i32, ptr %8, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %128 = load i32, ptr %127, align 4
-  %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
-  %130 = trunc i64 %129 to i32
-  call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %126, i32 noundef %128, i32 noundef %130, ptr noundef nonnull %4) #6
+  %121 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !8
+  %122 = inttoptr i64 %121 to ptr
+  %123 = call ptr @__get_task_comm(ptr noundef nonnull %4, i64 noundef 16, ptr noundef %122) #6
+  %124 = load i32, ptr %8, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %126 = load i32, ptr %125, align 4
+  %127 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
+  %128 = trunc i64 %127 to i32
+  call void @virtio_gpu_cmd_context_create(ptr noundef %6, i32 noundef %124, i32 noundef %126, i32 noundef %128, ptr noundef nonnull %4) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %virtio_gpu_create_context_locked.exit
 
-virtio_gpu_create_context_locked.exit:            ; preds = %115, %122
+virtio_gpu_create_context_locked.exit:            ; preds = %113, %120
   store i8 1, ptr %32, align 8
   tail call void @virtio_gpu_notify(ptr noundef %6) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %80, %77, %73, %65, %58, %53, %51, %45, %virtio_gpu_create_context_locked.exit, %107, %30
-  %131 = phi i32 [ 0, %virtio_gpu_create_context_locked.exit ], [ -17, %30 ], [ -22, %107 ], [ -22, %45 ], [ -22, %77 ], [ -22, %73 ], [ -22, %65 ], [ -22, %58 ], [ -22, %53 ], [ -22, %51 ], [ %83, %80 ]
+.loopexit:                                        ; preds = %80, %77, %73, %65, %58, %53, %51, %45, %92, %virtio_gpu_create_context_locked.exit, %105, %30
+  %129 = phi i32 [ 0, %virtio_gpu_create_context_locked.exit ], [ -17, %30 ], [ -22, %105 ], [ -22, %92 ], [ -22, %45 ], [ -22, %77 ], [ -22, %73 ], [ -22, %65 ], [ -22, %58 ], [ -22, %53 ], [ -22, %51 ], [ %83, %80 ]
   tail call void @mutex_unlock(ptr noundef nonnull %31) #6
   tail call void @kfree(ptr noundef %25) #6
-  br label %132
+  br label %130
 
-132:                                              ; preds = %.loopexit, %27, %15, %3
-  %133 = phi i32 [ %29, %27 ], [ %131, %.loopexit ], [ -22, %15 ], [ -22, %3 ]
-  ret i32 %133
+130:                                              ; preds = %.loopexit, %27, %15, %3
+  %131 = phi i32 [ %29, %27 ], [ %129, %.loopexit ], [ -22, %15 ], [ -22, %3 ]
+  ret i32 %131
 }
 
 ; Function Attrs: null_pointer_is_valid

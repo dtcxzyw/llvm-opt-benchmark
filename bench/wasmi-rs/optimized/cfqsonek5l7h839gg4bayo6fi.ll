@@ -11744,12 +11744,12 @@ define hidden { i16, i16 } @"_ZN5wasmi6engine10translator8provider17Provider$LT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i32 0, -65534) i32 @"_ZN5wasmi6engine10translator8provider17Provider$LT$T$GT$9map_const17h78911ab22799f472E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
+define hidden range(i32 0, -65535) i32 @"_ZN5wasmi6engine10translator8provider17Provider$LT$T$GT$9map_const17h78911ab22799f472E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !range !265, !noundef !3
   %.not = icmp eq i8 %4, 7
-  br i1 %.not, label %9, label %5
+  br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -11758,19 +11758,18 @@ define hidden range(i32 0, -65534) i32 @"_ZN5wasmi6engine10translator8provider17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %7 = shl i32 %6, 8
   %8 = and i32 %7, 65280
-  br label %13
+  %9 = or disjoint i32 %8, 1
+  br label %14
 
-9:                                                ; preds = %1
-  %10 = load i16, ptr %0, align 8, !noundef !3
-  %11 = zext i16 %10 to i32
-  %12 = shl nuw i32 %11, 16
-  br label %13
+10:                                               ; preds = %1
+  %11 = load i16, ptr %0, align 8, !noundef !3
+  %12 = zext i16 %11 to i32
+  %13 = shl nuw i32 %12, 16
+  br label %14
 
-13:                                               ; preds = %9, %5
-  %.sroa.0.0 = phi i32 [ 1, %5 ], [ 0, %9 ]
-  %.sroa.3.0.insert.insert = phi i32 [ %8, %5 ], [ %12, %9 ]
-  %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i32 %.sroa.0.0.insert.insert
+14:                                               ; preds = %10, %5
+  %.sroa.3.0.insert.insert = phi i32 [ %9, %5 ], [ %13, %10 ]
+  ret i32 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable

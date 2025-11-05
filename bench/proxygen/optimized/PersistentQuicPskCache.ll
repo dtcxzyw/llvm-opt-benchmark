@@ -3864,7 +3864,7 @@ declare void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr.20") ali
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4fizz6detail8writeBufItEEvRKSt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EERNS3_2io8AppenderE(ptr noundef nonnull align 8 dereferenceable(8) %buf, ptr noundef nonnull align 8 dereferenceable(24) %out) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %value.addr.i.i14 = alloca i16, align 2
+  %value.addr.i.i11 = alloca i16, align 2
   %ref.tmp.i.i.i5 = alloca %"class.folly::ConversionError", align 8
   %ref.tmp1.i6 = alloca %class.anon.80, align 8
   %value.addr.i.i = alloca i16, align 2
@@ -3901,50 +3901,50 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i5)
   %3 = and i32 %retval.sroa.0.0.insert.insert.i.i.i, 3
   %cmp.i.i.i = icmp eq i32 %3, 1
-  br i1 %cmp.i.i.i, label %_ZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit, label %if.end.i.i.i8
+  br i1 %cmp.i.i.i, label %_ZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit, label %if.end.i.i.i
 
-if.end.i.i.i8:                                    ; preds = %if.end
+if.end.i.i.i:                                     ; preds = %if.end
   %ref.tmp.sroa.2.0.extract.shift.i = lshr i32 %retval.sroa.0.0.insert.insert.i.i.i, 8
-  %ref.tmp.sroa.2.0.extract.trunc.i9 = trunc i32 %ref.tmp.sroa.2.0.extract.shift.i to i8
-  call void @_ZZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i6, i8 noundef zeroext %ref.tmp.sroa.2.0.extract.trunc.i9)
+  %ref.tmp.sroa.2.0.extract.trunc.i = trunc i32 %ref.tmp.sroa.2.0.extract.shift.i to i8
+  call void @_ZZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_ENKUlNS_14ConversionCodeEE_clES8_(ptr nonnull sret(%"class.folly::ConversionError") align 8 %ref.tmp.i.i.i5, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1.i6, i8 noundef zeroext %ref.tmp.sroa.2.0.extract.trunc.i)
   invoke void @_ZN5folly15throw_exceptionINS_15ConversionErrorEEEvOT_(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i5) #9
-          to label %invoke.cont.i.i.i11 unwind label %lpad.i.i.i10
+          to label %invoke.cont.i.i.i9 unwind label %lpad.i.i.i8
 
-invoke.cont.i.i.i11:                              ; preds = %if.end.i.i.i8
+invoke.cont.i.i.i9:                               ; preds = %if.end.i.i.i
   unreachable
 
-lpad.i.i.i10:                                     ; preds = %if.end.i.i.i8
+lpad.i.i.i8:                                      ; preds = %if.end.i.i.i
   %4 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %ref.tmp.i.i.i5) #30
   resume { ptr, i32 } %4
 
 _ZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit: ; preds = %if.end
-  %ref.tmp.sroa.3.0.extract.shift.i12 = lshr i32 %retval.sroa.0.0.insert.insert.i.i.i, 16
-  %ref.tmp.sroa.3.0.extract.trunc.i13 = trunc nuw i32 %ref.tmp.sroa.3.0.extract.shift.i12 to i16
+  %ref.tmp.sroa.3.0.extract.shift.i = lshr i32 %retval.sroa.0.0.insert.insert.i.i.i, 16
+  %ref.tmp.sroa.3.0.extract.trunc.i10 = trunc nuw i32 %ref.tmp.sroa.3.0.extract.shift.i to i16
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i5)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp1.i6)
-  %5 = call noundef i16 @llvm.bswap.i16(i16 %ref.tmp.sroa.3.0.extract.trunc.i13)
-  call void @llvm.lifetime.start.p0(ptr nonnull %value.addr.i.i14)
-  store i16 %5, ptr %value.addr.i.i14, align 2
-  %call.i.i.i15 = call noundef i64 @_ZN5folly2io8Appender10pushAtMostEPKhm(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull %value.addr.i.i14, i64 noundef 2)
-  %cmp.not.i.i.i16 = icmp eq i64 %call.i.i.i15, 2
-  br i1 %cmp.not.i.i.i16, label %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit18, label %if.then.i.i.i17
+  %5 = call noundef i16 @llvm.bswap.i16(i16 %ref.tmp.sroa.3.0.extract.trunc.i10)
+  call void @llvm.lifetime.start.p0(ptr nonnull %value.addr.i.i11)
+  store i16 %5, ptr %value.addr.i.i11, align 2
+  %call.i.i.i12 = call noundef i64 @_ZN5folly2io8Appender10pushAtMostEPKhm(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef nonnull %value.addr.i.i11, i64 noundef 2)
+  %cmp.not.i.i.i13 = icmp eq i64 %call.i.i.i12, 2
+  br i1 %cmp.not.i.i.i13, label %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit15, label %if.then.i.i.i14
 
-if.then.i.i.i17:                                  ; preds = %_ZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
+if.then.i.i.i14:                                  ; preds = %_ZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
   call void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.14) #9
   unreachable
 
-_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit18: ; preds = %_ZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
-  call void @llvm.lifetime.end.p0(ptr nonnull %value.addr.i.i14)
+_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit15: ; preds = %_ZN5folly2toItmEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_.exit
+  call void @llvm.lifetime.end.p0(ptr nonnull %value.addr.i.i11)
   %6 = load ptr, ptr %buf, align 8
   %call2.i = call noundef i64 @_ZNK5folly5IOBuf18countChainElementsEv(ptr noundef nonnull align 8 dereferenceable(56) %6)
   %cmp5.not.i = icmp eq i64 %call2.i, 0
   br i1 %cmp5.not.i, label %return, label %for.body.i
 
-for.body.i:                                       ; preds = %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit18, %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i
-  %i.07.i = phi i64 [ %inc.i, %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i ], [ 0, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit18 ]
-  %current.06.i = phi ptr [ %9, %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i ], [ %6, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit18 ]
+for.body.i:                                       ; preds = %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit15, %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i
+  %i.07.i = phi i64 [ %inc.i, %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i ], [ 0, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit15 ]
+  %current.06.i = phi ptr [ %9, %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i ], [ %6, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit15 ]
   %data_.i.i = getelementptr inbounds nuw i8, ptr %current.06.i, i64 8
   %7 = load ptr, ptr %data_.i.i, align 8
   %8 = load i64, ptr %current.06.i, align 8
@@ -3963,7 +3963,7 @@ _ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i: ; preds = %for.bo
   %exitcond.not.i = icmp eq i64 %inc.i, %call2.i
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !24
 
-return:                                           ; preds = %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit18, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit
+return:                                           ; preds = %_ZN5folly2io6detail8WritableINS0_8AppenderEE4pushEPKhm.exit.i, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit15, %_ZN5folly2io6detail8WritableINS0_8AppenderEE7writeBEItEEvT_.exit
   ret void
 }
 
@@ -9520,16 +9520,13 @@ if.then3:                                         ; preds = %if.end
 invoke.cont.i:                                    ; preds = %if.then3
   %cache_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %call3.i = call noundef i64 @_ZN6wangle16LRUInMemoryCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE8loadDataERKN5folly7dynamicE(ptr noundef nonnull align 8 dereferenceable(160) %cache_.i, ptr noundef nonnull align 8 dereferenceable(40) %kvPairs.i) #30, !noalias !80
-  %version.sroa.3.0.extract.shift = and i64 %call3.i, -256
   %.pre.i = load i8, ptr %hasValue.i.i.i, align 8, !noalias !80
-  %4 = and i64 %call3.i, 255
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %if.then3, %invoke.cont.i
-  %version.sroa.3.sroa.0.0 = phi i64 [ %version.sroa.3.0.extract.shift, %invoke.cont.i ], [ 0, %if.then3 ]
-  %version.sroa.0.0 = phi i64 [ %4, %invoke.cont.i ], [ 0, %if.then3 ]
-  %5 = phi i8 [ %.pre.i, %invoke.cont.i ], [ %3, %if.then3 ]
-  %tobool.i.i.i.i = trunc i8 %5 to i1
+  %version.sroa.3.sroa.0.0 = phi i64 [ %call3.i, %invoke.cont.i ], [ 0, %if.then3 ]
+  %4 = phi i8 [ %.pre.i, %invoke.cont.i ], [ %3, %if.then3 ]
+  %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %_ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE4loadERNS_16CachePersistenceE.exit
 
 if.then.i.i.i.i:                                  ; preds = %cleanup.i
@@ -9543,53 +9540,52 @@ _ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   br i1 %or.cond, label %invoke.cont10, label %monotonic_fail22.i
 
 invoke.cont10:                                    ; preds = %_ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE4loadERNS_16CachePersistenceE.exit
-  %6 = load ptr, ptr %persistence_, align 8
-  %version.sroa.0.0.insert.insert = or disjoint i64 %version.sroa.0.0, %version.sroa.3.sroa.0.0
-  %vtable = load ptr, ptr %6, align 8
+  %5 = load ptr, ptr %persistence_, align 8
+  %vtable = load ptr, ptr %5, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
-  %7 = load ptr, ptr %vfn, align 8
-  call void %7(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %version.sroa.0.0.insert.insert) #30
+  %6 = load ptr, ptr %vfn, align 8
+  call void %6(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %version.sroa.3.sroa.0.0) #30
   br label %monotonic_fail22.i
 
 monotonic_fail22.i:                               ; preds = %_ZN6wangle18LRUPersistentCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8proxygen23PersistentQuicCachedPskESt5mutexE4loadERNS_16CachePersistenceE.exit, %invoke.cont10, %if.end
-  %8 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %cleanup, label %while.cond.i.preheader
+  %7 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
+  %8 = extractvalue { i32, i1 } %7, 1
+  br i1 %8, label %cleanup, label %while.cond.i.preheader
 
 while.cond.i.preheader:                           ; preds = %monotonic_fail22.i
-  %10 = extractvalue { i32, i1 } %8, 0
+  %9 = extractvalue { i32, i1 } %7, 0
   br label %while.cond.i
 
 while.cond.i:                                     ; preds = %while.cond.i.backedge, %while.cond.i.preheader
-  %before.addr.0.i = phi i32 [ %10, %while.cond.i.preheader ], [ %before.addr.0.i.be, %while.cond.i.backedge ]
+  %before.addr.0.i = phi i32 [ %9, %while.cond.i.preheader ], [ %before.addr.0.i.be, %while.cond.i.backedge ]
   %cmp.i35 = icmp eq i32 %before.addr.0.i, 0
   br i1 %cmp.i35, label %monotonic_fail22.i89.i, label %if.end3.i
 
 monotonic_fail22.i89.i:                           ; preds = %while.cond.i
-  %11 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
-  %12 = extractvalue { i32, i1 } %11, 1
-  %13 = extractvalue { i32, i1 } %11, 0
-  br i1 %12, label %cleanup, label %if.end3.i
+  %10 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 0, i32 1 release monotonic, align 4
+  %11 = extractvalue { i32, i1 } %10, 1
+  %12 = extractvalue { i32, i1 } %10, 0
+  br i1 %11, label %cleanup, label %if.end3.i
 
 if.end3.i:                                        ; preds = %monotonic_fail22.i89.i, %while.cond.i
-  %before.addr.1.i = phi i32 [ %13, %monotonic_fail22.i89.i ], [ %before.addr.0.i, %while.cond.i ]
+  %before.addr.1.i = phi i32 [ %12, %monotonic_fail22.i89.i ], [ %before.addr.0.i, %while.cond.i ]
   %cmp4.i = icmp eq i32 %before.addr.1.i, 1
   br i1 %cmp4.i, label %seqcst.i123.i, label %monotonic_fail22.i.i
 
 seqcst.i123.i:                                    ; preds = %if.end3.i
   fence seq_cst
-  %14 = load atomic i32, ptr %persistenceLoadedSemaphore_ monotonic, align 8
-  %cmp8.i = icmp eq i32 %14, 1
+  %13 = load atomic i32, ptr %persistenceLoadedSemaphore_ monotonic, align 8
+  %cmp8.i = icmp eq i32 %13, 1
   br i1 %cmp8.i, label %cleanup, label %while.cond.i.backedge
 
 monotonic_fail22.i.i:                             ; preds = %if.end3.i
-  %15 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 %before.addr.1.i, i32 1 release monotonic, align 4
-  %16 = extractvalue { i32, i1 } %15, 1
-  %17 = extractvalue { i32, i1 } %15, 0
-  br i1 %16, label %if.then31.i, label %while.cond.i.backedge
+  %14 = cmpxchg ptr %persistenceLoadedSemaphore_, i32 %before.addr.1.i, i32 1 release monotonic, align 4
+  %15 = extractvalue { i32, i1 } %14, 1
+  %16 = extractvalue { i32, i1 } %14, 0
+  br i1 %15, label %if.then31.i, label %while.cond.i.backedge
 
 while.cond.i.backedge:                            ; preds = %monotonic_fail22.i.i, %seqcst.i123.i
-  %before.addr.0.i.be = phi i32 [ %14, %seqcst.i123.i ], [ %17, %monotonic_fail22.i.i ]
+  %before.addr.0.i.be = phi i32 [ %13, %seqcst.i123.i ], [ %16, %monotonic_fail22.i.i ]
   br label %while.cond.i, !llvm.loop !83
 
 if.then31.i:                                      ; preds = %monotonic_fail22.i.i
@@ -9597,10 +9593,10 @@ if.then31.i:                                      ; preds = %monotonic_fail22.i.
           to label %cleanup unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then31.i
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #33
+  %18 = extractvalue { ptr, i32 } %17, 0
+  call void @__clang_call_terminate(ptr %18) #33
   unreachable
 
 cleanup:                                          ; preds = %seqcst.i123.i, %monotonic_fail22.i89.i, %if.then31.i, %monotonic_fail22.i, %invoke.cont
@@ -9608,10 +9604,10 @@ cleanup:                                          ; preds = %seqcst.i123.i, %mon
   ret void
 
 terminate.lpad:                                   ; preds = %if.then.i.i
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %21 = extractvalue { ptr, i32 } %20, 0
-  tail call void @__clang_call_terminate(ptr %21) #33
+  %20 = extractvalue { ptr, i32 } %19, 0
+  tail call void @__clang_call_terminate(ptr %20) #33
   unreachable
 }
 

@@ -1151,22 +1151,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %11
   %127 = load i64, ptr %126, align 8, !tbaa !93
   %128 = mul i64 %127, %indvars.iv
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 %128
-  %130 = load i32, ptr %58, align 8, !tbaa !65
-  %131 = sext i32 %130 to i64
-  %132 = load i32, ptr %123, align 4, !tbaa !94
-  %133 = icmp sgt i32 %132, 0
-  br i1 %133, label %134, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %130 = load i32, ptr %123, align 4, !tbaa !94
+  %131 = icmp sgt i32 %130, 0
+  br i1 %131, label %132, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-134:                                              ; preds = %._crit_edge.i.i
-  %135 = zext nneg i32 %132 to i64
+132:                                              ; preds = %._crit_edge.i.i
+  %133 = load i32, ptr %58, align 8, !tbaa !65
+  %134 = sext i32 %133 to i64
+  %135 = zext nneg i32 %130 to i64
   %136 = getelementptr i64, ptr %126, i64 %135
   %137 = getelementptr i8, ptr %136, i64 -8
   %138 = load i64, ptr %137, align 8, !tbaa !93
+  %139 = mul i64 %138, %134
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %._crit_edge.i.i, %134
-  %139 = phi i64 [ %138, %134 ], [ 0, %._crit_edge.i.i ]
-  %140 = mul i64 %139, %131
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %._crit_edge.i.i, %132
+  %140 = phi i64 [ %139, %132 ], [ 0, %._crit_edge.i.i ]
   invoke void @_ZNK2cv8FileNode7readRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvm(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef %129, i64 noundef %140)
           to label %141 unwind label %145
 
@@ -1283,22 +1283,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %16
   %174 = load i64, ptr %173, align 8, !tbaa !93
   %175 = mul i64 %174, %indvars.iv182
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 %175
-  %177 = load i32, ptr %58, align 8, !tbaa !65
-  %178 = sext i32 %177 to i64
-  %179 = load i32, ptr %170, align 4, !tbaa !94
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %181, label %_ZNK2cv3Mat8elemSizeEv.exit120
+  %177 = load i32, ptr %170, align 4, !tbaa !94
+  %178 = icmp sgt i32 %177, 0
+  br i1 %178, label %179, label %_ZNK2cv3Mat8elemSizeEv.exit120
 
-181:                                              ; preds = %._crit_edge.i.i116
-  %182 = zext nneg i32 %179 to i64
+179:                                              ; preds = %._crit_edge.i.i116
+  %180 = load i32, ptr %58, align 8, !tbaa !65
+  %181 = sext i32 %180 to i64
+  %182 = zext nneg i32 %177 to i64
   %183 = getelementptr i64, ptr %173, i64 %182
   %184 = getelementptr i8, ptr %183, i64 -8
   %185 = load i64, ptr %184, align 8, !tbaa !93
+  %186 = mul i64 %185, %181
   br label %_ZNK2cv3Mat8elemSizeEv.exit120
 
-_ZNK2cv3Mat8elemSizeEv.exit120:                   ; preds = %._crit_edge.i.i116, %181
-  %186 = phi i64 [ %185, %181 ], [ 0, %._crit_edge.i.i116 ]
-  %187 = mul i64 %186, %178
+_ZNK2cv3Mat8elemSizeEv.exit120:                   ; preds = %._crit_edge.i.i116, %179
+  %187 = phi i64 [ %186, %179 ], [ 0, %._crit_edge.i.i116 ]
   invoke void @_ZNK2cv8FileNode7readRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPvm(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef %176, i64 noundef %187)
           to label %188 unwind label %192
 
@@ -6061,8 +6061,8 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit143:           ; preds = %261, %_ZNKSt7__cxx1
   %272 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 284
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %277 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %278 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %wide.trip.count = zext nneg i32 %214 to i64
@@ -6117,22 +6117,22 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit152:           ; preds = %283, %_ZNKSt7__cxx1
   %292 = load i64, ptr %291, align 8, !tbaa !93
   %293 = mul i64 %292, %indvars.iv
   %294 = getelementptr inbounds nuw i8, ptr %290, i64 %293
-  %295 = load i32, ptr %275, align 4, !tbaa !199
-  %296 = sext i32 %295 to i64
-  %297 = load i32, ptr %276, align 4, !tbaa !94
-  %298 = icmp sgt i32 %297, 0
-  br i1 %298, label %299, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %295 = load i32, ptr %275, align 4, !tbaa !94
+  %296 = icmp sgt i32 %295, 0
+  br i1 %296, label %297, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-299:                                              ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit152
-  %300 = zext nneg i32 %297 to i64
+297:                                              ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit152
+  %298 = load i32, ptr %276, align 4, !tbaa !199
+  %299 = sext i32 %298 to i64
+  %300 = zext nneg i32 %295 to i64
   %301 = getelementptr i64, ptr %291, i64 %300
   %302 = getelementptr i8, ptr %301, i64 -8
   %303 = load i64, ptr %302, align 8, !tbaa !93
+  %304 = mul i64 %303, %299
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit152, %299
-  %304 = phi i64 [ %303, %299 ], [ 0, %_ZN2cvlsERNS_11FileStorageEPKc.exit152 ]
-  %305 = mul i64 %304, %296
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit152, %297
+  %305 = phi i64 [ %304, %297 ], [ 0, %_ZN2cvlsERNS_11FileStorageEPKc.exit152 ]
   invoke void @_ZN2cv11FileStorage8writeRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef %294, i64 noundef %305)
           to label %306 unwind label %317
 
@@ -6434,8 +6434,8 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit208:           ; preds = %388, %_ZNKSt7__cxx1
   %399 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %402 = getelementptr inbounds nuw i8, ptr %0, i64 388
-  %403 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  %402 = getelementptr inbounds nuw i8, ptr %0, i64 380
+  %403 = getelementptr inbounds nuw i8, ptr %0, i64 388
   %404 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %405 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %wide.trip.count612 = zext nneg i32 %335 to i64
@@ -6490,22 +6490,22 @@ _ZN2cvlsERNS_11FileStorageEPKc.exit217:           ; preds = %410, %_ZNKSt7__cxx1
   %419 = load i64, ptr %418, align 8, !tbaa !93
   %420 = mul i64 %419, %indvars.iv609
   %421 = getelementptr inbounds nuw i8, ptr %417, i64 %420
-  %422 = load i32, ptr %402, align 4, !tbaa !202
-  %423 = sext i32 %422 to i64
-  %424 = load i32, ptr %403, align 4, !tbaa !94
-  %425 = icmp sgt i32 %424, 0
-  br i1 %425, label %426, label %_ZNK2cv3Mat8elemSizeEv.exit222
+  %422 = load i32, ptr %402, align 4, !tbaa !94
+  %423 = icmp sgt i32 %422, 0
+  br i1 %423, label %424, label %_ZNK2cv3Mat8elemSizeEv.exit222
 
-426:                                              ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit217
-  %427 = zext nneg i32 %424 to i64
+424:                                              ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit217
+  %425 = load i32, ptr %403, align 4, !tbaa !202
+  %426 = sext i32 %425 to i64
+  %427 = zext nneg i32 %422 to i64
   %428 = getelementptr i64, ptr %418, i64 %427
   %429 = getelementptr i8, ptr %428, i64 -8
   %430 = load i64, ptr %429, align 8, !tbaa !93
+  %431 = mul i64 %430, %426
   br label %_ZNK2cv3Mat8elemSizeEv.exit222
 
-_ZNK2cv3Mat8elemSizeEv.exit222:                   ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit217, %426
-  %431 = phi i64 [ %430, %426 ], [ 0, %_ZN2cvlsERNS_11FileStorageEPKc.exit217 ]
-  %432 = mul i64 %431, %423
+_ZNK2cv3Mat8elemSizeEv.exit222:                   ; preds = %_ZN2cvlsERNS_11FileStorageEPKc.exit217, %424
+  %432 = phi i64 [ %431, %424 ], [ 0, %_ZN2cvlsERNS_11FileStorageEPKc.exit217 ]
   invoke void @_ZN2cv11FileStorage8writeRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvm(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef %421, i64 noundef %432)
           to label %433 unwind label %444
 
@@ -13543,25 +13543,25 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   br label %.body
 
 .loopexit527:                                     ; preds = %.critedge300.loopexit, %411
-  %499 = load i32, ptr %56, align 4, !tbaa !212
-  %500 = sext i32 %499 to i64
-  %501 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %502 = load i32, ptr %501, align 4, !tbaa !94
-  %503 = icmp sgt i32 %502, 0
-  br i1 %503, label %504, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %499 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %500 = load i32, ptr %499, align 4, !tbaa !94
+  %501 = icmp sgt i32 %500, 0
+  br i1 %501, label %502, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-504:                                              ; preds = %.loopexit527
+502:                                              ; preds = %.loopexit527
+  %503 = load i32, ptr %56, align 4, !tbaa !212
+  %504 = sext i32 %503 to i64
   %505 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %506 = load ptr, ptr %505, align 8, !tbaa !92
-  %507 = zext nneg i32 %502 to i64
+  %507 = zext nneg i32 %500 to i64
   %508 = getelementptr i64, ptr %506, i64 %507
   %509 = getelementptr i8, ptr %508, i64 -8
   %510 = load i64, ptr %509, align 8, !tbaa !93
+  %511 = mul i64 %510, %504
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %.loopexit527, %504
-  %511 = phi i64 [ %510, %504 ], [ 0, %.loopexit527 ]
-  %512 = mul i64 %511, %500
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %.loopexit527, %502
+  %512 = phi i64 [ %511, %502 ], [ 0, %.loopexit527 ]
   br i1 %412, label %.lr.ph599, label %.preheader512
 
 .lr.ph599:                                        ; preds = %_ZNK2cv3Mat8elemSizeEv.exit
@@ -20215,24 +20215,24 @@ define linkonce_odr hidden void @_ZNK2cv2ml7SVMImpl13TrainAutoBodyclERKNS_5Range
   %13 = load i32, ptr %12, align 8, !tbaa !211
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !212
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %18 = load i32, ptr %17, align 4, !tbaa !94
-  %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %20, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !94
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-20:                                               ; preds = %2
+19:                                               ; preds = %2
+  %20 = sext i32 %15 to i64
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %22 = load ptr, ptr %21, align 8, !tbaa !92
-  %23 = zext nneg i32 %18 to i64
+  %23 = zext nneg i32 %17 to i64
   %24 = getelementptr i64, ptr %22, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load i64, ptr %25, align 8, !tbaa !93
+  %27 = mul i64 %26, %20
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %20
-  %27 = phi i64 [ %26, %20 ], [ 0, %2 ]
-  %28 = mul i64 %27, %16
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %2, %19
+  %28 = phi i64 [ %27, %19 ], [ 0, %2 ]
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %30 = load i32, ptr %29, align 4, !tbaa !267
   %31 = sdiv i32 %30, 2

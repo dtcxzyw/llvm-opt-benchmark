@@ -671,7 +671,7 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @_ZTVN4llvm2cl11OptionValueIbEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZNK4llvm2cl15OptionValueCopyIbE7compareERKNS0_18GenericOptionValueE, ptr @_ZN4llvm2cl18GenericOptionValue6anchorEv] }, comdat, align 8
 @_ZTVN4llvm2cl6parserIbEE = external unnamed_addr constant { [6 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_DebugInfoMetadata.cpp, ptr null }]
-@switch.table._ZNK4llvm11DIBasicType13getSignednessEv = private unnamed_addr constant [4 x i64] [i64 0, i64 0, i64 1, i64 1], align 8
+@switch.table._ZNK4llvm11DIBasicType13getSignednessEv = private unnamed_addr constant [4 x i64] [i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967297], align 8
 @switch.table._ZN4llvm13DICompileUnit18emissionKindStringENS0_17DebugEmissionKindE = private unnamed_addr constant [4 x ptr] [ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43], align 8
 @switch.table._ZN4llvm13DICompileUnit19nameTableKindStringENS0_18DebugNameTableKindE = private unnamed_addr constant [3 x ptr] [ptr @.str.45, ptr @.str.47, ptr @.str.46], align 8
 
@@ -6016,10 +6016,8 @@ switch.lookup:                                    ; preds = %1
   br label %6
 
 6:                                                ; preds = %1, %switch.lookup
-  %.sroa.0.0 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %switch.lookup ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.3.0 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1 ]
+  ret i64 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12023,8 +12021,8 @@ _ZNK4llvm10DIVariable13getSizeInBitsEv.exit:      ; preds = %.lr.ph.i, %_ZN4llvm
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load ptr, ptr %32, align 8, !tbaa !77
-  %.not5152 = icmp eq ptr %31, %33
-  br i1 %.not5152, label %._crit_edge, label %.lr.ph
+  %.not5758 = icmp eq ptr %31, %33
+  br i1 %.not5758, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm10DIVariable13getSizeInBitsEv.exit
   %34 = getelementptr inbounds i8, ptr %1, i64 -32
@@ -12039,11 +12037,11 @@ _ZNK4llvm10DIVariable13getSizeInBitsEv.exit:      ; preds = %.lr.ph.i, %_ZN4llvm
   br label %40
 
 40:                                               ; preds = %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us, %.lr.ph.split.us
-  %.sroa.8.056.us = phi i8 [ %.sroa.2.0.i, %.lr.ph.split.us ], [ %.sroa.8.250.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ]
-  %.sroa.036.055.us = phi i64 [ %.sroa.0.0.i, %.lr.ph.split.us ], [ %.sroa.036.248.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ]
-  %.sroa.032.053.us = phi ptr [ %31, %.lr.ph.split.us ], [ %62, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ]
-  %41 = load i64, ptr %.sroa.032.053.us, align 8, !tbaa !47
-  switch i64 %41, label %58 [
+  %.sroa.8.062.us = phi i8 [ %.sroa.2.0.i, %.lr.ph.split.us ], [ %.sroa.8.256.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ]
+  %.sroa.036.061.us = phi i64 [ %.sroa.0.0.i, %.lr.ph.split.us ], [ %.sroa.036.254.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ]
+  %.sroa.032.059.us = phi ptr [ %31, %.lr.ph.split.us ], [ %56, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ]
+  %41 = load i64, ptr %.sroa.032.059.us, align 8, !tbaa !47
+  switch i64 %41, label %52 [
     i64 4103, label %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us
     i64 4102, label %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us
     i64 4096, label %.thread.us
@@ -12053,183 +12051,165 @@ _ZNK4llvm10DIVariable7getTypeEv.exit.i.us:        ; preds = %40, %40
   %42 = load ptr, ptr %39, align 8, !tbaa !98
   %43 = load i8, ptr %42, align 4, !tbaa !138
   %44 = icmp eq i8 %43, 12
-  br i1 %44, label %45, label %.thread43.us
+  br i1 %44, label %45, label %.thread49.us
 
 45:                                               ; preds = %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 44
   %47 = load i32, ptr %46, align 4, !tbaa !274
-  switch i32 %47, label %49 [
-    i32 5, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
-    i32 6, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
-    i32 7, label %48
-    i32 8, label %48
+  switch i32 %47, label %.thread49.us [
+    i32 5, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm
+    i32 6, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm
+    i32 7, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
+    i32 8, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
   ]
 
-48:                                               ; preds = %45, %45
-  br label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
+_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm: ; preds = %45, %45
+  %.not79 = icmp eq i64 %41, 4102
+  br i1 %.not79, label %.thread.us, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
 
-49:                                               ; preds = %45
-  br label %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
+_ZNK4llvm10DIVariable13getSignednessEv.exit.us:   ; preds = %45, %45
+  %.not78 = icmp eq i64 %41, 4102
+  br i1 %.not78, label %.thread49.us, label %.thread.us
 
-_ZNK4llvm10DIVariable13getSignednessEv.exit.us:   ; preds = %45, %45, %48, %49
-  %.sroa.0.0.i.i.us = phi i64 [ 0, %49 ], [ 1, %48 ], [ 0, %45 ], [ 0, %45 ]
-  %50 = phi i1 [ false, %49 ], [ true, %48 ], [ true, %45 ], [ true, %45 ]
-  %.sroa.3.0.i.i.us = phi i64 [ 0, %49 ], [ 4294967296, %48 ], [ 4294967296, %45 ], [ 4294967296, %45 ]
-  %51 = or disjoint i64 %.sroa.3.0.i.i.us, %.sroa.0.0.i.i.us
-  %52 = icmp eq i64 %51, 4294967296
-  %53 = icmp ne i64 %41, 4102
-  %.not.us = xor i1 %53, %52
-  %or.cond.us = and i1 %50, %.not.us
-  br i1 %or.cond.us, label %.thread.us, label %.thread43.us
+.thread.us:                                       ; preds = %_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us, %40
+  %48 = trunc nuw i8 %.sroa.8.062.us to i1
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.032.059.us, i64 16
+  %50 = load i64, ptr %49, align 8, !tbaa !47
+  br i1 %48, label %51, label %.thread49.us
 
-.thread.us:                                       ; preds = %_ZNK4llvm10DIVariable13getSignednessEv.exit.us, %40
-  %54 = trunc nuw i8 %.sroa.8.056.us to i1
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.032.053.us, i64 16
-  %56 = load i64, ptr %55, align 8, !tbaa !47
-  br i1 %54, label %57, label %.thread43.us
+51:                                               ; preds = %.thread.us
+  %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %50, i64 %.sroa.036.061.us)
+  br label %.thread49.us
 
-57:                                               ; preds = %.thread.us
-  %.sroa.speculated.us = tail call i64 @llvm.umin.i64(i64 %56, i64 %.sroa.036.055.us)
-  br label %.thread43.us
+52:                                               ; preds = %40
+  %53 = add i64 %41, -112
+  %or.cond.i.i.i.us = icmp ult i64 %53, 32
+  br i1 %or.cond.i.i.i.us, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us, label %.thread49.us
 
-58:                                               ; preds = %40
-  %59 = add i64 %41, -112
-  %or.cond.i.i.i.us = icmp ult i64 %59, 32
-  br i1 %or.cond.i.i.i.us, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us, label %.thread43.us
-
-.thread43.us:                                     ; preds = %.thread.us, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us, %58, %57, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us
-  %.sroa.8.249.us = phi i8 [ %.sroa.2.0.i, %58 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ 1, %57 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ 1, %.thread.us ]
-  %.sroa.036.247.us = phi i64 [ %.sroa.0.0.i, %58 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ %.sroa.speculated.us, %57 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ %56, %.thread.us ]
-  switch i64 %41, label %61 [
+.thread49.us:                                     ; preds = %.thread.us, %52, %51, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us, %45, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us
+  %.sroa.8.255.us = phi i8 [ %.sroa.2.0.i, %52 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ 1, %51 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ %.sroa.2.0.i, %45 ], [ 1, %.thread.us ]
+  %.sroa.036.253.us = phi i64 [ %.sroa.0.0.i, %52 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us ], [ %.sroa.speculated.us, %51 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i.us ], [ %.sroa.0.0.i, %45 ], [ %50, %.thread.us ]
+  switch i64 %41, label %55 [
     i64 4097, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
     i64 4096, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
     i64 4102, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
     i64 4103, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
     i64 146, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
-    i64 16, label %60
-    i64 17, label %60
-    i64 148, label %60
-    i64 35, label %60
-    i64 4098, label %60
-    i64 4099, label %60
-    i64 4101, label %60
-    i64 144, label %60
+    i64 16, label %54
+    i64 17, label %54
+    i64 148, label %54
+    i64 35, label %54
+    i64 4098, label %54
+    i64 4099, label %54
+    i64 4101, label %54
+    i64 144, label %54
   ]
 
-60:                                               ; preds = %.thread43.us, %.thread43.us, %.thread43.us, %.thread43.us, %.thread43.us, %.thread43.us, %.thread43.us, %.thread43.us
+54:                                               ; preds = %.thread49.us, %.thread49.us, %.thread49.us, %.thread49.us, %.thread49.us, %.thread49.us, %.thread49.us, %.thread49.us
   br label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
 
-61:                                               ; preds = %.thread43.us
+55:                                               ; preds = %.thread49.us
   br label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us
 
-_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us: ; preds = %61, %60, %.thread43.us, %.thread43.us, %.thread43.us, %.thread43.us, %.thread43.us, %58
-  %.sroa.8.250.us = phi i8 [ %.sroa.8.249.us, %61 ], [ %.sroa.8.249.us, %60 ], [ %.sroa.2.0.i, %58 ], [ %.sroa.8.249.us, %.thread43.us ], [ %.sroa.8.249.us, %.thread43.us ], [ %.sroa.8.249.us, %.thread43.us ], [ %.sroa.8.249.us, %.thread43.us ], [ %.sroa.8.249.us, %.thread43.us ]
-  %.sroa.036.248.us = phi i64 [ %.sroa.036.247.us, %61 ], [ %.sroa.036.247.us, %60 ], [ %.sroa.0.0.i, %58 ], [ %.sroa.036.247.us, %.thread43.us ], [ %.sroa.036.247.us, %.thread43.us ], [ %.sroa.036.247.us, %.thread43.us ], [ %.sroa.036.247.us, %.thread43.us ], [ %.sroa.036.247.us, %.thread43.us ]
-  %.0.i.i.i.us = phi i64 [ 1, %61 ], [ 2, %60 ], [ 2, %58 ], [ 3, %.thread43.us ], [ 3, %.thread43.us ], [ 3, %.thread43.us ], [ 3, %.thread43.us ], [ 3, %.thread43.us ]
-  %62 = getelementptr inbounds nuw i64, ptr %.sroa.032.053.us, i64 %.0.i.i.i.us
-  %.not51.us = icmp eq ptr %62, %33
-  br i1 %.not51.us, label %._crit_edge, label %40
+_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us: ; preds = %_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm, %55, %54, %.thread49.us, %.thread49.us, %.thread49.us, %.thread49.us, %.thread49.us, %52
+  %.sroa.8.256.us = phi i8 [ %.sroa.8.255.us, %55 ], [ %.sroa.8.255.us, %54 ], [ %.sroa.2.0.i, %52 ], [ %.sroa.8.255.us, %.thread49.us ], [ %.sroa.8.255.us, %.thread49.us ], [ %.sroa.8.255.us, %.thread49.us ], [ %.sroa.8.255.us, %.thread49.us ], [ %.sroa.8.255.us, %.thread49.us ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm ]
+  %.sroa.036.254.us = phi i64 [ %.sroa.036.253.us, %55 ], [ %.sroa.036.253.us, %54 ], [ %.sroa.0.0.i, %52 ], [ %.sroa.036.253.us, %.thread49.us ], [ %.sroa.036.253.us, %.thread49.us ], [ %.sroa.036.253.us, %.thread49.us ], [ %.sroa.036.253.us, %.thread49.us ], [ %.sroa.036.253.us, %.thread49.us ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm ]
+  %.0.i.i.i.us = phi i64 [ 1, %55 ], [ 2, %54 ], [ 2, %52 ], [ 3, %.thread49.us ], [ 3, %.thread49.us ], [ 3, %.thread49.us ], [ 3, %.thread49.us ], [ 3, %.thread49.us ], [ 3, %_ZNK4llvm10DIVariable13getSignednessEv.exit.us.thr_comm ]
+  %56 = getelementptr inbounds nuw i64, ptr %.sroa.032.059.us, i64 %.0.i.i.i.us
+  %.not57.us = icmp eq ptr %56, %33
+  br i1 %.not57.us, label %._crit_edge, label %40
 
 ._crit_edge:                                      ; preds = %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us, %_ZNK4llvm10DIVariable13getSizeInBitsEv.exit
-  %.sroa.036.0.lcssa = phi i64 [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSizeInBitsEv.exit ], [ %.sroa.036.248.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ], [ %.sroa.036.248, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ]
-  %.sroa.8.0.lcssa = phi i8 [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSizeInBitsEv.exit ], [ %.sroa.8.250.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ], [ %.sroa.8.250, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ]
+  %.sroa.036.0.lcssa = phi i64 [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSizeInBitsEv.exit ], [ %.sroa.036.254.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ], [ %.sroa.036.254, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ]
+  %.sroa.8.0.lcssa = phi i8 [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSizeInBitsEv.exit ], [ %.sroa.8.256.us, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit.us ], [ %.sroa.8.256, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.036.0.lcssa, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.8.0.lcssa, 1
   ret { i64, i8 } %.fca.1.insert
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
-  %.sroa.8.056 = phi i8 [ %.sroa.8.250, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %.sroa.2.0.i, %.lr.ph ]
-  %.sroa.036.055 = phi i64 [ %.sroa.036.248, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %.sroa.0.0.i, %.lr.ph ]
-  %.sroa.032.053 = phi ptr [ %86, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %31, %.lr.ph ]
-  %63 = load i64, ptr %.sroa.032.053, align 8, !tbaa !47
-  switch i64 %63, label %82 [
+  %.sroa.8.062 = phi i8 [ %.sroa.8.256, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %.sroa.2.0.i, %.lr.ph ]
+  %.sroa.036.061 = phi i64 [ %.sroa.036.254, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %.sroa.0.0.i, %.lr.ph ]
+  %.sroa.032.059 = phi ptr [ %74, %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit ], [ %31, %.lr.ph ]
+  %57 = load i64, ptr %.sroa.032.059, align 8, !tbaa !47
+  switch i64 %57, label %70 [
     i64 4103, label %_ZNK4llvm10DIVariable7getTypeEv.exit.i
     i64 4102, label %_ZNK4llvm10DIVariable7getTypeEv.exit.i
     i64 4096, label %.thread
   ]
 
 _ZNK4llvm10DIVariable7getTypeEv.exit.i:           ; preds = %.lr.ph.split, %.lr.ph.split
-  %64 = load ptr, ptr %34, align 8, !tbaa !25
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load ptr, ptr %65, align 8, !tbaa !98
-  %67 = load i8, ptr %66, align 4, !tbaa !138
-  %68 = icmp eq i8 %67, 12
-  br i1 %68, label %69, label %.thread43
+  %58 = load ptr, ptr %34, align 8, !tbaa !25
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %60 = load ptr, ptr %59, align 8, !tbaa !98
+  %61 = load i8, ptr %60, align 4, !tbaa !138
+  %62 = icmp eq i8 %61, 12
+  br i1 %62, label %63, label %.thread49
 
-69:                                               ; preds = %_ZNK4llvm10DIVariable7getTypeEv.exit.i
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 44
-  %71 = load i32, ptr %70, align 4, !tbaa !274
-  switch i32 %71, label %73 [
-    i32 5, label %_ZNK4llvm10DIVariable13getSignednessEv.exit
-    i32 6, label %_ZNK4llvm10DIVariable13getSignednessEv.exit
-    i32 7, label %72
-    i32 8, label %72
+63:                                               ; preds = %_ZNK4llvm10DIVariable7getTypeEv.exit.i
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 44
+  %65 = load i32, ptr %64, align 4, !tbaa !274
+  switch i32 %65, label %.thread49 [
+    i32 5, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm
+    i32 6, label %_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm
+    i32 7, label %_ZNK4llvm10DIVariable13getSignednessEv.exit
+    i32 8, label %_ZNK4llvm10DIVariable13getSignednessEv.exit
   ]
 
-72:                                               ; preds = %69, %69
-  br label %_ZNK4llvm10DIVariable13getSignednessEv.exit
+_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm: ; preds = %63, %63
+  %.not77 = icmp eq i64 %57, 4102
+  br i1 %.not77, label %.thread, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
 
-73:                                               ; preds = %69
-  br label %_ZNK4llvm10DIVariable13getSignednessEv.exit
+_ZNK4llvm10DIVariable13getSignednessEv.exit:      ; preds = %63, %63
+  %.not = icmp eq i64 %57, 4102
+  br i1 %.not, label %.thread49, label %.thread
 
-_ZNK4llvm10DIVariable13getSignednessEv.exit:      ; preds = %69, %69, %72, %73
-  %.sroa.0.0.i.i = phi i64 [ 0, %73 ], [ 1, %72 ], [ 0, %69 ], [ 0, %69 ]
-  %74 = phi i1 [ false, %73 ], [ true, %72 ], [ true, %69 ], [ true, %69 ]
-  %.sroa.3.0.i.i = phi i64 [ 0, %73 ], [ 4294967296, %72 ], [ 4294967296, %69 ], [ 4294967296, %69 ]
-  %75 = or disjoint i64 %.sroa.3.0.i.i, %.sroa.0.0.i.i
-  %76 = icmp eq i64 %75, 4294967296
-  %77 = icmp ne i64 %63, 4102
-  %.not = xor i1 %77, %76
-  %or.cond = and i1 %74, %.not
-  br i1 %or.cond, label %.thread, label %.thread43
+.thread:                                          ; preds = %_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm, %_ZNK4llvm10DIVariable13getSignednessEv.exit, %.lr.ph.split
+  %66 = trunc nuw i8 %.sroa.8.062 to i1
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.032.059, i64 16
+  %68 = load i64, ptr %67, align 8, !tbaa !47
+  br i1 %66, label %69, label %.thread49
 
-.thread:                                          ; preds = %_ZNK4llvm10DIVariable13getSignednessEv.exit, %.lr.ph.split
-  %78 = trunc nuw i8 %.sroa.8.056 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.032.053, i64 16
-  %80 = load i64, ptr %79, align 8, !tbaa !47
-  br i1 %78, label %81, label %.thread43
+69:                                               ; preds = %.thread
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %68, i64 %.sroa.036.061)
+  br label %.thread49
 
-81:                                               ; preds = %.thread
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %80, i64 %.sroa.036.055)
-  br label %.thread43
+70:                                               ; preds = %.lr.ph.split
+  %71 = add i64 %57, -112
+  %or.cond.i.i.i = icmp ult i64 %71, 32
+  br i1 %or.cond.i.i.i, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit, label %.thread49
 
-82:                                               ; preds = %.lr.ph.split
-  %83 = add i64 %63, -112
-  %or.cond.i.i.i = icmp ult i64 %83, 32
-  br i1 %or.cond.i.i.i, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit, label %.thread43
-
-.thread43:                                        ; preds = %.thread, %_ZNK4llvm10DIVariable7getTypeEv.exit.i, %81, %_ZNK4llvm10DIVariable13getSignednessEv.exit, %82
-  %.sroa.8.249 = phi i8 [ %.sroa.2.0.i, %82 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ 1, %81 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ 1, %.thread ]
-  %.sroa.036.247 = phi i64 [ %.sroa.0.0.i, %82 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ %.sroa.speculated, %81 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ %80, %.thread ]
-  switch i64 %63, label %85 [
+.thread49:                                        ; preds = %.thread, %63, %_ZNK4llvm10DIVariable7getTypeEv.exit.i, %69, %_ZNK4llvm10DIVariable13getSignednessEv.exit, %70
+  %.sroa.8.255 = phi i8 [ %.sroa.2.0.i, %70 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ 1, %69 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ %.sroa.2.0.i, %63 ], [ 1, %.thread ]
+  %.sroa.036.253 = phi i64 [ %.sroa.0.0.i, %70 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit ], [ %.sroa.speculated, %69 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable7getTypeEv.exit.i ], [ %.sroa.0.0.i, %63 ], [ %68, %.thread ]
+  switch i64 %57, label %73 [
     i64 4097, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
     i64 4096, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
     i64 4102, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
     i64 4103, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
     i64 146, label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
-    i64 16, label %84
-    i64 17, label %84
-    i64 148, label %84
-    i64 35, label %84
-    i64 4098, label %84
-    i64 4099, label %84
-    i64 4101, label %84
-    i64 144, label %84
+    i64 16, label %72
+    i64 17, label %72
+    i64 148, label %72
+    i64 35, label %72
+    i64 4098, label %72
+    i64 4099, label %72
+    i64 4101, label %72
+    i64 144, label %72
   ]
 
-84:                                               ; preds = %.thread43, %.thread43, %.thread43, %.thread43, %.thread43, %.thread43, %.thread43, %.thread43
+72:                                               ; preds = %.thread49, %.thread49, %.thread49, %.thread49, %.thread49, %.thread49, %.thread49, %.thread49
   br label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
 
-85:                                               ; preds = %.thread43
+73:                                               ; preds = %.thread49
   br label %_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit
 
-_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %82, %.thread43, %.thread43, %.thread43, %.thread43, %.thread43, %84, %85
-  %.sroa.8.250 = phi i8 [ %.sroa.8.249, %85 ], [ %.sroa.8.249, %84 ], [ %.sroa.2.0.i, %82 ], [ %.sroa.8.249, %.thread43 ], [ %.sroa.8.249, %.thread43 ], [ %.sroa.8.249, %.thread43 ], [ %.sroa.8.249, %.thread43 ], [ %.sroa.8.249, %.thread43 ]
-  %.sroa.036.248 = phi i64 [ %.sroa.036.247, %85 ], [ %.sroa.036.247, %84 ], [ %.sroa.0.0.i, %82 ], [ %.sroa.036.247, %.thread43 ], [ %.sroa.036.247, %.thread43 ], [ %.sroa.036.247, %.thread43 ], [ %.sroa.036.247, %.thread43 ], [ %.sroa.036.247, %.thread43 ]
-  %.0.i.i.i = phi i64 [ 1, %85 ], [ 2, %84 ], [ 2, %82 ], [ 3, %.thread43 ], [ 3, %.thread43 ], [ 3, %.thread43 ], [ 3, %.thread43 ], [ 3, %.thread43 ]
-  %86 = getelementptr inbounds nuw i64, ptr %.sroa.032.053, i64 %.0.i.i.i
-  %.not51 = icmp eq ptr %86, %33
-  br i1 %.not51, label %._crit_edge, label %.lr.ph.split
+_ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm, %70, %.thread49, %.thread49, %.thread49, %.thread49, %.thread49, %72, %73
+  %.sroa.8.256 = phi i8 [ %.sroa.8.255, %73 ], [ %.sroa.8.255, %72 ], [ %.sroa.2.0.i, %70 ], [ %.sroa.8.255, %.thread49 ], [ %.sroa.8.255, %.thread49 ], [ %.sroa.8.255, %.thread49 ], [ %.sroa.8.255, %.thread49 ], [ %.sroa.8.255, %.thread49 ], [ %.sroa.2.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm ]
+  %.sroa.036.254 = phi i64 [ %.sroa.036.253, %73 ], [ %.sroa.036.253, %72 ], [ %.sroa.0.0.i, %70 ], [ %.sroa.036.253, %.thread49 ], [ %.sroa.036.253, %.thread49 ], [ %.sroa.036.253, %.thread49 ], [ %.sroa.036.253, %.thread49 ], [ %.sroa.036.253, %.thread49 ], [ %.sroa.0.0.i, %_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm ]
+  %.0.i.i.i = phi i64 [ 1, %73 ], [ 2, %72 ], [ 2, %70 ], [ 3, %.thread49 ], [ 3, %.thread49 ], [ 3, %.thread49 ], [ 3, %.thread49 ], [ 3, %.thread49 ], [ 3, %_ZNK4llvm10DIVariable13getSignednessEv.exit.thr_comm ]
+  %74 = getelementptr inbounds nuw i64, ptr %.sroa.032.059, i64 %.0.i.i.i
+  %.not57 = icmp eq ptr %74, %33
+  br i1 %.not57, label %._crit_edge, label %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14834,16 +14814,15 @@ define dso_local range(i64 0, 4294967298) i64 @_ZNK4llvm12DIExpression10isConsta
   %25 = phi i64 [ %12, %22 ], [ %12, %16 ], [ %14, %.thread12 ], [ %12, %15 ]
   %26 = icmp eq i64 %25, 16
   %27 = zext i1 %26 to i64
+  %28 = or disjoint i64 %27, 4294967296
   br label %.thread14
 
 .thread14.fold.split:                             ; preds = %.thread12
   br label %.thread14
 
 .thread14:                                        ; preds = %11, %1, %.thread12, %.thread14.fold.split, %16, %19, %22, %.thread11
-  %.sroa.0.0 = phi i64 [ %27, %.thread11 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 0, %.thread12 ], [ 0, %11 ], [ 0, %.thread14.fold.split ], [ 0, %1 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %.thread11 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 4294967296, %.thread12 ], [ 0, %11 ], [ 0, %.thread14.fold.split ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.3.0 = phi i64 [ %28, %.thread11 ], [ 0, %22 ], [ 0, %19 ], [ 0, %16 ], [ 4294967296, %.thread12 ], [ 0, %11 ], [ 0, %.thread14.fold.split ], [ 0, %1 ]
+  ret i64 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

@@ -7612,39 +7612,39 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8LoadInstEiNS_12DenseMapInfoIS3_vEENS_6
   %.sroa.0.1.i.i = phi ptr [ %87, %.loopexit.i.i ], [ %74, %66 ], [ %83, %79 ]
   %88 = zext i32 %64 to i64
   %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.483", ptr %62, i64 %88
-  %.not.i.not = icmp eq ptr %.sroa.0.1.i.i, %89
-  br i1 %.not.i.not, label %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread, label %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit
+  %.not.i = icmp eq ptr %.sroa.0.1.i.i, %89
+  br i1 %.not.i, label %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread, label %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit
 
 _ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8LoadInstEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findEPKS2_.exit.i
   %90 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
   %91 = load i32, ptr %90, align 4, !tbaa !64
   %92 = icmp slt i32 %91, 0
-  br i1 %92, label %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread, label %.thread198
+  br i1 %92, label %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread, label %.thread203
 
 _ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8LoadInstEiNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_iEEEES3_iS5_S8_E4findEPKS2_.exit.i, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit, %53
   %93 = tail call noundef i32 @_ZN4llvm10VNCoercion29analyzeLoadFromClobberingLoadEPNS_4TypeEPNS_5ValueEPNS_8LoadInstERKNS_10DataLayoutE(ptr noundef %55, ptr noundef nonnull %4, ptr noundef nonnull %.0.i, ptr noundef nonnull align 8 dereferenceable(496) %27) #27
   %.not121 = icmp eq i32 %93, -1
-  br i1 %.not121, label %..critedge129_crit_edge, label %.thread198
+  br i1 %.not121, label %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread..critedge129_crit_edge, label %.thread203
 
-..critedge129_crit_edge:                          ; preds = %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread
-  %.pre208 = load i8, ptr %.0.i, align 8, !tbaa !84
+_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread..critedge129_crit_edge: ; preds = %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread
+  %.pre213 = load i8, ptr %.0.i, align 8, !tbaa !84
   br label %.critedge129
 
-.thread198:                                       ; preds = %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread
-  %.196201 = phi i32 [ %93, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread ], [ %91, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit ]
+.thread203:                                       ; preds = %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread
+  %.196206 = phi i32 [ %93, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread ], [ %91, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit ]
   %.sroa.6174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6174.0..sroa_idx, i8 0, i64 16, i1 false)
   store ptr %spec.select.i.i142, ptr %0, align 8, !tbaa !119
   %.sroa.4172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %.sroa.4172.0..sroa_idx, align 8, !tbaa !424
   %.sroa.5173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.196201, ptr %.sroa.5173.0..sroa_idx, align 4, !tbaa !64
+  store i32 %.196206, ptr %.sroa.5173.0..sroa_idx, align 4, !tbaa !64
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 1, ptr %94, align 8, !tbaa !425
   br label %362
 
-.critedge129:                                     ; preds = %..critedge129_crit_edge, %.critedge124
-  %95 = phi i8 [ %.pre208, %..critedge129_crit_edge ], [ %46, %.critedge124 ]
+.critedge129:                                     ; preds = %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread..critedge129_crit_edge, %.critedge124
+  %95 = phi i8 [ %.pre213, %_ZNK4llvm23MemoryDependenceResults16getClobberOffsetEPNS_8LoadInstE.exit.thread..critedge129_crit_edge ], [ %46, %.critedge124 ]
   %96 = icmp eq i8 %95, 85
   br i1 %96, label %97, label %.critedge133
 
@@ -7835,8 +7835,8 @@ _ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit.i: ; preds = %_ZNSt7_
   br i1 %.not128.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %.pre209 = load ptr, ptr %159, align 8, !tbaa !86
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre209, i64 16
+  %.pre214 = load ptr, ptr %159, align 8, !tbaa !86
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre214, i64 16
   %.sroa.085.0135.i.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !114
   %.not129136.i = icmp eq ptr %.sroa.085.0135.i.pre, null
   br i1 %.not129136.i, label %_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentD2Ev.exit68.i, label %.lr.ph140.i
@@ -8324,7 +8324,7 @@ _ZL15isLifetimeStartPKN4llvm11InstructionE.exit.thread: ; preds = %281, %_ZN4llv
   store i8 0, ptr %361, align 8, !tbaa !425
   br label %362
 
-362:                                              ; preds = %359, %334, %341, %343, %318, %325, %327, %309, %120, %.thread198, %42, %.critedge141, %299, %279
+362:                                              ; preds = %359, %334, %341, %343, %318, %325, %327, %309, %120, %.thread203, %42, %.critedge141, %299, %279
   ret void
 }
 

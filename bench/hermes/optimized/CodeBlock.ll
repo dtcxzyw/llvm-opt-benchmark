@@ -425,13 +425,12 @@ if.else:                                          ; preds = %lor.lhs.false
   %second = getelementptr inbounds nuw i8, ptr %__first.addr.0.lcssa.i.i, i64 4
   %4 = load i32, ptr %second, align 4
   %5 = zext i32 %4 to i64
+  %6 = or disjoint i64 %5, 4294967296
   br label %return
 
 return:                                           ; preds = %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit", %lor.lhs.false, %if.else
-  %retval.sroa.0.0 = phi i64 [ %5, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit" ]
-  %retval.sroa.3.0 = phi i64 [ 4294967296, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit" ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.3.0 = phi i64 [ %6, %if.else ], [ 0, %lor.lhs.false ], [ 0, %"_ZSt11lower_boundIPKSt4pairIjjEjZNK6hermes2vm9CodeBlock19getFunctionSourceIDEvE3$_0ET_S8_S8_RKT0_T1_.exit" ]
+  ret i64 %retval.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

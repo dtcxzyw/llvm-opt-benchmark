@@ -602,7 +602,7 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
   %18 = shl i32 %17, 1
   %19 = add i32 %18, 2
   %20 = icmp ult i32 %3, %19
-  br i1 %20, label %75, label %21
+  br i1 %20, label %._crit_edge107.thread, label %21
 
 21:                                               ; preds = %14
   %22 = xor i32 %17, -1
@@ -673,19 +673,22 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
 
 46:                                               ; preds = %._crit_edge100
   %47 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %25, ptr noundef nonnull %10, i64 noundef %30) #8
-  %48 = load i8, ptr %2, align 1, !tbaa !6
-  %49 = icmp ne i32 %47, 0
-  %50 = icmp ne i8 %48, 0
-  %51 = or i1 %49, %50
-  %52 = sext i1 %51 to i32
-  %53 = icmp ugt i32 %23, %17
-  br i1 %53, label %.lr.ph106, label %._crit_edge107
+  %48 = icmp ugt i32 %23, %17
+  br i1 %48, label %.lr.ph106.preheader, label %._crit_edge107.thread
 
-.lr.ph106:                                        ; preds = %46, %.lr.ph106
-  %indvars.iv120 = phi i64 [ %indvars.iv.next121, %.lr.ph106 ], [ %30, %46 ]
-  %.078103 = phi i32 [ %61, %.lr.ph106 ], [ 0, %46 ]
-  %.079102 = phi i32 [ %62, %.lr.ph106 ], [ -1, %46 ]
-  %.080101 = phi i32 [ %64, %.lr.ph106 ], [ %52, %46 ]
+.lr.ph106.preheader:                              ; preds = %46
+  %49 = icmp ne i32 %47, 0
+  %50 = load i8, ptr %2, align 1, !tbaa !6
+  %51 = icmp ne i8 %50, 0
+  %52 = or i1 %49, %51
+  %53 = sext i1 %52 to i32
+  br label %.lr.ph106
+
+.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
+  %indvars.iv120 = phi i64 [ %30, %.lr.ph106.preheader ], [ %indvars.iv.next121, %.lr.ph106 ]
+  %.078103 = phi i32 [ 0, %.lr.ph106.preheader ], [ %61, %.lr.ph106 ]
+  %.079102 = phi i32 [ -1, %.lr.ph106.preheader ], [ %62, %.lr.ph106 ]
+  %.080101 = phi i32 [ %53, %.lr.ph106.preheader ], [ %64, %.lr.ph106 ]
   %54 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv120
   %55 = load i8, ptr %54, align 1, !tbaa !6
   %.not94 = icmp eq i8 %55, 1
@@ -701,44 +704,38 @@ define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captu
   %64 = or i32 %63, %.080101
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %24
-  br i1 %exitcond124.not, label %._crit_edge107.loopexit, label %.lr.ph106, !llvm.loop !19
+  br i1 %exitcond124.not, label %._crit_edge107, label %.lr.ph106, !llvm.loop !19
 
-._crit_edge107.loopexit:                          ; preds = %.lr.ph106
-  %65 = add i32 %61, 1
-  br label %._crit_edge107
+._crit_edge107:                                   ; preds = %.lr.ph106
+  %65 = or i32 %62, %64
+  %66 = icmp eq i32 %65, 0
+  %67 = add i32 %61, 1
+  br i1 %66, label %68, label %._crit_edge107.thread
 
-._crit_edge107:                                   ; preds = %._crit_edge107.loopexit, %46
-  %.080.lcssa = phi i32 [ %52, %46 ], [ %64, %._crit_edge107.loopexit ]
-  %.079.lcssa = phi i32 [ -1, %46 ], [ %62, %._crit_edge107.loopexit ]
-  %.078.lcssa = phi i32 [ 1, %46 ], [ %65, %._crit_edge107.loopexit ]
-  %66 = or i32 %.079.lcssa, %.080.lcssa
-  %.not92 = icmp eq i32 %66, 0
-  br i1 %.not92, label %67, label %75
+68:                                               ; preds = %._crit_edge107
+  %69 = sub i32 %23, %67
+  %70 = icmp ult i32 %1, %69
+  br i1 %70, label %71, label %72
 
-67:                                               ; preds = %._crit_edge107
-  %68 = sub i32 %23, %.078.lcssa
-  %69 = icmp ult i32 %1, %68
-  br i1 %69, label %70, label %71
-
-70:                                               ; preds = %67
+71:                                               ; preds = %68
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 113, ptr noundef nonnull @.str, i32 noundef 472) #8
   br label %76
 
-71:                                               ; preds = %67
-  %72 = zext i32 %.078.lcssa to i64
-  %73 = getelementptr inbounds nuw i8, ptr %25, i64 %72
-  %74 = zext i32 %68 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %73, i64 %74, i1 false)
+72:                                               ; preds = %68
+  %73 = zext i32 %67 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %25, i64 %73
+  %75 = zext i32 %69 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %74, i64 %75, i1 false)
   br label %76
 
-75:                                               ; preds = %._crit_edge107, %14
-  %.074 = phi ptr [ null, %14 ], [ %25, %._crit_edge107 ]
+._crit_edge107.thread:                            ; preds = %46, %._crit_edge107, %14
+  %.074 = phi ptr [ null, %14 ], [ %25, %._crit_edge107 ], [ %25, %46 ]
   call void @ERR_put_error(i32 noundef 4, i32 noundef 0, i32 noundef 133, ptr noundef nonnull @.str, i32 noundef 484) #8
   br label %76
 
-76:                                               ; preds = %27, %75, %28, %._crit_edge, %._crit_edge100, %70, %71
-  %.1.sink = phi ptr [ %25, %71 ], [ %25, %70 ], [ %.074, %75 ], [ null, %27 ], [ %25, %28 ], [ %25, %._crit_edge ], [ %25, %._crit_edge100 ]
-  %.0 = phi i32 [ %68, %71 ], [ -1, %70 ], [ -1, %75 ], [ -1, %27 ], [ -1, %28 ], [ -1, %._crit_edge ], [ -1, %._crit_edge100 ]
+76:                                               ; preds = %27, %._crit_edge107.thread, %28, %._crit_edge, %._crit_edge100, %71, %72
+  %.1.sink = phi ptr [ %25, %72 ], [ %25, %71 ], [ %.074, %._crit_edge107.thread ], [ null, %27 ], [ %25, %28 ], [ %25, %._crit_edge ], [ %25, %._crit_edge100 ]
+  %.0 = phi i32 [ %69, %72 ], [ -1, %71 ], [ -1, %._crit_edge107.thread ], [ -1, %27 ], [ -1, %28 ], [ -1, %._crit_edge ], [ -1, %._crit_edge100 ]
   call void @free(ptr noundef %.1.sink) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

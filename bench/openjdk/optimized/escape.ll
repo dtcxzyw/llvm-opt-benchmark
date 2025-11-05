@@ -19098,12 +19098,11 @@ _ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47: ; preds = %_ZN15Connect
   %150 = and i8 %.0, -2
   %or.cond.i50 = icmp eq i8 %150, 12
   %151 = icmp eq i8 %.0, 16
+  %152 = or i1 %151, %or.cond.i50
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47, %4, %122, %134, %142, %96, %85, %_ZNK4Type11make_oopptrEv.exit, %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47.thread59
-  %.057 = phi i1 [ false, %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47.thread59 ], [ false, %_ZNK4Type11make_oopptrEv.exit ], [ false, %85 ], [ false, %96 ], [ false, %142 ], [ false, %134 ], [ false, %122 ], [ false, %4 ], [ %151, %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47 ]
-  %152 = phi i1 [ true, %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47.thread59 ], [ false, %_ZNK4Type11make_oopptrEv.exit ], [ false, %85 ], [ false, %96 ], [ false, %142 ], [ false, %134 ], [ false, %122 ], [ false, %4 ], [ %or.cond.i50, %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47 ]
-  %153 = or i1 %.057, %152
+  %153 = phi i1 [ true, %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47.thread59 ], [ false, %_ZNK4Type11make_oopptrEv.exit ], [ false, %85 ], [ false, %96 ], [ false, %142 ], [ false, %134 ], [ false, %122 ], [ false, %4 ], [ %152, %_ZN15ConnectionGraph16find_second_addpEP4NodeS1_.exit47 ]
   ret i1 %153
 }
 

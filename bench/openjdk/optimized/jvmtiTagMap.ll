@@ -3615,7 +3615,7 @@ define internal fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKti
   %7 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %6) #14
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %73, label %10
+  br i1 %9, label %60, label %10
 
 10:                                               ; preds = %4
   %11 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
@@ -3623,103 +3623,78 @@ define internal fastcc noundef i32 @_ZL28invoke_string_value_callbackPFillPlPKti
   %13 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm282694EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
   %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %12) #14
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread, label %_ZN16java_lang_String6lengthEP7oopDesc.exit
-
-_ZN16java_lang_String6lengthEP7oopDesc.exit.thread: ; preds = %10
-  %16 = load i32, ptr @_ZN16java_lang_String13_coder_offsetE, align 4
-  %17 = ptrtoint ptr %2 to i64
-  %18 = sext i32 %16 to i64
-  %19 = add nsw i64 %18, %17
-  %20 = inttoptr i64 %19 to ptr
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %21, 0
   %.pre = load i8, ptr @UseCompressedClassPointers, align 1
   %.pre38 = trunc i8 %.pre to i1
-  br label %58
+  br i1 %15, label %.loopexit.thread, label %_ZN16java_lang_String6lengthEP7oopDesc.exit
 
 _ZN16java_lang_String6lengthEP7oopDesc.exit:      ; preds = %10
-  %23 = load i8, ptr @UseCompressedClassPointers, align 1
-  %24 = trunc i8 %23 to i1
-  %25 = select i1 %24, i64 12, i64 16
-  %26 = getelementptr inbounds nuw i8, ptr %14, i64 %25
-  %27 = load i32, ptr %26, align 4
-  %28 = load i32, ptr @_ZN16java_lang_String13_coder_offsetE, align 4
-  %29 = ptrtoint ptr %2 to i64
-  %30 = sext i32 %28 to i64
-  %31 = add nsw i64 %30, %29
-  %32 = inttoptr i64 %31 to ptr
-  %33 = load i8, ptr %32, align 1
-  %34 = icmp ne i8 %33, 0
-  %35 = zext i1 %34 to i32
-  %spec.select.i.i = ashr i32 %27, %35
-  %36 = icmp eq i8 %33, 0
-  %37 = icmp sgt i32 %spec.select.i.i, 0
-  br i1 %37, label %38, label %58
+  %16 = select i1 %.pre38, i64 12, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 %16
+  %18 = load i32, ptr %17, align 4
+  %19 = load i32, ptr @_ZN16java_lang_String13_coder_offsetE, align 4
+  %20 = ptrtoint ptr %2 to i64
+  %21 = sext i32 %19 to i64
+  %22 = add nsw i64 %21, %20
+  %23 = inttoptr i64 %22 to ptr
+  %24 = load i8, ptr %23, align 1
+  %25 = icmp ne i8 %24, 0
+  %26 = zext i1 %25 to i32
+  %spec.select.i.i = ashr i32 %18, %26
+  %27 = icmp sgt i32 %spec.select.i.i, 0
+  %28 = icmp eq i8 %24, 0
+  %or.cond = and i1 %27, %28
+  br i1 %or.cond, label %.lr.ph, label %.loopexit.thread
 
-38:                                               ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit
-  br i1 %36, label %.lr.ph, label %39
-
-39:                                               ; preds = %38
-  %40 = ptrtoint ptr %8 to i64
-  %41 = select i1 %24, i64 16, i64 20
-  %42 = add nsw i64 %41, %40
-  %43 = inttoptr i64 %42 to ptr
-  br label %.loopexit
-
-.lr.ph:                                           ; preds = %38
-  %44 = shl nuw i32 %spec.select.i.i, 1
-  %45 = zext i32 %44 to i64
-  %46 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %45, i8 noundef zeroext 9, i32 noundef 0) #14
-  %47 = ptrtoint ptr %8 to i64
+.lr.ph:                                           ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit
+  %29 = shl nuw i32 %spec.select.i.i, 1
+  %30 = zext i32 %29 to i64
+  %31 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %30, i8 noundef zeroext 9, i32 noundef 0) #14
+  %32 = ptrtoint ptr %8 to i64
   %wide.trip.count = zext nneg i32 %spec.select.i.i to i64
-  br label %48
+  br label %33
 
-48:                                               ; preds = %.lr.ph, %48
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = load i8, ptr @UseCompressedClassPointers, align 1
-  %50 = trunc i8 %49 to i1
-  %51 = select i1 %50, i64 16, i64 20
-  %52 = add nsw i64 %51, %47
-  %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 %indvars.iv
-  %55 = load i8, ptr %54, align 1
-  %56 = zext i8 %55 to i16
-  %57 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv
-  store i16 %56, ptr %57, align 2
+33:                                               ; preds = %.lr.ph, %33
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
+  %34 = load i8, ptr @UseCompressedClassPointers, align 1
+  %35 = trunc i8 %34 to i1
+  %36 = select i1 %35, i64 16, i64 20
+  %37 = add nsw i64 %36, %32
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv
+  %40 = load i8, ptr %39, align 1
+  %41 = zext i8 %40 to i16
+  %42 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv
+  store i16 %41, ptr %42, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !25
+  br i1 %exitcond.not, label %53, label %33, !llvm.loop !25
 
-58:                                               ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread, %_ZN16java_lang_String6lengthEP7oopDesc.exit
-  %.pre-phi = phi i1 [ %.pre38, %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread ], [ %24, %_ZN16java_lang_String6lengthEP7oopDesc.exit ]
-  %59 = phi i1 [ %22, %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread ], [ %36, %_ZN16java_lang_String6lengthEP7oopDesc.exit ]
-  %.05.i.i35 = phi i32 [ 0, %_ZN16java_lang_String6lengthEP7oopDesc.exit.thread ], [ %spec.select.i.i, %_ZN16java_lang_String6lengthEP7oopDesc.exit ]
-  %60 = ptrtoint ptr %8 to i64
-  %61 = select i1 %.pre-phi, i64 16, i64 20
-  %62 = add nsw i64 %61, %60
-  %63 = inttoptr i64 %62 to ptr
-  br label %.loopexit
+.loopexit.thread:                                 ; preds = %_ZN16java_lang_String6lengthEP7oopDesc.exit, %10
+  %.05.i.i34.ph = phi i32 [ %spec.select.i.i, %_ZN16java_lang_String6lengthEP7oopDesc.exit ], [ 0, %10 ]
+  %43 = ptrtoint ptr %8 to i64
+  %44 = select i1 %.pre38, i64 16, i64 20
+  %45 = add nsw i64 %44, %43
+  %46 = inttoptr i64 %45 to ptr
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %48 = load i64, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %50 = load i64, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %52 = tail call noundef i32 %0(i64 noundef %48, i64 noundef %50, ptr noundef nonnull %51, ptr noundef %46, i32 noundef %.05.i.i34.ph, ptr noundef %3) #14
+  br label %60
 
-.loopexit:                                        ; preds = %48, %39, %58
-  %64 = phi i1 [ true, %39 ], [ false, %58 ], [ true, %48 ]
-  %65 = phi i1 [ false, %39 ], [ %59, %58 ], [ true, %48 ]
-  %.05.i.i34 = phi i32 [ %spec.select.i.i, %39 ], [ %.05.i.i35, %58 ], [ %spec.select.i.i, %48 ]
-  %.030 = phi ptr [ %43, %39 ], [ %63, %58 ], [ %46, %48 ]
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %67 = load i64, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %69 = load i64, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %71 = tail call noundef i32 %0(i64 noundef %67, i64 noundef %69, ptr noundef nonnull %70, ptr noundef %.030, i32 noundef %.05.i.i34, ptr noundef %3) #14
-  %or.cond = and i1 %64, %65
-  br i1 %or.cond, label %72, label %73
+53:                                               ; preds = %33
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %57 = load i64, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %59 = tail call noundef i32 %0(i64 noundef %55, i64 noundef %57, ptr noundef nonnull %58, ptr noundef nonnull %31, i32 noundef %spec.select.i.i, ptr noundef %3) #14
+  tail call void @_Z8FreeHeapPv(ptr noundef nonnull %31) #14
+  br label %60
 
-72:                                               ; preds = %.loopexit
-  tail call void @_Z8FreeHeapPv(ptr noundef %.030) #14
-  br label %73
-
-73:                                               ; preds = %.loopexit, %72, %4
-  %.0 = phi i32 [ 0, %4 ], [ %71, %72 ], [ %71, %.loopexit ]
+60:                                               ; preds = %.loopexit.thread, %53, %4
+  %.0 = phi i32 [ 0, %4 ], [ %59, %53 ], [ %52, %.loopexit.thread ]
   ret i32 %.0
 }
 

@@ -403,7 +403,7 @@ cobs_frame_decode.exit.thread:                    ; preds = %103, %.lr.ph38.i33.
 150:                                              ; preds = %146
   %151 = zext i16 %148 to i32
   %152 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %25, i32 noundef %151)
-  br label %164
+  br label %165
 
 153:                                              ; preds = %146
   %154 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25)
@@ -416,22 +416,22 @@ cobs_frame_decode.exit.thread:                    ; preds = %103, %.lr.ph38.i33.
   %161 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %157, i32 noundef %159, i32 noundef %160)
   %162 = zext i16 %154 to i32
   %163 = shl nuw i32 %162, 16
-  br label %164
+  %164 = or disjoint i32 %163, %13
+  br label %165
 
-164:                                              ; preds = %153, %150
-  %.0134 = phi i32 [ 0, %150 ], [ %163, %153 ]
+165:                                              ; preds = %153, %150
+  %.0134 = phi i32 [ %13, %150 ], [ %164, %153 ]
   %.0133 = phi ptr [ %152, %150 ], [ %161, %153 ]
-  %165 = load ptr, ptr @subdissector_table, align 8
-  %166 = or disjoint i32 %.0134, %13
-  %167 = tail call i32 @dissector_try_uint(ptr noundef %165, i32 noundef %166, ptr noundef %.0133, ptr noundef %1, ptr noundef %2)
+  %166 = load ptr, ptr @subdissector_table, align 8
+  %167 = tail call i32 @dissector_try_uint(ptr noundef %166, i32 noundef %.0134, ptr noundef %.0133, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %167, 0
   br i1 %.not, label %168, label %170
 
-168:                                              ; preds = %164
+168:                                              ; preds = %165
   %169 = tail call i32 @call_data_dissector(ptr noundef %.0133, ptr noundef %1, ptr noundef %2)
   br label %170
 
-170:                                              ; preds = %168, %164
+170:                                              ; preds = %168, %165
   %171 = tail call i16 @llvm.umin.i16(i16 %11, i16 %148)
   %.not151 = icmp eq i16 %171, 0
   br i1 %.not151, label %._crit_edge, label %.lr.ph.preheader

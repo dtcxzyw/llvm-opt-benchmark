@@ -8987,7 +8987,7 @@ tailrecurse.us:                                   ; preds = %2, %_ZN4llvm15Small
   %ret.known.tr.us = phi i1 [ true, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit.us ], [ false, %2 ]
   %6 = zext i32 %5 to i64
   switch i32 %5, label %_ZN4llvm13isPowerOf2_64Em.exit.us [
-    i32 1, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit99
+    i32 1, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit102
     i32 0, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
   ]
 
@@ -9039,7 +9039,7 @@ tailrecurse:                                      ; preds = %2, %_ZN4llvm15Small
   %ret.known.tr = phi i1 [ true, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit ], [ false, %2 ]
   %22 = zext i32 %21 to i64
   switch i32 %21, label %_ZN4llvm13isPowerOf2_64Em.exit [
-    i32 1, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit103
+    i32 1, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit106
     i32 0, label %_ZN4llvm13isPowerOf2_64Em.exit.thread
   ]
 
@@ -9077,17 +9077,15 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit: ; preds = %.thread35
   store i32 %34, ptr %3, align 8, !tbaa !26
   br label %tailrecurse
 
-_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit99: ; preds = %tailrecurse.us
+_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit102: ; preds = %tailrecurse.us
   br label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
-_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit103: ; preds = %tailrecurse
+_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit106: ; preds = %tailrecurse
   br label %_ZN4llvm13isPowerOf2_64Em.exit.thread
 
-_ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %29, %.lr.ph, %15, %_ZN4llvm13isPowerOf2_64Em.exit, %tailrecurse, %_ZN4llvm13isPowerOf2_64Em.exit.us, %tailrecurse.us, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit103, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit99
-  %ret.known.tr41 = phi i1 [ %ret.known.tr.us, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit99 ], [ %ret.known.tr, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit103 ], [ %ret.known.tr.us, %tailrecurse.us ], [ %ret.known.tr.us, %_ZN4llvm13isPowerOf2_64Em.exit.us ], [ %ret.known.tr, %tailrecurse ], [ %ret.known.tr, %_ZN4llvm13isPowerOf2_64Em.exit ], [ %ret.known.tr.us, %15 ], [ %ret.known.tr, %.lr.ph ], [ %ret.known.tr, %29 ]
-  %.026 = phi i1 [ true, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit99 ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit103 ], [ false, %tailrecurse.us ], [ false, %_ZN4llvm13isPowerOf2_64Em.exit.us ], [ false, %tailrecurse ], [ false, %_ZN4llvm13isPowerOf2_64Em.exit ], [ false, %15 ], [ false, %.lr.ph ], [ false, %29 ]
-  %current.ret.tr37 = or i1 %ret.known.tr41, %.026
-  ret i1 %current.ret.tr37
+_ZN4llvm13isPowerOf2_64Em.exit.thread:            ; preds = %_ZN4llvm13isPowerOf2_64Em.exit, %29, %.lr.ph, %_ZN4llvm13isPowerOf2_64Em.exit.us, %15, %tailrecurse, %tailrecurse.us, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit106, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit102
+  %ret.known.tr41 = phi i1 [ %ret.known.tr.us, %tailrecurse.us ], [ %ret.known.tr, %tailrecurse ], [ %ret.known.tr.us, %15 ], [ %ret.known.tr.us, %_ZN4llvm13isPowerOf2_64Em.exit.us ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit102 ], [ %ret.known.tr, %.lr.ph ], [ %ret.known.tr, %29 ], [ %ret.known.tr, %_ZN4llvm13isPowerOf2_64Em.exit ], [ true, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit106 ]
+  ret i1 %ret.known.tr41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15959,8 +15957,8 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit: ; preds = %_ZN4llvm11Small
   %64 = phi ptr [ %59, %_ZSt6fill_nIPPN4llvm5ValueEmS2_ET_S4_T0_RKT1_.exit.i.i ], [ %.sink, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit.sink.split ]
   store i32 %57, ptr %60, align 8, !tbaa !26
   %65 = load i8, ptr %45, align 8, !tbaa !79
-  %.not106 = icmp eq i8 %65, 91
-  br i1 %.not106, label %.lr.ph, label %._crit_edge
+  %.not107 = icmp eq i8 %65, 91
+  br i1 %.not107, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit, %.lr.ph
   %66 = phi ptr [ %78, %.lr.ph ], [ %45, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit ]
@@ -15985,7 +15983,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit: ; preds = %_ZN4llvm11Small
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit
   %80 = phi i8 [ %65, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit ], [ %79, %.lr.ph ]
-  %.lcssa105 = phi ptr [ %45, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit ], [ %78, %.lr.ph ]
+  %.lcssa106 = phi ptr [ %45, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2EmRKS2_.exit ], [ %78, %.lr.ph ]
   %81 = icmp eq i8 %80, 13
   br i1 %81, label %82, label %86
 
@@ -16008,14 +16006,14 @@ tailrecurse.us.i:                                 ; preds = %82, %_ZN4llvm15Smal
   %ret.known.tr.us.i = phi i1 [ true, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit.us.i ], [ false, %82 ]
   %89 = zext i32 %88 to i64
   switch i32 %88, label %_ZN4llvm13isPowerOf2_64Em.exit.us.i [
-    i32 1, label %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread
+    i32 1, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread
     i32 0, label %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit
   ]
 
 _ZN4llvm13isPowerOf2_64Em.exit.us.i:              ; preds = %tailrecurse.us.i
   %90 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %89)
   %91 = icmp samesign ult i64 %90, 2
-  br i1 %91, label %.lr.ph.us.preheader.i, label %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit
+  br i1 %91, label %.lr.ph.us.preheader.i, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i
 
 .lr.ph.us.preheader.i:                            ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.us.i
   %92 = lshr i64 %89, 1
@@ -16060,14 +16058,14 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   %ret.known.tr.i = phi i1 [ true, %_ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit.i ], [ false, %tailrecurse.i.preheader ]
   %105 = zext i32 %104 to i64
   switch i32 %104, label %_ZN4llvm13isPowerOf2_64Em.exit.i [
-    i32 1, label %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread
+    i32 1, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread
     i32 0, label %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit
   ]
 
 _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %tailrecurse.i
   %106 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %105)
   %107 = icmp samesign ult i64 %106, 2
-  br i1 %107, label %.lr.ph.preheader.i, label %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit
+  br i1 %107, label %.lr.ph.preheader.i, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i
   %108 = lshr i64 %105, 1
@@ -16098,35 +16096,39 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE6resizeEm.exit.i: ; preds = %.thread35.i
   store i32 %117, ptr %60, align 8, !tbaa !26
   br label %tailrecurse.i
 
-_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit: ; preds = %tailrecurse.i, %_ZN4llvm13isPowerOf2_64Em.exit.i, %.lr.ph.i, %112, %tailrecurse.us.i, %_ZN4llvm13isPowerOf2_64Em.exit.us.i, %98
-  %ret.known.tr41.i = phi i1 [ %ret.known.tr.us.i, %98 ], [ %ret.known.tr.us.i, %_ZN4llvm13isPowerOf2_64Em.exit.us.i ], [ %ret.known.tr.us.i, %tailrecurse.us.i ], [ %ret.known.tr.i, %112 ], [ %ret.known.tr.i, %.lr.ph.i ], [ %ret.known.tr.i, %_ZN4llvm13isPowerOf2_64Em.exit.i ], [ %ret.known.tr.i, %tailrecurse.i ]
-  br i1 %ret.known.tr41.i, label %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread, label %284
+_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i: ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.i, %_ZN4llvm13isPowerOf2_64Em.exit.us.i
+  %.us-phi60.i = phi i1 [ %ret.known.tr.us.i, %_ZN4llvm13isPowerOf2_64Em.exit.us.i ], [ %ret.known.tr.i, %_ZN4llvm13isPowerOf2_64Em.exit.i ]
+  br i1 %.us-phi60.i, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread, label %284
 
-_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread: ; preds = %tailrecurse.i, %tailrecurse.us.i, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit
-  %118 = getelementptr inbounds nuw i8, ptr %.lcssa105, i64 8
+_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit: ; preds = %tailrecurse.i, %.lr.ph.i, %112, %tailrecurse.us.i, %98
+  %ret.known.tr41.i = phi i1 [ %ret.known.tr.us.i, %98 ], [ %ret.known.tr.us.i, %tailrecurse.us.i ], [ %ret.known.tr.i, %112 ], [ %ret.known.tr.i, %.lr.ph.i ], [ %ret.known.tr.i, %tailrecurse.i ]
+  br i1 %ret.known.tr41.i, label %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread, label %284
+
+_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread: ; preds = %tailrecurse.i, %tailrecurse.us.i, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit
+  %118 = getelementptr inbounds nuw i8, ptr %.lcssa106, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !380
   %120 = call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %119) #32
   %121 = load i32, ptr %60, align 8, !tbaa !26
-  %.not113 = icmp eq i32 %121, 0
-  br i1 %.not113, label %._crit_edge110, label %.lr.ph109
+  %.not114 = icmp eq i32 %121, 0
+  br i1 %.not114, label %._crit_edge111, label %.lr.ph110
 
-.lr.ph109:                                        ; preds = %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread
+.lr.ph110:                                        ; preds = %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 32
   br label %125
 
-._crit_edge110:                                   ; preds = %138, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread
-  %.048.lcssa = phi ptr [ %120, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread ], [ %.1, %138 ]
-  %.lcssa = phi i32 [ 0, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread ], [ %139, %138 ]
+._crit_edge111:                                   ; preds = %138, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread
+  %.048.lcssa = phi ptr [ %120, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread ], [ %.1, %138 ]
+  %.lcssa = phi i32 [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i.thread ], [ %139, %138 ]
   %124 = icmp eq ptr %.048.lcssa, null
   br i1 %124, label %284, label %143
 
-125:                                              ; preds = %.lr.ph109, %138
-  %126 = phi i32 [ %121, %.lr.ph109 ], [ %139, %138 ]
-  %.048108 = phi ptr [ %120, %.lr.ph109 ], [ %.1, %138 ]
-  %.049107 = phi i64 [ 0, %.lr.ph109 ], [ %140, %138 ]
+125:                                              ; preds = %.lr.ph110, %138
+  %126 = phi i32 [ %121, %.lr.ph110 ], [ %139, %138 ]
+  %.048109 = phi ptr [ %120, %.lr.ph110 ], [ %.1, %138 ]
+  %.049108 = phi i64 [ 0, %.lr.ph110 ], [ %140, %138 ]
   %127 = load ptr, ptr %6, align 8, !tbaa !25
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %.049107
+  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %.049108
   %129 = load ptr, ptr %128, align 8, !tbaa !345
   %130 = icmp eq ptr %129, null
   br i1 %130, label %138, label %131
@@ -16136,23 +16138,23 @@ _Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit.thread: ; p
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 72
   %134 = load ptr, ptr %133, align 8, !tbaa !478
   %135 = call noundef ptr @_ZN4llvm4Type10getInt64TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %134) #32
-  %136 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %135, i64 noundef %.049107, i1 noundef zeroext false) #32
+  %136 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %135, i64 noundef %.049108, i1 noundef zeroext false) #32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i16 257, ptr %123, align 8
-  %137 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %132, ptr noundef %.048108, ptr noundef nonnull %129, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(34) %7)
+  %137 = call noundef ptr @_ZN4llvm13IRBuilderBase19CreateInsertElementEPNS_5ValueES2_S2_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %132, ptr noundef %.048109, ptr noundef nonnull %129, ptr noundef %136, ptr noundef nonnull align 8 dereferenceable(34) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.pre = load i32, ptr %60, align 8, !tbaa !26
   br label %138
 
 138:                                              ; preds = %125, %131
   %139 = phi i32 [ %126, %125 ], [ %.pre, %131 ]
-  %.1 = phi ptr [ %.048108, %125 ], [ %137, %131 ]
-  %140 = add nuw nsw i64 %.049107, 1
+  %.1 = phi ptr [ %.048109, %125 ], [ %137, %131 ]
+  %140 = add nuw nsw i64 %.049108, 1
   %141 = zext i32 %139 to i64
   %142 = icmp samesign ult i64 %140, %141
-  br i1 %142, label %125, label %._crit_edge110, !llvm.loop !485
+  br i1 %142, label %125, label %._crit_edge111, !llvm.loop !485
 
-143:                                              ; preds = %._crit_edge110
+143:                                              ; preds = %._crit_edge111
   %144 = call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %55) #33
   %145 = mul i32 %144, %.lcssa
   %146 = load i32, ptr %56, align 8, !tbaa !284
@@ -16454,9 +16456,9 @@ _ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5Twine
   %283 = call noundef ptr @_ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1081) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %.0.i61)
   br label %284
 
-284:                                              ; preds = %._crit_edge110, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit80
-  %.sroa.089.1 = phi ptr [ %283, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit80 ], [ undef, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit ], [ undef, %._crit_edge110 ]
-  %.sroa.2.1 = phi i8 [ 1, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit80 ], [ 0, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit ], [ 0, %._crit_edge110 ]
+284:                                              ; preds = %._crit_edge111, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit80
+  %.sroa.089.1 = phi ptr [ %283, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit80 ], [ undef, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i ], [ undef, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit ], [ undef, %._crit_edge111 ]
+  %.sroa.2.1 = phi i8 [ 1, %_ZN4llvm13IRBuilderBase22CreateBitOrPointerCastEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit80 ], [ 0, %_ZN4llvm13isPowerOf2_64Em.exit.thread.loopexit38.i ], [ 0, %_Z20SimplifyValuePatternRN4llvm11SmallVectorIPNS_5ValueELj6EEEb.exit ], [ 0, %._crit_edge111 ]
   %285 = load ptr, ptr %6, align 8, !tbaa !25
   %286 = icmp eq ptr %285, %59
   br i1 %286, label %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit, label %287

@@ -19843,7 +19843,7 @@ define hidden range(i64 0, -6917529027641081856) i64 @"_ZN6brotli3enc9interface4
 34:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817h0ae1d5ed708d3ef0E.exit", %22
   %.sroa.03.0 = phi i64 [ %33, %22 ], [ 0, %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$20context_map_speed_f817h0ae1d5ed708d3ef0E.exit" ]
   %35 = icmp ult i8 %18, 8
-  br i1 %35, label %49, label %36
+  br i1 %35, label %50, label %36
 
 36:                                               ; preds = %34
   %37 = lshr i8 %18, 3
@@ -19858,53 +19858,53 @@ define hidden range(i64 0, -6917529027641081856) i64 @"_ZN6brotli3enc9interface4
   %46 = or i16 %45, %44
   %47 = zext i16 %46 to i64
   %48 = shl nuw nsw i64 %47, 16
-  br label %49
+  %49 = or disjoint i64 %48, %.sroa.03.0
+  br label %50
 
-49:                                               ; preds = %34, %36
-  %.sroa.04.0 = phi i64 [ %48, %36 ], [ 0, %34 ]
-  %50 = icmp ult i8 %11, 8
-  br i1 %50, label %64, label %51
+50:                                               ; preds = %34, %36
+  %.sroa.04.0 = phi i64 [ %49, %36 ], [ %.sroa.03.0, %34 ]
+  %51 = icmp ult i8 %11, 8
+  br i1 %51, label %65, label %52
 
-51:                                               ; preds = %49
-  %52 = lshr i8 %11, 3
-  %53 = add nuw nsw i8 %52, 15
-  %54 = and i8 %11, 7
-  %55 = zext nneg i8 %54 to i16
-  %56 = and i8 %53, 15
-  %57 = zext nneg i8 %56 to i16
-  %58 = shl i16 %55, %57
-  %59 = shl nuw i16 1, %57
-  %60 = lshr i16 %58, 3
-  %61 = or i16 %60, %59
-  %62 = zext i16 %61 to i64
-  %63 = shl nuw nsw i64 %62, 32
-  br label %64
+52:                                               ; preds = %50
+  %53 = lshr i8 %11, 3
+  %54 = add nuw nsw i8 %53, 15
+  %55 = and i8 %11, 7
+  %56 = zext nneg i8 %55 to i16
+  %57 = and i8 %54, 15
+  %58 = zext nneg i8 %57 to i16
+  %59 = shl i16 %56, %58
+  %60 = shl nuw i16 1, %58
+  %61 = lshr i16 %59, 3
+  %62 = or i16 %61, %60
+  %63 = zext i16 %62 to i64
+  %64 = shl nuw nsw i64 %63, 32
+  br label %65
 
-64:                                               ; preds = %49, %51
-  %.sroa.05.0 = phi i64 [ %63, %51 ], [ 0, %49 ]
-  %65 = icmp ult i8 %20, 8
-  br i1 %65, label %78, label %66
+65:                                               ; preds = %50, %52
+  %.sroa.05.0 = phi i64 [ %64, %52 ], [ 0, %50 ]
+  %66 = icmp ult i8 %20, 8
+  br i1 %66, label %80, label %67
 
-66:                                               ; preds = %64
-  %67 = lshr i8 %20, 3
-  %narrow = add nuw nsw i8 %67, 15
-  %68 = and i8 %20, 7
-  %69 = zext nneg i8 %68 to i16
-  %70 = and i8 %narrow, 15
-  %71 = zext nneg i8 %70 to i16
-  %72 = shl i16 %69, %71
-  %73 = shl nuw i16 1, %71
-  %74 = lshr i16 %72, 3
-  %75 = or i16 %74, %73
-  %76 = zext i16 %75 to i64
-  %77 = shl nuw i64 %76, 48
-  br label %78
+67:                                               ; preds = %65
+  %68 = lshr i8 %20, 3
+  %narrow = add nuw nsw i8 %68, 15
+  %69 = and i8 %20, 7
+  %70 = zext nneg i8 %69 to i16
+  %71 = and i8 %narrow, 15
+  %72 = zext nneg i8 %71 to i16
+  %73 = shl i16 %70, %72
+  %74 = shl nuw i16 1, %72
+  %75 = lshr i16 %73, 3
+  %76 = or i16 %75, %74
+  %77 = zext i16 %76 to i64
+  %78 = shl nuw i64 %77, 48
+  %79 = or i64 %.sroa.05.0, %78
+  br label %80
 
-78:                                               ; preds = %64, %66
-  %.sroa.06.0 = phi i64 [ %77, %66 ], [ 0, %64 ]
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.04.0, %.sroa.03.0
-  %.sroa.2.0.insert.insert = or i64 %.sroa.3.0.insert.insert, %.sroa.05.0
-  %.sroa.0.0.insert.insert = or i64 %.sroa.2.0.insert.insert, %.sroa.06.0
+80:                                               ; preds = %65, %67
+  %.sroa.06.0 = phi i64 [ %79, %67 ], [ %.sroa.05.0, %65 ]
+  %.sroa.0.0.insert.insert = or i64 %.sroa.04.0, %.sroa.06.0
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -19974,7 +19974,7 @@ define hidden range(i64 0, -6917529027641081856) i64 @"_ZN6brotli3enc9interface4
 34:                                               ; preds = %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817h3a6fe7e9f4ad46c0E.exit", %22
   %.sroa.03.0 = phi i64 [ %33, %22 ], [ 0, %"_ZN6brotli3enc9interface41PredictionModeContextMap$LT$SliceType$GT$23stride_context_speed_f817h3a6fe7e9f4ad46c0E.exit" ]
   %35 = icmp ult i8 %18, 8
-  br i1 %35, label %49, label %36
+  br i1 %35, label %50, label %36
 
 36:                                               ; preds = %34
   %37 = lshr i8 %18, 3
@@ -19989,53 +19989,53 @@ define hidden range(i64 0, -6917529027641081856) i64 @"_ZN6brotli3enc9interface4
   %46 = or i16 %45, %44
   %47 = zext i16 %46 to i64
   %48 = shl nuw nsw i64 %47, 16
-  br label %49
+  %49 = or disjoint i64 %48, %.sroa.03.0
+  br label %50
 
-49:                                               ; preds = %34, %36
-  %.sroa.04.0 = phi i64 [ %48, %36 ], [ 0, %34 ]
-  %50 = icmp ult i8 %11, 8
-  br i1 %50, label %64, label %51
+50:                                               ; preds = %34, %36
+  %.sroa.04.0 = phi i64 [ %49, %36 ], [ %.sroa.03.0, %34 ]
+  %51 = icmp ult i8 %11, 8
+  br i1 %51, label %65, label %52
 
-51:                                               ; preds = %49
-  %52 = lshr i8 %11, 3
-  %53 = add nuw nsw i8 %52, 15
-  %54 = and i8 %11, 7
-  %55 = zext nneg i8 %54 to i16
-  %56 = and i8 %53, 15
-  %57 = zext nneg i8 %56 to i16
-  %58 = shl i16 %55, %57
-  %59 = shl nuw i16 1, %57
-  %60 = lshr i16 %58, 3
-  %61 = or i16 %60, %59
-  %62 = zext i16 %61 to i64
-  %63 = shl nuw nsw i64 %62, 32
-  br label %64
+52:                                               ; preds = %50
+  %53 = lshr i8 %11, 3
+  %54 = add nuw nsw i8 %53, 15
+  %55 = and i8 %11, 7
+  %56 = zext nneg i8 %55 to i16
+  %57 = and i8 %54, 15
+  %58 = zext nneg i8 %57 to i16
+  %59 = shl i16 %56, %58
+  %60 = shl nuw i16 1, %58
+  %61 = lshr i16 %59, 3
+  %62 = or i16 %61, %60
+  %63 = zext i16 %62 to i64
+  %64 = shl nuw nsw i64 %63, 32
+  br label %65
 
-64:                                               ; preds = %49, %51
-  %.sroa.05.0 = phi i64 [ %63, %51 ], [ 0, %49 ]
-  %65 = icmp ult i8 %20, 8
-  br i1 %65, label %78, label %66
+65:                                               ; preds = %50, %52
+  %.sroa.05.0 = phi i64 [ %64, %52 ], [ 0, %50 ]
+  %66 = icmp ult i8 %20, 8
+  br i1 %66, label %80, label %67
 
-66:                                               ; preds = %64
-  %67 = lshr i8 %20, 3
-  %narrow = add nuw nsw i8 %67, 15
-  %68 = and i8 %20, 7
-  %69 = zext nneg i8 %68 to i16
-  %70 = and i8 %narrow, 15
-  %71 = zext nneg i8 %70 to i16
-  %72 = shl i16 %69, %71
-  %73 = shl nuw i16 1, %71
-  %74 = lshr i16 %72, 3
-  %75 = or i16 %74, %73
-  %76 = zext i16 %75 to i64
-  %77 = shl nuw i64 %76, 48
-  br label %78
+67:                                               ; preds = %65
+  %68 = lshr i8 %20, 3
+  %narrow = add nuw nsw i8 %68, 15
+  %69 = and i8 %20, 7
+  %70 = zext nneg i8 %69 to i16
+  %71 = and i8 %narrow, 15
+  %72 = zext nneg i8 %71 to i16
+  %73 = shl i16 %70, %72
+  %74 = shl nuw i16 1, %72
+  %75 = lshr i16 %73, 3
+  %76 = or i16 %75, %74
+  %77 = zext i16 %76 to i64
+  %78 = shl nuw i64 %77, 48
+  %79 = or i64 %.sroa.05.0, %78
+  br label %80
 
-78:                                               ; preds = %64, %66
-  %.sroa.06.0 = phi i64 [ %77, %66 ], [ 0, %64 ]
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.04.0, %.sroa.03.0
-  %.sroa.2.0.insert.insert = or i64 %.sroa.3.0.insert.insert, %.sroa.05.0
-  %.sroa.0.0.insert.insert = or i64 %.sroa.2.0.insert.insert, %.sroa.06.0
+80:                                               ; preds = %65, %67
+  %.sroa.06.0 = phi i64 [ %79, %67 ], [ %.sroa.05.0, %65 ]
+  %.sroa.0.0.insert.insert = or i64 %.sroa.04.0, %.sroa.06.0
   ret i64 %.sroa.0.0.insert.insert
 }
 

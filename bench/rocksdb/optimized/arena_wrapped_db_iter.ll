@@ -1046,8 +1046,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
           to label %103 unwind label %97
 
 103:                                              ; preds = %101
-  %or.cond.not = or i1 %1, %.0.not
-  br i1 %or.cond.not, label %122, label %104
+  br i1 %.0.not, label %122, label %104
 
 104:                                              ; preds = %103
   %105 = icmp eq i8 %2, 0

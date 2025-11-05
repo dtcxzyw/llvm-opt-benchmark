@@ -1391,7 +1391,7 @@ measure_absmean.exit:                             ; preds = %measure_absmean.exi
   %wide.trip.count327 = zext i32 %468 to i64
   br label %486
 
-.lr.ph303:                                        ; preds = %520
+.lr.ph303:                                        ; preds = %521
   %469 = getelementptr inbounds nuw i8, ptr %7, i64 180
   %470 = load i32, ptr %469, align 4, !tbaa !116
   %471 = sitofp i32 %470 to double
@@ -1413,9 +1413,9 @@ measure_absmean.exit:                             ; preds = %measure_absmean.exi
   %wide.trip.count332 = zext i32 %485 to i64
   br label %977
 
-486:                                              ; preds = %.lr.ph298, %520
-  %indvars.iv324 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next325, %520 ]
-  %.0148297 = phi double [ 0.000000e+00, %.lr.ph298 ], [ %.1, %520 ]
+486:                                              ; preds = %.lr.ph298, %521
+  %indvars.iv324 = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next325, %521 ]
+  %.0148297 = phi double [ 0.000000e+00, %.lr.ph298 ], [ %.1, %521 ]
   %487 = getelementptr inbounds nuw i32, ptr %465, i64 %indvars.iv324
   %488 = load i32, ptr %487, align 4, !tbaa !96
   %489 = getelementptr inbounds nuw ptr, ptr %466, i64 %indvars.iv324
@@ -1490,20 +1490,20 @@ measure_absmean.exit217:                          ; preds = %measure_absmean.exi
   %514 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv324
   store double %.pre-phi, ptr %514, align 8, !tbaa !108
   %515 = fcmp nsz ugt double %.pre-phi, 0x3E80000000000000
-  br i1 %515, label %516, label %520
+  br i1 %515, label %516, label %521
 
 516:                                              ; preds = %measure_absmean.exit217
   %517 = load double, ptr %513, align 8, !tbaa !108
   %518 = fdiv nsz double %517, %.pre-phi
   %519 = fadd nsz double %518, -1.232000e+00
-  br label %520
+  %520 = fmul nsz double %519, %519
+  br label %521
 
-520:                                              ; preds = %measure_absmean.exit217, %516
-  %.0150 = phi double [ %519, %516 ], [ 0xBFCDB22D0E560418, %measure_absmean.exit217 ]
-  %521 = icmp samesign ult i64 %indvars.iv324, %467
-  %522 = fmul nsz double %.0150, %.0150
-  %523 = fadd nsz double %.0148297, %522
-  %.1 = select nsz i1 %521, double %523, double %.0148297
+521:                                              ; preds = %measure_absmean.exit217, %516
+  %.0150 = phi double [ %520, %516 ], [ 0x3FAB8ED1BF7AD4B1, %measure_absmean.exit217 ]
+  %522 = icmp samesign ult i64 %indvars.iv324, %467
+  %523 = fadd nsz double %.0148297, %.0150
+  %.1 = select nsz i1 %522, double %523, double %.0148297
   %indvars.iv.next325 = add nuw nsw i64 %indvars.iv324, 1
   %exitcond328.not = icmp eq i64 %indvars.iv.next325, %wide.trip.count327
   br i1 %exitcond328.not, label %.lr.ph303, label %486, !llvm.loop !118

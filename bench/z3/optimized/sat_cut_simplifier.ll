@@ -7667,22 +7667,22 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIjLb0EjE7reserveEjRKj.exit.i:           ; preds = %.lr.ph.preheader.i.i.i, %38, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i3, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i4
   %45 = phi ptr [ %33, %.lr.ph.preheader.i.i.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i4 ], [ %28, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i3 ], [ %33, %38 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %47 = load i32, ptr %46, align 8, !tbaa !432
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !96
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %_ZN3sat8aig_cuts5touchEj.exit, label %51
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !96
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_ZN3sat8aig_cuts5touchEj.exit, label %49
 
-51:                                               ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  %52 = getelementptr inbounds i8, ptr %49, i64 -4
+49:                                               ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %51 = load i32, ptr %50, align 8, !tbaa !432
+  %52 = getelementptr inbounds i8, ptr %47, i64 -4
   %53 = load i32, ptr %52, align 4, !tbaa !97
+  %54 = mul i32 %53, %51
   br label %_ZN3sat8aig_cuts5touchEj.exit
 
-_ZN3sat8aig_cuts5touchEj.exit:                    ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i, %51
-  %.0.i.i = phi i32 [ %53, %51 ], [ 0, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i ]
-  %54 = mul i32 %.0.i.i, %47
-  %55 = add i32 %54, %1
+_ZN3sat8aig_cuts5touchEj.exit:                    ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i, %49
+  %.0.i.i = phi i32 [ %54, %49 ], [ 0, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i ]
+  %55 = add i32 %.0.i.i, %1
   %56 = getelementptr inbounds nuw i32, ptr %45, i64 %23
   store i32 %55, ptr %56, align 4, !tbaa !97
   ret void
@@ -9146,8 +9146,8 @@ _ZNK6vectorIN3sat7cut_setELb1EjE3endEv.exit:      ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   br label %18
 
@@ -9509,20 +9509,20 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i.i.backedge:   ; preds = %150, %110
 
 _ZN6vectorIjLb0EjE7reserveEjRKj.exit.i:           ; preds = %.lr.ph.preheader.i.i.i, %155, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %162 = phi ptr [ %105, %.lr.ph.preheader.i.i.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i ], [ %100, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i.i ], [ %105, %155 ]
-  %163 = load i32, ptr %15, align 8, !tbaa !432
-  %164 = load ptr, ptr %16, align 8, !tbaa !96
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %_ZN3sat8aig_cuts5touchEj.exit, label %166
+  %163 = load ptr, ptr %15, align 8, !tbaa !96
+  %164 = icmp eq ptr %163, null
+  br i1 %164, label %_ZN3sat8aig_cuts5touchEj.exit, label %165
 
-166:                                              ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
-  %167 = getelementptr inbounds i8, ptr %164, i64 -4
+165:                                              ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i
+  %166 = load i32, ptr %16, align 8, !tbaa !432
+  %167 = getelementptr inbounds i8, ptr %163, i64 -4
   %168 = load i32, ptr %167, align 4, !tbaa !97
+  %169 = mul i32 %168, %166
   br label %_ZN3sat8aig_cuts5touchEj.exit
 
-_ZN3sat8aig_cuts5touchEj.exit:                    ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i, %166
-  %.0.i.i19 = phi i32 [ %168, %166 ], [ 0, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i ]
-  %169 = mul i32 %.0.i.i19, %163
-  %170 = add i32 %169, %98
+_ZN3sat8aig_cuts5touchEj.exit:                    ; preds = %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i, %165
+  %.0.i.i19 = phi i32 [ %169, %165 ], [ 0, %_ZN6vectorIjLb0EjE7reserveEjRKj.exit.i ]
+  %170 = add i32 %.0.i.i19, %98
   %171 = zext i32 %98 to i64
   %172 = getelementptr inbounds nuw i32, ptr %162, i64 %171
   store i32 %170, ptr %172, align 4, !tbaa !97

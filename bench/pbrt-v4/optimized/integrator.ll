@@ -27536,7 +27536,7 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %6, %132
   %157 = fcmp ult float %92, %67
   %158 = fcmp ugt float %92, %72
   %or.cond.i.i.i = select i1 %157, i1 true, i1 %158
-  br i1 %or.cond.i.i.i, label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i, label %159
+  br i1 %or.cond.i.i.i, label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i.thread, label %159
 
 159:                                              ; preds = %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
   %160 = fcmp oge float %93, %69
@@ -27546,128 +27546,125 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %6, %132
   %or.cond19.i.not31.i.i = select i1 %or.cond16.i.not34.i.i, i1 %162, i1 false
   %163 = fcmp ole float %94, %.sroa.speculated.i34.i.i
   %or.cond.i.i = select i1 %or.cond19.i.not31.i.i, i1 %163, i1 false
-  br i1 %or.cond.i.i, label %164, label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i
+  br i1 %or.cond.i.i, label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i, label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i.thread
 
-164:                                              ; preds = %159
-  %165 = fsub float %92, %72
-  %166 = fsub float %93, %74
-  %167 = fsub float %94, %.sroa.speculated.i34.i.i
+_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i: ; preds = %159
+  %164 = fsub float %92, %72
+  %165 = fsub float %93, %74
+  %166 = fsub float %94, %.sroa.speculated.i34.i.i
+  %167 = fmul float %164, %164
   %168 = fmul float %165, %165
-  %169 = fmul float %166, %166
-  %170 = fadd float %168, %169
-  %171 = fmul float %167, %167
-  %172 = fadd float %171, %170
-  %sqrt.i.i.i.i = tail call noundef float @llvm.sqrt.f32(float %172)
-  br label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i
+  %169 = fadd float %167, %168
+  %170 = fmul float %166, %166
+  %171 = fadd float %170, %169
+  %sqrt.i.i.i.i = tail call noundef float @llvm.sqrt.f32(float %171)
+  %172 = fmul float %sqrt.i.i.i.i, %sqrt.i.i.i.i
+  %173 = fcmp olt float %102, %172
+  br i1 %173, label %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit, label %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i.thread
 
-_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i: ; preds = %164, %159, %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
-  %173 = phi float [ %sqrt.i.i.i.i, %164 ], [ 0.000000e+00, %159 ], [ 0.000000e+00, %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit ]
-  %174 = fmul float %173, %173
-  %175 = fcmp olt float %102, %174
-  br i1 %175, label %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit, label %176
-
-176:                                              ; preds = %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i
-  %177 = fsub float %92, %.sroa.0.0.vec.extract.i
-  %178 = fsub float %93, %.sroa.0.4.vec.extract.i
-  %179 = fsub float %94, %2
-  %180 = fmul float %177, %177
-  %181 = fmul float %178, %178
-  %182 = fadd float %180, %181
-  %183 = fmul float %179, %179
-  %184 = fadd float %183, %182
-  %sqrt.i.i.i125 = tail call noundef float @llvm.sqrt.f32(float %184)
+_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i.thread: ; preds = %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit, %159, %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i
+  %174 = phi float [ %172, %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i ], [ 0.000000e+00, %159 ], [ 0.000000e+00, %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit ]
+  %175 = fsub float %92, %.sroa.0.0.vec.extract.i
+  %176 = fsub float %93, %.sroa.0.4.vec.extract.i
+  %177 = fsub float %94, %2
+  %178 = fmul float %175, %175
+  %179 = fmul float %176, %176
+  %180 = fadd float %178, %179
+  %181 = fmul float %177, %177
+  %182 = fadd float %181, %180
+  %sqrt.i.i.i125 = tail call noundef float @llvm.sqrt.f32(float %182)
+  %183 = fdiv float %175, %sqrt.i.i.i125
+  %184 = fdiv float %176, %sqrt.i.i.i125
   %185 = fdiv float %177, %sqrt.i.i.i125
-  %186 = fdiv float %178, %sqrt.i.i.i125
-  %187 = fdiv float %179, %sqrt.i.i.i125
-  %188 = fdiv float %174, %184
-  %189 = fsub float 1.000000e+00, %188
-  %190 = fcmp ogt float %189, 0.000000e+00
-  %.sroa.speculated.i.i = select i1 %190, float %189, float 0.000000e+00
+  %186 = fdiv float %174, %182
+  %187 = fsub float 1.000000e+00, %186
+  %188 = fcmp ogt float %187, 0.000000e+00
+  %.sroa.speculated.i.i = select i1 %188, float %187, float 0.000000e+00
   %sqrt.i.i126 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i.i)
-  %191 = fmul float %185, %185
-  %192 = fmul float %186, %186
-  %193 = fadd float %191, %192
-  %194 = fmul float %187, %187
-  %195 = fadd float %194, %193
-  %sqrt.i.i.i48.i = tail call noundef float @llvm.sqrt.f32(float %195)
-  %196 = fdiv float %187, %sqrt.i.i.i48.i
-  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %196, i64 0
+  %189 = fmul float %183, %183
+  %190 = fmul float %184, %184
+  %191 = fadd float %189, %190
+  %192 = fmul float %185, %185
+  %193 = fadd float %192, %191
+  %sqrt.i.i.i48.i = tail call noundef float @llvm.sqrt.f32(float %193)
+  %194 = fdiv float %185, %sqrt.i.i.i48.i
+  %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %194, i64 0
   %.sroa.3.12.vec.insert.i = insertelement <2 x float> %.sroa.3.8.vec.insert.i, float %sqrt.i.i126, i64 1
   br label %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit
 
-_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit: ; preds = %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i, %176
-  %.sroa.3.0.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i, %176 ], [ <float 1.000000e+00, float -1.000000e+00>, %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i ]
+_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit: ; preds = %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i, %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i.thread
+  %.sroa.3.0.i = phi <2 x float> [ %.sroa.3.12.vec.insert.i, %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i.thread ], [ <float 1.000000e+00, float -1.000000e+00>, %_ZNK4pbrt7Bounds3IfE14BoundingSphereEPNS_6Point3IfEEPf.exit.i ]
   %.sroa.3.12.vec.extract = extractelement <2 x float> %.sroa.3.0.i, i64 1
-  %197 = fmul float %.sroa.3.12.vec.extract, %.sroa.3.12.vec.extract
-  %198 = fsub float 1.000000e+00, %197
-  %199 = fcmp ogt float %198, 0.000000e+00
-  %.sroa.speculated.i129 = select i1 %199, float %198, float 0.000000e+00
+  %195 = fmul float %.sroa.3.12.vec.extract, %.sroa.3.12.vec.extract
+  %196 = fsub float 1.000000e+00, %195
+  %197 = fcmp ogt float %196, 0.000000e+00
+  %.sroa.speculated.i129 = select i1 %197, float %196, float 0.000000e+00
   %sqrt.i130 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i129)
-  %200 = fmul float %82, %82
-  %201 = fsub float 1.000000e+00, %200
-  %202 = fcmp ogt float %201, 0.000000e+00
-  %.sroa.speculated.i131 = select i1 %202, float %201, float 0.000000e+00
+  %198 = fmul float %82, %82
+  %199 = fsub float 1.000000e+00, %198
+  %200 = fcmp ogt float %199, 0.000000e+00
+  %.sroa.speculated.i131 = select i1 %200, float %199, float 0.000000e+00
   %sqrt.i132 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i131)
-  %203 = fcmp ogt float %spec.select, %82
-  %204 = fmul float %82, %spec.select
-  %205 = fmul float %sqrt.i132, %sqrt.i124
-  %206 = fadd float %204, %205
-  %.0.i = select i1 %203, float 1.000000e+00, float %206
-  %207 = fmul float %82, %sqrt.i124
-  %208 = fmul float %sqrt.i132, %spec.select
-  %209 = fsub float %207, %208
-  %.0.i133 = select i1 %203, float 0.000000e+00, float %209
-  %210 = fcmp ogt float %.0.i, %.sroa.3.12.vec.extract
-  %211 = fmul float %.0.i, %.sroa.3.12.vec.extract
-  %212 = fmul float %.0.i133, %sqrt.i130
-  %213 = fadd float %211, %212
-  %.0.i134 = select i1 %210, float 1.000000e+00, float %213
-  %214 = fcmp ugt float %.0.i134, %88
-  br i1 %214, label %215, label %240
+  %201 = fcmp ogt float %spec.select, %82
+  %202 = fmul float %82, %spec.select
+  %203 = fmul float %sqrt.i132, %sqrt.i124
+  %204 = fadd float %202, %203
+  %.0.i = select i1 %201, float 1.000000e+00, float %204
+  %205 = fmul float %82, %sqrt.i124
+  %206 = fmul float %sqrt.i132, %spec.select
+  %207 = fsub float %205, %206
+  %.0.i133 = select i1 %201, float 0.000000e+00, float %207
+  %208 = fcmp ogt float %.0.i, %.sroa.3.12.vec.extract
+  %209 = fmul float %.0.i, %.sroa.3.12.vec.extract
+  %210 = fmul float %.0.i133, %sqrt.i130
+  %211 = fadd float %209, %210
+  %.0.i134 = select i1 %208, float 1.000000e+00, float %211
+  %212 = fcmp ugt float %.0.i134, %88
+  br i1 %212, label %213, label %238
 
-215:                                              ; preds = %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit
-  %216 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %217 = load float, ptr %216, align 4, !tbaa !1136
-  %218 = fmul float %.0.i134, %217
-  %219 = fdiv float %218, %.sroa.speculated148
+213:                                              ; preds = %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit
+  %214 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %215 = load float, ptr %214, align 4, !tbaa !1136
+  %216 = fmul float %.0.i134, %215
+  %217 = fdiv float %216, %.sroa.speculated148
   %.sroa.0163.0.vec.extract = extractelement <2 x float> %3, i64 0
-  %220 = fcmp une float %.sroa.0163.0.vec.extract, 0.000000e+00
+  %218 = fcmp une float %.sroa.0163.0.vec.extract, 0.000000e+00
   %.sroa.0163.4.vec.extract = extractelement <2 x float> %3, i64 1
-  %221 = fcmp une float %.sroa.0163.4.vec.extract, 0.000000e+00
-  %or.cond.i = select i1 %220, i1 true, i1 %221
-  %222 = fcmp une float %4, 0.000000e+00
-  %or.cond = select i1 %or.cond.i, i1 true, i1 %222
-  br i1 %or.cond, label %_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread, label %238
+  %219 = fcmp une float %.sroa.0163.4.vec.extract, 0.000000e+00
+  %or.cond.i = select i1 %218, i1 true, i1 %219
+  %220 = fcmp une float %4, 0.000000e+00
+  %or.cond = select i1 %or.cond.i, i1 true, i1 %220
+  br i1 %or.cond, label %_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread, label %236
 
-_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread: ; preds = %215
-  %223 = fmul float %4, %115
-  %224 = tail call noundef float @llvm.fma.f32(float %.sroa.0163.4.vec.extract, float %114, float %223)
-  %225 = fneg float %223
-  %226 = tail call noundef float @llvm.fma.f32(float %4, float %115, float %225)
-  %227 = fadd float %224, %226
-  %228 = tail call noundef float @llvm.fma.f32(float %.sroa.0163.0.vec.extract, float %113, float %227)
-  %229 = tail call noundef float @llvm.fabs.f32(float %228)
-  %230 = fmul float %228, %228
-  %231 = fsub float 1.000000e+00, %230
-  %232 = fcmp ogt float %231, 0.000000e+00
-  %.sroa.speculated.i139 = select i1 %232, float %231, float 0.000000e+00
+_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread: ; preds = %213
+  %221 = fmul float %4, %115
+  %222 = tail call noundef float @llvm.fma.f32(float %.sroa.0163.4.vec.extract, float %114, float %221)
+  %223 = fneg float %221
+  %224 = tail call noundef float @llvm.fma.f32(float %4, float %115, float %223)
+  %225 = fadd float %222, %224
+  %226 = tail call noundef float @llvm.fma.f32(float %.sroa.0163.0.vec.extract, float %113, float %225)
+  %227 = tail call noundef float @llvm.fabs.f32(float %226)
+  %228 = fmul float %226, %226
+  %229 = fsub float 1.000000e+00, %228
+  %230 = fcmp ogt float %229, 0.000000e+00
+  %.sroa.speculated.i139 = select i1 %230, float %229, float 0.000000e+00
   %sqrt.i140 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i139)
-  %233 = fcmp ogt float %229, %.sroa.3.12.vec.extract
-  %234 = fmul float %229, %.sroa.3.12.vec.extract
-  %235 = fmul float %sqrt.i140, %sqrt.i130
-  %236 = fadd float %234, %235
-  %.0.i141 = select i1 %233, float 1.000000e+00, float %236
-  %237 = fmul float %.0.i141, %219
+  %231 = fcmp ogt float %227, %.sroa.3.12.vec.extract
+  %232 = fmul float %227, %.sroa.3.12.vec.extract
+  %233 = fmul float %sqrt.i140, %sqrt.i130
+  %234 = fadd float %232, %233
+  %.0.i141 = select i1 %231, float 1.000000e+00, float %234
+  %235 = fmul float %.0.i141, %217
+  br label %236
+
+236:                                              ; preds = %213, %_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread
+  %.0169 = phi float [ %235, %_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread ], [ %217, %213 ]
+  %237 = fcmp olt float %.0169, 0.000000e+00
+  %.sroa.speculated = select i1 %237, float 0.000000e+00, float %.0169
   br label %238
 
-238:                                              ; preds = %215, %_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread
-  %.0169 = phi float [ %237, %_ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread ], [ %219, %215 ]
-  %239 = fcmp olt float %.0169, 0.000000e+00
-  %.sroa.speculated = select i1 %239, float 0.000000e+00, float %.0169
-  br label %240
-
-240:                                              ; preds = %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit, %238
-  %.0 = phi float [ %.sroa.speculated, %238 ], [ 0.000000e+00, %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit ]
+238:                                              ; preds = %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit, %236
+  %.0 = phi float [ %.sroa.speculated, %236 ], [ 0.000000e+00, %_ZN4pbrt24BoundSubtendedDirectionsERKNS_7Bounds3IfEENS_6Point3IfEE.exit ]
   ret float %.0
 }
 

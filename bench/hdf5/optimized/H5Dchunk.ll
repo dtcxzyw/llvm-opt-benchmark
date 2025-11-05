@@ -7211,7 +7211,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_flush_entry(ptr noundef 
   %18 = trunc nuw i8 %17 to i1
   %19 = xor i1 %18, true
   %20 = select i1 %16, i1 true, i1 %19
-  br i1 %20, label %21, label %233, !prof !9
+  br i1 %20, label %21, label %232, !prof !9
 
 21:                                               ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -7515,7 +7515,6 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__chunk_flush_entry(ptr noundef 
   %183 = phi ptr [ %178, %177 ], [ %13, %21 ]
   %184 = phi i8 [ %154, %177 ], [ %17, %21 ]
   %185 = phi i8 [ %152, %177 ], [ %15, %21 ]
-  %.066 = phi i1 [ %.470102, %177 ], [ false, %21 ]
   br i1 %2, label %186, label %206
 
 186:                                              ; preds = %182
@@ -7568,66 +7567,64 @@ H5D__chunk_mem_xfree.exit:                        ; preds = %.thread110, %199, %
 
 206:                                              ; preds = %.thread106, %182, %H5D__chunk_mem_xfree.exit, %190
   %207 = phi ptr [ null, %H5D__chunk_mem_xfree.exit ], [ null, %190 ], [ %.pre117, %182 ], [ %.pre116, %.thread106 ]
-  %.571 = phi i1 [ false, %H5D__chunk_mem_xfree.exit ], [ false, %190 ], [ %.066, %182 ], [ %.369.ph, %.thread106 ]
-  %208 = phi i1 [ false, %H5D__chunk_mem_xfree.exit ], [ false, %190 ], [ false, %182 ], [ true, %.thread106 ]
+  %or.cond = phi i1 [ false, %H5D__chunk_mem_xfree.exit ], [ false, %190 ], [ false, %182 ], [ %.369.ph, %.thread106 ]
   %.5 = phi i32 [ 0, %H5D__chunk_mem_xfree.exit ], [ 0, %190 ], [ 0, %182 ], [ -1, %.thread106 ]
-  %209 = load ptr, ptr %4, align 8, !tbaa !172
-  %.not84 = icmp eq ptr %209, %207
-  br i1 %.not84, label %212, label %210
+  %208 = load ptr, ptr %4, align 8, !tbaa !172
+  %.not84 = icmp eq ptr %208, %207
+  br i1 %.not84, label %211, label %209
 
-210:                                              ; preds = %206
-  %211 = call ptr @H5MM_xfree(ptr noundef %209) #15
-  br label %212
+209:                                              ; preds = %206
+  %210 = call ptr @H5MM_xfree(ptr noundef %208) #15
+  br label %211
 
-212:                                              ; preds = %210, %206
-  %or.cond = and i1 %208, %.571
-  br i1 %or.cond, label %213, label %233
+211:                                              ; preds = %209, %206
+  br i1 %or.cond, label %212, label %232
 
-213:                                              ; preds = %212
-  %214 = load ptr, ptr %22, align 8, !tbaa !230
-  %.not85 = icmp eq ptr %214, null
-  br i1 %.not85, label %233, label %215
+212:                                              ; preds = %211
+  %213 = load ptr, ptr %22, align 8, !tbaa !230
+  %.not85 = icmp eq ptr %213, null
+  br i1 %.not85, label %232, label %214
 
-215:                                              ; preds = %213
-  %216 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %217 = load i32, ptr %216, align 4, !tbaa !231
-  %218 = and i32 %217, 1
-  %.not86 = icmp eq i32 %218, 0
-  %219 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
-  %220 = trunc nuw i8 %219 to i1
-  %221 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %222 = trunc nuw i8 %221 to i1
-  %223 = xor i1 %222, true
-  %224 = select i1 %220, i1 true, i1 %223
-  br i1 %.not86, label %225, label %.thread113
+214:                                              ; preds = %212
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %216 = load i32, ptr %215, align 4, !tbaa !231
+  %217 = and i32 %216, 1
+  %.not86 = icmp eq i32 %217, 0
+  %218 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %219 = trunc nuw i8 %218 to i1
+  %220 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %221 = trunc nuw i8 %220 to i1
+  %222 = xor i1 %221, true
+  %223 = select i1 %219, i1 true, i1 %222
+  br i1 %.not86, label %224, label %.thread113
 
-225:                                              ; preds = %215
-  br i1 %224, label %226, label %H5D__chunk_mem_xfree.exit91, !prof !247
+224:                                              ; preds = %214
+  br i1 %223, label %225, label %H5D__chunk_mem_xfree.exit91, !prof !247
 
-.thread113:                                       ; preds = %215
-  br i1 %224, label %.thread114, label %H5D__chunk_mem_xfree.exit91, !prof !247
+.thread113:                                       ; preds = %214
+  br i1 %223, label %.thread114, label %H5D__chunk_mem_xfree.exit91, !prof !247
 
-226:                                              ; preds = %225
-  %227 = load ptr, ptr %12, align 8, !tbaa !10
-  %228 = getelementptr inbounds nuw i8, ptr %227, i64 200
-  %229 = load i64, ptr %228, align 8, !tbaa !191
-  %.not8.i90 = icmp eq i64 %229, 0
-  br i1 %.not8.i90, label %.thread114, label %230
+225:                                              ; preds = %224
+  %226 = load ptr, ptr %12, align 8, !tbaa !10
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 200
+  %228 = load i64, ptr %227, align 8, !tbaa !191
+  %.not8.i90 = icmp eq i64 %228, 0
+  br i1 %.not8.i90, label %.thread114, label %229
 
-230:                                              ; preds = %226
-  %231 = call ptr @H5MM_xfree(ptr noundef nonnull %214) #15
+229:                                              ; preds = %225
+  %230 = call ptr @H5MM_xfree(ptr noundef nonnull %213) #15
   br label %H5D__chunk_mem_xfree.exit91
 
-.thread114:                                       ; preds = %.thread113, %226
-  %232 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_chunk_blk_free_list, ptr noundef nonnull %214) #15
+.thread114:                                       ; preds = %.thread113, %225
+  %231 = call ptr @H5FL_blk_free(ptr noundef nonnull @H5_chunk_blk_free_list, ptr noundef nonnull %213) #15
   br label %H5D__chunk_mem_xfree.exit91
 
-H5D__chunk_mem_xfree.exit91:                      ; preds = %.thread113, %225, %230, %.thread114
+H5D__chunk_mem_xfree.exit91:                      ; preds = %.thread113, %224, %229, %.thread114
   store ptr null, ptr %22, align 8, !tbaa !230
-  br label %233
+  br label %232
 
-233:                                              ; preds = %3, %213, %H5D__chunk_mem_xfree.exit91, %212
-  %.063 = phi i32 [ -1, %H5D__chunk_mem_xfree.exit91 ], [ -1, %213 ], [ %.5, %212 ], [ 0, %3 ]
+232:                                              ; preds = %3, %212, %H5D__chunk_mem_xfree.exit91, %211
+  %.063 = phi i32 [ -1, %H5D__chunk_mem_xfree.exit91 ], [ -1, %212 ], [ %.5, %211 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.063
 }

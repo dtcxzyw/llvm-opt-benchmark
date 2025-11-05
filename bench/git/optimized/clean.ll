@@ -1476,13 +1476,13 @@ _.exit114:                                        ; preds = %138, %_.exit114.sin
   br label %.sink.split
 
 143:                                              ; preds = %136
-  br i1 %.not89, label %144, label %.sink.split
+  br i1 %.not89, label %144, label %.thread.sink.split
 
 144:                                              ; preds = %143
   %145 = load ptr, ptr %30, align 8, !tbaa !89
   %146 = call i32 @lstat_cache_aware_rmdir(ptr noundef %145) #16
   %147 = icmp eq i32 %146, 0
-  br i1 %147, label %.sink.split, label %148
+  br i1 %147, label %.thread.sink.split, label %148
 
 148:                                              ; preds = %144
   %149 = tail call ptr @__errno_location() #19
@@ -1505,23 +1505,20 @@ _.exit120:                                        ; preds = %148, %154
   call void (ptr, ...) @warning_errno(ptr noundef %.0.i119, ptr noundef %157) #16
   br label %.sink.split
 
-.sink.split:                                      ; preds = %144, %143, %_.exit120, %_.exit114
-  %.sink = phi i32 [ 0, %_.exit114 ], [ 0, %_.exit120 ], [ 1, %143 ], [ 1, %144 ]
-  %.6.ph = phi i32 [ %.2, %_.exit114 ], [ 1, %_.exit120 ], [ %.2, %143 ], [ %.2, %144 ]
-  store i32 %.sink, ptr %5, align 4, !tbaa !11
+.sink.split:                                      ; preds = %_.exit120, %_.exit114
+  %.6.ph = phi i32 [ %.2, %_.exit114 ], [ 1, %_.exit120 ]
+  store i32 0, ptr %5, align 4, !tbaa !11
   br label %158
 
 158:                                              ; preds = %.sink.split, %strbuf_setlen.exit111
-  %159 = phi i32 [ 0, %strbuf_setlen.exit111 ], [ %.sink, %.sink.split ]
   %.6 = phi i32 [ %.2, %strbuf_setlen.exit111 ], [ %.6.ph, %.sink.split ]
-  %160 = or i32 %159, %4
-  %or.cond.not = icmp eq i32 %160, 0
+  %or.cond.not = icmp eq i32 %4, 0
   br i1 %or.cond.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %158
-  %161 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %162 = load i64, ptr %161, align 8, !tbaa !56
-  %.not137 = icmp eq i64 %162, 0
+  %159 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %160 = load i64, ptr %159, align 8, !tbaa !56
+  %.not137 = icmp eq i64 %160, 0
   br i1 %.not137, label %.thread, label %.lr.ph136
 
 .lr.ph136:                                        ; preds = %.preheader
@@ -1530,49 +1527,50 @@ _.exit120:                                        ; preds = %148, %154
 
 .lr.ph136.split.us:                               ; preds = %.lr.ph136, %_.exit123.us
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %_.exit123.us ], [ 0, %.lr.ph136 ]
-  %163 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
-  %.not4.i124.us = icmp eq i32 %163, 0
-  br i1 %.not4.i124.us, label %_.exit123.us, label %164
+  %161 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
+  %.not4.i124.us = icmp eq i32 %161, 0
+  br i1 %.not4.i124.us, label %_.exit123.us, label %162
 
-164:                                              ; preds = %.lr.ph136.split.us
-  %165 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #16
+162:                                              ; preds = %.lr.ph136.split.us
+  %163 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.80, i32 noundef 5) #16
   br label %_.exit123.us
 
-_.exit123.us:                                     ; preds = %164, %.lr.ph136.split.us
-  %166 = phi ptr [ %165, %164 ], [ @.str.80, %.lr.ph136.split.us ]
-  %167 = load ptr, ptr %11, align 8, !tbaa !59
-  %168 = getelementptr inbounds nuw %struct.string_list_item, ptr %167, i64 %indvars.iv140
-  %169 = load ptr, ptr %168, align 8, !tbaa !60
-  %170 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %166, ptr noundef %169)
+_.exit123.us:                                     ; preds = %162, %.lr.ph136.split.us
+  %164 = phi ptr [ %163, %162 ], [ @.str.80, %.lr.ph136.split.us ]
+  %165 = load ptr, ptr %11, align 8, !tbaa !59
+  %166 = getelementptr inbounds nuw %struct.string_list_item, ptr %165, i64 %indvars.iv140
+  %167 = load ptr, ptr %166, align 8, !tbaa !60
+  %168 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %164, ptr noundef %167)
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
-  %171 = load i64, ptr %161, align 8, !tbaa !56
-  %172 = icmp ugt i64 %171, %indvars.iv.next141
-  br i1 %172, label %.lr.ph136.split.us, label %.thread, !llvm.loop !98
+  %169 = load i64, ptr %159, align 8, !tbaa !56
+  %170 = icmp ugt i64 %169, %indvars.iv.next141
+  br i1 %170, label %.lr.ph136.split.us, label %.thread, !llvm.loop !98
 
 .lr.ph136.split:                                  ; preds = %.lr.ph136, %_.exit123
   %indvars.iv = phi i64 [ %indvars.iv.next, %_.exit123 ], [ 0, %.lr.ph136 ]
-  %173 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
-  %.not4.i121 = icmp eq i32 %173, 0
-  br i1 %.not4.i121, label %_.exit123, label %174
+  %171 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !11
+  %.not4.i121 = icmp eq i32 %171, 0
+  br i1 %.not4.i121, label %_.exit123, label %172
 
-174:                                              ; preds = %.lr.ph136.split
-  %175 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.79, i32 noundef 5) #16
+172:                                              ; preds = %.lr.ph136.split
+  %173 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.79, i32 noundef 5) #16
   br label %_.exit123
 
-_.exit123:                                        ; preds = %174, %.lr.ph136.split
-  %176 = phi ptr [ %175, %174 ], [ @.str.79, %.lr.ph136.split ]
-  %177 = load ptr, ptr %11, align 8, !tbaa !59
-  %178 = getelementptr inbounds nuw %struct.string_list_item, ptr %177, i64 %indvars.iv
-  %179 = load ptr, ptr %178, align 8, !tbaa !60
-  %180 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %176, ptr noundef %179)
+_.exit123:                                        ; preds = %172, %.lr.ph136.split
+  %174 = phi ptr [ %173, %172 ], [ @.str.79, %.lr.ph136.split ]
+  %175 = load ptr, ptr %11, align 8, !tbaa !59
+  %176 = getelementptr inbounds nuw %struct.string_list_item, ptr %175, i64 %indvars.iv
+  %177 = load ptr, ptr %176, align 8, !tbaa !60
+  %178 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %174, ptr noundef %177)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %181 = load i64, ptr %161, align 8, !tbaa !56
-  %182 = icmp ugt i64 %181, %indvars.iv.next
-  br i1 %182, label %.lr.ph136.split, label %.thread, !llvm.loop !98
+  %179 = load i64, ptr %159, align 8, !tbaa !56
+  %180 = icmp ugt i64 %179, %indvars.iv.next
+  br i1 %180, label %.lr.ph136.split, label %.thread, !llvm.loop !98
 
-.thread.sink.split:                               ; preds = %18, %_.exit, %_.exit102
-  %.069.ph = phi i32 [ %36, %_.exit102 ], [ 0, %_.exit ], [ 0, %18 ]
-  store i32 0, ptr %5, align 4, !tbaa !11
+.thread.sink.split:                               ; preds = %143, %144, %18, %_.exit, %_.exit102
+  %.sink = phi i32 [ 0, %_.exit102 ], [ 0, %_.exit ], [ 0, %18 ], [ 1, %144 ], [ 1, %143 ]
+  %.069.ph = phi i32 [ %36, %_.exit102 ], [ 0, %_.exit ], [ 0, %18 ], [ %.2, %144 ], [ %.2, %143 ]
+  store i32 %.sink, ptr %5, align 4, !tbaa !11
   br label %.thread
 
 .thread:                                          ; preds = %_.exit123, %_.exit123.us, %.thread.sink.split, %.preheader, %33, %34, %158

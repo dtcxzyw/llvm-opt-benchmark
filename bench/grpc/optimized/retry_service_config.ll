@@ -814,7 +814,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %_ZNK9grpc_core12exp
 
 .preheader:                                       ; preds = %90
   %.not130 = icmp ugt i64 %85, 2
-  br i1 %.not130, label %._crit_edge, label %.lr.ph.preheader
+  br i1 %.not130, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %92 = xor i64 %.sroa.089.0, 3
@@ -831,17 +831,16 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i:       ; preds = %_ZNK9grpc_core12exp
   %94 = mul i32 %.036128, 10
   %95 = add nuw nsw i64 %.035129, 1
   %exitcond.not = icmp eq i64 %95, %umax
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !41
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  %.036.lcssa = phi i32 [ 1, %.preheader ], [ %94, %.lr.ph ]
-  %96 = mul i32 %.036.lcssa, %91
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %96 = mul i32 %94, %91
   br label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread
 
-_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %._crit_edge, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
-  %.0 = phi i32 [ %96, %._crit_edge ], [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ]
-  %.sroa.095.0 = phi i64 [ %80, %._crit_edge ], [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ %76, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ]
-  %.038 = phi i32 [ 1000, %._crit_edge ], [ 1, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ]
+_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread: ; preds = %.preheader, %._crit_edge.loopexit, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit
+  %.0 = phi i32 [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %91, %.preheader ], [ %96, %._crit_edge.loopexit ]
+  %.sroa.095.0 = phi i64 [ 0, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ %76, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ %80, %.preheader ], [ %80, %._crit_edge.loopexit ]
+  %.038 = phi i32 [ 1, %_ZNK9grpc_core12experimental4Json6stringB5cxx11Ev.exit ], [ 1, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i ], [ 1000, %.preheader ], [ 1000, %._crit_edge.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %97 = invoke noundef zeroext i1 @_ZN4absl12lts_2024072216numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %.sroa.095.0, ptr %74, ptr noundef nonnull %5, i32 noundef 10)
           to label %98 unwind label %100
@@ -985,8 +984,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   %.not = icmp ugt i64 %39, %35
   %40 = load i32, ptr %11, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %41 = select i1 %.not, i64 0, i64 4294967296
-  %42 = zext i32 %40 to i64
+  %41 = zext i32 %40 to i64
+  %42 = or disjoint i64 %41, 4294967296
   %43 = select i1 %.not, i64 0, i64 %42
   br label %46
 
@@ -997,8 +996,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   br label %50
 
 46:                                               ; preds = %38, %22
-  %.sroa.2.0 = phi i64 [ %41, %38 ], [ 0, %22 ]
-  %.sroa.0.0 = phi i64 [ %43, %38 ], [ 0, %22 ]
+  %.sroa.2.0 = phi i64 [ %43, %38 ], [ 0, %22 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %47
 
@@ -1011,8 +1009,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.sroa.0.0.insert.insert = or i64 %.sroa.0.0, %.sroa.2.0
-  ret i64 %.sroa.0.0.insert.insert
+  ret i64 %.sroa.2.0
 
 50:                                               ; preds = %44, %31
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %32, %31 ]

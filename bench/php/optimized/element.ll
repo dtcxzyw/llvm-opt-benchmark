@@ -2443,7 +2443,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %28, %php_dom_follow
   %103 = call i32 @dom_check_qname(ptr noundef nonnull %99, ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef %101, i32 noundef %102) #11
   store i32 %103, ptr %5, align 4, !tbaa !9
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %105, label %201
+  br i1 %104, label %105, label %198
 
 105:                                              ; preds = %98
   %106 = load ptr, ptr %30, align 8, !tbaa !16
@@ -2465,7 +2465,7 @@ php_dom_follow_spec_doc_ref.exit.thread:          ; preds = %28, %php_dom_follow
 dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %107, %105
   %.not.i13 = icmp eq i64 %91, 0
   %115 = load ptr, ptr %3, align 8, !tbaa !4
-  br i1 %.not.i13, label %186, label %116
+  br i1 %.not.i13, label %183, label %116
 
 116:                                              ; preds = %dom_mark_document_cache_as_modified_since_parsing.exit.i
   %117 = call ptr @xmlHasNsProp(ptr noundef %29, ptr noundef %115, ptr noundef %86) #11
@@ -2513,7 +2513,7 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %107, %105
   %.sink.i = select i1 %137, ptr null, ptr %138
   %139 = call ptr @dom_get_nsdecl(ptr noundef %29, ptr noundef %.sink.i) #11
   %140 = icmp eq ptr %139, null
-  br i1 %140, label %161, label %175
+  br i1 %140, label %161, label %169
 
 141:                                              ; preds = %133, %130, %127
   %142 = getelementptr inbounds nuw i8, ptr %29, i64 64
@@ -2526,7 +2526,7 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %107, %105
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 24
   %147 = load ptr, ptr %146, align 8, !tbaa !75
   %148 = icmp eq ptr %147, null
-  br i1 %148, label %.preheader.i, label %.thread92.i
+  br i1 %148, label %.preheader.i, label %.thread92.thread.i
 
 .preheader.i:                                     ; preds = %145
   %.095.i = load ptr, ptr %144, align 8, !tbaa !85
@@ -2549,7 +2549,7 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %107, %105
 154:                                              ; preds = %151
   %155 = call i32 @xmlStrEqual(ptr noundef nonnull %153, ptr noundef %86) #11
   %.not80.i = icmp eq i32 %155, 0
-  br i1 %.not80.i, label %156, label %.thread92.i
+  br i1 %.not80.i, label %156, label %.thread92.thread.i
 
 156:                                              ; preds = %154, %151, %.lr.ph.i
   %.0.i = load ptr, ptr %.097.i, align 8, !tbaa !85
@@ -2561,7 +2561,7 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %107, %105
   %158 = load ptr, ptr %157, align 8, !tbaa !67
   %159 = call ptr @dom_get_ns_resolve_prefix_conflict(ptr noundef %29, ptr noundef %158) #11
   %160 = icmp eq ptr %159, null
-  br i1 %160, label %.thread91.i, label %.thread92.i
+  br i1 %160, label %.thread91.i, label %.thread92.thread.i
 
 161:                                              ; preds = %135
   %162 = load ptr, ptr %4, align 8, !tbaa !4
@@ -2569,113 +2569,108 @@ dom_mark_document_cache_as_modified_since_parsing.exit.i: ; preds = %107, %105
   %164 = load ptr, ptr %3, align 8
   %165 = select i1 %163, ptr null, ptr %164
   %166 = call ptr @xmlNewNs(ptr noundef %29, ptr noundef %95, ptr noundef %165) #11
-  br label %169
+  br label %.thread92.i
 
 .thread91.i:                                      ; preds = %.thread.i, %141
   %167 = load ptr, ptr %4, align 8, !tbaa !4
   %168 = call ptr @dom_get_ns(ptr noundef %29, ptr noundef %86, ptr noundef nonnull %5, ptr noundef %167) #11
-  br label %169
-
-169:                                              ; preds = %.thread91.i, %161
-  %170 = phi i1 [ false, %161 ], [ true, %.thread91.i ]
-  %.3.i = phi ptr [ null, %161 ], [ %168, %.thread91.i ]
-  %171 = getelementptr inbounds nuw i8, ptr %29, i64 64
-  %172 = load ptr, ptr %171, align 8, !tbaa !65
-  %173 = call i32 @xmlReconciliateNs(ptr noundef %172, ptr noundef %29) #11
-  %.pre.i = load i32, ptr %5, align 4, !tbaa !9
-  %174 = icmp eq i32 %.pre.i, 0
   br label %.thread92.i
 
-175:                                              ; preds = %135
-  %176 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  %177 = load ptr, ptr %176, align 8, !tbaa !67
-  %.not81.i = icmp eq ptr %177, null
-  br i1 %.not81.i, label %.thread92.thread.i, label %178
+169:                                              ; preds = %135
+  %170 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %171 = load ptr, ptr %170, align 8, !tbaa !67
+  %.not81.i = icmp eq ptr %171, null
+  br i1 %.not81.i, label %.thread92.thread117.i, label %172
 
-178:                                              ; preds = %175
-  %179 = load ptr, ptr @xmlFree, align 8, !tbaa !14
-  call void %179(ptr noundef nonnull %177) #11
-  br label %.thread92.thread.i
+172:                                              ; preds = %169
+  %173 = load ptr, ptr @xmlFree, align 8, !tbaa !14
+  call void %173(ptr noundef nonnull %171) #11
+  br label %.thread92.thread117.i
 
-.thread92.thread.i:                               ; preds = %178, %175
-  %180 = call ptr @xmlStrdup(ptr noundef %95) #11
-  store ptr %180, ptr %176, align 8, !tbaa !67
-  br label %201
-
-.thread92.i:                                      ; preds = %154, %169, %.thread.i, %145
-  %181 = phi i1 [ %174, %169 ], [ true, %145 ], [ true, %.thread.i ], [ true, %154 ]
-  %182 = phi i1 [ %170, %169 ], [ true, %145 ], [ true, %.thread.i ], [ true, %154 ]
-  %.4.i = phi ptr [ %.3.i, %169 ], [ %144, %145 ], [ %159, %.thread.i ], [ %.097.i, %154 ]
-  %or.cond.i = and i1 %181, %182
-  br i1 %or.cond.i, label %183, label %201
-
-183:                                              ; preds = %.thread92.i
-  %184 = load ptr, ptr %3, align 8, !tbaa !4
-  %185 = call ptr @xmlSetNsProp(ptr noundef %29, ptr noundef %.4.i, ptr noundef %184, ptr noundef %95) #11
-  br label %201
-
-186:                                              ; preds = %dom_mark_document_cache_as_modified_since_parsing.exit.i
-  %187 = call i32 @xmlValidateName(ptr noundef %115, i32 noundef 0) #11
-  %.not68.i = icmp eq i32 %187, 0
-  br i1 %.not68.i, label %189, label %188
-
-188:                                              ; preds = %186
-  store i32 5, ptr %5, align 4, !tbaa !9
-  br label %201
-
-189:                                              ; preds = %186
-  %190 = load ptr, ptr %3, align 8, !tbaa !4
-  %191 = call ptr @xmlHasProp(ptr noundef %29, ptr noundef %190) #11
-  %.not69.i = icmp eq ptr %191, null
-  br i1 %.not69.i, label %198, label %192
-
-192:                                              ; preds = %189
-  %193 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  %194 = load i32, ptr %193, align 8, !tbaa !93
-  %.not70.i = icmp eq i32 %194, 16
-  br i1 %.not70.i, label %198, label %195
-
-195:                                              ; preds = %192
-  %196 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %197 = load ptr, ptr %196, align 8, !tbaa !96
-  call void @node_list_unlink(ptr noundef %197) #11
+.thread92.thread117.i:                            ; preds = %172, %169
+  %174 = call ptr @xmlStrdup(ptr noundef %95) #11
+  store ptr %174, ptr %170, align 8, !tbaa !67
   br label %198
 
-198:                                              ; preds = %195, %192, %189
-  %199 = load ptr, ptr %3, align 8, !tbaa !4
-  %200 = call ptr @xmlSetProp(ptr noundef %29, ptr noundef %199, ptr noundef %95) #11
-  br label %201
+.thread92.i:                                      ; preds = %.thread91.i, %161
+  %175 = phi i1 [ false, %161 ], [ true, %.thread91.i ]
+  %.3.i = phi ptr [ null, %161 ], [ %168, %.thread91.i ]
+  %176 = getelementptr inbounds nuw i8, ptr %29, i64 64
+  %177 = load ptr, ptr %176, align 8, !tbaa !65
+  %178 = call i32 @xmlReconciliateNs(ptr noundef %177, ptr noundef %29) #11
+  %.pre.i = load i32, ptr %5, align 4, !tbaa !9
+  %179 = icmp eq i32 %.pre.i, 0
+  %180 = and i1 %175, %179
+  br i1 %180, label %.thread92.thread.i, label %198
 
-201:                                              ; preds = %198, %188, %183, %.thread92.i, %.thread92.thread.i, %98
-  %.056.shrunk.i = phi i1 [ %100, %183 ], [ %100, %.thread92.i ], [ true, %188 ], [ %100, %198 ], [ %100, %98 ], [ %100, %.thread92.thread.i ]
-  %202 = load ptr, ptr @xmlFree, align 8, !tbaa !14
-  %203 = load ptr, ptr %3, align 8, !tbaa !4
-  call void %202(ptr noundef %203) #11
-  %204 = load ptr, ptr %4, align 8, !tbaa !4
-  %.not82.i = icmp eq ptr %204, null
-  br i1 %.not82.i, label %207, label %205
+.thread92.thread.i:                               ; preds = %154, %.thread92.i, %.thread.i, %145
+  %.4116.i = phi ptr [ %.3.i, %.thread92.i ], [ %159, %.thread.i ], [ %144, %145 ], [ %.097.i, %154 ]
+  %181 = load ptr, ptr %3, align 8, !tbaa !4
+  %182 = call ptr @xmlSetNsProp(ptr noundef %29, ptr noundef %.4116.i, ptr noundef %181, ptr noundef %95) #11
+  br label %198
 
-205:                                              ; preds = %201
-  %206 = load ptr, ptr @xmlFree, align 8, !tbaa !14
-  call void %206(ptr noundef nonnull %204) #11
+183:                                              ; preds = %dom_mark_document_cache_as_modified_since_parsing.exit.i
+  %184 = call i32 @xmlValidateName(ptr noundef %115, i32 noundef 0) #11
+  %.not68.i = icmp eq i32 %184, 0
+  br i1 %.not68.i, label %186, label %185
+
+185:                                              ; preds = %183
+  store i32 5, ptr %5, align 4, !tbaa !9
+  br label %198
+
+186:                                              ; preds = %183
+  %187 = load ptr, ptr %3, align 8, !tbaa !4
+  %188 = call ptr @xmlHasProp(ptr noundef %29, ptr noundef %187) #11
+  %.not69.i = icmp eq ptr %188, null
+  br i1 %.not69.i, label %195, label %189
+
+189:                                              ; preds = %186
+  %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %191 = load i32, ptr %190, align 8, !tbaa !93
+  %.not70.i = icmp eq i32 %191, 16
+  br i1 %.not70.i, label %195, label %192
+
+192:                                              ; preds = %189
+  %193 = getelementptr inbounds nuw i8, ptr %188, i64 24
+  %194 = load ptr, ptr %193, align 8, !tbaa !96
+  call void @node_list_unlink(ptr noundef %194) #11
+  br label %195
+
+195:                                              ; preds = %192, %189, %186
+  %196 = load ptr, ptr %3, align 8, !tbaa !4
+  %197 = call ptr @xmlSetProp(ptr noundef %29, ptr noundef %196, ptr noundef %95) #11
+  br label %198
+
+198:                                              ; preds = %195, %185, %.thread92.thread.i, %.thread92.i, %.thread92.thread117.i, %98
+  %.056.shrunk.i = phi i1 [ %100, %.thread92.thread.i ], [ %100, %.thread92.i ], [ true, %185 ], [ %100, %195 ], [ %100, %98 ], [ %100, %.thread92.thread117.i ]
+  %199 = load ptr, ptr @xmlFree, align 8, !tbaa !14
+  %200 = load ptr, ptr %3, align 8, !tbaa !4
+  call void %199(ptr noundef %200) #11
+  %201 = load ptr, ptr %4, align 8, !tbaa !4
+  %.not82.i = icmp eq ptr %201, null
+  br i1 %.not82.i, label %204, label %202
+
+202:                                              ; preds = %198
+  %203 = load ptr, ptr @xmlFree, align 8, !tbaa !14
+  call void %203(ptr noundef nonnull %201) #11
+  br label %204
+
+204:                                              ; preds = %202, %198
+  %205 = load i32, ptr %5, align 4, !tbaa !9
+  %.not83.i = icmp eq i32 %205, 0
+  br i1 %.not83.i, label %207, label %206
+
+206:                                              ; preds = %204
+  call void @php_dom_throw_error(i32 noundef %205, i1 noundef zeroext %.056.shrunk.i) #11
   br label %207
 
-207:                                              ; preds = %205, %201
-  %208 = load i32, ptr %5, align 4, !tbaa !9
-  %.not83.i = icmp eq i32 %208, 0
-  br i1 %.not83.i, label %210, label %209
-
-209:                                              ; preds = %207
-  call void @php_dom_throw_error(i32 noundef %208, i1 noundef zeroext %.056.shrunk.i) #11
-  br label %210
-
-210:                                              ; preds = %209, %207
+207:                                              ; preds = %206, %204
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %dom_set_attribute_ns_legacy.exit
 
-dom_set_attribute_ns_legacy.exit:                 ; preds = %2, %210, %97, %dom_set_attribute_ns_modern.exit, %22
+dom_set_attribute_ns_legacy.exit:                 ; preds = %2, %207, %97, %dom_set_attribute_ns_modern.exit, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

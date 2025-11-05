@@ -3237,8 +3237,8 @@ _ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i:
   br i1 %cmp12.not.i.i.i, label %if.end.i.i, label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
 
 if.end.i.i:                                       ; preds = %_ZN4node18ContextEmbedderTag13IsNodeContextEN2v85LocalINS1_7ContextEEE.exit.i.i
-  %sub.i.i.i58 = add i64 %4, 271
-  %9 = inttoptr i64 %sub.i.i.i58 to ptr
+  %sub.i.i.i61 = add i64 %4, 271
+  %9 = inttoptr i64 %sub.i.i.i61 to ptr
   %10 = load i64, ptr %9, align 8
   %11 = inttoptr i64 %10 to ptr
   br label %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
@@ -3257,23 +3257,23 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   call fastcc void @_ZN4node6crypto12_GLOBAL__N_125GetKeyFormatAndTypeFromJsEPNS0_27AsymmetricKeyEncodingConfigERKN2v820FunctionCallbackInfoINS4_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef %result, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef %offset, i32 noundef %context)
   %12 = load i8, ptr %result, align 8
   %tobool = trunc i8 %12 to i1
-  %.pre85 = load i32, ptr %offset, align 4
+  %.pre87 = load i32, ptr %offset, align 4
   %cmp.not = icmp ne i32 %context, 0
   br i1 %tobool, label %if.then, label %if.else
 
 if.then:                                          ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %inc = zext i1 %cmp.not to i32
-  %spec.select = add i32 %.pre85, %inc
+  %spec.select = add i32 %.pre87, %inc
   br label %if.end106
 
 if.else:                                          ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   br i1 %cmp.not, label %if.then3, label %if.end42
 
 if.then3:                                         ; preds = %if.else
-  %cmp.i186 = icmp sgt i32 %.pre85, -1
+  %cmp.i186 = icmp sgt i32 %.pre87, -1
   %length_.i188 = getelementptr inbounds nuw i8, ptr %args, i64 16
   %13 = load i32, ptr %length_.i188, align 8
-  %cmp2.i189.not = icmp sgt i32 %13, %.pre85
+  %cmp2.i189.not = icmp sgt i32 %13, %.pre87
   %or.cond = select i1 %cmp.i186, i1 %cmp2.i189.not, i1 false
   br i1 %or.cond, label %if.end.i190, label %if.then.i195
 
@@ -3289,7 +3289,7 @@ if.then.i195:                                     ; preds = %if.then3
 if.end.i190:                                      ; preds = %if.then3
   %values_.i191 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %18 = load ptr, ptr %values_.i191, align 8
-  %idx.ext.i192 = zext nneg i32 %.pre85 to i64
+  %idx.ext.i192 = zext nneg i32 %.pre87 to i64
   %add.ptr.i193 = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i192
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit198
 
@@ -3327,7 +3327,7 @@ if.then.i177:                                     ; preds = %if.then9
 if.end.i172:                                      ; preds = %if.then9
   %values_.i173 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %29 = load ptr, ptr %values_.i173, align 8
-  %idx.ext.i174 = zext nneg i32 %.pre85 to i64
+  %idx.ext.i174 = zext nneg i32 %.pre87 to i64
   %add.ptr.i175 = getelementptr inbounds nuw i64, ptr %29, i64 %idx.ext.i174
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit180
 
@@ -3358,10 +3358,10 @@ if.then22:                                        ; preds = %_ZNK2v820FunctionCa
   %value_.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i, i8 0, i64 24, i1 false)
   %32 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i59 = icmp ne ptr %32, null
+  %cmp.i.i.i.i62 = icmp ne ptr %32, null
   %buf_st_.i.i.i = getelementptr inbounds nuw i8, ptr %cipher_name, i64 24
-  %cmp.i.i.i60 = icmp ne ptr %32, %buf_st_.i.i.i
-  %33 = select i1 %cmp.i.i.i.i59, i1 %cmp.i.i.i60, i1 false
+  %cmp.i.i.i63 = icmp ne ptr %32, %buf_st_.i.i.i
+  %33 = select i1 %cmp.i.i.i.i62, i1 %cmp.i.i.i63, i1 false
   br i1 %33, label %if.then.i.i, label %cleanup108
 
 if.then.i.i:                                      ; preds = %if.then22
@@ -3383,7 +3383,7 @@ if.then.i159:                                     ; preds = %do.body
 if.end.i154:                                      ; preds = %do.body
   %values_.i155 = getelementptr inbounds nuw i8, ptr %args, i64 8
   %38 = load ptr, ptr %values_.i155, align 8
-  %idx.ext.i156 = zext nneg i32 %.pre85 to i64
+  %idx.ext.i156 = zext nneg i32 %.pre87 to i64
   %add.ptr.i157 = getelementptr inbounds nuw i64, ptr %38, i64 %idx.ext.i156
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit162
 
@@ -3427,51 +3427,51 @@ do.end38:                                         ; preds = %if.end5.i, %if.end5
 
 if.end40.critedge:                                ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit180
   %46 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i62 = icmp ne ptr %46, null
-  %buf_st_.i.i.i63 = getelementptr inbounds nuw i8, ptr %cipher_name, i64 24
-  %cmp.i.i.i64 = icmp ne ptr %46, %buf_st_.i.i.i63
-  %47 = select i1 %cmp.i.i.i.i62, i1 %cmp.i.i.i64, i1 false
-  br i1 %47, label %if.then.i.i65, label %if.end40
+  %cmp.i.i.i.i65 = icmp ne ptr %46, null
+  %buf_st_.i.i.i66 = getelementptr inbounds nuw i8, ptr %cipher_name, i64 24
+  %cmp.i.i.i67 = icmp ne ptr %46, %buf_st_.i.i.i66
+  %47 = select i1 %cmp.i.i.i.i65, i1 %cmp.i.i.i67, i1 false
+  br i1 %47, label %if.then.i.i68, label %if.end40
 
-if.then.i.i65:                                    ; preds = %if.end40.critedge
+if.then.i.i68:                                    ; preds = %if.end40.critedge
   call void @free(ptr noundef nonnull %46) #23
   br label %if.end40
 
-if.end40:                                         ; preds = %if.then.i.i65, %if.end40.critedge, %do.end38
-  %48 = phi i1 [ true, %do.end38 ], [ false, %if.end40.critedge ], [ false, %if.then.i.i65 ]
-  %49 = load i32, ptr %offset, align 4
-  %inc41 = add i32 %49, 1
+if.end40:                                         ; preds = %if.then.i.i68, %if.end40.critedge, %do.end38
+  %needs_passphrase.2 = phi i1 [ false, %do.end38 ], [ true, %if.end40.critedge ], [ true, %if.then.i.i68 ]
+  %48 = load i32, ptr %offset, align 4
+  %inc41 = add i32 %48, 1
   store i32 %inc41, ptr %offset, align 4
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end40, %if.else
-  %50 = phi i32 [ %inc41, %if.end40 ], [ %.pre85, %if.else ]
-  %needs_passphrase.0 = phi i1 [ %48, %if.end40 ], [ true, %if.else ]
-  %cmp.i132 = icmp sgt i32 %50, -1
+  %49 = phi i32 [ %inc41, %if.end40 ], [ %.pre87, %if.else ]
+  %needs_passphrase.0.not = phi i1 [ %needs_passphrase.2, %if.end40 ], [ false, %if.else ]
+  %cmp.i132 = icmp sgt i32 %49, -1
   %length_.i134 = getelementptr inbounds nuw i8, ptr %args, i64 16
-  %51 = load i32, ptr %length_.i134, align 8
-  %cmp2.i135.not = icmp sgt i32 %51, %50
-  %or.cond55 = select i1 %cmp.i132, i1 %cmp2.i135.not, i1 false
-  br i1 %or.cond55, label %if.end.i136, label %if.then.i141
+  %50 = load i32, ptr %length_.i134, align 8
+  %cmp2.i135.not = icmp sgt i32 %50, %49
+  %or.cond58 = select i1 %cmp.i132, i1 %cmp2.i135.not, i1 false
+  br i1 %or.cond58, label %if.end.i136, label %if.then.i141
 
 if.then.i141:                                     ; preds = %if.end42
-  %52 = load ptr, ptr %args, align 8
-  %arrayidx.i270 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %53 = load ptr, ptr %arrayidx.i270, align 8
-  %54 = ptrtoint ptr %53 to i64
-  %add1.i380 = add i64 %54, 608
-  %55 = inttoptr i64 %add1.i380 to ptr
+  %51 = load ptr, ptr %args, align 8
+  %arrayidx.i270 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %52 = load ptr, ptr %arrayidx.i270, align 8
+  %53 = ptrtoint ptr %52 to i64
+  %add1.i380 = add i64 %53, 608
+  %54 = inttoptr i64 %add1.i380 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit144
 
 if.end.i136:                                      ; preds = %if.end42
   %values_.i137 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %56 = load ptr, ptr %values_.i137, align 8
-  %idx.ext.i138 = zext nneg i32 %50 to i64
-  %add.ptr.i139 = getelementptr inbounds nuw i64, ptr %56, i64 %idx.ext.i138
+  %55 = load ptr, ptr %values_.i137, align 8
+  %idx.ext.i138 = zext nneg i32 %49 to i64
+  %add.ptr.i139 = getelementptr inbounds nuw i64, ptr %55, i64 %idx.ext.i138
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit144
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit144: ; preds = %if.end.i136, %if.then.i141
-  %retval.i127.sroa.0.0 = phi ptr [ %55, %if.then.i141 ], [ %add.ptr.i139, %if.end.i136 ]
+  %retval.i127.sroa.0.0 = phi ptr [ %54, %if.then.i141 ], [ %add.ptr.i139, %if.end.i136 ]
   %call3.i = call noundef zeroext i1 @_ZNK2v85Value17IsArrayBufferViewEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i127.sroa.0.0) #23
   br i1 %call3.i, label %do.body53, label %lor.lhs.false.i
 
@@ -3485,10 +3485,10 @@ _ZN4node6crypto17IsAnyBufferSourceEN2v85LocalINS1_5ValueEEE.exit: ; preds = %lor
 
 do.body53:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit144, %lor.lhs.false.i, %_ZN4node6crypto17IsAnyBufferSourceEN2v85LocalINS1_5ValueEEE.exit
   %cipher_55 = getelementptr inbounds nuw i8, ptr %result, i64 16
-  %57 = load ptr, ptr %cipher_55, align 8
-  %cmp56 = icmp eq ptr %57, null
-  %.not52 = select i1 %cmp.not, i1 %cmp56, i1 false
-  br i1 %.not52, label %do.body61, label %do.end66
+  %56 = load ptr, ptr %cipher_55, align 8
+  %cmp56 = icmp eq ptr %56, null
+  %.not55 = select i1 %cmp.not, i1 %cmp56, i1 false
+  br i1 %.not55, label %do.body61, label %do.end66
 
 do.body61:                                        ; preds = %do.body53
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto14ManagedEVPPKey27GetPrivateKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextEE4args_0) #23
@@ -3496,143 +3496,143 @@ do.body61:                                        ; preds = %do.body53
   unreachable
 
 do.end66:                                         ; preds = %do.body53
-  %58 = load i32, ptr %offset, align 4
-  %cmp.i114 = icmp sgt i32 %58, -1
-  %59 = load i32, ptr %length_.i134, align 8
-  %cmp2.i117.not = icmp sgt i32 %59, %58
-  %or.cond56 = select i1 %cmp.i114, i1 %cmp2.i117.not, i1 false
-  br i1 %or.cond56, label %if.end.i118, label %if.then.i123
+  %57 = load i32, ptr %offset, align 4
+  %cmp.i114 = icmp sgt i32 %57, -1
+  %58 = load i32, ptr %length_.i134, align 8
+  %cmp2.i117.not = icmp sgt i32 %58, %57
+  %or.cond59 = select i1 %cmp.i114, i1 %cmp2.i117.not, i1 false
+  br i1 %or.cond59, label %if.end.i118, label %if.then.i123
 
 if.then.i123:                                     ; preds = %do.end66
-  %60 = load ptr, ptr %args, align 8
-  %arrayidx.i273 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %61 = load ptr, ptr %arrayidx.i273, align 8
-  %62 = ptrtoint ptr %61 to i64
-  %add1.i373 = add i64 %62, 608
-  %63 = inttoptr i64 %add1.i373 to ptr
+  %59 = load ptr, ptr %args, align 8
+  %arrayidx.i273 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %60 = load ptr, ptr %arrayidx.i273, align 8
+  %61 = ptrtoint ptr %60 to i64
+  %add1.i373 = add i64 %61, 608
+  %62 = inttoptr i64 %add1.i373 to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit126
 
 if.end.i118:                                      ; preds = %do.end66
   %values_.i119 = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %64 = load ptr, ptr %values_.i119, align 8
-  %idx.ext.i120 = zext nneg i32 %58 to i64
-  %add.ptr.i121 = getelementptr inbounds nuw i64, ptr %64, i64 %idx.ext.i120
+  %63 = load ptr, ptr %values_.i119, align 8
+  %idx.ext.i120 = zext nneg i32 %57 to i64
+  %add.ptr.i121 = getelementptr inbounds nuw i64, ptr %63, i64 %idx.ext.i120
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit126
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit126: ; preds = %if.end.i118, %if.then.i123
-  %retval.i109.sroa.0.0 = phi ptr [ %63, %if.then.i123 ], [ %add.ptr.i121, %if.end.i118 ]
+  %retval.i109.sroa.0.0 = phi ptr [ %62, %if.then.i123 ], [ %add.ptr.i121, %if.end.i118 ]
   call void @_ZN4node6crypto25ArrayBufferOrViewContentsIcEC2EN2v85LocalINS3_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(32) %passphrase, ptr %retval.i109.sroa.0.0)
   %length_.i.i = getelementptr inbounds nuw i8, ptr %passphrase, i64 16
-  %65 = load i64, ptr %length_.i.i, align 8
-  %cmp.i67 = icmp ult i64 %65, 2147483648
-  br i1 %cmp.i67, label %if.end80, label %if.then79
+  %64 = load i64, ptr %length_.i.i, align 8
+  %cmp.i70 = icmp ult i64 %64, 2147483648
+  br i1 %cmp.i70, label %if.end80, label %if.then79
 
 if.then79:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit126
-  %isolate_.i.i68 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
-  %66 = load ptr, ptr %isolate_.i.i68, align 8
-  %call.i.i69 = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %66, ptr noundef nonnull @.str.9)
-  %call6.i.i70 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %66, ptr %call.i.i69) #23
+  %isolate_.i.i71 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
+  %65 = load ptr, ptr %isolate_.i.i71, align 8
+  %call.i.i72 = call ptr @_ZN4node16ERR_OUT_OF_RANGEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %65, ptr noundef nonnull @.str.9)
+  %call6.i.i73 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %65, ptr %call.i.i72) #23
   store i8 1, ptr %agg.result, align 8
-  %value_.i71 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  store i8 0, ptr %value_.i71, align 8
-  %format_.i.i.i72 = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
-  store i32 0, ptr %format_.i.i.i72, align 4
-  %type_.i.i.i73 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store i64 0, ptr %type_.i.i.i73, align 8
-  %passphrase_.i.i74 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  store i8 1, ptr %passphrase_.i.i74, align 8
-  %value_.i.i.i75 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i75, i8 0, i64 24, i1 false)
+  %value_.i74 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  store i8 0, ptr %value_.i74, align 8
+  %format_.i.i.i75 = getelementptr inbounds nuw i8, ptr %agg.result, i64 12
+  store i32 0, ptr %format_.i.i.i75, align 4
+  %type_.i.i.i76 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
+  store i64 0, ptr %type_.i.i.i76, align 8
+  %passphrase_.i.i77 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  store i8 1, ptr %passphrase_.i.i77, align 8
+  %value_.i.i.i78 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i78, i8 0, i64 24, i1 false)
   br label %cleanup108
 
 if.end80:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit126
   call void @_ZNK4node6crypto25ArrayBufferOrViewContentsIcE20ToNullTerminatedCopyEv(ptr nonnull sret(%"class.node::crypto::ByteSource") align 8 %ref.tmp82, ptr noundef nonnull align 8 dereferenceable(32) %passphrase)
   store i8 0, ptr %ref.tmp81, align 8
-  %value_.i76 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 8
-  call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i76, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp82) #23
-  %67 = load i8, ptr %ref.tmp81, align 8
-  %frombool.i = and i8 %67, 1
+  %value_.i79 = getelementptr inbounds nuw i8, ptr %ref.tmp81, i64 8
+  call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i79, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp82) #23
+  %66 = load i8, ptr %ref.tmp81, align 8
+  %frombool.i = and i8 %66, 1
   store i8 %frombool.i, ptr %passphrase_.i, align 8
-  %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value_.i76) #23
-  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i76) #23
+  %call.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value_.i79) #23
+  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i79) #23
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp82) #23
-  %.pre84 = load i32, ptr %offset, align 4
+  %.pre86 = load i32, ptr %offset, align 4
   br label %if.end106
 
 do.body85:                                        ; preds = %_ZN4node6crypto17IsAnyBufferSourceEN2v85LocalINS1_5ValueEEE.exit
-  %68 = load i32, ptr %offset, align 4
-  %cmp.i = icmp sgt i32 %68, -1
-  %69 = load i32, ptr %length_.i134, align 8
-  %cmp2.i.not = icmp sgt i32 %69, %68
-  %or.cond57 = select i1 %cmp.i, i1 %cmp2.i.not, i1 false
-  br i1 %or.cond57, label %if.end.i, label %if.then.i
+  %67 = load i32, ptr %offset, align 4
+  %cmp.i = icmp sgt i32 %67, -1
+  %68 = load i32, ptr %length_.i134, align 8
+  %cmp2.i.not = icmp sgt i32 %68, %67
+  %or.cond60 = select i1 %cmp.i, i1 %cmp2.i.not, i1 false
+  br i1 %or.cond60, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %do.body85
-  %70 = load ptr, ptr %args, align 8
-  %arrayidx.i276 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %71 = load ptr, ptr %arrayidx.i276, align 8
-  %72 = ptrtoint ptr %71 to i64
-  %add1.i = add i64 %72, 608
-  %73 = inttoptr i64 %add1.i to ptr
+  %69 = load ptr, ptr %args, align 8
+  %arrayidx.i276 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %70 = load ptr, ptr %arrayidx.i276, align 8
+  %71 = ptrtoint ptr %70 to i64
+  %add1.i = add i64 %71, 608
+  %72 = inttoptr i64 %add1.i to ptr
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %do.body85
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
-  %74 = load ptr, ptr %values_.i, align 8
-  %idx.ext.i = zext nneg i32 %68 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %74, i64 %idx.ext.i
+  %73 = load ptr, ptr %values_.i, align 8
+  %idx.ext.i = zext nneg i32 %67 to i64
+  %add.ptr.i = getelementptr inbounds nuw i64, ptr %73, i64 %idx.ext.i
   br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.sroa.0.0 = phi ptr [ %73, %if.then.i ], [ %add.ptr.i, %if.end.i ]
-  %75 = load i64, ptr %retval.i.sroa.0.0, align 8
-  %and.i.i335 = and i64 %75, 3
+  %retval.i.sroa.0.0 = phi ptr [ %72, %if.then.i ], [ %add.ptr.i, %if.end.i ]
+  %74 = load i64, ptr %retval.i.sroa.0.0, align 8
+  %and.i.i335 = and i64 %74, 3
   %cmp.i.i336 = icmp eq i64 %and.i.i335, 1
   br i1 %cmp.i.i336, label %if.end.i338, label %do.body99
 
 if.end.i338:                                      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %sub.i.i.i341 = add nsw i64 %75, -1
-  %76 = inttoptr i64 %sub.i.i.i341 to ptr
-  %77 = load i64, ptr %76, align 8
-  %sub.i.i344 = add i64 %77, 11
-  %78 = inttoptr i64 %sub.i.i344 to ptr
-  %79 = load i16, ptr %78, align 2
-  %cmp.i346.not = icmp eq i16 %79, 131
-  br i1 %cmp.i346.not, label %_ZNK2v85Value22QuickIsNullOrUndefinedEv.exit359, label %do.body99
+  %sub.i.i.i341 = add nsw i64 %74, -1
+  %75 = inttoptr i64 %sub.i.i.i341 to ptr
+  %76 = load i64, ptr %75, align 8
+  %sub.i.i344 = add i64 %76, 11
+  %77 = inttoptr i64 %sub.i.i344 to ptr
+  %78 = load i16, ptr %77, align 2
+  %cmp.i346.not = icmp eq i16 %78, 131
+  br i1 %cmp.i346.not, label %if.end5.i347, label %do.body99
 
-_ZNK2v85Value22QuickIsNullOrUndefinedEv.exit359:  ; preds = %if.end.i338
-  %sub.i.i22.i350 = add i64 %75, 39
-  %80 = inttoptr i64 %sub.i.i22.i350 to ptr
-  %81 = load i64, ptr %80, align 8
-  %shr.i.i352 = lshr i64 %81, 32
-  %cmp7.i354 = icmp eq i64 %shr.i.i352, 3
-  %cmp8.i356 = icmp eq i64 %shr.i.i352, 5
-  %82 = or i1 %cmp7.i354, %cmp8.i356
-  %83 = and i1 %needs_passphrase.0, %82
-  br i1 %83, label %if.end106, label %do.body99
+if.end5.i347:                                     ; preds = %if.end.i338
+  %sub.i.i22.i350 = add i64 %74, 39
+  %79 = inttoptr i64 %sub.i.i22.i350 to ptr
+  %80 = load i64, ptr %79, align 8
+  %shr.i.i352 = lshr i64 %80, 32
+  %cmp7.i354 = icmp ne i64 %shr.i.i352, 3
+  %cmp8.i356 = icmp ne i64 %shr.i.i352, 5
+  %.not54 = and i1 %cmp7.i354, %cmp8.i356
+  %.not53 = or i1 %needs_passphrase.0.not, %.not54
+  br i1 %.not53, label %do.body99, label %if.end106
 
-do.body99:                                        ; preds = %if.end.i338, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %_ZNK2v85Value22QuickIsNullOrUndefinedEv.exit359
+do.body99:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit, %if.end.i338, %if.end5.i347
   call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node6crypto14ManagedEVPPKey27GetPrivateKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextEE4args_1) #23
   call void @abort() #24
   unreachable
 
-if.end106:                                        ; preds = %if.then, %if.end80, %_ZNK2v85Value22QuickIsNullOrUndefinedEv.exit359
-  %84 = phi i32 [ %.pre84, %if.end80 ], [ %68, %_ZNK2v85Value22QuickIsNullOrUndefinedEv.exit359 ], [ %spec.select, %if.then ]
-  %inc107 = add i32 %84, 1
+if.end106:                                        ; preds = %if.then, %if.end80, %if.end5.i347
+  %81 = phi i32 [ %.pre86, %if.end80 ], [ %67, %if.end5.i347 ], [ %spec.select, %if.then ]
+  %inc107 = add i32 %81, 1
   store i32 %inc107, ptr %offset, align 4
   store i8 0, ptr %agg.result, align 8
-  %value_.i79 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %value_.i79, ptr noundef nonnull align 8 dereferenceable(56) %result, i64 16, i1 false)
+  %value_.i82 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %value_.i82, ptr noundef nonnull align 8 dereferenceable(56) %result, i64 16, i1 false)
   %cipher_.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
   %cipher_2.i.i = getelementptr inbounds nuw i8, ptr %result, i64 16
-  %85 = load ptr, ptr %cipher_2.i.i, align 8
-  store ptr %85, ptr %cipher_.i.i, align 8
-  %passphrase_.i.i80 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
-  %86 = load i8, ptr %passphrase_.i, align 8
-  %frombool.i.i.i = and i8 %86, 1
-  store i8 %frombool.i.i.i, ptr %passphrase_.i.i80, align 8
-  %value_.i.i.i81 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
-  call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i81, ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i) #23
+  %82 = load ptr, ptr %cipher_2.i.i, align 8
+  store ptr %82, ptr %cipher_.i.i, align 8
+  %passphrase_.i.i83 = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
+  %83 = load i8, ptr %passphrase_.i, align 8
+  %frombool.i.i.i = and i8 %83, 1
+  store i8 %frombool.i.i.i, ptr %passphrase_.i.i83, align 8
+  %value_.i.i.i84 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
+  call void @_ZN4node6crypto10ByteSourceC1EOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i84, ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i) #23
   br label %cleanup108
 
 cleanup108:                                       ; preds = %if.then.i.i, %if.then22, %if.end106, %if.then79

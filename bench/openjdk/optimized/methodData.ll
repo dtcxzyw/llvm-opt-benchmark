@@ -1098,14 +1098,14 @@ _ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread: ; pred
   %70 = and i8 %69, -2
   %or.cond.i = icmp eq i8 %70, 12
   %spec.select = zext i1 %or.cond.i to i32
+  %71 = or disjoint i32 %.010, %spec.select
   br label %_Z17is_reference_type9BasicTypeb.exit
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit, %44
-  %.09 = phi i32 [ 0, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ 0, %44 ], [ %spec.select, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ]
-  %71 = or disjoint i32 %.09, %.010
-  %72 = icmp sgt i32 %71, 0
+  %.09 = phi i32 [ %.010, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit ], [ %.010, %44 ], [ %71, %_ZN10MethodData25profile_return_for_invokeERK12methodHandlei.exit.thread ]
+  %72 = icmp sgt i32 %.09, 0
   %spec.select16 = zext i1 %72 to i32
-  %73 = add i32 %71, %spec.select16
+  %73 = add i32 %.09, %spec.select16
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   ret i32 %73
 }

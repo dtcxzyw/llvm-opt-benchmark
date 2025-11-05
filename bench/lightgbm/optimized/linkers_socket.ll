@@ -1367,12 +1367,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   %188 = load i8, ptr %187, align 1, !tbaa !115
   %189 = add i8 %188, -48
   %or.cond.i = icmp ult i8 %189, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !131
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !131
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.loopexit.i
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %186, %.lr.ph.i ]
-  %190 = mul nsw i32 %.0.lcssa.i, %.016.i
-  store i32 %190, ptr %0, align 8, !tbaa !74
+.critedge.loopexit.i:                             ; preds = %.lr.ph.i
+  %190 = mul nsw i32 %186, %.016.i
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.loopexit.i
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %190, %.critedge.loopexit.i ]
+  store i32 %.0.lcssa.i, ptr %0, align 8, !tbaa !74
   %191 = load ptr, ptr %103, align 8, !tbaa !71
   %.not4.i.i.i.i47 = icmp eq ptr %170, %191
   br i1 %.not4.i.i.i.i47, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i55, label %.lr.ph.i.i.i.i48

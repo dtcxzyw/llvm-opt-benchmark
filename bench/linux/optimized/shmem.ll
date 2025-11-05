@@ -2476,24 +2476,24 @@ define internal range(i32 -16, -17) i32 @shmem_write_begin(ptr readnone captures
   %35 = load volatile i64, ptr %34, align 8
   %36 = and i64 %35, 64
   %37 = icmp eq i64 %36, 0
-  br i1 %37, label %43, label %38
+  br i1 %37, label %44, label %38
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 100
   %40 = load i32, ptr %39, align 4
   %41 = zext i32 %40 to i64
   %42 = add nsw i64 %41, -1
-  br label %43
+  %43 = and i64 %42, %9
+  br label %44
 
-43:                                               ; preds = %38, %33
-  %44 = phi i64 [ %42, %38 ], [ 0, %33 ]
-  %45 = and i64 %44, %9
+44:                                               ; preds = %38, %33
+  %45 = phi i64 [ %43, %38 ], [ 0, %33 ]
   %46 = getelementptr %struct.page, ptr %34, i64 %45
   store ptr %46, ptr %4, align 8
   br label %47
 
-47:                                               ; preds = %43, %26, %20, %14
-  %48 = phi i32 [ 0, %43 ], [ -1, %14 ], [ -1, %20 ], [ %31, %26 ]
+47:                                               ; preds = %44, %26, %20, %14
+  %48 = phi i32 [ 0, %44 ], [ -1, %14 ], [ -1, %20 ], [ %31, %26 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %48
 }
@@ -3040,23 +3040,23 @@ define dso_local ptr @shmem_read_mapping_page_gfp(ptr noundef readonly captures(
   %22 = load volatile i64, ptr %19, align 8
   %23 = and i64 %22, 64
   %24 = icmp eq i64 %23, 0
-  br i1 %24, label %30, label %25
+  br i1 %24, label %31, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 100
   %27 = load i32, ptr %26, align 4
   %28 = zext i32 %27 to i64
   %29 = add nsw i64 %28, -1
-  br label %30
+  %30 = and i64 %29, %1
+  br label %31
 
-30:                                               ; preds = %25, %21
-  %31 = phi i64 [ %29, %25 ], [ 0, %21 ]
-  %32 = and i64 %31, %1
+31:                                               ; preds = %25, %21
+  %32 = phi i64 [ %30, %25 ], [ 0, %21 ]
   %33 = getelementptr %struct.page, ptr %19, i64 %32
   br label %34
 
-34:                                               ; preds = %30, %18
-  %35 = phi ptr [ %33, %30 ], [ %19, %18 ]
+34:                                               ; preds = %31, %18
+  %35 = phi ptr [ %33, %31 ], [ %19, %18 ]
   ret ptr %35
 }
 
@@ -4053,26 +4053,26 @@ define internal i32 @shmem_fault(ptr noundef captures(none) %0) #1 align 16 {
   %39 = load volatile i64, ptr %35, align 8
   %40 = and i64 %39, 64
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %47, label %42
+  br i1 %41, label %48, label %42
 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 100
   %44 = load i32, ptr %43, align 4
   %45 = zext i32 %44 to i64
   %46 = add nsw i64 %45, -1
-  br label %47
+  %47 = and i64 %46, %38
+  br label %48
 
-47:                                               ; preds = %42, %37
-  %48 = phi i64 [ %46, %42 ], [ 0, %37 ]
-  %49 = and i64 %48, %38
+48:                                               ; preds = %42, %37
+  %49 = phi i64 [ %47, %42 ], [ 0, %37 ]
   %50 = getelementptr %struct.page, ptr %35, i64 %49
   store ptr %50, ptr %20, align 8
   %51 = load i32, ptr %3, align 4
   %52 = or i32 %51, 512
   br label %53
 
-53:                                               ; preds = %47, %._crit_edge, %29, %16
-  %54 = phi i32 [ %33, %29 ], [ %17, %16 ], [ %.pre, %._crit_edge ], [ %52, %47 ]
+53:                                               ; preds = %48, %._crit_edge, %29, %16
+  %54 = phi i32 [ %33, %29 ], [ %17, %16 ], [ %.pre, %._crit_edge ], [ %52, %48 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %54
@@ -6936,23 +6936,23 @@ define internal i64 @shmem_file_read_iter(ptr noundef captures(none) %0, ptr nou
   %44 = load volatile i64, ptr %41, align 8
   %45 = and i64 %44, 64
   %46 = icmp eq i64 %45, 0
-  br i1 %46, label %52, label %47
+  br i1 %46, label %53, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 100
   %49 = load i32, ptr %48, align 4
   %50 = zext i32 %49 to i64
   %51 = add nsw i64 %50, -1
-  br label %52
+  %52 = and i64 %51, %25
+  br label %53
 
-52:                                               ; preds = %47, %43
-  %53 = phi i64 [ %51, %47 ], [ 0, %43 ]
-  %54 = and i64 %53, %25
+53:                                               ; preds = %47, %43
+  %54 = phi i64 [ %52, %47 ], [ 0, %43 ]
   %55 = getelementptr %struct.page, ptr %41, i64 %54
   br label %56
 
-56:                                               ; preds = %52, %40
-  %57 = phi ptr [ %55, %52 ], [ null, %40 ]
+56:                                               ; preds = %53, %40
+  %57 = phi ptr [ %55, %53 ], [ null, %40 ]
   %58 = load i64, ptr %13, align 8
   %59 = ashr i64 %58, 12
   %60 = icmp eq i64 %25, %59

@@ -381,11 +381,11 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 199:                                              ; preds = %198
   %200 = getelementptr inbounds nuw i8, ptr %.094.lcssa151, i64 4
   %201 = load i32, ptr %200, align 4
+  %202 = mul i32 %201, %201
   br label %list_length.exit116
 
 list_length.exit116:                              ; preds = %198, %199
-  %202 = phi i32 [ %201, %199 ], [ 0, %198 ]
-  %203 = mul i32 %202, %202
+  %203 = phi i32 [ %202, %199 ], [ 0, %198 ]
   %.not109 = icmp eq i32 %.096.lcssa149, %203
   br i1 %.not109, label %209, label %204
 

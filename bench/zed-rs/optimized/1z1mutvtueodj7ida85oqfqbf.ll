@@ -151987,7 +151987,7 @@ define hidden noundef zeroext i1 @"_ZN9assistant7context7Context12can_apply_op28
   %47 = load i64, ptr %46, align 8
   %48 = icmp eq i64 %47, 0
   %or.cond48 = select i1 %or.cond45, i1 %48, i1 false
-  br i1 %or.cond48, label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9", label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread"
+  br i1 %or.cond48, label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit13", label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread"
 
 "_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread": ; preds = %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit", %.thread
   %49 = phi i64 [ %47, %.thread ], [ %72, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit" ]
@@ -152005,7 +152005,7 @@ define hidden noundef zeroext i1 @"_ZN9assistant7context7Context12can_apply_op28
   %or.cond56 = select i1 %or.cond53, i1 %57, i1 false
   %58 = icmp eq i64 %49, 0
   %or.cond59 = select i1 %or.cond56, i1 %58, i1 false
-  br i1 %or.cond59, label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9", label %74
+  br i1 %or.cond59, label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit13", label %74
 
 "_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit": ; preds = %18, %6
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -152032,16 +152032,11 @@ define hidden noundef zeroext i1 @"_ZN9assistant7context7Context12can_apply_op28
 74:                                               ; preds = %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread"
   %75 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %76 = tail call noundef zeroext i1 @_ZN5clock6Global8observed17h3f0a0e7955814189E(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %75, i32 noundef %52, i16 noundef %53)
-  br label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9"
-
-"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9": ; preds = %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread", %.thread, %74
-  %.sroa.05.2 = phi i1 [ %.sroa.05.0, %74 ], [ %33, %.thread ], [ %.sroa.05.0, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread" ]
-  %.sroa.0.0 = phi i1 [ %76, %74 ], [ true, %.thread ], [ true, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread" ]
-  %spec.select = and i1 %.sroa.05.2, %.sroa.0.0
+  %77 = and i1 %.sroa.05.0, %76
   br label %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit13"
 
-"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit13": ; preds = %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit", %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9"
-  %.sroa.0.1 = phi i1 [ %spec.select, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9" ], [ true, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit" ]
+"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit13": ; preds = %74, %.thread, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread", %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit"
+  %.sroa.0.1 = phi i1 [ true, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit" ], [ %77, %74 ], [ %33, %.thread ], [ %.sroa.05.0, %"_ZN61_$LT$text..anchor..Anchor$u20$as$u20$core..cmp..PartialEq$GT$2eq17hdab38859d1fb3fd0E.exit9.thread" ]
   ret i1 %.sroa.0.1
 }
 

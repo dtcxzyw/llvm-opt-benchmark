@@ -6049,10 +6049,8 @@ _ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit87: ; preds = %43
   br label %84
 
 84:                                               ; preds = %81, %78, %74, %71, %67, %63, %59, %55, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit87, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit85, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit81, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit, %83
-  %.sroa.0.0 = phi i16 [ 0, %83 ], [ 1, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit ], [ 2, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit81 ], [ 5, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit85 ], [ 5, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit87 ], [ 6, %55 ], [ 13, %59 ], [ 7, %63 ], [ 12, %67 ], [ 9, %71 ], [ 7, %74 ], [ 10, %78 ], [ 16, %81 ]
-  %.sroa.13.0 = phi i16 [ 0, %83 ], [ 256, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit ], [ 256, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit81 ], [ 256, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit85 ], [ 256, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit87 ], [ 256, %55 ], [ 256, %59 ], [ 256, %63 ], [ 256, %67 ], [ 256, %71 ], [ 256, %74 ], [ 256, %78 ], [ 256, %81 ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.13.0, %.sroa.0.0
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.13.0 = phi i16 [ 0, %83 ], [ 257, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit ], [ 258, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit81 ], [ 261, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit85 ], [ 261, %_ZNK8WasmEdge9Configure11hasProposalENS_8ProposalE.exit87 ], [ 262, %55 ], [ 269, %59 ], [ 263, %63 ], [ 268, %67 ], [ 265, %71 ], [ 263, %74 ], [ 266, %78 ], [ 272, %81 ]
+  ret i16 %.sroa.13.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

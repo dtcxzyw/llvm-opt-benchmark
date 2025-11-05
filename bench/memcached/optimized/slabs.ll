@@ -367,7 +367,7 @@ alloc_large_chunk.exit:                           ; preds = %41
   br label %60
 
 60:                                               ; preds = %54, %59, %57, %49, %51
-  %.not = phi i1 [ false, %49 ], [ true, %51 ], [ false, %57 ], [ false, %59 ], [ true, %54 ]
+  %.not = phi i1 [ %5, %49 ], [ true, %51 ], [ true, %57 ], [ false, %59 ], [ true, %54 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2560) @slabclass, i8 0, i64 2560, i1 false)
   %.not50 = icmp eq ptr %3, null
   br i1 %.not50, label %.split.us.preheader, label %.split
@@ -493,8 +493,7 @@ alloc_large_chunk.exit:                           ; preds = %41
   br label %115
 
 115:                                              ; preds = %114, %108
-  %or.cond5 = or i1 %5, %.not
-  br i1 %or.cond5, label %slabs_preallocate.exit, label %116
+  br i1 %.not, label %slabs_preallocate.exit, label %116
 
 116:                                              ; preds = %115
   %117 = load i32, ptr @power_largest, align 4, !tbaa !17

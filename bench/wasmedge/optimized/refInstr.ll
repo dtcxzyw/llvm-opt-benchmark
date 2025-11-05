@@ -5675,13 +5675,13 @@ define void @_ZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVa
 37:                                               ; preds = %9
   store i32 1045, ptr %18, align 4
   %38 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc unwind label %169
+          to label %.noexc unwind label %174
 
 .noexc:                                           ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %38, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %17, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %18)
-          to label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit unwind label %169
+          to label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit unwind label %174
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -5699,13 +5699,13 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   %48 = getelementptr inbounds nuw i8, ptr %19, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %45, i8 0, i64 49, i1 false)
   %49 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc26 unwind label %169
+          to label %.noexc26 unwind label %174
 
 .noexc26:                                         ; preds = %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo15InfoInstructionEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %49, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %16, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 8 dereferenceable(65) %19)
-          to label %50 unwind label %169
+          to label %50 unwind label %174
 
 50:                                               ; preds = %.noexc26
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -5738,7 +5738,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   store i8 0, ptr %0, align 4
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1045, ptr %63, align 4
-  br label %168
+  br label %173
 
 64:                                               ; preds = %9
   %65 = inttoptr i64 %35 to ptr
@@ -5760,13 +5760,13 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 79:                                               ; preds = %64
   store i32 1033, ptr %20, align 4
   %80 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc29 unwind label %169
+          to label %.noexc29 unwind label %174
 
 .noexc29:                                         ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %80, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %15, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %20)
-          to label %81 unwind label %169
+          to label %81 unwind label %174
 
 81:                                               ; preds = %.noexc29
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -5784,13 +5784,13 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %91 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 %89, ptr %91, align 4
   %92 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc32 unwind label %169
+          to label %.noexc32 unwind label %174
 
 .noexc32:                                         ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo12InfoBoundaryEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %92, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %14, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 8 dereferenceable(16) %21)
-          to label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit50 unwind label %169
+          to label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit50 unwind label %174
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit50: ; preds = %.noexc32
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -5808,13 +5808,13 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   %102 = getelementptr inbounds nuw i8, ptr %22, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %99, i8 0, i64 49, i1 false)
   %103 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc51 unwind label %169
+          to label %.noexc51 unwind label %174
 
 .noexc51:                                         ; preds = %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit50
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo15InfoInstructionEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %103, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %13, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 8 dereferenceable(65) %22)
-          to label %104 unwind label %169
+          to label %104 unwind label %174
 
 104:                                              ; preds = %.noexc51
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -5847,7 +5847,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   store i8 0, ptr %0, align 4
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1033, ptr %117, align 4
-  br label %168
+  br label %173
 
 118:                                              ; preds = %64
   %119 = zext i32 %3 to i64
@@ -5858,13 +5858,13 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 122:                                              ; preds = %118
   store i32 1031, ptr %23, align 4
   %123 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc62 unwind label %169
+          to label %.noexc62 unwind label %174
 
 .noexc62:                                         ; preds = %122
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrCode5ValueEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %123, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %12, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 4 dereferenceable(4) %23)
-          to label %124 unwind label %169
+          to label %124 unwind label %174
 
 124:                                              ; preds = %.noexc62
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -5878,13 +5878,13 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %129 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 %127, ptr %129, align 4
   %130 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc65 unwind label %169
+          to label %.noexc65 unwind label %174
 
 .noexc65:                                         ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo12InfoBoundaryEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %130, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %11, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 8 dereferenceable(16) %24)
-          to label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit84 unwind label %169
+          to label %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit84 unwind label %174
 
 _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit84: ; preds = %.noexc65
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -5902,13 +5902,13 @@ _ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjim
   %140 = getelementptr inbounds nuw i8, ptr %25, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %137, i8 0, i64 49, i1 false)
   %141 = invoke noundef ptr @_ZN6spdlog18default_logger_rawEv()
-          to label %.noexc85 unwind label %169
+          to label %.noexc85 unwind label %174
 
 .noexc85:                                         ; preds = %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit84
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   invoke void @_ZN6spdlog6logger4log_IJRKN8WasmEdge7ErrInfo15InfoInstructionEEEEvNS_10source_locENS_5level10level_enumEN3fmt2v817basic_string_viewIcEEDpOT_(ptr noundef nonnull align 8 dereferenceable(208) %141, ptr noundef nonnull byval(%"struct.spdlog::source_loc") align 8 %10, i32 noundef 4, ptr nonnull @.str.2, i64 2, ptr noundef nonnull align 8 dereferenceable(65) %25)
-          to label %142 unwind label %169
+          to label %142 unwind label %174
 
 142:                                              ; preds = %.noexc85
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -5941,7 +5941,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   store i8 0, ptr %0, align 4
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1031, ptr %155, align 4
-  br label %168
+  br label %173
 
 156:                                              ; preds = %118
   %157 = getelementptr inbounds nuw %"struct.WasmEdge::RefVariant", ptr %27, i64 %119
@@ -5957,43 +5957,55 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %162 = getelementptr i8, ptr %161, i64 2
   br label %163
 
-163:                                              ; preds = %163, %.lr.ph.i
-  %.010.i = phi ptr [ %157, %.lr.ph.i ], [ %166, %163 ]
-  %.079.i = phi ptr [ %159, %.lr.ph.i ], [ %167, %163 ]
+163:                                              ; preds = %"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i", %.lr.ph.i
+  %.010.i = phi ptr [ %157, %.lr.ph.i ], [ %171, %"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i" ]
+  %.079.i = phi ptr [ %159, %.lr.ph.i ], [ %172, %"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i" ]
   %.val.val.i = load i8, ptr %162, align 2
   %.sroa.0.0.copyload.i.i = load i64, ptr %.010.i, align 16
   %.off.i.i.i.i = add i8 %.val.val.i, -119
   %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, 2
+  br i1 %switch.i.i.i.i, label %164, label %170
+
+164:                                              ; preds = %163
+  %165 = icmp eq i8 %.val.val.i, 120
+  br i1 %165, label %166, label %168
+
+166:                                              ; preds = %164
+  %167 = and i64 %.sroa.0.0.copyload.i.i, 255
+  br label %"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i"
+
+168:                                              ; preds = %164
+  %169 = and i64 %.sroa.0.0.copyload.i.i, 65535
+  br label %"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i"
+
+170:                                              ; preds = %163
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8
-  %.sroa.0.sroa.4.0.extract.shift.i.i.i = and i64 %.sroa.0.0.copyload.i.i, -4294967296
-  %164 = icmp eq i8 %.val.val.i, 120
-  %..i.i = select i1 %164, i64 255, i64 65535
-  %.sink.i.i = select i1 %switch.i.i.i.i, i64 %..i.i, i64 4294967295
-  %.sroa.4.0.i.i.i = select i1 %switch.i.i.i.i, i64 undef, i64 %.sroa.3.0.copyload.i.i
-  %.sroa.0.sroa.4.0.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 %.sroa.0.sroa.4.0.extract.shift.i.i.i
-  %165 = and i64 %.sink.i.i, %.sroa.0.0.copyload.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %165, %.sroa.0.sroa.4.0.i.i.i
-  store i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, ptr %.079.i, align 16
+  br label %"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i"
+
+"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i": ; preds = %170, %168, %166
+  %.sroa.4.0.i.i.i = phi i64 [ undef, %166 ], [ undef, %168 ], [ %.sroa.3.0.copyload.i.i, %170 ]
+  %.sroa.0.sroa.4.0.i.i.i = phi i64 [ %167, %166 ], [ %169, %168 ], [ %.sroa.0.0.copyload.i.i, %170 ]
+  store i64 %.sroa.0.sroa.4.0.i.i.i, ptr %.079.i, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   store i64 %.sroa.4.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
-  %167 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
-  %.not.i = icmp eq ptr %166, %158
+  %171 = getelementptr inbounds nuw i8, ptr %.010.i, i64 16
+  %172 = getelementptr inbounds nuw i8, ptr %.079.i, i64 16
+  %.not.i = icmp eq ptr %171, %158
   br i1 %.not.i, label %"_ZSt9transformIPKN8WasmEdge10RefVariantEPNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS1_NS0_10StrVariantEEEEZNKS0_8Executor8Executor18runArrayInitElemOpEjjjRS2_RKNS0_3AST13CompositeTypeERKNS0_7Runtime8Instance15ElementInstanceERKNSL_11InstructionEE3$_0ET0_T_SZ_SY_T1_.exit", label %163, !llvm.loop !110
 
-"_ZSt9transformIPKN8WasmEdge10RefVariantEPNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS1_NS0_10StrVariantEEEEZNKS0_8Executor8Executor18runArrayInitElemOpEjjjRS2_RKNS0_3AST13CompositeTypeERKNS0_7Runtime8Instance15ElementInstanceERKNSL_11InstructionEE3$_0ET0_T_SZ_SY_T1_.exit": ; preds = %163, %156
+"_ZSt9transformIPKN8WasmEdge10RefVariantEPNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS1_NS0_10StrVariantEEEEZNKS0_8Executor8Executor18runArrayInitElemOpEjjjRS2_RKNS0_3AST13CompositeTypeERKNS0_7Runtime8Instance15ElementInstanceERKNSL_11InstructionEE3$_0ET0_T_SZ_SY_T1_.exit": ; preds = %"_ZZNK8WasmEdge8Executor8Executor18runArrayInitElemOpEjjjRKNS_10RefVariantERKNS_3AST13CompositeTypeERKNS_7Runtime8Instance15ElementInstanceERKNS5_11InstructionEENK3$_0clES4_.exit.i", %156
   store i64 1, ptr %0, align 4
-  br label %168
+  br label %173
 
-168:                                              ; preds = %"_ZSt9transformIPKN8WasmEdge10RefVariantEPNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS1_NS0_10StrVariantEEEEZNKS0_8Executor8Executor18runArrayInitElemOpEjjjRS2_RKNS0_3AST13CompositeTypeERKNS0_7Runtime8Instance15ElementInstanceERKNSL_11InstructionEE3$_0ET0_T_SZ_SY_T1_.exit", %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit95, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit61, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit
+173:                                              ; preds = %"_ZSt9transformIPKN8WasmEdge10RefVariantEPNS0_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS1_NS0_10StrVariantEEEEZNKS0_8Executor8Executor18runArrayInitElemOpEjjjRS2_RKNS0_3AST13CompositeTypeERKNS0_7Runtime8Instance15ElementInstanceERKNSL_11InstructionEE3$_0ET0_T_SZ_SY_T1_.exit", %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit95, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit61, %_ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESaISE_EED2Ev.exit
   ret void
 
-169:                                              ; preds = %.noexc85, %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit84, %.noexc65, %124, %.noexc62, %122, %.noexc51, %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit50, %.noexc32, %81, %.noexc29, %79, %.noexc26, %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, %.noexc, %37
-  %170 = landingpad { ptr, i32 }
+174:                                              ; preds = %.noexc85, %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit84, %.noexc65, %124, %.noexc62, %122, %.noexc51, %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit50, %.noexc32, %81, %.noexc29, %79, %.noexc26, %_ZN8WasmEdge7ErrInfo15InfoInstructionC2ENS_6OpCodeEmRKSt6vectorINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEESaISH_EERKS3_INS_7ValTypeESaISM_EEb.exit, %.noexc, %37
+  %175 = landingpad { ptr, i32 }
           catch ptr null
-  %171 = extractvalue { ptr, i32 } %170, 0
-  call void @__clang_call_terminate(ptr %171) #23
+  %176 = extractvalue { ptr, i32 } %175, 0
+  call void @__clang_call_terminate(ptr %176) #23
   unreachable
 }
 

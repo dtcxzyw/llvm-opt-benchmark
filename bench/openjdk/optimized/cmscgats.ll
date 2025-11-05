@@ -1322,7 +1322,7 @@ thread-pre-split:                                 ; preds = %48, %51
   %58 = load i16, ptr %57, align 2
   %59 = and i16 %58, 2048
   %.not75 = icmp eq i16 %59, 0
-  br i1 %.not75, label %.critedge4, label %60
+  br i1 %.not75, label %.critedge4.loopexit, label %60
 
 60:                                               ; preds = %.lr.ph102
   %61 = sext i8 %55 to i32
@@ -1337,13 +1337,17 @@ thread-pre-split:                                 ; preds = %48, %51
   %69 = getelementptr inbounds nuw i8, ptr %.9100, i64 1
   %70 = load i8, ptr %69, align 1
   %.not74 = icmp eq i8 %70, 0
-  br i1 %.not74, label %.critedge4, label %.lr.ph102, !llvm.loop !18
+  br i1 %.not74, label %.critedge4.loopexit, label %.lr.ph102, !llvm.loop !18
 
-.critedge4:                                       ; preds = %.lr.ph102, %60, %53
-  %.054.lcssa = phi i32 [ 0, %53 ], [ %.1, %60 ], [ %.054101, %.lr.ph102 ]
-  %71 = mul nsw i32 %.054.lcssa, %.053
+.critedge4.loopexit:                              ; preds = %60, %.lr.ph102
+  %.054.lcssa.ph = phi i32 [ %.054101, %.lr.ph102 ], [ %.1, %60 ]
+  %71 = mul nsw i32 %.054.lcssa.ph, %.053
   %72 = sitofp i32 %71 to double
-  %73 = tail call double @pow(double noundef 1.000000e+01, double noundef %72) #19
+  br label %.critedge4
+
+.critedge4:                                       ; preds = %.critedge4.loopexit, %53
+  %.054.lcssa = phi double [ 0.000000e+00, %53 ], [ %72, %.critedge4.loopexit ]
+  %73 = tail call double @pow(double noundef 1.000000e+01, double noundef %.054.lcssa) #19
   %74 = fmul double %.159.ph126, %73
   br label %.thread
 
@@ -9674,15 +9678,18 @@ NextCh.exit64:                                    ; preds = %.NextCh.exit64_crit
   %321 = load i16, ptr %320, align 2
   %322 = and i16 %321, 2048
   %.not40 = icmp eq i16 %322, 0
-  br i1 %.not40, label %._crit_edge80, label %275, !llvm.loop !71
+  br i1 %.not40, label %._crit_edge80.loopexit, label %275, !llvm.loop !71
 
-._crit_edge80:                                    ; preds = %NextCh.exit64, %NextCh.exit56
-  %.036.lcssa = phi i32 [ 0, %NextCh.exit56 ], [ %.1, %NextCh.exit64 ]
-  %323 = mul nsw i32 %.036.lcssa, %.035
-  %324 = load double, ptr %4, align 8
-  %325 = sitofp i32 %323 to double
-  %326 = tail call double @pow(double noundef 1.000000e+01, double noundef %325) #19
-  %327 = fmul double %324, %326
+._crit_edge80.loopexit:                           ; preds = %NextCh.exit64
+  %323 = mul nsw i32 %.1, %.035
+  %324 = sitofp i32 %323 to double
+  br label %._crit_edge80
+
+._crit_edge80:                                    ; preds = %._crit_edge80.loopexit, %NextCh.exit56
+  %.036.lcssa = phi double [ 0.000000e+00, %NextCh.exit56 ], [ %324, %._crit_edge80.loopexit ]
+  %325 = load double, ptr %4, align 8
+  %326 = tail call double @pow(double noundef 1.000000e+01, double noundef %.036.lcssa) #19
+  %327 = fmul double %325, %326
   store double %327, ptr %4, align 8
   br label %328
 

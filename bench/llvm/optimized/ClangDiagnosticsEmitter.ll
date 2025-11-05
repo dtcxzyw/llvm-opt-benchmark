@@ -7463,8 +7463,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit90.i:             ; preds = %540, %538
   br label %_ZNK4llvm19StringToOffsetTable15GetStringOffsetENS_9StringRefE.exit.i
 
 _ZNK4llvm19StringToOffsetTable15GetStringOffsetENS_9StringRefE.exit.i: ; preds = %552, %_ZN4llvm11raw_ostreamlsEPKc.exit90.i
-  %.sroa.06.0.i.i = phi i64 [ %557, %552 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit90.i ]
-  %558 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %.sroa.06.0.i.i) #25
+  %.sroa.2.0.i.i = phi i64 [ %557, %552 ], [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit90.i ]
+  %558 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %.sroa.2.0.i.i) #25
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 24
   %560 = load ptr, ptr %559, align 8, !tbaa !78
   %561 = getelementptr inbounds nuw i8, ptr %558, i64 32

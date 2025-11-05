@@ -78,14 +78,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 30:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit106
   store ptr @.str, ptr %17, align 8
-  %.sroa.2903.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr @__func__.main, ptr %.sroa.2903.0..sroa_idx, align 8
-  %.sroa.3904.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 108, ptr %.sroa.3904.0..sroa_idx, align 8
-  %.sroa.4905.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4905.0..sroa_idx, align 8
-  %.sroa.5906.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i8 0, ptr %.sroa.5906.0..sroa_idx, align 8
+  %.sroa.2877.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr @__func__.main, ptr %.sroa.2877.0..sroa_idx, align 8
+  %.sroa.3878.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i64 108, ptr %.sroa.3878.0..sroa_idx, align 8
+  %.sroa.4879.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4879.0..sroa_idx, align 8
+  %.sroa.5880.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i8 0, ptr %.sroa.5880.0..sroa_idx, align 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 40
   store i32 4, ptr %31, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %17, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.25) #8
@@ -107,14 +107,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 37:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit108
   store ptr @.str, ptr %16, align 8
-  %.sroa.2880.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr @__func__.main, ptr %.sroa.2880.0..sroa_idx, align 8
-  %.sroa.3881.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i64 119, ptr %.sroa.3881.0..sroa_idx, align 8
-  %.sroa.4882.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4882.0..sroa_idx, align 8
-  %.sroa.5883.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i8 0, ptr %.sroa.5883.0..sroa_idx, align 8
+  %.sroa.2854.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr @__func__.main, ptr %.sroa.2854.0..sroa_idx, align 8
+  %.sroa.3855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i64 119, ptr %.sroa.3855.0..sroa_idx, align 8
+  %.sroa.4856.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4856.0..sroa_idx, align 8
+  %.sroa.5857.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i8 0, ptr %.sroa.5857.0..sroa_idx, align 8
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 40
   store i32 4, ptr %38, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %16, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.28) #8
@@ -138,14 +138,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 45:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit110
   store ptr @.str, ptr %15, align 8
-  %.sroa.2847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store ptr @__func__.main, ptr %.sroa.2847.0..sroa_idx, align 8
-  %.sroa.3848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 131, ptr %.sroa.3848.0..sroa_idx, align 8
-  %.sroa.4849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4849.0..sroa_idx, align 8
-  %.sroa.5850.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
-  store i8 0, ptr %.sroa.5850.0..sroa_idx, align 8
+  %.sroa.2821.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store ptr @__func__.main, ptr %.sroa.2821.0..sroa_idx, align 8
+  %.sroa.3822.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i64 131, ptr %.sroa.3822.0..sroa_idx, align 8
+  %.sroa.4823.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4823.0..sroa_idx, align 8
+  %.sroa.5824.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 32
+  store i8 0, ptr %.sroa.5824.0..sroa_idx, align 8
   %46 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i32 4, ptr %46, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %15, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.30) #8
@@ -173,14 +173,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 55:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit112
   store ptr @.str, ptr %14, align 8
-  %.sroa.2801.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store ptr @__func__.main, ptr %.sroa.2801.0..sroa_idx, align 8
-  %.sroa.3802.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i64 145, ptr %.sroa.3802.0..sroa_idx, align 8
-  %.sroa.4803.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4803.0..sroa_idx, align 8
-  %.sroa.5804.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store i8 0, ptr %.sroa.5804.0..sroa_idx, align 8
+  %.sroa.2775.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store ptr @__func__.main, ptr %.sroa.2775.0..sroa_idx, align 8
+  %.sroa.3776.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i64 145, ptr %.sroa.3776.0..sroa_idx, align 8
+  %.sroa.4777.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4777.0..sroa_idx, align 8
+  %.sroa.5778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store i8 0, ptr %.sroa.5778.0..sroa_idx, align 8
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store i32 4, ptr %56, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %14, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.32) #8
@@ -196,14 +196,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit114
   store ptr @.str, ptr %13, align 8
-  %.sroa.2784.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store ptr @__func__.main, ptr %.sroa.2784.0..sroa_idx, align 8
-  %.sroa.3785.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i64 157, ptr %.sroa.3785.0..sroa_idx, align 8
-  %.sroa.4786.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4786.0..sroa_idx, align 8
-  %.sroa.5787.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 0, ptr %.sroa.5787.0..sroa_idx, align 8
+  %.sroa.2758.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store ptr @__func__.main, ptr %.sroa.2758.0..sroa_idx, align 8
+  %.sroa.3759.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i64 157, ptr %.sroa.3759.0..sroa_idx, align 8
+  %.sroa.4760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4760.0..sroa_idx, align 8
+  %.sroa.5761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i8 0, ptr %.sroa.5761.0..sroa_idx, align 8
   %61 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 4, ptr %61, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %13, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.34) #8
@@ -217,14 +217,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 63:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit115
   store ptr @.str, ptr %12, align 8
-  %.sroa.2778.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr @__func__.main, ptr %.sroa.2778.0..sroa_idx, align 8
-  %.sroa.3779.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 158, ptr %.sroa.3779.0..sroa_idx, align 8
-  %.sroa.4780.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4780.0..sroa_idx, align 8
-  %.sroa.5781.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i8 0, ptr %.sroa.5781.0..sroa_idx, align 8
+  %.sroa.2752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr @__func__.main, ptr %.sroa.2752.0..sroa_idx, align 8
+  %.sroa.3753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 158, ptr %.sroa.3753.0..sroa_idx, align 8
+  %.sroa.4754.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4754.0..sroa_idx, align 8
+  %.sroa.5755.0..sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i8 0, ptr %.sroa.5755.0..sroa_idx, align 8
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 40
   store i32 4, ptr %64, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %12, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.35) #8
@@ -240,14 +240,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 68:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit116
   store ptr @.str, ptr %11, align 8
-  %.sroa.2771.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store ptr @__func__.main, ptr %.sroa.2771.0..sroa_idx, align 8
-  %.sroa.3772.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 161, ptr %.sroa.3772.0..sroa_idx, align 8
-  %.sroa.4773.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4773.0..sroa_idx, align 8
-  %.sroa.5774.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i8 0, ptr %.sroa.5774.0..sroa_idx, align 8
+  %.sroa.2745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store ptr @__func__.main, ptr %.sroa.2745.0..sroa_idx, align 8
+  %.sroa.3746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 161, ptr %.sroa.3746.0..sroa_idx, align 8
+  %.sroa.4747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4747.0..sroa_idx, align 8
+  %.sroa.5748.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i8 0, ptr %.sroa.5748.0..sroa_idx, align 8
   %69 = getelementptr inbounds nuw i8, ptr %11, i64 40
   store i32 4, ptr %69, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %11, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.36) #8
@@ -261,14 +261,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 71:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit117
   store ptr @.str, ptr %10, align 8
-  %.sroa.2765.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr @__func__.main, ptr %.sroa.2765.0..sroa_idx, align 8
-  %.sroa.3766.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 162, ptr %.sroa.3766.0..sroa_idx, align 8
-  %.sroa.4767.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4767.0..sroa_idx, align 8
-  %.sroa.5768.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i8 0, ptr %.sroa.5768.0..sroa_idx, align 8
+  %.sroa.2739.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr @__func__.main, ptr %.sroa.2739.0..sroa_idx, align 8
+  %.sroa.3740.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 162, ptr %.sroa.3740.0..sroa_idx, align 8
+  %.sroa.4741.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4741.0..sroa_idx, align 8
+  %.sroa.5742.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i8 0, ptr %.sroa.5742.0..sroa_idx, align 8
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 40
   store i32 4, ptr %72, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %10, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.37) #8
@@ -283,14 +283,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 75:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit118
   store ptr @.str, ptr %9, align 8
-  %.sroa.2758.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store ptr @__func__.main, ptr %.sroa.2758.0..sroa_idx, align 8
-  %.sroa.3759.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 165, ptr %.sroa.3759.0..sroa_idx, align 8
-  %.sroa.4760.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4760.0..sroa_idx, align 8
-  %.sroa.5761.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 0, ptr %.sroa.5761.0..sroa_idx, align 8
+  %.sroa.2732.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store ptr @__func__.main, ptr %.sroa.2732.0..sroa_idx, align 8
+  %.sroa.3733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 165, ptr %.sroa.3733.0..sroa_idx, align 8
+  %.sroa.4734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4734.0..sroa_idx, align 8
+  %.sroa.5735.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i8 0, ptr %.sroa.5735.0..sroa_idx, align 8
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i32 4, ptr %76, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %9, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.38) #8
@@ -305,14 +305,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.
 
 79:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit119
   store ptr @.str, ptr %8, align 8
-  %.sroa.2751.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr @__func__.main, ptr %.sroa.2751.0..sroa_idx, align 8
-  %.sroa.3752.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 168, ptr %.sroa.3752.0..sroa_idx, align 8
-  %.sroa.4753.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4753.0..sroa_idx, align 8
-  %.sroa.5754.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 0, ptr %.sroa.5754.0..sroa_idx, align 8
+  %.sroa.2725.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr @__func__.main, ptr %.sroa.2725.0..sroa_idx, align 8
+  %.sroa.3726.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 168, ptr %.sroa.3726.0..sroa_idx, align 8
+  %.sroa.4727.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4727.0..sroa_idx, align 8
+  %.sroa.5728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 0, ptr %.sroa.5728.0..sroa_idx, align 8
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store i32 4, ptr %80, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %8, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.39) #8
@@ -333,18 +333,18 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123: ; preds = %_ZN3
 
 _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit120
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit176
 
 85:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123
   store ptr @.str, ptr %7, align 8
-  %.sroa.2743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr @__func__.main, ptr %.sroa.2743.0..sroa_idx, align 8
-  %.sroa.3744.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 171, ptr %.sroa.3744.0..sroa_idx, align 8
-  %.sroa.4745.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4745.0..sroa_idx, align 8
-  %.sroa.5746.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 0, ptr %.sroa.5746.0..sroa_idx, align 8
+  %.sroa.2717.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr @__func__.main, ptr %.sroa.2717.0..sroa_idx, align 8
+  %.sroa.3718.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 171, ptr %.sroa.3718.0..sroa_idx, align 8
+  %.sroa.4719.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4719.0..sroa_idx, align 8
+  %.sroa.5720.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 0, ptr %.sroa.5720.0..sroa_idx, align 8
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 4, ptr %86, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %7, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.40) #8
@@ -356,34 +356,34 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130: ; preds = %_ZN3
   %88 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef 1065353216)
   %89 = icmp eq i16 %87, %88
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %89, label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180, label %90
+  br i1 %89, label %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit176, label %90
 
 90:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
   store ptr @.str, ptr %6, align 8
-  %.sroa.2735.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @__func__.main, ptr %.sroa.2735.0..sroa_idx, align 8
-  %.sroa.3736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 173, ptr %.sroa.3736.0..sroa_idx, align 8
-  %.sroa.4737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4737.0..sroa_idx, align 8
-  %.sroa.5738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store i8 0, ptr %.sroa.5738.0..sroa_idx, align 8
+  %.sroa.2709.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @__func__.main, ptr %.sroa.2709.0..sroa_idx, align 8
+  %.sroa.3710.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 173, ptr %.sroa.3710.0..sroa_idx, align 8
+  %.sroa.4711.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4711.0..sroa_idx, align 8
+  %.sroa.5712.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store i8 0, ptr %.sroa.5712.0..sroa_idx, align 8
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store i32 4, ptr %91, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %6, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.41) #8
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
+_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit176: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit123.thread, %_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit130
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %92 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 292), align 4
   %.not.i.i = icmp eq i16 %92, 0
   br i1 %.not.i.i, label %95, label %93
 
-93:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180
+93:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit176
   %94 = add i16 %92, 929
   br label %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
 
-95:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit180
+95:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__13GfNumericCastIsfEESt8optionalIT_ET0_PNS_24GfNumericCastFailureTypeE.exit176
   %96 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef 1232348160)
   br label %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
 
@@ -395,125 +395,125 @@ _ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   %100 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 126976), align 16
   %101 = fcmp oeq float %99, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %101, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239, label %102
+  br i1 %101, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit213, label %102
 
 102:                                              ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   store ptr @.str, ptr %5, align 8
-  %.sroa.2335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @__func__.main, ptr %.sroa.2335.0..sroa_idx, align 8
-  %.sroa.3336.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 298, ptr %.sroa.3336.0..sroa_idx, align 8
-  %.sroa.4337.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4337.0..sroa_idx, align 8
-  %.sroa.5338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 0, ptr %.sroa.5338.0..sroa_idx, align 8
+  %.sroa.2309.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @__func__.main, ptr %.sroa.2309.0..sroa_idx, align 8
+  %.sroa.3310.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 298, ptr %.sroa.3310.0..sroa_idx, align 8
+  %.sroa.4311.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4311.0..sroa_idx, align 8
+  %.sroa.5312.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 0, ptr %.sroa.5312.0..sroa_idx, align 8
   %103 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i32 4, ptr %103, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %5, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.80) #8
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239: ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit213: ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %104 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half5_eLutE, i64 804), align 4
-  %.not.i.i240 = icmp eq i16 %104, 0
-  br i1 %.not.i.i240, label %107, label %105
+  %.not.i.i214 = icmp eq i16 %104, 0
+  br i1 %.not.i.i214, label %107, label %105
 
-105:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239
+105:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit213
   %106 = add i16 %104, 929
-  br label %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245
+  br label %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit219
 
-107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit239
+107:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit213
   %108 = call noundef signext i16 @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half7convertEi(i32 noundef -915135488)
-  br label %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245
+  br label %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit219
 
-_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245: ; preds = %107, %105
-  %.sink.i.i241 = phi i16 [ %106, %105 ], [ %108, %107 ]
-  %109 = zext i16 %.sink.i.i241 to i64
+_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit219: ; preds = %107, %105
+  %.sink.i.i215 = phi i16 [ %106, %105 ], [ %108, %107 ]
+  %109 = zext i16 %.sink.i.i215 to i64
   %110 = getelementptr inbounds nuw %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif", ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 %109
   %111 = load float, ptr %110, align 4
   %112 = load float, ptr getelementptr inbounds nuw (i8, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 258048), align 16
   %113 = fcmp oeq float %111, %112
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %113, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246, label %114
+  br i1 %113, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit220, label %114
 
-114:                                              ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245
+114:                                              ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit219
   store ptr @.str, ptr %4, align 8
-  %.sroa.2325.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @__func__.main, ptr %.sroa.2325.0..sroa_idx, align 8
-  %.sroa.3326.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 299, ptr %.sroa.3326.0..sroa_idx, align 8
-  %.sroa.4327.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4327.0..sroa_idx, align 8
-  %.sroa.5328.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 0, ptr %.sroa.5328.0..sroa_idx, align 8
+  %.sroa.2299.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @__func__.main, ptr %.sroa.2299.0..sroa_idx, align 8
+  %.sroa.3300.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 299, ptr %.sroa.3300.0..sroa_idx, align 8
+  %.sroa.4301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4301.0..sroa_idx, align 8
+  %.sroa.5302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 0, ptr %.sroa.5302.0..sroa_idx, align 8
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 4, ptr %115, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.81) #8
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246: ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit245
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit220: ; preds = %_ZNOSt8optionalIN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEE5valueEv.exit219
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %116 = call double @nextafter(double noundef 0x47EFFFFFE0000000, double noundef 0x7FF0000000000000) #9
   %117 = fptrunc double %116 to float
   %118 = fcmp oeq float %117, 0x7FF0000000000000
   br i1 %118, label %.thread, label %119
 
-.thread:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246
+.thread:                                          ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit220
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit224
 
-119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit246
+119:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit220
   %120 = fcmp oeq float %117, 0x47EFFFFFE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %120, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250, label %121
+  br i1 %120, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit224, label %121
 
 121:                                              ; preds = %119
   store ptr @.str, ptr %3, align 8
-  %.sroa.2313.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @__func__.main, ptr %.sroa.2313.0..sroa_idx, align 8
-  %.sroa.3314.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 316, ptr %.sroa.3314.0..sroa_idx, align 8
-  %.sroa.4315.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4315.0..sroa_idx, align 8
-  %.sroa.5316.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 0, ptr %.sroa.5316.0..sroa_idx, align 8
+  %.sroa.2287.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @__func__.main, ptr %.sroa.2287.0..sroa_idx, align 8
+  %.sroa.3288.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 316, ptr %.sroa.3288.0..sroa_idx, align 8
+  %.sroa.4289.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4289.0..sroa_idx, align 8
+  %.sroa.5290.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i8 0, ptr %.sroa.5290.0..sroa_idx, align 8
   %122 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i32 4, ptr %122, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %3, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.82) #8
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250: ; preds = %.thread, %119
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit224: ; preds = %.thread, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %123 = call double @nextafter(double noundef 0xC7EFFFFFE0000000, double noundef 0xFFF0000000000000) #9
   %124 = fptrunc double %123 to float
   %125 = fcmp oeq float %124, 0xFFF0000000000000
-  br i1 %125, label %.thread1125, label %126
+  br i1 %125, label %.thread1099, label %126
 
-.thread1125:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250
+.thread1099:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit224
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit269
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit243
 
-126:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit250
+126:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit224
   %127 = fcmp oeq float %124, 0xC7EFFFFFE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br i1 %127, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit269, label %128
+  br i1 %127, label %_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit243, label %128
 
 128:                                              ; preds = %126
   store ptr @.str, ptr %2, align 8
-  %.sroa.2301.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr @__func__.main, ptr %.sroa.2301.0..sroa_idx, align 8
-  %.sroa.3302.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i64 322, ptr %.sroa.3302.0..sroa_idx, align 8
-  %.sroa.4303.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4303.0..sroa_idx, align 8
-  %.sroa.5304.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store i8 0, ptr %.sroa.5304.0..sroa_idx, align 8
+  %.sroa.2275.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr @__func__.main, ptr %.sroa.2275.0..sroa_idx, align 8
+  %.sroa.3276.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i64 322, ptr %.sroa.3276.0..sroa_idx, align 8
+  %.sroa.4277.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store ptr @__PRETTY_FUNCTION__.main, ptr %.sroa.4277.0..sroa_idx, align 8
+  %.sroa.5278.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store i8 0, ptr %.sroa.5278.0..sroa_idx, align 8
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store i32 4, ptr %129, align 8
   call void (ptr, ptr, ...) @_ZNK32pxrInternal_v0_24__pxrReserved__23Tf_DiagnosticLiteHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.83) #8
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit269: ; preds = %.thread1125, %126
+_ZN32pxrInternal_v0_24__pxrReserved__14Tf_AxiomHelperEbRKNS_13TfCallContextEPKc.exit243: ; preds = %.thread1099, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
   ret i32 0

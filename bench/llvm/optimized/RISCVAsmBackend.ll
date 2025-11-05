@@ -1390,13 +1390,12 @@ _ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1029: ; preds = %_ZN4ll
   %142 = add i32 %spec.select.i, 256
   %143 = select i1 %.not.not.not, i64 0, i64 4294967296
   %144 = zext i32 %142 to i64
+  %145 = or disjoint i64 %143, %144
   br label %.thread2721
 
 .thread2721:                                      ; preds = %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1029, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18, %3
-  %.sroa.01802.2 = phi i64 [ 0, %3 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ %144, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1029 ]
-  %.sroa.21803.1 = phi i64 [ 0, %3 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ %143, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1029 ]
-  %.sroa.01802.0.insert.insert = or disjoint i64 %.sroa.21803.1, %.sroa.01802.2
-  ret i64 %.sroa.01802.0.insert.insert
+  %.sroa.21803.1 = phi i64 [ 0, %3 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i18 ], [ %145, %_ZN4llvm12StringSwitchIjjE4CaseENS_13StringLiteralEj.exit1029 ]
+  ret i64 %.sroa.21803.1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1837,12 +1836,12 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %_ZN4llvm11raw_ostre
   %42 = icmp eq i64 %41, 0
   %.not31.i = or i1 %40, %42
   %spec.select = select i1 %.not31.i, i8 -128, i8 0
+  %43 = or disjoint i8 %spec.select, %36
   br label %.thread
 
 .thread:                                          ; preds = %_ZN4llvm11raw_ostreamlsEh.exit, %39
-  %43 = phi i1 [ %.not31.i, %39 ], [ false, %_ZN4llvm11raw_ostreamlsEh.exit ]
-  %44 = phi i8 [ %spec.select, %39 ], [ 0, %_ZN4llvm11raw_ostreamlsEh.exit ]
-  %.025.i = or disjoint i8 %44, %36
+  %44 = phi i1 [ %.not31.i, %39 ], [ false, %_ZN4llvm11raw_ostreamlsEh.exit ]
+  %.025.i = phi i8 [ %43, %39 ], [ %36, %_ZN4llvm11raw_ostreamlsEh.exit ]
   %45 = load ptr, ptr %27, align 8, !tbaa !154
   %46 = load ptr, ptr %29, align 8, !tbaa !155
   %.not.i.i = icmp ult ptr %45, %46
@@ -1859,7 +1858,7 @@ _ZN4llvm11raw_ostreamlsEh.exit:                   ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i:                 ; preds = %49, %47
-  br i1 %43, label %_ZN4llvm11raw_ostreamlsEh.exit, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit, !llvm.loop !156
+  br i1 %44, label %_ZN4llvm11raw_ostreamlsEh.exit, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit, !llvm.loop !156
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i, %4
   %51 = load i64, ptr %6, align 8, !tbaa !55

@@ -620,16 +620,16 @@ port_update_poll_desc.exit.thread:                ; preds = %.thread22.i
   %33 = trunc i64 %32 to i16
   %34 = shl i16 %33, 5
   %35 = and i16 %34, 64
+  %36 = or disjoint i16 %35, %.08.i
   br label %port_update_addressing_mode.exit
 
 port_update_addressing_mode.exit:                 ; preds = %28, %31
-  %.0.i10 = phi i16 [ %35, %31 ], [ 0, %28 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  %37 = load i16, ptr %36, align 2
-  %38 = and i16 %37, -449
-  %39 = or disjoint i16 %.0.i10, %.08.i
-  %40 = or disjoint i16 %39, %38
-  store i16 %40, ptr %36, align 2
+  %.0.i10 = phi i16 [ %36, %31 ], [ %.08.i, %28 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  %38 = load i16, ptr %37, align 2
+  %39 = and i16 %38, -449
+  %40 = or disjoint i16 %.0.i10, %39
+  store i16 %40, ptr %37, align 2
   br label %41
 
 41:                                               ; preds = %port_update_poll_desc.exit.thread, %2, %port_update_addressing_mode.exit
@@ -725,16 +725,16 @@ port_update_poll_desc.exit.thread:                ; preds = %.thread.i
   %33 = trunc i64 %32 to i16
   %34 = shl i16 %33, 5
   %35 = and i16 %34, 64
+  %36 = or disjoint i16 %35, %.08.i
   br label %port_update_addressing_mode.exit
 
 port_update_addressing_mode.exit:                 ; preds = %29, %31
-  %.0.i15 = phi i16 [ %35, %31 ], [ 0, %29 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 154
-  %37 = load i16, ptr %36, align 2
-  %38 = and i16 %37, -449
-  %39 = or disjoint i16 %.0.i15, %.08.i
-  %40 = or disjoint i16 %39, %38
-  store i16 %40, ptr %36, align 2
+  %.0.i15 = phi i16 [ %36, %31 ], [ %.08.i, %29 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 154
+  %38 = load i16, ptr %37, align 2
+  %39 = and i16 %38, -449
+  %40 = or disjoint i16 %.0.i15, %39
+  store i16 %40, ptr %37, align 2
   br label %41
 
 41:                                               ; preds = %port_update_poll_desc.exit.thread, %2, %port_update_addressing_mode.exit

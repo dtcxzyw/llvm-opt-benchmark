@@ -7864,12 +7864,12 @@ _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPoi
 86:                                               ; preds = %77
   %87 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !31
+  %89 = or i64 %88, %.0.i
   br label %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit10
 
 _ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit10: ; preds = %81, %83, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit, %64, %86
-  %.0.i9 = phi i64 [ %88, %86 ], [ 0, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit ], [ 0, %64 ], [ 0, %83 ], [ 0, %81 ]
-  %89 = or i64 %.0.i9, %.0.i
-  %or.cond.not = icmp eq i64 %89, 0
+  %.0.i9 = phi i64 [ %89, %86 ], [ %.0.i, %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit ], [ %.0.i, %64 ], [ %.0.i, %83 ], [ %.0.i, %81 ]
+  %or.cond.not = icmp eq i64 %.0.i9, 0
   br i1 %or.cond.not, label %_ZNK4Luau12DenseHashSetIPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3_EE8containsERKS3_.exit, label %_ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit
 
 _ZN4Luau10getMutableINS_9TableTypeEEEPT_PKNS_4TypeE.exit: ; preds = %_ZN4Luau19MutatingGeneralizer8getCountERKNS_12DenseHashMapIPKvmNS_16DenseHashPointerESt8equal_toIS3_EEES3_.exit10

@@ -1225,11 +1225,11 @@ _ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit.us: ; preds = %90, %.preh
   %113 = getelementptr inbounds nuw i64, ptr %58, i64 %.05590
   %114 = load i64, ptr %113, align 8, !tbaa !23
   %115 = shl i64 %114, %.05993
+  %116 = or i64 %115, %110
   br label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
 
 _ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit: ; preds = %109, %112
-  %116 = phi i64 [ %115, %112 ], [ 0, %109 ]
-  %117 = or i64 %116, %110
+  %117 = phi i64 [ %116, %112 ], [ %110, %109 ]
   %118 = add i64 %117, %102
   %119 = icmp ult i64 %118, %102
   %120 = add i64 %118, 1
@@ -1854,11 +1854,11 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %._ZNSt6vectorImSaIm
   %179 = getelementptr inbounds nuw i64, ptr %133, i64 %.086191
   %180 = load i64, ptr %179, align 8, !tbaa !23
   %181 = shl i64 %180, %151
+  %182 = or i64 %181, %176
   br label %_ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit
 
 _ZN5ZXingL15GetShiftedBlockERKSt6vectorImSaImEEmm.exit: ; preds = %175, %178
-  %182 = phi i64 [ %181, %178 ], [ 0, %175 ]
-  %183 = or i64 %182, %176
+  %183 = phi i64 [ %182, %178 ], [ %176, %175 ]
   %184 = sub i64 %168, %183
   %185 = icmp ugt i64 %183, %168
   %186 = add i64 %184, -1

@@ -2292,28 +2292,28 @@ define hidden void @av1_loop_restoration_save_boundary_lines(ptr noundef readonl
   %6 = load i8, ptr %5, align 4
   %7 = zext i8 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 460
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 25284
+  %9 = getelementptr i8, ptr %1, i64 472
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 25284
   %.not70.i = icmp eq i32 %2, 0
-  %.not.i11 = icmp eq i8 %6, 0
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = shl i32 4, %7
-  %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 25280
-  %16 = getelementptr i8, ptr %1, i64 456
-  %17 = getelementptr i8, ptr %1, i64 472
+  %.not.i71.i = icmp eq i8 %6, 0
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = shl i32 4, %7
+  %14 = sext i32 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 25280
+  %17 = getelementptr i8, ptr %1, i64 456
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %wide.trip.count75 = select i1 %.not.i, i64 3, i64 1
+  %wide.trip.count56 = select i1 %.not.i, i64 3, i64 1
   br i1 %.not70.i, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %save_tile_row_boundary_lines.exit.us
-  %indvars.iv72 = phi i64 [ %indvars.iv.next73, %save_tile_row_boundary_lines.exit.us ], [ 0, %3 ]
-  %19 = icmp ne i64 %indvars.iv72, 0
+  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %save_tile_row_boundary_lines.exit.us ], [ 0, %3 ]
+  %19 = icmp ne i64 %indvars.iv53, 0
   br i1 %19, label %20, label %av1_whole_frame_rect.exit.i.us
 
 20:                                               ; preds = %.split.us
-  %21 = load i32, ptr %9, align 4
+  %21 = load i32, ptr %10, align 4
   %22 = icmp ne i32 %21, 0
   %23 = zext i1 %22 to i32
   %24 = lshr exact i32 8, %23
@@ -2327,80 +2327,80 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %20, %.split.us
   %29 = lshr i32 %28, 1
   %30 = add nsw i32 %29, %27
   %31 = ashr i32 %30, %26
-  %32 = getelementptr %struct.RestorationInfo, ptr %1, i64 %indvars.iv72
+  %32 = getelementptr %struct.RestorationInfo, ptr %1, i64 %indvars.iv53
   %33 = getelementptr i8, ptr %32, i64 23640
   %34 = sub nuw nsw i32 6, %26
-  %.not73.i.us = icmp sgt i32 %31, 0
-  br i1 %.not73.i.us, label %.lr.ph.i.us, label %save_tile_row_boundary_lines.exit.us
+  %.not86.i.us = icmp sgt i32 %31, 0
+  br i1 %.not86.i.us, label %.lr.ph.i.us, label %save_tile_row_boundary_lines.exit.us
 
 .lr.ph.i.us:                                      ; preds = %av1_whole_frame_rect.exit.i.us
-  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv72
+  %35 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv53
   %36 = zext i1 %19 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %11, i64 %36
-  %38 = getelementptr i8, ptr %32, i64 23656
-  %39 = getelementptr inbounds nuw i32, ptr %18, i64 %36
-  %40 = getelementptr inbounds nuw i32, ptr %14, i64 %36
-  %.in.i23.us = getelementptr i8, ptr %32, i64 23648
-  %41 = trunc nuw nsw i64 %indvars.iv72 to i32
-  %42 = trunc nuw nsw i64 %indvars.iv72 to i32
-  %43 = trunc nuw nsw i64 %indvars.iv72 to i32
-  %44 = trunc nuw nsw i64 %indvars.iv72 to i32
+  %37 = getelementptr inbounds nuw i32, ptr %12, i64 %36
+  %38 = getelementptr inbounds nuw i32, ptr %15, i64 %36
+  %39 = getelementptr i8, ptr %32, i64 23656
+  %40 = getelementptr inbounds nuw i32, ptr %18, i64 %36
+  %.in.i.us = getelementptr i8, ptr %32, i64 23648
+  %41 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %43 = trunc nuw nsw i64 %indvars.iv53 to i32
+  %44 = trunc nuw nsw i64 %indvars.iv53 to i32
   br label %.lr.ph.split.us.i.us
 
-.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %save_deblock_boundary_lines.exit.us
-  %spec.select75.us.i.us = phi i32 [ %spec.select.us.i.us, %save_deblock_boundary_lines.exit.us ], [ 0, %.lr.ph.i.us ]
-  %.074.us.i.us = phi i32 [ %45, %save_deblock_boundary_lines.exit.us ], [ 0, %.lr.ph.i.us ]
-  %45 = add nuw nsw i32 %.074.us.i.us, 1
+.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %save_cdef_boundary_lines.exit81.us.i.us
+  %spec.select88.us.i.us = phi i32 [ %spec.select.us.i.us, %save_cdef_boundary_lines.exit81.us.i.us ], [ 0, %.lr.ph.i.us ]
+  %.087.us.i.us = phi i32 [ %45, %save_cdef_boundary_lines.exit81.us.i.us ], [ 0, %.lr.ph.i.us ]
+  %45 = add nuw nsw i32 %.087.us.i.us, 1
   %46 = shl i32 %45, %34
   %47 = sub nsw i32 %46, %25
   %48 = tail call i32 @llvm.smin.i32(i32 %47, i32 %31)
-  %.not69.us.i.us = icmp eq i32 %.074.us.i.us, 0
+  %.not69.us.i.us = icmp eq i32 %.087.us.i.us, 0
   %49 = icmp slt i32 %47, %31
-  br i1 %.not69.us.i.us, label %save_deblock_boundary_lines.exit54.us, label %50
+  br i1 %.not69.us.i.us, label %save_deblock_boundary_lines.exit35.us, label %50
 
 50:                                               ; preds = %.lr.ph.split.us.i.us
-  %51 = add nsw i32 %spec.select75.us.i.us, -2
+  %51 = add nsw i32 %spec.select88.us.i.us, -2
   %52 = load ptr, ptr %35, align 8
   %53 = ptrtoint ptr %52 to i64
   %54 = shl i64 %53, 1
   %55 = inttoptr i64 %54 to ptr
-  %56 = select i1 %.not.i11, ptr %52, ptr %55
+  %56 = select i1 %.not.i71.i, ptr %52, ptr %55
   %57 = load i32, ptr %37, align 4
   %58 = shl i32 %57, %7
   %59 = mul nsw i32 %58, %51
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i8, ptr %56, i64 %60
   %62 = load ptr, ptr %33, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 %13
-  %64 = load i32, ptr %38, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 %14
+  %64 = load i32, ptr %39, align 8
   %65 = shl i32 %64, %7
-  %66 = shl nuw nsw i32 %.074.us.i.us, 1
+  %66 = shl nuw nsw i32 %.087.us.i.us, 1
   %67 = mul nsw i32 %66, %65
   %68 = sext i32 %67 to i64
   %69 = getelementptr inbounds i8, ptr %63, i64 %68
-  %70 = load i32, ptr %39, align 4
+  %70 = load i32, ptr %40, align 4
   %71 = sub i32 %70, %51
   %72 = tail call i32 @llvm.smin.i32(i32 %71, i32 2)
-  %.val.i33.us = load i32, ptr %16, align 8
-  %.val80.i34.us = load i32, ptr %17, align 8
-  %.not81.i35.us = icmp eq i32 %.val.i33.us, %.val80.i34.us
-  br i1 %.not81.i35.us, label %91, label %73
+  %.val.i14.us = load i32, ptr %17, align 8
+  %.val80.i15.us = load i32, ptr %9, align 8
+  %.not81.i16.us = icmp eq i32 %.val.i14.us, %.val80.i15.us
+  br i1 %.not81.i16.us, label %91, label %73
 
 73:                                               ; preds = %50
   br i1 %19, label %74, label %78
 
 74:                                               ; preds = %73
-  %75 = load i32, ptr %15, align 16
+  %75 = load i32, ptr %16, align 16
   %76 = icmp ne i32 %75, 0
   %77 = zext i1 %76 to i32
   br label %78
 
 78:                                               ; preds = %74, %73
   %79 = phi i32 [ 0, %73 ], [ %77, %74 ]
-  %80 = add nsw i32 %79, %.val80.i34.us
+  %80 = add nsw i32 %79, %.val80.i15.us
   %81 = ashr i32 %80, %79
   %82 = shl i32 %81, %7
-  br i1 %.not.i11, label %90, label %83
+  br i1 %.not.i71.i, label %90, label %83
 
 83:                                               ; preds = %78
   %84 = ptrtoint ptr %61 to i64
@@ -2410,129 +2410,129 @@ av1_whole_frame_rect.exit.i.us:                   ; preds = %20, %.split.us
   %88 = lshr i64 %87, 1
   %89 = inttoptr i64 %88 to ptr
   tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %86, i32 noundef %57, ptr noundef %89, i32 noundef %64, i32 noundef range(i32 -2147483648, 3) %41, i32 noundef %72) #12
-  br label %.loopexit.i36.us
+  br label %.loopexit.i17.us
 
 90:                                               ; preds = %78
   tail call void @av1_upscale_normative_rows(ptr noundef nonnull %1, ptr noundef %61, i32 noundef %57, ptr noundef nonnull %69, i32 noundef %64, i32 noundef range(i32 -2147483648, 3) %42, i32 noundef %72) #12
-  br label %.loopexit.i36.us
+  br label %.loopexit.i17.us
 
 91:                                               ; preds = %50
-  %92 = load i32, ptr %40, align 4
+  %92 = load i32, ptr %38, align 4
   %93 = shl i32 %92, %7
   %94 = icmp sgt i32 %71, 0
-  br i1 %94, label %.lr.ph.i48.us, label %.loopexit._crit_edge.i39.us
+  br i1 %94, label %.lr.ph.i29.us, label %.loopexit._crit_edge.i20.us
 
-.lr.ph.i48.us:                                    ; preds = %91
+.lr.ph.i29.us:                                    ; preds = %91
   %95 = sext i32 %93 to i64
   %96 = sext i32 %65 to i64
   %97 = sext i32 %58 to i64
-  %smax.i49.us = tail call i32 @llvm.smax.i32(i32 %72, i32 1)
-  %wide.trip.count.i50.us = zext nneg i32 %smax.i49.us to i64
+  %smax.i30.us = tail call i32 @llvm.smax.i32(i32 %72, i32 1)
+  %wide.trip.count.i31.us = zext nneg i32 %smax.i30.us to i64
   br label %98
 
-98:                                               ; preds = %98, %.lr.ph.i48.us
-  %indvars.iv.i51.us = phi i64 [ 0, %.lr.ph.i48.us ], [ %indvars.iv.next.i52.us, %98 ]
-  %99 = mul nuw nsw i64 %indvars.iv.i51.us, %96
+98:                                               ; preds = %98, %.lr.ph.i29.us
+  %indvars.iv.i32.us = phi i64 [ 0, %.lr.ph.i29.us ], [ %indvars.iv.next.i33.us, %98 ]
+  %99 = mul nuw nsw i64 %indvars.iv.i32.us, %96
   %100 = getelementptr inbounds i8, ptr %69, i64 %99
-  %101 = mul nuw nsw i64 %indvars.iv.i51.us, %97
+  %101 = mul nuw nsw i64 %indvars.iv.i32.us, %97
   %102 = getelementptr inbounds i8, ptr %61, i64 %101
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %102, i64 %95, i1 false)
-  %indvars.iv.next.i52.us = add nuw nsw i64 %indvars.iv.i51.us, 1
-  %exitcond.not.i53.us = icmp eq i64 %indvars.iv.next.i52.us, %wide.trip.count.i50.us
-  br i1 %exitcond.not.i53.us, label %.loopexit.i36.us, label %98, !llvm.loop !36
+  %indvars.iv.next.i33.us = add nuw nsw i64 %indvars.iv.i32.us, 1
+  %exitcond.not.i34.us = icmp eq i64 %indvars.iv.next.i33.us, %wide.trip.count.i31.us
+  br i1 %exitcond.not.i34.us, label %.loopexit.i17.us, label %98, !llvm.loop !36
 
-.loopexit.i36.us:                                 ; preds = %98, %90, %83
-  %.076.i37.us = phi i32 [ %82, %83 ], [ %82, %90 ], [ %93, %98 ]
-  %.075.i38.us = phi i32 [ %81, %83 ], [ %81, %90 ], [ %92, %98 ]
+.loopexit.i17.us:                                 ; preds = %98, %90, %83
+  %.076.i18.us = phi i32 [ %82, %83 ], [ %82, %90 ], [ %93, %98 ]
+  %.075.i19.us = phi i32 [ %81, %83 ], [ %81, %90 ], [ %92, %98 ]
   %103 = icmp eq i32 %71, 1
-  br i1 %103, label %104, label %.loopexit._crit_edge.i39.us
+  br i1 %103, label %104, label %.loopexit._crit_edge.i20.us
 
-.loopexit._crit_edge.i39.us:                      ; preds = %.loopexit.i36.us, %91
-  %.07589.i40.us = phi i32 [ %.075.i38.us, %.loopexit.i36.us ], [ %92, %91 ]
-  %.pre.i41.us = sext i32 %65 to i64
+.loopexit._crit_edge.i20.us:                      ; preds = %.loopexit.i17.us, %91
+  %.07589.i21.us = phi i32 [ %.075.i19.us, %.loopexit.i17.us ], [ %92, %91 ]
+  %.pre.i22.us = sext i32 %65 to i64
   br label %108
 
-104:                                              ; preds = %.loopexit.i36.us
+104:                                              ; preds = %.loopexit.i17.us
   %105 = sext i32 %65 to i64
   %106 = getelementptr inbounds i8, ptr %69, i64 %105
-  %107 = sext i32 %.076.i37.us to i64
+  %107 = sext i32 %.076.i18.us to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %106, ptr align 1 %69, i64 %107, i1 false)
   br label %108
 
-108:                                              ; preds = %104, %.loopexit._crit_edge.i39.us
-  %.07588.i42.us = phi i32 [ %.07589.i40.us, %.loopexit._crit_edge.i39.us ], [ %.075.i38.us, %104 ]
-  %.pre-phi.i43.us = phi i64 [ %.pre.i41.us, %.loopexit._crit_edge.i39.us ], [ %105, %104 ]
-  %109 = sext i32 %.07588.i42.us to i64
-  br i1 %.not.i11, label %.split.us.i.i46.us, label %.split.i.i44.us
+108:                                              ; preds = %104, %.loopexit._crit_edge.i20.us
+  %.07588.i23.us = phi i32 [ %.07589.i21.us, %.loopexit._crit_edge.i20.us ], [ %.075.i19.us, %104 ]
+  %.pre-phi.i24.us = phi i64 [ %.pre.i22.us, %.loopexit._crit_edge.i20.us ], [ %105, %104 ]
+  %109 = sext i32 %.07588.i23.us to i64
+  br i1 %.not.i71.i, label %.split.us.i.i27.us, label %.split.i.i25.us
 
-.split.i.i44.us:                                  ; preds = %108, %.split.i.i44.us
-  %.026.i.i45.us = phi ptr [ %120, %.split.i.i44.us ], [ %69, %108 ]
-  %110 = phi i1 [ false, %.split.i.i44.us ], [ true, %108 ]
-  %111 = getelementptr inbounds i8, ptr %.026.i.i45.us, i64 -8
-  %112 = load i16, ptr %.026.i.i45.us, align 2
+.split.i.i25.us:                                  ; preds = %108, %.split.i.i25.us
+  %.026.i.i26.us = phi ptr [ %120, %.split.i.i25.us ], [ %69, %108 ]
+  %110 = phi i1 [ false, %.split.i.i25.us ], [ true, %108 ]
+  %111 = getelementptr inbounds i8, ptr %.026.i.i26.us, i64 -8
+  %112 = load i16, ptr %.026.i.i26.us, align 2
   %113 = zext i16 %112 to i32
   %114 = tail call ptr @aom_memset16(ptr noundef nonnull %111, i32 noundef %113, i64 noundef 4) #12
-  %115 = getelementptr inbounds i16, ptr %.026.i.i45.us, i64 %109
+  %115 = getelementptr inbounds i16, ptr %.026.i.i26.us, i64 %109
   %116 = getelementptr i8, ptr %115, i64 -2
   %117 = load i16, ptr %116, align 2
   %118 = zext i16 %117 to i32
   %119 = tail call ptr @aom_memset16(ptr noundef nonnull %115, i32 noundef %118, i64 noundef 4) #12
-  %120 = getelementptr inbounds i8, ptr %.026.i.i45.us, i64 %.pre-phi.i43.us
-  br i1 %110, label %.split.i.i44.us, label %save_deblock_boundary_lines.exit54.us, !llvm.loop !37
+  %120 = getelementptr inbounds i8, ptr %.026.i.i26.us, i64 %.pre-phi.i24.us
+  br i1 %110, label %.split.i.i25.us, label %save_deblock_boundary_lines.exit35.us, !llvm.loop !37
 
-.split.us.i.i46.us:                               ; preds = %108, %.split.us.i.i46.us
-  %.026.us.i.i47.us = phi ptr [ %127, %.split.us.i.i46.us ], [ %69, %108 ]
-  %121 = phi i1 [ false, %.split.us.i.i46.us ], [ true, %108 ]
-  %122 = getelementptr inbounds i8, ptr %.026.us.i.i47.us, i64 -4
-  %123 = load i8, ptr %.026.us.i.i47.us, align 1
+.split.us.i.i27.us:                               ; preds = %108, %.split.us.i.i27.us
+  %.026.us.i.i28.us = phi ptr [ %127, %.split.us.i.i27.us ], [ %69, %108 ]
+  %121 = phi i1 [ false, %.split.us.i.i27.us ], [ true, %108 ]
+  %122 = getelementptr inbounds i8, ptr %.026.us.i.i28.us, i64 -4
+  %123 = load i8, ptr %.026.us.i.i28.us, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %122, i8 %123, i64 4, i1 false)
-  %124 = getelementptr inbounds i8, ptr %.026.us.i.i47.us, i64 %109
+  %124 = getelementptr inbounds i8, ptr %.026.us.i.i28.us, i64 %109
   %125 = getelementptr i8, ptr %124, i64 -1
   %126 = load i8, ptr %125, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %124, i8 %126, i64 4, i1 false)
-  %127 = getelementptr inbounds i8, ptr %.026.us.i.i47.us, i64 %.pre-phi.i43.us
-  br i1 %121, label %.split.us.i.i46.us, label %save_deblock_boundary_lines.exit54.us, !llvm.loop !37
+  %127 = getelementptr inbounds i8, ptr %.026.us.i.i28.us, i64 %.pre-phi.i24.us
+  br i1 %121, label %.split.us.i.i27.us, label %save_deblock_boundary_lines.exit35.us, !llvm.loop !37
 
-save_deblock_boundary_lines.exit54.us:            ; preds = %.split.i.i44.us, %.split.us.i.i46.us, %.lr.ph.split.us.i.us
+save_deblock_boundary_lines.exit35.us:            ; preds = %.split.i.i25.us, %.split.us.i.i27.us, %.lr.ph.split.us.i.us
   br i1 %49, label %128, label %save_tile_row_boundary_lines.exit.us
 
-save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_boundary_lines.exit54.us, %av1_whole_frame_rect.exit.i.us
-  %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
-  br i1 %exitcond76.not, label %.split65.us, label %.split.us, !llvm.loop !38
+save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_boundary_lines.exit35.us, %av1_whole_frame_rect.exit.i.us
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count56
+  br i1 %exitcond57.not, label %.split46.us, label %.split.us, !llvm.loop !38
 
-128:                                              ; preds = %save_deblock_boundary_lines.exit54.us
+128:                                              ; preds = %save_deblock_boundary_lines.exit35.us
   %129 = load ptr, ptr %35, align 8
   %130 = ptrtoint ptr %129 to i64
   %131 = shl i64 %130, 1
   %132 = inttoptr i64 %131 to ptr
-  %133 = select i1 %.not.i11, ptr %129, ptr %132
+  %133 = select i1 %.not.i71.i, ptr %129, ptr %132
   %134 = load i32, ptr %37, align 4
   %135 = shl i32 %134, %7
   %136 = mul nsw i32 %135, %48
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %133, i64 %137
-  %139 = load ptr, ptr %.in.i23.us, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 %13
-  %141 = load i32, ptr %38, align 8
+  %139 = load ptr, ptr %.in.i.us, align 8
+  %140 = getelementptr inbounds i8, ptr %139, i64 %14
+  %141 = load i32, ptr %39, align 8
   %142 = shl i32 %141, %7
-  %143 = shl nuw nsw i32 %.074.us.i.us, 1
+  %143 = shl nuw nsw i32 %.087.us.i.us, 1
   %144 = mul nsw i32 %143, %142
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i8, ptr %140, i64 %145
-  %147 = load i32, ptr %39, align 4
+  %147 = load i32, ptr %40, align 4
   %148 = sub i32 %147, %48
   %149 = tail call i32 @llvm.smin.i32(i32 %148, i32 2)
-  %.val.i24.us = load i32, ptr %16, align 8
-  %.val80.i.us = load i32, ptr %17, align 8
-  %.not81.i.us = icmp eq i32 %.val.i24.us, %.val80.i.us
+  %.val.i.us = load i32, ptr %17, align 8
+  %.val80.i.us = load i32, ptr %9, align 8
+  %.not81.i.us = icmp eq i32 %.val.i.us, %.val80.i.us
   br i1 %.not81.i.us, label %168, label %150
 
 150:                                              ; preds = %128
   br i1 %19, label %151, label %155
 
 151:                                              ; preds = %150
-  %152 = load i32, ptr %15, align 16
+  %152 = load i32, ptr %16, align 16
   %153 = icmp ne i32 %152, 0
   %154 = zext i1 %153 to i32
   br label %155
@@ -2542,7 +2542,7 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %157 = add nsw i32 %156, %.val80.i.us
   %158 = ashr i32 %157, %156
   %159 = shl i32 %158, %7
-  br i1 %.not.i11, label %167, label %160
+  br i1 %.not.i71.i, label %167, label %160
 
 160:                                              ; preds = %155
   %161 = ptrtoint ptr %138 to i64
@@ -2559,12 +2559,12 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   br label %.loopexit.i.us
 
 168:                                              ; preds = %128
-  %169 = load i32, ptr %40, align 4
+  %169 = load i32, ptr %38, align 4
   %170 = shl i32 %169, %7
   %171 = icmp sgt i32 %148, 0
-  br i1 %171, label %.lr.ph.i29.us, label %.loopexit._crit_edge.i.us
+  br i1 %171, label %.lr.ph.i11.us, label %.loopexit._crit_edge.i.us
 
-.lr.ph.i29.us:                                    ; preds = %168
+.lr.ph.i11.us:                                    ; preds = %168
   %172 = sext i32 %170 to i64
   %173 = sext i32 %142 to i64
   %174 = sext i32 %135 to i64
@@ -2572,14 +2572,14 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %wide.trip.count.i.us = zext nneg i32 %smax.i.us to i64
   br label %175
 
-175:                                              ; preds = %175, %.lr.ph.i29.us
-  %indvars.iv.i30.us = phi i64 [ 0, %.lr.ph.i29.us ], [ %indvars.iv.next.i.us, %175 ]
-  %176 = mul nuw nsw i64 %indvars.iv.i30.us, %173
+175:                                              ; preds = %175, %.lr.ph.i11.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i11.us ], [ %indvars.iv.next.i.us, %175 ]
+  %176 = mul nuw nsw i64 %indvars.iv.i.us, %173
   %177 = getelementptr inbounds i8, ptr %146, i64 %176
-  %178 = mul nuw nsw i64 %indvars.iv.i30.us, %174
+  %178 = mul nuw nsw i64 %indvars.iv.i.us, %174
   %179 = getelementptr inbounds i8, ptr %138, i64 %178
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr align 1 %179, i64 %172, i1 false)
-  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i30.us, 1
+  %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i.us
   br i1 %exitcond.not.i.us, label %.loopexit.i.us, label %175, !llvm.loop !36
 
@@ -2605,37 +2605,37 @@ save_tile_row_boundary_lines.exit.us:             ; preds = %save_deblock_bounda
   %.07588.i.us = phi i32 [ %.07589.i.us, %.loopexit._crit_edge.i.us ], [ %.075.i.us, %181 ]
   %.pre-phi.i.us = phi i64 [ %.pre.i.us, %.loopexit._crit_edge.i.us ], [ %182, %181 ]
   %186 = sext i32 %.07588.i.us to i64
-  br i1 %.not.i11, label %.split.us.i.i27.us, label %.split.i.i25.us
+  br i1 %.not.i71.i, label %.split.us.i.i.us, label %.split.i.i.us
 
-.split.i.i25.us:                                  ; preds = %185, %.split.i.i25.us
-  %.026.i.i26.us = phi ptr [ %197, %.split.i.i25.us ], [ %146, %185 ]
-  %187 = phi i1 [ false, %.split.i.i25.us ], [ true, %185 ]
-  %188 = getelementptr inbounds i8, ptr %.026.i.i26.us, i64 -8
-  %189 = load i16, ptr %.026.i.i26.us, align 2
+.split.i.i.us:                                    ; preds = %185, %.split.i.i.us
+  %.026.i.i.us = phi ptr [ %197, %.split.i.i.us ], [ %146, %185 ]
+  %187 = phi i1 [ false, %.split.i.i.us ], [ true, %185 ]
+  %188 = getelementptr inbounds i8, ptr %.026.i.i.us, i64 -8
+  %189 = load i16, ptr %.026.i.i.us, align 2
   %190 = zext i16 %189 to i32
   %191 = tail call ptr @aom_memset16(ptr noundef nonnull %188, i32 noundef %190, i64 noundef 4) #12
-  %192 = getelementptr inbounds i16, ptr %.026.i.i26.us, i64 %186
+  %192 = getelementptr inbounds i16, ptr %.026.i.i.us, i64 %186
   %193 = getelementptr i8, ptr %192, i64 -2
   %194 = load i16, ptr %193, align 2
   %195 = zext i16 %194 to i32
   %196 = tail call ptr @aom_memset16(ptr noundef nonnull %192, i32 noundef %195, i64 noundef 4) #12
-  %197 = getelementptr inbounds i8, ptr %.026.i.i26.us, i64 %.pre-phi.i.us
-  br i1 %187, label %.split.i.i25.us, label %save_deblock_boundary_lines.exit.us, !llvm.loop !37
+  %197 = getelementptr inbounds i8, ptr %.026.i.i.us, i64 %.pre-phi.i.us
+  br i1 %187, label %.split.i.i.us, label %save_cdef_boundary_lines.exit81.us.i.us, !llvm.loop !37
 
-.split.us.i.i27.us:                               ; preds = %185, %.split.us.i.i27.us
-  %.026.us.i.i28.us = phi ptr [ %204, %.split.us.i.i27.us ], [ %146, %185 ]
-  %198 = phi i1 [ false, %.split.us.i.i27.us ], [ true, %185 ]
-  %199 = getelementptr inbounds i8, ptr %.026.us.i.i28.us, i64 -4
-  %200 = load i8, ptr %.026.us.i.i28.us, align 1
+.split.us.i.i.us:                                 ; preds = %185, %.split.us.i.i.us
+  %.026.us.i.i.us = phi ptr [ %204, %.split.us.i.i.us ], [ %146, %185 ]
+  %198 = phi i1 [ false, %.split.us.i.i.us ], [ true, %185 ]
+  %199 = getelementptr inbounds i8, ptr %.026.us.i.i.us, i64 -4
+  %200 = load i8, ptr %.026.us.i.i.us, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %199, i8 %200, i64 4, i1 false)
-  %201 = getelementptr inbounds i8, ptr %.026.us.i.i28.us, i64 %186
+  %201 = getelementptr inbounds i8, ptr %.026.us.i.i.us, i64 %186
   %202 = getelementptr i8, ptr %201, i64 -1
   %203 = load i8, ptr %202, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %201, i8 %203, i64 4, i1 false)
-  %204 = getelementptr inbounds i8, ptr %.026.us.i.i28.us, i64 %.pre-phi.i.us
-  br i1 %198, label %.split.us.i.i27.us, label %save_deblock_boundary_lines.exit.us, !llvm.loop !37
+  %204 = getelementptr inbounds i8, ptr %.026.us.i.i.us, i64 %.pre-phi.i.us
+  br i1 %198, label %.split.us.i.i.us, label %save_cdef_boundary_lines.exit81.us.i.us, !llvm.loop !37
 
-save_deblock_boundary_lines.exit.us:              ; preds = %.split.i.i25.us, %.split.us.i.i27.us
+save_cdef_boundary_lines.exit81.us.i.us:          ; preds = %.split.i.i.us, %.split.us.i.i.us
   %spec.select.us.i.us = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
   br label %.lr.ph.split.us.i.us
 
@@ -2645,7 +2645,7 @@ save_deblock_boundary_lines.exit.us:              ; preds = %.split.i.i25.us, %.
   br i1 %205, label %206, label %av1_whole_frame_rect.exit.i
 
 206:                                              ; preds = %.split
-  %207 = load i32, ptr %9, align 4
+  %207 = load i32, ptr %10, align 4
   %208 = icmp ne i32 %207, 0
   %209 = zext i1 %208 to i32
   %210 = lshr exact i32 8, %209
@@ -2662,59 +2662,59 @@ av1_whole_frame_rect.exit.i:                      ; preds = %206, %.split
   %218 = getelementptr %struct.RestorationInfo, ptr %1, i64 %indvars.iv
   %219 = getelementptr i8, ptr %218, i64 23640
   %220 = sub nuw nsw i32 6, %212
-  %.not73.i = icmp sgt i32 %217, 0
-  br i1 %.not73.i, label %.lr.ph.i, label %save_tile_row_boundary_lines.exit
+  %.not86.i = icmp sgt i32 %217, 0
+  br i1 %.not86.i, label %.lr.ph.i, label %save_tile_row_boundary_lines.exit
 
 .lr.ph.i:                                         ; preds = %av1_whole_frame_rect.exit.i
-  %221 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %221 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %222 = zext i1 %205 to i64
-  %223 = getelementptr inbounds nuw i32, ptr %11, i64 %222
+  %223 = getelementptr inbounds nuw i32, ptr %12, i64 %222
   %224 = getelementptr i8, ptr %218, i64 23656
-  %225 = getelementptr inbounds nuw i32, ptr %14, i64 %222
+  %225 = getelementptr inbounds nuw i32, ptr %15, i64 %222
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %save_cdef_boundary_lines.exit
-  %spec.select75.i = phi i32 [ %spec.select.i, %save_cdef_boundary_lines.exit ], [ 0, %.lr.ph.i ]
-  %.074.i = phi i32 [ %226, %save_cdef_boundary_lines.exit ], [ 0, %.lr.ph.i ]
-  %226 = add nuw nsw i32 %.074.i, 1
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i, %save_cdef_boundary_lines.exit81.i
+  %spec.select88.i = phi i32 [ %spec.select.i, %save_cdef_boundary_lines.exit81.i ], [ 0, %.lr.ph.i ]
+  %.087.i = phi i32 [ %226, %save_cdef_boundary_lines.exit81.i ], [ 0, %.lr.ph.i ]
+  %226 = add nuw nsw i32 %.087.i, 1
   %227 = shl i32 %226, %220
   %228 = sub nsw i32 %227, %211
-  %.not69.i = icmp eq i32 %.074.i, 0
+  %.not69.i = icmp eq i32 %.087.i, 0
   %229 = icmp slt i32 %228, %217
-  br i1 %.not69.i, label %230, label %save_cdef_boundary_lines.exit21
+  br i1 %.not69.i, label %230, label %save_cdef_boundary_lines.exit.i
 
 230:                                              ; preds = %.lr.ph.split.i
   %231 = load ptr, ptr %221, align 8
   %232 = ptrtoint ptr %231 to i64
   %233 = shl i64 %232, 1
   %234 = inttoptr i64 %233 to ptr
-  %235 = select i1 %.not.i11, ptr %231, ptr %234
+  %235 = select i1 %.not.i71.i, ptr %231, ptr %234
   %236 = load i32, ptr %223, align 4
   %237 = shl i32 %236, %7
-  %238 = mul nsw i32 %237, %spec.select75.i
+  %238 = mul nsw i32 %237, %spec.select88.i
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds i8, ptr %235, i64 %239
   %241 = load ptr, ptr %219, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 %13
+  %242 = getelementptr inbounds i8, ptr %241, i64 %14
   %243 = load i32, ptr %224, align 8
   %244 = shl i32 %243, %7
   %245 = load i32, ptr %225, align 4
   br i1 %205, label %246, label %.critedge
 
 246:                                              ; preds = %230
-  %247 = load i32, ptr %15, align 16
+  %247 = load i32, ptr %16, align 16
   %248 = icmp ne i32 %247, 0
   %249 = zext i1 %248 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %246, %230
   %250 = phi i32 [ 0, %230 ], [ %249, %246 ]
-  %.val.i13 = load i32, ptr %16, align 8
-  %.val45.i14 = load i32, ptr %17, align 8
-  %.not46.i15 = icmp eq i32 %.val.i13, %.val45.i14
-  %251 = add nsw i32 %.val45.i14, %250
+  %.val.i.i = load i32, ptr %17, align 8
+  %.val45.i.i = load i32, ptr %9, align 8
+  %.not46.i.i = icmp eq i32 %.val.i.i, %.val45.i.i
+  %251 = add nsw i32 %.val45.i.i, %250
   %252 = ashr i32 %251, %250
-  %253 = select i1 %.not46.i15, i32 %245, i32 %252
+  %253 = select i1 %.not46.i.i, i32 %245, i32 %252
   %254 = shl i32 %253, %7
   %255 = sext i32 %254 to i64
   %256 = sext i32 %244 to i64
@@ -2722,77 +2722,77 @@ av1_whole_frame_rect.exit.i:                      ; preds = %206, %.split
   %257 = getelementptr inbounds i8, ptr %242, i64 %256
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %257, ptr align 1 %240, i64 %255, i1 false)
   %258 = sext i32 %253 to i64
-  br i1 %.not.i11, label %.split.us.i.i19, label %.split.i.i17
+  br i1 %.not.i71.i, label %.split.us.i.i.i, label %.split.i.i.i
 
-.split.us.i.i19:                                  ; preds = %.critedge, %.split.us.i.i19
-  %.026.us.i.i20 = phi ptr [ %265, %.split.us.i.i19 ], [ %242, %.critedge ]
-  %259 = phi i1 [ false, %.split.us.i.i19 ], [ true, %.critedge ]
-  %260 = getelementptr inbounds i8, ptr %.026.us.i.i20, i64 -4
-  %261 = load i8, ptr %.026.us.i.i20, align 1
+.split.us.i.i.i:                                  ; preds = %.critedge, %.split.us.i.i.i
+  %.026.us.i.i.i = phi ptr [ %265, %.split.us.i.i.i ], [ %242, %.critedge ]
+  %259 = phi i1 [ false, %.split.us.i.i.i ], [ true, %.critedge ]
+  %260 = getelementptr inbounds i8, ptr %.026.us.i.i.i, i64 -4
+  %261 = load i8, ptr %.026.us.i.i.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %260, i8 %261, i64 4, i1 false)
-  %262 = getelementptr inbounds i8, ptr %.026.us.i.i20, i64 %258
+  %262 = getelementptr inbounds i8, ptr %.026.us.i.i.i, i64 %258
   %263 = getelementptr i8, ptr %262, i64 -1
   %264 = load i8, ptr %263, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %262, i8 %264, i64 4, i1 false)
-  %265 = getelementptr inbounds i8, ptr %.026.us.i.i20, i64 %256
-  br i1 %259, label %.split.us.i.i19, label %save_cdef_boundary_lines.exit21, !llvm.loop !37
+  %265 = getelementptr inbounds i8, ptr %.026.us.i.i.i, i64 %256
+  br i1 %259, label %.split.us.i.i.i, label %save_cdef_boundary_lines.exit.i, !llvm.loop !37
 
-.split.i.i17:                                     ; preds = %.critedge, %.split.i.i17
-  %.026.i.i18 = phi ptr [ %276, %.split.i.i17 ], [ %242, %.critedge ]
-  %266 = phi i1 [ false, %.split.i.i17 ], [ true, %.critedge ]
-  %267 = getelementptr inbounds i8, ptr %.026.i.i18, i64 -8
-  %268 = load i16, ptr %.026.i.i18, align 2
+.split.i.i.i:                                     ; preds = %.critedge, %.split.i.i.i
+  %.026.i.i.i = phi ptr [ %276, %.split.i.i.i ], [ %242, %.critedge ]
+  %266 = phi i1 [ false, %.split.i.i.i ], [ true, %.critedge ]
+  %267 = getelementptr inbounds i8, ptr %.026.i.i.i, i64 -8
+  %268 = load i16, ptr %.026.i.i.i, align 2
   %269 = zext i16 %268 to i32
   %270 = tail call ptr @aom_memset16(ptr noundef nonnull %267, i32 noundef %269, i64 noundef 4) #12
-  %271 = getelementptr inbounds i16, ptr %.026.i.i18, i64 %258
+  %271 = getelementptr inbounds i16, ptr %.026.i.i.i, i64 %258
   %272 = getelementptr i8, ptr %271, i64 -2
   %273 = load i16, ptr %272, align 2
   %274 = zext i16 %273 to i32
   %275 = tail call ptr @aom_memset16(ptr noundef nonnull %271, i32 noundef %274, i64 noundef 4) #12
-  %276 = getelementptr inbounds i8, ptr %.026.i.i18, i64 %256
-  br i1 %266, label %.split.i.i17, label %save_cdef_boundary_lines.exit21, !llvm.loop !37
+  %276 = getelementptr inbounds i8, ptr %.026.i.i.i, i64 %256
+  br i1 %266, label %.split.i.i.i, label %save_cdef_boundary_lines.exit.i, !llvm.loop !37
 
-save_cdef_boundary_lines.exit21:                  ; preds = %.split.i.i17, %.split.us.i.i19, %.lr.ph.split.i
-  br i1 %229, label %save_cdef_boundary_lines.exit, label %277
+save_cdef_boundary_lines.exit.i:                  ; preds = %.split.i.i.i, %.split.us.i.i.i, %.lr.ph.split.i
+  br i1 %229, label %save_cdef_boundary_lines.exit81.i, label %277
 
-277:                                              ; preds = %save_cdef_boundary_lines.exit21
+277:                                              ; preds = %save_cdef_boundary_lines.exit.i
+  %.in.i.i = getelementptr i8, ptr %218, i64 23648
   %278 = add nsw i32 %217, -1
   %279 = load ptr, ptr %221, align 8
   %280 = ptrtoint ptr %279 to i64
   %281 = shl i64 %280, 1
   %282 = inttoptr i64 %281 to ptr
-  %283 = select i1 %.not.i11, ptr %279, ptr %282
+  %283 = select i1 %.not.i71.i, ptr %279, ptr %282
   %284 = load i32, ptr %223, align 4
   %285 = shl i32 %284, %7
   %286 = mul nsw i32 %285, %278
   %287 = sext i32 %286 to i64
   %288 = getelementptr inbounds i8, ptr %283, i64 %287
-  %.in.i = getelementptr i8, ptr %218, i64 23648
-  %289 = load ptr, ptr %.in.i, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 %13
+  %289 = load ptr, ptr %.in.i.i, align 8
+  %290 = getelementptr inbounds i8, ptr %289, i64 %14
   %291 = load i32, ptr %224, align 8
   %292 = shl i32 %291, %7
-  %293 = shl nuw nsw i32 %.074.i, 1
+  %293 = shl nuw nsw i32 %.087.i, 1
   %294 = mul nsw i32 %293, %292
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds i8, ptr %290, i64 %295
   %297 = load i32, ptr %225, align 4
-  br i1 %205, label %298, label %.critedge91
+  br i1 %205, label %298, label %.critedge72
 
 298:                                              ; preds = %277
-  %299 = load i32, ptr %15, align 16
+  %299 = load i32, ptr %16, align 16
   %300 = icmp ne i32 %299, 0
   %301 = zext i1 %300 to i32
-  br label %.critedge91
+  br label %.critedge72
 
-.critedge91:                                      ; preds = %298, %277
+.critedge72:                                      ; preds = %298, %277
   %302 = phi i32 [ 0, %277 ], [ %301, %298 ]
-  %.val.i = load i32, ptr %16, align 8
-  %.val45.i = load i32, ptr %17, align 8
-  %.not46.i = icmp eq i32 %.val.i, %.val45.i
-  %303 = add nsw i32 %.val45.i, %302
+  %.val.i73.i = load i32, ptr %17, align 8
+  %.val45.i74.i = load i32, ptr %9, align 8
+  %.not46.i75.i = icmp eq i32 %.val.i73.i, %.val45.i74.i
+  %303 = add nsw i32 %.val45.i74.i, %302
   %304 = ashr i32 %303, %302
-  %305 = select i1 %.not46.i, i32 %297, i32 %304
+  %305 = select i1 %.not46.i75.i, i32 %297, i32 %304
   %306 = shl i32 %305, %7
   %307 = sext i32 %306 to i64
   %308 = sext i32 %292 to i64
@@ -2800,46 +2800,46 @@ save_cdef_boundary_lines.exit21:                  ; preds = %.split.i.i17, %.spl
   %309 = getelementptr inbounds i8, ptr %296, i64 %308
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %309, ptr align 1 %288, i64 %307, i1 false)
   %310 = sext i32 %305 to i64
-  br i1 %.not.i11, label %.split.us.i.i, label %.split.i.i
+  br i1 %.not.i71.i, label %.split.us.i.i79.i, label %.split.i.i77.i
 
-.split.us.i.i:                                    ; preds = %.critedge91, %.split.us.i.i
-  %.026.us.i.i = phi ptr [ %317, %.split.us.i.i ], [ %296, %.critedge91 ]
-  %311 = phi i1 [ false, %.split.us.i.i ], [ true, %.critedge91 ]
-  %312 = getelementptr inbounds i8, ptr %.026.us.i.i, i64 -4
-  %313 = load i8, ptr %.026.us.i.i, align 1
+.split.us.i.i79.i:                                ; preds = %.critedge72, %.split.us.i.i79.i
+  %.026.us.i.i80.i = phi ptr [ %317, %.split.us.i.i79.i ], [ %296, %.critedge72 ]
+  %311 = phi i1 [ false, %.split.us.i.i79.i ], [ true, %.critedge72 ]
+  %312 = getelementptr inbounds i8, ptr %.026.us.i.i80.i, i64 -4
+  %313 = load i8, ptr %.026.us.i.i80.i, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %312, i8 %313, i64 4, i1 false)
-  %314 = getelementptr inbounds i8, ptr %.026.us.i.i, i64 %310
+  %314 = getelementptr inbounds i8, ptr %.026.us.i.i80.i, i64 %310
   %315 = getelementptr i8, ptr %314, i64 -1
   %316 = load i8, ptr %315, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4) %314, i8 %316, i64 4, i1 false)
-  %317 = getelementptr inbounds i8, ptr %.026.us.i.i, i64 %308
-  br i1 %311, label %.split.us.i.i, label %save_tile_row_boundary_lines.exit, !llvm.loop !37
+  %317 = getelementptr inbounds i8, ptr %.026.us.i.i80.i, i64 %308
+  br i1 %311, label %.split.us.i.i79.i, label %save_tile_row_boundary_lines.exit, !llvm.loop !37
 
-.split.i.i:                                       ; preds = %.critedge91, %.split.i.i
-  %.026.i.i = phi ptr [ %328, %.split.i.i ], [ %296, %.critedge91 ]
-  %318 = phi i1 [ false, %.split.i.i ], [ true, %.critedge91 ]
-  %319 = getelementptr inbounds i8, ptr %.026.i.i, i64 -8
-  %320 = load i16, ptr %.026.i.i, align 2
+.split.i.i77.i:                                   ; preds = %.critedge72, %.split.i.i77.i
+  %.026.i.i78.i = phi ptr [ %328, %.split.i.i77.i ], [ %296, %.critedge72 ]
+  %318 = phi i1 [ false, %.split.i.i77.i ], [ true, %.critedge72 ]
+  %319 = getelementptr inbounds i8, ptr %.026.i.i78.i, i64 -8
+  %320 = load i16, ptr %.026.i.i78.i, align 2
   %321 = zext i16 %320 to i32
   %322 = tail call ptr @aom_memset16(ptr noundef nonnull %319, i32 noundef %321, i64 noundef 4) #12
-  %323 = getelementptr inbounds i16, ptr %.026.i.i, i64 %310
+  %323 = getelementptr inbounds i16, ptr %.026.i.i78.i, i64 %310
   %324 = getelementptr i8, ptr %323, i64 -2
   %325 = load i16, ptr %324, align 2
   %326 = zext i16 %325 to i32
   %327 = tail call ptr @aom_memset16(ptr noundef nonnull %323, i32 noundef %326, i64 noundef 4) #12
-  %328 = getelementptr inbounds i8, ptr %.026.i.i, i64 %308
-  br i1 %318, label %.split.i.i, label %save_tile_row_boundary_lines.exit, !llvm.loop !37
+  %328 = getelementptr inbounds i8, ptr %.026.i.i78.i, i64 %308
+  br i1 %318, label %.split.i.i77.i, label %save_tile_row_boundary_lines.exit, !llvm.loop !37
 
-save_cdef_boundary_lines.exit:                    ; preds = %save_cdef_boundary_lines.exit21
+save_cdef_boundary_lines.exit81.i:                ; preds = %save_cdef_boundary_lines.exit.i
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %228, i32 0)
   br label %.lr.ph.split.i
 
-save_tile_row_boundary_lines.exit:                ; preds = %.split.i.i, %.split.us.i.i, %av1_whole_frame_rect.exit.i
+save_tile_row_boundary_lines.exit:                ; preds = %.split.i.i77.i, %.split.us.i.i79.i, %av1_whole_frame_rect.exit.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count75
-  br i1 %exitcond.not, label %.split65.us, label %.split, !llvm.loop !38
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count56
+  br i1 %exitcond.not, label %.split46.us, label %.split, !llvm.loop !38
 
-.split65.us:                                      ; preds = %save_tile_row_boundary_lines.exit, %save_tile_row_boundary_lines.exit.us
+.split46.us:                                      ; preds = %save_tile_row_boundary_lines.exit, %save_tile_row_boundary_lines.exit.us
   ret void
 }
 

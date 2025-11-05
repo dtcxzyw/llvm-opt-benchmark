@@ -24039,8 +24039,8 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit120: ; preds = %498
   %633 = getelementptr inbounds nuw i8, ptr %632, i64 40
   %634 = load i64, ptr %633, align 8, !range !2159, !noundef !9
   %cond.i = icmp eq i64 %634, -9223372036854775808
-  %brmerge10.i = or i1 %613, %cond.i
-  br i1 %brmerge10.i, label %1260, label %1259
+  %brmerge.i = or i1 %613, %cond.i
+  br i1 %brmerge.i, label %1260, label %1259
 
 "_ZN4core3ptr187drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..RepoPaths$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hf79379308282d069E.exit.i": ; preds = %.body285.i, %.body203.i
   %.sroa.031.2.i = phi i1 [ %.sroa.031.5.i, %.body203.i ], [ true, %.body285.i ]

@@ -5308,99 +5308,97 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %or.cond9, label %17, label %.loopexit
 
 17:                                               ; preds = %16, %14, %11
-  %18 = phi i1 [ false, %11 ], [ true, %14 ], [ false, %16 ]
-  %19 = phi i1 [ false, %11 ], [ false, %14 ], [ true, %16 ]
+  %or.cond15 = phi i1 [ true, %11 ], [ true, %14 ], [ false, %16 ]
+  %or.cond17 = phi i1 [ true, %11 ], [ false, %14 ], [ true, %16 ]
   %.0 = phi i32 [ 2, %11 ], [ 0, %14 ], [ 1, %16 ]
-  %20 = tail call ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 noundef %.0)
-  %.not = icmp eq ptr %20, null
+  %18 = tail call ptr @MRIStepCoupling_Alloc(i32 noundef %0, i32 noundef %1, i32 noundef %.0)
+  %.not = icmp eq ptr %18, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 %2, ptr %21, align 4, !tbaa !12
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 %3, ptr %22, align 8, !tbaa !16
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %24 = load ptr, ptr %23, align 8, !tbaa !17
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
+  store i32 %2, ptr %19, align 4, !tbaa !12
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i32 %3, ptr %20, align 8, !tbaa !16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %22 = load ptr, ptr %21, align 8, !tbaa !17
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %25
+  br label %23
 
-25:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
-  %27 = load double, ptr %26, align 8, !tbaa !18
-  %28 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
-  store double %27, ptr %28, align 8, !tbaa !18
+23:                                               ; preds = %.lr.ph, %23
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
+  %24 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %25 = load double, ptr %24, align 8, !tbaa !18
+  %26 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
+  store double %25, ptr %26, align 8, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25
+  br i1 %exitcond.not, label %._crit_edge, label %23
 
-._crit_edge:                                      ; preds = %25
-  %29 = icmp eq i32 %3, 0
-  br i1 %29, label %.preheader121.lr.ph.split.us, label %.preheader124.lr.ph.split.split.us
+._crit_edge:                                      ; preds = %23
+  %27 = icmp eq i32 %3, 0
+  br i1 %27, label %.preheader121.lr.ph.split.us, label %.preheader124.lr.ph.split.split.us
 
 .preheader124.lr.ph.split.split.us:               ; preds = %._crit_edge
-  %or.cond15 = or i1 %or.cond5, %18
-  %30 = add nuw i32 %1, 1
-  %or.cond17 = or i1 %or.cond5, %19
-  %31 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %28 = add nuw i32 %1, 1
+  %29 = getelementptr inbounds nuw i8, ptr %18, i64 40
   br i1 %or.cond15, label %.preheader124.lr.ph.split.split.us.split.us, label %.preheader124.lr.ph.split.split.us.split
 
 .preheader124.lr.ph.split.split.us.split.us:      ; preds = %.preheader124.lr.ph.split.split.us
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %30 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %31 = load ptr, ptr %30, align 8, !tbaa !20
   br i1 %or.cond17, label %.preheader124.lr.ph.split.split.us.split.us.split.us, label %.preheader124.us147.us.preheader
 
 .preheader124.us147.us.preheader:                 ; preds = %.preheader124.lr.ph.split.split.us.split.us
-  %34 = zext i32 %30 to i64
-  %35 = zext nneg i32 %1 to i64
+  %32 = zext i32 %28 to i64
+  %33 = zext nneg i32 %1 to i64
   %wide.trip.count232 = zext nneg i32 %0 to i64
   br label %.preheader124.us147.us
 
 .preheader124.lr.ph.split.split.us.split.us.split.us: ; preds = %.preheader124.lr.ph.split.split.us.split.us
-  %36 = load ptr, ptr %31, align 8, !tbaa !23
-  %37 = zext i32 %30 to i64
-  %38 = zext nneg i32 %1 to i64
+  %34 = load ptr, ptr %29, align 8, !tbaa !23
+  %35 = zext i32 %28 to i64
+  %36 = zext nneg i32 %1 to i64
   %wide.trip.count248 = zext nneg i32 %0 to i64
   br label %.preheader124.us147.us.us
 
 .preheader124.us147.us.us:                        ; preds = %._crit_edge134.split.us.split.us.split.us.us.us.us, %.preheader124.lr.ph.split.split.us.split.us.split.us
   %indvars.iv244 = phi i64 [ %indvars.iv.next245, %._crit_edge134.split.us.split.us.split.us.us.us.us ], [ 0, %.preheader124.lr.ph.split.split.us.split.us.split.us ]
-  %39 = mul nuw nsw i64 %indvars.iv244, %38
-  %40 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv244
+  %37 = mul nuw nsw i64 %indvars.iv244, %36
+  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv244
+  %39 = load ptr, ptr %38, align 8, !tbaa !21
+  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv244
   %41 = load ptr, ptr %40, align 8, !tbaa !21
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv244
-  %43 = load ptr, ptr %42, align 8, !tbaa !21
   br label %.preheader123.us.us.us.us.us.us
 
 .preheader123.us.us.us.us.us.us:                  ; preds = %._crit_edge130.split.us.split.us.us.us.us.us.us.us, %.preheader124.us147.us.us
   %indvars.iv239 = phi i64 [ %indvars.iv.next240, %._crit_edge130.split.us.split.us.us.us.us.us.us.us ], [ 0, %.preheader124.us147.us.us ]
-  %44 = add nuw nsw i64 %indvars.iv239, %39
-  %45 = mul nuw nsw i64 %44, %37
+  %42 = add nuw nsw i64 %indvars.iv239, %37
+  %43 = mul nuw nsw i64 %42, %35
+  %44 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv239
+  %45 = load ptr, ptr %44, align 8, !tbaa !22
   %46 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv239
   %47 = load ptr, ptr %46, align 8, !tbaa !22
-  %48 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv239
-  %49 = load ptr, ptr %48, align 8, !tbaa !22
-  br label %50
+  br label %48
 
-50:                                               ; preds = %50, %.preheader123.us.us.us.us.us.us
-  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %50 ], [ 0, %.preheader123.us.us.us.us.us.us ]
-  %51 = add nuw nsw i64 %indvars.iv234, %45
-  %52 = getelementptr inbounds nuw double, ptr %4, i64 %51
-  %53 = load double, ptr %52, align 8, !tbaa !18
-  %54 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv234
-  store double %53, ptr %54, align 8, !tbaa !18
-  %55 = getelementptr inbounds nuw double, ptr %5, i64 %51
-  %56 = load double, ptr %55, align 8, !tbaa !18
-  %57 = getelementptr inbounds nuw double, ptr %49, i64 %indvars.iv234
-  store double %56, ptr %57, align 8, !tbaa !18
+48:                                               ; preds = %48, %.preheader123.us.us.us.us.us.us
+  %indvars.iv234 = phi i64 [ %indvars.iv.next235, %48 ], [ 0, %.preheader123.us.us.us.us.us.us ]
+  %49 = add nuw nsw i64 %indvars.iv234, %43
+  %50 = getelementptr inbounds nuw double, ptr %4, i64 %49
+  %51 = load double, ptr %50, align 8, !tbaa !18
+  %52 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv234
+  store double %51, ptr %52, align 8, !tbaa !18
+  %53 = getelementptr inbounds nuw double, ptr %5, i64 %49
+  %54 = load double, ptr %53, align 8, !tbaa !18
+  %55 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv234
+  store double %54, ptr %55, align 8, !tbaa !18
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %exitcond238.not = icmp eq i64 %indvars.iv.next235, %38
-  br i1 %exitcond238.not, label %._crit_edge130.split.us.split.us.us.us.us.us.us.us, label %50
+  %exitcond238.not = icmp eq i64 %indvars.iv.next235, %36
+  br i1 %exitcond238.not, label %._crit_edge130.split.us.split.us.us.us.us.us.us.us, label %48
 
-._crit_edge130.split.us.split.us.us.us.us.us.us.us: ; preds = %50
+._crit_edge130.split.us.split.us.us.us.us.us.us.us: ; preds = %48
   %indvars.iv.next240 = add nuw nsw i64 %indvars.iv239, 1
-  %exitcond243.not = icmp eq i64 %indvars.iv.next240, %37
+  %exitcond243.not = icmp eq i64 %indvars.iv.next240, %35
   br i1 %exitcond243.not, label %._crit_edge134.split.us.split.us.split.us.us.us.us, label %.preheader123.us.us.us.us.us.us
 
 ._crit_edge134.split.us.split.us.split.us.us.us.us: ; preds = %._crit_edge130.split.us.split.us.us.us.us.us.us.us
@@ -5410,33 +5408,33 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 
 .preheader124.us147.us:                           ; preds = %.preheader124.us147.us.preheader, %._crit_edge134.split.us.split.us.split.us157.us
   %indvars.iv228 = phi i64 [ 0, %.preheader124.us147.us.preheader ], [ %indvars.iv.next229, %._crit_edge134.split.us.split.us.split.us157.us ]
-  %58 = mul nuw nsw i64 %indvars.iv228, %35
-  %59 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv228
-  %60 = load ptr, ptr %59, align 8, !tbaa !21
+  %56 = mul nuw nsw i64 %indvars.iv228, %33
+  %57 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv228
+  %58 = load ptr, ptr %57, align 8, !tbaa !21
   br label %.preheader123.us.us.us154.us
 
 .preheader123.us.us.us154.us:                     ; preds = %.preheader124.us147.us, %._crit_edge130.split.us.split.us139.us.us.us
   %indvars.iv223 = phi i64 [ 0, %.preheader124.us147.us ], [ %indvars.iv.next224, %._crit_edge130.split.us.split.us139.us.us.us ]
-  %61 = add nuw nsw i64 %indvars.iv223, %58
-  %62 = mul nuw nsw i64 %61, %34
-  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv223
-  %64 = load ptr, ptr %63, align 8, !tbaa !22
-  %invariant.gep310 = getelementptr inbounds nuw double, ptr %4, i64 %62
-  br label %65
+  %59 = add nuw nsw i64 %indvars.iv223, %56
+  %60 = mul nuw nsw i64 %59, %32
+  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv223
+  %62 = load ptr, ptr %61, align 8, !tbaa !22
+  %invariant.gep310 = getelementptr inbounds nuw double, ptr %4, i64 %60
+  br label %63
 
-65:                                               ; preds = %65, %.preheader123.us.us.us154.us
-  %indvars.iv218 = phi i64 [ %indvars.iv.next219, %65 ], [ 0, %.preheader123.us.us.us154.us ]
+63:                                               ; preds = %63, %.preheader123.us.us.us154.us
+  %indvars.iv218 = phi i64 [ %indvars.iv.next219, %63 ], [ 0, %.preheader123.us.us.us154.us ]
   %gep311 = getelementptr inbounds nuw double, ptr %invariant.gep310, i64 %indvars.iv218
-  %66 = load double, ptr %gep311, align 8, !tbaa !18
-  %67 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv218
-  store double %66, ptr %67, align 8, !tbaa !18
+  %64 = load double, ptr %gep311, align 8, !tbaa !18
+  %65 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv218
+  store double %64, ptr %65, align 8, !tbaa !18
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %35
-  br i1 %exitcond222.not, label %._crit_edge130.split.us.split.us139.us.us.us, label %65
+  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %33
+  br i1 %exitcond222.not, label %._crit_edge130.split.us.split.us139.us.us.us, label %63
 
-._crit_edge130.split.us.split.us139.us.us.us:     ; preds = %65
+._crit_edge130.split.us.split.us139.us.us.us:     ; preds = %63
   %indvars.iv.next224 = add nuw nsw i64 %indvars.iv223, 1
-  %exitcond227.not = icmp eq i64 %indvars.iv.next224, %34
+  %exitcond227.not = icmp eq i64 %indvars.iv.next224, %32
   br i1 %exitcond227.not, label %._crit_edge134.split.us.split.us.split.us157.us, label %.preheader123.us.us.us154.us
 
 ._crit_edge134.split.us.split.us.split.us157.us:  ; preds = %._crit_edge130.split.us.split.us139.us.us.us
@@ -5448,41 +5446,41 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %or.cond17, label %.preheader124.lr.ph.split.split.us.split.split.us, label %.loopexit
 
 .preheader124.lr.ph.split.split.us.split.split.us: ; preds = %.preheader124.lr.ph.split.split.us.split
-  %68 = load ptr, ptr %31, align 8, !tbaa !23
-  %69 = zext i32 %30 to i64
-  %70 = zext nneg i32 %1 to i64
+  %66 = load ptr, ptr %29, align 8, !tbaa !23
+  %67 = zext i32 %28 to i64
+  %68 = zext nneg i32 %1 to i64
   %wide.trip.count216 = zext nneg i32 %0 to i64
   br label %.preheader124.us147.us161
 
 .preheader124.us147.us161:                        ; preds = %._crit_edge134.split.us.split.split.us.us.us, %.preheader124.lr.ph.split.split.us.split.split.us
   %indvars.iv213 = phi i64 [ %indvars.iv.next214, %._crit_edge134.split.us.split.split.us.us.us ], [ 0, %.preheader124.lr.ph.split.split.us.split.split.us ]
-  %71 = mul nuw nsw i64 %indvars.iv213, %70
-  %72 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv213
-  %73 = load ptr, ptr %72, align 8, !tbaa !21
+  %69 = mul nuw nsw i64 %indvars.iv213, %68
+  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv213
+  %71 = load ptr, ptr %70, align 8, !tbaa !21
   br label %.preheader123.us.us143.us.us
 
 .preheader123.us.us143.us.us:                     ; preds = %._crit_edge130.split.split.us.us.us.us.us, %.preheader124.us147.us161
   %indvars.iv208 = phi i64 [ %indvars.iv.next209, %._crit_edge130.split.split.us.us.us.us.us ], [ 0, %.preheader124.us147.us161 ]
-  %74 = add nuw nsw i64 %indvars.iv208, %71
-  %75 = mul nuw nsw i64 %74, %69
-  %76 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv208
-  %77 = load ptr, ptr %76, align 8, !tbaa !22
-  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %75
-  br label %78
+  %72 = add nuw nsw i64 %indvars.iv208, %69
+  %73 = mul nuw nsw i64 %72, %67
+  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv208
+  %75 = load ptr, ptr %74, align 8, !tbaa !22
+  %invariant.gep = getelementptr inbounds nuw double, ptr %5, i64 %73
+  br label %76
 
-78:                                               ; preds = %78, %.preheader123.us.us143.us.us
-  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %78 ], [ 0, %.preheader123.us.us143.us.us ]
+76:                                               ; preds = %76, %.preheader123.us.us143.us.us
+  %indvars.iv203 = phi i64 [ %indvars.iv.next204, %76 ], [ 0, %.preheader123.us.us143.us.us ]
   %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv203
-  %79 = load double, ptr %gep, align 8, !tbaa !18
-  %80 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv203
-  store double %79, ptr %80, align 8, !tbaa !18
+  %77 = load double, ptr %gep, align 8, !tbaa !18
+  %78 = getelementptr inbounds nuw double, ptr %75, i64 %indvars.iv203
+  store double %77, ptr %78, align 8, !tbaa !18
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %exitcond207.not = icmp eq i64 %indvars.iv.next204, %70
-  br i1 %exitcond207.not, label %._crit_edge130.split.split.us.us.us.us.us, label %78
+  %exitcond207.not = icmp eq i64 %indvars.iv.next204, %68
+  br i1 %exitcond207.not, label %._crit_edge130.split.split.us.us.us.us.us, label %76
 
-._crit_edge130.split.split.us.us.us.us.us:        ; preds = %78
+._crit_edge130.split.split.us.us.us.us.us:        ; preds = %76
   %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %exitcond212.not = icmp eq i64 %indvars.iv.next209, %69
+  %exitcond212.not = icmp eq i64 %indvars.iv.next209, %67
   br i1 %exitcond212.not, label %._crit_edge134.split.us.split.split.us.us.us, label %.preheader123.us.us143.us.us
 
 ._crit_edge134.split.us.split.split.us.us.us:     ; preds = %._crit_edge130.split.split.us.us.us.us.us
@@ -5491,64 +5489,62 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond217.not, label %.loopexit, label %.preheader124.us147.us161
 
 .preheader121.lr.ph.split.us:                     ; preds = %._crit_edge
-  %or.cond13 = or i1 %or.cond5, %19
-  %81 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %or.cond11 = or i1 %or.cond5, %18
-  br i1 %or.cond11, label %.preheader121.lr.ph.split.us.split.us, label %.preheader121.lr.ph.split.us.split
+  %79 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  br i1 %or.cond15, label %.preheader121.lr.ph.split.us.split.us, label %.preheader121.lr.ph.split.us.split
 
 .preheader121.lr.ph.split.us.split.us:            ; preds = %.preheader121.lr.ph.split.us
-  %82 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %83 = load ptr, ptr %82, align 8, !tbaa !20
-  br i1 %or.cond13, label %.preheader121.lr.ph.split.us.split.us.split.us, label %.preheader121.us.us.preheader
+  %80 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  %81 = load ptr, ptr %80, align 8, !tbaa !20
+  br i1 %or.cond17, label %.preheader121.lr.ph.split.us.split.us.split.us, label %.preheader121.us.us.preheader
 
 .preheader121.us.us.preheader:                    ; preds = %.preheader121.lr.ph.split.us.split.us
-  %84 = zext nneg i32 %1 to i64
+  %82 = zext nneg i32 %1 to i64
   %wide.trip.count280 = zext nneg i32 %0 to i64
   br label %.preheader121.us.us
 
 .preheader121.lr.ph.split.us.split.us.split.us:   ; preds = %.preheader121.lr.ph.split.us.split.us
-  %85 = load ptr, ptr %81, align 8, !tbaa !23
-  %86 = zext nneg i32 %1 to i64
+  %83 = load ptr, ptr %79, align 8, !tbaa !23
+  %84 = zext nneg i32 %1 to i64
   %wide.trip.count296 = zext nneg i32 %0 to i64
   br label %.preheader121.us.us.us
 
 .preheader121.us.us.us:                           ; preds = %._crit_edge168.split.us.split.us.split.us.us.us.us, %.preheader121.lr.ph.split.us.split.us.split.us
   %indvars.iv292 = phi i64 [ %indvars.iv.next293, %._crit_edge168.split.us.split.us.split.us.us.us.us ], [ 0, %.preheader121.lr.ph.split.us.split.us.split.us ]
-  %87 = mul nuw nsw i64 %indvars.iv292, %86
+  %85 = mul nuw nsw i64 %indvars.iv292, %84
+  %86 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv292
+  %87 = load ptr, ptr %86, align 8, !tbaa !21
   %88 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv292
   %89 = load ptr, ptr %88, align 8, !tbaa !21
-  %90 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv292
-  %91 = load ptr, ptr %90, align 8, !tbaa !21
   br label %.preheader.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us:                     ; preds = %._crit_edge165.split.us.split.us.us.us.us.us.us.us, %.preheader121.us.us.us
   %indvars.iv287 = phi i64 [ %indvars.iv.next288, %._crit_edge165.split.us.split.us.us.us.us.us.us.us ], [ 0, %.preheader121.us.us.us ]
-  %92 = add nuw nsw i64 %indvars.iv287, %87
-  %93 = mul nuw nsw i64 %92, %86
+  %90 = add nuw nsw i64 %indvars.iv287, %85
+  %91 = mul nuw nsw i64 %90, %84
+  %92 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv287
+  %93 = load ptr, ptr %92, align 8, !tbaa !22
   %94 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv287
   %95 = load ptr, ptr %94, align 8, !tbaa !22
-  %96 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv287
-  %97 = load ptr, ptr %96, align 8, !tbaa !22
-  br label %98
+  br label %96
 
-98:                                               ; preds = %98, %.preheader.us.us.us.us.us.us
-  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %98 ], [ 0, %.preheader.us.us.us.us.us.us ]
-  %99 = add nuw nsw i64 %indvars.iv282, %93
-  %100 = getelementptr inbounds nuw double, ptr %4, i64 %99
-  %101 = load double, ptr %100, align 8, !tbaa !18
-  %102 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv282
-  store double %101, ptr %102, align 8, !tbaa !18
-  %103 = getelementptr inbounds nuw double, ptr %5, i64 %99
-  %104 = load double, ptr %103, align 8, !tbaa !18
-  %105 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv282
-  store double %104, ptr %105, align 8, !tbaa !18
+96:                                               ; preds = %96, %.preheader.us.us.us.us.us.us
+  %indvars.iv282 = phi i64 [ %indvars.iv.next283, %96 ], [ 0, %.preheader.us.us.us.us.us.us ]
+  %97 = add nuw nsw i64 %indvars.iv282, %91
+  %98 = getelementptr inbounds nuw double, ptr %4, i64 %97
+  %99 = load double, ptr %98, align 8, !tbaa !18
+  %100 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv282
+  store double %99, ptr %100, align 8, !tbaa !18
+  %101 = getelementptr inbounds nuw double, ptr %5, i64 %97
+  %102 = load double, ptr %101, align 8, !tbaa !18
+  %103 = getelementptr inbounds nuw double, ptr %95, i64 %indvars.iv282
+  store double %102, ptr %103, align 8, !tbaa !18
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
-  %exitcond286.not = icmp eq i64 %indvars.iv.next283, %86
-  br i1 %exitcond286.not, label %._crit_edge165.split.us.split.us.us.us.us.us.us.us, label %98
+  %exitcond286.not = icmp eq i64 %indvars.iv.next283, %84
+  br i1 %exitcond286.not, label %._crit_edge165.split.us.split.us.us.us.us.us.us.us, label %96
 
-._crit_edge165.split.us.split.us.us.us.us.us.us.us: ; preds = %98
+._crit_edge165.split.us.split.us.us.us.us.us.us.us: ; preds = %96
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
-  %exitcond291.not = icmp eq i64 %indvars.iv.next288, %86
+  %exitcond291.not = icmp eq i64 %indvars.iv.next288, %84
   br i1 %exitcond291.not, label %._crit_edge168.split.us.split.us.split.us.us.us.us, label %.preheader.us.us.us.us.us.us
 
 ._crit_edge168.split.us.split.us.split.us.us.us.us: ; preds = %._crit_edge165.split.us.split.us.us.us.us.us.us.us
@@ -5558,33 +5554,33 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
 
 .preheader121.us.us:                              ; preds = %.preheader121.us.us.preheader, %._crit_edge168.split.us.split.us.split.us186.us
   %indvars.iv276 = phi i64 [ 0, %.preheader121.us.us.preheader ], [ %indvars.iv.next277, %._crit_edge168.split.us.split.us.split.us186.us ]
-  %106 = mul nuw nsw i64 %indvars.iv276, %84
-  %107 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv276
-  %108 = load ptr, ptr %107, align 8, !tbaa !21
+  %104 = mul nuw nsw i64 %indvars.iv276, %82
+  %105 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv276
+  %106 = load ptr, ptr %105, align 8, !tbaa !21
   br label %.preheader.us.us.us184.us
 
 .preheader.us.us.us184.us:                        ; preds = %.preheader121.us.us, %._crit_edge165.split.us.split.us173.us.us.us
   %indvars.iv271 = phi i64 [ 0, %.preheader121.us.us ], [ %indvars.iv.next272, %._crit_edge165.split.us.split.us173.us.us.us ]
-  %109 = add nuw nsw i64 %indvars.iv271, %106
-  %110 = mul nuw nsw i64 %109, %84
-  %111 = getelementptr inbounds nuw ptr, ptr %108, i64 %indvars.iv271
-  %112 = load ptr, ptr %111, align 8, !tbaa !22
-  %invariant.gep314 = getelementptr inbounds nuw double, ptr %4, i64 %110
-  br label %113
+  %107 = add nuw nsw i64 %indvars.iv271, %104
+  %108 = mul nuw nsw i64 %107, %82
+  %109 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv271
+  %110 = load ptr, ptr %109, align 8, !tbaa !22
+  %invariant.gep314 = getelementptr inbounds nuw double, ptr %4, i64 %108
+  br label %111
 
-113:                                              ; preds = %113, %.preheader.us.us.us184.us
-  %indvars.iv266 = phi i64 [ %indvars.iv.next267, %113 ], [ 0, %.preheader.us.us.us184.us ]
+111:                                              ; preds = %111, %.preheader.us.us.us184.us
+  %indvars.iv266 = phi i64 [ %indvars.iv.next267, %111 ], [ 0, %.preheader.us.us.us184.us ]
   %gep315 = getelementptr inbounds nuw double, ptr %invariant.gep314, i64 %indvars.iv266
-  %114 = load double, ptr %gep315, align 8, !tbaa !18
-  %115 = getelementptr inbounds nuw double, ptr %112, i64 %indvars.iv266
-  store double %114, ptr %115, align 8, !tbaa !18
+  %112 = load double, ptr %gep315, align 8, !tbaa !18
+  %113 = getelementptr inbounds nuw double, ptr %110, i64 %indvars.iv266
+  store double %112, ptr %113, align 8, !tbaa !18
   %indvars.iv.next267 = add nuw nsw i64 %indvars.iv266, 1
-  %exitcond270.not = icmp eq i64 %indvars.iv.next267, %84
-  br i1 %exitcond270.not, label %._crit_edge165.split.us.split.us173.us.us.us, label %113
+  %exitcond270.not = icmp eq i64 %indvars.iv.next267, %82
+  br i1 %exitcond270.not, label %._crit_edge165.split.us.split.us173.us.us.us, label %111
 
-._crit_edge165.split.us.split.us173.us.us.us:     ; preds = %113
+._crit_edge165.split.us.split.us173.us.us.us:     ; preds = %111
   %indvars.iv.next272 = add nuw nsw i64 %indvars.iv271, 1
-  %exitcond275.not = icmp eq i64 %indvars.iv.next272, %84
+  %exitcond275.not = icmp eq i64 %indvars.iv.next272, %82
   br i1 %exitcond275.not, label %._crit_edge168.split.us.split.us.split.us186.us, label %.preheader.us.us.us184.us
 
 ._crit_edge168.split.us.split.us.split.us186.us:  ; preds = %._crit_edge165.split.us.split.us173.us.us.us
@@ -5593,43 +5589,43 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond281.not, label %.loopexit, label %.preheader121.us.us
 
 .preheader121.lr.ph.split.us.split:               ; preds = %.preheader121.lr.ph.split.us
-  br i1 %or.cond13, label %.preheader121.lr.ph.split.us.split.split.us, label %.loopexit
+  br i1 %or.cond17, label %.preheader121.lr.ph.split.us.split.split.us, label %.loopexit
 
 .preheader121.lr.ph.split.us.split.split.us:      ; preds = %.preheader121.lr.ph.split.us.split
-  %116 = load ptr, ptr %81, align 8, !tbaa !23
-  %117 = zext nneg i32 %1 to i64
+  %114 = load ptr, ptr %79, align 8, !tbaa !23
+  %115 = zext nneg i32 %1 to i64
   %wide.trip.count264 = zext nneg i32 %0 to i64
   br label %.preheader121.us.us190
 
 .preheader121.us.us190:                           ; preds = %._crit_edge168.split.us.split.split.us.us.us, %.preheader121.lr.ph.split.us.split.split.us
   %indvars.iv260 = phi i64 [ %indvars.iv.next261, %._crit_edge168.split.us.split.split.us.us.us ], [ 0, %.preheader121.lr.ph.split.us.split.split.us ]
-  %118 = mul nuw nsw i64 %indvars.iv260, %117
-  %119 = getelementptr inbounds nuw ptr, ptr %116, i64 %indvars.iv260
-  %120 = load ptr, ptr %119, align 8, !tbaa !21
+  %116 = mul nuw nsw i64 %indvars.iv260, %115
+  %117 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv260
+  %118 = load ptr, ptr %117, align 8, !tbaa !21
   br label %.preheader.us.us177.us.us
 
 .preheader.us.us177.us.us:                        ; preds = %._crit_edge165.split.split.us.us.us.us.us, %.preheader121.us.us190
   %indvars.iv255 = phi i64 [ %indvars.iv.next256, %._crit_edge165.split.split.us.us.us.us.us ], [ 0, %.preheader121.us.us190 ]
-  %121 = add nuw nsw i64 %indvars.iv255, %118
-  %122 = mul nuw nsw i64 %121, %117
-  %123 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv255
-  %124 = load ptr, ptr %123, align 8, !tbaa !22
-  %invariant.gep312 = getelementptr inbounds nuw double, ptr %5, i64 %122
-  br label %125
+  %119 = add nuw nsw i64 %indvars.iv255, %116
+  %120 = mul nuw nsw i64 %119, %115
+  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv255
+  %122 = load ptr, ptr %121, align 8, !tbaa !22
+  %invariant.gep312 = getelementptr inbounds nuw double, ptr %5, i64 %120
+  br label %123
 
-125:                                              ; preds = %125, %.preheader.us.us177.us.us
-  %indvars.iv250 = phi i64 [ %indvars.iv.next251, %125 ], [ 0, %.preheader.us.us177.us.us ]
+123:                                              ; preds = %123, %.preheader.us.us177.us.us
+  %indvars.iv250 = phi i64 [ %indvars.iv.next251, %123 ], [ 0, %.preheader.us.us177.us.us ]
   %gep313 = getelementptr inbounds nuw double, ptr %invariant.gep312, i64 %indvars.iv250
-  %126 = load double, ptr %gep313, align 8, !tbaa !18
-  %127 = getelementptr inbounds nuw double, ptr %124, i64 %indvars.iv250
-  store double %126, ptr %127, align 8, !tbaa !18
+  %124 = load double, ptr %gep313, align 8, !tbaa !18
+  %125 = getelementptr inbounds nuw double, ptr %122, i64 %indvars.iv250
+  store double %124, ptr %125, align 8, !tbaa !18
   %indvars.iv.next251 = add nuw nsw i64 %indvars.iv250, 1
-  %exitcond254.not = icmp eq i64 %indvars.iv.next251, %117
-  br i1 %exitcond254.not, label %._crit_edge165.split.split.us.us.us.us.us, label %125
+  %exitcond254.not = icmp eq i64 %indvars.iv.next251, %115
+  br i1 %exitcond254.not, label %._crit_edge165.split.split.us.us.us.us.us, label %123
 
-._crit_edge165.split.split.us.us.us.us.us:        ; preds = %125
+._crit_edge165.split.split.us.us.us.us.us:        ; preds = %123
   %indvars.iv.next256 = add nuw nsw i64 %indvars.iv255, 1
-  %exitcond259.not = icmp eq i64 %indvars.iv.next256, %117
+  %exitcond259.not = icmp eq i64 %indvars.iv.next256, %115
   br i1 %exitcond259.not, label %._crit_edge168.split.us.split.split.us.us.us, label %.preheader.us.us177.us.us
 
 ._crit_edge168.split.us.split.split.us.us.us:     ; preds = %._crit_edge165.split.split.us.us.us.us.us
@@ -5638,7 +5634,7 @@ define noundef ptr @MRIStepCoupling_Create(i32 noundef %0, i32 noundef %1, i32 n
   br i1 %exitcond265.not, label %.loopexit, label %.preheader121.us.us190
 
 .loopexit:                                        ; preds = %._crit_edge134.split.us.split.split.us.us.us, %._crit_edge134.split.us.split.us.split.us157.us, %._crit_edge134.split.us.split.us.split.us.us.us.us, %._crit_edge168.split.us.split.split.us.us.us, %._crit_edge168.split.us.split.us.split.us186.us, %._crit_edge168.split.us.split.us.split.us.us.us.us, %.preheader121.lr.ph.split.us.split, %.preheader124.lr.ph.split.split.us.split, %17, %16, %7
-  %.0114 = phi ptr [ null, %7 ], [ null, %16 ], [ null, %17 ], [ %20, %.preheader124.lr.ph.split.split.us.split ], [ %20, %.preheader121.lr.ph.split.us.split ], [ %20, %._crit_edge168.split.us.split.us.split.us.us.us.us ], [ %20, %._crit_edge168.split.us.split.us.split.us186.us ], [ %20, %._crit_edge168.split.us.split.split.us.us.us ], [ %20, %._crit_edge134.split.us.split.us.split.us.us.us.us ], [ %20, %._crit_edge134.split.us.split.us.split.us157.us ], [ %20, %._crit_edge134.split.us.split.split.us.us.us ]
+  %.0114 = phi ptr [ null, %7 ], [ null, %16 ], [ null, %17 ], [ %18, %.preheader124.lr.ph.split.split.us.split ], [ %18, %.preheader121.lr.ph.split.us.split ], [ %18, %._crit_edge168.split.us.split.us.split.us.us.us.us ], [ %18, %._crit_edge168.split.us.split.us.split.us186.us ], [ %18, %._crit_edge168.split.us.split.split.us.us.us ], [ %18, %._crit_edge134.split.us.split.us.split.us.us.us.us ], [ %18, %._crit_edge134.split.us.split.us.split.us157.us ], [ %18, %._crit_edge134.split.us.split.split.us.us.us ]
   ret ptr %.0114
 }
 

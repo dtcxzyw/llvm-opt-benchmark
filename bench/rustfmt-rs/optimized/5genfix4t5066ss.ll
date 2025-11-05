@@ -35196,25 +35196,19 @@ define noundef zeroext i1 @"_ZN15rustfmt_nightly6config5lists109_$LT$impl$u20$ru
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @"_ZN15rustfmt_nightly6config5lists109_$LT$impl$u20$rustfmt_nightly..config..lists..__define_config_type_on_enum_SeparatorPlace..SeparatorPlace$GT$11from_tactic17h2b72c829b92232c5E"(i1 noundef zeroext %0, i64 noundef %1, i64 %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #11 {
-  %6 = icmp eq i64 %1, 0
-  br i1 %6, label %10, label %7
+  %6 = icmp ne i64 %1, 0
+  %.not.i = icmp eq i64 %4, 1
+  %or.cond = and i1 %6, %.not.i
+  br i1 %or.cond, label %7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
 7:                                                ; preds = %5
-  %.not.i = icmp eq i64 %4, 1
-  br i1 %.not.i, label %8, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
-
-8:                                                ; preds = %7
   %lhsc = load i8, ptr %3, align 1
-  %9 = icmp eq i8 %lhsc, 44
+  %8 = icmp eq i8 %lhsc, 44
+  %9 = or i1 %0, %8
   br label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit"
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %7, %8
-  %.0.i = phi i1 [ %9, %8 ], [ false, %7 ]
-  %. = or i1 %0, %.0.i
-  br label %10
-
-10:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit", %5
-  %.0.shrunk = phi i1 [ %0, %5 ], [ %., %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit" ]
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h884929514755f779E.exit": ; preds = %7, %5
+  %.0.shrunk = phi i1 [ %0, %5 ], [ %9, %7 ]
   ret i1 %.0.shrunk
 }
 

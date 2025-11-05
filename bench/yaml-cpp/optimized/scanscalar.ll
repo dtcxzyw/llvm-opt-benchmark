@@ -655,7 +655,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
 
 .critedge:                                        ; preds = %110, %79, %89, %85, %148
   %.1205 = phi i64 [ %149, %148 ], [ %.0204.ph806, %85 ], [ %.0204.ph806, %89 ], [ %.0204.ph806, %79 ], [ %.0204.ph806, %110 ]
-  %.0203 = phi i1 [ true, %148 ], [ false, %85 ], [ false, %89 ], [ false, %79 ], [ false, %110 ]
+  %.0203 = phi i1 [ true, %148 ], [ %.0172, %85 ], [ %.0172, %89 ], [ %.0172, %79 ], [ %.0172, %110 ]
   %.3195 = phi i64 [ %149, %148 ], [ %.2194.ph, %85 ], [ %.2194.ph, %89 ], [ %.2194.ph, %79 ], [ %.2194.ph, %110 ]
   %.2169 = phi i1 [ true, %148 ], [ %.1168, %85 ], [ %.1168, %89 ], [ %.1168, %79 ], [ %.1168, %110 ]
   %.2 = phi i8 [ 1, %148 ], [ %.1, %85 ], [ %.1, %89 ], [ %.1, %79 ], [ %.1, %110 ]
@@ -1314,8 +1314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.thread375.backe
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.thread375
 
 403:                                              ; preds = %398
-  %or.cond24 = or i1 %.0203, %.0172
-  br i1 %or.cond24, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.thread, label %404
+  br i1 %.0203, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.thread, label %404
 
 404:                                              ; preds = %403
   %405 = load i64, ptr %32, align 8, !tbaa !17

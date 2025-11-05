@@ -71631,13 +71631,12 @@ lor.rhs:                                          ; preds = %entry
 if.end:                                           ; preds = %lor.rhs
   %call34 = tail call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %call18) #25
   %4 = zext i32 %call34 to i64
+  %5 = or disjoint i64 %4, 4294967296
   br label %return
 
 return:                                           ; preds = %lor.rhs, %entry, %if.end
-  %retval.sroa.0.0 = phi i64 [ %4, %if.end ], [ 0, %entry ], [ 0, %lor.rhs ]
-  %retval.sroa.2.0 = phi i64 [ 4294967296, %if.end ], [ 0, %entry ], [ 0, %lor.rhs ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.2.0 = phi i64 [ %5, %if.end ], [ 0, %entry ], [ 0, %lor.rhs ]
+  ret i64 %retval.sroa.2.0
 }
 
 declare ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr) local_unnamed_addr #0
@@ -71718,18 +71717,18 @@ lor.rhs.i:                                        ; preds = %if.then21
 if.end.i11:                                       ; preds = %lor.rhs.i
   %call34.i = tail call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %call18.i) #25
   %13 = zext i32 %call34.i to i64
+  %14 = or disjoint i64 %13, 4294967296
   br label %_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit
 
 _ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit: ; preds = %if.then21, %lor.rhs.i, %if.end.i11
-  %retval.sroa.0.0.i = phi i64 [ %13, %if.end.i11 ], [ 0, %if.then21 ], [ 0, %lor.rhs.i ]
-  %14 = phi i1 [ true, %if.end.i11 ], [ false, %if.then21 ], [ false, %lor.rhs.i ]
-  %retval.sroa.2.0.i = phi i64 [ 4294967296, %if.end.i11 ], [ 0, %if.then21 ], [ 0, %lor.rhs.i ]
-  %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.2.0.i, %retval.sroa.0.0.i
-  store i64 %retval.sroa.0.0.insert.insert.i, ptr %parent_id, align 8
+  %retval.sroa.2.0.i = phi i64 [ %14, %if.end.i11 ], [ 0, %if.then21 ], [ 0, %lor.rhs.i ]
+  store i64 %retval.sroa.2.0.i, ptr %parent_id, align 8
+  %15 = and i64 %retval.sroa.2.0.i, 4294967296
+  %16 = icmp ne i64 %15, 0
   br label %if.end33
 
 if.end33:                                         ; preds = %_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit, %land.lhs.true, %if.end17
-  %tobool.i.i32 = phi i1 [ %14, %_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit ], [ false, %land.lhs.true ], [ false, %if.end17 ]
+  %tobool.i.i30 = phi i1 [ %16, %_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit ], [ false, %land.lhs.true ], [ false, %if.end17 ]
   store i32 0, ptr %id, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %action) #25
   switch i32 %type, label %do.body [
@@ -71739,40 +71738,40 @@ if.end33:                                         ; preds = %_ZN4node12GetPromis
 
 if.then35:                                        ; preds = %if.end33
   %trace_promise_id_counter_ = getelementptr inbounds nuw i8, ptr %8, i64 1836
-  %15 = load i32, ptr %trace_promise_id_counter_, align 4
-  %inc = add i32 %15, 1
+  %17 = load i32, ptr %trace_promise_id_counter_, align 4
+  %inc = add i32 %17, 1
   store i32 %inc, ptr %trace_promise_id_counter_, align 4
-  store i32 %15, ptr %id, align 4
+  store i32 %17, ptr %id, align 4
   %isolate_data_.i.i = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %16 = load ptr, ptr %isolate_data_.i.i, align 8
-  %promise_trace_id_.i.i = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %17 = load ptr, ptr %promise_trace_id_.i.i, align 8
-  %call45 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef nonnull %call, i32 noundef %15) #25
-  %call61 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %promise.coerce, ptr nonnull %call7, ptr %17, ptr %call45) #25
+  %18 = load ptr, ptr %isolate_data_.i.i, align 8
+  %promise_trace_id_.i.i = getelementptr inbounds nuw i8, ptr %18, i64 152
+  %19 = load ptr, ptr %promise_trace_id_.i.i, align 8
+  %call45 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef nonnull %call, i32 noundef %17) #25
+  %call61 = call i16 @_ZN2v86Object10SetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEENS1_INS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %promise.coerce, ptr nonnull %call7, ptr %19, ptr %call45) #25
   br label %if.end79
 
 if.then64:                                        ; preds = %if.end33
   %principal_realm_.i.i.i12 = getelementptr inbounds nuw i8, ptr %8, i64 2728
-  %18 = load ptr, ptr %principal_realm_.i.i.i12, align 8
-  %vtable.i.i13 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %principal_realm_.i.i.i12, align 8
+  %vtable.i.i13 = load ptr, ptr %20, align 8
   %vfn.i.i14 = getelementptr inbounds nuw i8, ptr %vtable.i.i13, i64 64
-  %19 = load ptr, ptr %vfn.i.i14, align 8
-  %call2.i.i15 = call ptr %19(ptr noundef nonnull align 8 dereferenceable(872) %18) #25
+  %21 = load ptr, ptr %vfn.i.i14, align 8
+  %call2.i.i15 = call ptr %21(ptr noundef nonnull align 8 dereferenceable(872) %20) #25
   %isolate_data_.i.i.i16 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %20 = load ptr, ptr %isolate_data_.i.i.i16, align 8
-  %promise_trace_id_.i.i.i17 = getelementptr inbounds nuw i8, ptr %20, i64 152
-  %21 = load ptr, ptr %promise_trace_id_.i.i.i17, align 8
-  %call18.i18 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %promise.coerce, ptr %call2.i.i15, ptr %21) #25
+  %22 = load ptr, ptr %isolate_data_.i.i.i16, align 8
+  %promise_trace_id_.i.i.i17 = getelementptr inbounds nuw i8, ptr %22, i64 152
+  %23 = load ptr, ptr %promise_trace_id_.i.i.i17, align 8
+  %call18.i18 = call ptr @_ZN2v86Object10GetPrivateENS_5LocalINS_7ContextEEENS1_INS_7PrivateEEE(ptr noundef nonnull align 1 dereferenceable(1) %promise.coerce, ptr %call2.i.i15, ptr %23) #25
   %cmp.i.i.i.not.i19 = icmp eq ptr %call18.i18, null
   br i1 %cmp.i.i.i.not.i19, label %cleanup, label %lor.rhs.i20
 
 lor.rhs.i20:                                      ; preds = %if.then64
   %call25.i21 = call noundef zeroext i1 @_ZNK2v85Value8IsUint32Ev(ptr noundef nonnull align 1 dereferenceable(1) %call18.i18) #25
-  br i1 %call25.i21, label %if.end.i25, label %cleanup
+  br i1 %call25.i21, label %_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit25, label %cleanup
 
-if.end.i25:                                       ; preds = %lor.rhs.i20
-  %call34.i26 = call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %call18.i18) #25
-  store i32 %call34.i26, ptr %id, align 4
+_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit25: ; preds = %lor.rhs.i20
+  %call34.i24 = call noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 dereferenceable(1) %call18.i18) #25
+  store i32 %call34.i24, ptr %id, align 4
   br label %if.end79
 
 do.body:                                          ; preds = %if.end33
@@ -71780,25 +71779,25 @@ do.body:                                          ; preds = %if.end33
   call void @abort() #26
   unreachable
 
-if.end79:                                         ; preds = %if.end.i25, %if.then35
-  %.str.1339.sink = phi ptr [ @.str.1339, %if.end.i25 ], [ @.str.1338, %if.then35 ]
+if.end79:                                         ; preds = %_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit25, %if.then35
+  %.str.1339.sink = phi ptr [ @.str.1339, %_ZN4node12GetPromiseIdEPNS_11EnvironmentEN2v85LocalINS2_7PromiseEEE.exit25 ], [ @.str.1338, %if.then35 ]
   %call76 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %action, ptr noundef nonnull %.str.1339.sink) #25
-  %22 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %22, ptr noundef nonnull @.str.1343) #30
-  br i1 %tobool.i.i32, label %_ZNRSt8optionalIjE5valueEv.exit36, label %if.end83
+  %24 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJEEEvP8_IO_FILEPKcDpOT_(ptr noundef %24, ptr noundef nonnull @.str.1343) #30
+  br i1 %tobool.i.i30, label %_ZNRSt8optionalIjE5valueEv.exit34, label %if.end83
 
-_ZNRSt8optionalIjE5valueEv.exit36:                ; preds = %if.end79
-  %23 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %23, ptr noundef nonnull @.str.1344, ptr noundef nonnull align 4 dereferenceable(4) %parent_id) #30
+_ZNRSt8optionalIjE5valueEv.exit34:                ; preds = %if.end79
+  %25 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %25, ptr noundef nonnull @.str.1344, ptr noundef nonnull align 4 dereferenceable(4) %parent_id) #30
   br label %if.end83
 
-if.end83:                                         ; preds = %_ZNRSt8optionalIjE5valueEv.exit36, %if.end79
-  %24 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %24, ptr noundef nonnull @.str.1345, ptr noundef nonnull align 8 dereferenceable(32) %action, ptr noundef nonnull align 4 dereferenceable(4) %id) #30
+if.end83:                                         ; preds = %_ZNRSt8optionalIjE5valueEv.exit34, %if.end79
+  %26 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjEEEvP8_IO_FILEPKcDpOT_(ptr noundef %26, ptr noundef nonnull @.str.1345, ptr noundef nonnull align 8 dereferenceable(32) %action, ptr noundef nonnull align 4 dereferenceable(4) %id) #30
   call void @_ZN4node22PrintCurrentStackTraceEPN2v87IsolateENS_16StackTracePrefixE(ptr noundef nonnull %call, i32 noundef 0) #25
   br label %cleanup
 
-cleanup:                                          ; preds = %if.then64, %lor.rhs.i20, %if.end83
+cleanup:                                          ; preds = %lor.rhs.i20, %if.then64, %if.end83
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %action) #25
   br label %cleanup.cont
 

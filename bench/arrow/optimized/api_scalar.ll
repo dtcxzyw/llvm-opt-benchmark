@@ -45113,32 +45113,32 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %7 = getelementptr inbounds i8, ptr %2, i64 %5
   %.val.i.i.i.i.i = load i32, ptr %6, align 4, !tbaa !815
   %.val3.i.i.i.i.i = load i32, ptr %7, align 4, !tbaa !815
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load i64, ptr %8, align 8, !tbaa !816
-  %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 %9
-  %.val.i4.i.i.i.i = load ptr, ptr %10, align 8
-  %12 = getelementptr i8, ptr %10, i64 8
-  %.val3.i5.i.i.i.i = load i64, ptr %12, align 8, !tbaa !51
-  %.val4.i.i.i.i.i = load ptr, ptr %11, align 8
+  %8 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %10 = load i64, ptr %9, align 8, !tbaa !816
+  %11 = getelementptr inbounds i8, ptr %1, i64 %10
+  %12 = getelementptr inbounds i8, ptr %2, i64 %10
+  %.val.i4.i.i.i.i = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %11, i64 8
-  %.val5.i.i.i.i.i = load i64, ptr %13, align 8, !tbaa !51
-  %14 = icmp eq i64 %.val3.i5.i.i.i.i, %.val5.i.i.i.i.i
-  br i1 %14, label %15, label %_ZN5arrow7compute8internal11CompareImplINS0_11JoinOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NS3_20NullHandlingBehaviorEEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SK_RKT_.exit
+  %.val3.i5.i.i.i.i = load i64, ptr %13, align 8, !tbaa !51
+  %.val4.i.i.i.i.i = load ptr, ptr %12, align 8
+  %14 = getelementptr i8, ptr %12, i64 8
+  %.val5.i.i.i.i.i = load i64, ptr %14, align 8, !tbaa !51
+  %15 = icmp eq i64 %.val3.i5.i.i.i.i, %.val5.i.i.i.i.i
+  br i1 %15, label %16, label %_ZN5arrow7compute8internal11CompareImplINS0_11JoinOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NS3_20NullHandlingBehaviorEEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SK_RKT_.exit
 
-15:                                               ; preds = %3
-  %16 = icmp eq i64 %.val3.i5.i.i.i.i, 0
-  br i1 %16, label %_ZN5arrow7compute8internal11CompareImplINS0_11JoinOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NS3_20NullHandlingBehaviorEEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SK_RKT_.exit, label %17
+16:                                               ; preds = %3
+  %17 = icmp eq i64 %.val3.i5.i.i.i.i, 0
+  br i1 %17, label %_ZN5arrow7compute8internal11CompareImplINS0_11JoinOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NS3_20NullHandlingBehaviorEEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SK_RKT_.exit, label %18
 
-17:                                               ; preds = %15
+18:                                               ; preds = %16
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val.i4.i.i.i.i, ptr readonly %.val4.i.i.i.i.i, i64 %.val3.i5.i.i.i.i)
-  %18 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %19 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %20 = and i1 %8, %19
   br label %_ZN5arrow7compute8internal11CompareImplINS0_11JoinOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NS3_20NullHandlingBehaviorEEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SK_RKT_.exit
 
-_ZN5arrow7compute8internal11CompareImplINS0_11JoinOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NS3_20NullHandlingBehaviorEEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SK_RKT_.exit: ; preds = %3, %15, %17
-  %19 = phi i1 [ false, %3 ], [ %18, %17 ], [ true, %15 ]
-  %20 = icmp eq i32 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %21 = and i1 %20, %19
+_ZN5arrow7compute8internal11CompareImplINS0_11JoinOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NS3_20NullHandlingBehaviorEEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SK_RKT_.exit: ; preds = %3, %16, %18
+  %21 = phi i1 [ false, %3 ], [ %20, %18 ], [ %8, %16 ]
   ret i1 %21
 }
 
@@ -51203,67 +51203,68 @@ _ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal
   %.011.i.i = phi i1 [ false, %2 ], [ true, %.preheader.i.i ], [ false, %.lr.ph.i.i ], [ false, %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.i.i ], [ true, %_ZN5arrow7compute8internalL13GenericEqualsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT_SB_.exit.thread.i.i ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i8, ptr %29, align 8, !tbaa !911, !range !35, !noundef !36
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %32 = load i64, ptr %31, align 8, !tbaa !919
-  %33 = getelementptr inbounds i8, ptr %3, i64 %32
-  %34 = getelementptr inbounds i8, ptr %8, i64 %32
-  %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %36 = load ptr, ptr %35, align 8, !tbaa !77
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %38 = load i32, ptr %37, align 8, !tbaa !80
-  %39 = load ptr, ptr %33, align 8, !tbaa !77
-  %40 = ptrtoint ptr %36 to i64
-  %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %40, %41
-  %43 = shl nsw i64 %42, 3
-  %44 = zext i32 %38 to i64
-  %45 = add nsw i64 %43, %44
-  %46 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !77
-  %48 = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %49 = load i32, ptr %48, align 8, !tbaa !80
-  %50 = load ptr, ptr %34, align 8, !tbaa !77
-  %51 = ptrtoint ptr %47 to i64
-  %52 = ptrtoint ptr %50 to i64
-  %53 = sub i64 %51, %52
-  %54 = shl nsw i64 %53, 3
-  %55 = zext i32 %49 to i64
-  %56 = add nsw i64 %54, %55
-  %.not.i.i6 = icmp eq i64 %45, %56
+  %31 = icmp ne i8 %30, 0
+  %32 = and i1 %.011.i.i, %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %34 = load i64, ptr %33, align 8, !tbaa !919
+  %35 = getelementptr inbounds i8, ptr %3, i64 %34
+  %36 = getelementptr inbounds i8, ptr %8, i64 %34
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %38 = load ptr, ptr %37, align 8, !tbaa !77
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %40 = load i32, ptr %39, align 8, !tbaa !80
+  %41 = load ptr, ptr %35, align 8, !tbaa !77
+  %42 = ptrtoint ptr %38 to i64
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
+  %45 = shl nsw i64 %44, 3
+  %46 = zext i32 %40 to i64
+  %47 = add nsw i64 %45, %46
+  %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  %49 = load ptr, ptr %48, align 8, !tbaa !77
+  %50 = getelementptr inbounds nuw i8, ptr %36, i64 24
+  %51 = load i32, ptr %50, align 8, !tbaa !80
+  %52 = load ptr, ptr %36, align 8, !tbaa !77
+  %53 = ptrtoint ptr %49 to i64
+  %54 = ptrtoint ptr %52 to i64
+  %55 = sub i64 %53, %54
+  %56 = shl nsw i64 %55, 3
+  %57 = zext i32 %51 to i64
+  %58 = add nsw i64 %56, %57
+  %.not.i.i6 = icmp eq i64 %47, %58
   br i1 %.not.i.i6, label %.preheader.i.i8, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit
 
 .preheader.i.i8:                                  ; preds = %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit
-  %57 = icmp eq i64 %45, 0
-  br i1 %57, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit, label %.lr.ph.i.i9
+  %59 = icmp eq i64 %47, 0
+  br i1 %59, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit, label %.lr.ph.i.i9
 
-.lr.ph.i.i9:                                      ; preds = %.preheader.i.i8, %.lr.ph.i.i9
-  %.01016.i.i = phi i64 [ %70, %.lr.ph.i.i9 ], [ 0, %.preheader.i.i8 ]
-  %58 = sdiv i64 %.01016.i.i, 64
-  %59 = getelementptr inbounds i64, ptr %39, i64 %58
-  %60 = and i64 %.01016.i.i, -9223372036854775745
-  %61 = icmp ugt i64 %60, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i.i.i = select i1 %61, i64 -8, i64 0
-  %storemerge.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 %storemerge.idx.i.i.i.i.i.i.i
-  %62 = and i64 %.01016.i.i, 63
-  %63 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8, !tbaa !58
-  %64 = getelementptr inbounds i64, ptr %50, i64 %58
-  %storemerge.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %64, i64 %storemerge.idx.i.i.i.i.i.i.i
-  %65 = load i64, ptr %storemerge.i.i.i.i.i14.i.i, align 8, !tbaa !58
-  %66 = xor i64 %65, %63
-  %67 = shl nuw i64 1, %62
-  %68 = and i64 %66, %67
-  %69 = icmp eq i64 %68, 0
-  %70 = add nuw i64 %.01016.i.i, 1
-  %.not19.i.i = icmp ult i64 %70, %45
-  %or.cond = select i1 %69, i1 %.not19.i.i, i1 false
-  br i1 %or.cond, label %.lr.ph.i.i9, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit, !llvm.loop !1032
+60:                                               ; preds = %.lr.ph.i.i9
+  %61 = add nuw i64 %.01016.i.i, 1
+  %.not19.i.i = icmp ult i64 %61, %47
+  br i1 %.not19.i.i, label %.lr.ph.i.i9, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit, !llvm.loop !1032
 
-_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit: ; preds = %.lr.ph.i.i9, %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit, %.preheader.i.i8
-  %.011.i.i7 = phi i1 [ false, %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit ], [ true, %.preheader.i.i8 ], [ %69, %.lr.ph.i.i9 ]
-  %71 = icmp ne i8 %30, 0
-  %72 = and i1 %.011.i.i, %71
-  %73 = and i1 %72, %.011.i.i7
-  %74 = zext i1 %73 to i8
+.lr.ph.i.i9:                                      ; preds = %.preheader.i.i8, %60
+  %.01016.i.i = phi i64 [ %61, %60 ], [ 0, %.preheader.i.i8 ]
+  %62 = sdiv i64 %.01016.i.i, 64
+  %63 = getelementptr inbounds i64, ptr %41, i64 %62
+  %64 = and i64 %.01016.i.i, -9223372036854775745
+  %65 = icmp ugt i64 %64, -9223372036854775808
+  %storemerge.idx.i.i.i.i.i.i.i = select i1 %65, i64 -8, i64 0
+  %storemerge.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %63, i64 %storemerge.idx.i.i.i.i.i.i.i
+  %66 = and i64 %.01016.i.i, 63
+  %67 = load i64, ptr %storemerge.i.i.i.i.i.i.i, align 8, !tbaa !58
+  %68 = getelementptr inbounds i64, ptr %52, i64 %62
+  %storemerge.i.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %68, i64 %storemerge.idx.i.i.i.i.i.i.i
+  %69 = load i64, ptr %storemerge.i.i.i.i.i14.i.i, align 8, !tbaa !58
+  %70 = xor i64 %69, %67
+  %71 = shl nuw i64 1, %66
+  %72 = and i64 %70, %71
+  %73 = icmp eq i64 %72, 0
+  br i1 %73, label %60, label %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit
+
+_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorIbSaIbEEEEEEvRKT_m.exit: ; preds = %60, %.lr.ph.i.i9, %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit, %.preheader.i.i8
+  %.011.i.i7 = phi i1 [ false, %_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EEEEEEvRKT_m.exit ], [ %32, %.preheader.i.i8 ], [ false, %.lr.ph.i.i9 ], [ %32, %60 ]
+  %74 = zext i1 %.011.i.i7 to i8
   store i8 %74, ptr %29, align 8, !tbaa !911
   tail call void @_ZN5arrow7compute8internal11CompareImplINS0_17MakeStructOptionsEEclINS_8internal18DataMemberPropertyIS3_St6vectorISt10shared_ptrIKNS_16KeyValueMetadataEESaISC_EEEEEEvRKT_m(ptr noundef nonnull align 8 dereferenceable(17) %1, ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 2)
   ret void
@@ -70657,32 +70658,32 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %7 = getelementptr inbounds i8, ptr %2, i64 %5
   %.val.i.i.i.i.i = load i64, ptr %6, align 8, !tbaa !58
   %.val3.i.i.i.i.i = load i64, ptr %7, align 8, !tbaa !58
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i64, ptr %8, align 8, !tbaa !1674
-  %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 %9
-  %.val.i6.i.i.i.i = load ptr, ptr %10, align 8
-  %12 = getelementptr i8, ptr %10, i64 8
-  %.val3.i7.i.i.i.i = load i64, ptr %12, align 8, !tbaa !51
-  %.val4.i.i.i.i.i = load ptr, ptr %11, align 8
+  %8 = icmp eq i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = load i64, ptr %9, align 8, !tbaa !1674
+  %11 = getelementptr inbounds i8, ptr %1, i64 %10
+  %12 = getelementptr inbounds i8, ptr %2, i64 %10
+  %.val.i6.i.i.i.i = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %11, i64 8
-  %.val5.i.i.i.i.i = load i64, ptr %13, align 8, !tbaa !51
-  %14 = icmp eq i64 %.val3.i7.i.i.i.i, %.val5.i.i.i.i.i
-  br i1 %14, label %15, label %_ZN5arrow7compute8internal11CompareImplINS0_10PadOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS8_IS3_bEEEEEEERKS3_SK_RKT_.exit
+  %.val3.i7.i.i.i.i = load i64, ptr %13, align 8, !tbaa !51
+  %.val4.i.i.i.i.i = load ptr, ptr %12, align 8
+  %14 = getelementptr i8, ptr %12, i64 8
+  %.val5.i.i.i.i.i = load i64, ptr %14, align 8, !tbaa !51
+  %15 = icmp eq i64 %.val3.i7.i.i.i.i, %.val5.i.i.i.i.i
+  br i1 %15, label %16, label %_ZN5arrow7compute8internal11CompareImplINS0_10PadOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS8_IS3_bEEEEEEERKS3_SK_RKT_.exit
 
-15:                                               ; preds = %3
-  %16 = icmp eq i64 %.val3.i7.i.i.i.i, 0
-  br i1 %16, label %_ZN5arrow7compute8internal11CompareImplINS0_10PadOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS8_IS3_bEEEEEEERKS3_SK_RKT_.exit, label %17
+16:                                               ; preds = %3
+  %17 = icmp eq i64 %.val3.i7.i.i.i.i, 0
+  br i1 %17, label %_ZN5arrow7compute8internal11CompareImplINS0_10PadOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS8_IS3_bEEEEEEERKS3_SK_RKT_.exit, label %18
 
-17:                                               ; preds = %15
+18:                                               ; preds = %16
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val.i6.i.i.i.i, ptr readonly %.val4.i.i.i.i.i, i64 %.val3.i7.i.i.i.i)
-  %18 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %19 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %20 = and i1 %8, %19
   br label %_ZN5arrow7compute8internal11CompareImplINS0_10PadOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS8_IS3_bEEEEEEERKS3_SK_RKT_.exit
 
-_ZN5arrow7compute8internal11CompareImplINS0_10PadOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS8_IS3_bEEEEEEERKS3_SK_RKT_.exit: ; preds = %3, %15, %17
-  %19 = phi i1 [ false, %3 ], [ %18, %17 ], [ true, %15 ]
-  %20 = icmp eq i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %21 = and i1 %20, %19
+_ZN5arrow7compute8internal11CompareImplINS0_10PadOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEENS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS8_IS3_bEEEEEEERKS3_SK_RKT_.exit: ; preds = %3, %16, %18
+  %21 = phi i1 [ false, %3 ], [ %20, %18 ], [ %8, %16 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !1676
   %24 = getelementptr inbounds i8, ptr %1, i64 %23
@@ -75756,40 +75757,40 @@ define linkonce_odr noundef zeroext i1 @_ZZN5arrow7compute8internal22GetFunction
   %7 = getelementptr inbounds i8, ptr %2, i64 %5
   %.val.i.i.i.i.i = load i64, ptr %6, align 8, !tbaa !58
   %.val3.i.i.i.i.i = load i64, ptr %7, align 8, !tbaa !58
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i64, ptr %8, align 8, !tbaa !1790
-  %10 = getelementptr inbounds i8, ptr %1, i64 %9
-  %11 = getelementptr inbounds i8, ptr %2, i64 %9
-  %.val.i6.i.i.i.i = load i64, ptr %10, align 8, !tbaa !58
-  %.val3.i7.i.i.i.i = load i64, ptr %11, align 8, !tbaa !58
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = load i64, ptr %12, align 8, !tbaa !1792
-  %14 = getelementptr inbounds i8, ptr %1, i64 %13
-  %15 = getelementptr inbounds i8, ptr %2, i64 %13
-  %.val.i8.i.i.i.i = load ptr, ptr %14, align 8
-  %16 = getelementptr i8, ptr %14, i64 8
-  %.val3.i9.i.i.i.i = load i64, ptr %16, align 8, !tbaa !51
-  %.val4.i.i.i.i.i = load ptr, ptr %15, align 8
-  %17 = getelementptr i8, ptr %15, i64 8
-  %.val5.i.i.i.i.i = load i64, ptr %17, align 8, !tbaa !51
-  %18 = icmp eq i64 %.val3.i9.i.i.i.i, %.val5.i.i.i.i.i
-  br i1 %18, label %19, label %_ZN5arrow7compute8internal11CompareImplINS0_19ReplaceSliceOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEES9_NS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SJ_RKT_.exit
+  %8 = icmp eq i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = load i64, ptr %9, align 8, !tbaa !1790
+  %11 = getelementptr inbounds i8, ptr %1, i64 %10
+  %12 = getelementptr inbounds i8, ptr %2, i64 %10
+  %.val.i6.i.i.i.i = load i64, ptr %11, align 8, !tbaa !58
+  %.val3.i7.i.i.i.i = load i64, ptr %12, align 8, !tbaa !58
+  %13 = icmp eq i64 %.val.i6.i.i.i.i, %.val3.i7.i.i.i.i
+  %14 = and i1 %8, %13
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %16 = load i64, ptr %15, align 8, !tbaa !1792
+  %17 = getelementptr inbounds i8, ptr %1, i64 %16
+  %18 = getelementptr inbounds i8, ptr %2, i64 %16
+  %.val.i8.i.i.i.i = load ptr, ptr %17, align 8
+  %19 = getelementptr i8, ptr %17, i64 8
+  %.val3.i9.i.i.i.i = load i64, ptr %19, align 8, !tbaa !51
+  %.val4.i.i.i.i.i = load ptr, ptr %18, align 8
+  %20 = getelementptr i8, ptr %18, i64 8
+  %.val5.i.i.i.i.i = load i64, ptr %20, align 8, !tbaa !51
+  %21 = icmp eq i64 %.val3.i9.i.i.i.i, %.val5.i.i.i.i.i
+  br i1 %21, label %22, label %_ZN5arrow7compute8internal11CompareImplINS0_19ReplaceSliceOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEES9_NS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SJ_RKT_.exit
 
-19:                                               ; preds = %3
-  %20 = icmp eq i64 %.val3.i9.i.i.i.i, 0
-  br i1 %20, label %_ZN5arrow7compute8internal11CompareImplINS0_19ReplaceSliceOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEES9_NS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SJ_RKT_.exit, label %21
+22:                                               ; preds = %3
+  %23 = icmp eq i64 %.val3.i9.i.i.i.i, 0
+  br i1 %23, label %_ZN5arrow7compute8internal11CompareImplINS0_19ReplaceSliceOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEES9_NS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SJ_RKT_.exit, label %24
 
-21:                                               ; preds = %19
+24:                                               ; preds = %22
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val.i8.i.i.i.i, ptr readonly %.val4.i.i.i.i.i, i64 %.val3.i9.i.i.i.i)
-  %22 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %25 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
+  %26 = and i1 %14, %25
   br label %_ZN5arrow7compute8internal11CompareImplINS0_19ReplaceSliceOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEES9_NS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SJ_RKT_.exit
 
-_ZN5arrow7compute8internal11CompareImplINS0_19ReplaceSliceOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEES9_NS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SJ_RKT_.exit: ; preds = %3, %19, %21
-  %23 = phi i1 [ false, %3 ], [ %22, %21 ], [ true, %19 ]
-  %24 = icmp eq i64 %.val.i.i.i.i.i, %.val3.i.i.i.i.i
-  %25 = icmp eq i64 %.val.i6.i.i.i.i, %.val3.i7.i.i.i.i
-  %26 = and i1 %24, %25
-  %27 = and i1 %26, %23
+_ZN5arrow7compute8internal11CompareImplINS0_19ReplaceSliceOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_lEES9_NS8_IS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEEERKS3_SJ_RKT_.exit: ; preds = %3, %22, %24
+  %27 = phi i1 [ false, %3 ], [ %26, %24 ], [ %14, %22 ]
   ret i1 %27
 }
 
@@ -78716,19 +78717,19 @@ _ZN5arrow7compute8internal11CompareImplINS0_23ReplaceSubstringOptionsEEclINS_8in
 25:                                               ; preds = %23
   %bcmp.i.i.i10.i.i.i.i = tail call i32 @bcmp(ptr readonly %.val.i6.i.i.i.i, ptr readonly %.val4.i8.i.i.i.i, i64 %.val3.i7.i.i.i.i)
   %26 = icmp eq i32 %bcmp.i.i.i10.i.i.i.i, 0
+  %27 = and i1 %15, %26
   br label %_ZN5arrow7compute8internal11CompareImplINS0_23ReplaceSubstringOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_NS8_IS3_lEEEEEEERKS3_SJ_RKT_.exit
 
 _ZN5arrow7compute8internal11CompareImplINS0_23ReplaceSubstringOptionsEEC2INS_8internal13PropertyTupleIJNS6_18DataMemberPropertyIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESF_NS8_IS3_lEEEEEEERKS3_SJ_RKT_.exit: ; preds = %_ZN5arrow7compute8internal11CompareImplINS0_23ReplaceSubstringOptionsEEclINS_8internal18DataMemberPropertyIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRKT_m.exit.i.i.i.i, %23, %25
-  %27 = phi i1 [ false, %_ZN5arrow7compute8internal11CompareImplINS0_23ReplaceSubstringOptionsEEclINS_8internal18DataMemberPropertyIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRKT_m.exit.i.i.i.i ], [ %26, %25 ], [ true, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !1863
-  %30 = getelementptr inbounds i8, ptr %1, i64 %29
-  %31 = getelementptr inbounds i8, ptr %2, i64 %29
-  %.val.i12.i.i.i.i = load i64, ptr %30, align 8, !tbaa !58
-  %.val3.i13.i.i.i.i = load i64, ptr %31, align 8, !tbaa !58
-  %32 = icmp eq i64 %.val.i12.i.i.i.i, %.val3.i13.i.i.i.i
-  %33 = and i1 %27, %32
-  %34 = and i1 %15, %33
+  %28 = phi i1 [ false, %_ZN5arrow7compute8internal11CompareImplINS0_23ReplaceSubstringOptionsEEclINS_8internal18DataMemberPropertyIS3_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvRKT_m.exit.i.i.i.i ], [ %27, %25 ], [ %15, %23 ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %30 = load i64, ptr %29, align 8, !tbaa !1863
+  %31 = getelementptr inbounds i8, ptr %1, i64 %30
+  %32 = getelementptr inbounds i8, ptr %2, i64 %30
+  %.val.i12.i.i.i.i = load i64, ptr %31, align 8, !tbaa !58
+  %.val3.i13.i.i.i.i = load i64, ptr %32, align 8, !tbaa !58
+  %33 = icmp eq i64 %.val.i12.i.i.i.i, %.val3.i13.i.i.i.i
+  %34 = and i1 %28, %33
   ret i1 %34
 }
 

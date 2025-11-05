@@ -6286,11 +6286,12 @@ H5D__check_filters.exit.thread:                   ; preds = %40, %47, %H5D__chec
   %105 = icmp eq i32 %.pre218, 2
   %106 = getelementptr inbounds nuw i8, ptr %97, i64 2512
   %107 = zext i32 %99 to i64
-  br label %108
+  %108 = and i1 %104, %105
+  br label %109
 
-108:                                              ; preds = %.lr.ph, %.thread
+109:                                              ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
-  %109 = phi i1 [ %104, %.lr.ph ], [ true, %.thread ]
+  %or.cond = phi i1 [ %108, %.lr.ph ], [ %105, %.thread ]
   %.0120196 = phi i1 [ false, %.lr.ph ], [ %.1121, %.thread ]
   %.0123195 = phi i1 [ false, %.lr.ph ], [ %.1124, %.thread ]
   %.0125194 = phi i1 [ false, %.lr.ph ], [ %spec.select, %.thread ]
@@ -6302,10 +6303,9 @@ H5D__check_filters.exit.thread:                   ; preds = %40, %47, %H5D__chec
   %spec.select = select i1 %114, i1 true, i1 %.0125194
   %115 = icmp ugt i64 %111, %113
   %.1124 = select i1 %115, i1 true, i1 %.0123195
-  %or.cond = and i1 %109, %105
   br i1 %or.cond, label %116, label %.thread
 
-116:                                              ; preds = %108
+116:                                              ; preds = %109
   %117 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv
   %118 = load i32, ptr %117, align 4, !tbaa !59
   %119 = icmp eq i32 %118, 0
@@ -6453,14 +6453,14 @@ H5VM_log2_gen.exit:                               ; preds = %144, %150, %156, %1
   %195 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5D__set_extent, i32 noundef 3125, i64 noundef %193, i64 noundef %194, ptr noundef nonnull @.str.113) #12
   br label %342
 
-.thread:                                          ; preds = %H5VM_log2_gen.exit, %136, %124, %108
-  %.1121 = phi i1 [ %.0120196, %108 ], [ %.0120196, %124 ], [ true, %H5VM_log2_gen.exit ], [ %.0120196, %136 ]
+.thread:                                          ; preds = %H5VM_log2_gen.exit, %136, %124, %109
+  %.1121 = phi i1 [ %.0120196, %109 ], [ %.0120196, %124 ], [ true, %H5VM_log2_gen.exit ], [ %.0120196, %136 ]
   %196 = load i64, ptr %110, align 8, !tbaa !10
   %197 = getelementptr inbounds nuw i64, ptr %106, i64 %indvars.iv
   store i64 %196, ptr %197, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %198 = icmp samesign ult i64 %indvars.iv.next, %107
-  br i1 %198, label %108, label %._crit_edge, !llvm.loop !163
+  br i1 %198, label %109, label %._crit_edge, !llvm.loop !163
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader179.._crit_edge_crit_edge
   %199 = phi i32 [ %.pre219, %.preheader179.._crit_edge_crit_edge ], [ %.pre218, %.thread ]

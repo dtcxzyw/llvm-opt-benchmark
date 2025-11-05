@@ -567,9 +567,9 @@ onig_bbuf_init.exit.thread:                       ; preds = %21
   br label %85
 
 85:                                               ; preds = %61, %83
-  %.sink141 = phi i32 [ %84, %83 ], [ 0, %61 ]
+  %.sink139 = phi i32 [ %84, %83 ], [ 0, %61 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.sink141, ptr %86, align 8, !tbaa !67
+  store i32 %.sink139, ptr %86, align 8, !tbaa !67
   %87 = load ptr, ptr %9, align 8, !tbaa !59
   %88 = call fastcc i32 @setup_tree(ptr noundef %87, ptr noundef nonnull %0, i32 noundef 0, ptr noundef %10)
   %.not88 = icmp eq i32 %88, 0
@@ -709,11 +709,11 @@ set_optimize_info_from_tree.exit.thread106:       ; preds = %89
   %169 = getelementptr i16, ptr @distance_value.dist_vals, i64 %166
   %170 = load i16, ptr %169, align 2, !tbaa !98
   %171 = sext i16 %170 to i32
+  %172 = mul i32 %155, %171
   br label %distance_value.exit.i.i.i
 
 distance_value.exit.i.i.i:                        ; preds = %168, %164, %160
-  %.0.i.i.i.i = phi i32 [ %171, %168 ], [ 0, %160 ], [ 1, %164 ]
-  %172 = mul i32 %.0.i.i.i.i, %155
+  %.0.i.i.i.i = phi i32 [ %172, %168 ], [ 0, %160 ], [ %155, %164 ]
   %173 = getelementptr inbounds nuw i8, ptr %7, i64 224
   %174 = load i64, ptr %173, align 8, !tbaa !96
   %175 = icmp eq i64 %174, -1
@@ -729,16 +729,16 @@ distance_value.exit.i.i.i:                        ; preds = %168, %164, %160
   %181 = getelementptr i16, ptr @distance_value.dist_vals, i64 %178
   %182 = load i16, ptr %181, align 2, !tbaa !98
   %183 = sext i16 %182 to i32
+  %184 = mul nsw i32 %156, %183
   br label %distance_value.exit21.i.i.i
 
 distance_value.exit21.i.i.i:                      ; preds = %180, %176, %distance_value.exit.i.i.i
-  %.0.i20.i.i.i = phi i32 [ %183, %180 ], [ 0, %distance_value.exit.i.i.i ], [ 1, %176 ]
-  %184 = mul nsw i32 %.0.i20.i.i.i, %156
-  %185 = icmp sgt i32 %184, %172
+  %.0.i20.i.i.i = phi i32 [ %184, %180 ], [ 0, %distance_value.exit.i.i.i ], [ %156, %176 ]
+  %185 = icmp sgt i32 %.0.i20.i.i.i, %.0.i.i.i.i
   br i1 %185, label %comp_opt_exact_or_map_info.exit.i, label %186
 
 186:                                              ; preds = %distance_value.exit21.i.i.i
-  %187 = icmp slt i32 %184, %172
+  %187 = icmp slt i32 %.0.i20.i.i.i, %.0.i.i.i.i
   br i1 %187, label %comp_opt_exact_or_map_info.exit.thread.i, label %188
 
 188:                                              ; preds = %186
@@ -8505,8 +8505,8 @@ define internal fastcc i32 @optimize_node_left(ptr noundef captures(address) %0,
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %.sink770.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.sink770.sroa.gep826 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %.sink768.sroa.gep = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.sink768.sroa.gep824 = getelementptr inbounds nuw i8, ptr %7, i64 88
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %917, %3
@@ -8535,7 +8535,7 @@ tailrecurse:                                      ; preds = %917, %3
   store i64 %.val9.i, ptr %24, align 8, !tbaa !97
   store i64 %.val10.i, ptr %29, align 8, !tbaa !96
   %30 = load i32, ptr %.tr, align 8, !tbaa !34
-  switch i32 %30, label %common.ret851 [
+  switch i32 %30, label %common.ret849 [
     i32 8, label %31
     i32 9, label %270
     i32 0, label %358
@@ -8968,11 +8968,11 @@ concat_opt_anc_info.exit.i:                       ; preds = %61
   %236 = getelementptr i16, ptr @distance_value.dist_vals, i64 %233
   %237 = load i16, ptr %236, align 2, !tbaa !98
   %238 = sext i16 %237 to i32
+  %239 = mul nsw i32 %223, %238
   br label %distance_value.exit.i.i.i
 
 distance_value.exit.i.i.i:                        ; preds = %235, %231, %228
-  %.0.i.i.i.i = phi i32 [ %238, %235 ], [ 0, %228 ], [ 1, %231 ]
-  %239 = mul nsw i32 %.0.i.i.i.i, %223
+  %.0.i.i.i.i = phi i32 [ %239, %235 ], [ 0, %228 ], [ %223, %231 ]
   %240 = load i64, ptr %45, align 8, !tbaa !96
   %241 = icmp eq i64 %240, -1
   br i1 %241, label %distance_value.exit21.i.i.i, label %242
@@ -8987,16 +8987,16 @@ distance_value.exit.i.i.i:                        ; preds = %235, %231, %228
   %247 = getelementptr i16, ptr @distance_value.dist_vals, i64 %244
   %248 = load i16, ptr %247, align 2, !tbaa !98
   %249 = sext i16 %248 to i32
+  %250 = mul nsw i32 %224, %249
   br label %distance_value.exit21.i.i.i
 
 distance_value.exit21.i.i.i:                      ; preds = %246, %242, %distance_value.exit.i.i.i
-  %.0.i20.i.i.i = phi i32 [ %249, %246 ], [ 0, %distance_value.exit.i.i.i ], [ 1, %242 ]
-  %250 = mul nsw i32 %.0.i20.i.i.i, %224
-  %251 = icmp sgt i32 %250, %239
+  %.0.i20.i.i.i = phi i32 [ %250, %246 ], [ 0, %distance_value.exit.i.i.i ], [ %224, %242 ]
+  %251 = icmp sgt i32 %.0.i20.i.i.i, %.0.i.i.i.i
   br i1 %251, label %comp_distance_value.exit.sink.split.i.i, label %252
 
 252:                                              ; preds = %distance_value.exit21.i.i.i
-  %253 = icmp slt i32 %250, %239
+  %253 = icmp slt i32 %.0.i20.i.i.i, %.0.i.i.i.i
   br i1 %253, label %concat_left_node_opt_info.exit, label %254
 
 254:                                              ; preds = %252
@@ -9041,7 +9041,7 @@ concat_left_node_opt_info.exit:                   ; preds = %216, %222, %252, %2
   %.lcssa638 = phi i32 [ %64, %61 ], [ 0, %concat_left_node_opt_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %common.ret851
+  br label %common.ret849
 
 270:                                              ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -9226,7 +9226,7 @@ alt_merge_node_opt_info.exit:                     ; preds = %298, %351, %355
 .critedge3:                                       ; preds = %291, %alt_merge_node_opt_info.exit
   %.lcssa639 = phi i32 [ %294, %291 ], [ 0, %alt_merge_node_opt_info.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %common.ret851
+  br label %common.ret849
 
 358:                                              ; preds = %tailrecurse
   %359 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
@@ -9443,7 +9443,7 @@ concat_opt_exact_info_str.exit340:                ; preds = %.loopexit.i333, %45
   %471 = load i32, ptr %470, align 4, !tbaa !79
   %472 = tail call fastcc i32 @add_char_amb_opt_map_info(ptr noundef %24, ptr noundef %467, ptr noundef %468, ptr noundef %469, i32 noundef %471)
   %.not312 = icmp eq i32 %472, 0
-  br i1 %.not312, label %.thread370, label %common.ret851
+  br i1 %.not312, label %.thread370, label %common.ret849
 
 .thread370:                                       ; preds = %429, %466, %concat_opt_exact_info_str.exit340
   %.0255 = phi i64 [ %436, %429 ], [ %365, %466 ], [ 0, %concat_opt_exact_info_str.exit340 ]
@@ -9457,12 +9457,12 @@ concat_opt_exact_info_str.exit340:                ; preds = %.loopexit.i333, %45
   %475 = phi i32 [ %.pre674, %.thread370 ], [ %.024.lcssa.i, %add_char_opt_map_info.exit ]
   %476 = sext i32 %475 to i64
   %477 = icmp eq i64 %365, %476
-  br i1 %477, label %478, label %common.ret851
+  br i1 %477, label %478, label %common.ret849
 
 478:                                              ; preds = %474
   %479 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store i32 1, ptr %479, align 8, !tbaa !255
-  br label %common.ret851
+  br label %common.ret849
 
 480:                                              ; preds = %tailrecurse
   %481 = getelementptr inbounds nuw i8, ptr %.tr, i64 40
@@ -9496,7 +9496,7 @@ concat_opt_exact_info_str.exit340:                ; preds = %.loopexit.i333, %45
   store i64 %496, ptr %1, align 8, !tbaa !97
   %500 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %499, ptr %500, align 8, !tbaa !96
-  br label %common.ret851
+  br label %common.ret849
 
 501:                                              ; preds = %.preheader, %add_char_opt_map_info.exit343
   %indvars.iv664 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next665, %add_char_opt_map_info.exit343 ]
@@ -9559,7 +9559,7 @@ add_char_opt_map_info.exit343:                    ; preds = %501, %map_position_
   store i64 1, ptr %1, align 8, !tbaa !97
   %533 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 1, ptr %533, align 8, !tbaa !96
-  br label %common.ret851
+  br label %common.ret849
 
 534:                                              ; preds = %tailrecurse
   %535 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9707,7 +9707,7 @@ add_char_opt_map_info.exit349:                    ; preds = %map_position_value.
   store i64 %.0261, ptr %1, align 8, !tbaa !97
   %608 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %607, ptr %608, align 8, !tbaa !96
-  br label %common.ret851
+  br label %common.ret849
 
 609:                                              ; preds = %tailrecurse
   %610 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -9721,18 +9721,18 @@ add_char_opt_map_info.exit349:                    ; preds = %map_position_value.
   store i64 %614, ptr %1, align 8, !tbaa !97
   %618 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %617, ptr %618, align 8, !tbaa !96
-  br label %common.ret851
+  br label %common.ret849
 
 619:                                              ; preds = %tailrecurse
   %620 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %621 = load i32, ptr %620, align 4, !tbaa !34
   %622 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %621)
   %623 = icmp eq i32 %622, 1
-  br i1 %623, label %.split, label %common.ret851
+  br i1 %623, label %.split, label %common.ret849
 
 .split:                                           ; preds = %619
   %624 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %621, i1 true)
-  switch i32 %624, label %common.ret851 [
+  switch i32 %624, label %common.ret849 [
     i32 10, label %628
     i32 11, label %626
     i32 5, label %626
@@ -9747,12 +9747,12 @@ add_char_opt_map_info.exit349:                    ; preds = %map_position_value.
 is_left_anchor.exit.i:                            ; preds = %.split, %.split, %.split, %.split
   %625 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %621, ptr %625, align 4, !tbaa !110
-  br label %common.ret851
+  br label %common.ret849
 
 626:                                              ; preds = %.split, %.split, %.split, %.split
   %627 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %621, ptr %627, align 4, !tbaa !111
-  br label %common.ret851
+  br label %common.ret849
 
 628:                                              ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -9775,8 +9775,8 @@ is_left_anchor.exit.i:                            ; preds = %.split, %.split, %.
   br i1 %640, label %.sink.split, label %641
 
 .sink.split:                                      ; preds = %637, %633
-  %.sink770.sroa.phi = phi ptr [ %.sink770.sroa.gep, %633 ], [ %.sink770.sroa.gep826, %637 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %.sink770.sroa.phi, i64 64, i1 false)
+  %.sink768.sroa.phi = phi ptr [ %.sink768.sroa.gep, %633 ], [ %.sink768.sroa.gep824, %637 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %20, ptr noundef nonnull readonly align 8 dereferenceable(64) %.sink768.sroa.phi, i64 64, i1 false)
   br label %641
 
 641:                                              ; preds = %.sink.split, %637
@@ -9794,7 +9794,7 @@ is_left_anchor.exit.i:                            ; preds = %.split, %.split, %.
 
 648:                                              ; preds = %641, %646, %628
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %common.ret851
+  br label %common.ret849
 
 649:                                              ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -9901,9 +9901,9 @@ is_left_anchor.exit.i:                            ; preds = %.split, %.split, %.
   br i1 %708, label %.lr.ph628, label %.thread373.sink.split, !llvm.loop !277
 
 .thread373.sink.split:                            ; preds = %704, %.preheader384.._crit_edge_crit_edge, %649
-  %.sink772 = phi i64 [ 0, %649 ], [ %.pre672, %.preheader384.._crit_edge_crit_edge ], [ %699, %704 ]
+  %.sink770 = phi i64 [ 0, %649 ], [ %.pre672, %.preheader384.._crit_edge_crit_edge ], [ %699, %704 ]
   %.sink = phi i64 [ -1, %649 ], [ %.pre673, %.preheader384.._crit_edge_crit_edge ], [ %705, %704 ]
-  store i64 %.sink772, ptr %1, align 8, !tbaa !97
+  store i64 %.sink770, ptr %1, align 8, !tbaa !97
   %709 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.sink, ptr %709, align 8, !tbaa !96
   br label %.thread373
@@ -9914,7 +9914,7 @@ is_left_anchor.exit.i:                            ; preds = %.split, %.split, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %common.ret851
+  br label %common.ret849
 
 710:                                              ; preds = %tailrecurse
   %711 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
@@ -9927,11 +9927,11 @@ is_left_anchor.exit.i:                            ; preds = %.split, %.split, %.
   store i64 0, ptr %1, align 8, !tbaa !97
   %715 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 -1, ptr %715, align 8, !tbaa !96
-  br label %common.ret851
+  br label %common.ret849
 
-common.ret851:                                    ; preds = %.split, %626, %is_left_anchor.exit.i, %466, %920, %is_set_opt_anc_info.exit, %915, %913, %910, %891, %491, %532, %478, %474, %859, %.thread373, %714, %648, %619, %609, %.loopexit, %.critedge3, %.critedge, %tailrecurse, %.split6, %860, %866, %716
-  %common.ret851.op = phi i32 [ %724, %716 ], [ %873, %866 ], [ %.lcssa638, %.critedge ], [ %.lcssa639, %.critedge3 ], [ 0, %.loopexit ], [ 0, %609 ], [ 0, %.split ], [ %631, %648 ], [ 0, %619 ], [ %.6, %.thread373 ], [ 0, %714 ], [ %728, %859 ], [ 0, %478 ], [ 0, %474 ], [ 0, %532 ], [ 0, %491 ], [ 0, %891 ], [ %896, %915 ], [ %896, %910 ], [ %896, %913 ], [ %896, %is_set_opt_anc_info.exit ], [ 0, %920 ], [ %472, %466 ], [ 0, %is_left_anchor.exit.i ], [ 0, %626 ], [ -6, %tailrecurse ], [ 0, %860 ], [ 0, %.split6 ]
-  ret i32 %common.ret851.op
+common.ret849:                                    ; preds = %.split, %626, %is_left_anchor.exit.i, %466, %920, %is_set_opt_anc_info.exit, %915, %913, %910, %891, %491, %532, %478, %474, %859, %.thread373, %714, %648, %619, %609, %.loopexit, %.critedge3, %.critedge, %tailrecurse, %.split6, %860, %866, %716
+  %common.ret849.op = phi i32 [ %724, %716 ], [ %873, %866 ], [ %.lcssa638, %.critedge ], [ %.lcssa639, %.critedge3 ], [ 0, %.loopexit ], [ 0, %609 ], [ 0, %.split ], [ %631, %648 ], [ 0, %619 ], [ %.6, %.thread373 ], [ 0, %714 ], [ %728, %859 ], [ 0, %478 ], [ 0, %474 ], [ 0, %532 ], [ 0, %491 ], [ 0, %891 ], [ %896, %915 ], [ %896, %910 ], [ %896, %913 ], [ %896, %is_set_opt_anc_info.exit ], [ 0, %920 ], [ %472, %466 ], [ 0, %is_left_anchor.exit.i ], [ 0, %626 ], [ -6, %tailrecurse ], [ 0, %860 ], [ 0, %.split6 ]
+  ret i32 %common.ret849.op
 
 716:                                              ; preds = %710
   %717 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -9944,7 +9944,7 @@ common.ret851:                                    ; preds = %.split, %626, %is_l
   %723 = load ptr, ptr %719, align 8, !tbaa !34
   %724 = tail call fastcc i32 @optimize_node_left(ptr noundef %723, ptr noundef %1, ptr noundef %2)
   store i32 %718, ptr %717, align 8, !tbaa !77
-  br label %common.ret851
+  br label %common.ret849
 
 725:                                              ; preds = %tailrecurse
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -10010,11 +10010,11 @@ common.ret851:                                    ; preds = %.split, %626, %is_l
   %761 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %762 = load i32, ptr %761, align 8
   %763 = icmp eq i32 %762, 0
-  %or.cond.not775 = select i1 %760, i1 true, i1 %763
+  %or.cond.not773 = select i1 %760, i1 true, i1 %763
   %.pre671 = load i32, ptr %754, align 8, !tbaa !150
   %.not284621 = icmp slt i32 %.pre671, 2
-  %or.cond773 = select i1 %or.cond.not775, i1 true, i1 %.not284621
-  br i1 %or.cond773, label %.critedge5.thread, label %.lr.ph
+  %or.cond771 = select i1 %or.cond.not773, i1 true, i1 %.not284621
+  br i1 %or.cond771, label %.critedge5.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %757
   %764 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10228,18 +10228,18 @@ distance_multiply.exit366:                        ; preds = %distance_multiply.e
 
 859:                                              ; preds = %725, %distance_multiply.exit366
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %common.ret851
+  br label %common.ret849
 
 860:                                              ; preds = %tailrecurse
   %861 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %862 = load i32, ptr %861, align 8, !tbaa !152
   %863 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %862)
   %864 = icmp eq i32 %863, 1
-  br i1 %864, label %.split6, label %common.ret851
+  br i1 %864, label %.split6, label %common.ret849
 
 .split6:                                          ; preds = %860
   %865 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %862, i1 true)
-  switch i32 %865, label %common.ret851 [
+  switch i32 %865, label %common.ret849 [
     i32 1, label %866
     i32 0, label %874
     i32 2, label %917
@@ -10257,7 +10257,7 @@ distance_multiply.exit366:                        ; preds = %distance_multiply.e
   %872 = load ptr, ptr %871, align 8, !tbaa !144
   %873 = tail call fastcc i32 @optimize_node_left(ptr noundef %872, ptr noundef %1, ptr noundef %2)
   store i32 %868, ptr %867, align 8, !tbaa !77
-  br label %common.ret851
+  br label %common.ret849
 
 874:                                              ; preds = %.split6
   %875 = getelementptr inbounds nuw i8, ptr %.tr, i64 52
@@ -10295,7 +10295,7 @@ distance_multiply.exit366:                        ; preds = %distance_multiply.e
   store i64 %.0250, ptr %1, align 8, !tbaa !97
   %892 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %.0, ptr %892, align 8, !tbaa !96
-  br label %common.ret851
+  br label %common.ret849
 
 893:                                              ; preds = %874
   %894 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -10312,7 +10312,7 @@ is_set_opt_anc_info.exit:                         ; preds = %893
   %901 = load i32, ptr %900, align 4, !tbaa !111
   %902 = and i32 %901, 49152
   %.not4.i.not = icmp eq i32 %902, 0
-  br i1 %.not4.i.not, label %common.ret851, label %is_set_opt_anc_info.exit.thread
+  br i1 %.not4.i.not, label %common.ret849, label %is_set_opt_anc_info.exit.thread
 
 is_set_opt_anc_info.exit.thread:                  ; preds = %893, %is_set_opt_anc_info.exit
   %903 = getelementptr inbounds nuw i8, ptr %.tr, i64 12
@@ -10328,17 +10328,17 @@ is_set_opt_anc_info.exit.thread:                  ; preds = %893, %is_set_opt_an
   %911 = shl nuw i32 1, %904
   %912 = and i32 %909, %911
   %.not280 = icmp eq i32 %912, 0
-  br i1 %.not280, label %common.ret851, label %915
+  br i1 %.not280, label %common.ret849, label %915
 
 913:                                              ; preds = %is_set_opt_anc_info.exit.thread
   %914 = and i32 %909, 1
   %.not279 = icmp eq i32 %914, 0
-  br i1 %.not279, label %common.ret851, label %915
+  br i1 %.not279, label %common.ret849, label %915
 
 915:                                              ; preds = %913, %910
   %916 = and i32 %898, -49153
   store i32 %916, ptr %897, align 4, !tbaa !110
-  br label %common.ret851
+  br label %common.ret849
 
 917:                                              ; preds = %.split6, %.split6
   %918 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -10349,7 +10349,7 @@ is_set_opt_anc_info.exit.thread:                  ; preds = %893, %is_set_opt_an
   store i64 0, ptr %1, align 8, !tbaa !97
   %921 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 -1, ptr %921, align 8, !tbaa !96
-  br label %common.ret851
+  br label %common.ret849
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
@@ -10464,11 +10464,11 @@ map_position_value.exit33:                        ; preds = %map_position_value.
   %68 = getelementptr i16, ptr @distance_value.dist_vals, i64 %65
   %69 = load i16, ptr %68, align 2, !tbaa !98
   %70 = sext i16 %69 to i32
+  %71 = mul i32 %spec.select30, %70
   br label %distance_value.exit.i
 
 distance_value.exit.i:                            ; preds = %67, %63, %59
-  %.0.i.i = phi i32 [ %70, %67 ], [ 0, %59 ], [ 1, %63 ]
-  %71 = mul i32 %.0.i.i, %spec.select30
+  %.0.i.i = phi i32 [ %71, %67 ], [ 0, %59 ], [ %spec.select30, %63 ]
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !96
   %74 = icmp eq i64 %73, -1
@@ -10484,16 +10484,16 @@ distance_value.exit.i:                            ; preds = %67, %63, %59
   %80 = getelementptr i16, ptr @distance_value.dist_vals, i64 %77
   %81 = load i16, ptr %80, align 2, !tbaa !98
   %82 = sext i16 %81 to i32
+  %83 = mul i32 %.1, %82
   br label %distance_value.exit21.i
 
 distance_value.exit21.i:                          ; preds = %79, %75, %distance_value.exit.i
-  %.0.i20.i = phi i32 [ %82, %79 ], [ 0, %distance_value.exit.i ], [ 1, %75 ]
-  %83 = mul i32 %.0.i20.i, %.1
-  %84 = icmp sgt i32 %83, %71
+  %.0.i20.i = phi i32 [ %83, %79 ], [ 0, %distance_value.exit.i ], [ %.1, %75 ]
+  %84 = icmp sgt i32 %.0.i20.i, %.0.i.i
   br i1 %84, label %comp_distance_value.exit.sink.split, label %85
 
 85:                                               ; preds = %distance_value.exit21.i
-  %86 = icmp slt i32 %83, %71
+  %86 = icmp slt i32 %.0.i20.i, %.0.i.i
   br i1 %86, label %comp_distance_value.exit, label %87
 
 87:                                               ; preds = %85

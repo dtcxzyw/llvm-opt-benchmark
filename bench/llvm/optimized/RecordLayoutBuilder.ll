@@ -10259,7 +10259,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load i64, ptr %4, align 8, !tbaa !428
   %.not56 = icmp sgt i64 %2, %.val
-  br i1 %.not56, label %43, label %5
+  br i1 %.not56, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -10273,7 +10273,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap
 
 11:                                               ; preds = %5
   %12 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap30CanPlaceFieldSubobjectAtOffsetEPKN5clang13CXXRecordDeclES4_NS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %10, ptr noundef nonnull %10, i64 %2)
-  br label %43
+  br label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr %0, align 8, !tbaa !754
@@ -10313,34 +10313,29 @@ _ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit: ; preds = %16
   %36 = load ptr, ptr %0, align 8, !tbaa !754
   %37 = tail call noundef i64 @_ZNK5clang10ASTContext28getConstantArrayElementCountEPKNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %36, ptr noundef nonnull %15) #19
   %.not4059 = icmp eq i64 %37, 0
-  br i1 %.not4059, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %.lr.ph
+  %.val4260 = load i64, ptr %4, align 8
+  %.not5861 = icmp sgt i64 %2, %.val4260
+  %or.cond62 = select i1 %.not4059, i1 true, i1 %.not5861
+  br i1 %or.cond62, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %32, %40
-  %.03461 = phi i64 [ %42, %40 ], [ 0, %32 ]
-  %.sroa.046.060 = phi i64 [ %41, %40 ], [ %2, %32 ]
-  %.val42 = load i64, ptr %4, align 8, !tbaa !428
-  %.not58 = icmp sgt i64 %.sroa.046.060, %.val42
-  br i1 %.not58, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %38
+.lr.ph:                                           ; preds = %32, %39
+  %.03464 = phi i64 [ %41, %39 ], [ 0, %32 ]
+  %.sroa.046.063 = phi i64 [ %40, %39 ], [ %2, %32 ]
+  %38 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap30CanPlaceFieldSubobjectAtOffsetEPKN5clang13CXXRecordDeclES4_NS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %33, ptr noundef %33, i64 %.sroa.046.063)
+  br i1 %38, label %39, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
 
-38:                                               ; preds = %.lr.ph
-  %39 = tail call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117EmptySubobjectMap30CanPlaceFieldSubobjectAtOffsetEPKN5clang13CXXRecordDeclES4_NS1_9CharUnitsE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %33, ptr noundef %33, i64 %.sroa.046.060)
-  br i1 %39, label %40, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread
-
-40:                                               ; preds = %38
+39:                                               ; preds = %.lr.ph
   %.sroa.0.0.copyload.i45 = load i64, ptr %35, align 8, !tbaa !416
-  %41 = add nsw i64 %.sroa.0.0.copyload.i45, %.sroa.046.060
-  %42 = add nuw i64 %.03461, 1
-  %.not40 = icmp eq i64 %42, %37
-  br i1 %.not40, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %.lr.ph, !llvm.loop !781
+  %40 = add nsw i64 %.sroa.0.0.copyload.i45, %.sroa.046.063
+  %41 = add nuw i64 %.03464, 1
+  %.not40 = icmp eq i64 %41, %37
+  %.val42 = load i64, ptr %4, align 8
+  %.not58 = icmp sgt i64 %40, %.val42
+  %or.cond = select i1 %.not40, i1 true, i1 %.not58
+  br i1 %or.cond, label %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, label %.lr.ph, !llvm.loop !781
 
-_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread: ; preds = %40, %.lr.ph, %38, %32, %13, %16, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit
-  %.333 = phi i1 [ false, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit ], [ true, %16 ], [ true, %13 ], [ true, %32 ], [ true, %40 ], [ false, %.lr.ph ], [ false, %38 ]
-  %.6 = phi i1 [ true, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit ], [ undef, %16 ], [ undef, %13 ], [ undef, %32 ], [ undef, %40 ], [ true, %.lr.ph ], [ false, %38 ]
-  %spec.select = or i1 %.333, %.6
-  br label %43
-
-43:                                               ; preds = %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread, %11, %3
-  %.0 = phi i1 [ true, %3 ], [ %12, %11 ], [ %spec.select, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread ]
+_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit.thread: ; preds = %.lr.ph, %39, %32, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit, %16, %13, %11, %3
+  %.0 = phi i1 [ true, %3 ], [ %12, %11 ], [ true, %_ZNK5clang10ASTContext22getAsConstantArrayTypeENS_8QualTypeE.exit ], [ true, %16 ], [ true, %13 ], [ true, %32 ], [ %38, %39 ], [ %38, %.lr.ph ]
   ret i1 %.0
 }
 

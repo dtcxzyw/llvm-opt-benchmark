@@ -14562,21 +14562,20 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
   %.0.i.i12 = load i64, ptr %.0.in.i.i, align 8, !tbaa !417
   %32 = icmp ne i64 %.0.i.i12, 0
   %33 = zext i1 %32 to i16
+  %34 = or disjoint i16 %33, 256
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread, %_ZNK4llvm6MDNode14getNumOperandsEv.exit, %3, %26
-  %.sroa.0.0 = phi i16 [ %33, %26 ], [ 0, %3 ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ 1, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit ], [ 1, %_ZNK4llvm6MDNode10getOperandEj.exit ]
-  %.sroa.4.0 = phi i16 [ 256, %26 ], [ 0, %3 ], [ 256, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 256, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ 256, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit ], [ 256, %_ZNK4llvm6MDNode10getOperandEj.exit ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.4.0, %.sroa.0.0
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.4.0 = phi i16 [ %34, %26 ], [ 0, %3 ], [ 257, %_ZNK4llvm6MDNode14getNumOperandsEv.exit ], [ 257, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ 257, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit ], [ 257, %_ZNK4llvm6MDNode10getOperandEj.exit ]
+  ret i16 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE(ptr noundef nonnull %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_ZNK4llvm4Loop9getLoopIDEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   %5 = tail call noundef ptr @_ZN4llvm21findOptionMDForLoopIDEPNS_6MDNodeENS_9StringRefE(ptr noundef %4, ptr readonly %1, i64 %2)
-  %.not.i.not = icmp eq ptr %5, null
-  br i1 %.not.i.not, label %_ZN4llvm28getOptionalBoolLoopAttributeEPKNS_4LoopENS_9StringRefE.exit, label %6
+  %.not.i = icmp eq ptr %5, null
+  br i1 %.not.i, label %_ZN4llvm28getOptionalBoolLoopAttributeEPKNS_4LoopENS_9StringRefE.exit, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %5, i64 -16
@@ -14633,8 +14632,8 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
   br label %_ZN4llvm28getOptionalBoolLoopAttributeEPKNS_4LoopENS_9StringRefE.exit
 
 _ZN4llvm28getOptionalBoolLoopAttributeEPKNS_4LoopENS_9StringRefE.exit: ; preds = %3, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i, %26
-  %.0.in.i = phi i1 [ %32, %26 ], [ false, %3 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ], [ true, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit.i ]
-  ret i1 %.0.in.i
+  %.sroa.4.0.i = phi i1 [ %32, %26 ], [ false, %3 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ], [ true, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit.i ]
+  ret i1 %.sroa.4.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14712,13 +14711,12 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
 _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %32, %39
   %.0.i.i = phi i64 [ %.0.i.i.i, %32 ], [ %41, %39 ]
   %42 = and i64 %.0.i.i, 4294967295
+  %43 = or disjoint i64 %42, 4294967296
   br label %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread
 
 _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.thread: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i, %3, %22, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit
-  %.sroa.010.0 = phi i64 [ %42, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 0, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit ], [ 0, %22 ], [ 0, %3 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 0, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit ], [ 0, %22 ], [ 0, %3 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ]
-  %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.010.0
-  ret i64 %.sroa.010.0.insert.insert
+  %.sroa.2.0 = phi i64 [ %43, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ 0, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit ], [ 0, %22 ], [ 0, %3 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14795,12 +14793,16 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
 
 _ZNK4llvm11ConstantInt12getSExtValueEv.exit.i:    ; preds = %40, %33
   %.0.i.i.i = phi i64 [ %.0.i.i.i.i, %33 ], [ %42, %40 ]
-  %43 = trunc i64 %.0.i.i.i to i32
+  %43 = or i64 %.0.i.i.i, 4294967296
   br label %_ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE.exit
 
 _ZN4llvm27getOptionalIntLoopAttributeEPKNS_4LoopENS_9StringRefE.exit: ; preds = %4, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %23, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i
-  %.sroa.2.0.i = phi i32 [ %43, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i ], [ %3, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ %3, %23 ], [ %3, %4 ], [ %3, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ %3, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ]
-  ret i32 %.sroa.2.0.i
+  %.sroa.2.0.i = phi i64 [ %43, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit.i ], [ 0, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i ], [ 0, %23 ], [ 0, %4 ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ]
+  %.sroa.0.0.extract.trunc = trunc i64 %.sroa.2.0.i to i32
+  %44 = and i64 %.sroa.2.0.i, 4294967296
+  %.not = icmp eq i64 %44, 0
+  %.0.i = select i1 %.not, i32 %3, i32 %.sroa.0.0.extract.trunc
+  ret i32 %.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -14961,8 +14963,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm8isFiniteEPKNS_4LoopE(ptr noundef r
 define dso_local noundef zeroext i1 @_ZN4llvm15hasMustProgressEPKNS_4LoopE(ptr noundef nonnull %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_ZNK4llvm4Loop9getLoopIDEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   %3 = tail call noundef ptr @_ZN4llvm21findOptionMDForLoopIDEPNS_6MDNodeENS_9StringRefE(ptr noundef %2, ptr nonnull readonly @.str.12, i64 22)
-  %.not.i.not.i = icmp eq ptr %3, null
-  br i1 %.not.i.not.i, label %_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE.exit, label %4
+  %.not.i.i = icmp eq ptr %3, null
+  br i1 %.not.i.i, label %_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE.exit, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %3, i64 -16
@@ -15019,8 +15021,8 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
   br label %_ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE.exit
 
 _ZN4llvm23getBooleanLoopAttributeEPKNS_4LoopENS_9StringRefE.exit: ; preds = %1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i, %24
-  %.0.in.i.i = phi i1 [ %30, %24 ], [ false, %1 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ true, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ]
-  ret i1 %.0.in.i.i
+  %.sroa.4.0.i.i = phi i1 [ %30, %24 ], [ false, %1 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i ], [ true, %_ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_ifIXsr6detail14IsValidPointerIT_T0_EE5valueEPS6_E4typeEOS7_.exit.i.i ], [ true, %_ZNK4llvm6MDNode10getOperandEj.exit.i.i ]
+  ret i1 %.sroa.4.0.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -15040,8 +15042,8 @@ _ZNK4llvm8Function12mustProgressEv.exit:          ; preds = %1
 9:                                                ; preds = %_ZNK4llvm8Function12mustProgressEv.exit
   %10 = tail call noundef ptr @_ZNK4llvm4Loop9getLoopIDEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   %11 = tail call noundef ptr @_ZN4llvm21findOptionMDForLoopIDEPNS_6MDNodeENS_9StringRefE(ptr noundef %10, ptr nonnull readonly @.str.12, i64 22)
-  %.not.i.not.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.not.i.i, label %_ZN4llvm15hasMustProgressEPKNS_4LoopE.exit, label %12
+  %.not.i.i.i = icmp eq ptr %11, null
+  br i1 %.not.i.i.i, label %_ZN4llvm15hasMustProgressEPKNS_4LoopE.exit, label %12
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds i8, ptr %11, i64 -16

@@ -95506,12 +95506,12 @@ _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %.noexc2
 .loopexit:                                        ; preds = %29, %39, %50, %61
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %175
 
 .loopexit.split-lp:                               ; preds = %77, %91, %105
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %175
 
 135:                                              ; preds = %.thread
   %136 = landingpad { ptr, i32 }
@@ -95527,11 +95527,10 @@ _ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit: ; preds = %.noexc2
 139:                                              ; preds = %137, %135
   %.pn = phi { ptr, i32 } [ %138, %137 ], [ %136, %135 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %176
+  br label %175
 
 140:                                              ; preds = %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit, %.loopexit35
-  %141 = phi i1 [ true, %.loopexit35 ], [ false, %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit ]
-  %.014 = phi i1 [ false, %.loopexit35 ], [ %.sroa.030.0.lcssa, %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit ]
+  %141 = phi i1 [ true, %.loopexit35 ], [ %.sroa.030.0.lcssa, %_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev.exit ]
   %142 = load ptr, ptr %10, align 8, !tbaa !2675
   %143 = load ptr, ptr %13, align 8, !tbaa !2677
   %.not4.i.i.i.i = icmp eq ptr %142, %143
@@ -95612,11 +95611,10 @@ _ZSt8_DestroyIP2BTIP12cmSourceFileES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_D
   br label %_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit
 
 _ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP2BTIP12cmSourceFileES3_EvT_S5_RSaIT0_E.exit.i, %169
-  %175 = or i1 %141, %.014
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret i1 %175
+  ret i1 %141
 
-176:                                              ; preds = %.loopexit, %.loopexit.split-lp, %139
+175:                                              ; preds = %.loopexit, %.loopexit.split-lp, %139
   %.pn.pn = phi { ptr, i32 } [ %.pn, %139 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorI2BTIP12cmSourceFileESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -95767,8 +95765,8 @@ _ZNSt16allocator_traitsISaIN17cmGeneratorTarget15AllConfigSourceEEE8allocateERS2
   tail call void @_ZdlPvm(ptr noundef nonnull %24, i64 noundef %18) #30
   br label %common.resume
 
-common.resume:                                    ; preds = %29, %31, %199
-  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %199 ], [ %30, %31 ], [ %30, %29 ]
+common.resume:                                    ; preds = %29, %31, %198
+  %common.resume.op = phi { ptr, i32 } [ %.pn.pn.pn, %198 ], [ %30, %31 ], [ %30, %29 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EEC2ERKS3_.exit: ; preds = %23
@@ -96134,12 +96132,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .loopexit:                                        ; preds = %46, %56, %67, %78
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %199
+  br label %198
 
 .loopexit.split-lp:                               ; preds = %94, %108, %122
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %199
+  br label %198
 
 146:                                              ; preds = %.thread
   %147 = landingpad { ptr, i32 }
@@ -96268,13 +96266,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 180:                                              ; preds = %166, %146
   %.pn.pn = phi { ptr, i32 } [ %.pn, %166 ], [ %147, %146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %199
+  br label %198
 
 181:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, %.loopexit49
   %182 = phi ptr [ %28, %.loopexit49 ], [ %.pre72, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %.pr.i41 = phi ptr [ %24, %.loopexit49 ], [ %.pre71, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %183 = phi i1 [ true, %.loopexit49 ], [ false, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
-  %.020 = phi i1 [ false, %.loopexit49 ], [ %.not48.lcssa109, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
+  %183 = phi i1 [ true, %.loopexit49 ], [ %.not48.lcssa109, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %.not4.i.i.i.i37 = icmp eq ptr %.pr.i41, %182
   br i1 %.not4.i.i.i.i37, label %_ZSt8_DestroyIPN17cmGeneratorTarget15AllConfigSourceES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i38
 
@@ -96312,11 +96309,10 @@ _ZSt8_DestroyIPN17cmGeneratorTarget15AllConfigSourceES1_EvT_S3_RSaIT0_E.exit.i: 
   br label %_ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN17cmGeneratorTarget15AllConfigSourceES1_EvT_S3_RSaIT0_E.exit.i, %193
-  %198 = or i1 %183, %.020
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret i1 %198
+  ret i1 %183
 
-199:                                              ; preds = %.loopexit, %.loopexit.split-lp, %180
+198:                                              ; preds = %.loopexit, %.loopexit.split-lp, %180
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %180 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN17cmGeneratorTarget15AllConfigSourceESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

@@ -335,8 +335,8 @@ define dso_local range(i16 0, 258) i16 @_ZN4llvm2mc19getExplicitRelaxAllEv() loc
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE8RelaxAll, i64 120), align 8, !range !12
   %3 = zext nneg i8 %2 to i16
   %4 = or disjoint i16 %3, 256
-  %.sroa.0.0.insert.insert = select i1 %.not, i16 0, i16 %4
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = select i1 %.not, i16 0, i16 %4
+  ret i16 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

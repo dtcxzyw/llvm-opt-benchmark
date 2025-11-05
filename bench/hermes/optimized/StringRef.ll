@@ -2065,7 +2065,7 @@ while.body.i:                                     ; preds = %if.end50.i, %if.end
   %2 = phi i64 [ 0, %if.end3.i ], [ %add46.i, %if.end50.i ]
   %3 = load i8, ptr %Str2.sroa.0.048.i, align 1
   %cmp6.i = icmp sgt i8 %3, 47
-  br i1 %cmp6.i, label %land.lhs.true.i, label %while.end.i
+  br i1 %cmp6.i, label %land.lhs.true.i, label %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
 
 land.lhs.true.i:                                  ; preds = %while.body.i
   %cmp9.i = icmp samesign ult i8 %3, 58
@@ -2077,19 +2077,19 @@ if.else.i:                                        ; preds = %land.lhs.true.i
 
 land.lhs.true16.i:                                ; preds = %if.else.i
   %cmp19.i = icmp samesign ult i8 %3, 123
-  br i1 %cmp19.i, label %if.end40.i, label %while.end.i
+  br i1 %cmp19.i, label %if.end40.i, label %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
 
 if.else24.i:                                      ; preds = %if.else.i
   %4 = add nsw i8 %3, -65
   %or.cond.i = icmp ult i8 %4, 26
-  br i1 %or.cond.i, label %if.end40.i, label %while.end.i
+  br i1 %or.cond.i, label %if.end40.i, label %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
 
 if.end40.i:                                       ; preds = %if.else24.i, %land.lhs.true16.i, %land.lhs.true.i
   %.sink.i = phi i32 [ -48, %land.lhs.true.i ], [ -87, %land.lhs.true16.i ], [ -55, %if.else24.i ]
   %conv22.i = zext nneg i8 %3 to i32
   %add.i = add nsw i32 %.sink.i, %conv22.i
   %cmp41.not.i = icmp ult i32 %add.i, %Radix.addr.0.i
-  br i1 %cmp41.not.i, label %if.end43.i, label %while.end.i
+  br i1 %cmp41.not.i, label %if.end43.i, label %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
 
 if.end43.i:                                       ; preds = %if.end40.i
   %mul.i = mul i64 %2, %conv44.i
@@ -2104,19 +2104,11 @@ if.end50.i:                                       ; preds = %if.end43.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %Str2.sroa.0.048.i, i64 1
   %sub.i.i = add i64 %Str2.sroa.13.047.i, -1
   %cmp.i.not.i = icmp eq i64 %sub.i.i, 0
-  br i1 %cmp.i.not.i, label %while.end.i, label %while.body.i, !llvm.loop !34
+  br i1 %cmp.i.not.i, label %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit, label %while.body.i, !llvm.loop !34
 
-while.end.i:                                      ; preds = %if.end50.i, %if.end40.i, %if.else24.i, %land.lhs.true16.i, %while.body.i
-  %Str2.sroa.13.0.lcssa.i = phi i64 [ %Str2.sroa.13.047.i, %land.lhs.true16.i ], [ %Str2.sroa.13.047.i, %while.body.i ], [ %Str2.sroa.13.047.i, %if.end40.i ], [ %Str2.sroa.13.047.i, %if.else24.i ], [ 0, %if.end50.i ]
-  %cmp54.i = icmp eq i64 %1, %Str2.sroa.13.0.lcssa.i
-  %5 = icmp ne i64 %Str2.sroa.13.0.lcssa.i, 0
-  br label %_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit
-
-_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit: ; preds = %if.end43.i, %while.end.i, %if.end.i
-  %cmp.i = phi i1 [ false, %if.end.i ], [ %5, %while.end.i ], [ true, %if.end43.i ]
-  %retval.0.i = phi i1 [ true, %if.end.i ], [ %cmp54.i, %while.end.i ], [ true, %if.end43.i ]
-  %retval.0 = or i1 %retval.0.i, %cmp.i
-  ret i1 %retval.0
+_ZN4llvh22consumeUnsignedIntegerERNS_9StringRefEjRy.exit: ; preds = %if.end43.i, %while.body.i, %land.lhs.true16.i, %if.else24.i, %if.end40.i, %if.end50.i, %if.end.i
+  %retval.0.i = phi i1 [ true, %if.end.i ], [ true, %if.end43.i ], [ false, %if.end50.i ], [ true, %if.else24.i ], [ true, %if.end40.i ], [ true, %while.body.i ], [ true, %land.lhs.true16.i ]
+  ret i1 %retval.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

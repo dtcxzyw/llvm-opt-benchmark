@@ -27041,10 +27041,11 @@ _ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.
   %.fr = freeze i32 %64
   %65 = icmp eq i32 %.fr, 48
   %spec.select = select i1 %65, i32 2, i32 0
+  %66 = and i1 %5, %65
   br label %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit.thread
 
 _ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit.thread: ; preds = %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit, %53, %56, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit
-  %66 = phi i1 [ false, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit ], [ false, %56 ], [ false, %53 ], [ %65, %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit ]
+  %or.cond = phi i1 [ false, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit ], [ false, %56 ], [ false, %53 ], [ %66, %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit ]
   %67 = phi i32 [ 0, %_ZN4llvm15OpenMPIRBuilder19getOrCreateThreadIDEPNS_5ValueE.exit ], [ 0, %56 ], [ 0, %53 ], [ %spec.select, %_ZN4llvm15OpenMPIRBuilder33isLastFinalizationInfoCancellableENS_3omp9DirectiveE.exit ]
   %68 = load ptr, ptr %39, align 8, !tbaa !278
   %69 = call { ptr, ptr } @_ZN4llvm15OpenMPIRBuilder26getOrCreateRuntimeFunctionERNS_6ModuleENS_3omp15RuntimeFunctionE(ptr noundef nonnull align 8 dereferenceable(3104) %1, ptr noundef nonnull align 8 dereferenceable(841) %68, i32 noundef %67)
@@ -27067,7 +27068,6 @@ _ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit: ;
   store i16 257, ptr %77, align 8
   %78 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EERKNS_5TwineEPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(128) %49, ptr noundef %76, ptr noundef %spec.select.i.i.i, ptr nonnull %11, i64 2, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %or.cond = and i1 %5, %66
   br i1 %or.cond, label %79, label %88
 
 79:                                               ; preds = %_ZN4llvm14FunctionCalleeC2INS_8FunctionEMS2_KFPNS_12FunctionTypeEvEEEPT_.exit

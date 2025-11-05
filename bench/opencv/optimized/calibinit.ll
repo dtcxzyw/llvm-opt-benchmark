@@ -11697,7 +11697,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %20
 
 .thread:                                          ; preds = %194, %193, %210, %227, %211
   %.364 = phi i1 [ %.061124, %211 ], [ %.061124, %227 ], [ %.061124, %210 ], [ true, %193 ], [ true, %194 ]
-  %cond = phi i1 [ false, %211 ], [ true, %227 ], [ true, %210 ], [ false, %193 ], [ false, %194 ]
+  %cond = phi i1 [ false, %211 ], [ true, %227 ], [ false, %210 ], [ false, %193 ], [ false, %194 ]
   %233 = load ptr, ptr %176, align 8, !tbaa !384
   %234 = load ptr, ptr %177, align 8, !tbaa !387
   %.not4.i.i.i.i.i = icmp eq ptr %233, %234
@@ -11776,8 +11776,7 @@ _ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit11.i:     ; preds = %246, %_ZSt8_Destroy
 
 _ZN17CirclesGridFinderD2Ev.exit:                  ; preds = %_ZNSt6vectorIS_ImSaImEESaIS1_EED2Ev.exit11.i, %248
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %or.cond = and i1 %cond, %.not75.not
-  br i1 %or.cond, label %180, label %250, !llvm.loop !391
+  br i1 %cond, label %180, label %250, !llvm.loop !391
 
 .loopexit:                                        ; preds = %204, %232, %220, %218
   %.merged97 = phi { ptr, i32 } [ %.pn76, %232 ], [ %221, %220 ], [ %219, %218 ], [ %.pn72.pn, %204 ]

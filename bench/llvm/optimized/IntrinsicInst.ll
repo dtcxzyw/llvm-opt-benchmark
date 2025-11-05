@@ -63,8 +63,7 @@ $_ZN4llvm12PatternMatch14cstval_pred_tyINS0_11is_zero_intENS_11ConstantIntELb1EE
 @.str.17 = private unnamed_addr constant [4 x i8] c"sge\00", align 1
 @.str.18 = private unnamed_addr constant [4 x i8] c"slt\00", align 1
 @.str.19 = private unnamed_addr constant [4 x i8] c"sle\00", align 1
-@switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj = private unnamed_addr constant [87 x i64] [i64 1, i64 0, i64 0, i64 0, i64 14, i64 15, i64 21, i64 26, i64 65, i64 66, i64 67, i64 0, i64 170, i64 0, i64 0, i64 0, i64 172, i64 173, i64 0, i64 174, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 180, i64 181, i64 0, i64 227, i64 0, i64 0, i64 207, i64 212, i64 228, i64 223, i64 0, i64 235, i64 237, i64 0, i64 246, i64 248, i64 0, i64 249, i64 0, i64 0, i64 379, i64 380, i64 381, i64 382, i64 383, i64 384, i64 385, i64 386, i64 387, i64 388, i64 389, i64 390, i64 391, i64 392, i64 393, i64 307, i64 308, i64 309, i64 353, i64 310, i64 229, i64 0, i64 0, i64 0, i64 0, i64 0, i64 327, i64 328, i64 333, i64 0, i64 336, i64 230, i64 0, i64 0, i64 357, i64 0, i64 0, i64 363, i64 364, i64 0, i64 369], align 8
-@switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj.4 = private unnamed_addr constant [87 x i64] [i64 4294967296, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 4294967296], align 8
+@switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj = private unnamed_addr constant [87 x i64] [i64 4294967297, i64 0, i64 0, i64 0, i64 4294967310, i64 4294967311, i64 4294967317, i64 4294967322, i64 4294967361, i64 4294967362, i64 4294967363, i64 0, i64 4294967466, i64 0, i64 0, i64 0, i64 4294967468, i64 4294967469, i64 0, i64 4294967470, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967476, i64 4294967477, i64 0, i64 4294967523, i64 0, i64 0, i64 4294967503, i64 4294967508, i64 4294967524, i64 4294967519, i64 0, i64 4294967531, i64 4294967533, i64 0, i64 4294967542, i64 4294967544, i64 0, i64 4294967545, i64 0, i64 0, i64 4294967675, i64 4294967676, i64 4294967677, i64 4294967678, i64 4294967679, i64 4294967680, i64 4294967681, i64 4294967682, i64 4294967683, i64 4294967684, i64 4294967685, i64 4294967686, i64 4294967687, i64 4294967688, i64 4294967689, i64 4294967603, i64 4294967604, i64 4294967605, i64 4294967649, i64 4294967606, i64 4294967525, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967623, i64 4294967624, i64 4294967629, i64 0, i64 4294967632, i64 4294967526, i64 0, i64 0, i64 4294967653, i64 0, i64 0, i64 4294967659, i64 4294967660, i64 0, i64 4294967665], align 8
 @switch.table._ZN4llvm11VPIntrinsic12getForOpcodeEj = private unnamed_addr constant [46 x i32] [i32 416, i32 397, i32 409, i32 474, i32 424, i32 438, i32 414, i32 477, i32 463, i32 411, i32 481, i32 471, i32 421, i32 466, i32 432, i32 399, i32 398, i32 440, i32 483, i32 0, i32 430, i32 473, i32 0, i32 0, i32 0, i32 0, i32 475, i32 484, i32 465, i32 419, i32 418, i32 478, i32 467, i32 420, i32 417, i32 441, i32 427, i32 0, i32 0, i32 0, i32 0, i32 426, i32 410, i32 0, i32 0, i32 464], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1920,15 +1919,11 @@ define dso_local i16 @_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv(ptr n
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = tail call i16 @_ZN4llvm24convertStrToRoundingModeENS_9StringRefE(ptr %26, i64 %27) #16
-  %.sroa.2.0.extract.shift = and i16 %28, -256
-  %29 = and i16 %28, 255
   br label %.thread
 
 .thread:                                          ; preds = %1, %18, %21, %24
-  %.sroa.2.0 = phi i16 [ %.sroa.2.0.extract.shift, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
-  %.sroa.0.0 = phi i16 [ %29, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.0, %.sroa.2.0
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = phi i16 [ %28, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
+  ret i16 %.sroa.2.0
 }
 
 declare i16 @_ZN4llvm24convertStrToRoundingModeENS_9StringRefE(ptr, i64) local_unnamed_addr #5
@@ -1972,15 +1967,11 @@ define dso_local i16 @_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv(
   %26 = extractvalue { ptr, i64 } %25, 0
   %27 = extractvalue { ptr, i64 } %25, 1
   %28 = tail call i16 @_ZN4llvm29convertStrToExceptionBehaviorENS_9StringRefE(ptr %26, i64 %27) #16
-  %.sroa.2.0.extract.shift = and i16 %28, -256
-  %29 = and i16 %28, 255
   br label %.thread
 
 .thread:                                          ; preds = %1, %18, %21, %24
-  %.sroa.2.0 = phi i16 [ %.sroa.2.0.extract.shift, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
-  %.sroa.0.0 = phi i16 [ %29, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.0, %.sroa.2.0
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = phi i16 [ %28, %24 ], [ 0, %21 ], [ 0, %18 ], [ 0, %1 ]
+  ret i16 %.sroa.2.0
 }
 
 declare i16 @_ZN4llvm29convertStrToExceptionBehaviorENS_9StringRefE(ptr, i64) local_unnamed_addr #5
@@ -2023,61 +2014,59 @@ _ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit: ; preds = %21
   %26 = extractvalue { ptr, i64 } %24, 1
   %27 = tail call i16 @_ZN4llvm29convertStrToExceptionBehaviorENS_9StringRefE(ptr %25, i64 %26) #16
   %28 = and i16 %27, 256
-  %29 = icmp eq i16 %28, 0
-  %30 = and i16 %27, 255
-  %31 = icmp eq i16 %30, 0
-  %or.cond = or i1 %29, %31
-  br i1 %or.cond, label %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread, label %62
+  %.not19 = icmp eq i16 %28, 0
+  %29 = and i16 %27, 255
+  %.not = icmp eq i16 %29, 0
+  %or.cond = or i1 %.not19, %.not
+  br i1 %or.cond, label %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread, label %57
 
 _ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread: ; preds = %1, %18, %21, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit
-  %32 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %33 = load i32, ptr %3, align 4
-  %34 = and i32 %33, 134217727
-  %35 = zext nneg i32 %34 to i64
-  %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %36
-  %38 = ptrtoint ptr %32 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = lshr exact i64 %40, 5
-  %42 = add nuw nsw i64 %41, 4294967294
-  %43 = and i64 %42, 4294967295
-  %44 = getelementptr inbounds nuw %"class.llvm::Use", ptr %37, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !16
-  %46 = load i8, ptr %45, align 8, !tbaa !64
-  %.not.i3 = icmp eq i8 %46, 24
-  br i1 %.not.i3, label %47, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit
+  %30 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
+  %31 = load i32, ptr %3, align 4
+  %32 = and i32 %31, 134217727
+  %33 = zext nneg i32 %32 to i64
+  %34 = sub nsw i64 0, %33
+  %35 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %34
+  %36 = ptrtoint ptr %30 to i64
+  %37 = ptrtoint ptr %35 to i64
+  %38 = sub i64 %36, %37
+  %39 = lshr exact i64 %38, 5
+  %40 = add nuw nsw i64 %39, 4294967294
+  %41 = and i64 %40, 4294967295
+  %42 = getelementptr inbounds nuw %"class.llvm::Use", ptr %35, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !16
+  %44 = load i8, ptr %43, align 8, !tbaa !64
+  %.not.i3 = icmp eq i8 %44, 24
+  br i1 %.not.i3, label %45, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread
 
-47:                                               ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !22
-  %.not3.i7 = icmp eq ptr %49, null
-  br i1 %.not3.i7, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit, label %50
+45:                                               ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !22
+  %.not3.i5 = icmp eq ptr %47, null
+  br i1 %.not3.i5, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread, label %48
 
-50:                                               ; preds = %47
-  %51 = load i8, ptr %49, align 4, !tbaa !9
-  %52 = icmp eq i8 %51, 0
-  br i1 %52, label %53, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit
+48:                                               ; preds = %45
+  %49 = load i8, ptr %47, align 4, !tbaa !9
+  %50 = icmp eq i8 %49, 0
+  br i1 %50, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread
 
-53:                                               ; preds = %50
-  %54 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #16
-  %55 = extractvalue { ptr, i64 } %54, 0
-  %56 = extractvalue { ptr, i64 } %54, 1
-  %57 = tail call i16 @_ZN4llvm24convertStrToRoundingModeENS_9StringRefE(ptr %55, i64 %56) #16
-  %58 = and i16 %57, 256
-  %59 = icmp eq i16 %58, 0
-  %60 = and i16 %57, 255
-  %61 = icmp eq i16 %60, 1
-  br label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit
+_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit: ; preds = %48
+  %51 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %47) #16
+  %52 = extractvalue { ptr, i64 } %51, 0
+  %53 = extractvalue { ptr, i64 } %51, 1
+  %54 = tail call i16 @_ZN4llvm24convertStrToRoundingModeENS_9StringRefE(ptr %52, i64 %53) #16
+  %55 = and i16 %54, 256
+  %.not20 = icmp eq i16 %55, 0
+  %56 = and i16 %54, 255
+  %.not2 = icmp eq i16 %56, 1
+  %or.cond18 = or i1 %.not20, %.not2
+  br i1 %or.cond18, label %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread, label %57
 
-_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit: ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread, %47, %50, %53
-  %.sroa.2.0.i4 = phi i1 [ %59, %53 ], [ true, %50 ], [ true, %47 ], [ true, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread ]
-  %.sroa.0.0.i5 = phi i1 [ %61, %53 ], [ false, %50 ], [ false, %47 ], [ false, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread ]
-  %or.cond13 = or i1 %.sroa.2.0.i4, %.sroa.0.0.i5
-  br label %62
+_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread: ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit.thread, %45, %48, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit
+  br label %57
 
-62:                                               ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit
-  %.0 = phi i1 [ false, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit ], [ %or.cond13, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit ]
+57:                                               ; preds = %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread
+  %.0 = phi i1 [ true, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit.thread ], [ false, %_ZNK4llvm22ConstrainedFPIntrinsic20getExceptionBehaviorEv.exit ], [ false, %_ZNK4llvm22ConstrainedFPIntrinsic15getRoundingModeEv.exit ]
   ret i1 %.0
 }
 
@@ -2416,10 +2405,8 @@ define dso_local range(i64 0, 4294967300) i64 @_ZN4llvm11VPIntrinsic15getMaskPar
   br label %5
 
 5:                                                ; preds = %1, %4, %3, %2
-  %.sroa.0.0 = phi i64 [ 2, %2 ], [ 1, %3 ], [ 3, %4 ], [ 0, %1 ]
-  %.sroa.93.0 = phi i64 [ 4294967296, %2 ], [ 4294967296, %3 ], [ 4294967296, %4 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.93.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.93.0 = phi i64 [ 4294967298, %2 ], [ 4294967297, %3 ], [ 4294967299, %4 ], [ 0, %1 ]
+  ret i64 %.sroa.93.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
@@ -2511,7 +2498,7 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic20getVectorLengthParamEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 4294967304) i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967302) i64 @_ZN4llvm11VPIntrinsic23getVectorLengthParamPosEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %6 [
     i32 397, label %2
     i32 398, label %2
@@ -2622,10 +2609,8 @@ define dso_local range(i64 0, 4294967304) i64 @_ZN4llvm11VPIntrinsic23getVectorL
   br label %6
 
 6:                                                ; preds = %1, %5, %4, %3, %2
-  %.sroa.0.0 = phi i64 [ 3, %2 ], [ 2, %3 ], [ 4, %4 ], [ 5, %5 ], [ 0, %1 ]
-  %.sroa.95.0 = phi i64 [ 4294967296, %2 ], [ 4294967296, %3 ], [ 4294967296, %4 ], [ 4294967296, %5 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.95.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.95.0 = phi i64 [ 4294967299, %2 ], [ 4294967298, %3 ], [ 4294967300, %4 ], [ 4294967301, %5 ], [ 0, %1 ]
+  ret i64 %.sroa.95.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
@@ -2705,9 +2690,9 @@ define dso_local i16 @_ZNK4llvm11VPIntrinsic19getPointerAlignmentEv(ptr noundef 
   br label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
 
 _ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit: ; preds = %1, %6
-  %.sroa.0.0.i = phi i32 [ 1, %6 ], [ 0, %1 ]
+  %.sroa.3.0.i = phi i32 [ 1, %6 ], [ 0, %1 ]
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %8 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %.sroa.0.0.i) #16
+  %8 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %.sroa.3.0.i) #16
   ret i16 %8
 }
 
@@ -2729,10 +2714,8 @@ define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm11VPIntrinsic24getMemoryP
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ 0, %3 ], [ 0, %1 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %2 ], [ 4294967296, %3 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.3.0 = phi i64 [ 4294967297, %2 ], [ 4294967296, %3 ], [ 0, %1 ]
+  ret i64 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
@@ -2741,33 +2724,33 @@ define dso_local noundef ptr @_ZNK4llvm11VPIntrinsic21getMemoryPointerParamEv(pt
   %3 = load ptr, ptr %2, align 8, !tbaa !16, !nonnull !38, !noundef !38
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !39
-  switch i32 %5, label %.critedge [
-    i32 473, label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
-    i32 462, label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
-    i32 168, label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
+  switch i32 %5, label %16 [
+    i32 473, label %7
+    i32 462, label %7
+    i32 168, label %7
     i32 430, label %6
     i32 425, label %6
     i32 167, label %6
   ]
 
 6:                                                ; preds = %1, %1, %1
-  br label %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
+  br label %7
 
-_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit: ; preds = %1, %1, %1, %6
-  %.sroa.0.0.i = phi i64 [ 0, %6 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %8 = load i32, ptr %7, align 4
-  %9 = and i32 %8, 134217727
-  %10 = zext nneg i32 %9 to i64
-  %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %11
-  %13 = getelementptr inbounds nuw %"class.llvm::Use", ptr %12, i64 %.sroa.0.0.i
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
-  br label %.critedge
+7:                                                ; preds = %1, %1, %1, %6
+  %.sroa.3.0.i.ph = phi i64 [ 0, %6 ], [ 1, %1 ], [ 1, %1 ], [ 1, %1 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4
+  %10 = and i32 %9, 134217727
+  %11 = zext nneg i32 %10 to i64
+  %12 = sub nsw i64 0, %11
+  %13 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %12
+  %14 = getelementptr inbounds nuw %"class.llvm::Use", ptr %13, i64 %.sroa.3.0.i.ph
+  %15 = load ptr, ptr %14, align 8, !tbaa !16
+  br label %16
 
-.critedge:                                        ; preds = %1, %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit
-  %spec.select = phi ptr [ %14, %_ZN4llvm11VPIntrinsic24getMemoryPointerParamPosEj.exit ], [ null, %1 ]
-  ret ptr %spec.select
+16:                                               ; preds = %1, %7
+  %17 = phi ptr [ %15, %7 ], [ null, %1 ]
+  ret ptr %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
@@ -2927,7 +2910,7 @@ define linkonce_odr hidden noundef zeroext i1 @_Z13isVPIntrinsicj(i32 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 4294967360) i64 @_ZN4llvm11VPIntrinsic24getFunctionalOpcodeForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967354) i64 @_ZN4llvm11VPIntrinsic24getFunctionalOpcodeForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %36 [
     i32 397, label %_ZL24getFunctionalOpcodeForVPj.exit
     i32 398, label %2
@@ -3072,14 +3055,12 @@ define dso_local range(i64 0, 4294967360) i64 @_ZN4llvm11VPIntrinsic24getFunctio
   br label %_ZL24getFunctionalOpcodeForVPj.exit
 
 _ZL24getFunctionalOpcodeForVPj.exit:              ; preds = %1, %2, %3, %4, %5, %6, %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36
-  %.sroa.0.0.i = phi i64 [ 0, %36 ], [ 28, %2 ], [ 27, %3 ], [ 26, %4 ], [ 17, %5 ], [ 29, %6 ], [ 20, %7 ], [ 25, %8 ], [ 23, %9 ], [ 15, %10 ], [ 19, %11 ], [ 22, %12 ], [ 30, %13 ], [ 57, %35 ], [ 32, %34 ], [ 33, %33 ], [ 53, %32 ], [ 54, %31 ], [ 48, %30 ], [ 47, %29 ], [ 40, %28 ], [ 39, %27 ], [ 38, %26 ], [ 46, %25 ], [ 45, %24 ], [ 44, %23 ], [ 43, %22 ], [ 42, %21 ], [ 41, %20 ], [ 12, %19 ], [ 14, %14 ], [ 16, %15 ], [ 18, %16 ], [ 21, %17 ], [ 24, %18 ], [ 13, %1 ]
-  %.sroa.36.0.i = phi i64 [ 0, %36 ], [ 4294967296, %2 ], [ 4294967296, %3 ], [ 4294967296, %4 ], [ 4294967296, %5 ], [ 4294967296, %6 ], [ 4294967296, %7 ], [ 4294967296, %8 ], [ 4294967296, %9 ], [ 4294967296, %10 ], [ 4294967296, %11 ], [ 4294967296, %12 ], [ 4294967296, %13 ], [ 4294967296, %35 ], [ 4294967296, %34 ], [ 4294967296, %33 ], [ 4294967296, %32 ], [ 4294967296, %31 ], [ 4294967296, %30 ], [ 4294967296, %29 ], [ 4294967296, %28 ], [ 4294967296, %27 ], [ 4294967296, %26 ], [ 4294967296, %25 ], [ 4294967296, %24 ], [ 4294967296, %23 ], [ 4294967296, %22 ], [ 4294967296, %21 ], [ 4294967296, %20 ], [ 4294967296, %19 ], [ 4294967296, %14 ], [ 4294967296, %15 ], [ 4294967296, %16 ], [ 4294967296, %17 ], [ 4294967296, %18 ], [ 4294967296, %1 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.36.0.i, %.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.36.0.i = phi i64 [ 0, %36 ], [ 4294967324, %2 ], [ 4294967323, %3 ], [ 4294967322, %4 ], [ 4294967313, %5 ], [ 4294967325, %6 ], [ 4294967316, %7 ], [ 4294967321, %8 ], [ 4294967319, %9 ], [ 4294967311, %10 ], [ 4294967315, %11 ], [ 4294967318, %12 ], [ 4294967326, %13 ], [ 4294967353, %35 ], [ 4294967328, %34 ], [ 4294967329, %33 ], [ 4294967349, %32 ], [ 4294967350, %31 ], [ 4294967344, %30 ], [ 4294967343, %29 ], [ 4294967336, %28 ], [ 4294967335, %27 ], [ 4294967334, %26 ], [ 4294967342, %25 ], [ 4294967341, %24 ], [ 4294967340, %23 ], [ 4294967339, %22 ], [ 4294967338, %21 ], [ 4294967337, %20 ], [ 4294967308, %19 ], [ 4294967310, %14 ], [ 4294967312, %15 ], [ 4294967314, %16 ], [ 4294967317, %17 ], [ 4294967320, %18 ], [ 4294967309, %1 ]
+  ret i64 %.sroa.36.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 4294967808) i64 @_ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967690) i64 @_ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   %switch.tableidx = add i32 %0, -396
   %2 = icmp ult i32 %switch.tableidx, 87
   br i1 %2, label %switch.lookup, label %_ZL29getFunctionalIntrinsicIDForVPj.exit
@@ -3088,19 +3069,15 @@ switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm11VPIntrinsic29getFunctionalIntrinsicIDForVPEj.4, i64 %4
-  %switch.load2 = load i64, ptr %switch.gep1, align 8
-  %5 = or disjoint i64 %switch.load2, %switch.load
   br label %_ZL29getFunctionalIntrinsicIDForVPj.exit
 
 _ZL29getFunctionalIntrinsicIDForVPj.exit:         ; preds = %1, %switch.lookup
-  %.sroa.0.0.insert.insert.i = phi i64 [ %5, %switch.lookup ], [ 0, %1 ]
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.55.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1 ]
+  ret i64 %.sroa.55.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 0, 4294967552) i64 @_ZN4llvm11VPIntrinsic30getConstrainedIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967438) i64 @_ZN4llvm11VPIntrinsic30getConstrainedIntrinsicIDForVPEj(i32 noundef %0) local_unnamed_addr #0 align 2 {
   switch i32 %0, label %15 [
     i32 410, label %14
     i32 417, label %13
@@ -3161,10 +3138,8 @@ define dso_local range(i64 0, 4294967552) i64 @_ZN4llvm11VPIntrinsic30getConstra
   br label %16
 
 16:                                               ; preds = %1, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.0.0 = phi i64 [ 0, %15 ], [ 103, %14 ], [ 110, %13 ], [ 113, %12 ], [ 136, %11 ], [ 141, %10 ], [ 111, %9 ], [ 112, %8 ], [ 109, %7 ], [ 107, %6 ], [ 114, %5 ], [ 105, %4 ], [ 108, %3 ], [ 115, %2 ], [ 102, %1 ]
-  %.sroa.15.0 = phi i64 [ 0, %15 ], [ 4294967296, %14 ], [ 4294967296, %13 ], [ 4294967296, %12 ], [ 4294967296, %11 ], [ 4294967296, %10 ], [ 4294967296, %9 ], [ 4294967296, %8 ], [ 4294967296, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 4294967296, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.15.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.15.0 = phi i64 [ 0, %15 ], [ 4294967399, %14 ], [ 4294967406, %13 ], [ 4294967409, %12 ], [ 4294967432, %11 ], [ 4294967437, %10 ], [ 4294967407, %9 ], [ 4294967408, %8 ], [ 4294967405, %7 ], [ 4294967403, %6 ], [ 4294967410, %5 ], [ 4294967401, %4 ], [ 4294967404, %3 ], [ 4294967411, %2 ], [ 4294967398, %1 ]
+  ret i64 %.sroa.15.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

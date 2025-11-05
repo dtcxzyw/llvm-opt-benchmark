@@ -25366,9 +25366,9 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %26, %_ZNK4llvm6APSI
   br label %_ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit
 
 _ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit: ; preds = %1, %_ZN4llvm5APIntD2Ev.exit.i
-  %.sroa.0.0.i = phi i64 [ %30, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %1 ]
+  %.sroa.2.0.i = phi i64 [ %30, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %1 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.sroa.0.0.i
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.sroa.2.0.i
   %33 = load ptr, ptr %32, align 8, !tbaa !730
   ret ptr %33
 }
@@ -44011,12 +44011,12 @@ define internal fastcc noundef zeroext i1 @_ZL29isConstantEmittableObjectTypeN5c
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.0.0.copyload.i.i = load i64, ptr %6, align 8, !tbaa !47
+  %7 = or i64 %.sroa.0.0.copyload.i.i, %0
   br label %_ZNK5clang8QualType18getLocalQualifiersEv.exit
 
 _ZNK5clang8QualType18getLocalQualifiersEv.exit:   ; preds = %1, %3
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.copyload.i.i, %3 ], [ 0, %1 ]
-  %7 = or i64 %.sroa.0.0.i, %0
-  %8 = and i64 %7, 5
+  %.sroa.0.0.i = phi i64 [ %7, %3 ], [ %0, %1 ]
+  %8 = and i64 %.sroa.0.0.i, 5
   %or.cond.not = icmp eq i64 %8, 1
   br i1 %or.cond.not, label %9, label %_ZNK5clang13CXXRecordDecl9isTrivialEv.exit.thread
 

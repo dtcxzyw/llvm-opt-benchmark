@@ -1301,8 +1301,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i85: ; preds = %418, %413
 
 _ZN8rationalaSERKS_.exit88:                       ; preds = %378, %422, %426, %403, %_ZN8rationalaSERKS_.exit84
   %.036.shrunk122139 = phi i1 [ false, %_ZN8rationalaSERKS_.exit84 ], [ false, %403 ], [ false, %426 ], [ false, %422 ], [ true, %378 ]
-  %.034.shrunk124137 = phi i1 [ %.034.shrunk124, %_ZN8rationalaSERKS_.exit84 ], [ true, %403 ], [ %.034.shrunk124138, %426 ], [ %.034.shrunk124138, %422 ], [ false, %378 ]
-  %.0.shrunk126135 = phi i1 [ false, %_ZN8rationalaSERKS_.exit84 ], [ false, %403 ], [ true, %426 ], [ true, %422 ], [ false, %378 ]
+  %.034.shrunk124137 = phi i1 [ false, %_ZN8rationalaSERKS_.exit84 ], [ false, %403 ], [ %.034.shrunk124138, %426 ], [ %.034.shrunk124138, %422 ], [ false, %378 ]
   %427 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !11
   %428 = load i8, ptr %182, align 4
   %429 = and i8 %428, 1
@@ -1363,8 +1362,7 @@ _ZgtRK8rationalS1_.exit92:                        ; preds = %460
   br label %562
 
 463:                                              ; preds = %.noexc90, %453, %_ZgtRK8rationalS1_.exit92
-  %or.cond3 = and i1 %.034.shrunk124137, %.0.shrunk126135
-  br i1 %or.cond3, label %562, label %464
+  br i1 %.034.shrunk124137, label %562, label %464
 
 464:                                              ; preds = %463
   %465 = load ptr, ptr %5, align 8, !tbaa !52

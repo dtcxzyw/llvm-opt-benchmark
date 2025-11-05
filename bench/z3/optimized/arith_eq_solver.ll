@@ -9105,8 +9105,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit172:         ; preds = %537, %.noexc171
   br i1 %552, label %.thread190, label %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit, !llvm.loop !191
 
 .thread190:                                       ; preds = %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit, %.thread184, %_ZN8rationalD2Ev.exit144, %113, %3
-  %not..0.i = phi i1 [ true, %3 ], [ false, %113 ], [ false, %_ZN8rationalD2Ev.exit144 ], [ true, %.thread184 ], [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit ]
-  %.1 = phi i1 [ undef, %3 ], [ %.not.not.not, %113 ], [ %.not.not.not, %_ZN8rationalD2Ev.exit144 ], [ undef, %.thread184 ], [ undef, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit ]
+  %.1 = phi i1 [ true, %3 ], [ %.not.not.not, %113 ], [ %.not.not.not, %_ZN8rationalD2Ev.exit144 ], [ true, %.thread184 ], [ true, %_ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit ]
   %553 = load ptr, ptr %8, align 8, !tbaa !125
   %.not.i.i173 = icmp eq ptr %553, null
   br i1 %.not.i.i173, label %_ZN6vectorIjLb0EjED2Ev.exit, label %554
@@ -9165,11 +9164,10 @@ _ZN6vectorIjLb0EjED2Ev.exit175:                   ; preds = %_ZN6vectorIjLb0EjED
   unreachable
 
 _ZN6vectorIS_I8rationalLb1EjELb1EjED2Ev.exit:     ; preds = %_ZN6vectorIjLb0EjED2Ev.exit175, %.noexc.i177
-  %spec.select108 = or i1 %.1, %not..0.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %spec.select108
+  ret i1 %.1
 
 572:                                              ; preds = %.loopexit, %.loopexit.split-lp, %83, %.body, %516, %518, %358, %157, %30
   %.pn104.pn = phi { ptr, i32 } [ %31, %30 ], [ %84, %83 ], [ %519, %518 ], [ %517, %516 ], [ %.pn101, %.body ], [ %.pn96.pn.pn, %358 ], [ %158, %157 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]

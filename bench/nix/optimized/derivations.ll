@@ -9756,8 +9756,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %134
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %.thread93.thread, %151, %147, %113, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
   %.sroa.5.0 = phi i8 [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %113 ], [ 0, %147 ], [ 2, %151 ], [ 1, %.thread93.thread ]
-  %.sroa.069.sroa.0.0 = phi i16 [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %113 ], [ 1, %147 ], [ 0, %151 ], [ 1, %.thread93.thread ]
-  %.sroa.069.sroa.5.0 = phi i16 [ 256, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %113 ], [ 0, %147 ], [ 0, %151 ], [ 0, %.thread93.thread ]
+  %.sroa.069.sroa.5.0 = phi i16 [ 256, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 0, %113 ], [ 1, %147 ], [ 0, %151 ], [ 1, %.thread93.thread ]
   %159 = load ptr, ptr %43, align 8
   invoke void @_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef %159)
           to label %_ZNSt3setISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS3_ESaIS3_EED2Ev.exit unwind label %160
@@ -9818,10 +9817,9 @@ _ZNSt3setISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS3_ESaIS3_EED2Ev.exi
   unreachable
 
 _ZNSt3setISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS3_ESaIS3_EED2Ev.exit55: ; preds = %_ZNSt3setISt17basic_string_viewIcSt11char_traitsIcEESt4lessIS3_ESaIS3_EED2Ev.exit54
-  %.sroa.069.sroa.0.0.insert.insert = or disjoint i16 %.sroa.069.sroa.5.0, %.sroa.069.sroa.0.0
   %.sroa.5.0.insert.ext = zext nneg i8 %.sroa.5.0 to i24
   %.sroa.5.0.insert.shift = shl nuw nsw i24 %.sroa.5.0.insert.ext, 16
-  %.sroa.069.0.insert.ext = zext nneg i16 %.sroa.069.sroa.0.0.insert.insert to i24
+  %.sroa.069.0.insert.ext = zext nneg i16 %.sroa.069.sroa.5.0 to i24
   %.sroa.069.0.insert.insert = or disjoint i24 %.sroa.5.0.insert.shift, %.sroa.069.0.insert.ext
   ret i24 %.sroa.069.0.insert.insert
 

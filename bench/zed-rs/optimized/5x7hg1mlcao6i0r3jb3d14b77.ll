@@ -22759,9 +22759,9 @@ _ZN3exr4meta9attribute13IntegerBounds8validate17h6187b2a4a294516cE.exit: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   %3273 = icmp eq i64 %.sroa.043.0, 1
-  %brmerge.not = and i1 %2, %3273
+  %.704 = and i1 %2, %3273
   %3274 = icmp ne i64 %.sroa.4.0, %3263
-  %or.cond = select i1 %brmerge.not, i1 %3274, i1 false
+  %or.cond = select i1 %.704, i1 %3274, i1 false
   br i1 %or.cond, label %3276, label %3275
 
 3275:                                             ; preds = %3272

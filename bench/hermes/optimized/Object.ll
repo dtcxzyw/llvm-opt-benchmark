@@ -3965,15 +3965,11 @@ if.end29:                                         ; preds = %_ZN6hermes2vm13Muta
   %agg.tmp33.sroa.0.0.copyload = load i32, ptr %descFlags, align 4
   %agg.tmp34.sroa.0.0.copyload = load ptr, ptr %descValueOrAccessor, align 8
   %call44 = call i32 @_ZN6hermes2vm8JSObject26defineOwnComputedPrimitiveENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEENS0_19DefinePropertyFlagsES7_NS0_11PropOpFlagsE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %call10, i32 %agg.tmp33.sroa.0.0.copyload, ptr %agg.tmp34.sroa.0.0.copyload, i32 %opFlags.coerce) #8
-  %retval.sroa.8.0.extract.shift = and i32 %call44, -65536
-  %14 = and i32 %call44, 65535
   br label %return
 
 return:                                           ; preds = %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit, %if.end, %if.end29, %if.then
-  %retval.sroa.0.0 = phi i32 [ %14, %if.end29 ], [ %bf.value.i, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
-  %retval.sroa.8.0 = phi i32 [ %retval.sroa.8.0.extract.shift, %if.end29 ], [ 0, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
-  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.8.0, %retval.sroa.0.0
-  ret i32 %retval.sroa.0.0.insert.insert
+  %retval.sroa.8.0 = phi i32 [ %call44, %if.end29 ], [ %bf.value.i, %if.then ], [ 0, %if.end ], [ 0, %_ZN6hermes2vm13MutableHandleINS0_11HermesValueEEC2ERNS0_15HandleRootOwnerES2_.exit ]
+  ret i32 %retval.sroa.8.0
 }
 
 declare noundef i32 @_ZN6hermes2vm7Runtime14raiseTypeErrorERKNS0_11TwineChar16E(ptr noundef nonnull align 8 dereferenceable(9832), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1

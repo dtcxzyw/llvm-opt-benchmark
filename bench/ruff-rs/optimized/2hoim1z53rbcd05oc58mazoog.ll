@@ -3707,7 +3707,7 @@ define hidden range(i64 0, 987136) i64 @_ZN14ruff_formatter7printer15invalid_end
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_start_tag17h22033c86e9efc6a6E(i8 noundef range(i8 0, 15) %0, ptr noundef align 8 %1) unnamed_addr #6 {
+define hidden range(i64 2, 235146754) i64 @_ZN14ruff_formatter7printer17invalid_start_tag17h22033c86e9efc6a6E(i8 noundef range(i8 0, 15) %0, ptr noundef align 8 %1) unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -3717,13 +3717,11 @@ define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3, %7, %2
-  %.sroa.05.0 = phi i64 [ 196608, %2 ], [ %., %7 ], [ 0, %3 ]
-  %.sroa.56.0 = phi i64 [ 0, %2 ], [ %12, %7 ], [ 0, %3 ]
-  %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.05.0, %.sroa.56.0
+  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ %13, %7 ], [ 0, %3 ]
   %.sroa.4.0.insert.ext = zext nneg i8 %0 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 8
-  %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.4.0.insert.shift
-  %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, 2
+  %.sroa.4.0.insert.insert = add nuw nsw i64 %.sroa.56.0, %.sroa.4.0.insert.shift
+  %.sroa.04.0.insert.insert = add nuw nsw i64 %.sroa.4.0.insert.insert, 2
   ret i64 %.sroa.04.0.insert.insert
 
 7:                                                ; preds = %3
@@ -3733,11 +3731,12 @@ define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_
   %. = select i1 %9, i64 65536, i64 131072
   %11 = zext nneg i8 %10 to i64
   %12 = shl nuw nsw i64 %11, 24
+  %13 = or disjoint i64 %12, %.
   br label %6
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_start_tag17h34b018eb577097e9E(i8 noundef range(i8 0, 15) %0, ptr noundef align 8 %1) unnamed_addr #6 {
+define hidden range(i64 2, 235146754) i64 @_ZN14ruff_formatter7printer17invalid_start_tag17h34b018eb577097e9E(i8 noundef range(i8 0, 15) %0, ptr noundef align 8 %1) unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -3747,13 +3746,11 @@ define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3, %7, %2
-  %.sroa.05.0 = phi i64 [ 196608, %2 ], [ %., %7 ], [ 0, %3 ]
-  %.sroa.56.0 = phi i64 [ 0, %2 ], [ %12, %7 ], [ 0, %3 ]
-  %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.05.0, %.sroa.56.0
+  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ %13, %7 ], [ 0, %3 ]
   %.sroa.4.0.insert.ext = zext nneg i8 %0 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 8
-  %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.4.0.insert.shift
-  %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, 2
+  %.sroa.4.0.insert.insert = add nuw nsw i64 %.sroa.56.0, %.sroa.4.0.insert.shift
+  %.sroa.04.0.insert.insert = add nuw nsw i64 %.sroa.4.0.insert.insert, 2
   ret i64 %.sroa.04.0.insert.insert
 
 7:                                                ; preds = %3
@@ -3763,11 +3760,12 @@ define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_
   %. = select i1 %9, i64 65536, i64 131072
   %11 = zext nneg i8 %10 to i64
   %12 = shl nuw nsw i64 %11, 24
+  %13 = or disjoint i64 %12, %.
   br label %6
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_start_tag17hb13408dbe6f0162bE(i8 noundef range(i8 0, 15) %0, ptr noundef align 8 %1) unnamed_addr #6 {
+define hidden range(i64 2, 235146754) i64 @_ZN14ruff_formatter7printer17invalid_start_tag17hb13408dbe6f0162bE(i8 noundef range(i8 0, 15) %0, ptr noundef align 8 %1) unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -3777,13 +3775,11 @@ define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_
   br i1 %5, label %7, label %6
 
 6:                                                ; preds = %3, %7, %2
-  %.sroa.05.0 = phi i64 [ 196608, %2 ], [ %., %7 ], [ 0, %3 ]
-  %.sroa.56.0 = phi i64 [ 0, %2 ], [ %12, %7 ], [ 0, %3 ]
-  %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.05.0, %.sroa.56.0
+  %.sroa.56.0 = phi i64 [ 196608, %2 ], [ %13, %7 ], [ 0, %3 ]
   %.sroa.4.0.insert.ext = zext nneg i8 %0 to i64
   %.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.4.0.insert.ext, 8
-  %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.4.0.insert.shift
-  %.sroa.04.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, 2
+  %.sroa.4.0.insert.insert = add nuw nsw i64 %.sroa.56.0, %.sroa.4.0.insert.shift
+  %.sroa.04.0.insert.insert = add nuw nsw i64 %.sroa.4.0.insert.insert, 2
   ret i64 %.sroa.04.0.insert.insert
 
 7:                                                ; preds = %3
@@ -3793,6 +3789,7 @@ define hidden range(i64 2, 235143168) i64 @_ZN14ruff_formatter7printer17invalid_
   %. = select i1 %9, i64 65536, i64 131072
   %11 = zext nneg i8 %10 to i64
   %12 = shl nuw nsw i64 %11, 24
+  %13 = or disjoint i64 %12, %.
   br label %6
 }
 

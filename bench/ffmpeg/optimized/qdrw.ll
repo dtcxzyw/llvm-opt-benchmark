@@ -444,38 +444,38 @@ bytestream2_get_byte.exit.i:                      ; preds = %188, %184
   %203 = zext i8 %202 to i32
   %204 = shl nuw nsw i32 %203, 8
   %.pre44.i = ptrtoint ptr %201 to i64
+  %205 = or disjoint i32 %204, %.0.i32.i
   br label %bytestream2_get_byte.exit34.i
 
 bytestream2_get_byte.exit34.i:                    ; preds = %200, %bytestream2_get_byte.exit.i
   %.pre-phi45.i = phi i64 [ %.pre44.i, %200 ], [ %16, %bytestream2_get_byte.exit.i ]
-  %205 = phi ptr [ %201, %200 ], [ %14, %bytestream2_get_byte.exit.i ]
-  %.0.i33.i = phi i32 [ %204, %200 ], [ 0, %bytestream2_get_byte.exit.i ]
-  %206 = sub i64 %16, %.pre-phi45.i
-  %..i29.i = tail call i64 @llvm.smin.i64(i64 %206, i64 1)
-  %207 = getelementptr inbounds i8, ptr %205, i64 %..i29.i
-  %208 = ptrtoint ptr %207 to i64
-  %209 = sub i64 %16, %208
-  %210 = icmp slt i64 %209, 1
-  br i1 %210, label %bytestream2_get_byte.exit36.i, label %211
+  %206 = phi ptr [ %201, %200 ], [ %14, %bytestream2_get_byte.exit.i ]
+  %.0.i33.i = phi i32 [ %205, %200 ], [ %.0.i32.i, %bytestream2_get_byte.exit.i ]
+  %207 = sub i64 %16, %.pre-phi45.i
+  %..i29.i = tail call i64 @llvm.smin.i64(i64 %207, i64 1)
+  %208 = getelementptr inbounds i8, ptr %206, i64 %..i29.i
+  %209 = ptrtoint ptr %208 to i64
+  %210 = sub i64 %16, %209
+  %211 = icmp slt i64 %210, 1
+  br i1 %211, label %bytestream2_get_byte.exit36.i, label %212
 
-211:                                              ; preds = %bytestream2_get_byte.exit34.i
-  %212 = getelementptr inbounds nuw i8, ptr %207, i64 1
-  store ptr %212, ptr %5, align 8, !tbaa !20
-  %213 = load i8, ptr %207, align 1, !tbaa !19
-  %214 = zext i8 %213 to i32
-  %.pre46.i = ptrtoint ptr %212 to i64
+212:                                              ; preds = %bytestream2_get_byte.exit34.i
+  %213 = getelementptr inbounds nuw i8, ptr %208, i64 1
+  store ptr %213, ptr %5, align 8, !tbaa !20
+  %214 = load i8, ptr %208, align 1, !tbaa !19
+  %215 = zext i8 %214 to i32
+  %.pre46.i = ptrtoint ptr %213 to i64
   br label %bytestream2_get_byte.exit36.i
 
-bytestream2_get_byte.exit36.i:                    ; preds = %211, %bytestream2_get_byte.exit34.i
-  %.pre-phi47.i = phi i64 [ %.pre46.i, %211 ], [ %16, %bytestream2_get_byte.exit34.i ]
-  %215 = phi ptr [ %212, %211 ], [ %14, %bytestream2_get_byte.exit34.i ]
-  %.0.i35.i = phi i32 [ %214, %211 ], [ 0, %bytestream2_get_byte.exit34.i ]
-  %216 = sub i64 %16, %.pre-phi47.i
-  %..i.i = tail call i64 @llvm.smin.i64(i64 %216, i64 1)
-  %217 = getelementptr inbounds i8, ptr %215, i64 %..i.i
-  store ptr %217, ptr %5, align 8, !tbaa !21
-  %218 = or disjoint i32 %.0.i33.i, %.0.i32.i
-  %219 = or disjoint i32 %218, %.0.i35.i
+bytestream2_get_byte.exit36.i:                    ; preds = %212, %bytestream2_get_byte.exit34.i
+  %.pre-phi47.i = phi i64 [ %.pre46.i, %212 ], [ %16, %bytestream2_get_byte.exit34.i ]
+  %216 = phi ptr [ %213, %212 ], [ %14, %bytestream2_get_byte.exit34.i ]
+  %.0.i35.i = phi i32 [ %215, %212 ], [ 0, %bytestream2_get_byte.exit34.i ]
+  %217 = sub i64 %16, %.pre-phi47.i
+  %..i.i = tail call i64 @llvm.smin.i64(i64 %217, i64 1)
+  %218 = getelementptr inbounds i8, ptr %216, i64 %..i.i
+  store ptr %218, ptr %5, align 8, !tbaa !21
+  %219 = or disjoint i32 %.0.i33.i, %.0.i35.i
   %220 = select i1 %.0.i178, i32 %.02641.i, i32 %.0.i39.i
   %221 = zext nneg i32 %220 to i64
   %222 = getelementptr inbounds nuw i32, ptr %166, i64 %221
@@ -483,7 +483,7 @@ bytestream2_get_byte.exit36.i:                    ; preds = %211, %bytestream2_g
   br label %223
 
 223:                                              ; preds = %bytestream2_get_byte.exit36.i, %178
-  %224 = phi ptr [ %217, %bytestream2_get_byte.exit36.i ], [ %181, %178 ]
+  %224 = phi ptr [ %218, %bytestream2_get_byte.exit36.i ], [ %181, %178 ]
   %225 = add nuw nsw i32 %.02641.i, 1
   %exitcond.not.i = icmp eq i32 %.02641.i, %.0.i184222
   br i1 %exitcond.not.i, label %parse_palette.exit, label %168, !llvm.loop !37

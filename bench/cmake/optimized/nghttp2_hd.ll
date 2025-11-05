@@ -4157,70 +4157,70 @@ hd_map_remove.exit:                               ; preds = %.lr.ph, %.lr.ph.i._
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre13.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !63
   %122 = add i64 %.pre13.i, -1
-  br label %143
+  %123 = and i64 %122, %120
+  br label %144
 
 .preheader26.i.i:                                 ; preds = %94, %.preheader26.i.i
-  %.022.i.i = phi i64 [ %124, %.preheader26.i.i ], [ 1, %94 ]
-  %123 = icmp ult i64 %.022.i.i, %118
-  %124 = shl i64 %.022.i.i, 1
-  br i1 %123, label %.preheader26.i.i, label %125, !llvm.loop !125
+  %.022.i.i = phi i64 [ %125, %.preheader26.i.i ], [ 1, %94 ]
+  %124 = icmp ult i64 %.022.i.i, %118
+  %125 = shl i64 %.022.i.i, 1
+  br i1 %124, label %.preheader26.i.i, label %126, !llvm.loop !125
 
-125:                                              ; preds = %.preheader26.i.i
-  %126 = shl i64 %.022.i.i, 3
-  %127 = tail call ptr @nghttp2_mem_malloc(ptr noundef %6, i64 noundef %126) #13
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %hd_ringbuf_push_front.exit, label %.preheader.i.i
+126:                                              ; preds = %.preheader26.i.i
+  %127 = shl i64 %.022.i.i, 3
+  %128 = tail call ptr @nghttp2_mem_malloc(ptr noundef %6, i64 noundef %127) #13
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %hd_ringbuf_push_front.exit, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %125
-  %129 = load i64, ptr %16, align 8, !tbaa !62
-  %.not28.i.i = icmp eq i64 %129, 0
+.preheader.i.i:                                   ; preds = %126
+  %130 = load i64, ptr %16, align 8, !tbaa !62
+  %.not28.i.i = icmp eq i64 %130, 0
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !40
   br i1 %.not28.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %131 = load i64, ptr %130, align 8, !tbaa !63
-  %132 = load i64, ptr %119, align 8, !tbaa !41
-  br label %133
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %132 = load i64, ptr %131, align 8, !tbaa !63
+  %133 = load i64, ptr %119, align 8, !tbaa !41
+  br label %134
 
-133:                                              ; preds = %133, %.lr.ph.i.i
-  %.02327.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %139, %133 ]
-  %134 = add i64 %.02327.i.i, %131
-  %135 = and i64 %134, %132
-  %136 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %135
-  %137 = load ptr, ptr %136, align 8, !tbaa !64
-  %138 = getelementptr inbounds nuw ptr, ptr %127, i64 %.02327.i.i
-  store ptr %137, ptr %138, align 8, !tbaa !64
-  %139 = add nuw i64 %.02327.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %139, %129
-  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %133, !llvm.loop !126
+134:                                              ; preds = %134, %.lr.ph.i.i
+  %.02327.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %140, %134 ]
+  %135 = add i64 %.02327.i.i, %132
+  %136 = and i64 %135, %133
+  %137 = getelementptr inbounds nuw ptr, ptr %.pre.i.i, i64 %136
+  %138 = load ptr, ptr %137, align 8, !tbaa !64
+  %139 = getelementptr inbounds nuw ptr, ptr %128, i64 %.02327.i.i
+  store ptr %138, ptr %139, align 8, !tbaa !64
+  %140 = add nuw i64 %.02327.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %140, %130
+  br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %134, !llvm.loop !126
 
-._crit_edge.i.i:                                  ; preds = %133, %.preheader.i.i
+._crit_edge.i.i:                                  ; preds = %134, %.preheader.i.i
   tail call void @nghttp2_mem_free(ptr noundef %6, ptr noundef %.pre.i.i) #13
-  store ptr %127, ptr %0, align 8, !tbaa !40
-  %140 = add i64 %.022.i.i, -1
-  store i64 %140, ptr %119, align 8, !tbaa !41
+  store ptr %128, ptr %0, align 8, !tbaa !40
+  %141 = add i64 %.022.i.i, -1
+  store i64 %141, ptr %119, align 8, !tbaa !41
   %.pre14.i = load i64, ptr %16, align 8, !tbaa !62
   %.pre15.i = add i64 %.pre14.i, 1
-  br label %143
+  br label %144
 
-hd_ringbuf_push_front.exit:                       ; preds = %125
-  %141 = load ptr, ptr %115, align 8, !tbaa !33
-  tail call void @nghttp2_rcbuf_decref(ptr noundef %141) #13
-  %142 = load ptr, ptr %92, align 8, !tbaa !32
+hd_ringbuf_push_front.exit:                       ; preds = %126
+  %142 = load ptr, ptr %115, align 8, !tbaa !33
   tail call void @nghttp2_rcbuf_decref(ptr noundef %142) #13
+  %143 = load ptr, ptr %92, align 8, !tbaa !32
+  tail call void @nghttp2_rcbuf_decref(ptr noundef %143) #13
   tail call void @nghttp2_mem_free(ptr noundef %6, ptr noundef nonnull %92) #13
   br label %164
 
-143:                                              ; preds = %._crit_edge.i, %._crit_edge.i.i
+144:                                              ; preds = %._crit_edge.i, %._crit_edge.i.i
   %.pre-phi.i = phi i64 [ %118, %._crit_edge.i ], [ %.pre15.i, %._crit_edge.i.i ]
-  %144 = phi i64 [ %120, %._crit_edge.i ], [ %140, %._crit_edge.i.i ]
-  %145 = phi i64 [ %122, %._crit_edge.i ], [ -1, %._crit_edge.i.i ]
-  %146 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %127, %._crit_edge.i.i ]
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %145, ptr %147, align 8, !tbaa !63
-  %148 = and i64 %145, %144
-  %149 = getelementptr inbounds nuw ptr, ptr %146, i64 %148
+  %145 = phi i64 [ %123, %._crit_edge.i ], [ %141, %._crit_edge.i.i ]
+  %146 = phi i64 [ %122, %._crit_edge.i ], [ -1, %._crit_edge.i.i ]
+  %147 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %128, %._crit_edge.i.i ]
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %146, ptr %148, align 8, !tbaa !63
+  %149 = getelementptr inbounds nuw ptr, ptr %147, i64 %145
   store ptr %92, ptr %149, align 8, !tbaa !64
   store i64 %.pre-phi.i, ptr %16, align 8, !tbaa !62
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4233,7 +4233,7 @@ hd_ringbuf_push_front.exit:                       ; preds = %125
   %.not49 = icmp eq ptr %2, null
   br i1 %.not49, label %161, label %154
 
-154:                                              ; preds = %143
+154:                                              ; preds = %144
   %155 = and i32 %3, 127
   %156 = zext nneg i32 %155 to i64
   %157 = getelementptr inbounds nuw ptr, ptr %2, i64 %156
@@ -4249,7 +4249,7 @@ hd_map_insert.exit:                               ; preds = %154, %160
   store ptr %92, ptr %157, align 8, !tbaa !64
   br label %161
 
-161:                                              ; preds = %hd_map_insert.exit, %143
+161:                                              ; preds = %hd_map_insert.exit, %144
   %162 = load i64, ptr %17, align 8, !tbaa !42
   %163 = add i64 %162, %15
   store i64 %163, ptr %17, align 8, !tbaa !42

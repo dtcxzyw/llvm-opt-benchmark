@@ -101,17 +101,15 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN16uv_platform_tags12platform_tag11PlatformTag6pretty17hb0226896dc08489fE.7 = private unnamed_addr constant [20 x ptr] [ptr null, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.20, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.20, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.20, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.20, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.20, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.20, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.21, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.22, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.22, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.22, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.22, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.23, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.24, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.25, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.26, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.27, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.28, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.29, ptr @anon.b6ff6adb2eeddc2d90bb9988127738b3.30], align 8
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define internal fastcc range(i32 0, -65534) i32 @"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17hf8a87860cc983c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, -65535) i32 @"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17hf8a87860cc983c77E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   switch i64 %1, label %5 [
     i64 0, label %.loopexit49
     i64 1, label %3
   ]
 
 .loopexit49:                                      ; preds = %25, %14, %23, %.lr.ph, %3, %3, %2, %.loopexit
-  %.sroa.0.0 = phi i32 [ 0, %.loopexit ], [ 1, %2 ], [ 1, %3 ], [ 1, %3 ], [ 1, %.lr.ph ], [ 1, %23 ], [ 1, %14 ], [ 1, %25 ]
-  %.sroa.8.0.insert.insert = phi i32 [ %13, %.loopexit ], [ 0, %2 ], [ 256, %3 ], [ 256, %3 ], [ 256, %.lr.ph ], [ 512, %25 ], [ 256, %14 ], [ 512, %23 ]
-  %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.8.0.insert.insert, %.sroa.0.0
-  ret i32 %.sroa.0.0.insert.insert
+  %.sroa.8.0.insert.insert = phi i32 [ %13, %.loopexit ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph ], [ 513, %25 ], [ 513, %23 ], [ 257, %14 ]
+  ret i32 %.sroa.8.0.insert.insert
 
 3:                                                ; preds = %2
   %4 = load i8, ptr %0, align 1, !noundef !3

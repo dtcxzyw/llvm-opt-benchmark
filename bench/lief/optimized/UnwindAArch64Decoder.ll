@@ -709,10 +709,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
-  %24 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %24 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %24, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
   %25 = shl i32 %.sroa.0.0.extract.trunc.i.i, 4
   %26 = and i32 %25, 496
   %27 = select i1 %.not.i.i, i32 0, i32 %26
@@ -921,10 +921,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
-  %24 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %24 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %24, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
   %25 = shl i32 %.sroa.0.0.extract.trunc.i.i, 3
   %26 = and i32 %25, 248
   %27 = select i1 %.not.i.i, i32 0, i32 %26
@@ -1129,10 +1129,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
-  %24 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %24 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %24, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
   %25 = shl i32 %.sroa.0.0.extract.trunc.i.i, 3
   %26 = and i32 %25, 504
   %27 = select i1 %.not.i.i, i32 0, i32 %26
@@ -1189,10 +1189,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
-  %24 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %23, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %24 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %24, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
   %25 = shl i32 %.sroa.0.0.extract.trunc.i.i, 3
   %26 = and i32 %25, 504
   %27 = add nuw nsw i32 %26, 8
@@ -1250,7 +1250,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %24, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %24, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
   %25 = load ptr, ptr %6, align 8, !tbaa !3
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !12
@@ -1291,13 +1291,13 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit10
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit10: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i9, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i5 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i9 ], [ %42, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4 ]
-  %43 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i5 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i9 ], [ %42, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4 ]
+  %43 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %43, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
-  %44 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i5, 4294967296
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
+  %44 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i5, 4294967296
   %.not.i.i6 = icmp eq i64 %44, 0
-  %.sroa.0.0.extract.trunc.i.i7 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i5 to i32
+  %.sroa.0.0.extract.trunc.i.i7 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i5 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %45 = shl i32 %.sroa.0.0.extract.trunc.i.i, 12
   %46 = and i32 %45, 28672
@@ -1513,7 +1513,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %26, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %26, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
   %27 = load ptr, ptr %8, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !12
@@ -1554,13 +1554,13 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %44, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %45 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %44, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %45 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %45, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
-  %46 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
+  %46 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %46, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %48 = and i32 %47, 768
@@ -1795,10 +1795,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %27, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
-  %28 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %27, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %28 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %28, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
   %29 = load ptr, ptr %9, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !12
@@ -1839,10 +1839,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %46, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %47 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %46, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %47 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %47, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %49 = and i32 %48, 768
@@ -2085,7 +2085,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
   %26 = load ptr, ptr %7, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !12
@@ -2126,13 +2126,13 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %44 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %44 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %44, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
-  %45 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
+  %45 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %45, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %47 = and i32 %46, 768
@@ -2357,7 +2357,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
   %26 = load ptr, ptr %7, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !12
@@ -2398,13 +2398,13 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
-  %44 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
+  %44 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %44, 0
-  %45 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %45 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %45, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %47 = and i32 %46, 256
@@ -2627,7 +2627,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
   %26 = load ptr, ptr %7, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !12
@@ -2668,13 +2668,13 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %44 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %44 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %44, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
-  %45 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
+  %45 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %45, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %47 = select i1 %.not.i.i, i32 0, i32 %46
@@ -2744,7 +2744,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %26, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %26, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
   %27 = load ptr, ptr %8, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !12
@@ -2785,13 +2785,13 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %44, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %45 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %44, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %45 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %45, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
-  %46 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
+  %46 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %46, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %48 = and i32 %47, 256
@@ -2866,10 +2866,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %27, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
-  %28 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %27, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %28 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %28, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
   %29 = load ptr, ptr %9, align 8, !tbaa !3
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !12
@@ -2910,10 +2910,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %46, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %47 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %46, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %47 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %47, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %49 = and i32 %48, 256
@@ -2999,7 +2999,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i: ; p
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i ], [ %25, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i ]
   %26 = load ptr, ptr %7, align 8, !tbaa !3
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !12
@@ -3040,13 +3040,13 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %44 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %44 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i, 4294967296
   %.not.i.i = icmp eq i64 %44, 0
-  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i to i32
-  %45 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.0.extract.trunc.i.i = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i to i32
+  %45 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %45, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %46 = shl i32 %.sroa.0.0.extract.trunc.i.i, 8
   %47 = and i32 %46, 256
@@ -3152,10 +3152,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit10
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit10: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i9, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i5 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i9 ], [ %40, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4 ]
-  %41 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i5, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i5 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i9 ], [ %40, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i4 ]
+  %41 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i5, 4294967296
   %.not.i.i6 = icmp eq i64 %41, 0
-  %.sroa.0.0.extract.trunc.i.i7 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i5 to i32
+  %.sroa.0.0.extract.trunc.i.i7 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i5 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = and i32 %.sroa.0.0.extract.trunc.i.i7, 255
   %43 = select i1 %.not.i.i6, i32 0, i32 %42
@@ -3259,7 +3259,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %41, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %41, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
   %42 = load ptr, ptr %8, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !12
@@ -3300,7 +3300,7 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i13: ;
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit19
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit19: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i18, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i13
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i14 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i18 ], [ %59, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i13 ]
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i14 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i18 ], [ %59, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i13 ]
   %60 = load ptr, ptr %8, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load i64, ptr %61, align 8, !tbaa !12
@@ -3341,16 +3341,16 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i21: ;
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit27
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit27: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i26, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i21
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i22 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i26 ], [ %77, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i21 ]
-  %78 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i14, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i22 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i26 ], [ %77, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i21 ]
+  %78 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i14, 4294967296
   %.not.i.i15 = icmp eq i64 %78, 0
-  %.sroa.0.0.extract.trunc.i.i16 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i14 to i32
-  %79 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.0.extract.trunc.i.i16 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i14 to i32
+  %79 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %79, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
-  %80 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i22, 4294967296
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
+  %80 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i22, 4294967296
   %.not.i.i23 = icmp eq i64 %80, 0
-  %.sroa.0.0.extract.trunc.i.i24 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i22 to i32
+  %.sroa.0.0.extract.trunc.i.i24 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i22 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %81 = shl i32 %.sroa.0.0.extract.trunc.i.i8, 16
   %82 = and i32 %81, 16711680
@@ -3650,10 +3650,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5: ; 
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit11: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %39, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
-  %40 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i10 ], [ %39, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i5 ]
+  %40 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6, 4294967296
   %.not.i.i7 = icmp eq i64 %40, 0
-  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i6 to i32
+  %.sroa.0.0.extract.trunc.i.i8 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i6 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = shl i32 %.sroa.0.0.extract.trunc.i.i8, 3
   %42 = and i32 %41, 2040
@@ -4239,10 +4239,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i38: ;
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit44
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit44: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i43, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i38
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i39 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i43 ], [ %44, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i38 ]
-  %45 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i39, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i39 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i43 ], [ %44, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i38 ]
+  %45 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i39, 4294967296
   %.not.i.i40 = icmp eq i64 %45, 0
-  %.sroa.0.0.extract.trunc.i.i41 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i39 to i8
+  %.sroa.0.0.extract.trunc.i.i41 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i39 to i8
   %46 = select i1 %.not.i.i40, i8 0, i8 %.sroa.0.0.extract.trunc.i.i41
   %47 = load ptr, ptr %11, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
@@ -4284,10 +4284,10 @@ _ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i46: ;
   br label %_ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit52
 
 _ZN4LIEF2PE14unwind_aarch647Decoder7read_u8Ev.exit52: ; preds = %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i51, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i46
-  %.sroa.0.sroa.0.0.insert.insert.i.i.i47 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i51 ], [ %64, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i46 ]
-  %65 = and i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i47, 4294967296
+  %.sroa.0.sroa.2.0.extract.trunc6.i.i.i47 = phi i64 [ 1, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.thread.i.i.i51 ], [ %64, %_ZNK4LIEF12BinaryStream4peekIhEEN2tl8expectedIT_11lief_errorsEEv.exit.i.i.i46 ]
+  %65 = and i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i47, 4294967296
   %.not.i.i48 = icmp eq i64 %65, 0
-  %.sroa.0.0.extract.trunc.i.i49 = trunc i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i47 to i8
+  %.sroa.0.0.extract.trunc.i.i49 = trunc i64 %.sroa.0.sroa.2.0.extract.trunc6.i.i.i47 to i8
   %66 = select i1 %.not.i.i48, i8 0, i8 %.sroa.0.0.extract.trunc.i.i49
   %67 = zext i8 %46 to i32
   %68 = and i32 %67, 32
@@ -20132,11 +20132,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %231 = getelementptr inbounds nuw i32, ptr %208, i64 %230
   %232 = load i32, ptr %231, align 4, !tbaa !22
   %233 = zext i32 %232 to i64
+  %234 = or disjoint i64 %.03556.i, %233
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i: ; preds = %228, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
-  %234 = phi i64 [ %233, %228 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
-  %235 = or disjoint i64 %234, %.03556.i
+  %235 = phi i64 [ %234, %228 ], [ %.03556.i, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
   %236 = icmp samesign ugt i64 %226, %235
   br i1 %236, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %237
 
@@ -20514,11 +20514,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %408 = getelementptr inbounds nuw i32, ptr %385, i64 %407
   %409 = load i32, ptr %408, align 4, !tbaa !22
   %410 = zext i32 %409 to i64
+  %411 = or disjoint i64 %.03556.i201, %410
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211: ; preds = %405, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208
-  %411 = phi i64 [ %410, %405 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208 ]
-  %412 = or disjoint i64 %411, %.03556.i201
+  %412 = phi i64 [ %411, %405 ], [ %.03556.i201, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208 ]
   %413 = icmp samesign ugt i64 %403, %412
   br i1 %413, label %.thread617, label %414
 
@@ -20622,11 +20622,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %461 = getelementptr inbounds nuw i32, ptr %446, i64 %460
   %462 = load i32, ptr %461, align 4, !tbaa !22
   %463 = zext i32 %462 to i64
+  %464 = or disjoint i64 %.03556.i219, %463
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229: ; preds = %458, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226
-  %464 = phi i64 [ %463, %458 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226 ]
-  %465 = or disjoint i64 %464, %.03556.i219
+  %465 = phi i64 [ %464, %458 ], [ %.03556.i219, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226 ]
   %466 = icmp samesign ugt i64 %456, %465
   br i1 %466, label %.thread.sink.split, label %467
 
@@ -20969,17 +20969,17 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %611 = getelementptr inbounds nuw i32, ptr %596, i64 %610
   %612 = load i32, ptr %611, align 4, !tbaa !22
   %613 = zext i32 %612 to i64
+  %614 = or disjoint i64 %.03556.i290, %613
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300: ; preds = %608, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297
-  %614 = phi i64 [ %613, %608 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297 ]
-  %615 = or disjoint i64 %614, %.03556.i290
+  %615 = phi i64 [ %614, %608 ], [ %.03556.i290, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297 ]
   %616 = icmp samesign ugt i64 %606, %615
   br i1 %616, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit303, label %617
 
 617:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300
   %618 = sub nuw nsw i64 %615, %606
-  %619 = icmp samesign ult i64 %618, 2
+  %619 = icmp ult i64 %618, 2
   %620 = shl nuw nsw i64 %618, 32
   %.not.not.not.i301 = icmp sgt i32 %.03458.i291, %594
   %or.cond412 = select i1 %619, i1 %.not.not.not.i301, i1 false
@@ -21099,11 +21099,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %677 = getelementptr inbounds nuw i32, ptr %662, i64 %676
   %678 = load i32, ptr %677, align 4, !tbaa !22
   %679 = zext i32 %678 to i64
+  %680 = or disjoint i64 %.03556.i312, %679
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322: ; preds = %674, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319
-  %680 = phi i64 [ %679, %674 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319 ]
-  %681 = or disjoint i64 %680, %.03556.i312
+  %681 = phi i64 [ %680, %674 ], [ %.03556.i312, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319 ]
   %682 = icmp samesign ugt i64 %672, %681
   br i1 %682, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %683
 

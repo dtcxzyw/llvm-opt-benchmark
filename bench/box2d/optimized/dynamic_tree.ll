@@ -2192,13 +2192,13 @@ define i64 @b2DynamicTree_ShapeCast(ptr noundef readonly captures(none) %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %181, label %11
+  br i1 %10, label %182, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = load i32, ptr %12, align 4, !tbaa !55
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %181, label %15
+  br i1 %14, label %182, label %15
 
 15:                                               ; preds = %11
   %.sroa.073.0.copyload = load <2 x float>, ptr %1, align 4
@@ -2483,13 +2483,12 @@ b2AABB_Overlaps.exit.thread:                      ; preds = %82, %123, %120, %74
   %178 = zext i32 %.sroa.4.6 to i64
   %179 = shl nuw i64 %178, 32
   %180 = zext i32 %.sroa.0107.3 to i64
-  br label %181
+  %181 = or disjoint i64 %179, %180
+  br label %182
 
-181:                                              ; preds = %5, %11, %.thread257
-  %.sroa.4.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %179, %.thread257 ]
-  %.sroa.0107.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %180, %.thread257 ]
-  %.sroa.0107.0.insert.insert = or disjoint i64 %.sroa.0107.0, %.sroa.4.0
-  ret i64 %.sroa.0107.0.insert.insert
+182:                                              ; preds = %5, %11, %.thread257
+  %.sroa.4.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %181, %.thread257 ]
+  ret i64 %.sroa.4.0
 }
 
 ; Function Attrs: nounwind uwtable

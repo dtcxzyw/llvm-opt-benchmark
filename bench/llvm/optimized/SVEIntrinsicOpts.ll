@@ -385,7 +385,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_116SVEIntrinsicOpts11runOnMo
   %.pre = load i32, ptr %20, align 8, !tbaa !31
   %.pre30.pre = load ptr, ptr %18, align 8, !tbaa !28
   %.not.i.i = icmp eq i32 %.pre, 0
-  br i1 %.not.i.i, label %394, label %.lr.ph28.i.i
+  br i1 %.not.i.i, label %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit, label %.lr.ph28.i.i
 
 .lr.ph28:                                         ; preds = %2, %.loopexit
   %.sroa.018.027 = phi ptr [ %.sroa.018.0, %.loopexit ], [ %.sroa.018.025, %2 ]
@@ -715,7 +715,7 @@ _ZN4llvm25ReversePostOrderTraversalIPNS_10BasicBlockENS_11GraphTraitsIS2_EEED2Ev
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %175 = getelementptr inbounds nuw i8, ptr %.02022.i.i, i64 8
   %.not.i14.i = icmp eq ptr %175, %118
-  br i1 %.not.i14.i, label %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit, label %157
+  br i1 %.not.i14.i, label %_ZN12_GLOBAL__N_116SVEIntrinsicOpts20optimizeInstructionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit.i, label %157
 
 .lr.ph19.i.i:                                     ; preds = %.loopexit.i.i, %.lr.ph19.preheader.i.i
   %.118.i.i = phi i1 [ %.2.lcssa.i.i, %.loopexit.i.i ], [ %.023.i.i, %.lr.ph19.preheader.i.i ]
@@ -1183,36 +1183,31 @@ _ZN12_GLOBAL__N_116SVEIntrinsicOpts21optimizePredicateLoadEPN4llvm11InstructionE
   %.not12.i.i = icmp eq ptr %182, %180
   br i1 %.not12.i.i, label %.loopexit.i.i, label %.lr.ph.i9.i
 
-_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit: ; preds = %_ZN4llvm25ReversePostOrderTraversalIPNS_10BasicBlockENS_11GraphTraitsIS2_EEED2Ev.exit.i.i
-  %.pre29.pre = load ptr, ptr %18, align 8, !tbaa !28
+_ZN12_GLOBAL__N_116SVEIntrinsicOpts20optimizeInstructionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit.i: ; preds = %_ZN4llvm25ReversePostOrderTraversalIPNS_10BasicBlockENS_11GraphTraitsIS2_EEED2Ev.exit.i.i
+  %393 = or i1 %.1.lcssa.i.i, %.1.lcssa.i13.i
+  %.pre29 = load ptr, ptr %18, align 8, !tbaa !28
   br label %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit
 
-_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit: ; preds = %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts27optimizePTrueIntrinsicCallsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.i
-  %.pre29 = phi ptr [ %.val6.i, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts27optimizePTrueIntrinsicCallsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.i ], [ %.pre29.pre, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit ]
-  %.0.lcssa.i15.i = phi i1 [ false, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts27optimizePTrueIntrinsicCallsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.i ], [ %.1.lcssa.i13.i, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit ]
-  %393 = or i1 %.1.lcssa.i.i, %.0.lcssa.i15.i
-  br label %394
+_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit: ; preds = %_ZN12_GLOBAL__N_116SVEIntrinsicOpts20optimizeInstructionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit.i, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts27optimizePTrueIntrinsicCallsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.i, %._crit_edge
+  %394 = phi ptr [ %.pre30.pre, %._crit_edge ], [ %.val6.i, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts27optimizePTrueIntrinsicCallsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.i ], [ %.pre29, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts20optimizeInstructionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit.i ]
+  %.0 = phi i1 [ false, %._crit_edge ], [ %.1.lcssa.i.i, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts27optimizePTrueIntrinsicCallsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.i ], [ %393, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts20optimizeInstructionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit.loopexit.i ]
+  %395 = icmp eq ptr %394, %19
+  br i1 %395, label %_ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit, label %396
 
-394:                                              ; preds = %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit, %._crit_edge
-  %395 = phi ptr [ %.pre30.pre, %._crit_edge ], [ %.pre29, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit ]
-  %.0 = phi i1 [ false, %._crit_edge ], [ %393, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit ]
-  %396 = icmp eq ptr %395, %19
-  br i1 %396, label %_ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit, label %397
-
-397:                                              ; preds = %394
-  call void @free(ptr noundef %395) #16
+396:                                              ; preds = %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit
+  call void @free(ptr noundef %394) #16
   br label %_ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit
 
-_ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit: ; preds = %2, %394, %397
-  %.065 = phi i1 [ %.0, %394 ], [ %.0, %397 ], [ false, %2 ]
-  %398 = load ptr, ptr %16, align 8, !tbaa !126
-  %399 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %400 = load i32, ptr %399, align 8, !tbaa !129
-  %401 = zext i32 %400 to i64
-  %402 = shl nuw nsw i64 %401, 3
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %398, i64 noundef %402, i64 noundef 8) #16
+_ZN4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EED2Ev.exit: ; preds = %2, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit, %396
+  %.064 = phi i1 [ %.0, %_ZN12_GLOBAL__N_116SVEIntrinsicOpts17optimizeFunctionsERN4llvm14SmallSetVectorIPNS1_8FunctionELj4EEE.exit ], [ %.0, %396 ], [ false, %2 ]
+  %397 = load ptr, ptr %16, align 8, !tbaa !126
+  %398 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %399 = load i32, ptr %398, align 8, !tbaa !129
+  %400 = zext i32 %399 to i64
+  %401 = shl nuw nsw i64 %400, 3
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %397, i64 noundef %401, i64 noundef 8) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  ret i1 %.065
+  ret i1 %.064
 }
 
 ; Function Attrs: nobuiltin nounwind

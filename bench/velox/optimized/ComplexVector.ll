@@ -8803,25 +8803,22 @@ _ZNRSt8optionalIiE5valueEv.exit.i:                ; preds = %for.body.i
 if.then17.i:                                      ; preds = %_ZNRSt8optionalIiE5valueEv.exit.us.i, %_ZNRSt8optionalIiE5valueEv.exit.i
   %.us-phi.i = phi i64 [ %call7.i, %_ZNRSt8optionalIiE5valueEv.exit.i ], [ %call7.us.i, %_ZNRSt8optionalIiE5valueEv.exit.us.i ]
   %retval.sroa.0.0.extract.trunc.i = trunc i64 %.us-phi.i to i32
-  %25 = and i64 %.us-phi.i, -1099511627776
-  %26 = and i64 %.us-phi.i, 1095216660480
+  %25 = and i64 %.us-phi.i, -4294967296
   br label %return
 
 for.end.i:                                        ; preds = %for.cond.us.i, %for.cond.i, %if.end.i37
   %sub.i = sub nsw i32 %13, %14
-  %27 = and i64 %flags.coerce.fr.i, 256
-  %tobool23.not.i = icmp eq i64 %27, 0
+  %26 = and i64 %flags.coerce.fr.i, 256
+  %tobool23.not.i = icmp eq i64 %26, 0
   %mul.i = sub nsw i32 0, %sub.i
   %cond.i38 = select i1 %tobool23.not.i, i32 %mul.i, i32 %sub.i
   br label %return
 
 return:                                           ; preds = %for.body.i, %for.end.i, %if.then17.i, %if.end.i, %if.then19.i, %if.then, %if.then.i, %land.lhs.true
-  %retval.sroa.5.sroa.0.0 = phi i64 [ 0, %land.lhs.true ], [ 0, %if.then.i ], [ 0, %if.then ], [ 0, %if.then19.i ], [ 0, %if.end.i ], [ %25, %if.then17.i ], [ 0, %for.end.i ], [ 0, %for.body.i ]
-  %retval.sroa.4.0 = phi i64 [ 4294967296, %land.lhs.true ], [ 4294967296, %if.then.i ], [ 0, %if.then ], [ 4294967296, %if.then19.i ], [ 4294967296, %if.end.i ], [ %26, %if.then17.i ], [ 4294967296, %for.end.i ], [ 0, %for.body.i ]
+  %retval.sroa.4.0 = phi i64 [ 4294967296, %land.lhs.true ], [ 4294967296, %if.then.i ], [ 0, %if.then ], [ 4294967296, %if.then19.i ], [ 4294967296, %if.end.i ], [ %25, %if.then17.i ], [ 4294967296, %for.end.i ], [ 0, %for.body.i ]
   %retval.sroa.0.0 = phi i32 [ 1, %land.lhs.true ], [ 0, %if.then.i ], [ 0, %if.then ], [ %cond23.i, %if.then19.i ], [ %cond.i, %if.end.i ], [ %retval.sroa.0.0.extract.trunc.i, %if.then17.i ], [ %cond.i38, %for.end.i ], [ undef, %for.body.i ]
-  %retval.sroa.4.0.insert.insert = or disjoint i64 %retval.sroa.4.0, %retval.sroa.5.sroa.0.0
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.insert, %retval.sroa.0.0.insert.ext
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
 }
 
@@ -10746,8 +10743,7 @@ _ZNRSt8optionalIiE5valueEv.exit:                  ; preds = %for.body
 
 if.then22:                                        ; preds = %_ZNRSt8optionalIiE5valueEv.exit.us, %_ZNRSt8optionalIiE5valueEv.exit
   %.us-phi = phi i64 [ %call12, %_ZNRSt8optionalIiE5valueEv.exit ], [ %call12.us, %_ZNRSt8optionalIiE5valueEv.exit.us ]
-  %retval.sroa.7.0.extract.shift = and i64 %.us-phi, -1099511627776
-  %11 = and i64 %.us-phi, 1095216660480
+  %11 = and i64 %.us-phi, -4294967296
   br label %return
 
 for.end:                                          ; preds = %for.cond.us, %for.cond, %if.end
@@ -10760,11 +10756,9 @@ for.end:                                          ; preds = %for.cond.us, %for.c
 
 return:                                           ; preds = %for.body, %entry, %for.end, %if.then22
   %retval.sroa.0.0 = phi i64 [ %.us-phi, %if.then22 ], [ %cond, %for.end ], [ 1, %entry ], [ 0, %for.body ]
-  %retval.sroa.4.0 = phi i64 [ %11, %if.then22 ], [ 4294967296, %for.end ], [ 4294967296, %entry ], [ 0, %for.body ]
-  %retval.sroa.7.sroa.0.0 = phi i64 [ %retval.sroa.7.0.extract.shift, %if.then22 ], [ 0, %for.end ], [ 0, %entry ], [ 0, %for.body ]
+  %retval.sroa.7.sroa.0.0 = phi i64 [ %11, %if.then22 ], [ 4294967296, %for.end ], [ 4294967296, %entry ], [ 0, %for.body ]
   %retval.sroa.0.0.insert.ext = and i64 %retval.sroa.0.0, 4294967295
-  %retval.sroa.4.0.insert.insert = or disjoint i64 %retval.sroa.0.0.insert.ext, %retval.sroa.4.0
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.4.0.insert.insert, %retval.sroa.7.sroa.0.0
+  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.7.sroa.0.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
 }
 

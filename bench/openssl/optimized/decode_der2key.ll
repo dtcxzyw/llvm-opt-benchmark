@@ -219,287 +219,288 @@ define internal i32 @der2key_decode(ptr noundef initializes((272, 276)) %0, ptr 
   %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !21
-  %. = select i1 %19, i32 %23, i32 %2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %25 = and i32 %23, %.
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %28
+  %24 = select i1 %19, i32 -1, i32 %2
+  %25 = and i32 %23, %24
+  %.043 = select i1 %19, i32 %23, i32 %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %27 = icmp eq i32 %25, 0
+  br i1 %27, label %28, label %29
 
-27:                                               ; preds = %7
+28:                                               ; preds = %7
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 236, ptr noundef nonnull @__func__.der2key_decode) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 57, i32 noundef 524550, ptr noundef null) #7
-  br label %136
+  br label %137
 
-28:                                               ; preds = %7
-  %29 = load ptr, ptr %0, align 8, !tbaa !3
-  %30 = call i32 @ossl_read_der(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %10) #7
-  %.not = icmp eq i32 %30, 0
-  br i1 %.not, label %.thread, label %31
+29:                                               ; preds = %7
+  %30 = load ptr, ptr %0, align 8, !tbaa !3
+  %31 = call i32 @ossl_read_der(ptr noundef %30, ptr noundef %1, ptr noundef nonnull %8, ptr noundef nonnull %10) #7
+  %.not = icmp eq i32 %31, 0
+  br i1 %.not, label %.thread, label %32
 
-31:                                               ; preds = %28
-  %32 = call i32 @ERR_set_mark() #7
-  %33 = and i32 %., 1
-  %.not54 = icmp eq i32 %33, 0
-  br i1 %.not54, label %58, label %34
+32:                                               ; preds = %29
+  %33 = call i32 @ERR_set_mark() #7
+  %34 = and i32 %.043, 1
+  %.not54 = icmp eq i32 %34, 0
+  br i1 %.not54, label %59, label %35
 
-34:                                               ; preds = %31
-  %35 = load ptr, ptr %8, align 8, !tbaa !15
-  store ptr %35, ptr %9, align 8, !tbaa !15
-  %36 = load ptr, ptr %24, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 56
-  %38 = load ptr, ptr %37, align 8, !tbaa !24
-  %.not55 = icmp eq ptr %38, null
-  br i1 %.not55, label %47, label %39
+35:                                               ; preds = %32
+  %36 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %36, ptr %9, align 8, !tbaa !15
+  %37 = load ptr, ptr %26, align 8, !tbaa !11
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 56
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
+  %.not55 = icmp eq ptr %39, null
+  br i1 %.not55, label %48, label %40
 
-39:                                               ; preds = %34
-  %40 = load i64, ptr %10, align 8, !tbaa !17
-  %41 = call ptr %38(ptr noundef nonnull %9, i64 noundef %40, ptr noundef nonnull %0) #7
-  store ptr %41, ptr %11, align 8, !tbaa !19
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %43 = load i8, ptr %42, align 4
-  %44 = and i8 %43, 1
-  %.not57 = icmp eq i8 %44, 0
-  br i1 %.not57, label %thread-pre-split, label %45
+40:                                               ; preds = %35
+  %41 = load i64, ptr %10, align 8, !tbaa !17
+  %42 = call ptr %39(ptr noundef nonnull %9, i64 noundef %41, ptr noundef nonnull %0) #7
+  store ptr %42, ptr %11, align 8, !tbaa !19
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 276
+  %44 = load i8, ptr %43, align 4
+  %45 = and i8 %44, 1
+  %.not57 = icmp eq i8 %45, 0
+  br i1 %.not57, label %thread-pre-split, label %46
 
-45:                                               ; preds = %39
-  %46 = call i32 @ERR_clear_last_mark() #7
-  br label %130
+46:                                               ; preds = %40
+  %47 = call i32 @ERR_clear_last_mark() #7
+  br label %131
 
-47:                                               ; preds = %34
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !25
-  %.not56 = icmp eq ptr %49, null
-  br i1 %.not56, label %thread-pre-split.thread, label %50
+48:                                               ; preds = %35
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %50 = load ptr, ptr %49, align 8, !tbaa !25
+  %.not56 = icmp eq ptr %50, null
+  br i1 %.not56, label %thread-pre-split.thread, label %51
 
-50:                                               ; preds = %47
-  %51 = load i64, ptr %10, align 8, !tbaa !17
-  %52 = call ptr %49(ptr noundef null, ptr noundef nonnull %9, i64 noundef %51) #7
-  store ptr %52, ptr %11, align 8, !tbaa !19
+51:                                               ; preds = %48
+  %52 = load i64, ptr %10, align 8, !tbaa !17
+  %53 = call ptr %50(ptr noundef null, ptr noundef nonnull %9, i64 noundef %52) #7
+  store ptr %53, ptr %11, align 8, !tbaa !19
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %50, %39
-  %53 = phi ptr [ %52, %50 ], [ %41, %39 ]
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %thread-pre-split.thread, label %.thread109
+thread-pre-split:                                 ; preds = %51, %40
+  %54 = phi ptr [ %53, %51 ], [ %42, %40 ]
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %thread-pre-split.thread, label %.thread109
 
-thread-pre-split.thread:                          ; preds = %47, %thread-pre-split
-  %55 = load i32, ptr %18, align 8, !tbaa !20
-  %.not58 = icmp eq i32 %55, 0
-  br i1 %.not58, label %58, label %56
+thread-pre-split.thread:                          ; preds = %48, %thread-pre-split
+  %56 = load i32, ptr %18, align 8, !tbaa !20
+  %.not58 = icmp eq i32 %56, 0
+  br i1 %.not58, label %59, label %57
 
-56:                                               ; preds = %thread-pre-split.thread
-  %57 = call i32 @ERR_clear_last_mark() #7
+57:                                               ; preds = %thread-pre-split.thread
+  %58 = call i32 @ERR_clear_last_mark() #7
   br label %.thread
 
-58:                                               ; preds = %thread-pre-split.thread, %31
-  %59 = and i32 %., 2
-  %.not59 = icmp eq i32 %59, 0
-  br i1 %.not59, label %78, label %60
+59:                                               ; preds = %thread-pre-split.thread, %32
+  %60 = and i32 %.043, 2
+  %.not59 = icmp eq i32 %60, 0
+  br i1 %.not59, label %79, label %61
 
-60:                                               ; preds = %58
-  %61 = load ptr, ptr %8, align 8, !tbaa !15
-  store ptr %61, ptr %9, align 8, !tbaa !15
-  %62 = load ptr, ptr %24, align 8, !tbaa !11
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 64
-  %64 = load ptr, ptr %63, align 8, !tbaa !26
-  %.not60 = icmp eq ptr %64, null
-  br i1 %.not60, label %68, label %65
+61:                                               ; preds = %59
+  %62 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %62, ptr %9, align 8, !tbaa !15
+  %63 = load ptr, ptr %26, align 8, !tbaa !11
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 64
+  %65 = load ptr, ptr %64, align 8, !tbaa !26
+  %.not60 = icmp eq ptr %65, null
+  br i1 %.not60, label %69, label %66
 
-65:                                               ; preds = %60
-  %66 = load i64, ptr %10, align 8, !tbaa !17
-  %67 = call ptr %64(ptr noundef nonnull %9, i64 noundef %66, ptr noundef nonnull %0) #7
+66:                                               ; preds = %61
+  %67 = load i64, ptr %10, align 8, !tbaa !17
+  %68 = call ptr %65(ptr noundef nonnull %9, i64 noundef %67, ptr noundef nonnull %0) #7
   br label %thread-pre-split74
 
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 40
-  %70 = load ptr, ptr %69, align 8, !tbaa !27
-  %.not61 = icmp eq ptr %70, null
-  br i1 %.not61, label %thread-pre-split74.thread, label %71
+69:                                               ; preds = %61
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 40
+  %71 = load ptr, ptr %70, align 8, !tbaa !27
+  %.not61 = icmp eq ptr %71, null
+  br i1 %.not61, label %thread-pre-split74.thread, label %72
 
-71:                                               ; preds = %68
-  %72 = load i64, ptr %10, align 8, !tbaa !17
-  %73 = call ptr %70(ptr noundef null, ptr noundef nonnull %9, i64 noundef %72) #7
+72:                                               ; preds = %69
+  %73 = load i64, ptr %10, align 8, !tbaa !17
+  %74 = call ptr %71(ptr noundef null, ptr noundef nonnull %9, i64 noundef %73) #7
   br label %thread-pre-split74
 
-thread-pre-split74:                               ; preds = %71, %65
-  %.sink = phi ptr [ %73, %71 ], [ %67, %65 ]
+thread-pre-split74:                               ; preds = %72, %66
+  %.sink = phi ptr [ %74, %72 ], [ %68, %66 ]
   store ptr %.sink, ptr %11, align 8, !tbaa !19
-  %74 = icmp eq ptr %.sink, null
-  br i1 %74, label %thread-pre-split74.thread, label %.thread109
+  %75 = icmp eq ptr %.sink, null
+  br i1 %75, label %thread-pre-split74.thread, label %.thread109
 
-thread-pre-split74.thread:                        ; preds = %68, %thread-pre-split74
-  %75 = load i32, ptr %18, align 8, !tbaa !20
-  %.not62 = icmp eq i32 %75, 0
-  br i1 %.not62, label %78, label %76
+thread-pre-split74.thread:                        ; preds = %69, %thread-pre-split74
+  %76 = load i32, ptr %18, align 8, !tbaa !20
+  %.not62 = icmp eq i32 %76, 0
+  br i1 %.not62, label %79, label %77
 
-76:                                               ; preds = %thread-pre-split74.thread
-  %77 = call i32 @ERR_clear_last_mark() #7
+77:                                               ; preds = %thread-pre-split74.thread
+  %78 = call i32 @ERR_clear_last_mark() #7
   br label %.thread
 
-78:                                               ; preds = %thread-pre-split74.thread, %58
-  %79 = and i32 %., 132
-  %.not63 = icmp eq i32 %79, 0
-  br i1 %.not63, label %91, label %80
+79:                                               ; preds = %thread-pre-split74.thread, %59
+  %80 = and i32 %.043, 132
+  %.not63 = icmp eq i32 %80, 0
+  br i1 %.not63, label %92, label %81
 
-80:                                               ; preds = %78
-  %81 = load ptr, ptr %8, align 8, !tbaa !15
-  store ptr %81, ptr %9, align 8, !tbaa !15
-  %82 = load ptr, ptr %24, align 8, !tbaa !11
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
-  %84 = load ptr, ptr %83, align 8, !tbaa !28
-  %.not64 = icmp eq ptr %84, null
+81:                                               ; preds = %79
+  %82 = load ptr, ptr %8, align 8, !tbaa !15
+  store ptr %82, ptr %9, align 8, !tbaa !15
+  %83 = load ptr, ptr %26, align 8, !tbaa !11
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %85 = load ptr, ptr %84, align 8, !tbaa !28
+  %.not64 = icmp eq ptr %85, null
   br i1 %.not64, label %thread-pre-split76.thread, label %thread-pre-split76
 
-thread-pre-split76:                               ; preds = %80
-  %85 = load i64, ptr %10, align 8, !tbaa !17
-  %86 = call ptr %84(ptr noundef null, ptr noundef nonnull %9, i64 noundef %85) #7
-  store ptr %86, ptr %11, align 8, !tbaa !19
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %thread-pre-split76.thread, label %.thread109
+thread-pre-split76:                               ; preds = %81
+  %86 = load i64, ptr %10, align 8, !tbaa !17
+  %87 = call ptr %85(ptr noundef null, ptr noundef nonnull %9, i64 noundef %86) #7
+  store ptr %87, ptr %11, align 8, !tbaa !19
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %thread-pre-split76.thread, label %.thread109
 
-thread-pre-split76.thread:                        ; preds = %80, %thread-pre-split76
-  %88 = load i32, ptr %18, align 8, !tbaa !20
-  %.not65 = icmp eq i32 %88, 0
-  br i1 %.not65, label %91, label %89
+thread-pre-split76.thread:                        ; preds = %81, %thread-pre-split76
+  %89 = load i32, ptr %18, align 8, !tbaa !20
+  %.not65 = icmp eq i32 %89, 0
+  br i1 %.not65, label %92, label %90
 
-89:                                               ; preds = %thread-pre-split76.thread
-  %90 = call i32 @ERR_clear_last_mark() #7
+90:                                               ; preds = %thread-pre-split76.thread
+  %91 = call i32 @ERR_clear_last_mark() #7
   br label %.thread
 
-91:                                               ; preds = %thread-pre-split76.thread, %78
-  %92 = call i32 @ERR_clear_last_mark() #7
+92:                                               ; preds = %thread-pre-split76.thread, %79
+  %93 = call i32 @ERR_clear_last_mark() #7
   br label %.thread
 
 .thread109:                                       ; preds = %thread-pre-split, %thread-pre-split74, %thread-pre-split76
-  %93 = phi ptr [ %86, %thread-pre-split76 ], [ %.sink, %thread-pre-split74 ], [ %53, %thread-pre-split ]
-  %94 = call i32 @ERR_pop_to_mark() #7
-  %95 = load ptr, ptr %24, align 8, !tbaa !11
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 72
-  %97 = load ptr, ptr %96, align 8, !tbaa !29
-  %.not67 = icmp eq ptr %97, null
-  br i1 %.not67, label %.thread117, label %98
+  %94 = phi ptr [ %87, %thread-pre-split76 ], [ %.sink, %thread-pre-split74 ], [ %54, %thread-pre-split ]
+  %95 = call i32 @ERR_pop_to_mark() #7
+  %96 = load ptr, ptr %26, align 8, !tbaa !11
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 72
+  %98 = load ptr, ptr %97, align 8, !tbaa !29
+  %.not67 = icmp eq ptr %98, null
+  br i1 %.not67, label %.thread117, label %99
 
-98:                                               ; preds = %.thread109
-  %99 = call i32 %97(ptr noundef nonnull %93, ptr noundef nonnull %0) #7
-  %.not68 = icmp eq i32 %99, 0
+99:                                               ; preds = %.thread109
+  %100 = call i32 %98(ptr noundef nonnull %94, ptr noundef nonnull %0) #7
+  %.not68 = icmp eq i32 %100, 0
   %.pr81.pre = load ptr, ptr %11, align 8, !tbaa !19
-  br i1 %.not68, label %100, label %104
+  br i1 %.not68, label %101, label %105
 
-100:                                              ; preds = %98
-  %101 = load ptr, ptr %24, align 8, !tbaa !11
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 88
-  %103 = load ptr, ptr %102, align 8, !tbaa !30
-  call void %103(ptr noundef %.pr81.pre) #7
+101:                                              ; preds = %99
+  %102 = load ptr, ptr %26, align 8, !tbaa !11
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 88
+  %104 = load ptr, ptr %103, align 8, !tbaa !30
+  call void %104(ptr noundef %.pr81.pre) #7
   store ptr null, ptr %11, align 8, !tbaa !19
   br label %.thread
 
-104:                                              ; preds = %98
+105:                                              ; preds = %99
   %.not69 = icmp eq ptr %.pr81.pre, null
   br i1 %.not69, label %.thread, label %.thread117
 
-.thread117:                                       ; preds = %.thread109, %104
-  %.pr81120 = phi ptr [ %.pr81.pre, %104 ], [ %93, %.thread109 ]
-  %105 = load ptr, ptr %24, align 8, !tbaa !11
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 80
-  %107 = load ptr, ptr %106, align 8, !tbaa !31
-  %.not70 = icmp eq ptr %107, null
-  br i1 %.not70, label %.thread, label %108
+.thread117:                                       ; preds = %.thread109, %105
+  %.pr81120 = phi ptr [ %.pr81.pre, %105 ], [ %94, %.thread109 ]
+  %106 = load ptr, ptr %26, align 8, !tbaa !11
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 80
+  %108 = load ptr, ptr %107, align 8, !tbaa !31
+  %.not70 = icmp eq ptr %108, null
+  br i1 %.not70, label %.thread, label %109
 
-108:                                              ; preds = %.thread117
-  call void %107(ptr noundef nonnull %.pr81120, ptr noundef nonnull %0) #7
+109:                                              ; preds = %.thread117
+  call void %108(ptr noundef nonnull %.pr81120, ptr noundef nonnull %0) #7
   %.pre88 = load ptr, ptr %11, align 8, !tbaa !19
   br label %.thread
 
-.thread:                                          ; preds = %91, %100, %104, %.thread117, %108, %28, %89, %76, %56
-  %109 = phi ptr [ null, %91 ], [ null, %100 ], [ null, %104 ], [ %.pr81120, %.thread117 ], [ %.pre88, %108 ], [ null, %28 ], [ null, %89 ], [ null, %76 ], [ null, %56 ]
-  %110 = load ptr, ptr %8, align 8, !tbaa !15
-  call void @CRYPTO_free(ptr noundef %110, ptr noundef nonnull @.str, i32 noundef 317) #7
+.thread:                                          ; preds = %92, %101, %105, %.thread117, %109, %29, %90, %77, %57
+  %110 = phi ptr [ null, %92 ], [ null, %101 ], [ null, %105 ], [ %.pr81120, %.thread117 ], [ %.pre88, %109 ], [ null, %29 ], [ null, %90 ], [ null, %77 ], [ null, %57 ]
+  %111 = load ptr, ptr %8, align 8, !tbaa !15
+  call void @CRYPTO_free(ptr noundef %111, ptr noundef nonnull @.str, i32 noundef 317) #7
   store ptr null, ptr %8, align 8, !tbaa !15
-  %.not71 = icmp eq ptr %109, null
-  br i1 %.not71, label %130, label %sub_0
+  %.not71 = icmp eq ptr %110, null
+  br i1 %.not71, label %131, label %sub_0
 
 sub_0:                                            ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 2, ptr %13, align 4, !tbaa !14
   call void @OSSL_PARAM_construct_int(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.3, ptr noundef nonnull %13) #7
-  %111 = load ptr, ptr %24, align 8, !tbaa !11
-  %112 = load ptr, ptr %111, align 8, !tbaa !32
-  %113 = load i8, ptr %112, align 1
-  %.not83 = icmp eq i8 %113, 69
+  %112 = load ptr, ptr %26, align 8, !tbaa !11
+  %113 = load ptr, ptr %112, align 8, !tbaa !32
+  %114 = load i8, ptr %113, align 1
+  %.not83 = icmp eq i8 %114, 69
   br i1 %.not83, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
-  %114 = getelementptr inbounds nuw i8, ptr %112, i64 1
-  %115 = load i8, ptr %114, align 1
-  %.not84 = icmp eq i8 %115, 67
+  %115 = getelementptr inbounds nuw i8, ptr %113, i64 1
+  %116 = load i8, ptr %115, align 1
+  %.not84 = icmp eq i8 %116, 67
   br i1 %.not84, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 2
-  %117 = load i8, ptr %116, align 1
-  %118 = icmp eq i8 %117, 0
-  br i1 %118, label %119, label %.tail.thread
+  %117 = getelementptr inbounds nuw i8, ptr %113, i64 2
+  %118 = load i8, ptr %117, align 1
+  %119 = icmp eq i8 %118, 0
+  br i1 %119, label %120, label %.tail.thread
 
-119:                                              ; preds = %.tail
-  %120 = call i32 @EC_KEY_get_flags(ptr noundef nonnull %109) #7
-  %121 = and i32 %120, 4
-  %.not72 = icmp eq i32 %121, 0
-  br i1 %.not72, label %._crit_edge89, label %122
+120:                                              ; preds = %.tail
+  %121 = call i32 @EC_KEY_get_flags(ptr noundef nonnull %110) #7
+  %122 = and i32 %121, 4
+  %.not72 = icmp eq i32 %122, 0
+  br i1 %.not72, label %._crit_edge89, label %123
 
-._crit_edge89:                                    ; preds = %119
-  %.pre90 = load ptr, ptr %24, align 8, !tbaa !11
+._crit_edge89:                                    ; preds = %120
+  %.pre90 = load ptr, ptr %26, align 8, !tbaa !11
   %.pre91 = load ptr, ptr %.pre90, align 8, !tbaa !32
   br label %.tail.thread
 
-122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw i8, ptr %12, i64 40
+123:                                              ; preds = %120
+  %124 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %14, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i64 noundef 0) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %123, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %124, ptr noundef nonnull align 8 dereferenceable(40) %14, i64 40, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %126
+  br label %127
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %._crit_edge89, %.tail
-  %124 = phi ptr [ %.pre91, %._crit_edge89 ], [ %112, %.tail ], [ %112, %sub_0 ], [ %112, %sub_1 ]
-  %125 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %125 = phi ptr [ %.pre91, %._crit_edge89 ], [ %113, %.tail ], [ %113, %sub_0 ], [ %113, %sub_1 ]
+  %126 = getelementptr inbounds nuw i8, ptr %12, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.5, ptr noundef %124, i64 noundef 0) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %125, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !33
+  call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %15, ptr noundef nonnull @.str.5, ptr noundef %125, i64 noundef 0) #7
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %126, ptr noundef nonnull align 8 dereferenceable(40) %15, i64 40, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %126
+  br label %127
 
-126:                                              ; preds = %.tail.thread, %122
-  %127 = getelementptr inbounds nuw i8, ptr %12, i64 80
+127:                                              ; preds = %.tail.thread, %123
+  %128 = getelementptr inbounds nuw i8, ptr %12, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %16, ptr noundef nonnull @.str.7, ptr noundef nonnull %11, i64 noundef 8) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %127, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %128, ptr noundef nonnull align 8 dereferenceable(40) %16, i64 40, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %128 = getelementptr inbounds nuw i8, ptr %12, i64 120
+  %129 = getelementptr inbounds nuw i8, ptr %12, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %17) #7
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %128, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !tbaa.struct !33
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %129, ptr noundef nonnull align 8 dereferenceable(40) %17, i64 40, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %129 = call i32 %3(ptr noundef nonnull %12, ptr noundef %4) #7
+  %130 = call i32 %3(ptr noundef nonnull %12, ptr noundef %4) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %.pre92 = load ptr, ptr %11, align 8, !tbaa !19
-  br label %130
+  br label %131
 
-130:                                              ; preds = %.thread, %126, %45
-  %131 = phi ptr [ %41, %45 ], [ %.pre92, %126 ], [ null, %.thread ]
-  %.0 = phi i32 [ 0, %45 ], [ %129, %126 ], [ 1, %.thread ]
-  %132 = load ptr, ptr %24, align 8, !tbaa !11
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 88
-  %134 = load ptr, ptr %133, align 8, !tbaa !30
-  call void %134(ptr noundef %131) #7
-  %135 = load ptr, ptr %8, align 8, !tbaa !15
-  call void @CRYPTO_free(ptr noundef %135, ptr noundef nonnull @.str, i32 noundef 350) #7
-  br label %136
+131:                                              ; preds = %.thread, %127, %46
+  %132 = phi ptr [ %42, %46 ], [ %.pre92, %127 ], [ null, %.thread ]
+  %.0 = phi i32 [ 0, %46 ], [ %130, %127 ], [ 1, %.thread ]
+  %133 = load ptr, ptr %26, align 8, !tbaa !11
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 88
+  %135 = load ptr, ptr %134, align 8, !tbaa !30
+  call void %135(ptr noundef %132) #7
+  %136 = load ptr, ptr %8, align 8, !tbaa !15
+  call void @CRYPTO_free(ptr noundef %136, ptr noundef nonnull @.str, i32 noundef 350) #7
+  br label %137
 
-136:                                              ; preds = %130, %27
-  %.042 = phi i32 [ 0, %27 ], [ %.0, %130 ]
+137:                                              ; preds = %131, %28
+  %.042 = phi i32 [ 0, %28 ], [ %.0, %131 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

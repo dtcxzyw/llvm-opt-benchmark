@@ -5747,16 +5747,16 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %161 = fdiv float %sqrt.i, %160
   %162 = fptoui float %161 to i32
   %.not112.i.i = icmp eq i32 %162, 0
-  br i1 %.not112.i.i, label %166, label %163
+  br i1 %.not112.i.i, label %167, label %163
 
 163:                                              ; preds = %._crit_edge142.thread.i.i
   %164 = add i32 %.097132.i.i, %162
   %165 = udiv i32 %164, %162
-  br label %166
+  %166 = mul i32 %165, %112
+  br label %167
 
-166:                                              ; preds = %163, %._crit_edge142.thread.i.i
-  %167 = phi i32 [ %165, %163 ], [ 1, %._crit_edge142.thread.i.i ]
-  %168 = mul i32 %167, %112
+167:                                              ; preds = %163, %._crit_edge142.thread.i.i
+  %168 = phi i32 [ %166, %163 ], [ %112, %._crit_edge142.thread.i.i ]
   %169 = mul i32 %113, %162
   %170 = uitofp i32 %168 to float
   %171 = uitofp i32 %169 to float
@@ -5782,13 +5782,13 @@ place_children_vert.exit:                         ; preds = %pci_link_speed.exit
   %or.cond114.i.i = select i1 %187, i1 %188, i1 false
   br i1 %or.cond114.i.i, label %189, label %find_children_rectangle.exit.i
 
-189:                                              ; preds = %166
+189:                                              ; preds = %167
   %190 = add i32 %.097132.i.i, %162
   %191 = udiv i32 %190, %162
   br label %find_children_rectangle.exit.i
 
-find_children_rectangle.exit.i:                   ; preds = %152, %189, %166, %._crit_edge142.i.i
-  %.395.i.i = phi i32 [ %.193.ph.i.i, %._crit_edge142.i.i ], [ %191, %189 ], [ %178, %166 ], [ %.294.i.i, %152 ]
+find_children_rectangle.exit.i:                   ; preds = %152, %189, %167, %._crit_edge142.i.i
+  %.395.i.i = phi i32 [ %.193.ph.i.i, %._crit_edge142.i.i ], [ %191, %189 ], [ %178, %167 ], [ %.294.i.i, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %192 = call fastcc ptr @next_child(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef null, ptr noundef %9)
   %.not66.i = icmp eq ptr %192, null

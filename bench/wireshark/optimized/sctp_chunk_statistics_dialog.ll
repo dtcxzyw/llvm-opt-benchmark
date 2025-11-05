@@ -1303,7 +1303,7 @@ define void @_ZN25SCTPChunkStatisticsDialog9fillTableEbPK16_sctp_assoc_info(ptr 
   br i1 %1, label %94, label %569
 
 94:                                               ; preds = %.thread, %93
-  %.01541122 = phi ptr [ null, %.thread ], [ %86, %93 ]
+  %.01541121 = phi ptr [ null, %.thread ], [ %86, %93 ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -1336,7 +1336,7 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit: ; preds = %11
   br i1 %115, label %133, label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit.thread, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit
-  %.pr.pre1292.ph = phi ptr [ null, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit ], [ %114, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit.thread ]
+  %.pr.pre1291.ph = phi ptr [ null, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit ], [ %114, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit.thread ]
   %116 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %117 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %118 = getelementptr inbounds nuw i8, ptr %29, i64 12
@@ -2073,10 +2073,10 @@ _ZN17QArrayDataPointerIDsED2Ev.exit389:           ; preds = %342, %_ZN17QArrayDa
   br label %113, !llvm.loop !30
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %567
-  %.pr.pre1292 = phi ptr [ %.pr.pre, %567 ], [ %.pr.pre1292.ph, %.loopexit.preheader ]
+  %.pr.pre1291 = phi ptr [ %.pr.pre, %567 ], [ %.pr.pre1291.ph, %.loopexit.preheader ]
   %storemerge205 = phi i32 [ %568, %567 ], [ 0, %.loopexit.preheader ]
   %.2151 = phi i32 [ %.3152, %567 ], [ %.0149, %.loopexit.preheader ]
-  %.not.i390 = icmp eq ptr %.pr.pre1292, null
+  %.not.i390 = icmp eq ptr %.pr.pre1291, null
   br i1 %.not.i390, label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391, label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391.thread
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391: ; preds = %.loopexit
@@ -2085,7 +2085,7 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391: ; preds = 
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391.thread: ; preds = %.loopexit
   %348 = sext i32 %storemerge205 to i64
-  %349 = getelementptr inbounds nuw i8, ptr %.pr.pre1292, i64 48
+  %349 = getelementptr inbounds nuw i8, ptr %.pr.pre1291, i64 48
   %350 = load i64, ptr %349, align 8
   %351 = icmp sgt i64 %350, %348
   br i1 %351, label %353, label %1131
@@ -2098,9 +2098,9 @@ _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391.thread: ; p
 353:                                              ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %25, i8 0, i64 36, i1 false)
-  %354 = getelementptr inbounds nuw i8, ptr %.pr.pre1292, i64 24
+  %354 = getelementptr inbounds nuw i8, ptr %.pr.pre1291, i64 24
   %355 = load ptr, ptr %354, align 8, !noalias !31
-  %356 = getelementptr inbounds nuw i8, ptr %.pr.pre1292, i64 16
+  %356 = getelementptr inbounds nuw i8, ptr %.pr.pre1291, i64 16
   %.not10.i.i.i.i393 = icmp eq ptr %355, null
   br i1 %.not10.i.i.i.i393, label %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406, label %.lr.ph.i.i.i.i394
 
@@ -2804,7 +2804,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit575:           ; preds = %564, %_ZN17QArrayDa
   br label %1135
 
 567:                                              ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406, %_ZN17QArrayDataPointerIDsED2Ev.exit523
-  %.pr.pre = phi ptr [ %.pr.pre.pre, %_ZN17QArrayDataPointerIDsED2Ev.exit523 ], [ %.pr.pre1292, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406 ]
+  %.pr.pre = phi ptr [ %.pr.pre.pre, %_ZN17QArrayDataPointerIDsED2Ev.exit523 ], [ %.pr.pre1291, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406 ]
   %.3152 = phi i32 [ %508, %_ZN17QArrayDataPointerIDsED2Ev.exit523 ], [ %.2151, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE5valueERKiRKS1_.exit406 ]
   %568 = add i32 %storemerge205, 1
   br label %.loopexit, !llvm.loop !46
@@ -2816,8 +2816,8 @@ _ZN17QArrayDataPointerIDsED2Ev.exit575:           ; preds = %564, %_ZN17QArrayDa
   store i32 0, ptr %42, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %570 = call ptr @fgets(ptr noundef nonnull %40, i32 noundef 100, ptr noundef nonnull %86)
-  %.not16812141215 = icmp eq ptr %570, null
-  br i1 %.not16812141215, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not16812131214 = icmp eq ptr %570, null
+  br i1 %.not16812131214, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %569
   %571 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -2857,7 +2857,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit575:           ; preds = %564, %_ZN17QArrayDa
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %_ZN7QStringD2Ev.exit739
-  %.093.ph1216 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.194, %_ZN7QStringD2Ev.exit739 ]
+  %.093.ph1215 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.194, %_ZN7QStringD2Ev.exit739 ]
   br label %605
 
 605:                                              ; preds = %.lr.ph, %.backedge
@@ -3005,20 +3005,20 @@ _ZN10QByteArrayD2Ev.exit592:                      ; preds = %646, %_ZN17QArrayDa
   store i32 0, ptr %579, align 4
   store i8 0, ptr %580, align 4
   %651 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #22
-  %cond1586 = icmp eq ptr %651, null
-  br i1 %cond1586, label %split, label %.lr.ph1587
+  %cond1585 = icmp eq ptr %651, null
+  br i1 %cond1585, label %split, label %.lr.ph1586
 
-.lr.ph1587:                                       ; preds = %650, %704
+.lr.ph1586:                                       ; preds = %650, %704
   %652 = phi ptr [ %705, %704 ], [ %651, %650 ]
   %653 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %652, ptr noundef nonnull dereferenceable(1) @.str.11) #25
   %.not193 = icmp eq ptr %653, null
   br i1 %.not193, label %655, label %654
 
-654:                                              ; preds = %.lr.ph1587
+654:                                              ; preds = %.lr.ph1586
   store i32 1, ptr %579, align 4
   br label %704
 
-655:                                              ; preds = %.lr.ph1587
+655:                                              ; preds = %.lr.ph1586
   %656 = call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %652, ptr noundef nonnull dereferenceable(1) @.str.12) #25
   %.not194 = icmp eq ptr %656, null
   br i1 %.not194, label %_ZN7QStringD2Ev.exit.i, label %657
@@ -3189,7 +3189,7 @@ _ZN7QStringD2Ev.exit623:                          ; preds = %702, %_ZN17QArrayDa
 704:                                              ; preds = %654, %_ZN7QStringD2Ev.exit611, %657
   %705 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #22
   %cond = icmp eq ptr %705, null
-  br i1 %cond, label %split, label %.lr.ph1587
+  br i1 %cond, label %split, label %.lr.ph1586
 
 split:                                            ; preds = %704, %650
   %706 = load i32, ptr %579, align 4
@@ -3243,7 +3243,7 @@ split:                                            ; preds = %704, %650
           to label %726 unwind label %805
 
 726:                                              ; preds = %725
-  invoke void @_ZN12QTableWidget21setVerticalHeaderItemEiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %717, i32 noundef %.093.ph1216, ptr noundef %718)
+  invoke void @_ZN12QTableWidget21setVerticalHeaderItemEiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %717, i32 noundef %.093.ph1215, ptr noundef %718)
           to label %727 unwind label %805
 
 727:                                              ; preds = %726
@@ -3320,7 +3320,7 @@ _ZNK7QString3argEjii5QChar.exit645:               ; preds = %744
           to label %750 unwind label %822
 
 750:                                              ; preds = %_ZNK7QString3argEjii5QChar.exit645
-  invoke void @_ZN12QTableWidget7setItemEiiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %742, i32 noundef %.093.ph1216, i32 noundef 0, ptr noundef %743)
+  invoke void @_ZN12QTableWidget7setItemEiiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %742, i32 noundef %.093.ph1215, i32 noundef 0, ptr noundef %743)
           to label %751 unwind label %822
 
 751:                                              ; preds = %750
@@ -3381,7 +3381,7 @@ _ZNK7QString3argEjii5QChar.exit658:               ; preds = %764
           to label %770 unwind label %835
 
 770:                                              ; preds = %_ZNK7QString3argEjii5QChar.exit658
-  invoke void @_ZN12QTableWidget7setItemEiiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %762, i32 noundef %.093.ph1216, i32 noundef 1, ptr noundef %763)
+  invoke void @_ZN12QTableWidget7setItemEiiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %762, i32 noundef %.093.ph1215, i32 noundef 1, ptr noundef %763)
           to label %771 unwind label %835
 
 771:                                              ; preds = %770
@@ -3442,7 +3442,7 @@ _ZNK7QString3argEjii5QChar.exit671:               ; preds = %784
           to label %790 unwind label %848
 
 790:                                              ; preds = %_ZNK7QString3argEjii5QChar.exit671
-  invoke void @_ZN12QTableWidget7setItemEiiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %782, i32 noundef %.093.ph1216, i32 noundef 2, ptr noundef %783)
+  invoke void @_ZN12QTableWidget7setItemEiiP16QTableWidgetItem(ptr noundef align 8 dereferenceable_or_null(40) %782, i32 noundef %.093.ph1215, i32 noundef 2, ptr noundef %783)
           to label %791 unwind label %848
 
 791:                                              ; preds = %790
@@ -3478,7 +3478,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i677:   ; preds = %_ZN7QStringD2Ev.exi
 _ZN17QArrayDataPointerIDsED2Ev.exit683:           ; preds = %798, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i677, %_ZN7QStringD2Ev.exit675
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  %800 = add i32 %.093.ph1216, 1
+  %800 = add i32 %.093.ph1215, 1
   br label %859
 
 801:                                              ; preds = %719
@@ -3701,7 +3701,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit735:           ; preds = %856, %_ZN17QArrayDa
   br label %870
 
 859:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit683, %split
-  %.295 = phi i32 [ %.093.ph1216, %split ], [ %800, %_ZN17QArrayDataPointerIDsED2Ev.exit683 ]
+  %.295 = phi i32 [ %.093.ph1215, %split ], [ %800, %_ZN17QArrayDataPointerIDsED2Ev.exit683 ]
   %860 = invoke ptr @_ZN4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE6insertERKiRKS1_(ptr noundef nonnull align 8 dereferenceable_or_null(8) %604, ptr noundef nonnull align 4 dereferenceable(4) %42, ptr noundef nonnull align 4 dereferenceable(36) %43)
           to label %861 unwind label %648
 
@@ -3712,7 +3712,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit735:           ; preds = %856, %_ZN17QArrayDa
   br label %864
 
 864:                                              ; preds = %633, %861
-  %.194 = phi i32 [ %.295, %861 ], [ %.093.ph1216, %633 ]
+  %.194 = phi i32 [ %.295, %861 ], [ %.093.ph1215, %633 ]
   %865 = load ptr, ptr %44, align 8
   %.not.i.i.i736 = icmp eq ptr %865, null
   br i1 %.not.i.i.i736, label %_ZN7QStringD2Ev.exit739, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i737
@@ -3730,8 +3730,8 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i737:   ; preds = %864
 _ZN7QStringD2Ev.exit739:                          ; preds = %864, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i737, %867
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %869 = call ptr @fgets(ptr noundef nonnull %40, i32 noundef 100, ptr noundef nonnull %86)
-  %.not1681214 = icmp eq ptr %869, null
-  br i1 %.not1681214, label %.outer._crit_edge, label %.lr.ph
+  %.not1681213 = icmp eq ptr %869, null
+  br i1 %.not1681213, label %.outer._crit_edge, label %.lr.ph
 
 870:                                              ; preds = %_ZN17QArrayDataPointerIDsED2Ev.exit735, %858, %_ZN17QArrayDataPointerIDsED2Ev.exit723, %845, %_ZN17QArrayDataPointerIDsED2Ev.exit711, %832, %_ZN17QArrayDataPointerIDsED2Ev.exit699, %819, %_ZN7QStringD2Ev.exit623, %648, %_ZN10QByteArrayD2Ev.exit592
   %.pn198.pn.pn = phi { ptr, i32 } [ %.pn198.pn, %_ZN7QStringD2Ev.exit623 ], [ %649, %648 ], [ %.pn190, %858 ], [ %.pn190, %_ZN17QArrayDataPointerIDsED2Ev.exit735 ], [ %.pn188, %845 ], [ %.pn188, %_ZN17QArrayDataPointerIDsED2Ev.exit723 ], [ %.pn186, %832 ], [ %.pn186, %_ZN17QArrayDataPointerIDsED2Ev.exit711 ], [ %.pn183.pn, %819 ], [ %.pn183.pn, %_ZN17QArrayDataPointerIDsED2Ev.exit699 ], [ %.pn179, %_ZN10QByteArrayD2Ev.exit592 ]
@@ -3789,14 +3789,14 @@ _ZN7QStringD2Ev.exit743:                          ; preds = %873, %_ZN17QArrayDa
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745: ; preds = %897
   %899 = icmp slt i32 %storemerge, 0
-  br i1 %899, label %904, label %.thread1126
+  br i1 %899, label %904, label %.thread1125
 
 _ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745.thread: ; preds = %897
   %900 = sext i32 %storemerge to i64
   %901 = getelementptr inbounds nuw i8, ptr %898, i64 48
   %902 = load i64, ptr %901, align 8
   %903 = icmp sgt i64 %902, %900
-  br i1 %903, label %905, label %.thread1126
+  br i1 %903, label %905, label %.thread1125
 
 904:                                              ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
@@ -4533,7 +4533,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit932:           ; preds = %1124, %_ZN17QArrayD
   %1129 = add i32 %1128, 1
   br label %897, !llvm.loop !69
 
-.thread1126:                                      ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745.thread
+.thread1125:                                      ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit745.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
@@ -4549,12 +4549,12 @@ _ZN17QArrayDataPointerIDsED2Ev.exit932:           ; preds = %1124, %_ZN17QArrayD
   br label %1135
 
 1131:                                             ; preds = %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391, %_ZNK4QMapIiN25SCTPChunkStatisticsDialog10chunkTypesEE4sizeEv.exit391.thread
-  %.not206 = icmp eq ptr %.01541122, null
+  %.not206 = icmp eq ptr %.01541121, null
   br i1 %.not206, label %1134, label %1132
 
-1132:                                             ; preds = %.thread1126, %1131
-  %.015411211129 = phi ptr [ %86, %.thread1126 ], [ %.01541122, %1131 ]
-  %1133 = call i32 @fclose(ptr noundef nonnull %.015411211129)
+1132:                                             ; preds = %.thread1125, %1131
+  %.015411201128 = phi ptr [ %86, %.thread1125 ], [ %.01541121, %1131 ]
+  %1133 = call i32 @fclose(ptr noundef nonnull %.015411201128)
   br label %1134
 
 1134:                                             ; preds = %81, %1131, %1132, %91, %74

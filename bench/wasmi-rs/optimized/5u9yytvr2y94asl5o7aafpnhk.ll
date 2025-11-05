@@ -7602,7 +7602,7 @@ define hidden i64 @_ZN5wasmi6engine10translator13instr_encoder12InstrEncoder15tr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load i32, ptr %6, align 8, !range !163, !noundef !8
   %8 = trunc nuw i32 %7 to i1
-  br i1 %8, label %9, label %33
+  br i1 %8, label %9, label %31
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -7628,7 +7628,7 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
   %21 = call { i16, i16 } @_ZN8wasmi_ir4enum11Instruction6result17h6b21ddbcdcae7d7fE(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5)
   %22 = extractvalue { i16, i16 } %21, 0
   %23 = trunc i16 %22 to i1
-  br i1 %23, label %24, label %28
+  br i1 %23, label %24, label %.sink.split
 
 24:                                               ; preds = %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8dacE.exit
   %25 = extractvalue { i16, i16 } %21, 1
@@ -7636,29 +7636,26 @@ _ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8da
   %27 = icmp ne i8 %26, 1
   %.not = icmp eq i16 %25, %3
   %or.cond = and i1 %.not, %27
-  br i1 %or.cond, label %29, label %28
+  br i1 %or.cond, label %28, label %.sink.split
 
-28:                                               ; preds = %29, %24, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8dacE.exit
+28:                                               ; preds = %24
+  %29 = call i64 @"_ZN108_$LT$wasmi_ir..enum..Instruction$u20$as$u20$wasmi..engine..translator..comparator..TryIntoCmpSelectInstr$GT$25try_into_cmp_select_instr17h78b0f9e44fe2f618E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5, i16 noundef %2)
+  %30 = and i64 %29, 65535
+  %.not11 = icmp eq i64 %30, 806
+  br i1 %.not11, label %.sink.split, label %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit
+
+_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit: ; preds = %28
+  store i64 %29, ptr %19, align 4
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8dacE.exit, %24, %28, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit
+  %.sroa.7.sroa.0.0.ph = phi i64 [ %29, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit ], [ 806, %28 ], [ 806, %24 ], [ 806, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence3get17he6af849e6ecf8dacE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %33
+  br label %31
 
-29:                                               ; preds = %24
-  %30 = call i64 @"_ZN108_$LT$wasmi_ir..enum..Instruction$u20$as$u20$wasmi..engine..translator..comparator..TryIntoCmpSelectInstr$GT$25try_into_cmp_select_instr17h78b0f9e44fe2f618E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %5, i16 noundef %2)
-  %31 = and i64 %30, 65535
-  %.not11 = icmp eq i64 %31, 806
-  br i1 %.not11, label %28, label %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit
-
-_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit: ; preds = %29
-  store i64 %30, ptr %19, align 4
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = and i64 %30, -65536
-  br label %33
-
-33:                                               ; preds = %4, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit, %28
-  %.sroa.7.sroa.0.0 = phi i64 [ 0, %28 ], [ %32, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit ], [ 0, %4 ]
-  %.sroa.0.0 = phi i64 [ 806, %28 ], [ %31, %_ZN5wasmi6engine10translator13instr_encoder13InstrSequence7get_mut17h75ef1203a494ab49E.exit ], [ 806, %4 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0, %.sroa.7.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+31:                                               ; preds = %.sink.split, %4
+  %.sroa.7.sroa.0.0 = phi i64 [ 806, %4 ], [ %.sroa.7.sroa.0.0.ph, %.sink.split ]
+  ret i64 %.sroa.7.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable

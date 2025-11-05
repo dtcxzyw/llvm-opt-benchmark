@@ -3239,26 +3239,26 @@ define dso_local ptr @drm_edid_duplicate(ptr noundef %0) #2 align 16 {
 define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) #2 align 16 {
   br i1 %4, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %5, %.thr_comm.us
-  %6 = phi i64 [ %43, %.thr_comm.us ], [ 0, %5 ]
+.split.us:                                        ; preds = %5, %43
+  %6 = phi i64 [ %44, %43 ], [ 0, %5 ]
   %7 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i16, ptr %8, align 4
   %10 = zext i16 %9 to i32
   %11 = icmp eq i32 %1, %10
-  br i1 %11, label %12, label %.thr_comm.us
+  br i1 %11, label %12, label %43
 
 12:                                               ; preds = %.split.us
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 14
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   %16 = icmp eq i32 %2, %15
-  br i1 %16, label %17, label %.thr_comm.us
+  br i1 %16, label %17, label %43
 
 17:                                               ; preds = %12
   %18 = tail call i32 @drm_mode_vrefresh(ptr noundef %7) #22
   %19 = icmp eq i32 %18, %3
-  br i1 %19, label %20, label %.thr_comm.us
+  br i1 %19, label %20, label %43
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 10
@@ -3266,7 +3266,7 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
   %23 = zext i16 %22 to i32
   %24 = sub nsw i32 %23, %1
   %25 = icmp eq i32 %24, 160
-  br i1 %25, label %26, label %.thr_comm.us
+  br i1 %25, label %26, label %43
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3274,7 +3274,7 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
   %29 = zext i16 %28 to i32
   %30 = sub nsw i32 %29, %1
   %31 = icmp eq i32 %30, 80
-  br i1 %31, label %32, label %.thr_comm.us
+  br i1 %31, label %32, label %43
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 6
@@ -3282,7 +3282,7 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
   %35 = zext i16 %34 to i32
   %36 = sub nsw i32 %29, %35
   %37 = icmp eq i32 %36, 32
-  br i1 %37, label %38, label %.thr_comm.us
+  br i1 %37, label %38, label %43
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -3290,79 +3290,79 @@ define dso_local ptr @drm_mode_find_dmt(ptr noundef %0, i32 noundef %1, i32 noun
   %41 = zext i16 %40 to i32
   %42 = sub nsw i32 %41, %2
   %.not = icmp eq i32 %42, 3
-  br i1 %.not, label %.split6.us, label %.thr_comm.us
+  br i1 %.not, label %.split5.us, label %43
 
-.thr_comm.us:                                     ; preds = %20, %26, %32, %38, %17, %12, %.split.us
-  %43 = add nuw nsw i64 %6, 1
-  %44 = icmp eq i64 %43, 88
-  br i1 %44, label %.loopexit, label %.split.us, !llvm.loop !51
+43:                                               ; preds = %20, %26, %32, %38, %17, %12, %.split.us
+  %44 = add nuw nsw i64 %6, 1
+  %45 = icmp eq i64 %44, 88
+  br i1 %45, label %.loopexit, label %.split.us, !llvm.loop !51
 
-45:                                               ; preds = %.split, %54, %59, %80
-  %46 = add nuw nsw i64 %48, 1
-  %47 = icmp eq i64 %46, 88
-  br i1 %47, label %.loopexit, label %.split, !llvm.loop !51
+46:                                               ; preds = %.split, %55, %60, %81
+  %47 = add nuw nsw i64 %49, 1
+  %48 = icmp eq i64 %47, 88
+  br i1 %48, label %.loopexit, label %.split, !llvm.loop !51
 
-.split:                                           ; preds = %5, %45
-  %48 = phi i64 [ %46, %45 ], [ 0, %5 ]
-  %49 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %48
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %51 = load i16, ptr %50, align 4
-  %52 = zext i16 %51 to i32
-  %53 = icmp eq i32 %1, %52
-  br i1 %53, label %54, label %45
+.split:                                           ; preds = %5, %46
+  %49 = phi i64 [ %47, %46 ], [ 0, %5 ]
+  %50 = getelementptr %struct.drm_display_mode, ptr @drm_dmt_modes, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  %52 = load i16, ptr %51, align 4
+  %53 = zext i16 %52 to i32
+  %54 = icmp eq i32 %1, %53
+  br i1 %54, label %55, label %46
 
-54:                                               ; preds = %.split
-  %55 = getelementptr inbounds nuw i8, ptr %49, i64 14
-  %56 = load i16, ptr %55, align 2
-  %57 = zext i16 %56 to i32
-  %58 = icmp eq i32 %2, %57
-  br i1 %58, label %59, label %45
+55:                                               ; preds = %.split
+  %56 = getelementptr inbounds nuw i8, ptr %50, i64 14
+  %57 = load i16, ptr %56, align 2
+  %58 = zext i16 %57 to i32
+  %59 = icmp eq i32 %2, %58
+  br i1 %59, label %60, label %46
 
-59:                                               ; preds = %54
-  %60 = tail call i32 @drm_mode_vrefresh(ptr noundef %49) #22
-  %61 = icmp eq i32 %60, %3
-  br i1 %61, label %62, label %45
+60:                                               ; preds = %55
+  %61 = tail call i32 @drm_mode_vrefresh(ptr noundef %50) #22
+  %62 = icmp eq i32 %61, %3
+  br i1 %62, label %63, label %46
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %49, i64 10
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i32
-  %66 = sub nsw i32 %65, %1
-  %67 = icmp eq i32 %66, 160
-  br i1 %67, label %68, label %.split6.us
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %50, i64 10
+  %65 = load i16, ptr %64, align 2
+  %66 = zext i16 %65 to i32
+  %67 = sub nsw i32 %66, %1
+  %68 = icmp eq i32 %67, 160
+  br i1 %68, label %69, label %.split5.us
 
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %70 = load i16, ptr %69, align 8
-  %71 = zext i16 %70 to i32
-  %72 = sub nsw i32 %71, %1
-  %73 = icmp eq i32 %72, 80
-  br i1 %73, label %74, label %.split6.us
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %71 = load i16, ptr %70, align 8
+  %72 = zext i16 %71 to i32
+  %73 = sub nsw i32 %72, %1
+  %74 = icmp eq i32 %73, 80
+  br i1 %74, label %75, label %.split5.us
 
-74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw i8, ptr %49, i64 6
-  %76 = load i16, ptr %75, align 2
-  %77 = zext i16 %76 to i32
-  %78 = sub nsw i32 %71, %77
-  %79 = icmp eq i32 %78, 32
-  br i1 %79, label %80, label %.split6.us
+75:                                               ; preds = %69
+  %76 = getelementptr inbounds nuw i8, ptr %50, i64 6
+  %77 = load i16, ptr %76, align 2
+  %78 = zext i16 %77 to i32
+  %79 = sub nsw i32 %72, %78
+  %80 = icmp eq i32 %79, 32
+  br i1 %80, label %81, label %.split5.us
 
-80:                                               ; preds = %74
-  %81 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %82 = load i16, ptr %81, align 8
-  %83 = zext i16 %82 to i32
-  %84 = sub nsw i32 %83, %2
-  %85 = icmp eq i32 %84, 3
-  br i1 %85, label %45, label %.split6.us
+81:                                               ; preds = %75
+  %82 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %83 = load i16, ptr %82, align 8
+  %84 = zext i16 %83 to i32
+  %85 = sub nsw i32 %84, %2
+  %86 = icmp eq i32 %85, 3
+  br i1 %86, label %46, label %.split5.us
 
-.split6.us:                                       ; preds = %62, %68, %74, %80, %38
-  %.us-phi = phi ptr [ %7, %38 ], [ %49, %80 ], [ %49, %74 ], [ %49, %68 ], [ %49, %62 ]
-  %86 = tail call ptr @drm_mode_duplicate(ptr noundef %0, ptr noundef %.us-phi) #22
+.split5.us:                                       ; preds = %75, %69, %63, %81, %38
+  %.us-phi = phi ptr [ %7, %38 ], [ %50, %81 ], [ %50, %63 ], [ %50, %69 ], [ %50, %75 ]
+  %87 = tail call ptr @drm_mode_duplicate(ptr noundef %0, ptr noundef %.us-phi) #22
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %.thr_comm.us, %.split6.us
-  %87 = phi ptr [ %86, %.split6.us ], [ null, %.thr_comm.us ], [ null, %45 ]
-  ret ptr %87
+.loopexit:                                        ; preds = %46, %43, %.split5.us
+  %88 = phi ptr [ %87, %.split5.us ], [ null, %43 ], [ null, %46 ]
+  ret ptr %88
 }
 
 ; Function Attrs: null_pointer_is_valid

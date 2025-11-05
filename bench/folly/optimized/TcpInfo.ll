@@ -2146,26 +2146,26 @@ _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_
   br i1 %or.cond, label %_ZNR5folly8OptionalImEdeEv.exit7, label %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread
 
 _ZNR5folly8OptionalImEdeEv.exit7:                 ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 292
-  %15 = load i32, ptr %14, align 4
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %17 = shl nuw i64 %16, 32
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %19 = load i32, ptr %18, align 8
-  %20 = zext i32 %19 to i64
-  %21 = or disjoint i64 %17, %20
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %0, align 8, !tbaa !47
-  store i8 1, ptr %22, align 8, !tbaa !48
-  br label %24
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 292
+  %18 = load i32, ptr %17, align 4
+  %19 = zext i32 %18 to i64
+  %20 = shl nuw i64 %19, 32
+  %.sroa.0.0 = or disjoint i64 %20, %16
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.0.0, ptr %0, align 8, !tbaa !47
+  store i8 1, ptr %21, align 8, !tbaa !48
+  br label %23
 
 _ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread: ; preds = %2, %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6
   store i8 0, ptr %0, align 8, !tbaa !13
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 0, ptr %23, align 8, !tbaa !60
-  br label %24
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 0, ptr %22, align 8, !tbaa !60
+  br label %23
 
-24:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
+23:                                               ; preds = %_ZNK5folly7TcpInfo19getFieldAsOptUInt64IjEENS_8OptionalImEEMNS_6detail12tcp_bbr_infoET_.exit6.thread, %_ZNR5folly8OptionalImEdeEv.exit7
   ret void
 }
 

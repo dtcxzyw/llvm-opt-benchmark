@@ -223,17 +223,17 @@ define hidden void @WebPRescalerImportRowShrink_C(ptr noalias noundef readonly c
 
 ._crit_edge.loopexit:                             ; preds = %25
   %32 = trunc nsw i64 %indvars.iv.next to i32
+  %33 = mul i32 %26, %29
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %21
   %.137.lcssa = phi i32 [ %.03645, %21 ], [ %32, %._crit_edge.loopexit ]
   %.134.lcssa = phi i32 [ %.03347, %21 ], [ %30, %._crit_edge.loopexit ]
   %.1.lcssa = phi i32 [ %22, %21 ], [ %26, %._crit_edge.loopexit ]
-  %.031.lcssa = phi i32 [ 0, %21 ], [ %29, %._crit_edge.loopexit ]
-  %33 = mul i32 %.031.lcssa, %.1.lcssa
-  %34 = sub i32 0, %33
+  %.031.lcssa = phi i32 [ 0, %21 ], [ %33, %._crit_edge.loopexit ]
+  %34 = sub i32 0, %.031.lcssa
   %35 = mul i32 %17, %.134.lcssa
-  %36 = add i32 %35, %33
+  %36 = add i32 %35, %.031.lcssa
   %37 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv59
   store i32 %36, ptr %37, align 4, !tbaa !16
   %38 = zext i32 %34 to i64

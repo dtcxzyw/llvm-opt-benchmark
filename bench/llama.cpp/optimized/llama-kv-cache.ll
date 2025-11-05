@@ -2002,14 +2002,13 @@ _ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit346.us: ; preds = %_ZNSt8_Rb_treeIiiS
   %474 = zext i32 %473 to i64
   %475 = shl nuw i64 %474, 32
   %476 = zext i32 %469 to i64
+  %477 = or disjoint i64 %475, %476
   br label %.thread379
 
 .thread379:                                       ; preds = %396, %91, %.critedge._crit_edge, %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP13llama_kv_cellSt6vectorIS2_SaIS2_EEEEZ24llama_kv_cache_find_slotR14llama_kv_cacheRK12llama_ubatchE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit", %404
   %.sroa.8.0 = phi i8 [ 0, %91 ], [ %306, %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP13llama_kv_cellSt6vectorIS2_SaIS2_EEEEZ24llama_kv_cache_find_slotR14llama_kv_cacheRK12llama_ubatchE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit" ], [ 0, %404 ], [ 1, %.critedge._crit_edge ], [ 0, %396 ]
-  %.sroa.0362.sroa.0.0 = phi i64 [ 0, %91 ], [ 0, %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP13llama_kv_cellSt6vectorIS2_SaIS2_EEEEZ24llama_kv_cache_find_slotR14llama_kv_cacheRK12llama_ubatchE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit" ], [ 0, %404 ], [ %476, %.critedge._crit_edge ], [ 0, %396 ]
-  %.sroa.0362.sroa.6.0 = phi i64 [ 0, %91 ], [ 0, %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP13llama_kv_cellSt6vectorIS2_SaIS2_EEEEZ24llama_kv_cache_find_slotR14llama_kv_cacheRK12llama_ubatchE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit" ], [ 0, %404 ], [ %475, %.critedge._crit_edge ], [ 0, %396 ]
-  %.sroa.0362.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0362.sroa.6.0, %.sroa.0362.sroa.0.0
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0362.sroa.0.0.insert.insert, 0
+  %.sroa.0362.sroa.6.0 = phi i64 [ 0, %91 ], [ 0, %"_ZSt8count_ifIN9__gnu_cxx17__normal_iteratorIP13llama_kv_cellSt6vectorIS2_SaIS2_EEEEZ24llama_kv_cache_find_slotR14llama_kv_cacheRK12llama_ubatchE3$_0ENSt15iterator_traitsIT_E15difference_typeESF_SF_T0_.exit" ], [ 0, %404 ], [ %477, %.critedge._crit_edge ], [ 0, %396 ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0362.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.8.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

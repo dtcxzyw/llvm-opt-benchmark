@@ -9057,16 +9057,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   %indvars.iv.next350 = add i32 %indvars.iv349, 1
   %indvars.iv.next357 = add nsw i64 %indvars.iv356, -1
   %exitcond381.not = icmp eq i64 %indvars.iv.next377, %wide.trip.count380
-  br i1 %exitcond381.not, label %._crit_edge273, label %.preheader242, !llvm.loop !809
+  br i1 %exitcond381.not, label %._crit_edge273.loopexit, label %.preheader242, !llvm.loop !809
 
-._crit_edge273:                                   ; preds = %.loopexit240, %7
-  %.0165.lcssa = phi i32 [ 0, %7 ], [ %.sroa.speculated215, %.loopexit240 ]
-  %.0162.lcssa = phi ptr [ %4, %7 ], [ %97, %.loopexit240 ]
-  %98 = mul nsw i32 %.0165.lcssa, %1
+._crit_edge273.loopexit:                          ; preds = %.loopexit240
+  %98 = mul nsw i32 %.sroa.speculated215, %1
+  br label %._crit_edge273
+
+._crit_edge273:                                   ; preds = %._crit_edge273.loopexit, %7
+  %.0165.lcssa = phi i32 [ 0, %7 ], [ %98, %._crit_edge273.loopexit ]
+  %.0162.lcssa = phi ptr [ %4, %7 ], [ %97, %._crit_edge273.loopexit ]
   %reass.sub = sub i32 %5, %9
   %99 = add i32 %reass.sub, 1
   %100 = mul nsw i32 %99, %1
-  %101 = icmp slt i32 %98, %100
+  %101 = icmp slt i32 %.0165.lcssa, %100
   br i1 %101, label %.lr.ph284, label %._crit_edge285
 
 .lr.ph284:                                        ; preds = %._crit_edge273
@@ -9086,7 +9089,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 .lr.ph278.us:                                     ; preds = %.lr.ph278.us.preheader, %._crit_edge279.us
   %.0156282.us = phi ptr [ %138, %._crit_edge279.us ], [ %0, %.lr.ph278.us.preheader ]
   %.1163281.us = phi ptr [ %139, %._crit_edge279.us ], [ %.0162.lcssa, %.lr.ph278.us.preheader ]
-  %.1166280.us = phi i32 [ %137, %._crit_edge279.us ], [ %98, %.lr.ph278.us.preheader ]
+  %.1166280.us = phi i32 [ %137, %._crit_edge279.us ], [ %.0165.lcssa, %.lr.ph278.us.preheader ]
   %109 = getelementptr inbounds i8, ptr %.0156282.us, i64 %105
   %110 = load i16, ptr %103, align 2, !tbaa !40, !noalias !810
   %111 = zext i16 %110 to i32
@@ -9137,7 +9140,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
 .lr.ph284.split:                                  ; preds = %.lr.ph284, %.lr.ph284.split
   %.0156282 = phi ptr [ %149, %.lr.ph284.split ], [ %0, %.lr.ph284 ]
   %.1163281 = phi ptr [ %150, %.lr.ph284.split ], [ %.0162.lcssa, %.lr.ph284 ]
-  %.1166280 = phi i32 [ %148, %.lr.ph284.split ], [ %98, %.lr.ph284 ]
+  %.1166280 = phi i32 [ %148, %.lr.ph284.split ], [ %.0165.lcssa, %.lr.ph284 ]
   %141 = getelementptr inbounds i8, ptr %.0156282, i64 %105
   %142 = load i16, ptr %103, align 2, !tbaa !40, !noalias !810
   %143 = zext i16 %142 to i32
@@ -9154,7 +9157,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIh
   br i1 %151, label %.lr.ph284.split, label %._crit_edge285, !llvm.loop !820
 
 ._crit_edge285:                                   ; preds = %.lr.ph284.split, %._crit_edge279.us, %._crit_edge273
-  %.1166.lcssa = phi i32 [ %98, %._crit_edge273 ], [ %100, %._crit_edge279.us ], [ %100, %.lr.ph284.split ]
+  %.1166.lcssa = phi i32 [ %.0165.lcssa, %._crit_edge273 ], [ %100, %._crit_edge279.us ], [ %100, %.lr.ph284.split ]
   %.1163.lcssa = phi ptr [ %.0162.lcssa, %._crit_edge273 ], [ %139, %._crit_edge279.us ], [ %150, %.lr.ph284.split ]
   %.0156.lcssa = phi ptr [ %0, %._crit_edge273 ], [ %138, %._crit_edge279.us ], [ %149, %.lr.ph284.split ]
   %152 = sdiv i32 %.1166.lcssa, %1
@@ -9552,16 +9555,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   %indvars.iv.next337 = add i32 %indvars.iv336, 1
   %indvars.iv.next344 = add nsw i64 %indvars.iv343, -1
   %exitcond368.not = icmp eq i64 %indvars.iv.next364, %wide.trip.count367
-  br i1 %exitcond368.not, label %._crit_edge260, label %.preheader229, !llvm.loop !870
+  br i1 %exitcond368.not, label %._crit_edge260.loopexit, label %.preheader229, !llvm.loop !870
 
-._crit_edge260:                                   ; preds = %.loopexit227, %7
-  %.0159.lcssa = phi i32 [ 0, %7 ], [ %.sroa.speculated204, %.loopexit227 ]
-  %.0156.lcssa = phi ptr [ %4, %7 ], [ %97, %.loopexit227 ]
-  %98 = mul nsw i32 %.0159.lcssa, %1
+._crit_edge260.loopexit:                          ; preds = %.loopexit227
+  %98 = mul nsw i32 %.sroa.speculated204, %1
+  br label %._crit_edge260
+
+._crit_edge260:                                   ; preds = %._crit_edge260.loopexit, %7
+  %.0159.lcssa = phi i32 [ 0, %7 ], [ %98, %._crit_edge260.loopexit ]
+  %.0156.lcssa = phi ptr [ %4, %7 ], [ %97, %._crit_edge260.loopexit ]
   %reass.sub = sub i32 %5, %9
   %99 = add i32 %reass.sub, 1
   %100 = mul nsw i32 %99, %1
-  %101 = icmp slt i32 %98, %100
+  %101 = icmp slt i32 %.0159.lcssa, %100
   br i1 %101, label %.lr.ph271, label %._crit_edge272
 
 .lr.ph271:                                        ; preds = %._crit_edge260
@@ -9576,7 +9582,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 .lr.ph265.us:                                     ; preds = %.lr.ph265.us.preheader, %._crit_edge266.us
   %.0150269.us = phi ptr [ %123, %._crit_edge266.us ], [ %0, %.lr.ph265.us.preheader ]
   %.1157268.us = phi ptr [ %124, %._crit_edge266.us ], [ %.0156.lcssa, %.lr.ph265.us.preheader ]
-  %.1160267.us = phi i32 [ %122, %._crit_edge266.us ], [ %98, %.lr.ph265.us.preheader ]
+  %.1160267.us = phi i32 [ %122, %._crit_edge266.us ], [ %.0159.lcssa, %.lr.ph265.us.preheader ]
   %104 = load i16, ptr %2, align 2, !tbaa !40, !noalias !871
   %105 = zext i16 %104 to i32
   %106 = load i8, ptr %.0150269.us, align 1, !tbaa !281, !noalias !871
@@ -9616,7 +9622,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
 .lr.ph271.split:                                  ; preds = %.lr.ph271, %.lr.ph271.split
   %.0150269 = phi ptr [ %133, %.lr.ph271.split ], [ %0, %.lr.ph271 ]
   %.1157268 = phi ptr [ %134, %.lr.ph271.split ], [ %.0156.lcssa, %.lr.ph271 ]
-  %.1160267 = phi i32 [ %132, %.lr.ph271.split ], [ %98, %.lr.ph271 ]
+  %.1160267 = phi i32 [ %132, %.lr.ph271.split ], [ %.0159.lcssa, %.lr.ph271 ]
   %126 = load i16, ptr %2, align 2, !tbaa !40, !noalias !871
   %127 = zext i16 %126 to i32
   %128 = load i8, ptr %.0150269, align 1, !tbaa !281, !noalias !871
@@ -9632,7 +9638,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothIhNS_12_GLO
   br i1 %135, label %.lr.ph271.split, label %._crit_edge272, !llvm.loop !878
 
 ._crit_edge272:                                   ; preds = %.lr.ph271.split, %._crit_edge266.us, %._crit_edge260
-  %.1160.lcssa = phi i32 [ %98, %._crit_edge260 ], [ %100, %._crit_edge266.us ], [ %100, %.lr.ph271.split ]
+  %.1160.lcssa = phi i32 [ %.0159.lcssa, %._crit_edge260 ], [ %100, %._crit_edge266.us ], [ %100, %.lr.ph271.split ]
   %.1157.lcssa = phi ptr [ %.0156.lcssa, %._crit_edge260 ], [ %124, %._crit_edge266.us ], [ %134, %.lr.ph271.split ]
   %.0150.lcssa = phi ptr [ %0, %._crit_edge260 ], [ %123, %._crit_edge266.us ], [ %133, %.lr.ph271.split ]
   %136 = sdiv i32 %.1160.lcssa, %1
@@ -15531,16 +15537,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   %indvars.iv.next350 = add i32 %indvars.iv349, 1
   %indvars.iv.next357 = add nsw i64 %indvars.iv356, -1
   %exitcond381.not = icmp eq i64 %indvars.iv.next377, %wide.trip.count380
-  br i1 %exitcond381.not, label %._crit_edge273, label %.preheader242, !llvm.loop !1726
+  br i1 %exitcond381.not, label %._crit_edge273.loopexit, label %.preheader242, !llvm.loop !1726
 
-._crit_edge273:                                   ; preds = %.loopexit240, %7
-  %.0165.lcssa = phi i32 [ 0, %7 ], [ %.sroa.speculated215, %.loopexit240 ]
-  %.0162.lcssa = phi ptr [ %4, %7 ], [ %97, %.loopexit240 ]
-  %98 = mul nsw i32 %.0165.lcssa, %1
+._crit_edge273.loopexit:                          ; preds = %.loopexit240
+  %98 = mul nsw i32 %.sroa.speculated215, %1
+  br label %._crit_edge273
+
+._crit_edge273:                                   ; preds = %._crit_edge273.loopexit, %7
+  %.0165.lcssa = phi i32 [ 0, %7 ], [ %98, %._crit_edge273.loopexit ]
+  %.0162.lcssa = phi ptr [ %4, %7 ], [ %97, %._crit_edge273.loopexit ]
   %reass.sub = sub i32 %5, %9
   %99 = add i32 %reass.sub, 1
   %100 = mul nsw i32 %99, %1
-  %101 = icmp slt i32 %98, %100
+  %101 = icmp slt i32 %.0165.lcssa, %100
   br i1 %101, label %.lr.ph284, label %._crit_edge285
 
 .lr.ph284:                                        ; preds = %._crit_edge273
@@ -15560,7 +15569,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 .lr.ph278.us:                                     ; preds = %.lr.ph278.us.preheader, %._crit_edge279.us
   %.0156282.us = phi ptr [ %138, %._crit_edge279.us ], [ %0, %.lr.ph278.us.preheader ]
   %.1163281.us = phi ptr [ %139, %._crit_edge279.us ], [ %.0162.lcssa, %.lr.ph278.us.preheader ]
-  %.1166280.us = phi i32 [ %137, %._crit_edge279.us ], [ %98, %.lr.ph278.us.preheader ]
+  %.1166280.us = phi i32 [ %137, %._crit_edge279.us ], [ %.0165.lcssa, %.lr.ph278.us.preheader ]
   %109 = getelementptr inbounds i16, ptr %.0156282.us, i64 %105
   %110 = load i32, ptr %103, align 4, !tbaa !72, !noalias !1727
   %111 = zext i32 %110 to i64
@@ -15611,7 +15620,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
 .lr.ph284.split:                                  ; preds = %.lr.ph284, %.lr.ph284.split
   %.0156282 = phi ptr [ %149, %.lr.ph284.split ], [ %0, %.lr.ph284 ]
   %.1163281 = phi ptr [ %150, %.lr.ph284.split ], [ %.0162.lcssa, %.lr.ph284 ]
-  %.1166280 = phi i32 [ %148, %.lr.ph284.split ], [ %98, %.lr.ph284 ]
+  %.1166280 = phi i32 [ %148, %.lr.ph284.split ], [ %.0165.lcssa, %.lr.ph284 ]
   %141 = getelementptr inbounds i16, ptr %.0156282, i64 %105
   %142 = load i32, ptr %103, align 4, !tbaa !72, !noalias !1727
   %143 = zext i32 %142 to i64
@@ -15628,7 +15637,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_120hlineSmoothONa_yzy_aIt
   br i1 %151, label %.lr.ph284.split, label %._crit_edge285, !llvm.loop !1737
 
 ._crit_edge285:                                   ; preds = %.lr.ph284.split, %._crit_edge279.us, %._crit_edge273
-  %.1166.lcssa = phi i32 [ %98, %._crit_edge273 ], [ %100, %._crit_edge279.us ], [ %100, %.lr.ph284.split ]
+  %.1166.lcssa = phi i32 [ %.0165.lcssa, %._crit_edge273 ], [ %100, %._crit_edge279.us ], [ %100, %.lr.ph284.split ]
   %.1163.lcssa = phi ptr [ %.0162.lcssa, %._crit_edge273 ], [ %139, %._crit_edge279.us ], [ %150, %.lr.ph284.split ]
   %.0156.lcssa = phi ptr [ %0, %._crit_edge273 ], [ %138, %._crit_edge279.us ], [ %149, %.lr.ph284.split ]
   %152 = sdiv i32 %.1166.lcssa, %1
@@ -16026,16 +16035,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   %indvars.iv.next336 = add i32 %indvars.iv335, 1
   %indvars.iv.next343 = add nsw i64 %indvars.iv342, -1
   %exitcond367.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count366
-  br i1 %exitcond367.not, label %._crit_edge259, label %.preheader228, !llvm.loop !1787
+  br i1 %exitcond367.not, label %._crit_edge259.loopexit, label %.preheader228, !llvm.loop !1787
 
-._crit_edge259:                                   ; preds = %.loopexit226, %7
-  %.0164.lcssa = phi i32 [ 0, %7 ], [ %.sroa.speculated203, %.loopexit226 ]
-  %.0156.lcssa = phi ptr [ %4, %7 ], [ %97, %.loopexit226 ]
-  %98 = mul nsw i32 %.0164.lcssa, %1
+._crit_edge259.loopexit:                          ; preds = %.loopexit226
+  %98 = mul nsw i32 %.sroa.speculated203, %1
+  br label %._crit_edge259
+
+._crit_edge259:                                   ; preds = %._crit_edge259.loopexit, %7
+  %.0164.lcssa = phi i32 [ 0, %7 ], [ %98, %._crit_edge259.loopexit ]
+  %.0156.lcssa = phi ptr [ %4, %7 ], [ %97, %._crit_edge259.loopexit ]
   %reass.sub = sub i32 %5, %9
   %99 = add i32 %reass.sub, 1
   %100 = mul nsw i32 %99, %1
-  %101 = icmp slt i32 %98, %100
+  %101 = icmp slt i32 %.0164.lcssa, %100
   br i1 %101, label %.lr.ph270, label %._crit_edge271
 
 .lr.ph270:                                        ; preds = %._crit_edge259
@@ -16050,7 +16062,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 .lr.ph264.us:                                     ; preds = %.lr.ph264.us.preheader, %._crit_edge265.us
   %.0149268.us = phi ptr [ %123, %._crit_edge265.us ], [ %0, %.lr.ph264.us.preheader ]
   %.1157267.us = phi ptr [ %124, %._crit_edge265.us ], [ %.0156.lcssa, %.lr.ph264.us.preheader ]
-  %.1165266.us = phi i32 [ %122, %._crit_edge265.us ], [ %98, %.lr.ph264.us.preheader ]
+  %.1165266.us = phi i32 [ %122, %._crit_edge265.us ], [ %.0164.lcssa, %.lr.ph264.us.preheader ]
   %104 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1788
   %105 = zext i32 %104 to i64
   %106 = load i16, ptr %.0149268.us, align 2, !tbaa !399, !noalias !1788
@@ -16090,7 +16102,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
 .lr.ph270.split:                                  ; preds = %.lr.ph270, %.lr.ph270.split
   %.0149268 = phi ptr [ %133, %.lr.ph270.split ], [ %0, %.lr.ph270 ]
   %.1157267 = phi ptr [ %134, %.lr.ph270.split ], [ %.0156.lcssa, %.lr.ph270 ]
-  %.1165266 = phi i32 [ %132, %.lr.ph270.split ], [ %98, %.lr.ph270 ]
+  %.1165266 = phi i32 [ %132, %.lr.ph270.split ], [ %.0164.lcssa, %.lr.ph270 ]
   %126 = load i32, ptr %2, align 4, !tbaa !72, !noalias !1788
   %127 = zext i32 %126 to i64
   %128 = load i16, ptr %.0149268, align 2, !tbaa !399, !noalias !1788
@@ -16106,7 +16118,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111hlineSmoothItNS_12_GLO
   br i1 %135, label %.lr.ph270.split, label %._crit_edge271, !llvm.loop !1795
 
 ._crit_edge271:                                   ; preds = %.lr.ph270.split, %._crit_edge265.us, %._crit_edge259
-  %.1165.lcssa = phi i32 [ %98, %._crit_edge259 ], [ %100, %._crit_edge265.us ], [ %100, %.lr.ph270.split ]
+  %.1165.lcssa = phi i32 [ %.0164.lcssa, %._crit_edge259 ], [ %100, %._crit_edge265.us ], [ %100, %.lr.ph270.split ]
   %.1157.lcssa = phi ptr [ %.0156.lcssa, %._crit_edge259 ], [ %124, %._crit_edge265.us ], [ %134, %.lr.ph270.split ]
   %.0149.lcssa = phi ptr [ %0, %._crit_edge259 ], [ %123, %._crit_edge265.us ], [ %133, %.lr.ph270.split ]
   %136 = sdiv i32 %.1165.lcssa, %1

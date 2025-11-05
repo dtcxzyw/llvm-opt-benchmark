@@ -516,11 +516,11 @@ _ZN7RSCoder6gfMultEii.exit.us:                    ; preds = %_ZN7RSCoder6gfMultE
   %51 = sext i32 %50 to i64
   %52 = getelementptr inbounds i32, ptr %0, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !10
+  %54 = xor i32 %53, %41
   br label %_ZN7RSCoder6gfMultEii.exit25.us35
 
 _ZN7RSCoder6gfMultEii.exit25.us35:                ; preds = %45, %.lr.ph31.split.us37
-  %54 = phi i32 [ %53, %45 ], [ 0, %.lr.ph31.split.us37 ]
-  %55 = xor i32 %54, %41
+  %55 = phi i32 [ %54, %45 ], [ %41, %.lr.ph31.split.us37 ]
   store i32 %55, ptr %39, align 4, !tbaa !10
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, -1
   %56 = icmp sgt i64 %indvars.iv50, 1
@@ -663,11 +663,11 @@ _ZN7RSCoder6gfMultEii.exit.us.us.preheader:       ; preds = %.preheader96.us
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i32, ptr %0, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !10
+  %37 = xor i32 %36, %26
   br label %_ZN7RSCoder6gfMultEii.exit.us109
 
 _ZN7RSCoder6gfMultEii.exit.us109:                 ; preds = %28, %.lr.ph.split.us111
-  %37 = phi i32 [ %36, %28 ], [ 0, %.lr.ph.split.us111 ]
-  %38 = xor i32 %37, %26
+  %38 = phi i32 [ %37, %28 ], [ %26, %.lr.ph.split.us111 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.split.us111, !llvm.loop !22
@@ -785,7 +785,7 @@ _ZN7RSCoder6gfMultEii.exit84.us125:               ; preds = %66, %.lr.ph118.spli
   br label %.lr.ph132
 
 ._crit_edge133:                                   ; preds = %_ZN7RSCoder6gfMultEii.exit86
-  %88 = icmp eq i32 %110, %.069130
+  %88 = icmp eq i32 %111, 0
   br i1 %88, label %._crit_edge133.thread, label %153
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %_ZN7RSCoder6gfMultEii.exit86
@@ -815,11 +815,11 @@ _ZN7RSCoder6gfMultEii.exit84.us125:               ; preds = %66, %.lr.ph118.spli
   %107 = sext i32 %106 to i64
   %108 = getelementptr inbounds i32, ptr %0, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !10
+  %110 = xor i32 %109, %.069130
   br label %_ZN7RSCoder6gfMultEii.exit86
 
 _ZN7RSCoder6gfMultEii.exit86:                     ; preds = %.lr.ph132, %99
-  %110 = phi i32 [ %109, %99 ], [ 0, %.lr.ph132 ]
-  %111 = xor i32 %110, %.069130
+  %111 = phi i32 [ %110, %99 ], [ %.069130, %.lr.ph132 ]
   %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
   %exitcond178.not = icmp eq i64 %indvars.iv.next175, %wide.trip.count177
   br i1 %exitcond178.not, label %._crit_edge133, label %.lr.ph132, !llvm.loop !29
@@ -1023,11 +1023,11 @@ _ZN7RSCoder6pnMultEPiS0_S0_.exit:                 ; preds = %.loopexit.i, %.loop
   %219 = sext i32 %218 to i64
   %220 = getelementptr inbounds i32, ptr %0, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !10
+  %222 = xor i32 %221, %.063141
   br label %_ZN7RSCoder6gfMultEii.exit91
 
 _ZN7RSCoder6gfMultEii.exit91:                     ; preds = %.lr.ph144, %211
-  %222 = phi i32 [ %221, %211 ], [ 0, %.lr.ph144 ]
-  %223 = xor i32 %222, %.063141
+  %223 = phi i32 [ %222, %211 ], [ %.063141, %.lr.ph144 ]
   %indvars.iv.next192 = add nuw nsw i64 %indvars.iv191, 1
   %exitcond195.not = icmp eq i64 %indvars.iv.next192, %wide.trip.count194
   br i1 %exitcond195.not, label %._crit_edge145, label %.lr.ph144, !llvm.loop !32

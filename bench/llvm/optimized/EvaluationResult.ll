@@ -393,12 +393,12 @@ _ZNK5clang6interp7Pointer9getRecordEv.exit:       ; preds = %39, %.thread4.i.i, 
   %74 = load i8, ptr %73, align 16
   %75 = add i8 %74, -2
   %switch.i.i.i.i.i.i.i.i5.i = icmp ult i8 %75, 5
-  br i1 %switch.i.i.i.i.i.i.i.i5.i, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit, label %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit.thread
+  br i1 %switch.i.i.i.i.i.i.i.i5.i, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit, label %_ZNK5clang6interp7Pointer6isLiveEv.exit.thread42
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit:     ; preds = %68
   %76 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %64) #13
   %.not.i35 = icmp eq ptr %76, null
-  br i1 %.not.i35, label %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit.thread, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49_crit_edge
+  br i1 %.not.i35, label %_ZNK5clang6interp7Pointer6isLiveEv.exit.thread42, label %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49_crit_edge
 
 _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49_crit_edge: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit
   %.phi.trans.insert59 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -410,20 +410,14 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49: ; preds = %_ZNK5clang4Typ
   %.1.i52 = phi ptr [ %76, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit._ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49_crit_edge ], [ %64, %60 ]
   %78 = and i8 %77, -2
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i8 %78, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit, label %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit.thread
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit, label %_ZNK5clang6interp7Pointer6isLiveEv.exit.thread42
 
 _ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit: ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49
   %79 = call fastcc noundef zeroext i1 @_ZN5clang6interpL21CheckArrayInitializedERNS0_11InterpStateENS_14SourceLocationERKNS0_7PointerEPKNS_17ConstantArrayTypeE(ptr noundef nonnull align 8 dereferenceable(512) %1, i32 %.sroa.037.0, ptr noundef nonnull align 8 dereferenceable(52) %2, ptr noundef nonnull %.1.i52)
-  br label %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit.thread
-
-_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit.thread: ; preds = %68, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49, %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit
-  %.not3155 = phi i1 [ false, %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit ], [ true, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49 ], [ true, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit ], [ true, %68 ]
-  %.3 = phi i1 [ %79, %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit ], [ undef, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49 ], [ undef, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit ], [ undef, %68 ]
-  %spec.select = or i1 %.not3155, %.3
   br label %_ZNK5clang6interp7Pointer6isLiveEv.exit.thread42
 
-_ZNK5clang6interp7Pointer6isLiveEv.exit.thread42: ; preds = %.thread40, %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit.thread, %58, %11, %7, %_ZNK5clang6interp7Pointer6isLiveEv.exit, %_ZNK5clang6interp7Pointer6isZeroEv.exit
-  %.0 = phi i1 [ true, %_ZNK5clang6interp7Pointer6isZeroEv.exit ], [ true, %_ZNK5clang6interp7Pointer6isLiveEv.exit ], [ true, %7 ], [ true, %11 ], [ %59, %58 ], [ %spec.select, %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit.thread ], [ true, %.thread40 ]
+_ZNK5clang6interp7Pointer6isLiveEv.exit.thread42: ; preds = %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit, %68, %.thread40, %58, %11, %7, %_ZNK5clang6interp7Pointer6isLiveEv.exit, %_ZNK5clang6interp7Pointer6isZeroEv.exit
+  %.0 = phi i1 [ true, %_ZNK5clang6interp7Pointer6isZeroEv.exit ], [ true, %_ZNK5clang6interp7Pointer6isLiveEv.exit ], [ true, %7 ], [ true, %11 ], [ %59, %58 ], [ true, %.thread40 ], [ %79, %_ZN4llvm19dyn_cast_if_presentIN5clang17ConstantArrayTypeEKNS1_9ArrayTypeEEEDaPT0_.exit ], [ true, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread49 ], [ true, %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit ], [ true, %68 ]
   ret i1 %.0
 }
 

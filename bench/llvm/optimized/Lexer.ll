@@ -1591,13 +1591,13 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14: ; preds
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %60
+  br label %61
 
 _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i, %46
   %51 = phi ptr [ %50, %46 ], [ %42, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %51, null
-  br i1 %.not, label %60, label %52
+  br i1 %.not, label %61, label %52
 
 52:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
   %53 = phi ptr [ %44, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread14 ], [ %51, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
@@ -1607,13 +1607,12 @@ _ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit: ; preds = %_ZNK4
   %57 = zext i32 %56 to i64
   %58 = shl nuw i64 %57, 32
   %59 = zext i32 %.sroa.02.0.i.i to i64
-  br label %60
+  %60 = or disjoint i64 %58, %59
+  br label %61
 
-60:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread, %52
-  %.sroa.012.0 = phi i64 [ %59, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
-  %.sroa.3.0 = phi i64 [ %58, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
-  %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.012.0
-  ret i64 %.sroa.012.0.insert.insert
+61:                                               ; preds = %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread, %52
+  %.sroa.3.0 = phi i64 [ %60, %52 ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread ], [ 0, %_ZNK5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit ]
+  ret i64 %.sroa.3.0
 }
 
 declare { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696), i32, ptr noundef) local_unnamed_addr #1
@@ -18963,14 +18962,13 @@ _ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit: ; preds = %431, %433
 
 _ZNSt14_Optional_baseIN4llvm3sys7unicode19LooseMatchingResultELb0ELb0EED2Ev.exit118: ; preds = %.loopexit, %439, %444
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %445 = select i1 %.sroa.5.0, i64 4294967296, i64 0
-  %446 = zext i32 %.sroa.0144.0 to i64
+  %445 = zext i32 %.sroa.0144.0 to i64
+  %446 = or disjoint i64 %445, 4294967296
   %447 = select i1 %.sroa.5.0, i64 %446, i64 0
   br label %448
 
 448:                                              ; preds = %.thread, %_ZN5clang17DiagnosticBuilderD2Ev.exit86, %_ZNSt14_Optional_baseIN4llvm3sys7unicode19LooseMatchingResultELb0ELb0EED2Ev.exit118
-  %.sroa.0162.1 = phi i64 [ %447, %_ZNSt14_Optional_baseIN4llvm3sys7unicode19LooseMatchingResultELb0ELb0EED2Ev.exit118 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ 0, %.thread ]
-  %.sroa.2.1 = phi i64 [ %445, %_ZNSt14_Optional_baseIN4llvm3sys7unicode19LooseMatchingResultELb0ELb0EED2Ev.exit118 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ 0, %.thread ]
+  %.sroa.2.1 = phi i64 [ %447, %_ZNSt14_Optional_baseIN4llvm3sys7unicode19LooseMatchingResultELb0ELb0EED2Ev.exit118 ], [ 0, %_ZN5clang17DiagnosticBuilderD2Ev.exit86 ], [ 0, %.thread ]
   %449 = load ptr, ptr %6, align 8, !tbaa !387
   %450 = icmp eq ptr %449, %73
   br i1 %450, label %_ZN4llvm11SmallVectorIcLj30EED2Ev.exit, label %451
@@ -18984,10 +18982,8 @@ _ZN4llvm11SmallVectorIcLj30EED2Ev.exit:           ; preds = %448, %451
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
 _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %30, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %67, %70, %_ZN4llvm11SmallVectorIcLj30EED2Ev.exit
-  %.sroa.0162.0 = phi i64 [ %.sroa.0162.1, %_ZN4llvm11SmallVectorIcLj30EED2Ev.exit ], [ 0, %70 ], [ 0, %67 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %30 ]
   %.sroa.2.0 = phi i64 [ %.sroa.2.1, %_ZN4llvm11SmallVectorIcLj30EED2Ev.exit ], [ 0, %70 ], [ 0, %67 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ 0, %30 ]
-  %.sroa.0162.0.insert.insert = or i64 %.sroa.2.0, %.sroa.0162.0
-  ret i64 %.sroa.0162.0.insert.insert
+  ret i64 %.sroa.2.0
 }
 
 declare i64 @_ZN4llvm3sys7unicode21nameToCodepointStrictENS_9StringRefE(ptr, i64) local_unnamed_addr #1

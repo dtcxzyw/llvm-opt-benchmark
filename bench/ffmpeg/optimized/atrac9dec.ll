@@ -3061,38 +3061,39 @@ define internal void @atrac9_decode_flush(ptr noundef readonly captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 84
   %7 = load i32, ptr %6, align 4, !tbaa !63
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph, label %._crit_edge
+  br i1 %8, label %.lr.ph.preheader, label %._crit_edge
 
-._crit_edge:                                      ; preds = %15, %1
+.lr.ph.preheader:                                 ; preds = %1
+  %9 = load ptr, ptr %4, align 8, !tbaa !41
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 84
+  br label %.lr.ph
+
+._crit_edge:                                      ; preds = %19, %1
   ret void
 
-.lr.ph:                                           ; preds = %1, %15
-  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %15 ], [ 0, %1 ]
-  %9 = phi ptr [ %16, %15 ], [ %5, %1 ]
-  %10 = getelementptr inbounds nuw %struct.ATRAC9BlockData, ptr %3, i64 %indvars.iv17
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv17
-  %13 = load i32, ptr %12, align 4, !tbaa !39
-  %14 = icmp eq i32 %13, 1
-  br label %21
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %19
+  %indvars.iv17 = phi i64 [ %indvars.iv.next18, %19 ], [ 0, %.lr.ph.preheader ]
+  %11 = phi ptr [ %9, %19 ], [ %5, %.lr.ph.preheader ]
+  %12 = getelementptr inbounds nuw %struct.ATRAC9BlockData, ptr %3, i64 %indvars.iv17
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv17
+  %15 = load i32, ptr %14, align 4, !tbaa !39
+  %16 = icmp eq i32 %15, 1
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 3856
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %17, i8 0, i64 512, i1 false)
+  br i1 %16, label %.critedge, label %19, !llvm.loop !154
 
-15:                                               ; preds = %21
+.critedge:                                        ; preds = %.lr.ph
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8192
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %18, i8 0, i64 512, i1 false)
+  br label %19
+
+19:                                               ; preds = %.critedge, %.lr.ph
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
-  %16 = load ptr, ptr %4, align 8, !tbaa !41
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 84
-  %18 = load i32, ptr %17, align 4, !tbaa !63
-  %19 = sext i32 %18 to i64
-  %20 = icmp slt i64 %indvars.iv.next18, %19
-  br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !154
-
-21:                                               ; preds = %.lr.ph, %21
-  %22 = phi i1 [ true, %.lr.ph ], [ false, %21 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ 1, %21 ]
-  %23 = getelementptr inbounds nuw %struct.ATRAC9ChannelData, ptr %10, i64 %indvars.iv
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 3856
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %24, i8 0, i64 512, i1 false)
-  %.not.not = and i1 %22, %14
-  br i1 %.not.not, label %21, label %15, !llvm.loop !155
+  %20 = load i32, ptr %10, align 4, !tbaa !63
+  %21 = sext i32 %20 to i64
+  %22 = icmp slt i64 %indvars.iv.next18, %21
+  br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !155
 }
 
 declare void @av_lfg_init(ptr noundef, i32 noundef) local_unnamed_addr #3

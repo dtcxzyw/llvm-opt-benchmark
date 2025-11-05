@@ -846,15 +846,15 @@ define internal range(i32 -1, 1) i32 @H5G__loc_find_by_idx_cb(ptr readnone captu
   %40 = load i64, ptr @H5E_SYM_g, align 8, !tbaa !10
   %41 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %42 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__loc_find_by_idx_cb, i32 noundef 465, i64 noundef %40, i64 noundef %41, ptr noundef nonnull @.str.36) #9
-  br label %.thread37
+  br label %.thread36
 
 43:                                               ; preds = %34
   %44 = load ptr, ptr %35, align 8, !tbaa !28
   %45 = call i32 @H5G__traverse_special(ptr noundef nonnull %3, ptr noundef nonnull %7, i32 noundef 0, i1 noundef zeroext true, ptr noundef %44, ptr noundef nonnull %8) #9
   %46 = icmp slt i32 %45, 0
-  br i1 %46, label %48, label %.thread37
+  br i1 %46, label %48, label %.thread36
 
-.thread37:                                        ; preds = %43, %39
+.thread36:                                        ; preds = %43, %39
   %.1.ph.ph = phi i32 [ -1, %39 ], [ 0, %43 ]
   %47 = call i32 @H5O_msg_reset(i32 noundef 6, ptr noundef nonnull %7) #9
   br label %.thread32
@@ -875,8 +875,8 @@ define internal range(i32 -1, 1) i32 @H5G__loc_find_by_idx_cb(ptr readnone captu
   %59 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5G__loc_find_by_idx_cb, i32 noundef 482, i64 noundef %57, i64 noundef %58, ptr noundef nonnull @.str.38) #9
   br label %.thread32
 
-.thread32:                                        ; preds = %30, %17, %.thread37, %48, %56
-  %.2 = phi i32 [ -1, %56 ], [ -1, %48 ], [ %.1.ph.ph, %.thread37 ], [ -1, %17 ], [ -1, %30 ]
+.thread32:                                        ; preds = %30, %17, %.thread36, %48, %56
+  %.2 = phi i32 [ -1, %56 ], [ -1, %48 ], [ %.1.ph.ph, %.thread36 ], [ -1, %17 ], [ -1, %30 ]
   store i32 0, ptr %5, align 4, !tbaa !22
   br label %60
 

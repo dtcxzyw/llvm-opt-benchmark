@@ -4894,12 +4894,12 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %_ZN4llvm11raw_ostre
   %1387 = icmp eq i64 %1386, 0
   %.not31.i.i.i.i = or i1 %1385, %1387
   %spec.select.i.i.i = select i1 %.not31.i.i.i.i, i8 -128, i8 0
+  %1388 = or disjoint i8 %spec.select.i.i.i, %1381
   br label %.thread.i.i.i
 
 .thread.i.i.i:                                    ; preds = %1384, %1379
-  %1388 = phi i1 [ %.not31.i.i.i.i, %1384 ], [ false, %1379 ]
-  %1389 = phi i8 [ %spec.select.i.i.i, %1384 ], [ 0, %1379 ]
-  %.025.i.i.i.i = or disjoint i8 %1389, %1381
+  %1389 = phi i1 [ %.not31.i.i.i.i, %1384 ], [ false, %1379 ]
+  %.025.i.i.i.i = phi i8 [ %1388, %1384 ], [ %1381, %1379 ]
   %1390 = load ptr, ptr %1310, align 8, !tbaa !419
   %1391 = load ptr, ptr %1311, align 8, !tbaa !424
   %.not.i.i70.i.i.i = icmp ult ptr %1390, %1391
@@ -4916,7 +4916,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i71.i.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i71.i.i.i:         ; preds = %1394, %1392
-  br i1 %1388, label %1379, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i.i, !llvm.loop !518
+  br i1 %1389, label %1379, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i.i, !llvm.loop !518
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i71.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
   %.142.i.i.i = phi i32 [ %.041124.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ], [ %.fr113.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i71.i.i.i ]
@@ -4943,12 +4943,12 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i.i: ; preds = %_ZN4llvm11ra
   %1408 = icmp eq i64 %1407, 0
   %.not31.i74.i.i.i = or i1 %1406, %1408
   %spec.select110.i.i.i = select i1 %.not31.i74.i.i.i, i8 -128, i8 0
+  %1409 = or disjoint i8 %spec.select110.i.i.i, %1402
   br label %.thread105.i.i.i
 
 .thread105.i.i.i:                                 ; preds = %1405, %1400
-  %1409 = phi i1 [ %.not31.i74.i.i.i, %1405 ], [ false, %1400 ]
-  %1410 = phi i8 [ %spec.select110.i.i.i, %1405 ], [ 0, %1400 ]
-  %.025.i76.i.i.i = or disjoint i8 %1410, %1402
+  %1410 = phi i1 [ %.not31.i74.i.i.i, %1405 ], [ false, %1400 ]
+  %.025.i76.i.i.i = phi i8 [ %1409, %1405 ], [ %1402, %1400 ]
   %1411 = load ptr, ptr %1310, align 8, !tbaa !419
   %1412 = load ptr, ptr %1311, align 8, !tbaa !424
   %.not.i.i77.i.i.i = icmp ult ptr %1411, %1412
@@ -4965,7 +4965,7 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i.i: ; preds = %_ZN4llvm11ra
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i78.i.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i78.i.i.i:         ; preds = %1415, %1413
-  br i1 %1409, label %1400, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit79.i.i.i, !llvm.loop !518
+  br i1 %1410, label %1400, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit79.i.i.i, !llvm.loop !518
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit79.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i78.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i.i
   %.145.i.i.i = phi i32 [ %.044122.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i.i ], [ %.fr115.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i78.i.i.i ]
@@ -4991,12 +4991,12 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit79.i.i.i: ; preds = %_ZN4llvm11
   %1428 = icmp eq i64 %1427, 0
   %.not31.i82.i.i.i = or i1 %1426, %1428
   %spec.select111.i.i.i = select i1 %.not31.i82.i.i.i, i8 -128, i8 0
+  %1429 = or disjoint i8 %spec.select111.i.i.i, %1422
   br label %.thread108.i.i.i
 
 .thread108.i.i.i:                                 ; preds = %1425, %1420
-  %1429 = phi i1 [ %.not31.i82.i.i.i, %1425 ], [ false, %1420 ]
-  %1430 = phi i8 [ %spec.select111.i.i.i, %1425 ], [ 0, %1420 ]
-  %.025.i84.i.i.i = or disjoint i8 %1430, %1422
+  %1430 = phi i1 [ %.not31.i82.i.i.i, %1425 ], [ false, %1420 ]
+  %.025.i84.i.i.i = phi i8 [ %1429, %1425 ], [ %1422, %1420 ]
   %1431 = load ptr, ptr %1310, align 8, !tbaa !419
   %1432 = load ptr, ptr %1311, align 8, !tbaa !424
   %.not.i.i85.i.i.i = icmp ult ptr %1431, %1432
@@ -5013,7 +5013,7 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit79.i.i.i: ; preds = %_ZN4llvm11
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i86.i.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i86.i.i.i:         ; preds = %1435, %1433
-  br i1 %1429, label %1420, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit87.i.i.i, !llvm.loop !518
+  br i1 %1430, label %1420, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit87.i.i.i, !llvm.loop !518
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit87.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i86.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit79.i.i.i
   %.1.i.i.i = phi i64 [ %.040125.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit79.i.i.i ], [ %.fr117.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i86.i.i.i ]
@@ -5205,12 +5205,12 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i134.i:          ; preds = %_ZN4llvm11raw_ostre
   %1520 = icmp eq i64 %1519, 0
   %.not31.i.i.i137.i = or i1 %1518, %1520
   %spec.select.i.i138.i = select i1 %.not31.i.i.i137.i, i8 -128, i8 0
+  %1521 = or disjoint i8 %spec.select.i.i138.i, %1514
   br label %.thread.i.i139.i
 
 .thread.i.i139.i:                                 ; preds = %1517, %1512
-  %1521 = phi i1 [ %.not31.i.i.i137.i, %1517 ], [ false, %1512 ]
-  %1522 = phi i8 [ %spec.select.i.i138.i, %1517 ], [ 0, %1512 ]
-  %.025.i.i.i140.i = or disjoint i8 %1522, %1514
+  %1522 = phi i1 [ %.not31.i.i.i137.i, %1517 ], [ false, %1512 ]
+  %.025.i.i.i140.i = phi i8 [ %1521, %1517 ], [ %1514, %1512 ]
   %1523 = load ptr, ptr %1444, align 8, !tbaa !419
   %1524 = load ptr, ptr %1445, align 8, !tbaa !424
   %.not.i.i96.i.i.i = icmp ult ptr %1523, %1524
@@ -5227,7 +5227,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i.i134.i:          ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i97.i.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i97.i.i.i:         ; preds = %1527, %1525
-  br i1 %1521, label %1512, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i135.i, !llvm.loop !518
+  br i1 %1522, label %1512, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i135.i, !llvm.loop !518
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i135.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i97.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i134.i
   %.161.i.i.i = phi i32 [ %.060139.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i134.i ], [ %.sroa.2.0.insert.ext.i74.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i97.i.i.i ]
@@ -5252,12 +5252,12 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i135.i: ; preds = %_ZN4llvm1
   %1540 = icmp eq i64 %1539, 0
   %.not31.i100.i.i.i = or i1 %1538, %1540
   %spec.select126.i.i.i = select i1 %.not31.i100.i.i.i, i8 -128, i8 0
+  %1541 = or disjoint i8 %spec.select126.i.i.i, %1534
   br label %.thread121.i.i.i
 
 .thread121.i.i.i:                                 ; preds = %1537, %1532
-  %1541 = phi i1 [ %.not31.i100.i.i.i, %1537 ], [ false, %1532 ]
-  %1542 = phi i8 [ %spec.select126.i.i.i, %1537 ], [ 0, %1532 ]
-  %.025.i102.i.i.i = or disjoint i8 %1542, %1534
+  %1542 = phi i1 [ %.not31.i100.i.i.i, %1537 ], [ false, %1532 ]
+  %.025.i102.i.i.i = phi i8 [ %1541, %1537 ], [ %1534, %1532 ]
   %1543 = load ptr, ptr %1444, align 8, !tbaa !419
   %1544 = load ptr, ptr %1445, align 8, !tbaa !424
   %.not.i.i103.i.i.i = icmp ult ptr %1543, %1544
@@ -5274,7 +5274,7 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i135.i: ; preds = %_ZN4llvm1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i104.i.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i104.i.i.i:        ; preds = %1547, %1545
-  br i1 %1541, label %1532, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit105.i.i.i, !llvm.loop !518
+  br i1 %1542, label %1532, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit105.i.i.i, !llvm.loop !518
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit105.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i104.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i135.i
   %.163.i.i.i = phi i32 [ %.062138.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i.i135.i ], [ %.fr130.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i104.i.i.i ]
@@ -5299,12 +5299,12 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit105.i.i.i: ; preds = %_ZN4llvm1
   %1560 = icmp eq i64 %1559, 0
   %.not31.i108.i.i.i = or i1 %1558, %1560
   %spec.select127.i.i.i = select i1 %.not31.i108.i.i.i, i8 -128, i8 0
+  %1561 = or disjoint i8 %spec.select127.i.i.i, %1554
   br label %.thread124.i.i.i
 
 .thread124.i.i.i:                                 ; preds = %1557, %1552
-  %1561 = phi i1 [ %.not31.i108.i.i.i, %1557 ], [ false, %1552 ]
-  %1562 = phi i8 [ %spec.select127.i.i.i, %1557 ], [ 0, %1552 ]
-  %.025.i110.i.i.i = or disjoint i8 %1562, %1554
+  %1562 = phi i1 [ %.not31.i108.i.i.i, %1557 ], [ false, %1552 ]
+  %.025.i110.i.i.i = phi i8 [ %1561, %1557 ], [ %1554, %1552 ]
   %1563 = load ptr, ptr %1444, align 8, !tbaa !419
   %1564 = load ptr, ptr %1445, align 8, !tbaa !424
   %.not.i.i111.i.i.i = icmp ult ptr %1563, %1564
@@ -5321,7 +5321,7 @@ _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit105.i.i.i: ; preds = %_ZN4llvm1
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i112.i.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i112.i.i.i:        ; preds = %1567, %1565
-  br i1 %1561, label %1552, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit113.i.i.i, !llvm.loop !518
+  br i1 %1562, label %1552, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit113.i.i.i, !llvm.loop !518
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit113.i.i.i: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i112.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit105.i.i.i
   %.1.i.i136.i = phi i32 [ %.059140.i.i.i, %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit105.i.i.i ], [ %.sroa.8.12.extract.trunc.i.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i112.i.i.i ]

@@ -45395,7 +45395,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
   br i1 %29, label %.split11, label %.split, !llvm.loop !694
 
 .split11:                                         ; preds = %27, %.split11.us
-  %.us-phi = phi i32 [ %23, %.split11.us ], [ 0, %27 ]
+  %.us-phi = phi i32 [ %23, %.split11.us ], [ %.fr30, %27 ]
   %.us-phi12 = phi i1 [ %26, %.split11.us ], [ false, %27 ]
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 14
   br i1 %.not32, label %.split14.us, label %.split14
@@ -45512,55 +45512,54 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_beacon_tx_rate(pt
   %.us-phi2448 = phi i32 [ %69, %.split23 ], [ 0, %78 ]
   %90 = or i32 %.us-phi, %.us-phi17
   %91 = or i32 %90, %.us-phi2448
-  %92 = or i32 %91, %.fr30
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.loopexit, label %94
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %.loopexit, label %93
 
-94:                                               ; preds = %.split23.thread
-  br i1 %.not32, label %100, label %95
+93:                                               ; preds = %.split23.thread
+  br i1 %.not32, label %99, label %94
 
-95:                                               ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %97 = load i8, ptr %96, align 1
-  %98 = and i8 %97, 64
-  %99 = icmp eq i8 %98, 0
-  br i1 %99, label %.loopexit, label %100
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %96 = load i8, ptr %95, align 1
+  %97 = and i8 %96, 64
+  %98 = icmp eq i8 %97, 0
+  br i1 %98, label %.loopexit, label %99
 
-100:                                              ; preds = %95, %94
-  br i1 %.us-phi12, label %101, label %105
+99:                                               ; preds = %94, %93
+  br i1 %.us-phi12, label %100, label %104
 
-101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 1056
-  %103 = load i8, ptr %102, align 1
-  %104 = icmp sgt i8 %103, -1
-  br i1 %104, label %.loopexit, label %105
+100:                                              ; preds = %99
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1056
+  %102 = load i8, ptr %101, align 1
+  %103 = icmp sgt i8 %102, -1
+  br i1 %103, label %.loopexit, label %104
 
-105:                                              ; preds = %101, %100
-  br i1 %.us-phi18, label %106, label %111
+104:                                              ; preds = %100, %99
+  br i1 %.us-phi18, label %105, label %110
 
-106:                                              ; preds = %105
-  %107 = getelementptr i8, ptr %0, i64 1057
-  %108 = load i8, ptr %107, align 1
-  %109 = and i8 %108, 1
-  %110 = icmp eq i8 %109, 0
-  br i1 %110, label %.loopexit, label %111
+105:                                              ; preds = %104
+  %106 = getelementptr i8, ptr %0, i64 1057
+  %107 = load i8, ptr %106, align 1
+  %108 = and i8 %107, 1
+  %109 = icmp eq i8 %108, 0
+  br i1 %109, label %.loopexit, label %110
 
-111:                                              ; preds = %106, %105
-  br i1 %.us-phi2549, label %112, label %117
+110:                                              ; preds = %105, %104
+  br i1 %.us-phi2549, label %111, label %116
 
-112:                                              ; preds = %111
-  %113 = getelementptr i8, ptr %0, i64 1062
-  %114 = load i8, ptr %113, align 1
-  %115 = and i8 %114, 64
-  %116 = icmp eq i8 %115, 0
-  br i1 %116, label %.loopexit, label %117
+111:                                              ; preds = %110
+  %112 = getelementptr i8, ptr %0, i64 1062
+  %113 = load i8, ptr %112, align 1
+  %114 = and i8 %113, 64
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %.loopexit, label %116
 
-117:                                              ; preds = %112, %111
+116:                                              ; preds = %111, %110
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.split, %20, %.split.us, %.split14, %40, %.split14.us, %.split21, %66, %.split21.us, %117, %112, %106, %101, %95, %.split23.thread, %.split23, %3
-  %118 = phi i32 [ 0, %117 ], [ -22, %3 ], [ -22, %.split23.thread ], [ -22, %.split23 ], [ -22, %95 ], [ -22, %101 ], [ -22, %106 ], [ -22, %112 ], [ -22, %.split21.us ], [ -22, %66 ], [ -22, %.split21 ], [ -22, %.split14.us ], [ -22, %40 ], [ -22, %.split14 ], [ -22, %.split.us ], [ -22, %20 ], [ -22, %.split ]
-  ret i32 %118
+.loopexit:                                        ; preds = %.split, %20, %.split.us, %.split14, %40, %.split14.us, %.split21, %66, %.split21.us, %116, %111, %105, %100, %94, %.split23.thread, %.split23, %3
+  %117 = phi i32 [ 0, %116 ], [ -22, %3 ], [ -22, %.split23.thread ], [ -22, %.split23 ], [ -22, %94 ], [ -22, %100 ], [ -22, %105 ], [ -22, %111 ], [ -22, %.split21.us ], [ -22, %66 ], [ -22, %.split21 ], [ -22, %.split14.us ], [ -22, %40 ], [ -22, %.split14 ], [ -22, %.split.us ], [ -22, %20 ], [ -22, %.split ]
+  ret i32 %117
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

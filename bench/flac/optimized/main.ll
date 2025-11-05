@@ -2132,10 +2132,10 @@ define internal fastcc i32 @encode_file(ptr noundef %0, i32 noundef range(i32 0,
   br label %get_encoded_outfilename.exit
 
 get_encoded_outfilename.exit:                     ; preds = %3, %10
-  %.0.i317 = phi ptr [ %11, %10 ], [ %0, %3 ]
-  %.not.i318 = icmp eq i32 %8, 0
-  %12 = select i1 %.not.i318, ptr @.str.222, ptr @.str.203
-  %13 = tail call fastcc ptr @get_outfilename(ptr noundef %.0.i317, ptr noundef nonnull %12)
+  %.0.i318 = phi ptr [ %11, %10 ], [ %0, %3 ]
+  %.not.i319 = icmp eq i32 %8, 0
+  %12 = select i1 %.not.i319, ptr @.str.222, ptr @.str.203
+  %13 = tail call fastcc ptr @get_outfilename(ptr noundef %.0.i318, ptr noundef nonnull %12)
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %sub_0
 
@@ -2146,8 +2146,8 @@ get_encoded_outfilename.exit:                     ; preds = %3, %10
 
 sub_0:                                            ; preds = %get_encoded_outfilename.exit
   %17 = load i8, ptr %0, align 1
-  %.not414 = icmp eq i8 %17, 45
-  br i1 %.not414, label %.tail, label %.tail.thread
+  %.not455 = icmp eq i8 %17, 45
+  br i1 %.not455, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -2178,7 +2178,7 @@ sub_0:                                            ; preds = %get_encoded_outfile
   %.0233 = phi ptr [ %22, %21 ], [ %24, %.tail.thread ]
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 92), align 4, !tbaa !62
   %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %33, label %.thread
+  br i1 %.not, label %33, label %.thread400
 
 33:                                               ; preds = %31
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
@@ -2193,8 +2193,8 @@ sub_0:                                            ; preds = %get_encoded_outfile
   br i1 %40, label %.critedge309, label %41
 
 41:                                               ; preds = %36
-  %.not394 = icmp eq i64 %34, 4
-  br i1 %.not394, label %46, label %42
+  %.not435 = icmp eq i64 %34, 4
+  br i1 %.not435, label %46, label %42
 
 42:                                               ; preds = %41
   %43 = getelementptr i8, ptr %37, i64 -5
@@ -2213,7 +2213,7 @@ sub_0:                                            ; preds = %get_encoded_outfile
   br i1 %51, label %.critedge309, label %.critedge
 
 .critedge:                                        ; preds = %49
-  br i1 %.not394, label %.critedge307.thread, label %52
+  br i1 %.not435, label %.critedge307.thread, label %52
 
 52:                                               ; preds = %.critedge
   %53 = getelementptr i8, ptr %37, i64 -5
@@ -2223,13 +2223,13 @@ sub_0:                                            ; preds = %get_encoded_outfile
 
 56:                                               ; preds = %52
   %57 = tail call i32 @strcasecmp(ptr noundef %53, ptr noundef nonnull @.str.222) #23
-  %.not395 = icmp eq i32 %57, 0
-  br i1 %.not395, label %.critedge309, label %.critedge307.thread
+  %.not436 = icmp eq i32 %57, 0
+  br i1 %.not436, label %.critedge309, label %.critedge307.thread
 
 .critedge307.thread:                              ; preds = %.critedge, %56
   %58 = tail call i32 @strcasecmp(ptr noundef %38, ptr noundef nonnull @.str.203) #23
-  %.not396 = icmp eq i32 %58, 0
-  br i1 %.not396, label %.critedge309, label %59
+  %.not437 = icmp eq i32 %58, 0
+  br i1 %.not437, label %.critedge309, label %59
 
 59:                                               ; preds = %.critedge307.thread
   %60 = tail call i32 @strcasecmp(ptr noundef %38, ptr noundef nonnull @.str.204) #23
@@ -2249,10 +2249,10 @@ sub_0:                                            ; preds = %get_encoded_outfile
   %65 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 12, ptr noundef %.0233)
   %66 = trunc i64 %65 to i32
   %67 = icmp ult i32 %66, 12
-  br i1 %67, label %.thread, label %83
+  br i1 %67, label %.thread400, label %83
 
 68:                                               ; preds = %.critedge309
-  br i1 %.not278, label %.thread, label %69
+  br i1 %.not278, label %.thread400, label %69
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr @stderr, align 8, !tbaa !39
@@ -2262,7 +2262,7 @@ sub_0:                                            ; preds = %get_encoded_outfile
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %70, i32 noundef 1, ptr noundef nonnull @.str.249, ptr noundef nonnull %0, ptr noundef %73, ptr noundef nonnull @.str.208) #21
   %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
   %.not281 = icmp eq i32 %74, 0
-  br i1 %.not281, label %.thread, label %75
+  br i1 %.not281, label %.thread400, label %75
 
 75:                                               ; preds = %69
   %76 = icmp eq ptr %.0233, null
@@ -2280,8 +2280,8 @@ sub_0:                                            ; preds = %get_encoded_outfile
 
 83:                                               ; preds = %.critedge309.thread, %.critedge309
   %84 = phi i32 [ %66, %.critedge309.thread ], [ %63, %.critedge309 ]
-  %.1241438 = phi i32 [ 0, %.critedge309.thread ], [ %.1241, %.critedge309 ]
-  %.not278435 = phi i1 [ true, %.critedge309.thread ], [ %.not278, %.critedge309 ]
+  %.1241476 = phi i32 [ 0, %.critedge309.thread ], [ %.1241, %.critedge309 ]
+  %.not278473 = phi i1 [ true, %.critedge309.thread ], [ %.not278, %.critedge309 ]
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %4, ptr noundef nonnull dereferenceable(3) @.str.223, i64 3)
   %.not255 = icmp eq i32 %bcmp, 0
   br i1 %.not255, label %85, label %94
@@ -2292,11 +2292,11 @@ sub_0:                                            ; preds = %get_encoded_outfile
   %87 = icmp eq ptr %.0233, null
   %88 = load ptr, ptr @stdin, align 8
   %89 = icmp eq ptr %.0233, %88
-  %or.cond.i320 = select i1 %87, i1 true, i1 %89
+  %or.cond.i321 = select i1 %87, i1 true, i1 %89
   %90 = load ptr, ptr @stdout, align 8
   %91 = icmp eq ptr %.0233, %90
-  %or.cond7.i321 = select i1 %or.cond.i320, i1 true, i1 %91
-  br i1 %or.cond7.i321, label %conditional_fclose.exit, label %92
+  %or.cond7.i322 = select i1 %or.cond.i321, i1 true, i1 %91
+  br i1 %or.cond7.i322, label %conditional_fclose.exit, label %92
 
 92:                                               ; preds = %85
   %93 = call i32 @fclose(ptr noundef nonnull %.0233)
@@ -2311,7 +2311,7 @@ sub_0:                                            ; preds = %get_encoded_outfile
   %96 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %bcmp258 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %96, ptr noundef nonnull dereferenceable(4) @.str.226, i64 4)
   %.not259 = icmp eq i32 %bcmp258, 0
-  br i1 %.not259, label %.thread, label %97
+  br i1 %.not259, label %122, label %97
 
 97:                                               ; preds = %95, %94
   %bcmp260 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @.str.227, i64 4)
@@ -2322,12 +2322,12 @@ sub_0:                                            ; preds = %get_encoded_outfile
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %bcmp262 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %99, ptr noundef nonnull dereferenceable(4) @.str.226, i64 4)
   %.not263 = icmp eq i32 %bcmp262, 0
-  br i1 %.not263, label %.thread, label %100
+  br i1 %.not263, label %.thread400, label %100
 
 100:                                              ; preds = %98, %97
   %bcmp264 = call i32 @bcmp(ptr noundef nonnull dereferenceable(12) %4, ptr noundef nonnull dereferenceable(12) @.str.228, i64 12)
   %.not265 = icmp eq i32 %bcmp264, 0
-  br i1 %.not265, label %.thread, label %101
+  br i1 %.not265, label %.thread400, label %101
 
 101:                                              ; preds = %100
   %bcmp266 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @.str.229, i64 4)
@@ -2338,607 +2338,597 @@ sub_0:                                            ; preds = %get_encoded_outfile
   %103 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %bcmp268 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %103, ptr noundef nonnull dereferenceable(4) @.str.230, i64 4)
   %.not269 = icmp eq i32 %bcmp268, 0
-  br i1 %.not269, label %.thread, label %104
+  br i1 %.not269, label %122, label %104
 
 104:                                              ; preds = %102
   %bcmp272 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %103, ptr noundef nonnull dereferenceable(4) @.str.231, i64 4)
   %.not273 = icmp eq i32 %bcmp272, 0
-  br i1 %.not273, label %.thread, label %105
+  br i1 %.not273, label %122, label %105
 
 105:                                              ; preds = %101, %104
   %bcmp274 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @FLAC__STREAM_SYNC_STRING, i64 4)
   %.not275 = icmp eq i32 %bcmp274, 0
-  br i1 %.not275, label %.thread, label %106
+  br i1 %.not275, label %.thread400, label %106
 
 106:                                              ; preds = %105
   %bcmp276 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @.str.232, i64 4)
   %.not277 = icmp eq i32 %bcmp276, 0
-  br i1 %.not277, label %.thread, label %107
+  br i1 %.not277, label %.thread400, label %107
 
 107:                                              ; preds = %106
-  br i1 %.not278435, label %.thread, label %108
+  br i1 %.not278473, label %.thread400, label %108
 
 108:                                              ; preds = %107
   %109 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %110 = zext nneg i32 %.1241438 to i64
+  %110 = zext nneg i32 %.1241476 to i64
   %111 = getelementptr inbounds nuw ptr, ptr @FileFormatString, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !45
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %109, i32 noundef 1, ptr noundef nonnull @.str.249, ptr noundef nonnull %0, ptr noundef %112, ptr noundef nonnull @.str.208) #21
   %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
   %.not279 = icmp eq i32 %113, 0
-  br i1 %.not279, label %.thread, label %114
+  br i1 %.not279, label %.thread400, label %114
 
 114:                                              ; preds = %108
   %115 = icmp eq ptr %.0233, null
   %116 = load ptr, ptr @stdin, align 8
   %117 = icmp eq ptr %.0233, %116
-  %or.cond.i324 = select i1 %115, i1 true, i1 %117
+  %or.cond.i325 = select i1 %115, i1 true, i1 %117
   %118 = load ptr, ptr @stdout, align 8
   %119 = icmp eq ptr %.0233, %118
-  %or.cond7.i325 = select i1 %or.cond.i324, i1 true, i1 %119
-  br i1 %or.cond7.i325, label %conditional_fclose.exit, label %120
+  %or.cond7.i326 = select i1 %or.cond.i325, i1 true, i1 %119
+  br i1 %or.cond7.i326, label %conditional_fclose.exit, label %120
 
 120:                                              ; preds = %114
   %121 = call i32 @fclose(ptr noundef nonnull %.0233)
   br label %conditional_fclose.exit
 
-.thread:                                          ; preds = %.critedge309.thread, %107, %108, %106, %105, %104, %102, %100, %98, %95, %68, %69, %31
-  %122 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ true, %95 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %105 ], [ false, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %123 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ false, %95 ], [ false, %98 ], [ false, %100 ], [ true, %102 ], [ false, %104 ], [ false, %105 ], [ false, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %124 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ false, %95 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ true, %104 ], [ false, %105 ], [ false, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %125 = phi i1 [ true, %31 ], [ true, %69 ], [ true, %68 ], [ false, %95 ], [ true, %98 ], [ true, %100 ], [ true, %102 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %108 ], [ true, %107 ], [ true, %.critedge309.thread ]
-  %126 = phi i1 [ true, %31 ], [ true, %69 ], [ true, %68 ], [ true, %95 ], [ true, %98 ], [ false, %100 ], [ true, %102 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %108 ], [ true, %107 ], [ true, %.critedge309.thread ]
-  %127 = phi i1 [ true, %31 ], [ true, %69 ], [ true, %68 ], [ true, %95 ], [ false, %98 ], [ true, %100 ], [ true, %102 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %108 ], [ true, %107 ], [ true, %.critedge309.thread ]
-  %128 = phi i1 [ true, %31 ], [ true, %69 ], [ true, %68 ], [ true, %95 ], [ true, %98 ], [ true, %100 ], [ false, %102 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ true, %108 ], [ true, %107 ], [ true, %.critedge309.thread ]
-  %129 = phi i1 [ true, %31 ], [ true, %69 ], [ true, %68 ], [ true, %95 ], [ true, %98 ], [ true, %100 ], [ true, %102 ], [ false, %104 ], [ true, %105 ], [ true, %106 ], [ true, %108 ], [ true, %107 ], [ true, %.critedge309.thread ]
-  %130 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ false, %95 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ true, %105 ], [ false, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %131 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ false, %95 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %105 ], [ true, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %132 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ true, %95 ], [ true, %98 ], [ true, %100 ], [ true, %102 ], [ true, %104 ], [ true, %105 ], [ true, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %133 = phi i1 [ true, %31 ], [ true, %69 ], [ true, %68 ], [ false, %95 ], [ false, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %105 ], [ false, %106 ], [ true, %108 ], [ true, %107 ], [ true, %.critedge309.thread ]
-  %134 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ false, %95 ], [ false, %98 ], [ true, %100 ], [ false, %102 ], [ false, %104 ], [ false, %105 ], [ false, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %135 = phi i1 [ false, %31 ], [ false, %69 ], [ false, %68 ], [ false, %95 ], [ true, %98 ], [ false, %100 ], [ false, %102 ], [ false, %104 ], [ false, %105 ], [ false, %106 ], [ false, %108 ], [ false, %107 ], [ false, %.critedge309.thread ]
-  %.0240 = phi i32 [ 0, %31 ], [ 0, %69 ], [ 0, %68 ], [ 1, %95 ], [ 3, %98 ], [ 2, %100 ], [ 4, %102 ], [ 5, %104 ], [ 6, %105 ], [ 7, %106 ], [ 0, %108 ], [ 0, %107 ], [ 0, %.critedge309.thread ]
-  %.0235 = phi i32 [ 0, %31 ], [ %63, %69 ], [ %63, %68 ], [ %84, %95 ], [ %84, %98 ], [ %84, %100 ], [ %84, %102 ], [ %84, %104 ], [ %84, %105 ], [ %84, %106 ], [ %84, %108 ], [ %84, %107 ], [ %66, %.critedge309.thread ]
-  %136 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 144), align 8, !tbaa !72
-  %.not282 = icmp eq i32 %136, 0
-  %or.cond = or i1 %122, %123
-  %or.cond3 = or i1 %or.cond, %124
-  br i1 %.not282, label %137, label %._crit_edge421
+122:                                              ; preds = %104, %102, %95
+  %123 = phi i1 [ true, %95 ], [ false, %102 ], [ false, %104 ]
+  %124 = phi i1 [ false, %95 ], [ true, %102 ], [ false, %104 ]
+  %125 = phi i1 [ false, %95 ], [ false, %102 ], [ true, %104 ]
+  %.0240 = phi i32 [ 1, %95 ], [ 4, %102 ], [ 5, %104 ]
+  %126 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 144), align 8, !tbaa !72
+  %.not282 = icmp eq i32 %126, 0
+  %127 = icmp sgt i64 %.0236, 4294967294
+  %or.cond313 = select i1 %.not282, i1 %127, i1 false
+  br i1 %or.cond313, label %128, label %136
 
-._crit_edge421:                                   ; preds = %.thread
-  br i1 %or.cond3, label %148, label %159
+128:                                              ; preds = %122
+  %129 = icmp eq ptr %.0233, null
+  %130 = load ptr, ptr @stdin, align 8
+  %131 = icmp eq ptr %.0233, %130
+  %or.cond.i329 = select i1 %129, i1 true, i1 %131
+  %132 = load ptr, ptr @stdout, align 8
+  %133 = icmp eq ptr %.0233, %132
+  %or.cond7.i330 = select i1 %or.cond.i329, i1 true, i1 %133
+  br i1 %or.cond7.i330, label %conditional_fclose.exit332, label %134
 
-137:                                              ; preds = %.thread
-  %138 = icmp sgt i64 %.0236, 4294967294
-  %or.cond5 = select i1 %or.cond3, i1 %138, i1 false
-  br i1 %or.cond5, label %139, label %147
+134:                                              ; preds = %128
+  %135 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit332
 
-139:                                              ; preds = %137
-  %140 = icmp eq ptr %.0233, null
-  %141 = load ptr, ptr @stdin, align 8
-  %142 = icmp eq ptr %.0233, %141
-  %or.cond.i328 = select i1 %140, i1 true, i1 %142
-  %143 = load ptr, ptr @stdout, align 8
-  %144 = icmp eq ptr %.0233, %143
-  %or.cond7.i329 = select i1 %or.cond.i328, i1 true, i1 %144
-  br i1 %or.cond7.i329, label %conditional_fclose.exit331, label %145
-
-145:                                              ; preds = %139
-  %146 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit331
-
-conditional_fclose.exit331:                       ; preds = %139, %145
+conditional_fclose.exit332:                       ; preds = %128, %134
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.233, ptr noundef nonnull %0)
   br label %conditional_fclose.exit
 
-147:                                              ; preds = %137
-  br i1 %or.cond3, label %148, label %159
+136:                                              ; preds = %122
+  %or.cond7 = or i1 %123, %124
+  %or.cond9 = or i1 %or.cond7, %125
+  br i1 %or.cond9, label %137, label %.thread400
 
-148:                                              ; preds = %._crit_edge421, %147
-  %149 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %150 = load i32, ptr %149, align 1
-  %151 = call i32 @llvm.bswap.i32(i32 %150)
-  %spec.select = select i1 %122, i32 %150, i32 %151
-  %152 = icmp slt i64 %.0236, 9
-  %153 = add nsw i64 %.0236, -8
-  %154 = zext i32 %spec.select to i64
-  %.not284 = icmp eq i64 %153, %154
-  %or.cond445 = select i1 %152, i1 true, i1 %.not284
-  br i1 %or.cond445, label %159, label %155
+137:                                              ; preds = %136
+  %138 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %139 = load i32, ptr %138, align 1
+  %140 = call i32 @llvm.bswap.i32(i32 %139)
+  %spec.select = select i1 %123, i32 %139, i32 %140
+  %141 = icmp slt i64 %.0236, 9
+  %142 = add nsw i64 %.0236, -8
+  %143 = zext i32 %spec.select to i64
+  %.not284 = icmp eq i64 %142, %143
+  %or.cond = select i1 %141, i1 true, i1 %.not284
+  br i1 %or.cond, label %.thread400, label %144
 
-155:                                              ; preds = %148
-  %156 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %157 = select i1 %122, ptr @.str.225, ptr @.str.229
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %156, i32 noundef 1, ptr noundef nonnull @.str.234, ptr noundef nonnull %157, ptr noundef nonnull %0) #21
-  %158 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
-  %.not285 = icmp eq i32 %158, 0
-  br i1 %.not285, label %159, label %conditional_fclose.exit
+144:                                              ; preds = %137
+  %145 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %146 = select i1 %123, ptr @.str.225, ptr @.str.229
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %145, i32 noundef 1, ptr noundef nonnull @.str.234, ptr noundef nonnull %146, ptr noundef nonnull %0) #21
+  %147 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
+  %.not285 = icmp eq i32 %147, 0
+  br i1 %.not285, label %.thread400, label %conditional_fclose.exit
 
-159:                                              ; preds = %._crit_edge421, %148, %155, %147
-  %160 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 132), align 4, !tbaa !75
-  %161 = icmp ne i32 %160, 0
-  %162 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 136), align 8
-  %163 = icmp ne i32 %162, 0
-  %or.cond13 = select i1 %161, i1 true, i1 %163
-  br i1 %or.cond13, label %164, label %182
+.thread400:                                       ; preds = %.critedge309.thread, %31, %69, %68, %98, %100, %105, %106, %108, %107, %137, %144, %136
+  %148 = phi i1 [ %123, %137 ], [ %123, %144 ], [ false, %136 ], [ false, %107 ], [ false, %108 ], [ false, %106 ], [ false, %105 ], [ false, %100 ], [ false, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %149 = phi i1 [ %124, %137 ], [ %124, %144 ], [ false, %136 ], [ false, %107 ], [ false, %108 ], [ false, %106 ], [ false, %105 ], [ false, %100 ], [ false, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %150 = phi i1 [ %125, %137 ], [ %125, %144 ], [ false, %136 ], [ false, %107 ], [ false, %108 ], [ false, %106 ], [ false, %105 ], [ false, %100 ], [ false, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %or.cond17397410 = phi i1 [ false, %137 ], [ false, %144 ], [ false, %136 ], [ true, %107 ], [ true, %108 ], [ true, %106 ], [ true, %105 ], [ false, %100 ], [ false, %98 ], [ true, %68 ], [ true, %69 ], [ true, %31 ], [ true, %.critedge309.thread ]
+  %151 = phi i1 [ false, %137 ], [ false, %144 ], [ false, %136 ], [ false, %107 ], [ false, %108 ], [ false, %106 ], [ true, %105 ], [ false, %100 ], [ false, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %152 = phi i1 [ false, %137 ], [ false, %144 ], [ false, %136 ], [ false, %107 ], [ false, %108 ], [ true, %106 ], [ false, %105 ], [ false, %100 ], [ false, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %153 = phi i1 [ true, %137 ], [ true, %144 ], [ true, %136 ], [ false, %107 ], [ false, %108 ], [ true, %106 ], [ true, %105 ], [ true, %100 ], [ true, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %154 = phi i1 [ false, %137 ], [ false, %144 ], [ false, %136 ], [ true, %107 ], [ true, %108 ], [ false, %106 ], [ false, %105 ], [ false, %100 ], [ false, %98 ], [ true, %68 ], [ true, %69 ], [ true, %31 ], [ true, %.critedge309.thread ]
+  %155 = phi i1 [ false, %137 ], [ false, %144 ], [ false, %136 ], [ false, %107 ], [ false, %108 ], [ false, %106 ], [ false, %105 ], [ true, %100 ], [ false, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %156 = phi i1 [ false, %137 ], [ false, %144 ], [ false, %136 ], [ false, %107 ], [ false, %108 ], [ false, %106 ], [ false, %105 ], [ false, %100 ], [ true, %98 ], [ false, %68 ], [ false, %69 ], [ false, %31 ], [ false, %.critedge309.thread ]
+  %.0240398408 = phi i32 [ %.0240, %137 ], [ %.0240, %144 ], [ %.0240, %136 ], [ 0, %107 ], [ 0, %108 ], [ 7, %106 ], [ 6, %105 ], [ 2, %100 ], [ 3, %98 ], [ 0, %68 ], [ 0, %69 ], [ 0, %31 ], [ 0, %.critedge309.thread ]
+  %.0235399406 = phi i32 [ %84, %137 ], [ %84, %144 ], [ %84, %136 ], [ %84, %107 ], [ %84, %108 ], [ %84, %106 ], [ %84, %105 ], [ %84, %100 ], [ %84, %98 ], [ %63, %68 ], [ %63, %69 ], [ 0, %31 ], [ %66, %.critedge309.thread ]
+  %157 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 132), align 4, !tbaa !75
+  %158 = icmp ne i32 %157, 0
+  %159 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 136), align 8
+  %160 = icmp ne i32 %159, 0
+  %or.cond13 = select i1 %158, i1 true, i1 %160
+  br i1 %or.cond13, label %161, label %179
 
-164:                                              ; preds = %159
-  %165 = load ptr, ptr @stdin, align 8, !tbaa !39
-  %166 = icmp eq ptr %.0233, %165
-  %167 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 88), align 8
-  %168 = icmp ne i32 %167, 0
-  %or.cond15 = select i1 %166, i1 true, i1 %168
-  br i1 %or.cond15, label %169, label %175
+161:                                              ; preds = %.thread400
+  %162 = load ptr, ptr @stdin, align 8, !tbaa !39
+  %163 = icmp eq ptr %.0233, %162
+  %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 88), align 8
+  %165 = icmp ne i32 %164, 0
+  %or.cond15 = select i1 %163, i1 true, i1 %165
+  br i1 %or.cond15, label %166, label %172
 
-169:                                              ; preds = %164
-  %170 = icmp eq ptr %.0233, null
-  %or.cond.i332 = or i1 %170, %166
-  %171 = load ptr, ptr @stdout, align 8
-  %172 = icmp eq ptr %.0233, %171
-  %or.cond7.i333 = select i1 %or.cond.i332, i1 true, i1 %172
-  br i1 %or.cond7.i333, label %conditional_fclose.exit335, label %173
+166:                                              ; preds = %161
+  %167 = icmp eq ptr %.0233, null
+  %or.cond.i333 = or i1 %167, %163
+  %168 = load ptr, ptr @stdout, align 8
+  %169 = icmp eq ptr %.0233, %168
+  %or.cond7.i334 = select i1 %or.cond.i333, i1 true, i1 %169
+  br i1 %or.cond7.i334, label %conditional_fclose.exit336, label %170
 
-173:                                              ; preds = %169
-  %174 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit335
+170:                                              ; preds = %166
+  %171 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit336
 
-conditional_fclose.exit335:                       ; preds = %169, %173
+conditional_fclose.exit336:                       ; preds = %166, %170
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.235)
   br label %conditional_fclose.exit
 
-175:                                              ; preds = %164
-  %or.cond17 = and i1 %125, %126
-  %or.cond19 = and i1 %or.cond17, %127
-  %or.cond21 = and i1 %or.cond19, %128
-  %or.cond23 = and i1 %or.cond21, %129
-  br i1 %or.cond23, label %176, label %182
+172:                                              ; preds = %161
+  br i1 %or.cond17397410, label %173, label %179
 
-176:                                              ; preds = %175
-  %177 = icmp eq ptr %.0233, null
-  %178 = load ptr, ptr @stdout, align 8
-  %179 = icmp eq ptr %.0233, %178
-  %or.cond7.i337 = select i1 %177, i1 true, i1 %179
-  br i1 %or.cond7.i337, label %conditional_fclose.exit339, label %180
+173:                                              ; preds = %172
+  %174 = icmp eq ptr %.0233, null
+  %175 = load ptr, ptr @stdout, align 8
+  %176 = icmp eq ptr %.0233, %175
+  %or.cond7.i338 = select i1 %174, i1 true, i1 %176
+  br i1 %or.cond7.i338, label %conditional_fclose.exit340, label %177
 
-180:                                              ; preds = %176
-  %181 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit339
+177:                                              ; preds = %173
+  %178 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit340
 
-conditional_fclose.exit339:                       ; preds = %176, %180
+conditional_fclose.exit340:                       ; preds = %173, %177
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.236)
   br label %conditional_fclose.exit
 
-182:                                              ; preds = %175, %159
-  %183 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 60), align 4, !tbaa !55
-  %184 = icmp ne i32 %183, 0
-  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 20), align 4
-  %186 = icmp ne i32 %185, 0
-  %or.cond25 = select i1 %184, i1 true, i1 %186
-  br i1 %or.cond25, label %201, label %sub_0399
+179:                                              ; preds = %172, %.thread400
+  %180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 60), align 4, !tbaa !55
+  %181 = icmp ne i32 %180, 0
+  %182 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 20), align 4
+  %183 = icmp ne i32 %182, 0
+  %or.cond25 = select i1 %181, i1 true, i1 %183
+  br i1 %or.cond25, label %198, label %sub_0440
 
-sub_0399:                                         ; preds = %182
-  %187 = load i8, ptr %13, align 1
-  %.not415 = icmp eq i8 %187, 45
-  br i1 %.not415, label %.tail398, label %.tail398.thread
+sub_0440:                                         ; preds = %179
+  %184 = load i8, ptr %13, align 1
+  %.not456 = icmp eq i8 %184, 45
+  br i1 %.not456, label %.tail439, label %.tail439.thread
 
-.tail398:                                         ; preds = %sub_0399
-  %188 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  %189 = load i8, ptr %188, align 1
-  %190 = icmp eq i8 %189, 0
-  br i1 %190, label %201, label %.tail398.thread
+.tail439:                                         ; preds = %sub_0440
+  %185 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %186 = load i8, ptr %185, align 1
+  %187 = icmp eq i8 %186, 0
+  br i1 %187, label %198, label %.tail439.thread
 
-.tail398.thread:                                  ; preds = %sub_0399, %.tail398
-  %191 = call i64 @grabbag__file_get_filesize(ptr noundef nonnull %13) #21
-  %.not287 = icmp eq i64 %191, -1
-  br i1 %.not287, label %201, label %192
+.tail439.thread:                                  ; preds = %sub_0440, %.tail439
+  %188 = call i64 @grabbag__file_get_filesize(ptr noundef nonnull %13) #21
+  %.not287 = icmp eq i64 %188, -1
+  br i1 %.not287, label %198, label %189
 
-192:                                              ; preds = %.tail398.thread
-  %193 = load ptr, ptr @stderr, align 8, !tbaa !39
-  %.str.238..str.201 = select i1 %131, ptr @.str.238, ptr @.str.201
-  %.str.238.sink = select i1 %130, ptr @.str.237, ptr %.str.238..str.201
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %193, i32 noundef 1, ptr noundef nonnull %.str.238.sink, ptr noundef nonnull %13) #21
-  %194 = icmp eq ptr %.0233, null
-  %195 = load ptr, ptr @stdin, align 8
-  %196 = icmp eq ptr %.0233, %195
-  %or.cond.i340 = select i1 %194, i1 true, i1 %196
-  %197 = load ptr, ptr @stdout, align 8
-  %198 = icmp eq ptr %.0233, %197
-  %or.cond7.i341 = select i1 %or.cond.i340, i1 true, i1 %198
-  br i1 %or.cond7.i341, label %conditional_fclose.exit, label %199
+189:                                              ; preds = %.tail439.thread
+  %190 = load ptr, ptr @stderr, align 8, !tbaa !39
+  %.str.238..str.201 = select i1 %152, ptr @.str.238, ptr @.str.201
+  %.str.238.sink = select i1 %151, ptr @.str.237, ptr %.str.238..str.201
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %190, i32 noundef 1, ptr noundef nonnull %.str.238.sink, ptr noundef nonnull %13) #21
+  %191 = icmp eq ptr %.0233, null
+  %192 = load ptr, ptr @stdin, align 8
+  %193 = icmp eq ptr %.0233, %192
+  %or.cond.i341 = select i1 %191, i1 true, i1 %193
+  %194 = load ptr, ptr @stdout, align 8
+  %195 = icmp eq ptr %.0233, %194
+  %or.cond7.i342 = select i1 %or.cond.i341, i1 true, i1 %195
+  br i1 %or.cond7.i342, label %conditional_fclose.exit, label %196
 
-199:                                              ; preds = %192
-  %200 = call i32 @fclose(ptr noundef nonnull %.0233)
+196:                                              ; preds = %189
+  %197 = call i32 @fclose(ptr noundef nonnull %.0233)
   br label %conditional_fclose.exit
 
-201:                                              ; preds = %.tail398.thread, %.tail398, %182
-  %202 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1272), align 8, !tbaa !32
-  %203 = icmp sgt i64 %202, -1
-  br i1 %203, label %204, label %215
+198:                                              ; preds = %.tail439.thread, %.tail439, %179
+  %199 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1272), align 8, !tbaa !32
+  %200 = icmp sgt i64 %199, -1
+  br i1 %200, label %201, label %212
 
-204:                                              ; preds = %201
-  %205 = icmp sgt i64 %.0236, -1
-  %or.cond27 = select i1 %132, i1 true, i1 %205
-  br i1 %or.cond27, label %206, label %215
+201:                                              ; preds = %198
+  %202 = icmp sgt i64 %.0236, -1
+  %or.cond27 = select i1 %153, i1 true, i1 %202
+  br i1 %or.cond27, label %203, label %212
 
-206:                                              ; preds = %204
-  %207 = load ptr, ptr @stderr, align 8, !tbaa !39
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %207, i32 noundef 1, ptr noundef nonnull @.str.239) #21
-  %208 = icmp eq ptr %.0233, null
-  %209 = load ptr, ptr @stdin, align 8
-  %210 = icmp eq ptr %.0233, %209
-  %or.cond.i344 = select i1 %208, i1 true, i1 %210
-  %211 = load ptr, ptr @stdout, align 8
-  %212 = icmp eq ptr %.0233, %211
-  %or.cond7.i345 = select i1 %or.cond.i344, i1 true, i1 %212
-  br i1 %or.cond7.i345, label %conditional_fclose.exit, label %213
+203:                                              ; preds = %201
+  %204 = load ptr, ptr @stderr, align 8, !tbaa !39
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %204, i32 noundef 1, ptr noundef nonnull @.str.239) #21
+  %205 = icmp eq ptr %.0233, null
+  %206 = load ptr, ptr @stdin, align 8
+  %207 = icmp eq ptr %.0233, %206
+  %or.cond.i345 = select i1 %205, i1 true, i1 %207
+  %208 = load ptr, ptr @stdout, align 8
+  %209 = icmp eq ptr %.0233, %208
+  %or.cond7.i346 = select i1 %or.cond.i345, i1 true, i1 %209
+  br i1 %or.cond7.i346, label %conditional_fclose.exit, label %210
 
-213:                                              ; preds = %206
-  %214 = call i32 @fclose(ptr noundef nonnull %.0233)
+210:                                              ; preds = %203
+  %211 = call i32 @fclose(ptr noundef nonnull %.0233)
   br label %conditional_fclose.exit
 
-215:                                              ; preds = %204, %201
-  %.1237 = phi i64 [ %.0236, %201 ], [ %202, %204 ]
-  %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1248), align 8, !tbaa !70
-  %217 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1252), align 4
-  %218 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1256), align 8
-  %219 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1260), align 4
-  %220 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1264), align 8
-  br i1 %133, label %221, label %235
+212:                                              ; preds = %201, %198
+  %.1237 = phi i64 [ %.0236, %198 ], [ %199, %201 ]
+  %213 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1248), align 8, !tbaa !70
+  %214 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1252), align 4
+  %215 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1256), align 8
+  %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1260), align 4
+  %217 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1264), align 8
+  br i1 %154, label %218, label %232
 
-221:                                              ; preds = %215
+218:                                              ; preds = %212
+  %219 = icmp slt i32 %213, 0
+  %220 = icmp slt i32 %214, 0
+  %or.cond29 = select i1 %219, i1 true, i1 %220
+  %221 = icmp slt i32 %215, 0
+  %or.cond31 = select i1 %or.cond29, i1 true, i1 %221
   %222 = icmp slt i32 %216, 0
+  %or.cond33 = select i1 %or.cond31, i1 true, i1 %222
   %223 = icmp slt i32 %217, 0
-  %or.cond29 = select i1 %222, i1 true, i1 %223
-  %224 = icmp slt i32 %218, 0
-  %or.cond31 = select i1 %or.cond29, i1 true, i1 %224
-  %225 = icmp slt i32 %219, 0
-  %or.cond33 = select i1 %or.cond31, i1 true, i1 %225
-  %226 = icmp slt i32 %220, 0
-  %or.cond35 = select i1 %or.cond33, i1 true, i1 %226
-  br i1 %or.cond35, label %227, label %249
+  %or.cond35 = select i1 %or.cond33, i1 true, i1 %223
+  br i1 %or.cond35, label %224, label %246
 
-227:                                              ; preds = %221
-  %228 = icmp eq ptr %.0233, null
-  %229 = load ptr, ptr @stdin, align 8
-  %230 = icmp eq ptr %.0233, %229
-  %or.cond.i348 = select i1 %228, i1 true, i1 %230
-  %231 = load ptr, ptr @stdout, align 8
-  %232 = icmp eq ptr %.0233, %231
-  %or.cond7.i349 = select i1 %or.cond.i348, i1 true, i1 %232
-  br i1 %or.cond7.i349, label %conditional_fclose.exit351, label %233
+224:                                              ; preds = %218
+  %225 = icmp eq ptr %.0233, null
+  %226 = load ptr, ptr @stdin, align 8
+  %227 = icmp eq ptr %.0233, %226
+  %or.cond.i349 = select i1 %225, i1 true, i1 %227
+  %228 = load ptr, ptr @stdout, align 8
+  %229 = icmp eq ptr %.0233, %228
+  %or.cond7.i350 = select i1 %or.cond.i349, i1 true, i1 %229
+  br i1 %or.cond7.i350, label %conditional_fclose.exit352, label %230
 
-233:                                              ; preds = %227
-  %234 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit351
+230:                                              ; preds = %224
+  %231 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit352
 
-conditional_fclose.exit351:                       ; preds = %227, %233
+conditional_fclose.exit352:                       ; preds = %224, %230
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.240)
   br label %conditional_fclose.exit
 
-235:                                              ; preds = %215
+232:                                              ; preds = %212
+  %233 = icmp sgt i32 %213, -1
+  %234 = icmp sgt i32 %214, -1
+  %or.cond37 = select i1 %233, i1 true, i1 %234
+  %235 = icmp sgt i32 %215, -1
+  %or.cond39 = select i1 %or.cond37, i1 true, i1 %235
   %236 = icmp sgt i32 %216, -1
+  %or.cond41 = select i1 %or.cond39, i1 true, i1 %236
   %237 = icmp sgt i32 %217, -1
-  %or.cond37 = select i1 %236, i1 true, i1 %237
-  %238 = icmp sgt i32 %218, -1
-  %or.cond39 = select i1 %or.cond37, i1 true, i1 %238
-  %239 = icmp sgt i32 %219, -1
-  %or.cond41 = select i1 %or.cond39, i1 true, i1 %239
-  %240 = icmp sgt i32 %220, -1
-  %or.cond43 = select i1 %or.cond41, i1 true, i1 %240
-  br i1 %or.cond43, label %241, label %249
+  %or.cond43 = select i1 %or.cond41, i1 true, i1 %237
+  br i1 %or.cond43, label %238, label %246
 
-241:                                              ; preds = %235
-  %242 = icmp eq ptr %.0233, null
-  %243 = load ptr, ptr @stdin, align 8
-  %244 = icmp eq ptr %.0233, %243
-  %or.cond.i352 = select i1 %242, i1 true, i1 %244
-  %245 = load ptr, ptr @stdout, align 8
-  %246 = icmp eq ptr %.0233, %245
-  %or.cond7.i353 = select i1 %or.cond.i352, i1 true, i1 %246
-  br i1 %or.cond7.i353, label %conditional_fclose.exit355, label %247
+238:                                              ; preds = %232
+  %239 = icmp eq ptr %.0233, null
+  %240 = load ptr, ptr @stdin, align 8
+  %241 = icmp eq ptr %.0233, %240
+  %or.cond.i353 = select i1 %239, i1 true, i1 %241
+  %242 = load ptr, ptr @stdout, align 8
+  %243 = icmp eq ptr %.0233, %242
+  %or.cond7.i354 = select i1 %or.cond.i353, i1 true, i1 %243
+  br i1 %or.cond7.i354, label %conditional_fclose.exit356, label %244
 
-247:                                              ; preds = %241
-  %248 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit355
+244:                                              ; preds = %238
+  %245 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit356
 
-conditional_fclose.exit355:                       ; preds = %241, %247
+conditional_fclose.exit356:                       ; preds = %238, %244
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.241)
   br label %conditional_fclose.exit
 
-249:                                              ; preds = %235, %221
-  %250 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 88), align 8, !tbaa !74
-  %251 = icmp ne i32 %250, 0
-  %252 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 140), align 4
-  %253 = icmp ne i32 %252, 0
-  %or.cond71 = select i1 %251, i1 %253, i1 false
-  br i1 %or.cond71, label %254, label %262
+246:                                              ; preds = %232, %218
+  %247 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 88), align 8, !tbaa !74
+  %248 = icmp ne i32 %247, 0
+  %249 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 140), align 4
+  %250 = icmp ne i32 %249, 0
+  %or.cond71 = select i1 %248, i1 %250, i1 false
+  br i1 %or.cond71, label %251, label %259
 
-254:                                              ; preds = %249
-  %255 = icmp eq ptr %.0233, null
-  %256 = load ptr, ptr @stdin, align 8
-  %257 = icmp eq ptr %.0233, %256
-  %or.cond.i356 = select i1 %255, i1 true, i1 %257
-  %258 = load ptr, ptr @stdout, align 8
-  %259 = icmp eq ptr %.0233, %258
-  %or.cond7.i357 = select i1 %or.cond.i356, i1 true, i1 %259
-  br i1 %or.cond7.i357, label %conditional_fclose.exit359, label %260
+251:                                              ; preds = %246
+  %252 = icmp eq ptr %.0233, null
+  %253 = load ptr, ptr @stdin, align 8
+  %254 = icmp eq ptr %.0233, %253
+  %or.cond.i357 = select i1 %252, i1 true, i1 %254
+  %255 = load ptr, ptr @stdout, align 8
+  %256 = icmp eq ptr %.0233, %255
+  %or.cond7.i358 = select i1 %or.cond.i357, i1 true, i1 %256
+  br i1 %or.cond7.i358, label %conditional_fclose.exit360, label %257
 
-260:                                              ; preds = %254
-  %261 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit359
+257:                                              ; preds = %251
+  %258 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit360
 
-conditional_fclose.exit359:                       ; preds = %254, %260
+conditional_fclose.exit360:                       ; preds = %251, %257
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.242)
   br label %conditional_fclose.exit
 
-262:                                              ; preds = %249
-  %263 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 68), align 4
-  %264 = icmp ne i32 %263, 0
-  %or.cond45 = select i1 %253, i1 %264, i1 false
-  br i1 %or.cond45, label %265, label %273
+259:                                              ; preds = %246
+  %260 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 68), align 4
+  %261 = icmp ne i32 %260, 0
+  %or.cond45 = select i1 %250, i1 %261, i1 false
+  br i1 %or.cond45, label %262, label %270
 
-265:                                              ; preds = %262
-  %266 = icmp eq ptr %.0233, null
-  %267 = load ptr, ptr @stdin, align 8
-  %268 = icmp eq ptr %.0233, %267
-  %or.cond.i360 = select i1 %266, i1 true, i1 %268
-  %269 = load ptr, ptr @stdout, align 8
-  %270 = icmp eq ptr %.0233, %269
-  %or.cond7.i361 = select i1 %or.cond.i360, i1 true, i1 %270
-  br i1 %or.cond7.i361, label %conditional_fclose.exit363, label %271
+262:                                              ; preds = %259
+  %263 = icmp eq ptr %.0233, null
+  %264 = load ptr, ptr @stdin, align 8
+  %265 = icmp eq ptr %.0233, %264
+  %or.cond.i361 = select i1 %263, i1 true, i1 %265
+  %266 = load ptr, ptr @stdout, align 8
+  %267 = icmp eq ptr %.0233, %266
+  %or.cond7.i362 = select i1 %or.cond.i361, i1 true, i1 %267
+  br i1 %or.cond7.i362, label %conditional_fclose.exit364, label %268
 
-271:                                              ; preds = %265
-  %272 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit363
+268:                                              ; preds = %262
+  %269 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit364
 
-conditional_fclose.exit363:                       ; preds = %265, %271
+conditional_fclose.exit364:                       ; preds = %262, %268
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.243)
   br label %conditional_fclose.exit
 
-273:                                              ; preds = %262
-  %274 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1224), align 8, !tbaa !56
-  %275 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %274, ptr noundef nonnull %5) #21
-  %276 = icmp eq i32 %275, 0
-  %277 = load i32, ptr %5, align 8
-  %278 = icmp ne i32 %277, 0
-  %or.cond49 = select i1 %276, i1 true, i1 %278
-  br i1 %or.cond49, label %279, label %287
+270:                                              ; preds = %259
+  %271 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1224), align 8, !tbaa !56
+  %272 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %271, ptr noundef nonnull %5) #21
+  %273 = icmp eq i32 %272, 0
+  %274 = load i32, ptr %5, align 8
+  %275 = icmp ne i32 %274, 0
+  %or.cond49 = select i1 %273, i1 true, i1 %275
+  br i1 %or.cond49, label %276, label %284
 
-279:                                              ; preds = %273
-  %280 = icmp eq ptr %.0233, null
-  %281 = load ptr, ptr @stdin, align 8
-  %282 = icmp eq ptr %.0233, %281
-  %or.cond.i364 = select i1 %280, i1 true, i1 %282
-  %283 = load ptr, ptr @stdout, align 8
-  %284 = icmp eq ptr %.0233, %283
-  %or.cond7.i365 = select i1 %or.cond.i364, i1 true, i1 %284
-  br i1 %or.cond7.i365, label %conditional_fclose.exit367, label %285
+276:                                              ; preds = %270
+  %277 = icmp eq ptr %.0233, null
+  %278 = load ptr, ptr @stdin, align 8
+  %279 = icmp eq ptr %.0233, %278
+  %or.cond.i365 = select i1 %277, i1 true, i1 %279
+  %280 = load ptr, ptr @stdout, align 8
+  %281 = icmp eq ptr %.0233, %280
+  %or.cond7.i366 = select i1 %or.cond.i365, i1 true, i1 %281
+  br i1 %or.cond7.i366, label %conditional_fclose.exit368, label %282
 
-285:                                              ; preds = %279
-  %286 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit367
+282:                                              ; preds = %276
+  %283 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit368
 
-conditional_fclose.exit367:                       ; preds = %279, %285
+conditional_fclose.exit368:                       ; preds = %276, %282
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.205)
   br label %conditional_fclose.exit
 
-287:                                              ; preds = %273
-  %288 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1232), align 8, !tbaa !57
-  %289 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %290 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %288, ptr noundef nonnull %289) #21
-  %.not288 = icmp eq i32 %290, 0
-  br i1 %.not288, label %291, label %299
+284:                                              ; preds = %270
+  %285 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1232), align 8, !tbaa !57
+  %286 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %287 = call i32 @flac__utils_parse_skip_until_specification(ptr noundef %285, ptr noundef nonnull %286) #21
+  %.not288 = icmp eq i32 %287, 0
+  br i1 %.not288, label %288, label %296
 
-291:                                              ; preds = %287
-  %292 = icmp eq ptr %.0233, null
-  %293 = load ptr, ptr @stdin, align 8
-  %294 = icmp eq ptr %.0233, %293
-  %or.cond.i368 = select i1 %292, i1 true, i1 %294
-  %295 = load ptr, ptr @stdout, align 8
-  %296 = icmp eq ptr %.0233, %295
-  %or.cond7.i369 = select i1 %or.cond.i368, i1 true, i1 %296
-  br i1 %or.cond7.i369, label %conditional_fclose.exit371, label %297
+288:                                              ; preds = %284
+  %289 = icmp eq ptr %.0233, null
+  %290 = load ptr, ptr @stdin, align 8
+  %291 = icmp eq ptr %.0233, %290
+  %or.cond.i369 = select i1 %289, i1 true, i1 %291
+  %292 = load ptr, ptr @stdout, align 8
+  %293 = icmp eq ptr %.0233, %292
+  %or.cond7.i370 = select i1 %or.cond.i369, i1 true, i1 %293
+  br i1 %or.cond7.i370, label %conditional_fclose.exit372, label %294
 
-297:                                              ; preds = %291
-  %298 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit371
+294:                                              ; preds = %288
+  %295 = call i32 @fclose(ptr noundef nonnull %.0233)
+  br label %conditional_fclose.exit372
 
-conditional_fclose.exit371:                       ; preds = %291, %297
+conditional_fclose.exit372:                       ; preds = %288, %294
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.206)
   br label %conditional_fclose.exit
 
-299:                                              ; preds = %287
-  %300 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1232), align 8, !tbaa !57
-  %301 = icmp eq ptr %300, null
-  br i1 %301, label %302, label %303
+296:                                              ; preds = %284
+  %297 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1232), align 8, !tbaa !57
+  %298 = icmp eq ptr %297, null
+  br i1 %298, label %299, label %300
 
-302:                                              ; preds = %299
-  store i32 1, ptr %289, align 8, !tbaa !118
-  br label %303
+299:                                              ; preds = %296
+  store i32 1, ptr %286, align 8, !tbaa !118
+  br label %300
 
-303:                                              ; preds = %302, %299
-  %304 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 12), align 4, !tbaa !120
-  %305 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i32 %304, ptr %305, align 8, !tbaa !121
-  %306 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
-  %307 = getelementptr inbounds nuw i8, ptr %5, i64 1120
-  store i32 %306, ptr %307, align 8, !tbaa !122
-  %308 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 68), align 4, !tbaa !96
-  %309 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  store i32 %308, ptr %309, align 4, !tbaa !123
-  %310 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 72), align 8, !tbaa !110
-  %.not289 = icmp eq i32 %310, 0
-  br i1 %.not289, label %311, label %._crit_edge
+300:                                              ; preds = %299, %296
+  %301 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 12), align 4, !tbaa !120
+  %302 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i32 %301, ptr %302, align 8, !tbaa !121
+  %303 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
+  %304 = getelementptr inbounds nuw i8, ptr %5, i64 1120
+  store i32 %303, ptr %304, align 8, !tbaa !122
+  %305 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 68), align 4, !tbaa !96
+  %306 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  store i32 %305, ptr %306, align 4, !tbaa !123
+  %307 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 72), align 8, !tbaa !110
+  %.not289 = icmp eq i32 %307, 0
+  br i1 %.not289, label %308, label %._crit_edge
 
-._crit_edge:                                      ; preds = %303
+._crit_edge:                                      ; preds = %300
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 80), align 8, !tbaa !112
-  br label %314
+  br label %311
 
-311:                                              ; preds = %303
-  %312 = call i32 @rand() #21
-  %313 = sext i32 %312 to i64
+308:                                              ; preds = %300
+  %309 = call i32 @rand() #21
+  %310 = sext i32 %309 to i64
   store i32 1, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 72), align 8, !tbaa !110
-  br label %314
+  br label %311
 
-314:                                              ; preds = %._crit_edge, %311
-  %315 = phi i64 [ %.pre, %._crit_edge ], [ %313, %311 ]
-  %316 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store i64 %315, ptr %316, align 8, !tbaa !124
-  %317 = add i64 %315, 1
-  %318 = and i64 %317, 4294967295
-  store i64 %318, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 80), align 8, !tbaa !112
-  %319 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 56), align 8, !tbaa !125
-  %320 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %319, ptr %320, align 8, !tbaa !126
-  %321 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 176), align 8, !tbaa !26
-  %322 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 %321, ptr %322, align 4, !tbaa !127
-  %323 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
-  %324 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %323, ptr %324, align 8, !tbaa !128
-  %325 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %325, ptr noundef nonnull align 8 dereferenceable(1024) getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 noundef 1024, i1 noundef false) #21
-  %326 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1216), align 8, !tbaa !27
-  %327 = getelementptr inbounds nuw i8, ptr %5, i64 1088
-  store i32 %326, ptr %327, align 8, !tbaa !129
-  %328 = getelementptr inbounds nuw i8, ptr %5, i64 1096
-  store ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1280), ptr %328, align 8, !tbaa !130
-  %329 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6280), align 8, !tbaa !33
-  %330 = getelementptr inbounds nuw i8, ptr %5, i64 1104
-  store i32 %329, ptr %330, align 8, !tbaa !131
-  %331 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6288), align 8, !tbaa !34
-  %332 = getelementptr inbounds nuw i8, ptr %5, i64 1112
-  store ptr %331, ptr %332, align 8, !tbaa !132
-  %333 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 24), align 8, !tbaa !76
-  %334 = getelementptr inbounds nuw i8, ptr %5, i64 1124
-  store i32 %333, ptr %334, align 4, !tbaa !133
-  %335 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6296), align 8, !tbaa !35
-  %336 = getelementptr inbounds nuw i8, ptr %5, i64 1128
-  store i32 %335, ptr %336, align 8, !tbaa !134
-  %337 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6300), align 4, !tbaa !114
-  %338 = getelementptr inbounds nuw i8, ptr %5, i64 1132
-  store i32 %337, ptr %338, align 4, !tbaa !135
-  %339 = getelementptr inbounds nuw i8, ptr %5, i64 1136
-  store i32 %1, ptr %339, align 8, !tbaa !136
-  %340 = getelementptr inbounds nuw i8, ptr %5, i64 1140
-  store i32 %2, ptr %340, align 4, !tbaa !137
-  %341 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 140), align 4, !tbaa !73
-  %342 = getelementptr inbounds nuw i8, ptr %5, i64 1144
-  store i32 %341, ptr %342, align 8, !tbaa !138
-  %343 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 144), align 8, !tbaa !72
-  %344 = getelementptr inbounds nuw i8, ptr %5, i64 1148
-  store i32 %343, ptr %344, align 4, !tbaa !139
-  %345 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6328), align 8, !tbaa !38
-  %346 = getelementptr inbounds nuw i8, ptr %5, i64 1168
-  store ptr %345, ptr %346, align 8, !tbaa !140
-  %347 = getelementptr inbounds nuw i8, ptr %5, i64 1184
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %347, ptr noundef nonnull align 8 dereferenceable(512) getelementptr inbounds nuw (i8, ptr @option_values, i64 6336), i64 noundef 512, i1 noundef false) #21
-  %348 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6848), align 8, !tbaa !84
-  %349 = getelementptr inbounds nuw i8, ptr %5, i64 1696
-  store i32 %348, ptr %349, align 8, !tbaa !141
-  %350 = getelementptr inbounds nuw i8, ptr %5, i64 1700
-  store i32 %.0240, ptr %350, align 4, !tbaa !142
-  %351 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6852), align 4, !tbaa !143
-  %352 = getelementptr inbounds nuw i8, ptr %5, i64 1728
-  store i32 %351, ptr %352, align 8, !tbaa !144
-  %353 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6856), align 8, !tbaa !145
-  %354 = getelementptr inbounds nuw i8, ptr %5, i64 1732
-  store i32 %353, ptr %354, align 4, !tbaa !146
-  %355 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6860), align 4, !tbaa !147
-  %356 = getelementptr inbounds nuw i8, ptr %5, i64 1736
-  store i32 %355, ptr %356, align 8, !tbaa !148
-  %357 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6864), align 8, !tbaa !37
-  %358 = getelementptr inbounds nuw i8, ptr %5, i64 1740
-  store i32 %357, ptr %358, align 4, !tbaa !149
-  %359 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6304), align 8, !tbaa !150
-  %360 = getelementptr inbounds nuw i8, ptr %5, i64 1152
-  store i32 %359, ptr %360, align 8, !tbaa !151
-  %361 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6308), align 4, !tbaa !152
-  %362 = getelementptr inbounds nuw i8, ptr %5, i64 1156
-  store i32 %361, ptr %362, align 4, !tbaa !153
-  %363 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 136), align 8, !tbaa !87
-  %364 = getelementptr inbounds nuw i8, ptr %5, i64 1160
-  store i32 %363, ptr %364, align 8, !tbaa !154
-  %365 = load ptr, ptr @stdin, align 8, !tbaa !39
-  %.not290 = icmp eq ptr %.0233, %365
-  br i1 %.not290, label %382, label %366
+311:                                              ; preds = %._crit_edge, %308
+  %312 = phi i64 [ %.pre, %._crit_edge ], [ %310, %308 ]
+  %313 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store i64 %312, ptr %313, align 8, !tbaa !124
+  %314 = add i64 %312, 1
+  %315 = and i64 %314, 4294967295
+  store i64 %315, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 80), align 8, !tbaa !112
+  %316 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 56), align 8, !tbaa !125
+  %317 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 %316, ptr %317, align 8, !tbaa !126
+  %318 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 176), align 8, !tbaa !26
+  %319 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i32 %318, ptr %319, align 4, !tbaa !127
+  %320 = load i64, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 184), align 8, !tbaa !28
+  %321 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %320, ptr %321, align 8, !tbaa !128
+  %322 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %322, ptr noundef nonnull align 8 dereferenceable(1024) getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 noundef 1024, i1 noundef false) #21
+  %323 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1216), align 8, !tbaa !27
+  %324 = getelementptr inbounds nuw i8, ptr %5, i64 1088
+  store i32 %323, ptr %324, align 8, !tbaa !129
+  %325 = getelementptr inbounds nuw i8, ptr %5, i64 1096
+  store ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1280), ptr %325, align 8, !tbaa !130
+  %326 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6280), align 8, !tbaa !33
+  %327 = getelementptr inbounds nuw i8, ptr %5, i64 1104
+  store i32 %326, ptr %327, align 8, !tbaa !131
+  %328 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6288), align 8, !tbaa !34
+  %329 = getelementptr inbounds nuw i8, ptr %5, i64 1112
+  store ptr %328, ptr %329, align 8, !tbaa !132
+  %330 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 24), align 8, !tbaa !76
+  %331 = getelementptr inbounds nuw i8, ptr %5, i64 1124
+  store i32 %330, ptr %331, align 4, !tbaa !133
+  %332 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6296), align 8, !tbaa !35
+  %333 = getelementptr inbounds nuw i8, ptr %5, i64 1128
+  store i32 %332, ptr %333, align 8, !tbaa !134
+  %334 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6300), align 4, !tbaa !114
+  %335 = getelementptr inbounds nuw i8, ptr %5, i64 1132
+  store i32 %334, ptr %335, align 4, !tbaa !135
+  %336 = getelementptr inbounds nuw i8, ptr %5, i64 1136
+  store i32 %1, ptr %336, align 8, !tbaa !136
+  %337 = getelementptr inbounds nuw i8, ptr %5, i64 1140
+  store i32 %2, ptr %337, align 4, !tbaa !137
+  %338 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 140), align 4, !tbaa !73
+  %339 = getelementptr inbounds nuw i8, ptr %5, i64 1144
+  store i32 %338, ptr %339, align 8, !tbaa !138
+  %340 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 144), align 8, !tbaa !72
+  %341 = getelementptr inbounds nuw i8, ptr %5, i64 1148
+  store i32 %340, ptr %341, align 4, !tbaa !139
+  %342 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6328), align 8, !tbaa !38
+  %343 = getelementptr inbounds nuw i8, ptr %5, i64 1168
+  store ptr %342, ptr %343, align 8, !tbaa !140
+  %344 = getelementptr inbounds nuw i8, ptr %5, i64 1184
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %344, ptr noundef nonnull align 8 dereferenceable(512) getelementptr inbounds nuw (i8, ptr @option_values, i64 6336), i64 noundef 512, i1 noundef false) #21
+  %345 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6848), align 8, !tbaa !84
+  %346 = getelementptr inbounds nuw i8, ptr %5, i64 1696
+  store i32 %345, ptr %346, align 8, !tbaa !141
+  %347 = getelementptr inbounds nuw i8, ptr %5, i64 1700
+  store i32 %.0240398408, ptr %347, align 4, !tbaa !142
+  %348 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6852), align 4, !tbaa !143
+  %349 = getelementptr inbounds nuw i8, ptr %5, i64 1728
+  store i32 %348, ptr %349, align 8, !tbaa !144
+  %350 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6856), align 8, !tbaa !145
+  %351 = getelementptr inbounds nuw i8, ptr %5, i64 1732
+  store i32 %350, ptr %351, align 4, !tbaa !146
+  %352 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6860), align 4, !tbaa !147
+  %353 = getelementptr inbounds nuw i8, ptr %5, i64 1736
+  store i32 %352, ptr %353, align 8, !tbaa !148
+  %354 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6864), align 8, !tbaa !37
+  %355 = getelementptr inbounds nuw i8, ptr %5, i64 1740
+  store i32 %354, ptr %355, align 4, !tbaa !149
+  %356 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6304), align 8, !tbaa !150
+  %357 = getelementptr inbounds nuw i8, ptr %5, i64 1152
+  store i32 %356, ptr %357, align 8, !tbaa !151
+  %358 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6308), align 4, !tbaa !152
+  %359 = getelementptr inbounds nuw i8, ptr %5, i64 1156
+  store i32 %358, ptr %359, align 4, !tbaa !153
+  %360 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 136), align 8, !tbaa !87
+  %361 = getelementptr inbounds nuw i8, ptr %5, i64 1160
+  store i32 %360, ptr %361, align 8, !tbaa !154
+  %362 = load ptr, ptr @stdin, align 8, !tbaa !39
+  %.not290 = icmp eq ptr %.0233, %362
+  br i1 %.not290, label %379, label %363
 
-366:                                              ; preds = %314
-  %367 = call i32 @grabbag__file_are_same(ptr noundef nonnull %0, ptr noundef nonnull %13) #21
-  %.not291 = icmp eq i32 %367, 0
-  br i1 %.not291, label %382, label %368
+363:                                              ; preds = %311
+  %364 = call i32 @grabbag__file_are_same(ptr noundef nonnull %0, ptr noundef nonnull %13) #21
+  %.not291 = icmp eq i32 %364, 0
+  br i1 %.not291, label %379, label %365
 
-368:                                              ; preds = %366
-  %369 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #23
-  %370 = add i64 %369, 16
-  %spec.select.i = call i64 @llvm.umax.i64(i64 %370, i64 1)
-  %371 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #22
-  %.not292 = icmp eq ptr %371, null
-  br i1 %.not292, label %372, label %conditional_fclose.exit375
+365:                                              ; preds = %363
+  %366 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #23
+  %367 = add i64 %366, 16
+  %spec.select.i = call i64 @llvm.umax.i64(i64 %367, i64 1)
+  %368 = call noalias noundef ptr @malloc(i64 noundef %spec.select.i) #22
+  %.not292 = icmp eq ptr %368, null
+  br i1 %.not292, label %369, label %conditional_fclose.exit376
 
-372:                                              ; preds = %368
-  %373 = load ptr, ptr @stderr, align 8, !tbaa !39
-  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %373, i32 noundef 1, ptr noundef nonnull @.str.245) #21
-  %374 = icmp eq ptr %.0233, null
-  %375 = load ptr, ptr @stdin, align 8
-  %376 = icmp eq ptr %.0233, %375
-  %or.cond.i372 = select i1 %374, i1 true, i1 %376
-  %377 = load ptr, ptr @stdout, align 8
-  %378 = icmp eq ptr %.0233, %377
-  %or.cond7.i373 = select i1 %or.cond.i372, i1 true, i1 %378
-  br i1 %or.cond7.i373, label %conditional_fclose.exit, label %379
+369:                                              ; preds = %365
+  %370 = load ptr, ptr @stderr, align 8, !tbaa !39
+  call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %370, i32 noundef 1, ptr noundef nonnull @.str.245) #21
+  %371 = icmp eq ptr %.0233, null
+  %372 = load ptr, ptr @stdin, align 8
+  %373 = icmp eq ptr %.0233, %372
+  %or.cond.i373 = select i1 %371, i1 true, i1 %373
+  %374 = load ptr, ptr @stdout, align 8
+  %375 = icmp eq ptr %.0233, %374
+  %or.cond7.i374 = select i1 %or.cond.i373, i1 true, i1 %375
+  br i1 %or.cond7.i374, label %conditional_fclose.exit, label %376
 
-379:                                              ; preds = %372
-  %380 = call i32 @fclose(ptr noundef nonnull %.0233)
+376:                                              ; preds = %369
+  %377 = call i32 @fclose(ptr noundef nonnull %.0233)
   br label %conditional_fclose.exit
 
-conditional_fclose.exit375:                       ; preds = %368
-  %381 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %371, i64 noundef %370, ptr noundef nonnull @.str.246, ptr noundef nonnull %13, ptr noundef nonnull @.str.244) #21
-  br label %382
+conditional_fclose.exit376:                       ; preds = %365
+  %378 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %368, i64 noundef %367, ptr noundef nonnull @.str.246, ptr noundef nonnull %13, ptr noundef nonnull @.str.244) #21
+  br label %379
 
-382:                                              ; preds = %conditional_fclose.exit375, %366, %314
-  %.0234 = phi ptr [ %371, %conditional_fclose.exit375 ], [ null, %366 ], [ null, %314 ]
-  br i1 %133, label %383, label %396
+379:                                              ; preds = %conditional_fclose.exit376, %363, %311
+  %.0234 = phi ptr [ %368, %conditional_fclose.exit376 ], [ null, %363 ], [ null, %311 ]
+  br i1 %154, label %380, label %393
 
-383:                                              ; preds = %382
-  %384 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1248), align 8, !tbaa !70
-  %385 = getelementptr inbounds nuw i8, ptr %5, i64 1704
-  store i32 %384, ptr %385, align 8, !tbaa !31
-  %386 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1252), align 4, !tbaa !71
-  %387 = getelementptr inbounds nuw i8, ptr %5, i64 1708
-  store i32 %386, ptr %387, align 4, !tbaa !31
-  %388 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1256), align 8, !tbaa !59
-  %389 = getelementptr inbounds nuw i8, ptr %5, i64 1712
-  store i32 %388, ptr %389, align 8, !tbaa !31
-  %390 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1260), align 4, !tbaa !60
-  %391 = getelementptr inbounds nuw i8, ptr %5, i64 1716
-  store i32 %390, ptr %391, align 4, !tbaa !31
-  %392 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1264), align 8, !tbaa !61
-  %393 = getelementptr inbounds nuw i8, ptr %5, i64 1720
-  store i32 %392, ptr %393, align 8, !tbaa !31
+380:                                              ; preds = %379
+  %381 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1248), align 8, !tbaa !70
+  %382 = getelementptr inbounds nuw i8, ptr %5, i64 1704
+  store i32 %381, ptr %382, align 8, !tbaa !31
+  %383 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1252), align 4, !tbaa !71
+  %384 = getelementptr inbounds nuw i8, ptr %5, i64 1708
+  store i32 %383, ptr %384, align 4, !tbaa !31
+  %385 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1256), align 8, !tbaa !59
+  %386 = getelementptr inbounds nuw i8, ptr %5, i64 1712
+  store i32 %385, ptr %386, align 8, !tbaa !31
+  %387 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1260), align 4, !tbaa !60
+  %388 = getelementptr inbounds nuw i8, ptr %5, i64 1716
+  store i32 %387, ptr %388, align 4, !tbaa !31
+  %389 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 1264), align 8, !tbaa !61
+  %390 = getelementptr inbounds nuw i8, ptr %5, i64 1720
+  store i32 %389, ptr %390, align 8, !tbaa !31
   %.not297 = icmp eq ptr %.0234, null
-  %394 = select i1 %.not297, ptr %13, ptr %.0234
-  %395 = call i32 @flac__encode_file(ptr noundef %.0233, i64 noundef %.1237, ptr noundef nonnull %0, ptr noundef nonnull %394, ptr noundef nonnull %4, i32 noundef %.0235, ptr noundef nonnull byval(%struct.encode_options_t) align 8 %5) #21
+  %391 = select i1 %.not297, ptr %13, ptr %.0234
+  %392 = call i32 @flac__encode_file(ptr noundef %.0233, i64 noundef %.1237, ptr noundef nonnull %0, ptr noundef nonnull %391, ptr noundef nonnull %4, i32 noundef %.0235399406, ptr noundef nonnull byval(%struct.encode_options_t) align 8 %5) #21
   br label %427
 
-396:                                              ; preds = %382
-  %or.cond51 = or i1 %130, %131
-  br i1 %or.cond51, label %397, label %400
+393:                                              ; preds = %379
+  %or.cond51 = or i1 %151, %152
+  br i1 %or.cond51, label %394, label %397
 
-397:                                              ; preds = %396
+394:                                              ; preds = %393
   %.not296 = icmp eq ptr %.0234, null
-  %398 = select i1 %.not296, ptr %13, ptr %.0234
-  %399 = call i32 @flac__encode_file(ptr noundef %.0233, i64 noundef %.1237, ptr noundef nonnull %0, ptr noundef nonnull %398, ptr noundef nonnull %4, i32 noundef %.0235, ptr noundef nonnull byval(%struct.encode_options_t) align 8 %5) #21
+  %395 = select i1 %.not296, ptr %13, ptr %.0234
+  %396 = call i32 @flac__encode_file(ptr noundef %.0233, i64 noundef %.1237, ptr noundef nonnull %0, ptr noundef nonnull %395, ptr noundef nonnull %4, i32 noundef %.0235399406, ptr noundef nonnull byval(%struct.encode_options_t) align 8 %5) #21
   br label %427
 
-400:                                              ; preds = %396
-  %or.cond53 = or i1 %122, %134
-  %or.cond55 = or i1 %or.cond53, %135
-  %or.cond57 = or i1 %123, %or.cond55
-  %or.cond59 = or i1 %124, %or.cond57
-  br i1 %or.cond59, label %401, label %.thread385
+397:                                              ; preds = %393
+  %398 = or i1 %149, %150
+  %399 = or i1 %398, %155
+  %400 = or i1 %148, %399
+  %or.cond59 = or i1 %156, %400
+  br i1 %or.cond59, label %401, label %.thread425
 
-401:                                              ; preds = %400
+401:                                              ; preds = %397
   %402 = getelementptr inbounds nuw i8, ptr %5, i64 1704
   store ptr null, ptr %402, align 8, !tbaa !31
   %403 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 132), align 4, !tbaa !75
@@ -2949,8 +2939,8 @@ conditional_fclose.exit375:                       ; preds = %368
   br i1 %or.cond61, label %407, label %422
 
 407:                                              ; preds = %401
-  %or.cond63 = or i1 %122, %135
-  %408 = select i1 %134, i32 2, i32 0
+  %or.cond63 = or i1 %148, %156
+  %408 = select i1 %155, i32 2, i32 0
   %409 = select i1 %or.cond63, i32 1, i32 %408
   %410 = call ptr @flac__foreign_metadata_new(i32 noundef %409) #21
   store ptr %410, ptr %402, align 8, !tbaa !31
@@ -2963,28 +2953,28 @@ conditional_fclose.exit375:                       ; preds = %368
   %414 = icmp eq ptr %.0233, null
   %415 = load ptr, ptr @stdin, align 8
   %416 = icmp eq ptr %.0233, %415
-  %or.cond.i376 = select i1 %414, i1 true, i1 %416
+  %or.cond.i377 = select i1 %414, i1 true, i1 %416
   %417 = load ptr, ptr @stdout, align 8
   %418 = icmp eq ptr %.0233, %417
-  %or.cond7.i377 = select i1 %or.cond.i376, i1 true, i1 %418
-  br i1 %or.cond7.i377, label %conditional_fclose.exit379, label %419
+  %or.cond7.i378 = select i1 %or.cond.i377, i1 true, i1 %418
+  br i1 %or.cond7.i378, label %conditional_fclose.exit380, label %419
 
 419:                                              ; preds = %412
   %420 = call i32 @fclose(ptr noundef nonnull %.0233)
-  br label %conditional_fclose.exit379
+  br label %conditional_fclose.exit380
 
-conditional_fclose.exit379:                       ; preds = %412, %419
+conditional_fclose.exit380:                       ; preds = %412, %419
   %.not295 = icmp eq ptr %.0234, null
   br i1 %.not295, label %conditional_fclose.exit, label %421
 
-421:                                              ; preds = %conditional_fclose.exit379
+421:                                              ; preds = %conditional_fclose.exit380
   call void @free(ptr noundef nonnull %.0234) #21
   br label %conditional_fclose.exit
 
 422:                                              ; preds = %407, %401
   %.not293 = icmp eq ptr %.0234, null
   %423 = select i1 %.not293, ptr %13, ptr %.0234
-  %424 = call i32 @flac__encode_file(ptr noundef %.0233, i64 noundef %.1237, ptr noundef nonnull %0, ptr noundef nonnull %423, ptr noundef nonnull %4, i32 noundef %.0235, ptr noundef nonnull byval(%struct.encode_options_t) align 8 %5) #21
+  %424 = call i32 @flac__encode_file(ptr noundef %.0233, i64 noundef %.1237, ptr noundef nonnull %0, ptr noundef nonnull %423, ptr noundef nonnull %4, i32 noundef %.0235399406, ptr noundef nonnull byval(%struct.encode_options_t) align 8 %5) #21
   %425 = load ptr, ptr %402, align 8, !tbaa !31
   %.not294 = icmp eq ptr %425, null
   br i1 %.not294, label %427, label %426
@@ -2993,28 +2983,28 @@ conditional_fclose.exit379:                       ; preds = %412, %419
   call void @flac__foreign_metadata_delete(ptr noundef nonnull %425) #21
   br label %427
 
-427:                                              ; preds = %397, %422, %426, %383
-  %.0238 = phi i32 [ %395, %383 ], [ %399, %397 ], [ %424, %426 ], [ %424, %422 ]
+427:                                              ; preds = %394, %422, %426, %380
+  %.0238 = phi i32 [ %392, %380 ], [ %396, %394 ], [ %424, %426 ], [ %424, %422 ]
   %428 = icmp eq i32 %.0238, 0
-  br i1 %428, label %sub_0403, label %.thread385
+  br i1 %428, label %sub_0444, label %.thread425
 
-sub_0403:                                         ; preds = %427
+sub_0444:                                         ; preds = %427
   %429 = load i8, ptr %13, align 1
-  %.not416 = icmp eq i8 %429, 45
-  br i1 %.not416, label %.tail402, label %.tail402.thread
+  %.not457 = icmp eq i8 %429, 45
+  br i1 %.not457, label %.tail443, label %.tail443.thread
 
-.tail402:                                         ; preds = %sub_0403
+.tail443:                                         ; preds = %sub_0444
   %430 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %431 = load i8, ptr %430, align 1
   %432 = icmp eq i8 %431, 0
-  br i1 %432, label %453, label %.tail402.thread
+  br i1 %432, label %453, label %.tail443.thread
 
-.tail402.thread:                                  ; preds = %sub_0403, %.tail402
+.tail443.thread:                                  ; preds = %sub_0444, %.tail443
   %433 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 140), align 4, !tbaa !73
   %.not299 = icmp eq i32 %433, 0
   br i1 %.not299, label %446, label %434
 
-434:                                              ; preds = %.tail402.thread
+434:                                              ; preds = %.tail443.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @grabbag__replaygain_get_title(ptr noundef nonnull %6, ptr noundef nonnull %7) #21
@@ -3045,36 +3035,36 @@ sub_0403:                                         ; preds = %427
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %446
 
-446:                                              ; preds = %445, %.tail402.thread
-  %.2 = phi i32 [ %.3, %445 ], [ 0, %.tail402.thread ]
+446:                                              ; preds = %445, %.tail443.thread
+  %.2 = phi i32 [ %.3, %445 ], [ 0, %.tail443.thread ]
   %447 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 128), align 8, !tbaa !24
   %.not303 = icmp eq i32 %447, 0
-  br i1 %.not303, label %453, label %sub_0407
+  br i1 %.not303, label %453, label %sub_0448
 
-sub_0407:                                         ; preds = %446
+sub_0448:                                         ; preds = %446
   %448 = load i8, ptr %0, align 1
-  %.not417 = icmp eq i8 %448, 45
-  br i1 %.not417, label %.tail406, label %.tail406.thread
+  %.not458 = icmp eq i8 %448, 45
+  br i1 %.not458, label %.tail447, label %.tail447.thread
 
-.tail406:                                         ; preds = %sub_0407
+.tail447:                                         ; preds = %sub_0448
   %449 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %450 = load i8, ptr %449, align 1
   %451 = icmp eq i8 %450, 0
-  br i1 %451, label %453, label %.tail406.thread
+  br i1 %451, label %453, label %.tail447.thread
 
-.tail406.thread:                                  ; preds = %sub_0407, %.tail406
+.tail447.thread:                                  ; preds = %sub_0448, %.tail447
   %.not305 = icmp eq ptr %.0234, null
   %452 = select i1 %.not305, ptr %13, ptr %.0234
   call void @grabbag__file_copy_metadata(ptr noundef nonnull %0, ptr noundef nonnull %452) #21
   br label %453
 
-.thread385:                                       ; preds = %427, %400
-  %.1239.ph = phi i32 [ %.0238, %427 ], [ 1, %400 ]
-  %.not397 = icmp eq ptr %.0234, null
-  br i1 %.not397, label %conditional_fclose.exit, label %472
+.thread425:                                       ; preds = %427, %397
+  %.1239.ph = phi i32 [ %.0238, %427 ], [ 1, %397 ]
+  %.not438 = icmp eq ptr %.0234, null
+  br i1 %.not438, label %conditional_fclose.exit, label %472
 
-453:                                              ; preds = %.tail402, %.tail406.thread, %.tail406, %446
-  %.1239 = phi i32 [ %.2, %.tail406.thread ], [ %.2, %.tail406 ], [ %.2, %446 ], [ 0, %.tail402 ]
+453:                                              ; preds = %.tail443, %.tail447.thread, %.tail447, %446
+  %.1239 = phi i32 [ %.2, %.tail447.thread ], [ %.2, %.tail447 ], [ %.2, %446 ], [ 0, %.tail443 ]
   %454 = icmp eq i32 %.1239, 0
   %455 = icmp ne ptr %.0234, null
   %or.cond65 = and i1 %455, %454
@@ -3083,9 +3073,9 @@ sub_0407:                                         ; preds = %446
 456:                                              ; preds = %453
   %457 = call i32 @rename(ptr noundef nonnull %.0234, ptr noundef nonnull %13) #21
   %458 = icmp slt i32 %457, 0
-  br i1 %458, label %.thread389, label %460
+  br i1 %458, label %.thread430, label %460
 
-.thread389:                                       ; preds = %456
+.thread430:                                       ; preds = %456
   %459 = load ptr, ptr @stderr, align 8, !tbaa !39
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %459, i32 noundef 1, ptr noundef nonnull @.str.248, ptr noundef nonnull %.0234, ptr noundef nonnull %13) #21
   br label %472
@@ -3094,39 +3084,39 @@ sub_0407:                                         ; preds = %446
   %461 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 124), align 4
   %462 = icmp ne i32 %461, 0
   %or.cond67 = select i1 %454, i1 %462, i1 false
-  br i1 %or.cond67, label %sub_0411, label %471
+  br i1 %or.cond67, label %sub_0452, label %471
 
-sub_0411:                                         ; preds = %460
+sub_0452:                                         ; preds = %460
   %463 = load i8, ptr %0, align 1
-  %.not418 = icmp eq i8 %463, 45
-  br i1 %.not418, label %sub_1412, label %.tail410
+  %.not459 = icmp eq i8 %463, 45
+  br i1 %.not459, label %sub_1453, label %.tail451
 
-sub_1412:                                         ; preds = %sub_0411
+sub_1453:                                         ; preds = %sub_0452
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %465 = load i8, ptr %464, align 1
   %466 = icmp ne i8 %465, 0
-  br label %.tail410
+  br label %.tail451
 
-.tail410:                                         ; preds = %sub_0411, %sub_1412
-  %467 = phi i1 [ true, %sub_0411 ], [ %466, %sub_1412 ]
+.tail451:                                         ; preds = %sub_0452, %sub_1453
+  %467 = phi i1 [ true, %sub_0452 ], [ %466, %sub_1453 ]
   %468 = icmp eq ptr %.0234, null
   %or.cond69 = and i1 %468, %467
   br i1 %or.cond69, label %469, label %471
 
-469:                                              ; preds = %.tail410
+469:                                              ; preds = %.tail451
   %470 = call i32 @unlink(ptr noundef nonnull %0) #21
   br label %conditional_fclose.exit
 
-471:                                              ; preds = %.tail410, %460
+471:                                              ; preds = %.tail451, %460
   br i1 %455, label %472, label %conditional_fclose.exit
 
-472:                                              ; preds = %.thread389, %.thread385, %471
-  %.4392393 = phi i32 [ 1, %.thread389 ], [ %.1239, %471 ], [ %.1239.ph, %.thread385 ]
+472:                                              ; preds = %.thread430, %.thread425, %471
+  %.4433434 = phi i32 [ 1, %.thread430 ], [ %.1239, %471 ], [ %.1239.ph, %.thread425 ]
   call void @free(ptr noundef nonnull %.0234) #21
   br label %conditional_fclose.exit
 
-conditional_fclose.exit:                          ; preds = %469, %.thread385, %372, %379, %213, %206, %199, %192, %120, %114, %92, %85, %81, %75, %471, %472, %conditional_fclose.exit379, %421, %155, %conditional_fclose.exit371, %conditional_fclose.exit367, %conditional_fclose.exit363, %conditional_fclose.exit359, %conditional_fclose.exit355, %conditional_fclose.exit351, %conditional_fclose.exit339, %conditional_fclose.exit335, %conditional_fclose.exit331, %26, %15
-  %.0231 = phi i32 [ 1, %15 ], [ 1, %conditional_fclose.exit335 ], [ 1, %conditional_fclose.exit339 ], [ 1, %conditional_fclose.exit351 ], [ 1, %conditional_fclose.exit359 ], [ 1, %conditional_fclose.exit363 ], [ 1, %conditional_fclose.exit367 ], [ 1, %conditional_fclose.exit371 ], [ 1, %conditional_fclose.exit355 ], [ 1, %conditional_fclose.exit331 ], [ 1, %26 ], [ 1, %155 ], [ 1, %421 ], [ 1, %conditional_fclose.exit379 ], [ %.4392393, %472 ], [ %.1239, %471 ], [ 1, %75 ], [ 1, %81 ], [ 1, %85 ], [ 1, %92 ], [ 1, %114 ], [ 1, %120 ], [ 1, %192 ], [ 1, %199 ], [ 1, %206 ], [ 1, %213 ], [ 0, %469 ], [ 1, %379 ], [ 1, %372 ], [ %.1239.ph, %.thread385 ]
+conditional_fclose.exit:                          ; preds = %469, %.thread425, %369, %376, %210, %203, %196, %189, %120, %114, %92, %85, %81, %75, %471, %472, %conditional_fclose.exit380, %421, %144, %conditional_fclose.exit372, %conditional_fclose.exit368, %conditional_fclose.exit364, %conditional_fclose.exit360, %conditional_fclose.exit356, %conditional_fclose.exit352, %conditional_fclose.exit340, %conditional_fclose.exit336, %conditional_fclose.exit332, %26, %15
+  %.0231 = phi i32 [ 1, %15 ], [ 1, %conditional_fclose.exit336 ], [ 1, %conditional_fclose.exit340 ], [ 1, %conditional_fclose.exit352 ], [ 1, %conditional_fclose.exit360 ], [ 1, %conditional_fclose.exit364 ], [ 1, %conditional_fclose.exit368 ], [ 1, %conditional_fclose.exit372 ], [ 1, %conditional_fclose.exit356 ], [ 1, %conditional_fclose.exit332 ], [ 1, %26 ], [ 1, %144 ], [ 1, %421 ], [ 1, %conditional_fclose.exit380 ], [ %.4433434, %472 ], [ %.1239, %471 ], [ 1, %75 ], [ 1, %81 ], [ 1, %85 ], [ 1, %92 ], [ 1, %114 ], [ 1, %120 ], [ 1, %189 ], [ 1, %196 ], [ 1, %203 ], [ 1, %210 ], [ 0, %469 ], [ 1, %376 ], [ 1, %369 ], [ %.1239.ph, %.thread425 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0231

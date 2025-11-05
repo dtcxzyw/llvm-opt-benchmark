@@ -6953,7 +6953,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_5c
   store ptr %13, ptr %3, align 8, !tbaa !17
   %14 = zext i8 %9 to i64
   %15 = shl nuw nsw i64 %14, 8
-  %.sroa.3.8.insert.ext.i = or disjoint i64 %15, 1
+  %.sroa.2.0.extract.trunc = or disjoint i64 %15, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !260
   %18 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -6982,9 +6982,9 @@ _ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9composit
   br label %_ZNK5boost6spirit7classic11char_parserINS1_5chlitIcEEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSJ_INS1_6actionIS4_N7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSK_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSK_INS1_13sequential_orINSL_IS4_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEES4_EENS1E_IS4_S1M_EEEEEEEEEES15_EENSH_INSI_ILi3ENSL_INS1_11uint_parserImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSH_INSI_ILi1ENS1C_INSL_INS1U_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS20_S1L_EEEEEEEES15_EENSH_INSI_ILi2ENSJ_INSK_IS4_S4_EENSL_INS1U_ImLi16ELj1ELin1EEES26_EEEES15_EES14_EEEE11
 
 _ZNK5boost6spirit7classic11char_parserINS1_5chlitIcEEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSJ_INS1_6actionIS4_N7phoenix5actorINSM_9compositeINSM_9assign_opENSN_INSM_14closure_memberILi0ENSM_7closureImNSM_5nil_tESS_SS_SS_SS_EEEEEENSN_INSM_5valueIiEEEESS_SS_SS_SS_SS_EEEEEENSK_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS12_ILi1ES15_EEEEEENS12_ILi3ES15_EEEENS1_8optionalINS1_12inhibit_caseINSK_INS1_13sequential_orINSL_IS4_NSN_INSO_ISP_NSN_INSM_8variableIbEEEENSN_INSW_IbEEEESS_SS_SS_SS_SS_EEEEEES4_EENS1E_IS4_S1M_EEEEEEEEEES15_EENSH_INSI_ILi3ENSL_INS1_11uint_parserImLi10ELj1ELin1EEENSN_INSO_ISP_SV_NSN_INSM_8argumentILi0EEEEESS_SS_SS_SS_SS_EEEEEES15_EENSH_INSI_ILi1ENS1C_INSL_INS1U_ImLi8ELj1ELin1EEENSN_INSM_20sequential_compositeIS20_S1L_EEEEEEEES15_EENSH_INSI_ILi2ENSJ_INSK_IS4_S4_EENSL_INS1U_ImLi16ELj1ELin1EEES26_EEEES15_EES14_EEEE11: ; preds = %8, %2, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESA_SA_SA_SA_EEEEEENS5_INS4_5valueIiEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit
-  %.sroa.2.0.extract.trunc22 = phi i64 [ %.sroa.3.8.insert.ext.i, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESA_SA_SA_SA_EEEEEENS5_INS4_5valueIiEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ 0, %2 ], [ 0, %8 ]
-  %.fca.0.insert.i21 = phi { i64, i64 } [ { i64 1, i64 poison }, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESA_SA_SA_SA_EEEEEENS5_INS4_5valueIiEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %8 ]
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i21, i64 %.sroa.2.0.extract.trunc22, 1
+  %.sroa.2.0.extract.trunc20 = phi i64 [ %.sroa.2.0.extract.trunc, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESA_SA_SA_SA_EEEEEENS5_INS4_5valueIiEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ 0, %2 ], [ 0, %8 ]
+  %.fca.0.insert.i19 = phi { i64, i64 } [ { i64 1, i64 poison }, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi0ENS4_7closureImNS4_5nil_tESA_SA_SA_SA_EEEEEENS5_INS4_5valueIiEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %8 ]
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i19, i64 %.sroa.2.0.extract.trunc20, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -7348,9 +7348,9 @@ define linkonce_odr hidden i64 @_ZN5boost6spirit7classic4impl25inhibit_case_pars
   br i1 %34, label %_ZNK5boost6spirit7classic13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS6_9assign_opENS7_INS6_8variableIbEEEENS7_INS6_5valueIbEEEENS6_5nil_tESG_SG_SG_SG_EEEEEES5_E5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS10_INS3_IS5_NS7_INS8_IS9_NS7_INS6_14closure_memberILi0ENS6_7closureImSG_SG_SG_SG_SG_EEEEEENS7_INSD_IiEEEESG_SG_SG_SG_SG_EEEEEENS11_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1C_ILi1ES1F_EEEEEENS1C_ILi3ES1F_EEEENS1_8optionalINS1_12inhibit_caseINS11_ISK_NS2_IS5_SJ_EEEEEEEEEES1F_EENSY_INSZ_ILi3ENS3_INS1_11uint_parserImLi10ELj1ELin1EEENS7_INS8_IS9_S16_NS7_INS6_8argumentILi0EEEEESG_SG_SG_SG_SG_EEEEEES1F_EENSY_INSZ_ILi1ENS1M_INS3_INS1U_ImLi8ELj1ELin1EEENS7_INS6_20sequential_compositeIS20_SI_EEEEEEEES1F_EENSY_INSZ_ILi2ENS10_INS11_IS5_S5_EENS3_INS1U_ImLi16ELj1ELin1EEES26, label %36
 
 _ZNK5boost6spirit7classic13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS6_9assign_opENS7_INS6_8variableIbEEEENS7_INS6_5valueIbEEEENS6_5nil_tESG_SG_SG_SG_EEEEEES5_E5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS10_INS3_IS5_NS7_INS8_IS9_NS7_INS6_14closure_memberILi0ENS6_7closureImSG_SG_SG_SG_SG_EEEEEENS7_INSD_IiEEEESG_SG_SG_SG_SG_EEEEEENS11_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1C_ILi1ES1F_EEEEEENS1C_ILi3ES1F_EEEENS1_8optionalINS1_12inhibit_caseINS11_ISK_NS2_IS5_SJ_EEEEEEEEEES1F_EENSY_INSZ_ILi3ENS3_INS1_11uint_parserImLi10ELj1ELin1EEENS7_INS8_IS9_S16_NS7_INS6_8argumentILi0EEEEESG_SG_SG_SG_SG_EEEEEES1F_EENSY_INSZ_ILi1ENS1M_INS3_INS1U_ImLi8ELj1ELin1EEENS7_INS6_20sequential_compositeIS20_SI_EEEEEEEES1F_EENSY_INSZ_ILi2ENS10_INS11_IS5_S5_EENS3_INS1U_ImLi16ELj1ELin1EEES26: ; preds = %31, %23
-  %.sink64.i.i = phi ptr [ %17, %23 ], [ %7, %31 ]
-  %.sroa.039.2.ph.i.i = phi i64 [ 2, %23 ], [ 1, %31 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sink64.i.i, i64 1
+  %.sink60.i.i = phi ptr [ %17, %23 ], [ %7, %31 ]
+  %.sroa.037.2.ph.i.i = phi i64 [ 2, %23 ], [ 1, %31 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sink60.i.i, i64 1
   store ptr %35, ptr %4, align 8, !tbaa !17
   br label %_ZNK5boost6spirit7classic11alternativeINS1_13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS7_9compositeINS7_9assign_opENS8_INS7_8variableIbEEEENS8_INS7_5valueIbEEEENS7_5nil_tESH_SH_SH_SH_EEEEEES6_EENS3_IS6_SK_EEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS2_INS13_INS4_IS6_NS8_INS9_ISA_NS8_INS7_14closure_memberILi0ENS7_7closureImSH_SH_SH_SH_SH_EEEEEENS8_INSE_IiEEEESH_SH_SH_SH_SH_EEEEEENS2_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1E_ILi1ES1H_EEEEEENS1E_ILi3ES1H_EEEENS1_8optionalINS1_12inhibit_caseISN_EEEEEES1H_EENS11_INS12_ILi3ENS4_INS1_11uint_parserImLi10ELj1ELin1EEENS8_INS9_ISA_S18_NS8_INS7_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEES1H_EENS11_INS12_ILi1ENS1O_INS4_INS1U_ImLi8ELj1ELin1EEENS8_INS7_20sequential_compositeIS20_SJ_EEEEEEEES1H_EENS11_INS12_ILi2ENS13_INS2_IS6_S6_EENS4_INS1U_ImLi16ELj1ELin1EEE
 
@@ -7407,7 +7407,7 @@ _ZNK5boost6spirit7classic6actionINS1_5chlitIcEEN7phoenix5actorINS5_9compositeINS
   br label %_ZNK5boost6spirit7classic11alternativeINS1_13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS7_9compositeINS7_9assign_opENS8_INS7_8variableIbEEEENS8_INS7_5valueIbEEEENS7_5nil_tESH_SH_SH_SH_EEEEEES6_EENS3_IS6_SK_EEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS2_INS13_INS4_IS6_NS8_INS9_ISA_NS8_INS7_14closure_memberILi0ENS7_7closureImSH_SH_SH_SH_SH_EEEEEENS8_INSE_IiEEEESH_SH_SH_SH_SH_EEEEEENS2_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1E_ILi1ES1H_EEEEEENS1E_ILi3ES1H_EEEENS1_8optionalINS1_12inhibit_caseISN_EEEEEES1H_EENS11_INS12_ILi3ENS4_INS1_11uint_parserImLi10ELj1ELin1EEENS8_INS9_ISA_S18_NS8_INS7_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEES1H_EENS11_INS12_ILi1ENS1O_INS4_INS1U_ImLi8ELj1ELin1EEENS8_INS7_20sequential_compositeIS20_SJ_EEEEEEEES1H_EENS11_INS12_ILi2ENS13_INS2_IS6_S6_EENS4_INS1U_ImLi16ELj1ELin1EEE
 
 _ZNK5boost6spirit7classic11alternativeINS1_13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS7_9compositeINS7_9assign_opENS8_INS7_8variableIbEEEENS8_INS7_5valueIbEEEENS7_5nil_tESH_SH_SH_SH_EEEEEES6_EENS3_IS6_SK_EEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS2_INS13_INS4_IS6_NS8_INS9_ISA_NS8_INS7_14closure_memberILi0ENS7_7closureImSH_SH_SH_SH_SH_EEEEEENS8_INSE_IiEEEESH_SH_SH_SH_SH_EEEEEENS2_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1E_ILi1ES1H_EEEEEENS1E_ILi3ES1H_EEEENS1_8optionalINS1_12inhibit_caseISN_EEEEEES1H_EENS11_INS12_ILi3ENS4_INS1_11uint_parserImLi10ELj1ELin1EEENS8_INS9_ISA_S18_NS8_INS7_8argumentILi0EEEEESH_SH_SH_SH_SH_EEEEEES1H_EENS11_INS12_ILi1ENS1O_INS4_INS1U_ImLi8ELj1ELin1EEENS8_INS7_20sequential_compositeIS20_SJ_EEEEEEEES1H_EENS11_INS12_ILi2ENS13_INS2_IS6_S6_EENS4_INS1U_ImLi16ELj1ELin1EEE: ; preds = %42, %45, %3, %64, %58, %_ZNK5boost6spirit7classic6actionINS1_5chlitIcEEN7phoenix5actorINS5_9compositeINS5_9assign_opENS6_INS5_8variableIbEEEENS6_INS5_5valueIbEEEENS5_5nil_tESF_SF_SF_SF_EEEEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSY_INS2_IS4_NS6_INS7_IS8_NS6_INS5_14closure_memberILi0ENS5_7closureImSF_SF_SF_SF_SF_EEEEEENS6_INSC_IiEEEESF_SF_SF_SF_SF_EEEEEENSZ_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1A_ILi1ES1D_EEEEEENS1A_ILi3ES1D_EEEENS1_8optionalINS1_12inhibit_caseINSZ_INS1_13sequential_orISI_S4_EENS1M_IS4_SI_EEEEEEEEEES1D_EENSW_INSX_ILi3ENS2_INS1_11uint_parserImLi10ELj1ELin1EEENS6_INS7_IS8_S14_NS6_INS5_8argumentILi0EEEEESF_SF_SF_SF_SF_EEEEEES1D_EENSW_INSX_ILi1ENS1K_INS2_INS1U_ImLi8ELj1ELin1EEENS6_INS5_20sequential_compositeIS20_SH_EEEEEEEES1D_EENSW_INSX_ILi2ENSY_INSZ_IS4_S4_EENS2_INS1U_ImLi16ELj1ELin1EEES26_EEE, %16, %23, %_ZNK5boost6spirit7classic13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS6_9assign_opENS7_INS6_8variableIbEEEENS7_INS6_5valueIbEEEENS6_5nil_tESG_SG_SG_SG_EEEEEES5_E5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS10_INS3_IS5_NS7_INS8_IS9_NS7_INS6_14closure_memberILi0ENS6_7closureImSG_SG_SG_SG_SG_EEEEEENS7_INSD_IiEEEESG_SG_SG_SG_SG_EEEEEENS11_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1C_ILi1ES1F_EEEEEENS1C_ILi3ES1F_EEEENS1_8optionalINS1_12inhibit_caseINS11_ISK_NS2_IS5_SJ_EEEEEEEEEES1F_EENSY_INSZ_ILi3ENS3_INS1_11uint_parserImLi10ELj1ELin1EEENS7_INS8_IS9_S16_NS7_INS6_8argumentILi0EEEEESG_SG_SG_SG_SG_EEEEEES1F_EENSY_INSZ_ILi1ENS1M_INS3_INS1U_ImLi8ELj1ELin1EEENS7_INS6_20sequential_compositeIS20_SI_EEEEEEEES1F_EENSY_INSZ_ILi2ENS10_INS11_IS5_S5_EENS3_INS1U_ImLi16ELj1ELin1EEES26
-  %.sroa.0.0.i = phi i64 [ %.sroa.039.2.ph.i.i, %_ZNK5boost6spirit7classic13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS6_9assign_opENS7_INS6_8variableIbEEEENS7_INS6_5valueIbEEEENS6_5nil_tESG_SG_SG_SG_EEEEEES5_E5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS10_INS3_IS5_NS7_INS8_IS9_NS7_INS6_14closure_memberILi0ENS6_7closureImSG_SG_SG_SG_SG_EEEEEENS7_INSD_IiEEEESG_SG_SG_SG_SG_EEEEEENS11_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1C_ILi1ES1F_EEEEEENS1C_ILi3ES1F_EEEENS1_8optionalINS1_12inhibit_caseINS11_ISK_NS2_IS5_SJ_EEEEEEEEEES1F_EENSY_INSZ_ILi3ENS3_INS1_11uint_parserImLi10ELj1ELin1EEENS7_INS8_IS9_S16_NS7_INS6_8argumentILi0EEEEESG_SG_SG_SG_SG_EEEEEES1F_EENSY_INSZ_ILi1ENS1M_INS3_INS1U_ImLi8ELj1ELin1EEENS7_INS6_20sequential_compositeIS20_SI_EEEEEEEES1F_EENSY_INSZ_ILi2ENS10_INS11_IS5_S5_EENS3_INS1U_ImLi16ELj1ELin1EEES26 ], [ 1, %16 ], [ 1, %23 ], [ 2, %_ZNK5boost6spirit7classic6actionINS1_5chlitIcEEN7phoenix5actorINS5_9compositeINS5_9assign_opENS6_INS5_8variableIbEEEENS6_INS5_5valueIbEEEENS5_5nil_tESF_SF_SF_SF_EEEEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSY_INS2_IS4_NS6_INS7_IS8_NS6_INS5_14closure_memberILi0ENS5_7closureImSF_SF_SF_SF_SF_EEEEEENS6_INSC_IiEEEESF_SF_SF_SF_SF_EEEEEENSZ_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1A_ILi1ES1D_EEEEEENS1A_ILi3ES1D_EEEENS1_8optionalINS1_12inhibit_caseINSZ_INS1_13sequential_orISI_S4_EENS1M_IS4_SI_EEEEEEEEEES1D_EENSW_INSX_ILi3ENS2_INS1_11uint_parserImLi10ELj1ELin1EEENS6_INS7_IS8_S14_NS6_INS5_8argumentILi0EEEEESF_SF_SF_SF_SF_EEEEEES1D_EENSW_INSX_ILi1ENS1K_INS2_INS1U_ImLi8ELj1ELin1EEENS6_INS5_20sequential_compositeIS20_SH_EEEEEEEES1D_EENSW_INSX_ILi2ENSY_INSZ_IS4_S4_EENS2_INS1U_ImLi16ELj1ELin1EEES26_EEE ], [ 1, %64 ], [ -1, %58 ], [ -1, %3 ], [ 1, %45 ], [ 1, %42 ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.037.2.ph.i.i, %_ZNK5boost6spirit7classic13sequential_orINS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS6_9assign_opENS7_INS6_8variableIbEEEENS7_INS6_5valueIbEEEENS6_5nil_tESG_SG_SG_SG_EEEEEES5_E5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINS10_INS3_IS5_NS7_INS8_IS9_NS7_INS6_14closure_memberILi0ENS6_7closureImSG_SG_SG_SG_SG_EEEEEENS7_INSD_IiEEEESG_SG_SG_SG_SG_EEEEEENS11_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1C_ILi1ES1F_EEEEEENS1C_ILi3ES1F_EEEENS1_8optionalINS1_12inhibit_caseINS11_ISK_NS2_IS5_SJ_EEEEEEEEEES1F_EENSY_INSZ_ILi3ENS3_INS1_11uint_parserImLi10ELj1ELin1EEENS7_INS8_IS9_S16_NS7_INS6_8argumentILi0EEEEESG_SG_SG_SG_SG_EEEEEES1F_EENSY_INSZ_ILi1ENS1M_INS3_INS1U_ImLi8ELj1ELin1EEENS7_INS6_20sequential_compositeIS20_SI_EEEEEEEES1F_EENSY_INSZ_ILi2ENS10_INS11_IS5_S5_EENS3_INS1U_ImLi16ELj1ELin1EEES26 ], [ 1, %16 ], [ 1, %23 ], [ 2, %_ZNK5boost6spirit7classic6actionINS1_5chlitIcEEN7phoenix5actorINS5_9compositeINS5_9assign_opENS6_INS5_8variableIbEEEENS6_INS5_5valueIbEEEENS5_5nil_tESF_SF_SF_SF_EEEEE5parseINS1_16subrules_scannerINS1_7scannerIPKcNS1_16scanner_policiesINS1_29inhibit_case_iteration_policyINS1_16iteration_policyEEENS1_12match_policyENS1_13action_policyEEEEENS1_12subrule_listINS1_14subrule_parserILi0ENS1_8sequenceINS1_11alternativeINSY_INS2_IS4_NS6_INS7_IS8_NS6_INS5_14closure_memberILi0ENS5_7closureImSF_SF_SF_SF_SF_EEEEEENS6_INSC_IiEEEESF_SF_SF_SF_SF_EEEEEENSZ_INS1_7subruleILi2ENS1_14parser_contextINS1_5nil_tEEEEENS1A_ILi1ES1D_EEEEEENS1A_ILi3ES1D_EEEENS1_8optionalINS1_12inhibit_caseINSZ_INS1_13sequential_orISI_S4_EENS1M_IS4_SI_EEEEEEEEEES1D_EENSW_INSX_ILi3ENS2_INS1_11uint_parserImLi10ELj1ELin1EEENS6_INS7_IS8_S14_NS6_INS5_8argumentILi0EEEEESF_SF_SF_SF_SF_EEEEEES1D_EENSW_INSX_ILi1ENS1K_INS2_INS1U_ImLi8ELj1ELin1EEENS6_INS5_20sequential_compositeIS20_SH_EEEEEEEES1D_EENSW_INSX_ILi2ENSY_INSZ_IS4_S4_EENS2_INS1U_ImLi16ELj1ELin1EEES26_EEE ], [ 1, %64 ], [ -1, %58 ], [ -1, %3 ], [ 1, %45 ], [ 1, %42 ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -9587,7 +9587,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_5c
   store ptr %13, ptr %3, align 8, !tbaa !17
   %14 = zext i8 %9 to i64
   %15 = shl nuw nsw i64 %14, 8
-  %.sroa.3.8.insert.ext.i = or disjoint i64 %15, 1
+  %.sroa.2.0.extract.trunc = or disjoint i64 %15, 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !358
   %18 = tail call noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -9616,9 +9616,9 @@ _ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9composit
   br label %_ZNK5boost6spirit7classic11char_parserINS1_5chlitIcEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSH_.exit.thread
 
 _ZNK5boost6spirit7classic11char_parserINS1_5chlitIcEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSH_.exit.thread: ; preds = %8, %2, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi1ENS4_7closureIjbNS4_5nil_tESA_SA_SA_EEEEEENS5_INS4_5valueIbEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit
-  %.sroa.2.0.extract.trunc18 = phi i64 [ %.sroa.3.8.insert.ext.i, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi1ENS4_7closureIjbNS4_5nil_tESA_SA_SA_EEEEEENS5_INS4_5valueIbEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ 0, %2 ], [ 0, %8 ]
-  %.fca.0.insert.i17 = phi { i64, i64 } [ { i64 1, i64 poison }, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi1ENS4_7closureIjbNS4_5nil_tESA_SA_SA_EEEEEENS5_INS4_5valueIbEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %8 ]
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i17, i64 %.sroa.2.0.extract.trunc18, 1
+  %.sroa.2.0.extract.trunc16 = phi i64 [ %.sroa.2.0.extract.trunc, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi1ENS4_7closureIjbNS4_5nil_tESA_SA_SA_EEEEEENS5_INS4_5valueIbEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ 0, %2 ], [ 0, %8 ]
+  %.fca.0.insert.i15 = phi { i64, i64 } [ { i64 1, i64 poison }, %_ZNK5boost6spirit7classic13action_policy9do_actionIN7phoenix5actorINS4_9compositeINS4_9assign_opENS5_INS4_14closure_memberILi1ENS4_7closureIjbNS4_5nil_tESA_SA_SA_EEEEEENS5_INS4_5valueIbEEEESA_SA_SA_SA_SA_EEEEKcPSJ_EEvRKT_RT0_RKT1_SS_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %8 ]
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i15, i64 %.sroa.2.0.extract.trunc16, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -9687,40 +9687,40 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic8sequenceINS1_5chlitIcE
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 1
   store ptr %42, ptr %26, align 8, !tbaa !17
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %41, 3
-  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread23.i.i, label %.preheader.i.i.i.i.i, !llvm.loop !359
+  br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.i.i, label %.preheader.i.i.i.i.i, !llvm.loop !359
 
 _ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i: ; preds = %30, %.preheader.i.i.i.i.i
   %.not.i.i.i.i.i = icmp eq i64 %.0.i.i.i.i.i, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi8ELj1ELi3EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread23.i.i
+  br i1 %.not.i.i.i.i.i, label %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi8ELj1ELi3EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.i.i
 
-_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread23.i.i: ; preds = %38, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i
-  %.011.i.i.i.i.lcssa.sink.i = phi i32 [ %.011.i.i.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i ], [ %40, %38 ]
-  %.0.i.i.i.i.lcssa.sink.i = phi i64 [ %.0.i.i.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i ], [ 3, %38 ]
-  %43 = zext i32 %.011.i.i.i.i.lcssa.sink.i to i64
+_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.i.i: ; preds = %38, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i
+  %.123.i.i.i.i.i = phi i64 [ %.0.i.i.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i ], [ 3, %38 ]
+  %.11222.i.i.i.i.i = phi i32 [ %.011.i.i.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i ], [ %40, %38 ]
+  %43 = zext i32 %.11222.i.i.i.i.i to i64
   %44 = shl nuw i64 %43, 32
-  %.sroa.3.8.insert.insert.i.i.i.i.i = or disjoint i64 %44, 1
-  store i64 %.0.i.i.i.i.lcssa.sink.i, ptr %4, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.3.8.insert.insert.i.i.i.i.i, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 816
+  %45 = or disjoint i64 %44, 1
+  store i64 %.123.i.i.i.i.i, ptr %4, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %45, ptr %46, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 816
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %46, ptr %3, align 8, !tbaa !17
-  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %47, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr %47, ptr %3, align 8, !tbaa !17
+  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %48, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.load.pre.i.i = load i64, ptr %4, align 8
   br label %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi8ELj1ELi3EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit.i
 
-_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi8ELj1ELi3EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit.i: ; preds = %36, %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread23.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i, %20
-  %.fca.0.load.i.i = phi i64 [ %.fca.0.load.pre.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread23.i.i ], [ -1, %20 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i ], [ -1, %36 ]
+_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi8ELj1ELi3EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit.i: ; preds = %36, %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i, %20
+  %.fca.0.load.i.i = phi i64 [ %.fca.0.load.pre.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi8ELj1ELi3EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.i.i ], [ -1, %20 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi8ELj1ELi3ENS2_19positive_accumulateIjLi8EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i ], [ -1, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS_4wave8grammars4impl25compose_character_literalENS7_INS6_14closure_memberILi0ENS6_7closureIjbNS6_5nil_tESF_SF_SF_EEEEEENS7_INSD_ILi1ESG_EEEENS7_INS6_8variableIbEEEENS7_INS6_5valueIiEEEESF_SF_SF_EEEEEEST_EEST_EEST_EEST_EENS3_INS2_IS5_S5_EESS_EEEEST_EEST_EENS3_IS5_NS7_INS8_ISC_SI_SK_SN_NS7_INSO_IcEEEESF_SF_SF_EEEEEEEES17_EES17_EES17_EENS1_8sequenceIS5_NS1_4impl14if_else_parserINS3_INS1_11uint_parserIjLi16ELj1ELi8EEENS7_INS8_ISC_SI_SK_SN_NS7_INS6_8argumentILi0EEEEESF_SF_SF_EEEEEENS3_INS1F_IjLi16ELj1ELi2EEES1L_EESK_EEEEEENS1C_IS5_NS3_INS1F_IjLi16ELj4ELi4EEES1L_EEEEEENS1C_IS5_NS3_INS1F_IjLi16ELj8ELi8EEES1L_EEEEEENS3_INS1F_IjLi8ELj1ELi3EEES1L_EEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS22_T_E4typeERKS2E_.exit
 
 _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS_4wave8grammars4impl25compose_character_literalENS7_INS6_14closure_memberILi0ENS6_7closureIjbNS6_5nil_tESF_SF_SF_EEEEEENS7_INSD_ILi1ESG_EEEENS7_INS6_8variableIbEEEENS7_INS6_5valueIiEEEESF_SF_SF_EEEEEEST_EEST_EEST_EEST_EENS3_INS2_IS5_S5_EESS_EEEEST_EEST_EENS3_IS5_NS7_INS8_ISC_SI_SK_SN_NS7_INSO_IcEEEESF_SF_SF_EEEEEEEES17_EES17_EES17_EENS1_8sequenceIS5_NS1_4impl14if_else_parserINS3_INS1_11uint_parserIjLi16ELj1ELi8EEENS7_INS8_ISC_SI_SK_SN_NS7_INS6_8argumentILi0EEEEESF_SF_SF_EEEEEENS3_INS1F_IjLi16ELj1ELi2EEES1L_EESK_EEEEEENS1C_IS5_NS3_INS1F_IjLi16ELj4ELi4EEES1L_EEEEEENS1C_IS5_NS3_INS1F_IjLi16ELj8ELi8EEES1L_EEEEEENS3_INS1F_IjLi8ELj1ELi3EEES1L_EEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS22_T_E4typeERKS2E_.exit: ; preds = %14, %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi8ELj1ELi3EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit.i
   %.sroa.06.0.i = phi i64 [ %.fca.0.load.i.i, %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi8ELj1ELi3EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit.i ], [ %19, %14 ]
   %.not5.not.not = icmp sgt i64 %.sroa.06.0.i, -1
-  %48 = add nsw i64 %.sroa.06.0.i, 1
-  %spec.select = select i1 %.not5.not.not, i64 %48, i64 -1
+  %49 = add nsw i64 %.sroa.06.0.i, 1
+  %spec.select = select i1 %.not5.not.not, i64 %49, i64 -1
   br label %_ZNK5boost6spirit7classic11char_parserINS1_5chlitIcEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSH_.exit.thread
 
 _ZNK5boost6spirit7classic11char_parserINS1_5chlitIcEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSH_.exit.thread: ; preds = %_ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_INS1_6actionINS1_5chlitIcEEN7phoenix5actorINS6_9compositeINS_4wave8grammars4impl25compose_character_literalENS7_INS6_14closure_memberILi0ENS6_7closureIjbNS6_5nil_tESF_SF_SF_EEEEEENS7_INSD_ILi1ESG_EEEENS7_INS6_8variableIbEEEENS7_INS6_5valueIiEEEESF_SF_SF_EEEEEEST_EEST_EEST_EEST_EENS3_INS2_IS5_S5_EESS_EEEEST_EEST_EENS3_IS5_NS7_INS8_ISC_SI_SK_SN_NS7_INSO_IcEEEESF_SF_SF_EEEEEEEES17_EES17_EES17_EENS1_8sequenceIS5_NS1_4impl14if_else_parserINS3_INS1_11uint_parserIjLi16ELj1ELi8EEENS7_INS8_ISC_SI_SK_SN_NS7_INS6_8argumentILi0EEEEESF_SF_SF_EEEEEENS3_INS1F_IjLi16ELj1ELi2EEES1L_EESK_EEEEEENS1C_IS5_NS3_INS1F_IjLi16ELj4ELi4EEES1L_EEEEEENS1C_IS5_NS3_INS1F_IjLi16ELj8ELi8EEES1L_EEEEEENS3_INS1F_IjLi8ELj1ELi3EEES1L_EEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS22_T_E4typeERKS2E_.exit, %10, %2
@@ -9837,10 +9837,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_IN
   store ptr %20, ptr %10, align 8, !tbaa !17
   %21 = zext i8 %17 to i16
   %22 = shl nuw i16 %21, 8
-  %.sroa.3.8.insert.ext.i.i.i = or disjoint i16 %22, 1
+  %.sroa.2.0.extract.trunc.i.i = or disjoint i16 %22, 1
   store i64 1, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 536
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -9923,10 +9923,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_IN
   store ptr %22, ptr %12, align 8, !tbaa !17
   %23 = zext i8 %19 to i16
   %24 = shl nuw i16 %23, 8
-  %.sroa.3.8.insert.ext.i.i.i = or disjoint i16 %24, 1
+  %.sroa.2.0.extract.trunc.i.i = or disjoint i16 %24, 1
   store i64 1, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 440
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9961,10 +9961,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS2_INS2_IN
   store ptr %40, ptr %29, align 8, !tbaa !17
   %41 = zext i8 %36 to i16
   %42 = shl nuw i16 %41, 8
-  %.sroa.3.8.insert.ext.i.i = or disjoint i16 %42, 1
+  %.sroa.2.0.extract.trunc.i = or disjoint i16 %42, 1
   store i64 1, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 488
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -10023,10 +10023,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS1_6action
   store ptr %22, ptr %12, align 8, !tbaa !17
   %23 = zext i8 %19 to i16
   %24 = shl nuw i16 %23, 8
-  %.sroa.3.8.insert.ext.i.i.i = or disjoint i16 %24, 1
+  %.sroa.2.0.extract.trunc.i.i = or disjoint i16 %24, 1
   store i64 1, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 344
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -10061,10 +10061,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS2_INS2_INS1_6action
   store ptr %40, ptr %29, align 8, !tbaa !17
   %41 = zext i8 %36 to i16
   %42 = shl nuw i16 %41, 8
-  %.sroa.3.8.insert.ext.i.i = or disjoint i16 %42, 1
+  %.sroa.2.0.extract.trunc.i = or disjoint i16 %42, 1
   store i64 1, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 392
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -10157,10 +10157,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS2_INS2_INS1_6actionINS1_5chli
   store ptr %42, ptr %31, align 8, !tbaa !17
   %43 = zext i8 %38 to i16
   %44 = shl nuw i16 %43, 8
-  %.sroa.3.8.insert.ext.i.i = or disjoint i16 %44, 1
+  %.sroa.2.0.extract.trunc.i = or disjoint i16 %44, 1
   store i64 1, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 296
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -10219,10 +10219,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS1_6actionINS1_5chlitIcEEN7pho
   store ptr %22, ptr %12, align 8, !tbaa !17
   %23 = zext i8 %19 to i16
   %24 = shl nuw i16 %23, 8
-  %.sroa.3.8.insert.ext.i.i.i = or disjoint i16 %24, 1
+  %.sroa.2.0.extract.trunc.i.i = or disjoint i16 %24, 1
   store i64 1, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 152
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -10257,10 +10257,10 @@ _ZNK5boost6spirit7classic11alternativeINS2_INS2_INS1_6actionINS1_5chlitIcEEN7pho
   store ptr %40, ptr %29, align 8, !tbaa !17
   %41 = zext i8 %36 to i16
   %42 = shl nuw i16 %41, 8
-  %.sroa.3.8.insert.ext.i.i = or disjoint i16 %42, 1
+  %.sroa.2.0.extract.trunc.i = or disjoint i16 %42, 1
   store i64 1, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 200
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -10311,10 +10311,10 @@ _ZNK5boost6spirit7classic6actionINS1_5chlitIcEEN7phoenix5actorINS5_9compositeINS
   store ptr %18, ptr %9, align 8, !tbaa !17
   %19 = zext i8 %15 to i16
   %20 = shl nuw i16 %19, 8
-  %.sroa.3.8.insert.ext.i.i.i = or disjoint i16 %20, 1
+  %.sroa.2.0.extract.trunc.i.i = or disjoint i16 %20, 1
   store i64 1, ptr %8, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -10356,10 +10356,10 @@ _ZNK5boost6spirit7classic11alternativeINS1_6actionINS1_5chlitIcEEN7phoenix5actor
   store ptr %34, ptr %25, align 8, !tbaa !17
   %35 = zext i8 %31 to i16
   %36 = shl nuw i16 %35, 8
-  %.sroa.3.8.insert.ext.i.i17.i = or disjoint i16 %36, 1
+  %.sroa.2.0.extract.trunc.i17.i = or disjoint i16 %36, 1
   store i64 1, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i18.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i17.i, ptr %.sroa.2.0..sroa_idx.i18.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i17.i, ptr %.sroa.2.0..sroa_idx.i18.i, align 8
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -10393,10 +10393,10 @@ _ZNK5boost6spirit7classic11alternativeINS1_6actionINS1_5chlitIcEEN7phoenix5actor
   store ptr %51, ptr %41, align 8, !tbaa !17
   %52 = zext i8 %47 to i16
   %53 = shl nuw i16 %52, 8
-  %.sroa.3.8.insert.ext.i.i = or disjoint i16 %53, 1
+  %.sroa.2.0.extract.trunc.i = or disjoint i16 %53, 1
   store i64 1, ptr %4, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i16 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i16 %.sroa.2.0.extract.trunc.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 104
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -10741,7 +10741,7 @@ _ZNK5boost6spirit7classic16condition_parserIN7phoenix5actorINS3_14closure_member
   %23 = xor i8 %17, 1
   %24 = zext nneg i8 %23 to i64
   %25 = sub nuw nsw i64 %21, %24
-  br label %66
+  br label %67
 
 26:                                               ; preds = %_ZNK5boost6spirit7classic16condition_parserIN7phoenix5actorINS3_14closure_memberILi1ENS3_7closureIjbNS3_5nil_tES7_S7_S7_EEEEEELb1EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISB_T_E4typeERKSN_.exit.i
   %27 = load ptr, ptr %1, align 8, !tbaa !255
@@ -10815,25 +10815,25 @@ _ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi16ELj1ELi2EEEN7phoenix5act
   %.21346.i.i.i.i = phi i32 [ %.01124.i.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i ], [ %59, %58 ], [ %59, %33 ]
   %61 = zext i32 %.21346.i.i.i.i to i64
   %62 = shl nuw i64 %61, 32
-  %.sroa.3.8.insert.insert.i.i.i.i = or disjoint i64 %62, 1
+  %63 = or disjoint i64 %62, 1
   store i64 %.247.i.i.i.i, ptr %4, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.3.8.insert.insert.i.i.i.i, ptr %63, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %63, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %64, ptr %3, align 8, !tbaa !17
-  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %65, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr %65, ptr %3, align 8, !tbaa !17
+  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %66, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.load.pre.i = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.not = icmp sgt i64 %.fca.0.load.pre.i, -1
-  br i1 %.not.not, label %66, label %.thread
+  br i1 %.not.not, label %67, label %.thread
 
 .thread:                                          ; preds = %18, %.thread34, %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi16ELj1ELi2EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit
-  br label %66
+  br label %67
 
-66:                                               ; preds = %22, %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi16ELj1ELi2EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit, %.thread
+67:                                               ; preds = %22, %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi16ELj1ELi2EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit, %.thread
   %.sroa.0.1 = phi i64 [ -1, %.thread ], [ %25, %22 ], [ %.fca.0.load.pre.i, %_ZNK5boost6spirit7classic6actionINS1_11uint_parserIjLi16ELj1ELi2EEEN7phoenix5actorINS5_9compositeINS_4wave8grammars4impl25compose_character_literalENS6_INS5_14closure_memberILi0ENS5_7closureIjbNS5_5nil_tESE_SE_SE_EEEEEENS6_INSC_ILi1ESF_EEEENS6_INS5_8variableIbEEEENS6_INS5_8argumentILi0EEEEESE_SE_SE_EEEEE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultISS_T_E4typeERKS14_.exit ]
   ret i64 %.sroa.0.1
 }
@@ -10895,34 +10895,34 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %35, ptr %10, align 8, !tbaa !17
   %exitcond.not.i.i.i.i = icmp eq i64 %34, 8
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24, label %.preheader.i.i.i, !llvm.loop !363
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit, label %.preheader.i.i.i, !llvm.loop !363
 
 _ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i: ; preds = %19, %.preheader.i.i.i
   %.not.i.i.i = icmp eq i64 %.0.i.i.i, 0
-  br i1 %.not.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24
+  br i1 %.not.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit
 
-_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
-  %.011.i.i.i.sink = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
-  %.0.i.i.i.sink = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 8, %32 ]
-  %36 = zext i32 %.011.i.i.i.sink to i64
+_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
+  %.123.i.i.i = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 8, %32 ]
+  %.11222.i.i.i = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
+  %36 = zext i32 %.11222.i.i.i to i64
   %37 = shl nuw i64 %36, 32
-  %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %37, 1
-  store i64 %.0.i.i.i.sink, ptr %4, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = or disjoint i64 %37, 1
+  store i64 %.123.i.i.i, ptr %4, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %38, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %39, ptr %3, align 8, !tbaa !17
-  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %40, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr %40, ptr %3, align 8, !tbaa !17
+  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %41, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.load.pre = load i64, ptr %4, align 8
-  %.fca.1.load.pre = load i64, ptr %38, align 8
+  %.fca.1.load.pre = load i64, ptr %39, align 8
   br label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
-_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread: ; preds = %26, %28, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24
-  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24 ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %28 ], [ 0, %26 ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24 ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %28 ], [ -1, %26 ]
+_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread: ; preds = %26, %28, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit
+  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %28 ], [ 0, %26 ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %28 ], [ -1, %26 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -11079,34 +11079,34 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %35, ptr %10, align 8, !tbaa !17
   %exitcond.not.i.i.i.i = icmp eq i64 %34, 4
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24, label %.preheader.i.i.i, !llvm.loop !366
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit, label %.preheader.i.i.i, !llvm.loop !366
 
 _ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i: ; preds = %19, %.preheader.i.i.i
   %36 = icmp samesign ugt i64 %.0.i.i.i, 3
-  br i1 %36, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
+  br i1 %36, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
-_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
-  %.011.i.i.i.lcssa.sink = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
-  %.0.i.i.i.lcssa.sink = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 4, %32 ]
-  %37 = zext i32 %.011.i.i.i.lcssa.sink to i64
+_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
+  %.123.i.i.i = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 4, %32 ]
+  %.11222.i.i.i = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
+  %37 = zext i32 %.11222.i.i.i to i64
   %38 = shl nuw i64 %37, 32
-  %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %38, 1
-  store i64 %.0.i.i.i.lcssa.sink, ptr %4, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = or disjoint i64 %38, 1
+  store i64 %.123.i.i.i, ptr %4, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %39, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %40, ptr %3, align 8, !tbaa !17
-  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %41, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr %41, ptr %3, align 8, !tbaa !17
+  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %42, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.load.pre = load i64, ptr %4, align 8
-  %.fca.1.load.pre = load i64, ptr %39, align 8
+  %.fca.1.load.pre = load i64, ptr %40, align 8
   br label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
-_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread: ; preds = %26, %28, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24
-  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24 ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %28 ], [ 0, %26 ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24 ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %28 ], [ -1, %26 ]
+_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread: ; preds = %26, %28, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit
+  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %28 ], [ 0, %26 ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj4ELi4EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj4ELi4ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %28 ], [ -1, %26 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -11169,34 +11169,34 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   %35 = getelementptr inbounds nuw i8, ptr %11, i64 1
   store ptr %35, ptr %10, align 8, !tbaa !17
   %exitcond.not.i.i.i.i = icmp eq i64 %34, 8
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24, label %.preheader.i.i.i, !llvm.loop !367
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit, label %.preheader.i.i.i, !llvm.loop !367
 
 _ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i: ; preds = %19, %.preheader.i.i.i
   %36 = icmp samesign ugt i64 %.0.i.i.i, 7
-  br i1 %36, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
+  br i1 %36, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
-_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
-  %.011.i.i.i.lcssa.sink = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
-  %.0.i.i.i.lcssa.sink = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 8, %32 ]
-  %37 = zext i32 %.011.i.i.i.lcssa.sink to i64
+_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit: ; preds = %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
+  %.123.i.i.i = phi i64 [ %.0.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 8, %32 ]
+  %.11222.i.i.i = phi i32 [ %.011.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %33, %32 ]
+  %37 = zext i32 %.11222.i.i.i to i64
   %38 = shl nuw i64 %37, 32
-  %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %38, 1
-  store i64 %.0.i.i.i.lcssa.sink, ptr %4, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = or disjoint i64 %38, 1
+  store i64 %.123.i.i.i, ptr %4, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %39, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %40, ptr %3, align 8, !tbaa !17
-  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %41, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  store ptr %41, ptr %3, align 8, !tbaa !17
+  call void @_ZNK7phoenix9compositeIN5boost4wave8grammars4impl25compose_character_literalENS_5actorINS_14closure_memberILi0ENS_7closureIjbNS_5nil_tES9_S9_S9_EEEEEENS6_INS7_ILi1ESA_EEEENS6_INS_8variableIbEEEENS6_INS_8argumentILi0EEEEES9_S9_S9_E4evalINS_5tupleIRKjS9_S9_S9_S9_S9_S9_EEEENS_12actor_resultISL_T_E4typeERKSS_(ptr noundef nonnull align 8 dereferenceable(33) %42, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.fca.0.load.pre = load i64, ptr %4, align 8
-  %.fca.1.load.pre = load i64, ptr %39, align 8
+  %.fca.1.load.pre = load i64, ptr %40, align 8
   br label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
-_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread: ; preds = %26, %28, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24
-  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24 ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %28 ], [ 0, %26 ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread24 ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %28 ], [ -1, %26 ]
+_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread: ; preds = %26, %28, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit
+  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %28 ], [ 0, %26 ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj8ELi8EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj8ELi8ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %28 ], [ -1, %26 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert
@@ -11329,14 +11329,14 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic4impl9rule_bas
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !337
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %28, label %18
+  br i1 %.not.i, label %30, label %18
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr %17, align 8, !tbaa !40
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = invoke { i64, i64 } %21(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(16) %1)
-          to label %.noexc unwind label %35
+          to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %18
   %23 = extractvalue { i64, i64 } %22, 0
@@ -11347,39 +11347,38 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic4impl9rule_bas
   %.pre9 = load ptr, ptr %11, align 8, !tbaa !308
   %26 = zext i32 %.pre to i64
   %27 = shl nuw i64 %26, 32
-  br label %28
+  %28 = or disjoint i64 %27, %25
+  %29 = or disjoint i64 %28, 1
+  br label %30
 
-28:                                               ; preds = %10, %.noexc
-  %29 = phi ptr [ %.pre9, %.noexc ], [ %13, %10 ]
-  %30 = phi ptr [ %.pre8, %.noexc ], [ %0, %10 ]
-  %.sroa.5.12.insert.ext = phi i64 [ %27, %.noexc ], [ 0, %10 ]
+30:                                               ; preds = %10, %.noexc
+  %31 = phi ptr [ %.pre9, %.noexc ], [ %13, %10 ]
+  %32 = phi ptr [ %.pre8, %.noexc ], [ %0, %10 ]
+  %.sroa.5.12.insert.ext = phi i64 [ %29, %.noexc ], [ 1, %10 ]
   %.sroa.09.0.i = phi i64 [ %23, %.noexc ], [ -1, %10 ]
-  %.sroa.4.8.insert.insert.i = phi i64 [ %25, %.noexc ], [ 0, %10 ]
-  %31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %_ZN5boost6spirit7classic15closure_contextINS_4wave8grammars8closures13chlit_closureEED2Ev.exit unwind label %32
+  %33 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef nonnull align 8 dereferenceable(8) %32)
+          to label %_ZN5boost6spirit7classic15closure_contextINS_4wave8grammars8closures13chlit_closureEED2Ev.exit unwind label %34
 
-32:                                               ; preds = %28
-  %33 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  call void @__clang_call_terminate(ptr %34) #29
+  %36 = extractvalue { ptr, i32 } %35, 0
+  call void @__clang_call_terminate(ptr %36) #29
   unreachable
 
-_ZN5boost6spirit7classic15closure_contextINS_4wave8grammars8closures13chlit_closureEED2Ev.exit: ; preds = %28
-  %.sroa.5.8.insert.mask = or disjoint i64 %.sroa.5.12.insert.ext, %.sroa.4.8.insert.insert.i
-  %.sroa.5.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.mask, 1
+_ZN5boost6spirit7classic15closure_contextINS_4wave8grammars8closures13chlit_closureEED2Ev.exit: ; preds = %30
   %.fca.0.insert.i = insertvalue { i64, i64 } poison, i64 %.sroa.09.0.i, 0
-  store ptr %29, ptr %31, align 8, !tbaa !17
+  store ptr %31, ptr %33, align 8, !tbaa !17
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.5.8.insert.insert, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i, i64 %.sroa.5.12.insert.ext, 1
   ret { i64, i64 } %.fca.1.insert
 
-35:                                               ; preds = %18
-  %36 = landingpad { ptr, i32 }
+37:                                               ; preds = %18
+  %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost6spirit7classic15closure_contextINS_4wave8grammars8closures13chlit_closureEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %38
 }
 
 ; Function Attrs: uwtable

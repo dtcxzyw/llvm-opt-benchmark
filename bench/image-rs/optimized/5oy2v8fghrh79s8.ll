@@ -51551,8 +51551,7 @@ define hidden void @_ZN5image6codecs3pnm7decoder12HeaderReader13read_next_u3217h
   br label %65
 
 65:                                               ; preds = %33, %"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$17h14f4c65a8f49290eE.llvm.9832446184049035033.exit24.i"
-  %.sroa.735.sroa.7.0 = phi i64 [ 158913790976, %"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$17h14f4c65a8f49290eE.llvm.9832446184049035033.exit24.i" ], [ 158913789952, %33 ]
-  %.sroa.735.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$17h14f4c65a8f49290eE.llvm.9832446184049035033.exit24.i" ], [ 3, %33 ]
+  %.sroa.735.sroa.7.0 = phi i64 [ 158913790976, %"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$17h14f4c65a8f49290eE.llvm.9832446184049035033.exit24.i" ], [ 158913789955, %33 ]
   %.sroa.15.0 = phi ptr [ %46, %"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$17h14f4c65a8f49290eE.llvm.9832446184049035033.exit24.i" ], [ undef, %33 ]
   %.sroa.033.0 = phi i8 [ 4, %"_ZN4core3ptr75drop_in_place$LT$core..result..Result$LT$u8$C$std..io..error..Error$GT$$GT$17h14f4c65a8f49290eE.llvm.9832446184049035033.exit24.i" ], [ 9, %33 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !20768)
@@ -51719,10 +51718,9 @@ common.resume:                                    ; preds = %.body.i.i.i.i, %131
 
 118:                                              ; preds = %65, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hae8e459b587c5295E.llvm.9832446184049035033.exit.i.i1.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !20717
-  %.sroa.735.sroa.0.0.insert.insert = or disjoint i64 %.sroa.735.sroa.0.0, %.sroa.735.sroa.7.0
   store i8 %.sroa.033.0, ptr %0, align 8
   %.sroa.218.sroa.2.0..sroa.218.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.735.sroa.0.0.insert.insert, ptr %.sroa.218.sroa.2.0..sroa.218.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.735.sroa.7.0, ptr %.sroa.218.sroa.2.0..sroa.218.0..sroa_idx.sroa_idx, align 8
   %.sroa.319.sroa.2.0..sroa.319.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sroa.15.0, ptr %.sroa.319.sroa.2.0..sroa.319.0..sroa_idx.sroa_idx, align 8
   %.sroa.319.sroa.3.0..sroa.319.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48

@@ -1314,83 +1314,79 @@ define dso_local void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTy
   %15 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %5) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %16 = icmp ult i64 %15, 2
-  br i1 %16, label %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit, label %17
+  br i1 %16, label %.loopexit.sink.split, label %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit
 
-17:                                               ; preds = %7
-  %18 = add i64 %15, -1
-  %19 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 false)
-  %20 = sub nuw nsw i64 64, %19
-  %notmask = shl nsw i64 -1, %20
-  %21 = xor i64 %notmask, -1
-  br label %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit
+_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit: ; preds = %7
+  %17 = add i64 %15, -1
+  %18 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 false)
+  %19 = sub nuw nsw i64 64, %18
+  %notmask = shl nsw i64 -1, %19
+  %20 = xor i64 %notmask, -1
+  %21 = and i64 %2, %20
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %.loopexit.sink.split, label %23
 
-_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit: ; preds = %7, %17
-  %.0.i.i = phi i64 [ %21, %17 ], [ 0, %7 ]
-  %22 = and i64 %.0.i.i, %2
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %.loopexit.sink.split, label %24
-
-24:                                               ; preds = %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %26 = load i32, ptr %25, align 8
-  %27 = and i32 %26, 255
-  %28 = add nsw i32 %27, -19
-  %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %28, -2
+23:                                               ; preds = %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = and i32 %25, 255
+  %27 = add nsw i32 %26, -19
+  %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %27, -2
   %.not.not41 = icmp eq ptr %1, null
   %.not.not = or i1 %.not.not41, %spec.select.i.i.i.i.i.i.i.i
-  br i1 %.not.not, label %.loopexit.sink.split, label %29
+  br i1 %.not.not, label %.loopexit.sink.split, label %28
 
-29:                                               ; preds = %24
-  %30 = sub nsw i64 %3, %2
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !787
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !782
-  %35 = icmp ugt i32 %32, 3
-  %36 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 3, 0) %32)
-  %37 = icmp samesign ult i32 %36, 2
-  %or.cond.i = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond.i, label %38, label %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit
+28:                                               ; preds = %23
+  %29 = sub nsw i64 %3, %2
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %31 = load i32, ptr %30, align 8, !tbaa !787
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %33 = load ptr, ptr %32, align 8, !tbaa !782
+  %34 = icmp ugt i32 %31, 3
+  %35 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 range(i32 3, 0) %31)
+  %36 = icmp samesign ult i32 %35, 2
+  %or.cond.i = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond.i, label %37, label %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit
 
-38:                                               ; preds = %29
-  %39 = load ptr, ptr %0, align 8, !tbaa !13
-  %40 = sdiv i64 %30, 2
-  %41 = lshr i32 %32, 1
-  %42 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang7CodeGen13CodeGenModule20getTargetCodeGenInfoEv(ptr noundef nonnull align 8 dereferenceable(3608) %39) #16
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !788
-  %45 = load ptr, ptr %44, align 8, !tbaa !701
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load ptr, ptr %46, align 8
-  %48 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(17) %44, i64 %40, ptr noundef %34, i32 noundef %41) #16
-  br i1 %48, label %49, label %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit
+37:                                               ; preds = %28
+  %38 = load ptr, ptr %0, align 8, !tbaa !13
+  %39 = sdiv i64 %29, 2
+  %40 = lshr i32 %31, 1
+  %41 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang7CodeGen13CodeGenModule20getTargetCodeGenInfoEv(ptr noundef nonnull align 8 dereferenceable(3608) %38) #16
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  %43 = load ptr, ptr %42, align 8, !tbaa !788
+  %44 = load ptr, ptr %43, align 8, !tbaa !701
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %46 = load ptr, ptr %45, align 8
+  %47 = call noundef zeroext i1 %46(ptr noundef nonnull align 8 dereferenceable(17) %43, i64 %39, ptr noundef %33, i32 noundef %40) #16
+  br i1 %47, label %48, label %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit
 
-49:                                               ; preds = %38
-  %50 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %34, i32 noundef %41) #16
+48:                                               ; preds = %37
+  %49 = call noundef ptr @_ZN4llvm15FixedVectorType3getEPNS_4TypeEj(ptr noundef %33, i32 noundef %40) #16
   br label %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit
 
-_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit: ; preds = %29, %38, %49
-  %.sroa.010.0.i = phi ptr [ %50, %49 ], [ %34, %38 ], [ %34, %29 ]
-  %.sroa.3.0.i = phi i32 [ 2, %49 ], [ %32, %38 ], [ %32, %29 ]
-  %51 = zext i32 %.sroa.3.0.i to i64
-  %52 = sdiv i64 %30, %51
-  br label %53
+_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit: ; preds = %28, %37, %48
+  %.sroa.010.0.i = phi ptr [ %49, %48 ], [ %33, %37 ], [ %33, %28 ]
+  %.sroa.3.0.i = phi i32 [ 2, %48 ], [ %31, %37 ], [ %31, %28 ]
+  %50 = zext i32 %.sroa.3.0.i to i64
+  %51 = sdiv i64 %29, %50
+  br label %52
 
-53:                                               ; preds = %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit, %53
-  %.043 = phi i64 [ 0, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %55, %53 ]
-  %.sroa.030.042 = phi i64 [ %2, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %54, %53 ]
-  %54 = add nsw i64 %.sroa.030.042, %52
-  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %.sroa.010.0.i, i64 %.sroa.030.042, i64 %54)
-  %55 = add i64 %.043, 1
-  %.not23 = icmp eq i64 %55, %51
-  br i1 %.not23, label %.loopexit, label %53, !llvm.loop !795
+52:                                               ; preds = %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit, %52
+  %.043 = phi i64 [ 0, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %54, %52 ]
+  %.sroa.030.042 = phi i64 [ %2, %_ZN5clang7CodeGen9swiftcall20splitLegalVectorTypeERNS0_13CodeGenModuleENS_9CharUnitsEPN4llvm10VectorTypeE.exit ], [ %53, %52 ]
+  %53 = add nsw i64 %.sroa.030.042, %51
+  call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering17addLegalTypedDataEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %.sroa.010.0.i, i64 %.sroa.030.042, i64 %53)
+  %54 = add i64 %.043, 1
+  %.not23 = icmp eq i64 %54, %50
+  br i1 %.not23, label %.loopexit, label %52, !llvm.loop !795
 
-.loopexit.sink.split:                             ; preds = %4, %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit, %24
-  %.sink = phi ptr [ null, %24 ], [ %1, %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit ], [ %1, %4 ]
+.loopexit.sink.split:                             ; preds = %4, %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit, %7, %23
+  %.sink = phi ptr [ null, %23 ], [ %1, %7 ], [ %1, %_ZN5clang7CodeGen9swiftcall19getNaturalAlignmentERNS0_13CodeGenModuleEPN4llvm4TypeE.exit ], [ %1, %4 ]
   call void @_ZN5clang7CodeGen9swiftcall16SwiftAggLowering8addEntryEPN4llvm4TypeENS_9CharUnitsES6_(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %.sink, i64 %2, i64 %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %53, %.loopexit.sink.split
+.loopexit:                                        ; preds = %52, %.loopexit.sink.split
   ret void
 }
 

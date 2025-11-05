@@ -19261,18 +19261,18 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(72) ptr @_ZN5
   %31 = and i8 %30, 4
   %.not.i = icmp eq i8 %31, 0
   %32 = lshr i8 %30, 3
-  %.sroa.2.0.i = select i1 %.not.i, i16 0, i16 256
-  %33 = lshr exact i16 %.sroa.2.0.i, 6
-  %34 = trunc nuw nsw i16 %33 to i8
-  %35 = and i8 %27, -13
-  %36 = and i8 %32, 1
-  %37 = select i1 %.not.i, i8 0, i8 %36
-  %.sroa.0.0.i.masked = zext nneg i8 %37 to i16
-  %38 = or disjoint i16 %.sroa.2.0.i, %.sroa.0.0.i.masked
-  %.0.i.i = icmp eq i16 %38, 257
+  %.lobit.i = and i8 %32, 1
+  %33 = zext nneg i8 %.lobit.i to i16
+  %34 = or disjoint i16 %33, 256
+  %.sroa.2.0.i = select i1 %.not.i, i16 0, i16 %34
+  %35 = lshr i16 %.sroa.2.0.i, 6
+  %36 = trunc nuw nsw i16 %35 to i8
+  %37 = and i8 %36, 4
+  %38 = and i8 %27, -13
+  %.0.i.i = icmp eq i16 %.sroa.2.0.i, 257
   %39 = select i1 %.0.i.i, i8 8, i8 0
-  %40 = or disjoint i8 %35, %34
-  %41 = or disjoint i8 %40, %39
+  %40 = or disjoint i8 %39, %38
+  %41 = or disjoint i8 %40, %37
   store i8 %41, ptr %26, align 8
   br label %42
 

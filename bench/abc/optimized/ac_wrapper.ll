@@ -12928,22 +12928,21 @@ define linkonce_odr void @_ZN3acd10acdXX_impl26compute_decomposition_implEb(ptr 
   %66 = trunc nuw i8 %.3.us to i1
   %67 = add i32 %.263.us185, 1
   %68 = zext i32 %67 to i64
+  %69 = or i64 %.266.us184, %.sroa.094.2.us183
   br i1 %66, label %.split129.us.thread, label %72
 
 .split129.us.thread:                              ; preds = %2, %.split129.us
-  %.us-phi132196 = phi i64 [ %68, %.split129.us ], [ 1, %2 ]
-  %.us-phi131195 = phi i64 [ %.266.us184, %.split129.us ], [ %24, %2 ]
-  %.us-phi130194 = phi i64 [ %.sroa.094.2.us183, %.split129.us ], [ 0, %2 ]
+  %.us-phi132195 = phi i64 [ %68, %.split129.us ], [ 1, %2 ]
+  %.us-phi131194 = phi i64 [ %69, %.split129.us ], [ %24, %2 ]
   %.us-phi193 = phi i64 [ %.sroa.097.2.us, %.split129.us ], [ 0, %2 ]
-  %69 = phi i64 [ %62, %.split129.us ], [ %27, %2 ]
-  %70 = getelementptr inbounds nuw i64, ptr %5, i64 %.us-phi132196
-  store i64 %69, ptr %70, align 8, !tbaa !49
-  %71 = or i64 %.us-phi131195, %.us-phi130194
+  %70 = phi i64 [ %62, %.split129.us ], [ %27, %2 ]
+  %71 = getelementptr inbounds nuw i64, ptr %5, i64 %.us-phi132195
+  store i64 %70, ptr %71, align 8, !tbaa !49
   br label %72
 
 72:                                               ; preds = %.split129.us.thread, %.split129.us
   %.us-phi192 = phi i64 [ %.us-phi193, %.split129.us.thread ], [ %.sroa.097.2.us, %.split129.us ]
-  %.sroa.094.4 = phi i64 [ %71, %.split129.us.thread ], [ %.sroa.094.2.us183, %.split129.us ]
+  %.sroa.094.4 = phi i64 [ %.us-phi131194, %.split129.us.thread ], [ %.sroa.094.2.us183, %.split129.us ]
   %.not143 = icmp ugt i32 %15, 30
   br i1 %.not143, label %._crit_edge, label %.lr.ph.preheader
 

@@ -8867,17 +8867,17 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
 
 ._crit_edge.loopexit:                             ; preds = %_ZN3CFF15cff2_cs_opset_tI23cff2_cs_opset_flatten_tNS_15flatten_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE17process_arg_blendIS3_TnPN12hb_enable_ifIXsr10hb_is_sameIT_S3_EE5valueEvE4typeELPv0EEEvRS6_RS3_10hb_array_tIKS3_Ejj.exit
   %.pre = load i32, ptr %6, align 4, !tbaa !332
+  %32 = mul i32 %4, %15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.thread, %._crit_edge.loopexit, %.preheader
-  %.0.i4447 = phi i32 [ %15, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
-  %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %17, %.preheader ], [ %20, %.preheader.thread ]
-  %33 = mul i32 %.0.i4447, %4
-  %.not.i = icmp ult i32 %32, %33
+  %.0.i4447 = phi i32 [ %32, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
+  %33 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %17, %.preheader ], [ %20, %.preheader.thread ]
+  %.not.i = icmp ult i32 %33, %.0.i4447
   br i1 %.not.i, label %36, label %34, !prof !34
 
 34:                                               ; preds = %._crit_edge
-  %35 = sub nuw i32 %32, %33
+  %35 = sub nuw i32 %33, %.0.i4447
   store i32 %35, ptr %6, align 4, !tbaa !332
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE3popEj.exit
 
@@ -13704,17 +13704,17 @@ _ZN3CFF11arg_stack_tINS_11blend_arg_tEE8pop_uintEv.exit: ; preds = %_ZN3CFF11arg
 
 ._crit_edge.loopexit:                             ; preds = %_ZN3CFF15cff2_cs_opset_tI27cff2_cs_opset_subr_subset_tNS_19subr_subset_param_tENS_11blend_arg_tENS_17path_procs_null_tINS_20cff2_cs_interp_env_tIS3_EES2_EEE17process_arg_blendIS3_TnPN12hb_enable_ifIXsr10hb_is_sameIT_S3_EE5valueEvE4typeELPv0EEEvRS6_RS3_10hb_array_tIKS3_Ejj.exit
   %.pre = load i32, ptr %6, align 4, !tbaa !332
+  %32 = mul i32 %4, %15
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.thread, %._crit_edge.loopexit, %.preheader
-  %.0.i4447 = phi i32 [ %15, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
-  %32 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %17, %.preheader ], [ %20, %.preheader.thread ]
-  %33 = mul i32 %.0.i4447, %4
-  %.not.i = icmp ult i32 %32, %33
+  %.0.i4447 = phi i32 [ %32, %._crit_edge.loopexit ], [ 0, %.preheader ], [ 0, %.preheader.thread ]
+  %33 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %17, %.preheader ], [ %20, %.preheader.thread ]
+  %.not.i = icmp ult i32 %33, %.0.i4447
   br i1 %.not.i, label %36, label %34, !prof !34
 
 34:                                               ; preds = %._crit_edge
-  %35 = sub nuw i32 %32, %33
+  %35 = sub nuw i32 %33, %.0.i4447
   store i32 %35, ptr %6, align 4, !tbaa !332
   br label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE3popEj.exit
 

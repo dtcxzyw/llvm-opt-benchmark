@@ -45357,7 +45357,7 @@ define noundef zeroext i1 @"_ZN83_$LT$ruff_linter..line_width..ParseLineWidthErr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define range(i32 0, -64512) i32 @"_ZN82_$LT$ruff_linter..line_width..LineLength$u20$as$u20$core..str..traits..FromStr$GT$8from_str17ha015b96dbc81c03bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
+define range(i32 0, -65532) i32 @"_ZN82_$LT$ruff_linter..line_width..LineLength$u20$as$u20$core..str..traits..FromStr$GT$8from_str17ha015b96dbc81c03bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #10 {
   switch i64 %1, label %5 [
     i64 0, label %"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit.thread"
     i64 1, label %3
@@ -45396,7 +45396,7 @@ define range(i32 0, -64512) i32 @"_ZN82_$LT$ruff_linter..line_width..LineLength$
   %.sroa.148.0.i = phi i64 [ %14, %23 ], [ %.sroa.148.0.i.ph, %.preheader48.i.preheader ]
   %.sroa.02.0.i = phi ptr [ %13, %23 ], [ %.sroa.02.0.i.ph, %.preheader48.i.preheader ]
   %.not.i = icmp eq i64 %.sroa.148.0.i, 0
-  br i1 %.not.i, label %.loopexit, label %12
+  br i1 %.not.i, label %"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit", label %12
 
 10:                                               ; preds = %5
   %11 = icmp ult i64 %1, 5
@@ -45441,22 +45441,21 @@ define range(i32 0, -64512) i32 @"_ZN82_$LT$ruff_linter..line_width..LineLength$
   %36 = trunc nuw nsw i32 %30 to i16
   %37 = add i16 %33, %36
   %.not45.i = icmp eq i64 %34, 0
-  br i1 %.not45.i, label %.loopexit, label %.lr.ph.i
+  br i1 %.not45.i, label %"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit", label %.lr.ph.i
 
-.loopexit:                                        ; preds = %.preheader48.i, %32
+"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit": ; preds = %.preheader48.i, %32
   %.sroa.015.1.i = phi i16 [ %37, %32 ], [ %.sroa.015.0.i, %.preheader48.i ]
-  %38 = zext i16 %.sroa.015.1.i to i32
-  %39 = shl nuw i32 %38, 16
-  %40 = add i16 %.sroa.015.1.i, -321
-  %or.cond.i = icmp ult i16 %40, -320
+  %38 = add i16 %.sroa.015.1.i, -321
+  %or.cond.i = icmp ult i16 %38, -320
   %. = select i1 %or.cond.i, i32 1, i32 2
+  %39 = zext i16 %.sroa.015.1.i to i32
+  %40 = shl nuw i32 %39, 16
+  %41 = or disjoint i32 %., %40
   br label %"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit.thread"
 
-"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit.thread": ; preds = %12, %21, %23, %.lr.ph.i, %3, %3, %2, %.loopexit
-  %.sroa.0.0 = phi i32 [ %., %.loopexit ], [ 0, %3 ], [ 0, %3 ], [ 0, %2 ], [ 0, %.lr.ph.i ], [ 0, %23 ], [ 0, %21 ], [ 0, %12 ]
-  %.sroa.4.0.insert.insert = phi i32 [ %39, %.loopexit ], [ 256, %3 ], [ 256, %3 ], [ 0, %2 ], [ 256, %.lr.ph.i ], [ 256, %12 ], [ 512, %21 ], [ 512, %23 ]
-  %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i32 %.sroa.0.0.insert.insert
+"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit.thread": ; preds = %12, %21, %23, %.lr.ph.i, %3, %3, %2, %"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit"
+  %.sroa.44.0 = phi i32 [ %41, %"_ZN4core3num21_$LT$impl$u20$u16$GT$16from_ascii_radix17h098661b6a876706aE.exit" ], [ 256, %3 ], [ 256, %3 ], [ 0, %2 ], [ 256, %.lr.ph.i ], [ 512, %23 ], [ 512, %21 ], [ 256, %12 ]
+  ret i32 %.sroa.44.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

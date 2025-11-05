@@ -1057,7 +1057,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS
   %48 = icmp ne i8 %47, 0
   %49 = call noundef zeroext i1 @_ZN4absl19str_format_internal14FormatSinkImpl15PutPaddedStringESt17basic_string_viewIcSt11char_traitsIcEEiib(ptr noundef nonnull align 8 dereferenceable(1056) %2, i64 %42, ptr nonnull %8, i32 noundef %44, i32 noundef -1, i1 noundef zeroext %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %49, label %359, label %50
+  br i1 %49, label %357, label %50
 
 50:                                               ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit.thread, %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1077,7 +1077,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %59 = load i8, ptr %1, align 4, !tbaa !13
   %60 = and i8 %59, -2
-  switch i8 %60, label %358 [
+  switch i8 %60, label %356 [
     i8 8, label %61
     i8 10, label %161
     i8 12, label %208
@@ -1359,7 +1359,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatSt
 
 _ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.exit: ; preds = %71, %74, %_ZN4absl19str_format_internal12_GLOBAL__N_111FormatFFastImEEvT_iRKNS1_11FormatStateE.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %358
+  br label %356
 
 161:                                              ; preds = %50
   %162 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_113FloatToBufferILNS1_11FormatStyleE1EdEEbNS1_10DecomposedIT0_EEmPNS1_6BufferEPi(i64 %58, i32 %57, i64 noundef %spec.select, ptr noundef %10, ptr noundef %9)
@@ -1367,7 +1367,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.
 
 163:                                              ; preds = %161
   %164 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %2)
-  br label %358
+  br label %356
 
 165:                                              ; preds = %161
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 1
@@ -1443,7 +1443,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit:
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 1
   store ptr %207, ptr %181, align 8, !tbaa !37
   store i8 %205, ptr %206, align 1, !tbaa !12
-  br label %348
+  br label %346
 
 208:                                              ; preds = %50
   %209 = icmp eq i32 %narrow, 0
@@ -1454,7 +1454,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit:
 
 212:                                              ; preds = %208
   %213 = call fastcc noundef zeroext i1 @_ZN4absl19str_format_internal12_GLOBAL__N_118FallbackToSnprintfIdEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(double noundef %0, ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef %2)
-  br label %358
+  br label %356
 
 214:                                              ; preds = %208
   %215 = load i32, ptr %9, align 4, !tbaa !16
@@ -1544,7 +1544,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit:
 
 .loopexit:                                        ; preds = %248, %252, %242
   %.not70 = icmp eq i32 %243, 0
-  br i1 %.not70, label %348, label %253
+  br i1 %.not70, label %346, label %253
 
 253:                                              ; preds = %.loopexit
   %254 = load i8, ptr %1, align 4, !tbaa !13
@@ -1554,7 +1554,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit:
   %or.cond7.i76 = or i1 %255, %257
   %258 = select i1 %or.cond7.i76, i8 69, i8 101
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE(i32 noundef %243, i8 noundef signext %258, ptr noundef %10)
-  br label %348
+  br label %346
 
 259:                                              ; preds = %50
   %260 = icmp eq i8 %59, 15
@@ -1614,7 +1614,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloat
 281:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i
   %282 = call i64 @llvm.usub.sat.i64(i64 16, i64 %spec.select)
   %283 = icmp ugt i32 %narrow, 15
-  br i1 %283, label %_ZN4absl19str_format_internal12_GLOBAL__N_123MaskUpToNibbleExclusiveImEET_m.exit.i.i, label %284
+  br i1 %283, label %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i, label %284
 
 284:                                              ; preds = %281
   %285 = shl nuw nsw i64 %282, 2
@@ -1659,114 +1659,108 @@ _ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.
   %.161.i = phi i8 [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %.060.i, %292 ], [ %309, %301 ]
   %.pre.i37.i = phi i64 [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_120HexFloatNeedsRoundUpImEEbT_mh.exit.i.i ], [ %.2.i, %292 ], [ %305, %301 ]
   %310 = xor i64 %287, -1
-  br label %_ZN4absl19str_format_internal12_GLOBAL__N_123MaskUpToNibbleExclusiveImEET_m.exit.i.i
-
-_ZN4absl19str_format_internal12_GLOBAL__N_123MaskUpToNibbleExclusiveImEET_m.exit.i.i: ; preds = %._crit_edge.i.i, %281
-  %.262.i = phi i8 [ %.060.i, %281 ], [ %.161.i, %._crit_edge.i.i ]
-  %311 = phi i64 [ %.2.i, %281 ], [ %.pre.i37.i, %._crit_edge.i.i ]
-  %312 = phi i64 [ -1, %281 ], [ %310, %._crit_edge.i.i ]
-  %313 = and i64 %312, %311
+  %311 = and i64 %.pre.i37.i, %310
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i
 
-_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i: ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_123MaskUpToNibbleExclusiveImEET_m.exit.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i
-  %or.cond64.v.i = phi i64 [ %spec.select, %_ZN4absl19str_format_internal12_GLOBAL__N_123MaskUpToNibbleExclusiveImEET_m.exit.i.i ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
-  %.363.i = phi i8 [ %.262.i, %_ZN4absl19str_format_internal12_GLOBAL__N_123MaskUpToNibbleExclusiveImEET_m.exit.i.i ], [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
-  %.3.i = phi i64 [ %313, %_ZN4absl19str_format_internal12_GLOBAL__N_123MaskUpToNibbleExclusiveImEET_m.exit.i.i ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
+_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i: ; preds = %._crit_edge.i.i, %281, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i
+  %or.cond64.v.i = phi i64 [ %spec.select, %281 ], [ %spec.select, %._crit_edge.i.i ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
+  %.363.i = phi i8 [ %.060.i, %281 ], [ %.161.i, %._crit_edge.i.i ], [ %.060.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
+  %.3.i = phi i64 [ %.2.i, %281 ], [ %311, %._crit_edge.i.i ], [ %.2.i, %_ZN4absl19str_format_internal12_GLOBAL__N_116FormatANormalizeImEEvNS1_18HexFloatTypeParamsEPhPT_Pi.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %314 = select i1 %260, i64 0, i64 16
-  %315 = getelementptr inbounds nuw i8, ptr @.str.27, i64 %314
-  %316 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %312 = select i1 %260, i64 0, i64 16
+  %313 = getelementptr inbounds nuw i8, ptr @.str.27, i64 %312
+  %314 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 48, ptr %4, align 16, !tbaa !12
-  %317 = select i1 %260, i8 88, i8 120
-  %318 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i8 %317, ptr %316, align 1, !tbaa !12
-  %319 = zext nneg i8 %.363.i to i64
-  %320 = getelementptr inbounds nuw i8, ptr %315, i64 %319
-  %321 = load i8, ptr %320, align 1, !tbaa !12
-  %322 = getelementptr inbounds nuw i8, ptr %4, i64 3
-  store i8 %321, ptr %318, align 2, !tbaa !12
+  %315 = select i1 %260, i8 88, i8 120
+  %316 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i8 %315, ptr %314, align 1, !tbaa !12
+  %317 = zext nneg i8 %.363.i to i64
+  %318 = getelementptr inbounds nuw i8, ptr %313, i64 %317
+  %319 = load i8, ptr %318, align 1, !tbaa !12
+  %320 = getelementptr inbounds nuw i8, ptr %4, i64 3
+  store i8 %319, ptr %316, align 2, !tbaa !12
   %or.cond64.i = icmp eq i64 %or.cond64.v.i, 0
-  br i1 %or.cond64.i, label %323, label %327
+  br i1 %or.cond64.i, label %321, label %325
 
-323:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i
-  %324 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %325 = load i8, ptr %324, align 1, !tbaa !4
-  %326 = and i8 %325, 8
-  %.not65.i = icmp eq i8 %326, 0
-  br i1 %.not65.i, label %329, label %327
+321:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %323 = load i8, ptr %322, align 1, !tbaa !4
+  %324 = and i8 %323, 8
+  %.not65.i = icmp eq i8 %324, 0
+  br i1 %.not65.i, label %327, label %325
 
-327:                                              ; preds = %323, %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i
-  %328 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i8 46, ptr %322, align 1, !tbaa !12
-  br label %329
+325:                                              ; preds = %321, %_ZN4absl19str_format_internal12_GLOBAL__N_112FormatARoundImEEvbRKNS1_11FormatStateEPhPT_Pi.exit.i
+  %326 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i8 46, ptr %320, align 1, !tbaa !12
+  br label %327
 
-329:                                              ; preds = %327, %323
-  %.0.i78 = phi ptr [ %328, %327 ], [ %322, %323 ]
+327:                                              ; preds = %325, %321
+  %.0.i78 = phi ptr [ %326, %325 ], [ %320, %321 ]
   %.not71.i = icmp eq i64 %.3.i, 0
   br i1 %.not71.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %329, %.lr.ph.i
-  %.174.i = phi ptr [ %333, %.lr.ph.i ], [ %.0.i78, %329 ]
-  %.02973.i = phi i64 [ %335, %.lr.ph.i ], [ 0, %329 ]
-  %.05472.i = phi i64 [ %334, %.lr.ph.i ], [ %.3.i, %329 ]
-  %330 = lshr i64 %.05472.i, 60
-  %331 = getelementptr inbounds nuw i8, ptr %315, i64 %330
-  %332 = load i8, ptr %331, align 1, !tbaa !12
-  %333 = getelementptr inbounds nuw i8, ptr %.174.i, i64 1
-  store i8 %332, ptr %.174.i, align 1, !tbaa !12
-  %334 = shl i64 %.05472.i, 4
-  %335 = add nuw nsw i64 %.02973.i, 1
-  %.not.i79 = icmp eq i64 %334, 0
+.lr.ph.i:                                         ; preds = %327, %.lr.ph.i
+  %.174.i = phi ptr [ %331, %.lr.ph.i ], [ %.0.i78, %327 ]
+  %.02973.i = phi i64 [ %333, %.lr.ph.i ], [ 0, %327 ]
+  %.05472.i = phi i64 [ %332, %.lr.ph.i ], [ %.3.i, %327 ]
+  %328 = lshr i64 %.05472.i, 60
+  %329 = getelementptr inbounds nuw i8, ptr %313, i64 %328
+  %330 = load i8, ptr %329, align 1, !tbaa !12
+  %331 = getelementptr inbounds nuw i8, ptr %.174.i, i64 1
+  store i8 %330, ptr %.174.i, align 1, !tbaa !12
+  %332 = shl i64 %.05472.i, 4
+  %333 = add nuw nsw i64 %.02973.i, 1
+  %.not.i79 = icmp eq i64 %332, 0
   br i1 %.not.i79, label %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit, label %.lr.ph.i, !llvm.loop !51
 
-_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit: ; preds = %.lr.ph.i, %329
-  %.029.lcssa.i = phi i64 [ 0, %329 ], [ %335, %.lr.ph.i ]
-  %.1.lcssa.i = phi ptr [ %.0.i78, %329 ], [ %333, %.lr.ph.i ]
-  %336 = sub i64 %spec.select, %.029.lcssa.i
-  %.030.i = select i1 %265, i64 0, i64 %336
-  %337 = ptrtoint ptr %.1.lcssa.i to i64
-  %338 = ptrtoint ptr %4 to i64
-  %339 = sub i64 %337, %338
+_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit: ; preds = %.lr.ph.i, %327
+  %.029.lcssa.i = phi i64 [ 0, %327 ], [ %333, %.lr.ph.i ]
+  %.1.lcssa.i = phi ptr [ %.0.i78, %327 ], [ %331, %.lr.ph.i ]
+  %334 = sub i64 %spec.select, %.029.lcssa.i
+  %.030.i = select i1 %265, i64 0, i64 %334
+  %335 = ptrtoint ptr %.1.lcssa.i to i64
+  %336 = ptrtoint ptr %4 to i64
+  %337 = sub i64 %335, %336
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %340 = select i1 %260, i8 80, i8 112
-  store i8 %340, ptr %5, align 16, !tbaa !12
-  %341 = icmp sgt i32 %.157.i, -1
-  %342 = select i1 %341, i8 43, i8 45
-  %343 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %342, ptr %343, align 1, !tbaa !12
-  %344 = call i32 @llvm.abs.i32(i32 %.157.i, i1 true)
-  %345 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %346 = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %344, ptr noundef nonnull %345)
-  %347 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %12, i64 %339, ptr nonnull %4, i64 noundef 2, i64 noundef %.030.i, i64 %347, ptr nonnull %5)
+  %338 = select i1 %260, i8 80, i8 112
+  store i8 %338, ptr %5, align 16, !tbaa !12
+  %339 = icmp sgt i32 %.157.i, -1
+  %340 = select i1 %339, i8 43, i8 45
+  %341 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  store i8 %340, ptr %341, align 1, !tbaa !12
+  %342 = call i32 @llvm.abs.i32(i32 %.157.i, i1 true)
+  %343 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %344 = call noundef ptr @_ZN4absl16numbers_internal15FastIntToBufferEiPc(i32 noundef %342, ptr noundef nonnull %343)
+  %345 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #21
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_110FinalPrintERKNS1_11FormatStateESt17basic_string_viewIcSt11char_traitsIcEEmmS8_(ptr noundef nonnull readonly align 8 dereferenceable(32) %12, i64 %337, ptr nonnull %4, i64 noundef 2, i64 noundef %.030.i, i64 %345, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %358
+  br label %356
 
-348:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit, %.loopexit, %253
-  %349 = getelementptr inbounds nuw i8, ptr %10, i64 88
-  %350 = load ptr, ptr %349, align 8, !tbaa !40
-  %351 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %352 = load ptr, ptr %351, align 8, !tbaa !37
-  %353 = ptrtoint ptr %352 to i64
-  %354 = ptrtoint ptr %350 to i64
-  %355 = sub i64 %353, %354
-  %356 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.val73 = load i8, ptr %356, align 1
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.val74 = load i32, ptr %357, align 4, !tbaa !14
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %.06494, i64 %355, ptr %350, i8 %.val73, i32 %.val74, ptr noundef %2)
-  br label %358
+346:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_113PrintExponentEicPNS1_6BufferE.exit, %.loopexit, %253
+  %347 = getelementptr inbounds nuw i8, ptr %10, i64 88
+  %348 = load ptr, ptr %347, align 8, !tbaa !40
+  %349 = getelementptr inbounds nuw i8, ptr %10, i64 96
+  %350 = load ptr, ptr %349, align 8, !tbaa !37
+  %351 = ptrtoint ptr %350 to i64
+  %352 = ptrtoint ptr %348 to i64
+  %353 = sub i64 %351, %352
+  %354 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.val73 = load i8, ptr %354, align 1
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %.val74 = load i32, ptr %355, align 4, !tbaa !14
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_117WriteBufferToSinkEcSt17basic_string_viewIcSt11char_traitsIcEERKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(i8 noundef signext %.06494, i64 %353, ptr %348, i8 %.val73, i32 %.val74, ptr noundef %2)
+  br label %356
 
-358:                                              ; preds = %50, %348, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit, %212, %163, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.exit
-  %.1 = phi i1 [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.exit ], [ true, %348 ], [ %164, %163 ], [ %213, %212 ], [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit ], [ false, %50 ]
+356:                                              ; preds = %50, %346, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit, %212, %163, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.exit
+  %.1 = phi i1 [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatFImEEvT_iRKNS1_11FormatStateE.exit ], [ true, %346 ], [ %164, %163 ], [ %213, %212 ], [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_17FormatAImEEvNS1_18HexFloatTypeParamsET_ibRKNS1_11FormatStateE.exit ], [ false, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %359
+  br label %357
 
-359:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit, %358
-  %.0 = phi i1 [ %.1, %358 ], [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ]
+357:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit, %356
+  %.0 = phi i1 [ %.1, %356 ], [ true, %_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertNonNumericFloatsIdEEbcT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit ]
   ret i1 %.0
 }
 

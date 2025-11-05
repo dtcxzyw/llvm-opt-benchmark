@@ -2194,63 +2194,63 @@ split.thread:                                     ; preds = %209, %split
   %262 = fadd float %259, %259
   %263 = fdiv float %261, %262
   %.1.i.us = select i1 %260, float %263, float 0.000000e+00
+  %264 = fadd float %.1.i.us, %188
   %.val139.us.pre = load float, ptr %237, align 4
   br label %_ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us
 
 _ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us:  ; preds = %244, %231
   %.val139.us = phi float [ %.val139.us.pre, %244 ], [ %.val142.us, %231 ]
-  %.0.i.us = phi float [ %.1.i.us, %244 ], [ 0.000000e+00, %231 ]
-  %264 = add nsw i32 %176, -1
-  %265 = sext i32 %264 to i64
-  %266 = mul i64 %234, %265
-  %267 = getelementptr inbounds nuw i8, ptr %232, i64 %266
-  %268 = getelementptr inbounds float, ptr %267, i64 %183
-  %269 = sext i32 %228 to i64
-  %270 = mul i64 %234, %269
-  %271 = getelementptr inbounds nuw i8, ptr %232, i64 %270
-  %272 = getelementptr inbounds float, ptr %271, i64 %183
-  %.val138.us = load float, ptr %268, align 4, !tbaa !19
-  %.val140.us = load float, ptr %272, align 4
-  %273 = fcmp ugt float %.val138.us, 0.000000e+00
-  %274 = fcmp ugt float %.val139.us, 0.000000e+00
-  %or.cond.i162.us = select i1 %273, i1 %274, i1 false
-  %275 = fcmp ugt float %.val140.us, 0.000000e+00
-  %or.cond21.i163.us = select i1 %or.cond.i162.us, i1 %275, i1 false
-  br i1 %or.cond21.i163.us, label %276, label %296
+  %.0.i.us = phi float [ %264, %244 ], [ %188, %231 ]
+  %265 = add nsw i32 %176, -1
+  %266 = sext i32 %265 to i64
+  %267 = mul i64 %234, %266
+  %268 = getelementptr inbounds nuw i8, ptr %232, i64 %267
+  %269 = getelementptr inbounds float, ptr %268, i64 %183
+  %270 = sext i32 %228 to i64
+  %271 = mul i64 %234, %270
+  %272 = getelementptr inbounds nuw i8, ptr %232, i64 %271
+  %273 = getelementptr inbounds float, ptr %272, i64 %183
+  %.val138.us = load float, ptr %269, align 4, !tbaa !19
+  %.val140.us = load float, ptr %273, align 4
+  %274 = fcmp ugt float %.val138.us, 0.000000e+00
+  %275 = fcmp ugt float %.val139.us, 0.000000e+00
+  %or.cond.i162.us = select i1 %274, i1 %275, i1 false
+  %276 = fcmp ugt float %.val140.us, 0.000000e+00
+  %or.cond21.i163.us = select i1 %or.cond.i162.us, i1 %276, i1 false
+  br i1 %or.cond21.i163.us, label %277, label %298
 
-276:                                              ; preds = %_ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us
-  %277 = fpext float %.val138.us to double
-  %278 = fadd double %277, 0x3EB0C6F7A0B5ED8D
-  %279 = call double @log(double noundef %278) #37, !tbaa !20
-  %280 = fptrunc double %279 to float
-  %281 = fpext float %.val139.us to double
-  %282 = fadd double %281, 0x3EB0C6F7A0B5ED8D
-  %283 = call double @log(double noundef %282) #37, !tbaa !20
-  %284 = fptrunc double %283 to float
-  %285 = fpext float %.val140.us to double
-  %286 = fadd double %285, 0x3EB0C6F7A0B5ED8D
-  %287 = call double @log(double noundef %286) #37, !tbaa !20
-  %288 = fptrunc double %287 to float
-  %289 = fsub float %288, %284
-  %290 = fsub float %289, %284
-  %291 = fadd float %290, %280
-  %292 = fcmp une float %291, 0.000000e+00
-  %293 = fsub float %280, %288
-  %294 = fadd float %291, %291
-  %295 = fdiv float %293, %294
-  %.1.i165.us = select i1 %292, float %295, float 0.000000e+00
-  br label %296
+277:                                              ; preds = %_ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us
+  %278 = fpext float %.val138.us to double
+  %279 = fadd double %278, 0x3EB0C6F7A0B5ED8D
+  %280 = call double @log(double noundef %279) #37, !tbaa !20
+  %281 = fptrunc double %280 to float
+  %282 = fpext float %.val139.us to double
+  %283 = fadd double %282, 0x3EB0C6F7A0B5ED8D
+  %284 = call double @log(double noundef %283) #37, !tbaa !20
+  %285 = fptrunc double %284 to float
+  %286 = fpext float %.val140.us to double
+  %287 = fadd double %286, 0x3EB0C6F7A0B5ED8D
+  %288 = call double @log(double noundef %287) #37, !tbaa !20
+  %289 = fptrunc double %288 to float
+  %290 = fsub float %289, %285
+  %291 = fsub float %290, %285
+  %292 = fadd float %291, %281
+  %293 = fcmp une float %292, 0.000000e+00
+  %294 = fsub float %281, %289
+  %295 = fadd float %292, %292
+  %296 = fdiv float %294, %295
+  %.1.i165.us = select i1 %293, float %296, float 0.000000e+00
+  %297 = fadd float %.1.i165.us, %191
+  br label %298
 
-296:                                              ; preds = %276, %_ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us
-  %.0.i164.us = phi float [ %.1.i165.us, %276 ], [ 0.000000e+00, %_ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us ]
-  %297 = fadd float %.0.i.us, %188
-  %298 = fadd float %.0.i164.us, %191
+298:                                              ; preds = %277, %_ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us
+  %.0.i164.us = phi float [ %297, %277 ], [ %191, %_ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us ]
   %299 = load double, ptr %10, align 8, !tbaa !44
   %300 = fptrunc double %299 to float
-  %301 = fsub float %297, %139
+  %301 = fsub float %.0.i.us, %139
   %302 = fptosi float %301 to i32
   %.sroa.speculated187.us = call i32 @llvm.smax.i32(i32 %302, i32 0)
-  %303 = fsub float %298, %139
+  %303 = fsub float %.0.i164.us, %139
   %304 = fptosi float %303 to i32
   %.sroa.speculated181.us = call i32 @llvm.smax.i32(i32 %304, i32 0)
   %305 = load i32, ptr %124, align 4, !tbaa !37
@@ -2270,7 +2270,7 @@ _ZN2cv7detailsL12calcSubpixelERKfS2_S2_.exit.us:  ; preds = %244, %231
   invoke void @_ZN2cv3MatC1ERKS0_RKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 4 dereferenceable(16) %23)
           to label %_ZNK2cv3MatclERKNS_5Rect_IiEE.exit170.us unwind label %.split262.us
 
-_ZNK2cv3MatclERKNS_5Rect_IiEE.exit170.us:         ; preds = %296
+_ZNK2cv3MatclERKNS_5Rect_IiEE.exit170.us:         ; preds = %298
   %309 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %22, ptr noundef nonnull align 8 dereferenceable(32) %21)
           to label %310 unwind label %.split265.us
 
@@ -2279,12 +2279,12 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit170.us:         ; preds = %296
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %311 = fdiv float %297, %129
-  %312 = fdiv float %298, %129
+  %311 = fdiv float %.0.i.us, %129
+  %312 = fdiv float %.0.i164.us, %129
   %313 = fsub float %311, %99
   %314 = fsub float %312, %99
-  %.sroa.0.0.us = select i1 %96, float %313, float %297
-  %.sroa.10.0.us = select i1 %96, float %314, float %298
+  %.sroa.0.0.us = select i1 %96, float %313, float %.0.i.us
+  %.sroa.10.0.us = select i1 %96, float %314, float %.0.i164.us
   %315 = load ptr, ptr %64, align 8, !tbaa !72
   %316 = load ptr, ptr %130, align 8, !tbaa !121
   %.not.i.us = icmp eq ptr %315, %316
@@ -2437,7 +2437,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit.us: ; preds = %_ZNSt6ve
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %20) #37
   br label %356
 
-.split262.us:                                     ; preds = %296
+.split262.us:                                     ; preds = %298
   %350 = landingpad { ptr, i32 }
           cleanup
   br label %357

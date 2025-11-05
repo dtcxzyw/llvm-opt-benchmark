@@ -24186,43 +24186,43 @@ _ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit:  ; preds = %.lr.ph.split, %_ZN5
   br i1 %exitcond.not, label %.lr.ph64.preheader, label %_ZN5Annoy12_GLOBAL__N_13dotIfEET_PKS2_S4_i.exit, !llvm.loop !391
 
 .lr.ph66:                                         ; preds = %.lr.ph64
-  %square = fmul nnan ninf nsz arcp contract afn float %.1, %.1
+  %57 = fmul nnan ninf nsz arcp contract afn float %.1, %.1
   %wide.trip.count93 = zext nneg i32 %2 to i64
-  br label %62
+  br label %63
 
 .lr.ph64:                                         ; preds = %.lr.ph64.preheader, %.lr.ph64
   %indvars.iv85 = phi i64 [ 0, %.lr.ph64.preheader ], [ %indvars.iv.next86, %.lr.ph64 ]
   %.03763 = phi float [ 0.000000e+00, %.lr.ph64.preheader ], [ %.1, %.lr.ph64 ]
-  %57 = mul i64 %1, %indvars.iv85
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  %60 = load float, ptr %59, align 4, !tbaa !381
-  %61 = fcmp nnan ninf nsz arcp contract afn ogt float %60, %.03763
-  %.1 = select nsz i1 %61, float %60, float %.03763
+  %58 = mul i64 %1, %indvars.iv85
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  %61 = load float, ptr %60, align 4, !tbaa !381
+  %62 = fcmp nnan ninf nsz arcp contract afn ogt float %61, %.03763
+  %.1 = select nsz i1 %62, float %61, float %.03763
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
   br i1 %exitcond89.not, label %.lr.ph66, label %.lr.ph64, !llvm.loop !392
 
-._crit_edge:                                      ; preds = %62, %4
+._crit_edge:                                      ; preds = %63, %4
   ret void
 
-62:                                               ; preds = %.lr.ph66, %62
-  %indvars.iv90 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next91, %62 ]
-  %63 = mul i64 %1, %indvars.iv90
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  %66 = load float, ptr %65, align 4, !tbaa !381
-  %square44 = fmul nnan ninf nsz arcp contract afn float %66, %66
-  %67 = fsub nnan ninf nsz arcp contract afn float %square, %square44
-  %68 = fcmp nnan ninf nsz arcp contract afn olt float %67, 0.000000e+00
-  %69 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %67)
-  %70 = select nnan ninf nsz arcp contract afn i1 %68, float 0.000000e+00, float %69
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store float %square, ptr %71, align 4, !tbaa !385
-  store float %70, ptr %65, align 4, !tbaa !381
+63:                                               ; preds = %.lr.ph66, %63
+  %indvars.iv90 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next91, %63 ]
+  %64 = mul i64 %1, %indvars.iv90
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
+  %67 = load float, ptr %66, align 4, !tbaa !381
+  %square44 = fmul nnan ninf nsz arcp contract afn float %67, %67
+  %68 = fsub nnan ninf nsz arcp contract afn float %57, %square44
+  %69 = fcmp nnan ninf nsz arcp contract afn olt float %68, 0.000000e+00
+  %70 = tail call nnan ninf nsz arcp contract afn float @llvm.sqrt.f32(float nofpclass(nan inf) %68)
+  %71 = select nnan ninf nsz arcp contract afn i1 %69, float 0.000000e+00, float %70
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store float %57, ptr %72, align 4, !tbaa !385
+  store float %71, ptr %66, align 4, !tbaa !381
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
-  br i1 %exitcond94.not, label %._crit_edge, label %62, !llvm.loop !393
+  br i1 %exitcond94.not, label %._crit_edge, label %63, !llvm.loop !393
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable

@@ -7932,13 +7932,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 %.sroa.0.0.extract.trunc.i.i
   %.0.copyload.i.i.i.i.i11 = load i32, ptr %82, align 1
   %83 = zext i32 %.0.copyload.i.i.i.i.i11 to i64
+  %84 = or disjoint i64 %83, 4294967296
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %65, %41, %6, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %26, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %3
-  %.sroa.030.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %83, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.030.0
-  ret i64 %.sroa.030.0.insert.insert
+  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8827,13 +8826,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 %.sroa.0.0.extract.trunc.i.i
   %.0.copyload.i.i.i.i.i11 = load i32, ptr %82, align 1
   %83 = zext i32 %.0.copyload.i.i.i.i.i11 to i64
+  %84 = or disjoint i64 %83, 4294967296
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %65, %41, %6, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %26, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %3
-  %.sroa.030.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %83, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.030.0
-  ret i64 %.sroa.030.0.insert.insert
+  %.sroa.2.0 = phi i64 [ 0, %3 ], [ 0, %6 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %26 ], [ %84, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %41 ], [ 0, %65 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13897,13 +13895,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 %.sroa.0.0.extract.trunc.i.i
   %.0.copyload.i.i.i.i.i21 = load i32, ptr %87, align 1
   %88 = zext i32 %.0.copyload.i.i.i.i.i21 to i64
+  %89 = or disjoint i64 %88, 4294967296
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %70, %43, %8, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %28, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %5
-  %.sroa.040.0 = phi i64 [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %28 ], [ %88, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %43 ], [ 0, %70 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %28 ], [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %43 ], [ 0, %70 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.040.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.040.0
-  ret i64 %.sroa.040.0.insert.insert
+  %.sroa.2.0 = phi i64 [ 0, %5 ], [ 0, %8 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %28 ], [ %89, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %43 ], [ 0, %70 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16145,13 +16142,12 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
   %86 = getelementptr inbounds nuw i8, ptr %79, i64 %.sroa.0.0.extract.trunc.i.i
   %.0.copyload.i.i.i.i.i11 = load i32, ptr %86, align 1
   %87 = zext i32 %.0.copyload.i.i.i.i.i11 to i64
+  %88 = or disjoint i64 %87, 4294967296
   br label %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit.thread: ; preds = %.critedge.i.i.i, %.critedge.i.i, %69, %42, %7, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i, %27, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit, %4
-  %.sroa.032.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %27 ], [ %87, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %42 ], [ 0, %69 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.233.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %27 ], [ 4294967296, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %42 ], [ 0, %69 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
-  %.sroa.032.0.insert.insert = or disjoint i64 %.sroa.233.0, %.sroa.032.0
-  ret i64 %.sroa.032.0.insert.insert
+  %.sroa.233.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %_ZN5clang9api_notes12_GLOBAL__N_119IdentifierTableInfo11ComputeHashEN4llvm9StringRefE.exit.i.i ], [ 0, %27 ], [ %88, %_ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTableInfoEE4findERKNS2_15ContextTableKeyEPS4_.exit ], [ 0, %42 ], [ 0, %69 ], [ 0, %.critedge.i.i ], [ 0, %.critedge.i.i.i ]
+  ret i64 %.sroa.233.0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)

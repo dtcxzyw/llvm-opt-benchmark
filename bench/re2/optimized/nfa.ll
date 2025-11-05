@@ -1166,14 +1166,13 @@ land.rhs.i:                                       ; preds = %if.end29
   %19 = load i32, ptr %arrayidx.i.i.i16.i, align 4
   %and.i17.i = and i32 %19, 7
   %cmp13.i = icmp eq i32 %and.i17.i, 2
-  br label %_ZN3re24Prog4Inst6greedyEPS0_.exit
+  %20 = or i1 %cmp13.i, %tobool
+  br i1 %20, label %if.then34, label %sw.epilog
 
-_ZN3re24Prog4Inst6greedyEPS0_.exit:               ; preds = %if.end29, %land.rhs.i
-  %20 = phi i1 [ %cmp13.i, %land.rhs.i ], [ false, %if.end29 ]
-  %or.cond50 = or i1 %20, %tobool
-  br i1 %or.cond50, label %if.then34, label %sw.epilog
+_ZN3re24Prog4Inst6greedyEPS0_.exit:               ; preds = %if.end29
+  br i1 %tobool, label %if.then34, label %sw.epilog
 
-if.then34:                                        ; preds = %if.end29, %_ZN3re24Prog4Inst6greedyEPS0_.exit
+if.then34:                                        ; preds = %land.rhs.i, %if.end29, %_ZN3re24Prog4Inst6greedyEPS0_.exit
   %21 = load ptr, ptr %match_, align 8
   %capture36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load ptr, ptr %capture36, align 8
@@ -1388,7 +1387,7 @@ for.end117:                                       ; preds = %for.inc115, %_ZN3re
   store i32 0, ptr %runq, align 8
   br label %return
 
-sw.epilog:                                        ; preds = %if.end63, %_ZN3re24Prog4Inst6greedyEPS0_.exit, %if.then91, %land.lhs.true86, %lor.lhs.false80, %sw.bb25, %if.then57, %sw.bb, %invoke.cont22
+sw.epilog:                                        ; preds = %land.rhs.i, %if.end63, %_ZN3re24Prog4Inst6greedyEPS0_.exit, %if.then91, %land.lhs.true86, %lor.lhs.false80, %sw.bb25, %if.then57, %sw.bb, %invoke.cont22
   %63 = load i32, ptr %3, align 8
   %dec.i109 = add nsw i32 %63, -1
   store i32 %dec.i109, ptr %3, align 8

@@ -1399,105 +1399,104 @@ define dso_local i64 @aclitemin(ptr noundef captures(none) %0) local_unnamed_add
 
 ._crit_edge.loopexit.i:                           ; preds = %71
   %79 = shl i64 %.155.i, 32
+  %80 = or i64 %79, %72
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader.i
-  %.054.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %79, %._crit_edge.loopexit.i ]
-  %.053.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %72, %._crit_edge.loopexit.i ]
+  %.053.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %80, %._crit_edge.loopexit.i ]
   %.052.pn.lcssa.i = phi ptr [ %.05289.i, %.preheader.i ], [ %.178.i, %._crit_edge.loopexit.i ]
   %.1.lcssa.i = phi ptr [ %.172.i, %.preheader.i ], [ %.1.i, %._crit_edge.loopexit.i ]
-  %80 = load i8, ptr %2, align 16
-  %81 = icmp eq i8 %80, 0
-  br i1 %81, label %82, label %83
-
-82:                                               ; preds = %._crit_edge.i
-  store i32 0, ptr %9, align 8
-  br label %91
+  %81 = load i8, ptr %2, align 16
+  %82 = icmp eq i8 %81, 0
+  br i1 %82, label %83, label %84
 
 83:                                               ; preds = %._crit_edge.i
-  %84 = ptrtoint ptr %2 to i64
-  %85 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %84, i64 noundef 0, i64 noundef 0, i64 noundef 0) #13
-  store i32 %85, ptr %9, align 8
-  %.not66.i = icmp eq i32 %85, 0
-  br i1 %.not66.i, label %86, label %91
+  store i32 0, ptr %9, align 8
+  br label %92
 
-86:                                               ; preds = %83
-  %87 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #13
-  br i1 %87, label %88, label %124
+84:                                               ; preds = %._crit_edge.i
+  %85 = ptrtoint ptr %2 to i64
+  %86 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %85, i64 noundef 0, i64 noundef 0, i64 noundef 0) #13
+  store i32 %86, ptr %9, align 8
+  %.not66.i = icmp eq i32 %86, 0
+  br i1 %.not66.i, label %87, label %92
 
-88:                                               ; preds = %86
-  %89 = call i32 @errcode(i32 noundef 67137668) #13
-  %90 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #13
+87:                                               ; preds = %84
+  %88 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #13
+  br i1 %88, label %89, label %124
+
+89:                                               ; preds = %87
+  %90 = call i32 @errcode(i32 noundef 67137668) #13
+  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %2) #13
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 366, ptr noundef nonnull @__func__.aclparse) #13
   br label %124
 
-91:                                               ; preds = %83, %82
-  %92 = load i8, ptr %.1.lcssa.i, align 1
-  %93 = icmp eq i8 %92, 47
-  br i1 %93, label %94, label %115
+92:                                               ; preds = %84, %83
+  %93 = load i8, ptr %.1.lcssa.i, align 1
+  %94 = icmp eq i8 %93, 47
+  br i1 %94, label %95, label %116
 
-94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i8, ptr %.052.pn.lcssa.i, i64 2
-  %96 = call fastcc ptr @getid(ptr noundef nonnull %95, ptr noundef %3, ptr noundef %8)
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %124, label %98
+95:                                               ; preds = %92
+  %96 = getelementptr inbounds nuw i8, ptr %.052.pn.lcssa.i, i64 2
+  %97 = call fastcc ptr @getid(ptr noundef nonnull %96, ptr noundef %3, ptr noundef %8)
+  %98 = icmp eq ptr %97, null
+  br i1 %98, label %124, label %99
 
-98:                                               ; preds = %94
-  %99 = load i8, ptr %3, align 16
-  %100 = icmp eq i8 %99, 0
-  br i1 %100, label %101, label %106
+99:                                               ; preds = %95
+  %100 = load i8, ptr %3, align 16
+  %101 = icmp eq i8 %100, 0
+  br i1 %101, label %102, label %107
 
-101:                                              ; preds = %98
-  %102 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #13
-  br i1 %102, label %103, label %124
+102:                                              ; preds = %99
+  %103 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #13
+  br i1 %103, label %104, label %124
 
-103:                                              ; preds = %101
-  %104 = call i32 @errcode(i32 noundef 33685634) #13
-  %105 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #13
+104:                                              ; preds = %102
+  %105 = call i32 @errcode(i32 noundef 33685634) #13
+  %106 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.46) #13
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 381, ptr noundef nonnull @__func__.aclparse) #13
   br label %124
 
-106:                                              ; preds = %98
-  %107 = ptrtoint ptr %3 to i64
-  %108 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %107, i64 noundef 0, i64 noundef 0, i64 noundef 0) #13
-  %109 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 %108, ptr %109, align 4
-  %.not67.i = icmp eq i32 %108, 0
-  br i1 %.not67.i, label %110, label %aclparse.exit
+107:                                              ; preds = %99
+  %108 = ptrtoint ptr %3 to i64
+  %109 = call i32 @GetSysCacheOid(i32 noundef 10, i16 noundef signext 1, i64 noundef %108, i64 noundef 0, i64 noundef 0, i64 noundef 0) #13
+  %110 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 %109, ptr %110, align 4
+  %.not67.i = icmp eq i32 %109, 0
+  br i1 %.not67.i, label %111, label %aclparse.exit
 
-110:                                              ; preds = %106
-  %111 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #13
-  br i1 %111, label %112, label %124
+111:                                              ; preds = %107
+  %112 = call zeroext i1 @errsave_start(ptr noundef %8, ptr noundef null) #13
+  br i1 %112, label %113, label %124
 
-112:                                              ; preds = %110
-  %113 = call i32 @errcode(i32 noundef 67137668) #13
-  %114 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %3) #13
+113:                                              ; preds = %111
+  %114 = call i32 @errcode(i32 noundef 67137668) #13
+  %115 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.31, ptr noundef nonnull %3) #13
   call void @errsave_finish(ptr noundef %8, ptr noundef nonnull @.str.1, i32 noundef 386, ptr noundef nonnull @__func__.aclparse) #13
   br label %124
 
-115:                                              ; preds = %91
-  %116 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 10, ptr %116, align 4
-  %117 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
-  br i1 %117, label %118, label %aclparse.exit
+116:                                              ; preds = %92
+  %117 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 10, ptr %117, align 4
+  %118 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #13
+  br i1 %118, label %119, label %aclparse.exit
 
-118:                                              ; preds = %115
-  %119 = call i32 @errcode(i32 noundef 1792) #13
-  %120 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, i32 noundef 10) #13
+119:                                              ; preds = %116
+  %120 = call i32 @errcode(i32 noundef 1792) #13
+  %121 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.47, i32 noundef 10) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 394, ptr noundef nonnull @__func__.aclparse) #13
   br label %aclparse.exit
 
-aclparse.exit:                                    ; preds = %106, %115, %118
-  %.2.i = phi ptr [ %96, %106 ], [ %.1.lcssa.i, %118 ], [ %.1.lcssa.i, %115 ]
-  %121 = or i64 %.053.lcssa.i, %.054.lcssa.i
+aclparse.exit:                                    ; preds = %107, %116, %119
+  %.2.i = phi ptr [ %97, %107 ], [ %.1.lcssa.i, %119 ], [ %.1.lcssa.i, %116 ]
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %121, ptr %122, align 8
+  store i64 %.053.lcssa.i, ptr %122, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %123 = load ptr, ptr %36, align 8
   br label %126
 
-124:                                              ; preds = %1, %18, %16, %22, %30, %28, %46, %44, %68, %66, %88, %86, %94, %103, %101, %112, %110
+124:                                              ; preds = %1, %18, %16, %22, %30, %28, %46, %44, %68, %66, %89, %87, %95, %104, %102, %113, %111
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 28

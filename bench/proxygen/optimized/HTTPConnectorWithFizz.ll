@@ -15790,17 +15790,17 @@ unreachable.i.i.i:                                ; preds = %invoke.cont8.i.i.i
 _ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit.loopexit: ; preds = %for.inc.i.i.i
   %.pre = load i64, ptr %this, align 16
   %11 = and i64 %.pre, -4611686018427387904
+  %12 = or disjoint i64 %11, %and.i.i
   br label %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit
 
 _ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit: ; preds = %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit.loopexit, %if.else
-  %and.i = phi i64 [ %11, %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit.loopexit ], [ 0, %if.else ]
-  %or.i = or disjoint i64 %and.i, %and.i.i
-  store i64 %or.i, ptr %this, align 16
-  %12 = load i64, ptr %o, align 16
-  %13 = load ptr, ptr %u.i.i, align 16
-  %tobool.not1.i.i.i.i = icmp slt i64 %12, 0
-  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %13, ptr %u.i.i
-  %and.i.i.i.i.i = and i64 %12, 4611686018427387903
+  %and.i = phi i64 [ %12, %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit.loopexit ], [ 0, %if.else ]
+  store i64 %and.i, ptr %this, align 16
+  %13 = load i64, ptr %o, align 16
+  %14 = load ptr, ptr %u.i.i, align 16
+  %tobool.not1.i.i.i.i = icmp slt i64 %13, 0
+  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %14, ptr %u.i.i
+  %and.i.i.i.i.i = and i64 %13, 4611686018427387903
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.fizz::client::Action", ptr %cond.i.i.i.i, i64 %and.i.i.i.i.i
   %cmp.not7.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %cmp.not7.i.i, label %_ZN5folly12small_vectorIN4fizz6client6ActionELm4EvE5clearEv.exit, label %for.body.i.i
@@ -15817,8 +15817,8 @@ for.end.loopexit.i.i:                             ; preds = %for.body.i.i
   br label %_ZN5folly12small_vectorIN4fizz6client6ActionELm4EvE5clearEv.exit
 
 _ZN5folly12small_vectorIN4fizz6client6ActionELm4EvE5clearEv.exit: ; preds = %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit, %for.end.loopexit.i.i
-  %14 = phi i64 [ %.pre.i.i, %for.end.loopexit.i.i ], [ %12, %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit ]
-  %and.i.i.i16 = and i64 %14, -4611686018427387904
+  %15 = phi i64 [ %.pre.i.i, %for.end.loopexit.i.i ], [ %13, %_ZSt18uninitialized_copyISt13move_iteratorIPN4fizz6client6ActionEES4_ET0_T_S7_S6_.exit ]
+  %and.i.i.i16 = and i64 %15, -4611686018427387904
   store i64 %and.i.i.i16, ptr %o, align 16
   br label %if.end
 
@@ -16718,30 +16718,30 @@ for.body.i.i.i:                                   ; preds = %invoke.cont19, %for
 invoke.cont25.loopexit:                           ; preds = %for.body.i.i.i
   %.pre = load i64, ptr %this, align 8
   %7 = and i64 %.pre, -4611686018427387904
+  %8 = or disjoint i64 %7, %and.i.i
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %invoke.cont25.loopexit, %invoke.cont19
-  %and.i = phi i64 [ %7, %invoke.cont25.loopexit ], [ 0, %invoke.cont19 ]
-  %or.i = or disjoint i64 %and.i, %and.i.i
-  store i64 %or.i, ptr %this, align 8
-  %8 = load i64, ptr %o, align 8
-  %9 = load ptr, ptr %u.i.i, align 8
-  %tobool.not1.i.i.i.i = icmp slt i64 %8, 0
-  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %9, ptr %u.i.i
-  %and.i.i.i.i.i = and i64 %8, 4611686018427387903
+  %and.i = phi i64 [ %8, %invoke.cont25.loopexit ], [ 0, %invoke.cont19 ]
+  store i64 %and.i, ptr %this, align 8
+  %9 = load i64, ptr %o, align 8
+  %10 = load ptr, ptr %u.i.i, align 8
+  %tobool.not1.i.i.i.i = icmp slt i64 %9, 0
+  %cond.i.i.i.i = select i1 %tobool.not1.i.i.i.i, ptr %10, ptr %u.i.i
+  %and.i.i.i.i.i = and i64 %9, 4611686018427387903
   %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.fizz::TLSContent", ptr %cond.i.i.i.i, i64 %and.i.i.i.i.i
   %cmp.not7.i.i = icmp eq i64 %and.i.i.i.i.i, 0
   br i1 %cmp.not7.i.i, label %_ZN5folly12small_vectorIN4fizz10TLSContentELm4EvE5clearEv.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %invoke.cont25, %_ZN4fizz10TLSContentD2Ev.exit.i.i
   %it.08.i.i = phi ptr [ %incdec.ptr.i.i, %_ZN4fizz10TLSContentD2Ev.exit.i.i ], [ %cond.i.i.i.i, %invoke.cont25 ]
-  %10 = load ptr, ptr %it.08.i.i, align 8
-  %cmp.not.i.i.i.i = icmp eq ptr %10, null
+  %11 = load ptr, ptr %it.08.i.i, align 8
+  %cmp.not.i.i.i.i = icmp eq ptr %11, null
   br i1 %cmp.not.i.i.i.i, label %_ZN4fizz10TLSContentD2Ev.exit.i.i, label %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i: ; preds = %for.body.i.i
-  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #30
-  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %10) #30
+  tail call void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %11) #30
+  tail call void @_ZN5folly5IOBufdlEPv(ptr noundef nonnull %11) #30
   br label %_ZN4fizz10TLSContentD2Ev.exit.i.i
 
 _ZN4fizz10TLSContentD2Ev.exit.i.i:                ; preds = %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i.i.i.i, %for.body.i.i
@@ -16755,8 +16755,8 @@ for.end.loopexit.i.i:                             ; preds = %_ZN4fizz10TLSConten
   br label %_ZN5folly12small_vectorIN4fizz10TLSContentELm4EvE5clearEv.exit
 
 _ZN5folly12small_vectorIN4fizz10TLSContentELm4EvE5clearEv.exit: ; preds = %invoke.cont25, %for.end.loopexit.i.i
-  %11 = phi i64 [ %.pre.i.i, %for.end.loopexit.i.i ], [ %8, %invoke.cont25 ]
-  %and.i.i.i16 = and i64 %11, -4611686018427387904
+  %12 = phi i64 [ %.pre.i.i, %for.end.loopexit.i.i ], [ %9, %invoke.cont25 ]
+  %and.i.i.i16 = and i64 %12, -4611686018427387904
   store i64 %and.i.i.i16, ptr %o, align 8
   br label %if.end
 

@@ -2278,7 +2278,7 @@ define hidden noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hc4181fa35d4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define hidden range(i64 0, -4294967295) i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = add i32 %2, -37
   %or.cond = icmp ult i32 %4, -35
   br i1 %or.cond, label %5, label %6, !prof !264
@@ -2294,10 +2294,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN4core3num21_$LT$impl$u20$u32$GT
   ]
 
 .loopexit56:                                      ; preds = %37, %39, %29, %57, %45, %59, %.lr.ph.split.us, %.lr.ph.split, %7, %7, %6, %.loopexit
-  %.sroa.0.0 = phi i64 [ 0, %.loopexit ], [ 1, %6 ], [ 1, %7 ], [ 1, %7 ], [ 1, %.lr.ph.split ], [ 1, %.lr.ph.split.us ], [ 1, %59 ], [ 1, %45 ], [ 1, %57 ], [ 1, %29 ], [ 1, %39 ], [ 1, %37 ]
-  %.sroa.8.0.insert.insert = phi i64 [ %44, %.loopexit ], [ %1, %6 ], [ 256, %7 ], [ 256, %7 ], [ 256, %.lr.ph.split ], [ 256, %.lr.ph.split.us ], [ 512, %57 ], [ 256, %45 ], [ 512, %59 ], [ 512, %37 ], [ 512, %39 ], [ 256, %29 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.8.0.insert.insert = phi i64 [ %44, %.loopexit ], [ 1, %6 ], [ 257, %7 ], [ 257, %7 ], [ 257, %.lr.ph.split ], [ 257, %.lr.ph.split.us ], [ 513, %59 ], [ 513, %57 ], [ 257, %45 ], [ 513, %39 ], [ 513, %37 ], [ 257, %29 ]
+  ret i64 %.sroa.8.0.insert.insert
 
 7:                                                ; preds = %6
   %8 = load i8, ptr %0, align 1, !noundef !3
@@ -2455,7 +2453,7 @@ thread-pre-split:                                 ; preds = %6
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #12 {
+define hidden range(i64 0, -4294967295) i64 @"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #12 {
   switch i64 %1, label %15 [
     i64 0, label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897.exit"
     i64 1, label %3
@@ -2546,14 +2544,12 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN4core3num60_$LT$impl$u20$core..
   br label %"_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897.exit"
 
 "_ZN4core3num21_$LT$impl$u20$u32$GT$16from_ascii_radix17h9db09a45631ff61cE.llvm.13452247604522872897.exit": ; preds = %20, %28, %30, %.lr.ph.split.us.i, %2, %3, %3, %.loopexit.i
-  %.sroa.0.0.i = phi i64 [ 0, %.loopexit.i ], [ 1, %2 ], [ 1, %3 ], [ 1, %3 ], [ 1, %.lr.ph.split.us.i ], [ 1, %30 ], [ 1, %28 ], [ 1, %20 ]
-  %.sroa.8.0.insert.insert.i = phi i64 [ %35, %.loopexit.i ], [ %1, %2 ], [ 256, %3 ], [ 256, %3 ], [ 256, %.lr.ph.split.us.i ], [ 256, %20 ], [ 512, %28 ], [ 512, %30 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.8.0.insert.insert.i, %.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.8.0.insert.insert.i = phi i64 [ %35, %.loopexit.i ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i ], [ 257, %20 ], [ 513, %28 ], [ 513, %30 ]
+  ret i64 %.sroa.8.0.insert.insert.i
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define hidden range(i64 0, -4294967294) i64 @_ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #12 {
+define hidden range(i64 0, -4294967295) i64 @_ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #12 {
   switch i64 %2, label %16 [
     i64 0, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897.exit"
     i64 1, label %4
@@ -2644,10 +2640,8 @@ define hidden range(i64 0, -4294967294) i64 @_ZN4core3ops8function5FnMut8call_mu
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897.exit": ; preds = %21, %29, %31, %.lr.ph.split.us.i.i.i, %3, %4, %4, %.loopexit.i.i.i
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %.loopexit.i.i.i ], [ 1, %3 ], [ 1, %4 ], [ 1, %4 ], [ 1, %.lr.ph.split.us.i.i.i ], [ 1, %31 ], [ 1, %29 ], [ 1, %21 ]
-  %.sroa.8.0.insert.insert.i.i.i = phi i64 [ %36, %.loopexit.i.i.i ], [ %2, %3 ], [ 256, %4 ], [ 256, %4 ], [ 256, %.lr.ph.split.us.i.i.i ], [ 256, %21 ], [ 512, %29 ], [ 512, %31 ]
-  %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.8.0.insert.insert.i.i.i, %.sroa.0.0.i.i.i
-  ret i64 %.sroa.0.0.insert.insert.i.i.i
+  %.sroa.8.0.insert.insert.i.i.i = phi i64 [ %36, %.loopexit.i.i.i ], [ 1, %3 ], [ 257, %4 ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i ], [ 257, %21 ], [ 513, %29 ], [ 513, %31 ]
+  ret i64 %.sroa.8.0.insert.insert.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2705,7 +2699,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h593bb5a196c778e0E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #14 {
+define hidden range(i64 0, -4294967295) i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h593bb5a196c778e0E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #14 {
   switch i64 %2, label %16 [
     i64 0, label %_ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897.exit
     i64 1, label %4
@@ -2796,10 +2790,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN4core3ops8function5impls80_$LT$
   br label %_ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h2e73faab25d8966eE.llvm.13452247604522872897.exit: ; preds = %21, %29, %31, %.lr.ph.split.us.i.i.i.i, %3, %4, %4, %.loopexit.i.i.i.i
-  %.sroa.0.0.i.i.i.i = phi i64 [ 0, %.loopexit.i.i.i.i ], [ 1, %3 ], [ 1, %4 ], [ 1, %4 ], [ 1, %.lr.ph.split.us.i.i.i.i ], [ 1, %31 ], [ 1, %29 ], [ 1, %21 ]
-  %.sroa.8.0.insert.insert.i.i.i.i = phi i64 [ %36, %.loopexit.i.i.i.i ], [ %2, %3 ], [ 256, %4 ], [ 256, %4 ], [ 256, %.lr.ph.split.us.i.i.i.i ], [ 256, %21 ], [ 512, %29 ], [ 512, %31 ]
-  %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.8.0.insert.insert.i.i.i.i, %.sroa.0.0.i.i.i.i
-  ret i64 %.sroa.0.0.insert.insert.i.i.i.i
+  %.sroa.8.0.insert.insert.i.i.i.i = phi i64 [ %36, %.loopexit.i.i.i.i ], [ 1, %3 ], [ 257, %4 ], [ 257, %4 ], [ 257, %.lr.ph.split.us.i.i.i.i ], [ 513, %31 ], [ 513, %29 ], [ 257, %21 ]
+  ret i64 %.sroa.8.0.insert.insert.i.i.i.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -4882,7 +4874,7 @@ define hidden { ptr, ptr } @"_ZN4core3str21_$LT$impl$u20$str$GT$5chars17ha3a2fe8
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define hidden range(i64 0, -4294967294) i64 @"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #12 {
+define hidden range(i64 0, -4294967295) i64 @"_ZN4core3str21_$LT$impl$u20$str$GT$5parse17h6d08b54dfe7f4588E.llvm.13452247604522872897"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1) unnamed_addr #12 {
   switch i64 %1, label %15 [
     i64 0, label %"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897.exit"
     i64 1, label %3
@@ -4973,10 +4965,8 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN4core3str21_$LT$impl$u20$str$GT
   br label %"_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897.exit"
 
 "_ZN4core3num60_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$u32$GT$8from_str17h97726dcafe2d40b6E.llvm.13452247604522872897.exit": ; preds = %20, %28, %30, %.lr.ph.split.us.i.i, %2, %3, %3, %.loopexit.i.i
-  %.sroa.0.0.i.i = phi i64 [ 0, %.loopexit.i.i ], [ 1, %2 ], [ 1, %3 ], [ 1, %3 ], [ 1, %.lr.ph.split.us.i.i ], [ 1, %30 ], [ 1, %28 ], [ 1, %20 ]
-  %.sroa.8.0.insert.insert.i.i = phi i64 [ %35, %.loopexit.i.i ], [ %1, %2 ], [ 256, %3 ], [ 256, %3 ], [ 256, %.lr.ph.split.us.i.i ], [ 256, %20 ], [ 512, %28 ], [ 512, %30 ]
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.8.0.insert.insert.i.i, %.sroa.0.0.i.i
-  ret i64 %.sroa.0.0.insert.insert.i.i
+  %.sroa.8.0.insert.insert.i.i = phi i64 [ %35, %.loopexit.i.i ], [ 1, %2 ], [ 257, %3 ], [ 257, %3 ], [ 257, %.lr.ph.split.us.i.i ], [ 513, %30 ], [ 513, %28 ], [ 257, %20 ]
+  ret i64 %.sroa.8.0.insert.insert.i.i
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable

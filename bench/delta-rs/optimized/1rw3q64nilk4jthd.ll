@@ -129097,33 +129097,32 @@ _ZN14deltalake_core10operations11transaction8protocol15ProtocolChecker21contains
   %28 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hd96a24c57c741fe5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1218.llvm.240573438051967091)
   %29 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he7812e4283a56e6cE.llvm.18123795597341512700"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %19, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e68c98984d05f4ab0d2a6f8791335996.1218.llvm.240573438051967091)
   %30 = icmp ne ptr %29, null
-  br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h8e6e97a44b6aadefE.exit"
+  %31 = or i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, %30
+  br i1 %31, label %33, label %32
 
-"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h8e6e97a44b6aadefE.exit": ; preds = %22, %26
-  %.0.i = phi i1 [ %30, %26 ], [ false, %22 ]
-  %brmerge = or i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, %.0.i
-  br i1 %brmerge, label %32, label %31
+"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h8e6e97a44b6aadefE.exit": ; preds = %22
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %33, label %32
 
 select.unfold:                                    ; preds = %18, %_ZN14deltalake_core10operations11transaction8protocol15ProtocolChecker21contains_timestampntz17h3521f2f2fade9b9aE.exit
-  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %32, label %33
+  br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not, label %33, label %34
 
-31:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h8e6e97a44b6aadefE.exit"
+32:                                               ; preds = %26, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h8e6e97a44b6aadefE.exit"
   store i64 24, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775799, ptr %.sroa.4.0..sroa_idx, align 8
-  br label %34
+  br label %35
 
-32:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h8e6e97a44b6aadefE.exit", %select.unfold
+33:                                               ; preds = %26, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h8e6e97a44b6aadefE.exit", %select.unfold
   store i64 27, ptr %0, align 8
-  br label %34
+  br label %35
 
-33:                                               ; preds = %select.unfold
+34:                                               ; preds = %select.unfold
   store i64 24, ptr %0, align 8
   %.sroa.4.0..sroa_idx5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -9223372036854775799, ptr %.sroa.4.0..sroa_idx5, align 8
-  br label %34
+  br label %35
 
-34:                                               ; preds = %31, %33, %32
+35:                                               ; preds = %32, %34, %33
   ret void
 }
 

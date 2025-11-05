@@ -10262,12 +10262,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br label %387
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
-  %386 = zext i1 %397 to i8
+  %386 = zext i1 %.0.i.i.i.i.i.i.i.i.i13.i.i.i to i8
   store i8 %386, ptr %384, align 8, !tbaa !91, !noalias !728
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_.exit
 
 387:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i11.i.i.i
-  %388 = phi i1 [ %385, %.lr.ph.i.i.i.i.i.i.i11.i.i.i ], [ %397, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
+  %388 = phi i1 [ %385, %.lr.ph.i.i.i.i.i.i.i11.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i13.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i11.i.i.i ], [ %398, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %gep.i.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %389 = load i16, ptr %gep.i.i.i.i.i.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
@@ -10282,11 +10282,11 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %395 = and i16 %390, 32767
   %396 = icmp samesign ugt i16 %395, 31744
   %or.cond.i.i.i.i.i.i.i.i.i12.i.i.i = select i1 %394, i1 %396, i1 false
+  %397 = and i1 %388, %or.cond.i.i.i.i.i.i.i.i.i12.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %392, %387
-  %.0.i.i.i.i.i.i.i.i.i13.i.i.i = phi i1 [ true, %387 ], [ %or.cond.i.i.i.i.i.i.i.i.i12.i.i.i, %392 ]
-  %397 = and i1 %388, %.0.i.i.i.i.i.i.i.i.i13.i.i.i
+  %.0.i.i.i.i.i.i.i.i.i13.i.i.i = phi i1 [ %388, %387 ], [ %397, %392 ]
   %398 = add nuw nsw i64 %.01.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i14.i.i.i = icmp eq i64 %398, %371
   br i1 %exitcond.not.i.i.i.i.i.i.i14.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %387, !llvm.loop !738
@@ -10321,12 +10321,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   br label %413
 
 ._crit_edge.i24.i.i.i.i.i.i.i.i.i:                ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
-  %412 = zext i1 %424 to i8
+  %412 = zext i1 %.0.i.i.i22.i.i.i.i.i.i.i.i.i to i8
   store i8 %412, ptr %403, align 8, !tbaa !91, !noalias !728
   br label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit25.i.i.i.i.i.i.i.i.i
 
 413:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, %.lr.ph.i13.i.i.i.i.i.i.i.i.i
-  %414 = phi i1 [ %411, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %424, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
+  %414 = phi i1 [ %411, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %425, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %415 = add nsw i64 %.01.i17.i.i.i.i.i.i.i.i.i, %407
   %gep.i18.i.i.i.i.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %415
@@ -10342,11 +10342,11 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %422 = and i16 %417, 32767
   %423 = icmp samesign ugt i16 %422, 31744
   %or.cond.i.i.i20.i.i.i.i.i.i.i.i.i = select i1 %421, i1 %423, i1 false
+  %424 = and i1 %414, %or.cond.i.i.i20.i.i.i.i.i.i.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i: ; preds = %419, %413
-  %.0.i.i.i22.i.i.i.i.i.i.i.i.i = phi i1 [ true, %413 ], [ %or.cond.i.i.i20.i.i.i.i.i.i.i.i.i, %419 ]
-  %424 = and i1 %414, %.0.i.i.i22.i.i.i.i.i.i.i.i.i
+  %.0.i.i.i22.i.i.i.i.i.i.i.i.i = phi i1 [ %414, %413 ], [ %424, %419 ]
   %425 = add nuw nsw i64 %.01.i17.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i23.i.i.i.i.i.i.i.i.i = icmp eq i64 %425, %405
   br i1 %exitcond.not.i23.i.i.i.i.i.i.i.i.i, label %._crit_edge.i24.i.i.i.i.i.i.i.i.i, label %413, !llvm.loop !738
@@ -10389,12 +10389,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br label %443
 
 ._crit_edge.i.i.i.i.i16.i.i.i.i.i:                ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
-  %442 = zext i1 %453 to i8
+  %442 = zext i1 %.0.i.i.i.i.i.i.i14.i.i.i.i.i to i8
   store i8 %442, ptr %440, align 8, !tbaa !91, !noalias !728
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_.exit
 
 443:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i6.i.i8.i.i.i
-  %444 = phi i1 [ %441, %.lr.ph.i.i.i.i.i6.i.i8.i.i.i ], [ %453, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
+  %444 = phi i1 [ %441, %.lr.ph.i.i.i.i.i6.i.i8.i.i.i ], [ %.0.i.i.i.i.i.i.i14.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i10.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i6.i.i8.i.i.i ], [ %454, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %gep.i.i.i.i.i11.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i.i.i.i.i7.i.i.i.i.i, i64 %.01.i.i.i.i.i10.i.i.i.i.i
   %445 = load i16, ptr %gep.i.i.i.i.i11.i.i.i.i.i, align 2, !tbaa !733, !noalias !728
@@ -10409,11 +10409,11 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   %451 = and i16 %446, 32767
   %452 = icmp samesign ugt i16 %451, 31744
   %or.cond.i.i.i.i.i.i.i13.i.i.i.i.i = select i1 %450, i1 %452, i1 false
+  %453 = and i1 %444, %or.cond.i.i.i.i.i.i.i13.i.i.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %448, %443
-  %.0.i.i.i.i.i.i.i14.i.i.i.i.i = phi i1 [ %or.cond.i.i.i.i.i.i.i13.i.i.i.i.i, %448 ], [ true, %443 ]
-  %453 = and i1 %444, %.0.i.i.i.i.i.i.i14.i.i.i.i.i
+  %.0.i.i.i.i.i.i.i14.i.i.i.i.i = phi i1 [ %453, %448 ], [ %444, %443 ]
   %454 = add nuw nsw i64 %.01.i.i.i.i.i10.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i15.i.i.i.i.i = icmp eq i64 %454, %371
   br i1 %exitcond.not.i.i.i.i.i15.i.i.i.i.i, label %._crit_edge.i.i.i.i.i16.i.i.i.i.i, label %443, !llvm.loop !739
@@ -10448,12 +10448,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   br label %469
 
 ._crit_edge.i24.i.i.i.i30.i.i.i.i.i:              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
-  %468 = zext i1 %480 to i8
+  %468 = zext i1 %.0.i.i.i22.i.i.i.i28.i.i.i.i.i to i8
   store i8 %468, ptr %459, align 8, !tbaa !91, !noalias !728
   br label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit25.i.i.i.i.i.i.i.i.i
 
 469:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i
-  %470 = phi i1 [ %467, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %480, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
+  %470 = phi i1 [ %467, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i28.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i24.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i20.i.i.i.i.i ], [ %481, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %471 = add nsw i64 %.01.i17.i.i.i.i24.i.i.i.i.i, %463
   %gep.i18.i.i.i.i25.i.i.i.i.i = getelementptr i16, ptr %invariant.gep.i14.i.i.i.i21.i.i.i.i.i, i64 %471
@@ -10469,11 +10469,11 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTy
   %478 = and i16 %473, 32767
   %479 = icmp samesign ugt i16 %478, 31744
   %or.cond.i.i.i20.i.i.i.i27.i.i.i.i.i = select i1 %477, i1 %479, i1 false
+  %480 = and i1 %470, %or.cond.i.i.i20.i.i.i.i27.i.i.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_13HalfFloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityItNS0_21FloatingEqualityFlagsILb0ELb1ELb0EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i: ; preds = %475, %469
-  %.0.i.i.i22.i.i.i.i28.i.i.i.i.i = phi i1 [ %or.cond.i.i.i20.i.i.i.i27.i.i.i.i.i, %475 ], [ true, %469 ]
-  %480 = and i1 %470, %.0.i.i.i22.i.i.i.i28.i.i.i.i.i
+  %.0.i.i.i22.i.i.i.i28.i.i.i.i.i = phi i1 [ %480, %475 ], [ %470, %469 ]
   %481 = add nuw nsw i64 %.01.i17.i.i.i.i24.i.i.i.i.i, 1
   %exitcond.not.i23.i.i.i.i29.i.i.i.i.i = icmp eq i64 %481, %461
   br i1 %exitcond.not.i23.i.i.i.i29.i.i.i.i.i, label %._crit_edge.i24.i.i.i.i30.i.i.i.i.i, label %469, !llvm.loop !739
@@ -10816,7 +10816,7 @@ _ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
   br label %76
 
 76:                                               ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %77 = phi i1 [ %75, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %88, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
+  %77 = phi i1 [ %75, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %89, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %gep.i.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %78 = load float, ptr %gep.i.i.i.i.i.i.i.i.i.i, align 4, !tbaa !336, !noalias !745
@@ -10835,11 +10835,11 @@ _ZNK5arrow9ArrayData9GetValuesIfEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
   %85 = fsub float %78, %79
   %86 = tail call float @llvm.fabs.f32(float %85)
   %87 = fcmp ole float %86, %54
+  %88 = and i1 %77, %87
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %84, %81, %76
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %76 ], [ %87, %84 ], [ true, %81 ]
-  %88 = and i1 %77, %.0.i.i.i.i.i.i.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %77, %76 ], [ %88, %84 ], [ %77, %81 ]
   %89 = add nuw nsw i64 %.01.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %89, %61
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_.exit.loopexit.i.i.i.i.i, label %76, !llvm.loop !748
@@ -10874,7 +10874,7 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   br label %103
 
 103:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, %.lr.ph.i13.i.i.i.i.i.i.i.i.i
-  %104 = phi i1 [ %102, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %116, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
+  %104 = phi i1 [ %102, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i16.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %117, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %105 = add nsw i64 %.01.i16.i.i.i.i.i.i.i.i.i, %98
   %gep.i17.i.i.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %105
@@ -10894,17 +10894,17 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   %113 = fsub float %106, %107
   %114 = call float @llvm.fabs.f32(float %113)
   %115 = fcmp ole float %114, %54
+  %116 = and i1 %104, %115
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i: ; preds = %112, %109, %103
-  %.0.i.i.i22.i.i.i.i.i.i.i.i.i = phi i1 [ true, %103 ], [ %115, %112 ], [ true, %109 ]
-  %116 = and i1 %104, %.0.i.i.i22.i.i.i.i.i.i.i.i.i
+  %.0.i.i.i22.i.i.i.i.i.i.i.i.i = phi i1 [ %104, %103 ], [ %116, %112 ], [ %104, %109 ]
   %117 = add nuw nsw i64 %.01.i16.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i23.i.i.i.i.i.i.i.i.i = icmp eq i64 %117, %96
   br i1 %exitcond.not.i23.i.i.i.i.i.i.i.i.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit24.i.i.i.i.loopexit.i.i.i.i.i, label %103, !llvm.loop !748
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit24.i.i.i.i.loopexit.i.i.i.i.i: ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
-  %118 = zext i1 %116 to i8
+  %118 = zext i1 %.0.i.i.i22.i.i.i.i.i.i.i.i.i to i8
   store i8 %118, ptr %94, align 8, !tbaa !91, !noalias !745
   br label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit24.i.i.i.i.i.i.i.i.i
 
@@ -11063,7 +11063,7 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_.exit.loopexit.i.i.i.i.i: ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
-  %191 = zext i1 %88 to i8
+  %191 = zext i1 %.0.i.i.i.i.i.i.i.i.i.i.i.i to i8
   store i8 %191, ptr %74, align 8, !tbaa !91, !noalias !745
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
@@ -11366,12 +11366,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
   br label %333
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
-  %332 = zext i1 %341 to i8
+  %332 = zext i1 %.0.i.i.i.i.i.i.i.i.i39.i.i.i to i8
   store i8 %332, ptr %330, align 8, !tbaa !91, !noalias !745
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_.exit
 
 333:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i31.i.i.i
-  %334 = phi i1 [ %331, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %341, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
+  %334 = phi i1 [ %331, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i39.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i35.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %342, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %gep.i.i.i.i.i.i.i36.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i.i32.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
   %335 = load float, ptr %gep.i.i.i.i.i.i.i36.i.i.i, align 4, !tbaa !336, !noalias !745
@@ -11384,11 +11384,11 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEEN
   %339 = fcmp uno float %335, 0.000000e+00
   %340 = fcmp uno float %336, 0.000000e+00
   %or.cond.i.i.i.i.i.i.i.i.i38.i.i.i = and i1 %339, %340
+  %341 = and i1 %334, %or.cond.i.i.i.i.i.i.i.i.i38.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %338, %333
-  %.0.i.i.i.i.i.i.i.i.i39.i.i.i = phi i1 [ true, %333 ], [ %or.cond.i.i.i.i.i.i.i.i.i38.i.i.i, %338 ]
-  %341 = and i1 %334, %.0.i.i.i.i.i.i.i.i.i39.i.i.i
+  %.0.i.i.i.i.i.i.i.i.i39.i.i.i = phi i1 [ %334, %333 ], [ %341, %338 ]
   %342 = add nuw nsw i64 %.01.i.i.i.i.i.i.i35.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i40.i.i.i = icmp eq i64 %342, %317
   br i1 %exitcond.not.i.i.i.i.i.i.i40.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %333, !llvm.loop !752
@@ -11423,12 +11423,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   br label %357
 
 ._crit_edge.i24.i.i.i.i.i.i.i.i.i:                ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
-  %356 = zext i1 %366 to i8
+  %356 = zext i1 %.0.i.i.i22.i.i.i.i.i.i52.i.i.i to i8
   store i8 %356, ptr %347, align 8, !tbaa !91, !noalias !745
   br label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit25.i.i.i.i.i.i.i.i.i
 
 357:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i
-  %358 = phi i1 [ %355, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %366, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
+  %358 = phi i1 [ %355, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i52.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i.i.i48.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %367, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %359 = add nsw i64 %.01.i17.i.i.i.i.i.i48.i.i.i, %351
   %gep.i18.i.i.i.i.i.i49.i.i.i = getelementptr float, ptr %invariant.gep.i14.i.i.i.i.i.i45.i.i.i, i64 %359
@@ -11442,11 +11442,11 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEE
   %364 = fcmp uno float %360, 0.000000e+00
   %365 = fcmp uno float %361, 0.000000e+00
   %or.cond.i.i.i20.i.i.i.i.i.i51.i.i.i = and i1 %364, %365
+  %366 = and i1 %358, %or.cond.i.i.i20.i.i.i.i.i.i51.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_9FloatTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIfNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i: ; preds = %363, %357
-  %.0.i.i.i22.i.i.i.i.i.i52.i.i.i = phi i1 [ true, %357 ], [ %or.cond.i.i.i20.i.i.i.i.i.i51.i.i.i, %363 ]
-  %366 = and i1 %358, %.0.i.i.i22.i.i.i.i.i.i52.i.i.i
+  %.0.i.i.i22.i.i.i.i.i.i52.i.i.i = phi i1 [ %358, %357 ], [ %366, %363 ]
   %367 = add nuw nsw i64 %.01.i17.i.i.i.i.i.i48.i.i.i, 1
   %exitcond.not.i23.i.i.i.i.i.i53.i.i.i = icmp eq i64 %367, %349
   br i1 %exitcond.not.i23.i.i.i.i.i.i53.i.i.i, label %._crit_edge.i24.i.i.i.i.i.i.i.i.i, label %357, !llvm.loop !752
@@ -11935,7 +11935,7 @@ _ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
   br label %75
 
 75:                                               ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i
-  %76 = phi i1 [ %74, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %87, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
+  %76 = phi i1 [ %74, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %88, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %gep.i.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i.i.i.i, i64 %.01.i.i.i.i.i.i.i.i.i.i
   %77 = load double, ptr %gep.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !114, !noalias !759
@@ -11954,11 +11954,11 @@ _ZNK5arrow9ArrayData9GetValuesIdEEPKT_i.exit3.i:  ; preds = %33, %_ZNK5arrow9Arr
   %84 = fsub double %77, %78
   %85 = tail call double @llvm.fabs.f64(double %84)
   %86 = fcmp ole double %85, %.val.i.i.i.i.i
+  %87 = and i1 %76, %86
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %83, %80, %75
-  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ true, %75 ], [ %86, %83 ], [ true, %80 ]
-  %87 = and i1 %76, %.0.i.i.i.i.i.i.i.i.i.i.i.i
+  %.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i1 [ %76, %75 ], [ %87, %83 ], [ %76, %80 ]
   %88 = add nuw nsw i64 %.01.i.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %88, %60
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_.exit.loopexit.i.i.i.i.i, label %75, !llvm.loop !762
@@ -11993,7 +11993,7 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   br label %102
 
 102:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, %.lr.ph.i13.i.i.i.i.i.i.i.i.i
-  %103 = phi i1 [ %101, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %115, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
+  %103 = phi i1 [ %101, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i16.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i.i.i.i ], [ %116, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %104 = add nsw i64 %.01.i16.i.i.i.i.i.i.i.i.i, %97
   %gep.i17.i.i.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i.i.i.i.i.i, i64 %104
@@ -12013,17 +12013,17 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   %112 = fsub double %105, %106
   %113 = call double @llvm.fabs.f64(double %112)
   %114 = fcmp ole double %113, %.val.i.i.i.i.i
+  %115 = and i1 %103, %114
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i: ; preds = %111, %108, %102
-  %.0.i.i.i22.i.i.i.i.i.i.i.i.i = phi i1 [ true, %102 ], [ %114, %111 ], [ true, %108 ]
-  %115 = and i1 %103, %.0.i.i.i22.i.i.i.i.i.i.i.i.i
+  %.0.i.i.i22.i.i.i.i.i.i.i.i.i = phi i1 [ %103, %102 ], [ %115, %111 ], [ %103, %108 ]
   %116 = add nuw nsw i64 %.01.i16.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i23.i.i.i.i.i.i.i.i.i = icmp eq i64 %116, %95
   br i1 %exitcond.not.i23.i.i.i.i.i.i.i.i.i, label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit24.i.i.i.i.loopexit.i.i.i.i.i, label %102, !llvm.loop !762
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit24.i.i.i.i.loopexit.i.i.i.i.i: ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
-  %117 = zext i1 %115 to i8
+  %117 = zext i1 %.0.i.i.i22.i.i.i.i.i.i.i.i.i to i8
   store i8 %117, ptr %93, align 8, !tbaa !91, !noalias !759
   br label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit24.i.i.i.i.i.i.i.i.i
 
@@ -12182,7 +12182,7 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloati
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_.exit.loopexit.i.i.i.i.i: ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb1ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
-  %190 = zext i1 %87 to i8
+  %190 = zext i1 %.0.i.i.i.i.i.i.i.i.i.i.i.i to i8
   store i8 %190, ptr %73, align 8, !tbaa !91, !noalias !759
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
@@ -12485,12 +12485,12 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
   br label %332
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i:                  ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
-  %331 = zext i1 %340 to i8
+  %331 = zext i1 %.0.i.i.i.i.i.i.i.i.i39.i.i.i to i8
   store i8 %331, ptr %329, align 8, !tbaa !91, !noalias !759
   br label %_ZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_.exit
 
 332:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i31.i.i.i
-  %333 = phi i1 [ %330, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %340, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
+  %333 = phi i1 [ %330, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i39.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %.01.i.i.i.i.i.i.i35.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i31.i.i.i ], [ %341, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i ]
   %gep.i.i.i.i.i.i.i36.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i32.i.i.i, i64 %.01.i.i.i.i.i.i.i35.i.i.i
   %334 = load double, ptr %gep.i.i.i.i.i.i.i36.i.i.i, align 8, !tbaa !114, !noalias !759
@@ -12503,11 +12503,11 @@ _ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEE
   %338 = fcmp uno double %334, 0.000000e+00
   %339 = fcmp uno double %335, 0.000000e+00
   %or.cond.i.i.i.i.i.i.i.i.i38.i.i.i = and i1 %338, %339
+  %340 = and i1 %333, %or.cond.i.i.i.i.i.i.i.i.i38.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %337, %332
-  %.0.i.i.i.i.i.i.i.i.i39.i.i.i = phi i1 [ true, %332 ], [ %or.cond.i.i.i.i.i.i.i.i.i38.i.i.i, %337 ]
-  %340 = and i1 %333, %.0.i.i.i.i.i.i.i.i.i39.i.i.i
+  %.0.i.i.i.i.i.i.i.i.i39.i.i.i = phi i1 [ %333, %332 ], [ %340, %337 ]
   %341 = add nuw nsw i64 %.01.i.i.i.i.i.i.i35.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i40.i.i.i = icmp eq i64 %341, %316
   br i1 %exitcond.not.i.i.i.i.i.i.i40.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, label %332, !llvm.loop !766
@@ -12542,12 +12542,12 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   br label %356
 
 ._crit_edge.i24.i.i.i.i.i.i.i.i.i:                ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
-  %355 = zext i1 %365 to i8
+  %355 = zext i1 %.0.i.i.i22.i.i.i.i.i.i52.i.i.i to i8
   store i8 %355, ptr %346, align 8, !tbaa !91, !noalias !759
   br label %_ZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl11VisitValuesIZZNS1_15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS6_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS9_EUllE_EEvS9_ENKUlllE_clEll.exit25.i.i.i.i.i.i.i.i.i
 
 356:                                              ; preds = %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i
-  %357 = phi i1 [ %354, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %365, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
+  %357 = phi i1 [ %354, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %.0.i.i.i22.i.i.i.i.i.i52.i.i.i, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %.01.i17.i.i.i.i.i.i48.i.i.i = phi i64 [ 0, %.lr.ph.i13.i.i.i.i.i.i44.i.i.i ], [ %366, %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i ]
   %358 = add nsw i64 %.01.i17.i.i.i.i.i.i48.i.i.i, %350
   %gep.i18.i.i.i.i.i.i49.i.i.i = getelementptr double, ptr %invariant.gep.i14.i.i.i.i.i.i45.i.i.i, i64 %358
@@ -12561,11 +12561,11 @@ _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeE
   %363 = fcmp uno double %359, 0.000000e+00
   %364 = fcmp uno double %360, 0.000000e+00
   %or.cond.i.i.i20.i.i.i.i.i.i51.i.i.i = and i1 %363, %364
+  %365 = and i1 %357, %or.cond.i.i.i20.i.i.i.i.i.i51.i.i.i
   br label %_ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i
 
 _ZZZN5arrow12_GLOBAL__N_119RangeDataEqualsImpl15CompareFloatingINS_10DoubleTypeEEENS_6StatusERKT_ENKUlOS5_E_clINS0_16FloatingEqualityIdNS0_21FloatingEqualityFlagsILb0ELb1ELb1EEEEEEEDaS8_ENKUllE_clEl.exit.i21.i.i.i.i.i.i.i.i.i: ; preds = %362, %356
-  %.0.i.i.i22.i.i.i.i.i.i52.i.i.i = phi i1 [ true, %356 ], [ %or.cond.i.i.i20.i.i.i.i.i.i51.i.i.i, %362 ]
-  %365 = and i1 %357, %.0.i.i.i22.i.i.i.i.i.i52.i.i.i
+  %.0.i.i.i22.i.i.i.i.i.i52.i.i.i = phi i1 [ %357, %356 ], [ %365, %362 ]
   %366 = add nuw nsw i64 %.01.i17.i.i.i.i.i.i48.i.i.i, 1
   %exitcond.not.i23.i.i.i.i.i.i53.i.i.i = icmp eq i64 %366, %348
   br i1 %exitcond.not.i23.i.i.i.i.i.i53.i.i.i, label %._crit_edge.i24.i.i.i.i.i.i.i.i.i, label %356, !llvm.loop !766

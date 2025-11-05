@@ -626,7 +626,7 @@ define dso_local i64 @_ZNK5clang19PreprocessingRecord36findLocalPreprocessedEnti
   %3 = icmp eq i32 %.sroa.014.0.extract.trunc, 0
   %4 = icmp ult i64 %1, 4294967296
   %.not2.i = or i1 %4, %3
-  br i1 %.not2.i, label %56, label %5
+  br i1 %.not2.i, label %_ZNK5clang19PreprocessingRecord30findEndLocalPreprocessedEntityENS_14SourceLocationE.exit, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -741,15 +741,11 @@ _ZN4llvm11upper_boundIRKSt6vectorIPN5clang18PreprocessedEntityESaIS4_EERNS2_14So
   %52 = sub i64 %.pre-phi.i5, %.pre-phi8.i
   %53 = shl i64 %52, 29
   %54 = and i64 %53, -4294967296
+  %55 = or disjoint i64 %54, %.0.i
   br label %_ZNK5clang19PreprocessingRecord30findEndLocalPreprocessedEntityENS_14SourceLocationE.exit
 
-_ZNK5clang19PreprocessingRecord30findEndLocalPreprocessedEntityENS_14SourceLocationE.exit: ; preds = %_ZNK5clang19PreprocessingRecord32findBeginLocalPreprocessedEntityENS_14SourceLocationE.exit, %_ZN4llvm11upper_boundIRKSt6vectorIPN5clang18PreprocessedEntityESaIS4_EERNS2_14SourceLocationEN12_GLOBAL__N_112PPEntityCompIXadL_ZNKS2_11SourceRange8getBeginEvEEEEEEDaOT_OT0_T1_.exit.i
-  %.0.i4 = phi i64 [ %54, %_ZN4llvm11upper_boundIRKSt6vectorIPN5clang18PreprocessedEntityESaIS4_EERNS2_14SourceLocationEN12_GLOBAL__N_112PPEntityCompIXadL_ZNKS2_11SourceRange8getBeginEvEEEEEEDaOT_OT0_T1_.exit.i ], [ 0, %_ZNK5clang19PreprocessingRecord32findBeginLocalPreprocessedEntityENS_14SourceLocationE.exit ]
-  %55 = or disjoint i64 %.0.i4, %.0.i
-  br label %56
-
-56:                                               ; preds = %2, %_ZNK5clang19PreprocessingRecord30findEndLocalPreprocessedEntityENS_14SourceLocationE.exit
-  %.sroa.015.0.insert.insert = phi i64 [ %55, %_ZNK5clang19PreprocessingRecord30findEndLocalPreprocessedEntityENS_14SourceLocationE.exit ], [ 0, %2 ]
+_ZNK5clang19PreprocessingRecord30findEndLocalPreprocessedEntityENS_14SourceLocationE.exit: ; preds = %_ZN4llvm11upper_boundIRKSt6vectorIPN5clang18PreprocessedEntityESaIS4_EERNS2_14SourceLocationEN12_GLOBAL__N_112PPEntityCompIXadL_ZNKS2_11SourceRange8getBeginEvEEEEEEDaOT_OT0_T1_.exit.i, %_ZNK5clang19PreprocessingRecord32findBeginLocalPreprocessedEntityENS_14SourceLocationE.exit, %2
+  %.sroa.015.0.insert.insert = phi i64 [ 0, %2 ], [ %55, %_ZN4llvm11upper_boundIRKSt6vectorIPN5clang18PreprocessedEntityESaIS4_EERNS2_14SourceLocationEN12_GLOBAL__N_112PPEntityCompIXadL_ZNKS2_11SourceRange8getBeginEvEEEEEEDaOT_OT0_T1_.exit.i ], [ %.0.i, %_ZNK5clang19PreprocessingRecord32findBeginLocalPreprocessedEntityENS_14SourceLocationE.exit ]
   ret i64 %.sroa.015.0.insert.insert
 }
 

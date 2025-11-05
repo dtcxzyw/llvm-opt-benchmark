@@ -122775,7 +122775,7 @@ _ZN6editor6Editor21has_pending_selection17he43d4c41a0de8a44E.exit: ; preds = %5
 
 25:                                               ; preds = %32, %_ZN6editor6Editor21has_pending_selection17he43d4c41a0de8a44E.exit
   %26 = phi i1 [ %33, %32 ], [ %24, %_ZN6editor6Editor21has_pending_selection17he43d4c41a0de8a44E.exit ]
-  %.sroa.0.0.i21 = phi i1 [ true, %32 ], [ false, %_ZN6editor6Editor21has_pending_selection17he43d4c41a0de8a44E.exit ]
+  %.sroa.0.0.i21 = phi i1 [ %33, %32 ], [ false, %_ZN6editor6Editor21has_pending_selection17he43d4c41a0de8a44E.exit ]
   %27 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
   %28 = tail call noundef align 8 dereferenceable(328) ptr @_ZN4gpui3app10AppContext6global17h8d286e97669ec3c6E(ptr noalias noundef nonnull readonly align 8 dereferenceable(1176) %27, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b3aa91ad3910538ca077da0228902b5c.659)
   store ptr null, ptr %9, align 8
@@ -122814,8 +122814,7 @@ _ZN6editor6Editor21has_pending_selection17he43d4c41a0de8a44E.exit: ; preds = %5
   br i1 %or.cond, label %43, label %42
 
 42:                                               ; preds = %43, %41
-  %brmerge.not = and i1 %26, %.sroa.0.0.i21
-  br i1 %brmerge.not, label %_ZN6editor6Editor9read_only17h2e1941995275cab3E.exit.thread.sink.split, label %51
+  br i1 %.sroa.0.0.i21, label %_ZN6editor6Editor9read_only17h2e1941995275cab3E.exit.thread.sink.split, label %51
 
 43:                                               ; preds = %41
   %44 = tail call noundef zeroext i1 @_ZN4gpui6window6Hitbox10is_hovered17h8f986d4f26cbfb9bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)

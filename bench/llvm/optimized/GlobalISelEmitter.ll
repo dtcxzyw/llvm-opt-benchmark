@@ -21975,7 +21975,7 @@ define internal fastcc range(i64 0, 8589934592) i64 @_ZN12_GLOBAL__N_117GlobalIS
   %6 = extractvalue { i64, i8 } %5, 0
   %7 = extractvalue { i64, i8 } %5, 1
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %9, label %33
+  br i1 %8, label %9, label %34
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -22026,13 +22026,12 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %16, %18
   %31 = add i64 %29, %30
   %32 = and i64 %31, 4294967288
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %33
+  %33 = or disjoint i64 %32, 4294967296
+  br label %34
 
-33:                                               ; preds = %1, %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %.sroa.01.0 = phi i64 [ %32, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ 0, %1 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ 0, %1 ]
-  %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.01.0
-  ret i64 %.sroa.01.0.insert.insert
+34:                                               ; preds = %1, %_ZNK4llvm3LLT13getSizeInBitsEv.exit
+  %.sroa.2.0 = phi i64 [ %33, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ 0, %1 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

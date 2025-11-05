@@ -198,25 +198,25 @@ define internal i32 @query_formats(ptr noundef %0) #1 {
   %spec.select = add nsw i32 %.085114, %50
   %51 = load i32, ptr %27, align 8, !tbaa !48
   %52 = icmp eq i32 %51, 1
-  br i1 %52, label %53, label %56
+  br i1 %52, label %53, label %57
 
 53:                                               ; preds = %46
   %54 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !52
-  br label %56
+  %56 = or i64 %55, %.091112
+  br label %57
 
-56:                                               ; preds = %46, %53
-  %57 = phi i64 [ %55, %53 ], [ 0, %46 ]
-  %58 = or i64 %57, %.091112
+57:                                               ; preds = %46, %53
+  %58 = phi i64 [ %56, %53 ], [ %.091112, %46 ]
   %.pre153 = load ptr, ptr %13, align 8, !tbaa !23
   %.phi.trans.insert154 = getelementptr inbounds nuw %struct.amerge_input, ptr %.pre153, i64 %indvars.iv
   %.pre155 = load i32, ptr %.phi.trans.insert154, align 4, !tbaa !49
   br label %59
 
-59:                                               ; preds = %56, %44
-  %60 = phi i32 [ %41, %44 ], [ %.pre155, %56 ]
-  %.192 = phi i64 [ %.091112, %44 ], [ %58, %56 ]
-  %.186 = phi i32 [ %45, %44 ], [ %spec.select, %56 ]
+59:                                               ; preds = %57, %44
+  %60 = phi i32 [ %41, %44 ], [ %.pre155, %57 ]
+  %.192 = phi i64 [ %.091112, %44 ], [ %58, %57 ]
+  %.186 = phi i32 [ %45, %44 ], [ %spec.select, %57 ]
   %61 = add nsw i32 %60, %.084115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %62 = load i32, ptr %9, align 8, !tbaa !20

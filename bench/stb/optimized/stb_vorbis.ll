@@ -1823,13 +1823,12 @@ get8.exit10.thread:                               ; preds = %21
 39:                                               ; preds = %32
   %40 = shl i32 %35, 8
   %41 = and i32 %40, 65280
+  %42 = or disjoint i32 %41, %.0.i.ph
   br label %get8.exit10
 
 get8.exit10:                                      ; preds = %25, %37, %39
-  %.ph = phi i32 [ %.0.i.ph, %39 ], [ %.0.i.ph, %37 ], [ %23, %25 ]
-  %.0.i9.ph = phi i32 [ %41, %39 ], [ 0, %37 ], [ 0, %25 ]
+  %.0.i9.ph = phi i32 [ %42, %39 ], [ %.0.i.ph, %37 ], [ %23, %25 ]
   %.pr21 = load ptr, ptr %2, align 8, !tbaa !59
-  %42 = or disjoint i32 %.0.i9.ph, %.ph
   %.not.i11 = icmp eq ptr %.pr21, null
   br i1 %.not.i11, label %54, label %get8.exit10._crit_edge
 
@@ -1840,7 +1839,7 @@ get8.exit10._crit_edge:                           ; preds = %get8.exit10
 
 43:                                               ; preds = %get8.exit10._crit_edge, %get8.exit10.thread
   %44 = phi ptr [ %22, %get8.exit10.thread ], [ %.pre29, %get8.exit10._crit_edge ]
-  %45 = phi i32 [ %31, %get8.exit10.thread ], [ %42, %get8.exit10._crit_edge ]
+  %45 = phi i32 [ %31, %get8.exit10.thread ], [ %.0.i9.ph, %get8.exit10._crit_edge ]
   %46 = phi ptr [ %27, %get8.exit10.thread ], [ %.pr21, %get8.exit10._crit_edge ]
   %.not11.i12 = icmp ult ptr %46, %44
   br i1 %.not11.i12, label %get8.exit14.thread, label %47
@@ -1874,13 +1873,12 @@ get8.exit14.thread:                               ; preds = %43
 61:                                               ; preds = %54
   %62 = shl i32 %57, 16
   %63 = and i32 %62, 16711680
+  %64 = or disjoint i32 %63, %.0.i9.ph
   br label %get8.exit14
 
 get8.exit14:                                      ; preds = %47, %59, %61
-  %.ph24 = phi i32 [ %42, %61 ], [ %42, %59 ], [ %45, %47 ]
-  %.0.i13.ph = phi i32 [ %63, %61 ], [ 0, %59 ], [ 0, %47 ]
+  %.ph24 = phi i32 [ %64, %61 ], [ %.0.i9.ph, %59 ], [ %45, %47 ]
   %.pr25 = load ptr, ptr %2, align 8, !tbaa !59
-  %64 = or disjoint i32 %.0.i13.ph, %.ph24
   %.not.i15 = icmp eq ptr %.pr25, null
   br i1 %.not.i15, label %74, label %get8.exit14._crit_edge
 
@@ -1891,7 +1889,7 @@ get8.exit14._crit_edge:                           ; preds = %get8.exit14
 
 65:                                               ; preds = %get8.exit14._crit_edge, %get8.exit14.thread
   %66 = phi ptr [ %44, %get8.exit14.thread ], [ %.pre31, %get8.exit14._crit_edge ]
-  %67 = phi i32 [ %53, %get8.exit14.thread ], [ %64, %get8.exit14._crit_edge ]
+  %67 = phi i32 [ %53, %get8.exit14.thread ], [ %.ph24, %get8.exit14._crit_edge ]
   %68 = phi ptr [ %49, %get8.exit14.thread ], [ %.pr25, %get8.exit14._crit_edge ]
   %.not11.i16 = icmp ult ptr %68, %66
   br i1 %.not11.i16, label %71, label %69
@@ -1924,7 +1922,7 @@ get8.exit14._crit_edge:                           ; preds = %get8.exit14
   br label %get8.exit18
 
 get8.exit18:                                      ; preds = %69, %71, %79, %81
-  %83 = phi i32 [ %67, %69 ], [ %67, %71 ], [ %64, %79 ], [ %64, %81 ]
+  %83 = phi i32 [ %67, %69 ], [ %67, %71 ], [ %.ph24, %79 ], [ %.ph24, %81 ]
   %.0.i17 = phi i8 [ 0, %69 ], [ %73, %71 ], [ 0, %79 ], [ %82, %81 ]
   %84 = zext i8 %.0.i17 to i32
   %85 = shl nuw i32 %84, 24

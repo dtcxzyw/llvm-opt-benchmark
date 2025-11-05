@@ -465,24 +465,24 @@ define void @_ZN9grpc_core25ClientLoadReportingFilter4Call23OnServerInitialMetad
 define void @_ZN9grpc_core25ClientLoadReportingFilter4Call24OnServerTrailingMetadataER19grpc_metadata_batch(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(600) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !25
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %16, label %4
+  br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %6 = load i16, ptr %5, align 2, !tbaa !16
   %7 = and i16 %6, 4096
+  %.not.i.i.i = icmp ne i16 %7, 0
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %9 = load i8, ptr %8, align 2
-  %10 = icmp ne i16 %7, 0
-  %11 = icmp eq i8 %9, 0
-  %12 = select i1 %10, i1 %11, i1 false
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i8, ptr %13, align 8, !tbaa !21, !range !26, !noundef !27
-  %15 = trunc nuw i8 %14 to i1
-  tail call void @_ZN9grpc_core17GrpcLbClientStats15AddCallFinishedEbb(ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %12, i1 noundef zeroext %15)
-  br label %16
+  %10 = icmp eq i8 %9, 0
+  %11 = select i1 %.not.i.i.i, i1 %10, i1 false
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load i8, ptr %12, align 8, !tbaa !21, !range !26, !noundef !27
+  %14 = trunc nuw i8 %13 to i1
+  tail call void @_ZN9grpc_core17GrpcLbClientStats15AddCallFinishedEbb(ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %11, i1 noundef zeroext %14)
+  br label %15
 
-16:                                               ; preds = %4, %2
+15:                                               ; preds = %4, %2
   ret void
 }
 
@@ -2813,24 +2813,24 @@ define linkonce_odr void @_ZN9grpc_core20arena_promise_detail17AllocatedCallable
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %26 = load i16, ptr %25, align 2, !tbaa !16, !noalias !265
   %27 = and i16 %26, 4096
+  %.not.i.i.i.i.i.i = icmp ne i16 %27, 0
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 14
   %29 = load i8, ptr %28, align 2, !noalias !265
-  %30 = icmp ne i16 %27, 0
-  %31 = icmp eq i8 %29, 0
-  %32 = select i1 %30, i1 %31, i1 false
-  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %34 = load i8, ptr %33, align 8, !tbaa !21, !range !26, !noalias !265, !noundef !27
-  %35 = trunc nuw i8 %34 to i1
-  invoke void @_ZN9grpc_core17GrpcLbClientStats15AddCallFinishedEbb(ptr noundef nonnull align 8 dereferenceable(64) %22, i1 noundef zeroext %32, i1 noundef zeroext %35)
+  %30 = icmp eq i8 %29, 0
+  %31 = select i1 %.not.i.i.i.i.i.i, i1 %30, i1 false
+  %32 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %33 = load i8, ptr %32, align 8, !tbaa !21, !range !26, !noalias !265, !noundef !27
+  %34 = trunc nuw i8 %33 to i1
+  invoke void @_ZN9grpc_core17GrpcLbClientStats15AddCallFinishedEbb(ptr noundef nonnull align 8 dereferenceable(64) %22, i1 noundef zeroext %31, i1 noundef zeroext %34)
           to label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit unwind label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit.i1.i, !noalias !259
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit.i1.i: ; preds = %23
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29, !noalias !236
   call void @_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #29, !noalias !236
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !236
-  resume { ptr, i32 } %36
+  resume { ptr, i32 } %35
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !246
@@ -2841,13 +2841,13 @@ _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterE
 _ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit: ; preds = %13, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !259
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !236
-  %37 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 1, ptr %37, align 8, !tbaa !175, !noalias !259
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i8 1, ptr %36, align 8, !tbaa !175, !noalias !259
   store i8 1, ptr %0, align 8, !tbaa !255
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i8 %16, ptr %38, align 8, !tbaa !148
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %18, ptr %39, align 8, !tbaa !149
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i8 %16, ptr %37, align 8, !tbaa !148
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %18, ptr %38, align 8, !tbaa !149
   br label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit2
 
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit2: ; preds = %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2EOS6_.exit, %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit

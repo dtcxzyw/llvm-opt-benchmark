@@ -82,7 +82,7 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   %9 = load i32, ptr %1, align 4
   %.not = icmp ne i32 %9, -12
   %. = sext i1 %.not to i32
-  br label %244
+  br label %242
 
 10:                                               ; preds = %3
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @netxray_magic, i64 4)
@@ -92,17 +92,17 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
 11:                                               ; preds = %10
   %bcmp144 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %4, ptr noundef nonnull dereferenceable(4) @old_netxray_magic, i64 4)
   %12 = icmp eq i32 %bcmp144, 0
-  br i1 %12, label %.thread, label %244
+  br i1 %12, label %.thread, label %242
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %0, align 8
   %15 = call zeroext i1 @wtap_read_bytes(ptr noundef %14, ptr noundef nonnull %5, i32 noundef 124, ptr noundef %1, ptr noundef %2)
-  br i1 %15, label %18, label %244
+  br i1 %15, label %18, label %242
 
 .thread:                                          ; preds = %11
   %16 = load ptr, ptr %0, align 8
   %17 = call zeroext i1 @wtap_read_bytes(ptr noundef %16, ptr noundef nonnull %5, i32 noundef 124, ptr noundef %1, ptr noundef %2)
-  br i1 %17, label %.thread153, label %244
+  br i1 %17, label %.thread153, label %242
 
 18:                                               ; preds = %13
   %bcmp146 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %5, ptr noundef nonnull dereferenceable(8) @vers_1_0, i64 8)
@@ -138,453 +138,448 @@ define hidden range(i32 -1, 2) i32 @netxray_open(ptr noundef %0, ptr noundef %1,
   store i32 -4, ptr %1, align 4
   %31 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %5)
   store ptr %31, ptr %2, align 8
-  br label %244
+  br label %242
 
 .thread153:                                       ; preds = %.thread, %28, %26, %24, %22, %20, %18
   %32 = phi i1 [ true, %18 ], [ true, %20 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %28 ], [ false, %.thread ]
   %33 = phi i1 [ false, %18 ], [ false, %20 ], [ true, %22 ], [ true, %24 ], [ true, %26 ], [ true, %28 ], [ false, %.thread ]
   %.0132 = phi i32 [ 1, %18 ], [ 1, %20 ], [ 2, %22 ], [ 2, %24 ], [ 2, %26 ], [ 2, %28 ], [ 0, %.thread ]
-  %34 = phi i1 [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ true, %26 ], [ false, %28 ], [ false, %.thread ]
-  %35 = phi i1 [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ true, %28 ], [ false, %.thread ]
+  %or.cond7 = phi i1 [ false, %18 ], [ false, %20 ], [ false, %22 ], [ false, %24 ], [ true, %26 ], [ true, %28 ], [ false, %.thread ]
   %.0131 = phi i32 [ 0, %18 ], [ 1, %20 ], [ 0, %22 ], [ 1, %24 ], [ 2, %26 ], [ 3, %28 ], [ 0, %.thread ]
   %.0130.in = phi ptr [ @netxray_1_0_file_type_subtype, %18 ], [ @netxray_1_1_file_type_subtype, %20 ], [ @netxray_2_00x_file_type_subtype, %22 ], [ @netxray_2_00x_file_type_subtype, %24 ], [ @netxray_2_00x_file_type_subtype, %26 ], [ @netxray_2_00x_file_type_subtype, %28 ], [ @netxray_old_file_type_subtype, %.thread ]
   %.0130 = load i32, ptr %.0130.in, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 41
-  %37 = load i8, ptr %36, align 1
-  switch i8 %37, label %47 [
-    i8 0, label %38
-    i8 2, label %43
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 41
+  %35 = load i8, ptr %34, align 1
+  switch i8 %35, label %45 [
+    i8 0, label %36
+    i8 2, label %41
   ]
 
-38:                                               ; preds = %.thread153
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %40 = load i8, ptr %39, align 4
-  %41 = zext i8 %40 to i32
-  %42 = add nuw nsw i32 %41, 1
-  br label %50
+36:                                               ; preds = %.thread153
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %38 = load i8, ptr %37, align 4
+  %39 = zext i8 %38 to i32
+  %40 = add nuw nsw i32 %39, 1
+  br label %48
 
-43:                                               ; preds = %.thread153
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %45 = load i8, ptr %44, align 4
-  %46 = zext i8 %45 to i32
-  br label %50
+41:                                               ; preds = %.thread153
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %43 = load i8, ptr %42, align 4
+  %44 = zext i8 %43 to i32
+  br label %48
 
-47:                                               ; preds = %.thread153
+45:                                               ; preds = %.thread153
   store i32 -4, ptr %1, align 4
-  %48 = zext i8 %37 to i32
-  %49 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %48)
-  store ptr %49, ptr %2, align 8
-  br label %244
+  %46 = zext i8 %35 to i32
+  %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef %46)
+  store ptr %47, ptr %2, align 8
+  br label %242
 
-50:                                               ; preds = %43, %38
-  %.0124 = phi i32 [ %42, %38 ], [ %46, %43 ]
-  %51 = icmp samesign ugt i32 %.0124, 11
-  br i1 %51, label %57, label %52
+48:                                               ; preds = %41, %36
+  %.0124 = phi i32 [ %40, %36 ], [ %44, %41 ]
+  %49 = icmp samesign ugt i32 %.0124, 11
+  br i1 %49, label %55, label %50
 
-52:                                               ; preds = %50
-  %53 = zext nneg i32 %.0124 to i64
-  %54 = getelementptr i32, ptr @netxray_open.netxray_encap, i64 %53
-  %55 = shl nuw nsw i64 1, %53
-  %56 = and i64 %55, 2529
-  %.not152 = icmp eq i64 %56, 0
-  br i1 %.not152, label %60, label %57
+50:                                               ; preds = %48
+  %51 = zext nneg i32 %.0124 to i64
+  %52 = getelementptr i32, ptr @netxray_open.netxray_encap, i64 %51
+  %53 = shl nuw nsw i64 1, %51
+  %54 = and i64 %53, 2529
+  %.not152 = icmp eq i64 %54, 0
+  br i1 %.not152, label %58, label %55
 
-57:                                               ; preds = %52, %50
+55:                                               ; preds = %50, %48
   store i32 -4, ptr %1, align 4
-  %58 = zext nneg i8 %37 to i32
-  %59 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.0124, i32 noundef %58)
-  store ptr %59, ptr %2, align 8
-  br label %244
+  %56 = zext nneg i8 %35 to i32
+  %57 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.0124, i32 noundef %56)
+  store ptr %57, ptr %2, align 8
+  br label %242
 
-60:                                               ; preds = %52
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %62 = load i32, ptr %61, align 4
-  %63 = uitofp i32 %62 to double
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  %65 = load i32, ptr %64, align 4
-  %66 = uitofp i32 %65 to double
-  %67 = call double @llvm.fmuladd.f64(double %66, double 0x41F0000000000000, double %63)
-  br i1 %.not145, label %70, label %68
+58:                                               ; preds = %50
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %60 = load i32, ptr %59, align 4
+  %61 = uitofp i32 %60 to double
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  %63 = load i32, ptr %62, align 4
+  %64 = uitofp i32 %63 to double
+  %65 = call double @llvm.fmuladd.f64(double %64, double 0x41F0000000000000, double %61)
+  br i1 %.not145, label %68, label %66
 
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 3, ptr %69, align 4
-  br label %179
+66:                                               ; preds = %58
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 3, ptr %67, align 4
+  br label %177
 
-70:                                               ; preds = %60
-  br i1 %32, label %71, label %78
+68:                                               ; preds = %58
+  br i1 %32, label %69, label %76
 
-71:                                               ; preds = %70
-  switch i32 %.0131, label %76 [
-    i32 0, label %72
-    i32 1, label %74
+69:                                               ; preds = %68
+  switch i32 %.0131, label %74 [
+    i32 0, label %70
+    i32 1, label %72
   ]
 
-72:                                               ; preds = %71
+70:                                               ; preds = %69
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  store i32 3, ptr %71, align 4
+  br label %177
+
+72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 3, ptr %73, align 4
-  br label %179
+  store i32 6, ptr %73, align 4
+  br label %177
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  store i32 6, ptr %75, align 4
-  br label %179
-
-76:                                               ; preds = %71
+74:                                               ; preds = %69
   store i32 -21, ptr %1, align 4
-  %77 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1, i32 noundef %.0131)
-  store ptr %77, ptr %2, align 8
-  br label %244
+  %75 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef 1, i32 noundef %.0131)
+  store ptr %75, ptr %2, align 8
+  br label %242
 
-78:                                               ; preds = %70
-  br i1 %33, label %79, label %177
+76:                                               ; preds = %68
+  br i1 %33, label %77, label %175
 
-79:                                               ; preds = %78
+77:                                               ; preds = %76
   %cond = icmp eq i32 %.0124, 1
-  br i1 %cond, label %80, label %158
+  br i1 %cond, label %78, label %156
 
-80:                                               ; preds = %79
-  %81 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %82 = load i8, ptr %81, align 4
-  switch i8 %82, label %155 [
-    i8 0, label %83
-    i8 2, label %100
-    i8 3, label %114
-    i8 5, label %128
-    i8 6, label %141
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %80 = load i8, ptr %79, align 4
+  switch i8 %80, label %153 [
+    i8 0, label %81
+    i8 2, label %98
+    i8 3, label %112
+    i8 5, label %126
+    i8 6, label %139
   ]
 
-83:                                               ; preds = %80
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %85 = load i8, ptr %84, align 4
-  %86 = zext i8 %85 to i64
-  %87 = icmp ugt i8 %85, 2
-  br i1 %87, label %88, label %91
+81:                                               ; preds = %78
+  %82 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %83 = load i8, ptr %82, align 4
+  %84 = zext i8 %83 to i64
+  %85 = icmp ugt i8 %83, 2
+  br i1 %85, label %86, label %89
 
-88:                                               ; preds = %83
+86:                                               ; preds = %81
   store i32 -4, ptr %1, align 4
-  %89 = zext i8 %85 to i32
-  %90 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %89, ptr noundef nonnull %5)
-  store ptr %90, ptr %2, align 8
-  br label %244
+  %87 = zext i8 %83 to i32
+  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef %87, ptr noundef nonnull %5)
+  store ptr %88, ptr %2, align 8
+  br label %242
 
-91:                                               ; preds = %83
-  %92 = icmp eq i8 %85, 2
-  br i1 %92, label %93, label %97
+89:                                               ; preds = %81
+  %90 = icmp eq i8 %83, 2
+  br i1 %90, label %91, label %95
 
-93:                                               ; preds = %91
-  %94 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %95 = load i32, ptr %94, align 4
-  %96 = uitofp i32 %95 to double
-  br label %172
+91:                                               ; preds = %89
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %93 = load i32, ptr %92, align 4
+  %94 = uitofp i32 %93 to double
+  br label %170
 
-97:                                               ; preds = %91
-  %98 = getelementptr double, ptr @TpS, i64 %86
-  %99 = load double, ptr %98, align 8
-  br label %172
+95:                                               ; preds = %89
+  %96 = getelementptr double, ptr @TpS, i64 %84
+  %97 = load double, ptr %96, align 8
+  br label %170
 
-100:                                              ; preds = %80
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %102 = load i8, ptr %101, align 4
-  %103 = icmp ugt i8 %102, 2
-  br i1 %103, label %109, label %104
+98:                                               ; preds = %78
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %100 = load i8, ptr %99, align 4
+  %101 = icmp ugt i8 %100, 2
+  br i1 %101, label %107, label %102
 
-104:                                              ; preds = %100
-  %105 = zext nneg i8 %102 to i64
-  %106 = getelementptr double, ptr @TpS_gigpod, i64 %105
-  %107 = load double, ptr %106, align 8
-  %108 = icmp eq i8 %102, 1
-  br i1 %108, label %109, label %112
+102:                                              ; preds = %98
+  %103 = zext nneg i8 %100 to i64
+  %104 = getelementptr double, ptr @TpS_gigpod, i64 %103
+  %105 = load double, ptr %104, align 8
+  %106 = icmp eq i8 %100, 1
+  br i1 %106, label %107, label %110
 
-109:                                              ; preds = %104, %100
+107:                                              ; preds = %102, %98
   store i32 -4, ptr %1, align 4
-  %110 = zext i8 %102 to i32
-  %111 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %110, ptr noundef nonnull %5)
-  store ptr %111, ptr %2, align 8
-  br label %244
+  %108 = zext i8 %100 to i32
+  %109 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5, i32 noundef %108, ptr noundef nonnull %5)
+  store ptr %109, ptr %2, align 8
+  br label %242
 
-112:                                              ; preds = %104
-  %or.cond = or i1 %34, %35
-  br i1 %or.cond, label %113, label %172
+110:                                              ; preds = %102
+  br i1 %or.cond7, label %111, label %170
 
-113:                                              ; preds = %112
-  br label %172
+111:                                              ; preds = %110
+  br label %170
 
-114:                                              ; preds = %80
-  %115 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %116 = load i8, ptr %115, align 4
-  %117 = icmp ugt i8 %116, 2
-  br i1 %117, label %123, label %118
+112:                                              ; preds = %78
+  %113 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %114 = load i8, ptr %113, align 4
+  %115 = icmp ugt i8 %114, 2
+  br i1 %115, label %121, label %116
 
-118:                                              ; preds = %114
-  %119 = zext nneg i8 %116 to i64
-  %120 = getelementptr double, ptr @TpS_otherpod, i64 %119
-  %121 = load double, ptr %120, align 8
-  %122 = icmp eq i8 %116, 1
-  br i1 %122, label %123, label %126
+116:                                              ; preds = %112
+  %117 = zext nneg i8 %114 to i64
+  %118 = getelementptr double, ptr @TpS_otherpod, i64 %117
+  %119 = load double, ptr %118, align 8
+  %120 = icmp eq i8 %114, 1
+  br i1 %120, label %121, label %124
 
-123:                                              ; preds = %118, %114
+121:                                              ; preds = %116, %112
   store i32 -4, ptr %1, align 4
-  %124 = zext i8 %116 to i32
-  %125 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %124, ptr noundef nonnull %5)
-  store ptr %125, ptr %2, align 8
-  br label %244
+  %122 = zext i8 %114 to i32
+  %123 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %122, ptr noundef nonnull %5)
+  store ptr %123, ptr %2, align 8
+  br label %242
 
-126:                                              ; preds = %118
-  %or.cond3 = or i1 %34, %35
-  br i1 %or.cond3, label %127, label %172
+124:                                              ; preds = %116
+  br i1 %or.cond7, label %125, label %170
 
-127:                                              ; preds = %126
-  br label %172
+125:                                              ; preds = %124
+  br label %170
 
-128:                                              ; preds = %80
-  %129 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %130 = load i8, ptr %129, align 4
-  %131 = icmp ugt i8 %130, 2
-  br i1 %131, label %136, label %132
+126:                                              ; preds = %78
+  %127 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %128 = load i8, ptr %127, align 4
+  %129 = icmp ugt i8 %128, 2
+  br i1 %129, label %134, label %130
 
-132:                                              ; preds = %128
-  %133 = zext nneg i8 %130 to i64
-  %134 = getelementptr double, ptr @TpS_otherpod2, i64 %133
-  %135 = load double, ptr %134, align 8
-  %.not162 = icmp eq i8 %130, 0
-  br i1 %.not162, label %139, label %136
+130:                                              ; preds = %126
+  %131 = zext nneg i8 %128 to i64
+  %132 = getelementptr double, ptr @TpS_otherpod2, i64 %131
+  %133 = load double, ptr %132, align 8
+  %.not162 = icmp eq i8 %128, 0
+  br i1 %.not162, label %137, label %134
 
-136:                                              ; preds = %132, %128
+134:                                              ; preds = %130, %126
   store i32 -4, ptr %1, align 4
-  %137 = zext i8 %130 to i32
-  %138 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %137, ptr noundef nonnull %5)
-  store ptr %138, ptr %2, align 8
-  br label %244
+  %135 = zext i8 %128 to i32
+  %136 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef %135, ptr noundef nonnull %5)
+  store ptr %136, ptr %2, align 8
+  br label %242
 
-139:                                              ; preds = %132
-  %or.cond5 = or i1 %34, %35
-  br i1 %or.cond5, label %140, label %172
+137:                                              ; preds = %130
+  br i1 %or.cond7, label %138, label %170
 
-140:                                              ; preds = %139
-  br label %172
+138:                                              ; preds = %137
+  br label %170
 
-141:                                              ; preds = %80
-  %142 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %143 = load i8, ptr %142, align 4
-  %144 = icmp ugt i8 %143, 2
-  br i1 %144, label %150, label %145
+139:                                              ; preds = %78
+  %140 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %141 = load i8, ptr %140, align 4
+  %142 = icmp ugt i8 %141, 2
+  br i1 %142, label %148, label %143
 
-145:                                              ; preds = %141
-  %146 = zext nneg i8 %143 to i64
-  %147 = getelementptr double, ptr @TpS_gigpod2, i64 %146
-  %148 = load double, ptr %147, align 8
-  %149 = icmp eq i8 %143, 1
-  br i1 %149, label %150, label %153
+143:                                              ; preds = %139
+  %144 = zext nneg i8 %141 to i64
+  %145 = getelementptr double, ptr @TpS_gigpod2, i64 %144
+  %146 = load double, ptr %145, align 8
+  %147 = icmp eq i8 %141, 1
+  br i1 %147, label %148, label %151
 
-150:                                              ; preds = %145, %141
+148:                                              ; preds = %143, %139
   store i32 -4, ptr %1, align 4
-  %151 = zext i8 %143 to i32
-  %152 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %151, ptr noundef nonnull %5)
-  store ptr %152, ptr %2, align 8
-  br label %244
+  %149 = zext i8 %141 to i32
+  %150 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef %149, ptr noundef nonnull %5)
+  store ptr %150, ptr %2, align 8
+  br label %242
 
-153:                                              ; preds = %145
-  %or.cond7 = or i1 %34, %35
-  br i1 %or.cond7, label %154, label %172
+151:                                              ; preds = %143
+  br i1 %or.cond7, label %152, label %170
 
-154:                                              ; preds = %153
-  br label %172
+152:                                              ; preds = %151
+  br label %170
 
-155:                                              ; preds = %80
+153:                                              ; preds = %78
   store i32 -4, ptr %1, align 4
-  %156 = zext i8 %82 to i32
-  %157 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %156, ptr noundef nonnull %5)
-  store ptr %157, ptr %2, align 8
-  br label %244
+  %154 = zext i8 %80 to i32
+  %155 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %154, ptr noundef nonnull %5)
+  store ptr %155, ptr %2, align 8
+  br label %242
 
-158:                                              ; preds = %79
-  %159 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %160 = load i8, ptr %159, align 4
-  %161 = icmp ugt i8 %160, 2
-  br i1 %161, label %162, label %168
+156:                                              ; preds = %77
+  %157 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %158 = load i8, ptr %157, align 4
+  %159 = icmp ugt i8 %158, 2
+  br i1 %159, label %160, label %166
 
-162:                                              ; preds = %158
+160:                                              ; preds = %156
   store i32 -4, ptr %1, align 4
-  %163 = zext i8 %160 to i32
-  %164 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %165 = load i8, ptr %164, align 4
-  %166 = zext i8 %165 to i32
-  %167 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %163, i32 noundef %.0124, i32 noundef %166, ptr noundef nonnull %5)
-  store ptr %167, ptr %2, align 8
-  br label %244
+  %161 = zext i8 %158 to i32
+  %162 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %163 = load i8, ptr %162, align 4
+  %164 = zext i8 %163 to i32
+  %165 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.10, i32 noundef %161, i32 noundef %.0124, i32 noundef %164, ptr noundef nonnull %5)
+  store ptr %165, ptr %2, align 8
+  br label %242
 
-168:                                              ; preds = %158
-  %169 = zext nneg i8 %160 to i64
-  %170 = getelementptr double, ptr @TpS, i64 %169
-  %171 = load double, ptr %170, align 8
-  br label %172
+166:                                              ; preds = %156
+  %167 = zext nneg i8 %158 to i64
+  %168 = getelementptr double, ptr @TpS, i64 %167
+  %169 = load double, ptr %168, align 8
+  br label %170
 
-172:                                              ; preds = %97, %93, %112, %113, %126, %127, %139, %140, %153, %154, %168
-  %.1129 = phi double [ %67, %93 ], [ %67, %97 ], [ 0.000000e+00, %113 ], [ %67, %112 ], [ 0.000000e+00, %127 ], [ %67, %126 ], [ 0.000000e+00, %140 ], [ %67, %139 ], [ 0.000000e+00, %154 ], [ %67, %153 ], [ %67, %168 ]
-  %.1 = phi double [ %96, %93 ], [ %99, %97 ], [ %107, %113 ], [ %107, %112 ], [ %121, %127 ], [ %121, %126 ], [ %135, %140 ], [ %135, %139 ], [ %148, %154 ], [ %148, %153 ], [ %171, %168 ]
-  %173 = fcmp ult double %.1, 1.000000e+07
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 148
-  br i1 %173, label %176, label %175
+170:                                              ; preds = %95, %91, %110, %111, %124, %125, %137, %138, %151, %152, %166
+  %.1129 = phi double [ %65, %91 ], [ %65, %95 ], [ 0.000000e+00, %111 ], [ %65, %110 ], [ 0.000000e+00, %125 ], [ %65, %124 ], [ 0.000000e+00, %138 ], [ %65, %137 ], [ 0.000000e+00, %152 ], [ %65, %151 ], [ %65, %166 ]
+  %.1 = phi double [ %94, %91 ], [ %97, %95 ], [ %105, %111 ], [ %105, %110 ], [ %119, %125 ], [ %119, %124 ], [ %133, %138 ], [ %133, %137 ], [ %146, %152 ], [ %146, %151 ], [ %169, %166 ]
+  %171 = fcmp ult double %.1, 1.000000e+07
+  %172 = getelementptr inbounds nuw i8, ptr %0, i64 148
+  br i1 %171, label %174, label %173
 
-175:                                              ; preds = %172
-  store i32 9, ptr %174, align 4
-  br label %179
+173:                                              ; preds = %170
+  store i32 9, ptr %172, align 4
+  br label %177
 
-176:                                              ; preds = %172
-  store i32 6, ptr %174, align 4
-  br label %179
+174:                                              ; preds = %170
+  store i32 6, ptr %172, align 4
+  br label %177
 
-177:                                              ; preds = %78
+175:                                              ; preds = %76
   store i32 -21, ptr %1, align 4
-  %178 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %.0132, i32 noundef %.0131)
-  store ptr %178, ptr %2, align 8
-  br label %244
+  %176 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.3, i32 noundef %.0132, i32 noundef %.0131)
+  store ptr %176, ptr %2, align 8
+  br label %242
 
-179:                                              ; preds = %74, %72, %175, %176, %68
-  %.0128 = phi double [ %67, %68 ], [ %67, %72 ], [ %67, %74 ], [ %.1129, %175 ], [ %.1129, %176 ]
-  %.0125 = phi double [ 1.000000e+03, %68 ], [ 1.000000e+03, %72 ], [ 1.000000e+06, %74 ], [ %.1, %175 ], [ %.1, %176 ]
-  %180 = fdiv double %.0128, %.0125
-  %181 = icmp eq i32 %.0124, 4
-  br i1 %181, label %182, label %199
+177:                                              ; preds = %72, %70, %173, %174, %66
+  %.0128 = phi double [ %65, %66 ], [ %65, %70 ], [ %65, %72 ], [ %.1129, %173 ], [ %.1129, %174 ]
+  %.0125 = phi double [ 1.000000e+03, %66 ], [ 1.000000e+03, %70 ], [ 1.000000e+06, %72 ], [ %.1, %173 ], [ %.1, %174 ]
+  %178 = fdiv double %.0128, %.0125
+  %179 = icmp eq i32 %.0124, 4
+  br i1 %179, label %180, label %197
 
-182:                                              ; preds = %179
-  br i1 %33, label %183, label %202
+180:                                              ; preds = %177
+  br i1 %33, label %181, label %200
 
-183:                                              ; preds = %182
-  %184 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %185 = load i8, ptr %184, align 4
-  switch i8 %185, label %196 [
-    i8 3, label %202
-    i8 4, label %186
-    i8 6, label %187
-    i8 8, label %187
-    i8 7, label %194
-    i8 19, label %195
+181:                                              ; preds = %180
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %183 = load i8, ptr %182, align 4
+  switch i8 %183, label %194 [
+    i8 3, label %200
+    i8 4, label %184
+    i8 6, label %185
+    i8 8, label %185
+    i8 7, label %192
+    i8 19, label %193
   ]
 
-186:                                              ; preds = %183
-  br label %202
+184:                                              ; preds = %181
+  br label %200
 
-187:                                              ; preds = %183, %183
-  %188 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  %189 = load i8, ptr %188, align 4
-  %190 = icmp ult i8 %189, 4
-  br i1 %190, label %switch.lookup, label %191
+185:                                              ; preds = %181, %181
+  %186 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  %187 = load i8, ptr %186, align 4
+  %188 = icmp ult i8 %187, 4
+  br i1 %188, label %switch.lookup, label %189
 
-191:                                              ; preds = %187
+189:                                              ; preds = %185
   store i32 -4, ptr %1, align 4
-  %192 = zext i8 %189 to i32
-  %193 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %192)
-  store ptr %193, ptr %2, align 8
-  br label %244
+  %190 = zext i8 %187 to i32
+  %191 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11, i32 noundef %190)
+  store ptr %191, ptr %2, align 8
+  br label %242
 
-194:                                              ; preds = %183
-  br label %202
+192:                                              ; preds = %181
+  br label %200
 
-195:                                              ; preds = %183
-  br label %202
+193:                                              ; preds = %181
+  br label %200
 
-196:                                              ; preds = %183
+194:                                              ; preds = %181
   store i32 -4, ptr %1, align 4
-  %197 = zext i8 %185 to i32
-  %198 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef %197)
-  store ptr %198, ptr %2, align 8
-  br label %244
+  %195 = zext i8 %183 to i32
+  %196 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.12, i32 noundef %195)
+  store ptr %196, ptr %2, align 8
+  br label %242
 
-199:                                              ; preds = %179
-  %200 = load i32, ptr %54, align 4
-  br label %202
+197:                                              ; preds = %177
+  %198 = load i32, ptr %52, align 4
+  br label %200
 
-switch.lookup:                                    ; preds = %187
-  %201 = zext nneg i8 %189 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.netxray_open, i64 %201
+switch.lookup:                                    ; preds = %185
+  %199 = zext nneg i8 %187 to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.netxray_open, i64 %199
   %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.idx.cast = zext nneg i8 %189 to i32
-  br label %202
+  %switch.idx.cast = zext nneg i8 %187 to i32
+  br label %200
 
-202:                                              ; preds = %switch.lookup, %182, %183, %195, %194, %186, %199
-  %.0127 = phi i32 [ 27, %186 ], [ 36, %194 ], [ 40, %195 ], [ %200, %199 ], [ 19, %183 ], [ 1, %182 ], [ %switch.load, %switch.lookup ]
-  %.0126 = phi i32 [ 0, %186 ], [ 0, %194 ], [ 0, %195 ], [ 0, %199 ], [ 0, %183 ], [ 0, %182 ], [ %switch.idx.cast, %switch.lookup ]
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %.0130, ptr %203, align 4
-  %204 = call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #8
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %204, ptr %205, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  store ptr @netxray_read, ptr %206, align 8
-  %207 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store ptr @netxray_seek_read, ptr %207, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store i32 %.0127, ptr %208, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %209, align 8
-  %210 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %211 = load i32, ptr %210, align 4
-  %212 = zext i32 %211 to i64
-  store i64 %212, ptr %204, align 8
-  %213 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  store double %.0125, ptr %213, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  store double %180, ptr %214, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %204, i64 48
-  store i32 %.0132, ptr %215, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %204, i64 52
-  store i8 0, ptr %216, align 4
-  switch i32 %.0127, label %226 [
-    i32 1, label %217
-    i32 22, label %217
-    i32 17, label %217
-    i32 12, label %217
+200:                                              ; preds = %switch.lookup, %180, %181, %193, %192, %184, %197
+  %.0127 = phi i32 [ 27, %184 ], [ 36, %192 ], [ 40, %193 ], [ %198, %197 ], [ 19, %181 ], [ 1, %180 ], [ %switch.load, %switch.lookup ]
+  %.0126 = phi i32 [ 0, %184 ], [ 0, %192 ], [ 0, %193 ], [ 0, %197 ], [ 0, %181 ], [ 0, %180 ], [ %switch.idx.cast, %switch.lookup ]
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %.0130, ptr %201, align 4
+  %202 = call noalias dereferenceable_or_null(64) ptr @g_malloc(i64 noundef 64) #8
+  %203 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %202, ptr %203, align 8
+  %204 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  store ptr @netxray_read, ptr %204, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store ptr @netxray_seek_read, ptr %205, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store i32 %.0127, ptr %206, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %207, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %209 = load i32, ptr %208, align 4
+  %210 = zext i32 %209 to i64
+  store i64 %210, ptr %202, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  store double %.0125, ptr %211, align 8
+  %212 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  store double %178, ptr %212, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %202, i64 48
+  store i32 %.0132, ptr %213, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %202, i64 52
+  store i8 0, ptr %214, align 4
+  switch i32 %.0127, label %224 [
+    i32 1, label %215
+    i32 22, label %215
+    i32 17, label %215
+    i32 12, label %215
   ]
 
-217:                                              ; preds = %202, %202, %202, %202
-  br i1 %33, label %218, label %226
+215:                                              ; preds = %200, %200, %200, %200
+  br i1 %33, label %216, label %224
 
-218:                                              ; preds = %217
-  %219 = getelementptr inbounds nuw i8, ptr %5, i64 73
-  %220 = load i8, ptr %219, align 1
-  %221 = icmp eq i8 %220, 52
-  %222 = getelementptr inbounds nuw i8, ptr %5, i64 74
-  %223 = load i8, ptr %222, align 2
-  %224 = icmp eq i8 %223, 18
-  %or.cond12 = select i1 %221, i1 %224, i1 false
-  br i1 %or.cond12, label %225, label %226
+216:                                              ; preds = %215
+  %217 = getelementptr inbounds nuw i8, ptr %5, i64 73
+  %218 = load i8, ptr %217, align 1
+  %219 = icmp eq i8 %218, 52
+  %220 = getelementptr inbounds nuw i8, ptr %5, i64 74
+  %221 = load i8, ptr %220, align 2
+  %222 = icmp eq i8 %221, 18
+  %or.cond12 = select i1 %219, i1 %222, i1 false
+  br i1 %or.cond12, label %223, label %224
 
-225:                                              ; preds = %218
-  store i8 1, ptr %216, align 4
-  br label %226
+223:                                              ; preds = %216
+  store i8 1, ptr %214, align 4
+  br label %224
 
-226:                                              ; preds = %217, %225, %218, %202
-  %227 = getelementptr inbounds nuw i8, ptr %204, i64 56
-  store i32 %.0126, ptr %227, align 8
-  %228 = getelementptr inbounds nuw i8, ptr %204, i64 24
-  store i8 0, ptr %228, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %230 = load i32, ptr %229, align 4
-  %231 = getelementptr inbounds nuw i8, ptr %204, i64 28
-  store i32 %230, ptr %231, align 4
-  %232 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %233 = load i32, ptr %232, align 4
-  %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw i8, ptr %204, i64 32
-  store i64 %234, ptr %235, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %237 = load i32, ptr %236, align 4
-  %238 = zext i32 %237 to i64
-  %239 = getelementptr inbounds nuw i8, ptr %204, i64 40
-  store i64 %238, ptr %239, align 8
-  %240 = load ptr, ptr %0, align 8
-  %241 = call i64 @file_seek(ptr noundef %240, i64 noundef %234, i32 noundef 0, ptr noundef %1)
-  %242 = icmp eq i64 %241, -1
-  br i1 %242, label %244, label %243
+224:                                              ; preds = %215, %223, %216, %200
+  %225 = getelementptr inbounds nuw i8, ptr %202, i64 56
+  store i32 %.0126, ptr %225, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %202, i64 24
+  store i8 0, ptr %226, align 8
+  %227 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %228 = load i32, ptr %227, align 4
+  %229 = getelementptr inbounds nuw i8, ptr %202, i64 28
+  store i32 %228, ptr %229, align 4
+  %230 = getelementptr inbounds nuw i8, ptr %5, i64 20
+  %231 = load i32, ptr %230, align 4
+  %232 = zext i32 %231 to i64
+  %233 = getelementptr inbounds nuw i8, ptr %202, i64 32
+  store i64 %232, ptr %233, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %235 = load i32, ptr %234, align 4
+  %236 = zext i32 %235 to i64
+  %237 = getelementptr inbounds nuw i8, ptr %202, i64 40
+  store i64 %236, ptr %237, align 8
+  %238 = load ptr, ptr %0, align 8
+  %239 = call i64 @file_seek(ptr noundef %238, i64 noundef %232, i32 noundef 0, ptr noundef %1)
+  %240 = icmp eq i64 %239, -1
+  br i1 %240, label %242, label %241
 
-243:                                              ; preds = %226
+241:                                              ; preds = %224
   call void @wtap_add_generated_idb(ptr noundef %0)
-  br label %244
+  br label %242
 
-244:                                              ; preds = %.thread, %226, %13, %11, %8, %243, %196, %191, %177, %162, %155, %150, %136, %123, %109, %88, %76, %57, %47, %30
-  %.0 = phi i32 [ -1, %47 ], [ -1, %57 ], [ -1, %196 ], [ 1, %243 ], [ -1, %191 ], [ -1, %76 ], [ -1, %155 ], [ -1, %88 ], [ -1, %109 ], [ -1, %123 ], [ -1, %136 ], [ -1, %150 ], [ -1, %162 ], [ -1, %177 ], [ -1, %30 ], [ %., %8 ], [ 0, %11 ], [ -1, %13 ], [ -1, %226 ], [ -1, %.thread ]
+242:                                              ; preds = %.thread, %224, %13, %11, %8, %241, %194, %189, %175, %160, %153, %148, %134, %121, %107, %86, %74, %55, %45, %30
+  %.0 = phi i32 [ -1, %45 ], [ -1, %55 ], [ -1, %194 ], [ 1, %241 ], [ -1, %189 ], [ -1, %74 ], [ -1, %153 ], [ -1, %86 ], [ -1, %107 ], [ -1, %121 ], [ -1, %134 ], [ -1, %148 ], [ -1, %160 ], [ -1, %175 ], [ -1, %30 ], [ %., %8 ], [ 0, %11 ], [ -1, %13 ], [ -1, %224 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

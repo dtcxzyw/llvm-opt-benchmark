@@ -3034,7 +3034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit599: ; preds = %56
 
 switch.edge.thread:                               ; preds = %540, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %switch.edge
   %569 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %545, %switch.edge ], [ false, %540 ]
-  %.not1316 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %switch.edge ], [ true, %540 ]
+  %.not1316 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %545, %switch.edge ], [ true, %540 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
   br label %570
 
@@ -12192,7 +12192,6 @@ _ZN3gmx14LogEntryWriterD2Ev.exit997:              ; preds = %4329, %_ZNKSt7__cxx
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not1317 = or i1 %569, %.not1316
   %4341 = load ptr, ptr %2679, align 8, !tbaa !121
   %4342 = icmp eq ptr %4341, null
   br i1 %4342, label %4363, label %4343
@@ -12206,7 +12205,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit997:              ; preds = %4329, %_ZNKSt7__cxx
   store i64 0, ptr %4345, align 8, !tbaa !15
   %4346 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i8 1, ptr %4346, align 8, !tbaa !123
-  %4347 = select i1 %.not1317, ptr @.str.48, ptr @.str.250
+  %4347 = select i1 %.not1316, ptr @.str.48, ptr @.str.250
   %4348 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull @.str.249, ptr noundef nonnull %4347)
           to label %4349 unwind label %4357
 
@@ -12366,7 +12365,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit72.i:             ; preds = %4402, %_ZNKSt7__cxx
   br label %4591
 
 4408:                                             ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit69.i1006, %4387, %_ZN3gmx14LogEntryWriterD2Ev.exit62.i, %4367
-  br i1 %.not1317, label %4409, label %4445
+  br i1 %.not1316, label %4409, label %4445
 
 4409:                                             ; preds = %4408
   br i1 %569, label %4410, label %4432

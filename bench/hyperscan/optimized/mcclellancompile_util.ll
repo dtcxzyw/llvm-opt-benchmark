@@ -1081,13 +1081,13 @@ _ZN3ue211hash_detail12hash_combineISt5arrayItLm257EEEEvRmRKT_.exit: ; preds = %3
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i: ; preds = %.lr.ph.i.i
   %29 = mul i64 %27, 814605021516865831
+  %30 = xor i64 %29, %.017
   br label %_ZN3ue211hash_detail12hash_combineISt6vectorItSaItEEEEvRmRKT_.exit
 
 _ZN3ue211hash_detail12hash_combineISt6vectorItSaItEEEEvRmRKT_.exit: ; preds = %.lr.ph, %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i
-  %.0.lcssa.i.i = phi i64 [ 0, %.lr.ph ], [ %29, %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i ]
-  %30 = xor i64 %.0.lcssa.i.i, %.017
+  %.0.lcssa.i.i = phi i64 [ %.017, %.lr.ph ], [ %30, %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 96
-  %.0 = add i64 %30, 3571081485394615273
+  %.0 = add i64 %.0.lcssa.i.i, 3571081485394615273
   %.not = icmp eq ptr %31, %19
   br i1 %.not, label %._crit_edge, label %.lr.ph
 }
@@ -1168,13 +1168,13 @@ _ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit.thread: ; preds = %_ZN3ue211has
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i.i: ; preds = %.lr.ph.i.i.i
   %39 = mul i64 %37, 814605021516865831
+  %40 = xor i64 %39, %.017.i
   br label %_ZN3ue211hash_detail12hash_combineISt6vectorItSaItEEEEvRmRKT_.exit.i
 
 _ZN3ue211hash_detail12hash_combineISt6vectorItSaItEEEEvRmRKT_.exit.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i.i, %.lr.ph.i
-  %.0.lcssa.i.i.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i.i ]
-  %40 = xor i64 %.0.lcssa.i.i.i, %.017.i
+  %.0.lcssa.i.i.i = phi i64 [ %.017.i, %.lr.ph.i ], [ %40, %_ZNK3ue211hash_detail8ue2_hashISt6vectorItSaItEEvEclERKS4_.exit.loopexit.i.i ]
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.07.016.i, i64 96
-  %.0.i = add i64 %40, 3571081485394615273
+  %.0.i = add i64 %.0.lcssa.i.i.i, 3571081485394615273
   %.not.i = icmp eq ptr %41, %24
   br i1 %.not.i, label %_ZN3ue219hash_dfa_no_reportsERKNS_7raw_dfaE.exit, label %.lr.ph.i
 

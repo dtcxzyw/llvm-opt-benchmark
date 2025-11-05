@@ -37214,10 +37214,10 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
   %678 = phi ptr [ %761, %793 ], [ %643, %670 ], [ %697, %705 ]
   %.sroa.996.0.i.i.i.i = phi i16 [ undef, %793 ], [ %.sroa.8.sroa.6.0.copyload.i.i.i.i, %670 ], [ undef, %705 ]
   %.sroa.1098.0.i.i.i.i = phi i32 [ undef, %793 ], [ %.sroa.8.sroa.7.0.copyload.i.i.i.i, %670 ], [ undef, %705 ]
-  %.sroa.11100.0.i.i.i.i = phi ptr [ %.sroa.19.0.i.ph.i.i.i.i, %793 ], [ %.sroa.8.sroa.8.0.copyload.i.i.i.i, %670 ], [ %706, %705 ]
+  %.sroa.11100.0.i.i.i.i = phi ptr [ %.sroa.1152.0.ph.ph.i.i.i.i, %793 ], [ %.sroa.8.sroa.8.0.copyload.i.i.i.i, %670 ], [ %706, %705 ]
   %.sroa.13102.0.i.i.i.i = phi i32 [ 0, %793 ], [ %.sroa.8.sroa.9.0.copyload.i.i.i.i, %670 ], [ undef, %705 ]
   %.sroa.14104.0.i.i.i.i = phi i32 [ 0, %793 ], [ %.sroa.8.sroa.10.0.copyload.i.i.i.i, %670 ], [ undef, %705 ]
-  %.sroa.594.sroa.0.0.i.i.i.i = phi i8 [ %.sroa.1053.sroa.2.0.i.ph.i.i.i.i, %793 ], [ %650, %670 ], [ 0, %705 ]
+  %.sroa.594.sroa.0.0.i.i.i.i = phi i8 [ %.sroa.949.0.ph.ph.i.i.i.i, %793 ], [ %650, %670 ], [ 0, %705 ]
   %.sroa.594.sroa.5.0.i.i.i.i = phi i8 [ 0, %793 ], [ %.sroa.8.sroa.0.0.copyload.i.i.i.i, %670 ], [ undef, %705 ]
   %679 = getelementptr inbounds nuw i8, ptr %1, i64 1816
   invoke void @"_ZN4core3ptr46drop_in_place$LT$async_net..tcp..TcpStream$GT$17h3d51b0aa76e803f1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %679)
@@ -37470,8 +37470,8 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
   br label %.thread.i.i.i
 
 793:                                              ; preds = %789, %788, %787, %784, %773, %770
-  %.sroa.19.0.i.ph.i.i.i.i = phi ptr [ %771, %770 ], [ undef, %784 ], [ undef, %773 ], [ undef, %789 ], [ undef, %788 ], [ undef, %787 ]
-  %.sroa.1053.sroa.2.0.i.ph.i.i.i.i = phi i8 [ 0, %770 ], [ 15, %784 ], [ 4, %773 ], [ 22, %789 ], [ 21, %788 ], [ 7, %787 ]
+  %.sroa.1152.0.ph.ph.i.i.i.i = phi ptr [ undef, %787 ], [ undef, %788 ], [ undef, %789 ], [ undef, %773 ], [ undef, %784 ], [ %771, %770 ]
+  %.sroa.949.0.ph.ph.i.i.i.i = phi i8 [ 7, %787 ], [ 21, %788 ], [ 22, %789 ], [ 4, %773 ], [ 15, %784 ], [ 0, %770 ]
   store i8 1, ptr %762, align 8, !noalias !8243
   br label %671
 
@@ -38592,34 +38592,34 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.pre.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !range !4, !noalias !8396
   switch i8 %.pre.i.i.i.i.i, label %default.unreachable1123 [
-    i8 0, label %._crit_edge204.i.i.i.i
+    i8 0, label %._crit_edge210.i.i.i.i
     i8 1, label %1239
     i8 2, label %1240
     i8 3, label %1241
     i8 4, label %1286
   ]
 
-._crit_edge204.i.i.i.i:                           ; preds = %1186
-  %.phi.trans.insert205.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2048
-  %.pre206.i.i.i.i = load ptr, ptr %.phi.trans.insert205.i.i.i.i, align 8, !noalias !8396
-  %.phi.trans.insert207.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2056
-  %.pre208.i.i.i.i = load ptr, ptr %.phi.trans.insert207.i.i.i.i, align 8, !noalias !8396
+._crit_edge210.i.i.i.i:                           ; preds = %1186
+  %.phi.trans.insert211.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2048
+  %.pre212.i.i.i.i = load ptr, ptr %.phi.trans.insert211.i.i.i.i, align 8, !noalias !8396
+  %.phi.trans.insert213.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2056
+  %.pre214.i.i.i.i = load ptr, ptr %.phi.trans.insert213.i.i.i.i, align 8, !noalias !8396
   br label %1187
 
-1187:                                             ; preds = %._crit_edge204.i.i.i.i, %.thread.i.i.i.i.i
-  %1188 = phi ptr [ %1149, %.thread.i.i.i.i.i ], [ %498, %._crit_edge204.i.i.i.i ]
-  %1189 = phi ptr [ %1150, %.thread.i.i.i.i.i ], [ %497, %._crit_edge204.i.i.i.i ]
-  %1190 = phi ptr [ %1151, %.thread.i.i.i.i.i ], [ %.phi.trans.insert321.i, %._crit_edge204.i.i.i.i ]
-  %1191 = phi ptr [ %1152, %.thread.i.i.i.i.i ], [ %961, %._crit_edge204.i.i.i.i ]
-  %1192 = phi ptr [ %1153, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge204.i.i.i.i ]
-  %1193 = phi ptr [ %1154, %.thread.i.i.i.i.i ], [ %976, %._crit_edge204.i.i.i.i ]
-  %1194 = phi ptr [ %1155, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i.i48.i, %._crit_edge204.i.i.i.i ]
-  %1195 = phi ptr [ %1156, %.thread.i.i.i.i.i ], [ %1035, %._crit_edge204.i.i.i.i ]
-  %1196 = phi ptr [ %1157, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i.i.i63.i, %._crit_edge204.i.i.i.i ]
-  %1197 = phi ptr [ %1158, %.thread.i.i.i.i.i ], [ %1051, %._crit_edge204.i.i.i.i ]
-  %1198 = phi ptr [ %1175, %.thread.i.i.i.i.i ], [ %.pre208.i.i.i.i, %._crit_edge204.i.i.i.i ]
-  %1199 = phi ptr [ %1167, %.thread.i.i.i.i.i ], [ %.pre206.i.i.i.i, %._crit_edge204.i.i.i.i ]
-  %1200 = phi ptr [ %.sroa.1056.0..sroa_idx.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i.i.i.i.i, %._crit_edge204.i.i.i.i ]
+1187:                                             ; preds = %._crit_edge210.i.i.i.i, %.thread.i.i.i.i.i
+  %1188 = phi ptr [ %1149, %.thread.i.i.i.i.i ], [ %498, %._crit_edge210.i.i.i.i ]
+  %1189 = phi ptr [ %1150, %.thread.i.i.i.i.i ], [ %497, %._crit_edge210.i.i.i.i ]
+  %1190 = phi ptr [ %1151, %.thread.i.i.i.i.i ], [ %.phi.trans.insert321.i, %._crit_edge210.i.i.i.i ]
+  %1191 = phi ptr [ %1152, %.thread.i.i.i.i.i ], [ %961, %._crit_edge210.i.i.i.i ]
+  %1192 = phi ptr [ %1153, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge210.i.i.i.i ]
+  %1193 = phi ptr [ %1154, %.thread.i.i.i.i.i ], [ %976, %._crit_edge210.i.i.i.i ]
+  %1194 = phi ptr [ %1155, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i.i48.i, %._crit_edge210.i.i.i.i ]
+  %1195 = phi ptr [ %1156, %.thread.i.i.i.i.i ], [ %1035, %._crit_edge210.i.i.i.i ]
+  %1196 = phi ptr [ %1157, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i.i.i63.i, %._crit_edge210.i.i.i.i ]
+  %1197 = phi ptr [ %1158, %.thread.i.i.i.i.i ], [ %1051, %._crit_edge210.i.i.i.i ]
+  %1198 = phi ptr [ %1175, %.thread.i.i.i.i.i ], [ %.pre214.i.i.i.i, %._crit_edge210.i.i.i.i ]
+  %1199 = phi ptr [ %1167, %.thread.i.i.i.i.i ], [ %.pre212.i.i.i.i, %._crit_edge210.i.i.i.i ]
+  %1200 = phi ptr [ %.sroa.1056.0..sroa_idx.i.i.i.i.i, %.thread.i.i.i.i.i ], [ %.phi.trans.insert.i.i.i.i.i, %._crit_edge210.i.i.i.i ]
   %1201 = getelementptr inbounds nuw i8, ptr %1, i64 2064
   store ptr %1199, ptr %1201, align 8, !noalias !8396
   %1202 = getelementptr inbounds nuw i8, ptr %1, i64 2072
@@ -39003,9 +39003,9 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %1406 = phi ptr [ %1719, %1713 ], [ %1396, %1390 ], [ %1418, %1428 ]
   %1407 = phi ptr [ %1720, %1713 ], [ %1397, %1390 ], [ %1419, %1428 ]
   %1408 = phi ptr [ %1721, %1713 ], [ %1398, %1390 ], [ %1420, %1428 ]
-  %.sroa.10121.0.i.i.i.i = phi ptr [ %.sroa.54.0.i.ph.i.i.i.i, %1713 ], [ %.sroa.1149.0.ph.ph.i.i.i.i, %1390 ], [ %1429, %1428 ]
-  %.sroa.13123.0.i.i.i.i = phi i64 [ %.sroa.61.sroa.0.0.i.ph.i.i.i.i, %1713 ], [ undef, %1390 ], [ undef, %1428 ]
-  %.sroa.5119.sroa.0.0.i.i.i.i = phi i64 [ %.sroa.23.0.i.ph.i.i.i.i, %1713 ], [ %.sroa.046.0.ph.ph.i.i.i.i, %1390 ], [ 0, %1428 ]
+  %.sroa.10121.0.i.i.i.i = phi ptr [ %.sroa.14.0.ph.ph.i.i.i.i, %1713 ], [ %.sroa.1149.0.ph.ph.i.i.i.i, %1390 ], [ %1429, %1428 ]
+  %.sroa.13123.0.i.i.i.i = phi i64 [ %.sroa.15.0.ph.ph.i.i.i.i, %1713 ], [ undef, %1390 ], [ undef, %1428 ]
+  %.sroa.5119.sroa.0.0.i.i.i.i = phi i64 [ %.sroa.13.0.ph.ph.i.i.i.i, %1713 ], [ %.sroa.046.0.ph.ph.i.i.i.i, %1390 ], [ 0, %1428 ]
   %.sroa.5119.sroa.5.0.i.i.i.i = phi i64 [ 0, %1713 ], [ %.sroa.1047.0.ph.ph.i.i.i.i, %1390 ], [ 0, %1428 ]
   %1409 = getelementptr inbounds nuw i8, ptr %1, i64 1880
   invoke void @"_ZN4core3ptr46drop_in_place$LT$async_net..tcp..TcpStream$GT$17h3d51b0aa76e803f1E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %1409)
@@ -39047,9 +39047,9 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
 1428:                                             ; preds = %1425
   %1429 = extractvalue { i64, ptr } %1422, 1
   %1430 = icmp eq ptr %1429, null
-  br i1 %1430, label %.thread250.i.i.i.i, label %1400
+  br i1 %1430, label %.thread256.i.i.i.i, label %1400
 
-.thread250.i.i.i.i:                               ; preds = %1428
+.thread256.i.i.i.i:                               ; preds = %1428
   %1431 = getelementptr inbounds nuw i8, ptr %1, i64 1872
   %1432 = load ptr, ptr %1431, align 8, !noalias !8368, !nonnull !5, !align !316, !noundef !5
   %1433 = getelementptr inbounds nuw i8, ptr %1, i64 1880
@@ -39063,11 +39063,11 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   br label %1435
 
 1434:                                             ; preds = %1034
-  %.phi.trans.insert210.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2040
-  %.pre211.i.i.i.i = load i8, ptr %.phi.trans.insert210.i.i.i.i, align 8, !range !1428, !noalias !8405
+  %.phi.trans.insert216.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2040
+  %.pre217.i.i.i.i = load i8, ptr %.phi.trans.insert216.i.i.i.i, align 8, !range !1428, !noalias !8405
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.554.sroa.3.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !8368
-  switch i8 %.pre211.i.i.i.i, label %default.unreachable1123 [
+  switch i8 %.pre217.i.i.i.i, label %default.unreachable1123 [
     i8 0, label %._crit_edge140.i.i.i
     i8 1, label %1478
     i8 2, label %1479
@@ -39083,18 +39083,18 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre144.i.i.i = load ptr, ptr %.phi.trans.insert143.i.i.i, align 8, !noalias !8405
   br label %1435
 
-1435:                                             ; preds = %._crit_edge140.i.i.i, %.thread250.i.i.i.i
-  %1436 = phi ptr [ %1413, %.thread250.i.i.i.i ], [ %498, %._crit_edge140.i.i.i ]
-  %1437 = phi ptr [ %1414, %.thread250.i.i.i.i ], [ %497, %._crit_edge140.i.i.i ]
-  %1438 = phi ptr [ %1415, %.thread250.i.i.i.i ], [ %.phi.trans.insert321.i, %._crit_edge140.i.i.i ]
-  %1439 = phi ptr [ %1416, %.thread250.i.i.i.i ], [ %961, %._crit_edge140.i.i.i ]
-  %1440 = phi ptr [ %1417, %.thread250.i.i.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge140.i.i.i ]
-  %1441 = phi ptr [ %1418, %.thread250.i.i.i.i ], [ %976, %._crit_edge140.i.i.i ]
-  %1442 = phi ptr [ %1419, %.thread250.i.i.i.i ], [ %.phi.trans.insert.i.i48.i, %._crit_edge140.i.i.i ]
-  %1443 = phi ptr [ %1420, %.thread250.i.i.i.i ], [ %1035, %._crit_edge140.i.i.i ]
-  %1444 = phi ptr [ %1433, %.thread250.i.i.i.i ], [ %.pre144.i.i.i, %._crit_edge140.i.i.i ]
-  %1445 = phi ptr [ %1432, %.thread250.i.i.i.i ], [ %.pre142.i.i.i, %._crit_edge140.i.i.i ]
-  %1446 = phi ptr [ %.sroa.1079.0..sroa_idx.i.i.i.i, %.thread250.i.i.i.i ], [ %.phi.trans.insert210.i.i.i.i, %._crit_edge140.i.i.i ]
+1435:                                             ; preds = %._crit_edge140.i.i.i, %.thread256.i.i.i.i
+  %1436 = phi ptr [ %1413, %.thread256.i.i.i.i ], [ %498, %._crit_edge140.i.i.i ]
+  %1437 = phi ptr [ %1414, %.thread256.i.i.i.i ], [ %497, %._crit_edge140.i.i.i ]
+  %1438 = phi ptr [ %1415, %.thread256.i.i.i.i ], [ %.phi.trans.insert321.i, %._crit_edge140.i.i.i ]
+  %1439 = phi ptr [ %1416, %.thread256.i.i.i.i ], [ %961, %._crit_edge140.i.i.i ]
+  %1440 = phi ptr [ %1417, %.thread256.i.i.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge140.i.i.i ]
+  %1441 = phi ptr [ %1418, %.thread256.i.i.i.i ], [ %976, %._crit_edge140.i.i.i ]
+  %1442 = phi ptr [ %1419, %.thread256.i.i.i.i ], [ %.phi.trans.insert.i.i48.i, %._crit_edge140.i.i.i ]
+  %1443 = phi ptr [ %1420, %.thread256.i.i.i.i ], [ %1035, %._crit_edge140.i.i.i ]
+  %1444 = phi ptr [ %1433, %.thread256.i.i.i.i ], [ %.pre144.i.i.i, %._crit_edge140.i.i.i ]
+  %1445 = phi ptr [ %1432, %.thread256.i.i.i.i ], [ %.pre142.i.i.i, %._crit_edge140.i.i.i ]
+  %1446 = phi ptr [ %.sroa.1079.0..sroa_idx.i.i.i.i, %.thread256.i.i.i.i ], [ %.phi.trans.insert216.i.i.i.i, %._crit_edge140.i.i.i ]
   %1447 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   store ptr %1445, ptr %1447, align 8, !noalias !8405
   %1448 = getelementptr inbounds nuw i8, ptr %1, i64 2032
@@ -39186,7 +39186,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %1486 = phi ptr [ %1441, %1465 ], [ %976, %1434 ]
   %1487 = phi ptr [ %1442, %1465 ], [ %.phi.trans.insert.i.i48.i, %1434 ]
   %1488 = phi ptr [ %1443, %1465 ], [ %1035, %1434 ]
-  %1489 = phi ptr [ %1446, %1465 ], [ %.phi.trans.insert210.i.i.i.i, %1434 ]
+  %1489 = phi ptr [ %1446, %1465 ], [ %.phi.trans.insert216.i.i.i.i, %1434 ]
   %1490 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %1491 = invoke { i64, ptr } @"_ZN84_$LT$tokio_socks..io..ReadExact$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h333d5e2ae2b411d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1490, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %1494 unwind label %1492, !noalias !8412
@@ -39364,7 +39364,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %1579 = phi ptr [ %1486, %1569 ], [ %976, %1434 ]
   %1580 = phi ptr [ %1487, %1569 ], [ %.phi.trans.insert.i.i48.i, %1434 ]
   %1581 = phi ptr [ %1488, %1569 ], [ %1035, %1434 ]
-  %1582 = phi ptr [ %1489, %1569 ], [ %.phi.trans.insert210.i.i.i.i, %1434 ]
+  %1582 = phi ptr [ %1489, %1569 ], [ %.phi.trans.insert216.i.i.i.i, %1434 ]
   %1583 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %1584 = invoke { i64, ptr } @"_ZN84_$LT$tokio_socks..io..ReadExact$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h333d5e2ae2b411d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1583, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %1587 unwind label %1585, !noalias !8412
@@ -39430,7 +39430,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %1620 = phi ptr [ %1549, %1610 ], [ %976, %1434 ]
   %1621 = phi ptr [ %1550, %1610 ], [ %.phi.trans.insert.i.i48.i, %1434 ]
   %1622 = phi ptr [ %1551, %1610 ], [ %1035, %1434 ]
-  %1623 = phi ptr [ %1552, %1610 ], [ %.phi.trans.insert210.i.i.i.i, %1434 ]
+  %1623 = phi ptr [ %1552, %1610 ], [ %.phi.trans.insert216.i.i.i.i, %1434 ]
   %1624 = getelementptr inbounds nuw i8, ptr %1, i64 2048
   %1625 = invoke { i64, ptr } @"_ZN84_$LT$tokio_socks..io..ReadExact$LT$R$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h333d5e2ae2b411d5E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %1624, ptr noalias noundef nonnull align 8 dereferenceable(32) %2)
           to label %1628 unwind label %1626, !noalias !8412
@@ -39632,30 +39632,30 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   br label %.body.i.i.i50.i
 
 1707:                                             ; preds = %1628, %1587, %1494
-  %1708 = phi ptr [ %1615, %1628 ], [ %1574, %1587 ], [ %1481, %1494 ]
-  %1709 = phi ptr [ %1617, %1628 ], [ %1576, %1587 ], [ %1483, %1494 ]
-  %1710 = phi ptr [ %1619, %1628 ], [ %1578, %1587 ], [ %1485, %1494 ]
-  %1711 = phi ptr [ %1621, %1628 ], [ %1580, %1587 ], [ %1487, %1494 ]
-  %1712 = phi ptr [ %1623, %1628 ], [ %1582, %1587 ], [ %1489, %1494 ]
-  %.sink.i31.ph.i.i.i.i = phi i8 [ 5, %1628 ], [ 4, %1587 ], [ 3, %1494 ]
-  store i8 %.sink.i31.ph.i.i.i.i, ptr %1712, align 8, !noalias !8405
+  %1708 = phi ptr [ %1481, %1494 ], [ %1574, %1587 ], [ %1615, %1628 ]
+  %1709 = phi ptr [ %1483, %1494 ], [ %1576, %1587 ], [ %1617, %1628 ]
+  %1710 = phi ptr [ %1485, %1494 ], [ %1578, %1587 ], [ %1619, %1628 ]
+  %1711 = phi ptr [ %1487, %1494 ], [ %1580, %1587 ], [ %1621, %1628 ]
+  %1712 = phi ptr [ %1489, %1494 ], [ %1582, %1587 ], [ %1623, %1628 ]
+  %.sink.i31.i.i.i.i = phi i8 [ 3, %1494 ], [ 4, %1587 ], [ 5, %1628 ]
+  store i8 %.sink.i31.i.i.i.i, ptr %1712, align 8, !noalias !8405
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.554.sroa.3.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !8368
   br label %.thread.i.i61.i
 
 1713:                                             ; preds = %1702, %1631, %1590, %1572, %1527, %1526, %1525, %1524, %1523, %1522, %1521, %1518, %1515, %1511, %1500, %1497
-  %1714 = phi ptr [ %1615, %1631 ], [ %1574, %1590 ], [ %1481, %1497 ], [ %1481, %1518 ], [ %1481, %1515 ], [ %1481, %1511 ], [ %1481, %1500 ], [ %1481, %1527 ], [ %1481, %1526 ], [ %1481, %1525 ], [ %1481, %1524 ], [ %1481, %1523 ], [ %1481, %1522 ], [ %1481, %1521 ], [ %1481, %1572 ], [ %1615, %1702 ]
-  %1715 = phi ptr [ %1616, %1631 ], [ %1575, %1590 ], [ %1482, %1497 ], [ %1482, %1518 ], [ %1482, %1515 ], [ %1482, %1511 ], [ %1482, %1500 ], [ %1482, %1527 ], [ %1482, %1526 ], [ %1482, %1525 ], [ %1482, %1524 ], [ %1482, %1523 ], [ %1482, %1522 ], [ %1482, %1521 ], [ %1482, %1572 ], [ %1616, %1702 ]
-  %1716 = phi ptr [ %1617, %1631 ], [ %1576, %1590 ], [ %1483, %1497 ], [ %1483, %1518 ], [ %1483, %1515 ], [ %1483, %1511 ], [ %1483, %1500 ], [ %1483, %1527 ], [ %1483, %1526 ], [ %1483, %1525 ], [ %1483, %1524 ], [ %1483, %1523 ], [ %1483, %1522 ], [ %1483, %1521 ], [ %1483, %1572 ], [ %1617, %1702 ]
-  %1717 = phi ptr [ %1618, %1631 ], [ %1577, %1590 ], [ %1484, %1497 ], [ %1484, %1518 ], [ %1484, %1515 ], [ %1484, %1511 ], [ %1484, %1500 ], [ %1484, %1527 ], [ %1484, %1526 ], [ %1484, %1525 ], [ %1484, %1524 ], [ %1484, %1523 ], [ %1484, %1522 ], [ %1484, %1521 ], [ %1484, %1572 ], [ %1618, %1702 ]
-  %1718 = phi ptr [ %1619, %1631 ], [ %1578, %1590 ], [ %1485, %1497 ], [ %1485, %1518 ], [ %1485, %1515 ], [ %1485, %1511 ], [ %1485, %1500 ], [ %1485, %1527 ], [ %1485, %1526 ], [ %1485, %1525 ], [ %1485, %1524 ], [ %1485, %1523 ], [ %1485, %1522 ], [ %1485, %1521 ], [ %1485, %1572 ], [ %1619, %1702 ]
-  %1719 = phi ptr [ %1620, %1631 ], [ %1579, %1590 ], [ %1486, %1497 ], [ %1486, %1518 ], [ %1486, %1515 ], [ %1486, %1511 ], [ %1486, %1500 ], [ %1486, %1527 ], [ %1486, %1526 ], [ %1486, %1525 ], [ %1486, %1524 ], [ %1486, %1523 ], [ %1486, %1522 ], [ %1486, %1521 ], [ %1486, %1572 ], [ %1620, %1702 ]
-  %1720 = phi ptr [ %1621, %1631 ], [ %1580, %1590 ], [ %1487, %1497 ], [ %1487, %1518 ], [ %1487, %1515 ], [ %1487, %1511 ], [ %1487, %1500 ], [ %1487, %1527 ], [ %1487, %1526 ], [ %1487, %1525 ], [ %1487, %1524 ], [ %1487, %1523 ], [ %1487, %1522 ], [ %1487, %1521 ], [ %1487, %1572 ], [ %1621, %1702 ]
-  %1721 = phi ptr [ %1622, %1631 ], [ %1581, %1590 ], [ %1488, %1497 ], [ %1488, %1518 ], [ %1488, %1515 ], [ %1488, %1511 ], [ %1488, %1500 ], [ %1488, %1527 ], [ %1488, %1526 ], [ %1488, %1525 ], [ %1488, %1524 ], [ %1488, %1523 ], [ %1488, %1522 ], [ %1488, %1521 ], [ %1488, %1572 ], [ %1622, %1702 ]
-  %1722 = phi ptr [ %1623, %1631 ], [ %1582, %1590 ], [ %1489, %1497 ], [ %1489, %1518 ], [ %1489, %1515 ], [ %1489, %1511 ], [ %1489, %1500 ], [ %1489, %1527 ], [ %1489, %1526 ], [ %1489, %1525 ], [ %1489, %1524 ], [ %1489, %1523 ], [ %1489, %1522 ], [ %1489, %1521 ], [ %1489, %1572 ], [ %1623, %1702 ]
-  %.sroa.54.0.i.ph.i.i.i.i = phi ptr [ %1632, %1631 ], [ %1591, %1590 ], [ %1498, %1497 ], [ undef, %1518 ], [ undef, %1515 ], [ undef, %1511 ], [ undef, %1500 ], [ undef, %1527 ], [ undef, %1526 ], [ undef, %1525 ], [ undef, %1524 ], [ undef, %1523 ], [ undef, %1522 ], [ undef, %1521 ], [ undef, %1572 ], [ @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.96, %1702 ]
-  %.sroa.61.sroa.0.0.i.ph.i.i.i.i = phi i64 [ 0, %1631 ], [ 0, %1590 ], [ 0, %1497 ], [ 0, %1518 ], [ 0, %1515 ], [ 0, %1511 ], [ 0, %1500 ], [ 0, %1527 ], [ 0, %1526 ], [ 0, %1525 ], [ 0, %1524 ], [ 0, %1523 ], [ 0, %1522 ], [ 0, %1521 ], [ 0, %1572 ], [ 24, %1702 ]
-  %.sroa.23.0.i.ph.i.i.i.i = phi i64 [ 0, %1631 ], [ 0, %1590 ], [ 0, %1497 ], [ 17, %1518 ], [ 7, %1515 ], [ 16, %1511 ], [ 4, %1500 ], [ 14, %1527 ], [ 13, %1526 ], [ 12, %1525 ], [ 11, %1524 ], [ 10, %1523 ], [ 9, %1522 ], [ 8, %1521 ], [ 6, %1572 ], [ 2, %1702 ]
+  %1714 = phi ptr [ %1615, %1702 ], [ %1481, %1572 ], [ %1481, %1521 ], [ %1481, %1522 ], [ %1481, %1523 ], [ %1481, %1524 ], [ %1481, %1525 ], [ %1481, %1526 ], [ %1481, %1527 ], [ %1481, %1500 ], [ %1481, %1511 ], [ %1481, %1515 ], [ %1481, %1518 ], [ %1481, %1497 ], [ %1574, %1590 ], [ %1615, %1631 ]
+  %1715 = phi ptr [ %1616, %1702 ], [ %1482, %1572 ], [ %1482, %1521 ], [ %1482, %1522 ], [ %1482, %1523 ], [ %1482, %1524 ], [ %1482, %1525 ], [ %1482, %1526 ], [ %1482, %1527 ], [ %1482, %1500 ], [ %1482, %1511 ], [ %1482, %1515 ], [ %1482, %1518 ], [ %1482, %1497 ], [ %1575, %1590 ], [ %1616, %1631 ]
+  %1716 = phi ptr [ %1617, %1702 ], [ %1483, %1572 ], [ %1483, %1521 ], [ %1483, %1522 ], [ %1483, %1523 ], [ %1483, %1524 ], [ %1483, %1525 ], [ %1483, %1526 ], [ %1483, %1527 ], [ %1483, %1500 ], [ %1483, %1511 ], [ %1483, %1515 ], [ %1483, %1518 ], [ %1483, %1497 ], [ %1576, %1590 ], [ %1617, %1631 ]
+  %1717 = phi ptr [ %1618, %1702 ], [ %1484, %1572 ], [ %1484, %1521 ], [ %1484, %1522 ], [ %1484, %1523 ], [ %1484, %1524 ], [ %1484, %1525 ], [ %1484, %1526 ], [ %1484, %1527 ], [ %1484, %1500 ], [ %1484, %1511 ], [ %1484, %1515 ], [ %1484, %1518 ], [ %1484, %1497 ], [ %1577, %1590 ], [ %1618, %1631 ]
+  %1718 = phi ptr [ %1619, %1702 ], [ %1485, %1572 ], [ %1485, %1521 ], [ %1485, %1522 ], [ %1485, %1523 ], [ %1485, %1524 ], [ %1485, %1525 ], [ %1485, %1526 ], [ %1485, %1527 ], [ %1485, %1500 ], [ %1485, %1511 ], [ %1485, %1515 ], [ %1485, %1518 ], [ %1485, %1497 ], [ %1578, %1590 ], [ %1619, %1631 ]
+  %1719 = phi ptr [ %1620, %1702 ], [ %1486, %1572 ], [ %1486, %1521 ], [ %1486, %1522 ], [ %1486, %1523 ], [ %1486, %1524 ], [ %1486, %1525 ], [ %1486, %1526 ], [ %1486, %1527 ], [ %1486, %1500 ], [ %1486, %1511 ], [ %1486, %1515 ], [ %1486, %1518 ], [ %1486, %1497 ], [ %1579, %1590 ], [ %1620, %1631 ]
+  %1720 = phi ptr [ %1621, %1702 ], [ %1487, %1572 ], [ %1487, %1521 ], [ %1487, %1522 ], [ %1487, %1523 ], [ %1487, %1524 ], [ %1487, %1525 ], [ %1487, %1526 ], [ %1487, %1527 ], [ %1487, %1500 ], [ %1487, %1511 ], [ %1487, %1515 ], [ %1487, %1518 ], [ %1487, %1497 ], [ %1580, %1590 ], [ %1621, %1631 ]
+  %1721 = phi ptr [ %1622, %1702 ], [ %1488, %1572 ], [ %1488, %1521 ], [ %1488, %1522 ], [ %1488, %1523 ], [ %1488, %1524 ], [ %1488, %1525 ], [ %1488, %1526 ], [ %1488, %1527 ], [ %1488, %1500 ], [ %1488, %1511 ], [ %1488, %1515 ], [ %1488, %1518 ], [ %1488, %1497 ], [ %1581, %1590 ], [ %1622, %1631 ]
+  %1722 = phi ptr [ %1623, %1702 ], [ %1489, %1572 ], [ %1489, %1521 ], [ %1489, %1522 ], [ %1489, %1523 ], [ %1489, %1524 ], [ %1489, %1525 ], [ %1489, %1526 ], [ %1489, %1527 ], [ %1489, %1500 ], [ %1489, %1511 ], [ %1489, %1515 ], [ %1489, %1518 ], [ %1489, %1497 ], [ %1582, %1590 ], [ %1623, %1631 ]
+  %.sroa.13.0.ph.ph.i.i.i.i = phi i64 [ 2, %1702 ], [ 6, %1572 ], [ 8, %1521 ], [ 9, %1522 ], [ 10, %1523 ], [ 11, %1524 ], [ 12, %1525 ], [ 13, %1526 ], [ 14, %1527 ], [ 4, %1500 ], [ 16, %1511 ], [ 7, %1515 ], [ 17, %1518 ], [ 0, %1497 ], [ 0, %1590 ], [ 0, %1631 ]
+  %.sroa.14.0.ph.ph.i.i.i.i = phi ptr [ @anon.2ddd5f0bcca2257bc784f7a8d3ca6654.96, %1702 ], [ undef, %1572 ], [ undef, %1521 ], [ undef, %1522 ], [ undef, %1523 ], [ undef, %1524 ], [ undef, %1525 ], [ undef, %1526 ], [ undef, %1527 ], [ undef, %1500 ], [ undef, %1511 ], [ undef, %1515 ], [ undef, %1518 ], [ %1498, %1497 ], [ %1591, %1590 ], [ %1632, %1631 ]
+  %.sroa.15.0.ph.ph.i.i.i.i = phi i64 [ 24, %1702 ], [ 0, %1572 ], [ 0, %1521 ], [ 0, %1522 ], [ 0, %1523 ], [ 0, %1524 ], [ 0, %1525 ], [ 0, %1526 ], [ 0, %1527 ], [ 0, %1500 ], [ 0, %1511 ], [ 0, %1515 ], [ 0, %1518 ], [ 0, %1497 ], [ 0, %1590 ], [ 0, %1631 ]
   store i8 1, ptr %1722, align 8, !noalias !8405
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.554.sroa.3.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !8368
@@ -39694,14 +39694,14 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   br label %1835
 
 1739:                                             ; preds = %1692, %1658, %1651
-  %.sroa.554.sroa.3.2..sroa.554.sroa.3.2..sroa.23.6.copyload.i.i.i.i.i = phi i64 [ %.sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.2..sroa.554.sroa.3.2..sroa.23.6.copyload.pre.i.i.i.i.i, %1651 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %1658 ], [ %.sroa.0338.1.insert.insert.i.i.i.i.i, %1692 ]
-  %.sroa.554.sroa.3.0..sroa.554.sroa.3.0..sroa.22.6.copyload.i.i.i.i.i = phi i16 [ %1657, %1651 ], [ undef, %1658 ], [ undef, %1692 ]
-  %.sroa.554.sroa.0.0.i.i.i.i.i = phi i16 [ 0, %1651 ], [ 1, %1658 ], [ undef, %1692 ]
-  %.sroa.554.sroa.8.0.i.i.i.i.i = phi ptr [ undef, %1651 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %1658 ], [ %.sroa.9321.8.copyload.i.i.i.i.i, %1692 ]
-  %.sroa.554.sroa.9.0.i.i.i.i.i = phi i64 [ undef, %1651 ], [ 0, %1658 ], [ %.sroa.10325.8.copyload.i.i.i.i.i, %1692 ]
-  %.sroa.046.0.i.i.i.i.i = phi i16 [ 0, %1651 ], [ 0, %1658 ], [ 1, %1692 ]
-  %.sroa.449.0.i.i.i.i.i = phi i16 [ undef, %1651 ], [ undef, %1658 ], [ %1698, %1692 ]
-  %.sroa.657.0.i.i.i.i.i = phi i64 [ undef, %1651 ], [ %.sroa.13.32.insert.ext.i.i.i.i.i, %1658 ], [ undef, %1692 ]
+  %.sroa.081.0.ph.i.i.i.i = phi i16 [ 1, %1692 ], [ 0, %1658 ], [ 0, %1651 ]
+  %.sroa.1082.0.ph.i.i.i.i = phi i16 [ %1698, %1692 ], [ undef, %1658 ], [ undef, %1651 ]
+  %.sroa.1183.0.ph.i.i.i.i = phi i16 [ undef, %1692 ], [ 1, %1658 ], [ 0, %1651 ]
+  %.sroa.1284.0.ph.i.i.i.i = phi i16 [ undef, %1692 ], [ undef, %1658 ], [ %1657, %1651 ]
+  %.sroa.13.0.ph.i.i.i.i = phi i64 [ %.sroa.0338.1.insert.insert.i.i.i.i.i, %1692 ], [ %.sroa.0.0.copyload.i.i.i.i.i, %1658 ], [ %.sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.i.2..sroa.554.sroa.3.2..sroa.554.sroa.3.2..sroa.23.6.copyload.pre.i.i.i.i.i, %1651 ]
+  %.sroa.14.0.ph.i.i.i.i = phi ptr [ %.sroa.9321.8.copyload.i.i.i.i.i, %1692 ], [ %.sroa.5.0.copyload.i.i.i.i.i, %1658 ], [ undef, %1651 ]
+  %.sroa.15.0.ph.i.i.i.i = phi i64 [ %.sroa.10325.8.copyload.i.i.i.i.i, %1692 ], [ 0, %1658 ], [ undef, %1651 ]
+  %.sroa.16.0.ph.i.i.i.i = phi i64 [ undef, %1692 ], [ %.sroa.13.32.insert.ext.i.i.i.i.i, %1658 ], [ undef, %1651 ]
   store i8 1, ptr %1623, align 8, !noalias !8405
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.554.sroa.3.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %52), !noalias !8368
@@ -39895,14 +39895,14 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %1821 = phi ptr [ %1779, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %1618, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
   %1822 = phi ptr [ %1780, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %1619, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
   %1823 = phi ptr [ %1781, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %1620, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.2.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.046.0.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.3.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.449.0.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.4.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.554.sroa.0.0.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.5.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.554.sroa.3.0..sroa.554.sroa.3.0..sroa.22.6.copyload.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.6.0.i.i.i = phi i64 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.554.sroa.3.2..sroa.554.sroa.3.2..sroa.23.6.copyload.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.7.0.i.i.i = phi ptr [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.554.sroa.8.0.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.8.0.i.i.i = phi i64 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.554.sroa.9.0.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
-  %.sroa.1397.sroa.9.0.i.i.i = phi i64 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.657.0.i.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.2.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.081.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.3.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.1082.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.4.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.1183.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.5.0.i.i.i = phi i16 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.1284.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.6.0.i.i.i = phi i64 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.13.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.7.0.i.i.i = phi ptr [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.14.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.8.0.i.i.i = phi i64 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.15.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
+  %.sroa.1397.sroa.9.0.i.i.i = phi i64 [ undef, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.16.0.ph.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
   %.sroa.086.2.i.i.i = phi i64 [ 3, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.0133.0.copyload.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
   %.sroa.991.2.i.i.i = phi ptr [ %.sroa.991.1.i.i.i, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.5135.0.copyload.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]
   %.sroa.1194.2.i.i.i = phi i64 [ %.sroa.1194.1.i.i.i, %"_ZN4core3ptr85drop_in_place$LT$tokio_socks..io..compat..Compat$LT$async_net..tcp..TcpStream$GT$$GT$17hcb587d7210d4ce57E.exit.i.i56.i" ], [ %.sroa.6136.0.copyload.i.i.i.i, %"_ZN4core3ptr201drop_in_place$LT$tokio_socks..tcp..socks5..SocksConnector$LT$futures_util..stream..empty..Empty$LT$core..result..Result$LT$core..net..socket_addr..SocketAddr$C$tokio_socks..error..Error$GT$$GT$$GT$$GT$17hd1aa0506ad7a090dE.exit.i.i.i" ]

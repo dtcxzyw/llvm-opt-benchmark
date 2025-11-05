@@ -8262,8 +8262,8 @@ define dso_local i32 @regmap_field_test_bits(ptr noundef readonly captures(none)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %26, %28
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %30 = and i32 %29, %1
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = icmp eq i32 %30, %1
   %32 = zext i1 %31 to i32
   br label %33

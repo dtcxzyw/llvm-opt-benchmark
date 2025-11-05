@@ -1333,9 +1333,9 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %._crit_edge275, %14
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i: ; preds = %191
   %195 = load <2 x double>, ptr %194, align 8, !tbaa !14
   %196 = call noundef <2 x double> @llvm.fabs.v2f64(<2 x double> %195)
-  %shift391 = shufflevector <2 x double> %196, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop392 = fadd <2 x double> %196, %shift391
-  %197 = extractelement <2 x double> %foldExtExtBinop392, i64 0
+  %shift390 = shufflevector <2 x double> %196, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop391 = fadd <2 x double> %196, %shift390
+  %197 = extractelement <2 x double> %foldExtExtBinop391, i64 0
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
 
 198:                                              ; preds = %191
@@ -1343,21 +1343,20 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1E
   %200 = call noundef double @llvm.fabs.f64(double %199)
   %201 = load double, ptr %.045.i.i.sroa.phi, align 8, !tbaa !100
   %202 = call noundef double @llvm.fabs.f64(double %201)
+  %203 = fadd double %200, %202
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i: ; preds = %198, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i
-  %.0.i.i.i50.i.i = phi double [ %200, %198 ], [ %197, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i ]
-  %.0.i.i.i17.i.i = phi double [ %202, %198 ], [ 0.000000e+00, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i ]
-  %203 = fadd double %.0.i.i.i50.i.i, %.0.i.i.i17.i.i
-  %204 = fcmp ogt double %203, %192
+  %.0.i.i.i50.i.i = phi double [ %203, %198 ], [ %197, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i ]
+  %204 = fcmp ogt double %.0.i.i.i50.i.i, %192
   br i1 %204, label %205, label %206
 
 205:                                              ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
-  store double %203, ptr %20, align 16, !tbaa !110
+  store double %.0.i.i.i50.i.i, ptr %20, align 16, !tbaa !110
   br label %206
 
 206:                                              ; preds = %205, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i
-  %207 = phi double [ %203, %205 ], [ %192, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i ]
+  %207 = phi double [ %.0.i.i.i50.i.i, %205 ], [ %192, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEdv.exit.i.i ]
   br i1 %.not.i.i.i.i.i.not.i.i, label %191, label %189, !llvm.loop !129
 
 208:                                              ; preds = %189
@@ -1372,20 +1371,20 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
 
 212:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  br i1 %183, label %.preheader394, label %213
+  br i1 %183, label %.preheader393, label %213
 
 213:                                              ; preds = %212
   %214 = load <2 x double>, ptr %79, align 1, !tbaa !14
   store <2 x double> %214, ptr %9, align 16, !tbaa !14
-  br label %.preheader394
+  br label %.preheader393
 
-.preheader394:                                    ; preds = %213, %212
+.preheader393:                                    ; preds = %213, %212
   br label %215
 
-215:                                              ; preds = %.preheader394, %224
-  %216 = phi i1 [ false, %224 ], [ true, %.preheader394 ]
-  %.025.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.025.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.gep166, %224 ], [ %9, %.preheader394 ]
-  %.025.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 1, %224 ], [ 0, %.preheader394 ]
+215:                                              ; preds = %.preheader393, %224
+  %216 = phi i1 [ false, %224 ], [ true, %.preheader393 ]
+  %.025.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.phi = phi ptr [ %.025.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.sroa.gep166, %224 ], [ %9, %.preheader393 ]
+  %.025.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 1, %224 ], [ 0, %.preheader393 ]
   %217 = getelementptr inbounds nuw i32, ptr %21, i64 %.025.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %218 = load i32, ptr %217, align 4, !tbaa !29
   %219 = sext i32 %218 to i64

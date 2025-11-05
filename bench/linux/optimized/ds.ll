@@ -1492,141 +1492,141 @@ define dso_local void @intel_pmu_pebs_add(ptr noundef readonly captures(none) %0
   %39 = icmp eq i32 %17, %33
   %40 = icmp eq i32 %17, 0
   %41 = or i1 %40, %39
-  br i1 %41, label %._crit_edge.i, label %42
-
-._crit_edge.i:                                    ; preds = %38
-  br i1 %16, label %.thread.i, label %53
+  br i1 %41, label %47, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 2396
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %17, %44
   %46 = xor i1 %16, %45
-  br i1 %46, label %47, label %53
+  br i1 %46, label %48, label %54
 
-47:                                               ; preds = %42
-  br i1 %16, label %.thread.i, label %48
+47:                                               ; preds = %38
+  br i1 %16, label %.critedge.i, label %54
 
-48:                                               ; preds = %47
+48:                                               ; preds = %42
+  br i1 %16, label %.critedge.i, label %49
+
+49:                                               ; preds = %48
   tail call void @perf_sched_cb_inc(ptr noundef %35) #14
-  br label %49
+  br label %50
 
-.thread.i:                                        ; preds = %47, %._crit_edge.i
+.critedge.i:                                      ; preds = %48, %47
   tail call void @perf_sched_cb_dec(ptr noundef %35) #14
-  br label %49
+  br label %50
 
-49:                                               ; preds = %.thread.i, %48
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 2408
-  %51 = load i64, ptr %50, align 8
-  %52 = or i64 %51, -9223372036854775808
-  store i64 %52, ptr %50, align 8
-  br label %53
+50:                                               ; preds = %.critedge.i, %49
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 2408
+  %52 = load i64, ptr %51, align 8
+  %53 = or i64 %52, -9223372036854775808
+  store i64 %53, ptr %51, align 8
+  br label %54
 
-53:                                               ; preds = %49, %42, %._crit_edge.i
-  %54 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
-  %55 = and i32 %54, 16384
-  %.not.i = icmp eq i32 %55, 0
-  br i1 %.not.i, label %pebs_update_state.exit, label %56
+54:                                               ; preds = %50, %47, %42
+  %55 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 368), align 8
+  %56 = and i32 %55, 16384
+  %.not.i = icmp eq i32 %56, 0
+  br i1 %.not.i, label %pebs_update_state.exit, label %57
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %58 = load i64, ptr %57, align 8
-  %59 = and i64 %58, -6
-  %60 = icmp eq i64 %59, 0
-  br i1 %60, label %61, label %66
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %59, -6
+  %61 = icmp eq i64 %60, 0
+  br i1 %61, label %62, label %67
 
-61:                                               ; preds = %56
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %63 = load i64, ptr %62, align 8
-  %64 = and i64 %63, 65536
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %66, label %115
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %64 = load i64, ptr %63, align 8
+  %65 = and i64 %64, 65536
+  %66 = icmp eq i64 %65, 0
+  br i1 %66, label %67, label %116
 
-66:                                               ; preds = %61, %56
-  %67 = and i64 %58, 21676040
-  %68 = icmp ne i64 %67, 0
-  %69 = zext i1 %68 to i64
-  %70 = and i64 %58, 262144
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %77, label %72
+67:                                               ; preds = %62, %57
+  %68 = and i64 %59, 21676040
+  %69 = icmp ne i64 %68, 0
+  %70 = zext i1 %69 to i64
+  %71 = and i64 %59, 262144
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %78, label %73
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %74 = load i64, ptr %73, align 8
-  %75 = and i64 %74, 16712703
-  %76 = icmp ne i64 %75, 0
-  br label %77
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, 16712703
+  %77 = icmp ne i64 %76, 0
+  br label %78
 
-77:                                               ; preds = %72, %66
-  %78 = phi i1 [ false, %66 ], [ %76, %72 ]
-  %79 = and i64 %58, 16793600
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %87, label %81
+78:                                               ; preds = %73, %67
+  %79 = phi i1 [ false, %67 ], [ %77, %73 ]
+  %80 = and i64 %59, 16793600
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %88, label %82
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %83 = load i64, ptr %82, align 8
-  %84 = and i64 %83, 65535
-  %85 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 432), align 8
-  %86 = icmp eq i64 %84, %85
-  br label %87
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %84 = load i64, ptr %83, align 8
+  %85 = and i64 %84, 65535
+  %86 = load i64, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 432), align 8
+  %87 = icmp eq i64 %85, %86
+  br label %88
 
-87:                                               ; preds = %81, %77
-  %88 = phi i1 [ false, %77 ], [ %86, %81 ]
-  br i1 %78, label %95, label %89
+88:                                               ; preds = %82, %78
+  %89 = phi i1 [ false, %78 ], [ %87, %82 ]
+  br i1 %79, label %96, label %90
 
-89:                                               ; preds = %87
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %91 = load i64, ptr %90, align 8
-  %92 = and i64 %91, 65536
-  %93 = icmp eq i64 %92, 0
-  %94 = select i1 %93, i1 true, i1 %88
-  br i1 %94, label %95, label %97
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %92 = load i64, ptr %91, align 8
+  %93 = and i64 %92, 65536
+  %94 = icmp eq i64 %93, 0
+  %95 = select i1 %94, i1 true, i1 %89
+  br i1 %95, label %96, label %98
 
-95:                                               ; preds = %89, %87
-  %96 = or disjoint i64 %69, 2
-  br label %97
+96:                                               ; preds = %90, %88
+  %97 = or disjoint i64 %70, 2
+  br label %98
 
-97:                                               ; preds = %95, %89
-  %98 = phi i64 [ %96, %95 ], [ %69, %89 ]
-  br i1 %71, label %105, label %99
+98:                                               ; preds = %96, %90
+  %99 = phi i64 [ %97, %96 ], [ %70, %90 ]
+  br i1 %72, label %106, label %100
 
-99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %101 = load i64, ptr %100, align 8
-  %102 = icmp ult i64 %101, 4294967296
-  %103 = or i64 %98, 4
-  %104 = select i1 %102, i64 %98, i64 %103
-  br label %105
+100:                                              ; preds = %98
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %102 = load i64, ptr %101, align 8
+  %103 = icmp ult i64 %102, 4294967296
+  %104 = or i64 %99, 4
+  %105 = select i1 %103, i64 %99, i64 %104
+  br label %106
 
-105:                                              ; preds = %99, %97
-  %106 = phi i64 [ %98, %97 ], [ %104, %99 ]
-  %107 = and i64 %58, 2048
-  %108 = icmp eq i64 %107, 0
-  %109 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
-  %110 = shl i32 %109, 24
-  %111 = add i32 %110, -16777208
-  %112 = zext i32 %111 to i64
-  %113 = select i1 %108, i64 0, i64 %112
-  %114 = or i64 %113, %106
-  br label %115
+106:                                              ; preds = %100, %98
+  %107 = phi i64 [ %99, %98 ], [ %105, %100 ]
+  %108 = and i64 %59, 2048
+  %109 = icmp eq i64 %108, 0
+  %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 464), align 8
+  %111 = shl i32 %110, 24
+  %112 = add i32 %111, -16777208
+  %113 = zext i32 %112 to i64
+  %114 = select i1 %109, i64 0, i64 %113
+  %115 = or i64 %114, %107
+  br label %116
 
-115:                                              ; preds = %105, %61
-  %116 = phi i64 [ %114, %105 ], [ 0, %61 ]
-  %117 = getelementptr inbounds nuw i8, ptr %3, i64 2408
-  %118 = load i64, ptr %117, align 8
-  %119 = xor i64 %118, -1
-  %120 = and i64 %116, %119
-  %121 = icmp eq i64 %120, 0
-  br i1 %121, label %pebs_update_state.exit, label %122
+116:                                              ; preds = %106, %62
+  %117 = phi i64 [ %115, %106 ], [ 0, %62 ]
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 2408
+  %119 = load i64, ptr %118, align 8
+  %120 = xor i64 %119, -1
+  %121 = and i64 %117, %120
+  %122 = icmp eq i64 %121, 0
+  br i1 %122, label %pebs_update_state.exit, label %123
 
-122:                                              ; preds = %115
-  %123 = or i64 %116, %118
-  %124 = or i64 %123, -9223372036854775808
-  store i64 %124, ptr %117, align 8
+123:                                              ; preds = %116
+  %124 = or i64 %117, %119
+  %125 = or i64 %124, -9223372036854775808
+  store i64 %125, ptr %118, align 8
   br label %pebs_update_state.exit
 
-pebs_update_state.exit:                           ; preds = %53, %115, %122
+pebs_update_state.exit:                           ; preds = %54, %116, %123
   ret void
 }
 

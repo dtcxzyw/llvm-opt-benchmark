@@ -8658,15 +8658,15 @@ _ZNK4llvm9StringRef7compareES0_.exit:             ; preds = %_ZN4llvm9StringRef1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal fastcc range(i16 0, 258) i16 @"_ZZL7compareRKN5clang4ento14PathDiagnosticES3_ENK3$_0clEPKNS_4DeclES7_"(ptr readonly captures(none) %.0.val, ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #15 align 2 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %14, label %4
+  br i1 %3, label %15, label %4
 
 4:                                                ; preds = %2
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %14, label %5
+  br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %4
   %.not11 = icmp eq ptr %1, null
-  br i1 %.not11, label %14, label %6
+  br i1 %.not11, label %15, label %6
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8674,20 +8674,19 @@ define internal fastcc range(i16 0, 258) i16 @"_ZZL7compareRKN5clang4ento14PathD
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i12 = load i32, ptr %8, align 8, !tbaa !49
   %.not10 = icmp eq i32 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i12
-  br i1 %.not10, label %14, label %9
+  br i1 %.not10, label %15, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !372
   %12 = tail call fastcc noundef zeroext i1 @_ZL24compareCrossTUSourceLocsN5clang13FullSourceLocES0_(i32 %.sroa.0.0.copyload.i, ptr %11, i32 %.sroa.0.0.copyload.i12, ptr %11)
   %13 = zext i1 %12 to i16
-  br label %14
+  %14 = or disjoint i16 %13, 256
+  br label %15
 
-14:                                               ; preds = %9, %6, %5, %4, %2
-  %.sroa.09.1 = phi i16 [ 0, %2 ], [ 1, %4 ], [ 0, %5 ], [ %13, %9 ], [ 0, %6 ]
-  %.sroa.4.1 = phi i16 [ 0, %2 ], [ 256, %4 ], [ 256, %5 ], [ 256, %9 ], [ 0, %6 ]
-  %.sroa.09.0.insert.insert = or disjoint i16 %.sroa.4.1, %.sroa.09.1
-  ret i16 %.sroa.09.0.insert.insert
+15:                                               ; preds = %9, %6, %5, %4, %2
+  %.sroa.4.1 = phi i16 [ 0, %2 ], [ 257, %4 ], [ 256, %5 ], [ %14, %9 ], [ 0, %6 ]
+  ret i16 %.sroa.4.1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

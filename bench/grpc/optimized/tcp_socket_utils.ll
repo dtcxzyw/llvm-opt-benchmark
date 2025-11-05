@@ -573,14 +573,13 @@ _ZN17grpc_event_engine12experimental25ResolvedAddressIsV4MappedERKNS0_11EventEng
   %36 = load i16, ptr %35, align 2, !tbaa !29
   %rev.i14 = call noundef i16 @llvm.bswap.i16(i16 %36)
   %37 = zext i16 %rev.i14 to i64
+  %38 = or disjoint i64 %37, 4294967296
   br label %.loopexit
 
 .loopexit:                                        ; preds = %32, %.loopexit.sink.split, %25, %22
-  %.sroa.0.0.shrunk = phi i64 [ 0, %22 ], [ 0, %25 ], [ %37, %.loopexit.sink.split ], [ 0, %32 ]
-  %.sroa.3.0 = phi i64 [ 0, %22 ], [ 0, %25 ], [ 4294967296, %.loopexit.sink.split ], [ 0, %32 ]
+  %.sroa.3.0 = phi i64 [ 0, %22 ], [ 0, %25 ], [ %38, %.loopexit.sink.split ], [ 0, %32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0.shrunk
-  ret i64 %.sroa.0.0.insert.insert
+  ret i64 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress uwtable

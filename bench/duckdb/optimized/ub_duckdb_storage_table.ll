@@ -56392,12 +56392,12 @@ _ZN6duckdb10ColumnData18InitializePrefetchERNS_13PrefetchStateERNS_15ColumnScanS
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %70 = load atomic i64, ptr %69 seq_cst, align 8
   %71 = icmp ugt i64 %68, %70
-  br i1 %71, label %72, label %80
+  br i1 %71, label %72, label %81
 
 72:                                               ; preds = %_ZN6duckdb10ColumnData18InitializePrefetchERNS_13PrefetchStateERNS_15ColumnScanStateEm.exit21
   %73 = load atomic i64, ptr %69 seq_cst, align 8
   %.not = icmp eq i64 %73, 0
-  br i1 %.not, label %80, label %74
+  br i1 %.not, label %81, label %74
 
 74:                                               ; preds = %72
   %75 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_10ColumnDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %65)
@@ -56405,17 +56405,17 @@ _ZN6duckdb10ColumnData18InitializePrefetchERNS_13PrefetchStateERNS_15ColumnScanS
   %77 = load atomic i64, ptr %76 seq_cst, align 8
   %78 = load atomic i64, ptr %69 seq_cst, align 8
   %79 = udiv i64 %77, %78
-  br label %80
+  %80 = mul i64 %79, %3
+  br label %81
 
-80:                                               ; preds = %74, %72, %_ZN6duckdb10ColumnData18InitializePrefetchERNS_13PrefetchStateERNS_15ColumnScanStateEm.exit21
-  %.0 = phi i64 [ %79, %74 ], [ 1, %72 ], [ 1, %_ZN6duckdb10ColumnData18InitializePrefetchERNS_13PrefetchStateERNS_15ColumnScanStateEm.exit21 ]
-  %81 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_10ColumnDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %65)
-  %82 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN6duckdb6vectorINS_15ColumnScanStateELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 1)
-  %83 = mul i64 %.0, %3
-  %84 = load ptr, ptr %81, align 8, !tbaa !10
+81:                                               ; preds = %74, %72, %_ZN6duckdb10ColumnData18InitializePrefetchERNS_13PrefetchStateERNS_15ColumnScanStateEm.exit21
+  %.0 = phi i64 [ %80, %74 ], [ %3, %72 ], [ %3, %_ZN6duckdb10ColumnData18InitializePrefetchERNS_13PrefetchStateERNS_15ColumnScanStateEm.exit21 ]
+  %82 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_10ColumnDataESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %65)
+  %83 = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN6duckdb6vectorINS_15ColumnScanStateELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef 1)
+  %84 = load ptr, ptr %82, align 8, !tbaa !10
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 48
   %86 = load ptr, ptr %85, align 8
-  tail call void %86(ptr noundef nonnull align 8 dereferenceable(272) %81, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(152) %82, i64 noundef %83)
+  tail call void %86(ptr noundef nonnull align 8 dereferenceable(272) %82, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(152) %83, i64 noundef %.0)
   ret void
 }
 
@@ -69431,10 +69431,8 @@ _ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit: ; preds = %_ZN6
   br i1 %.not57, label %.loopexit, label %14
 
 .loopexit:                                        ; preds = %107, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit, %2, %.preheader.split.us, %43
-  %.not5762 = phi i1 [ false, %43 ], [ false, %.preheader.split.us ], [ true, %2 ], [ false, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit ], [ true, %107 ]
-  %.1 = phi i1 [ %55, %43 ], [ false, %.preheader.split.us ], [ undef, %2 ], [ false, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit ], [ undef, %107 ]
-  %spec.select47 = or i1 %.not5762, %.1
-  ret i1 %spec.select47
+  %.not5762 = phi i1 [ %55, %43 ], [ false, %.preheader.split.us ], [ true, %2 ], [ false, %_ZN6duckdb8RowGroup10NextVectorERNS_19CollectionScanStateE.exit ], [ true, %107 ]
+  ret i1 %.not5762
 }
 
 ; Function Attrs: mustprogress uwtable

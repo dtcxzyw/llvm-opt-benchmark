@@ -3330,7 +3330,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_get_utf8_string_param(ptr noundef %0, ptr n
   %7 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp eq ptr %1, null
-  br i1 %8, label %37, label %9
+  br i1 %8, label %36, label %9
 
 9:                                                ; preds = %5
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) #12
@@ -3387,7 +3387,7 @@ EVP_PKEY_get_params.exit:                         ; preds = %19
 ._crit_edge:                                      ; preds = %23, %29
   %30 = icmp eq i64 %28, %3
   %or.cond24 = select i1 %25, i1 %30, i1 false
-  br i1 %or.cond24, label %37, label %31
+  br i1 %or.cond24, label %36, label %31
 
 31:                                               ; preds = %._crit_edge
   %32 = icmp ne ptr %2, null
@@ -3400,14 +3400,12 @@ EVP_PKEY_get_params.exit:                         ; preds = %19
   br label %.thread41
 
 .thread41:                                        ; preds = %14, %EVP_PKEY_get_params.exit.thread, %EVP_PKEY_get_params.exit, %33, %31
-  %.0343946 = phi i1 [ true, %33 ], [ %25, %31 ], [ false, %EVP_PKEY_get_params.exit ], [ false, %EVP_PKEY_get_params.exit.thread ], [ false, %14 ]
-  %.0.shrunk.i27334045 = phi i1 [ true, %33 ], [ true, %31 ], [ false, %EVP_PKEY_get_params.exit ], [ false, %EVP_PKEY_get_params.exit.thread ], [ false, %14 ]
-  %35 = and i1 %.0343946, %.0.shrunk.i27334045
-  %36 = zext i1 %35 to i32
-  br label %37
+  %.0.shrunk.i27334045 = phi i1 [ true, %33 ], [ %25, %31 ], [ false, %EVP_PKEY_get_params.exit ], [ false, %EVP_PKEY_get_params.exit.thread ], [ false, %14 ]
+  %35 = zext i1 %.0.shrunk.i27334045 to i32
+  br label %36
 
-37:                                               ; preds = %._crit_edge, %5, %.thread41
-  %.018 = phi i32 [ %36, %.thread41 ], [ 0, %5 ], [ 0, %._crit_edge ]
+36:                                               ; preds = %._crit_edge, %5, %.thread41
+  %.018 = phi i32 [ %35, %.thread41 ], [ 0, %5 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.018
 }
@@ -3608,7 +3606,7 @@ define range(i32 0, 2) i32 @EVP_PKEY_get_octet_string_param(ptr noundef %0, ptr 
   %7 = alloca %struct.ossl_param_st, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %8 = icmp eq ptr %1, null
-  br i1 %8, label %32, label %9
+  br i1 %8, label %31, label %9
 
 9:                                                ; preds = %5
   call void @OSSL_PARAM_construct_octet_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %6, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) #12
@@ -3663,14 +3661,12 @@ EVP_PKEY_get_params.exit:                         ; preds = %19
   br label %.thread
 
 .thread:                                          ; preds = %14, %EVP_PKEY_get_params.exit.thread, %EVP_PKEY_get_params.exit, %27, %23
-  %.023 = phi i1 [ true, %27 ], [ %25, %23 ], [ false, %EVP_PKEY_get_params.exit ], [ false, %EVP_PKEY_get_params.exit.thread ], [ false, %14 ]
-  %.0.shrunk.i1622 = phi i1 [ true, %27 ], [ true, %23 ], [ false, %EVP_PKEY_get_params.exit ], [ false, %EVP_PKEY_get_params.exit.thread ], [ false, %14 ]
-  %30 = and i1 %.023, %.0.shrunk.i1622
-  %31 = zext i1 %30 to i32
-  br label %32
+  %.0.shrunk.i1622 = phi i1 [ true, %27 ], [ %25, %23 ], [ false, %EVP_PKEY_get_params.exit ], [ false, %EVP_PKEY_get_params.exit.thread ], [ false, %14 ]
+  %30 = zext i1 %.0.shrunk.i1622 to i32
+  br label %31
 
-32:                                               ; preds = %5, %.thread
-  %.011 = phi i32 [ %31, %.thread ], [ 0, %5 ]
+31:                                               ; preds = %5, %.thread
+  %.011 = phi i32 [ %30, %.thread ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.011
 }

@@ -205,8 +205,8 @@ define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr noundef readonly captures(non
   br label %5
 
 5:                                                ; preds = %.lr.ph, %tailrecurse
-  %.tr2933 = phi ptr [ %1, %.lr.ph ], [ %22, %tailrecurse ]
-  %accumulator.tr32 = phi i32 [ 0, %.lr.ph ], [ %23, %tailrecurse ]
+  %.tr2933 = phi ptr [ %1, %.lr.ph ], [ %23, %tailrecurse ]
+  %accumulator.tr32 = phi i32 [ 0, %.lr.ph ], [ %24, %tailrecurse ]
   %.val = load i32, ptr %4, align 8, !tbaa !3
   %6 = getelementptr i8, ptr %.tr2933, i64 32
   %.val20 = load i32, ptr %6, align 8, !tbaa !21
@@ -225,30 +225,29 @@ define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr noundef readonly captures(non
   %12 = icmp ne i32 %.val20, %11
   %13 = zext i1 %12 to i32
   store i32 %.val, ptr %6, align 8, !tbaa !21
+  %14 = or i32 %accumulator.tr32, %13
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %7
   store i32 %.val, ptr %6, align 8, !tbaa !21
-  %14 = getelementptr i8, ptr %.tr2933, i64 8
-  %.val24 = load ptr, ptr %14, align 8, !tbaa !22
-  %15 = ptrtoint ptr %.val24 to i64
-  %16 = and i64 %15, -2
-  %17 = inttoptr i64 %16 to ptr
-  %18 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %17)
-  %19 = getelementptr i8, ptr %.tr2933, i64 16
-  %.val25 = load ptr, ptr %19, align 8, !tbaa !23
-  %20 = ptrtoint ptr %.val25 to i64
-  %21 = and i64 %20, -2
-  %22 = inttoptr i64 %21 to ptr
-  %23 = or i32 %18, %accumulator.tr32
-  %24 = icmp eq i64 %21, 0
-  br i1 %24, label %.loopexit, label %5
+  %15 = getelementptr i8, ptr %.tr2933, i64 8
+  %.val24 = load ptr, ptr %15, align 8, !tbaa !22
+  %16 = ptrtoint ptr %.val24 to i64
+  %17 = and i64 %16, -2
+  %18 = inttoptr i64 %17 to ptr
+  %19 = tail call i32 @Dch_ObjMarkTfi_rec(ptr noundef nonnull %0, ptr noundef %18)
+  %20 = getelementptr i8, ptr %.tr2933, i64 16
+  %.val25 = load ptr, ptr %20, align 8, !tbaa !23
+  %21 = ptrtoint ptr %.val25 to i64
+  %22 = and i64 %21, -2
+  %23 = inttoptr i64 %22 to ptr
+  %24 = or i32 %19, %accumulator.tr32
+  %25 = icmp eq i64 %22, 0
+  br i1 %25, label %.loopexit, label %5
 
 .loopexit:                                        ; preds = %tailrecurse, %5, %2, %10
-  %accumulator.tr31 = phi i32 [ %accumulator.tr32, %10 ], [ 0, %2 ], [ %23, %tailrecurse ], [ %accumulator.tr32, %5 ]
-  %.0 = phi i32 [ %13, %10 ], [ 0, %2 ], [ 0, %5 ], [ 0, %tailrecurse ]
-  %accumulator.ret.tr = or i32 %.0, %accumulator.tr31
-  ret i32 %accumulator.ret.tr
+  %.0 = phi i32 [ %14, %10 ], [ 0, %2 ], [ %24, %tailrecurse ], [ %accumulator.tr32, %5 ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable

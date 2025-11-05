@@ -982,7 +982,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
   br label %.thread475
 
 .thread481:                                       ; preds = %324, %333, %330, %.thread919
-  %.not427916 = phi i1 [ false, %333 ], [ false, %330 ], [ true, %.thread919 ], [ true, %324 ]
+  %.not427916 = phi i1 [ false, %333 ], [ false, %330 ], [ %.fr, %.thread919 ], [ %.fr, %324 ]
   %.0306913 = phi i32 [ %.0306914, %333 ], [ %.0306914, %330 ], [ 0, %.thread919 ], [ 1, %324 ]
   br i1 %208, label %352, label %344
 
@@ -1036,8 +1036,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 367:                                              ; preds = %366
   %368 = load ptr, ptr %3, align 8, !tbaa !4
   %369 = load ptr, ptr %4, align 8, !tbaa !9
-  %or.cond28 = and i1 %.not427916, %.fr
-  %370 = select i1 %or.cond28, ptr null, ptr %9
+  %370 = select i1 %.not427916, ptr null, ptr %9
   %371 = call i32 @EVP_CipherInit_ex(ptr noundef %368, ptr noundef %369, ptr noundef %.0264, ptr noundef nonnull %8, ptr noundef %370, i32 noundef %.0336) #12
   %.not434 = icmp eq i32 %371, 0
   br i1 %.not434, label %372, label %420
@@ -1102,8 +1101,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 407:                                              ; preds = %392
   %408 = load ptr, ptr %3, align 8, !tbaa !4
   %409 = load ptr, ptr %4, align 8, !tbaa !9
-  %or.cond30 = and i1 %.not427916, %.fr
-  %410 = select i1 %or.cond30, ptr null, ptr %9
+  %410 = select i1 %.not427916, ptr null, ptr %9
   %411 = call i32 @EVP_CIPHER_get_iv_length(ptr noundef %409) #12
   %412 = sext i32 %411 to i64
   %413 = call i32 @EVP_CipherInit_SKEY(ptr noundef %408, ptr noundef %409, ptr noundef nonnull %396, ptr noundef %410, i64 noundef %412, i32 noundef %.0336, ptr noundef null) #12

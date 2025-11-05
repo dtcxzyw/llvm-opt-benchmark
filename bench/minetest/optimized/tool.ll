@@ -4596,12 +4596,12 @@ _Z19calculateResultWearjt.exit:                   ; preds = %if.then3.i, %if.end
   %10 = fptoui float %mul31 to i32
   %11 = zext i32 %10 to i64
   %12 = shl nuw i64 %11, 32
+  %13 = or disjoint i64 %12, %damage.0.lcssa
   br label %if.end
 
 if.end:                                           ; preds = %_Z19calculateResultWearjt.exit, %for.cond.cleanup
-  %result_wear.0 = phi i64 [ %12, %_Z19calculateResultWearjt.exit ], [ 0, %for.cond.cleanup ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %result_wear.0, %damage.0.lcssa
-  ret i64 %retval.sroa.0.0.insert.insert
+  %result_wear.0 = phi i64 [ %13, %_Z19calculateResultWearjt.exit ], [ %damage.0.lcssa, %for.cond.cleanup ]
+  ret i64 %result_wear.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4694,12 +4694,12 @@ _Z19calculateResultWearjt.exit.i:                 ; preds = %if.then3.i.i, %if.e
   %10 = fptoui float %mul31.i to i32
   %11 = zext i32 %10 to i64
   %12 = shl nuw i64 %11, 32
+  %13 = or disjoint i64 %12, %damage.0.lcssa.i
   br label %_Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit
 
 _Z12getHitParamsRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEEPK16ToolCapabilitiesft.exit: ; preds = %_Z19calculateResultWearjt.exit.i, %for.cond.cleanup.i
-  %result_wear.0.i = phi i64 [ %12, %_Z19calculateResultWearjt.exit.i ], [ 0, %for.cond.cleanup.i ]
-  %retval.sroa.0.0.insert.insert.i = or disjoint i64 %result_wear.0.i, %damage.0.lcssa.i
-  ret i64 %retval.sroa.0.0.insert.insert.i
+  %result_wear.0.i = phi i64 [ %13, %_Z19calculateResultWearjt.exit.i ], [ %damage.0.lcssa.i, %for.cond.cleanup.i ]
+  ret i64 %result_wear.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4871,13 +4871,14 @@ for.cond.cleanup.i.loopexit:                      ; preds = %_ZL13itemgroup_getR
   %17 = call i32 @llvm.smin.i32(i32 %16, i32 65535)
   %18 = zext i32 %17 to i64
   %19 = shl nuw i64 %18, 32
+  %20 = or disjoint i64 %19, 1
   br label %for.cond.cleanup.i
 
 for.cond.cleanup.i:                               ; preds = %for.cond.cleanup.i.loopexit, %cond.end8.i
-  %damage.0.lcssa.i = phi i64 [ 0, %cond.end8.i ], [ %19, %for.cond.cleanup.i.loopexit ]
+  %damage.0.lcssa.i = phi i64 [ 1, %cond.end8.i ], [ %20, %for.cond.cleanup.i.loopexit ]
   %punch_attack_uses.i = getelementptr inbounds nuw i8, ptr %toolcap, i64 120
-  %20 = load i32, ptr %punch_attack_uses.i, align 8, !tbaa !48
-  %cmp27.i = icmp sgt i32 %20, 0
+  %21 = load i32, ptr %punch_attack_uses.i, align 8, !tbaa !48
+  %cmp27.i = icmp sgt i32 %21, 0
   br i1 %cmp27.i, label %if.end.i59.i, label %if.end33
 
 for.body.i:                                       ; preds = %cond.end8.i, %_ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit.i
@@ -4890,17 +4891,17 @@ for.body.i:                                       ; preds = %cond.end8.i, %_ZL13
 
 if.end.i.i104:                                    ; preds = %for.body.i
   %second.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 40
-  %21 = load i32, ptr %second.i.i, align 8, !tbaa !121
-  %22 = shl i32 %21, 16
-  %23 = ashr exact i32 %22, 16
-  %24 = sitofp i32 %23 to float
+  %22 = load i32, ptr %second.i.i, align 8, !tbaa !121
+  %23 = shl i32 %22, 16
+  %24 = ashr exact i32 %23, 16
+  %25 = sitofp i32 %24 to float
   br label %_ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit.i
 
 _ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_iEEERSB_.exit.i: ; preds = %if.end.i.i104, %for.body.i
-  %retval.0.i.i = phi float [ %24, %if.end.i.i104 ], [ 0.000000e+00, %for.body.i ]
+  %retval.0.i.i = phi float [ %25, %if.end.i.i104 ], [ 0.000000e+00, %for.body.i ]
   %second.i105 = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.066.i, i64 40
-  %25 = load i16, ptr %second.i105, align 8, !tbaa !45
-  %conv18.i = sitofp i16 %25 to float
+  %26 = load i16, ptr %second.i105, align 8, !tbaa !45
+  %conv18.i = sitofp i16 %26 to float
   %mul.i = fmul nsz float %cond9.i, %conv18.i
   %mul21.i = fmul nsz float %retval.0.i.i, %mul.i
   %conv22.i = fpext float %mul21.i to double
@@ -4913,14 +4914,14 @@ _ZL13itemgroup_getRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traits
   br i1 %cmp.i.not.i, label %for.cond.cleanup.i.loopexit, label %for.body.i
 
 if.end.i59.i:                                     ; preds = %for.cond.cleanup.i
-  %div.i.i = udiv i32 65536, %20
-  %rem.i.i = urem i32 65536, %20
+  %div.i.i = udiv i32 65536, %21
+  %rem.i.i = urem i32 65536, %21
   %conv1.i.i = and i32 %rem.i.i, 65535
   %cmp2.not.i.i = icmp eq i32 %conv1.i.i, 0
   br i1 %cmp2.not.i.i, label %_Z19calculateResultWearjt.exit.i, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %if.end.i59.i
-  %sub.i.i = sub nsw i32 %20, %rem.i.i
+  %sub.i.i = sub nsw i32 %21, %rem.i.i
   %mul.i.i = mul i32 %sub.i.i, %div.i.i
   %conv8.i.i = zext i16 %14 to i32
   %conv9.i.i = and i32 %mul.i.i, 65535
@@ -4933,15 +4934,13 @@ _Z19calculateResultWearjt.exit.i:                 ; preds = %if.then3.i.i, %if.e
   %add.i.i = add nuw nsw i32 %wear_extra.1.i.i, %div.i.i
   %conv30.i = uitofp nneg i32 %add.i.i to float
   %mul31.i = fmul nsz float %cond9.i, %conv30.i
-  %26 = fptoui float %mul31.i to i32
+  %27 = fptoui float %mul31.i to i32
   br label %if.end33
 
 if.end33:                                         ; preds = %for.cond.cleanup.i, %_Z19calculateResultWearjt.exit.i, %if.end27, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %retval.sroa.0.0 = phi i64 [ 0, %if.end27 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ 1, %_Z19calculateResultWearjt.exit.i ], [ 1, %for.cond.cleanup.i ]
   %retval.sroa.3107.0 = phi i64 [ 0, %if.end27 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %damage.0.lcssa.i, %_Z19calculateResultWearjt.exit.i ], [ %damage.0.lcssa.i, %for.cond.cleanup.i ]
-  %retval.sroa.5.0 = phi i32 [ 0, %if.end27 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %26, %_Z19calculateResultWearjt.exit.i ], [ 0, %for.cond.cleanup.i ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.3107.0, %retval.sroa.0.0
-  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.0.0.insert.insert, 0
+  %retval.sroa.5.0 = phi i32 [ 0, %if.end27 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57 ], [ %27, %_Z19calculateResultWearjt.exit.i ], [ 0, %for.cond.cleanup.i ]
+  %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %retval.sroa.3107.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %retval.sroa.5.0, 1
   ret { i64, i32 } %.fca.1.insert
 

@@ -8393,14 +8393,14 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
   %10 = alloca %"class.icu_77::CharString", align 8
   %11 = load i32, ptr %5, align 4, !tbaa !13
   %12 = icmp slt i32 %11, 1
-  br i1 %12, label %13, label %193
+  br i1 %12, label %13, label %.loopexit
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %or.cond59 = select i1 %2, i1 %16, i1 false
-  br i1 %or.cond59, label %193, label %17
+  br i1 %or.cond59, label %.loopexit, label %17
 
 17:                                               ; preds = %13
   br i1 %3, label %19, label %.critedge.thread
@@ -8414,7 +8414,7 @@ define internal fastcc noundef zeroext i1 @_ZN6icu_7712_GLOBAL__N_113AliasReplac
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !104
   %22 = icmp eq i32 %21, 0
-  br i1 %22, label %193, label %.critedge
+  br i1 %22, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %19
   %23 = load ptr, ptr %0, align 8
@@ -8914,14 +8914,8 @@ _ZN6icu_7712_GLOBAL__N_113AliasReplacer8notEmptyEPKc.exit.thread: ; preds = %187
   %exitcond.not = icmp eq i32 %192, %24
   br i1 %exitcond.not, label %.loopexit, label %32, !llvm.loop !114
 
-.loopexit:                                        ; preds = %191, %.critedge, %.thread187
-  %.not56204 = phi i1 [ true, %.thread187 ], [ false, %.critedge ], [ false, %191 ]
-  %.2 = phi i1 [ %190, %.thread187 ], [ undef, %.critedge ], [ undef, %191 ]
-  %spec.select60 = and i1 %.not56204, %.2
-  br label %193
-
-193:                                              ; preds = %19, %13, %6, %.loopexit
-  %.0 = phi i1 [ %spec.select60, %.loopexit ], [ false, %6 ], [ false, %13 ], [ false, %19 ]
+.loopexit:                                        ; preds = %191, %.thread187, %.critedge, %19, %13, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %13 ], [ false, %19 ], [ %190, %.thread187 ], [ false, %.critedge ], [ false, %191 ]
   ret i1 %.0
 }
 

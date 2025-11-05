@@ -2982,12 +2982,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit21.thread:       ; preds = %38, %_ZN4llvmeqENS_
 
 _ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit56, %_ZN4llvmeqENS_9StringRefES0_.exit42, %_ZN4llvmeqENS_9StringRefES0_.exit28, %_ZN4llvmeqENS_9StringRefES0_.exit, %15, %8, %3, %3, %5, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %19, %12, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread
   %.sroa.0116.0142 = phi i16 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread ], [ 1, %12 ], [ 0, %19 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.0116.0152, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread ], [ %.sroa.0116.0154, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit56 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit42 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit28 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 0, %15 ], [ 1, %8 ], [ 1, %3 ], [ 1, %3 ], [ 0, %5 ]
+  %44 = or disjoint i16 %.sroa.0116.0142, 256
   br label %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144
 
 _ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread144: ; preds = %3, %2, %38, %32, %22, %6, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %19, %12, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread
-  %.sroa.0116.0141 = phi i16 [ %.sroa.0116.0142, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread ], [ 1, %12 ], [ 0, %19 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.0116.0152, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread ], [ %.sroa.0116.0154, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread ], [ 0, %6 ], [ 0, %22 ], [ 0, %32 ], [ 0, %38 ], [ 0, %2 ], [ 0, %3 ]
-  %44 = phi i16 [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread ], [ 0, %12 ], [ 0, %19 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread ], [ 0, %6 ], [ 0, %22 ], [ 0, %32 ], [ 0, %38 ], [ 0, %2 ], [ 0, %3 ]
-  %.sroa.0116.0.insert.insert = or disjoint i16 %44, %.sroa.0116.0141
+  %.sroa.0116.0.insert.insert = phi i16 [ %44, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread.thread ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit21.thread ], [ 1, %12 ], [ 0, %19 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.sroa.0116.0152, %_ZN4llvmeqENS_9StringRefES0_.exit28.thread ], [ %.sroa.0116.0154, %_ZN4llvmeqENS_9StringRefES0_.exit42.thread ], [ 0, %6 ], [ 0, %22 ], [ 0, %32 ], [ 0, %38 ], [ 0, %2 ], [ 0, %3 ]
   ret i16 %.sroa.0116.0.insert.insert
 }
 

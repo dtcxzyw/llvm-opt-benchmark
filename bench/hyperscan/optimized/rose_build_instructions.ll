@@ -8785,36 +8785,36 @@ define linkonce_odr hidden noundef i64 @_ZNK3ue222RoseInstrSparseIterAny4hashEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %2, align 8
-  %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8
-  %.not9.i.i.i.i.i.i = icmp eq ptr %5, %7
+  %5 = zext i32 %4 to i64
+  %6 = mul i64 %5, 814605021516865831
+  %7 = xor i64 %6, 4964029349268206098
+  %8 = add i64 %7, 3571081485394615273
+  %9 = load ptr, ptr %3, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = load ptr, ptr %10, align 8
+  %.not9.i.i.i.i.i.i = icmp eq ptr %9, %11
   br i1 %.not9.i.i.i.i.i.i, label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKjRKSt6vectorIjSaIjEEEEEmDpOT_.exit, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %1, %.lr.ph.i.i.i.i.i.i
-  %.011.i.i.i.i.i.i = phi i64 [ %12, %.lr.ph.i.i.i.i.i.i ], [ 0, %1 ]
-  %.sroa.05.010.i.i.i.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i.i.i.i ], [ %5, %1 ]
-  %8 = load i32, ptr %.sroa.05.010.i.i.i.i.i.i, align 4
-  %9 = zext i32 %8 to i64
-  %10 = mul i64 %9, 814605021516865831
-  %11 = xor i64 %10, %.011.i.i.i.i.i.i
-  %12 = add i64 %11, 3571081485394615273
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i.i.i, i64 4
-  %.not.i.i.i.i.i.i = icmp eq ptr %13, %7
+  %.011.i.i.i.i.i.i = phi i64 [ %16, %.lr.ph.i.i.i.i.i.i ], [ 0, %1 ]
+  %.sroa.05.010.i.i.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i.i.i ], [ %9, %1 ]
+  %12 = load i32, ptr %.sroa.05.010.i.i.i.i.i.i, align 4
+  %13 = zext i32 %12 to i64
+  %14 = mul i64 %13, 814605021516865831
+  %15 = xor i64 %14, %.011.i.i.i.i.i.i
+  %16 = add i64 %15, 3571081485394615273
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i.i.i.i, i64 4
+  %.not.i.i.i.i.i.i = icmp eq ptr %17, %11
   br i1 %.not.i.i.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorIjSaIjEEvEclERKS4_.exit.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorIjSaIjEEvEclERKS4_.exit.loopexit.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %14 = mul i64 %12, 814605021516865831
+  %18 = mul i64 %16, 814605021516865831
+  %19 = xor i64 %18, %8
   br label %_ZN3ue28hash_allIJRK19RoseInstructionCodeRKjRKSt6vectorIjSaIjEEEEEmDpOT_.exit
 
 _ZN3ue28hash_allIJRK19RoseInstructionCodeRKjRKSt6vectorIjSaIjEEEEEmDpOT_.exit: ; preds = %1, %_ZNK3ue211hash_detail8ue2_hashISt6vectorIjSaIjEEvEclERKS4_.exit.loopexit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i = phi i64 [ 0, %1 ], [ %14, %_ZNK3ue211hash_detail8ue2_hashISt6vectorIjSaIjEEvEclERKS4_.exit.loopexit.i.i.i.i.i ]
-  %15 = zext i32 %4 to i64
-  %16 = mul i64 %15, 814605021516865831
-  %17 = xor i64 %16, 4964029349268206098
-  %18 = add i64 %17, 3571081485394615273
-  %19 = xor i64 %.0.lcssa.i.i.i.i.i.i, %18
-  %20 = add i64 %19, 3571081485394615273
+  %.0.lcssa.i.i.i.i.i.i = phi i64 [ %8, %1 ], [ %19, %_ZNK3ue211hash_detail8ue2_hashISt6vectorIjSaIjEEvEclERKS4_.exit.loopexit.i.i.i.i.i ]
+  %20 = add i64 %.0.lcssa.i.i.i.i.i.i, 3571081485394615273
   ret i64 %20
 }
 
@@ -9451,12 +9451,12 @@ _ZNK3ue211hash_detail8ue2_hashINS_9LookEntryEvEclERKS2_.exit.i.i.i.i.i.i.i: ; pr
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i.i.i.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashINS_9LookEntryEvEclERKS2_.exit.i.i.i.i.i.i.i
   %27 = mul i64 %25, 814605021516865831
+  %28 = xor i64 %27, %.012.i.i.i.i.i.i
   br label %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.i.i.i.i.i.i
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.i.i.i.i.i.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %27, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i.i.i.i ]
-  %28 = xor i64 %.0.lcssa.i.i.i.i.i.i.i, %.012.i.i.i.i.i.i
-  %29 = add i64 %28, 3571081485394615273
+  %.0.lcssa.i.i.i.i.i.i.i = phi i64 [ %.012.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %28, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9LookEntryESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i.i.i.i ]
+  %29 = add i64 %.0.lcssa.i.i.i.i.i.i.i, 3571081485394615273
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i.i.i.i.i.i, i64 24
   %.not.i.i.i.i.i.i = icmp eq ptr %30, %6
   br i1 %.not.i.i.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorIS2_INS_9LookEntryESaIS3_EESaIS5_EEvEclERKS7_.exit.loopexit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i

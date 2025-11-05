@@ -1029,35 +1029,35 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   %160 = fptosi float %159 to i32
   %161 = getelementptr inbounds float, ptr %.pre, i64 %147
   %162 = load float, ptr %161, align 4, !tbaa !93
-  %163 = sub nsw i32 %157, %150
-  %164 = mul nsw i32 %163, %163
-  %165 = sub nsw i32 %160, %154
+  %163 = getelementptr inbounds float, ptr %.pre, i64 %151
+  %164 = load float, ptr %163, align 4, !tbaa !93
+  %165 = sub nsw i32 %157, %150
   %166 = mul nsw i32 %165, %165
-  %167 = add nuw nsw i32 %166, %164
-  %168 = uitofp nneg i32 %167 to double
-  %169 = call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %168)
-  %170 = fadd reassoc nsz arcp contract afn double %169, 1.000000e+00
-  %171 = fptosi double %170 to i32
-  %172 = sitofp i32 %171 to float
-  %173 = fmul reassoc nsz arcp contract afn float %162, %172
-  %174 = fptosi float %173 to i32
-  %175 = icmp sgt i32 %171, 0
-  br i1 %175, label %.lr.ph.i, label %_brush_falloff.exit
+  %167 = sub nsw i32 %160, %154
+  %168 = mul nsw i32 %167, %167
+  %169 = add nuw nsw i32 %168, %166
+  %170 = uitofp nneg i32 %169 to double
+  %171 = call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %170)
+  %172 = fadd reassoc nsz arcp contract afn double %171, 1.000000e+00
+  %173 = fptosi double %172 to i32
+  %174 = sitofp i32 %173 to float
+  %175 = fmul reassoc nsz arcp contract afn float %162, %174
+  %176 = fptosi float %175 to i32
+  %177 = icmp sgt i32 %173, 0
+  br i1 %177, label %.lr.ph.i, label %_brush_falloff.exit
 
 .lr.ph.i:                                         ; preds = %146
-  %176 = getelementptr inbounds float, ptr %.pre, i64 %151
-  %177 = load float, ptr %176, align 4, !tbaa !93
   %178 = load i32, ptr %7, align 4, !tbaa !97
   %179 = load i32, ptr %6, align 4, !tbaa !97
-  %180 = sitofp i32 %165 to float
-  %181 = sitofp i32 %163 to float
-  %182 = sub nsw i32 %171, %174
+  %180 = sitofp i32 %167 to float
+  %181 = sitofp i32 %165 to float
+  %182 = sub nsw i32 %173, %176
   %183 = sub i32 %150, %179
   %184 = sub i32 %154, %178
-  %185 = fpext reassoc nsz arcp contract afn float %177 to double
+  %185 = fpext reassoc nsz arcp contract afn float %164 to double
   %186 = sitofp i32 %182 to float
-  %187 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %172
-  %188 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %172
+  %187 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %174
+  %188 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %174
   %189 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %186
   br label %190
 
@@ -1072,21 +1072,21 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   %197 = fmul reassoc nsz arcp contract afn float %196, %188
   %198 = fptosi float %197 to i32
   %199 = add i32 %184, %198
-  %.not.i47 = icmp sgt i32 %.06.i, %174
-  br i1 %.not.i47, label %200, label %206
+  %.not.i47 = icmp sgt i32 %.06.i, %176
+  br i1 %.not.i47, label %200, label %208
 
 200:                                              ; preds = %190
-  %201 = sub nsw i32 %.06.i, %174
+  %201 = sub nsw i32 %.06.i, %176
   %202 = sitofp i32 %201 to float
   %203 = fmul reassoc nsz arcp contract afn float %202, %189
   %204 = fpext reassoc nsz arcp contract afn float %203 to double
   %205 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %204
-  br label %206
+  %206 = fmul reassoc nsz arcp contract afn double %205, %185
+  %207 = fptrunc reassoc nsz arcp contract afn double %206 to float
+  br label %208
 
-206:                                              ; preds = %200, %190
-  %207 = phi reassoc nsz arcp contract afn double [ %205, %200 ], [ 1.000000e+00, %190 ]
-  %208 = fmul reassoc nsz arcp contract afn double %207, %185
-  %209 = fptrunc reassoc nsz arcp contract afn double %208 to float
+208:                                              ; preds = %200, %190
+  %209 = phi float [ %207, %200 ], [ %164, %190 ]
   %210 = mul nsw i32 %199, %142
   %211 = add nsw i32 %210, %195
   %212 = sext i32 %211 to i64
@@ -1098,7 +1098,7 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   %216 = icmp sgt i32 %195, 0
   br i1 %216, label %217, label %221
 
-217:                                              ; preds = %206
+217:                                              ; preds = %208
   %218 = getelementptr i8, ptr %213, i64 -4
   %219 = load float, ptr %218, align 4, !tbaa !93, !alias.scope !132
   %220 = fcmp reassoc nsz arcp contract afn ogt float %219, %209
@@ -1106,7 +1106,7 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
   store float %.84.i, ptr %218, align 4, !tbaa !93, !alias.scope !132
   br label %221
 
-221:                                              ; preds = %217, %206
+221:                                              ; preds = %217, %208
   %222 = icmp sgt i32 %199, 0
   br i1 %222, label %223, label %231
 
@@ -1124,7 +1124,7 @@ _brush_bounding_box.exit:                         ; preds = %.lr.ph.split.i.i, %
 
 231:                                              ; preds = %223, %221
   %232 = add nuw nsw i32 %.06.i, 1
-  %exitcond.not.i = icmp eq i32 %232, %171
+  %exitcond.not.i = icmp eq i32 %232, %173
   br i1 %exitcond.not.i, label %_brush_falloff.exit, label %190
 
 _brush_falloff.exit:                              ; preds = %231, %146

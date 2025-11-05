@@ -16554,25 +16554,25 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL18
   %2 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !117
   %4 = getelementptr inbounds nuw i8, ptr %.0.val1, i64 48
-  %.not25.i.i.i.i.i.i.i = icmp eq ptr %3, %4
-  br i1 %.not25.i.i.i.i.i.i.i, label %"_ZZL18applyFirstDebugLocPN4llvm8FunctionENS_8ArrayRefIPNS_10BasicBlockEEEPNS_11InstructionEENK3$_0clEPKS3_.exit", label %.lr.ph.i.i.i.i.i.i.i
+  %.not23.i.i.i.i.i.i.i = icmp eq ptr %3, %4
+  br i1 %.not23.i.i.i.i.i.i.i, label %"_ZZL18applyFirstDebugLocPN4llvm8FunctionENS_8ArrayRefIPNS_10BasicBlockEEEPNS_11InstructionEENK3$_0clEPKS3_.exit", label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %0, %40
-  %.sroa.04.026.i.i.i.i.i.i.i = phi ptr [ %42, %40 ], [ %3, %0 ]
+  %.sroa.04.024.i.i.i.i.i.i.i = phi ptr [ %42, %40 ], [ %3, %0 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.04.026.i.i.i.i.i.i.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.04.024.i.i.i.i.i.i.i, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !546
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %6, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %40, label %7
 
 7:                                                ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %8 = getelementptr inbounds i8, ptr %.sroa.04.026.i.i.i.i.i.i.i, i64 -24
+  %8 = getelementptr inbounds i8, ptr %.sroa.04.024.i.i.i.i.i.i.i, i64 -24
   %9 = load i8, ptr %8, align 8, !tbaa !127
   %10 = icmp eq i8 %9, 85
   br i1 %10, label %11, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i.i.i.i.i.i
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %.sroa.04.026.i.i.i.i.i.i.i, i64 -56
+  %12 = getelementptr inbounds i8, ptr %.sroa.04.024.i.i.i.i.i.i.i, i64 -56
   %13 = load ptr, ptr %12, align 8, !tbaa !130
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i.i.i.i.i.i, label %14
@@ -16585,7 +16585,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZL18
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !141
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.026.i.i.i.i.i.i.i, i64 56
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.024.i.i.i.i.i.i.i, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   %21 = icmp eq ptr %18, %20
   br i1 %21, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i.i.i.i.i.i
@@ -16642,19 +16642,19 @@ _ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i.i.i.i.i.i.i.i.i: ; preds
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZL18applyFirstDebugLocPN4llvm8FunctionENS2_8ArrayRefIPNS2_10BasicBlockEEEPNS2_11InstructionEENK3$_0clEPKS6_EUlRKS9_E_EclINS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsIS9_Lb0ELb0EvLb1ES6_EELb0ELb1EEEEEbT_.exit.thread.i.i.i.i.i.i.i": ; preds = %38, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit.i.i.i.i.i.i.i.i.i, %36, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %39 = icmp ne ptr %4, %.sroa.04.026.i.i.i.i.i.i.i
+  %39 = icmp ne ptr %4, %.sroa.04.024.i.i.i.i.i.i.i
   br label %"_ZZL18applyFirstDebugLocPN4llvm8FunctionENS_8ArrayRefIPNS_10BasicBlockEEEPNS_11InstructionEENK3$_0clEPKS3_.exit"
 
 40:                                               ; preds = %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.04.026.i.i.i.i.i.i.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.04.024.i.i.i.i.i.i.i, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !117
   %.not.i.i.i.i.i.i.i = icmp eq ptr %42, %4
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZZL18applyFirstDebugLocPN4llvm8FunctionENS_8ArrayRefIPNS_10BasicBlockEEEPNS_11InstructionEENK3$_0clEPKS3_.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !827
 
 "_ZZL18applyFirstDebugLocPN4llvm8FunctionENS_8ArrayRefIPNS_10BasicBlockEEEPNS_11InstructionEENK3$_0clEPKS3_.exit": ; preds = %40, %0, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL18applyFirstDebugLocPN4llvm8FunctionENS2_8ArrayRefIPNS2_10BasicBlockEEEPNS2_11InstructionEENK3$_0clEPKS6_EUlRKS9_E_EclINS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsIS9_Lb0ELb0EvLb1ES6_EELb0ELb1EEEEEbT_.exit.thread.i.i.i.i.i.i.i"
-  %.sroa.04.024.i.i.i.i.i.i.i = phi i1 [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL18applyFirstDebugLocPN4llvm8FunctionENS2_8ArrayRefIPNS2_10BasicBlockEEEPNS2_11InstructionEENK3$_0clEPKS6_EUlRKS9_E_EclINS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsIS9_Lb0ELb0EvLb1ES6_EELb0ELb1EEEEEbT_.exit.thread.i.i.i.i.i.i.i" ], [ false, %0 ], [ false, %40 ]
-  ret i1 %.sroa.04.024.i.i.i.i.i.i.i
+  %.sroa.04.022.i.i.i.i.i.i.i = phi i1 [ %39, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZL18applyFirstDebugLocPN4llvm8FunctionENS2_8ArrayRefIPNS2_10BasicBlockEEEPNS2_11InstructionEENK3$_0clEPKS6_EUlRKS9_E_EclINS2_21ilist_iterator_w_bitsINS2_12ilist_detail12node_optionsIS9_Lb0ELb0EvLb1ES6_EELb0ELb1EEEEEbT_.exit.thread.i.i.i.i.i.i.i" ], [ false, %0 ], [ false, %40 ]
+  ret i1 %.sroa.04.022.i.i.i.i.i.i.i
 }
 
 declare void @_ZN4llvm8Function9addFnAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #4

@@ -4149,12 +4149,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit66: ; preds = %192
   %217 = load i8, ptr %216, align 1, !tbaa !18
   %218 = add i8 %217, -48
   %or.cond.i = icmp ult i8 %218, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !284
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !284
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.loopexit.i
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %215, %.lr.ph.i ]
-  %219 = mul nsw i32 %.0.lcssa.i, %.016.i
-  %220 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %49, i32 noundef %219)
+.critedge.loopexit.i:                             ; preds = %.lr.ph.i
+  %219 = mul nsw i32 %215, %.016.i
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.loopexit.i
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %219, %.critedge.loopexit.i ]
+  %220 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %49, i32 noundef %.0.lcssa.i)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit70 unwind label %221
 
 221:                                              ; preds = %.critedge.i

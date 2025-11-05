@@ -112,9 +112,7 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = comdat any
 @_ZN12QMetaTypeId2IPvE11nameAsArrayE = linkonce_odr constant %"struct.std::array" { [6 x i8] c"void*\00" }, comdat, align 1
 @_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = linkonce_odr global { i16, i16, i32, i32, { { i32 } }, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i16 0, i16 8, i32 8, i32 2052, { { i32 } } { { i32 } { i32 31 } }, ptr null, ptr @_ZN12QMetaTypeId2IPvE11nameAsArrayE, ptr @_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceES1_E_8__invokeES5_S1_, ptr @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getCopyCtrEvENUlPKNS_18QMetaTypeInterfaceES1_PKvE_8__invokeES5_S1_S7_, ptr @_ZZN9QtPrivate16QMetaTypeForTypeIPvE10getMoveCtrEvENUlPKNS_18QMetaTypeInterfaceES1_S1_E_8__invokeES5_S1_S1_, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, comdat, align 8
 @_ZN7QAction16staticMetaObjectE = external global %struct.QMetaObject, align 8
-@switch.table._ZN11DataPrinter8hexCharsEv = private unnamed_addr constant [4 x i32] [i32 1, i32 0, i32 1, i32 1], align 4
-@switch.table._ZN11DataPrinter8hexCharsEv.1 = private unnamed_addr constant [4 x i32] [i32 16, i32 8, i32 16, i32 16], align 4
-@switch.table._ZN11DataPrinter8hexCharsEv.2 = private unnamed_addr constant [4 x i32] [i32 3, i32 9, i32 4, i32 4], align 4
+@switch.table._ZN11DataPrinter8hexCharsEv = private unnamed_addr constant [4 x i32] [i32 49, i32 72, i32 65, i32 65], align 4
 
 @_ZN11DataPrinterC1EP7QObject = unnamed_addr alias void (ptr, ptr), ptr @_ZN11DataPrinterC2EP7QObject
 
@@ -2970,7 +2968,7 @@ define noundef i32 @_ZNK11DataPrinter14byteLineLengthEv(ptr noundef readonly ali
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef range(i32 24, 146) i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #0 align 2 {
+define noundef range(i32 49, 73) i32 @_ZN11DataPrinter8hexCharsEv() local_unnamed_addr #0 align 2 {
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 28), align 4
   %2 = icmp ult i32 %1, 4
   br i1 %2, label %switch.lookup, label %3
@@ -2983,15 +2981,7 @@ switch.lookup:                                    ; preds = %0
   %4 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11DataPrinter8hexCharsEv, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
-  %5 = zext nneg i32 %1 to i64
-  %switch.gep4 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11DataPrinter8hexCharsEv.1, i64 %5
-  %switch.load5 = load i32, ptr %switch.gep4, align 4
-  %6 = zext nneg i32 %1 to i64
-  %switch.gep6 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11DataPrinter8hexCharsEv.2, i64 %6
-  %switch.load7 = load i32, ptr %switch.gep6, align 4
-  %7 = mul nuw nsw i32 %switch.load7, %switch.load5
-  %8 = or disjoint i32 %7, %switch.load
-  ret i32 %8
+  ret i32 %switch.load
 }
 
 ; Function Attrs: noreturn null_pointer_is_valid

@@ -1694,24 +1694,24 @@ _ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit: ; preds = %.lr.ph.i201, %.sp
   %456 = fcmp ogt double %455, 0.000000e+00
   %457 = fcmp ogt double %381, %361
   %or.cond = select i1 %456, i1 %457, i1 false
-  br i1 %or.cond, label %.split, label %.critedge, !llvm.loop !67
+  br i1 %or.cond, label %.split, label %.critedge.loopexit317, !llvm.loop !67
 
-.critedge:                                        ; preds = %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us, %.split.us.split.us
-  %.us-phi = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0138.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi281 = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0143.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi282 = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0142.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi283 = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0139.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi284 = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0137.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi285 = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0140.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi286 = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0141.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi287 = phi double [ 0.000000e+00, %.split.us.split.us ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.0136.lcssa.i, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi288 = phi double [ %375, %.split.us.split.us ], [ %375, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %455, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi289 = phi double [ %.0128, %.split.us.split.us ], [ %.1129.us, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %.1129, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %.us-phi290 = phi double [ %377, %.split.us.split.us ], [ %378, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ], [ %381, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit ]
-  %458 = fmul double %.us-phi281, %.us-phi
-  %459 = call double @llvm.fmuladd.f64(double %.us-phi283, double %.us-phi282, double %458)
+.critedge.loopexit317:                            ; preds = %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit
+  %458 = fmul double %.0143.lcssa.i, %.0138.lcssa.i
+  %459 = call double @llvm.fmuladd.f64(double %.0139.lcssa.i, double %.0142.lcssa.i, double %458)
+  br label %.critedge
+
+.critedge:                                        ; preds = %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us, %.critedge.loopexit317, %.split.us.split.us
+  %.us-phi283 = phi double [ 0.000000e+00, %.split.us.split.us ], [ %459, %.critedge.loopexit317 ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
+  %.us-phi284 = phi double [ 0.000000e+00, %.split.us.split.us ], [ %.0137.lcssa.i, %.critedge.loopexit317 ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
+  %.us-phi285 = phi double [ 0.000000e+00, %.split.us.split.us ], [ %.0140.lcssa.i, %.critedge.loopexit317 ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
+  %.us-phi286 = phi double [ 0.000000e+00, %.split.us.split.us ], [ %.0141.lcssa.i, %.critedge.loopexit317 ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
+  %.us-phi287 = phi double [ 0.000000e+00, %.split.us.split.us ], [ %.0136.lcssa.i, %.critedge.loopexit317 ], [ 0.000000e+00, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
+  %.us-phi288 = phi double [ %375, %.split.us.split.us ], [ %455, %.critedge.loopexit317 ], [ %375, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
+  %.us-phi289 = phi double [ %.0128, %.split.us.split.us ], [ %.1129, %.critedge.loopexit317 ], [ %.1129.us, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
+  %.us-phi290 = phi double [ %377, %.split.us.split.us ], [ %381, %.critedge.loopexit317 ], [ %378, %_ZN2cv8ximgproc14ContourFitting6fAlphaEdRdS2_.exit.us ]
   %460 = fneg double %.us-phi284
-  %461 = call double @llvm.fmuladd.f64(double %460, double %.us-phi285, double %459)
+  %461 = call double @llvm.fmuladd.f64(double %460, double %.us-phi285, double %.us-phi283)
   %462 = fneg double %.us-phi286
   %463 = call double @llvm.fmuladd.f64(double %462, double %.us-phi287, double %461)
   store double %463, ptr %33, align 8, !tbaa !28

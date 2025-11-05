@@ -125,9 +125,9 @@ get_digit.exit:                                   ; preds = %get_digit.exit.lr.p
   %.not.i36 = icmp samesign ult i64 %indvars.iv, %18
   %27 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !11
-  %. = select i1 %.not.i36, i64 %28, i64 0
-  %29 = xor i64 %., %26
-  %30 = and i64 %29, %5
+  %29 = select i1 %.not.i36, i64 %28, i64 0
+  %.0.i37 = xor i64 %26, %29
+  %30 = and i64 %.0.i37, %5
   %31 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
   %32 = xor i64 %30, %28
   store i64 %32, ptr %31, align 8, !tbaa !11

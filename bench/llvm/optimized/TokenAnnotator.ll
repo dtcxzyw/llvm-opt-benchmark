@@ -5765,11 +5765,11 @@ tailrecurse.i.i.i.i.i:                            ; preds = %tailrecurse.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336, label %tailrecurse.i.i.i.i.i
 
 _ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336: ; preds = %tailrecurse.i.i.i.i.i, %536, %524, %533, %530
+  %539 = or i8 %517, 8
   br label %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread333
 
 _ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread333: ; preds = %tailrecurse.i.i.i.i.i, %524, %528, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336
-  %539 = phi i8 [ 8, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336 ], [ 0, %528 ], [ 0, %524 ], [ 0, %tailrecurse.i.i.i.i.i ]
-  %540 = or disjoint i8 %539, %518
+  %540 = phi i8 [ %539, %_ZNK5clang6format14TokenAnnotator22mustBreakForReturnTypeERKNS0_13AnnotatedLineE.exit.thread336 ], [ %518, %528 ], [ %518, %524 ], [ %518, %tailrecurse.i.i.i.i.i ]
   store i8 %540, ptr %511, align 8
   br label %.thread328
 
@@ -14037,7 +14037,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang6format11FormatToken4is
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8, !tbaa !61
   %5 = icmp eq i16 %4, 91
-  br i1 %5, label %.loopexit, label %tailrecurse.i.i
+  br i1 %5, label %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14, label %tailrecurse.i.i
 
 tailrecurse.i.i:                                  ; preds = %2, %11
   %.tr.i.i = phi ptr [ %10, %11 ], [ %0, %2 ]
@@ -14064,7 +14064,7 @@ tailrecurse.i.i.i:                                ; preds = %split.i.i, %15
   %14 = load i16, ptr %13, align 8, !tbaa !61
   switch i16 %14, label %tailrecurse.i.i1.preheader [
     i16 4, label %15
-    i16 91, label %.loopexit
+    i16 91, label %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14
   ]
 
 15:                                               ; preds = %tailrecurse.i.i.i
@@ -14110,15 +14110,11 @@ tailrecurse.i.i.i8:                               ; preds = %split.i.i3, %28
 
 _ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10: ; preds = %28, %tailrecurse.i.i.i8
   %31 = icmp eq i16 %26, 91
+  %32 = and i1 %1, %31
   br label %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14
 
-_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14: ; preds = %23, %split.i.i3, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10
-  %.0.i.i11 = phi i1 [ false, %split.i.i3 ], [ %31, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10 ], [ false, %23 ]
-  %32 = and i1 %1, %.0.i.i11
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %tailrecurse.i.i.i, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14, %2
-  %33 = phi i1 [ true, %2 ], [ %32, %_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14 ], [ true, %tailrecurse.i.i.i ]
+_ZNK5clang6format11FormatToken12endsSequenceINS_3tok9TokenKindEJS4_EEEbT_DpT0_.exit14: ; preds = %tailrecurse.i.i.i, %23, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10, %split.i.i3, %2
+  %33 = phi i1 [ true, %2 ], [ false, %split.i.i3 ], [ %32, %_ZNK5clang6format11FormatToken20endsSequenceInternalINS_3tok9TokenKindEJEEEbT_.exit.i.i10 ], [ false, %23 ], [ true, %tailrecurse.i.i.i ]
   ret i1 %33
 }
 

@@ -1058,15 +1058,15 @@ define i32 @Aig_RManSemiCanonicize(ptr noundef %0, ptr noundef %1, i32 noundef %
 
 .split.us.loopexit:                               ; preds = %._crit_edge.us
   %33 = and i32 %.276.us, 1
+  %34 = xor i32 %33, %5
   br label %.split.us
 
 .split.us:                                        ; preds = %6, %.split.us.loopexit, %.preheader
   %.0.lcssa112 = phi i32 [ %.1, %.preheader ], [ %.1, %.split.us.loopexit ], [ 0, %6 ]
   %.us-phi = phi ptr [ %1, %.preheader ], [ %.281.us, %.split.us.loopexit ], [ %1, %6 ]
-  %.us-phi100 = phi i32 [ 0, %.preheader ], [ %33, %.split.us.loopexit ], [ 0, %6 ]
+  %.us-phi100 = phi i32 [ %5, %.preheader ], [ %34, %.split.us.loopexit ], [ %5, %6 ]
   %.us-phi101 = phi ptr [ %0, %.preheader ], [ %.2.us, %.split.us.loopexit ], [ %0, %6 ]
-  %34 = xor i32 %.us-phi100, %5
-  %.not87 = icmp eq i32 %34, 1
+  %.not87 = icmp eq i32 %.us-phi100, 1
   br i1 %.not87, label %Kit_TruthCopy.exit, label %35
 
 35:                                               ; preds = %.split.us

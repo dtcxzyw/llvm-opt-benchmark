@@ -37428,12 +37428,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %66 = load i8, ptr %65, align 1, !tbaa !13
   %67 = add i8 %66, -48
   %or.cond.i = icmp ult i8 %67, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !620
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !620
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.loopexit.i
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %64, %.lr.ph.i ]
-  %68 = mul nsw i32 %.0.lcssa.i, %.016.i
-  store i32 %68, ptr %9, align 4, !tbaa !127
+.critedge.loopexit.i:                             ; preds = %.lr.ph.i
+  %68 = mul nsw i32 %64, %.016.i
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.loopexit.i
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %68, %.critedge.loopexit.i ]
+  store i32 %.0.lcssa.i, ptr %9, align 4, !tbaa !127
   br label %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit
 
 69:                                               ; preds = %.noexc.i
@@ -37718,12 +37721,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   %70 = load i8, ptr %69, align 1, !tbaa !13
   %71 = add i8 %70, -48
   %or.cond.i = icmp ult i8 %71, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !620
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !620
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.loopexit.i
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %68, %.lr.ph.i ]
-  %72 = mul nsw i32 %.0.lcssa.i, %.016.i
-  store i32 %72, ptr %9, align 4, !tbaa !127
+.critedge.loopexit.i:                             ; preds = %.lr.ph.i
+  %72 = mul nsw i32 %68, %.016.i
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.loopexit.i
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %72, %.critedge.loopexit.i ]
+  store i32 %.0.lcssa.i, ptr %9, align 4, !tbaa !127
   br label %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit
 
 73:                                               ; preds = %.noexc.i

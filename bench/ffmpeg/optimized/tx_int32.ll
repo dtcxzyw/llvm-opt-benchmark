@@ -10152,11 +10152,13 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %27 = fdiv nsz double 0x401921FB54442D18, %26
   %.not67 = icmp eq i32 %5, 0
   %28 = load double, ptr %13, align 8, !tbaa !26
+  %.pre = fmul nsz double %28, 5.000000e-01
   %29 = fmul nsz double %28, 2.000000e+00
-  %30 = select i1 %.not67, double 1.000000e+00, double 5.000000e-01
-  %31 = select nsz i1 %.not67, double %28, double %29
-  %32 = fmul nsz double %30, %31
-  %33 = fmul nsz double %32, 0x41E0000000000000
+  %30 = fmul nsz double %29, 5.000000e-01
+  %.pre-phi = select i1 %.not67, double %.pre, double %30
+  %31 = select i1 %.not67, double %28, double %30
+  %32 = select nsz i1 %.not67, double %28, double %29
+  %33 = fmul nsz double %31, 0x41E0000000000000
   %34 = fptrunc nsz double %33 to float
   %35 = tail call i64 @llvm.llrint.i64.f32(float %34)
   %36 = tail call i64 @llvm.smax.i64(i64 %35, i64 -2147483648)
@@ -10164,139 +10166,137 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %37 = trunc nsw i64 %.0.i86 to i32
   %38 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i32 %37, ptr %23, align 4, !tbaa !11
-  %39 = fmul nsz double %31, 5.000000e-01
-  %40 = select nsz i1 %.not67, double %28, double %39
-  %41 = fmul nsz double %40, 0x41E0000000000000
-  %42 = fptrunc nsz double %41 to float
-  %43 = tail call i64 @llvm.llrint.i64.f32(float %42)
-  %44 = tail call i64 @llvm.smax.i64(i64 %43, i64 -2147483648)
-  %.0.i84 = tail call i64 @llvm.smin.i64(i64 %44, i64 2147483647)
-  %45 = trunc nsw i64 %.0.i84 to i32
-  %46 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 %45, ptr %38, align 4, !tbaa !11
-  %47 = fmul nsz double %31, 0x41E0000000000000
-  %48 = fptrunc nsz double %47 to float
-  %49 = tail call i64 @llvm.llrint.i64.f32(float %48)
-  %50 = tail call i64 @llvm.smax.i64(i64 %49, i64 -2147483648)
-  %.0.i82 = tail call i64 @llvm.smin.i64(i64 %50, i64 2147483647)
-  %51 = trunc nsw i64 %.0.i82 to i32
-  %52 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 %51, ptr %46, align 4, !tbaa !11
-  %53 = fmul nsz double %31, 0xC1E0000000000000
-  %54 = fptrunc nsz double %53 to float
-  %55 = tail call i64 @llvm.llrint.i64.f32(float %54)
-  %56 = tail call i64 @llvm.smax.i64(i64 %55, i64 -2147483648)
-  %.0.i80 = tail call i64 @llvm.smin.i64(i64 %56, i64 2147483647)
-  %57 = trunc nsw i64 %.0.i80 to i32
-  %58 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 %57, ptr %52, align 4, !tbaa !11
-  %59 = fmul nsz double %39, 0x41E0000000000000
-  %60 = fptrunc nsz double %59 to float
-  %61 = tail call i64 @llvm.llrint.i64.f32(float %60)
-  %62 = tail call i64 @llvm.smax.i64(i64 %61, i64 -2147483648)
-  %.0.i78 = tail call i64 @llvm.smin.i64(i64 %62, i64 2147483647)
-  %63 = trunc nsw i64 %.0.i78 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  store i32 %63, ptr %58, align 4, !tbaa !11
+  %39 = fmul nsz double %31, 0x41E0000000000000
+  %40 = fptrunc nsz double %39 to float
+  %41 = tail call i64 @llvm.llrint.i64.f32(float %40)
+  %42 = tail call i64 @llvm.smax.i64(i64 %41, i64 -2147483648)
+  %.0.i84 = tail call i64 @llvm.smin.i64(i64 %42, i64 2147483647)
+  %43 = trunc nsw i64 %.0.i84 to i32
+  %44 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i32 %43, ptr %38, align 4, !tbaa !11
+  %45 = fmul nsz double %32, 0x41E0000000000000
+  %46 = fptrunc nsz double %45 to float
+  %47 = tail call i64 @llvm.llrint.i64.f32(float %46)
+  %48 = tail call i64 @llvm.smax.i64(i64 %47, i64 -2147483648)
+  %.0.i82 = tail call i64 @llvm.smin.i64(i64 %48, i64 2147483647)
+  %49 = trunc nsw i64 %.0.i82 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store i32 %49, ptr %44, align 4, !tbaa !11
+  %51 = fmul nsz double %32, 0xC1E0000000000000
+  %52 = fptrunc nsz double %51 to float
+  %53 = tail call i64 @llvm.llrint.i64.f32(float %52)
+  %54 = tail call i64 @llvm.smax.i64(i64 %53, i64 -2147483648)
+  %.0.i80 = tail call i64 @llvm.smin.i64(i64 %54, i64 2147483647)
+  %55 = trunc nsw i64 %.0.i80 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i32 %55, ptr %50, align 4, !tbaa !11
+  %57 = fmul nsz double %.pre-phi, 0x41E0000000000000
+  %58 = fptrunc nsz double %57 to float
+  %59 = tail call i64 @llvm.llrint.i64.f32(float %58)
+  %60 = tail call i64 @llvm.smax.i64(i64 %59, i64 -2147483648)
+  %.0.i78 = tail call i64 @llvm.smin.i64(i64 %60, i64 2147483647)
+  %61 = trunc nsw i64 %.0.i78 to i32
+  %62 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  store i32 %61, ptr %56, align 4, !tbaa !11
   %.not68 = icmp eq i64 %8, 0
-  br i1 %.not68, label %69, label %65
+  br i1 %.not68, label %67, label %63
 
-65:                                               ; preds = %25
-  %66 = load float, ptr %14, align 4, !tbaa !84
-  %67 = fdiv nsz float 1.000000e+00, %66
-  %68 = fptosi float %67 to i32
-  br label %76
+63:                                               ; preds = %25
+  %64 = load float, ptr %14, align 4, !tbaa !84
+  %65 = fdiv nsz float 1.000000e+00, %64
+  %66 = fptosi float %65 to i32
+  br label %74
 
-69:                                               ; preds = %25
-  %70 = fmul nsz double %31, -5.000000e-01
-  %71 = fmul nsz double %70, 0x41E0000000000000
-  %72 = fptrunc nsz double %71 to float
-  %73 = tail call i64 @llvm.llrint.i64.f32(float %72)
-  %74 = tail call i64 @llvm.smax.i64(i64 %73, i64 -2147483648)
-  %.0.i76 = tail call i64 @llvm.smin.i64(i64 %74, i64 2147483647)
-  %75 = trunc nsw i64 %.0.i76 to i32
-  br label %76
+67:                                               ; preds = %25
+  %68 = fmul nsz double %32, -5.000000e-01
+  %69 = fmul nsz double %68, 0x41E0000000000000
+  %70 = fptrunc nsz double %69 to float
+  %71 = tail call i64 @llvm.llrint.i64.f32(float %70)
+  %72 = tail call i64 @llvm.smax.i64(i64 %71, i64 -2147483648)
+  %.0.i76 = tail call i64 @llvm.smin.i64(i64 %72, i64 2147483647)
+  %73 = trunc nsw i64 %.0.i76 to i32
+  br label %74
 
-76:                                               ; preds = %69, %65
-  %storemerge = phi i32 [ %75, %69 ], [ %68, %65 ]
+74:                                               ; preds = %67, %63
+  %storemerge = phi i32 [ %73, %67 ], [ %66, %63 ]
   %.062 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store i32 %storemerge, ptr %64, align 4, !tbaa !11
-  %77 = sitofp i32 %5 to double
-  %78 = fsub nsz double 5.000000e-01, %77
-  %79 = fmul nsz double %78, %31
-  %80 = fmul nsz double %79, 0x41E0000000000000
-  %81 = fptrunc nsz double %80 to float
-  %82 = tail call i64 @llvm.llrint.i64.f32(float %81)
-  %83 = tail call i64 @llvm.smax.i64(i64 %82, i64 -2147483648)
-  %.0.i74 = tail call i64 @llvm.smin.i64(i64 %83, i64 2147483647)
-  %84 = trunc nsw i64 %.0.i74 to i32
-  %85 = getelementptr inbounds nuw i8, ptr %23, i64 28
-  store i32 %84, ptr %.062, align 4, !tbaa !11
-  %86 = fneg nsz double %78
-  %87 = fmul nsz double %31, %86
-  %88 = fmul nsz double %87, 0x41E0000000000000
-  %89 = fptrunc nsz double %88 to float
-  %90 = tail call i64 @llvm.llrint.i64.f32(float %89)
-  %91 = tail call i64 @llvm.smax.i64(i64 %90, i64 -2147483648)
-  %.0.i72 = tail call i64 @llvm.smin.i64(i64 %91, i64 2147483647)
-  %92 = trunc nsw i64 %.0.i72 to i32
-  store i32 %92, ptr %85, align 4, !tbaa !11
-  %93 = icmp sgt i32 %10, 0
-  br i1 %93, label %.lr.ph.preheader, label %.loopexit
+  store i32 %storemerge, ptr %62, align 4, !tbaa !11
+  %75 = sitofp i32 %5 to double
+  %76 = fsub nsz double 5.000000e-01, %75
+  %77 = fmul nsz double %76, %32
+  %78 = fmul nsz double %77, 0x41E0000000000000
+  %79 = fptrunc nsz double %78 to float
+  %80 = tail call i64 @llvm.llrint.i64.f32(float %79)
+  %81 = tail call i64 @llvm.smax.i64(i64 %80, i64 -2147483648)
+  %.0.i74 = tail call i64 @llvm.smin.i64(i64 %81, i64 2147483647)
+  %82 = trunc nsw i64 %.0.i74 to i32
+  %83 = getelementptr inbounds nuw i8, ptr %23, i64 28
+  store i32 %82, ptr %.062, align 4, !tbaa !11
+  %84 = fneg nsz double %76
+  %85 = fmul nsz double %32, %84
+  %86 = fmul nsz double %85, 0x41E0000000000000
+  %87 = fptrunc nsz double %86 to float
+  %88 = tail call i64 @llvm.llrint.i64.f32(float %87)
+  %89 = tail call i64 @llvm.smax.i64(i64 %88, i64 -2147483648)
+  %.0.i72 = tail call i64 @llvm.smin.i64(i64 %89, i64 2147483647)
+  %90 = trunc nsw i64 %.0.i72 to i32
+  store i32 %90, ptr %83, align 4, !tbaa !11
+  %91 = icmp sgt i32 %10, 0
+  br i1 %91, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %76
-  %94 = getelementptr inbounds nuw i8, ptr %23, i64 32
+.lr.ph.preheader:                                 ; preds = %74
+  %92 = getelementptr inbounds nuw i8, ptr %23, i64 32
   br label %.lr.ph
 
 .lr.ph92.preheader:                               ; preds = %.lr.ph
-  %95 = zext nneg i32 %10 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %23, i64 %95
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
+  %93 = zext nneg i32 %10 to i64
+  %94 = getelementptr inbounds nuw i32, ptr %23, i64 %93
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
   br label %.lr.ph92
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06088 = phi i32 [ %107, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.187 = phi ptr [ %106, %.lr.ph ], [ %94, %.lr.ph.preheader ]
-  %98 = uitofp nneg i32 %.06088 to double
-  %99 = fmul nsz double %27, %98
-  %100 = tail call nsz double @llvm.cos.f64(double %99)
-  %101 = fmul nsz double %100, 0x41E0000000000000
-  %102 = fptrunc nsz double %101 to float
-  %103 = tail call i64 @llvm.llrint.i64.f32(float %102)
-  %104 = tail call i64 @llvm.smax.i64(i64 %103, i64 -2147483648)
-  %.0.i70 = tail call i64 @llvm.smin.i64(i64 %104, i64 2147483647)
-  %105 = trunc nsw i64 %.0.i70 to i32
-  %106 = getelementptr inbounds nuw i8, ptr %.187, i64 4
-  store i32 %105, ptr %.187, align 4, !tbaa !11
-  %107 = add nuw nsw i32 %.06088, 1
-  %exitcond.not = icmp eq i32 %107, %10
+  %.06088 = phi i32 [ %105, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.187 = phi ptr [ %104, %.lr.ph ], [ %92, %.lr.ph.preheader ]
+  %96 = uitofp nneg i32 %.06088 to double
+  %97 = fmul nsz double %27, %96
+  %98 = tail call nsz double @llvm.cos.f64(double %97)
+  %99 = fmul nsz double %98, 0x41E0000000000000
+  %100 = fptrunc nsz double %99 to float
+  %101 = tail call i64 @llvm.llrint.i64.f32(float %100)
+  %102 = tail call i64 @llvm.smax.i64(i64 %101, i64 -2147483648)
+  %.0.i70 = tail call i64 @llvm.smin.i64(i64 %102, i64 2147483647)
+  %103 = trunc nsw i64 %.0.i70 to i32
+  %104 = getelementptr inbounds nuw i8, ptr %.187, i64 4
+  store i32 %103, ptr %.187, align 4, !tbaa !11
+  %105 = add nuw nsw i32 %.06088, 1
+  %exitcond.not = icmp eq i32 %105, %10
   br i1 %exitcond.not, label %.lr.ph92.preheader, label %.lr.ph, !llvm.loop !139
 
 .lr.ph92:                                         ; preds = %.lr.ph92.preheader, %.lr.ph92
-  %.090 = phi i32 [ %122, %.lr.ph92 ], [ 0, %.lr.ph92.preheader ]
-  %.289 = phi ptr [ %121, %.lr.ph92 ], [ %97, %.lr.ph92.preheader ]
-  %108 = shl nsw i32 %.090, 2
-  %109 = sub nsw i32 %4, %108
-  %110 = sitofp i32 %109 to double
-  %111 = fmul nsz double %110, 2.500000e-01
-  %112 = fmul nsz double %27, %111
-  %113 = tail call nsz double @llvm.cos.f64(double %112)
-  %114 = fmul nsz double %113, 0x41E0000000000000
-  %115 = fptrunc nsz double %114 to float
-  %116 = tail call i64 @llvm.llrint.i64.f32(float %115)
-  %117 = tail call i64 @llvm.smax.i64(i64 %116, i64 -2147483648)
-  %.0.i = tail call i64 @llvm.smin.i64(i64 %117, i64 2147483647)
-  %118 = sub nsw i64 0, %.0.i
-  %119 = select i1 %.not67, i64 %118, i64 %.0.i
-  %120 = trunc i64 %119 to i32
-  %121 = getelementptr inbounds nuw i8, ptr %.289, i64 4
-  store i32 %120, ptr %.289, align 4, !tbaa !11
-  %122 = add nuw nsw i32 %.090, 1
-  %exitcond93.not = icmp eq i32 %122, %10
+  %.090 = phi i32 [ %120, %.lr.ph92 ], [ 0, %.lr.ph92.preheader ]
+  %.289 = phi ptr [ %119, %.lr.ph92 ], [ %95, %.lr.ph92.preheader ]
+  %106 = shl nsw i32 %.090, 2
+  %107 = sub nsw i32 %4, %106
+  %108 = sitofp i32 %107 to double
+  %109 = fmul nsz double %108, 2.500000e-01
+  %110 = fmul nsz double %27, %109
+  %111 = tail call nsz double @llvm.cos.f64(double %110)
+  %112 = fmul nsz double %111, 0x41E0000000000000
+  %113 = fptrunc nsz double %112 to float
+  %114 = tail call i64 @llvm.llrint.i64.f32(float %113)
+  %115 = tail call i64 @llvm.smax.i64(i64 %114, i64 -2147483648)
+  %.0.i = tail call i64 @llvm.smin.i64(i64 %115, i64 2147483647)
+  %116 = sub nsw i64 0, %.0.i
+  %117 = select i1 %.not67, i64 %116, i64 %.0.i
+  %118 = trunc i64 %117 to i32
+  %119 = getelementptr inbounds nuw i8, ptr %.289, i64 4
+  store i32 %118, ptr %.289, align 4, !tbaa !11
+  %120 = add nuw nsw i32 %.090, 1
+  %exitcond93.not = icmp eq i32 %120, %10
   br i1 %exitcond93.not, label %.loopexit, label %.lr.ph92, !llvm.loop !140
 
-.loopexit:                                        ; preds = %.lr.ph92, %76, %18, %7
-  %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %76 ], [ 0, %.lr.ph92 ]
+.loopexit:                                        ; preds = %.lr.ph92, %74, %18, %7
+  %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %74 ], [ 0, %.lr.ph92 ]
   ret i32 %.061
 }
 

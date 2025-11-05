@@ -144,21 +144,20 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEE
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit.i.i: ; preds = %40
   %53 = load float, ptr %.048.i.i.sroa.phi, align 4, !tbaa !19
   %54 = call noundef float @llvm.fabs.f32(float %53)
+  %55 = fadd float %47, %54
   br label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i: ; preds = %.lr.ph90.i.i.i.i.i.i.i, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit.i.i
-  %.0.i.i.i54.i.i = phi float [ %47, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit.i.i ], [ %51, %.lr.ph90.i.i.i.i.i.i.i ]
-  %.0.i.i.i19.i.i = phi float [ %54, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit.i.i ], [ 0.000000e+00, %.lr.ph90.i.i.i.i.i.i.i ]
-  %55 = fadd float %.0.i.i.i54.i.i, %.0.i.i.i19.i.i
-  %56 = fcmp ogt float %55, %42
+  %.0.i.i.i54.i.i = phi float [ %55, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit.i.i ], [ %51, %.lr.ph90.i.i.i.i.i.i.i ]
+  %56 = fcmp ogt float %.0.i.i.i54.i.i, %42
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i
-  store float %55, ptr %17, align 16, !tbaa !11
+  store float %.0.i.i.i54.i.i, ptr %17, align 16, !tbaa !11
   br label %58
 
 58:                                               ; preds = %57, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i
-  %59 = phi float [ %55, %57 ], [ %42, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i ]
+  %59 = phi float [ %.0.i.i.i54.i.i, %57 ], [ %42, %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2ELb0EEELi1ELin1ELb0EEEE6lpNormILi1EEEfv.exit.i.i ]
   br i1 %41, label %40, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEEdVERKf.exit.i.i.i.i.i, !llvm.loop !24
 
 60:                                               ; preds = %28, %26
@@ -194,13 +193,13 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %82, label %83, label %.split.loop.exit
 
 83:                                               ; preds = %.preheader
-  br i1 %79, label %.preheader, label %.split.loop.exit271, !llvm.loop !25
+  br i1 %79, label %.preheader, label %.split.loop.exit270, !llvm.loop !25
 
 .split.loop.exit:                                 ; preds = %.preheader
   %84 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit271
+  br label %.split.loop.exit270
 
-.split.loop.exit271:                              ; preds = %83, %.split.loop.exit
+.split.loop.exit270:                              ; preds = %83, %.split.loop.exit
   %.0169 = phi i32 [ %84, %.split.loop.exit ], [ -1, %83 ]
   %85 = load i64, ptr %4, align 4, !tbaa !10
   store i64 %85, ptr %0, align 4, !tbaa !10
@@ -222,10 +221,10 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   store float %96, ptr %92, align 4, !tbaa !19
   br label %108
 
-97:                                               ; preds = %.split.loop.exit271, %106
-  %98 = phi float [ %89, %.split.loop.exit271 ], [ %107, %106 ]
-  %99 = phi i1 [ true, %.split.loop.exit271 ], [ false, %106 ]
-  %indvars.iv264 = phi i64 [ 0, %.split.loop.exit271 ], [ 1, %106 ]
+97:                                               ; preds = %.split.loop.exit270, %106
+  %98 = phi float [ %89, %.split.loop.exit270 ], [ %107, %106 ]
+  %99 = phi i1 [ true, %.split.loop.exit270 ], [ false, %106 ]
+  %indvars.iv264 = phi i64 [ 0, %.split.loop.exit270 ], [ 1, %106 ]
   %.not = icmp eq i64 %indvars.iv264, %90
   br i1 %.not, label %106, label %100
 

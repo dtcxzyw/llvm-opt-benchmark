@@ -4003,1392 +4003,1383 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2I
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef ptr @_ZN7glslang12TSymbolTable4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEEPbSA_Pi(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef null, ptr noundef null, ptr noundef null)
   %.not404.not = icmp eq ptr %41, null
-  br i1 %.not404.not, label %42, label %367
+  br i1 %.not404.not, label %42, label %366
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2IS5_EEPKcRKS5_.exit, %17, %3
   %43 = call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
-  switch i32 %43, label %45 [
-    i32 4, label %.sink.split
-    i32 3, label %44
+  %.off = add i32 %43, -3
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %.sink.split, label %44
+
+.sink.split:                                      ; preds = %42
+  call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
+  br label %44
+
+44:                                               ; preds = %42, %.sink.split
+  %45 = call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
+  switch i32 %45, label %366 [
+    i32 36, label %46
+    i32 37, label %48
+    i32 30, label %50
+    i32 31, label %50
+    i32 32, label %50
+    i32 33, label %56
+    i32 34, label %56
+    i32 273, label %58
+    i32 274, label %58
+    i32 275, label %58
+    i32 276, label %58
+    i32 277, label %58
+    i32 278, label %67
+    i32 279, label %67
+    i32 296, label %69
+    i32 297, label %69
+    i32 35, label %71
+    i32 281, label %71
+    i32 282, label %71
+    i32 283, label %71
+    i32 284, label %71
+    i32 285, label %71
+    i32 286, label %71
+    i32 287, label %71
+    i32 288, label %71
+    i32 289, label %71
+    i32 290, label %71
+    i32 291, label %71
+    i32 292, label %71
+    i32 293, label %71
+    i32 294, label %71
+    i32 295, label %71
+    i32 298, label %73
+    i32 299, label %73
+    i32 300, label %73
+    i32 301, label %73
+    i32 302, label %73
+    i32 303, label %73
+    i32 304, label %75
+    i32 313, label %77
+    i32 306, label %79
+    i32 307, label %79
+    i32 308, label %79
+    i32 309, label %79
+    i32 305, label %81
+    i32 38, label %87
+    i32 39, label %88
+    i32 46, label %89
+    i32 57, label %90
+    i32 58, label %94
+    i32 59, label %95
+    i32 60, label %96
+    i32 47, label %97
+    i32 65, label %98
+    i32 66, label %102
+    i32 67, label %103
+    i32 68, label %104
+    i32 41, label %105
+    i32 44, label %105
+    i32 61, label %106
+    i32 62, label %110
+    i32 63, label %111
+    i32 64, label %112
+    i32 42, label %113
+    i32 69, label %114
+    i32 70, label %118
+    i32 71, label %119
+    i32 72, label %120
+    i32 43, label %121
+    i32 40, label %122
+    i32 53, label %123
+    i32 54, label %127
+    i32 55, label %128
+    i32 56, label %129
+    i32 45, label %130
+    i32 73, label %131
+    i32 74, label %135
+    i32 75, label %136
+    i32 76, label %137
+    i32 48, label %138
+    i32 77, label %139
+    i32 78, label %143
+    i32 79, label %144
+    i32 80, label %145
+    i32 49, label %146
+    i32 81, label %147
+    i32 82, label %151
+    i32 83, label %152
+    i32 84, label %153
+    i32 50, label %154
+    i32 85, label %155
+    i32 86, label %159
+    i32 87, label %160
+    i32 88, label %161
+    i32 51, label %162
+    i32 89, label %163
+    i32 90, label %167
+    i32 91, label %168
+    i32 92, label %169
+    i32 52, label %170
+    i32 93, label %171
+    i32 94, label %175
+    i32 95, label %176
+    i32 96, label %177
+    i32 97, label %178
+    i32 98, label %179
+    i32 99, label %180
+    i32 100, label %181
+    i32 101, label %182
+    i32 102, label %183
+    i32 103, label %184
+    i32 104, label %185
+    i32 105, label %186
+    i32 106, label %187
+    i32 107, label %188
+    i32 108, label %189
+    i32 109, label %190
+    i32 110, label %191
+    i32 111, label %192
+    i32 112, label %193
+    i32 113, label %194
+    i32 114, label %195
+    i32 115, label %196
+    i32 116, label %197
+    i32 117, label %198
+    i32 118, label %199
+    i32 119, label %200
+    i32 120, label %201
+    i32 121, label %202
+    i32 122, label %203
+    i32 123, label %204
+    i32 124, label %205
+    i32 125, label %206
+    i32 126, label %207
+    i32 127, label %208
+    i32 128, label %209
+    i32 129, label %210
+    i32 130, label %211
+    i32 131, label %212
+    i32 132, label %213
+    i32 133, label %214
+    i32 134, label %215
+    i32 135, label %216
+    i32 136, label %217
+    i32 137, label %218
+    i32 138, label %219
+    i32 139, label %220
+    i32 140, label %221
+    i32 141, label %222
+    i32 142, label %223
+    i32 143, label %224
+    i32 144, label %225
+    i32 145, label %226
+    i32 146, label %227
+    i32 147, label %228
+    i32 148, label %229
+    i32 149, label %230
+    i32 150, label %231
+    i32 151, label %232
+    i32 152, label %233
+    i32 153, label %234
+    i32 154, label %235
+    i32 155, label %236
+    i32 156, label %237
+    i32 157, label %238
+    i32 158, label %239
+    i32 159, label %240
+    i32 160, label %241
+    i32 161, label %242
+    i32 162, label %243
+    i32 163, label %244
+    i32 164, label %245
+    i32 165, label %246
+    i32 166, label %247
+    i32 167, label %248
+    i32 168, label %249
+    i32 169, label %250
+    i32 170, label %251
+    i32 171, label %252
+    i32 172, label %253
+    i32 173, label %254
+    i32 174, label %255
+    i32 175, label %256
+    i32 176, label %257
+    i32 177, label %258
+    i32 178, label %259
+    i32 179, label %260
+    i32 180, label %261
+    i32 181, label %262
+    i32 182, label %263
+    i32 183, label %264
+    i32 184, label %265
+    i32 185, label %266
+    i32 186, label %267
+    i32 187, label %268
+    i32 188, label %269
+    i32 189, label %270
+    i32 190, label %271
+    i32 191, label %272
+    i32 192, label %273
+    i32 193, label %274
+    i32 194, label %275
+    i32 195, label %276
+    i32 196, label %277
+    i32 197, label %278
+    i32 198, label %279
+    i32 199, label %280
+    i32 200, label %281
+    i32 201, label %282
+    i32 202, label %283
+    i32 203, label %284
+    i32 204, label %285
+    i32 205, label %286
+    i32 206, label %287
+    i32 207, label %288
+    i32 208, label %289
+    i32 209, label %290
+    i32 210, label %291
+    i32 211, label %292
+    i32 212, label %293
+    i32 213, label %294
+    i32 214, label %295
+    i32 215, label %296
+    i32 216, label %297
+    i32 217, label %298
+    i32 218, label %299
+    i32 219, label %300
+    i32 220, label %301
+    i32 221, label %302
+    i32 222, label %303
+    i32 223, label %304
+    i32 224, label %305
+    i32 225, label %306
+    i32 226, label %307
+    i32 227, label %308
+    i32 228, label %309
+    i32 229, label %310
+    i32 230, label %311
+    i32 231, label %312
+    i32 232, label %313
+    i32 233, label %314
+    i32 234, label %315
+    i32 235, label %316
+    i32 236, label %317
+    i32 237, label %318
+    i32 238, label %319
+    i32 239, label %320
+    i32 240, label %321
+    i32 241, label %322
+    i32 242, label %323
+    i32 243, label %324
+    i32 244, label %325
+    i32 245, label %326
+    i32 246, label %327
+    i32 247, label %328
+    i32 248, label %329
+    i32 249, label %330
+    i32 250, label %331
+    i32 251, label %332
+    i32 252, label %333
+    i32 253, label %334
+    i32 254, label %335
+    i32 255, label %336
+    i32 256, label %337
+    i32 257, label %338
+    i32 258, label %339
+    i32 259, label %340
+    i32 260, label %341
+    i32 261, label %342
+    i32 262, label %343
+    i32 263, label %344
+    i32 264, label %345
+    i32 265, label %346
+    i32 266, label %347
+    i32 267, label %348
+    i32 268, label %349
+    i32 269, label %350
+    i32 270, label %351
+    i32 271, label %352
+    i32 272, label %353
   ]
 
-44:                                               ; preds = %42
-  br label %.sink.split
+46:                                               ; preds = %44
+  %47 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptVectorTemplateTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
 
-.sink.split:                                      ; preds = %42, %44
-  %.0400.ph = phi i1 [ false, %44 ], [ true, %42 ]
-  %.0.ph = phi i1 [ true, %44 ], [ false, %42 ]
+48:                                               ; preds = %44
+  %49 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptMatrixTemplateTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+50:                                               ; preds = %44, %44, %44
+  %51 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStreamOutTemplateTypeERNS_5TTypeERNS_15TLayoutGeometryE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br i1 %51, label %52, label %366
+
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %6, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %55 = call noundef zeroext i1 @_ZN7glslang16HlslParseContext20handleOutputGeometryERKNS_10TSourceLocERKNS_15TLayoutGeometryE(ptr noundef nonnull align 8 dereferenceable(2489) %53, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull align 4 dereferenceable(4) %5) #16
+  br label %366
+
+56:                                               ; preds = %44, %44
+  %57 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar35acceptTessellationPatchTemplateTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+58:                                               ; preds = %44, %44, %44, %44, %44
+  %59 = load ptr, ptr %6, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 208
+  %61 = load i32, ptr %60, align 8
+  %62 = and i32 %61, 8192
+  %.not408 = icmp eq i32 %62, 0
+  br i1 %.not408, label %65, label %63
+
+63:                                               ; preds = %58
+  %64 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar20acceptSamplerTypeDX9ERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+65:                                               ; preds = %58
+  %66 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptSamplerTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+67:                                               ; preds = %44, %44
+  %68 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptSamplerTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+69:                                               ; preds = %44, %44
+  %70 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+71:                                               ; preds = %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44, %44
+  %72 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptTextureTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+73:                                               ; preds = %44, %44, %44, %44, %44, %44
+  %74 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+75:                                               ; preds = %44
+  %76 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar23acceptTextureBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+77:                                               ; preds = %44
+  %78 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptConstantBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
+  br label %366
+
+79:                                               ; preds = %44, %44, %44, %44
+  %80 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar12acceptStructERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %366
+
+81:                                               ; preds = %44
+  %82 = load ptr, ptr %6, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %84 = load ptr, ptr %83, align 8
+  %85 = call noundef ptr @_ZN7glslang16HlslParseContext14lookupUserTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %82, ptr noundef nonnull align 8 dereferenceable(40) %84, ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %.not405 = icmp eq ptr %85, null
+  br i1 %.not405, label %366, label %86
+
+86:                                               ; preds = %81
   call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
-  br label %45
+  br label %366
 
-45:                                               ; preds = %.sink.split, %42
-  %.0400 = phi i1 [ false, %42 ], [ %.0400.ph, %.sink.split ]
-  %.0 = phi i1 [ false, %42 ], [ %.0.ph, %.sink.split ]
-  %46 = call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
-  switch i32 %46, label %367 [
-    i32 36, label %47
-    i32 37, label %49
-    i32 30, label %51
-    i32 31, label %51
-    i32 32, label %51
-    i32 33, label %57
-    i32 34, label %57
-    i32 273, label %59
-    i32 274, label %59
-    i32 275, label %59
-    i32 276, label %59
-    i32 277, label %59
-    i32 278, label %68
-    i32 279, label %68
-    i32 296, label %70
-    i32 297, label %70
-    i32 35, label %72
-    i32 281, label %72
-    i32 282, label %72
-    i32 283, label %72
-    i32 284, label %72
-    i32 285, label %72
-    i32 286, label %72
-    i32 287, label %72
-    i32 288, label %72
-    i32 289, label %72
-    i32 290, label %72
-    i32 291, label %72
-    i32 292, label %72
-    i32 293, label %72
-    i32 294, label %72
-    i32 295, label %72
-    i32 298, label %74
-    i32 299, label %74
-    i32 300, label %74
-    i32 301, label %74
-    i32 302, label %74
-    i32 303, label %74
-    i32 304, label %76
-    i32 313, label %78
-    i32 306, label %80
-    i32 307, label %80
-    i32 308, label %80
-    i32 309, label %80
-    i32 305, label %82
-    i32 38, label %88
-    i32 39, label %89
-    i32 46, label %90
-    i32 57, label %91
-    i32 58, label %95
-    i32 59, label %96
-    i32 60, label %97
-    i32 47, label %98
-    i32 65, label %99
-    i32 66, label %103
-    i32 67, label %104
-    i32 68, label %105
-    i32 41, label %106
-    i32 44, label %106
-    i32 61, label %107
-    i32 62, label %111
-    i32 63, label %112
-    i32 64, label %113
-    i32 42, label %114
-    i32 69, label %115
-    i32 70, label %119
-    i32 71, label %120
-    i32 72, label %121
-    i32 43, label %122
-    i32 40, label %123
-    i32 53, label %124
-    i32 54, label %128
-    i32 55, label %129
-    i32 56, label %130
-    i32 45, label %131
-    i32 73, label %132
-    i32 74, label %136
-    i32 75, label %137
-    i32 76, label %138
-    i32 48, label %139
-    i32 77, label %140
-    i32 78, label %144
-    i32 79, label %145
-    i32 80, label %146
-    i32 49, label %147
-    i32 81, label %148
-    i32 82, label %152
-    i32 83, label %153
-    i32 84, label %154
-    i32 50, label %155
-    i32 85, label %156
-    i32 86, label %160
-    i32 87, label %161
-    i32 88, label %162
-    i32 51, label %163
-    i32 89, label %164
-    i32 90, label %168
-    i32 91, label %169
-    i32 92, label %170
-    i32 52, label %171
-    i32 93, label %172
-    i32 94, label %176
-    i32 95, label %177
-    i32 96, label %178
-    i32 97, label %179
-    i32 98, label %180
-    i32 99, label %181
-    i32 100, label %182
-    i32 101, label %183
-    i32 102, label %184
-    i32 103, label %185
-    i32 104, label %186
-    i32 105, label %187
-    i32 106, label %188
-    i32 107, label %189
-    i32 108, label %190
-    i32 109, label %191
-    i32 110, label %192
-    i32 111, label %193
-    i32 112, label %194
-    i32 113, label %195
-    i32 114, label %196
-    i32 115, label %197
-    i32 116, label %198
-    i32 117, label %199
-    i32 118, label %200
-    i32 119, label %201
-    i32 120, label %202
-    i32 121, label %203
-    i32 122, label %204
-    i32 123, label %205
-    i32 124, label %206
-    i32 125, label %207
-    i32 126, label %208
-    i32 127, label %209
-    i32 128, label %210
-    i32 129, label %211
-    i32 130, label %212
-    i32 131, label %213
-    i32 132, label %214
-    i32 133, label %215
-    i32 134, label %216
-    i32 135, label %217
-    i32 136, label %218
-    i32 137, label %219
-    i32 138, label %220
-    i32 139, label %221
-    i32 140, label %222
-    i32 141, label %223
-    i32 142, label %224
-    i32 143, label %225
-    i32 144, label %226
-    i32 145, label %227
-    i32 146, label %228
-    i32 147, label %229
-    i32 148, label %230
-    i32 149, label %231
-    i32 150, label %232
-    i32 151, label %233
-    i32 152, label %234
-    i32 153, label %235
-    i32 154, label %236
-    i32 155, label %237
-    i32 156, label %238
-    i32 157, label %239
-    i32 158, label %240
-    i32 159, label %241
-    i32 160, label %242
-    i32 161, label %243
-    i32 162, label %244
-    i32 163, label %245
-    i32 164, label %246
-    i32 165, label %247
-    i32 166, label %248
-    i32 167, label %249
-    i32 168, label %250
-    i32 169, label %251
-    i32 170, label %252
-    i32 171, label %253
-    i32 172, label %254
-    i32 173, label %255
-    i32 174, label %256
-    i32 175, label %257
-    i32 176, label %258
-    i32 177, label %259
-    i32 178, label %260
-    i32 179, label %261
-    i32 180, label %262
-    i32 181, label %263
-    i32 182, label %264
-    i32 183, label %265
-    i32 184, label %266
-    i32 185, label %267
-    i32 186, label %268
-    i32 187, label %269
-    i32 188, label %270
-    i32 189, label %271
-    i32 190, label %272
-    i32 191, label %273
-    i32 192, label %274
-    i32 193, label %275
-    i32 194, label %276
-    i32 195, label %277
-    i32 196, label %278
-    i32 197, label %279
-    i32 198, label %280
-    i32 199, label %281
-    i32 200, label %282
-    i32 201, label %283
-    i32 202, label %284
-    i32 203, label %285
-    i32 204, label %286
-    i32 205, label %287
-    i32 206, label %288
-    i32 207, label %289
-    i32 208, label %290
-    i32 209, label %291
-    i32 210, label %292
-    i32 211, label %293
-    i32 212, label %294
-    i32 213, label %295
-    i32 214, label %296
-    i32 215, label %297
-    i32 216, label %298
-    i32 217, label %299
-    i32 218, label %300
-    i32 219, label %301
-    i32 220, label %302
-    i32 221, label %303
-    i32 222, label %304
-    i32 223, label %305
-    i32 224, label %306
-    i32 225, label %307
-    i32 226, label %308
-    i32 227, label %309
-    i32 228, label %310
-    i32 229, label %311
-    i32 230, label %312
-    i32 231, label %313
-    i32 232, label %314
-    i32 233, label %315
-    i32 234, label %316
-    i32 235, label %317
-    i32 236, label %318
-    i32 237, label %319
-    i32 238, label %320
-    i32 239, label %321
-    i32 240, label %322
-    i32 241, label %323
-    i32 242, label %324
-    i32 243, label %325
-    i32 244, label %326
-    i32 245, label %327
-    i32 246, label %328
-    i32 247, label %329
-    i32 248, label %330
-    i32 249, label %331
-    i32 250, label %332
-    i32 251, label %333
-    i32 252, label %334
-    i32 253, label %335
-    i32 254, label %336
-    i32 255, label %337
-    i32 256, label %338
-    i32 257, label %339
-    i32 258, label %340
-    i32 259, label %341
-    i32 260, label %342
-    i32 261, label %343
-    i32 262, label %344
-    i32 263, label %345
-    i32 264, label %346
-    i32 265, label %347
-    i32 266, label %348
-    i32 267, label %349
-    i32 268, label %350
-    i32 269, label %351
-    i32 270, label %352
-    i32 271, label %353
-    i32 272, label %354
-  ]
-
-47:                                               ; preds = %45
-  %48 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptVectorTemplateTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-49:                                               ; preds = %45
-  %50 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptMatrixTemplateTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-51:                                               ; preds = %45, %45, %45
-  %52 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStreamOutTemplateTypeERNS_5TTypeERNS_15TLayoutGeometryE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br i1 %52, label %53, label %367
-
-53:                                               ; preds = %51
-  %54 = load ptr, ptr %6, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %56 = call noundef zeroext i1 @_ZN7glslang16HlslParseContext20handleOutputGeometryERKNS_10TSourceLocERKNS_15TLayoutGeometryE(ptr noundef nonnull align 8 dereferenceable(2489) %54, ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 4 dereferenceable(4) %5) #16
-  br label %367
-
-57:                                               ; preds = %45, %45
-  %58 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar35acceptTessellationPatchTemplateTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-59:                                               ; preds = %45, %45, %45, %45, %45
-  %60 = load ptr, ptr %6, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 208
-  %62 = load i32, ptr %61, align 8
-  %63 = and i32 %62, 8192
-  %.not408 = icmp eq i32 %63, 0
-  br i1 %.not408, label %66, label %64
-
-64:                                               ; preds = %59
-  %65 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar20acceptSamplerTypeDX9ERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-66:                                               ; preds = %59
-  %67 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptSamplerTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-68:                                               ; preds = %45, %45
-  %69 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptSamplerTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-70:                                               ; preds = %45, %45
-  %71 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptSubpassInputTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-72:                                               ; preds = %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45, %45
-  %73 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptTextureTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-74:                                               ; preds = %45, %45, %45, %45, %45, %45
-  %75 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-76:                                               ; preds = %45
-  %77 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar23acceptTextureBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-78:                                               ; preds = %45
-  %79 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptConstantBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1)
-  br label %367
-
-80:                                               ; preds = %45, %45, %45, %45
-  %81 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar12acceptStructERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %367
-
-82:                                               ; preds = %45
-  %83 = load ptr, ptr %6, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %85 = load ptr, ptr %84, align 8
-  %86 = call noundef ptr @_ZN7glslang16HlslParseContext14lookupUserTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %83, ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  %.not405 = icmp eq ptr %86, null
-  br i1 %.not405, label %367, label %87
-
-87:                                               ; preds = %82
-  call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
-  br label %367
-
-88:                                               ; preds = %45
+87:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-89:                                               ; preds = %45
+88:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 23, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-90:                                               ; preds = %45
+89:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-91:                                               ; preds = %45
+90:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %93 = load i32, ptr %92, align 8
-  %94 = or i32 %93, 1048576
-  store i32 %94, ptr %92, align 8
-  br label %355
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %92 = load i32, ptr %91, align 8
+  %93 = or i32 %92, 1048576
+  store i32 %93, ptr %91, align 8
+  br label %354
 
-95:                                               ; preds = %45
+94:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-96:                                               ; preds = %45
+95:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-97:                                               ; preds = %45
+96:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-98:                                               ; preds = %45
+97:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-99:                                               ; preds = %45
+98:                                               ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %101 = load i32, ptr %100, align 8
-  %102 = or i32 %101, 1048576
-  store i32 %102, ptr %100, align 8
-  br label %355
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %100 = load i32, ptr %99, align 8
+  %101 = or i32 %100, 1048576
+  store i32 %101, ptr %99, align 8
+  br label %354
 
-103:                                              ; preds = %45
+102:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-104:                                              ; preds = %45
+103:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-105:                                              ; preds = %45
+104:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-106:                                              ; preds = %45, %45
+105:                                              ; preds = %44, %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-107:                                              ; preds = %45
+106:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %109 = load i32, ptr %108, align 8
-  %110 = or i32 %109, 1048576
-  store i32 %110, ptr %108, align 8
-  br label %355
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %108 = load i32, ptr %107, align 8
+  %109 = or i32 %108, 1048576
+  store i32 %109, ptr %107, align 8
+  br label %354
 
-111:                                              ; preds = %45
+110:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-112:                                              ; preds = %45
+111:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-113:                                              ; preds = %45
+112:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-114:                                              ; preds = %45
+113:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-115:                                              ; preds = %45
+114:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %117 = load i32, ptr %116, align 8
-  %118 = or i32 %117, 1048576
-  store i32 %118, ptr %116, align 8
-  br label %355
+  %115 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %116 = load i32, ptr %115, align 8
+  %117 = or i32 %116, 1048576
+  store i32 %117, ptr %115, align 8
+  br label %354
 
-119:                                              ; preds = %45
+118:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-120:                                              ; preds = %45
+119:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-121:                                              ; preds = %45
+120:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-122:                                              ; preds = %45
+121:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 11, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-123:                                              ; preds = %45
+122:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-124:                                              ; preds = %45
+123:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %125 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %126 = load i32, ptr %125, align 8
-  %127 = or i32 %126, 1048576
-  store i32 %127, ptr %125, align 8
-  br label %355
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %125 = load i32, ptr %124, align 8
+  %126 = or i32 %125, 1048576
+  store i32 %126, ptr %124, align 8
+  br label %354
 
-128:                                              ; preds = %45
+127:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-129:                                              ; preds = %45
+128:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-130:                                              ; preds = %45
+129:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-131:                                              ; preds = %45
+130:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-132:                                              ; preds = %45
+131:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %134 = load i32, ptr %133, align 8
-  %135 = or i32 %134, 1048576
-  store i32 %135, ptr %133, align 8
-  br label %355
+  %132 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %133 = load i32, ptr %132, align 8
+  %134 = or i32 %133, 1048576
+  store i32 %134, ptr %132, align 8
+  br label %354
 
-136:                                              ; preds = %45
+135:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-137:                                              ; preds = %45
+136:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-138:                                              ; preds = %45
+137:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-139:                                              ; preds = %45
+138:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-140:                                              ; preds = %45
+139:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %142 = load i32, ptr %141, align 8
-  %143 = or i32 %142, 1048576
-  store i32 %143, ptr %141, align 8
-  br label %355
+  %140 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %141 = load i32, ptr %140, align 8
+  %142 = or i32 %141, 1048576
+  store i32 %142, ptr %140, align 8
+  br label %354
 
-144:                                              ; preds = %45
+143:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-145:                                              ; preds = %45
+144:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-146:                                              ; preds = %45
+145:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-147:                                              ; preds = %45
+146:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-148:                                              ; preds = %45
+147:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %149 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %150 = load i32, ptr %149, align 8
-  %151 = or i32 %150, 1048576
-  store i32 %151, ptr %149, align 8
-  br label %355
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %149 = load i32, ptr %148, align 8
+  %150 = or i32 %149, 1048576
+  store i32 %150, ptr %148, align 8
+  br label %354
 
-152:                                              ; preds = %45
+151:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-153:                                              ; preds = %45
+152:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-154:                                              ; preds = %45
+153:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-155:                                              ; preds = %45
+154:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-156:                                              ; preds = %45
+155:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %158 = load i32, ptr %157, align 8
-  %159 = or i32 %158, 1048576
-  store i32 %159, ptr %157, align 8
-  br label %355
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %157 = load i32, ptr %156, align 8
+  %158 = or i32 %157, 1048576
+  store i32 %158, ptr %156, align 8
+  br label %354
 
-160:                                              ; preds = %45
+159:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-161:                                              ; preds = %45
+160:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-162:                                              ; preds = %45
+161:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-163:                                              ; preds = %45
+162:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-164:                                              ; preds = %45
+163:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %165 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %166 = load i32, ptr %165, align 8
-  %167 = or i32 %166, 1048576
-  store i32 %167, ptr %165, align 8
-  br label %355
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %165 = load i32, ptr %164, align 8
+  %166 = or i32 %165, 1048576
+  store i32 %166, ptr %164, align 8
+  br label %354
 
-168:                                              ; preds = %45
+167:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-169:                                              ; preds = %45
+168:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-170:                                              ; preds = %45
+169:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-171:                                              ; preds = %45
+170:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-172:                                              ; preds = %45
+171:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 1, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %174 = load i32, ptr %173, align 8
-  %175 = or i32 %174, 1048576
-  store i32 %175, ptr %173, align 8
-  br label %355
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %173 = load i32, ptr %172, align 8
+  %174 = or i32 %173, 1048576
+  store i32 %174, ptr %172, align 8
+  br label %354
 
-176:                                              ; preds = %45
+175:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-177:                                              ; preds = %45
+176:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 3, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-178:                                              ; preds = %45
+177:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 4, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-179:                                              ; preds = %45
+178:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-180:                                              ; preds = %45
+179:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-181:                                              ; preds = %45
+180:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-182:                                              ; preds = %45
+181:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-183:                                              ; preds = %45
+182:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-184:                                              ; preds = %45
+183:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-185:                                              ; preds = %45
+184:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-186:                                              ; preds = %45
+185:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-187:                                              ; preds = %45
+186:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-188:                                              ; preds = %45
+187:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-189:                                              ; preds = %45
+188:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-190:                                              ; preds = %45
+189:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-191:                                              ; preds = %45
+190:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-192:                                              ; preds = %45
+191:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-193:                                              ; preds = %45
+192:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-194:                                              ; preds = %45
+193:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 8, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-195:                                              ; preds = %45
+194:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-196:                                              ; preds = %45
+195:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-197:                                              ; preds = %45
+196:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-198:                                              ; preds = %45
+197:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-199:                                              ; preds = %45
+198:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-200:                                              ; preds = %45
+199:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-201:                                              ; preds = %45
+200:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-202:                                              ; preds = %45
+201:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-203:                                              ; preds = %45
+202:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-204:                                              ; preds = %45
+203:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-205:                                              ; preds = %45
+204:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-206:                                              ; preds = %45
+205:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-207:                                              ; preds = %45
+206:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-208:                                              ; preds = %45
+207:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-209:                                              ; preds = %45
+208:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-210:                                              ; preds = %45
+209:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 9, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-211:                                              ; preds = %45
+210:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-212:                                              ; preds = %45
+211:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-213:                                              ; preds = %45
+212:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-214:                                              ; preds = %45
+213:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-215:                                              ; preds = %45
+214:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-216:                                              ; preds = %45
+215:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-217:                                              ; preds = %45
+216:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-218:                                              ; preds = %45
+217:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-219:                                              ; preds = %45
+218:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-220:                                              ; preds = %45
+219:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-221:                                              ; preds = %45
+220:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-222:                                              ; preds = %45
+221:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-223:                                              ; preds = %45
+222:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-224:                                              ; preds = %45
+223:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-225:                                              ; preds = %45
+224:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-226:                                              ; preds = %45
+225:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 12, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-227:                                              ; preds = %45
+226:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-228:                                              ; preds = %45
+227:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-229:                                              ; preds = %45
+228:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-230:                                              ; preds = %45
+229:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-231:                                              ; preds = %45
+230:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-232:                                              ; preds = %45
+231:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-233:                                              ; preds = %45
+232:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-234:                                              ; preds = %45
+233:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-235:                                              ; preds = %45
+234:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-236:                                              ; preds = %45
+235:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-237:                                              ; preds = %45
+236:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-238:                                              ; preds = %45
+237:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-239:                                              ; preds = %45
+238:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-240:                                              ; preds = %45
+239:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-241:                                              ; preds = %45
+240:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-242:                                              ; preds = %45
+241:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-243:                                              ; preds = %45
+242:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-244:                                              ; preds = %45
+243:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-245:                                              ; preds = %45
+244:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-246:                                              ; preds = %45
+245:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-247:                                              ; preds = %45
+246:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-248:                                              ; preds = %45
+247:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-249:                                              ; preds = %45
+248:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-250:                                              ; preds = %45
+249:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-251:                                              ; preds = %45
+250:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-252:                                              ; preds = %45
+251:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-253:                                              ; preds = %45
+252:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-254:                                              ; preds = %45
+253:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-255:                                              ; preds = %45
+254:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-256:                                              ; preds = %45
+255:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-257:                                              ; preds = %45
+256:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-258:                                              ; preds = %45
+257:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-259:                                              ; preds = %45
+258:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-260:                                              ; preds = %45
+259:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-261:                                              ; preds = %45
+260:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-262:                                              ; preds = %45
+261:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-263:                                              ; preds = %45
+262:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-264:                                              ; preds = %45
+263:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-265:                                              ; preds = %45
+264:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-266:                                              ; preds = %45
+265:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-267:                                              ; preds = %45
+266:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-268:                                              ; preds = %45
+267:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-269:                                              ; preds = %45
+268:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-270:                                              ; preds = %45
+269:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-271:                                              ; preds = %45
+270:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-272:                                              ; preds = %45
+271:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-273:                                              ; preds = %45
+272:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-274:                                              ; preds = %45
+273:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef 2, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-275:                                              ; preds = %45
+274:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-276:                                              ; preds = %45
+275:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-277:                                              ; preds = %45
+276:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-278:                                              ; preds = %45
+277:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-279:                                              ; preds = %45
+278:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-280:                                              ; preds = %45
+279:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-281:                                              ; preds = %45
+280:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-282:                                              ; preds = %45
+281:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-283:                                              ; preds = %45
+282:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-284:                                              ; preds = %45
+283:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-285:                                              ; preds = %45
+284:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-286:                                              ; preds = %45
+285:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-287:                                              ; preds = %45
+286:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-288:                                              ; preds = %45
+287:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-289:                                              ; preds = %45
+288:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-290:                                              ; preds = %45
+289:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-291:                                              ; preds = %45
+290:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-292:                                              ; preds = %45
+291:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-293:                                              ; preds = %45
+292:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-294:                                              ; preds = %45
+293:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-295:                                              ; preds = %45
+294:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-296:                                              ; preds = %45
+295:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-297:                                              ; preds = %45
+296:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-298:                                              ; preds = %45
+297:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-299:                                              ; preds = %45
+298:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-300:                                              ; preds = %45
+299:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-301:                                              ; preds = %45
+300:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-302:                                              ; preds = %45
+301:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-303:                                              ; preds = %45
+302:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-304:                                              ; preds = %45
+303:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-305:                                              ; preds = %45
+304:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-306:                                              ; preds = %45
+305:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %11, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-307:                                              ; preds = %45
+306:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-308:                                              ; preds = %45
+307:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-309:                                              ; preds = %45
+308:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-310:                                              ; preds = %45
+309:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-311:                                              ; preds = %45
+310:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-312:                                              ; preds = %45
+311:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-313:                                              ; preds = %45
+312:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-314:                                              ; preds = %45
+313:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-315:                                              ; preds = %45
+314:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-316:                                              ; preds = %45
+315:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-317:                                              ; preds = %45
+316:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-318:                                              ; preds = %45
+317:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-319:                                              ; preds = %45
+318:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-320:                                              ; preds = %45
+319:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-321:                                              ; preds = %45
+320:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-322:                                              ; preds = %45
+321:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-323:                                              ; preds = %45
+322:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-324:                                              ; preds = %45
+323:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-325:                                              ; preds = %45
+324:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-326:                                              ; preds = %45
+325:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-327:                                              ; preds = %45
+326:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-328:                                              ; preds = %45
+327:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-329:                                              ; preds = %45
+328:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-330:                                              ; preds = %45
+329:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-331:                                              ; preds = %45
+330:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-332:                                              ; preds = %45
+331:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-333:                                              ; preds = %45
+332:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-334:                                              ; preds = %45
+333:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-335:                                              ; preds = %45
+334:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-336:                                              ; preds = %45
+335:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-337:                                              ; preds = %45
+336:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-338:                                              ; preds = %45
+337:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %12, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-339:                                              ; preds = %45
+338:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-340:                                              ; preds = %45
+339:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-341:                                              ; preds = %45
+340:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-342:                                              ; preds = %45
+341:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 1, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-343:                                              ; preds = %45
+342:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-344:                                              ; preds = %45
+343:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-345:                                              ; preds = %45
+344:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-346:                                              ; preds = %45
+345:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 2, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-347:                                              ; preds = %45
+346:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-348:                                              ; preds = %45
+347:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-349:                                              ; preds = %45
+348:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-350:                                              ; preds = %45
+349:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 3, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-351:                                              ; preds = %45
+350:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 1, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-352:                                              ; preds = %45
+351:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 2, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-353:                                              ; preds = %45
+352:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 3, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-354:                                              ; preds = %45
+353:                                              ; preds = %44
   call void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQualifierENS_19TPrecisionQualifierEiiib(ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %13, i32 noundef 0, i32 noundef 2, i32 noundef 0, i32 noundef 4, i32 noundef 4, i1 noundef zeroext false)
-  br label %355
+  br label %354
 
-355:                                              ; preds = %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %172, %171, %170, %169, %168, %164, %163, %162, %161, %160, %156, %155, %154, %153, %152, %148, %147, %146, %145, %144, %140, %139, %138, %137, %136, %132, %131, %130, %129, %128, %124, %123, %122, %121, %120, %119, %115, %114, %113, %112, %111, %107, %106, %105, %104, %103, %99, %98, %97, %96, %95, %91, %90, %89, %88
+354:                                              ; preds = %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %171, %170, %169, %168, %167, %163, %162, %161, %160, %159, %155, %154, %153, %152, %151, %147, %146, %145, %144, %143, %139, %138, %137, %136, %135, %131, %130, %129, %128, %127, %123, %122, %121, %120, %119, %118, %114, %113, %112, %111, %110, %106, %105, %104, %103, %102, %98, %97, %96, %95, %94, %90, %89, %88, %87
   call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
-  %or.cond = or i1 %.0400, %.0
-  br i1 %or.cond, label %356, label %367
+  br i1 %switch, label %355, label %366
 
-356:                                              ; preds = %355
-  %357 = load ptr, ptr %1, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 304
-  %359 = load ptr, ptr %358, align 8
-  %360 = call noundef zeroext i1 %359(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  br i1 %360, label %367, label %361
+355:                                              ; preds = %354
+  %356 = load ptr, ptr %1, align 8
+  %357 = getelementptr inbounds nuw i8, ptr %356, i64 304
+  %358 = load ptr, ptr %357, align 8
+  %359 = call noundef zeroext i1 %358(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  br i1 %359, label %366, label %360
 
-361:                                              ; preds = %356
-  %362 = load ptr, ptr %6, align 8
-  %363 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %364 = load ptr, ptr %362, align 8
-  %365 = getelementptr inbounds nuw i8, ptr %364, i64 344
-  %366 = load ptr, ptr %365, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %366(ptr noundef nonnull align 8 dereferenceable(1280) %362, ptr noundef nonnull align 8 dereferenceable(24) %363, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1) #16
-  br label %367
+360:                                              ; preds = %355
+  %361 = load ptr, ptr %6, align 8
+  %362 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %363 = load ptr, ptr %361, align 8
+  %364 = getelementptr inbounds nuw i8, ptr %363, i64 344
+  %365 = load ptr, ptr %364, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %365(ptr noundef nonnull align 8 dereferenceable(1280) %361, ptr noundef nonnull align 8 dereferenceable(24) %362, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.1) #16
+  br label %366
 
-367:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2IS5_EEPKcRKS5_.exit, %356, %355, %45, %82, %57, %53, %51, %361, %87, %80, %78, %76, %74, %72, %70, %68, %66, %64, %49, %47
-  %.1 = phi i1 [ %48, %47 ], [ %50, %49 ], [ %65, %64 ], [ %67, %66 ], [ %69, %68 ], [ %71, %70 ], [ %73, %72 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %81, %80 ], [ true, %87 ], [ false, %361 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2IS5_EEPKcRKS5_.exit ], [ false, %51 ], [ %56, %53 ], [ %58, %57 ], [ false, %82 ], [ false, %45 ], [ true, %355 ], [ true, %356 ]
+366:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2IS5_EEPKcRKS5_.exit, %355, %354, %44, %81, %56, %52, %50, %360, %86, %79, %77, %75, %73, %71, %69, %67, %65, %63, %48, %46
+  %.1 = phi i1 [ %47, %46 ], [ %49, %48 ], [ %64, %63 ], [ %66, %65 ], [ %68, %67 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ true, %86 ], [ false, %360 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEC2IS5_EEPKcRKS5_.exit ], [ false, %50 ], [ %55, %52 ], [ %57, %56 ], [ false, %81 ], [ false, %44 ], [ true, %354 ], [ true, %355 ]
   ret i1 %.1
 }
 
@@ -6903,7 +6894,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptTextureTypeERNS_5TTyp
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.glslang::TSampler", align 4
   %7 = tail call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
-  switch i32 %7, label %223 [
+  switch i32 %7, label %217 [
     i32 35, label %23
     i32 281, label %8
     i32 282, label %9
@@ -6969,324 +6960,316 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar17acceptTextureTypeERNS_5TTyp
 
 23:                                               ; preds = %2, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8
   %.035 = phi i1 [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ false, %2 ]
-  %.034 = phi i1 [ true, %8 ], [ true, %9 ], [ true, %10 ], [ true, %11 ], [ true, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ false, %2 ]
   %.033 = phi i1 [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ true, %15 ], [ true, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ false, %21 ], [ false, %22 ], [ false, %2 ]
   %.032 = phi i32 [ 0, %8 ], [ 65536, %9 ], [ 0, %10 ], [ 65536, %11 ], [ 0, %12 ], [ 0, %13 ], [ 65536, %14 ], [ 0, %15 ], [ 65536, %16 ], [ 0, %17 ], [ 0, %18 ], [ 65536, %19 ], [ 0, %20 ], [ 65536, %21 ], [ 0, %22 ], [ 0, %2 ]
   %24 = phi i1 [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %12 ], [ false, %13 ], [ false, %14 ], [ false, %15 ], [ false, %16 ], [ true, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ false, %21 ], [ false, %22 ], [ true, %2 ]
-  %25 = phi i1 [ true, %8 ], [ true, %9 ], [ true, %10 ], [ true, %11 ], [ true, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ false, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ false, %2 ]
+  %or.cond3 = phi i1 [ true, %8 ], [ true, %9 ], [ true, %10 ], [ true, %11 ], [ true, %12 ], [ true, %13 ], [ true, %14 ], [ true, %15 ], [ true, %16 ], [ true, %17 ], [ true, %18 ], [ true, %19 ], [ true, %20 ], [ true, %21 ], [ true, %22 ], [ false, %2 ]
   %.031 = phi i32 [ 256, %8 ], [ 256, %9 ], [ 512, %10 ], [ 512, %11 ], [ 768, %12 ], [ 1024, %13 ], [ 1024, %14 ], [ 512, %15 ], [ 512, %16 ], [ 1536, %17 ], [ 256, %18 ], [ 256, %19 ], [ 512, %20 ], [ 512, %21 ], [ 768, %22 ], [ 1536, %2 ]
   tail call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %4, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1025, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
-  store i32 520093696, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr null, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 0, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 -1, ptr %33, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store i32 -1, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 52
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 61
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 68
-  store i32 0, ptr %37, align 1
-  store i32 -2048, ptr %38, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store i8 0, ptr %40, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 89
-  store i8 0, ptr %41, align 1
-  store i32 0, ptr %39, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i8 0, ptr %42, align 4
-  store i64 -4292882433, ptr %35, align 4
-  store i64 -1, ptr %36, align 4
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 76
-  store i32 -1, ptr %43, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr null, ptr %44, align 8
-  store i64 5, ptr %31, align 8
-  %45 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 373) #16
-  br i1 %45, label %46, label %136
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1025, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
+  store i32 520093696, ptr %28, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr null, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 0, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 -1, ptr %32, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store i32 -1, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %4, i64 44
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 52
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 61
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 68
+  store i32 0, ptr %36, align 1
+  store i32 -2048, ptr %37, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store i8 0, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 89
+  store i8 0, ptr %40, align 1
+  store i32 0, ptr %38, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  store i8 0, ptr %41, align 4
+  store i64 -4292882433, ptr %34, align 4
+  store i64 -1, ptr %35, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 76
+  store i32 -1, ptr %42, align 4
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store ptr null, ptr %43, align 8
+  store i64 5, ptr %30, align 8
+  %44 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 373) #16
+  br i1 %44, label %45, label %135
 
-46:                                               ; preds = %23
+45:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
-  %47 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %46 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %47, label %55, label %48
+  br i1 %46, label %54, label %47
 
-48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %52 = load ptr, ptr %50, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 344
-  %54 = load ptr, ptr %53, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %54(ptr noundef nonnull align 8 dereferenceable(1280) %50, ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1) #16
-  br label %223
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %51 = load ptr, ptr %49, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 344
+  %53 = load ptr, ptr %52, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %53(ptr noundef nonnull align 8 dereferenceable(1280) %49, ptr noundef nonnull align 8 dereferenceable(24) %50, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-55:                                               ; preds = %46
-  %56 = load i32, ptr %26, align 8
-  %trunc = trunc i32 %56 to i8
-  switch i8 %trunc, label %57 [
-    i8 1, label %64
-    i8 9, label %64
-    i8 8, label %64
-    i8 15, label %64
+54:                                               ; preds = %45
+  %55 = load i32, ptr %25, align 8
+  %trunc = trunc i32 %55 to i8
+  switch i8 %trunc, label %56 [
+    i8 1, label %63
+    i8 9, label %63
+    i8 8, label %63
+    i8 15, label %63
   ]
 
-57:                                               ; preds = %55
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 344
-  %63 = load ptr, ptr %62, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %63(ptr noundef nonnull align 8 dereferenceable(1280) %59, ptr noundef nonnull align 8 dereferenceable(24) %60, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1) #16
-  br label %223
+56:                                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = load ptr, ptr %58, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 344
+  %62 = load ptr, ptr %61, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %62(ptr noundef nonnull align 8 dereferenceable(1280) %58, ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.53, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-64:                                               ; preds = %55, %55, %55, %55
-  %65 = and i32 %56, 61440
-  %66 = icmp ne i32 %65, 0
-  %or.cond50 = and i1 %24, %66
-  br i1 %or.cond50, label %67, label %82
+63:                                               ; preds = %54, %54, %54, %54
+  %64 = and i32 %55, 61440
+  %65 = icmp ne i32 %64, 0
+  %or.cond51 = and i1 %24, %65
+  br i1 %or.cond51, label %66, label %81
 
-67:                                               ; preds = %64
-  %68 = lshr i32 %56, 12
-  %69 = and i32 %68, 15
-  %70 = lshr i32 %56, 16
-  %71 = and i32 %70, 15
-  %72 = mul nuw nsw i32 %69, %71
-  %73 = icmp samesign ugt i32 %72, 4
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %77 = load ptr, ptr %75, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 344
-  %79 = load ptr, ptr %78, align 8
-  br i1 %73, label %80, label %81
+66:                                               ; preds = %63
+  %67 = lshr i32 %55, 12
+  %68 = and i32 %67, 15
+  %69 = lshr i32 %55, 16
+  %70 = and i32 %69, 15
+  %71 = mul nuw nsw i32 %68, %70
+  %72 = icmp samesign ugt i32 %71, 4
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %76 = load ptr, ptr %74, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 344
+  %78 = load ptr, ptr %77, align 8
+  br i1 %72, label %79, label %80
 
-80:                                               ; preds = %67
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %79(ptr noundef nonnull align 8 dereferenceable(1280) %75, ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull @.str, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1) #16
-  br label %223
+79:                                               ; preds = %66
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %78(ptr noundef nonnull align 8 dereferenceable(1280) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull @.str, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-81:                                               ; preds = %67
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %79(ptr noundef nonnull align 8 dereferenceable(1280) %75, ptr noundef nonnull align 8 dereferenceable(24) %76, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1) #16
-  br label %223
+80:                                               ; preds = %66
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %78(ptr noundef nonnull align 8 dereferenceable(1280) %74, ptr noundef nonnull align 8 dereferenceable(24) %75, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-82:                                               ; preds = %64
-  %83 = load ptr, ptr %4, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 216
-  %85 = load ptr, ptr %84, align 8
-  %86 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
-  br i1 %86, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %87
+81:                                               ; preds = %63
+  %82 = load ptr, ptr %4, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 216
+  %84 = load ptr, ptr %83, align 8
+  %85 = call noundef zeroext i1 %84(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
+  br i1 %85, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %86
 
-87:                                               ; preds = %82
-  %88 = load ptr, ptr %4, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
-  %90 = load ptr, ptr %89, align 8
-  %91 = call noundef zeroext i1 %90(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
-  br i1 %91, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %92
+86:                                               ; preds = %81
+  %87 = load ptr, ptr %4, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 224
+  %89 = load ptr, ptr %88, align 8
+  %90 = call noundef zeroext i1 %89(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
+  br i1 %90, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %91
 
-92:                                               ; preds = %87
-  %93 = load ptr, ptr %4, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 296
-  %95 = load ptr, ptr %94, align 8
-  %96 = call noundef zeroext i1 %95(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
-  br i1 %96, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %_ZNK7glslang5TType8isScalarEv.exit
+91:                                               ; preds = %86
+  %92 = load ptr, ptr %4, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 296
+  %94 = load ptr, ptr %93, align 8
+  %95 = call noundef zeroext i1 %94(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
+  br i1 %95, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %_ZNK7glslang5TType8isScalarEv.exit
 
-_ZNK7glslang5TType8isScalarEv.exit:               ; preds = %92
-  %97 = load ptr, ptr %4, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 232
-  %99 = load ptr, ptr %98, align 8
-  %100 = call noundef zeroext i1 %99(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
-  br i1 %100, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %113
+_ZNK7glslang5TType8isScalarEv.exit:               ; preds = %91
+  %96 = load ptr, ptr %4, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 232
+  %98 = load ptr, ptr %97, align 8
+  %99 = call noundef zeroext i1 %98(ptr noundef nonnull align 8 dereferenceable(152) %4) #16
+  br i1 %99, label %_ZNK7glslang5TType8isScalarEv.exit.thread, label %112
 
-_ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %82, %87, %92, %_ZNK7glslang5TType8isScalarEv.exit
-  %101 = load i32, ptr %26, align 8
-  %102 = and i32 %101, 1052160
-  %.not = icmp eq i32 %102, 0
-  br i1 %.not, label %103, label %113
+_ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %81, %86, %91, %_ZNK7glslang5TType8isScalarEv.exit
+  %100 = load i32, ptr %25, align 8
+  %101 = and i32 %100, 1052160
+  %.not = icmp eq i32 %101, 0
+  br i1 %.not, label %102, label %112
 
-103:                                              ; preds = %_ZNK7glslang5TType8isScalarEv.exit.thread
-  %104 = and i32 %101, 255
-  %105 = add nsw i32 %104, -15
-  %spec.select.i = icmp ult i32 %105, 2
-  br i1 %spec.select.i, label %113, label %106
+102:                                              ; preds = %_ZNK7glslang5TType8isScalarEv.exit.thread
+  %103 = and i32 %100, 255
+  %104 = add nsw i32 %103, -15
+  %spec.select.i = icmp ult i32 %104, 2
+  br i1 %spec.select.i, label %112, label %105
 
-106:                                              ; preds = %103
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %110 = load ptr, ptr %108, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 344
-  %112 = load ptr, ptr %111, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %112(ptr noundef nonnull align 8 dereferenceable(1280) %108, ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1) #16
-  br label %223
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %107 = load ptr, ptr %106, align 8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %109 = load ptr, ptr %107, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 344
+  %111 = load ptr, ptr %110, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %111(ptr noundef nonnull align 8 dereferenceable(1280) %107, ptr noundef nonnull align 8 dereferenceable(24) %108, ptr noundef nonnull @.str, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-113:                                              ; preds = %103, %_ZNK7glslang5TType8isScalarEv.exit.thread, %_ZNK7glslang5TType8isScalarEv.exit
-  br i1 %.033, label %114, label %127
+112:                                              ; preds = %102, %_ZNK7glslang5TType8isScalarEv.exit.thread, %_ZNK7glslang5TType8isScalarEv.exit
+  br i1 %.033, label %113, label %126
 
-114:                                              ; preds = %113
-  %115 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 362) #16
-  br i1 %115, label %116, label %127
+113:                                              ; preds = %112
+  %114 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 362) #16
+  br i1 %114, label %115, label %126
 
-116:                                              ; preds = %114
-  %117 = call noundef zeroext i1 @_ZNK7glslang15HlslTokenStream14peekTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 317) #16
-  br i1 %117, label %125, label %118
+115:                                              ; preds = %113
+  %116 = call noundef zeroext i1 @_ZNK7glslang15HlslTokenStream14peekTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 317) #16
+  br i1 %116, label %124, label %117
 
-118:                                              ; preds = %116
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %122 = load ptr, ptr %120, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 344
-  %124 = load ptr, ptr %123, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %124(ptr noundef nonnull align 8 dereferenceable(1280) %120, ptr noundef nonnull align 8 dereferenceable(24) %121, ptr noundef nonnull @.str, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1) #16
-  br label %223
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %121 = load ptr, ptr %119, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 344
+  %123 = load ptr, ptr %122, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %123(ptr noundef nonnull align 8 dereferenceable(1280) %119, ptr noundef nonnull align 8 dereferenceable(24) %120, ptr noundef nonnull @.str, ptr noundef nonnull @.str.57, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-125:                                              ; preds = %116
-  %126 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar13acceptLiteralERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  br i1 %126, label %127, label %223
+124:                                              ; preds = %115
+  %125 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar13acceptLiteralERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  br i1 %125, label %126, label %217
 
-127:                                              ; preds = %125, %114, %113
-  %128 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 374) #16
-  br i1 %128, label %152, label %129
+126:                                              ; preds = %124, %113, %112
+  %127 = call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 374) #16
+  br i1 %127, label %151, label %128
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %133 = load ptr, ptr %131, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 344
-  %135 = load ptr, ptr %134, align 8
-  call void (ptr, ptr, ptr, ptr, ptr, ...) %135(ptr noundef nonnull align 8 dereferenceable(1280) %131, ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1) #16
-  br label %223
+128:                                              ; preds = %126
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %132 = load ptr, ptr %130, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 344
+  %134 = load ptr, ptr %133, align 8
+  call void (ptr, ptr, ptr, ptr, ptr, ...) %134(ptr noundef nonnull align 8 dereferenceable(1280) %130, ptr noundef nonnull align 8 dereferenceable(24) %131, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-136:                                              ; preds = %23
-  br i1 %.033, label %137, label %144
+135:                                              ; preds = %23
+  br i1 %.033, label %136, label %143
 
-137:                                              ; preds = %136
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %139 = load ptr, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %141 = load ptr, ptr %139, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 344
-  %143 = load ptr, ptr %142, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %143(ptr noundef nonnull align 8 dereferenceable(1280) %139, ptr noundef nonnull align 8 dereferenceable(24) %140, ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1) #16
-  br label %223
+136:                                              ; preds = %135
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %138 = load ptr, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %140 = load ptr, ptr %138, align 8
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 344
+  %142 = load ptr, ptr %141, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %142(ptr noundef nonnull align 8 dereferenceable(1280) %138, ptr noundef nonnull align 8 dereferenceable(24) %139, ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-144:                                              ; preds = %136
-  br i1 %.035, label %145, label %152
+143:                                              ; preds = %135
+  br i1 %.035, label %144, label %151
 
-145:                                              ; preds = %144
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %149 = load ptr, ptr %147, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 344
-  %151 = load ptr, ptr %150, align 8
-  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %151(ptr noundef nonnull align 8 dereferenceable(1280) %147, ptr noundef nonnull align 8 dereferenceable(24) %148, ptr noundef nonnull @.str, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1) #16
-  br label %223
+144:                                              ; preds = %143
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %146 = load ptr, ptr %145, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %148 = load ptr, ptr %146, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 344
+  %150 = load ptr, ptr %149, align 8
+  tail call void (ptr, ptr, ptr, ptr, ptr, ...) %150(ptr noundef nonnull align 8 dereferenceable(1280) %146, ptr noundef nonnull align 8 dereferenceable(24) %147, ptr noundef nonnull @.str, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.1) #16
+  br label %217
 
-152:                                              ; preds = %144, %127
+151:                                              ; preds = %143, %126
   %or.cond = or i1 %.035, %24
-  br i1 %or.cond, label %153, label %159
+  br i1 %or.cond, label %152, label %158
 
-153:                                              ; preds = %152
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %155 = load ptr, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %157 = call noundef i32 @_ZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %155, ptr noundef nonnull align 8 dereferenceable(24) %156, ptr noundef nonnull align 8 dereferenceable(152) %4) #16
-  %158 = trunc i32 %157 to i8
-  br label %159
+152:                                              ; preds = %151
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %156 = call noundef i32 @_ZN7glslang16HlslParseContext19getLayoutFromTxTypeERKNS_10TSourceLocERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %154, ptr noundef nonnull align 8 dereferenceable(24) %155, ptr noundef nonnull align 8 dereferenceable(152) %4) #16
+  %157 = trunc i32 %156 to i8
+  br label %158
 
-159:                                              ; preds = %152, %153
-  %.030 = phi i8 [ %158, %153 ], [ 0, %152 ]
-  %160 = load i32, ptr %26, align 8
-  %161 = and i32 %160, 255
-  %162 = add nsw i32 %161, -15
-  %spec.select.i36 = icmp ult i32 %162, 2
-  br i1 %spec.select.i36, label %163, label %174
+158:                                              ; preds = %151, %152
+  %.030 = phi i8 [ %157, %152 ], [ 0, %151 ]
+  %159 = load i32, ptr %25, align 8
+  %160 = and i32 %159, 255
+  %161 = add nsw i32 %160, -15
+  %spec.select.i36 = icmp ult i32 %161, 2
+  br i1 %spec.select.i36, label %162, label %173
 
-163:                                              ; preds = %159
-  %164 = getelementptr inbounds nuw i8, ptr %4, i64 104
-  %165 = load ptr, ptr %164, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds nuw i8, ptr %4, i64 104
+  %164 = load ptr, ptr %163, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = load ptr, ptr %165, align 8
   %167 = load ptr, ptr %166, align 8
   %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %168, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 56
-  %171 = load ptr, ptr %170, align 8
-  %172 = call noundef i32 %171(ptr noundef nonnull align 8 dereferenceable(152) %168) #16
-  %173 = and i32 %172, 255
-  br label %174
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 56
+  %170 = load ptr, ptr %169, align 8
+  %171 = call noundef i32 %170(ptr noundef nonnull align 8 dereferenceable(152) %167) #16
+  %172 = and i32 %171, 255
+  br label %173
 
-174:                                              ; preds = %159, %163
-  %175 = phi i32 [ %173, %163 ], [ %161, %159 ]
-  %or.cond3 = or i1 %.035, %25
-  br i1 %or.cond3, label %181, label %176
+173:                                              ; preds = %158, %162
+  %174 = phi i32 [ %172, %162 ], [ %160, %158 ]
+  br i1 %or.cond3, label %175, label %.thread
 
-176:                                              ; preds = %174
-  %177 = load i32, ptr %26, align 8
-  %178 = and i32 %177, 255
-  %179 = or disjoint i32 %178, %.032
-  %180 = or disjoint i32 %179, 521143808
-  br label %192
+175:                                              ; preds = %173
+  %176 = select i1 %.033, i32 520355840, i32 520093696
+  %177 = select i1 %.033, i32 520880128, i32 520617984
+  %.pn53 = select i1 %.035, i32 %177, i32 %176
+  %178 = or disjoint i32 %.pn53, %.031
+  %179 = or disjoint i32 %178, %174
+  %storemerge = or disjoint i32 %179, %.032
+  store i32 %storemerge, ptr %6, align 4
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %181 = load ptr, ptr %180, align 8
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %183 = call noundef zeroext i1 @_ZN7glslang16HlslParseContext20setTextureReturnTypeERNS_8TSamplerERKNS_5TTypeERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2489) %181, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(24) %182) #16
+  br i1 %183, label %._crit_edge, label %217
 
-181:                                              ; preds = %174
-  br i1 %.035, label %182, label %187
-
-182:                                              ; preds = %181
-  %183 = select i1 %.033, i32 520880128, i32 520617984
-  %184 = or disjoint i32 %183, %.032
-  %185 = or disjoint i32 %184, %.031
-  %186 = or disjoint i32 %185, %175
-  br label %192
-
-187:                                              ; preds = %181
-  %188 = select i1 %.033, i32 520355840, i32 520093696
-  %189 = or disjoint i32 %188, %.032
-  %190 = or disjoint i32 %189, %.031
-  %191 = or disjoint i32 %190, %175
-  br label %192
-
-192:                                              ; preds = %182, %187, %176
-  %.sink = phi i32 [ %186, %182 ], [ %191, %187 ], [ %180, %176 ]
-  store i32 %.sink, ptr %6, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %194 = load ptr, ptr %193, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %196 = call noundef zeroext i1 @_ZN7glslang16HlslParseContext20setTextureReturnTypeERNS_8TSamplerERKNS_5TTypeERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2489) %194, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(24) %195) #16
-  br i1 %196, label %197, label %223
-
-197:                                              ; preds = %192
+._crit_edge:                                      ; preds = %175
   %.pre = load i32, ptr %6, align 4
-  br i1 %.034, label %200, label %198
+  br label %194
 
-198:                                              ; preds = %197
-  %199 = and i32 %.pre, -1048577
-  store i32 %199, ptr %6, align 4
-  br label %200
+.thread:                                          ; preds = %173
+  %184 = load i32, ptr %25, align 8
+  %185 = and i32 %184, 255
+  %186 = or disjoint i32 %185, %.032
+  %187 = or disjoint i32 %186, 521143808
+  store i32 %187, ptr %6, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %191 = call noundef zeroext i1 @_ZN7glslang16HlslParseContext20setTextureReturnTypeERNS_8TSamplerERKNS_5TTypeERKNS_10TSourceLocE(ptr noundef nonnull align 8 dereferenceable(2489) %189, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(24) %190) #16
+  br i1 %191, label %.thread49, label %217
 
-200:                                              ; preds = %198, %197
-  %201 = phi i32 [ %199, %198 ], [ %.pre, %197 ]
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %203 = load i32, ptr %202, align 8
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store i32 %201, ptr %204, align 8
-  %205 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr null, ptr %205, align 8
+.thread49:                                        ; preds = %.thread
+  %192 = load i32, ptr %6, align 4
+  %193 = and i32 %192, -1048577
+  store i32 %193, ptr %6, align 4
+  br label %194
+
+194:                                              ; preds = %._crit_edge, %.thread49
+  %195 = phi i32 [ %.pre, %._crit_edge ], [ %193, %.thread49 ]
+  %196 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %197 = load i32, ptr %196, align 8
+  %198 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store i32 %195, ptr %198, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr null, ptr %199, align 8
   %.sroa.14.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i64 5, ptr %.sroa.14.16..sroa_idx, align 8
   %.sroa.16.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7315,34 +7298,34 @@ _ZNK7glslang5TType8isScalarEv.exit.thread:        ; preds = %82, %87, %92, %_ZNK
   store i8 0, ptr %.sroa.30.16..sroa_idx, align 8
   %.sroa.31.16..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 89
   store i8 0, ptr %.sroa.31.16..sroa_idx, align 1
-  %206 = and i32 %203, -2097152
-  %207 = or disjoint i32 %206, 270
-  store i32 %207, ptr %202, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %200 = and i32 %197, -2097152
+  %201 = or disjoint i32 %200, 270
+  store i32 %201, ptr %196, align 8
+  %202 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store ptr null, ptr %202, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %203, i8 0, i64 16, i1 false)
+  %204 = load ptr, ptr %1, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 296
+  %206 = load ptr, ptr %205, align 8
+  %207 = call noundef zeroext i1 %206(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %208 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %208, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %209 = getelementptr inbounds nuw i8, ptr %1, i64 136
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, i8 0, i64 16, i1 false)
-  %210 = load ptr, ptr %1, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 296
-  %212 = load ptr, ptr %211, align 8
-  %213 = call noundef zeroext i1 %212(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  %214 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr null, ptr %214, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %215, i8 0, i64 16, i1 false)
-  %216 = load i32, ptr %202, align 8
-  %217 = and i32 %216, -132120577
-  store i32 %217, ptr %202, align 8
-  %218 = load ptr, ptr %1, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %218, i64 80
-  %220 = load ptr, ptr %219, align 8
-  %221 = call noundef nonnull align 8 dereferenceable(80) ptr %220(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  %222 = getelementptr inbounds nuw i8, ptr %221, i64 44
-  store i8 %.030, ptr %222, align 4
-  br label %223
+  %210 = load i32, ptr %196, align 8
+  %211 = and i32 %210, -132120577
+  store i32 %211, ptr %196, align 8
+  %212 = load ptr, ptr %1, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 80
+  %214 = load ptr, ptr %213, align 8
+  %215 = call noundef nonnull align 8 dereferenceable(80) ptr %214(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 44
+  store i8 %.030, ptr %216, align 4
+  br label %217
 
-223:                                              ; preds = %48, %57, %80, %81, %106, %118, %129, %137, %145, %200, %125, %192, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %57 ], [ false, %80 ], [ false, %81 ], [ true, %200 ], [ false, %129 ], [ false, %118 ], [ false, %106 ], [ false, %48 ], [ false, %137 ], [ false, %145 ], [ false, %125 ], [ false, %192 ]
+217:                                              ; preds = %47, %56, %79, %80, %105, %117, %128, %136, %144, %194, %124, %175, %.thread, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %56 ], [ false, %79 ], [ false, %80 ], [ true, %194 ], [ false, %128 ], [ false, %117 ], [ false, %105 ], [ false, %47 ], [ false, %136 ], [ false, %144 ], [ false, %124 ], [ false, %175 ], [ false, %.thread ]
   ret i1 %.0
 }
 
@@ -7586,7 +7569,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   %5 = alloca %"class.glslang::TType", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = tail call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
-  switch i32 %7, label %164 [
+  switch i32 %7, label %163 [
     i32 298, label %12
     i32 299, label %8
     i32 300, label %12
@@ -7608,8 +7591,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   br label %12
 
 12:                                               ; preds = %2, %2, %11, %10, %9, %8
-  %.022 = phi i64 [ 18694, %8 ], [ 18822, %9 ], [ 18438, %10 ], [ 18566, %11 ], [ 18310, %2 ], [ 18310, %2 ]
-  %.021 = phi i64 [ 140737488355328, %8 ], [ 0, %9 ], [ 0, %10 ], [ 140737488355328, %11 ], [ 0, %2 ], [ 0, %2 ]
+  %.022 = phi i64 [ 140737488374022, %8 ], [ 18822, %9 ], [ 18438, %10 ], [ 140737488373894, %11 ], [ 18310, %2 ], [ 18310, %2 ]
   %.020 = phi i1 [ false, %8 ], [ false, %9 ], [ true, %10 ], [ true, %11 ], [ true, %2 ], [ true, %2 ]
   tail call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   %13 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
@@ -7682,7 +7664,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 344
   %57 = load ptr, ptr %56, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %57(ptr noundef nonnull align 8 dereferenceable(1280) %53, ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull @.str, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.1) #16
-  br label %164
+  br label %163
 
 58:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -7699,7 +7681,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 344
   %66 = load ptr, ptr %65, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %66(ptr noundef nonnull align 8 dereferenceable(1280) %62, ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull @.str, ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.1) #16
-  br label %164
+  br label %163
 
 67:                                               ; preds = %58
   %68 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 374) #16
@@ -7713,7 +7695,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 344
   %75 = load ptr, ptr %74, align 8
   tail call void (ptr, ptr, ptr, ptr, ptr, ...) %75(ptr noundef nonnull align 8 dereferenceable(1280) %71, ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.1) #16
-  br label %164
+  br label %163
 
 76:                                               ; preds = %12
   %77 = or disjoint i32 %17, 265
@@ -7828,56 +7810,55 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar22acceptStructBufferTypeERNS_
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %128 = load i64, ptr %127, align 8
   %129 = and i64 %128, -140737488420864
-  %130 = or disjoint i64 %.021, %.022
-  %131 = or disjoint i64 %130, %129
-  store i64 %131, ptr %127, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %133 = load ptr, ptr %132, align 8
-  call void @_ZN7glslang16HlslParseContext21shareStructBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %133, ptr noundef nonnull align 8 dereferenceable(152) %5) #16
-  %134 = load i32, ptr %117, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %136 = load i32, ptr %135, align 8
-  %137 = and i32 %136, -2097152
-  %138 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %139 = load i32, ptr %123, align 8
-  store i32 %139, ptr %138, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %140, ptr noundef nonnull align 8 dereferenceable(80) %118, i64 80, i1 false)
-  %141 = and i32 %134, 2097151
-  %142 = or disjoint i32 %137, %141
-  store i32 %142, ptr %135, align 8
-  %143 = load ptr, ptr %119, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr %143, ptr %144, align 8
-  %145 = load ptr, ptr %121, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr %145, ptr %146, align 8
-  %147 = load ptr, ptr %126, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store ptr %147, ptr %148, align 8
-  %149 = load ptr, ptr %1, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 296
-  %151 = load ptr, ptr %150, align 8
-  %152 = call noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %130 = or disjoint i64 %129, %.022
+  store i64 %130, ptr %127, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %132 = load ptr, ptr %131, align 8
+  call void @_ZN7glslang16HlslParseContext21shareStructBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %132, ptr noundef nonnull align 8 dereferenceable(152) %5) #16
+  %133 = load i32, ptr %117, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %135 = load i32, ptr %134, align 8
+  %136 = and i32 %135, -2097152
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %138 = load i32, ptr %123, align 8
+  store i32 %138, ptr %137, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %139, ptr noundef nonnull align 8 dereferenceable(80) %118, i64 80, i1 false)
+  %140 = and i32 %133, 2097151
+  %141 = or disjoint i32 %136, %140
+  store i32 %141, ptr %134, align 8
+  %142 = load ptr, ptr %119, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store ptr %142, ptr %143, align 8
+  %144 = load ptr, ptr %121, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store ptr %144, ptr %145, align 8
+  %146 = load ptr, ptr %126, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store ptr %146, ptr %147, align 8
+  %148 = load ptr, ptr %1, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %148, i64 296
+  %150 = load ptr, ptr %149, align 8
+  %151 = call noundef zeroext i1 %150(ptr noundef nonnull align 8 dereferenceable(152) %1) #16
   %.sink.i30 = load ptr, ptr %120, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr %.sink.i30, ptr %153, align 8
-  %154 = load ptr, ptr %122, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  store ptr %154, ptr %155, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %5, i64 144
-  %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  store ptr %157, ptr %158, align 8
-  %159 = load i32, ptr %117, align 8
-  %160 = load i32, ptr %135, align 8
-  %161 = and i32 %160, -132120577
-  %162 = and i32 %159, 132120576
-  %163 = or disjoint i32 %161, %162
-  store i32 %163, ptr %135, align 8
-  br label %164
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  store ptr %.sink.i30, ptr %152, align 8
+  %153 = load ptr, ptr %122, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  store ptr %153, ptr %154, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  store ptr %156, ptr %157, align 8
+  %158 = load i32, ptr %117, align 8
+  %159 = load i32, ptr %134, align 8
+  %160 = and i32 %159, -132120577
+  %161 = and i32 %158, 132120576
+  %162 = or disjoint i32 %160, %161
+  store i32 %162, ptr %134, align 8
+  br label %163
 
-164:                                              ; preds = %2, %._crit_edge.i.i, %69, %60, %51
+163:                                              ; preds = %2, %._crit_edge.i.i, %69, %60, %51
   %.0 = phi i1 [ true, %._crit_edge.i.i ], [ false, %69 ], [ false, %60 ], [ false, %51 ], [ false, %2 ]
   ret i1 %.0
 }
@@ -8243,9 +8224,8 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar12acceptStructERNS_5TTypeERP1
   br i1 %14, label %._crit_edge.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 ._crit_edge.i.i:                                  ; preds = %9, %3, %13, %11
-  %.035 = phi i64 [ 0, %11 ], [ 0, %13 ], [ 0, %3 ], [ 140737488355328, %9 ]
   %15 = phi i1 [ true, %11 ], [ true, %13 ], [ false, %3 ], [ false, %9 ]
-  %.034 = phi i64 [ 0, %11 ], [ 0, %13 ], [ 5, %3 ], [ 6, %9 ]
+  %.034 = phi i64 [ 0, %11 ], [ 0, %13 ], [ 5, %3 ], [ 140737488355334, %9 ]
   %16 = tail call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   %17 = tail call noundef ptr @_ZNK7glslang11HlslGrammar13getTypeStringENS_15EHlslTokenClassE(ptr nonnull align 8 poison, i32 noundef %16)
   %18 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #16
@@ -8497,178 +8477,177 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
   store ptr null, ptr %145, align 8
   %146 = and i64 %125, -9223372019674906624
   store i64 %146, ptr %124, align 8
-  br label %166
+  br label %165
 
 147:                                              ; preds = %108
   %148 = load i64, ptr %57, align 8
   %149 = and i64 %148, -140737488355456
-  %150 = or disjoint i64 %.034, %.035
-  %151 = or disjoint i64 %150, %149
-  store i64 %151, ptr %57, align 8
-  %152 = load ptr, ptr %6, align 8
+  %150 = or disjoint i64 %.034, %149
+  store i64 %150, ptr %57, align 8
+  %151 = load ptr, ptr %6, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 472) (i8, ptr @_ZTVN7glslang5TTypeE, i64 16), ptr %1, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %154 = load i32, ptr %153, align 8
-  %155 = and i32 %154, -134217728
-  %156 = or disjoint i32 %155, 272
-  store i32 %156, ptr %153, align 8
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %157, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  store ptr null, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  store ptr %152, ptr %159, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  store ptr null, ptr %160, align 8
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %161, i8 0, i64 16, i1 false)
-  %163 = load i32, ptr %162, align 8
-  %164 = and i32 %163, -2147483648
-  %165 = or disjoint i32 %164, 520093696
-  store i32 %165, ptr %162, align 8
-  br label %166
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %153 = load i32, ptr %152, align 8
+  %154 = and i32 %153, -134217728
+  %155 = or disjoint i32 %154, 272
+  store i32 %155, ptr %152, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %156, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
+  %157 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  store ptr null, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  store ptr %151, ptr %158, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  store ptr null, ptr %159, align 8
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %160, i8 0, i64 16, i1 false)
+  %162 = load i32, ptr %161, align 8
+  %163 = and i32 %162, -2147483648
+  %164 = or disjoint i32 %163, 520093696
+  store i32 %164, ptr %161, align 8
+  br label %165
 
-166:                                              ; preds = %147, %109
-  %167 = load ptr, ptr %20, align 8
-  %168 = call noundef ptr @_ZN7glslang14NewPoolTStringB5cxx11EPKc(ptr noundef %167)
-  %169 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  store ptr %168, ptr %169, align 8
-  %170 = load ptr, ptr %90, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %170, ptr noundef nonnull align 8 dereferenceable(24) %171, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(152) %1) #16
-  %172 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %173 = load ptr, ptr %172, align 8
-  %174 = load ptr, ptr %89, align 8
+165:                                              ; preds = %147, %109
+  %166 = load ptr, ptr %20, align 8
+  %167 = call noundef ptr @_ZN7glslang14NewPoolTStringB5cxx11EPKc(ptr noundef %166)
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  store ptr %167, ptr %168, align 8
+  %169 = load ptr, ptr %90, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN7glslang16HlslParseContext13declareStructERKNS_10TSourceLocERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %169, ptr noundef nonnull align 8 dereferenceable(24) %170, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(152) %1) #16
+  %171 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %172 = load ptr, ptr %171, align 8
+  %173 = load ptr, ptr %89, align 8
+  %174 = ptrtoint ptr %172 to i64
   %175 = ptrtoint ptr %173 to i64
-  %176 = ptrtoint ptr %174 to i64
-  %177 = sub i64 %175, %176
-  %178 = sdiv exact i64 %177, 72
-  %179 = trunc i64 %178 to i32
-  %180 = icmp sgt i32 %179, 0
-  br i1 %180, label %.lr.ph, label %._crit_edge
+  %176 = sub i64 %174, %175
+  %177 = sdiv exact i64 %176, 72
+  %178 = trunc i64 %177 to i32
+  %179 = icmp sgt i32 %178, 0
+  br i1 %179, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %166
-  %181 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  br label %182
+.lr.ph:                                           ; preds = %165
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  br label %181
 
-182:                                              ; preds = %.lr.ph, %202
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %202 ]
-  %183 = phi ptr [ %174, %.lr.ph ], [ %204, %202 ]
-  %184 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %183, i64 %indvars.iv
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
+181:                                              ; preds = %.lr.ph, %201
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %201 ]
+  %182 = phi ptr [ %173, %.lr.ph ], [ %203, %201 ]
+  %183 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %182, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
+  %185 = load ptr, ptr %184, align 8
   %186 = load ptr, ptr %185, align 8
-  %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 264
-  %189 = load ptr, ptr %188, align 8
-  %190 = call noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(340) %186) #16
-  br i1 %190, label %191, label %202
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 264
+  %188 = load ptr, ptr %187, align 8
+  %189 = call noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(340) %185) #16
+  br i1 %189, label %190, label %201
 
-191:                                              ; preds = %182
-  %192 = load ptr, ptr %89, align 8
-  %193 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %192, i64 %indvars.iv
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
-  %195 = load ptr, ptr %194, align 8
-  %196 = load ptr, ptr %181, align 8
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 752
-  %198 = load ptr, ptr %197, align 8
-  %199 = load ptr, ptr %195, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 184
-  %201 = load ptr, ptr %200, align 8
-  call void %201(ptr noundef nonnull align 8 dereferenceable(340) %195, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %198) #16
-  br label %202
+190:                                              ; preds = %181
+  %191 = load ptr, ptr %89, align 8
+  %192 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %191, i64 %indvars.iv
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 24
+  %194 = load ptr, ptr %193, align 8
+  %195 = load ptr, ptr %180, align 8
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 752
+  %197 = load ptr, ptr %196, align 8
+  %198 = load ptr, ptr %194, align 8
+  %199 = getelementptr inbounds nuw i8, ptr %198, i64 184
+  %200 = load ptr, ptr %199, align 8
+  call void %200(ptr noundef nonnull align 8 dereferenceable(340) %194, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %197) #16
+  br label %201
 
-202:                                              ; preds = %182, %191
+201:                                              ; preds = %181, %190
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %203 = load ptr, ptr %172, align 8
-  %204 = load ptr, ptr %89, align 8
+  %202 = load ptr, ptr %171, align 8
+  %203 = load ptr, ptr %89, align 8
+  %204 = ptrtoint ptr %202 to i64
   %205 = ptrtoint ptr %203 to i64
-  %206 = ptrtoint ptr %204 to i64
-  %207 = sub i64 %205, %206
-  %208 = sdiv exact i64 %207, 72
-  %sext = shl i64 %208, 32
-  %209 = ashr exact i64 %sext, 32
-  %210 = icmp slt i64 %indvars.iv.next, %209
-  br i1 %210, label %182, label %._crit_edge, !llvm.loop !50
+  %206 = sub i64 %204, %205
+  %207 = sdiv exact i64 %206, 72
+  %sext = shl i64 %207, 32
+  %208 = ashr exact i64 %sext, 32
+  %209 = icmp slt i64 %indvars.iv.next, %208
+  br i1 %209, label %181, label %._crit_edge, !llvm.loop !50
 
-._crit_edge:                                      ; preds = %202, %166
+._crit_edge:                                      ; preds = %201, %165
+  %210 = load ptr, ptr %90, align 8
+  call void @_ZN7glslang16HlslParseContext13pushNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(2489) %210, ptr noundef nonnull align 8 dereferenceable(40) %4) #16
   %211 = load ptr, ptr %90, align 8
-  call void @_ZN7glslang16HlslParseContext13pushNamespaceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(2489) %211, ptr noundef nonnull align 8 dereferenceable(40) %4) #16
-  %212 = load ptr, ptr %90, align 8
-  call void @_ZN7glslang16HlslParseContext13pushThisScopeERKNS_5TTypeERKNS_7TVectorINS_19TFunctionDeclaratorEEE(ptr noundef nonnull align 8 dereferenceable(2489) %212, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  %213 = load ptr, ptr %172, align 8
-  %214 = load ptr, ptr %89, align 8
+  call void @_ZN7glslang16HlslParseContext13pushThisScopeERKNS_5TTypeERKNS_7TVectorINS_19TFunctionDeclaratorEEE(ptr noundef nonnull align 8 dereferenceable(2489) %211, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(32) %7) #16
+  %212 = load ptr, ptr %171, align 8
+  %213 = load ptr, ptr %89, align 8
+  %214 = ptrtoint ptr %212 to i64
   %215 = ptrtoint ptr %213 to i64
-  %216 = ptrtoint ptr %214 to i64
-  %217 = sub i64 %215, %216
-  %218 = sdiv exact i64 %217, 72
-  %219 = trunc i64 %218 to i32
-  %220 = icmp sgt i32 %219, 0
-  br i1 %220, label %.lr.ph41, label %._crit_edge42
+  %216 = sub i64 %214, %215
+  %217 = sdiv exact i64 %216, 72
+  %218 = trunc i64 %217 to i32
+  %219 = icmp sgt i32 %218, 0
+  br i1 %219, label %.lr.ph41, label %._crit_edge42
 
 .lr.ph41:                                         ; preds = %._crit_edge, %.lr.ph41
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.lr.ph41 ], [ 0, %._crit_edge ]
-  %221 = phi ptr [ %229, %.lr.ph41 ], [ %214, %._crit_edge ]
-  %222 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %221, i64 %indvars.iv44
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 64
-  %224 = load ptr, ptr %223, align 8
-  call void @_ZN7glslang15HlslTokenStream15pushTokenStreamEPKNS_7TVectorINS_9HlslTokenEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %224) #16
-  %225 = load ptr, ptr %89, align 8
-  %226 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %225, i64 %indvars.iv44
-  %227 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar18acceptFunctionBodyERNS_19TFunctionDeclaratorERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(72) %226, ptr noundef nonnull align 8 dereferenceable(8) %2)
+  %220 = phi ptr [ %228, %.lr.ph41 ], [ %213, %._crit_edge ]
+  %221 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %220, i64 %indvars.iv44
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 64
+  %223 = load ptr, ptr %222, align 8
+  call void @_ZN7glslang15HlslTokenStream15pushTokenStreamEPKNS_7TVectorINS_9HlslTokenEEE(ptr noundef nonnull align 8 dereferenceable(324) %0, ptr noundef %223) #16
+  %224 = load ptr, ptr %89, align 8
+  %225 = getelementptr inbounds nuw %"class.glslang::TFunctionDeclarator", ptr %224, i64 %indvars.iv44
+  %226 = call noundef zeroext i1 @_ZN7glslang11HlslGrammar18acceptFunctionBodyERNS_19TFunctionDeclaratorERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(72) %225, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @_ZN7glslang15HlslTokenStream14popTokenStreamEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %228 = load ptr, ptr %172, align 8
-  %229 = load ptr, ptr %89, align 8
+  %227 = load ptr, ptr %171, align 8
+  %228 = load ptr, ptr %89, align 8
+  %229 = ptrtoint ptr %227 to i64
   %230 = ptrtoint ptr %228 to i64
-  %231 = ptrtoint ptr %229 to i64
-  %232 = sub i64 %230, %231
-  %233 = sdiv exact i64 %232, 72
-  %sext51 = shl i64 %233, 32
-  %234 = ashr exact i64 %sext51, 32
-  %235 = icmp slt i64 %indvars.iv.next45, %234
-  %236 = and i1 %235, %227
-  br i1 %236, label %.lr.ph41, label %._crit_edge42, !llvm.loop !51
+  %231 = sub i64 %229, %230
+  %232 = sdiv exact i64 %231, 72
+  %sext51 = shl i64 %232, 32
+  %233 = ashr exact i64 %sext51, 32
+  %234 = icmp slt i64 %indvars.iv.next45, %233
+  %235 = and i1 %234, %226
+  br i1 %235, label %.lr.ph41, label %._crit_edge42, !llvm.loop !51
 
 ._crit_edge42:                                    ; preds = %.lr.ph41, %._crit_edge
-  %.030.lcssa = phi i1 [ true, %._crit_edge ], [ %227, %.lr.ph41 ]
-  %237 = load ptr, ptr %90, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %237, i64 232
-  %239 = load ptr, ptr %238, align 8
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  %241 = load ptr, ptr %240, align 8
-  %242 = getelementptr inbounds i8, ptr %241, i64 -8
-  %243 = load ptr, ptr %242, align 8
-  %244 = icmp eq ptr %243, null
-  br i1 %244, label %_ZN7glslang16HlslParseContext12popThisScopeEv.exit, label %245
+  %.030.lcssa = phi i1 [ true, %._crit_edge ], [ %226, %.lr.ph41 ]
+  %236 = load ptr, ptr %90, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 232
+  %238 = load ptr, ptr %237, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
+  %240 = load ptr, ptr %239, align 8
+  %241 = getelementptr inbounds i8, ptr %240, i64 -8
+  %242 = load ptr, ptr %241, align 8
+  %243 = icmp eq ptr %242, null
+  br i1 %243, label %_ZN7glslang16HlslParseContext12popThisScopeEv.exit, label %244
 
-245:                                              ; preds = %._crit_edge42
-  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %243) #16
-  %.pre2.i.i = load ptr, ptr %240, align 8
+244:                                              ; preds = %._crit_edge42
+  call void @_ZN7glslang17TSymbolTableLevelD1Ev(ptr noundef nonnull align 8 dereferenceable(101) %242) #16
+  %.pre2.i.i = load ptr, ptr %239, align 8
   br label %_ZN7glslang16HlslParseContext12popThisScopeEv.exit
 
-_ZN7glslang16HlslParseContext12popThisScopeEv.exit: ; preds = %._crit_edge42, %245
-  %246 = phi ptr [ %.pre2.i.i, %245 ], [ %241, %._crit_edge42 ]
-  %247 = getelementptr inbounds i8, ptr %246, i64 -8
-  store ptr %247, ptr %240, align 8
-  %248 = load ptr, ptr %239, align 8
+_ZN7glslang16HlslParseContext12popThisScopeEv.exit: ; preds = %._crit_edge42, %244
+  %245 = phi ptr [ %.pre2.i.i, %244 ], [ %240, %._crit_edge42 ]
+  %246 = getelementptr inbounds i8, ptr %245, i64 -8
+  store ptr %246, ptr %239, align 8
+  %247 = load ptr, ptr %238, align 8
+  %248 = ptrtoint ptr %246 to i64
   %249 = ptrtoint ptr %247 to i64
-  %250 = ptrtoint ptr %248 to i64
-  %251 = sub i64 %249, %250
-  %252 = lshr exact i64 %251, 3
-  %253 = trunc i64 %252 to i32
-  %254 = add nsw i32 %253, -1
-  %255 = icmp ugt i32 %254, 127
-  %256 = zext nneg i32 %254 to i64
-  %257 = shl nuw nsw i64 %256, 56
-  %258 = select i1 %255, i64 9151314442816847872, i64 %257
-  %259 = getelementptr inbounds nuw i8, ptr %239, i64 24
-  %260 = load i64, ptr %259, align 8
-  %261 = and i64 %260, 72057594037927935
-  %262 = or disjoint i64 %258, %261
-  store i64 %262, ptr %259, align 8
-  %263 = load ptr, ptr %90, align 8
-  call void @_ZN7glslang16HlslParseContext12popNamespaceEv(ptr noundef nonnull align 8 dereferenceable(2489) %263) #16
+  %250 = sub i64 %248, %249
+  %251 = lshr exact i64 %250, 3
+  %252 = trunc i64 %251 to i32
+  %253 = add nsw i32 %252, -1
+  %254 = icmp ugt i32 %253, 127
+  %255 = zext nneg i32 %253 to i64
+  %256 = shl nuw nsw i64 %255, 56
+  %257 = select i1 %254, i64 9151314442816847872, i64 %256
+  %258 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  %259 = load i64, ptr %258, align 8
+  %260 = and i64 %259, 72057594037927935
+  %261 = or disjoint i64 %257, %260
+  store i64 %261, ptr %258, align 8
+  %262 = load ptr, ptr %90, align 8
+  call void @_ZN7glslang16HlslParseContext12popNamespaceEv(ptr noundef nonnull align 8 dereferenceable(2489) %262) #16
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2Ev.exit: ; preds = %80, %76, %_ZN7glslang16HlslParseContext12popThisScopeEv.exit, %102, %94, %13

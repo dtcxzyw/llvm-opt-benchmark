@@ -4217,7 +4217,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %23 = load ptr, ptr @parsed_ident_lines, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %.critedge, label %.lr.ph
+  br i1 %.not, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -4225,19 +4225,19 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %28 = load i32, ptr %24, align 4
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph53, label %.critedge
+  br i1 %29, label %.lr.ph57, label %.critedge.thread
 
 30:                                               ; preds = %check_ident_usermap.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv52, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv56, 1
   %31 = load i32, ptr %24, align 4
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph53, label %.critedge
+  br i1 %33, label %.lr.ph57, label %.critedge.thread
 
-.lr.ph53:                                         ; preds = %.lr.ph, %30
-  %indvars.iv52 = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph ]
+.lr.ph57:                                         ; preds = %.lr.ph, %30
+  %indvars.iv56 = phi i64 [ %indvars.iv.next, %30 ], [ 0, %.lr.ph ]
   %34 = load ptr, ptr %25, align 8
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv52
+  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv56
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8
@@ -4245,7 +4245,7 @@ define dso_local range(i32 -1, 1) i32 @check_usermap(ptr noundef %0, ptr noundef
   %.not.i = icmp eq i32 %39, 0
   br i1 %.not.i, label %40, label %check_ident_usermap.exit
 
-40:                                               ; preds = %.lr.ph53
+40:                                               ; preds = %.lr.ph57
   %41 = call i32 @get_role_oid(ptr noundef %1, i1 noundef zeroext true) #13
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %43 = load ptr, ptr %42, align 8
@@ -4423,41 +4423,38 @@ free_auth_token.exit.i:                           ; preds = %90, %92, %131, %.cr
   %144 = call fastcc zeroext i1 @check_role(ptr noundef %1, i32 noundef %41, ptr noundef %143, i1 noundef zeroext %3)
   br label %check_ident_usermap.exit
 
-check_ident_usermap.exit:                         ; preds = %.lr.ph53, %free_auth_token.exit.i, %134, %137, %140
-  %.337.shrunk = phi i1 [ %144, %140 ], [ false, %134 ], [ false, %137 ], [ %.236.shrunk, %free_auth_token.exit.i ], [ false, %.lr.ph53 ]
-  %.4 = phi i8 [ 0, %140 ], [ 0, %134 ], [ 0, %137 ], [ %.3, %free_auth_token.exit.i ], [ 0, %.lr.ph53 ]
+check_ident_usermap.exit:                         ; preds = %.lr.ph57, %free_auth_token.exit.i, %134, %137, %140
+  %.337.shrunk = phi i1 [ %144, %140 ], [ false, %134 ], [ false, %137 ], [ %.236.shrunk, %free_auth_token.exit.i ], [ false, %.lr.ph57 ]
+  %.4 = phi i8 [ 0, %140 ], [ 0, %134 ], [ 0, %137 ], [ %.3, %free_auth_token.exit.i ], [ 0, %.lr.ph57 ]
   %145 = trunc nuw i8 %.4 to i1
   %or.cond = select i1 %.337.shrunk, i1 true, i1 %145
-  br i1 %or.cond, label %.critedge.split.loop.exit41, label %30
+  br i1 %or.cond, label %.critedge, label %30
 
-.critedge.split.loop.exit41:                      ; preds = %check_ident_usermap.exit
+.critedge:                                        ; preds = %check_ident_usermap.exit
   %.337.le = zext i1 %.337.shrunk to i8
-  br label %.critedge
+  %146 = or i8 %.4, %.337.le
+  %147 = icmp eq i8 %146, 0
+  %148 = xor i8 %.337.le, 1
+  %149 = zext nneg i8 %148 to i32
+  br i1 %147, label %.critedge.thread, label %153
 
-.critedge:                                        ; preds = %30, %.lr.ph, %22, %.critedge.split.loop.exit41
-  %.135 = phi i8 [ %.337.le, %.critedge.split.loop.exit41 ], [ 0, %22 ], [ 0, %.lr.ph ], [ 0, %30 ]
-  %.1 = phi i8 [ %.4, %.critedge.split.loop.exit41 ], [ 0, %22 ], [ 0, %.lr.ph ], [ 0, %30 ]
-  %146 = or i8 %.1, %.135
-  %or.cond3.not = icmp eq i8 %146, 0
-  br i1 %or.cond3.not, label %147, label %151
+.critedge.thread:                                 ; preds = %30, %.lr.ph, %22, %.critedge
+  %.13555 = phi i32 [ %149, %.critedge ], [ 1, %22 ], [ 1, %.lr.ph ], [ 1, %30 ]
+  %150 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
+  br i1 %150, label %151, label %153
 
-147:                                              ; preds = %.critedge
-  %148 = call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #13
-  br i1 %148, label %149, label %151
-
-149:                                              ; preds = %147
-  %150 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.78, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #13
+151:                                              ; preds = %.critedge.thread
+  %152 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.78, ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 2950, ptr noundef nonnull @__func__.check_usermap) #13
-  br label %151
+  br label %153
 
-151:                                              ; preds = %147, %149, %.critedge
-  %152 = xor i8 %.135, 1
-  %153 = zext nneg i8 %152 to i32
-  %154 = sub nsw i32 0, %153
+153:                                              ; preds = %.critedge.thread, %151, %.critedge
+  %.13554 = phi i32 [ %.13555, %.critedge.thread ], [ %.13555, %151 ], [ %149, %.critedge ]
+  %154 = sub nsw i32 0, %.13554
   br label %155
 
-155:                                              ; preds = %18, %20, %15, %12, %151
-  %.0 = phi i32 [ %154, %151 ], [ 0, %12 ], [ 0, %15 ], [ -1, %20 ], [ -1, %18 ]
+155:                                              ; preds = %18, %20, %15, %12, %153
+  %.0 = phi i32 [ %154, %153 ], [ 0, %12 ], [ 0, %15 ], [ -1, %20 ], [ -1, %18 ]
   ret i32 %.0
 }
 

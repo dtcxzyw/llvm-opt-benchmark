@@ -13809,8 +13809,8 @@ _ZN4llvm13isPowerOf2_64Em.exit.i:                 ; preds = %50
   br label %_ZN4llvm4yaml12ScalarTraitsINS_10MaybeAlignEvE5inputENS_9StringRefEPvRS2_.exit
 
 _ZN4llvm4yaml12ScalarTraitsINS_10MaybeAlignEvE5inputENS_9StringRefEPvRS2_.exit: ; preds = %50, %54
-  %.sroa.0.0.insert.insert.i = phi i16 [ %57, %54 ], [ 0, %50 ]
-  store i16 %.sroa.0.0.insert.insert.i, ptr %1, align 1
+  %.sroa.4.0.i = phi i16 [ %57, %54 ], [ 0, %50 ]
+  store i16 %.sroa.4.0.i, ptr %1, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %65
 

@@ -32767,8 +32767,8 @@ define dso_local i64 @_ZN5clang18SemaCodeCompletion31ProduceConstructorSignature
   %46 = load ptr, ptr %45, align 8, !tbaa !808
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, 128
-  %.not104 = icmp eq i64 %48, 0
-  br i1 %.not104, label %.thread102, label %49
+  %.not120 = icmp eq i64 %48, 0
+  br i1 %.not120, label %.thread118, label %49
 
 49:                                               ; preds = %40, %35
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -32917,7 +32917,7 @@ _ZL40getNextAggregateIndexAfterDesignatedInitRKN5clang20CodeCompleteConsumer17Ov
   %107 = call fastcc i64 @_ZL20ProduceSignatureHelpRN5clang4SemaEN4llvm15MutableArrayRefINS_20CodeCompleteConsumer17OverloadCandidateEEEjNS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17504) %103, ptr %104, i64 %106, i32 noundef %101, i32 %5, i1 noundef zeroext true)
   br label %.critedge71
 
-.critedge:                                        ; preds = %._crit_edge.i, %49
+.critedge:                                        ; preds = %49, %._crit_edge.i
   %108 = zext i32 %51 to i64
   %109 = icmp ult i64 %4, %108
   br i1 %109, label %110, label %131
@@ -32970,9 +32970,9 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang20CodeCompleteConsumer17OverloadCandida
 
 132:                                              ; preds = %131, %31, %25
   %.not65 = icmp eq ptr %spec.select.i.i, null
-  br i1 %.not65, label %208, label %.thread102
+  br i1 %.not65, label %208, label %.thread118
 
-.thread102:                                       ; preds = %40, %132
+.thread118:                                       ; preds = %40, %132
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %133 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %133, ptr %10, align 8, !tbaa !28
@@ -33021,21 +33021,21 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang20CodeCompleteConsumer17OverloadCandida
   store i32 0, ptr %155, align 8, !tbaa !1971
   %156 = load ptr, ptr %0, align 8, !tbaa !1483
   %157 = call i64 @_ZN5clang4Sema18LookupConstructorsEPNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %156, ptr noundef nonnull %24) #31
-  %.not105112 = icmp eq i64 %157, 0
-  br i1 %.not105112, label %._crit_edge, label %.lr.ph
+  %.not121128 = icmp eq i64 %157, 0
+  br i1 %.not121128, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge73, %_ZN5clang12DeclListNode8iteratorppEv.exit, %.thread102
+._crit_edge:                                      ; preds = %.critedge73, %_ZN5clang12DeclListNode8iteratorppEv.exit, %.thread118
   %158 = load ptr, ptr %0, align 8, !tbaa !1483
   call fastcc void @_ZL26mergeCandidatesWithResultsRN5clang4SemaERN4llvm15SmallVectorImplINS_20CodeCompleteConsumer17OverloadCandidateEEERNS_20OverloadCandidateSetENS_14SourceLocationEm(ptr noundef nonnull align 8 dereferenceable(17504) %158, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(6628) %10, i32 %2, i64 noundef %4)
   call void @_ZN5clang20OverloadCandidateSetD2Ev(ptr noundef nonnull align 8 dereferenceable(6628) %10) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %208
 
-.lr.ph:                                           ; preds = %.thread102, %_ZN5clang12DeclListNode8iteratorppEv.exit
-  %.sroa.080.0113 = phi i64 [ %207, %_ZN5clang12DeclListNode8iteratorppEv.exit ], [ %157, %.thread102 ]
-  %159 = and i64 %.sroa.080.0113, 4
+.lr.ph:                                           ; preds = %.thread118, %_ZN5clang12DeclListNode8iteratorppEv.exit
+  %.sroa.080.0129 = phi i64 [ %207, %_ZN5clang12DeclListNode8iteratorppEv.exit ], [ %157, %.thread118 ]
+  %159 = and i64 %.sroa.080.0129, 4
   %.not.i.i.i.i = icmp eq i64 %159, 0
-  %160 = and i64 %.sroa.080.0113, -8
+  %160 = and i64 %.sroa.080.0129, -8
   %161 = inttoptr i64 %160 to ptr
   %.not.not7.i = icmp eq i64 %160, 0
   %.not.not.i = or i1 %.not.i.i.i.i, %.not.not7.i
@@ -33052,8 +33052,8 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %.lr.ph, %162
   %166 = and i32 %165, 126
   %167 = add nsw i32 %166, -38
   %168 = icmp ult i32 %167, -6
-  %.not66106 = icmp eq ptr %.1.i, null
-  %.not66 = or i1 %.not66106, %168
+  %.not66122 = icmp eq ptr %.1.i, null
+  %.not66 = or i1 %.not66122, %168
   br i1 %.not66, label %185, label %169
 
 169:                                              ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit
@@ -33086,7 +33086,7 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %.lr.ph, %162
 185:                                              ; preds = %_ZNK5clang12DeclListNode8iteratordeEv.exit
   %186 = and i32 %165, 127
   %187 = icmp ne i32 %186, 69
-  %.not67 = or i1 %.not66106, %187
+  %.not67 = or i1 %.not66122, %187
   br i1 %.not67, label %.critedge73, label %188
 
 188:                                              ; preds = %185
@@ -33123,8 +33123,8 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %.lr.ph, %162
 _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %.critedge73
   %206 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %207 = load i64, ptr %206, align 8
-  %.not105 = icmp eq i64 %207, 0
-  br i1 %.not105, label %._crit_edge, label %.lr.ph
+  %.not121 = icmp eq i64 %207, 0
+  br i1 %.not121, label %._crit_edge, label %.lr.ph
 
 208:                                              ; preds = %39, %._crit_edge, %132
   %209 = load ptr, ptr %0, align 8, !tbaa !1483
@@ -33135,8 +33135,8 @@ _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %.critedge73
   %214 = call fastcc i64 @_ZL20ProduceSignatureHelpRN5clang4SemaEN4llvm15MutableArrayRefINS_20CodeCompleteConsumer17OverloadCandidateEEEjNS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(17504) %209, ptr %210, i64 %212, i32 noundef %213, i32 %5, i1 noundef zeroext %6)
   br label %.thread
 
-.critedge71:                                      ; preds = %61, %56, %.lr.ph.i, %73, %._crit_edge89.i, %102, %_ZL40getNextAggregateIndexAfterDesignatedInitRKN5clang20CodeCompleteConsumer17OverloadCandidateEN4llvm8ArrayRefIPNS_4ExprEEE.exit
-  %.sroa.0100.2 = phi i64 [ %107, %102 ], [ %1, %_ZL40getNextAggregateIndexAfterDesignatedInitRKN5clang20CodeCompleteConsumer17OverloadCandidateEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %1, %._crit_edge89.i ], [ %1, %73 ], [ %1, %.lr.ph.i ], [ %1, %56 ], [ %1, %61 ]
+.critedge71:                                      ; preds = %61, %56, %.lr.ph.i, %._crit_edge89.i, %73, %102, %_ZL40getNextAggregateIndexAfterDesignatedInitRKN5clang20CodeCompleteConsumer17OverloadCandidateEN4llvm8ArrayRefIPNS_4ExprEEE.exit
+  %.sroa.0100.2 = phi i64 [ %107, %102 ], [ %1, %_ZL40getNextAggregateIndexAfterDesignatedInitRKN5clang20CodeCompleteConsumer17OverloadCandidateEN4llvm8ArrayRefIPNS_4ExprEEE.exit ], [ %1, %73 ], [ %1, %._crit_edge89.i ], [ %1, %.lr.ph.i ], [ %1, %56 ], [ %1, %61 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
@@ -78511,11 +78511,11 @@ _ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exi
   %45 = load i8, ptr %44, align 4, !tbaa !2743, !range !16, !noundef !17
   %46 = shl nuw nsw i8 %45, 2
   %spec.select = zext nneg i8 %46 to i64
+  %47 = or disjoint i64 %.0.i.i5, %spec.select
   br label %_ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit.thread
 
 _ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit.thread: ; preds = %_ZNK5clang12Preprocessor10MacroState21getActiveModuleMacrosERS0_PKNS_14IdentifierInfoE.exit, %_ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit
-  %47 = phi i64 [ %spec.select, %_ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit ], [ 0, %_ZNK5clang12Preprocessor10MacroState21getActiveModuleMacrosERS0_PKNS_14IdentifierInfoE.exit ]
-  %48 = or disjoint i64 %47, %.0.i.i5
+  %48 = phi i64 [ %47, %_ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit ], [ %.0.i.i5, %_ZNK5clang12Preprocessor10MacroState21getActiveModuleMacrosERS0_PKNS_14IdentifierInfoE.exit ]
   store i64 %48, ptr %0, align 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.0.1.i, ptr %49, align 8, !tbaa !2744

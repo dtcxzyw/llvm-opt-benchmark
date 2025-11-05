@@ -2386,7 +2386,7 @@ focus_transform.exit:                             ; preds = %54, %123
 
 141:                                              ; preds = %137
   %142 = fcmp nsz ogt float %24, %139
-  br i1 %142, label %150, label %143
+  br i1 %142, label %151, label %143
 
 143:                                              ; preds = %141
   %144 = fsub nsz float %24, %139
@@ -2395,15 +2395,15 @@ focus_transform.exit:                             ; preds = %54, %123
   %147 = tail call nsz float @llvm.cos.f32(float %146)
   %148 = fadd nsz float %147, 1.000000e+00
   %149 = fmul nsz float %148, 5.000000e-01
-  br label %150
+  %150 = fmul nsz float %149, %76
+  br label %151
 
-150:                                              ; preds = %143, %141
-  %151 = phi nsz float [ %149, %143 ], [ 1.000000e+00, %141 ]
-  %152 = fmul nsz float %76, %151
+151:                                              ; preds = %143, %141
+  %152 = phi float [ %150, %143 ], [ %76, %141 ]
   store float %152, ptr %136, align 4, !tbaa !37
   br i1 %.not17.i, label %get_lfe.exit, label %153
 
-153:                                              ; preds = %150
+153:                                              ; preds = %151
   %154 = fsub nsz float %70, %152
   br label %get_lfe.exit
 
@@ -2411,8 +2411,8 @@ focus_transform.exit:                             ; preds = %54, %123
   store float 0.000000e+00, ptr %136, align 4, !tbaa !37
   br label %get_lfe.exit
 
-get_lfe.exit:                                     ; preds = %150, %153, %155
-  %.089 = phi nsz float [ %70, %155 ], [ %70, %150 ], [ %154, %153 ]
+get_lfe.exit:                                     ; preds = %151, %153, %155
+  %.089 = phi nsz float [ %70, %155 ], [ %70, %151 ], [ %154, %153 ]
   %156 = load float, ptr %2, align 4, !tbaa !37
   %157 = getelementptr inbounds nuw float, ptr %40, i64 %indvars.iv
   store float %156, ptr %157, align 4, !tbaa !37
@@ -3239,7 +3239,7 @@ focus_transform.exit:                             ; preds = %56, %127
 
 145:                                              ; preds = %141
   %146 = fcmp nsz ogt float %26, %143
-  br i1 %146, label %154, label %147
+  br i1 %146, label %155, label %147
 
 147:                                              ; preds = %145
   %148 = fsub nsz float %26, %143
@@ -3248,15 +3248,15 @@ focus_transform.exit:                             ; preds = %56, %127
   %151 = tail call nsz float @llvm.cos.f32(float %150)
   %152 = fadd nsz float %151, 1.000000e+00
   %153 = fmul nsz float %152, 5.000000e-01
-  br label %154
+  %154 = fmul nsz float %153, %72
+  br label %155
 
-154:                                              ; preds = %147, %145
-  %155 = phi nsz float [ %153, %147 ], [ 1.000000e+00, %145 ]
-  %156 = fmul nsz float %72, %155
+155:                                              ; preds = %147, %145
+  %156 = phi float [ %154, %147 ], [ %72, %145 ]
   store float %156, ptr %140, align 4, !tbaa !37
   br i1 %.not17.i, label %get_lfe.exit, label %157
 
-157:                                              ; preds = %154
+157:                                              ; preds = %155
   %158 = fsub nsz float %75, %156
   br label %get_lfe.exit
 
@@ -3264,8 +3264,8 @@ focus_transform.exit:                             ; preds = %56, %127
   store float 0.000000e+00, ptr %140, align 4, !tbaa !37
   br label %get_lfe.exit
 
-get_lfe.exit:                                     ; preds = %154, %157, %159
-  %.093 = phi nsz float [ %75, %159 ], [ %75, %154 ], [ %158, %157 ]
+get_lfe.exit:                                     ; preds = %155, %157, %159
+  %.093 = phi nsz float [ %75, %159 ], [ %75, %155 ], [ %158, %157 ]
   %160 = load float, ptr %2, align 4, !tbaa !37
   %161 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
   store float %160, ptr %161, align 4, !tbaa !37
@@ -3734,7 +3734,7 @@ define internal void @upmix_7_1_5_0_side(ptr noundef readonly captures(none) %0,
 
 48:                                               ; preds = %45
   %49 = fcmp nsz ogt float %41, %46
-  br i1 %49, label %58, label %50
+  br i1 %49, label %get_lfe.exit, label %50
 
 50:                                               ; preds = %48
   %51 = fsub nsz float %41, %46
@@ -3744,144 +3744,140 @@ define internal void @upmix_7_1_5_0_side(ptr noundef readonly captures(none) %0,
   %55 = tail call nsz float @llvm.cos.f32(float %54)
   %56 = fadd nsz float %55, 1.000000e+00
   %57 = fmul nsz float %56, 5.000000e-01
-  br label %58
-
-58:                                               ; preds = %50, %48
-  %59 = phi nsz float [ %57, %50 ], [ 1.000000e+00, %48 ]
-  %60 = fmul nsz float %44, %59
+  %58 = fmul nsz float %44, %57
   br label %get_lfe.exit
 
-get_lfe.exit:                                     ; preds = %58, %16, %45
-  %.0 = phi nsz float [ %60, %58 ], [ 0.000000e+00, %45 ], [ 0.000000e+00, %16 ]
-  %61 = tail call nsz float @llvm.atan2.f32(float %2, float %1)
-  %62 = fadd nsz float %11, 1.000000e+00
-  %63 = fmul nsz float %62, 5.000000e-01
-  %64 = getelementptr inbounds nuw i8, ptr %18, i64 176
-  %65 = load float, ptr %64, align 8, !tbaa !37
-  %66 = tail call nsz float @llvm.pow.f32(float %63, float %65)
-  %67 = fadd nsz float %12, 1.000000e+00
-  %68 = fmul nsz float %67, 5.000000e-01
-  %69 = getelementptr inbounds nuw i8, ptr %18, i64 212
-  %70 = load float, ptr %69, align 4, !tbaa !37
-  %71 = tail call nsz float @llvm.pow.f32(float %68, float %70)
-  %72 = fmul nsz float %66, %71
-  %73 = fmul nsz float %3, %72
-  %74 = fadd nsz float %13, 1.000000e+00
-  %75 = fmul nsz float %74, 5.000000e-01
-  %76 = getelementptr inbounds nuw i8, ptr %18, i64 180
-  %77 = load float, ptr %76, align 4, !tbaa !37
-  %78 = tail call nsz float @llvm.pow.f32(float %75, float %77)
-  %79 = fadd nsz float %14, 1.000000e+00
-  %80 = fmul nsz float %79, 5.000000e-01
-  %81 = getelementptr inbounds nuw i8, ptr %18, i64 216
-  %82 = load float, ptr %81, align 8, !tbaa !37
-  %83 = tail call nsz float @llvm.pow.f32(float %80, float %82)
-  %84 = fmul nsz float %78, %83
-  %85 = fmul nsz float %4, %84
-  %86 = fsub nsz float 1.000000e+00, %11
-  %87 = fmul nsz float %86, 5.000000e-01
-  %88 = getelementptr inbounds nuw i8, ptr %18, i64 192
-  %89 = load float, ptr %88, align 8, !tbaa !37
-  %90 = tail call nsz float @llvm.pow.f32(float %87, float %89)
-  %91 = getelementptr inbounds nuw i8, ptr %18, i64 228
-  %92 = load float, ptr %91, align 4, !tbaa !37
-  %93 = tail call nsz float @llvm.pow.f32(float %68, float %92)
-  %94 = fmul nsz float %90, %93
-  %95 = fmul nsz float %3, %94
-  %96 = fsub nsz float 1.000000e+00, %13
-  %97 = fmul nsz float %96, 5.000000e-01
-  %98 = getelementptr inbounds nuw i8, ptr %18, i64 196
-  %99 = load float, ptr %98, align 4, !tbaa !37
-  %100 = tail call nsz float @llvm.pow.f32(float %97, float %99)
-  %101 = getelementptr inbounds nuw i8, ptr %18, i64 232
-  %102 = load float, ptr %101, align 8, !tbaa !37
-  %103 = tail call nsz float @llvm.pow.f32(float %80, float %102)
-  %104 = fmul nsz float %100, %103
-  %105 = fmul nsz float %4, %104
-  %106 = tail call nsz float @llvm.fabs.f32(float %11)
-  %107 = fsub nsz float 1.000000e+00, %106
-  %108 = getelementptr inbounds nuw i8, ptr %18, i64 204
-  %109 = load float, ptr %108, align 4, !tbaa !37
-  %110 = tail call nsz float @llvm.pow.f32(float %107, float %109)
-  %111 = getelementptr inbounds nuw i8, ptr %18, i64 240
-  %112 = load float, ptr %111, align 8, !tbaa !37
-  %113 = tail call nsz float @llvm.pow.f32(float %68, float %112)
-  %114 = fmul nsz float %110, %113
-  %115 = fmul nsz float %3, %114
-  %116 = tail call nsz float @llvm.fabs.f32(float %13)
-  %117 = fsub nsz float 1.000000e+00, %116
-  %118 = getelementptr inbounds nuw i8, ptr %18, i64 208
-  %119 = load float, ptr %118, align 8, !tbaa !37
-  %120 = tail call nsz float @llvm.pow.f32(float %117, float %119)
-  %121 = getelementptr inbounds nuw i8, ptr %18, i64 244
-  %122 = load float, ptr %121, align 4, !tbaa !37
-  %123 = tail call nsz float @llvm.pow.f32(float %80, float %122)
-  %124 = fmul nsz float %120, %123
-  %125 = fmul nsz float %4, %124
-  %126 = tail call nsz float @llvm.cos.f32(float %5)
-  %127 = fmul nsz float %126, %73
-  %128 = shl nsw i32 %15, 1
-  %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds float, ptr %23, i64 %129
-  store float %127, ptr %130, align 4, !tbaa !37
-  %131 = tail call nsz float @llvm.sin.f32(float %5)
-  %132 = fmul nsz float %131, %73
-  %133 = or disjoint i32 %128, 1
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds float, ptr %23, i64 %134
-  store float %132, ptr %135, align 4, !tbaa !37
-  %136 = tail call nsz float @llvm.cos.f32(float %6)
-  %137 = fmul nsz float %136, %85
-  %138 = getelementptr inbounds float, ptr %25, i64 %129
-  store float %137, ptr %138, align 4, !tbaa !37
-  %139 = tail call nsz float @llvm.sin.f32(float %6)
-  %140 = fmul nsz float %139, %85
-  %141 = getelementptr inbounds float, ptr %25, i64 %134
-  store float %140, ptr %141, align 4, !tbaa !37
-  %142 = getelementptr inbounds float, ptr %27, i64 %129
-  store float %1, ptr %142, align 4, !tbaa !37
-  %143 = getelementptr inbounds float, ptr %27, i64 %134
-  store float %2, ptr %143, align 4, !tbaa !37
-  %144 = tail call nsz float @llvm.cos.f32(float %61)
-  %145 = fmul nsz float %144, %.0
-  %146 = getelementptr inbounds float, ptr %29, i64 %129
-  store float %145, ptr %146, align 4, !tbaa !37
-  %147 = tail call nsz float @llvm.sin.f32(float %61)
-  %148 = fmul nsz float %147, %.0
-  %149 = getelementptr inbounds float, ptr %29, i64 %134
-  store float %148, ptr %149, align 4, !tbaa !37
-  %150 = tail call nsz float @llvm.cos.f32(float %7)
-  %151 = fmul nsz float %150, %95
-  %152 = getelementptr inbounds float, ptr %31, i64 %129
-  store float %151, ptr %152, align 4, !tbaa !37
-  %153 = tail call nsz float @llvm.sin.f32(float %7)
-  %154 = fmul nsz float %153, %95
-  %155 = getelementptr inbounds float, ptr %31, i64 %134
-  store float %154, ptr %155, align 4, !tbaa !37
-  %156 = tail call nsz float @llvm.cos.f32(float %8)
-  %157 = fmul nsz float %156, %105
-  %158 = getelementptr inbounds float, ptr %33, i64 %129
-  store float %157, ptr %158, align 4, !tbaa !37
-  %159 = tail call nsz float @llvm.sin.f32(float %8)
-  %160 = fmul nsz float %159, %105
-  %161 = getelementptr inbounds float, ptr %33, i64 %134
-  store float %160, ptr %161, align 4, !tbaa !37
-  %162 = tail call nsz float @llvm.cos.f32(float %9)
-  %163 = fmul nsz float %162, %115
-  %164 = getelementptr inbounds float, ptr %35, i64 %129
-  store float %163, ptr %164, align 4, !tbaa !37
-  %165 = tail call nsz float @llvm.sin.f32(float %9)
-  %166 = fmul nsz float %165, %115
-  %167 = getelementptr inbounds float, ptr %35, i64 %134
-  store float %166, ptr %167, align 4, !tbaa !37
-  %168 = tail call nsz float @llvm.cos.f32(float %10)
-  %169 = fmul nsz float %168, %125
-  %170 = getelementptr inbounds float, ptr %37, i64 %129
-  store float %169, ptr %170, align 4, !tbaa !37
-  %171 = tail call nsz float @llvm.sin.f32(float %10)
-  %172 = fmul nsz float %171, %125
-  %173 = getelementptr inbounds float, ptr %37, i64 %134
-  store float %172, ptr %173, align 4, !tbaa !37
+get_lfe.exit:                                     ; preds = %48, %50, %16, %45
+  %.0 = phi nsz float [ 0.000000e+00, %45 ], [ 0.000000e+00, %16 ], [ %58, %50 ], [ %44, %48 ]
+  %59 = tail call nsz float @llvm.atan2.f32(float %2, float %1)
+  %60 = fadd nsz float %11, 1.000000e+00
+  %61 = fmul nsz float %60, 5.000000e-01
+  %62 = getelementptr inbounds nuw i8, ptr %18, i64 176
+  %63 = load float, ptr %62, align 8, !tbaa !37
+  %64 = tail call nsz float @llvm.pow.f32(float %61, float %63)
+  %65 = fadd nsz float %12, 1.000000e+00
+  %66 = fmul nsz float %65, 5.000000e-01
+  %67 = getelementptr inbounds nuw i8, ptr %18, i64 212
+  %68 = load float, ptr %67, align 4, !tbaa !37
+  %69 = tail call nsz float @llvm.pow.f32(float %66, float %68)
+  %70 = fmul nsz float %64, %69
+  %71 = fmul nsz float %3, %70
+  %72 = fadd nsz float %13, 1.000000e+00
+  %73 = fmul nsz float %72, 5.000000e-01
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 180
+  %75 = load float, ptr %74, align 4, !tbaa !37
+  %76 = tail call nsz float @llvm.pow.f32(float %73, float %75)
+  %77 = fadd nsz float %14, 1.000000e+00
+  %78 = fmul nsz float %77, 5.000000e-01
+  %79 = getelementptr inbounds nuw i8, ptr %18, i64 216
+  %80 = load float, ptr %79, align 8, !tbaa !37
+  %81 = tail call nsz float @llvm.pow.f32(float %78, float %80)
+  %82 = fmul nsz float %76, %81
+  %83 = fmul nsz float %4, %82
+  %84 = fsub nsz float 1.000000e+00, %11
+  %85 = fmul nsz float %84, 5.000000e-01
+  %86 = getelementptr inbounds nuw i8, ptr %18, i64 192
+  %87 = load float, ptr %86, align 8, !tbaa !37
+  %88 = tail call nsz float @llvm.pow.f32(float %85, float %87)
+  %89 = getelementptr inbounds nuw i8, ptr %18, i64 228
+  %90 = load float, ptr %89, align 4, !tbaa !37
+  %91 = tail call nsz float @llvm.pow.f32(float %66, float %90)
+  %92 = fmul nsz float %88, %91
+  %93 = fmul nsz float %3, %92
+  %94 = fsub nsz float 1.000000e+00, %13
+  %95 = fmul nsz float %94, 5.000000e-01
+  %96 = getelementptr inbounds nuw i8, ptr %18, i64 196
+  %97 = load float, ptr %96, align 4, !tbaa !37
+  %98 = tail call nsz float @llvm.pow.f32(float %95, float %97)
+  %99 = getelementptr inbounds nuw i8, ptr %18, i64 232
+  %100 = load float, ptr %99, align 8, !tbaa !37
+  %101 = tail call nsz float @llvm.pow.f32(float %78, float %100)
+  %102 = fmul nsz float %98, %101
+  %103 = fmul nsz float %4, %102
+  %104 = tail call nsz float @llvm.fabs.f32(float %11)
+  %105 = fsub nsz float 1.000000e+00, %104
+  %106 = getelementptr inbounds nuw i8, ptr %18, i64 204
+  %107 = load float, ptr %106, align 4, !tbaa !37
+  %108 = tail call nsz float @llvm.pow.f32(float %105, float %107)
+  %109 = getelementptr inbounds nuw i8, ptr %18, i64 240
+  %110 = load float, ptr %109, align 8, !tbaa !37
+  %111 = tail call nsz float @llvm.pow.f32(float %66, float %110)
+  %112 = fmul nsz float %108, %111
+  %113 = fmul nsz float %3, %112
+  %114 = tail call nsz float @llvm.fabs.f32(float %13)
+  %115 = fsub nsz float 1.000000e+00, %114
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 208
+  %117 = load float, ptr %116, align 8, !tbaa !37
+  %118 = tail call nsz float @llvm.pow.f32(float %115, float %117)
+  %119 = getelementptr inbounds nuw i8, ptr %18, i64 244
+  %120 = load float, ptr %119, align 4, !tbaa !37
+  %121 = tail call nsz float @llvm.pow.f32(float %78, float %120)
+  %122 = fmul nsz float %118, %121
+  %123 = fmul nsz float %4, %122
+  %124 = tail call nsz float @llvm.cos.f32(float %5)
+  %125 = fmul nsz float %124, %71
+  %126 = shl nsw i32 %15, 1
+  %127 = sext i32 %126 to i64
+  %128 = getelementptr inbounds float, ptr %23, i64 %127
+  store float %125, ptr %128, align 4, !tbaa !37
+  %129 = tail call nsz float @llvm.sin.f32(float %5)
+  %130 = fmul nsz float %129, %71
+  %131 = or disjoint i32 %126, 1
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds float, ptr %23, i64 %132
+  store float %130, ptr %133, align 4, !tbaa !37
+  %134 = tail call nsz float @llvm.cos.f32(float %6)
+  %135 = fmul nsz float %134, %83
+  %136 = getelementptr inbounds float, ptr %25, i64 %127
+  store float %135, ptr %136, align 4, !tbaa !37
+  %137 = tail call nsz float @llvm.sin.f32(float %6)
+  %138 = fmul nsz float %137, %83
+  %139 = getelementptr inbounds float, ptr %25, i64 %132
+  store float %138, ptr %139, align 4, !tbaa !37
+  %140 = getelementptr inbounds float, ptr %27, i64 %127
+  store float %1, ptr %140, align 4, !tbaa !37
+  %141 = getelementptr inbounds float, ptr %27, i64 %132
+  store float %2, ptr %141, align 4, !tbaa !37
+  %142 = tail call nsz float @llvm.cos.f32(float %59)
+  %143 = fmul nsz float %142, %.0
+  %144 = getelementptr inbounds float, ptr %29, i64 %127
+  store float %143, ptr %144, align 4, !tbaa !37
+  %145 = tail call nsz float @llvm.sin.f32(float %59)
+  %146 = fmul nsz float %145, %.0
+  %147 = getelementptr inbounds float, ptr %29, i64 %132
+  store float %146, ptr %147, align 4, !tbaa !37
+  %148 = tail call nsz float @llvm.cos.f32(float %7)
+  %149 = fmul nsz float %148, %93
+  %150 = getelementptr inbounds float, ptr %31, i64 %127
+  store float %149, ptr %150, align 4, !tbaa !37
+  %151 = tail call nsz float @llvm.sin.f32(float %7)
+  %152 = fmul nsz float %151, %93
+  %153 = getelementptr inbounds float, ptr %31, i64 %132
+  store float %152, ptr %153, align 4, !tbaa !37
+  %154 = tail call nsz float @llvm.cos.f32(float %8)
+  %155 = fmul nsz float %154, %103
+  %156 = getelementptr inbounds float, ptr %33, i64 %127
+  store float %155, ptr %156, align 4, !tbaa !37
+  %157 = tail call nsz float @llvm.sin.f32(float %8)
+  %158 = fmul nsz float %157, %103
+  %159 = getelementptr inbounds float, ptr %33, i64 %132
+  store float %158, ptr %159, align 4, !tbaa !37
+  %160 = tail call nsz float @llvm.cos.f32(float %9)
+  %161 = fmul nsz float %160, %113
+  %162 = getelementptr inbounds float, ptr %35, i64 %127
+  store float %161, ptr %162, align 4, !tbaa !37
+  %163 = tail call nsz float @llvm.sin.f32(float %9)
+  %164 = fmul nsz float %163, %113
+  %165 = getelementptr inbounds float, ptr %35, i64 %132
+  store float %164, ptr %165, align 4, !tbaa !37
+  %166 = tail call nsz float @llvm.cos.f32(float %10)
+  %167 = fmul nsz float %166, %123
+  %168 = getelementptr inbounds float, ptr %37, i64 %127
+  store float %167, ptr %168, align 4, !tbaa !37
+  %169 = tail call nsz float @llvm.sin.f32(float %10)
+  %170 = fmul nsz float %169, %123
+  %171 = getelementptr inbounds float, ptr %37, i64 %132
+  store float %170, ptr %171, align 4, !tbaa !37
   ret void
 }
 

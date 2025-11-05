@@ -16750,7 +16750,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 define internal fastcc i64 @_ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionTypeEN5clang17FPOptionsOverrideENS1_8QualTypeEb(ptr noundef nonnull align 8 captures(none) dereferenceable(19) %0, i64 %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::QualType", align 8
   %6 = alloca %"class.clang::QualType", align 8
-  %.sroa.022.0.extract.trunc = trunc i64 %1 to i32
+  %.sroa.021.0.extract.trunc = trunc i64 %1 to i32
   store i64 %2, ptr %5, align 8
   %7 = and i64 %2, -16
   %8 = inttoptr i64 %7 to ptr
@@ -16758,7 +16758,7 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionT
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i8, ptr %10, align 16
   %.not.i = icmp eq i8 %11, 14
-  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27, label %12
+  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread26, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -16774,12 +16774,12 @@ define internal fastcc i64 @_ZN12_GLOBAL__N_118ComplexExprEmitter16getPromotionT
 _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit: ; preds = %12
   %20 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %9) #15
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread, label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27
+  br i1 %.not, label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread, label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread26
 
-_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27: ; preds = %4, %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit
-  %.1.i30 = phi ptr [ %20, %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit ], [ %9, %4 ]
+_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread26: ; preds = %4, %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit
+  %.1.i29 = phi ptr [ %20, %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit ], [ %9, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %21 = getelementptr inbounds nuw i8, ptr %.1.i30, i64 32
+  %21 = getelementptr inbounds nuw i8, ptr %.1.i29, i64 32
   %.sroa.0.0.copyload.i = load i64, ptr %21, align 16, !tbaa !3
   store i64 %.sroa.0.0.copyload.i, ptr %6, align 8
   %22 = and i64 %.sroa.0.0.copyload.i, -16
@@ -16798,19 +16798,19 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27: ; preds = %4, %_ZN
   %35 = and i32 %34, 3
   %36 = icmp eq i32 %35, 2
   %37 = and i64 %1, 54043195528445952
-  %.not33 = icmp eq i64 %37, 0
-  %38 = lshr i32 %.sroa.022.0.extract.trunc, 22
+  %.not32 = icmp eq i64 %37, 0
+  %38 = lshr i32 %.sroa.021.0.extract.trunc, 22
   %39 = and i32 %38, 3
   %40 = icmp eq i32 %39, %35
+  %or.cond5.not34 = select i1 %.not32, i1 true, i1 %40
   %or.cond = and i1 %3, %25
   %or.cond3 = and i1 %or.cond, %36
-  %or.cond5 = select i1 %.not33, i1 true, i1 %40
-  %or.cond18 = and i1 %or.cond3, %or.cond5
+  %brmerge.not = and i1 %or.cond5.not34, %or.cond3
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %42 = load ptr, ptr %41, align 8, !tbaa !789
-  br i1 %or.cond18, label %43, label %60
+  br i1 %brmerge.not, label %43, label %60
 
-43:                                               ; preds = %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27
+43:                                               ; preds = %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread26
   %44 = load ptr, ptr %23, align 16, !tbaa !61
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 16
@@ -16821,8 +16821,8 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27: ; preds = %4, %_ZN
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 55, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond34 = select i1 %49, i1 %switch.lobit, i1 false
-  br i1 %or.cond34, label %switch.lookup, label %_ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i
+  %or.cond35 = select i1 %49, i1 %switch.lobit, i1 false
+  br i1 %or.cond35, label %switch.lookup, label %_ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i
 
 switch.lookup:                                    ; preds = %43
   %50 = zext nneg i32 %switch.tableidx to i64
@@ -16848,7 +16848,7 @@ _ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i: ; preds =
   %59 = tail call i64 @_ZNK5clang10ASTContext14getComplexTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %42, i64 %.sroa.0.0.i.i) #15
   br label %71
 
-60:                                               ; preds = %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27
+60:                                               ; preds = %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread26
   %61 = call noundef zeroext i1 @_ZN5clang8QualType18UseExcessPrecisionERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(23216) %42) #15
   br i1 %61, label %62, label %70
 
@@ -16868,7 +16868,7 @@ _ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i: ; preds =
   br label %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread
 
 71:                                               ; preds = %62, %_ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i, %57
-  %.sroa.024.2 = phi i64 [ %69, %62 ], [ %59, %57 ], [ 0, %_ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i ]
+  %.sroa.023.2 = phi i64 [ %69, %62 ], [ %59, %57 ], [ 0, %_ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %85
 
@@ -16888,12 +16888,12 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread: ; preds = %12, %70, 
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 144
   %83 = load ptr, ptr %82, align 8, !tbaa !789
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 18640
-  %.sroa.0.0.copyload.i21 = load i64, ptr %84, align 8, !tbaa !3
+  %.sroa.0.0.copyload.i20 = load i64, ptr %84, align 8, !tbaa !3
   br label %85
 
 85:                                               ; preds = %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread, %71, %78
-  %.sroa.024.1 = phi i64 [ %.sroa.0.0.copyload.i21, %78 ], [ %.sroa.024.2, %71 ], [ 0, %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread ]
-  ret i64 %.sroa.024.1
+  %.sroa.023.1 = phi i64 [ %.sroa.0.0.copyload.i20, %78 ], [ %.sroa.023.2, %71 ], [ 0, %_ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread ]
+  ret i64 %.sroa.023.1
 }
 
 declare noundef zeroext i1 @_ZNK5clang4Type14isFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
@@ -17046,9 +17046,9 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %26, %_ZNK4llvm6APSI
   br label %_ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit
 
 _ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit: ; preds = %1, %_ZN4llvm5APIntD2Ev.exit.i
-  %.sroa.0.0.i = phi i64 [ %30, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %1 ]
+  %.sroa.2.0.i = phi i64 [ %30, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %1 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.sroa.0.0.i
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.sroa.2.0.i
   %33 = load ptr, ptr %32, align 8, !tbaa !931
   ret ptr %33
 }

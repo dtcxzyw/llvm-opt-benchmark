@@ -766,7 +766,7 @@ define internal fastcc void @compressor(ptr noundef captures(none) %0, ptr nound
   %.0.in = phi i1 [ %64, %62 ], [ %67, %65 ]
   %69 = fcmp nsz ogt double %61, 0.000000e+00
   %or.cond = select i1 %69, i1 %.0.in, i1 false
-  br i1 %or.cond, label %70, label %130
+  br i1 %or.cond, label %70, label %131
 
 70:                                               ; preds = %68
   %71 = load double, ptr %24, align 8, !tbaa !48
@@ -845,15 +845,15 @@ output_gain.exit:                                 ; preds = %88, %90, %108, %110
   %.1.i = phi nsz double [ %107, %90 ], [ %.030.i, %88 ], [ %127, %110 ], [ %.030.i, %108 ]
   %128 = fsub nsz double %.1.i, %.031.i
   %129 = tail call nsz double @llvm.exp.f64(double %128)
-  br label %130
+  %130 = fmul nsz double %11, %129
+  br label %131
 
-130:                                              ; preds = %output_gain.exit, %68
-  %.079 = phi nsz double [ %129, %output_gain.exit ], [ 1.000000e+00, %68 ]
+131:                                              ; preds = %output_gain.exit, %68
+  %.079 = phi double [ %130, %output_gain.exit ], [ %11, %68 ]
   br i1 %33, label %.lr.ph108, label %._crit_edge109
 
-.lr.ph108:                                        ; preds = %130
-  %131 = fmul nsz double %11, %.079
-  %132 = tail call nsz double @llvm.fmuladd.f64(double %131, double %13, double %34)
+.lr.ph108:                                        ; preds = %131
+  %132 = tail call nsz double @llvm.fmuladd.f64(double %.079, double %13, double %34)
   br label %133
 
 133:                                              ; preds = %.lr.ph108, %133
@@ -868,7 +868,7 @@ output_gain.exit:                                 ; preds = %88, %90, %108, %110
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %._crit_edge109, label %133, !llvm.loop !87
 
-._crit_edge109:                                   ; preds = %133, %130
+._crit_edge109:                                   ; preds = %133, %131
   %139 = getelementptr inbounds double, ptr %.085114, i64 %35
   %140 = getelementptr inbounds double, ptr %.086113, i64 %35
   %141 = getelementptr inbounds double, ptr %.087111, i64 %37

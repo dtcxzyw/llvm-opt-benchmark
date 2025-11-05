@@ -4900,27 +4900,27 @@ define internal void @k_ascii(ptr readnone captures(none) %0, i8 noundef zeroext
   %6 = icmp ult i8 %1, 10
   %7 = add i8 %1, -10
   %8 = select i1 %6, i8 %1, i8 %7
-  %9 = select i1 %6, i32 10, i32 16
-  %10 = load i1, ptr @npadch_active, align 1
-  br i1 %10, label %._crit_edge, label %11
+  %9 = load i1, ptr @npadch_active, align 1
+  br i1 %9, label %._crit_edge, label %12
 
 ._crit_edge:                                      ; preds = %5
+  %10 = select i1 %6, i32 10, i32 16
   %.pre = load i32, ptr @npadch_value, align 4
-  br label %12
+  %11 = mul i32 %.pre, %10
+  br label %13
 
-11:                                               ; preds = %5
+12:                                               ; preds = %5
   store i1 true, ptr @npadch_active, align 1
-  br label %12
+  br label %13
 
-12:                                               ; preds = %._crit_edge, %11
-  %13 = phi i32 [ %.pre, %._crit_edge ], [ 0, %11 ]
-  %14 = mul i32 %13, %9
+13:                                               ; preds = %._crit_edge, %12
+  %14 = phi i32 [ %11, %._crit_edge ], [ 0, %12 ]
   %15 = zext i8 %8 to i32
   %16 = add i32 %14, %15
   store i32 %16, ptr @npadch_value, align 4
   br label %17
 
-17:                                               ; preds = %12, %3
+17:                                               ; preds = %13, %3
   ret void
 }
 

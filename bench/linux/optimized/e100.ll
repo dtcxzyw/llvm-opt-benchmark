@@ -5993,13 +5993,13 @@ define internal fastcc void @__e100_shutdown(ptr noundef %0, ptr noundef writeon
   %18 = load i16, ptr %17, align 2
   %19 = and i16 %18, -8
   %20 = icmp eq i16 %19, 4176
-  br i1 %20, label %21, label %31
+  br i1 %20, label %21, label %32
 
 21:                                               ; preds = %11
   %22 = getelementptr i8, ptr %4, i64 3224
   %23 = load i16, ptr %22, align 2
   %24 = icmp slt i16 %23, -16384
-  br i1 %24, label %25, label %31
+  br i1 %24, label %25, label %32
 
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %4, i64 3486
@@ -6007,15 +6007,15 @@ define internal fastcc void @__e100_shutdown(ptr noundef %0, ptr noundef writeon
   %28 = and i16 %27, 255
   %29 = icmp ne i16 %28, 254
   %30 = zext i1 %29 to i32
-  br label %31
+  %31 = or disjoint i32 %14, %30
+  br label %32
 
-31:                                               ; preds = %25, %21, %11
-  %32 = phi i32 [ 0, %21 ], [ 0, %11 ], [ %30, %25 ]
-  %33 = or disjoint i32 %32, %14
+32:                                               ; preds = %25, %21, %11
+  %33 = phi i32 [ %14, %21 ], [ %14, %11 ], [ %31, %25 ]
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %49, label %35
 
-35:                                               ; preds = %31
+35:                                               ; preds = %32
   %36 = getelementptr i8, ptr %4, i64 2952
   %37 = load i32, ptr %36, align 8
   %38 = icmp eq i32 %37, -798949299
@@ -6033,8 +6033,8 @@ define internal fastcc void @__e100_shutdown(ptr noundef %0, ptr noundef writeon
   %48 = tail call zeroext i16 %47(ptr noundef %5, i32 noundef %45, i32 noundef 67108864, i32 noundef 20, i16 noundef zeroext %46) #19
   br label %49
 
-49:                                               ; preds = %39, %35, %31
-  %50 = phi i8 [ 1, %39 ], [ 1, %35 ], [ 0, %31 ]
+49:                                               ; preds = %39, %35, %32
+  %50 = phi i8 [ 1, %39 ], [ 1, %35 ], [ 0, %32 ]
   store i8 %50, ptr %1, align 1
   tail call void @pci_disable_device(ptr noundef %0) #19
   ret void

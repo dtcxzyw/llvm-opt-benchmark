@@ -2775,44 +2775,47 @@ for.inc:                                          ; preds = %if.end81, %if.then.
   %have_iou_events.1 = phi i32 [ %have_iou_events.0119, %for.body ], [ %have_iou_events.0119, %if.end104 ], [ 1, %do.body18.i ], [ 1, %do.body26.i ], [ %have_iou_events.0119, %if.else.i ], [ %have_iou_events.0119, %if.then29.i ], [ %have_iou_events.0119, %if.then.i ], [ %have_iou_events.0119, %if.end81 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %do.body107, label %for.body
+  br i1 %exitcond.not, label %do.body107.loopexit, label %for.body
 
-do.body107:                                       ; preds = %for.inc, %if.end64
-  %have_signals.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_signals.1, %for.inc ]
-  %nevents.0.lcssa = phi i32 [ 0, %if.end64 ], [ %nevents.1, %for.inc ]
-  %have_iou_events.0.lcssa = phi i32 [ 0, %if.end64 ], [ %have_iou_events.1, %for.inc ]
+do.body107.loopexit:                              ; preds = %for.inc
+  %101 = or i32 %have_iou_events.1, %have_signals.1
+  %102 = icmp eq i32 %have_signals.1, 0
+  %103 = icmp eq i32 %101, 0
+  br label %do.body107
+
+do.body107:                                       ; preds = %do.body107.loopexit, %if.end64
+  %have_signals.0.lcssa = phi i1 [ true, %if.end64 ], [ %102, %do.body107.loopexit ]
+  %nevents.0.lcssa = phi i32 [ 0, %if.end64 ], [ %nevents.1, %do.body107.loopexit ]
+  %have_iou_events.0.lcssa = phi i1 [ true, %if.end64 ], [ %103, %do.body107.loopexit ]
   %conv = sext i32 %nevents.0.lcssa to i64
-  %101 = load ptr, ptr %internal_fields, align 8
-  %events109 = getelementptr inbounds nuw i8, ptr %101, i64 16
-  %102 = load i64, ptr %events109, align 8
-  %add = add i64 %102, %conv
+  %104 = load ptr, ptr %internal_fields, align 8
+  %events109 = getelementptr inbounds nuw i8, ptr %104, i64 16
+  %105 = load i64, ptr %events109, align 8
+  %add = add i64 %105, %conv
   store i64 %add, ptr %events109, align 8
   br i1 %reset_timeout.1, label %if.end121, label %if.then113
 
 if.then113:                                       ; preds = %do.body107
-  %103 = load ptr, ptr %internal_fields, align 8
-  %events_waiting = getelementptr inbounds nuw i8, ptr %103, i64 24
-  %104 = load i64, ptr %events_waiting, align 8
-  %add119 = add i64 %104, %conv
+  %106 = load ptr, ptr %internal_fields, align 8
+  %events_waiting = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %107 = load i64, ptr %events_waiting, align 8
+  %add119 = add i64 %107, %conv
   store i64 %add119, ptr %events_waiting, align 8
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then113, %do.body107
   %timeout.addr.3 = phi i32 [ %.timeout, %if.then113 ], [ %timeout.addr.1, %do.body107 ]
-  %cmp122.not = icmp eq i32 %have_signals.0.lcssa, 0
-  br i1 %cmp122.not, label %if.end128, label %if.then124
+  br i1 %have_signals.0.lcssa, label %if.end128, label %if.then124
 
 if.then124:                                       ; preds = %if.end121
   call void @uv__metrics_update_idle_time(ptr noundef nonnull %loop) #18
-  %105 = load ptr, ptr %signal_io_watcher, align 8
-  call void %105(ptr noundef nonnull %loop, ptr noundef nonnull %signal_io_watcher, i32 noundef 1) #18
+  %108 = load ptr, ptr %signal_io_watcher, align 8
+  call void %108(ptr noundef nonnull %loop, ptr noundef nonnull %signal_io_watcher, i32 noundef 1) #18
   br label %if.end128
 
 if.end128:                                        ; preds = %if.then124, %if.end121
   store ptr null, ptr %inv66, align 8
-  %106 = or i32 %have_iou_events.0.lcssa, %have_signals.0.lcssa
-  %or.cond1.not = icmp eq i32 %106, 0
-  br i1 %or.cond1.not, label %if.end137, label %for.end165
+  br i1 %have_iou_events.0.lcssa, label %if.end137, label %for.end165
 
 if.end137:                                        ; preds = %if.end128
   %cmp138.not = icmp eq i32 %nevents.0.lcssa, 0
@@ -2833,33 +2836,33 @@ update_timeout:                                   ; preds = %if.then56, %if.end1
   ]
 
 if.end156:                                        ; preds = %update_timeout
-  %107 = load i64, ptr %time, align 8
-  %sub.neg = sub i64 %2, %107
-  %108 = trunc i64 %sub.neg to i32
-  %conv160 = add i32 %real_timeout.0.ph103, %108
+  %109 = load i64, ptr %time, align 8
+  %sub.neg = sub i64 %2, %109
+  %110 = trunc i64 %sub.neg to i32
+  %conv160 = add i32 %real_timeout.0.ph103, %110
   %cmp161 = icmp slt i32 %conv160, 1
   br i1 %cmp161, label %for.end165, label %for.cond.outer102
 
 for.end165:                                       ; preds = %if.then140, %if.end156, %update_timeout, %if.end128, %if.then26
-  %109 = load i32, ptr %ringfd, align 8
-  %cmp167.not = icmp eq i32 %109, -1
+  %111 = load i32, ptr %ringfd, align 8
+  %cmp167.not = icmp eq i32 %111, -1
   br i1 %cmp167.not, label %if.end177, label %while.cond170.preheader
 
 while.cond170.preheader:                          ; preds = %for.end165
-  %110 = load ptr, ptr %ctl1, align 8
-  %111 = load i32, ptr %110, align 4
-  %112 = load ptr, ptr %sqtail, align 8
+  %112 = load ptr, ptr %ctl1, align 8
   %113 = load i32, ptr %112, align 4
-  %cmp173.not123 = icmp eq i32 %111, %113
+  %114 = load ptr, ptr %sqtail, align 8
+  %115 = load i32, ptr %114, align 4
+  %cmp173.not123 = icmp eq i32 %113, %115
   br i1 %cmp173.not123, label %if.end177, label %while.body175
 
 while.body175:                                    ; preds = %while.cond170.preheader, %while.body175
   call fastcc void @uv__epoll_ctl_flush(i32 noundef %4, ptr noundef nonnull %ctl1, ptr noundef nonnull %prep)
-  %114 = load ptr, ptr %ctl1, align 8
-  %115 = load i32, ptr %114, align 4
-  %116 = load ptr, ptr %sqtail, align 8
+  %116 = load ptr, ptr %ctl1, align 8
   %117 = load i32, ptr %116, align 4
-  %cmp173.not = icmp eq i32 %115, %117
+  %118 = load ptr, ptr %sqtail, align 8
+  %119 = load i32, ptr %118, align 4
+  %cmp173.not = icmp eq i32 %117, %119
   br i1 %cmp173.not, label %if.end177, label %while.body175
 
 if.end177:                                        ; preds = %if.then56, %while.body175, %while.cond170.preheader, %for.end165

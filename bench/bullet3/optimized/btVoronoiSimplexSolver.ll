@@ -1727,11 +1727,11 @@ define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9bt
   %46 = load float, ptr %1, align 4, !tbaa !21
   %47 = load float, ptr %27, align 4, !tbaa !21
   %48 = fcmp oeq float %46, %47
+  %49 = or i1 %.lcssa, %48
   br label %_ZNK9btVector3eqERKS_.exit
 
 _ZNK9btVector3eqERKS_.exit:                       ; preds = %._crit_edge, %33, %39, %45
-  %49 = phi i1 [ false, %39 ], [ false, %33 ], [ false, %._crit_edge ], [ %48, %45 ]
-  %. = or i1 %.lcssa, %49
+  %. = phi i1 [ %.lcssa, %39 ], [ %.lcssa, %33 ], [ %.lcssa, %._crit_edge ], [ %49, %45 ]
   ret i1 %.
 }
 

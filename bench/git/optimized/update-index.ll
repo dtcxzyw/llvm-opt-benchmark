@@ -3420,7 +3420,7 @@ define internal fastcc i32 @do_unresolve(i32 noundef %0, ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %unresolve_one.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %unresolve_one.exit ]
-  %.01112 = phi i32 [ 0, %.lr.ph.preheader ], [ %24, %unresolve_one.exit ]
+  %.01112 = phi i32 [ 0, %.lr.ph.preheader ], [ %.0.i, %unresolve_one.exit ]
   %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !55
   %8 = tail call ptr @prefix_path(ptr noundef %2, i32 noundef %3, ptr noundef %7) #18
@@ -3447,18 +3447,18 @@ define internal fastcc i32 @do_unresolve(i32 noundef %0, ptr noundef readonly ca
   %23 = load ptr, ptr %20, align 8, !tbaa !104
   tail call void @free(ptr noundef %23) #18
   store ptr null, ptr %20, align 8, !tbaa !104
+  %24 = or i32 %22, %.01112
   br label %unresolve_one.exit
 
 unresolve_one.exit:                               ; preds = %.lr.ph, %14, %16
-  %.0.i = phi i32 [ %22, %16 ], [ 0, %.lr.ph ], [ 0, %14 ]
-  %24 = or i32 %.0.i, %.01112
+  %.0.i = phi i32 [ %24, %16 ], [ %.01112, %.lr.ph ], [ %.01112, %14 ]
   tail call void @free(ptr noundef %8) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %unresolve_one.exit, %4
-  %.011.lcssa = phi i32 [ 0, %4 ], [ %24, %unresolve_one.exit ]
+  %.011.lcssa = phi i32 [ 0, %4 ], [ %.0.i, %unresolve_one.exit ]
   ret i32 %.011.lcssa
 }
 

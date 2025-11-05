@@ -2174,7 +2174,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 
 42:                                               ; preds = %36, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %cond5, label %..thread_crit_edge, label %107
+  br i1 %cond5, label %..thread_crit_edge, label %101
 
 ..thread_crit_edge:                               ; preds = %42
   %.pre = load i32, ptr %13, align 8, !tbaa !87
@@ -2247,7 +2247,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55: ; preds =
 
 73:                                               ; preds = %67, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %cond4, label %..thread70_crit_edge, label %107
+  br i1 %cond4, label %..thread70_crit_edge, label %101
 
 ..thread70_crit_edge:                             ; preds = %73
   %.pre83 = load i32, ptr %13, align 8, !tbaa !87
@@ -2255,7 +2255,6 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit55: ; preds =
 
 .thread70:                                        ; preds = %..thread70_crit_edge, %.thread
   %74 = phi i32 [ %.pre83, %..thread70_crit_edge ], [ %43, %.thread ]
-  %.673 = phi i1 [ %.5, %..thread70_crit_edge ], [ %.369, %.thread ]
   %75 = icmp slt i32 %74, 9
   br i1 %75, label %.critedge, label %76
 
@@ -2292,57 +2291,42 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62: ; preds =
   %91 = sub i64 %89, %90
   %92 = getelementptr inbounds i8, ptr %88, i64 %91
   call void @_ZNSt6vectorIPKN5clang4ento7SymExprESaIS4_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPS4_S6_EEEEvSB_T_SC_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %92, ptr %85, ptr %87)
-  br i1 %4, label %93, label %97
+  %93 = load ptr, ptr %10, align 8, !tbaa !220
+  %.not.i.i.i63 = icmp eq ptr %93, null
+  br i1 %.not.i.i.i63, label %100, label %94
 
-93:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62
-  %94 = load ptr, ptr %0, align 8, !tbaa !206
-  %95 = load ptr, ptr %83, align 8, !tbaa !206
-  %96 = icmp eq ptr %94, %95
-  br i1 %96, label %97, label %98
+94:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62
+  %95 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %96 = load ptr, ptr %95, align 8, !tbaa !208
+  %97 = ptrtoint ptr %96 to i64
+  %98 = ptrtoint ptr %93 to i64
+  %99 = sub i64 %97, %98
+  call void @_ZdlPvm(ptr noundef nonnull %93, i64 noundef %99) #17
+  br label %100
 
-97:                                               ; preds = %93, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62
-  br label %98
-
-98:                                               ; preds = %93, %97
-  %cond3 = phi i1 [ true, %97 ], [ false, %93 ]
-  %.8 = phi i1 [ %.673, %97 ], [ true, %93 ]
-  %99 = load ptr, ptr %10, align 8, !tbaa !220
-  %.not.i.i.i63 = icmp eq ptr %99, null
-  br i1 %.not.i.i.i63, label %106, label %100
-
-100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %102 = load ptr, ptr %101, align 8, !tbaa !208
-  %103 = ptrtoint ptr %102 to i64
-  %104 = ptrtoint ptr %99 to i64
-  %105 = sub i64 %103, %104
-  call void @_ZdlPvm(ptr noundef nonnull %99, i64 noundef %105) #17
-  br label %106
-
-106:                                              ; preds = %100, %98
+100:                                              ; preds = %94, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %spec.select = or i1 %cond3, %.8
-  br i1 %spec.select, label %.critedge, label %108
-
-107:                                              ; preds = %73, %42
-  %.0 = phi i1 [ %.5, %73 ], [ %.2, %42 ]
-  br i1 %.0, label %.critedge, label %108
-
-108:                                              ; preds = %106, %107
-  %109 = load ptr, ptr %0, align 8, !tbaa !220
-  %.not.i.i.i65 = icmp eq ptr %109, null
-  br i1 %.not.i.i.i65, label %.critedge, label %110
-
-110:                                              ; preds = %108
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %112 = load ptr, ptr %111, align 8, !tbaa !208
-  %113 = ptrtoint ptr %112 to i64
-  %114 = ptrtoint ptr %109 to i64
-  %115 = sub i64 %113, %114
-  call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %115) #17
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread70, %110, %108, %106, %5, %107
+101:                                              ; preds = %73, %42
+  %.0 = phi i1 [ %.5, %73 ], [ %.2, %42 ]
+  br i1 %.0, label %.critedge, label %102
+
+102:                                              ; preds = %101
+  %103 = load ptr, ptr %0, align 8, !tbaa !220
+  %.not.i.i.i65 = icmp eq ptr %103, null
+  br i1 %.not.i.i.i65, label %.critedge, label %104
+
+104:                                              ; preds = %102
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %106 = load ptr, ptr %105, align 8, !tbaa !208
+  %107 = ptrtoint ptr %106 to i64
+  %108 = ptrtoint ptr %103 to i64
+  %109 = sub i64 %107, %108
+  call void @_ZdlPvm(ptr noundef nonnull %103, i64 noundef %109) #17
+  br label %.critedge
+
+.critedge:                                        ; preds = %100, %.thread70, %104, %102, %5, %101
   ret void
 }
 

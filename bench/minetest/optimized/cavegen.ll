@@ -2448,12 +2448,10 @@ cond.end:                                         ; preds = %cond.false, %land.l
   %cond-lvalue = phi ptr [ %waternode, %cond.false ], [ %lavanode, %land.lhs.true ]
   %21 = load i32, ptr %cond-lvalue, align 4, !tbaa.struct !101
   %liquidnode.sroa.0.0.extract.trunc = trunc i32 %21 to i16
-  %liquidnode.sroa.7.0.extract.shift = and i32 %21, -16777216
-  %22 = and i32 %21, 16711680
+  %22 = and i32 %21, -65536
   br label %if.end36
 
 if.end36:                                         ; preds = %cond.end, %if.then24, %entry
-  %liquidnode.sroa.7.0 = phi i32 [ 0, %entry ], [ %liquidnode.sroa.7.0.extract.shift, %cond.end ], [ 0, %if.then24 ]
   %liquidnode.sroa.6.0 = phi i32 [ 0, %entry ], [ %22, %cond.end ], [ 0, %if.then24 ]
   %liquidnode.sroa.0.0 = phi i16 [ 127, %entry ], [ %liquidnode.sroa.0.0.extract.trunc, %cond.end ], [ %16, %if.then24 ]
   %rs = getelementptr inbounds nuw i8, ptr %this, i64 116
@@ -2518,9 +2516,8 @@ for.body.lr.ph:                                   ; preds = %land.end
   %water_level214 = getelementptr inbounds nuw i8, ptr %this, i64 44
   %conv242 = sext i16 %add8.i to i32
   %sub243 = add nsw i32 %conv242, -4
-  %liquidnode.sroa.6.0.insert.insert = or disjoint i32 %liquidnode.sroa.6.0, %liquidnode.sroa.7.0
   %liquidnode.sroa.0.0.insert.ext = zext i16 %liquidnode.sroa.0.0 to i32
-  %liquidnode.sroa.0.0.insert.insert = or disjoint i32 %liquidnode.sroa.6.0.insert.insert, %liquidnode.sroa.0.0.insert.ext
+  %liquidnode.sroa.0.0.insert.insert = or disjoint i32 %liquidnode.sroa.6.0, %liquidnode.sroa.0.0.insert.ext
   %waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.0.waternode.val = load i32, ptr %waternode, align 4
   %.pre = load ptr, ptr %ps, align 8, !tbaa !142
   %.pre476 = load i32, ptr %.pre, align 4, !tbaa !147

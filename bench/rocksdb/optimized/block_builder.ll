@@ -285,7 +285,7 @@ _ZNK7rocksdb12BlockBuilder19CurrentSizeEstimateEv.exit: ; preds = %3, %13
   br label %44
 
 44:                                               ; preds = %41, %.thread, %.thread37
-  %.not1535 = phi i1 [ false, %.thread37 ], [ true, %.thread ], [ %.not14, %41 ]
+  %.not1535 = phi i1 [ false, %.thread37 ], [ true, %.thread ], [ false, %41 ]
   %45 = phi i64 [ %38, %.thread37 ], [ %40, %.thread ], [ %spec.select, %41 ]
   %46 = add i64 %45, 4
   %47 = icmp ugt i64 %23, 127
@@ -306,8 +306,7 @@ _ZN7rocksdb12VarintLengthEm.exit.loopexit:        ; preds = %.lr.ph.i
 _ZN7rocksdb12VarintLengthEm.exit:                 ; preds = %_ZN7rocksdb12VarintLengthEm.exit.loopexit, %44
   %.0.lcssa.i = phi i64 [ 1, %44 ], [ %51, %_ZN7rocksdb12VarintLengthEm.exit.loopexit ]
   %52 = add i64 %46, %.0.lcssa.i
-  %brmerge.not = and i1 %.not1535, %30
-  br i1 %brmerge.not, label %60, label %53
+  br i1 %.not1535, label %60, label %53
 
 53:                                               ; preds = %_ZN7rocksdb12VarintLengthEm.exit
   %54 = icmp ugt i64 %35, 127

@@ -7267,7 +7267,7 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
   %or.cond = or i1 %.not20, %41
   br i1 %or.cond, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread", label %_ZNSt14_Function_baseD2Ev.exit
 
-"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread": ; preds = %39, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i, %16
+"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.thread": ; preds = %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i, %39, %16
   %42 = add i32 %.023, 1
   store i64 0, ptr %15, align 8
   %43 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
@@ -14799,7 +14799,7 @@ _ZNSt14_Function_baseD2Ev.exit85:                 ; preds = %176, %179
 
 189:                                              ; preds = %185, %172, %182
   %.sink = phi i64 [ %187, %185 ], [ %175, %172 ], [ %184, %182 ]
-  %.ph343 = phi i32 [ %154, %185 ], [ %159, %172 ], [ %159, %182 ]
+  %.ph341 = phi i32 [ %154, %185 ], [ %159, %172 ], [ %159, %182 ]
   store i64 %.sink, ptr %30, align 8
   store i8 1, ptr %75, align 8
   %190 = icmp eq i64 %.sink, 4294967295
@@ -14925,13 +14925,13 @@ _ZNSt14_Function_baseD2Ev.exit90:                 ; preds = %228, %231
 
 236:                                              ; preds = %.critedge3
   %237 = load i64, ptr %27, align 8, !tbaa !8
-  %238 = zext i32 %.ph343 to i64
+  %238 = zext i32 %.ph341 to i64
   %.not75 = icmp ult i64 %237, %238
   br i1 %.not75, label %304, label %239
 
 239:                                              ; preds = %236
   %240 = trunc i64 %237 to i32
-  %241 = sub i32 %240, %.ph343
+  %241 = sub i32 %240, %.ph341
   %242 = call noundef i64 @_ZNK4llvm15DWARFDebugNames9NameIndex21getForeignTUSignatureEj(ptr noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %241) #28
   %243 = load ptr, ptr %34, align 8, !tbaa !164
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
@@ -15216,7 +15216,7 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
   %344 = icmp eq i64 %343, %310
   br i1 %344, label %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit, label %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit.thread
 
-_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit.thread: ; preds = %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i, %342
+_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit.thread: ; preds = %342, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %43, i8 0, i64 16, i1 false)
   br label %350
 
@@ -21994,10 +21994,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit30:     ; preds = %_ZNK4llvm9StringRef
   br label %26
 
 26:                                               ; preds = %.thread50, %_ZN4llvm9StringRef13consume_frontES0_.exit30, %_ZN4llvm9StringRef13consume_frontES0_.exit18, %_ZN4llvm9StringRef13consume_frontES0_.exit24, %1, %11, %7
-  %.sroa.046.0 = phi i64 [ 1, %7 ], [ 0, %11 ], [ 0, %1 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 2, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 2, %.thread50 ]
-  %.sroa.5.0 = phi i64 [ 4294967296, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967296, %.thread50 ]
-  %.sroa.046.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.046.0
-  ret i64 %.sroa.046.0.insert.insert
+  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
+  ret i64 %.sroa.5.0
 }
 
 declare void @_ZN4llvm9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef, i64, i8) local_unnamed_addr #3
@@ -31412,7 +31410,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6.i.i.i:          ; preds = %36, %34
   br label %"_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES5_SaISt4pairIKmS7_EEENS0_12function_refIFPNS0_9DWARFUnitEmEEEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit"
 
 56:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i, %.lr.ph.i.i.i
-  %.sroa.010.014.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %98, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ]
+  %.sroa.010.014.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i ], [ %97, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i.i.i, i64 32
   %58 = load i64, ptr %57, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -31464,43 +31462,43 @@ _ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARF
 80:                                               ; preds = %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i
   %81 = load i64, ptr %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i, align 8, !tbaa !443
   %82 = icmp eq i64 %81, %58
-  br i1 %82, label %83, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
+  br i1 %82, label %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i.i.i.i.i, label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
 
-83:                                               ; preds = %80
-  %84 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i to i64
-  %85 = sub i64 %84, %68
-  %86 = sdiv exact i64 %85, 24
-  %87 = and i64 %86, 4294967295
-  %88 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %64, i64 %87
+_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i.i.i.i.i: ; preds = %80
+  %83 = ptrtoint ptr %.sroa.012.0.lcssa.i.i.i.i.i.i.i.i to i64
+  %84 = sub i64 %83, %68
+  %85 = sdiv exact i64 %84, 24
+  %86 = and i64 %85, 4294967295
+  %87 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %64, i64 %86
   br label %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
 
-"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i": ; preds = %83, %80, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i, %56
-  %.sroa.0.1.i.i.i.i = phi ptr [ null, %56 ], [ %61, %83 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i ], [ null, %80 ]
-  %.sroa.4.1.i.i.i.i = phi ptr [ null, %56 ], [ %88, %83 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i ], [ null, %80 ]
+"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i": ; preds = %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i.i.i.i.i, %80, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i, %56
+  %.sroa.0.1.i.i.i.i = phi ptr [ null, %56 ], [ null, %80 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i ], [ %61, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i.i.i.i.i ]
+  %.sroa.4.1.i.i.i.i = phi ptr [ null, %56 ], [ null, %80 ], [ null, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i.i.i.i.i ], [ %87, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i.i.i.i.i ]
   store ptr %.sroa.0.1.i.i.i.i, ptr %3, align 8
   store ptr %.sroa.4.1.i.i.i.i, ptr %44, align 8
-  %89 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13DWARFVerifier4dumpERKNS_8DWARFDieEj(ptr noundef nonnull align 8 dereferenceable(242) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !94
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  %93 = load ptr, ptr %92, align 8, !tbaa !139
-  %.not.i.i.i.i = icmp ult ptr %91, %93
-  br i1 %.not.i.i.i.i, label %96, label %94
+  %88 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm13DWARFVerifier4dumpERKNS_8DWARFDieEj(ptr noundef nonnull align 8 dereferenceable(242) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0)
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %90 = load ptr, ptr %89, align 8, !tbaa !94
+  %91 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  %92 = load ptr, ptr %91, align 8, !tbaa !139
+  %.not.i.i.i.i = icmp ult ptr %90, %92
+  br i1 %.not.i.i.i.i, label %95, label %93
 
-94:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
-  %95 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %89, i8 noundef zeroext 10) #28
+93:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
+  %94 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48) %88, i8 noundef zeroext 10) #28
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
 
-96:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
-  %97 = getelementptr inbounds nuw i8, ptr %91, i64 1
-  store ptr %97, ptr %90, align 8, !tbaa !94
-  store i8 10, ptr %91, align 1, !tbaa !36
+95:                                               ; preds = %"_ZZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES4_SaISt4pairIKmS6_EEENS_12function_refIFPNS_9DWARFUnitEmEEEENK3$_1clEm.exit.i.i.i"
+  %96 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  store ptr %96, ptr %89, align 8, !tbaa !94
+  store i8 10, ptr %90, align 1, !tbaa !36
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
 
-_ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %96, %94
+_ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %95, %93
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %98 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014.i.i.i) #27
-  %.not.i.i.i = icmp eq ptr %98, %42
+  %97 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.014.i.i.i) #27
+  %.not.i.i.i = icmp eq ptr %97, %42
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %56
 
 "_ZSt10__invoke_rIvRZN4llvm13DWARFVerifier25verifyDebugInfoReferencesERKSt3mapImSt3setImSt4lessImESaImEES5_SaISt4pairIKmS7_EEENS0_12function_refIFPNS0_9DWARFUnitEmEEEE3$_0JEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESN_E4typeEOSO_DpOSP_.exit": ; preds = %51, %53

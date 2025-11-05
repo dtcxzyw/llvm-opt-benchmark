@@ -7013,7 +7013,7 @@ sp_count_bits.exit:
 
 sp_count_bits.exit139.thread:                     ; preds = %sp_count_bits.exit
   %5 = icmp eq ptr %4, null
-  br label %.thread160
+  br label %.thread158
 
 sp_count_bits.exit139:                            ; preds = %sp_count_bits.exit
   %.not.i112 = icmp eq ptr %0, null
@@ -7025,16 +7025,16 @@ sp_count_bits.exit139:                            ; preds = %sp_count_bits.exit
   %9 = or i1 %8, %.not.i
   %10 = or i1 %.not.i112, %9
   %or.cond7 = or i1 %7, %10
-  br i1 %or.cond7, label %.thread160, label %11
+  br i1 %or.cond7, label %.thread158, label %11
 
 11:                                               ; preds = %sp_count_bits.exit139
   %12 = load i16, ptr %3, align 8, !tbaa !12
   %13 = icmp ult i16 %12, 65
-  br i1 %13, label %14, label %.thread160
+  br i1 %13, label %14, label %.thread158
 
 14:                                               ; preds = %11
   switch i16 %12, label %21 [
-    i16 0, label %.thread160
+    i16 0, label %.thread158
     i16 1, label %15
   ]
 
@@ -7048,26 +7048,26 @@ sp_count_bits.exit139:                            ; preds = %sp_count_bits.exit
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 0, ptr %20, align 8, !tbaa !8
   store i16 0, ptr %4, align 8, !tbaa !3
-  br label %.thread160
+  br label %.thread158
 
 21:                                               ; preds = %14, %15
-  br i1 %.not25.i127, label %22, label %.thread160
+  br i1 %.not25.i127, label %22, label %.thread158
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 1, ptr %23, align 8, !tbaa !8
   store i16 1, ptr %4, align 8, !tbaa !3
-  br label %.thread160
+  br label %.thread158
 
-.thread160:                                       ; preds = %14, %11, %sp_count_bits.exit139.thread, %sp_count_bits.exit139, %19, %22, %21
+.thread158:                                       ; preds = %14, %11, %sp_count_bits.exit139.thread, %sp_count_bits.exit139, %19, %22, %21
   %24 = phi i1 [ false, %22 ], [ false, %21 ], [ false, %19 ], [ %5, %sp_count_bits.exit139.thread ], [ %7, %sp_count_bits.exit139 ], [ false, %14 ], [ false, %11 ]
-  %.1152164 = phi i32 [ 0, %22 ], [ 0, %21 ], [ 0, %19 ], [ -98, %sp_count_bits.exit139.thread ], [ -98, %sp_count_bits.exit139 ], [ -98, %14 ], [ -98, %11 ]
+  %.1152162 = phi i32 [ 0, %22 ], [ 0, %21 ], [ 0, %19 ], [ -98, %sp_count_bits.exit139.thread ], [ -98, %sp_count_bits.exit139 ], [ -98, %14 ], [ -98, %11 ]
   %.195 = phi i32 [ 1, %22 ], [ 0, %21 ], [ 1, %19 ], [ 0, %sp_count_bits.exit139.thread ], [ 0, %sp_count_bits.exit139 ], [ 0, %14 ], [ 0, %11 ]
-  %25 = or disjoint i32 %.195, %.1152164
+  %25 = or disjoint i32 %.195, %.1152162
   %or.cond11 = icmp eq i32 %25, 0
   br i1 %or.cond11, label %26, label %_sp_cmp_abs.exit
 
-26:                                               ; preds = %.thread160
+26:                                               ; preds = %.thread158
   %27 = load i16, ptr %0, align 8, !tbaa !12
   %28 = load i16, ptr %3, align 8, !tbaa !12
   %29 = icmp ugt i16 %27, %28
@@ -7107,8 +7107,8 @@ sp_count_bits.exit139:                            ; preds = %sp_count_bits.exit
 
 45:                                               ; preds = %.loopexit
   %46 = icmp ugt i16 %27, 128
-  %or.cond173.not = or i1 %24, %46
-  br i1 %or.cond173.not, label %_sp_cmp_abs.exit, label %47
+  %or.cond171.not = or i1 %24, %46
+  br i1 %or.cond171.not, label %_sp_cmp_abs.exit, label %47
 
 47:                                               ; preds = %45
   %48 = tail call i32 @sp_div(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %3, ptr noundef null, ptr noundef nonnull %4)
@@ -7118,12 +7118,12 @@ sp_count_bits.exit139:                            ; preds = %sp_count_bits.exit
 sp_mod.exit:                                      ; preds = %47, %.loopexit
   %.4 = phi i32 [ -98, %.loopexit ], [ %49, %47 ]
   %50 = icmp eq i32 %.4, 0
-  %spec.select174 = select i1 %50, ptr %4, ptr %0
+  %spec.select172 = select i1 %50, ptr %4, ptr %0
   br label %_sp_cmp_abs.exit
 
-_sp_cmp_abs.exit:                                 ; preds = %41, %sp_mod.exit, %45, %30, %.thread160
-  %.2 = phi i32 [ %.1152164, %.thread160 ], [ 0, %30 ], [ -98, %45 ], [ %.4, %sp_mod.exit ], [ 0, %41 ]
-  %.0 = phi ptr [ %0, %.thread160 ], [ %0, %30 ], [ %0, %45 ], [ %spec.select174, %sp_mod.exit ], [ %0, %41 ]
+_sp_cmp_abs.exit:                                 ; preds = %41, %sp_mod.exit, %45, %30, %.thread158
+  %.2 = phi i32 [ %.1152162, %.thread158 ], [ 0, %30 ], [ -98, %45 ], [ %.4, %sp_mod.exit ], [ 0, %41 ]
+  %.0 = phi ptr [ %0, %.thread158 ], [ %0, %30 ], [ %0, %45 ], [ %spec.select172, %sp_mod.exit ], [ %0, %41 ]
   %51 = or i32 %.2, %.195
   %or.cond13 = icmp eq i32 %51, 0
   br i1 %or.cond13, label %52, label %57
@@ -7168,18 +7168,18 @@ _sp_cmp_abs.exit:                                 ; preds = %41, %sp_mod.exit, %
   br i1 %70, label %71, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %68
-  %.pr171.pre = load i16, ptr %3, align 8, !tbaa !12
+  %.pr169.pre = load i16, ptr %3, align 8, !tbaa !12
   br label %82
 
 71:                                               ; preds = %68
   %72 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !8
   %74 = icmp eq i64 %73, 2
-  %.pr171.pre186 = load i16, ptr %3, align 8, !tbaa !12
+  %.pr169.pre184 = load i16, ptr %3, align 8, !tbaa !12
   br i1 %74, label %75, label %82
 
 75:                                               ; preds = %71
-  %.not100 = icmp eq i16 %.pr171.pre186, 0
+  %.not100 = icmp eq i16 %.pr169.pre184, 0
   br i1 %.not100, label %.critedge, label %76
 
 76:                                               ; preds = %75
@@ -7194,8 +7194,8 @@ _sp_cmp_abs.exit:                                 ; preds = %41, %sp_mod.exit, %
   br label %.critedge109
 
 82:                                               ; preds = %._crit_edge, %71, %76
-  %.pr171 = phi i16 [ %.pr171.pre, %._crit_edge ], [ %.pr171.pre186, %71 ], [ %.pr171.pre186, %76 ]
-  %83 = icmp ugt i16 %.pr171, 1
+  %.pr169 = phi i16 [ %.pr169.pre, %._crit_edge ], [ %.pr169.pre184, %71 ], [ %.pr169.pre184, %76 ]
+  %83 = icmp ugt i16 %.pr169, 1
   br i1 %83, label %84, label %.critedge
 
 84:                                               ; preds = %82

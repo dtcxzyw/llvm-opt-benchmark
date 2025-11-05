@@ -350,28 +350,33 @@ define dso_local noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(
   %.sroa.0.4.vec.extract.i69 = extractelement <2 x float> %0, i64 1
   br i1 %25, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.059.lcssa = phi float [ 1.000000e+00, %8 ], [ %50, %.lr.ph ]
-  %.058.lcssa = phi float [ 1.000000e+00, %8 ], [ %49, %.lr.ph ]
-  %.0.lcssa = phi float [ 0.000000e+00, %8 ], [ %48, %.lr.ph ]
-  %26 = sitofp i32 %24 to float
-  %27 = fsub float %.0.i, %26
-  %28 = fadd float %27, 0xBFD3333340000000
-  %29 = fdiv float %28, 0x3FD9999980000000
-  %30 = fcmp olt float %29, 0.000000e+00
-  %31 = fcmp ogt float %29, 1.000000e+00
-  %..i.i = select i1 %31, float 1.000000e+00, float %29
-  %.0.i.i = select i1 %30, float 0.000000e+00, float %..i.i
-  %32 = fmul float %.0.i.i, %.0.i.i
-  %33 = fmul float %.0.i.i, 2.000000e+00
-  %34 = fsub float 3.000000e+00, %33
-  %35 = fmul float %32, %34
-  %36 = fmul float %35, %.059.lcssa
-  %37 = fmul float %.sroa.0.0.vec.extract.i68, %.058.lcssa
-  %38 = fmul float %.sroa.0.4.vec.extract.i69, %.058.lcssa
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %26 = fmul float %.sroa.0.0.vec.extract.i68, %49
+  %27 = fmul float %.sroa.0.4.vec.extract.i69, %49
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %8, %._crit_edge.loopexit
+  %.sroa.0.4.vec.extract.i.pre-phi = phi float [ %27, %._crit_edge.loopexit ], [ %.sroa.0.4.vec.extract.i69, %8 ]
+  %.sroa.0.0.vec.extract.i.pre-phi = phi float [ %26, %._crit_edge.loopexit ], [ %.sroa.0.0.vec.extract.i68, %8 ]
+  %.059.lcssa = phi float [ %50, %._crit_edge.loopexit ], [ 1.000000e+00, %8 ]
+  %.058.lcssa = phi float [ %49, %._crit_edge.loopexit ], [ 1.000000e+00, %8 ]
+  %.0.lcssa = phi float [ %48, %._crit_edge.loopexit ], [ 0.000000e+00, %8 ]
+  %28 = sitofp i32 %24 to float
+  %29 = fsub float %.0.i, %28
+  %30 = fadd float %29, 0xBFD3333340000000
+  %31 = fdiv float %30, 0x3FD9999980000000
+  %32 = fcmp olt float %31, 0.000000e+00
+  %33 = fcmp ogt float %31, 1.000000e+00
+  %..i.i = select i1 %33, float 1.000000e+00, float %31
+  %.0.i.i = select i1 %32, float 0.000000e+00, float %..i.i
+  %34 = fmul float %.0.i.i, %.0.i.i
+  %35 = fmul float %.0.i.i, 2.000000e+00
+  %36 = fsub float 3.000000e+00, %35
+  %37 = fmul float %34, %36
+  %38 = fmul float %37, %.059.lcssa
   %39 = fmul float %1, %.058.lcssa
-  %40 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %37, float noundef %38, float noundef %39)
-  %41 = fmul float %36, %40
+  %40 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %.sroa.0.0.vec.extract.i.pre-phi, float noundef %.sroa.0.4.vec.extract.i.pre-phi, float noundef %39)
+  %41 = fmul float %38, %40
   %42 = fadd float %.0.lcssa, %41
   ret float %42
 
@@ -390,7 +395,7 @@ define dso_local noundef float @_ZN4pbrt3FBmENS_6Point3IfEENS_7Vector3IfEES3_fi(
   %50 = fmul float %6, %.05977
   %51 = add nuw nsw i32 %.06076, 1
   %exitcond.not = icmp eq i32 %51, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(errnomem: write) uwtable
@@ -427,30 +432,35 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %.sroa.0.4.vec.extract.i79 = extractelement <2 x float> %0, i64 1
   br i1 %25, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.068.lcssa = phi float [ 1.000000e+00, %8 ], [ %56, %.lr.ph ]
-  %.067.lcssa = phi float [ 1.000000e+00, %8 ], [ %55, %.lr.ph ]
-  %.066.lcssa = phi float [ 0.000000e+00, %8 ], [ %54, %.lr.ph ]
-  %26 = sitofp i32 %24 to float
-  %27 = fsub float %.0.i, %26
-  %28 = fadd float %27, 0xBFD3333340000000
-  %29 = fdiv float %28, 0x3FD9999980000000
-  %30 = fcmp olt float %29, 0.000000e+00
-  %31 = fcmp ogt float %29, 1.000000e+00
-  %..i.i = select i1 %31, float 1.000000e+00, float %29
-  %.0.i.i = select i1 %30, float 0.000000e+00, float %..i.i
-  %32 = fmul float %.0.i.i, %.0.i.i
-  %33 = fmul float %.0.i.i, 2.000000e+00
-  %34 = fsub float 3.000000e+00, %33
-  %35 = fmul float %32, %34
-  %36 = fmul float %.sroa.0.0.vec.extract.i78, %.067.lcssa
-  %37 = fmul float %.sroa.0.4.vec.extract.i79, %.067.lcssa
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %26 = fmul float %.sroa.0.0.vec.extract.i78, %55
+  %27 = fmul float %.sroa.0.4.vec.extract.i79, %55
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %8, %._crit_edge.loopexit
+  %.sroa.0.4.vec.extract.i.pre-phi = phi float [ %27, %._crit_edge.loopexit ], [ %.sroa.0.4.vec.extract.i79, %8 ]
+  %.sroa.0.0.vec.extract.i.pre-phi = phi float [ %26, %._crit_edge.loopexit ], [ %.sroa.0.0.vec.extract.i78, %8 ]
+  %.068.lcssa = phi float [ %56, %._crit_edge.loopexit ], [ 1.000000e+00, %8 ]
+  %.067.lcssa = phi float [ %55, %._crit_edge.loopexit ], [ 1.000000e+00, %8 ]
+  %.066.lcssa = phi float [ %54, %._crit_edge.loopexit ], [ 0.000000e+00, %8 ]
+  %28 = sitofp i32 %24 to float
+  %29 = fsub float %.0.i, %28
+  %30 = fadd float %29, 0xBFD3333340000000
+  %31 = fdiv float %30, 0x3FD9999980000000
+  %32 = fcmp olt float %31, 0.000000e+00
+  %33 = fcmp ogt float %31, 1.000000e+00
+  %..i.i = select i1 %33, float 1.000000e+00, float %31
+  %.0.i.i = select i1 %32, float 0.000000e+00, float %..i.i
+  %34 = fmul float %.0.i.i, %.0.i.i
+  %35 = fmul float %.0.i.i, 2.000000e+00
+  %36 = fsub float 3.000000e+00, %35
+  %37 = fmul float %34, %36
   %38 = fmul float %1, %.067.lcssa
-  %39 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %36, float noundef %37, float noundef %38)
+  %39 = tail call noundef float @_ZN4pbrt5NoiseEfff(float noundef %.sroa.0.0.vec.extract.i.pre-phi, float noundef %.sroa.0.4.vec.extract.i.pre-phi, float noundef %38)
   %40 = tail call noundef float @llvm.fabs.f32(float %39)
-  %41 = fsub float 1.000000e+00, %35
+  %41 = fsub float 1.000000e+00, %37
   %42 = fmul float %41, 0x3FC99999A0000000
-  %43 = fmul float %35, %40
+  %43 = fmul float %37, %40
   %44 = fadd float %42, %43
   %45 = fmul float %.068.lcssa, %44
   %46 = fadd float %.066.lcssa, %45
@@ -473,7 +483,7 @@ define dso_local noundef float @_ZN4pbrt10TurbulenceENS_6Point3IfEENS_7Vector3If
   %56 = fmul float %6, %.06887
   %57 = add nuw nsw i32 %.07086, 1
   %exitcond.not = icmp eq i32 %57, %24
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge97:                                    ; preds = %.lr.ph96, %._crit_edge
   %.1.lcssa = phi float [ %46, %._crit_edge ], [ %59, %.lr.ph96 ]

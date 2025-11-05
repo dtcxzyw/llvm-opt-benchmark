@@ -38,16 +38,16 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = sub i64 %16, %18
   store i64 %19, ptr %4, align 8, !tbaa !3
-  %20 = load i64, ptr %15, align 8, !tbaa !3
-  br i1 %.not, label %23, label %21
+  br i1 %.not, label %24, label %20
 
-21:                                               ; preds = %14
+20:                                               ; preds = %14
+  %21 = load i64, ptr %15, align 8, !tbaa !3
   %22 = load i64, ptr %3, align 8, !tbaa !3
-  br label %23
+  %23 = mul i64 %22, %21
+  br label %24
 
-23:                                               ; preds = %14, %21
-  %24 = phi i64 [ %22, %21 ], [ 0, %14 ]
-  %25 = mul i64 %24, %20
+24:                                               ; preds = %14, %20
+  %25 = phi i64 [ %23, %20 ], [ 0, %14 ]
   %26 = add i64 %25, %13
   br label %.loopexit
 
@@ -70,7 +70,7 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %39 = sub i64 %36, %38
   %40 = mul i64 %39, %34
   store i64 %40, ptr %4, align 8, !tbaa !3
-  br label %51
+  br label %55
 
 41:                                               ; preds = %27
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -82,18 +82,16 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %48 = sub i64 %45, %47
   %49 = mul i64 %48, %34
   store i64 %49, ptr %4, align 8, !tbaa !3
-  %50 = load i64, ptr %3, align 8, !tbaa !3
-  br label %51
+  %50 = load i64, ptr %44, align 8, !tbaa !3
+  %51 = load i64, ptr %3, align 8, !tbaa !3
+  %52 = mul i64 %51, %50
+  %53 = add i64 %52, %43
+  %54 = mul i64 %53, %34
+  br label %55
 
-51:                                               ; preds = %.thread, %41
-  %.in97 = phi ptr [ %44, %41 ], [ %35, %.thread ]
-  %52 = phi i64 [ %43, %41 ], [ 0, %.thread ]
-  %53 = phi i64 [ %50, %41 ], [ 0, %.thread ]
-  %54 = load i64, ptr %.in97, align 8, !tbaa !3
-  %55 = mul i64 %53, %54
-  %reass.add83 = add i64 %55, %52
-  %reass.mul84 = mul i64 %reass.add83, %34
-  %56 = add i64 %reass.mul84, %13
+55:                                               ; preds = %.thread, %41
+  %reass.add83 = phi i64 [ %54, %41 ], [ 0, %.thread ]
+  %56 = add i64 %reass.add83, %13
   br label %.loopexit
 
 57:                                               ; preds = %12
@@ -105,16 +103,16 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %62, ptr %63, align 8, !tbaa !3
   %64 = load i64, ptr %58, align 8, !tbaa !3
-  br i1 %.not, label %68, label %65
+  br i1 %.not, label %69, label %65
 
 65:                                               ; preds = %57
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !3
-  br label %68
+  %68 = mul i64 %67, %64
+  br label %69
 
-68:                                               ; preds = %57, %65
-  %69 = phi i64 [ %67, %65 ], [ 0, %57 ]
-  %70 = mul i64 %69, %64
+69:                                               ; preds = %57, %65
+  %70 = phi i64 [ %68, %65 ], [ 0, %57 ]
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %72 = load i64, ptr %71, align 8, !tbaa !3
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -127,7 +125,7 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %79 = mul i64 %78, %64
   br i1 %.not, label %.thread95, label %86
 
-.thread95:                                        ; preds = %68
+.thread95:                                        ; preds = %69
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %81 = load i64, ptr %80, align 8, !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -135,9 +133,9 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %84 = sub i64 %81, %83
   %85 = mul i64 %84, %79
   store i64 %85, ptr %4, align 8, !tbaa !3
-  br label %96
+  br label %100
 
-86:                                               ; preds = %68
+86:                                               ; preds = %69
   %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !3
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -147,19 +145,17 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %93 = sub i64 %90, %92
   %94 = mul i64 %93, %79
   store i64 %94, ptr %4, align 8, !tbaa !3
-  %95 = load i64, ptr %3, align 8, !tbaa !3
-  br label %96
+  %95 = load i64, ptr %89, align 8, !tbaa !3
+  %96 = load i64, ptr %3, align 8, !tbaa !3
+  %97 = mul i64 %96, %95
+  %98 = add i64 %97, %88
+  %99 = mul i64 %98, %79
+  br label %100
 
-96:                                               ; preds = %.thread95, %86
-  %.in = phi ptr [ %89, %86 ], [ %80, %.thread95 ]
-  %97 = phi i64 [ %88, %86 ], [ 0, %.thread95 ]
-  %98 = phi i64 [ %95, %86 ], [ 0, %.thread95 ]
-  %99 = load i64, ptr %.in, align 8, !tbaa !3
-  %100 = mul i64 %98, %99
-  %reass.add = add i64 %100, %97
-  %reass.mul = mul i64 %reass.add, %79
+100:                                              ; preds = %.thread95, %86
+  %reass.add = phi i64 [ %99, %86 ], [ 0, %.thread95 ]
   %101 = add i64 %70, %13
-  %102 = add i64 %101, %reass.mul
+  %102 = add i64 %101, %reass.add
   br label %.loopexit
 
 103:                                              ; preds = %12
@@ -186,8 +182,8 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %115 = load i64, ptr %108, align 8, !tbaa !3
   %116 = mul i64 %115, %.08085.us
   %indvars.iv.next91 = add nsw i64 %indvars.iv90, -1
-  %.not99 = icmp eq i64 %indvars.iv90, 0
-  br i1 %.not99, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !7
+  %.not98 = icmp eq i64 %indvars.iv90, 0
+  br i1 %.not98, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !7
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ %106, %.lr.ph ]
@@ -209,11 +205,11 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %129 = mul i64 %128, %126
   %130 = add i64 %129, %.187
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not98 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not98, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
+  %.not97 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not97, label %.loopexit, label %.lr.ph.split, !llvm.loop !7
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %103, %96, %51, %23
-  %.0 = phi i64 [ %26, %23 ], [ %56, %51 ], [ %102, %96 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %103, %100, %55, %24
+  %.0 = phi i64 [ %26, %24 ], [ %56, %55 ], [ %102, %100 ], [ %13, %103 ], [ %13, %.lr.ph.split.us ], [ %130, %.lr.ph.split ]
   ret i64 %.0
 }
 
@@ -235,11 +231,11 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %7
   %indvars.iv77 = phi i64 [ 0, %.preheader.split.us.preheader ], [ %indvars.iv.next78, %7 ]
-  %.02541.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %36, %7 ]
-  %.02640.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %28, %7 ]
+  %.02541.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %30, %7 ]
+  %.02640.us = phi i64 [ 1, %.preheader.split.us.preheader ], [ %25, %7 ]
   br i1 %.not35, label %.thread, label %8
 
-7:                                                ; preds = %34
+7:                                                ; preds = %27
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %exitcond81.not = icmp eq i64 %indvars.iv.next78, %wide.trip.count80
   br i1 %exitcond81.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !9
@@ -269,36 +265,24 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
 
 20:                                               ; preds = %17, %15
   %21 = phi i64 [ %19, %17 ], [ 0, %15 ]
-  %.not39.us = icmp eq i64 %16, %21
-  br i1 %.not39.us, label %22, label %.loopexit
+  %.not39.us = icmp ne i64 %16, %21
+  %brmerge = or i1 %.not39.us, %.not37
+  br i1 %brmerge, label %.loopexit, label %22
 
 22:                                               ; preds = %20
-  br i1 %.not37, label %26, label %23
+  %23 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv77
+  %24 = load i64, ptr %23, align 8, !tbaa !3
+  %25 = mul i64 %24, %.02640.us
+  %26 = icmp eq i64 %25, 0
+  %brmerge108 = or i1 %26, %.not38
+  br i1 %brmerge108, label %.loopexit, label %27
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv77
-  %25 = load i64, ptr %24, align 8, !tbaa !3
-  br label %26
-
-26:                                               ; preds = %23, %22
-  %27 = phi i64 [ %25, %23 ], [ 0, %22 ]
-  %28 = mul i64 %27, %.02640.us
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %.loopexit, label %30
-
-30:                                               ; preds = %26
-  br i1 %.not38, label %34, label %31
-
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv77
-  %33 = load i64, ptr %32, align 8, !tbaa !3
-  br label %34
-
-34:                                               ; preds = %31, %30
-  %35 = phi i64 [ %33, %31 ], [ 0, %30 ]
-  %36 = mul i64 %35, %.02541.us
-  %37 = icmp eq i64 %36, 0
-  br i1 %37, label %.loopexit, label %7
+27:                                               ; preds = %22
+  %28 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv77
+  %29 = load i64, ptr %28, align 8, !tbaa !3
+  %30 = mul i64 %29, %.02541.us
+  %31 = icmp eq i64 %30, 0
+  br i1 %31, label %.loopexit, label %7
 
 .preheader.split:                                 ; preds = %.preheader
   br i1 %.not35, label %.preheader.split.split.us.preheader, label %.preheader.split.split
@@ -307,114 +291,102 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   %wide.trip.count75 = zext i32 %0 to i64
   br label %.preheader.split.split.us
 
-.preheader.split.split.us:                        ; preds = %.preheader.split.split.us.preheader, %40
-  %indvars.iv72 = phi i64 [ 0, %.preheader.split.split.us.preheader ], [ %indvars.iv.next73, %40 ]
-  %.02541.us44 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %66, %40 ]
-  %.02640.us45 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %58, %40 ]
-  %38 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv72
-  %39 = load i64, ptr %38, align 8, !tbaa !3
-  %.not36.us46 = icmp eq i64 %39, 0
-  br i1 %.not36.us46, label %41, label %.loopexit
+.preheader.split.split.us:                        ; preds = %.preheader.split.split.us.preheader, %34
+  %indvars.iv72 = phi i64 [ 0, %.preheader.split.split.us.preheader ], [ %indvars.iv.next73, %34 ]
+  %.02541.us44 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %54, %34 ]
+  %.02640.us45 = phi i64 [ 1, %.preheader.split.split.us.preheader ], [ %49, %34 ]
+  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv72
+  %33 = load i64, ptr %32, align 8, !tbaa !3
+  %.not36.us46 = icmp eq i64 %33, 0
+  br i1 %.not36.us46, label %35, label %.loopexit
 
-40:                                               ; preds = %64
+34:                                               ; preds = %51
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond76.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count75
   br i1 %exitcond76.not, label %.loopexit, label %.preheader.split.split.us, !llvm.loop !9
 
-41:                                               ; preds = %.preheader.split.split.us
-  br i1 %.not37, label %45, label %42
+35:                                               ; preds = %.preheader.split.split.us
+  br i1 %.not37, label %39, label %36
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv72
-  %44 = load i64, ptr %43, align 8, !tbaa !3
-  br label %45
+36:                                               ; preds = %35
+  %37 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv72
+  %38 = load i64, ptr %37, align 8, !tbaa !3
+  br label %39
 
-45:                                               ; preds = %42, %41
-  %46 = phi i64 [ %44, %42 ], [ 0, %41 ]
-  br i1 %.not38, label %50, label %47
+39:                                               ; preds = %36, %35
+  %40 = phi i64 [ %38, %36 ], [ 0, %35 ]
+  br i1 %.not38, label %44, label %41
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv72
-  %49 = load i64, ptr %48, align 8, !tbaa !3
-  br label %50
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv72
+  %43 = load i64, ptr %42, align 8, !tbaa !3
+  br label %44
 
-50:                                               ; preds = %47, %45
-  %51 = phi i64 [ %49, %47 ], [ 0, %45 ]
-  %.not39.us47 = icmp eq i64 %46, %51
-  br i1 %.not39.us47, label %52, label %.loopexit
+44:                                               ; preds = %41, %39
+  %45 = phi i64 [ %43, %41 ], [ 0, %39 ]
+  %.not39.us47 = icmp ne i64 %40, %45
+  %brmerge109 = or i1 %.not39.us47, %.not37
+  br i1 %brmerge109, label %.loopexit, label %46
 
-52:                                               ; preds = %50
-  br i1 %.not37, label %56, label %53
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv72
+  %48 = load i64, ptr %47, align 8, !tbaa !3
+  %49 = mul i64 %48, %.02640.us45
+  %50 = icmp eq i64 %49, 0
+  %brmerge110 = or i1 %50, %.not38
+  br i1 %brmerge110, label %.loopexit, label %51
 
-53:                                               ; preds = %52
-  %54 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv72
-  %55 = load i64, ptr %54, align 8, !tbaa !3
-  br label %56
-
-56:                                               ; preds = %53, %52
-  %57 = phi i64 [ %55, %53 ], [ 0, %52 ]
-  %58 = mul i64 %57, %.02640.us45
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %.loopexit, label %60
-
-60:                                               ; preds = %56
-  br i1 %.not38, label %64, label %61
-
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv72
-  %63 = load i64, ptr %62, align 8, !tbaa !3
-  br label %64
-
-64:                                               ; preds = %61, %60
-  %65 = phi i64 [ %63, %61 ], [ 0, %60 ]
-  %66 = mul i64 %65, %.02541.us44
-  %67 = icmp eq i64 %66, 0
-  br i1 %67, label %.loopexit, label %40
+51:                                               ; preds = %46
+  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv72
+  %53 = load i64, ptr %52, align 8, !tbaa !3
+  %54 = mul i64 %53, %.02541.us44
+  %55 = icmp eq i64 %54, 0
+  br i1 %55, label %.loopexit, label %34
 
 .preheader.split.split:                           ; preds = %.preheader.split
-  %brmerge = or i1 %.not37, %.not38
-  br i1 %brmerge, label %.loopexit, label %.preheader.split.split.split.split.preheader
+  %brmerge111 = or i1 %.not37, %.not38
+  br i1 %brmerge111, label %.loopexit, label %.preheader.split.split.split.split.preheader
 
 .preheader.split.split.split.split.preheader:     ; preds = %.preheader.split.split
   %wide.trip.count = zext i32 %0 to i64
   br label %.preheader.split.split.split.split
 
-68:                                               ; preds = %81
+56:                                               ; preds = %69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.preheader.split.split.split.split, !llvm.loop !9
 
-.preheader.split.split.split.split:               ; preds = %.preheader.split.split.split.split.preheader, %68
-  %indvars.iv = phi i64 [ 0, %.preheader.split.split.split.split.preheader ], [ %indvars.iv.next, %68 ]
-  %.02541 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %82, %68 ]
-  %.02640 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %79, %68 ]
-  %69 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
-  %70 = load i64, ptr %69, align 8, !tbaa !3
-  %71 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
-  %72 = load i64, ptr %71, align 8, !tbaa !3
-  %.not36 = icmp eq i64 %70, %72
-  br i1 %.not36, label %73, label %.loopexit
+.preheader.split.split.split.split:               ; preds = %.preheader.split.split.split.split.preheader, %56
+  %indvars.iv = phi i64 [ 0, %.preheader.split.split.split.split.preheader ], [ %indvars.iv.next, %56 ]
+  %.02541 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %70, %56 ]
+  %.02640 = phi i64 [ 1, %.preheader.split.split.split.split.preheader ], [ %67, %56 ]
+  %57 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %58 = load i64, ptr %57, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %60 = load i64, ptr %59, align 8, !tbaa !3
+  %.not36 = icmp eq i64 %58, %60
+  br i1 %.not36, label %61, label %.loopexit
 
-73:                                               ; preds = %.preheader.split.split.split.split
-  %74 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  %75 = load i64, ptr %74, align 8, !tbaa !3
-  %76 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
-  %77 = load i64, ptr %76, align 8, !tbaa !3
-  %.not39 = icmp eq i64 %75, %77
-  br i1 %.not39, label %78, label %.loopexit
+61:                                               ; preds = %.preheader.split.split.split.split
+  %62 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %63 = load i64, ptr %62, align 8, !tbaa !3
+  %64 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %65 = load i64, ptr %64, align 8, !tbaa !3
+  %.not39 = icmp eq i64 %63, %65
+  br i1 %.not39, label %66, label %.loopexit
 
-78:                                               ; preds = %73
-  %79 = mul i64 %75, %.02640
-  %80 = icmp eq i64 %79, 0
-  br i1 %80, label %.loopexit, label %81
+66:                                               ; preds = %61
+  %67 = mul i64 %63, %.02640
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %.loopexit, label %69
 
-81:                                               ; preds = %78
-  %82 = mul i64 %75, %.02541
-  %83 = icmp eq i64 %82, 0
-  br i1 %83, label %.loopexit, label %68
+69:                                               ; preds = %66
+  %70 = mul i64 %63, %.02541
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %.loopexit, label %56
 
-.loopexit:                                        ; preds = %81, %78, %73, %.preheader.split.split.split.split, %68, %40, %.preheader.split.split.us, %50, %56, %64, %34, %26, %20, %8, %7, %.preheader.split.split, %5
-  %.0 = phi i32 [ 1, %5 ], [ 0, %.preheader.split.split ], [ 0, %34 ], [ 0, %26 ], [ 0, %20 ], [ 0, %8 ], [ 1, %7 ], [ 0, %64 ], [ 0, %56 ], [ 0, %50 ], [ 0, %.preheader.split.split.us ], [ 1, %40 ], [ 0, %81 ], [ 0, %78 ], [ 0, %73 ], [ 0, %.preheader.split.split.split.split ], [ 1, %68 ]
+.loopexit:                                        ; preds = %69, %66, %61, %.preheader.split.split.split.split, %56, %34, %.preheader.split.split.us, %51, %44, %46, %27, %8, %7, %20, %22, %.preheader.split.split, %5
+  %.0 = phi i32 [ 1, %5 ], [ 0, %.preheader.split.split ], [ 0, %27 ], [ 0, %22 ], [ 0, %20 ], [ 0, %8 ], [ 1, %7 ], [ 0, %51 ], [ 0, %46 ], [ 0, %44 ], [ 0, %.preheader.split.split.us ], [ 1, %34 ], [ 0, %69 ], [ 0, %66 ], [ 0, %61 ], [ 0, %.preheader.split.split.split.split ], [ 1, %56 ]
   ret i32 %.0
 }
 
@@ -728,25 +700,25 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %39 = load i64, ptr %38, align 8, !tbaa !3
   %40 = sub i64 %39, %36
   store i64 %40, ptr %11, align 16, !tbaa !3
-  br i1 %.not140, label %43, label %41
+  br i1 %.not140, label %44, label %41
 
 41:                                               ; preds = %32
   %42 = load i64, ptr %3, align 8, !tbaa !3
-  br label %43
+  %43 = mul i64 %42, %34
+  br label %44
 
-43:                                               ; preds = %32, %41
-  %44 = phi i64 [ %42, %41 ], [ 0, %32 ]
-  %45 = mul i64 %44, %34
+44:                                               ; preds = %32, %41
+  %45 = phi i64 [ %43, %41 ], [ 0, %32 ]
   %46 = add i64 %45, %26
   br i1 %.not141, label %.thread, label %47
 
-47:                                               ; preds = %43
+47:                                               ; preds = %44
   %48 = load i64, ptr %6, align 8, !tbaa !3
+  %49 = mul i64 %48, %39
   br label %.thread
 
-.thread:                                          ; preds = %47, %43
-  %49 = phi i64 [ %48, %47 ], [ 0, %43 ]
-  %50 = mul i64 %49, %39
+.thread:                                          ; preds = %47, %44
+  %50 = phi i64 [ %49, %47 ], [ 0, %44 ]
   %51 = add i64 %50, %31
   br label %205
 
@@ -793,27 +765,27 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %81 = sub i64 %80, %76
   %82 = mul i64 %81, %60
   store i64 %82, ptr %11, align 16, !tbaa !3
-  br i1 %.not140, label %85, label %83
+  br i1 %.not140, label %86, label %83
 
 83:                                               ; preds = %71
   %84 = load i64, ptr %3, align 8, !tbaa !3
-  br label %85
+  %85 = mul i64 %84, %74
+  br label %86
 
-85:                                               ; preds = %71, %83
-  %86 = phi i64 [ %84, %83 ], [ 0, %71 ]
-  %87 = mul i64 %86, %74
+86:                                               ; preds = %71, %83
+  %87 = phi i64 [ %85, %83 ], [ 0, %71 ]
   %reass.add193 = add i64 %87, %67
   %reass.mul194 = mul i64 %reass.add193, %54
   %88 = add i64 %reass.mul194, %26
   br i1 %.not141, label %.thread173, label %89
 
-89:                                               ; preds = %85
+89:                                               ; preds = %86
   %90 = load i64, ptr %6, align 8, !tbaa !3
+  %91 = mul i64 %90, %80
   br label %.thread173
 
-.thread173:                                       ; preds = %89, %85
-  %91 = phi i64 [ %90, %89 ], [ 0, %85 ]
-  %92 = mul i64 %91, %80
+.thread173:                                       ; preds = %89, %86
+  %92 = phi i64 [ %91, %89 ], [ 0, %86 ]
   %reass.add195 = add i64 %92, %72
   %reass.mul196 = mul i64 %reass.add195, %60
   %93 = add i64 %reass.mul196, %31
@@ -832,26 +804,26 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %103 = sub i64 %102, %98
   %104 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %103, ptr %104, align 16, !tbaa !3
-  br i1 %.not140, label %108, label %105
+  br i1 %.not140, label %109, label %105
 
 105:                                              ; preds = %94
   %106 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %107 = load i64, ptr %106, align 8, !tbaa !3
-  br label %108
+  %108 = mul i64 %107, %96
+  br label %109
 
-108:                                              ; preds = %94, %105
-  %109 = phi i64 [ %107, %105 ], [ 0, %94 ]
-  %110 = mul i64 %109, %96
-  br i1 %.not141, label %114, label %111
+109:                                              ; preds = %94, %105
+  %110 = phi i64 [ %108, %105 ], [ 0, %94 ]
+  br i1 %.not141, label %115, label %111
 
-111:                                              ; preds = %108
+111:                                              ; preds = %109
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %113 = load i64, ptr %112, align 8, !tbaa !3
-  br label %114
+  %114 = mul i64 %113, %102
+  br label %115
 
-114:                                              ; preds = %108, %111
-  %115 = phi i64 [ %113, %111 ], [ 0, %108 ]
-  %116 = mul i64 %115, %102
+115:                                              ; preds = %109, %111
+  %116 = phi i64 [ %114, %111 ], [ 0, %109 ]
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %118 = load i64, ptr %117, align 8, !tbaa !3
   %119 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -870,13 +842,13 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %130 = mul i64 %125, %102
   br i1 %.not140, label %134, label %131
 
-131:                                              ; preds = %114
+131:                                              ; preds = %115
   %132 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %133 = load i64, ptr %132, align 8, !tbaa !3
   br label %134
 
-134:                                              ; preds = %114, %131
-  %135 = phi i64 [ %133, %131 ], [ 0, %114 ]
+134:                                              ; preds = %115, %131
+  %135 = phi i64 [ %133, %131 ], [ 0, %115 ]
   br i1 %.not141, label %139, label %136
 
 136:                                              ; preds = %134
@@ -898,28 +870,28 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %149 = sub i64 %148, %144
   %150 = mul i64 %149, %130
   store i64 %150, ptr %11, align 16, !tbaa !3
-  br i1 %.not140, label %153, label %151
+  br i1 %.not140, label %154, label %151
 
 151:                                              ; preds = %139
   %152 = load i64, ptr %3, align 8, !tbaa !3
-  br label %153
+  %153 = mul i64 %152, %142
+  br label %154
 
-153:                                              ; preds = %139, %151
-  %154 = phi i64 [ %152, %151 ], [ 0, %139 ]
-  %155 = mul i64 %154, %142
+154:                                              ; preds = %139, %151
+  %155 = phi i64 [ %153, %151 ], [ 0, %139 ]
   %reass.add = add i64 %155, %135
   %reass.mul = mul i64 %reass.add, %129
   %156 = add i64 %110, %26
   %157 = add i64 %156, %reass.mul
   br i1 %.not141, label %.thread178, label %158
 
-158:                                              ; preds = %153
+158:                                              ; preds = %154
   %159 = load i64, ptr %6, align 8, !tbaa !3
+  %160 = mul i64 %159, %148
   br label %.thread178
 
-.thread178:                                       ; preds = %158, %153
-  %160 = phi i64 [ %159, %158 ], [ 0, %153 ]
-  %161 = mul i64 %160, %148
+.thread178:                                       ; preds = %158, %154
+  %161 = phi i64 [ %160, %158 ], [ 0, %154 ]
   %reass.add191 = add i64 %161, %140
   %reass.mul192 = mul i64 %reass.add191, %130
   %162 = add i64 %116, %31
@@ -935,12 +907,12 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %167 = zext nneg i32 %165 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %193
-  %indvars.iv = phi i64 [ %167, %.lr.ph.preheader ], [ %indvars.iv.next, %193 ]
-  %.0124207 = phi i64 [ 1, %.lr.ph.preheader ], [ %182, %193 ]
-  %.0125206 = phi i64 [ 1, %.lr.ph.preheader ], [ %181, %193 ]
-  %.1205 = phi i64 [ %26, %.lr.ph.preheader ], [ %189, %193 ]
-  %.1128204 = phi i64 [ %31, %.lr.ph.preheader ], [ %196, %193 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %194
+  %indvars.iv = phi i64 [ %167, %.lr.ph.preheader ], [ %indvars.iv.next, %194 ]
+  %.0124207 = phi i64 [ 1, %.lr.ph.preheader ], [ %182, %194 ]
+  %.0125206 = phi i64 [ 1, %.lr.ph.preheader ], [ %181, %194 ]
+  %.1205 = phi i64 [ %26, %.lr.ph.preheader ], [ %189, %194 ]
+  %.1128204 = phi i64 [ %31, %.lr.ph.preheader ], [ %196, %194 ]
   %168 = add nuw nsw i64 %indvars.iv, 1
   %169 = getelementptr inbounds nuw i64, ptr %2, i64 %168
   %170 = load i64, ptr %169, align 8, !tbaa !3
@@ -958,35 +930,35 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   store i64 %179, ptr %180, align 8, !tbaa !3
   %181 = mul i64 %170, %.0125206
   %182 = mul i64 %177, %.0124207
-  br i1 %.not140, label %186, label %183
+  br i1 %.not140, label %187, label %183
 
 183:                                              ; preds = %.lr.ph
   %184 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
   %185 = load i64, ptr %184, align 8, !tbaa !3
-  br label %186
+  %186 = mul i64 %185, %181
+  br label %187
 
-186:                                              ; preds = %.lr.ph, %183
-  %187 = phi i64 [ %185, %183 ], [ 0, %.lr.ph ]
-  %188 = mul i64 %187, %181
+187:                                              ; preds = %.lr.ph, %183
+  %188 = phi i64 [ %186, %183 ], [ 0, %.lr.ph ]
   %189 = add i64 %188, %.1205
-  br i1 %.not141, label %193, label %190
+  br i1 %.not141, label %194, label %190
 
-190:                                              ; preds = %186
+190:                                              ; preds = %187
   %191 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
   %192 = load i64, ptr %191, align 8, !tbaa !3
-  br label %193
+  %193 = mul i64 %192, %182
+  br label %194
 
-193:                                              ; preds = %186, %190
-  %194 = phi i64 [ %192, %190 ], [ 0, %186 ]
-  %195 = mul i64 %194, %182
+194:                                              ; preds = %187, %190
+  %195 = phi i64 [ %193, %190 ], [ 0, %187 ]
   %196 = add i64 %195, %.1128204
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %197 = icmp sgt i64 %indvars.iv, 0
   br i1 %197, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %193, %164
-  %.1128.lcssa = phi i64 [ %31, %164 ], [ %196, %193 ]
-  %.1.lcssa = phi i64 [ %26, %164 ], [ %189, %193 ]
+._crit_edge:                                      ; preds = %194, %164
+  %.1128.lcssa = phi i64 [ %31, %164 ], [ %196, %194 ]
+  %.1.lcssa = phi i64 [ %26, %164 ], [ %189, %194 ]
   switch i32 %0, label %.lr.ph.i.preheader [
     i32 1, label %200
     i32 2, label %205

@@ -2847,14 +2847,13 @@ Py_DECREF.exit155:                                ; preds = %193
 208:                                              ; preds = %206
   %209 = call i32 @PyType_IsSubtype(ptr noundef nonnull %.val181, ptr noundef %207) #12
   %210 = icmp ne i32 %209, 0
-  br label %PyObject_TypeCheck.exit220
+  %211 = and i1 %109, %210
+  br i1 %211, label %212, label %.critedge149
 
-PyObject_TypeCheck.exit220:                       ; preds = %206, %208
-  %211 = phi i1 [ true, %206 ], [ %210, %208 ]
-  %or.cond15 = and i1 %109, %211
-  br i1 %or.cond15, label %212, label %.critedge149
+PyObject_TypeCheck.exit220:                       ; preds = %206
+  br i1 %109, label %212, label %.critedge149
 
-212:                                              ; preds = %PyObject_TypeCheck.exit220
+212:                                              ; preds = %208, %PyObject_TypeCheck.exit220
   %213 = load ptr, ptr %5, align 8, !tbaa !18
   %214 = getelementptr inbounds nuw i8, ptr %106, i64 24
   %215 = load ptr, ptr %214, align 8, !tbaa !53
@@ -2869,7 +2868,7 @@ PyObject_TypeCheck.exit220:                       ; preds = %206, %208
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %215, ptr align 1 %217, i64 %223, i1 false)
   br label %.critedge149
 
-.critedge149:                                     ; preds = %Py_DECREF.exit163, %PyObject_TypeCheck.exit216.thread, %Py_DECREF.exit155, %Py_DECREF.exit157, %165, %167, %170, %PyObject_TypeCheck.exit220, %212
+.critedge149:                                     ; preds = %Py_DECREF.exit163, %208, %PyObject_TypeCheck.exit216.thread, %Py_DECREF.exit155, %Py_DECREF.exit157, %165, %167, %170, %PyObject_TypeCheck.exit220, %212
   %.not146 = icmp eq ptr %.094, null
   br i1 %.not146, label %.critedge148, label %224
 

@@ -189,84 +189,82 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidationC
   %11 = zext i32 %10 to i64
   %12 = shl nuw i64 %11, 32
   %13 = zext i32 %9 to i64
+  %14 = or disjoint i64 %12, %13
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit: ; preds = %2, %7
-  %.sroa.7.0 = phi i64 [ %13, %7 ], [ 0, %2 ]
-  %.sroa.11.0 = phi i64 [ %12, %7 ], [ 0, %2 ]
+  %.sroa.11.0 = phi i64 [ %14, %7 ], [ 0, %2 ]
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation15_ValidateSchemeERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %14 unwind label %26
+          to label %15 unwind label %27
 
-14:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
+15:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation20_ValidateOrientationERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %15 unwind label %26
-
-15:                                               ; preds = %14
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %16 unwind label %26
+          to label %16 unwind label %27
 
 16:                                               ; preds = %15
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %17 unwind label %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateTriangleSubdivisionERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %17 unwind label %27
 
 17:                                               ; preds = %16
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %18 unwind label %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation28_ValidateVertexInterpolationERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %18 unwind label %27
 
 18:                                               ; preds = %17
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %19 unwind label %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation33_ValidateFaceVaryingInterpolationERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %19 unwind label %27
 
 19:                                               ; preds = %18
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %20 unwind label %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation21_ValidateCreaseMethodERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation14_ValidateHolesERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %21 unwind label %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateCreasesAndCornersERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %21 unwind label %27
 
 21:                                               ; preds = %20
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %22 unwind label %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation14_ValidateHolesERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %22 unwind label %27
 
 22:                                               ; preds = %21
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
-          to label %23 unwind label %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation25_ValidateFaceVertexCountsERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %23 unwind label %27
 
 23:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %6, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation26_ValidateFaceVertexIndicesERKNS_17PxOsdMeshTopologyE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(369) %1)
+          to label %24 unwind label %27
 
 24:                                               ; preds = %23
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  br i1 %6, label %25, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
+
+25:                                               ; preds = %24
   fence syncscope("singlethread") seq_cst
-  %25 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  %26 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidationC1ERKNS_17PxOsdMeshTopologyEE15TraceKeyData_60, ptr %4, align 8
-  %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %25) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.sroa.11.0, i64 noundef %26) #19
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %23, %24
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %24, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-26:                                               ; preds = %22, %21, %20, %19, %18, %17, %16, %15, %14, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
-  %27 = landingpad { ptr, i32 }
+27:                                               ; preds = %23, %22, %21, %20, %19, %18, %17, %16, %15, %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDataE.exit
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %6, label %28, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12
+  br i1 %6, label %29, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12
 
-28:                                               ; preds = %26
+29:                                               ; preds = %27
   fence syncscope("singlethread") seq_cst
-  %29 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
+  %30 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !5
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidationC1ERKNS_17PxOsdMeshTopologyEE15TraceKeyData_60, ptr %3, align 8
-  %.sroa.7.12.insert.insert18 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.sroa.7.12.insert.insert18, i64 noundef %29) #19
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %.sroa.11.0, i64 noundef %30) #19
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12: ; preds = %26, %28
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit12: ; preds = %27, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN32pxrInternal_v0_24__pxrReserved__27PxOsdMeshTopologyValidation27_OptionalInvalidationVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #19
-  resume { ptr, i32 } %27
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable

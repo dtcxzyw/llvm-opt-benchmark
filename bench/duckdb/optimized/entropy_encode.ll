@@ -434,8 +434,8 @@ define void @_ZN13duckdb_brotli33BrotliOptimizeHuffmanCountsForRleEmPjPh(i64 nou
   %24 = icmp ult i64 %23, 6
   %or.cond170 = select i1 %22, i1 %24, i1 false
   %25 = icmp ugt i64 %.0131187, 2
-  %or.cond236 = and i1 %or.cond170, %25
-  br i1 %or.cond236, label %.lr.ph193, label %.loopexit180
+  %or.cond235 = and i1 %or.cond170, %25
+  br i1 %or.cond235, label %.lr.ph193, label %.loopexit180
 
 .lr.ph193:                                        ; preds = %21, %36
   %.2192 = phi i64 [ %37, %36 ], [ 1, %21 ]
@@ -658,12 +658,12 @@ define void @_ZN13duckdb_brotli33BrotliOptimizeHuffmanCountsForRleEmPjPh(i64 nou
   %140 = udiv i64 %139, %132
   %141 = icmp eq i64 %132, 4
   %142 = add nuw nsw i64 %140, 120
-  %spec.select237 = select i1 %141, i64 %142, i64 %140
+  %spec.select236 = select i1 %141, i64 %142, i64 %140
   br label %.thread
 
 .thread:                                          ; preds = %136, %.thread176, %131, %127
   %143 = phi i64 [ 1, %127 ], [ 1, %.thread176 ], [ %132, %131 ], [ %132, %136 ]
-  %.3147 = phi i64 [ %.1145, %127 ], [ %.1145, %.thread176 ], [ %.0144205, %131 ], [ %spec.select237, %136 ]
+  %.3147 = phi i64 [ %.1145, %127 ], [ %.1145, %.thread176 ], [ %.0144205, %131 ], [ %spec.select236, %136 ]
   %.2143 = phi i64 [ 0, %127 ], [ %130, %.thread176 ], [ %134, %131 ], [ %134, %136 ]
   %144 = add nuw i64 %.4207, 1
   %.not156.not = icmp ult i64 %.4207, %.0131187

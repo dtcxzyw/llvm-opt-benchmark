@@ -2663,13 +2663,13 @@ define internal fastcc void @process_mset_command(ptr noundef %0, ptr noundef no
   br label %194
 
 99:                                               ; preds = %._crit_edge, %91, %85, %94, %88, %97, %84, %._crit_edge
+  %or.cond4 = phi i16 [ 6, %._crit_edge ], [ 1, %84 ], [ 7, %88 ], [ 8, %94 ], [ 6, %97 ], [ 4, %85 ], [ 5, %91 ], [ 6, %._crit_edge ]
   %.0111 = phi i16 [ 2, %._crit_edge ], [ 1, %84 ], [ 7, %88 ], [ 8, %94 ], [ 3, %97 ], [ 4, %85 ], [ 5, %91 ], [ 2, %._crit_edge ]
   %.0108 = phi i32 [ %53, %._crit_edge ], [ %53, %84 ], [ %90, %88 ], [ %96, %94 ], [ %53, %97 ], [ %53, %85 ], [ %53, %91 ], [ %53, %._crit_edge ]
-  %or.cond4 = phi i16 [ 6, %._crit_edge ], [ 1, %84 ], [ 7, %88 ], [ 8, %94 ], [ 6, %97 ], [ 4, %85 ], [ 5, %91 ], [ 6, %._crit_edge ]
   %100 = load i16, ptr %4, align 8
   %101 = and i16 %100, 512
   %.not123 = icmp eq i16 %101, 0
-  %.1112 = select i1 %.not123, i16 %.0111, i16 %or.cond4
+  %spec.select = select i1 %.not123, i16 %.0111, i16 %or.cond4
   br i1 %.1, label %194, label %102
 
 102:                                              ; preds = %99
@@ -2720,7 +2720,7 @@ define internal fastcc void @process_mset_command(ptr noundef %0, ptr noundef no
   br i1 %.not128, label %137, label %134
 
 134:                                              ; preds = %130
-  %135 = zext nneg i16 %.1112 to i32
+  %135 = zext nneg i16 %spec.select to i32
   %136 = call i32 (ptr, i32, ptr, ...) @logger_log(ptr noundef nonnull %.0, i32 noundef 3, ptr noundef null, i32 noundef %.143, i32 noundef %135, ptr noundef %37, i64 noundef %38, i32 noundef 0, i32 noundef 0) #13
   br label %137
 
@@ -2783,7 +2783,7 @@ define internal fastcc void @process_mset_command(ptr noundef %0, ptr noundef no
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 %173, ptr %174, align 8, !tbaa !63
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store i16 %.1112, ptr %175, align 8, !tbaa !26
+  store i16 %spec.select, ptr %175, align 8, !tbaa !26
   %176 = load i16, ptr %4, align 8
   %177 = and i16 %176, 4096
   %.not127 = icmp eq i16 %177, 0
@@ -2798,7 +2798,7 @@ define internal fastcc void @process_mset_command(ptr noundef %0, ptr noundef no
 181:                                              ; preds = %178, %155
   %182 = and i16 %176, 128
   %183 = icmp ne i16 %182, 0
-  %184 = icmp eq i16 %.1112, 6
+  %184 = icmp eq i16 %spec.select, 6
   %or.cond7 = and i1 %184, %183
   br i1 %or.cond7, label %185, label %187
 

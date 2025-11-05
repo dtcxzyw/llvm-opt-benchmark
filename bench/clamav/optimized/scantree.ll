@@ -436,11 +436,10 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   resume { ptr, i32 } %66
 
 67:                                               ; preds = %57
-  %or.cond4 = and i1 %.ph79, %.ph80
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8208
   %69 = load i32, ptr %68, align 8
   %70 = icmp ne i32 %69, 1
-  %or.cond69.not = select i1 %or.cond4, i1 %70, i1 false
+  %or.cond69.not = select i1 %.ph79, i1 %70, i1 false
   br i1 %or.cond69.not, label %.thread95, label %71
 
 71:                                               ; preds = %67

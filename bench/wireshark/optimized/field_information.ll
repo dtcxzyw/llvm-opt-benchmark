@@ -1235,13 +1235,13 @@ define i64 @_ZNK16FieldInformation8positionEv(ptr noundef readonly align 8 captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %29, label %4
+  br i1 %.not, label %30, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not11 = icmp eq ptr %6, null
-  br i1 %.not11, label %29, label %7
+  br i1 %.not11, label %30, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @tvb_captured_length(ptr noundef nonnull %6)
@@ -1279,13 +1279,12 @@ define i64 @_ZNK16FieldInformation8positionEv(ptr noundef readonly align 8 captu
   %26 = zext i32 %.sroa.6.1 to i64
   %27 = shl nuw i64 %26, 32
   %28 = zext i32 %.sroa.0.1 to i64
-  br label %29
+  %29 = or disjoint i64 %27, %28
+  br label %30
 
-29:                                               ; preds = %25, %4, %1
-  %.sroa.0.0 = phi i64 [ %28, %25 ], [ 4294967295, %4 ], [ 4294967295, %1 ]
-  %.sroa.6.0 = phi i64 [ %27, %25 ], [ -4294967296, %4 ], [ -4294967296, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+30:                                               ; preds = %25, %4, %1
+  %.sroa.6.0 = phi i64 [ %29, %25 ], [ -1, %4 ], [ -1, %1 ]
+  ret i64 %.sroa.6.0
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -1296,29 +1295,22 @@ define i64 @_ZNK16FieldInformation8appendixEv(ptr noundef readonly align 8 captu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %15, label %4
+  br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not1 = icmp eq ptr %6, null
-  br i1 %.not1, label %15, label %7
+  br i1 %.not1, label %10, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %9 = load i32, ptr %8, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %11 = load i32, ptr %10, align 4
-  %12 = zext i32 %11 to i64
-  %13 = shl nuw i64 %12, 32
-  %14 = zext i32 %9 to i64
-  br label %15
+  %9 = load i64, ptr %8, align 8
+  br label %10
 
-15:                                               ; preds = %7, %4, %1
-  %.sroa.0.0 = phi i64 [ %14, %7 ], [ 4294967295, %4 ], [ 4294967295, %1 ]
-  %.sroa.3.0 = phi i64 [ %13, %7 ], [ -4294967296, %4 ], [ -4294967296, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+10:                                               ; preds = %7, %4, %1
+  %.sroa.3.0 = phi i64 [ %9, %7 ], [ -1, %4 ], [ -1, %1 ]
+  ret i64 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable

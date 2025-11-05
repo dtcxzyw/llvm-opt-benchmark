@@ -398,7 +398,7 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 361, ptr noundef nonnull @__func__.inner_ossl_decoder_fetch) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef 524550, ptr noundef null) #8
-  br label %58
+  br label %57
 
 15:                                               ; preds = %3
   %16 = icmp ne ptr %1, null
@@ -412,93 +412,92 @@ define internal fastcc ptr @inner_ossl_decoder_fetch(ptr noundef nonnull %0, ptr
 20:                                               ; preds = %17
   %21 = call i32 @ossl_method_store_cache_get(ptr noundef nonnull %8, ptr noundef null, i32 noundef %18, ptr noundef nonnull %11, ptr noundef nonnull %4) #8
   %.not61 = icmp eq i32 %21, 0
-  br i1 %.not61, label %.thread, label %44
+  br i1 %.not61, label %.thread, label %43
 
 .thread:                                          ; preds = %15, %20, %17
-  %22 = phi i1 [ false, %20 ], [ true, %17 ], [ true, %15 ]
-  %23 = phi i32 [ %18, %20 ], [ 0, %17 ], [ 0, %15 ]
+  %or.cond3 = phi i1 [ false, %20 ], [ true, %17 ], [ false, %15 ]
+  %22 = phi i32 [ %18, %20 ], [ 0, %17 ], [ 0, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) @__const.inner_ossl_decoder_fetch.mcm, i64 56, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !44
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %23, ptr %24, align 8, !tbaa !45
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %25, align 8, !tbaa !46
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %11, ptr %26, align 8, !tbaa !47
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load i8, ptr %27, align 8
-  %29 = and i8 %28, -2
-  store i8 %29, ptr %27, align 8
-  %30 = load ptr, ptr %0, align 8, !tbaa !38
-  %31 = call ptr @ossl_method_construct(ptr noundef %30, i32 noundef 21, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %0) #8
-  store ptr %31, ptr %4, align 8, !tbaa !43
-  %.not62 = icmp eq ptr %31, null
-  br i1 %.not62, label %40, label %32
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %22, ptr %23, align 8, !tbaa !45
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %24, align 8, !tbaa !46
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %11, ptr %25, align 8, !tbaa !47
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %27 = load i8, ptr %26, align 8
+  %28 = and i8 %27, -2
+  store i8 %28, ptr %26, align 8
+  %29 = load ptr, ptr %0, align 8, !tbaa !38
+  %30 = call ptr @ossl_method_construct(ptr noundef %29, i32 noundef 21, ptr noundef nonnull %6, i32 noundef 0, ptr noundef nonnull %5, ptr noundef nonnull %0) #8
+  store ptr %30, ptr %4, align 8, !tbaa !43
+  %.not62 = icmp eq ptr %30, null
+  br i1 %.not62, label %39, label %31
 
-32:                                               ; preds = %.thread
-  %or.cond3 = and i1 %16, %22
-  br i1 %or.cond3, label %33, label %35
+31:                                               ; preds = %.thread
+  br i1 %or.cond3, label %32, label %34
 
-33:                                               ; preds = %32
-  %34 = call i32 @ossl_namemap_name2num(ptr noundef nonnull %10, ptr noundef nonnull %1) #8
-  br label %35
+32:                                               ; preds = %31
+  %33 = call i32 @ossl_namemap_name2num(ptr noundef nonnull %10, ptr noundef nonnull %1) #8
+  br label %34
 
-35:                                               ; preds = %33, %32
-  %.2 = phi i32 [ %34, %33 ], [ %23, %32 ]
+34:                                               ; preds = %32, %31
+  %.2 = phi i32 [ %33, %32 ], [ %22, %31 ]
   %.not63 = icmp eq i32 %.2, 0
-  br i1 %.not63, label %40, label %36
+  br i1 %.not63, label %39, label %35
 
-36:                                               ; preds = %35
-  %37 = load ptr, ptr %6, align 8, !tbaa !44
-  %38 = load ptr, ptr %4, align 8, !tbaa !43
-  %39 = call i32 @ossl_method_store_cache_set(ptr noundef nonnull %8, ptr noundef %37, i32 noundef %.2, ptr noundef nonnull %11, ptr noundef %38, ptr noundef nonnull @up_ref_decoder, ptr noundef nonnull @free_decoder) #8
-  br label %40
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %6, align 8, !tbaa !44
+  %37 = load ptr, ptr %4, align 8, !tbaa !43
+  %38 = call i32 @ossl_method_store_cache_set(ptr noundef nonnull %8, ptr noundef %36, i32 noundef %.2, ptr noundef nonnull %11, ptr noundef %37, ptr noundef nonnull @up_ref_decoder, ptr noundef nonnull @free_decoder) #8
+  br label %39
 
-40:                                               ; preds = %35, %36, %.thread
-  %.1 = phi i32 [ %.2, %36 ], [ 0, %35 ], [ %23, %.thread ]
-  %41 = load i8, ptr %27, align 8
-  %42 = and i8 %41, 1
+39:                                               ; preds = %34, %35, %.thread
+  %.1 = phi i32 [ %.2, %35 ], [ 0, %34 ], [ %22, %.thread ]
+  %40 = load i8, ptr %26, align 8
+  %41 = and i8 %40, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not66 = icmp eq i8 %42, 0
-  %43 = select i1 %.not66, i32 524556, i32 524557
-  br label %44
+  %.not66 = icmp eq i8 %41, 0
+  %42 = select i1 %.not66, i32 524556, i32 524557
+  br label %43
 
-44:                                               ; preds = %40, %20
-  %.053 = phi i32 [ %43, %40 ], [ 524557, %20 ]
-  %.052 = phi i32 [ %.1, %40 ], [ %18, %20 ]
-  %45 = icmp ne i32 %.052, 0
-  %or.cond5 = or i1 %16, %45
-  %46 = load ptr, ptr %4, align 8
-  %47 = icmp eq ptr %46, null
-  %or.cond7 = select i1 %or.cond5, i1 %47, i1 false
-  br i1 %or.cond7, label %48, label %58
+43:                                               ; preds = %39, %20
+  %.053 = phi i32 [ %42, %39 ], [ 524557, %20 ]
+  %.052 = phi i32 [ %.1, %39 ], [ %18, %20 ]
+  %44 = icmp ne i32 %.052, 0
+  %or.cond5 = or i1 %16, %44
+  %45 = load ptr, ptr %4, align 8
+  %46 = icmp eq ptr %45, null
+  %or.cond7 = select i1 %or.cond5, i1 %46, i1 false
+  br i1 %or.cond7, label %47, label %57
 
-48:                                               ; preds = %44
-  %49 = icmp eq ptr %1, null
-  br i1 %49, label %50, label %52
+47:                                               ; preds = %43
+  %48 = icmp eq ptr %1, null
+  br i1 %48, label %49, label %51
 
-50:                                               ; preds = %48
-  %51 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %10, i32 noundef %.052, i64 noundef 0) #8
-  br label %52
+49:                                               ; preds = %47
+  %50 = call ptr @ossl_namemap_num2name(ptr noundef nonnull %10, i32 noundef %.052, i64 noundef 0) #8
+  br label %51
 
-52:                                               ; preds = %50, %48
-  %.054 = phi ptr [ %51, %50 ], [ %1, %48 ]
+51:                                               ; preds = %49, %47
+  %.054 = phi ptr [ %50, %49 ], [ %1, %47 ]
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 418, ptr noundef nonnull @__func__.inner_ossl_decoder_fetch) #8
-  %53 = load ptr, ptr %0, align 8, !tbaa !38
-  %54 = call ptr @ossl_lib_ctx_get_descriptor(ptr noundef %53) #8
-  %55 = icmp eq ptr %.054, null
-  %56 = select i1 %55, ptr @.str.3, ptr %.054
-  %57 = select i1 %.not, ptr @.str.3, ptr %2
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef %.053, ptr noundef nonnull @.str.2, ptr noundef %54, ptr noundef nonnull %56, i32 noundef %.052, ptr noundef nonnull %57) #8
+  %52 = load ptr, ptr %0, align 8, !tbaa !38
+  %53 = call ptr @ossl_lib_ctx_get_descriptor(ptr noundef %52) #8
+  %54 = icmp eq ptr %.054, null
+  %55 = select i1 %54, ptr @.str.3, ptr %.054
+  %56 = select i1 %.not, ptr @.str.3, ptr %2
+  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 60, i32 noundef %.053, ptr noundef nonnull @.str.2, ptr noundef %53, ptr noundef nonnull %55, i32 noundef %.052, ptr noundef nonnull %56) #8
   %.pre = load ptr, ptr %4, align 8, !tbaa !43
-  br label %58
+  br label %57
 
-58:                                               ; preds = %52, %44, %14
-  %.0 = phi ptr [ null, %14 ], [ %46, %44 ], [ %.pre, %52 ]
+57:                                               ; preds = %51, %43, %14
+  %.0 = phi ptr [ null, %14 ], [ %45, %43 ], [ %.pre, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0
 }

@@ -653,11 +653,11 @@ define hidden noundef i64 @_ZNK2cv4gapi5fluid14BorderHandlerTILi0EE4sizeEv(ptr n
   %11 = getelementptr i64, ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8, !tbaa !34
+  %14 = mul i64 %13, %3
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %1, %7
-  %14 = phi i64 [ %13, %7 ], [ 0, %1 ]
-  %15 = mul i64 %14, %3
+  %15 = phi i64 [ %14, %7 ], [ 0, %1 ]
   ret i64 %15
 }
 
@@ -1442,11 +1442,11 @@ define hidden noundef i64 @_ZNK2cv4gapi5fluid23BufferStorageWithBorder4sizeEv(pt
   %11 = getelementptr i64, ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8, !tbaa !34
+  %14 = mul i64 %13, %3
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %1, %7
-  %14 = phi i64 [ %13, %7 ], [ 0, %1 ]
-  %15 = mul i64 %14, %3
+  %15 = phi i64 [ %14, %7 ], [ 0, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = load ptr, ptr %17, align 8, !tbaa !13
@@ -1473,11 +1473,11 @@ define hidden noundef i64 @_ZNK2cv4gapi5fluid26BufferStorageWithoutBorder4sizeEv
   %11 = getelementptr i64, ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8, !tbaa !34
+  %14 = mul i64 %13, %3
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %1, %7
-  %14 = phi i64 [ %13, %7 ], [ 0, %1 ]
-  %15 = mul i64 %14, %3
+  %15 = phi i64 [ %14, %7 ], [ 0, %1 ]
   ret i64 %15
 }
 
@@ -2096,11 +2096,11 @@ define hidden noundef i64 @_ZNK2cv4gapi5fluid21ViewPrivWithOwnBorder4sizeEv(ptr 
   %11 = getelementptr i64, ptr %9, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8, !tbaa !34
+  %14 = mul i64 %13, %3
   br label %_ZNK2cv4gapi5fluid23BufferStorageWithBorder4sizeEv.exit
 
 _ZNK2cv4gapi5fluid23BufferStorageWithBorder4sizeEv.exit: ; preds = %1, %7
-  %14 = phi i64 [ %13, %7 ], [ 0, %1 ]
-  %15 = mul i64 %14, %3
+  %15 = phi i64 [ %14, %7 ], [ 0, %1 ]
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = load ptr, ptr %17, align 8, !tbaa !13

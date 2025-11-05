@@ -2265,16 +2265,16 @@ define internal zeroext i1 @folio_referenced_one(ptr noundef %0, ptr noundef %1,
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 1160
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %88, label %85
+  br i1 %84, label %89, label %85
 
 85:                                               ; preds = %79
   %86 = add i64 %38, 4096
   %87 = call i32 @__mmu_notifier_clear_flush_young(ptr noundef %81, i64 noundef %38, i64 noundef %86) #17
-  br label %88
+  %88 = or i32 %87, %80
+  br label %89
 
-88:                                               ; preds = %85, %79
-  %89 = phi i32 [ %87, %85 ], [ 0, %79 ]
-  %90 = or i32 %89, %80
+89:                                               ; preds = %85, %79
+  %90 = phi i32 [ %88, %85 ], [ %80, %79 ]
   %91 = icmp ne i32 %90, 0
   %92 = zext i1 %91 to i32
   %93 = add i32 %37, %92
@@ -2286,8 +2286,8 @@ define internal zeroext i1 @folio_referenced_one(ptr noundef %0, ptr noundef %1,
   call void asm sideeffect "551: nop\0A\09.pushsection .discard.instr_end\0A\09.long 551b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 551) #17, !srcloc !43
   br label %95
 
-95:                                               ; preds = %94, %88
-  %96 = phi i32 [ %37, %94 ], [ %93, %88 ]
+95:                                               ; preds = %94, %89
+  %96 = phi i32 [ %37, %94 ], [ %93, %89 ]
   %97 = load i32, ptr %3, align 8
   %98 = add i32 %97, -1
   store i32 %98, ptr %3, align 8

@@ -933,12 +933,12 @@ define internal fastcc void @compile_regexp(ptr noundef %0, ptr noundef captures
 
 ._crit_edge:                                      ; preds = %13, %36
   %.not9.i = icmp eq i64 %.pre42, 0
-  br i1 %.not9.i, label %is_fixed.exit.thread, label %.lr.ph.i
+  br i1 %.not9.i, label %.critedge, label %.lr.ph.i
 
 40:                                               ; preds = %.lr.ph.i
   %41 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %41, %.pre42
-  br i1 %exitcond.not.i, label %is_fixed.exit.thread, label %.lr.ph.i, !llvm.loop !65
+  br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i, !llvm.loop !65
 
 .lr.ph.i:                                         ; preds = %._crit_edge, %40
   %.06.i = phi i64 [ %41, %40 ], [ 0, %._crit_edge ]
@@ -951,17 +951,17 @@ define internal fastcc void @compile_regexp(ptr noundef %0, ptr noundef captures
   %.not.i = icmp eq i8 %47, 0
   br i1 %.not.i, label %40, label %is_fixed.exit
 
-is_fixed.exit.thread:                             ; preds = %40, %._crit_edge
-  %48 = or i8 %34, 2
-  store i8 %48, ptr %16, align 4
-  br label %50
-
 is_fixed.exit:                                    ; preds = %.lr.ph.i
-  %49 = and i8 %34, -3
-  store i8 %49, ptr %16, align 4
+  %48 = and i8 %34, -3
+  store i8 %48, ptr %16, align 4
   br i1 %31, label %50, label %58
 
-50:                                               ; preds = %is_fixed.exit.thread, %is_fixed.exit
+.critedge:                                        ; preds = %40, %._crit_edge
+  %49 = or i8 %34, 2
+  store i8 %49, ptr %16, align 4
+  br label %50
+
+50:                                               ; preds = %.critedge, %is_fixed.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.compile_fixed_regexp.sb, i64 24, i1 false)
   call void @basic_regex_quote_buf(ptr noundef nonnull %3, ptr noundef %.pre) #18

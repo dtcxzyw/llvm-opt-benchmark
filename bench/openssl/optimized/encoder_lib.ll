@@ -492,87 +492,77 @@ define range(i32 0, 2) i32 @OSSL_ENCODER_to_data(ptr noundef %0, ptr noundef cap
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 127, ptr noundef nonnull @__func__.OSSL_ENCODER_to_data) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 59, i32 noundef 786690, ptr noundef null) #8
-  br label %42
+  br label %41
 
 7:                                                ; preds = %3
   %8 = tail call ptr @BIO_s_mem() #8
   %9 = tail call ptr @BIO_new(ptr noundef %8) #8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread, label %10
+  br i1 %.not, label %.thread32, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @OSSL_ENCODER_to_bio(ptr noundef %0, ptr noundef nonnull %9)
   %.not27 = icmp eq i32 %11, 0
-  br i1 %.not27, label %.thread, label %12
+  br i1 %.not27, label %.thread32, label %12
 
 12:                                               ; preds = %10
   %13 = call i64 @BIO_ctrl(ptr noundef nonnull %9, i32 noundef 115, i64 noundef 0, ptr noundef nonnull %4) #8
   %14 = icmp sgt i64 %13, 0
-  br i1 %14, label %15, label %.thread
+  br i1 %14, label %15, label %.thread32
 
 15:                                               ; preds = %12
-  %.not32 = icmp eq ptr %1, null
-  br i1 %.not32, label %.thread41, label %18
+  %.not36 = icmp eq ptr %1, null
+  br i1 %.not36, label %23, label %16
 
-.thread41:                                        ; preds = %15
-  %16 = load ptr, ptr %4, align 8, !tbaa !54
-  %17 = load i64, ptr %16, align 8, !tbaa !58
-  store i64 %17, ptr %2, align 8, !tbaa !45
-  br label %.thread
+16:                                               ; preds = %15
+  %17 = load ptr, ptr %1, align 8, !tbaa !42
+  %.not28 = icmp eq ptr %17, null
+  br i1 %.not28, label %35, label %18
 
-18:                                               ; preds = %15
-  %19 = load ptr, ptr %1, align 8, !tbaa !42
-  %.not28 = icmp eq ptr %19, null
-  br i1 %.not28, label %26, label %20
+18:                                               ; preds = %16
+  %19 = load i64, ptr %2, align 8, !tbaa !45
+  %20 = load ptr, ptr %4, align 8, !tbaa !54
+  %21 = load i64, ptr %20, align 8, !tbaa !58
+  %22 = icmp ult i64 %19, %21
+  br i1 %22, label %.thread32, label %26
 
-20:                                               ; preds = %18
-  %21 = load i64, ptr %2, align 8, !tbaa !45
-  %22 = load ptr, ptr %4, align 8, !tbaa !54
-  %23 = load i64, ptr %22, align 8, !tbaa !58
-  %24 = icmp ult i64 %21, %23
-  br i1 %24, label %.thread, label %.thread39
-
-.thread39:                                        ; preds = %20
-  %25 = sub nuw i64 %21, %23
-  br label %29
+23:                                               ; preds = %15
+  %24 = load ptr, ptr %4, align 8, !tbaa !54
+  %25 = load i64, ptr %24, align 8, !tbaa !58
+  store i64 %25, ptr %2, align 8, !tbaa !45
+  br label %.thread32
 
 26:                                               ; preds = %18
-  %27 = load ptr, ptr %4, align 8, !tbaa !54
-  %28 = load i64, ptr %27, align 8, !tbaa !58
-  br label %29
+  %27 = sub nuw i64 %19, %21
+  store i64 %27, ptr %2, align 8, !tbaa !45
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !56
+  %30 = load i64, ptr %20, align 8, !tbaa !58
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %29, i64 %30, i1 false)
+  %31 = load ptr, ptr %4, align 8, !tbaa !54
+  %32 = load i64, ptr %31, align 8, !tbaa !58
+  %33 = load ptr, ptr %1, align 8, !tbaa !42
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %32
+  store ptr %34, ptr %1, align 8, !tbaa !42
+  br label %.thread32
 
-29:                                               ; preds = %26, %.thread39
-  %.sink = phi i64 [ %28, %26 ], [ %25, %.thread39 ]
-  %30 = phi ptr [ %27, %26 ], [ %22, %.thread39 ]
-  store i64 %.sink, ptr %2, align 8, !tbaa !45
-  %31 = load ptr, ptr %1, align 8, !tbaa !42
-  %.not29 = icmp eq ptr %31, null
-  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !56
-  br i1 %.not29, label %40, label %34
-
-34:                                               ; preds = %29
-  %35 = load i64, ptr %30, align 8, !tbaa !58
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %31, ptr align 1 %33, i64 %35, i1 false)
+35:                                               ; preds = %16
   %36 = load ptr, ptr %4, align 8, !tbaa !54
   %37 = load i64, ptr %36, align 8, !tbaa !58
-  %38 = load ptr, ptr %1, align 8, !tbaa !42
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %37
+  store i64 %37, ptr %2, align 8, !tbaa !45
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !56
   store ptr %39, ptr %1, align 8, !tbaa !42
-  br label %.thread
+  store ptr null, ptr %38, align 8, !tbaa !56
+  br label %.thread32
 
-40:                                               ; preds = %29
-  store ptr %33, ptr %1, align 8, !tbaa !42
-  store ptr null, ptr %32, align 8, !tbaa !56
-  br label %.thread
+.thread32:                                        ; preds = %18, %23, %26, %35, %12, %10, %7
+  %.0 = phi i32 [ 1, %26 ], [ 1, %35 ], [ 1, %23 ], [ 0, %12 ], [ 0, %10 ], [ 0, %7 ], [ 0, %18 ]
+  %40 = call i32 @BIO_free(ptr noundef %9) #8
+  br label %41
 
-.thread:                                          ; preds = %.thread41, %20, %34, %40, %12, %10, %7
-  %.0 = phi i32 [ 1, %34 ], [ 1, %40 ], [ 0, %12 ], [ 0, %10 ], [ 0, %7 ], [ 0, %20 ], [ 1, %.thread41 ]
-  %41 = call i32 @BIO_free(ptr noundef %9) #8
-  br label %42
-
-42:                                               ; preds = %.thread, %6
-  %.019 = phi i32 [ 0, %6 ], [ %.0, %.thread ]
+41:                                               ; preds = %.thread32, %6
+  %.019 = phi i32 [ 0, %6 ], [ %.0, %.thread32 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.019
 }

@@ -3806,28 +3806,28 @@ _ZN6Assimp9ScenePrivEPK7aiScene.exit:             ; preds = %56
   %67 = load i32, ptr %66, align 8
   %68 = or i32 %67, %4
   %.not96 = icmp eq ptr %65, null
-  br i1 %.not96, label %78, label %69
+  br i1 %.not96, label %79, label %69
 
 69:                                               ; preds = %_ZN6Assimp9ScenePrivEPK7aiScene.exit
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %71 = load i8, ptr %70, align 4, !range !95, !noundef !96
   %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %78, label %73
+  br i1 %72, label %79, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %75 = load i32, ptr %74, align 8
   %76 = and i32 %75, -25165829
   %77 = xor i32 %76, -1
-  br label %78
+  %78 = and i32 %68, %77
+  br label %79
 
-78:                                               ; preds = %_ZN6Assimp9ScenePrivEPK7aiScene.exit, %69, %73
-  %79 = phi i32 [ %77, %73 ], [ -1, %69 ], [ -1, %_ZN6Assimp9ScenePrivEPK7aiScene.exit ]
-  %80 = and i32 %79, %68
+79:                                               ; preds = %_ZN6Assimp9ScenePrivEPK7aiScene.exit, %69, %73
+  %80 = phi i32 [ %78, %73 ], [ %68, %69 ], [ %68, %_ZN6Assimp9ScenePrivEPK7aiScene.exit ]
   %.pre154 = load ptr, ptr %0, align 8
   br i1 %26, label %130, label %.preheader
 
-.preheader:                                       ; preds = %78
+.preheader:                                       ; preds = %79
   %81 = getelementptr inbounds nuw i8, ptr %.pre154, i64 48
   %82 = getelementptr inbounds nuw i8, ptr %.pre154, i64 56
   %83 = load ptr, ptr %82, align 8
@@ -3934,9 +3934,9 @@ _ZN6Assimp9ScenePrivEPK7aiScene.exit:             ; preds = %56
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %253
 
-130:                                              ; preds = %._crit_edge, %123, %78
-  %131 = phi ptr [ %.pre154, %78 ], [ %.pre153, %123 ], [ %117, %._crit_edge ]
-  %.087 = phi i1 [ false, %78 ], [ %.not99, %123 ], [ false, %._crit_edge ]
+130:                                              ; preds = %._crit_edge, %123, %79
+  %131 = phi ptr [ %.pre154, %79 ], [ %.pre153, %123 ], [ %117, %._crit_edge ]
+  %.087 = phi i1 [ false, %79 ], [ %.not99, %123 ], [ false, %._crit_edge ]
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8
   %134 = load ptr, ptr %133, align 8

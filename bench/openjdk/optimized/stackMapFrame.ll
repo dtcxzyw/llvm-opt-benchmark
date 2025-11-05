@@ -1317,81 +1317,74 @@ _ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.ex
   br i1 %or.cond.i14, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %81
 
 81:                                               ; preds = %73
-  switch i64 %19, label %99 [
+  switch i64 %19, label %97 [
     i64 259, label %82
-    i64 515, label %85
-    i64 1027, label %88
-    i64 3, label %91
-    i64 590081, label %97
-    i64 655617, label %97
-    i64 786689, label %97
-    i64 721153, label %97
+    i64 515, label %84
+    i64 1027, label %87
+    i64 3, label %90
+    i64 590081, label %95
+    i64 655617, label %95
+    i64 786689, label %95
+    i64 721153, label %95
   ]
 
 82:                                               ; preds = %81
   %83 = and i64 %78, 257
-  %84 = icmp ne i64 %83, 1
-  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
+  %.not33 = icmp eq i64 %83, 1
+  br i1 %.not33, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread
 
-85:                                               ; preds = %81
-  %86 = and i64 %78, 513
-  %87 = icmp eq i64 %86, 513
-  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
+84:                                               ; preds = %81
+  %85 = and i64 %78, 513
+  %86 = icmp eq i64 %85, 513
+  br i1 %86, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30
 
-88:                                               ; preds = %81
-  %89 = and i64 %78, 1025
-  %90 = icmp eq i64 %89, 1025
-  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
+87:                                               ; preds = %81
+  %88 = and i64 %78, 1025
+  %89 = icmp eq i64 %88, 1025
+  br i1 %89, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30
 
-91:                                               ; preds = %81
-  %92 = and i64 %78, 3
-  %93 = icmp eq i64 %92, 0
-  br i1 %93, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %94
+90:                                               ; preds = %81
+  %91 = and i64 %78, 3
+  %92 = icmp eq i64 %91, 0
+  %93 = and i64 %78, 2
+  %94 = icmp ne i64 %93, 0
+  %or.cond = or i1 %92, %94
+  br i1 %or.cond, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30
 
-94:                                               ; preds = %91
-  %95 = and i64 %78, 2
-  %96 = icmp ne i64 %95, 0
-  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
+95:                                               ; preds = %81, %81, %81, %81
+  %96 = icmp eq i64 %78, 65793
+  br i1 %96, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30
 
-97:                                               ; preds = %81, %81, %81, %81
-  %98 = icmp eq i64 %78, 65793
-  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
+97:                                               ; preds = %81
+  %98 = or i64 %78, %19
+  %99 = and i64 %98, 3
+  %or.cond14.i16 = icmp eq i64 %99, 0
+  br i1 %or.cond14.i16, label %100, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30
 
-99:                                               ; preds = %81
-  %100 = or i64 %78, %19
-  %101 = and i64 %100, 3
-  %or.cond14.i16 = icmp eq i64 %101, 0
-  br i1 %or.cond14.i16, label %102, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
-
-102:                                              ; preds = %99
-  %103 = call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef %.pre, i1 noundef zeroext false, ptr noundef nonnull %4) #12
+100:                                              ; preds = %97
+  %101 = call noundef zeroext i1 @_ZNK16VerificationType28is_reference_assignable_fromERKS_P13ClassVerifierbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %77, ptr noundef %.pre, i1 noundef zeroext false, ptr noundef nonnull %4) #12
   %.pre25 = load ptr, ptr %63, align 8
-  %104 = icmp ne ptr %.pre25, null
-  br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
+  %102 = icmp ne ptr %.pre25, null
+  %103 = or i1 %101, %102
+  br i1 %103, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17: ; preds = %82, %85, %88, %94, %97, %99, %102
-  %105 = phi i1 [ %104, %102 ], [ false, %82 ], [ false, %85 ], [ false, %88 ], [ false, %97 ], [ false, %94 ], [ false, %99 ]
-  %.0.i15 = phi i1 [ %103, %102 ], [ %84, %82 ], [ %87, %85 ], [ %90, %88 ], [ %98, %97 ], [ %96, %94 ], [ false, %99 ]
-  %or.cond = or i1 %.0.i15, %105
-  br i1 %or.cond, label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread, label %106
-
-106:                                              ; preds = %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17
-  %107 = load ptr, ptr %35, align 8
-  %108 = load i32, ptr %0, align 8
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30: ; preds = %90, %97, %95, %87, %84, %82, %100
+  %104 = load ptr, ptr %35, align 8
+  %105 = load i32, ptr %0, align 8
   call void @_ZN10TypeOrigin5localEiP13StackMapFrame(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %13, i32 noundef %75, ptr noundef nonnull %0) #12
   %.sroa.0.0.copyload = load ptr, ptr %7, align 8
   call void @_ZN10TypeOrigin8implicitE16VerificationType(ptr dead_on_unwind nonnull writable sret(%class.TypeOrigin) align 8 %14, ptr %.sroa.0.0.copyload) #12
-  %109 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %109, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  %110 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
-  store i32 %108, ptr %12, align 8, !alias.scope !45
-  %111 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1, ptr %111, align 4, !alias.scope !45
-  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %107, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.7) #12
+  %106 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %106, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
+  %107 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
+  store i32 %105, ptr %12, align 8, !alias.scope !45
+  %108 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 1, ptr %108, align 4, !alias.scope !45
+  call void (ptr, ptr, ptr, ...) @_ZN13ClassVerifier12verify_errorE12ErrorContextPKcz(ptr noundef nonnull align 8 dereferenceable(8192) %104, ptr noundef nonnull byval(%class.ErrorContext) align 8 %12, ptr noundef nonnull @.str.7) #12
   br label %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread
 
-_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread: ; preds = %91, %73, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %106, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %.thread, %20
+_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread: ; preds = %95, %87, %84, %82, %100, %90, %73, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit.thread, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit17.thread30, %_ZNK16VerificationType18is_assignable_fromERKS_P13ClassVerifierbP10JavaThread.exit, %.thread, %20
   ret void
 }
 

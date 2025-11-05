@@ -4056,11 +4056,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm9BTFParser14hasBTFSectionsERKNS_6ob
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %23
 
-23:                                               ; preds = %.lr.ph, %57
-  %lhsv.i.i.i.i54 = phi i64 [ %10, %.lr.ph ], [ %lhsv.i.i.i.i, %57 ]
-  %24 = phi ptr [ %11, %.lr.ph ], [ %62, %57 ]
-  %.01653 = phi i8 [ 0, %.lr.ph ], [ %.117, %57 ]
-  %.01852 = phi i8 [ 0, %.lr.ph ], [ %.119, %57 ]
+23:                                               ; preds = %.lr.ph, %56
+  %lhsv.i.i.i.i54 = phi i64 [ %10, %.lr.ph ], [ %lhsv.i.i.i.i, %56 ]
+  %24 = phi ptr [ %11, %.lr.ph ], [ %61, %56 ]
+  %.01653 = phi i8 [ 0, %.lr.ph ], [ %.117, %56 ]
+  %.01852 = phi i8 [ 0, %.lr.ph ], [ %.119, %56 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = load ptr, ptr %24, align 8, !tbaa !9, !noalias !416
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 144
@@ -4117,60 +4117,60 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvm5ErrorD2Ev.
   %bcmp.i32 = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %.sroa.04.0.copyload, ptr noundef nonnull dereferenceable(8) @.str.12, i64 8)
   %44 = icmp eq i32 %bcmp.i32, 0
   %45 = zext i1 %44 to i8
+  %46 = or i8 %.01852, %45
   br label %_ZN4llvmeqENS_9StringRefES0_.exit33
 
 _ZN4llvmeqENS_9StringRefES0_.exit33:              ; preds = %_ZN4llvm5ErrorD2Ev.exit29, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %43
-  %46 = phi i8 [ %.01653, %43 ], [ %42, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.01653, %_ZN4llvm5ErrorD2Ev.exit29 ]
-  %.0.i31 = phi i8 [ %45, %43 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %_ZN4llvm5ErrorD2Ev.exit29 ]
-  %47 = icmp ne i8 %46, 0
-  %48 = or i8 %.0.i31, %.01852
-  %49 = icmp ne i8 %48, 0
-  %or.cond = select i1 %47, i1 %49, i1 false
+  %.0.i61 = phi i8 [ %.01653, %43 ], [ %42, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.01653, %_ZN4llvm5ErrorD2Ev.exit29 ]
+  %.0.i31 = phi i8 [ %46, %43 ], [ %.01852, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ %.01852, %_ZN4llvm5ErrorD2Ev.exit29 ]
+  %47 = icmp ne i8 %.0.i61, 0
+  %48 = icmp ne i8 %.0.i31, 0
+  %or.cond = select i1 %47, i1 %48, i1 false
   %. = zext i1 %or.cond to i32
   br label %_ZN4llvm5ErrorD2Ev.exit29.thread
 
 _ZN4llvm5ErrorD2Ev.exit29.thread:                 ; preds = %36, %31, %_ZN4llvmeqENS_9StringRefES0_.exit33
   %.222 = phi i32 [ %., %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ 3, %31 ], [ 3, %36 ]
-  %.119 = phi i8 [ %48, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ %.01852, %31 ], [ %.01852, %36 ]
-  %.117 = phi i8 [ %46, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ %.01653, %31 ], [ %.01653, %36 ]
-  %50 = load i8, ptr %20, align 8
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
+  %.119 = phi i8 [ %.0.i31, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ %.01852, %31 ], [ %.01852, %36 ]
+  %.117 = phi i8 [ %.0.i61, %_ZN4llvmeqENS_9StringRefES0_.exit33 ], [ %.01653, %31 ], [ %.01653, %36 ]
+  %49 = load i8, ptr %20, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %51, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
-52:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit29.thread
-  %53 = load ptr, ptr %3, align 8, !tbaa !30
-  %.not.i.i = icmp eq ptr %53, null
+51:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit29.thread
+  %52 = load ptr, ptr %3, align 8, !tbaa !30
+  %.not.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %52
-  %54 = load ptr, ptr %53, align 8, !tbaa !9
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load ptr, ptr %55, align 8
-  call void %56(ptr noundef nonnull align 8 dereferenceable(8) %53) #24
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %51
+  %53 = load ptr, ptr %52, align 8, !tbaa !9
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %55 = load ptr, ptr %54, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(8) %52) #24
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
-_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %52, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvm5ErrorD2Ev.exit29.thread
+_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %51, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %_ZN4llvm5ErrorD2Ev.exit29.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   switch i32 %.222, label %.critedge [
-    i32 0, label %57
-    i32 3, label %57
+    i32 0, label %56
+    i32 3, label %56
   ]
 
-57:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
-  %58 = load ptr, ptr %18, align 8, !tbaa !249
-  %59 = load ptr, ptr %58, align 8, !tbaa !9
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 136
-  %61 = load ptr, ptr %60, align 8
-  call void %61(ptr noundef nonnull align 8 dereferenceable(48) %58, ptr noundef nonnull align 8 dereferenceable(16) %2) #24
-  %62 = load ptr, ptr %18, align 8, !tbaa !249
-  %63 = icmp ne ptr %62, %17
+56:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
+  %57 = load ptr, ptr %18, align 8, !tbaa !249
+  %58 = load ptr, ptr %57, align 8, !tbaa !9
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 136
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(48) %57, ptr noundef nonnull align 8 dereferenceable(16) %2) #24
+  %61 = load ptr, ptr %18, align 8, !tbaa !249
+  %62 = icmp ne ptr %61, %17
   %lhsv.i.i.i.i = load i64, ptr %2, align 8
   %.not.i.i.i.i = icmp ne i64 %lhsv.i.i.i.i, %16
-  %.not2.i = select i1 %63, i1 true, i1 %.not.i.i.i.i
+  %.not2.i = select i1 %62, i1 true, i1 %.not.i.i.i.i
   br i1 %.not2.i, label %23, label %.critedge
 
-.critedge:                                        ; preds = %57, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, %1
-  %.not2.i48 = phi i1 [ false, %1 ], [ true, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ false, %57 ]
+.critedge:                                        ; preds = %56, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit, %1
+  %.not2.i48 = phi i1 [ false, %1 ], [ true, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit ], [ false, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i1 %.not2.i48
 }

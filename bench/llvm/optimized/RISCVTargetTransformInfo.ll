@@ -701,10 +701,10 @@ define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostEN
   %29 = icmp eq i32 %.fca.1.extract32, 1
   br label %30
 
-30:                                               ; preds = %.lr.ph, %83
-  %.047113 = phi ptr [ %1, %.lr.ph ], [ %84, %83 ]
-  %.sroa.21.2112 = phi i32 [ 0, %.lr.ph ], [ %.sroa.21.3, %83 ]
-  %.sroa.097.2111 = phi i64 [ 0, %.lr.ph ], [ %.0.i63, %83 ]
+30:                                               ; preds = %.lr.ph, %81
+  %.047113 = phi ptr [ %1, %.lr.ph ], [ %82, %81 ]
+  %.sroa.21.2112 = phi i32 [ 0, %.lr.ph ], [ %.sroa.21.3, %81 ]
+  %.sroa.097.2111 = phi i64 [ 0, %.lr.ph ], [ %.0.i63, %81 ]
   %31 = load i32, ptr %.047113, align 4, !tbaa !49
   switch i32 %31, label %_ZN4llvm15InstructionCostpLERKS0_.exit64 [
     i32 13532, label %_ZN4llvm15InstructionCostpLERKS0_.exit
@@ -724,18 +724,18 @@ define dso_local { i64, i32 } @_ZN4llvm12RISCVTTIImpl23getRISCVInstructionCostEN
     i32 13177, label %44
     i32 13178, label %44
     i32 13180, label %44
-    i32 13179, label %65
-    i32 13488, label %83
-    i32 13484, label %83
-    i32 13153, label %83
-    i32 13154, label %83
-    i32 13444, label %83
-    i32 13490, label %83
-    i32 13419, label %83
-    i32 13418, label %83
-    i32 13441, label %83
-    i32 13091, label %83
-    i32 13137, label %83
+    i32 13179, label %64
+    i32 13488, label %81
+    i32 13484, label %81
+    i32 13153, label %81
+    i32 13154, label %81
+    i32 13444, label %81
+    i32 13490, label %81
+    i32 13419, label %81
+    i32 13418, label %81
+    i32 13441, label %81
+    i32 13091, label %81
+    i32 13137, label %81
   ]
 
 _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %30
@@ -745,7 +745,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit:           ; preds = %30
   %.fca.1.extract17 = extractvalue { i64, i32 } %33, 1
   %34 = icmp eq i32 %.fca.1.extract17, 1
   %spec.select = select i1 %34, i32 1, i32 %.sroa.21.2112
-  br label %83
+  br label %81
 
 _ZN4llvm15InstructionCostpLERKS0_.exit51:         ; preds = %30
   %35 = load ptr, ptr %10, align 8, !tbaa !56
@@ -754,7 +754,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit51:         ; preds = %30
   %.fca.1.extract12 = extractvalue { i64, i32 } %36, 1
   %37 = icmp eq i32 %.fca.1.extract12, 1
   %spec.select106 = select i1 %37, i32 1, i32 %.sroa.21.2112
-  br label %83
+  br label %81
 
 _ZN4llvm15InstructionCostpLERKS0_.exit53:         ; preds = %30, %30
   %38 = load ptr, ptr %10, align 8, !tbaa !56
@@ -763,7 +763,7 @@ _ZN4llvm15InstructionCostpLERKS0_.exit53:         ; preds = %30, %30
   %.fca.1.extract7 = extractvalue { i64, i32 } %39, 1
   %40 = icmp eq i32 %.fca.1.extract7, 1
   %spec.select107 = select i1 %40, i32 1, i32 %.sroa.21.2112
-  br label %83
+  br label %81
 
 _ZN4llvm15InstructionCostpLERKS0_.exit55:         ; preds = %30, %30
   %41 = load ptr, ptr %10, align 8, !tbaa !56
@@ -772,12 +772,12 @@ _ZN4llvm15InstructionCostpLERKS0_.exit55:         ; preds = %30, %30
   %.fca.1.extract = extractvalue { i64, i32 } %42, 1
   %43 = icmp eq i32 %.fca.1.extract, 1
   %spec.select108 = select i1 %43, i32 1, i32 %.sroa.21.2112
-  br label %83
+  br label %81
 
 44:                                               ; preds = %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30
   %45 = load i16, ptr %27, align 2, !tbaa !64
   %46 = zext i16 %45 to i32
-  br i1 %spec.select.i58, label %60, label %47
+  br i1 %spec.select.i58, label %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit, label %47
 
 47:                                               ; preds = %44
   %48 = load ptr, ptr %28, align 8, !tbaa !65
@@ -793,67 +793,59 @@ _ZN4llvm15InstructionCostpLERKS0_.exit55:         ; preds = %30, %30
   %56 = load i32, ptr %55, align 8
   %57 = select i1 %54, i32 %56, i32 %53
   %58 = lshr i32 %57, 6
+  %59 = mul i32 %58, %46
   br label %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit
 
-_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit: ; preds = %47, %52
-  %.sroa.0.0.insert.insert.i = phi i32 [ 0, %47 ], [ %58, %52 ]
-  %59 = mul i32 %.sroa.0.0.insert.insert.i, %46
-  br label %60
-
-60:                                               ; preds = %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit, %44
-  %.046 = phi i32 [ %46, %44 ], [ %59, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit ]
-  %61 = add i32 %.046, -1
-  %62 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %61, i1 false)
-  %63 = sub nuw nsw i32 32, %62
-  %64 = zext nneg i32 %63 to i64
-  br label %83
-
-65:                                               ; preds = %30
-  %66 = load i16, ptr %27, align 2, !tbaa !64
-  %67 = zext i16 %66 to i32
-  br i1 %spec.select.i58, label %81, label %68
-
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %28, align 8, !tbaa !65
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 452
-  %71 = load i8, ptr %70, align 4, !tbaa !66, !range !54, !noundef !55
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60
-
-73:                                               ; preds = %68
-  %74 = tail call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544) %69) #27
-  %75 = icmp eq i32 %74, 0
-  %76 = getelementptr inbounds nuw i8, ptr %69, i64 536
-  %77 = load i32, ptr %76, align 8
-  %78 = select i1 %75, i32 %77, i32 %74
-  %79 = lshr i32 %78, 6
-  br label %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60
-
-_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60: ; preds = %68, %73
-  %.sroa.0.0.insert.insert.i59 = phi i32 [ 0, %68 ], [ %79, %73 ]
-  %80 = mul i32 %.sroa.0.0.insert.insert.i59, %67
+_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit: ; preds = %52, %47, %44
+  %.046 = phi i32 [ %46, %44 ], [ 0, %47 ], [ %59, %52 ]
+  %60 = add i32 %.046, -1
+  %61 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %60, i1 false)
+  %62 = sub nuw nsw i32 32, %61
+  %63 = zext nneg i32 %62 to i64
   br label %81
 
-81:                                               ; preds = %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60, %65
-  %.0 = phi i32 [ %67, %65 ], [ %80, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60 ]
-  %82 = zext i32 %.0 to i64
-  br label %83
+64:                                               ; preds = %30
+  %65 = load i16, ptr %27, align 2, !tbaa !64
+  %66 = zext i16 %65 to i32
+  br i1 %spec.select.i58, label %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60, label %67
+
+67:                                               ; preds = %64
+  %68 = load ptr, ptr %28, align 8, !tbaa !65
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 452
+  %70 = load i8, ptr %69, align 4, !tbaa !66, !range !54, !noundef !55
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %72, label %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60
+
+72:                                               ; preds = %67
+  %73 = tail call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMinRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544) %68) #27
+  %74 = icmp eq i32 %73, 0
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 536
+  %76 = load i32, ptr %75, align 8
+  %77 = select i1 %74, i32 %76, i32 %73
+  %78 = lshr i32 %77, 6
+  %79 = mul i32 %78, %66
+  br label %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60
+
+_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60: ; preds = %72, %67, %64
+  %.0 = phi i32 [ %66, %64 ], [ 0, %67 ], [ %79, %72 ]
+  %80 = zext i32 %.0 to i64
+  br label %81
 
 _ZN4llvm15InstructionCostpLERKS0_.exit64:         ; preds = %30
   %spec.select109 = select i1 %29, i32 1, i32 %.sroa.21.2112
-  br label %83
+  br label %81
 
-83:                                               ; preds = %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %_ZN4llvm15InstructionCostpLERKS0_.exit64, %81, %60, %_ZN4llvm15InstructionCostpLERKS0_.exit55, %_ZN4llvm15InstructionCostpLERKS0_.exit53, %_ZN4llvm15InstructionCostpLERKS0_.exit51, %_ZN4llvm15InstructionCostpLERKS0_.exit
-  %.fca.0.extract31.sink = phi i64 [ %.fca.0.extract31, %_ZN4llvm15InstructionCostpLERKS0_.exit64 ], [ %82, %81 ], [ %64, %60 ], [ %.fca.0.extract, %_ZN4llvm15InstructionCostpLERKS0_.exit55 ], [ %.fca.0.extract6, %_ZN4llvm15InstructionCostpLERKS0_.exit53 ], [ %.fca.0.extract11, %_ZN4llvm15InstructionCostpLERKS0_.exit51 ], [ %.fca.0.extract16, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ]
-  %.sroa.21.3 = phi i32 [ %spec.select109, %_ZN4llvm15InstructionCostpLERKS0_.exit64 ], [ %.sroa.21.2112, %81 ], [ %.sroa.21.2112, %60 ], [ %spec.select108, %_ZN4llvm15InstructionCostpLERKS0_.exit55 ], [ %spec.select107, %_ZN4llvm15InstructionCostpLERKS0_.exit53 ], [ %spec.select106, %_ZN4llvm15InstructionCostpLERKS0_.exit51 ], [ %spec.select, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ]
+81:                                               ; preds = %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %_ZN4llvm15InstructionCostpLERKS0_.exit64, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit, %_ZN4llvm15InstructionCostpLERKS0_.exit55, %_ZN4llvm15InstructionCostpLERKS0_.exit53, %_ZN4llvm15InstructionCostpLERKS0_.exit51, %_ZN4llvm15InstructionCostpLERKS0_.exit
+  %.fca.0.extract31.sink = phi i64 [ %.fca.0.extract31, %_ZN4llvm15InstructionCostpLERKS0_.exit64 ], [ %80, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60 ], [ %63, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit ], [ %.fca.0.extract, %_ZN4llvm15InstructionCostpLERKS0_.exit55 ], [ %.fca.0.extract6, %_ZN4llvm15InstructionCostpLERKS0_.exit53 ], [ %.fca.0.extract11, %_ZN4llvm15InstructionCostpLERKS0_.exit51 ], [ %.fca.0.extract16, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ], [ 1, %30 ]
+  %.sroa.21.3 = phi i32 [ %spec.select109, %_ZN4llvm15InstructionCostpLERKS0_.exit64 ], [ %.sroa.21.2112, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit60 ], [ %.sroa.21.2112, %_ZNK4llvm12RISCVTTIImpl18getVScaleForTuningEv.exit ], [ %spec.select108, %_ZN4llvm15InstructionCostpLERKS0_.exit55 ], [ %spec.select107, %_ZN4llvm15InstructionCostpLERKS0_.exit53 ], [ %spec.select106, %_ZN4llvm15InstructionCostpLERKS0_.exit51 ], [ %spec.select, %_ZN4llvm15InstructionCostpLERKS0_.exit ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ], [ %.sroa.21.2112, %30 ]
   %.0.i63 = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.097.2111, i64 %.fca.0.extract31.sink)
-  %84 = getelementptr inbounds nuw i8, ptr %.047113, i64 4
-  %.not = icmp eq ptr %84, %24
+  %82 = getelementptr inbounds nuw i8, ptr %.047113, i64 4
+  %.not = icmp eq ptr %82, %24
   br i1 %.not, label %_ZN4llvmmlERKNS_15InstructionCostES2_.exit, label %30
 
-_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %83, %23, %20, %17, %13, %7, %5
-  %.sroa.097.0 = phi i64 [ 0, %5 ], [ %2, %7 ], [ %16, %13 ], [ 9223372036854775807, %17 ], [ %spec.select.i.i, %20 ], [ 0, %23 ], [ %.0.i63, %83 ]
-  %.sroa.21.0 = phi i32 [ 1, %5 ], [ 0, %7 ], [ %.fca.1.extract32, %13 ], [ %.fca.1.extract32, %17 ], [ %.fca.1.extract32, %20 ], [ 0, %23 ], [ %.sroa.21.3, %83 ]
+_ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %81, %23, %20, %17, %13, %7, %5
+  %.sroa.097.0 = phi i64 [ 0, %5 ], [ %2, %7 ], [ %16, %13 ], [ 9223372036854775807, %17 ], [ %spec.select.i.i, %20 ], [ 0, %23 ], [ %.0.i63, %81 ]
+  %.sroa.21.0 = phi i32 [ 1, %5 ], [ 0, %7 ], [ %.fca.1.extract32, %13 ], [ %.fca.1.extract32, %17 ], [ %.fca.1.extract32, %20 ], [ 0, %23 ], [ %.sroa.21.3, %81 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.097.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.21.0, 1
   ret { i64, i32 } %.fca.1.insert
@@ -1970,7 +1962,7 @@ define dso_local range(i64 0, 4362076160) i64 @_ZNK4llvm12RISCVTTIImpl12getMaxVS
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 452
   %5 = load i8, ptr %4, align 4, !tbaa !66, !range !54, !noundef !55
   %6 = trunc nuw i8 %5 to i1
-  br i1 %6, label %7, label %13
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %1
   %8 = tail call noundef i32 @_ZNK4llvm14RISCVSubtarget25getMaxRVVVectorSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(413544) %3) #27
@@ -1978,13 +1970,12 @@ define dso_local range(i64 0, 4362076160) i64 @_ZNK4llvm12RISCVTTIImpl12getMaxVS
   %10 = lshr i32 %8, 6
   %11 = select i1 %9, i32 1024, i32 %10
   %12 = zext nneg i32 %11 to i64
-  br label %13
+  %13 = or disjoint i64 %12, 4294967296
+  br label %14
 
-13:                                               ; preds = %1, %7
-  %.sroa.0.0 = phi i64 [ %12, %7 ], [ 0, %1 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %7 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+14:                                               ; preds = %1, %7
+  %.sroa.3.0 = phi i64 [ %13, %7 ], [ 0, %1 ]
+  ret i64 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4284,53 +4275,48 @@ define internal fastcc noundef zeroext i1 @_ZL20isRepeatedConcatMaskN4llvm8Array
   %or.cond = icmp eq i32 %5, 1
   br i1 %or.cond, label %.lr.ph, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-.lr.ph:                                           ; preds = %3, %17
-  %.02139 = phi i32 [ %18, %17 ], [ 0, %3 ]
+.lr.ph:                                           ; preds = %3, %18
+  %.02139 = phi i32 [ %19, %18 ], [ 0, %3 ]
   %6 = zext i32 %.02139 to i64
   %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !49
-  %.not.not60 = icmp ne i32 %8, %.02139
-  br i1 %.not.not60, label %9, label %17
+  %9 = icmp eq i32 %8, %.02139
+  br i1 %9, label %18, label %10
 
-9:                                                ; preds = %.lr.ph
+10:                                               ; preds = %.lr.ph
   %.not26 = icmp eq i32 %8, 0
-  br i1 %.not26, label %10, label %.loopexit
+  br i1 %.not26, label %11, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-10:                                               ; preds = %9
-  %11 = urem i32 %4, %.02139
-  %.not27 = icmp eq i32 %11, 0
-  br i1 %.not27, label %.preheader, label %.loopexit
+11:                                               ; preds = %10
+  %12 = urem i32 %4, %.02139
+  %.not27 = icmp eq i32 %12, 0
+  br i1 %.not27, label %.preheader, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-.preheader:                                       ; preds = %10, %12
-  %.0.in = phi i32 [ %.0, %12 ], [ %.02139, %10 ]
+.preheader:                                       ; preds = %11, %13
+  %.0.in = phi i32 [ %.0, %13 ], [ %.02139, %11 ]
   %.0 = add i32 %.0.in, 1
   %.not28 = icmp eq i32 %.0, %4
-  br i1 %.not28, label %.critedge, label %12
+  br i1 %.not28, label %.critedge, label %13
 
-12:                                               ; preds = %.preheader
-  %13 = zext i32 %.0 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %13
-  %15 = load i32, ptr %14, align 4, !tbaa !49
-  %16 = urem i32 %.0, %.02139
-  %.not29 = icmp eq i32 %15, %16
-  br i1 %.not29, label %.preheader, label %.loopexit, !llvm.loop !341
+13:                                               ; preds = %.preheader
+  %14 = zext i32 %.0 to i64
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %16 = load i32, ptr %15, align 4, !tbaa !49
+  %17 = urem i32 %.0, %.02139
+  %.not29 = icmp eq i32 %16, %17
+  br i1 %.not29, label %.preheader, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, !llvm.loop !341
 
 .critedge:                                        ; preds = %.preheader
   store i32 %.02139, ptr %2, align 4, !tbaa !49
-  br label %.loopexit
-
-17:                                               ; preds = %.lr.ph
-  %18 = add nuw i32 %.02139, 1
-  %.not.not = icmp eq i32 %18, %4
-  br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !342
-
-.loopexit:                                        ; preds = %17, %12, %10, %9, %.critedge
-  %.124 = phi i1 [ true, %.critedge ], [ false, %9 ], [ false, %10 ], [ false, %12 ], [ undef, %17 ]
-  %spec.select = and i1 %.not.not60, %.124
   br label %_ZN4llvm13isPowerOf2_32Ej.exit.thread
 
-_ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %3, %.loopexit
-  %.023 = phi i1 [ %spec.select, %.loopexit ], [ false, %3 ]
+18:                                               ; preds = %.lr.ph
+  %19 = add nuw i32 %.02139, 1
+  %.not.not = icmp eq i32 %19, %4
+  br i1 %.not.not, label %_ZN4llvm13isPowerOf2_32Ej.exit.thread, label %.lr.ph, !llvm.loop !342
+
+_ZN4llvm13isPowerOf2_32Ej.exit.thread:            ; preds = %18, %13, %.critedge, %10, %11, %3
+  %.023 = phi i1 [ false, %3 ], [ true, %.critedge ], [ false, %10 ], [ false, %11 ], [ false, %13 ], [ false, %18 ]
   ret i1 %.023
 }
 

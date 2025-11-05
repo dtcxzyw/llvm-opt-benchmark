@@ -3473,68 +3473,68 @@ define dso_local i32 @snd_hda_codec_amp_init_stereo(ptr noundef %0, i16 noundef 
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %17 = shl i32 %9, 20
   %18 = select i1 %11, i32 32768, i32 0
-  %invariant.op = or disjoint i32 %17, %18
-  %invariant.op3 = or i32 %invariant.op, %3
-  br label %19
+  %19 = or disjoint i32 %17, 8192
+  %20 = or i32 %18, %3
+  br label %21
 
-19:                                               ; preds = %54, %6
-  %20 = phi i32 [ 8192, %6 ], [ 0, %54 ]
-  %21 = phi i1 [ true, %6 ], [ false, %54 ]
-  %22 = phi i32 [ 0, %6 ], [ %56, %54 ]
-  %23 = load i16, ptr %10, align 4
-  %24 = zext i16 %23 to i32
-  %25 = icmp ugt i16 %23, %1
-  br i1 %25, label %38, label %26
+21:                                               ; preds = %57, %6
+  %22 = phi i32 [ %19, %6 ], [ %17, %57 ]
+  %23 = phi i1 [ true, %6 ], [ false, %57 ]
+  %24 = phi i32 [ 0, %6 ], [ %59, %57 ]
+  %25 = load i16, ptr %10, align 4
+  %26 = zext i16 %25 to i32
+  %27 = icmp ugt i16 %25, %1
+  br i1 %27, label %40, label %28
 
-26:                                               ; preds = %19
-  %27 = load i32, ptr %13, align 8
-  %28 = add i32 %27, %24
-  %29 = icmp ugt i32 %28, %9
-  br i1 %29, label %30, label %38
+28:                                               ; preds = %21
+  %29 = load i32, ptr %13, align 8
+  %30 = add i32 %29, %26
+  %31 = icmp ugt i32 %30, %9
+  br i1 %31, label %32, label %40
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %14, align 8
-  %32 = sub nsw i32 %9, %24
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr i32, ptr %31, i64 %33
-  %35 = load i32, ptr %34, align 4
-  %36 = and i32 %35, 8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %40
+32:                                               ; preds = %28
+  %33 = load ptr, ptr %14, align 8
+  %34 = sub nsw i32 %9, %26
+  %35 = sext i32 %34 to i64
+  %36 = getelementptr i32, ptr %33, i64 %35
+  %37 = load i32, ptr %36, align 4
+  %38 = and i32 %37, 8
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %40, label %42
 
-38:                                               ; preds = %30, %26, %19
-  %39 = load i16, ptr %15, align 8
-  br label %40
+40:                                               ; preds = %32, %28, %21
+  %41 = load i16, ptr %15, align 8
+  br label %42
 
-40:                                               ; preds = %38, %30
-  %41 = phi i16 [ %1, %30 ], [ %39, %38 ]
+42:                                               ; preds = %40, %32
+  %43 = phi i16 [ %1, %32 ], [ %41, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !annotation !9
-  %42 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %41, i32 noundef %12, ptr noundef nonnull %7) #24
-  %43 = load i32, ptr %7, align 4
+  %44 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %43, i32 noundef %12, ptr noundef nonnull %7) #24
+  %45 = load i32, ptr %7, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %44 = load ptr, ptr %16, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %54, label %46
+  %46 = load ptr, ptr %16, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %57, label %48
 
-46:                                               ; preds = %40
-  %.reass4 = or i32 %20, %invariant.op3
-  %47 = icmp sgt i32 %42, -1
-  %48 = and i32 %43, -1073741824
-  %49 = icmp eq i32 %48, 1073741824
-  %50 = select i1 %47, i1 %49, i1 false
-  %51 = select i1 %50, i32 720912, i32 720896
-  %52 = or i32 %.reass4, %51
-  %53 = call i32 @snd_hdac_regmap_update_raw_once(ptr noundef %0, i32 noundef %52, i32 noundef %8, i32 noundef %5) #24
-  br label %54
+48:                                               ; preds = %42
+  %49 = icmp sgt i32 %44, -1
+  %50 = and i32 %45, -1073741824
+  %51 = icmp eq i32 %50, 1073741824
+  %52 = select i1 %49, i1 %51, i1 false
+  %53 = select i1 %52, i32 720912, i32 720896
+  %54 = or i32 %20, %22
+  %55 = or i32 %54, %53
+  %56 = call i32 @snd_hdac_regmap_update_raw_once(ptr noundef %0, i32 noundef %55, i32 noundef %8, i32 noundef %5) #24
+  br label %57
 
-54:                                               ; preds = %46, %40
-  %55 = phi i32 [ %53, %46 ], [ -22, %40 ]
-  %56 = or i32 %55, %22
-  br i1 %21, label %19, label %57, !llvm.loop !37
+57:                                               ; preds = %48, %42
+  %58 = phi i32 [ %56, %48 ], [ -22, %42 ]
+  %59 = or i32 %58, %24
+  br i1 %23, label %21, label %60, !llvm.loop !37
 
-57:                                               ; preds = %54
-  ret i32 %56
+60:                                               ; preds = %57
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

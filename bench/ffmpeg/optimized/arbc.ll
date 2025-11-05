@@ -523,53 +523,53 @@ bytestream2_get_le16.exit113:                     ; preds = %17, %18
   store ptr %48, ptr %7, align 8, !tbaa !39
   %49 = load i8, ptr %42, align 1, !tbaa !40
   %50 = zext i8 %49 to i32
+  %51 = mul nuw nsw i32 %2, %50
   %.pre = ptrtoint ptr %48 to i64
   br label %bytestream2_get_byte.exit116.us.us
 
 bytestream2_get_byte.exit116.us.us:               ; preds = %.lr.ph.split.us.split.us, %47
   %.pre-phi = phi i64 [ %.pre, %47 ], [ %43, %.lr.ph.split.us.split.us ]
-  %51 = phi ptr [ %48, %47 ], [ %41, %.lr.ph.split.us.split.us ]
-  %.0.i115.us.us = phi i32 [ %50, %47 ], [ 0, %.lr.ph.split.us.split.us ]
-  %52 = sub i64 %43, %.pre-phi
-  %53 = icmp slt i64 %52, 1
-  br i1 %53, label %bytestream2_get_byte.exit.us.us, label %54
+  %52 = phi ptr [ %48, %47 ], [ %41, %.lr.ph.split.us.split.us ]
+  %.0.i115.us.us = phi i32 [ %51, %47 ], [ 0, %.lr.ph.split.us.split.us ]
+  %53 = sub i64 %43, %.pre-phi
+  %54 = icmp slt i64 %53, 1
+  br i1 %54, label %bytestream2_get_byte.exit.us.us, label %55
 
-54:                                               ; preds = %bytestream2_get_byte.exit116.us.us
-  %55 = getelementptr inbounds nuw i8, ptr %51, i64 1
-  store ptr %55, ptr %7, align 8, !tbaa !39
-  %56 = load i8, ptr %51, align 1, !tbaa !40
-  %57 = zext i8 %56 to i32
-  %.pre173 = ptrtoint ptr %55 to i64
+55:                                               ; preds = %bytestream2_get_byte.exit116.us.us
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 1
+  store ptr %56, ptr %7, align 8, !tbaa !39
+  %57 = load i8, ptr %52, align 1, !tbaa !40
+  %58 = zext i8 %57 to i32
+  %59 = mul nuw nsw i32 %1, %58
+  %.pre173 = ptrtoint ptr %56 to i64
   br label %bytestream2_get_byte.exit.us.us
 
-bytestream2_get_byte.exit.us.us:                  ; preds = %bytestream2_get_byte.exit116.us.us, %54
-  %.pre-phi174 = phi i64 [ %.pre173, %54 ], [ %43, %bytestream2_get_byte.exit116.us.us ]
-  %58 = phi ptr [ %55, %54 ], [ %41, %bytestream2_get_byte.exit116.us.us ]
-  %.0.i114.us.us = phi i32 [ %57, %54 ], [ 0, %bytestream2_get_byte.exit116.us.us ]
-  %59 = sub i64 %43, %.pre-phi174
-  %60 = icmp slt i64 %59, 2
-  br i1 %60, label %64, label %61
+bytestream2_get_byte.exit.us.us:                  ; preds = %bytestream2_get_byte.exit116.us.us, %55
+  %.pre-phi174 = phi i64 [ %.pre173, %55 ], [ %43, %bytestream2_get_byte.exit116.us.us ]
+  %60 = phi ptr [ %56, %55 ], [ %41, %bytestream2_get_byte.exit116.us.us ]
+  %.0.i114.us.us = phi i32 [ %59, %55 ], [ 0, %bytestream2_get_byte.exit116.us.us ]
+  %61 = sub i64 %43, %.pre-phi174
+  %62 = icmp slt i64 %61, 2
+  br i1 %62, label %66, label %63
 
-61:                                               ; preds = %bytestream2_get_byte.exit.us.us
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 2
-  store ptr %62, ptr %7, align 8, !tbaa !39
-  %63 = load i16, ptr %58, align 1, !tbaa !40
+63:                                               ; preds = %bytestream2_get_byte.exit.us.us
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 2
+  store ptr %64, ptr %7, align 8, !tbaa !39
+  %65 = load i16, ptr %60, align 1, !tbaa !40
   br label %bytestream2_get_le16.exit.us.us
 
-64:                                               ; preds = %bytestream2_get_byte.exit.us.us
+66:                                               ; preds = %bytestream2_get_byte.exit.us.us
   store ptr %41, ptr %7, align 8, !tbaa !41
   br label %bytestream2_get_le16.exit.us.us
 
-bytestream2_get_le16.exit.us.us:                  ; preds = %64, %61
-  %.0.i.us.us = phi i16 [ 0, %64 ], [ %63, %61 ]
-  %65 = mul nuw nsw i32 %.0.i115.us.us, %2
-  %66 = mul nuw nsw i32 %.0.i114.us.us, %1
-  %67 = add nuw nsw i32 %65, %2
-  %68 = add nuw nsw i32 %66, %1
-  %.not.us.us = icmp slt i32 %66, %40
-  %.not108.us.us = icmp slt i32 %65, %39
-  %or.cond189 = select i1 %.not.us.us, i1 %.not108.us.us, i1 false
-  br i1 %or.cond189, label %.preheader118.us.us.us.us, label %.loopexit.split.us.split.us.us.us
+bytestream2_get_le16.exit.us.us:                  ; preds = %66, %63
+  %.0.i.us.us = phi i16 [ 0, %66 ], [ %65, %63 ]
+  %67 = add nuw nsw i32 %.0.i115.us.us, %2
+  %68 = add nuw nsw i32 %.0.i114.us.us, %1
+  %.not.us.us = icmp slt i32 %.0.i114.us.us, %40
+  %.not108.us.us = icmp slt i32 %.0.i115.us.us, %39
+  %or.cond187 = select i1 %.not.us.us, i1 %.not108.us.us, i1 false
+  br i1 %or.cond187, label %.preheader118.us.us.us.us, label %.loopexit.split.us.split.us.us.us
 
 .loopexit.split.us.split.us.us.us:                ; preds = %.split.us.split.us.us.us.us.us, %bytestream2_get_le16.exit.us.us
   %69 = phi i32 [ %39, %bytestream2_get_le16.exit.us.us ], [ %78, %.split.us.split.us.us.us.us.us ]
@@ -582,7 +582,7 @@ bytestream2_get_le16.exit.us.us:                  ; preds = %64, %61
 .preheader118.us.us.us.us:                        ; preds = %bytestream2_get_le16.exit.us.us, %.split.us.split.us.us.us.us.us
   %72 = phi i32 [ %78, %.split.us.split.us.us.us.us.us ], [ %39, %bytestream2_get_le16.exit.us.us ]
   %73 = phi i32 [ %79, %.split.us.split.us.us.us.us.us ], [ %40, %bytestream2_get_le16.exit.us.us ]
-  %.093143.us.us.us.us = phi i32 [ %124, %.split.us.split.us.us.us.us.us ], [ %65, %bytestream2_get_le16.exit.us.us ]
+  %.093143.us.us.us.us = phi i32 [ %124, %.split.us.split.us.us.us.us.us ], [ %.0.i115.us.us, %bytestream2_get_le16.exit.us.us ]
   %.2142.us.us.us.us = phi i32 [ %.4.us.us.us.us.us.us, %.split.us.split.us.us.us.us.us ], [ %.095158.us.us, %bytestream2_get_le16.exit.us.us ]
   %.097141.us.us.us.us = phi i16 [ %80, %.split.us.split.us.us.us.us.us ], [ %.0.i.us.us, %bytestream2_get_le16.exit.us.us ]
   br label %74
@@ -590,7 +590,7 @@ bytestream2_get_le16.exit.us.us:                  ; preds = %64, %61
 74:                                               ; preds = %77, %.preheader118.us.us.us.us
   %75 = phi i32 [ %72, %.preheader118.us.us.us.us ], [ %78, %77 ]
   %76 = phi i32 [ %73, %.preheader118.us.us.us.us ], [ %79, %77 ]
-  %.092130.us.us.us.us.us.us = phi i32 [ %66, %.preheader118.us.us.us.us ], [ %81, %77 ]
+  %.092130.us.us.us.us.us.us = phi i32 [ %.0.i114.us.us, %.preheader118.us.us.us.us ], [ %81, %77 ]
   %.3129.us.us.us.us.us.us = phi i32 [ %.2142.us.us.us.us, %.preheader118.us.us.us.us ], [ %.4.us.us.us.us.us.us, %77 ]
   %.198128.us.us.us.us.us.us = phi i16 [ %.097141.us.us.us.us, %.preheader118.us.us.us.us ], [ %80, %77 ]
   %.not109.us.us.us.us.us.us = icmp sgt i16 %.198128.us.us.us.us.us.us, -1

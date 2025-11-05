@@ -313,11 +313,11 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %112, %109
   %169 = shl nuw nsw i32 1, %168
   %170 = trunc nuw nsw i32 %169 to i8
   %spec.select = select i1 %167, i8 %170, i8 0
+  %171 = or i8 %spec.select, %.0297852.us
   br label %.thread
 
 .thread:                                          ; preds = %149, %144
-  %171 = phi i8 [ 0, %144 ], [ %spec.select, %149 ]
-  %.1298.us = or i8 %171, %.0297852.us
+  %.1298.us = phi i8 [ %.0297852.us, %144 ], [ %171, %149 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %139, label %144, !llvm.loop !7

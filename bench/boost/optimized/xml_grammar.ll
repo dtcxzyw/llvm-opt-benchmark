@@ -7405,9 +7405,9 @@ _ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gn
   br i1 %21, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i, %30
-  %.sroa.02.0.copyload51.i = phi ptr [ %31, %30 ], [ %19, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ]
-  %.sroa.028.150.i = phi i64 [ %32, %30 ], [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ]
-  %22 = load i8, ptr %.sroa.02.0.copyload51.i, align 1, !tbaa !21
+  %.sroa.02.0.copyload45.i = phi ptr [ %31, %30 ], [ %19, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ]
+  %.sroa.026.144.i = phi i64 [ %32, %30 ], [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ]
+  %22 = load i8, ptr %.sroa.02.0.copyload45.i, align 1, !tbaa !21
   %23 = zext i8 %22 to i64
   %24 = lshr i64 %23, 6
   %25 = getelementptr inbounds nuw i64, ptr %11, i64 %24
@@ -7419,22 +7419,22 @@ _ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gn
   br i1 %.not.i14.i, label %.thread.i, label %30
 
 .thread.i:                                        ; preds = %30, %.lr.ph.i, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i
-  %.sroa.028.1.lcssa.i = phi i64 [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ], [ %32, %30 ], [ %.sroa.028.150.i, %.lr.ph.i ]
-  %.sroa.02.0.copyload.lcssa.i = phi ptr [ %19, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ], [ %31, %30 ], [ %.sroa.02.0.copyload51.i, %.lr.ph.i ]
+  %.sroa.026.1.lcssa.i = phi i64 [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ], [ %32, %30 ], [ %.sroa.026.144.i, %.lr.ph.i ]
+  %.sroa.02.0.copyload.lcssa.i = phi ptr [ %19, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.i ], [ %31, %30 ], [ %.sroa.02.0.copyload45.i, %.lr.ph.i ]
   store ptr %.sroa.02.0.copyload.lcssa.i, ptr %3, align 8, !tbaa !10
   br label %_ZNK5boost6spirit7classic8positiveINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload51.i, i64 1
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload45.i, i64 1
   store ptr %31, ptr %3, align 8, !tbaa !102
-  %32 = add nuw nsw i64 %.sroa.028.150.i, 1
+  %32 = add nuw nsw i64 %.sroa.026.144.i, 1
   %33 = load ptr, ptr %4, align 8, !tbaa !10
   %34 = icmp eq ptr %31, %33
   br i1 %34, label %.thread.i, label %.lr.ph.i
 
 _ZNK5boost6spirit7classic8positiveINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit: ; preds = %2, %8, %.thread.i
-  %.sroa.028.0.i = phi i64 [ %.sroa.028.1.lcssa.i, %.thread.i ], [ -1, %2 ], [ -1, %8 ]
-  ret i64 %.sroa.028.0.i
+  %.sroa.026.0.i = phi i64 [ %.sroa.026.1.lcssa.i, %.thread.i ], [ -1, %2 ], [ -1, %8 ]
+  ret i64 %.sroa.026.0.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7732,9 +7732,9 @@ _ZN5boost6spirit7classic4impl15concrete_parserINS1_11kleene_starINS1_5chsetIcEEE
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserINS1_11kleene_starINS1_5chsetIcEEEENS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tEE16do_parse_virtualERKSO_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !99
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.02.0.copyload26.i = load ptr, ptr %3, align 8, !tbaa !10
+  %.sroa.02.0.copyload24.i = load ptr, ptr %3, align 8, !tbaa !10
   %5 = load ptr, ptr %4, align 8, !tbaa !10
-  %6 = icmp eq ptr %.sroa.02.0.copyload26.i, %5
+  %6 = icmp eq ptr %.sroa.02.0.copyload24.i, %5
   br i1 %6, label %_ZNK5boost6spirit7classic11kleene_starINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
@@ -7743,9 +7743,9 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   br label %9
 
 9:                                                ; preds = %18, %.lr.ph.i
-  %.sroa.02.0.copyload28.i = phi ptr [ %.sroa.02.0.copyload26.i, %.lr.ph.i ], [ %19, %18 ]
-  %.sroa.011.027.i = phi i64 [ 0, %.lr.ph.i ], [ %20, %18 ]
-  %10 = load i8, ptr %.sroa.02.0.copyload28.i, align 1, !tbaa !21
+  %.sroa.02.0.copyload26.i = phi ptr [ %.sroa.02.0.copyload24.i, %.lr.ph.i ], [ %19, %18 ]
+  %.sroa.011.025.i = phi i64 [ 0, %.lr.ph.i ], [ %20, %18 ]
+  %10 = load i8, ptr %.sroa.02.0.copyload26.i, align 1, !tbaa !21
   %11 = zext i8 %10 to i64
   %12 = lshr i64 %11, 6
   %13 = getelementptr inbounds nuw i64, ptr %8, i64 %12
@@ -7757,16 +7757,16 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   br i1 %.not.i.i, label %_ZNK5boost6spirit7classic11kleene_starINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit, label %18
 
 18:                                               ; preds = %9
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload28.i, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload26.i, i64 1
   store ptr %19, ptr %3, align 8, !tbaa !102
-  %20 = add nuw nsw i64 %.sroa.011.027.i, 1
+  %20 = add nuw nsw i64 %.sroa.011.025.i, 1
   %21 = load ptr, ptr %4, align 8, !tbaa !10
   %22 = icmp eq ptr %19, %21
   br i1 %22, label %_ZNK5boost6spirit7classic11kleene_starINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit, label %9
 
 _ZNK5boost6spirit7classic11kleene_starINS1_5chsetIcEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit: ; preds = %9, %18, %2
-  %.sroa.011.0.lcssa.i = phi i64 [ 0, %2 ], [ %20, %18 ], [ %.sroa.011.027.i, %9 ]
-  %.sroa.02.0.copyload.lcssa.i = phi ptr [ %.sroa.02.0.copyload26.i, %2 ], [ %19, %18 ], [ %.sroa.02.0.copyload28.i, %9 ]
+  %.sroa.011.0.lcssa.i = phi i64 [ 0, %2 ], [ %20, %18 ], [ %.sroa.011.025.i, %9 ]
+  %.sroa.02.0.copyload.lcssa.i = phi ptr [ %.sroa.02.0.copyload24.i, %2 ], [ %19, %18 ], [ %.sroa.02.0.copyload26.i, %9 ]
   store ptr %.sroa.02.0.copyload.lcssa.i, ptr %3, align 8, !tbaa !10
   ret i64 %.sroa.011.0.lcssa.i
 }
@@ -9739,9 +9739,9 @@ _ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gn
   br i1 %44, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit, %76
-  %.sroa.02.0.copyload66 = phi ptr [ %77, %76 ], [ %42, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ]
-  %.sroa.043.165 = phi i64 [ %78, %76 ], [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ]
-  %45 = load i8, ptr %.sroa.02.0.copyload66, align 1, !tbaa !21
+  %.sroa.02.0.copyload60 = phi ptr [ %77, %76 ], [ %42, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ]
+  %.sroa.041.159 = phi i64 [ %78, %76 ], [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ]
+  %45 = load i8, ptr %.sroa.02.0.copyload60, align 1, !tbaa !21
   %46 = sext i8 %45 to i32
   %47 = load ptr, ptr %11, align 8, !tbaa !10
   %48 = load ptr, ptr %13, align 8, !tbaa !10
@@ -9754,25 +9754,25 @@ _ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gn
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 3
   %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEEwNS6_18range_char_compareIwEEET_SH_SH_RKT0_T1_.exit.i.i.i.i14
+  br i1 %55, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEEwNS6_18range_char_compareIwEEET_SH_SH_RKT0_T1_.exit.i.i.i.i14
 
-_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29: ; preds = %50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29
-  %.013.i.i.i.i.i.i30 = phi i64 [ %.1.i.i.i.i.i.i35, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29 ], [ %54, %50 ]
-  %.sroa.011.012.i.i.i.i.i.i31 = phi ptr [ %.sroa.011.1.i.i.i.i.i.i34, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29 ], [ %47, %50 ]
-  %56 = lshr i64 %.013.i.i.i.i.i.i30, 1
-  %57 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i.i.i.i.i31, i64 %56
+_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27: ; preds = %50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27
+  %.013.i.i.i.i.i.i28 = phi i64 [ %.1.i.i.i.i.i.i33, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27 ], [ %54, %50 ]
+  %.sroa.011.012.i.i.i.i.i.i29 = phi ptr [ %.sroa.011.1.i.i.i.i.i.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27 ], [ %47, %50 ]
+  %56 = lshr i64 %.013.i.i.i.i.i.i28, 1
+  %57 = getelementptr inbounds nuw %"struct.boost::spirit::classic::utility::impl::range", ptr %.sroa.011.012.i.i.i.i.i.i29, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !62
   %59 = icmp slt i32 %58, %46
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %61 = xor i64 %56, -1
-  %62 = add nsw i64 %.013.i.i.i.i.i.i30, %61
-  %.sroa.011.1.i.i.i.i.i.i34 = select i1 %59, ptr %60, ptr %.sroa.011.012.i.i.i.i.i.i31
-  %.1.i.i.i.i.i.i35 = select i1 %59, i64 %62, i64 %56
-  %63 = icmp sgt i64 %.1.i.i.i.i.i.i35, 0
-  br i1 %63, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEEwNS6_18range_char_compareIwEEET_SH_SH_RKT0_T1_.exit.i.i.i.i14, !llvm.loop !145
+  %62 = add nsw i64 %.013.i.i.i.i.i.i28, %61
+  %.sroa.011.1.i.i.i.i.i.i32 = select i1 %59, ptr %60, ptr %.sroa.011.012.i.i.i.i.i.i29
+  %.1.i.i.i.i.i.i33 = select i1 %59, i64 %62, i64 %56
+  %63 = icmp sgt i64 %.1.i.i.i.i.i.i33, 0
+  br i1 %63, label %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27, label %_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEEwNS6_18range_char_compareIwEEET_SH_SH_RKT0_T1_.exit.i.i.i.i14, !llvm.loop !145
 
-_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEEwNS6_18range_char_compareIwEEET_SH_SH_RKT0_T1_.exit.i.i.i.i14: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29, %50
-  %.sroa.011.0.lcssa.i.i.i.i.i.i15 = phi ptr [ %47, %50 ], [ %.sroa.011.1.i.i.i.i.i.i34, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i29 ]
+_ZSt11lower_boundIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEEwNS6_18range_char_compareIwEEET_SH_SH_RKT0_T1_.exit.i.i.i.i14: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27, %50
+  %.sroa.011.0.lcssa.i.i.i.i.i.i15 = phi ptr [ %47, %50 ], [ %.sroa.011.1.i.i.i.i.i.i32, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN5boost6spirit7classic7utility4impl5rangeIwEESt6vectorIS8_SaIS8_EEEElEvRT_T0_.exit.i.i.i.i.i.i27 ]
   %.not.i.i.i.i16 = icmp eq ptr %.sroa.011.0.lcssa.i.i.i.i.i.i15, %48
   br i1 %.not.i.i.i.i16, label %.critedge.i.i.i.i18, label %64
 
@@ -9800,22 +9800,22 @@ _ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i20: ; preds = %.critedge.i.i.i.i
   br i1 %75, label %76, label %.thread
 
 .thread:                                          ; preds = %76, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i20, %.critedge.i.i.i.i18, %.lr.ph, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit
-  %.sroa.043.1.lcssa = phi i64 [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ], [ %.sroa.043.165, %.lr.ph ], [ %.sroa.043.165, %.critedge.i.i.i.i18 ], [ %.sroa.043.165, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i20 ], [ %78, %76 ]
-  %.sroa.02.0.copyload.lcssa = phi ptr [ %42, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ], [ %.sroa.02.0.copyload66, %.lr.ph ], [ %.sroa.02.0.copyload66, %.critedge.i.i.i.i18 ], [ %.sroa.02.0.copyload66, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i20 ], [ %77, %76 ]
+  %.sroa.041.1.lcssa = phi i64 [ 1, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ], [ %.sroa.041.159, %.lr.ph ], [ %.sroa.041.159, %.critedge.i.i.i.i18 ], [ %.sroa.041.159, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i20 ], [ %78, %76 ]
+  %.sroa.02.0.copyload.lcssa = phi ptr [ %42, %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit ], [ %.sroa.02.0.copyload60, %.lr.ph ], [ %.sroa.02.0.copyload60, %.critedge.i.i.i.i18 ], [ %.sroa.02.0.copyload60, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i20 ], [ %77, %76 ]
   store ptr %.sroa.02.0.copyload.lcssa, ptr %3, align 8, !tbaa !10
   br label %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.thread
 
 76:                                               ; preds = %64, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i20
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload66, i64 1
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload60, i64 1
   store ptr %77, ptr %3, align 8, !tbaa !102
-  %78 = add nuw nsw i64 %.sroa.043.165, 1
+  %78 = add nuw nsw i64 %.sroa.041.159, 1
   %79 = load ptr, ptr %4, align 8, !tbaa !10
   %80 = icmp eq ptr %77, %79
   br i1 %80, label %.thread, label %.lr.ph
 
 _ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.thread: ; preds = %8, %.critedge.i.i.i.i, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i, %2, %.thread
-  %.sroa.043.0 = phi i64 [ %.sroa.043.1.lcssa, %.thread ], [ -1, %2 ], [ -1, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i ], [ -1, %.critedge.i.i.i.i ], [ -1, %8 ]
-  ret i64 %.sroa.043.0
+  %.sroa.041.0 = phi i64 [ %.sroa.041.1.lcssa, %.thread ], [ -1, %2 ], [ -1, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i ], [ -1, %.critedge.i.i.i.i ], [ -1, %8 ]
+  ret i64 %.sroa.041.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -10246,13 +10246,13 @@ _ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charI
   br label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit.thread
 
 _ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit.thread: ; preds = %20, %22, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKjN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit
-  %.sroa.5.8.extract.trunc22 = phi i32 [ %.113.i.i.i, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKjN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ %.113.i.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %22 ], [ 0, %20 ]
-  %.sroa.3.8.extract.trunc21 = phi i64 [ 1, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKjN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ 1, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %22 ], [ 0, %20 ]
-  %.fca.0.insert.i.i.i20 = phi { i64, i64 } [ %.fca.0.insert.i.i.i, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKjN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ %.fca.0.insert.i.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ { i64 -1, i64 poison }, %22 ], [ { i64 -1, i64 poison }, %20 ]
-  %.sroa.5.8.insert.ext = zext i32 %.sroa.5.8.extract.trunc22 to i64
+  %.sroa.5.8.extract.trunc20 = phi i32 [ %.113.i.i.i, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKjN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ %.113.i.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %22 ], [ 0, %20 ]
+  %.sroa.3.8.extract.trunc19 = phi i64 [ 1, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKjN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ 1, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %22 ], [ 0, %20 ]
+  %.fca.0.insert.i.i.i18 = phi { i64, i64 } [ %.fca.0.insert.i.i.i, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKjN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ %.fca.0.insert.i.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELin1EE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSN_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELin1ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ { i64 -1, i64 poison }, %22 ], [ { i64 -1, i64 poison }, %20 ]
+  %.sroa.5.8.insert.ext = zext i32 %.sroa.5.8.extract.trunc20 to i64
   %.sroa.5.8.insert.shift = shl nuw i64 %.sroa.5.8.insert.ext, 32
-  %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.sroa.3.8.extract.trunc21
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i.i.i20, i64 %.sroa.3.8.insert.insert, 1
+  %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.5.8.insert.shift, %.sroa.3.8.extract.trunc19
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i.i.i18, i64 %.sroa.3.8.insert.insert, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -11361,7 +11361,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic4impl15int_par
   %6 = load ptr, ptr %4, align 8, !tbaa !10
   %7 = icmp eq ptr %5, %6
   %8 = ptrtoint ptr %5 to i64
-  br i1 %7, label %58, label %9
+  br i1 %7, label %59, label %9
 
 9:                                                ; preds = %2
   %10 = load i8, ptr %5, align 1, !tbaa !21
@@ -11469,22 +11469,21 @@ _ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumula
 
 .thread:                                          ; preds = %41, %43, %23, %25, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit, %.critedge.loopexit.i, %17, %36
   store i64 %8, ptr %3, align 8, !tbaa !10
-  br label %58
+  br label %59
 
 55:                                               ; preds = %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit, %.critedge.loopexit.i
   %.042 = phi i64 [ %.3, %.critedge.loopexit.i ], [ %.6, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
   %.02941 = phi i32 [ %.231, %.critedge.loopexit.i ], [ %.534, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
   %56 = zext i32 %.02941 to i64
   %57 = shl nuw i64 %56, 32
-  br label %58
+  %58 = or disjoint i64 %57, 1
+  br label %59
 
-58:                                               ; preds = %2, %.thread, %55
-  %.sroa.3.1 = phi i64 [ 1, %55 ], [ 0, %.thread ], [ 0, %2 ]
+59:                                               ; preds = %2, %.thread, %55
   %.sroa.027.1 = phi i64 [ %.042, %55 ], [ -1, %.thread ], [ -1, %2 ]
-  %.sroa.628.1 = phi i64 [ %57, %55 ], [ 0, %.thread ], [ 0, %2 ]
+  %.sroa.628.1 = phi i64 [ %58, %55 ], [ 0, %.thread ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.027.1, 0
-  %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.628.1, %.sroa.3.1
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.8.insert.insert, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.628.1, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -11558,8 +11557,8 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_11alternativeINS1_6strlitI
 .lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %_ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_11alternativeINS1_6strlitIPKcEES7_EENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESR_EEEESS_EENS1_5chlitIwEEEESW_E5parseISQ_EENS1_13parser_resultISY_T_E4typeERKS11_.exit.i
   %28 = load i8, ptr %25, align 1, !tbaa !21
   %29 = add i8 %28, -48
-  %isdigit.i.i.i.i.i.i.i.i34 = icmp ult i8 %29, 10
-  br i1 %isdigit.i.i.i.i.i.i.i.i34, label %.lr.ph, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i
+  %isdigit.i.i.i.i.i.i.i.i32 = icmp ult i8 %29, 10
+  br i1 %isdigit.i.i.i.i.i.i.i.i32, label %.lr.ph, label %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19positive_accumulateIjLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %39
   %30 = load i8, ptr %43, align 1, !tbaa !21
@@ -11570,14 +11569,14 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_11alternativeINS1_6strlitI
 .lr.ph:                                           ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i
   %.in = phi i8 [ %30, %.lr.ph.i.i.i.i.i.i ], [ %28, %.lr.ph.i.i.i.i.i.i.preheader ]
   %32 = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %.0.i.i.i.i.i36 = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
-  %.012.i.i.i.i.i35 = phi i32 [ %41, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.0.i.i.i.i.i34 = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
+  %.012.i.i.i.i.i33 = phi i32 [ %41, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
   %33 = sext i8 %.in to i32
-  %34 = icmp ugt i32 %.012.i.i.i.i.i35, 429496729
+  %34 = icmp ugt i32 %.012.i.i.i.i.i33, 429496729
   br i1 %34, label %_ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS2_INS1_11alternativeINS1_6strlitIPKcEES7_EENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESR_EEEESS_EENS1_5chlitIwEEEESW_EENS1_6actionINS1_11uint_parserIjLi10ELj1ELin1EEENS_7archive3xml11assign_implIjEEEEE5parseISQ_EENS1_13parser_resultIS17_T_E4typeERKS1A_.exit.thread, label %35
 
 35:                                               ; preds = %.lr.ph
-  %36 = mul nuw i32 %.012.i.i.i.i.i35, 10
+  %36 = mul nuw i32 %.012.i.i.i.i.i33, 10
   %37 = sub nsw i32 47, %33
   %38 = icmp ugt i32 %36, %37
   br i1 %38, label %_ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS2_INS1_11alternativeINS1_6strlitIPKcEES7_EENS1_4ruleINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tESR_EEEESS_EENS1_5chlitIwEEEESW_EENS1_6actionINS1_11uint_parserIjLi10ELj1ELin1EEENS_7archive3xml11assign_implIjEEEEE5parseISQ_EENS1_13parser_resultIS17_T_E4typeERKS1A_.exit.thread, label %39
@@ -11585,7 +11584,7 @@ _ZNK5boost6spirit7classic8sequenceINS2_INS2_INS2_INS1_11alternativeINS1_6strlitI
 39:                                               ; preds = %35
   %40 = add i32 %36, -48
   %41 = add i32 %40, %33
-  %42 = add i64 %.0.i.i.i.i.i36, 1
+  %42 = add i64 %.0.i.i.i.i.i34, 1
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 1
   store ptr %43, ptr %5, align 8, !tbaa !102
   %44 = load ptr, ptr %6, align 8, !tbaa !10
@@ -12309,14 +12308,13 @@ _ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charI
   store i8 0, ptr %61, align 1, !tbaa !21
   %62 = zext i8 %9 to i64
   %63 = shl nuw nsw i64 %62, 8
+  %64 = or disjoint i64 %63, 1
   br label %_ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.thread
 
 _ZNK5boost6spirit7classic11char_parserINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS4_T_E4typeERKSP_.exit.thread: ; preds = %8, %.critedge.i.i.i.i, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i, %2, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKcN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit
-  %.sroa.3.sroa.2.0.extract.trunc23 = phi i64 [ %63, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKcN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ 0, %2 ], [ 0, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i ], [ 0, %.critedge.i.i.i.i ], [ 0, %8 ]
-  %.sroa.3.sroa.0.0.extract.trunc22 = phi i64 [ 1, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKcN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ 0, %2 ], [ 0, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i ], [ 0, %.critedge.i.i.i.i ], [ 0, %8 ]
-  %.fca.0.insert.i21 = phi { i64, i64 } [ { i64 1, i64 poison }, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKcN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i ], [ { i64 -1, i64 poison }, %.critedge.i.i.i.i ], [ { i64 -1, i64 poison }, %8 ]
-  %.sroa.3.8.insert.ext = or disjoint i64 %.sroa.3.sroa.0.0.extract.trunc22, %.sroa.3.sroa.2.0.extract.trunc23
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i21, i64 %.sroa.3.8.insert.ext, 1
+  %.sroa.3.sroa.2.0.extract.trunc21 = phi i64 [ %64, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKcN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ 0, %2 ], [ 0, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i ], [ 0, %.critedge.i.i.i.i ], [ 0, %8 ]
+  %.fca.0.insert.i19 = phi { i64, i64 } [ { i64 1, i64 poison }, %_ZNK5boost6spirit7classic13action_policy9do_actionINS_7archive3xml11append_charINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEKcN9__gnu_cxx17__normal_iteratorIPcSC_EEEEvRKT_RT0_RKT1_SQ_.exit ], [ { i64 -1, i64 poison }, %2 ], [ { i64 -1, i64 poison }, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i ], [ { i64 -1, i64 poison }, %.critedge.i.i.i.i ], [ { i64 -1, i64 poison }, %8 ]
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert.i19, i64 %.sroa.3.sroa.2.0.extract.trunc21, 1
   ret { i64, i64 } %.fca.1.insert
 }
 
@@ -13286,9 +13284,9 @@ _ZN5boost6spirit7classic4impl15concrete_parserINS1_11kleene_starINS1_5chsetIwEEE
 define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserINS1_11kleene_starINS1_5chsetIwEEEENS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEENS1_5nil_tEE16do_parse_virtualERKSO_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !99
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.02.0.copyload26.i = load ptr, ptr %3, align 8, !tbaa !10
+  %.sroa.02.0.copyload24.i = load ptr, ptr %3, align 8, !tbaa !10
   %5 = load ptr, ptr %4, align 8, !tbaa !10
-  %6 = icmp eq ptr %.sroa.02.0.copyload26.i, %5
+  %6 = icmp eq ptr %.sroa.02.0.copyload24.i, %5
   br i1 %6, label %_ZNK5boost6spirit7classic11kleene_starINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
@@ -13298,9 +13296,9 @@ define linkonce_odr hidden i64 @_ZNK5boost6spirit7classic4impl15concrete_parserI
   br label %10
 
 10:                                               ; preds = %42, %.lr.ph.i
-  %.sroa.02.0.copyload28.i = phi ptr [ %.sroa.02.0.copyload26.i, %.lr.ph.i ], [ %43, %42 ]
-  %.sroa.011.027.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
-  %11 = load i8, ptr %.sroa.02.0.copyload28.i, align 1, !tbaa !21
+  %.sroa.02.0.copyload26.i = phi ptr [ %.sroa.02.0.copyload24.i, %.lr.ph.i ], [ %43, %42 ]
+  %.sroa.011.025.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
+  %11 = load i8, ptr %.sroa.02.0.copyload26.i, align 1, !tbaa !21
   %12 = sext i8 %11 to i32
   %13 = load ptr, ptr %8, align 8, !tbaa !10
   %14 = load ptr, ptr %9, align 8, !tbaa !10
@@ -13359,16 +13357,16 @@ _ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i.i: ; preds = %.critedge.i.i.i.i
   br i1 %41, label %42, label %_ZNK5boost6spirit7classic11kleene_starINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit
 
 42:                                               ; preds = %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i.i, %30
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload28.i, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.02.0.copyload26.i, i64 1
   store ptr %43, ptr %3, align 8, !tbaa !102
-  %44 = add nuw nsw i64 %.sroa.011.027.i, 1
+  %44 = add nuw nsw i64 %.sroa.011.025.i, 1
   %45 = load ptr, ptr %4, align 8, !tbaa !10
   %46 = icmp eq ptr %43, %45
   br i1 %46, label %_ZNK5boost6spirit7classic11kleene_starINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit, label %10
 
 _ZNK5boost6spirit7classic11kleene_starINS1_5chsetIwEEE5parseINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS5_T_E4typeERKSP_.exit: ; preds = %10, %.critedge.i.i.i.i.i, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i.i, %42, %2
-  %.sroa.011.0.lcssa.i = phi i64 [ 0, %2 ], [ %44, %42 ], [ %.sroa.011.027.i, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i.i ], [ %.sroa.011.027.i, %.critedge.i.i.i.i.i ], [ %.sroa.011.027.i, %10 ]
-  %.sroa.02.0.copyload.lcssa.i = phi ptr [ %.sroa.02.0.copyload26.i, %2 ], [ %43, %42 ], [ %.sroa.02.0.copyload28.i, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i.i ], [ %.sroa.02.0.copyload28.i, %.critedge.i.i.i.i.i ], [ %.sroa.02.0.copyload28.i, %10 ]
+  %.sroa.011.0.lcssa.i = phi i64 [ 0, %2 ], [ %44, %42 ], [ %.sroa.011.025.i, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i.i ], [ %.sroa.011.025.i, %.critedge.i.i.i.i.i ], [ %.sroa.011.025.i, %10 ]
+  %.sroa.02.0.copyload.lcssa.i = phi ptr [ %.sroa.02.0.copyload24.i, %2 ], [ %43, %42 ], [ %.sroa.02.0.copyload26.i, %_ZNK5boost6spirit7classic5chsetIwE4testEw.exit.i.i ], [ %.sroa.02.0.copyload26.i, %.critedge.i.i.i.i.i ], [ %.sroa.02.0.copyload26.i, %10 ]
   store ptr %.sroa.02.0.copyload.lcssa.i, ptr %3, align 8, !tbaa !10
   ret i64 %.sroa.011.0.lcssa.i
 }

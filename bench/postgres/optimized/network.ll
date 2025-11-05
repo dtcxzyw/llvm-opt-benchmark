@@ -1193,44 +1193,44 @@ define internal i64 @network_abbrev_convert(i64 noundef %0, ptr noundef readonly
   %23 = srem i16 %.lhs.trunc, 64
   %.sext = sext i16 %23 to i32
   %24 = icmp eq i8 %21, 0
-  br i1 %24, label %31, label %25
+  br i1 %24, label %32, label %25
 
 25:                                               ; preds = %18
   %26 = icmp ult i8 %21, 64
-  br i1 %26, label %27, label %31
+  br i1 %26, label %27, label %32
 
 27:                                               ; preds = %25
   %28 = zext nneg i32 %.sext to i64
   %notmask = shl nsw i64 -1, %28
   %29 = xor i64 %notmask, -1
   %30 = and i64 %notmask, %.057
-  br label %31
+  %31 = and i64 %.057, %29
+  br label %32
 
-31:                                               ; preds = %25, %18, %27
-  %.059 = phi i64 [ %29, %27 ], [ -1, %18 ], [ 0, %25 ]
+32:                                               ; preds = %25, %18, %27
+  %.059 = phi i64 [ %31, %27 ], [ %.057, %18 ], [ 0, %25 ]
   %.058 = phi i64 [ %30, %27 ], [ 0, %18 ], [ %.057, %25 ]
-  br i1 %11, label %32, label %43
+  br i1 %11, label %33, label %43
 
-32:                                               ; preds = %31
-  %33 = zext i8 %21 to i64
-  %34 = shl i64 %.058, 31
-  %35 = shl nuw nsw i64 %33, 25
-  %36 = and i64 %.059, %.057
+33:                                               ; preds = %32
+  %34 = zext i8 %21 to i64
+  %35 = shl i64 %.058, 31
+  %36 = shl nuw nsw i64 %34, 25
   %37 = icmp sgt i16 %23, 25
   %38 = add nsw i32 %.sext, -25
   %39 = zext nneg i32 %38 to i64
   %40 = select i1 %37, i64 %39, i64 0
-  %.056 = lshr i64 %36, %40
-  %41 = or i64 %34, %35
+  %.056 = lshr i64 %.059, %40
+  %41 = or i64 %35, %36
   %42 = or i64 %41, %.056
   br label %45
 
-43:                                               ; preds = %31
+43:                                               ; preds = %32
   %44 = lshr i64 %.058, 1
   br label %45
 
-45:                                               ; preds = %43, %32
-  %.pn = phi i64 [ %42, %32 ], [ %44, %43 ]
+45:                                               ; preds = %43, %33
+  %.pn = phi i64 [ %42, %33 ], [ %44, %43 ]
   %.1 = or i64 %.pn, %.0
   %46 = load i64, ptr %4, align 8
   %47 = add i64 %46, 1

@@ -1486,12 +1486,12 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %96 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %97 = load i32, ptr %96, align 4
   %98 = or i32 %97, %4
+  %99 = and i32 %97, %19
   br label %.thread28
 
 .thread28:                                        ; preds = %.loopexit37, %95
-  %99 = phi i32 [ %98, %95 ], [ %4, %.loopexit37 ]
-  %100 = phi i32 [ %97, %95 ], [ 0, %.loopexit37 ]
-  %101 = and i32 %100, %19
+  %100 = phi i32 [ %98, %95 ], [ %4, %.loopexit37 ]
+  %101 = phi i32 [ %99, %95 ], [ 0, %.loopexit37 ]
   %102 = icmp ugt i32 %54, %55
   br i1 %102, label %104, label %103, !prof !9
 
@@ -1501,8 +1501,8 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   unreachable
 
 104:                                              ; preds = %.thread28
-  %105 = or i32 %99, 4095
-  %106 = select i1 %49, i32 %105, i32 %99
+  %105 = or i32 %100, 4095
+  %106 = select i1 %49, i32 %105, i32 %100
   %107 = and i32 %106, -2048
   %108 = lshr i32 %106, 11
   %109 = add nuw nsw i32 %108, 1
@@ -1607,7 +1607,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
   %172 = trunc i64 %169 to i32
   %173 = sub i32 %172, %131
   %174 = shl i32 %173, 11
-  %175 = or disjoint i32 %174, %101
+  %175 = add nuw nsw i32 %174, %101
   %176 = zext i32 %175 to i64
   %177 = sub i64 %37, %176
   %178 = load ptr, ptr %53, align 8

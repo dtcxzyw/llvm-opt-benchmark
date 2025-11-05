@@ -3285,14 +3285,12 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit16: ; preds = %62, %53
   %.pn.i14 = phi i64 [ %56, %53 ], [ %65, %62 ]
   %.not33.not = icmp samesign eq i64 %.pn.i14, %52
-  %69 = select i1 %.not33.not, i64 0, i64 4294967296
+  %69 = select i1 %.not33.not, i64 1, i64 4294967297
   br label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit16.thread
 
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit16.thread: ; preds = %.lr.ph.i.i.i.i10, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit16, %51, %_ZN4llvm16FunctionImporter13ImportIDTable12getImportIDsENS_9StringRefEm.exit, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit
-  %.sroa.019.030 = phi i64 [ 0, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ], [ 0, %_ZN4llvm16FunctionImporter13ImportIDTable12getImportIDsENS_9StringRefEm.exit ], [ 0, %51 ], [ 1, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit16 ], [ 0, %.lr.ph.i.i.i.i10 ]
   %.sroa.3.1 = phi i64 [ 4294967296, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit ], [ 0, %_ZN4llvm16FunctionImporter13ImportIDTable12getImportIDsENS_9StringRefEm.exit ], [ 0, %51 ], [ %69, %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit16 ], [ 0, %.lr.ph.i.i.i.i10 ]
-  %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.3.1, %.sroa.019.030
-  ret i64 %.sroa.019.0.insert.insert
+  ret i64 %.sroa.3.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

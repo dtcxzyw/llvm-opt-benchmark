@@ -179,13 +179,16 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   tail call fastcc void @blockmix_salsa8(ptr noundef %98, ptr noundef %102, i64 noundef range(i64 1, 4294967296) %11)
   %103 = add nuw nsw i64 %.17786.i, 2
   %104 = icmp ult i64 %103, %71
-  br i1 %104, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !7
+  br i1 %104, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader81.i
-  %.177.lcssa.i = phi i64 [ 1, %.preheader81.i ], [ %103, %.lr.ph.i ]
-  %.0.lcssa.i = phi ptr [ %68, %.preheader81.i ], [ %102, %.lr.ph.i ]
-  %105 = mul i64 %.177.lcssa.i, %45
-  %106 = add i64 %105, %73
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %105 = mul i64 %103, %45
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.preheader81.i
+  %.177.lcssa.i = phi i64 [ %105, %._crit_edge.loopexit.i ], [ %45, %.preheader81.i ]
+  %.0.lcssa.i = phi ptr [ %102, %._crit_edge.loopexit.i ], [ %68, %.preheader81.i ]
+  %106 = add i64 %.177.lcssa.i, %73
   %107 = inttoptr i64 %106 to ptr
   tail call fastcc void @blockmix_salsa8(ptr noundef %.0.lcssa.i, ptr noundef %107, i64 noundef range(i64 1, 4294967296) %11)
   tail call fastcc void @blockmix_salsa8(ptr noundef %107, ptr noundef %69, i64 noundef range(i64 1, 4294967296) %11)

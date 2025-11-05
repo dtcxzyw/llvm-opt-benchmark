@@ -1233,7 +1233,7 @@ zend_jit_trace_counter_helper.exit:               ; preds = %24, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef initializes((0, 2), (3, 4), (8, 20), (24, 32)) %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 0, 68) i32 @zend_jit_trace_execute(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef initializes((0, 2), (3, 4), (8, 20), (24, 32)) %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca [14 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1297,7 +1297,7 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   store i8 0, ptr %43, align 1, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %9, ptr %44, align 8, !tbaa !16
-  br label %840
+  br label %839
 
 45:                                               ; preds = %30
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 %20
@@ -1320,7 +1320,7 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   store i8 0, ptr %54, align 1, !tbaa !16
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %9, ptr %55, align 8, !tbaa !16
-  br label %840
+  br label %839
 
 56:                                               ; preds = %45
   %.not725 = icmp eq ptr %11, null
@@ -1348,7 +1348,7 @@ define hidden range(i32 0, 96) i32 @zend_jit_trace_execute(ptr noundef %0, ptr n
   store i8 0, ptr %64, align 1, !tbaa !16
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %9, ptr %65, align 8, !tbaa !16
-  br label %840
+  br label %839
 
 .thread:                                          ; preds = %.thread.backedge, %.thread.outer1616
   %.0672 = phi i32 [ %.0672.ph1617, %.thread.outer1616 ], [ %.2674, %.thread.backedge ]
@@ -3015,7 +3015,7 @@ zend_jit_trace_bad_stop_event.exit906:            ; preds = %810
   %.05811012 = phi ptr [ %9, %796 ], [ %9, %.thread966 ], [ %.1646978, %798 ], [ %.1646978, %zend_jit_trace_bad_stop_event.exit906 ], [ %.1646978, %810 ], [ %693, %771 ], [ %.0581.ph, %.preheader ], [ %.0581.ph, %.critedge.loopexit ], [ %.1646978, %805 ], [ %406, %536 ], [ %406, %589 ], [ %406, %482 ], [ %406, %485 ], [ %406, %488 ], [ %.0645, %368 ], [ %.0645, %366 ], [ %.0645, %366 ], [ null, %401 ], [ %406, %403 ], [ %406, %414 ], [ %406, %433 ], [ %406, %437 ], [ %406, %440 ], [ %406, %463 ], [ %406, %525 ], [ %406, %577 ], [ %.0645, %386 ], [ %693, %738 ]
   %.151011 = phi i32 [ 2, %796 ], [ 1, %.thread966 ], [ %.1583983, %798 ], [ 17, %zend_jit_trace_bad_stop_event.exit906 ], [ 17, %810 ], [ 0, %771 ], [ 4, %.preheader ], [ 4, %.critedge.loopexit ], [ 17, %805 ], [ 8, %536 ], [ 8, %589 ], [ 3, %482 ], [ 3, %485 ], [ 3, %488 ], [ 5, %368 ], [ 5, %366 ], [ 5, %366 ], [ 3, %401 ], [ 5, %403 ], [ 5, %414 ], [ 6, %433 ], [ 7, %437 ], [ 5, %440 ], [ 1, %463 ], [ 2, %525 ], [ 3, %577 ], [ 8, %386 ], [ 0, %738 ]
   %.55941010 = phi i32 [ %.1665977, %796 ], [ %.1590980, %.thread966 ], [ %.1590980, %798 ], [ %.1590980, %zend_jit_trace_bad_stop_event.exit906 ], [ %.1590980, %810 ], [ 0, %771 ], [ %.5594.ph, %.preheader ], [ %.5594.ph, %.critedge.loopexit ], [ %.1590980, %805 ], [ %535, %536 ], [ %588, %589 ], [ %.0589, %482 ], [ %.0589, %485 ], [ %.0589, %488 ], [ %.0589, %368 ], [ %.0589, %366 ], [ %.0589, %366 ], [ %.0589, %401 ], [ %.0589, %403 ], [ %.0589, %414 ], [ %.0589, %433 ], [ %.0589, %437 ], [ %.0589, %440 ], [ %.0589, %463 ], [ %.0589, %525 ], [ %.0589, %577 ], [ %.0589, %386 ], [ %.2591, %738 ]
-  %.05869821009 = phi i32 [ 0, %796 ], [ 0, %.thread966 ], [ 0, %798 ], [ 0, %zend_jit_trace_bad_stop_event.exit906 ], [ 0, %810 ], [ 0, %771 ], [ 0, %.preheader ], [ 0, %.critedge.loopexit ], [ 0, %805 ], [ 0, %536 ], [ 0, %589 ], [ 0, %482 ], [ 0, %485 ], [ 0, %488 ], [ 0, %368 ], [ 0, %366 ], [ 0, %366 ], [ 64, %401 ], [ 0, %403 ], [ 0, %414 ], [ 0, %433 ], [ 0, %437 ], [ 0, %440 ], [ 0, %463 ], [ 0, %525 ], [ 0, %577 ], [ 0, %386 ], [ 0, %738 ]
+  %.05869821009 = phi i32 [ 2, %796 ], [ 1, %.thread966 ], [ %.1583983, %798 ], [ 17, %zend_jit_trace_bad_stop_event.exit906 ], [ 17, %810 ], [ 0, %771 ], [ 4, %.preheader ], [ 4, %.critedge.loopexit ], [ 17, %805 ], [ 8, %536 ], [ 8, %589 ], [ 3, %482 ], [ 3, %485 ], [ 3, %488 ], [ 5, %368 ], [ 5, %366 ], [ 5, %366 ], [ 67, %401 ], [ 5, %403 ], [ 5, %414 ], [ 6, %433 ], [ 7, %437 ], [ 5, %440 ], [ 1, %463 ], [ 2, %525 ], [ 3, %577 ], [ 8, %386 ], [ 0, %738 ]
   %.21 = phi i32 [ %.1669976, %796 ], [ %.1673975, %.thread966 ], [ %.3618979, %798 ], [ %.3618979, %zend_jit_trace_bad_stop_event.exit906 ], [ %.3618979, %810 ], [ %778, %771 ], [ %.20.ph, %.preheader ], [ %.21.ph, %.critedge.loopexit ], [ %.3618979, %805 ], [ %512, %536 ], [ %583, %589 ], [ %.12627, %482 ], [ %.12627, %485 ], [ %.12627, %488 ], [ %.8623, %368 ], [ %.8623, %366 ], [ %.8623, %366 ], [ %.12627, %401 ], [ %.12627, %403 ], [ %.12627, %414 ], [ %.12627, %433 ], [ %.12627, %437 ], [ %.12627, %440 ], [ %449, %463 ], [ %512, %525 ], [ %.12627, %577 ], [ %.8623, %386 ], [ %.16, %738 ]
   %.55941010.fr = freeze i32 %.55941010
   store i32 %.21, ptr %34, align 8, !tbaa !16
@@ -3036,11 +3036,10 @@ zend_jit_trace_bad_stop_event.exit906:            ; preds = %810
   store i8 %spec.select1038, ptr %837, align 1, !tbaa !16
   %838 = getelementptr inbounds nuw i8, ptr %831, i64 8
   store ptr %.05811012, ptr %838, align 8, !tbaa !16
-  %839 = or i32 %.05869821009, %.151011
-  br label %840
+  br label %839
 
-840:                                              ; preds = %60, %.critedge, %50, %39
-  %.0 = phi i32 [ 13, %39 ], [ 12, %50 ], [ %839, %.critedge ], [ 8, %60 ]
+839:                                              ; preds = %60, %.critedge, %50, %39
+  %.0 = phi i32 [ 13, %39 ], [ 12, %50 ], [ %.05869821009, %.critedge ], [ 8, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.0
 }

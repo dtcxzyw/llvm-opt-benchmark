@@ -5652,7 +5652,7 @@ define internal void @mpeg12_encode_mb(ptr noundef %0, ptr noundef readonly capt
   %88 = phi i32 [ %86, %75 ], [ 0, %73 ]
   %89 = and i32 %69, 2
   %.not335.i = icmp eq i32 %89, 0
-  br i1 %.not335.i, label %102, label %90
+  br i1 %.not335.i, label %103, label %90
 
 90:                                               ; preds = %87
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 3008
@@ -5666,15 +5666,15 @@ define internal void @mpeg12_encode_mb(ptr noundef %0, ptr noundef readonly capt
   %99 = load i32, ptr %98, align 4, !tbaa !120
   %100 = sub nsw i32 %97, %99
   %101 = or i32 %100, %95
-  br label %102
+  %102 = or i32 %101, %88
+  br label %103
 
-102:                                              ; preds = %90, %87
-  %103 = phi i32 [ %101, %90 ], [ 0, %87 ]
-  %104 = or i32 %103, %88
+103:                                              ; preds = %90, %87
+  %104 = phi i32 [ %102, %90 ], [ %88, %87 ]
   %105 = icmp eq i32 %104, 0
   br i1 %105, label %106, label %123
 
-106:                                              ; preds = %102, %59
+106:                                              ; preds = %103, %59
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 3356
   %108 = load i32, ptr %107, align 4, !tbaa !190
   %109 = add nsw i32 %108, 1
@@ -5700,7 +5700,7 @@ define internal void @mpeg12_encode_mb(ptr noundef %0, ptr noundef readonly capt
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
   br label %mpeg1_encode_mb_internal.exit
 
-123:                                              ; preds = %102, %67, %65, %55, %51, %43, %41
+123:                                              ; preds = %103, %67, %65, %55, %51, %43, %41
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 3356
   %125 = load i32, ptr %124, align 4, !tbaa !190
   br i1 %31, label %126, label %129
@@ -7338,7 +7338,7 @@ put_bits.exit116:                                 ; preds = %998, %1017
   %1114 = phi i32 [ %1112, %1101 ], [ 0, %1099 ]
   %1115 = and i32 %1095, 2
   %.not335.i39 = icmp eq i32 %1115, 0
-  br i1 %.not335.i39, label %1128, label %1116
+  br i1 %.not335.i39, label %1129, label %1116
 
 1116:                                             ; preds = %1113
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 3008
@@ -7352,15 +7352,15 @@ put_bits.exit116:                                 ; preds = %998, %1017
   %1125 = load i32, ptr %1124, align 4, !tbaa !120
   %1126 = sub nsw i32 %1123, %1125
   %1127 = or i32 %1126, %1121
-  br label %1128
+  %1128 = or i32 %1127, %1114
+  br label %1129
 
-1128:                                             ; preds = %1116, %1113
-  %1129 = phi i32 [ %1127, %1116 ], [ 0, %1113 ]
-  %1130 = or i32 %1129, %1114
+1129:                                             ; preds = %1116, %1113
+  %1130 = phi i32 [ %1128, %1116 ], [ %1114, %1113 ]
   %1131 = icmp eq i32 %1130, 0
   br i1 %1131, label %1132, label %1149
 
-1132:                                             ; preds = %1128, %1085
+1132:                                             ; preds = %1129, %1085
   %1133 = getelementptr inbounds nuw i8, ptr %0, i64 3356
   %1134 = load i32, ptr %1133, align 4, !tbaa !190
   %1135 = add nsw i32 %1134, 1
@@ -7386,7 +7386,7 @@ put_bits.exit116:                                 ; preds = %998, %1017
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1148, i8 0, i64 16, i1 false)
   br label %mpeg1_encode_mb_internal.exit
 
-1149:                                             ; preds = %1081, %1128, %1093, %1091, %1077, %1075
+1149:                                             ; preds = %1081, %1129, %1093, %1091, %1077, %1075
   %1150 = getelementptr inbounds nuw i8, ptr %0, i64 3356
   %1151 = load i32, ptr %1150, align 4, !tbaa !190
   br i1 %1065, label %1152, label %1155

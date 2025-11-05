@@ -2733,259 +2733,258 @@ define dso_local void @_Z22DefineFixedPointMacrosRKN5clang10TargetInfoERNS_12Mac
   %37 = and i32 %6, 65535
   %.neg.i = mul i32 %7, 536805376
   %38 = and i32 %.neg.i, 536805376
-  %39 = or disjoint i32 %38, %37
+  %39 = or disjoint i32 %37, %38
   %40 = zext nneg i8 %36 to i32
   %spec.select = shl nuw i32 %40, 31
+  %41 = or disjoint i32 %spec.select, %39
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %34, %.thread
-  %41 = phi i32 [ %33, %.thread ], [ %39, %34 ]
-  %42 = phi i32 [ 0, %.thread ], [ %spec.select, %34 ]
-  %43 = or disjoint i32 %42, %41
-  store i32 %43, ptr %10, align 4
+  %42 = phi i32 [ %33, %.thread ], [ %41, %34 ]
+  store i32 %42, ptr %10, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %44 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %44, ptr %11, align 8, !tbaa !31
-  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %46 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 32, ptr %46, align 8, !tbaa !34
-  store i16 24415, ptr %44, align 8
-  store i64 2, ptr %45, align 8, !tbaa !35
-  %47 = add i64 %3, 2
-  %48 = icmp ugt i64 %47, 32
-  br i1 %48, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %43, ptr %11, align 8, !tbaa !31
+  %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 32, ptr %45, align 8, !tbaa !34
+  store i16 24415, ptr %43, align 8
+  store i64 2, ptr %44, align 8, !tbaa !35
+  %46 = add i64 %3, 2
+  %47 = icmp ugt i64 %46, 32
+  br i1 %47, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread, label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
-  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull %44, i64 noundef %47, i64 noundef 1) #16
-  %.pre8.pre.i.i = load i64, ptr %45, align 8, !tbaa !35
+  call void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull %43, i64 noundef %46, i64 noundef 1) #16
+  %.pre8.pre.i.i = load i64, ptr %44, align 8, !tbaa !35
   %.pre41.pre = load ptr, ptr %11, align 8, !tbaa !31
-  br label %49
+  br label %48
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i:  ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
   %.not.i.i.i = icmp samesign eq i64 %3, 0
-  br i1 %.not.i.i.i, label %_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit, label %49
+  br i1 %.not.i.i.i, label %_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit, label %48
 
-49:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
+48:                                               ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i
   %.pre8.i.i55 = phi i64 [ %.pre8.pre.i.i, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ 2, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
-  %.pre4154 = phi ptr [ %.pre41.pre, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ %44, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
-  %50 = getelementptr inbounds nuw i8, ptr %.pre4154, i64 %.pre8.i.i55
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr align 1 %2, i64 %3, i1 false)
-  %.pre.i.i = load i64, ptr %45, align 8, !tbaa !35
+  %.pre4154 = phi ptr [ %.pre41.pre, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.thread ], [ %43, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %.pre4154, i64 %.pre8.i.i55
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %49, ptr align 1 %2, i64 %3, i1 false)
+  %.pre.i.i = load i64, ptr %44, align 8, !tbaa !35
   %.pre = load ptr, ptr %11, align 8, !tbaa !31
   br label %_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit
 
-_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i, %49
-  %51 = phi ptr [ %44, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ %.pre, %49 ]
-  %52 = phi i64 [ 2, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ %.pre.i.i, %49 ]
-  %53 = add i64 %52, %3
-  store i64 %53, ptr %45, align 8, !tbaa !35
+_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit: ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i, %48
+  %50 = phi ptr [ %43, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ %.pre, %48 ]
+  %51 = phi i64 [ 2, %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i ], [ %.pre.i.i, %48 ]
+  %52 = add i64 %51, %3
+  store i64 %52, ptr %44, align 8, !tbaa !35
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store i8 5, ptr %54, align 8, !tbaa !13, !alias.scope !62
-  %55 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 3, ptr %55, align 1, !tbaa !16, !alias.scope !62
-  store ptr %51, ptr %12, align 8, !tbaa !17, !alias.scope !62
-  %56 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %53, ptr %56, align 8, !tbaa !17, !alias.scope !62
-  %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr @.str.42, ptr %57, align 8, !tbaa !17, !alias.scope !62
+  %53 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store i8 5, ptr %53, align 8, !tbaa !13, !alias.scope !62
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 3, ptr %54, align 1, !tbaa !16, !alias.scope !62
+  store ptr %50, ptr %12, align 8, !tbaa !17, !alias.scope !62
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %52, ptr %55, align 8, !tbaa !17, !alias.scope !62
+  %56 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr @.str.42, ptr %56, align 8, !tbaa !17, !alias.scope !62
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @_ZN4llvm12APFixedPoint10getEpsilonERKNS_19FixedPointSemanticsE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APFixedPoint") align 8 %15, ptr noundef nonnull align 4 dereferenceable(4) %10) #16
   call void @_Z26ConstructFixedPointLiteralN4llvm12APFixedPointENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallString") align 8 %14, ptr noundef nonnull %15, ptr %4, i64 %5)
-  %58 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  store i8 5, ptr %58, align 8, !tbaa !13
-  %59 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %59, align 1, !tbaa !16
-  %60 = load ptr, ptr %14, align 8, !tbaa !31
-  store ptr %60, ptr %13, align 8, !tbaa !17
-  %61 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !35
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %62, ptr %63, align 8, !tbaa !17
-  %64 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store i16 257, ptr %64, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  store i8 5, ptr %57, align 8, !tbaa !13
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %58, align 1, !tbaa !16
+  %59 = load ptr, ptr %14, align 8, !tbaa !31
+  store ptr %59, ptr %13, align 8, !tbaa !17
+  %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %61 = load i64, ptr %60, align 8, !tbaa !35
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i64 %61, ptr %62, align 8, !tbaa !17
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store i16 257, ptr %63, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %16)
-  %65 = load ptr, ptr %14, align 8, !tbaa !31
-  %66 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %67 = icmp eq ptr %65, %66
-  br i1 %67, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, label %68
+  %64 = load ptr, ptr %14, align 8, !tbaa !31
+  %65 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %66 = icmp eq ptr %64, %65
+  br i1 %66, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, label %67
 
-68:                                               ; preds = %_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit
-  call void @free(ptr noundef %65) #16
+67:                                               ; preds = %_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit
+  call void @free(ptr noundef %64) #16
   br label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit
 
-_ZN4llvm11SmallVectorIcLj32EED2Ev.exit:           ; preds = %_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit, %68
-  %69 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %70 = load i32, ptr %69, align 8, !tbaa !28
-  %71 = icmp ugt i32 %70, 64
-  br i1 %71, label %72, label %_ZN4llvm12APFixedPointD2Ev.exit
+_ZN4llvm11SmallVectorIcLj32EED2Ev.exit:           ; preds = %_ZN4llvm11SmallStringILj32EEpLENS_9StringRefE.exit, %67
+  %68 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %69 = load i32, ptr %68, align 8, !tbaa !28
+  %70 = icmp ugt i32 %69, 64
+  br i1 %70, label %71, label %_ZN4llvm12APFixedPointD2Ev.exit
 
-72:                                               ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit
-  %73 = load ptr, ptr %15, align 8, !tbaa !17
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %_ZN4llvm12APFixedPointD2Ev.exit, label %75
+71:                                               ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit
+  %72 = load ptr, ptr %15, align 8, !tbaa !17
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %_ZN4llvm12APFixedPointD2Ev.exit, label %74
 
-75:                                               ; preds = %72
-  call void @_ZdaPv(ptr noundef nonnull %73) #17
+74:                                               ; preds = %71
+  call void @_ZdaPv(ptr noundef nonnull %72) #17
   br label %_ZN4llvm12APFixedPointD2Ev.exit
 
-_ZN4llvm12APFixedPointD2Ev.exit:                  ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, %72, %75
+_ZN4llvm12APFixedPointD2Ev.exit:                  ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit, %71, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %76 = load ptr, ptr %11, align 8, !tbaa !31
-  %77 = load i64, ptr %45, align 8, !tbaa !35
-  %78 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  store i8 5, ptr %78, align 8, !tbaa !13, !alias.scope !65
-  %79 = getelementptr inbounds nuw i8, ptr %17, i64 33
-  store i8 3, ptr %79, align 1, !tbaa !16, !alias.scope !65
-  store ptr %76, ptr %17, align 8, !tbaa !17, !alias.scope !65
-  %80 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i64 %77, ptr %80, align 8, !tbaa !17, !alias.scope !65
-  %81 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr @.str.43, ptr %81, align 8, !tbaa !17, !alias.scope !65
+  %75 = load ptr, ptr %11, align 8, !tbaa !31
+  %76 = load i64, ptr %44, align 8, !tbaa !35
+  %77 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  store i8 5, ptr %77, align 8, !tbaa !13, !alias.scope !65
+  %78 = getelementptr inbounds nuw i8, ptr %17, i64 33
+  store i8 3, ptr %78, align 1, !tbaa !16, !alias.scope !65
+  store ptr %75, ptr %17, align 8, !tbaa !17, !alias.scope !65
+  %79 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i64 %76, ptr %79, align 8, !tbaa !17, !alias.scope !65
+  %80 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr @.str.43, ptr %80, align 8, !tbaa !17, !alias.scope !65
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %82 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i8 9, ptr %82, align 8, !tbaa !13
-  %83 = getelementptr inbounds nuw i8, ptr %18, i64 33
-  store i8 1, ptr %83, align 1, !tbaa !16
+  %81 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store i8 9, ptr %81, align 8, !tbaa !13
+  %82 = getelementptr inbounds nuw i8, ptr %18, i64 33
+  store i8 1, ptr %82, align 1, !tbaa !16
   store i32 %7, ptr %18, align 8, !tbaa !17
-  %84 = getelementptr inbounds nuw i8, ptr %19, i64 32
-  store i16 257, ptr %84, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  store i16 257, ptr %83, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(34) %17, ptr noundef nonnull align 8 dereferenceable(34) %18, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %85 = load ptr, ptr %11, align 8, !tbaa !31
-  %86 = load i64, ptr %45, align 8, !tbaa !35
-  %87 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i8 5, ptr %87, align 8, !tbaa !13, !alias.scope !68
-  %88 = getelementptr inbounds nuw i8, ptr %20, i64 33
-  store i8 3, ptr %88, align 1, !tbaa !16, !alias.scope !68
-  store ptr %85, ptr %20, align 8, !tbaa !17, !alias.scope !68
-  %89 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 %86, ptr %89, align 8, !tbaa !17, !alias.scope !68
-  %90 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr @.str.44, ptr %90, align 8, !tbaa !17, !alias.scope !68
+  %84 = load ptr, ptr %11, align 8, !tbaa !31
+  %85 = load i64, ptr %44, align 8, !tbaa !35
+  %86 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store i8 5, ptr %86, align 8, !tbaa !13, !alias.scope !68
+  %87 = getelementptr inbounds nuw i8, ptr %20, i64 33
+  store i8 3, ptr %87, align 1, !tbaa !16, !alias.scope !68
+  store ptr %84, ptr %20, align 8, !tbaa !17, !alias.scope !68
+  %88 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 %85, ptr %88, align 8, !tbaa !17, !alias.scope !68
+  %89 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr @.str.44, ptr %89, align 8, !tbaa !17, !alias.scope !68
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN4llvm12APFixedPoint6getMaxERKNS_19FixedPointSemanticsE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APFixedPoint") align 8 %23, ptr noundef nonnull align 4 dereferenceable(4) %10) #16
   call void @_Z26ConstructFixedPointLiteralN4llvm12APFixedPointENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallString") align 8 %22, ptr noundef nonnull %23, ptr %4, i64 %5)
-  %91 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  store i8 5, ptr %91, align 8, !tbaa !13
-  %92 = getelementptr inbounds nuw i8, ptr %21, i64 33
-  store i8 1, ptr %92, align 1, !tbaa !16
-  %93 = load ptr, ptr %22, align 8, !tbaa !31
-  store ptr %93, ptr %21, align 8, !tbaa !17
-  %94 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %95 = load i64, ptr %94, align 8, !tbaa !35
-  %96 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %95, ptr %96, align 8, !tbaa !17
-  %97 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i16 257, ptr %97, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  store i8 5, ptr %90, align 8, !tbaa !13
+  %91 = getelementptr inbounds nuw i8, ptr %21, i64 33
+  store i8 1, ptr %91, align 1, !tbaa !16
+  %92 = load ptr, ptr %22, align 8, !tbaa !31
+  store ptr %92, ptr %21, align 8, !tbaa !17
+  %93 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %94 = load i64, ptr %93, align 8, !tbaa !35
+  %95 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i64 %94, ptr %95, align 8, !tbaa !17
+  %96 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i16 257, ptr %96, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(34) %20, ptr noundef nonnull align 8 dereferenceable(34) %21, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %24)
-  %98 = load ptr, ptr %22, align 8, !tbaa !31
-  %99 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %100 = icmp eq ptr %98, %99
-  br i1 %100, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25, label %101
+  %97 = load ptr, ptr %22, align 8, !tbaa !31
+  %98 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %99 = icmp eq ptr %97, %98
+  br i1 %99, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25, label %100
 
-101:                                              ; preds = %_ZN4llvm12APFixedPointD2Ev.exit
-  call void @free(ptr noundef %98) #16
+100:                                              ; preds = %_ZN4llvm12APFixedPointD2Ev.exit
+  call void @free(ptr noundef %97) #16
   br label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25
 
-_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25:         ; preds = %_ZN4llvm12APFixedPointD2Ev.exit, %101
-  %102 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %103 = load i32, ptr %102, align 8, !tbaa !28
-  %104 = icmp ugt i32 %103, 64
-  br i1 %104, label %105, label %_ZN4llvm12APFixedPointD2Ev.exit26
+_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25:         ; preds = %_ZN4llvm12APFixedPointD2Ev.exit, %100
+  %101 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %102 = load i32, ptr %101, align 8, !tbaa !28
+  %103 = icmp ugt i32 %102, 64
+  br i1 %103, label %104, label %_ZN4llvm12APFixedPointD2Ev.exit26
 
-105:                                              ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25
-  %106 = load ptr, ptr %23, align 8, !tbaa !17
-  %107 = icmp eq ptr %106, null
-  br i1 %107, label %_ZN4llvm12APFixedPointD2Ev.exit26, label %108
+104:                                              ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25
+  %105 = load ptr, ptr %23, align 8, !tbaa !17
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %_ZN4llvm12APFixedPointD2Ev.exit26, label %107
 
-108:                                              ; preds = %105
-  call void @_ZdaPv(ptr noundef nonnull %106) #17
+107:                                              ; preds = %104
+  call void @_ZdaPv(ptr noundef nonnull %105) #17
   br label %_ZN4llvm12APFixedPointD2Ev.exit26
 
-_ZN4llvm12APFixedPointD2Ev.exit26:                ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25, %105, %108
+_ZN4llvm12APFixedPointD2Ev.exit26:                ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit25, %104, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br i1 %8, label %109, label %134
+  br i1 %8, label %108, label %133
 
-109:                                              ; preds = %_ZN4llvm12APFixedPointD2Ev.exit26
+108:                                              ; preds = %_ZN4llvm12APFixedPointD2Ev.exit26
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %110 = load ptr, ptr %11, align 8, !tbaa !31
-  %111 = load i64, ptr %45, align 8, !tbaa !35
-  %112 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store i8 5, ptr %112, align 8, !tbaa !13, !alias.scope !71
-  %113 = getelementptr inbounds nuw i8, ptr %25, i64 33
-  store i8 3, ptr %113, align 1, !tbaa !16, !alias.scope !71
-  store ptr %110, ptr %25, align 8, !tbaa !17, !alias.scope !71
-  %114 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i64 %111, ptr %114, align 8, !tbaa !17, !alias.scope !71
-  %115 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store ptr @.str.45, ptr %115, align 8, !tbaa !17, !alias.scope !71
+  %109 = load ptr, ptr %11, align 8, !tbaa !31
+  %110 = load i64, ptr %44, align 8, !tbaa !35
+  %111 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store i8 5, ptr %111, align 8, !tbaa !13, !alias.scope !71
+  %112 = getelementptr inbounds nuw i8, ptr %25, i64 33
+  store i8 3, ptr %112, align 1, !tbaa !16, !alias.scope !71
+  store ptr %109, ptr %25, align 8, !tbaa !17, !alias.scope !71
+  %113 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 %110, ptr %113, align 8, !tbaa !17, !alias.scope !71
+  %114 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr @.str.45, ptr %114, align 8, !tbaa !17, !alias.scope !71
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @_ZN4llvm12APFixedPoint6getMinERKNS_19FixedPointSemanticsE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APFixedPoint") align 8 %28, ptr noundef nonnull align 4 dereferenceable(4) %10) #16
   call void @_Z26ConstructFixedPointLiteralN4llvm12APFixedPointENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::SmallString") align 8 %27, ptr noundef nonnull %28, ptr %4, i64 %5)
-  %116 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store i8 5, ptr %116, align 8, !tbaa !13
-  %117 = getelementptr inbounds nuw i8, ptr %26, i64 33
-  store i8 1, ptr %117, align 1, !tbaa !16
-  %118 = load ptr, ptr %27, align 8, !tbaa !31
-  store ptr %118, ptr %26, align 8, !tbaa !17
-  %119 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %120 = load i64, ptr %119, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 %120, ptr %121, align 8, !tbaa !17
-  %122 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store i16 257, ptr %122, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store i8 5, ptr %115, align 8, !tbaa !13
+  %116 = getelementptr inbounds nuw i8, ptr %26, i64 33
+  store i8 1, ptr %116, align 1, !tbaa !16
+  %117 = load ptr, ptr %27, align 8, !tbaa !31
+  store ptr %117, ptr %26, align 8, !tbaa !17
+  %118 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %119 = load i64, ptr %118, align 8, !tbaa !35
+  %120 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i64 %119, ptr %120, align 8, !tbaa !17
+  %121 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store i16 257, ptr %121, align 8
   call void @_ZN5clang12MacroBuilder11defineMacroERKN4llvm5TwineES4_S2_(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(34) %25, ptr noundef nonnull align 8 dereferenceable(34) %26, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %29)
-  %123 = load ptr, ptr %27, align 8, !tbaa !31
-  %124 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %125 = icmp eq ptr %123, %124
-  br i1 %125, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29, label %126
+  %122 = load ptr, ptr %27, align 8, !tbaa !31
+  %123 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %124 = icmp eq ptr %122, %123
+  br i1 %124, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29, label %125
 
-126:                                              ; preds = %109
-  call void @free(ptr noundef %123) #16
+125:                                              ; preds = %108
+  call void @free(ptr noundef %122) #16
   br label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29
 
-_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29:         ; preds = %109, %126
-  %127 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %128 = load i32, ptr %127, align 8, !tbaa !28
-  %129 = icmp ugt i32 %128, 64
-  br i1 %129, label %130, label %_ZN4llvm12APFixedPointD2Ev.exit30
+_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29:         ; preds = %108, %125
+  %126 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %127 = load i32, ptr %126, align 8, !tbaa !28
+  %128 = icmp ugt i32 %127, 64
+  br i1 %128, label %129, label %_ZN4llvm12APFixedPointD2Ev.exit30
 
-130:                                              ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29
-  %131 = load ptr, ptr %28, align 8, !tbaa !17
-  %132 = icmp eq ptr %131, null
-  br i1 %132, label %_ZN4llvm12APFixedPointD2Ev.exit30, label %133
+129:                                              ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29
+  %130 = load ptr, ptr %28, align 8, !tbaa !17
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %_ZN4llvm12APFixedPointD2Ev.exit30, label %132
 
-133:                                              ; preds = %130
-  call void @_ZdaPv(ptr noundef nonnull %131) #17
+132:                                              ; preds = %129
+  call void @_ZdaPv(ptr noundef nonnull %130) #17
   br label %_ZN4llvm12APFixedPointD2Ev.exit30
 
-_ZN4llvm12APFixedPointD2Ev.exit30:                ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29, %130, %133
+_ZN4llvm12APFixedPointD2Ev.exit30:                ; preds = %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit29, %129, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %134
+  br label %133
 
-134:                                              ; preds = %_ZN4llvm12APFixedPointD2Ev.exit30, %_ZN4llvm12APFixedPointD2Ev.exit26
-  %135 = load ptr, ptr %11, align 8, !tbaa !31
-  %136 = icmp eq ptr %135, %44
-  br i1 %136, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit31, label %137
+133:                                              ; preds = %_ZN4llvm12APFixedPointD2Ev.exit30, %_ZN4llvm12APFixedPointD2Ev.exit26
+  %134 = load ptr, ptr %11, align 8, !tbaa !31
+  %135 = icmp eq ptr %134, %43
+  br i1 %135, label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit31, label %136
 
-137:                                              ; preds = %134
-  call void @free(ptr noundef %135) #16
+136:                                              ; preds = %133
+  call void @free(ptr noundef %134) #16
   br label %_ZN4llvm11SmallVectorIcLj32EED2Ev.exit31
 
-_ZN4llvm11SmallVectorIcLj32EED2Ev.exit31:         ; preds = %134, %137
+_ZN4llvm11SmallVectorIcLj32EED2Ev.exit31:         ; preds = %133, %136
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void

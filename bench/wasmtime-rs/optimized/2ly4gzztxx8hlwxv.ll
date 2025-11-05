@@ -29360,7 +29360,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %or.cond19879, label %7822, label %7821
 
 7821:                                             ; preds = %7825, %7818
-  br i1 %7701, label %switch.lookup23565, label %7831
+  br i1 %7701, label %switch.lookup23565, label %7832
 
 7822:                                             ; preds = %7818
   %7823 = invoke noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$7subsume17ha509d3cf4e34ffd2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %3268)
@@ -29380,20 +29380,20 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 switch.lookup23565:                               ; preds = %7821
   %switch.load23567 = load i64, ptr %switch.gep23566, align 8
-  br label %7831
+  %7831 = and i64 %switch.load23567, %.sroa.1215089.0.copyload
+  br label %7832
 
-7831:                                             ; preds = %switch.lookup23565, %7821
-  %.0.i.i.i.i9278 = phi i64 [ -1, %7821 ], [ %switch.load23567, %switch.lookup23565 ]
-  %7832 = and i64 %.0.i.i.i.i9278, %.sroa.1215089.0.copyload
-  %7833 = icmp eq i64 %.sroa.1215089.0.copyload, %7832
+7832:                                             ; preds = %switch.lookup23565, %7821
+  %.0.i.i.i.i9278 = phi i64 [ %.sroa.1215089.0.copyload, %7821 ], [ %7831, %switch.lookup23565 ]
+  %7833 = icmp eq i64 %.sroa.1215089.0.copyload, %.0.i.i.i.i9278
   br i1 %7833, label %7834, label %7835
 
-7834:                                             ; preds = %7840, %7831
+7834:                                             ; preds = %7840, %7832
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1219)
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit9281" unwind label %.loopexit21149
 
-7835:                                             ; preds = %7831
-  %7836 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code20constructor_iconst_u17h615e622f7bfbaba3E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %.sroa.015080.0.copyload, i64 noundef %7832)
+7835:                                             ; preds = %7832
+  %7836 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code20constructor_iconst_u17h615e622f7bfbaba3E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %.sroa.015080.0.copyload, i64 noundef %.0.i.i.i.i9278)
           to label %7837 unwind label %.loopexit.split-lp20744
 
 7837:                                             ; preds = %7835
@@ -30342,7 +30342,7 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
   br i1 %or.cond19881, label %8106, label %8105
 
 8105:                                             ; preds = %8109, %8102
-  br i1 %7985, label %switch.lookup23573, label %8115
+  br i1 %7985, label %switch.lookup23573, label %8116
 
 8106:                                             ; preds = %8102
   %8107 = invoke noundef i32 @"_ZN105_$LT$cranelift_codegen..opts..IsleContext$u20$as$u20$cranelift_codegen..opts..generated_code..Context$GT$7subsume17ha509d3cf4e34ffd2E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %3268)
@@ -30362,20 +30362,20 @@ _ZN17cranelift_codegen4opts16InstDataEtorIter3new17h681d65f73c30106cE.llvm.57816
 
 switch.lookup23573:                               ; preds = %8105
   %switch.load23575 = load i64, ptr %switch.gep23574, align 8
-  br label %8115
+  %8115 = and i64 %switch.load23575, %.sroa.1215125.0.copyload
+  br label %8116
 
-8115:                                             ; preds = %switch.lookup23573, %8105
-  %.0.i.i.i.i9436 = phi i64 [ -1, %8105 ], [ %switch.load23575, %switch.lookup23573 ]
-  %8116 = and i64 %.0.i.i.i.i9436, %.sroa.1215125.0.copyload
-  %8117 = icmp eq i64 %.sroa.1215125.0.copyload, %8116
+8116:                                             ; preds = %switch.lookup23573, %8105
+  %.0.i.i.i.i9436 = phi i64 [ %.sroa.1215125.0.copyload, %8105 ], [ %8115, %switch.lookup23573 ]
+  %8117 = icmp eq i64 %.sroa.1215125.0.copyload, %.0.i.i.i.i9436
   br i1 %8117, label %8118, label %8119
 
-8118:                                             ; preds = %8124, %8115
+8118:                                             ; preds = %8124, %8116
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb6ccab15328e5582E.llvm.16803308262639080379"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1204)
           to label %"_ZN4core3ptr62drop_in_place$LT$cranelift_codegen..opts..InstDataEtorIter$GT$17h3d279bc49d501d28E.exit9440" unwind label %.loopexit21168
 
-8119:                                             ; preds = %8115
-  %8120 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code20constructor_iconst_u17h615e622f7bfbaba3E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %.sroa.015116.0.copyload, i64 noundef %8116)
+8119:                                             ; preds = %8116
+  %8120 = invoke fastcc noundef i32 @_ZN17cranelift_codegen4opts14generated_code20constructor_iconst_u17h615e622f7bfbaba3E(ptr noalias noundef align 8 dereferenceable(8) %0, i16 noundef %.sroa.015116.0.copyload, i64 noundef %.0.i.i.i.i9436)
           to label %8121 unwind label %.loopexit.split-lp20749
 
 8121:                                             ; preds = %8119

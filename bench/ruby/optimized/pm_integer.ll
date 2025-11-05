@@ -728,33 +728,33 @@ pm_integer_from_uint64.exit:                      ; preds = %21, %26, %._crit_ed
   %42 = zext i32 %41 to i64
   %43 = or disjoint i64 %.05998, 1
   %44 = icmp ult i64 %43, %.056
-  br i1 %44, label %45, label %49
+  br i1 %44, label %45, label %50
 
 45:                                               ; preds = %.lr.ph
   %46 = getelementptr i32, ptr %.057, i64 %43
   %47 = load i32, ptr %46, align 4, !tbaa !13
   %48 = zext i32 %47 to i64
-  br label %49
+  %49 = mul nuw i64 %2, %48
+  br label %50
 
-49:                                               ; preds = %.lr.ph, %45
-  %50 = phi i64 [ %48, %45 ], [ 0, %.lr.ph ]
-  %51 = mul nuw i64 %50, %2
+50:                                               ; preds = %.lr.ph, %45
+  %51 = phi i64 [ %49, %45 ], [ 0, %.lr.ph ]
   %52 = add nuw i64 %51, %42
   %53 = lshr exact i64 %.05998, 1
   %54 = getelementptr %struct.pm_integer_t, ptr %18, i64 %53
   %55 = icmp ult i64 %52, %3
   br i1 %55, label %56, label %.preheader29.i65
 
-56:                                               ; preds = %49
+56:                                               ; preds = %50
   %57 = trunc nuw i64 %52 to i32
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i32 %57, ptr %58, align 8, !tbaa !30
   br label %pm_integer_from_uint64.exit78
 
-.preheader29.i65:                                 ; preds = %49, %.preheader29.i65
-  %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i70, %.preheader29.i65 ], [ 1, %49 ]
-  %.02431.i67 = phi i64 [ %60, %.preheader29.i65 ], [ %52, %49 ]
-  %.02530.i68 = phi i64 [ %59, %.preheader29.i65 ], [ 0, %49 ]
+.preheader29.i65:                                 ; preds = %50, %.preheader29.i65
+  %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i70, %.preheader29.i65 ], [ 1, %50 ]
+  %.02431.i67 = phi i64 [ %60, %.preheader29.i65 ], [ %52, %50 ]
+  %.02530.i68 = phi i64 [ %59, %.preheader29.i65 ], [ 0, %50 ]
   %59 = add i64 %.02530.i68, 1
   %60 = udiv i64 %.02431.i67, %3
   %.not.i69 = icmp ugt i64 %3, %.02431.i67

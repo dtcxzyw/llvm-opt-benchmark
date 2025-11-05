@@ -6355,8 +6355,8 @@ define hidden void @_ZN12typst_syntax6parser14code_expr_prec17ha92f54319f8d463eE
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 257
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !range !72
   %13 = icmp slt i8 %.pre, 0
-  %or.cond423.not = select i1 %1, i1 true, i1 %13
-  br i1 %or.cond423.not, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit.thread, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit
+  %or.cond.not = select i1 %1, i1 true, i1 %13
+  br i1 %or.cond.not, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit.thread, label %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit
 
 _ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit: ; preds = %3
   %14 = zext nneg i8 %.pre to i128
@@ -8375,7 +8375,6 @@ _ZN12typst_syntax6parser12code_primary17hba1d6f9c87dfc218E.exit: ; preds = %.pre
   %627 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.not = xor i1 %1, true
   %.not16 = icmp ult i64 %2, 5
   %628 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %629 = icmp ugt i64 %2, 1
@@ -8538,10 +8537,8 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit34: ; preds = %648,
   %681 = invoke noundef i8 @_ZN12typst_syntax5lexer5Lexer4next17hf6d67c4b9b5a164bE(ptr noalias noundef nonnull align 8 dereferenceable(80) %10)
           to label %685 unwind label %683, !range !72
 
-682:                                              ; preds = %637, %685
-  %.012 = phi i1 [ %686, %685 ], [ false, %637 ]
-  %or.cond = or i1 %.012, %.not
-  br i1 %or.cond, label %687, label %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit
+682:                                              ; preds = %637
+  br i1 %1, label %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit, label %687
 
 683:                                              ; preds = %"_ZN65_$LT$typst_syntax..lexer..Lexer$u20$as$u20$core..clone..Clone$GT$5clone17ha00c0f4f9a43ed24E.exit"
   %684 = landingpad { ptr, i32 }
@@ -8550,12 +8547,13 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit34: ; preds = %648,
           to label %common.resume unwind label %771
 
 685:                                              ; preds = %"_ZN65_$LT$typst_syntax..lexer..Lexer$u20$as$u20$core..clone..Clone$GT$5clone17ha00c0f4f9a43ed24E.exit"
-  %686 = icmp eq i8 %681, 89
+  %686 = icmp ne i8 %681, 89
   call void @"_ZN4core3ptr47drop_in_place$LT$typst_syntax..lexer..Lexer$GT$17h8564f4160488ca09E"(ptr noalias noundef nonnull align 8 dereferenceable(80) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %682
+  %.not425 = and i1 %686, %1
+  br i1 %.not425, label %_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit, label %687
 
-687:                                              ; preds = %682
+687:                                              ; preds = %685, %682
   %688 = load i8, ptr %614, align 1, !range !72, !noundef !4
   %689 = icmp eq i8 %688, 53
   br i1 %689, label %690, label %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread275
@@ -8581,7 +8579,7 @@ _ZN12typst_syntax6parser6Parser4wrap17hcddcf5c3b4d7d21dE.exit34: ; preds = %648,
   call void @_ZN12typst_syntax6parser6Parser3lex17h397541c91631bbdbE.llvm.17794941744620341598(ptr noalias noundef nonnull align 8 dereferenceable(264) %0)
   br label %.preheader.i.i.i
 
-_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit: ; preds = %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread275, %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit37.thread, %717, %682, %_ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E.exit.jt5, %_ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E.exit.jt12, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit.i, %726
+_ZN12typst_syntax6parser6Parser8expected17hfecc2e4804b084e3E.exit: ; preds = %_ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread275, %_ZN12typst_syntax6parser6Parser6at_set17h8ef76507d85bbf77E.exit37.thread, %717, %682, %_ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E.exit.jt5, %_ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E.exit.jt12, %685, %_ZN12typst_syntax6parser6Parser13before_trivia17hc426f4850ceea975E.llvm.17794941744620341598.exit.i, %726
   ret void
 
 _ZN12typst_syntax6parser6Parser6eat_if17h83c90b6095f7b9afE.exit.thread275: ; preds = %687

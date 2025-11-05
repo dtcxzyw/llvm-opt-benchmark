@@ -7008,17 +7008,17 @@ _ZNK12_GLOBAL__N_19EdgeCache3getEN3ue212graph_detail17vertex_descriptorINS1_9ue2
           to label %.noexc97 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc97:                                         ; preds = %2599
-  br i1 %2601, label %2602, label %2606
+  br i1 %2601, label %2602, label %2607
 
 2602:                                             ; preds = %.noexc97
   %2603 = load i32, ptr %2459, align 8
   %2604 = icmp eq i32 %2603, 0
   %2605 = zext i1 %2604 to i32
-  br label %2606
+  %2606 = or i32 %2600, %2605
+  br label %2607
 
-2606:                                             ; preds = %2602, %.noexc97
-  %2607 = phi i32 [ 0, %.noexc97 ], [ %2605, %2602 ]
-  %2608 = or i32 %2607, %2600
+2607:                                             ; preds = %2602, %.noexc97
+  %2608 = phi i32 [ %2600, %.noexc97 ], [ %2606, %2602 ]
   %.not.i74 = icmp eq i32 %2608, 0
   %.068.in.i = select i1 %.not.i74, ptr %2460, ptr %1684
   %.068.i = load i64, ptr %.068.in.i, align 8
@@ -7027,7 +7027,7 @@ _ZNK12_GLOBAL__N_19EdgeCache3getEN3ue212graph_detail17vertex_descriptorINS1_9ue2
     i32 0, label %2620
   ]
 
-2609:                                             ; preds = %2606
+2609:                                             ; preds = %2607
   %.val5.i.i = load ptr, ptr %1737, align 8
   %2610 = zext i32 %.sroa.7.0.copyload.i to i64
   %2611 = getelementptr inbounds nuw %"class.boost::dynamic_bitset", ptr %.val5.i.i, i64 %2610
@@ -7046,7 +7046,7 @@ _ZN12_GLOBAL__N_18StateSet9setActiveERKNS0_5StateE.exit.thread.i.thread.i: ; pre
   store i64 %2619, ptr %2614, align 8
   br label %.sink.split.i11.i.i
 
-2620:                                             ; preds = %2606
+2620:                                             ; preds = %2607
   %.val.i144.i = load ptr, ptr %1624, align 8
   %2621 = zext i32 %.sroa.7.0.copyload.i to i64
   %2622 = getelementptr inbounds nuw %"class.boost::dynamic_bitset", ptr %.val.i144.i, i64 %2621
@@ -7077,8 +7077,8 @@ _ZN12_GLOBAL__N_18StateSet9setActiveERKNS0_5StateE.exit.thread.i.thread221.i: ; 
   %2636 = call i64 @llvm.umin.i64(i64 %2635, i64 %.068.i)
   br label %_ZN12_GLOBAL__N_18StateSet9setActiveERKNS0_5StateE.exit.thread.i.i
 
-_ZN12_GLOBAL__N_18StateSet9setActiveERKNS0_5StateE.exit.thread.i.i: ; preds = %.sink.split.i.i.i75, %2606
-  %.0.i.i = phi i64 [ %.068.i, %2606 ], [ %2636, %.sink.split.i.i.i75 ]
+_ZN12_GLOBAL__N_18StateSet9setActiveERKNS0_5StateE.exit.thread.i.i: ; preds = %.sink.split.i.i.i75, %2607
+  %.0.i.i = phi i64 [ %.068.i, %2607 ], [ %2636, %.sink.split.i.i.i75 ]
   switch i32 %.sroa.14.0.copyload.i, label %_ZN12_GLOBAL__N_18StateSet13activateStateERKNS0_5StateE.exit.i [
     i32 1, label %.sink.split.i11.i.i
     i32 0, label %2637

@@ -3795,8 +3795,8 @@ thread-pre-split:                                 ; preds = %157
   %402 = icmp eq i8 %400, 0
   call void @free_netdev(ptr noundef %25) #16
   %403 = icmp eq ptr %31, null
-  call void @pci_release_selected_regions(ptr noundef %0, i32 noundef %16) #16
   %404 = or i1 %403, %402
+  call void @pci_release_selected_regions(ptr noundef %0, i32 noundef %16) #16
   br i1 %404, label %.thread17, label %406
 
 .thread17:                                        ; preds = %18, %.thread19, %397

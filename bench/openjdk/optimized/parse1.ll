@@ -6162,14 +6162,13 @@ _ZNK5Parse5Block11is_SEL_headEv.exit.thread:      ; preds = %64, %54, %_ZNK10ciT
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 24
   %273 = load ptr, ptr %272, align 8
   %274 = icmp eq ptr %273, %268
-  br label %_ZNK5Parse5Block12is_loop_headEv.exit48
+  %275 = or i1 %274, %6
+  br i1 %275, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit54, label %276
 
-_ZNK5Parse5Block12is_loop_headEv.exit48:          ; preds = %267, %271
-  %275 = phi i1 [ false, %267 ], [ %274, %271 ]
-  %or.cond = or i1 %275, %6
-  br i1 %or.cond, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit54, label %276
+_ZNK5Parse5Block12is_loop_headEv.exit48:          ; preds = %267
+  br i1 %6, label %_ZNK8GraphKit15record_for_igvnEP4Node.exit54, label %276
 
-276:                                              ; preds = %_ZNK5Parse5Block12is_loop_headEv.exit48
+276:                                              ; preds = %271, %_ZNK5Parse5Block12is_loop_headEv.exit48
   %277 = getelementptr inbounds nuw i8, ptr %22, i64 21
   %278 = load i8, ptr %277, align 1
   %279 = trunc i8 %278 to i1
@@ -6237,7 +6236,7 @@ _ZN9Node_List4pushEP4Node.exit.i.i.i53:           ; preds = %312, %306
   store ptr %284, ptr %316, align 8
   br label %_ZNK8GraphKit15record_for_igvnEP4Node.exit54
 
-_ZNK8GraphKit15record_for_igvnEP4Node.exit54:     ; preds = %_ZN9Node_List4pushEP4Node.exit.i.i.i53, %_ZN9VectorSet8test_setEj.exit.i.i.i50, %280, %276, %_ZNK5Parse5Block12is_loop_headEv.exit48, %258
+_ZNK8GraphKit15record_for_igvnEP4Node.exit54:     ; preds = %271, %_ZN9Node_List4pushEP4Node.exit.i.i.i53, %_ZN9VectorSet8test_setEj.exit.i.i.i50, %280, %276, %_ZNK5Parse5Block12is_loop_headEv.exit48, %258
   tail call void @_ZN5Parse12do_one_blockEv(ptr noundef nonnull align 8 dereferenceable(352) %0)
   %317 = load ptr, ptr %13, align 8
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 352

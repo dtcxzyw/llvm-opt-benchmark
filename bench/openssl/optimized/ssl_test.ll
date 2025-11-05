@@ -764,13 +764,12 @@ print_alert.exit42.i:                             ; preds = %60, %print_alert.ex
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %69 = load i32, ptr %68, align 4, !tbaa !36
   %70 = tail call i32 @test_int_le(ptr noundef nonnull @.str.14, i32 noundef 98, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.63, i32 noundef %69, i32 noundef 1) #4
-  %.not28.i = icmp ne i32 %70, 0
-  %..i = zext i1 %.not28.i to i32
+  %.not28.i.not = icmp eq i32 %70, 0
+  %71 = select i1 %.not28.i.not, i32 0, i32 %.0.i
   br label %check_alerts.exit
 
 check_alerts.exit:                                ; preds = %print_alert.exit38.i, %print_alert.exit42.i, %63, %67
-  %.0.i87 = phi i32 [ 0, %print_alert.exit38.i ], [ 0, %print_alert.exit42.i ], [ 0, %63 ], [ %..i, %67 ]
-  %71 = and i32 %.0.i87, %.0.i
+  %.0.i87 = phi i32 [ 0, %print_alert.exit38.i ], [ 0, %print_alert.exit42.i ], [ 0, %63 ], [ %71, %67 ]
   %72 = load i32, ptr %0, align 8, !tbaa !26
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %289
@@ -886,7 +885,7 @@ check_session_ticket.exit:                        ; preds = %check_servername.ex
 check_session_id.exit:                            ; preds = %check_session_ticket.exit, %127, %131
   %.0.i97 = phi i32 [ 0, %131 ], [ 1, %check_session_ticket.exit ], [ 1, %127 ]
   %136 = and i32 %123, %.0.i97
-  %137 = and i32 %136, %71
+  %137 = and i32 %136, %.0.i87
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %139 = load i32, ptr %138, align 8, !tbaa !48
   %140 = icmp eq i32 %139, 0
@@ -1193,7 +1192,7 @@ check_client_sign_type.exit:                      ; preds = %check_client_sign_h
   br label %289
 
 289:                                              ; preds = %check_client_sign_type.exit, %check_alerts.exit
-  %.0 = phi i32 [ %288, %check_client_sign_type.exit ], [ %71, %check_alerts.exit ]
+  %.0 = phi i32 [ %288, %check_client_sign_type.exit ], [ %.0.i87, %check_alerts.exit ]
   ret i32 %.0
 }
 

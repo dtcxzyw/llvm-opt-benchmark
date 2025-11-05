@@ -23235,12 +23235,15 @@ Vec_WrdStart.exit80:                              ; preds = %Vec_WrdStart.exit, 
   %97 = or i64 %87, %96
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %wide.trip.count105
-  br i1 %exitcond106.not, label %.critedge4, label %86, !llvm.loop !408
+  br i1 %exitcond106.not, label %.critedge4.loopexit, label %86, !llvm.loop !408
 
-.critedge4:                                       ; preds = %86, %68
-  %.lcssa = phi i64 [ 0, %68 ], [ %97, %86 ]
-  %98 = xor i64 %.lcssa, %.054.lcssa
-  store i64 %98, ptr %70, align 8, !tbaa !41
+.critedge4.loopexit:                              ; preds = %86
+  %98 = xor i64 %97, %.054.lcssa
+  br label %.critedge4
+
+.critedge4:                                       ; preds = %.critedge4.loopexit, %68
+  %.lcssa = phi i64 [ %.054.lcssa, %68 ], [ %98, %.critedge4.loopexit ]
+  store i64 %.lcssa, ptr %70, align 8, !tbaa !41
   %99 = add nsw i32 %.05793, 1
   br label %100
 

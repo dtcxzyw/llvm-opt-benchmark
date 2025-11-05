@@ -1983,17 +1983,17 @@ define dso_local void @rb_iseq_trace_set(ptr noundef captures(none) %0, i32 noun
   %16 = load ptr, ptr %15, align 8, !tbaa !76
   %17 = load ptr, ptr %4, align 8, !tbaa !84
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %21, label %18
+  br i1 %.not, label %22, label %18
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !160
-  br label %21
+  %21 = or i32 %20, %1
+  br label %22
 
-21:                                               ; preds = %12, %18
-  %22 = phi i32 [ %20, %18 ], [ 0, %12 ]
+22:                                               ; preds = %12, %18
+  %23 = phi i32 [ %21, %18 ], [ %1, %12 ]
   store i32 %1, ptr %5, align 8, !tbaa !84
-  %23 = or i32 %22, %1
   %24 = shl i32 %23, 5
   %25 = and i32 %24, 768
   %.1.i = or i32 %25, %23
@@ -2002,8 +2002,8 @@ define dso_local void @rb_iseq_trace_set(ptr noundef captures(none) %0, i32 noun
   %.not27 = icmp eq i32 %27, 0
   br i1 %.not27, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %21, %encoded_iseq_trace_instrument.exit
-  %.024 = phi i32 [ %105, %encoded_iseq_trace_instrument.exit ], [ 0, %21 ]
+.lr.ph:                                           ; preds = %22, %encoded_iseq_trace_instrument.exit
+  %.024 = phi i32 [ %106, %encoded_iseq_trace_instrument.exit ], [ 0, %22 ]
   %28 = zext i32 %.024 to i64
   %.val.i = load ptr, ptr %13, align 8, !tbaa !7
   %29 = getelementptr inbounds nuw i8, ptr %.val.i, i64 112
@@ -2088,48 +2088,48 @@ get_insn_info.exit.i:                             ; preds = %succ_index_lookup.e
 84:                                               ; preds = %get_insn_info.exit.i
   %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %86 = load i32, ptr %85, align 4, !tbaa !163
+  %87 = and i32 %86, %.1.i
+  %88 = icmp eq i32 %87, 0
   br label %rb_iseq_event_flags.exit
 
 rb_iseq_event_flags.exit:                         ; preds = %.lr.ph, %get_insn_info.exit.i, %84
-  %.0.i = phi i32 [ %86, %84 ], [ 0, %get_insn_info.exit.i ], [ %31, %.lr.ph ]
-  %87 = getelementptr i64, ptr %16, i64 %28
-  %88 = load i64, ptr %87, align 8, !tbaa !42
+  %.0.i = phi i1 [ %88, %84 ], [ true, %get_insn_info.exit.i ], [ true, %.lr.ph ]
+  %89 = getelementptr i64, ptr %16, i64 %28
+  %90 = load i64, ptr %89, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %89 = load ptr, ptr @encoded_insn_data, align 8, !tbaa !165
-  %90 = call i32 @rb_st_lookup(ptr noundef %89, i64 noundef %88, ptr noundef nonnull %3) #20
-  %.not.i21 = icmp eq i32 %90, 0
-  br i1 %.not.i21, label %91, label %encoded_iseq_trace_instrument.exit
+  %91 = load ptr, ptr @encoded_insn_data, align 8, !tbaa !165
+  %92 = call i32 @rb_st_lookup(ptr noundef %91, i64 noundef %90, ptr noundef nonnull %3) #20
+  %.not.i21 = icmp eq i32 %92, 0
+  br i1 %.not.i21, label %93, label %encoded_iseq_trace_instrument.exit
 
-91:                                               ; preds = %rb_iseq_event_flags.exit
-  %92 = load i64, ptr %87, align 8, !tbaa !42
-  %93 = inttoptr i64 %92 to ptr
-  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.201, ptr noundef %93) #23
+93:                                               ; preds = %rb_iseq_event_flags.exit
+  %94 = load i64, ptr %89, align 8, !tbaa !42
+  %95 = inttoptr i64 %94 to ptr
+  call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.201, ptr noundef %95) #23
   unreachable
 
 encoded_iseq_trace_instrument.exit:               ; preds = %rb_iseq_event_flags.exit
-  %94 = and i32 %.0.i, %.1.i
-  %95 = load i64, ptr %3, align 8, !tbaa !42
-  %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !166
-  %99 = ptrtoint ptr %98 to i64
-  %100 = icmp ne i64 %88, %99
-  %.not10.i23 = icmp eq i32 %94, 0
-  %.not10.i = select i1 %100, i1 %.not10.i23, i1 false
+  %96 = load i64, ptr %3, align 8, !tbaa !42
+  %97 = inttoptr i64 %96 to ptr
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 16
+  %99 = load ptr, ptr %98, align 8, !tbaa !166
+  %100 = ptrtoint ptr %99 to i64
+  %101 = icmp ne i64 %90, %100
+  %.not10.i = select i1 %101, i1 %.0.i, i1 false
   %.in.v.i = select i1 %.not10.i, i64 8, i64 16
-  %.in.i = getelementptr inbounds nuw i8, ptr %96, i64 %.in.v.i
-  %101 = load ptr, ptr %.in.i, align 8, !tbaa !168
-  %102 = ptrtoint ptr %101 to i64
-  store i64 %102, ptr %87, align 8, !tbaa !42
-  %103 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %104 = load i32, ptr %103, align 4, !tbaa !169
+  %.in.i = getelementptr inbounds nuw i8, ptr %97, i64 %.in.v.i
+  %102 = load ptr, ptr %.in.i, align 8, !tbaa !168
+  %103 = ptrtoint ptr %102 to i64
+  store i64 %103, ptr %89, align 8, !tbaa !42
+  %104 = getelementptr inbounds nuw i8, ptr %97, i64 4
+  %105 = load i32, ptr %104, align 4, !tbaa !169
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %105 = add i32 %104, %.024
-  %106 = load i32, ptr %26, align 4, !tbaa !83
-  %107 = icmp ult i32 %105, %106
-  br i1 %107, label %.lr.ph, label %.loopexit, !llvm.loop !170
+  %106 = add i32 %105, %.024
+  %107 = load i32, ptr %26, align 4, !tbaa !83
+  %108 = icmp ult i32 %106, %107
+  br i1 %108, label %.lr.ph, label %.loopexit, !llvm.loop !170
 
-.loopexit:                                        ; preds = %encoded_iseq_trace_instrument.exit, %21, %8, %2
+.loopexit:                                        ; preds = %encoded_iseq_trace_instrument.exit, %22, %8, %2
   ret void
 }
 

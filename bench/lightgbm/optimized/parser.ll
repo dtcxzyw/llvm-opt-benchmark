@@ -3507,14 +3507,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   %200 = load i8, ptr %199, align 1, !tbaa !8
   %201 = add i8 %200, -48
   %or.cond.i73 = icmp ult i8 %201, 10
-  br i1 %or.cond.i73, label %.lr.ph.i, label %.critedge.i, !llvm.loop !109
+  br i1 %or.cond.i73, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !109
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.loopexit.i
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %198, %.lr.ph.i ]
-  %202 = mul nsw i32 %.0.lcssa.i, %.016.i
-  %203 = icmp sgt i32 %202, %.032117
+.critedge.loopexit.i:                             ; preds = %.lr.ph.i
+  %202 = mul nsw i32 %198, %.016.i
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.loopexit.i
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %202, %.critedge.loopexit.i ]
+  %203 = icmp sgt i32 %.0.lcssa.i, %.032117
   %spec.select = select i1 %203, i32 %.031118, i32 %.035116
-  %spec.select52 = call i32 @llvm.smax.i32(i32 %202, i32 %.032117)
+  %spec.select52 = call i32 @llvm.smax.i32(i32 %.0.lcssa.i, i32 %.032117)
   %204 = sub nsw i32 %.031118, %spec.select
   %205 = icmp sgt i32 %204, 127
   %206 = icmp eq ptr %184, %110
@@ -6250,27 +6253,27 @@ _ZN8LightGBM6CommonL15SkipSpaceAndTabEPKc.exit:   ; preds = %14, %._ZN8LightGBM6
   %33 = load i8, ptr %32, align 1, !tbaa !8
   %34 = add i8 %33, -48
   %or.cond.i = icmp ult i8 %34, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i12, !llvm.loop !109
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !109
 
-.critedge.i12:                                    ; preds = %.lr.ph.i, %.loopexit.i
-  %.2.lcssa.i = phi ptr [ %.1.i, %.loopexit.i ], [ %32, %.lr.ph.i ]
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %31, %.lr.ph.i ]
-  br label %35
+.critedge.loopexit.i:                             ; preds = %.lr.ph.i
+  %35 = mul nsw i32 %31, %.016.i
+  br label %.critedge.i12
 
-35:                                               ; preds = %35, %.critedge.i12
-  %.3.i = phi ptr [ %.2.lcssa.i, %.critedge.i12 ], [ %38, %35 ]
-  %36 = load i8, ptr %.3.i, align 1, !tbaa !8
-  %37 = icmp eq i8 %36, 32
-  %38 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
-  br i1 %37, label %35, label %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit.preheader, !llvm.loop !160
+.critedge.i12:                                    ; preds = %.critedge.loopexit.i, %.loopexit.i
+  %.2.lcssa.i = phi ptr [ %.1.i, %.loopexit.i ], [ %32, %.critedge.loopexit.i ]
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %35, %.critedge.loopexit.i ]
+  br label %36
 
-_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit.preheader: ; preds = %35
-  %39 = mul nsw i32 %.0.lcssa.i, %.016.i
-  br label %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit
+36:                                               ; preds = %36, %.critedge.i12
+  %.3.i = phi ptr [ %.2.lcssa.i, %.critedge.i12 ], [ %39, %36 ]
+  %37 = load i8, ptr %.3.i, align 1, !tbaa !8
+  %38 = icmp eq i8 %37, 32
+  %39 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
+  br i1 %38, label %36, label %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit, !llvm.loop !160
 
-_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit:      ; preds = %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit.preheader, %.critedge.i14
-  %40 = phi i8 [ %.pr20, %.critedge.i14 ], [ %36, %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit.preheader ]
-  %.0.i13 = phi ptr [ %41, %.critedge.i14 ], [ %.3.i, %_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit.preheader ]
+_ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit:      ; preds = %36, %.critedge.i14
+  %40 = phi i8 [ %.pr20, %.critedge.i14 ], [ %37, %36 ]
+  %.0.i13 = phi ptr [ %41, %.critedge.i14 ], [ %.3.i, %36 ]
   switch i8 %40, label %73 [
     i8 32, label %.critedge.i14
     i8 9, label %.critedge.i14
@@ -6291,7 +6294,7 @@ _ZN8LightGBM6CommonL4AtoiIiEEPKcS3_PT_.exit:      ; preds = %_ZN8LightGBM6Common
   br i1 %.not.i, label %51, label %47
 
 47:                                               ; preds = %42
-  store i32 %39, ptr %45, align 8, !tbaa !165
+  store i32 %.0.lcssa.i, ptr %45, align 8, !tbaa !165
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %49 = load double, ptr %5, align 8, !tbaa !145
   store double %49, ptr %48, align 8, !tbaa !167
@@ -6323,7 +6326,7 @@ _ZNKSt6vectorISt4pairIidESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %51
   %63 = shl nuw nsw i64 %62, 4
   %64 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %63) #39
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 %55
-  store i32 %39, ptr %65, align 8, !tbaa !165
+  store i32 %.0.lcssa.i, ptr %65, align 8, !tbaa !165
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load double, ptr %5, align 8, !tbaa !145
   store double %67, ptr %66, align 8, !tbaa !167

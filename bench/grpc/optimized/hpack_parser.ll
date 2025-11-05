@@ -4644,7 +4644,7 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i: ; preds = %_ZNK9
   br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit
 
 _ZN9grpc_core11HPackParser5Input4NextEv.exit:     ; preds = %9, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i, %25
-  %.sroa.0.0.i = phi i8 [ %27, %25 ], [ 0, %9 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ]
+  %.sroa.2.0.i = phi i8 [ %27, %25 ], [ 0, %9 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ]
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %29 = load ptr, ptr %28, align 8, !tbaa !232
   %30 = load ptr, ptr %29, align 8, !tbaa !26
@@ -4672,7 +4672,7 @@ _ZNK9grpc_core16HpackParseResult2okEv.exit.i:     ; preds = %_ZN9grpc_core11HPac
   br label %_ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit
 
 _ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit: ; preds = %_ZN9grpc_core11HPackParser5Input4NextEv.exit, %_ZNK9grpc_core16HpackParseResult2okEv.exit.i, %35, %39
-  %43 = zext i8 %.sroa.0.0.i to i32
+  %43 = zext i8 %.sroa.2.0.i to i32
   %44 = lshr i32 %43, 4
   switch i32 %44, label %default.unreachable82 [
     i32 0, label %45
@@ -4739,7 +4739,7 @@ _ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit: ; preds = %_ZN9grpc_co
   br label %_ZN9grpc_core11HPackParser6Parser14StartVarIdxKeyEjb.exit
 
 68:                                               ; preds = %_ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit
-  %69 = icmp eq i8 %.sroa.0.0.i, 63
+  %69 = icmp eq i8 %.sroa.2.0.i, 63
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %68
@@ -4756,7 +4756,7 @@ _ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit: ; preds = %_ZN9grpc_co
   br label %_ZN9grpc_core11HPackParser6Parser14StartVarIdxKeyEjb.exit
 
 77:                                               ; preds = %_ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit
-  %78 = icmp eq i8 %.sroa.0.0.i, 64
+  %78 = icmp eq i8 %.sroa.2.0.i, 64
   br i1 %78, label %79, label %89
 
 79:                                               ; preds = %77
@@ -4780,7 +4780,7 @@ _ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit: ; preds = %_ZN9grpc_co
   br label %_ZN9grpc_core11HPackParser6Parser14StartVarIdxKeyEjb.exit
 
 92:                                               ; preds = %_ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit
-  %93 = icmp eq i8 %.sroa.0.0.i, 127
+  %93 = icmp eq i8 %.sroa.2.0.i, 127
   br i1 %93, label %94, label %100
 
 94:                                               ; preds = %92
@@ -4801,7 +4801,7 @@ _ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit: ; preds = %_ZN9grpc_co
   br label %_ZN9grpc_core11HPackParser6Parser14StartVarIdxKeyEjb.exit
 
 103:                                              ; preds = %_ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit
-  %104 = icmp eq i8 %.sroa.0.0.i, -128
+  %104 = icmp eq i8 %.sroa.2.0.i, -128
   br i1 %104, label %105, label %138
 
 105:                                              ; preds = %103
@@ -4920,7 +4920,7 @@ _ZN9grpc_core11HPackParser6Parser25FinishHeaderOmitFromTableERKNS_10HPackTable7M
   br label %_ZN9grpc_core11HPackParser6Parser14StartVarIdxKeyEjb.exit
 
 159:                                              ; preds = %_ZN9grpc_core11HPackParser5Input15ClearFieldErrorEv.exit
-  %160 = icmp eq i8 %.sroa.0.0.i, -1
+  %160 = icmp eq i8 %.sroa.2.0.i, -1
   br i1 %160, label %161, label %185
 
 161:                                              ; preds = %159
@@ -5036,39 +5036,39 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser14Parse
   %5 = load ptr, ptr %4, align 8, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %5, %7
-  br i1 %.not.i, label %8, label %24
+  %8 = icmp eq ptr %5, %7
+  br i1 %8, label %9, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %10 = load i64, ptr %9, align 8, !tbaa !24
-  %.not.i.i.i.i = icmp eq i64 %10, 0
-  br i1 %.not.i.i.i.i, label %11, label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %11 = load i64, ptr %10, align 8, !tbaa !24
+  %.not.i.i.i.i = icmp eq i64 %11, 0
+  br i1 %.not.i.i.i.i, label %12, label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %13 = load ptr, ptr %12, align 8, !tbaa !25
-  %14 = load ptr, ptr %13, align 8, !tbaa !26
-  %.not.i.i.i.i.i = icmp eq ptr %14, null
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %14 = load ptr, ptr %13, align 8, !tbaa !25
+  %15 = load ptr, ptr %14, align 8, !tbaa !26
+  %.not.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i: ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %16 = load i8, ptr %15, align 1, !tbaa !29
-  %17 = icmp ugt i8 %16, 9
-  br i1 %17, label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i: ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load i8, ptr %16, align 1, !tbaa !29
+  %18 = icmp ugt i8 %17, 9
+  br i1 %18, label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %11
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %19 = load ptr, ptr %18, align 8, !tbaa !32
-  %20 = ptrtoint ptr %5 to i64
-  %21 = ptrtoint ptr %19 to i64
-  %22 = add i64 %20, 1
-  %23 = sub i64 %22, %21
-  store i64 %23, ptr %9, align 8, !tbaa !24
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %12
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %20 = load ptr, ptr %19, align 8, !tbaa !32
+  %21 = ptrtoint ptr %5 to i64
+  %22 = ptrtoint ptr %20 to i64
+  %23 = add i64 %21, 1
+  %24 = sub i64 %23, %22
+  store i64 %24, ptr %10, align 8, !tbaa !24
   br label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit
 
-24:                                               ; preds = %1
+_ZN9grpc_core11HPackParser5Input4NextEv.exit.i:   ; preds = %1
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store ptr %25, ptr %4, align 8, !tbaa !23
   %26 = load i8, ptr %5, align 1, !tbaa !54
@@ -5078,11 +5078,11 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZN
   %29 = icmp eq i8 %27, 127
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %24
+30:                                               ; preds = %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
   %31 = tail call i64 @_ZN9grpc_core11HPackParser5Input11ParseVarintEj(ptr noundef nonnull align 8 dereferenceable(88) %3, i32 noundef 127)
   %32 = and i64 %31, 4294967296
-  %.not16.i = icmp eq i64 %32, 0
-  br i1 %.not16.i, label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit, label %._crit_edge
+  %.not.i = icmp eq i64 %32, 0
+  br i1 %.not.i, label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %30
   %.pre = load ptr, ptr %0, align 8, !tbaa !162
@@ -5090,10 +5090,10 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZN
   %.pre16 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   br label %33
 
-33:                                               ; preds = %._crit_edge, %24
-  %34 = phi ptr [ %25, %24 ], [ %.pre16, %._crit_edge ]
-  %35 = phi ptr [ %3, %24 ], [ %.pre, %._crit_edge ]
-  %.04.i = phi i64 [ %28, %24 ], [ %31, %._crit_edge ]
+33:                                               ; preds = %._crit_edge, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
+  %34 = phi ptr [ %25, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %.pre16, %._crit_edge ]
+  %35 = phi ptr [ %3, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %.pre, %._crit_edge ]
+  %.04.i = phi i64 [ %28, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %31, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !210
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 113
@@ -5251,8 +5251,8 @@ _ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread: ; pre
   %114 = tail call noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser12ParseKeyBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit
 
-_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %8, %30, %110, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i6, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i5, %96, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread
-  %.0 = phi i1 [ %114, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread ], [ %112, %110 ], [ false, %96 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i5 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i6 ], [ false, %30 ], [ false, %8 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i ]
+_ZN9grpc_core11HPackParser6Parser11SkipKeyBodyEv.exit: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %9, %30, %110, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i6, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i5, %96, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread
+  %.0 = phi i1 [ %114, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread ], [ %112, %110 ], [ false, %96 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i5 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i6 ], [ false, %30 ], [ false, %9 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i ]
   ret i1 %.0
 }
 
@@ -5600,39 +5600,39 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser16Parse
   %6 = load ptr, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %6, %8
-  br i1 %.not.i, label %9, label %25
+  %9 = icmp eq ptr %6, %8
+  br i1 %9, label %10, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %11 = load i64, ptr %10, align 8, !tbaa !24
-  %.not.i.i.i.i = icmp eq i64 %11, 0
-  br i1 %.not.i.i.i.i, label %12, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %12 = load i64, ptr %11, align 8, !tbaa !24
+  %.not.i.i.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i.i.i, label %13, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %14 = load ptr, ptr %13, align 8, !tbaa !25
-  %15 = load ptr, ptr %14, align 8, !tbaa !26
-  %.not.i.i.i.i.i = icmp eq ptr %15, null
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !25
+  %16 = load ptr, ptr %15, align 8, !tbaa !26
+  %.not.i.i.i.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i.i.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i: ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %17 = load i8, ptr %16, align 1, !tbaa !29
-  %18 = icmp ugt i8 %17, 9
-  br i1 %18, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i: ; preds = %13
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %18 = load i8, ptr %17, align 1, !tbaa !29
+  %19 = icmp ugt i8 %18, 9
+  br i1 %19, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %12
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !32
-  %21 = ptrtoint ptr %6 to i64
-  %22 = ptrtoint ptr %20 to i64
-  %23 = add i64 %21, 1
-  %24 = sub i64 %23, %22
-  store i64 %24, ptr %10, align 8, !tbaa !24
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %13
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !32
+  %22 = ptrtoint ptr %6 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = add i64 %22, 1
+  %25 = sub i64 %24, %23
+  store i64 %25, ptr %11, align 8, !tbaa !24
   br label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
 
-25:                                               ; preds = %1
+_ZN9grpc_core11HPackParser5Input4NextEv.exit.i:   ; preds = %1
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 1
   store ptr %26, ptr %5, align 8, !tbaa !23
   %27 = load i8, ptr %6, align 1, !tbaa !54
@@ -5642,11 +5642,11 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZN
   %30 = icmp eq i8 %28, 127
   br i1 %30, label %31, label %34
 
-31:                                               ; preds = %25
+31:                                               ; preds = %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
   %32 = tail call i64 @_ZN9grpc_core11HPackParser5Input11ParseVarintEj(ptr noundef nonnull align 8 dereferenceable(88) %4, i32 noundef 127)
   %33 = and i64 %32, 4294967296
-  %.not16.i = icmp eq i64 %33, 0
-  br i1 %.not16.i, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %._crit_edge
+  %.not.i = icmp eq i64 %33, 0
+  br i1 %.not.i, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31
   %.pre = load ptr, ptr %0, align 8, !tbaa !162
@@ -5654,10 +5654,10 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZN
   %.pre17 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !23
   br label %34
 
-34:                                               ; preds = %._crit_edge, %25
-  %35 = phi ptr [ %26, %25 ], [ %.pre17, %._crit_edge ]
-  %36 = phi ptr [ %4, %25 ], [ %.pre, %._crit_edge ]
-  %.04.i = phi i64 [ %29, %25 ], [ %32, %._crit_edge ]
+34:                                               ; preds = %._crit_edge, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
+  %35 = phi ptr [ %26, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %.pre17, %._crit_edge ]
+  %36 = phi ptr [ %4, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %.pre, %._crit_edge ]
+  %.04.i = phi i64 [ %29, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %32, %._crit_edge ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !210
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 113
@@ -5907,8 +5907,8 @@ _ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread: ; pre
   %164 = tail call noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser14ParseValueBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   br label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
 
-_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %9, %31, %153, %148, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i10, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i9, %134, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread
-  %.0 = phi i1 [ %164, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread ], [ false, %134 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i9 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i10 ], [ true, %148 ], [ true, %153 ], [ false, %31 ], [ false, %9 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i ]
+_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %10, %31, %153, %148, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i10, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i9, %134, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread
+  %.0 = phi i1 [ %164, %_ZNK9grpc_core11HPackParser6Parser23ShouldSkipParsingStringEm.exit.thread ], [ false, %134 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i9 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i10 ], [ true, %148 ], [ true, %153 ], [ false, %31 ], [ false, %10 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i ]
   ret i1 %.0
 }
 
@@ -6911,39 +6911,39 @@ define linkonce_odr noundef zeroext i1 @_ZN9grpc_core11HPackParser6Parser15SkipV
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %4, %6
-  br i1 %.not.i, label %7, label %23
+  %7 = icmp eq ptr %4, %6
+  br i1 %7, label %8, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %9 = load i64, ptr %8, align 8, !tbaa !24
-  %.not.i.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i.i, label %10, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %10 = load i64, ptr %9, align 8, !tbaa !24
+  %.not.i.i.i.i = icmp eq i64 %10, 0
+  br i1 %.not.i.i.i.i, label %11, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
-  %.not.i.i.i.i.i = icmp eq ptr %13, null
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %.not.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i: ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i8, ptr %14, align 1, !tbaa !29
-  %16 = icmp ugt i8 %15, 9
-  br i1 %16, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i: ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load i8, ptr %15, align 1, !tbaa !29
+  %17 = icmp ugt i8 %16, 9
+  br i1 %17, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %10
-  %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
-  %19 = ptrtoint ptr %4 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = add i64 %19, 1
-  %22 = sub i64 %21, %20
-  store i64 %22, ptr %8, align 8, !tbaa !24
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %11
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %20 = ptrtoint ptr %4 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = add i64 %20, 1
+  %23 = sub i64 %22, %21
+  store i64 %23, ptr %9, align 8, !tbaa !24
   br label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
 
-23:                                               ; preds = %1
+_ZN9grpc_core11HPackParser5Input4NextEv.exit.i:   ; preds = %1
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %24, ptr %3, align 8, !tbaa !23
   %25 = load i8, ptr %4, align 1, !tbaa !54
@@ -6952,11 +6952,11 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZN
   %28 = icmp eq i8 %26, 127
   br i1 %28, label %29, label %32
 
-29:                                               ; preds = %23
+29:                                               ; preds = %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
   %30 = tail call i64 @_ZN9grpc_core11HPackParser5Input11ParseVarintEj(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef 127)
   %31 = and i64 %30, 4294967296
-  %.not16.i = icmp eq i64 %31, 0
-  br i1 %.not16.i, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %._crit_edge
+  %.not.i = icmp eq i64 %31, 0
+  br i1 %.not.i, label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %29
   %.pre = load ptr, ptr %0, align 8, !tbaa !162
@@ -6966,11 +6966,11 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i: ; preds = %_ZN
   %.pre12 = load ptr, ptr %.phi.trans.insert11, align 8, !tbaa !19
   br label %32
 
-32:                                               ; preds = %._crit_edge, %23
-  %33 = phi ptr [ %6, %23 ], [ %.pre12, %._crit_edge ]
-  %34 = phi ptr [ %24, %23 ], [ %.pre10, %._crit_edge ]
-  %35 = phi ptr [ %2, %23 ], [ %.pre, %._crit_edge ]
-  %.04.i = phi i64 [ %27, %23 ], [ %30, %._crit_edge ]
+32:                                               ; preds = %._crit_edge, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i
+  %33 = phi ptr [ %6, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %.pre12, %._crit_edge ]
+  %34 = phi ptr [ %24, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %.pre10, %._crit_edge ]
+  %35 = phi ptr [ %2, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %.pre, %._crit_edge ]
+  %.04.i = phi i64 [ %27, %_ZN9grpc_core11HPackParser5Input4NextEv.exit.i ], [ %30, %._crit_edge ]
   %.sroa.0.0.extract.trunc = trunc i64 %.04.i to i32
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !210
@@ -7032,8 +7032,8 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i5: ; preds = %_Z
   tail call void @_ZN9grpc_core10HPackTable29AddLargerThanCurrentTableSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %37)
   br label %_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit
 
-_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %7, %29, %65, %60, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i5, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i4, %46
-  %.0 = phi i1 [ false, %46 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i4 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i5 ], [ true, %60 ], [ true, %65 ], [ false, %29 ], [ false, %7 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i ]
+_ZN9grpc_core11HPackParser6Parser13SkipValueBodyEv.exit: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i, %8, %29, %65, %60, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i5, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i4, %46
+  %.0 = phi i1 [ false, %46 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i4 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i5 ], [ true, %60 ], [ true, %65 ], [ false, %29 ], [ false, %8 ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i.i ], [ false, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i.i ]
   ret i1 %.0
 }
 
@@ -7080,13 +7080,12 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i: ; preds = %_ZNK9gr
   store ptr %24, ptr %2, align 8, !tbaa !23
   %25 = load i8, ptr %3, align 1, !tbaa !54
   %26 = zext i8 %25 to i16
+  %27 = or disjoint i16 %26, 256
   br label %_ZN9grpc_core11HPackParser5Input13UnexpectedEOFEm.exit
 
 _ZN9grpc_core11HPackParser5Input13UnexpectedEOFEm.exit: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i, %7, %23
-  %.sroa.2.0 = phi i16 [ 256, %23 ], [ 0, %7 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i ]
-  %.sroa.0.0 = phi i16 [ %26, %23 ], [ 0, %7 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.0, %.sroa.2.0
-  ret i16 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = phi i16 [ %27, %23 ], [ 0, %7 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i ]
+  ret i16 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7351,39 +7350,39 @@ define linkonce_odr i64 @_ZN9grpc_core11HPackParser5Input11ParseVarintEj(ptr nou
   %4 = load ptr, ptr %3, align 8, !tbaa !23
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !19
-  %.not = icmp eq ptr %4, %6
-  br i1 %.not, label %7, label %23
+  %7 = icmp eq ptr %4, %6
+  br i1 %7, label %8, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit
 
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %9 = load i64, ptr %8, align 8, !tbaa !24
-  %.not.i.i.i = icmp eq i64 %9, 0
-  br i1 %.not.i.i.i, label %10, label %.loopexit
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %10 = load i64, ptr %9, align 8, !tbaa !24
+  %.not.i.i.i = icmp eq i64 %10, 0
+  br i1 %.not.i.i.i, label %11, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
-10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !25
-  %13 = load ptr, ptr %12, align 8, !tbaa !26
-  %.not.i.i.i.i = icmp eq ptr %13, null
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load ptr, ptr %12, align 8, !tbaa !25
+  %14 = load ptr, ptr %13, align 8, !tbaa !26
+  %.not.i.i.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i: ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load i8, ptr %14, align 1, !tbaa !29
-  %16 = icmp ugt i8 %15, 9
-  br i1 %16, label %.loopexit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i: ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load i8, ptr %15, align 1, !tbaa !29
+  %17 = icmp ugt i8 %16, 9
+  br i1 %17, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i, %10
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %18 = load ptr, ptr %17, align 8, !tbaa !32
-  %19 = ptrtoint ptr %4 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = add i64 %19, 1
-  %22 = sub i64 %21, %20
-  store i64 %22, ptr %8, align 8, !tbaa !24
-  br label %.loopexit
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i, %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load ptr, ptr %18, align 8, !tbaa !32
+  %20 = ptrtoint ptr %4 to i64
+  %21 = ptrtoint ptr %19 to i64
+  %22 = add i64 %20, 1
+  %23 = sub i64 %22, %21
+  store i64 %23, ptr %9, align 8, !tbaa !24
+  br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
-23:                                               ; preds = %2
+_ZN9grpc_core11HPackParser5Input4NextEv.exit:     ; preds = %2
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store ptr %24, ptr %3, align 8, !tbaa !23
   %25 = load i8, ptr %4, align 1, !tbaa !54
@@ -7391,42 +7390,42 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i: ; preds = %_ZNK9
   %27 = zext nneg i8 %26 to i32
   %28 = add i32 %1, %27
   %29 = icmp sgt i8 %25, -1
-  br i1 %29, label %.loopexit, label %30
+  br i1 %29, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %30
 
-30:                                               ; preds = %23
-  %.not92 = icmp eq ptr %24, %6
-  br i1 %.not92, label %31, label %47
+30:                                               ; preds = %_ZN9grpc_core11HPackParser5Input4NextEv.exit
+  %31 = icmp eq ptr %24, %6
+  br i1 %31, label %32, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit18
 
-31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %33 = load i64, ptr %32, align 8, !tbaa !24
-  %.not.i.i.i16 = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i16, label %34, label %.loopexit
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %34 = load i64, ptr %33, align 8, !tbaa !24
+  %.not.i.i.i14 = icmp eq i64 %34, 0
+  br i1 %.not.i.i.i14, label %35, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
-34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !25
-  %37 = load ptr, ptr %36, align 8, !tbaa !26
-  %.not.i.i.i.i17 = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i17, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i18
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !25
+  %38 = load ptr, ptr %37, align 8, !tbaa !26
+  %.not.i.i.i.i15 = icmp eq ptr %38, null
+  br i1 %.not.i.i.i.i15, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i17, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i16
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i18: ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %39 = load i8, ptr %38, align 1, !tbaa !29
-  %40 = icmp ugt i8 %39, 9
-  br i1 %40, label %.loopexit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i16: ; preds = %35
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %40 = load i8, ptr %39, align 1, !tbaa !29
+  %41 = icmp ugt i8 %40, 9
+  br i1 %41, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i17
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i18, %34
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %42 = load ptr, ptr %41, align 8, !tbaa !32
-  %43 = ptrtoint ptr %6 to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = add i64 %43, 1
-  %46 = sub i64 %45, %44
-  store i64 %46, ptr %32, align 8, !tbaa !24
-  br label %.loopexit
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i17: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i16, %35
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %43 = load ptr, ptr %42, align 8, !tbaa !32
+  %44 = ptrtoint ptr %6 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %46 = add i64 %44, 1
+  %47 = sub i64 %46, %45
+  store i64 %47, ptr %33, align 8, !tbaa !24
+  br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
-47:                                               ; preds = %30
+_ZN9grpc_core11HPackParser5Input4NextEv.exit18:   ; preds = %30
   %48 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store ptr %48, ptr %3, align 8, !tbaa !23
   %49 = load i8, ptr %24, align 1, !tbaa !54
@@ -7435,42 +7434,42 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19: ; preds = %_ZN
   %52 = shl nuw nsw i32 %51, 7
   %53 = add i32 %52, %28
   %54 = icmp sgt i8 %49, -1
-  br i1 %54, label %.loopexit, label %55
+  br i1 %54, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %55
 
-55:                                               ; preds = %47
-  %.not93 = icmp eq ptr %48, %6
-  br i1 %.not93, label %56, label %72
+55:                                               ; preds = %_ZN9grpc_core11HPackParser5Input4NextEv.exit18
+  %56 = icmp eq ptr %48, %6
+  br i1 %56, label %57, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit24
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %58 = load i64, ptr %57, align 8, !tbaa !24
-  %.not.i.i.i24 = icmp eq i64 %58, 0
-  br i1 %.not.i.i.i24, label %59, label %.loopexit
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %59 = load i64, ptr %58, align 8, !tbaa !24
+  %.not.i.i.i20 = icmp eq i64 %59, 0
+  br i1 %.not.i.i.i20, label %60, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !25
-  %62 = load ptr, ptr %61, align 8, !tbaa !26
-  %.not.i.i.i.i25 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i.i25, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i26
+60:                                               ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %62 = load ptr, ptr %61, align 8, !tbaa !25
+  %63 = load ptr, ptr %62, align 8, !tbaa !26
+  %.not.i.i.i.i21 = icmp eq ptr %63, null
+  br i1 %.not.i.i.i.i21, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i23, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i22
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i26: ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load i8, ptr %63, align 1, !tbaa !29
-  %65 = icmp ugt i8 %64, 9
-  br i1 %65, label %.loopexit, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i22: ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load i8, ptr %64, align 1, !tbaa !29
+  %66 = icmp ugt i8 %65, 9
+  br i1 %66, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i23
 
-_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i26, %59
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %67 = load ptr, ptr %66, align 8, !tbaa !32
-  %68 = ptrtoint ptr %6 to i64
-  %69 = ptrtoint ptr %67 to i64
-  %70 = add i64 %68, 1
-  %71 = sub i64 %70, %69
-  store i64 %71, ptr %57, align 8, !tbaa !24
-  br label %.loopexit
+_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i23: ; preds = %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i22, %60
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %68 = load ptr, ptr %67, align 8, !tbaa !32
+  %69 = ptrtoint ptr %6 to i64
+  %70 = ptrtoint ptr %68 to i64
+  %71 = add i64 %69, 1
+  %72 = sub i64 %71, %70
+  store i64 %72, ptr %58, align 8, !tbaa !24
+  br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
-72:                                               ; preds = %55
+_ZN9grpc_core11HPackParser5Input4NextEv.exit24:   ; preds = %55
   %73 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store ptr %73, ptr %3, align 8, !tbaa !23
   %74 = load i8, ptr %48, align 1, !tbaa !54
@@ -7479,40 +7478,40 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27: ; preds = %_ZN
   %77 = shl nuw nsw i32 %76, 14
   %78 = add i32 %77, %53
   %79 = icmp sgt i8 %74, -1
-  br i1 %79, label %.loopexit, label %80
+  br i1 %79, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %80
 
-80:                                               ; preds = %72
+80:                                               ; preds = %_ZN9grpc_core11HPackParser5Input4NextEv.exit24
   %81 = tail call i16 @_ZN9grpc_core11HPackParser5Input4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %82 = and i16 %81, 256
-  %.not94 = icmp eq i16 %82, 0
-  br i1 %.not94, label %.loopexit, label %83
+  %.not = icmp eq i16 %82, 0
+  br i1 %.not, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %83
 
 83:                                               ; preds = %80
-  %.sroa.0.0.extract.trunc44 = trunc i16 %81 to i8
-  %84 = and i8 %.sroa.0.0.extract.trunc44, 127
+  %.sroa.0.0.extract.trunc40 = trunc i16 %81 to i8
+  %84 = and i8 %.sroa.0.0.extract.trunc40, 127
   %85 = zext nneg i8 %84 to i32
   %86 = shl nuw nsw i32 %85, 21
   %87 = add i32 %86, %78
-  %88 = icmp sgt i8 %.sroa.0.0.extract.trunc44, -1
-  br i1 %88, label %.loopexit, label %89
+  %88 = icmp sgt i8 %.sroa.0.0.extract.trunc40, -1
+  br i1 %88, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %89
 
 89:                                               ; preds = %83
   %90 = tail call i16 @_ZN9grpc_core11HPackParser5Input4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %.sroa.0.0.extract.trunc43 = trunc i16 %90 to i8
+  %.sroa.0.0.extract.trunc39 = trunc i16 %90 to i8
   %91 = and i16 %90, 256
-  %.not95 = icmp eq i16 %91, 0
-  br i1 %.not95, label %.loopexit, label %92
+  %.not100 = icmp eq i16 %91, 0
+  br i1 %.not100, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %92
 
 92:                                               ; preds = %89
-  %93 = and i8 %.sroa.0.0.extract.trunc43, 127
+  %93 = and i8 %.sroa.0.0.extract.trunc39, 127
   %94 = icmp samesign ugt i8 %93, 15
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %92
-  %96 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %87, i8 noundef zeroext %.sroa.0.0.extract.trunc43)
-  %.sroa.075.0.extract.trunc = trunc i64 %96 to i32
-  %.sroa.2385.0.extract.shift = and i64 %96, -1099511627776
-  br label %.loopexit
+  %96 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %87, i8 noundef zeroext %.sroa.0.0.extract.trunc39)
+  %.sroa.071.0.extract.trunc = trunc i64 %96 to i32
+  %.sroa.2381.0.extract.shift = and i64 %96, -1099511627776
+  br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
 97:                                               ; preds = %92
   %98 = zext nneg i8 %93 to i32
@@ -7522,23 +7521,23 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27: ; preds = %_ZN
   br i1 %101, label %102, label %104
 
 102:                                              ; preds = %97
-  %103 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %87, i8 noundef zeroext %.sroa.0.0.extract.trunc43)
-  %.sroa.075.0.extract.trunc76 = trunc i64 %103 to i32
-  %.sroa.2385.0.extract.shift86 = and i64 %103, -1099511627776
-  br label %.loopexit
+  %103 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %87, i8 noundef zeroext %.sroa.0.0.extract.trunc39)
+  %.sroa.071.0.extract.trunc72 = trunc i64 %103 to i32
+  %.sroa.2381.0.extract.shift82 = and i64 %103, -1099511627776
+  br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
 104:                                              ; preds = %97
   %105 = add i32 %99, %87
-  %106 = icmp sgt i8 %.sroa.0.0.extract.trunc43, -1
-  br i1 %106, label %.loopexit, label %.preheader
+  %106 = icmp sgt i8 %.sroa.0.0.extract.trunc39, -1
+  br i1 %106, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %104, %114
   %.0 = phi i32 [ %110, %114 ], [ 0, %104 ]
   %107 = tail call i16 @_ZN9grpc_core11HPackParser5Input4NextEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %.sroa.0.0.extract.trunc = trunc i16 %107 to i8
   %108 = and i16 %107, 256
-  %.not96 = icmp eq i16 %108, 0
-  br i1 %.not96, label %.loopexit, label %109
+  %.not101 = icmp eq i16 %108, 0
+  br i1 %.not101, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread, label %109
 
 109:                                              ; preds = %.preheader
   %110 = add nuw nsw i32 %.0, 1
@@ -7547,31 +7546,31 @@ _ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27: ; preds = %_ZN
 
 112:                                              ; preds = %109
   %113 = tail call i64 @_ZN9grpc_core11HPackParser5Input28ParseVarintMaliciousEncodingEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
-  %.sroa.075.0.extract.trunc77 = trunc i64 %113 to i32
-  %.sroa.2385.0.extract.shift88 = and i64 %113, -1099511627776
-  br label %.loopexit
+  %.sroa.071.0.extract.trunc73 = trunc i64 %113 to i32
+  %.sroa.2381.0.extract.shift84 = and i64 %113, -1099511627776
+  br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
 114:                                              ; preds = %109
   switch i8 %.sroa.0.0.extract.trunc, label %115 [
     i8 -128, label %.preheader
-    i8 0, label %.loopexit
+    i8 0, label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
   ]
 
 115:                                              ; preds = %114
   %116 = tail call i64 @_ZN9grpc_core11HPackParser5Input21ParseVarintOutOfRangeEjh(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %105, i8 noundef zeroext %.sroa.0.0.extract.trunc)
-  %.sroa.075.0.extract.trunc78 = trunc i64 %116 to i32
-  %.sroa.2385.0.extract.shift90 = and i64 %116, -1099511627776
-  br label %.loopexit
+  %.sroa.071.0.extract.trunc74 = trunc i64 %116 to i32
+  %.sroa.2381.0.extract.shift86 = and i64 %116, -1099511627776
+  br label %_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread
 
-.loopexit:                                        ; preds = %114, %.preheader, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i26, %56, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i18, %31, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i, %7, %104, %89, %83, %80, %72, %47, %23, %95, %112, %115, %102
-  %.sroa.2385.sroa.0.0 = phi i64 [ %.sroa.2385.0.extract.shift, %95 ], [ %.sroa.2385.0.extract.shift86, %102 ], [ %.sroa.2385.0.extract.shift88, %112 ], [ %.sroa.2385.0.extract.shift90, %115 ], [ 0, %23 ], [ 0, %47 ], [ 0, %72 ], [ 0, %80 ], [ 0, %83 ], [ 0, %89 ], [ 0, %104 ], [ 0, %7 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ], [ 0, %31 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i18 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19 ], [ 0, %56 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i26 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27 ], [ 0, %.preheader ], [ 0, %114 ]
-  %.sroa.11.0 = phi i64 [ %96, %95 ], [ %103, %102 ], [ %113, %112 ], [ %116, %115 ], [ 4294967296, %23 ], [ 4294967296, %47 ], [ 4294967296, %72 ], [ 0, %80 ], [ 4294967296, %83 ], [ 0, %89 ], [ 4294967296, %104 ], [ 0, %7 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ], [ 0, %31 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i18 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19 ], [ 0, %56 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i26 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27 ], [ 4294967296, %114 ], [ 0, %.preheader ]
-  %.sroa.075.0 = phi i32 [ %.sroa.075.0.extract.trunc, %95 ], [ %.sroa.075.0.extract.trunc76, %102 ], [ %.sroa.075.0.extract.trunc77, %112 ], [ %.sroa.075.0.extract.trunc78, %115 ], [ %28, %23 ], [ %53, %47 ], [ %78, %72 ], [ undef, %80 ], [ %87, %83 ], [ undef, %89 ], [ %105, %104 ], [ undef, %7 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ], [ undef, %31 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i18 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i19 ], [ undef, %56 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i26 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i27 ], [ %105, %114 ], [ undef, %.preheader ]
+_ZN9grpc_core11HPackParser5Input4NextEv.exit.thread: ; preds = %114, %.preheader, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i23, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i22, %57, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i17, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i16, %32, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i, %8, %104, %89, %83, %80, %_ZN9grpc_core11HPackParser5Input4NextEv.exit24, %_ZN9grpc_core11HPackParser5Input4NextEv.exit18, %_ZN9grpc_core11HPackParser5Input4NextEv.exit, %95, %112, %115, %102
+  %.sroa.2381.sroa.0.0 = phi i64 [ %.sroa.2381.0.extract.shift, %95 ], [ %.sroa.2381.0.extract.shift82, %102 ], [ %.sroa.2381.0.extract.shift84, %112 ], [ %.sroa.2381.0.extract.shift86, %115 ], [ 0, %_ZN9grpc_core11HPackParser5Input4NextEv.exit ], [ 0, %_ZN9grpc_core11HPackParser5Input4NextEv.exit18 ], [ 0, %_ZN9grpc_core11HPackParser5Input4NextEv.exit24 ], [ 0, %80 ], [ 0, %83 ], [ 0, %89 ], [ 0, %104 ], [ 0, %8 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ], [ 0, %32 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i16 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i17 ], [ 0, %57 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i22 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i23 ], [ 0, %.preheader ], [ 0, %114 ]
+  %.sroa.11.0 = phi i64 [ %96, %95 ], [ %103, %102 ], [ %113, %112 ], [ %116, %115 ], [ 4294967296, %_ZN9grpc_core11HPackParser5Input4NextEv.exit ], [ 4294967296, %_ZN9grpc_core11HPackParser5Input4NextEv.exit18 ], [ 4294967296, %_ZN9grpc_core11HPackParser5Input4NextEv.exit24 ], [ 0, %80 ], [ 4294967296, %83 ], [ 0, %89 ], [ 4294967296, %104 ], [ 0, %8 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ], [ 0, %32 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i16 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i17 ], [ 0, %57 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i22 ], [ 0, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i23 ], [ 4294967296, %114 ], [ 0, %.preheader ]
+  %.sroa.071.0 = phi i32 [ %.sroa.071.0.extract.trunc, %95 ], [ %.sroa.071.0.extract.trunc72, %102 ], [ %.sroa.071.0.extract.trunc73, %112 ], [ %.sroa.071.0.extract.trunc74, %115 ], [ %28, %_ZN9grpc_core11HPackParser5Input4NextEv.exit ], [ %53, %_ZN9grpc_core11HPackParser5Input4NextEv.exit18 ], [ %78, %_ZN9grpc_core11HPackParser5Input4NextEv.exit24 ], [ undef, %80 ], [ %87, %83 ], [ undef, %89 ], [ %105, %104 ], [ undef, %8 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i ], [ undef, %32 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i16 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i17 ], [ undef, %57 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.i.i22 ], [ undef, %_ZNK9grpc_core11HPackParser5Input9eof_errorEv.exit.thread6.i.i23 ], [ %105, %114 ], [ undef, %.preheader ]
   %.sroa.11.0.insert.ext = and i64 %.sroa.11.0, 1095216660480
-  %.sroa.11.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.ext, %.sroa.2385.sroa.0.0
-  %.sroa.075.0.insert.ext = zext i32 %.sroa.075.0 to i64
-  %.sroa.075.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.insert, %.sroa.075.0.insert.ext
-  ret i64 %.sroa.075.0.insert.insert
+  %.sroa.11.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.ext, %.sroa.2381.sroa.0.0
+  %.sroa.071.0.insert.ext = zext i32 %.sroa.071.0 to i64
+  %.sroa.071.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.insert, %.sroa.071.0.insert.ext
+  ret i64 %.sroa.071.0.insert.insert
 }
 
 ; Function Attrs: mustprogress uwtable

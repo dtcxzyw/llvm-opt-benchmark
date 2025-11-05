@@ -26678,11 +26678,11 @@ _ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZNK7AstN
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 152
   %50 = load i32, ptr %49, align 8
   %51 = select i1 %.not.i.i39, i32 %50, i32 %48
+  %52 = mul nsw i32 %51, %42
   br label %_ZNK7AstNode8widthMinEv.exit40
 
 _ZNK7AstNode8widthMinEv.exit40:                   ; preds = %_ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit, %46
-  %52 = phi i32 [ %51, %46 ], [ 0, %_ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit ]
-  %53 = mul nsw i32 %52, %42
+  %53 = phi i32 [ %52, %46 ], [ 0, %_ZN7AstNode9privateAsI8AstConstP11AstNodeExprEEPT_PS_.exit ]
   %54 = load ptr, ptr %23, align 8, !tbaa !156
   %.not.i41 = icmp eq ptr %54, null
   br i1 %.not.i41, label %_ZNK7AstNode8widthMinEv.exit43, label %55

@@ -5643,8 +5643,8 @@ common.resume:                                    ; preds = %86, %.body, %19
   %42 = icmp eq i64 %41, -9223372036854775808
   br i1 %42, label %72, label %46
 
-43:                                               ; preds = %64, %44
-  %.pn.i.i = phi { ptr, i32 } [ %65, %64 ], [ %45, %44 ]
+43:                                               ; preds = %65, %44
+  %.pn.i.i = phi { ptr, i32 } [ %66, %65 ], [ %45, %44 ]
   invoke void @"_ZN4core3ptr320drop_in_place$LT$itertools..unique_impl..Unique$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..filter_map..FilterMap$LT$smallvec..IntoIter$LT$$u5b$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$u3b$$u20$1$u5d$$GT$$C$ide..moniker..moniker..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$$GT$17hc8833bcf741944d1E"(ptr noalias noundef nonnull align 8 dereferenceable(760) %8) #20
           to label %.body unwind label %70
 
@@ -5691,35 +5691,35 @@ common.resume:                                    ; preds = %86, %.body, %19
   %narrow62.i.i.i.i48.i.i.i.i.i = icmp sgt i64 %59, -9223372036854775807
   %.sroa.8.0.i.i.i.i49.i.i.i.i.i = zext i1 %narrow62.i.i.i.i48.i.i.i.i.i to i64
   %60 = add nuw nsw i64 %.sroa.8.0.i.i.i.i49.i.i.i.i.i, %.sroa.7.0.i.i.i.i47.i.i.i.i.i
+  %61 = or i64 %60, %.sroa.0.0.i.i.i.i.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit55.i.i.i.i.i"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd302c0535749d39aE.exit.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit55.i.i.i.i.i", %46
-  %61 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1827, !noalias !1828, !nonnull !25, !noundef !25
-  %62 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %61, i64 %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %62, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false)
-  %63 = add i64 %47, 1
-  store i64 %63, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1827, !noalias !1828
+  %62 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1827, !noalias !1828, !nonnull !25, !noundef !25
+  %63 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %62, i64 %47
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %63, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 128, i1 false)
+  %64 = add i64 %47, 1
+  store i64 %64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1827, !noalias !1828
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1826
   br label %40
 
-64:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit55.i.i.i.i.i"
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit55.i.i.i.i.i"
+  %66 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr48drop_in_place$LT$ide..moniker..MonikerResult$GT$17h67ceca2b13b62da8E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %5) #20
           to label %43 unwind label %70
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit55.i.i.i.i.i": ; preds = %58, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit.i.i.i.i.i"
-  %.sroa.062.0.i.i.i.i.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit.i.i.i.i.i" ], [ %60, %58 ]
-  %66 = or i64 %.sroa.062.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
-  %.not.i.i.i = icmp ne i64 %66, 0
+  %.sroa.062.0.i.i.i.i.i = phi i64 [ %.sroa.0.0.i.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hf331b25fa95db691E.exit.i.i.i.i.i" ], [ %61, %58 ]
+  %.not.i.i.i = icmp ne i64 %.sroa.062.0.i.i.i.i.i, 0
   %67 = load i64, ptr %39, align 8, !alias.scope !1870, !noalias !1871
   %68 = icmp eq i64 %67, 0
   %narrow.i.i.i = select i1 %.not.i.i.i, i1 %68, i1 false
   %69 = select i1 %narrow.i.i.i, i64 2, i64 1
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hbac6adec01d3fa91E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %47, i64 noundef range(i64 1, 0) %69)
-          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd302c0535749d39aE.exit.i.i" unwind label %64
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hd302c0535749d39aE.exit.i.i" unwind label %65
 
-70:                                               ; preds = %64, %43
+70:                                               ; preds = %65, %43
   %71 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #19

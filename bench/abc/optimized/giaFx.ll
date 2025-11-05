@@ -2308,9 +2308,9 @@ Vec_IntFillExtra.exit:                            ; preds = %.critedge, %._crit_
   %209 = sext i32 %.val227.val to i64
   br label %210
 
-210:                                              ; preds = %.lr.ph353, %473
-  %211 = phi ptr [ %193, %.lr.ph353 ], [ %466, %473 ]
-  %indvars.iv387 = phi i64 [ %209, %.lr.ph353 ], [ %indvars.iv.next388, %473 ]
+210:                                              ; preds = %.lr.ph353, %474
+  %211 = phi ptr [ %193, %.lr.ph353 ], [ %466, %474 ]
+  %indvars.iv387 = phi i64 [ %209, %.lr.ph353 ], [ %indvars.iv.next388, %474 ]
   %.val199 = load ptr, ptr %205, align 8, !tbaa !17
   %212 = getelementptr inbounds i32, ptr %.val199, i64 %indvars.iv387
   %213 = load i32, ptr %212, align 4, !tbaa !20
@@ -2937,7 +2937,7 @@ Vec_StrPush.exit295:                              ; preds = %.Vec_StrGrow.exit10
   %.0172 = phi i32 [ %431, %.critedge8 ], [ %464, %.critedge12 ]
   %.val235 = load i32, ptr %9, align 4, !tbaa !74
   %467 = icmp slt i32 %213, %.val235
-  br i1 %467, label %468, label %473
+  br i1 %467, label %468, label %474
 
 468:                                              ; preds = %465
   %.val237 = load ptr, ptr %208, align 8, !tbaa !73
@@ -2945,11 +2945,11 @@ Vec_StrPush.exit295:                              ; preds = %.Vec_StrGrow.exit10
   %470 = load i8, ptr %469, align 1, !tbaa !14
   %471 = icmp sgt i8 %470, 0
   %472 = zext i1 %471 to i32
-  br label %473
+  %473 = xor i32 %.0172, %472
+  br label %474
 
-473:                                              ; preds = %468, %465
-  %474 = phi i32 [ 0, %465 ], [ %472, %468 ]
-  %475 = xor i32 %474, %.0172
+474:                                              ; preds = %468, %465
+  %475 = phi i32 [ %.0172, %465 ], [ %473, %468 ]
   %.val202 = load ptr, ptr %69, align 8, !tbaa !17
   %476 = getelementptr inbounds i32, ptr %.val202, i64 %216
   store i32 %475, ptr %476, align 4, !tbaa !20
@@ -2959,8 +2959,8 @@ Vec_StrPush.exit295:                              ; preds = %.Vec_StrGrow.exit10
   %478 = icmp slt i64 %indvars.iv.next388, %477
   br i1 %478, label %210, label %.critedge2, !llvm.loop !99
 
-.critedge2:                                       ; preds = %473, %Vec_IntFillExtra.exit
-  %479 = phi ptr [ %193, %Vec_IntFillExtra.exit ], [ %466, %473 ]
+.critedge2:                                       ; preds = %474, %Vec_IntFillExtra.exit
+  %479 = phi ptr [ %193, %Vec_IntFillExtra.exit ], [ %466, %474 ]
   call void @Gia_ManHashStop(ptr noundef nonnull %16) #18
   %480 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %481 = load ptr, ptr %480, align 8, !tbaa !100

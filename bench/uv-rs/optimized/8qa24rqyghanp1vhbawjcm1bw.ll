@@ -3664,14 +3664,14 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %53 = ptrtoint ptr %.val.i42.i.i.i.i.i to i64
   %54 = sub nuw i64 %52, %53
   %55 = udiv exact i64 %54, 24
+  %56 = or i64 %55, %.sroa.7.0.i.i.i.i.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit44.i.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit44.i.i.i.i.i": ; preds = %49, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit.i.i.i.i.i"
-  %.sroa.8.0.i.i.i.i.i = phi i64 [ %55, %49 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit.i.i.i.i.i" ]
-  %56 = icmp slt i64 %6, -9223372036854775806
-  %57 = or i64 %.sroa.8.0.i.i.i.i.i, %.sroa.7.0.i.i.i.i.i
-  %58 = icmp eq i64 %57, 0
-  %or.cond.i.i.i = select i1 %56, i1 %58, i1 false
+  %.sroa.8.0.i.i.i.i.i = phi i64 [ %56, %49 ], [ %.sroa.7.0.i.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit.i.i.i.i.i" ]
+  %57 = icmp slt i64 %6, -9223372036854775806
+  %58 = icmp eq i64 %.sroa.8.0.i.i.i.i.i, 0
+  %or.cond.i.i.i = select i1 %57, i1 %58, i1 false
   br i1 %or.cond.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17habd531f5782babc4E.exit.thread64.i.i.i", label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e608d8df2a1e550E.exit"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17habd531f5782babc4E.exit.thread64.i.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit44.i.i.i.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17h3acb0d59ef331fa8E.exit44.i.i.i"
@@ -3780,14 +3780,14 @@ define internal fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A
   %103 = ptrtoint ptr %.val.i42.i.i.i.i.i23 to i64
   %104 = sub nuw i64 %102, %103
   %105 = udiv exact i64 %104, 24
+  %106 = or i64 %105, %.sroa.7.0.i.i.i.i.i22
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit44.i.i.i.i.i25"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit44.i.i.i.i.i25": ; preds = %99, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit.i.i.i.i.i21"
-  %.sroa.8.0.i.i.i.i.i26 = phi i64 [ %105, %99 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit.i.i.i.i.i21" ]
-  %106 = icmp slt i64 %6, -9223372036854775806
-  %107 = or i64 %.sroa.8.0.i.i.i.i.i26, %.sroa.7.0.i.i.i.i.i22
-  %108 = icmp eq i64 %107, 0
-  %or.cond.i.i.i27 = select i1 %106, i1 %108, i1 false
+  %.sroa.8.0.i.i.i.i.i26 = phi i64 [ %106, %99 ], [ %.sroa.7.0.i.i.i.i.i22, %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit.i.i.i.i.i21" ]
+  %107 = icmp slt i64 %6, -9223372036854775806
+  %108 = icmp eq i64 %.sroa.8.0.i.i.i.i.i26, 0
+  %or.cond.i.i.i27 = select i1 %107, i1 %108, i1 false
   br i1 %or.cond.i.i.i27, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17habd531f5782babc4E.exit.thread64.i.i.i32", label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2e608d8df2a1e550E.exit33"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17habd531f5782babc4E.exit.thread64.i.i.i32": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h25ffcea6298e12c2E.exit44.i.i.i.i.i25", %"_ZN4core6option15Option$LT$T$GT$6map_or17h3acb0d59ef331fa8E.exit44.i.i.i17"

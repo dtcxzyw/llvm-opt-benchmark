@@ -6939,7 +6939,7 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %53, %_ZNK12AstTrace
   %83 = getelementptr inbounds nuw i8, ptr %55, i64 212
   %84 = load i8, ptr %83, align 4, !tbaa !269, !range !55, !noundef !56
   %85 = trunc nuw i8 %84 to i1
-  br i1 %85, label %86, label %93
+  br i1 %85, label %86, label %94
 
 86:                                               ; preds = %_ZNK7AstNode6isWideEv.exit.thread
   %87 = getelementptr inbounds nuw i8, ptr %55, i64 204
@@ -6949,11 +6949,11 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %53, %_ZNK12AstTrace
   %sub.i = sub nsw i32 %88, %90
   %91 = call i32 @llvm.abs.i32(i32 %sub.i, i1 true)
   %92 = add nuw nsw i32 %91, 1
-  br label %93
+  %93 = mul i32 %92, %82
+  br label %94
 
-93:                                               ; preds = %86, %_ZNK7AstNode6isWideEv.exit.thread
-  %94 = phi i32 [ %92, %86 ], [ 1, %_ZNK7AstNode6isWideEv.exit.thread ]
-  %95 = mul i32 %94, %82
+94:                                               ; preds = %86, %_ZNK7AstNode6isWideEv.exit.thread
+  %95 = phi i32 [ %93, %86 ], [ %82, %_ZNK7AstNode6isWideEv.exit.thread ]
   %96 = add i32 %95, %.01988
   br label %101
 
@@ -6967,8 +6967,8 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %53, %_ZNK12AstTrace
           cleanup
   br label %141
 
-101:                                              ; preds = %.loopexit, %93
-  %.120 = phi i32 [ %.01988, %.loopexit ], [ %96, %93 ]
+101:                                              ; preds = %.loopexit, %94
+  %.120 = phi i32 [ %.01988, %.loopexit ], [ %96, %94 ]
   %102 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.059.187) #28
   %.not77 = icmp eq ptr %102, %20
   br i1 %.not77, label %.critedge, label %32, !llvm.loop !273

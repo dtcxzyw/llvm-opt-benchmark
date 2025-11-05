@@ -25864,8 +25864,7 @@ _ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_113Techma
 
 _ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringESt6vectorIN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS0_8hash_opsIS3_EEED2Ev.exit: ; preds = %_ZNSt6vectorIN5Yosys7hashlib4dictINS0_5RTLIL8IdStringES_IN12_GLOBAL__N_113TechmapWorker15TechmapWireDataESaIS7_EENS1_8hash_opsIS4_EEE7entry_tESaISD_EED2Ev.exit.i, %7921
   call void @llvm.lifetime.end.p0(ptr nonnull %167)
-  %brmerge.not = and i1 %.1856.not.not, %4632
-  br i1 %brmerge.not, label %4317, label %7956
+  br i1 %.1856.not.not, label %4317, label %7956
 
 7926:                                             ; preds = %.loopexit5362, %.loopexit.split-lp5363, %4661, %4827, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2634, %4386, %.body2045, %4363, %4633
   %.pn1035.pn.pn = phi { ptr, i32 } [ %4634, %4633 ], [ %4364, %4363 ], [ %.pn1030, %.body2045 ], [ %4387, %4386 ], [ %4662, %4661 ], [ %.pn973.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2634 ], [ %4828, %4827 ], [ %lpad.loopexit5364, %.loopexit5362 ], [ %lpad.loopexit.split-lp5365, %.loopexit.split-lp5363 ]

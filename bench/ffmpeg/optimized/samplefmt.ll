@@ -569,39 +569,39 @@ av_get_bytes_per_sample.exit:                     ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !15
   %12 = ashr i32 %11, 3
+  %spec.select = select i1 %.not.not, i32 1, i32 %3
+  %13 = mul nsw i32 %12, %spec.select
   br i1 %.not.not, label %av_get_bytes_per_sample.exit.thread, label %.lr.ph
 
 av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sample.exit
-  %13 = icmp sgt i32 %3, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  %14 = icmp sgt i32 %3, 0
+  br i1 %14, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %av_get_bytes_per_sample.exit, %5, %av_get_bytes_per_sample.exit.thread
-  %14 = phi i32 [ 1, %av_get_bytes_per_sample.exit.thread ], [ %3, %av_get_bytes_per_sample.exit ], [ %3, %5 ]
-  %15 = phi i32 [ %3, %av_get_bytes_per_sample.exit.thread ], [ 1, %av_get_bytes_per_sample.exit ], [ 1, %5 ]
-  %16 = phi i32 [ %12, %av_get_bytes_per_sample.exit.thread ], [ %12, %av_get_bytes_per_sample.exit ], [ 0, %5 ]
-  %17 = mul nsw i32 %14, %16
-  %18 = mul nsw i32 %17, %1
-  %19 = icmp eq i32 %4, 0
-  %20 = icmp eq i32 %4, 5
-  %21 = or i1 %19, %20
-  %22 = mul nsw i32 %17, %2
-  %23 = sext i32 %18 to i64
-  %24 = select i1 %21, i8 -128, i8 0
-  %25 = sext i32 %22 to i64
+  %15 = phi i32 [ %3, %av_get_bytes_per_sample.exit.thread ], [ 1, %5 ], [ 1, %av_get_bytes_per_sample.exit ]
+  %16 = phi i32 [ %13, %av_get_bytes_per_sample.exit.thread ], [ 0, %5 ], [ %13, %av_get_bytes_per_sample.exit ]
+  %17 = mul nsw i32 %16, %1
+  %18 = icmp eq i32 %4, 0
+  %19 = icmp eq i32 %4, 5
+  %20 = or i1 %18, %19
+  %21 = mul nsw i32 %16, %2
+  %22 = sext i32 %17 to i64
+  %23 = select i1 %20, i8 -128, i8 0
+  %24 = sext i32 %21 to i64
   %wide.trip.count = zext nneg i32 %15 to i64
-  br label %26
+  br label %25
 
-26:                                               ; preds = %.lr.ph, %26
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %28 = load ptr, ptr %27, align 8, !tbaa !16
-  %29 = getelementptr inbounds i8, ptr %28, i64 %23
-  tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 %24, i64 %25, i1 false)
+25:                                               ; preds = %.lr.ph, %25
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %27 = load ptr, ptr %26, align 8, !tbaa !16
+  %28 = getelementptr inbounds i8, ptr %27, i64 %22
+  tail call void @llvm.memset.p0.i64(ptr align 1 %28, i8 %23, i64 %24, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %26, %av_get_bytes_per_sample.exit.thread
+._crit_edge:                                      ; preds = %25, %av_get_bytes_per_sample.exit.thread
   ret i32 0
 }
 
@@ -664,74 +664,73 @@ av_get_bytes_per_sample.exit:                     ; preds = %7
   %14 = load i32, ptr %13, align 4, !tbaa !15
   %15 = ashr i32 %14, 3
   %spec.select = select i1 %.not.not, i32 1, i32 %5
+  %16 = mul nsw i32 %15, %spec.select
   br label %av_get_bytes_per_sample.exit.thread
 
 av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sample.exit, %7
-  %16 = phi i32 [ 0, %7 ], [ %15, %av_get_bytes_per_sample.exit ]
-  %17 = phi i32 [ 1, %7 ], [ %11, %av_get_bytes_per_sample.exit ]
-  %18 = phi i32 [ %5, %7 ], [ %spec.select, %av_get_bytes_per_sample.exit ]
-  %19 = mul nsw i32 %18, %16
-  %20 = mul nsw i32 %19, %4
-  %21 = mul nsw i32 %19, %2
-  %22 = mul nsw i32 %19, %3
-  %23 = load ptr, ptr %0, align 8, !tbaa !16
-  %24 = load ptr, ptr %1, align 8, !tbaa !16
-  %25 = icmp ult ptr %23, %24
-  %26 = ptrtoint ptr %24 to i64
-  %27 = ptrtoint ptr %23 to i64
-  %28 = sub i64 %26, %27
-  %29 = sub i64 %27, %26
-  %30 = select i1 %25, i64 %28, i64 %29
-  %31 = sext i32 %20 to i64
-  %.not44 = icmp slt i64 %30, %31
-  %32 = icmp sgt i32 %17, 0
+  %17 = phi i32 [ 0, %7 ], [ %16, %av_get_bytes_per_sample.exit ]
+  %18 = phi i32 [ 1, %7 ], [ %11, %av_get_bytes_per_sample.exit ]
+  %19 = mul nsw i32 %17, %4
+  %20 = mul nsw i32 %17, %2
+  %21 = mul nsw i32 %17, %3
+  %22 = load ptr, ptr %0, align 8, !tbaa !16
+  %23 = load ptr, ptr %1, align 8, !tbaa !16
+  %24 = icmp ult ptr %22, %23
+  %25 = ptrtoint ptr %23 to i64
+  %26 = ptrtoint ptr %22 to i64
+  %27 = sub i64 %25, %26
+  %28 = sub i64 %26, %25
+  %29 = select i1 %24, i64 %27, i64 %28
+  %30 = sext i32 %19 to i64
+  %.not44 = icmp slt i64 %29, %30
+  %31 = icmp sgt i32 %18, 0
   br i1 %.not44, label %.preheader, label %.preheader51
 
 .preheader51:                                     ; preds = %av_get_bytes_per_sample.exit.thread
-  br i1 %32, label %.lr.ph, label %.loopexit
+  br i1 %31, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader51
+  %32 = sext i32 %20 to i64
   %33 = sext i32 %21 to i64
-  %34 = sext i32 %22 to i64
-  %wide.trip.count = zext nneg i32 %17 to i64
-  br label %37
+  %wide.trip.count = zext nneg i32 %18 to i64
+  br label %36
 
 .preheader:                                       ; preds = %av_get_bytes_per_sample.exit.thread
-  br i1 %32, label %.lr.ph55, label %.loopexit
+  br i1 %31, label %.lr.ph55, label %.loopexit
 
 .lr.ph55:                                         ; preds = %.preheader
+  %34 = sext i32 %20 to i64
   %35 = sext i32 %21 to i64
-  %36 = sext i32 %22 to i64
-  %wide.trip.count61 = zext nneg i32 %17 to i64
-  br label %44
+  %wide.trip.count61 = zext nneg i32 %18 to i64
+  br label %43
 
-37:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
-  %39 = load ptr, ptr %38, align 8, !tbaa !16
-  %40 = getelementptr inbounds i8, ptr %39, i64 %33
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !16
-  %43 = getelementptr inbounds i8, ptr %42, i64 %34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr align 1 %43, i64 %31, i1 false)
+36:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %37 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %38 = load ptr, ptr %37, align 8, !tbaa !16
+  %39 = getelementptr inbounds i8, ptr %38, i64 %32
+  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %41 = load ptr, ptr %40, align 8, !tbaa !16
+  %42 = getelementptr inbounds i8, ptr %41, i64 %33
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %39, ptr align 1 %42, i64 %30, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %37, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !24
 
-44:                                               ; preds = %.lr.ph55, %44
-  %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %44 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv58
-  %46 = load ptr, ptr %45, align 8, !tbaa !16
-  %47 = getelementptr inbounds i8, ptr %46, i64 %35
-  %48 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv58
-  %49 = load ptr, ptr %48, align 8, !tbaa !16
-  %50 = getelementptr inbounds i8, ptr %49, i64 %36
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %47, ptr align 1 %50, i64 %31, i1 false)
+43:                                               ; preds = %.lr.ph55, %43
+  %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %43 ]
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv58
+  %45 = load ptr, ptr %44, align 8, !tbaa !16
+  %46 = getelementptr inbounds i8, ptr %45, i64 %34
+  %47 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv58
+  %48 = load ptr, ptr %47, align 8, !tbaa !16
+  %49 = getelementptr inbounds i8, ptr %48, i64 %35
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %46, ptr align 1 %49, i64 %30, i1 false)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %.loopexit, label %44, !llvm.loop !25
+  br i1 %exitcond62.not, label %.loopexit, label %43, !llvm.loop !25
 
-.loopexit:                                        ; preds = %37, %44, %.preheader51, %.preheader
+.loopexit:                                        ; preds = %36, %43, %.preheader51, %.preheader
   ret i32 0
 }
 

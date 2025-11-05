@@ -8343,14 +8343,12 @@ _ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8containsEPKS1_.exit.thread: ; pred
   br label %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit
 
 _ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit: ; preds = %_ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit.thread.i, %174, %.critedge, %128, %113, %82, %.lr.ph32.i, %138, %136, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread, %132, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread, %_ZNK4llvm8CallBase12isConvergentEv.exit, %86, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit, %.critedge186, %182, %187, %191, %181, %45, %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread, %_ZNK4llvm11Instruction11hasMetadataEj.exit, %32, %27, %60
-  %.0141 = phi i1 [ false, %60 ], [ false, %27 ], [ false, %32 ], [ false, %_ZNK4llvm11Instruction11hasMetadataEj.exit ], [ false, %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread ], [ false, %45 ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread ], [ false, %_ZNK4llvm8CallBase12isConvergentEv.exit ], [ false, %86 ], [ false, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ], [ true, %181 ], [ false, %191 ], [ false, %187 ], [ false, %182 ], [ false, %.critedge186 ], [ false, %132 ], [ false, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ false, %136 ], [ false, %138 ], [ false, %.lr.ph32.i ], [ false, %82 ], [ false, %113 ], [ false, %128 ], [ false, %.critedge ], [ false, %174 ], [ false, %_ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit.thread.i ]
-  %.1 = phi i1 [ %61, %60 ], [ false, %27 ], [ true, %32 ], [ true, %_ZNK4llvm11Instruction11hasMetadataEj.exit ], [ false, %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread ], [ true, %45 ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread ], [ false, %_ZNK4llvm8CallBase12isConvergentEv.exit ], [ false, %86 ], [ true, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ], [ undef, %181 ], [ false, %191 ], [ true, %187 ], [ false, %182 ], [ %.9, %.critedge186 ], [ true, %132 ], [ true, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ false, %136 ], [ true, %138 ], [ true, %.lr.ph32.i ], [ false, %82 ], [ true, %113 ], [ true, %.critedge ], [ false, %128 ], [ false, %174 ], [ true, %_ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit.thread.i ]
+  %.0141 = phi i1 [ %61, %60 ], [ false, %27 ], [ true, %32 ], [ true, %_ZNK4llvm11Instruction11hasMetadataEj.exit ], [ false, %_ZNK4llvm11Instruction11hasMetadataEj.exit.thread ], [ true, %45 ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit ], [ false, %_ZN4llvm3isaINS_16DbgInfoIntrinsicENS_11InstructionEEEbRKT0_.exit.thread ], [ false, %_ZNK4llvm8CallBase12isConvergentEv.exit ], [ false, %86 ], [ true, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit ], [ true, %181 ], [ false, %191 ], [ true, %187 ], [ false, %182 ], [ %.9, %.critedge186 ], [ true, %132 ], [ true, %_ZN4llvm12PatternMatch5matchINS_8CallInstENS0_17IntrinsicID_matchEEEbPT_RKT0_.exit.thread ], [ false, %136 ], [ true, %138 ], [ true, %.lr.ph32.i ], [ false, %82 ], [ true, %113 ], [ true, %.critedge ], [ false, %128 ], [ false, %174 ], [ true, %_ZNK4llvm9MemorySSA16getBlockAccessesEPKNS_10BasicBlockE.exit.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %spec.select191 = or i1 %.0141, %.1
   br label %293
 
 293:                                              ; preds = %_ZN12_GLOBAL__N_126isHoistableAndSinkableInstERN4llvm11InstructionE.exit, %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit
-  %.0 = phi i1 [ %spec.select191, %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit ], [ false, %_ZN12_GLOBAL__N_126isHoistableAndSinkableInstERN4llvm11InstructionE.exit ]
+  %.0 = phi i1 [ %.0141, %_ZN12_GLOBAL__N_118isOnlyMemoryAccessEPKN4llvm11InstructionEPKNS0_4LoopERKNS0_16MemorySSAUpdaterE.exit ], [ false, %_ZN12_GLOBAL__N_126isHoistableAndSinkableInstERN4llvm11InstructionE.exit ]
   ret i1 %.0
 }
 
@@ -14713,7 +14711,7 @@ define internal fastcc noundef zeroext i1 @_ZL21isLoadInvariantInLoopPN4llvm8Loa
   %20 = load ptr, ptr %19, align 8, !tbaa !410
   %21 = add i32 %.02746, 1
   %22 = icmp ugt i32 %21, %18
-  br i1 %22, label %._crit_edge.loopexit, label %23
+  br i1 %22, label %._crit_edge, label %23
 
 23:                                               ; preds = %17
   %24 = load i8, ptr %20, align 8, !tbaa !135
@@ -14814,23 +14812,17 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %70, %76
   %83 = load ptr, ptr %82, align 8, !tbaa !86
   %84 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %81, ptr noundef %83) #25
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL19MaxNumUsesTraversed, i64 120), align 8, !tbaa !56
-  br i1 %84, label %._crit_edge.loopexit, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread
+  br i1 %84, label %._crit_edge, label %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread: ; preds = %_ZNK4llvm11ConstantInt12getSExtValueEv.exit, %79, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i, %26, %29, %23, %42, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit, %46
   %85 = phi i32 [ %18, %_ZNK4llvm11ConstantInt12getSExtValueEv.exit ], [ %.pre, %79 ], [ %18, %_ZN4llvm14CastIsPossibleINS_13IntrinsicInstEPNS_4UserEvE10isPossibleERKS3_.exit.i.i ], [ %18, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i ], [ %18, %26 ], [ %18, %29 ], [ %18, %23 ], [ %18, %42 ], [ %18, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit ], [ %18, %46 ]
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.033.047, i64 8
   %.sroa.033.0 = load ptr, ptr %86, align 8, !tbaa !407
   %.not56 = icmp eq ptr %.sroa.033.0, null
-  br i1 %.not56, label %._crit_edge.loopexit, label %17
+  br i1 %.not56, label %._crit_edge, label %17
 
-._crit_edge.loopexit:                             ; preds = %17, %79, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread
-  %.lcssa.ph = phi i1 [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread ], [ true, %79 ], [ true, %17 ]
-  %.2.ph = phi i1 [ undef, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread ], [ true, %79 ], [ false, %17 ]
-  %87 = and i1 %.lcssa.ph, %.2.ph
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %14, %._crit_edge.loopexit, %11, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %11 ], [ false, %14 ], [ %87, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %17, %79, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread, %14, %11, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %11 ], [ false, %14 ], [ false, %17 ], [ true, %79 ], [ false, %_ZN4llvm8dyn_castINS_13IntrinsicInstENS_4UserEEEDcPT0_.exit.thread ]
   ret i1 %.0
 }
 

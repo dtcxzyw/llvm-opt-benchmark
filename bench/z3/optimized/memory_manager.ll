@@ -401,12 +401,12 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
   %17 = load i64, ptr @_ZL17g_memory_max_size, align 8, !tbaa !12
   %.not = icmp ne i64 %17, 0
   %18 = icmp sgt i64 %8, %17
-  %or.cond13 = and i1 %.not, %18
+  %or.cond = and i1 %.not, %18
+  %spec.select = and i1 %0, %or.cond
   %19 = load i64, ptr @_ZL24g_memory_max_alloc_count, align 8, !tbaa !12
   %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #25
   store i64 0, ptr %5, align 8, !tbaa !12
-  %or.cond = and i1 %0, %or.cond13
-  br i1 %or.cond, label %21, label %22
+  br i1 %spec.select, label %21, label %22
 
 21:                                               ; preds = %16
   tail call fastcc void @_ZL19throw_out_of_memoryv()
@@ -415,9 +415,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 22:                                               ; preds = %16
   %.not11 = icmp ne i64 %19, 0
   %23 = icmp sgt i64 %12, %19
-  %or.cond15 = select i1 %.not11, i1 %23, i1 false
-  %or.cond3 = and i1 %0, %or.cond15
-  br i1 %or.cond3, label %24, label %25
+  %or.cond14 = select i1 %.not11, i1 %23, i1 false
+  %spec.select15 = and i1 %0, %or.cond14
+  br i1 %spec.select15, label %24, label %25
 
 24:                                               ; preds = %22
   tail call fastcc void @_ZL27throw_alloc_counts_exceededv()

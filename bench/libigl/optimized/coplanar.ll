@@ -3168,179 +3168,178 @@ define linkonce_odr dso_local i16 @_ZN4CGAL11collinearC3INS_11Interval_ntILb0EEE
   %83 = fcmp une double %77, %80
   %84 = fcmp une double %.sroa.0.8.vec.extract.i, %75
   %or.cond.not.i.i.i.i = or i1 %84, %83
-  %85 = sext i1 %or.cond.not.i.i.i.i to i32
-  %86 = zext i1 %or.cond.not.i.i.i.i to i32
+  %85 = select i1 %or.cond.not.i.i.i.i, i64 8589934591, i64 0
   br label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit
 
 _ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit: ; preds = %9, %78, %82
-  %.sroa.5.0.i.i.i.i = phi i32 [ 1, %9 ], [ -1, %78 ], [ %86, %82 ]
-  %.sroa.0.0.i.i.i.i = phi i32 [ 1, %9 ], [ -1, %78 ], [ %85, %82 ]
-  %87 = icmp slt i32 %.sroa.5.0.i.i.i.i, 0
-  %88 = icmp sgt i32 %.sroa.0.0.i.i.i.i, 0
-  %or.cond.i = or i1 %87, %88
-  %89 = icmp eq i32 %.sroa.0.0.i.i.i.i, %.sroa.5.0.i.i.i.i
-  %90 = zext i1 %89 to i16
-  %91 = or disjoint i16 %90, 256
-  %.sroa.02.0.insert.insert.i = select i1 %or.cond.i, i16 0, i16 %91
+  %.sroa.5.0.i.i.i.i = phi i64 [ 4294967297, %9 ], [ -1, %78 ], [ %85, %82 ]
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.5.0.i.i.i.i to i32
+  %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.5.0.i.i.i.i, 32
+  %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
+  %86 = icmp slt i64 %.sroa.5.0.i.i.i.i, 0
+  %87 = icmp sgt i32 %.sroa.0.0.extract.trunc.i, 0
+  %or.cond.i = or i1 %86, %87
+  %88 = icmp eq i32 %.sroa.0.0.extract.trunc.i, %.sroa.3.0.extract.trunc.i
+  %89 = zext i1 %88 to i16
+  %90 = or disjoint i16 %89, 256
+  %.sroa.02.0.insert.insert.i = select i1 %or.cond.i, i16 0, i16 %90
   %.sroa.0.0.extract.trunc.i.i = trunc i16 %.sroa.02.0.insert.insert.i to i8
   %.sroa.2.0.extract.shift.i.i = lshr i16 %.sroa.02.0.insert.insert.i, 8
   %.sroa.2.0.extract.trunc.i.i = trunc nuw nsw i16 %.sroa.2.0.extract.shift.i.i to i8
-  %92 = icmp ne i8 %.sroa.0.0.extract.trunc.i.i, %.sroa.2.0.extract.trunc.i.i
-  %93 = trunc i16 %.sroa.02.0.insert.insert.i to i1
-  %.not45 = or i1 %92, %93
-  br i1 %.not45, label %94, label %204
+  %91 = icmp ne i8 %.sroa.0.0.extract.trunc.i.i, %.sroa.2.0.extract.trunc.i.i
+  %92 = trunc i16 %.sroa.02.0.insert.insert.i to i1
+  %.not43 = or i1 %91, %92
+  br i1 %.not43, label %93, label %_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit
 
-94:                                               ; preds = %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit
-  %95 = load <2 x double>, ptr %8, align 16, !tbaa !58
-  %96 = shufflevector <2 x double> %95, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %97 = load <2 x double>, ptr %2, align 16, !tbaa !58
-  %98 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %97) #27, !srcloc !112
-  %99 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %96) #36, !srcloc !113
-  %100 = fadd <2 x double> %98, %99
-  %101 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %100) #27, !srcloc !112
-  %102 = load <2 x double>, ptr %8, align 16, !tbaa !58
-  %103 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %104 = load <2 x double>, ptr %5, align 16, !tbaa !58
-  %105 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %104) #27, !srcloc !112
-  %106 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %103) #36, !srcloc !113
-  %107 = fadd <2 x double> %105, %106
-  %108 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %107) #27, !srcloc !112
-  %109 = bitcast <2 x double> %108 to <2 x i64>
-  %110 = xor <2 x i64> %109, <i64 -9223372036854775808, i64 0>
-  %111 = bitcast <2 x i64> %110 to <2 x double>
-  %112 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %111) #27, !srcloc !112
-  %113 = shufflevector <2 x double> %112, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+93:                                               ; preds = %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit
+  %94 = load <2 x double>, ptr %8, align 16, !tbaa !58
+  %95 = shufflevector <2 x double> %94, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %96 = load <2 x double>, ptr %2, align 16, !tbaa !58
+  %97 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %96) #27, !srcloc !112
+  %98 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %95) #36, !srcloc !113
+  %99 = fadd <2 x double> %97, %98
+  %100 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %99) #27, !srcloc !112
+  %101 = load <2 x double>, ptr %8, align 16, !tbaa !58
+  %102 = shufflevector <2 x double> %101, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %103 = load <2 x double>, ptr %5, align 16, !tbaa !58
+  %104 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %103) #27, !srcloc !112
+  %105 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %102) #36, !srcloc !113
+  %106 = fadd <2 x double> %104, %105
+  %107 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %106) #27, !srcloc !112
+  %108 = bitcast <2 x double> %107 to <2 x i64>
+  %109 = xor <2 x i64> %108, <i64 -9223372036854775808, i64 0>
+  %110 = bitcast <2 x i64> %109 to <2 x double>
+  %111 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %110) #27, !srcloc !112
+  %112 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %113 = fmul <2 x double> %40, %111
   %114 = fmul <2 x double> %40, %112
-  %115 = fmul <2 x double> %40, %113
-  %116 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %115, <2 x double> splat (double 0x7FF0000000000000))
+  %115 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %114, <2 x double> splat (double 0x7FF0000000000000))
+  %116 = fmul <2 x double> %42, %111
   %117 = fmul <2 x double> %42, %112
-  %118 = fmul <2 x double> %42, %113
-  %119 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %118, <2 x double> splat (double 0x7FF0000000000000))
-  %120 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %114, <2 x double> %116)
-  %121 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %117, <2 x double> %119)
-  %122 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %120, <2 x double> %121)
-  %123 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %122) #27, !srcloc !112
-  %124 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %101) #36, !srcloc !113
-  %125 = fneg <2 x double> %124
-  %126 = shufflevector <2 x double> %125, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %127 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %61) #27, !srcloc !112
-  %128 = shufflevector <2 x double> %127, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %129 = fmul <2 x double> %124, %127
-  %130 = fmul <2 x double> %124, %128
-  %131 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %130, <2 x double> splat (double 0x7FF0000000000000))
-  %132 = fmul <2 x double> %126, %127
-  %133 = fmul <2 x double> %126, %128
-  %134 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %133, <2 x double> splat (double 0x7FF0000000000000))
-  %135 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %129, <2 x double> %131)
-  %136 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %132, <2 x double> %134)
-  %137 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %135, <2 x double> %136)
-  %138 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %137) #27, !srcloc !112
-  %139 = extractelement <2 x double> %123, i64 0
-  %140 = fneg double %139
-  %.sroa.0.8.vec.extract.i18 = extractelement <2 x double> %138, i64 1
-  %141 = fcmp olt double %.sroa.0.8.vec.extract.i18, %140
-  %142 = extractelement <2 x double> %123, i64 1
-  br i1 %141, label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit23, label %143
+  %118 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %117, <2 x double> splat (double 0x7FF0000000000000))
+  %119 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %113, <2 x double> %115)
+  %120 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %116, <2 x double> %118)
+  %121 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %119, <2 x double> %120)
+  %122 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %121) #27, !srcloc !112
+  %123 = tail call noundef <2 x double> asm "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %100) #36, !srcloc !113
+  %124 = fneg <2 x double> %123
+  %125 = shufflevector <2 x double> %124, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %126 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %61) #27, !srcloc !112
+  %127 = shufflevector <2 x double> %126, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %128 = fmul <2 x double> %123, %126
+  %129 = fmul <2 x double> %123, %127
+  %130 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %129, <2 x double> splat (double 0x7FF0000000000000))
+  %131 = fmul <2 x double> %125, %126
+  %132 = fmul <2 x double> %125, %127
+  %133 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %132, <2 x double> splat (double 0x7FF0000000000000))
+  %134 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %128, <2 x double> %130)
+  %135 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %131, <2 x double> %133)
+  %136 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %134, <2 x double> %135)
+  %137 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %136) #27, !srcloc !112
+  %138 = extractelement <2 x double> %122, i64 0
+  %139 = fneg double %138
+  %.sroa.0.8.vec.extract.i18 = extractelement <2 x double> %137, i64 1
+  %140 = fcmp olt double %.sroa.0.8.vec.extract.i18, %139
+  %141 = extractelement <2 x double> %122, i64 1
+  br i1 %140, label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit21, label %142
 
-143:                                              ; preds = %94
-  %144 = extractelement <2 x double> %138, i64 0
-  %145 = fneg double %144
-  %146 = fcmp olt double %142, %145
-  br i1 %146, label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit23, label %147
+142:                                              ; preds = %93
+  %143 = extractelement <2 x double> %137, i64 0
+  %144 = fneg double %143
+  %145 = fcmp olt double %141, %144
+  br i1 %145, label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit21, label %146
 
-147:                                              ; preds = %143
-  %148 = fcmp une double %142, %145
-  %149 = fcmp une double %.sroa.0.8.vec.extract.i18, %140
-  %or.cond.not.i.i.i.i19 = or i1 %149, %148
-  %150 = sext i1 %or.cond.not.i.i.i.i19 to i32
-  %151 = zext i1 %or.cond.not.i.i.i.i19 to i32
-  br label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit23
+146:                                              ; preds = %142
+  %147 = fcmp une double %141, %144
+  %148 = fcmp une double %.sroa.0.8.vec.extract.i18, %139
+  %or.cond.not.i.i.i.i19 = or i1 %148, %147
+  %149 = select i1 %or.cond.not.i.i.i.i19, i64 8589934591, i64 0
+  br label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit21
 
-_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit23: ; preds = %94, %143, %147
-  %.sroa.5.0.i.i.i.i20 = phi i32 [ 1, %94 ], [ -1, %143 ], [ %151, %147 ]
-  %.sroa.0.0.i.i.i.i21 = phi i32 [ 1, %94 ], [ -1, %143 ], [ %150, %147 ]
-  %152 = icmp slt i32 %.sroa.5.0.i.i.i.i20, 0
-  %153 = icmp sgt i32 %.sroa.0.0.i.i.i.i21, 0
-  %or.cond.i27 = or i1 %152, %153
-  %154 = icmp eq i32 %.sroa.0.0.i.i.i.i21, %.sroa.5.0.i.i.i.i20
-  %155 = zext i1 %154 to i16
-  %156 = or disjoint i16 %155, 256
-  %.sroa.02.0.insert.insert.i28 = select i1 %or.cond.i27, i16 0, i16 %156
-  %.sroa.0.0.extract.trunc.i.i.i = trunc i16 %.sroa.02.0.insert.insert.i28 to i8
-  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.02.0.insert.insert.i28, 8
+_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit21: ; preds = %93, %142, %146
+  %.sroa.5.0.i.i.i.i20 = phi i64 [ 4294967297, %93 ], [ -1, %142 ], [ %149, %146 ]
+  %.sroa.0.0.extract.trunc.i22 = trunc i64 %.sroa.5.0.i.i.i.i20 to i32
+  %.sroa.3.0.extract.shift.i23 = lshr i64 %.sroa.5.0.i.i.i.i20, 32
+  %.sroa.3.0.extract.trunc.i24 = trunc nuw i64 %.sroa.3.0.extract.shift.i23 to i32
+  %150 = icmp slt i64 %.sroa.5.0.i.i.i.i20, 0
+  %151 = icmp sgt i32 %.sroa.0.0.extract.trunc.i22, 0
+  %or.cond.i25 = or i1 %150, %151
+  %152 = icmp eq i32 %.sroa.0.0.extract.trunc.i22, %.sroa.3.0.extract.trunc.i24
+  %153 = zext i1 %152 to i16
+  %154 = or disjoint i16 %153, 256
+  %.sroa.02.0.insert.insert.i26 = select i1 %or.cond.i25, i16 0, i16 %154
+  %.sroa.0.0.extract.trunc.i.i.i = trunc i16 %.sroa.02.0.insert.insert.i26 to i8
+  %.sroa.2.0.extract.shift.i.i.i = lshr i16 %.sroa.02.0.insert.insert.i26, 8
   %.sroa.2.0.extract.trunc.i.i.i = trunc nuw nsw i16 %.sroa.2.0.extract.shift.i.i.i to i8
-  %157 = icmp ne i8 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.2.0.extract.trunc.i.i.i
-  %158 = trunc i16 %.sroa.02.0.insert.insert.i28 to i1
-  %.not7.i = or i1 %157, %158
-  br i1 %.not7.i, label %159, label %_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit
+  %155 = icmp ne i8 %.sroa.0.0.extract.trunc.i.i.i, %.sroa.2.0.extract.trunc.i.i.i
+  %156 = trunc i16 %.sroa.02.0.insert.insert.i26 to i1
+  %.not8.i = or i1 %155, %156
+  br i1 %.not8.i, label %157, label %_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit
 
-159:                                              ; preds = %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit23
-  %160 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %111) #27, !srcloc !112
-  %161 = shufflevector <2 x double> %160, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %162 = fmul <2 x double> %57, %160
-  %163 = fmul <2 x double> %57, %161
-  %164 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %163, <2 x double> splat (double 0x7FF0000000000000))
-  %165 = fmul <2 x double> %59, %160
-  %166 = fmul <2 x double> %59, %161
-  %167 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %166, <2 x double> splat (double 0x7FF0000000000000))
-  %168 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %162, <2 x double> %164)
-  %169 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %165, <2 x double> %167)
-  %170 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %168, <2 x double> %169)
-  %171 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %170) #27, !srcloc !112
-  %172 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44) #27, !srcloc !112
-  %173 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  %174 = fmul <2 x double> %124, %172
-  %175 = fmul <2 x double> %124, %173
-  %176 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %175, <2 x double> splat (double 0x7FF0000000000000))
-  %177 = fmul <2 x double> %126, %172
-  %178 = fmul <2 x double> %126, %173
-  %179 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %178, <2 x double> splat (double 0x7FF0000000000000))
-  %180 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %174, <2 x double> %176)
-  %181 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %177, <2 x double> %179)
-  %182 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %180, <2 x double> %181)
-  %183 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %182) #27, !srcloc !112
-  %184 = extractelement <2 x double> %171, i64 0
-  %185 = fneg double %184
-  %.sroa.0.8.vec.extract.i.i.i = extractelement <2 x double> %183, i64 1
-  %186 = fcmp olt double %.sroa.0.8.vec.extract.i.i.i, %185
-  %187 = extractelement <2 x double> %171, i64 1
-  br i1 %186, label %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i, label %188
+157:                                              ; preds = %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit21
+  %158 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %110) #27, !srcloc !112
+  %159 = shufflevector <2 x double> %158, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %160 = fmul <2 x double> %57, %158
+  %161 = fmul <2 x double> %57, %159
+  %162 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %161, <2 x double> splat (double 0x7FF0000000000000))
+  %163 = fmul <2 x double> %59, %158
+  %164 = fmul <2 x double> %59, %159
+  %165 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %164, <2 x double> splat (double 0x7FF0000000000000))
+  %166 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %160, <2 x double> %162)
+  %167 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %163, <2 x double> %165)
+  %168 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %166, <2 x double> %167)
+  %169 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %168) #27, !srcloc !112
+  %170 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %44) #27, !srcloc !112
+  %171 = shufflevector <2 x double> %170, <2 x double> poison, <2 x i32> <i32 1, i32 0>
+  %172 = fmul <2 x double> %123, %170
+  %173 = fmul <2 x double> %123, %171
+  %174 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %173, <2 x double> splat (double 0x7FF0000000000000))
+  %175 = fmul <2 x double> %125, %170
+  %176 = fmul <2 x double> %125, %171
+  %177 = tail call noundef <2 x double> @llvm.x86.sse2.min.pd(<2 x double> %176, <2 x double> splat (double 0x7FF0000000000000))
+  %178 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %172, <2 x double> %174)
+  %179 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %175, <2 x double> %177)
+  %180 = tail call noundef <2 x double> @llvm.x86.sse2.max.pd(<2 x double> %178, <2 x double> %179)
+  %181 = tail call noundef <2 x double> asm sideeffect "", "=x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %180) #27, !srcloc !112
+  %182 = extractelement <2 x double> %169, i64 0
+  %183 = fneg double %182
+  %.sroa.0.8.vec.extract.i.i.i = extractelement <2 x double> %181, i64 1
+  %184 = fcmp olt double %.sroa.0.8.vec.extract.i.i.i, %183
+  %185 = extractelement <2 x double> %169, i64 1
+  br i1 %184, label %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i, label %186
 
-188:                                              ; preds = %159
-  %189 = extractelement <2 x double> %183, i64 0
-  %190 = fneg double %189
-  %191 = fcmp olt double %187, %190
-  br i1 %191, label %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i, label %192
+186:                                              ; preds = %157
+  %187 = extractelement <2 x double> %181, i64 0
+  %188 = fneg double %187
+  %189 = fcmp olt double %185, %188
+  br i1 %189, label %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i, label %190
 
-192:                                              ; preds = %188
-  %193 = fcmp une double %187, %190
-  %194 = fcmp une double %.sroa.0.8.vec.extract.i.i.i, %185
-  %or.cond.not.i.i.i.i.i.i = or i1 %194, %193
-  %195 = sext i1 %or.cond.not.i.i.i.i.i.i to i32
-  %196 = zext i1 %or.cond.not.i.i.i.i.i.i to i32
+190:                                              ; preds = %186
+  %191 = fcmp une double %185, %188
+  %192 = fcmp une double %.sroa.0.8.vec.extract.i.i.i, %183
+  %or.cond.not.i.i.i.i.i.i = or i1 %192, %191
+  %193 = select i1 %or.cond.not.i.i.i.i.i.i, i64 8589934591, i64 0
   br label %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i
 
-_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i: ; preds = %192, %188, %159
-  %.sroa.5.0.i.i.i.i.i.i = phi i32 [ 1, %159 ], [ -1, %188 ], [ %196, %192 ]
-  %.sroa.0.0.i.i.i.i.i.i = phi i32 [ 1, %159 ], [ -1, %188 ], [ %195, %192 ]
-  %197 = icmp slt i32 %.sroa.5.0.i.i.i.i.i.i, 0
-  %198 = icmp sgt i32 %.sroa.0.0.i.i.i.i.i.i, 0
-  %or.cond.i.i.i = or i1 %197, %198
-  %199 = icmp eq i32 %.sroa.0.0.i.i.i.i.i.i, %.sroa.5.0.i.i.i.i.i.i
-  %200 = zext i1 %199 to i16
-  %201 = or disjoint i16 %200, 256
-  %.sroa.02.0.insert.insert.i.i.i = select i1 %or.cond.i.i.i, i16 0, i16 %201
-  %202 = and i16 %.sroa.02.0.insert.insert.i.i.i, %.sroa.02.0.insert.insert.i28
+_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i: ; preds = %190, %186, %157
+  %.sroa.5.0.i.i.i.i.i.i = phi i64 [ 4294967297, %157 ], [ -1, %186 ], [ %193, %190 ]
+  %.sroa.0.0.extract.trunc.i.i7.i = trunc i64 %.sroa.5.0.i.i.i.i.i.i to i32
+  %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.5.0.i.i.i.i.i.i, 32
+  %.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i32
+  %194 = icmp slt i64 %.sroa.5.0.i.i.i.i.i.i, 0
+  %195 = icmp sgt i32 %.sroa.0.0.extract.trunc.i.i7.i, 0
+  %or.cond.i.i.i = or i1 %194, %195
+  %196 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i7.i, %.sroa.3.0.extract.trunc.i.i.i
+  %197 = zext i1 %196 to i16
+  %198 = or disjoint i16 %197, 256
+  %.sroa.02.0.insert.insert.i.i.i = select i1 %or.cond.i.i.i, i16 0, i16 %198
+  %199 = and i16 %.sroa.02.0.insert.insert.i, %.sroa.02.0.insert.insert.i.i.i
+  %200 = and i16 %199, %.sroa.02.0.insert.insert.i26
   br label %_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit
 
-_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit: ; preds = %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit23, %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i
-  %.sroa.06.0.i = phi i16 [ %202, %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i ], [ 0, %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit23 ]
-  %203 = and i16 %.sroa.06.0.i, %.sroa.02.0.insert.insert.i
-  br label %204
-
-204:                                              ; preds = %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit, %_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit
-  %.sroa.035.0.insert.insert = phi i16 [ %203, %_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit ], [ 0, %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit ]
-  ret i16 %.sroa.035.0.insert.insert
+_ZN4CGAL8internal13cgal_and_implIZNS_11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S6_E11result_typeERKS6_SA_SA_SA_SA_SA_SA_SA_SA_EUlvE_EENS_9UncertainIbEERKSD_OS6_.exit: ; preds = %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i, %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit21, %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit
+  %.sroa.033.0.insert.insert = phi i16 [ 0, %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit ], [ %200, %_ZZN4CGAL11collinearC3INS_11Interval_ntILb0EEEEENS_8Equal_toIT_S4_E11result_typeERKS4_S8_S8_S8_S8_S8_S8_S8_S8_ENKUlvE_clEv.exit.i ], [ 0, %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit21 ]
+  ret i16 %.sroa.033.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
@@ -7675,8 +7674,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   br label %123
 
 123:                                              ; preds = %.noexc, %118, %120, %122
-  %124 = phi i1 [ true, %122 ], [ false, %.noexc ], [ false, %118 ], [ false, %120 ]
-  %.sroa.0.0.i.i.i.i.i.i = phi i32 [ -1, %122 ], [ 1, %.noexc ], [ -1, %118 ], [ 0, %120 ]
+  %.sroa.5.0.i.i.i.i.i.i = phi i64 [ 8589934591, %122 ], [ 4294967297, %.noexc ], [ -1, %118 ], [ 0, %120 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
@@ -7686,6 +7684,10 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.5.0.i.i.i.i.i.i to i32
+  %.sroa.2.0.extract.shift.i = lshr i64 %.sroa.5.0.i.i.i.i.i.i, 32
+  %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
+  %124 = icmp ne i32 %.sroa.0.0.extract.trunc.i, %.sroa.2.0.extract.trunc.i
   br label %131
 
 125:                                              ; preds = %5
@@ -7705,7 +7707,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK4CGAL24Filtered_predicate_RT_FTIN
 
 131:                                              ; preds = %123, %129
   %.119 = phi i1 [ true, %129 ], [ %124, %123 ]
-  %.1 = phi i32 [ undef, %129 ], [ %.sroa.0.0.i.i.i.i.i.i, %123 ]
+  %.1 = phi i32 [ undef, %129 ], [ %.sroa.0.0.extract.trunc.i, %123 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.x86.sse.stmxcsr(ptr nonnull %8)

@@ -694,7 +694,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %8 = tail call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKNS_15ChineseCalendar7SettingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %9 = load i32, ptr %3, align 4, !tbaa !21
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %98
+  br i1 %10, label %11, label %100
 
 11:                                               ; preds = %7
   %12 = icmp slt i32 %2, %8
@@ -720,12 +720,12 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
 
 .thread:                                          ; preds = %19
   store i32 1, ptr %3, align 4, !tbaa !21
-  br label %98
+  br label %100
 
 21:                                               ; preds = %19
   %.pre = load i32, ptr %3, align 4, !tbaa !21
   %22 = icmp slt i32 %.pre, 1
-  br i1 %22, label %23, label %98
+  br i1 %22, label %23, label %100
 
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -738,7 +738,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %31 = tail call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_111newMoonNearEPKNS_8TimeZoneEdaR10UErrorCode(ptr noundef %25, double noundef %30, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %32 = load i32, ptr %3, align 4, !tbaa !21
   %33 = icmp slt i32 %32, 1
-  br i1 %33, label %34, label %98
+  br i1 %33, label %34, label %100
 
 34:                                               ; preds = %23
   %35 = add nsw i32 %2, 1
@@ -747,7 +747,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %.sroa.12.8.insert.ext = zext i32 %37 to i64
   %38 = load i32, ptr %3, align 4, !tbaa !21
   %39 = icmp slt i32 %38, 1
-  br i1 %39, label %40, label %98
+  br i1 %39, label %40, label %100
 
 40:                                               ; preds = %34
   %41 = sub nsw i32 %31, %28
@@ -771,7 +771,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %57 = tail call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15ChineseCalendar7SettingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %58 = load i32, ptr %3, align 4, !tbaa !21
   %59 = icmp slt i32 %58, 1
-  br i1 %59, label %60, label %96
+  br i1 %59, label %60, label %97
 
 60:                                               ; preds = %40
   %61 = icmp slt i32 %2, %57
@@ -782,7 +782,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %64 = tail call fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_17newYearERKNS_15ChineseCalendar7SettingEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %65 = load i32, ptr %3, align 4, !tbaa !21
   %66 = icmp slt i32 %65, 1
-  br i1 %66, label %67, label %96
+  br i1 %66, label %67, label %97
 
 67:                                               ; preds = %62, %60
   %.0 = phi i32 [ %64, %62 ], [ %57, %60 ]
@@ -795,7 +795,7 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %spec.select = add nsw i32 %70, %56
   %.pre99 = load i32, ptr %3, align 4, !tbaa !21
   %71 = icmp slt i32 %.pre99, 1
-  br i1 %71, label %.thread104, label %96
+  br i1 %71, label %.thread104, label %97
 
 .thread104:                                       ; preds = %67, %68
   %.sroa.0.sroa.0.4106 = phi i32 [ %spec.select, %68 ], [ %56, %67 ]
@@ -812,12 +812,12 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %81 = icmp slt i32 %80, 0
   %82 = add nsw i32 %80, 12
   %.sroa.0.sroa.8.4 = select i1 %81, i32 %82, i32 %80
-  br i1 %49, label %83, label %93
+  br i1 %49, label %83, label %94
 
 83:                                               ; preds = %.thread104
   %84 = tail call fastcc noundef signext i8 @_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode(ptr noundef %25, i32 noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %.not96 = icmp eq i8 %84, 0
-  br i1 %.not96, label %93, label %85
+  br i1 %.not96, label %94, label %85
 
 85:                                               ; preds = %83
   %86 = add nsw i32 %37, -25
@@ -827,32 +827,26 @@ define internal fastcc { i64, i64 } @_ZN6icu_7712_GLOBAL__N_116computeMonthInfoE
   %90 = xor i8 %89, 1
   %91 = zext nneg i8 %90 to i64
   %92 = shl nuw nsw i64 %91, 32
-  br label %93
+  %93 = or disjoint i64 %92, %.sroa.12.13.insert.insert
+  br label %94
 
-93:                                               ; preds = %85, %83, %.thread104
-  %.sroa.12.12.insert.ext = phi i64 [ 0, %83 ], [ 0, %.thread104 ], [ %92, %85 ]
-  %.sroa.12.12.insert.insert = or i64 %.sroa.12.12.insert.ext, %.sroa.12.13.insert.insert
-  %94 = zext i32 %.sroa.0.sroa.8.4 to i64
-  %95 = shl nuw i64 %94, 32
-  br label %96
+94:                                               ; preds = %85, %83, %.thread104
+  %.sroa.12.12.insert.ext = phi i64 [ %.sroa.12.13.insert.insert, %83 ], [ %.sroa.12.13.insert.insert, %.thread104 ], [ %93, %85 ]
+  %95 = zext i32 %.sroa.0.sroa.8.4 to i64
+  %96 = shl nuw i64 %95, 32
+  br label %97
 
-96:                                               ; preds = %68, %62, %40, %93
-  %.sroa.12.3 = phi i64 [ %.sroa.12.12.insert.insert, %93 ], [ %.sroa.12.13.insert.insert, %40 ], [ %.sroa.12.13.insert.insert, %62 ], [ %.sroa.12.13.insert.insert, %68 ]
-  %.sroa.0.sroa.8.3 = phi i64 [ %95, %93 ], [ 0, %40 ], [ 0, %62 ], [ 0, %68 ]
-  %.sroa.0.sroa.0.3 = phi i32 [ %spec.select98, %93 ], [ %56, %40 ], [ %56, %62 ], [ %spec.select, %68 ]
-  %97 = zext i32 %.sroa.0.sroa.0.3 to i64
-  br label %98
-
-98:                                               ; preds = %.thread, %96, %23, %34, %21, %7
-  %.sroa.12.1 = phi i64 [ 0, %7 ], [ 0, %21 ], [ %.sroa.12.3, %96 ], [ 0, %23 ], [ %.sroa.12.8.insert.ext, %34 ], [ 0, %.thread ]
-  %.sroa.0.sroa.8.1 = phi i64 [ 0, %7 ], [ 0, %21 ], [ %.sroa.0.sroa.8.3, %96 ], [ 0, %23 ], [ 0, %34 ], [ 0, %.thread ]
-  %.sroa.0.sroa.0.1 = phi i64 [ 0, %7 ], [ 0, %21 ], [ %97, %96 ], [ 0, %23 ], [ 0, %34 ], [ 0, %.thread ]
-  %99 = or i64 %.sroa.0.sroa.0.1, %.sroa.0.sroa.8.1
+97:                                               ; preds = %68, %62, %40, %94
+  %.sroa.12.3 = phi i64 [ %.sroa.12.12.insert.ext, %94 ], [ %.sroa.12.13.insert.insert, %40 ], [ %.sroa.12.13.insert.insert, %62 ], [ %.sroa.12.13.insert.insert, %68 ]
+  %.sroa.0.sroa.8.3 = phi i64 [ %96, %94 ], [ 0, %40 ], [ 0, %62 ], [ 0, %68 ]
+  %.sroa.0.sroa.0.3 = phi i32 [ %spec.select98, %94 ], [ %56, %40 ], [ %56, %62 ], [ %spec.select, %68 ]
+  %98 = zext i32 %.sroa.0.sroa.0.3 to i64
+  %99 = or disjoint i64 %.sroa.0.sroa.8.3, %98
   br label %100
 
-100:                                              ; preds = %4, %98
-  %.sroa.12.0 = phi i64 [ 0, %4 ], [ %.sroa.12.1, %98 ]
-  %.sroa.0.sroa.0.0.insert.insert = phi i64 [ 0, %4 ], [ %99, %98 ]
+100:                                              ; preds = %.thread, %7, %21, %34, %23, %97, %4
+  %.sroa.12.0 = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %21 ], [ %.sroa.12.3, %97 ], [ 0, %23 ], [ %.sroa.12.8.insert.ext, %34 ], [ 0, %.thread ]
+  %.sroa.0.sroa.0.0.insert.insert = phi i64 [ 0, %4 ], [ 0, %7 ], [ 0, %21 ], [ %99, %97 ], [ 0, %23 ], [ 0, %34 ], [ 0, %.thread ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.0.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.12.0, 1
   ret { i64, i64 } %.fca.1.insert
@@ -915,14 +909,14 @@ define void @_ZN6icu_7715ChineseCalendar3addENS_8Calendar11EDateFieldsEiR10UErro
 define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %"struct.icu_77::ChineseCalendar::Setting", align 8
-  switch i32 %1, label %68 [
+  switch i32 %1, label %69 [
     i32 2, label %7
     i32 23, label %7
   ]
 
 7:                                                ; preds = %4, %4
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %69, label %8
+  br i1 %.not, label %70, label %8
 
 8:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -936,7 +930,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
   %15 = call noundef i32 @_ZNK6icu_778Calendar3getE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef 22, ptr noundef nonnull align 4 dereferenceable(4) %3)
   %16 = load i32, ptr %3, align 4, !tbaa !21
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %18, label %67
+  br i1 %17, label %18, label %68
 
 18:                                               ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1013,38 +1007,40 @@ _ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit
 
 _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread: ; preds = %_ZN6icu_7712_GLOBAL__N_119hasNoMajorSolarTermEPKNS_8TimeZoneEiR10UErrorCode.exit.thread.i.i, %56, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %67
+  br label %68
 
 _ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit: ; preds = %.loopexit.thread46.i
   %57 = load i32, ptr %5, align 4, !tbaa !20
-  %58 = srem i32 %57, %54
-  %59 = icmp slt i32 %58, 0
-  %60 = select i1 %59, i32 %54, i32 0
-  %spec.select38.i = add nsw i32 %60, %58
   %.pre = load i32, ptr %3, align 4, !tbaa !21
-  %61 = icmp sgt i32 %.pre, 0
+  %58 = icmp slt i32 %.pre, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br i1 %58, label %59, label %68
+
+59:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit
+  %60 = srem i32 %57, %54
+  %61 = icmp slt i32 %60, 0
+  %62 = select i1 %61, i32 %54, i32 0
+  %spec.select38.i = add nsw i32 %62, %60
   %.not28 = icmp eq i32 %spec.select38.i, %.031.i
-  %or.cond = select i1 %61, i1 true, i1 %.not28
-  br i1 %or.cond, label %67, label %62
+  br i1 %.not28, label %68, label %63
 
-62:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit
-  %63 = sub nsw i32 %spec.select38.i, %.031.i
-  %64 = load ptr, ptr %0, align 8, !tbaa !3
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 448
-  %66 = load ptr, ptr %65, align 8
-  call void %66(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %24, i32 noundef %14, i32 noundef %63, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %67
+63:                                               ; preds = %59
+  %64 = sub nsw i32 %spec.select38.i, %.031.i
+  %65 = load ptr, ptr %0, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 448
+  %67 = load ptr, ptr %66, align 8
+  call void %67(ptr noundef nonnull align 8 dereferenceable(193) %0, i32 noundef %24, i32 noundef %14, i32 noundef %64, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  br label %68
 
-67:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread, %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit, %62, %8
+68:                                               ; preds = %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit.thread, %_ZN6icu_7712_GLOBAL__N_19rollMonthEPKNS_8TimeZoneEiiiibbR10UErrorCode.exit, %63, %59, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %69
+  br label %70
 
-68:                                               ; preds = %4
+69:                                               ; preds = %4
   tail call void @_ZN6icu_778Calendar4rollE19UCalendarDateFieldsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %69
+  br label %70
 
-69:                                               ; preds = %67, %7, %68
+70:                                               ; preds = %68, %7, %69
   ret void
 }
 

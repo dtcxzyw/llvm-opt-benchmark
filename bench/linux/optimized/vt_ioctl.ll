@@ -772,11 +772,11 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %.fr = freeze i32 %271
   %272 = icmp ugt i32 %.fr, 1
   %spec.select = select i1 %272, i16 %255, i16 0
+  %273 = or i16 %spec.select, %254
   br label %.thread28
 
 .thread28:                                        ; preds = %269, %267
-  %273 = phi i16 [ 0, %267 ], [ %spec.select, %269 ]
-  %274 = or i16 %273, %254
+  %274 = phi i16 [ %254, %267 ], [ %273, %269 ]
   %275 = add nuw nsw i64 %253, 1
   %276 = shl i16 %255, 1
   %277 = icmp eq i64 %275, 15

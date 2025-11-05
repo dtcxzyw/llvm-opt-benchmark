@@ -10196,26 +10196,26 @@ Vec_IntPush.exit190:                              ; preds = %.Vec_IntGrow.exit10
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 88
   %264 = load i32, ptr %263, align 8, !tbaa !91
   %.not138 = icmp eq i32 %264, 0
-  br i1 %.not138, label %268, label %265
+  br i1 %.not138, label %269, label %265
 
 265:                                              ; preds = %.critedge6
   %.val168 = load i32, ptr %135, align 4, !tbaa !14
   %266 = lshr i32 %.val168, 8
   %267 = and i32 %266, 1
-  br label %268
+  %268 = xor i32 %267, %261
+  br label %269
 
-268:                                              ; preds = %265, %.critedge6
-  %269 = phi i32 [ 0, %.critedge6 ], [ %267, %265 ]
-  %270 = xor i32 %269, %261
+269:                                              ; preds = %265, %.critedge6
+  %270 = phi i32 [ %261, %.critedge6 ], [ %268, %265 ]
   %.val148 = load ptr, ptr %66, align 8, !tbaa !13
   %271 = getelementptr inbounds nuw i32, ptr %.val148, i64 %indvars.iv228
   store i32 %270, ptr %271, align 4, !tbaa !14
   %.pre235 = load ptr, ptr %0, align 8, !tbaa !59
   br label %272
 
-272:                                              ; preds = %268, %108, %112, %119, %145, %142
-  %273 = phi ptr [ %105, %112 ], [ %105, %119 ], [ %105, %142 ], [ %105, %145 ], [ %.pre235, %268 ], [ %105, %108 ]
-  %.1 = phi ptr [ %.0212, %112 ], [ %.0212, %119 ], [ %.0212, %142 ], [ %.0212, %145 ], [ %.2, %268 ], [ %.0212, %108 ]
+272:                                              ; preds = %269, %108, %112, %119, %145, %142
+  %273 = phi ptr [ %105, %112 ], [ %105, %119 ], [ %105, %142 ], [ %105, %145 ], [ %.pre235, %269 ], [ %105, %108 ]
+  %.1 = phi ptr [ %.0212, %112 ], [ %.0212, %119 ], [ %.0212, %142 ], [ %.0212, %145 ], [ %.2, %269 ], [ %.0212, %108 ]
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 24
   %275 = load i32, ptr %274, align 8, !tbaa !41

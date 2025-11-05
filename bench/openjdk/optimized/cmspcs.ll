@@ -688,25 +688,25 @@ cmsLab2LCh.exit27:                                ; preds = %28, %cmsLab2LCh.exi
   %41 = fmul double %30, %30
   %42 = fsub double %40, %41
   %43 = fcmp olt double %42, 0.000000e+00
-  br i1 %43, label %46, label %44
+  br i1 %43, label %47, label %44
 
 44:                                               ; preds = %cmsLab2LCh.exit27
   %45 = tail call double @pow(double noundef %42, double noundef 5.000000e-01) #12
-  br label %46
+  %46 = fmul double %45, %45
+  br label %47
 
-46:                                               ; preds = %cmsLab2LCh.exit27, %44
-  %.0 = phi double [ %45, %44 ], [ 0.000000e+00, %cmsLab2LCh.exit27 ]
-  %47 = fmul double %13, %25
-  %48 = tail call double @sqrt(double noundef %47) #12
-  %49 = tail call double @llvm.fmuladd.f64(double %48, double 4.800000e-02, double 1.000000e+00)
-  %50 = tail call double @llvm.fmuladd.f64(double %48, double 1.400000e-02, double 1.000000e+00)
-  %51 = fmul double %49, %49
-  %52 = fdiv double %41, %51
-  %53 = fadd double %33, %52
-  %54 = fmul double %.0, %.0
-  %55 = fmul double %50, %50
-  %56 = fdiv double %54, %55
-  %57 = fadd double %56, %53
+47:                                               ; preds = %cmsLab2LCh.exit27, %44
+  %.0 = phi double [ %46, %44 ], [ 0.000000e+00, %cmsLab2LCh.exit27 ]
+  %48 = fmul double %13, %25
+  %49 = tail call double @sqrt(double noundef %48) #12
+  %50 = tail call double @llvm.fmuladd.f64(double %49, double 4.800000e-02, double 1.000000e+00)
+  %51 = tail call double @llvm.fmuladd.f64(double %49, double 1.400000e-02, double 1.000000e+00)
+  %52 = fmul double %50, %50
+  %53 = fdiv double %41, %52
+  %54 = fadd double %33, %53
+  %55 = fmul double %51, %51
+  %56 = fdiv double %.0, %55
+  %57 = fadd double %56, %54
   %sqrt = tail call double @llvm.sqrt.f64(double %57)
   ret double %sqrt
 }

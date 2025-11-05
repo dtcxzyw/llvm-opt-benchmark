@@ -17029,7 +17029,7 @@ _ZN3std9panicking3try17h6b878fa82e8e1ea1E.exit:   ; preds = %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @_ZN5salsa9Cancelled5catch17h30d5b0eea5099c9dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden range(i64 0, -4294967295) i64 @_ZN5salsa9Cancelled5catch17h30d5b0eea5099c9dE(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2526
   store ptr %0, ptr %3, align 8, !noalias !2526
@@ -17076,22 +17076,21 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5salsa9Cancelled5catch17h30d5b0e
 
 "_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit": ; preds = %9
   %22 = icmp eq i128 %16, -56954579452866256418976869370792321553
-  br i1 %22, label %24, label %28
+  br i1 %22, label %24, label %29
 
 23:                                               ; preds = %24, %5
-  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 1, %24 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %8, %5 ], [ %27, %24 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.3.0.insert.insert = phi i64 [ %8, %5 ], [ %28, %24 ]
+  ret i64 %.sroa.3.0.insert.insert
 
 24:                                               ; preds = %"_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit"
   %25 = load i8, ptr %12, align 1, !range !164, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef 1, i64 noundef 1) #33, !noalias !2537
   %26 = zext nneg i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 8
+  %28 = or disjoint i64 %27, 1
   br label %23
 
-28:                                               ; preds = %"_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit"
+29:                                               ; preds = %"_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit"
   call void @_ZN3std5panic13resume_unwind17h9069d5fb4eed56f5E(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13) #32
   unreachable
 }
@@ -18762,7 +18761,7 @@ _ZN3std9panicking3try17h4dabf00e3fffcaf5E.exit:   ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, -4294967294) i64 @_ZN5salsa9Cancelled5catch17h99da69599f066314E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden range(i64 0, -4294967295) i64 @_ZN5salsa9Cancelled5catch17h99da69599f066314E(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2873
   store ptr %0, ptr %3, align 8, !noalias !2873
@@ -18809,22 +18808,21 @@ define hidden range(i64 0, -4294967294) i64 @_ZN5salsa9Cancelled5catch17h99da695
 
 "_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit": ; preds = %9
   %22 = icmp eq i128 %16, -56954579452866256418976869370792321553
-  br i1 %22, label %24, label %28
+  br i1 %22, label %24, label %29
 
 23:                                               ; preds = %24, %5
-  %.sroa.0.0 = phi i64 [ 0, %5 ], [ 1, %24 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %8, %5 ], [ %27, %24 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.3.0.insert.insert = phi i64 [ %8, %5 ], [ %28, %24 ]
+  ret i64 %.sroa.3.0.insert.insert
 
 24:                                               ; preds = %"_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit"
   %25 = load i8, ptr %12, align 1, !range !164, !noundef !9
   call void @__rust_dealloc(ptr noundef nonnull %12, i64 noundef 1, i64 noundef 1) #33, !noalias !2884
   %26 = zext nneg i8 %25 to i64
   %27 = shl nuw nsw i64 %26, 8
+  %28 = or disjoint i64 %27, 1
   br label %23
 
-28:                                               ; preds = %"_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit"
+29:                                               ; preds = %"_ZN5alloc5boxed60Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$C$A$GT$8downcast17hf142a806f44a37f0E.llvm.12365927602548799003.exit"
   call void @_ZN3std5panic13resume_unwind17h9069d5fb4eed56f5E(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13) #32
   unreachable
 }

@@ -1200,8 +1200,8 @@ StressMajorizationSmoother_delete.exit:           ; preds = %57, %56
   %70 = load ptr, ptr %69, align 8, !tbaa !36
   store i32 0, ptr %64, align 4, !tbaa !22
   store i32 0, ptr %60, align 4, !tbaa !22
-  %.not245 = icmp eq i32 %4, 0
-  br i1 %.not245, label %._crit_edge204, label %.lr.ph197.preheader
+  %.not244 = icmp eq i32 %4, 0
+  br i1 %.not244, label %._crit_edge204, label %.lr.ph197.preheader
 
 .lr.ph197.preheader:                              ; preds = %58
   %wide.trip.count219 = zext nneg i32 %4 to i64
@@ -1336,13 +1336,13 @@ StressMajorizationSmoother_delete.exit167:        ; preds = %._crit_edge198
   br i1 %exitcond225.not, label %._crit_edge204, label %.lr.ph203, !llvm.loop !59
 
 ._crit_edge204:                                   ; preds = %.lr.ph203, %58, %.preheader
-  %.0152.lcssa241243 = phi i32 [ %114, %.preheader ], [ 0, %58 ], [ %114, %.lr.ph203 ]
+  %.0152.lcssa240242 = phi i32 [ %114, %.preheader ], [ 0, %58 ], [ %114, %.lr.ph203 ]
   %123 = phi double [ %117, %.preheader ], [ 0x7FF8000000000000, %58 ], [ %117, %.lr.ph203 ]
   store double %123, ptr %25, align 8, !tbaa !16
   %124 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 %.0152.lcssa241243, ptr %124, align 8, !tbaa !42
+  store i32 %.0152.lcssa240242, ptr %124, align 8, !tbaa !42
   %125 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 %.0152.lcssa241243, ptr %125, align 8, !tbaa !42
+  store i32 %.0152.lcssa240242, ptr %125, align 8, !tbaa !42
   br label %126
 
 126:                                              ; preds = %._crit_edge204, %StressMajorizationSmoother_delete.exit167, %StressMajorizationSmoother_delete.exit

@@ -83773,7 +83773,7 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   invoke void @_ZN6yara_x7modules2pe6parser2PE18get_dir_entry_data17h0c0db5cc34ffb1d1E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %25, ptr noundef nonnull align 8 %27, i64 noundef 14, i1 noundef zeroext false)
           to label %36 unwind label %34
 
-.thread355:                                       ; preds = %248, %34
+.thread353:                                       ; preds = %248, %34
   %.pn200 = phi { ptr, i32 } [ %35, %34 ], [ %.pn, %248 ]
   invoke void @"_ZN4core3ptr52drop_in_place$LT$yara_x..modules..pe..parser..PE$GT$17h8d24d5c9736b798bE"(ptr noalias noundef nonnull align 8 dereferenceable(568) %27) #29
           to label %374 unwind label %281
@@ -83781,7 +83781,7 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
 34:                                               ; preds = %152, %147, %140, %135, %130, %125, %120, %101, %81, %69, %65, %61, %57, %53, %49, %45, %41, %94, %73, %33
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread355
+  br label %.thread353
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -84334,25 +84334,25 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   br i1 %167, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %164, %290
-  %.sroa.3119.0386 = phi i64 [ %.sroa.3119.1, %290 ], [ undef, %164 ]
-  %.sroa.0118.0385 = phi i1 [ %.sroa.0118.1, %290 ], [ false, %164 ]
-  %.sroa.3114.0384 = phi i64 [ %.sroa.3114.1, %290 ], [ undef, %164 ]
-  %.sroa.0113.0383 = phi i64 [ %.sroa.0113.1, %290 ], [ 0, %164 ]
-  %.sroa.3112.0382 = phi i64 [ %.sroa.3112.1, %290 ], [ undef, %164 ]
-  %.sroa.0111.0381 = phi i64 [ %.sroa.0111.1, %290 ], [ 0, %164 ]
-  %.sroa.3110.0380 = phi i64 [ %.sroa.3110.1, %290 ], [ undef, %164 ]
-  %.sroa.0109.0379 = phi i64 [ %.sroa.0109.1, %290 ], [ 0, %164 ]
-  %.sroa.3108.0378 = phi i64 [ %.sroa.3108.1, %290 ], [ undef, %164 ]
-  %.sroa.0107.0377 = phi i64 [ %.sroa.0107.1, %290 ], [ 0, %164 ]
-  %.sroa.0262.0376 = phi ptr [ %168, %290 ], [ %165, %164 ]
-  %.sroa.7.0375 = phi i64 [ %169, %290 ], [ 0, %164 ]
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0262.0376, i64 24
-  %169 = add nuw nsw i64 %.sroa.7.0375, 1
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0262.0376, i64 16
+  %.sroa.3119.0384 = phi i64 [ %.sroa.3119.1, %290 ], [ undef, %164 ]
+  %.sroa.0118.0383 = phi i1 [ %.sroa.0118.1, %290 ], [ false, %164 ]
+  %.sroa.3114.0382 = phi i64 [ %.sroa.3114.1, %290 ], [ undef, %164 ]
+  %.sroa.0113.0381 = phi i64 [ %.sroa.0113.1, %290 ], [ 0, %164 ]
+  %.sroa.3112.0380 = phi i64 [ %.sroa.3112.1, %290 ], [ undef, %164 ]
+  %.sroa.0111.0379 = phi i64 [ %.sroa.0111.1, %290 ], [ 0, %164 ]
+  %.sroa.3110.0378 = phi i64 [ %.sroa.3110.1, %290 ], [ undef, %164 ]
+  %.sroa.0109.0377 = phi i64 [ %.sroa.0109.1, %290 ], [ 0, %164 ]
+  %.sroa.3108.0376 = phi i64 [ %.sroa.3108.1, %290 ], [ undef, %164 ]
+  %.sroa.0107.0375 = phi i64 [ %.sroa.0107.1, %290 ], [ 0, %164 ]
+  %.sroa.0262.0374 = phi ptr [ %168, %290 ], [ %165, %164 ]
+  %.sroa.7.0373 = phi i64 [ %169, %290 ], [ 0, %164 ]
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0262.0374, i64 24
+  %169 = add nuw nsw i64 %.sroa.7.0373, 1
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.0262.0374, i64 16
   %171 = load i32, ptr %170, align 8, !noundef !3
   %172 = call i32 @llvm.uadd.sat.i32(i32 %171, i32 %78)
   store i32 %172, ptr %170, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0262.0376, i64 8
+  %173 = getelementptr inbounds nuw i8, ptr %.sroa.0262.0374, i64 8
   %174 = load i64, ptr %173, align 8, !noundef !3
   switch i64 %174, label %290 [
     i64 2, label %283
@@ -84386,10 +84386,10 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   store i64 %.sroa.16.0..sroa.16.0..sroa.16.0..sroa.16.24.copyload, ptr %179, align 8
   %180 = getelementptr inbounds nuw i8, ptr %24, i64 64
   store i64 %.sroa.4256.0..sroa.4256.0..sroa.4256.0..sroa.4256.16., ptr %180, align 8
-  %.sroa.4400.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 72
-  store i64 %.sroa.8257.0, ptr %.sroa.4400.0..sroa_idx, align 8
-  %.sroa.5401.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store i64 %.sroa.12.0312, ptr %.sroa.5401.0..sroa_idx, align 8
+  %.sroa.4398.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 72
+  store i64 %.sroa.8257.0, ptr %.sroa.4398.0..sroa_idx, align 8
+  %.sroa.5399.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store i64 %.sroa.12.0312, ptr %.sroa.5399.0..sroa_idx, align 8
   %181 = getelementptr inbounds nuw i8, ptr %23, i64 696
   %182 = load i8, ptr %181, align 8, !range !809, !noundef !3
   %183 = getelementptr inbounds nuw i8, ptr %24, i64 696
@@ -84501,9 +84501,9 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
 248:                                              ; preds = %277, %249
   %.pn = phi { ptr, i32 } [ %278, %277 ], [ %250, %249 ]
   invoke void @"_ZN4core3ptr60drop_in_place$LT$yara_x..modules..dotnet..parser..Dotnet$GT$17h7f1a6fa8d76080a5E"(ptr noalias noundef nonnull align 8 dereferenceable(704) %24) #29
-          to label %.thread355 unwind label %281
+          to label %.thread353 unwind label %281
 
-249:                                              ; preds = %.thread364, %267, %._crit_edge
+249:                                              ; preds = %.thread362, %267, %._crit_edge
   %250 = landingpad { ptr, i32 }
           cleanup
   br label %248
@@ -84514,7 +84514,7 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   %253 = load i64, ptr %252, align 8
   %254 = icmp ult i64 %.sroa.3119.0.lcssa, %253
   %or.cond = select i1 %.sroa.0118.0.lcssa, i1 %254, i1 false
-  br i1 %or.cond, label %255, label %.thread364
+  br i1 %or.cond, label %255, label %.thread362
 
 255:                                              ; preds = %251
   %256 = getelementptr inbounds nuw i8, ptr %24, i64 72
@@ -84529,7 +84529,7 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   %265 = zext i32 %264 to i64
   %266 = add nuw nsw i64 %265, %261
   %.not.i = icmp ugt i64 %266, %262
-  br i1 %.not.i, label %.thread364, label %267
+  br i1 %.not.i, label %.thread362, label %267
 
 267:                                              ; preds = %255
   %268 = load ptr, ptr %176, align 8, !nonnull !3, !align !8, !noundef !3
@@ -84538,7 +84538,7 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   invoke fastcc void @"_ZN6yara_x7modules6dotnet6parser6Dotnet5parse28_$u7b$$u7b$closure$u7d$$u7d$17hd313db21bc424e60E"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %21, ptr noalias noundef align 8 dereferenceable(704) %24, ptr noalias noundef nonnull readonly align 1 %269, i64 noundef %265)
           to label %275 unwind label %249
 
-.thread364:                                       ; preds = %255, %251, %275
+.thread362:                                       ; preds = %255, %251, %275
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %270 = getelementptr inbounds nuw i8, ptr %24, i64 264
   %271 = load ptr, ptr %270, align 8, !nonnull !3, !noundef !3
@@ -84556,9 +84556,9 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
 
 275:                                              ; preds = %267
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %.thread364
+  br label %.thread362
 
-276:                                              ; preds = %.thread364
+276:                                              ; preds = %.thread362
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3926
   invoke void @"_ZN4core3ptr47drop_in_place$LT$alloc..vec..Vec$LT$u32$GT$$GT$17hddd70b7bc0d09699E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %226)
           to label %279 unwind label %277
@@ -84581,14 +84581,14 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   ret void
 
-281:                                              ; preds = %248, %.thread355
+281:                                              ; preds = %248, %.thread353
   %282 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hb7138e7aeec2c1a7E() #30
   unreachable
 
 283:                                              ; preds = %.lr.ph
-  %284 = load ptr, ptr %.sroa.0262.0376, align 8, !nonnull !3, !align !8, !noundef !3
+  %284 = load ptr, ptr %.sroa.0262.0374, align 8, !nonnull !3, !align !8, !noundef !3
   %285 = load i8, ptr %284, align 1, !noundef !3
   %286 = icmp eq i8 %285, 35
   br i1 %286, label %287, label %290
@@ -84602,16 +84602,16 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   ]
 
 290:                                              ; preds = %364, %356, %333, %321, %.lr.ph, %360, %352, %348, %344, %341, %337, %329, %325, %317, %313, %309, %305, %301, %297, %293, %292, %287, %283
-  %.sroa.0107.1 = phi i64 [ %.sroa.0107.0377, %287 ], [ %.sroa.0107.0377, %292 ], [ %.sroa.0107.0377, %283 ], [ %.sroa.0107.0377, %317 ], [ %.sroa.0107.0377, %313 ], [ %.sroa.0107.0377, %309 ], [ %.sroa.0107.0377, %305 ], [ %.sroa.0107.0377, %301 ], [ %.sroa.0107.0377, %297 ], [ %.sroa.0107.0377, %293 ], [ %.sroa.0107.0377, %329 ], [ %.sroa.0107.0377, %325 ], [ %.sroa.0107.0377, %341 ], [ %.sroa.0107.0377, %352 ], [ %.sroa.0107.0377, %344 ], [ %.sroa.0107.0377, %360 ], [ %.sroa.0107.0377, %348 ], [ %.sroa.0107.0377, %337 ], [ %spec.select, %321 ], [ %.sroa.0107.0377, %.lr.ph ], [ %.sroa.0107.0377, %333 ], [ %.sroa.0107.0377, %356 ], [ %.sroa.0107.0377, %364 ]
-  %.sroa.3108.1 = phi i64 [ %.sroa.3108.0378, %287 ], [ %.sroa.3108.0378, %292 ], [ %.sroa.3108.0378, %283 ], [ %.sroa.3108.0378, %317 ], [ %.sroa.3108.0378, %313 ], [ %.sroa.3108.0378, %309 ], [ %.sroa.3108.0378, %305 ], [ %.sroa.3108.0378, %301 ], [ %.sroa.3108.0378, %297 ], [ %.sroa.3108.0378, %293 ], [ %.sroa.3108.0378, %329 ], [ %.sroa.3108.0378, %325 ], [ %.sroa.3108.0378, %341 ], [ %.sroa.3108.0378, %352 ], [ %.sroa.3108.0378, %344 ], [ %.sroa.3108.0378, %360 ], [ %.sroa.3108.0378, %348 ], [ %.sroa.3108.0378, %337 ], [ %spec.select202, %321 ], [ %.sroa.3108.0378, %.lr.ph ], [ %.sroa.3108.0378, %333 ], [ %.sroa.3108.0378, %356 ], [ %.sroa.3108.0378, %364 ]
-  %.sroa.0109.1 = phi i64 [ %.sroa.0109.0379, %287 ], [ %.sroa.0109.0379, %292 ], [ %.sroa.0109.0379, %283 ], [ %.sroa.0109.0379, %317 ], [ %.sroa.0109.0379, %313 ], [ %.sroa.0109.0379, %309 ], [ %.sroa.0109.0379, %305 ], [ %.sroa.0109.0379, %301 ], [ %.sroa.0109.0379, %297 ], [ %.sroa.0109.0379, %293 ], [ %.sroa.0109.0379, %329 ], [ %.sroa.0109.0379, %325 ], [ %.sroa.0109.0379, %341 ], [ %.sroa.0109.0379, %352 ], [ %.sroa.0109.0379, %344 ], [ %.sroa.0109.0379, %360 ], [ %.sroa.0109.0379, %348 ], [ %.sroa.0109.0379, %337 ], [ %.sroa.0109.0379, %321 ], [ %.sroa.0109.0379, %.lr.ph ], [ %spec.select203, %333 ], [ %.sroa.0109.0379, %356 ], [ %.sroa.0109.0379, %364 ]
-  %.sroa.3110.1 = phi i64 [ %.sroa.3110.0380, %287 ], [ %.sroa.3110.0380, %292 ], [ %.sroa.3110.0380, %283 ], [ %.sroa.3110.0380, %317 ], [ %.sroa.3110.0380, %313 ], [ %.sroa.3110.0380, %309 ], [ %.sroa.3110.0380, %305 ], [ %.sroa.3110.0380, %301 ], [ %.sroa.3110.0380, %297 ], [ %.sroa.3110.0380, %293 ], [ %.sroa.3110.0380, %329 ], [ %.sroa.3110.0380, %325 ], [ %.sroa.3110.0380, %341 ], [ %.sroa.3110.0380, %352 ], [ %.sroa.3110.0380, %344 ], [ %.sroa.3110.0380, %360 ], [ %.sroa.3110.0380, %348 ], [ %.sroa.3110.0380, %337 ], [ %.sroa.3110.0380, %321 ], [ %.sroa.3110.0380, %.lr.ph ], [ %spec.select204, %333 ], [ %.sroa.3110.0380, %356 ], [ %.sroa.3110.0380, %364 ]
-  %.sroa.0111.1 = phi i64 [ %.sroa.0111.0381, %287 ], [ %.sroa.0111.0381, %292 ], [ %.sroa.0111.0381, %283 ], [ %.sroa.0111.0381, %317 ], [ %.sroa.0111.0381, %313 ], [ %.sroa.0111.0381, %309 ], [ %.sroa.0111.0381, %305 ], [ %.sroa.0111.0381, %301 ], [ %.sroa.0111.0381, %297 ], [ %.sroa.0111.0381, %293 ], [ %.sroa.0111.0381, %329 ], [ %.sroa.0111.0381, %325 ], [ %.sroa.0111.0381, %341 ], [ %.sroa.0111.0381, %352 ], [ %.sroa.0111.0381, %344 ], [ %.sroa.0111.0381, %360 ], [ %.sroa.0111.0381, %348 ], [ %.sroa.0111.0381, %337 ], [ %.sroa.0111.0381, %321 ], [ %.sroa.0111.0381, %.lr.ph ], [ %.sroa.0111.0381, %333 ], [ %spec.select205, %356 ], [ %.sroa.0111.0381, %364 ]
-  %.sroa.3112.1 = phi i64 [ %.sroa.3112.0382, %287 ], [ %.sroa.3112.0382, %292 ], [ %.sroa.3112.0382, %283 ], [ %.sroa.3112.0382, %317 ], [ %.sroa.3112.0382, %313 ], [ %.sroa.3112.0382, %309 ], [ %.sroa.3112.0382, %305 ], [ %.sroa.3112.0382, %301 ], [ %.sroa.3112.0382, %297 ], [ %.sroa.3112.0382, %293 ], [ %.sroa.3112.0382, %329 ], [ %.sroa.3112.0382, %325 ], [ %.sroa.3112.0382, %341 ], [ %.sroa.3112.0382, %352 ], [ %.sroa.3112.0382, %344 ], [ %.sroa.3112.0382, %360 ], [ %.sroa.3112.0382, %348 ], [ %.sroa.3112.0382, %337 ], [ %.sroa.3112.0382, %321 ], [ %.sroa.3112.0382, %.lr.ph ], [ %.sroa.3112.0382, %333 ], [ %spec.select206, %356 ], [ %.sroa.3112.0382, %364 ]
-  %.sroa.0113.1 = phi i64 [ %.sroa.0113.0383, %287 ], [ %.sroa.0113.0383, %292 ], [ %.sroa.0113.0383, %283 ], [ %.sroa.0113.0383, %317 ], [ %.sroa.0113.0383, %313 ], [ %.sroa.0113.0383, %309 ], [ %.sroa.0113.0383, %305 ], [ %.sroa.0113.0383, %301 ], [ %.sroa.0113.0383, %297 ], [ %.sroa.0113.0383, %293 ], [ %.sroa.0113.0383, %329 ], [ %.sroa.0113.0383, %325 ], [ %.sroa.0113.0383, %341 ], [ %.sroa.0113.0383, %352 ], [ %.sroa.0113.0383, %344 ], [ %.sroa.0113.0383, %360 ], [ %.sroa.0113.0383, %348 ], [ %.sroa.0113.0383, %337 ], [ %.sroa.0113.0383, %321 ], [ %.sroa.0113.0383, %.lr.ph ], [ %.sroa.0113.0383, %333 ], [ %.sroa.0113.0383, %356 ], [ %spec.select207, %364 ]
-  %.sroa.3114.1 = phi i64 [ %.sroa.3114.0384, %287 ], [ %.sroa.3114.0384, %292 ], [ %.sroa.3114.0384, %283 ], [ %.sroa.3114.0384, %317 ], [ %.sroa.3114.0384, %313 ], [ %.sroa.3114.0384, %309 ], [ %.sroa.3114.0384, %305 ], [ %.sroa.3114.0384, %301 ], [ %.sroa.3114.0384, %297 ], [ %.sroa.3114.0384, %293 ], [ %.sroa.3114.0384, %329 ], [ %.sroa.3114.0384, %325 ], [ %.sroa.3114.0384, %341 ], [ %.sroa.3114.0384, %352 ], [ %.sroa.3114.0384, %344 ], [ %.sroa.3114.0384, %360 ], [ %.sroa.3114.0384, %348 ], [ %.sroa.3114.0384, %337 ], [ %.sroa.3114.0384, %321 ], [ %.sroa.3114.0384, %.lr.ph ], [ %.sroa.3114.0384, %333 ], [ %.sroa.3114.0384, %356 ], [ %spec.select208, %364 ]
-  %.sroa.0118.1 = phi i1 [ %.sroa.0118.0385, %287 ], [ true, %292 ], [ %.sroa.0118.0385, %283 ], [ %.sroa.0118.0385, %317 ], [ %.sroa.0118.0385, %313 ], [ %.sroa.0118.0385, %309 ], [ %.sroa.0118.0385, %305 ], [ %.sroa.0118.0385, %301 ], [ %.sroa.0118.0385, %297 ], [ %.sroa.0118.0385, %293 ], [ %.sroa.0118.0385, %329 ], [ %.sroa.0118.0385, %325 ], [ %.sroa.0118.0385, %341 ], [ %.sroa.0118.0385, %352 ], [ %.sroa.0118.0385, %344 ], [ %.sroa.0118.0385, %360 ], [ %.sroa.0118.0385, %348 ], [ %.sroa.0118.0385, %337 ], [ %.sroa.0118.0385, %321 ], [ %.sroa.0118.0385, %.lr.ph ], [ %.sroa.0118.0385, %333 ], [ %.sroa.0118.0385, %356 ], [ %.sroa.0118.0385, %364 ]
-  %.sroa.3119.1 = phi i64 [ %.sroa.3119.0386, %287 ], [ %.sroa.7.0375, %292 ], [ %.sroa.3119.0386, %283 ], [ %.sroa.3119.0386, %317 ], [ %.sroa.3119.0386, %313 ], [ %.sroa.3119.0386, %309 ], [ %.sroa.3119.0386, %305 ], [ %.sroa.3119.0386, %301 ], [ %.sroa.3119.0386, %297 ], [ %.sroa.3119.0386, %293 ], [ %.sroa.3119.0386, %329 ], [ %.sroa.3119.0386, %325 ], [ %.sroa.3119.0386, %341 ], [ %.sroa.3119.0386, %352 ], [ %.sroa.3119.0386, %344 ], [ %.sroa.3119.0386, %360 ], [ %.sroa.3119.0386, %348 ], [ %.sroa.3119.0386, %337 ], [ %.sroa.3119.0386, %321 ], [ %.sroa.3119.0386, %.lr.ph ], [ %.sroa.3119.0386, %333 ], [ %.sroa.3119.0386, %356 ], [ %.sroa.3119.0386, %364 ]
+  %.sroa.0107.1 = phi i64 [ %.sroa.0107.0375, %287 ], [ %.sroa.0107.0375, %292 ], [ %.sroa.0107.0375, %283 ], [ %.sroa.0107.0375, %317 ], [ %.sroa.0107.0375, %313 ], [ %.sroa.0107.0375, %309 ], [ %.sroa.0107.0375, %305 ], [ %.sroa.0107.0375, %301 ], [ %.sroa.0107.0375, %297 ], [ %.sroa.0107.0375, %293 ], [ %.sroa.0107.0375, %329 ], [ %.sroa.0107.0375, %325 ], [ %.sroa.0107.0375, %341 ], [ %.sroa.0107.0375, %352 ], [ %.sroa.0107.0375, %344 ], [ %.sroa.0107.0375, %360 ], [ %.sroa.0107.0375, %348 ], [ %.sroa.0107.0375, %337 ], [ %spec.select, %321 ], [ %.sroa.0107.0375, %.lr.ph ], [ %.sroa.0107.0375, %333 ], [ %.sroa.0107.0375, %356 ], [ %.sroa.0107.0375, %364 ]
+  %.sroa.3108.1 = phi i64 [ %.sroa.3108.0376, %287 ], [ %.sroa.3108.0376, %292 ], [ %.sroa.3108.0376, %283 ], [ %.sroa.3108.0376, %317 ], [ %.sroa.3108.0376, %313 ], [ %.sroa.3108.0376, %309 ], [ %.sroa.3108.0376, %305 ], [ %.sroa.3108.0376, %301 ], [ %.sroa.3108.0376, %297 ], [ %.sroa.3108.0376, %293 ], [ %.sroa.3108.0376, %329 ], [ %.sroa.3108.0376, %325 ], [ %.sroa.3108.0376, %341 ], [ %.sroa.3108.0376, %352 ], [ %.sroa.3108.0376, %344 ], [ %.sroa.3108.0376, %360 ], [ %.sroa.3108.0376, %348 ], [ %.sroa.3108.0376, %337 ], [ %spec.select202, %321 ], [ %.sroa.3108.0376, %.lr.ph ], [ %.sroa.3108.0376, %333 ], [ %.sroa.3108.0376, %356 ], [ %.sroa.3108.0376, %364 ]
+  %.sroa.0109.1 = phi i64 [ %.sroa.0109.0377, %287 ], [ %.sroa.0109.0377, %292 ], [ %.sroa.0109.0377, %283 ], [ %.sroa.0109.0377, %317 ], [ %.sroa.0109.0377, %313 ], [ %.sroa.0109.0377, %309 ], [ %.sroa.0109.0377, %305 ], [ %.sroa.0109.0377, %301 ], [ %.sroa.0109.0377, %297 ], [ %.sroa.0109.0377, %293 ], [ %.sroa.0109.0377, %329 ], [ %.sroa.0109.0377, %325 ], [ %.sroa.0109.0377, %341 ], [ %.sroa.0109.0377, %352 ], [ %.sroa.0109.0377, %344 ], [ %.sroa.0109.0377, %360 ], [ %.sroa.0109.0377, %348 ], [ %.sroa.0109.0377, %337 ], [ %.sroa.0109.0377, %321 ], [ %.sroa.0109.0377, %.lr.ph ], [ %spec.select203, %333 ], [ %.sroa.0109.0377, %356 ], [ %.sroa.0109.0377, %364 ]
+  %.sroa.3110.1 = phi i64 [ %.sroa.3110.0378, %287 ], [ %.sroa.3110.0378, %292 ], [ %.sroa.3110.0378, %283 ], [ %.sroa.3110.0378, %317 ], [ %.sroa.3110.0378, %313 ], [ %.sroa.3110.0378, %309 ], [ %.sroa.3110.0378, %305 ], [ %.sroa.3110.0378, %301 ], [ %.sroa.3110.0378, %297 ], [ %.sroa.3110.0378, %293 ], [ %.sroa.3110.0378, %329 ], [ %.sroa.3110.0378, %325 ], [ %.sroa.3110.0378, %341 ], [ %.sroa.3110.0378, %352 ], [ %.sroa.3110.0378, %344 ], [ %.sroa.3110.0378, %360 ], [ %.sroa.3110.0378, %348 ], [ %.sroa.3110.0378, %337 ], [ %.sroa.3110.0378, %321 ], [ %.sroa.3110.0378, %.lr.ph ], [ %spec.select204, %333 ], [ %.sroa.3110.0378, %356 ], [ %.sroa.3110.0378, %364 ]
+  %.sroa.0111.1 = phi i64 [ %.sroa.0111.0379, %287 ], [ %.sroa.0111.0379, %292 ], [ %.sroa.0111.0379, %283 ], [ %.sroa.0111.0379, %317 ], [ %.sroa.0111.0379, %313 ], [ %.sroa.0111.0379, %309 ], [ %.sroa.0111.0379, %305 ], [ %.sroa.0111.0379, %301 ], [ %.sroa.0111.0379, %297 ], [ %.sroa.0111.0379, %293 ], [ %.sroa.0111.0379, %329 ], [ %.sroa.0111.0379, %325 ], [ %.sroa.0111.0379, %341 ], [ %.sroa.0111.0379, %352 ], [ %.sroa.0111.0379, %344 ], [ %.sroa.0111.0379, %360 ], [ %.sroa.0111.0379, %348 ], [ %.sroa.0111.0379, %337 ], [ %.sroa.0111.0379, %321 ], [ %.sroa.0111.0379, %.lr.ph ], [ %.sroa.0111.0379, %333 ], [ %spec.select205, %356 ], [ %.sroa.0111.0379, %364 ]
+  %.sroa.3112.1 = phi i64 [ %.sroa.3112.0380, %287 ], [ %.sroa.3112.0380, %292 ], [ %.sroa.3112.0380, %283 ], [ %.sroa.3112.0380, %317 ], [ %.sroa.3112.0380, %313 ], [ %.sroa.3112.0380, %309 ], [ %.sroa.3112.0380, %305 ], [ %.sroa.3112.0380, %301 ], [ %.sroa.3112.0380, %297 ], [ %.sroa.3112.0380, %293 ], [ %.sroa.3112.0380, %329 ], [ %.sroa.3112.0380, %325 ], [ %.sroa.3112.0380, %341 ], [ %.sroa.3112.0380, %352 ], [ %.sroa.3112.0380, %344 ], [ %.sroa.3112.0380, %360 ], [ %.sroa.3112.0380, %348 ], [ %.sroa.3112.0380, %337 ], [ %.sroa.3112.0380, %321 ], [ %.sroa.3112.0380, %.lr.ph ], [ %.sroa.3112.0380, %333 ], [ %spec.select206, %356 ], [ %.sroa.3112.0380, %364 ]
+  %.sroa.0113.1 = phi i64 [ %.sroa.0113.0381, %287 ], [ %.sroa.0113.0381, %292 ], [ %.sroa.0113.0381, %283 ], [ %.sroa.0113.0381, %317 ], [ %.sroa.0113.0381, %313 ], [ %.sroa.0113.0381, %309 ], [ %.sroa.0113.0381, %305 ], [ %.sroa.0113.0381, %301 ], [ %.sroa.0113.0381, %297 ], [ %.sroa.0113.0381, %293 ], [ %.sroa.0113.0381, %329 ], [ %.sroa.0113.0381, %325 ], [ %.sroa.0113.0381, %341 ], [ %.sroa.0113.0381, %352 ], [ %.sroa.0113.0381, %344 ], [ %.sroa.0113.0381, %360 ], [ %.sroa.0113.0381, %348 ], [ %.sroa.0113.0381, %337 ], [ %.sroa.0113.0381, %321 ], [ %.sroa.0113.0381, %.lr.ph ], [ %.sroa.0113.0381, %333 ], [ %.sroa.0113.0381, %356 ], [ %spec.select207, %364 ]
+  %.sroa.3114.1 = phi i64 [ %.sroa.3114.0382, %287 ], [ %.sroa.3114.0382, %292 ], [ %.sroa.3114.0382, %283 ], [ %.sroa.3114.0382, %317 ], [ %.sroa.3114.0382, %313 ], [ %.sroa.3114.0382, %309 ], [ %.sroa.3114.0382, %305 ], [ %.sroa.3114.0382, %301 ], [ %.sroa.3114.0382, %297 ], [ %.sroa.3114.0382, %293 ], [ %.sroa.3114.0382, %329 ], [ %.sroa.3114.0382, %325 ], [ %.sroa.3114.0382, %341 ], [ %.sroa.3114.0382, %352 ], [ %.sroa.3114.0382, %344 ], [ %.sroa.3114.0382, %360 ], [ %.sroa.3114.0382, %348 ], [ %.sroa.3114.0382, %337 ], [ %.sroa.3114.0382, %321 ], [ %.sroa.3114.0382, %.lr.ph ], [ %.sroa.3114.0382, %333 ], [ %.sroa.3114.0382, %356 ], [ %spec.select208, %364 ]
+  %.sroa.0118.1 = phi i1 [ %.sroa.0118.0383, %287 ], [ true, %292 ], [ %.sroa.0118.0383, %283 ], [ %.sroa.0118.0383, %317 ], [ %.sroa.0118.0383, %313 ], [ %.sroa.0118.0383, %309 ], [ %.sroa.0118.0383, %305 ], [ %.sroa.0118.0383, %301 ], [ %.sroa.0118.0383, %297 ], [ %.sroa.0118.0383, %293 ], [ %.sroa.0118.0383, %329 ], [ %.sroa.0118.0383, %325 ], [ %.sroa.0118.0383, %341 ], [ %.sroa.0118.0383, %352 ], [ %.sroa.0118.0383, %344 ], [ %.sroa.0118.0383, %360 ], [ %.sroa.0118.0383, %348 ], [ %.sroa.0118.0383, %337 ], [ %.sroa.0118.0383, %321 ], [ %.sroa.0118.0383, %.lr.ph ], [ %.sroa.0118.0383, %333 ], [ %.sroa.0118.0383, %356 ], [ %.sroa.0118.0383, %364 ]
+  %.sroa.3119.1 = phi i64 [ %.sroa.3119.0384, %287 ], [ %.sroa.7.0373, %292 ], [ %.sroa.3119.0384, %283 ], [ %.sroa.3119.0384, %317 ], [ %.sroa.3119.0384, %313 ], [ %.sroa.3119.0384, %309 ], [ %.sroa.3119.0384, %305 ], [ %.sroa.3119.0384, %301 ], [ %.sroa.3119.0384, %297 ], [ %.sroa.3119.0384, %293 ], [ %.sroa.3119.0384, %329 ], [ %.sroa.3119.0384, %325 ], [ %.sroa.3119.0384, %341 ], [ %.sroa.3119.0384, %352 ], [ %.sroa.3119.0384, %344 ], [ %.sroa.3119.0384, %360 ], [ %.sroa.3119.0384, %348 ], [ %.sroa.3119.0384, %337 ], [ %.sroa.3119.0384, %321 ], [ %.sroa.3119.0384, %.lr.ph ], [ %.sroa.3119.0384, %333 ], [ %.sroa.3119.0384, %356 ], [ %.sroa.3119.0384, %364 ]
   %291 = icmp eq ptr %168, %166
   br i1 %291, label %._crit_edge, label %.lr.ph
 
@@ -84619,7 +84619,7 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   br label %290
 
 293:                                              ; preds = %.lr.ph
-  %294 = load ptr, ptr %.sroa.0262.0376, align 8, !nonnull !3, !align !8, !noundef !3
+  %294 = load ptr, ptr %.sroa.0262.0374, align 8, !nonnull !3, !align !8, !noundef !3
   %295 = load i8, ptr %294, align 1, !noundef !3
   %296 = icmp eq i8 %295, 35
   br i1 %296, label %297, label %290
@@ -84664,12 +84664,12 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   %322 = getelementptr inbounds nuw i8, ptr %294, i64 7
   %323 = load i8, ptr %322, align 1, !noundef !3
   %324 = icmp eq i8 %323, 115
-  %spec.select = select i1 %324, i64 1, i64 %.sroa.0107.0377
-  %spec.select202 = select i1 %324, i64 %.sroa.7.0375, i64 %.sroa.3108.0378
+  %spec.select = select i1 %324, i64 1, i64 %.sroa.0107.0375
+  %spec.select202 = select i1 %324, i64 %.sroa.7.0373, i64 %.sroa.3108.0376
   br label %290
 
 325:                                              ; preds = %.lr.ph
-  %326 = load ptr, ptr %.sroa.0262.0376, align 8, !nonnull !3, !align !8, !noundef !3
+  %326 = load ptr, ptr %.sroa.0262.0374, align 8, !nonnull !3, !align !8, !noundef !3
   %327 = load i8, ptr %326, align 1, !noundef !3
   %328 = icmp eq i8 %327, 35
   br i1 %328, label %329, label %290
@@ -84684,12 +84684,12 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   %334 = getelementptr inbounds nuw i8, ptr %326, i64 2
   %335 = load i8, ptr %334, align 1, !noundef !3
   %336 = icmp eq i8 %335, 83
-  %spec.select203 = select i1 %336, i64 1, i64 %.sroa.0109.0379
-  %spec.select204 = select i1 %336, i64 %.sroa.7.0375, i64 %.sroa.3110.0380
+  %spec.select203 = select i1 %336, i64 1, i64 %.sroa.0109.0377
+  %spec.select204 = select i1 %336, i64 %.sroa.7.0373, i64 %.sroa.3110.0378
   br label %290
 
 337:                                              ; preds = %.lr.ph
-  %338 = load ptr, ptr %.sroa.0262.0376, align 8, !nonnull !3, !align !8, !noundef !3
+  %338 = load ptr, ptr %.sroa.0262.0374, align 8, !nonnull !3, !align !8, !noundef !3
   %339 = load i8, ptr %338, align 1, !noundef !3
   %340 = icmp eq i8 %339, 35
   br i1 %340, label %341, label %290
@@ -84724,8 +84724,8 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   %357 = getelementptr inbounds nuw i8, ptr %338, i64 4
   %358 = load i8, ptr %357, align 1, !noundef !3
   %359 = icmp eq i8 %358, 98
-  %spec.select205 = select i1 %359, i64 1, i64 %.sroa.0111.0381
-  %spec.select206 = select i1 %359, i64 %.sroa.7.0375, i64 %.sroa.3112.0382
+  %spec.select205 = select i1 %359, i64 1, i64 %.sroa.0111.0379
+  %spec.select206 = select i1 %359, i64 %.sroa.7.0373, i64 %.sroa.3112.0380
   br label %290
 
 360:                                              ; preds = %348
@@ -84738,8 +84738,8 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   %365 = getelementptr inbounds nuw i8, ptr %338, i64 4
   %366 = load i8, ptr %365, align 1, !noundef !3
   %367 = icmp eq i8 %366, 68
-  %spec.select207 = select i1 %367, i64 1, i64 %.sroa.0113.0383
-  %spec.select208 = select i1 %367, i64 %.sroa.7.0375, i64 %.sroa.3114.0384
+  %spec.select207 = select i1 %367, i64 1, i64 %.sroa.0113.0381
+  %spec.select208 = select i1 %367, i64 %.sroa.7.0373, i64 %.sroa.3114.0382
   br label %290
 
 368:                                              ; preds = %162
@@ -84782,7 +84782,7 @@ define void @_ZN6yara_x7modules6dotnet6parser6Dotnet5parse17hc651cf10a2a6b11dE(p
   store i32 %.sroa.51.0.ph.i, ptr %.sroa.8280.0..sroa_idx, align 4
   br label %370
 
-374:                                              ; preds = %.thread355
+374:                                              ; preds = %.thread353
   resume { ptr, i32 } %.pn200
 }
 

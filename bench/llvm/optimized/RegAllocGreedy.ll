@@ -5548,7 +5548,7 @@ _ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit: ; preds = %30, %_ZN4llvm
   %57 = getelementptr inbounds nuw i8, ptr %31, i64 33
   %58 = load i8, ptr %57, align 1, !tbaa !685, !range !56, !noundef !57
   %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %70
+  br i1 %59, label %60, label %71
 
 60:                                               ; preds = %_ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit
   %61 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -5561,11 +5561,11 @@ _ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit: ; preds = %30, %_ZN4llvm
   %67 = load i16, ptr %66, align 4, !tbaa !528
   %68 = icmp eq i16 %67, 10
   %69 = select i1 %68, i16 0, i16 256
-  br label %70
+  %70 = or disjoint i16 %69, %52
+  br label %71
 
-70:                                               ; preds = %60, %_ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit
-  %71 = phi i16 [ 0, %_ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit ], [ %69, %60 ]
-  %72 = or disjoint i16 %71, %52
+71:                                               ; preds = %60, %_ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit
+  %72 = phi i16 [ %52, %_ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit ], [ %70, %60 ]
   store i16 %72, ptr %53, align 4
   %73 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %.0.copyload.i.i.i.i = load i64, ptr %73, align 8
@@ -5579,10 +5579,10 @@ _ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit: ; preds = %30, %_ZN4llvm
   %79 = icmp ugt i64 %.0.copyload.i.i.i.i.i, 7
   br i1 %79, label %80, label %.loopexit
 
-80:                                               ; preds = %70
+80:                                               ; preds = %71
   %81 = load i8, ptr %50, align 8, !tbaa !684, !range !56, !noundef !57
   %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %83, label %153
+  br i1 %82, label %83, label %155
 
 83:                                               ; preds = %80
   %84 = load ptr, ptr %28, align 8, !tbaa !688
@@ -5609,239 +5609,241 @@ _ZN4llvm17InterferenceCache6Cursor11moveToBlockEj.exit: ; preds = %30, %_ZN4llvm
   %104 = and i32 %103, 3
   %105 = or i32 %104, %101
   %.not90 = icmp ugt i32 %97, %105
-  br i1 %.not90, label %108, label %106
+  br i1 %.not90, label %109, label %106
 
 106:                                              ; preds = %83
-  %107 = or disjoint i16 %71, 4
-  store i16 %107, ptr %53, align 4
-  br label %132
+  %107 = and i16 %72, -256
+  %108 = or disjoint i16 %107, 4
+  store i16 %108, ptr %53, align 4
+  br label %134
 
-108:                                              ; preds = %83
-  %109 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.07.0.copyload = load i64, ptr %109, align 8, !tbaa !250
-  %110 = and i64 %.sroa.07.0.copyload, -8
-  %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
-  %113 = load i32, ptr %112, align 8, !tbaa !256
-  %114 = trunc i64 %.sroa.07.0.copyload to i32
-  %115 = lshr i32 %114, 1
-  %116 = and i32 %115, 3
-  %117 = or i32 %116, %113
-  %118 = icmp ult i32 %97, %117
-  br i1 %118, label %119, label %121
+109:                                              ; preds = %83
+  %110 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.07.0.copyload = load i64, ptr %110, align 8, !tbaa !250
+  %111 = and i64 %.sroa.07.0.copyload, -8
+  %112 = inttoptr i64 %111 to ptr
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  %114 = load i32, ptr %113, align 8, !tbaa !256
+  %115 = trunc i64 %.sroa.07.0.copyload to i32
+  %116 = lshr i32 %115, 1
+  %117 = and i32 %116, 3
+  %118 = or i32 %117, %114
+  %119 = icmp ult i32 %97, %118
+  br i1 %119, label %120, label %123
 
-119:                                              ; preds = %108
-  %120 = or disjoint i16 %71, 2
-  store i16 %120, ptr %53, align 4
-  br label %132
+120:                                              ; preds = %109
+  %121 = and i16 %72, -256
+  %122 = or disjoint i16 %121, 2
+  store i16 %122, ptr %53, align 4
+  br label %134
 
-121:                                              ; preds = %108
-  %122 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.sroa.06.0.copyload = load i64, ptr %122, align 8, !tbaa !250
-  %123 = and i64 %.sroa.06.0.copyload, -8
-  %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
-  %126 = load i32, ptr %125, align 8, !tbaa !256
-  %127 = trunc i64 %.sroa.06.0.copyload to i32
-  %128 = lshr i32 %127, 1
-  %129 = and i32 %128, 3
-  %130 = or i32 %129, %126
-  %131 = icmp ult i32 %97, %130
-  %spec.select = zext i1 %131 to i32
-  br label %132
+123:                                              ; preds = %109
+  %124 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.sroa.06.0.copyload = load i64, ptr %124, align 8, !tbaa !250
+  %125 = and i64 %.sroa.06.0.copyload, -8
+  %126 = inttoptr i64 %125 to ptr
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %128 = load i32, ptr %127, align 8, !tbaa !256
+  %129 = trunc i64 %.sroa.06.0.copyload to i32
+  %130 = lshr i32 %129, 1
+  %131 = and i32 %130, 3
+  %132 = or i32 %131, %128
+  %133 = icmp ult i32 %97, %132
+  %spec.select = zext i1 %133 to i32
+  br label %134
 
-132:                                              ; preds = %121, %119, %106
-  %133 = phi i16 [ %107, %106 ], [ %120, %119 ], [ %72, %121 ]
-  %.156 = phi i32 [ 1, %106 ], [ 1, %119 ], [ %spec.select, %121 ]
-  %trunc = trunc i16 %133 to i8
-  switch i8 %trunc, label %153 [
-    i8 4, label %134
-    i8 2, label %134
+134:                                              ; preds = %123, %120, %106
+  %135 = phi i16 [ %108, %106 ], [ %122, %120 ], [ %72, %123 ]
+  %.156 = phi i32 [ 1, %106 ], [ 1, %120 ], [ %spec.select, %123 ]
+  %trunc = trunc i16 %135 to i8
+  switch i8 %trunc, label %155 [
+    i8 4, label %136
+    i8 2, label %136
   ]
 
-134:                                              ; preds = %132, %132
-  %135 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.05.0.copyload = load i64, ptr %135, align 8, !tbaa !250
-  %136 = load ptr, ptr %4, align 8, !tbaa !595
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 48
-  %138 = load ptr, ptr %136, align 8, !tbaa !689
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 96
-  %140 = load ptr, ptr %139, align 8, !tbaa !702
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %87
-  %142 = load ptr, ptr %141, align 8, !tbaa !703
-  %143 = tail call i64 @_ZN4llvm19InsertPointAnalysis19getFirstInsertPointERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(152) %137, ptr noundef nonnull align 8 dereferenceable(288) %142)
-  %144 = and i64 %.sroa.05.0.copyload, -8
-  %145 = inttoptr i64 %144 to ptr
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  %147 = load i32, ptr %146, align 8, !tbaa !256
-  %148 = and i64 %143, -8
-  %149 = inttoptr i64 %148 to ptr
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
-  %151 = load i32, ptr %150, align 8, !tbaa !256
-  %152 = icmp ult i32 %147, %151
-  br i1 %152, label %.loopexit92, label %153
+136:                                              ; preds = %134, %134
+  %137 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.05.0.copyload = load i64, ptr %137, align 8, !tbaa !250
+  %138 = load ptr, ptr %4, align 8, !tbaa !595
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
+  %140 = load ptr, ptr %138, align 8, !tbaa !689
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 96
+  %142 = load ptr, ptr %141, align 8, !tbaa !702
+  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %87
+  %144 = load ptr, ptr %143, align 8, !tbaa !703
+  %145 = tail call i64 @_ZN4llvm19InsertPointAnalysis19getFirstInsertPointERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(152) %139, ptr noundef nonnull align 8 dereferenceable(288) %144)
+  %146 = and i64 %.sroa.05.0.copyload, -8
+  %147 = inttoptr i64 %146 to ptr
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
+  %149 = load i32, ptr %148, align 8, !tbaa !256
+  %150 = and i64 %145, -8
+  %151 = inttoptr i64 %150 to ptr
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 24
+  %153 = load i32, ptr %152, align 8, !tbaa !256
+  %154 = icmp ult i32 %149, %153
+  br i1 %154, label %.loopexit92, label %155
 
-153:                                              ; preds = %132, %134, %80
-  %.055 = phi i32 [ %.156, %134 ], [ 0, %80 ], [ %.156, %132 ]
-  %154 = load i8, ptr %57, align 1, !tbaa !685, !range !56, !noundef !57
-  %155 = trunc nuw i8 %154 to i1
-  br i1 %155, label %156, label %231
+155:                                              ; preds = %134, %136, %80
+  %.055 = phi i32 [ %.156, %136 ], [ 0, %80 ], [ %.156, %134 ]
+  %156 = load i8, ptr %57, align 1, !tbaa !685, !range !56, !noundef !57
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %158, label %233
 
-156:                                              ; preds = %153
-  %157 = load ptr, ptr %27, align 8, !tbaa !199
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %.sroa.0.0.copyload.i69 = load i64, ptr %158, align 8, !tbaa !250
-  %159 = load ptr, ptr %4, align 8, !tbaa !595
-  %160 = load i32, ptr %33, align 4, !tbaa !679
-  %161 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 40
-  %163 = load ptr, ptr %162, align 8, !tbaa !704
-  %164 = load ptr, ptr %159, align 8, !tbaa !689
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 96
-  %166 = zext i32 %160 to i64
-  %167 = load ptr, ptr %165, align 8, !tbaa !702
-  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %166
-  %169 = load ptr, ptr %168, align 8, !tbaa !703
-  %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
-  %171 = load i32, ptr %170, align 8, !tbaa !641
-  %172 = getelementptr inbounds nuw i8, ptr %159, i64 56
-  %173 = zext i32 %171 to i64
-  %174 = load ptr, ptr %172, align 8, !tbaa !25
-  %175 = getelementptr inbounds nuw %"struct.std::pair.569", ptr %174, i64 %173
-  %.0.copyload.i.i.i.i.i.i70 = load i64, ptr %175, align 8
-  %176 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i70, 7
-  br i1 %176, label %177, label %180
+158:                                              ; preds = %155
+  %159 = load ptr, ptr %27, align 8, !tbaa !199
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  %.sroa.0.0.copyload.i69 = load i64, ptr %160, align 8, !tbaa !250
+  %161 = load ptr, ptr %4, align 8, !tbaa !595
+  %162 = load i32, ptr %33, align 4, !tbaa !679
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 48
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 40
+  %165 = load ptr, ptr %164, align 8, !tbaa !704
+  %166 = load ptr, ptr %161, align 8, !tbaa !689
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 96
+  %168 = zext i32 %162 to i64
+  %169 = load ptr, ptr %167, align 8, !tbaa !702
+  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %168
+  %171 = load ptr, ptr %170, align 8, !tbaa !703
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
+  %173 = load i32, ptr %172, align 8, !tbaa !641
+  %174 = getelementptr inbounds nuw i8, ptr %161, i64 56
+  %175 = zext i32 %173 to i64
+  %176 = load ptr, ptr %174, align 8, !tbaa !25
+  %177 = getelementptr inbounds nuw %"struct.std::pair.569", ptr %176, i64 %175
+  %.0.copyload.i.i.i.i.i.i70 = load i64, ptr %177, align 8
+  %178 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i70, 7
+  br i1 %178, label %179, label %182
 
-177:                                              ; preds = %156
-  %178 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %178, align 8
-  %179 = icmp ugt i64 %.0.copyload.i.i.i.i6.i.i, 7
-  br i1 %179, label %180, label %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit
+179:                                              ; preds = %158
+  %180 = getelementptr inbounds nuw i8, ptr %177, i64 8
+  %.0.copyload.i.i.i.i6.i.i = load i64, ptr %180, align 8
+  %181 = icmp ugt i64 %.0.copyload.i.i.i.i6.i.i, 7
+  br i1 %181, label %182, label %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit
 
-180:                                              ; preds = %177, %156
-  %181 = tail call i64 @_ZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS_12LiveIntervalERKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(152) %161, ptr noundef nonnull align 8 dereferenceable(120) %163, ptr noundef nonnull align 8 dereferenceable(288) %169) #24
+182:                                              ; preds = %179, %158
+  %183 = tail call i64 @_ZN4llvm19InsertPointAnalysis22computeLastInsertPointERKNS_12LiveIntervalERKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(152) %163, ptr noundef nonnull align 8 dereferenceable(120) %165, ptr noundef nonnull align 8 dereferenceable(288) %171) #24
   br label %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit
 
-_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit: ; preds = %177, %180
-  %.sroa.0.0.i.i = phi i64 [ %181, %180 ], [ %.0.copyload.i.i.i.i.i.i70, %177 ]
-  %182 = and i64 %.sroa.0.0.copyload.i69, -8
-  %183 = inttoptr i64 %182 to ptr
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %185 = load i32, ptr %184, align 8, !tbaa !256
-  %186 = trunc i64 %.sroa.0.0.copyload.i69 to i32
-  %187 = lshr i32 %186, 1
-  %188 = and i32 %187, 3
-  %189 = or i32 %185, %188
-  %190 = and i64 %.sroa.0.0.i.i, -8
-  %191 = inttoptr i64 %190 to ptr
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %193 = load i32, ptr %192, align 8, !tbaa !256
-  %194 = trunc i64 %.sroa.0.0.i.i to i32
-  %195 = lshr i32 %194, 1
-  %196 = and i32 %195, 3
-  %197 = or i32 %196, %193
-  %.not91 = icmp ult i32 %189, %197
-  br i1 %.not91, label %198, label %.lr.ph.sink.split
+_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit: ; preds = %179, %182
+  %.sroa.0.0.i.i = phi i64 [ %183, %182 ], [ %.0.copyload.i.i.i.i.i.i70, %179 ]
+  %184 = and i64 %.sroa.0.0.copyload.i69, -8
+  %185 = inttoptr i64 %184 to ptr
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  %187 = load i32, ptr %186, align 8, !tbaa !256
+  %188 = trunc i64 %.sroa.0.0.copyload.i69 to i32
+  %189 = lshr i32 %188, 1
+  %190 = and i32 %189, 3
+  %191 = or i32 %187, %190
+  %192 = and i64 %.sroa.0.0.i.i, -8
+  %193 = inttoptr i64 %192 to ptr
+  %194 = getelementptr inbounds nuw i8, ptr %193, i64 24
+  %195 = load i32, ptr %194, align 8, !tbaa !256
+  %196 = trunc i64 %.sroa.0.0.i.i to i32
+  %197 = lshr i32 %196, 1
+  %198 = and i32 %197, 3
+  %199 = or i32 %198, %195
+  %.not91 = icmp ult i32 %191, %199
+  br i1 %.not91, label %200, label %.lr.ph.sink.split
 
-198:                                              ; preds = %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit
-  %199 = load ptr, ptr %27, align 8, !tbaa !199
-  %200 = getelementptr inbounds nuw i8, ptr %199, i64 16
-  %.sroa.0.0.copyload.i72 = load i64, ptr %200, align 8, !tbaa !250
-  %201 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.sroa.02.0.copyload = load i64, ptr %201, align 8, !tbaa !250
-  %202 = and i64 %.sroa.0.0.copyload.i72, -8
-  %203 = inttoptr i64 %202 to ptr
-  %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
-  %205 = load i32, ptr %204, align 8, !tbaa !256
-  %206 = trunc i64 %.sroa.0.0.copyload.i72 to i32
-  %207 = lshr i32 %206, 1
-  %208 = and i32 %207, 3
-  %209 = or i32 %208, %205
-  %210 = and i64 %.sroa.02.0.copyload, -8
-  %211 = inttoptr i64 %210 to ptr
-  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
-  %213 = load i32, ptr %212, align 8, !tbaa !256
-  %214 = trunc i64 %.sroa.02.0.copyload to i32
-  %215 = lshr i32 %214, 1
-  %216 = and i32 %215, 3
-  %217 = or i32 %216, %213
-  %218 = icmp ugt i32 %209, %217
-  br i1 %218, label %.lr.ph.sink.split, label %219
+200:                                              ; preds = %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit
+  %201 = load ptr, ptr %27, align 8, !tbaa !199
+  %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
+  %.sroa.0.0.copyload.i72 = load i64, ptr %202, align 8, !tbaa !250
+  %203 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %.sroa.02.0.copyload = load i64, ptr %203, align 8, !tbaa !250
+  %204 = and i64 %.sroa.0.0.copyload.i72, -8
+  %205 = inttoptr i64 %204 to ptr
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 24
+  %207 = load i32, ptr %206, align 8, !tbaa !256
+  %208 = trunc i64 %.sroa.0.0.copyload.i72 to i32
+  %209 = lshr i32 %208, 1
+  %210 = and i32 %209, 3
+  %211 = or i32 %210, %207
+  %212 = and i64 %.sroa.02.0.copyload, -8
+  %213 = inttoptr i64 %212 to ptr
+  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  %215 = load i32, ptr %214, align 8, !tbaa !256
+  %216 = trunc i64 %.sroa.02.0.copyload to i32
+  %217 = lshr i32 %216, 1
+  %218 = and i32 %217, 3
+  %219 = or i32 %218, %215
+  %220 = icmp ugt i32 %211, %219
+  br i1 %220, label %.lr.ph.sink.split, label %221
 
-219:                                              ; preds = %198
-  %220 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %.sroa.01.0.copyload = load i64, ptr %220, align 8, !tbaa !250
-  %221 = and i64 %.sroa.01.0.copyload, -8
-  %222 = inttoptr i64 %221 to ptr
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 24
-  %224 = load i32, ptr %223, align 8, !tbaa !256
-  %225 = trunc i64 %.sroa.01.0.copyload to i32
-  %226 = lshr i32 %225, 1
-  %227 = and i32 %226, 3
-  %228 = or i32 %227, %224
-  %229 = icmp ugt i32 %209, %228
-  %230 = zext i1 %229 to i32
-  %spec.select62 = add nuw nsw i32 %.055, %230
-  br label %231
+221:                                              ; preds = %200
+  %222 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %.sroa.01.0.copyload = load i64, ptr %222, align 8, !tbaa !250
+  %223 = and i64 %.sroa.01.0.copyload, -8
+  %224 = inttoptr i64 %223 to ptr
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 24
+  %226 = load i32, ptr %225, align 8, !tbaa !256
+  %227 = trunc i64 %.sroa.01.0.copyload to i32
+  %228 = lshr i32 %227, 1
+  %229 = and i32 %228, 3
+  %230 = or i32 %229, %226
+  %231 = icmp ugt i32 %211, %230
+  %232 = zext i1 %231 to i32
+  %spec.select62 = add nuw nsw i32 %.055, %232
+  br label %233
 
-231:                                              ; preds = %219, %153
-  %.257 = phi i32 [ %.055, %153 ], [ %spec.select62, %219 ]
+233:                                              ; preds = %221, %155
+  %.257 = phi i32 [ %.055, %155 ], [ %spec.select62, %221 ]
   %.not6194 = icmp eq i32 %.257, 0
   br i1 %.not6194, label %.loopexit, label %.lr.ph
 
-.lr.ph.sink.split:                                ; preds = %198, %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit
-  %.sink111 = phi i16 [ 1024, %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit ], [ 512, %198 ]
-  %232 = load i16, ptr %53, align 4
-  %233 = and i16 %232, 255
-  %234 = or disjoint i16 %233, %.sink111
-  store i16 %234, ptr %53, align 4
-  %235 = add nuw nsw i32 %.055, 1
+.lr.ph.sink.split:                                ; preds = %200, %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit
+  %.sink111 = phi i16 [ 1024, %_ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit ], [ 512, %200 ]
+  %234 = load i16, ptr %53, align 4
+  %235 = and i16 %234, 255
+  %236 = or disjoint i16 %235, %.sink111
+  store i16 %236, ptr %53, align 4
+  %237 = add nuw nsw i32 %.055, 1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.sink.split, %231
-  %.257109 = phi i32 [ %.257, %231 ], [ %235, %.lr.ph.sink.split ]
-  %236 = load ptr, ptr %29, align 8, !tbaa !705
-  %237 = load i32, ptr %33, align 4, !tbaa !679
-  %238 = getelementptr inbounds nuw i8, ptr %236, i64 136
-  %239 = zext i32 %237 to i64
-  %240 = load ptr, ptr %238, align 8, !tbaa !25
-  %241 = getelementptr inbounds nuw %"class.llvm::BlockFrequency", ptr %240, i64 %239
-  %.sroa.0.0.copyload.i76 = load i64, ptr %241, align 8, !tbaa !50
-  br label %242
+.lr.ph:                                           ; preds = %.lr.ph.sink.split, %233
+  %.257109 = phi i32 [ %.257, %233 ], [ %237, %.lr.ph.sink.split ]
+  %238 = load ptr, ptr %29, align 8, !tbaa !705
+  %239 = load i32, ptr %33, align 4, !tbaa !679
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 136
+  %241 = zext i32 %239 to i64
+  %242 = load ptr, ptr %240, align 8, !tbaa !25
+  %243 = getelementptr inbounds nuw %"class.llvm::BlockFrequency", ptr %242, i64 %241
+  %.sroa.0.0.copyload.i76 = load i64, ptr %243, align 8, !tbaa !50
+  br label %244
 
-242:                                              ; preds = %.lr.ph, %242
-  %.35896 = phi i32 [ %.257109, %.lr.ph ], [ %243, %242 ]
-  %.sroa.083.295 = phi i64 [ %.sroa.083.098, %.lr.ph ], [ %spec.select.i, %242 ]
-  %243 = add nsw i32 %.35896, -1
+244:                                              ; preds = %.lr.ph, %244
+  %.35896 = phi i32 [ %.257109, %.lr.ph ], [ %245, %244 ]
+  %.sroa.083.295 = phi i64 [ %.sroa.083.098, %.lr.ph ], [ %spec.select.i, %244 ]
+  %245 = add nsw i32 %.35896, -1
   %spec.select.i = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.0.0.copyload.i76, i64 %.sroa.083.295)
-  %.not61 = icmp eq i32 %243, 0
-  br i1 %.not61, label %.loopexit, label %242, !llvm.loop !706
+  %.not61 = icmp eq i32 %245, 0
+  br i1 %.not61, label %.loopexit, label %244, !llvm.loop !706
 
-.loopexit:                                        ; preds = %242, %231, %70
-  %.sroa.083.1.ph = phi i64 [ %.sroa.083.098, %70 ], [ %.sroa.083.098, %231 ], [ %spec.select.i, %242 ]
+.loopexit:                                        ; preds = %244, %233, %71
+  %.sroa.083.1.ph = phi i64 [ %.sroa.083.098, %71 ], [ %.sroa.083.098, %233 ], [ %spec.select.i, %244 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %10
   br i1 %.not, label %.critedge.loopexit, label %30, !llvm.loop !707
 
 .critedge.loopexit:                               ; preds = %.loopexit
   %.pre = load i32, ptr %12, align 8, !tbaa !26
-  %244 = zext i32 %.pre to i64
+  %246 = zext i32 %.pre to i64
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %_ZN4llvm15SmallVectorImplINS_14SpillPlacement15BlockConstraintEE6resizeEm.exit
-  %245 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_14SpillPlacement15BlockConstraintEE6resizeEm.exit ], [ %244, %.critedge.loopexit ]
+  %247 = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_14SpillPlacement15BlockConstraintEE6resizeEm.exit ], [ %246, %.critedge.loopexit ]
   %.sroa.083.0.lcssa = phi i64 [ 0, %_ZN4llvm15SmallVectorImplINS_14SpillPlacement15BlockConstraintEE6resizeEm.exit ], [ %.sroa.083.1.ph, %.critedge.loopexit ]
   store i64 %.sroa.083.0.lcssa, ptr %2, align 8, !tbaa !50
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %247 = load ptr, ptr %246, align 8, !tbaa !705
-  %248 = load ptr, ptr %11, align 8, !tbaa !25
-  tail call void @_ZN4llvm14SpillPlacement14addConstraintsENS_8ArrayRefINS0_15BlockConstraintEEE(ptr noundef nonnull align 8 dereferenceable(288) %247, ptr %248, i64 %245) #24
-  %249 = load ptr, ptr %246, align 8, !tbaa !705
-  %250 = tail call noundef zeroext i1 @_ZN4llvm14SpillPlacement17scanActiveBundlesEv(ptr noundef nonnull align 8 dereferenceable(288) %249) #24
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %249 = load ptr, ptr %248, align 8, !tbaa !705
+  %250 = load ptr, ptr %11, align 8, !tbaa !25
+  tail call void @_ZN4llvm14SpillPlacement14addConstraintsENS_8ArrayRefINS0_15BlockConstraintEEE(ptr noundef nonnull align 8 dereferenceable(288) %249, ptr %250, i64 %247) #24
+  %251 = load ptr, ptr %248, align 8, !tbaa !705
+  %252 = tail call noundef zeroext i1 @_ZN4llvm14SpillPlacement17scanActiveBundlesEv(ptr noundef nonnull align 8 dereferenceable(288) %251) #24
   br label %.loopexit92
 
-.loopexit92:                                      ; preds = %134, %.critedge
-  %.4 = phi i1 [ %250, %.critedge ], [ false, %134 ]
+.loopexit92:                                      ; preds = %136, %.critedge
+  %.4 = phi i1 [ %252, %.critedge ], [ false, %136 ]
   ret i1 %.4
 }
 

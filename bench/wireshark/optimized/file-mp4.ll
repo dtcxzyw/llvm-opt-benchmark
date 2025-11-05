@@ -691,13 +691,13 @@ define internal fastcc void @dissect_mp4_mvhd_body(ptr noundef %0, i32 noundef %
   %53 = fmul double %52, 0x40026BB1BBB55516
   %54 = tail call double @exp(double noundef %53) #5
   %55 = fdiv double %48, %54
+  %56 = fadd double %55, %43
   br label %make_fract.exit
 
 make_fract.exit:                                  ; preds = %40, %47
-  %.0.i = phi double [ %55, %47 ], [ 0.000000e+00, %40 ]
-  %56 = fadd double %.0.i, %43
+  %.0.i = phi double [ %56, %47 ], [ %43, %40 ]
   %57 = load i32, ptr @hf_mp4_mvhd_rate, align 4
-  %58 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %57, ptr noundef %0, i32 noundef %41, i32 noundef 4, double noundef %56)
+  %58 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %57, ptr noundef %0, i32 noundef %41, i32 noundef 4, double noundef %.0.i)
   %59 = add i32 %41, 4
   %60 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %59)
   %61 = uitofp i8 %60 to double
@@ -715,13 +715,13 @@ make_fract.exit:                                  ; preds = %40, %47
   %71 = fmul double %70, 0x40026BB1BBB55516
   %72 = tail call double @exp(double noundef %71) #5
   %73 = fdiv double %66, %72
+  %74 = fadd double %73, %61
   br label %make_fract.exit81
 
 make_fract.exit81:                                ; preds = %make_fract.exit, %65
-  %.0.i80 = phi double [ %73, %65 ], [ 0.000000e+00, %make_fract.exit ]
-  %74 = fadd double %.0.i80, %61
+  %.0.i80 = phi double [ %74, %65 ], [ %61, %make_fract.exit ]
   %75 = load i32, ptr @hf_mp4_mvhd_vol, align 4
-  %76 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %75, ptr noundef %0, i32 noundef %59, i32 noundef 4, double noundef %74)
+  %76 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %75, ptr noundef %0, i32 noundef %59, i32 noundef 4, double noundef %.0.i80)
   %77 = add i32 %41, 76
   %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %77)
   %79 = load i32, ptr @hf_mp4_mvhd_next_tid, align 4
@@ -791,13 +791,13 @@ define internal fastcc void @dissect_mp4_tkhd_body(ptr noundef %0, i32 noundef %
   %38 = fmul double %37, 0x40026BB1BBB55516
   %39 = tail call double @exp(double noundef %38) #5
   %40 = fdiv double %33, %39
+  %41 = fadd double %40, %28
   br label %make_fract.exit
 
 make_fract.exit:                                  ; preds = %3, %32
-  %.0.i = phi double [ %40, %32 ], [ 0.000000e+00, %3 ]
-  %41 = fadd double %.0.i, %28
+  %.0.i = phi double [ %41, %32 ], [ %28, %3 ]
   %42 = load i32, ptr @hf_mp4_tkhd_width, align 4
-  %43 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %26, i32 noundef 4, double noundef %41)
+  %43 = tail call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %26, i32 noundef 4, double noundef %.0.i)
   %44 = add i32 %25, 56
   %45 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %44)
   %46 = add i32 %25, 58

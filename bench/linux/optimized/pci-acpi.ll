@@ -105,20 +105,20 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %12 = load i32, ptr @acpi_pci_disabled, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %.preheader57.preheader, label %.thread
+  br i1 %13, label %.preheader59.preheader, label %.thread
 
-.preheader57.preheader:                           ; preds = %1
+.preheader59.preheader:                           ; preds = %1
   store ptr null, ptr %11, align 8, !annotation !5
-  br label %.preheader57
+  br label %.preheader59
 
-.preheader57:                                     ; preds = %.preheader57.preheader, %42
-  %14 = phi ptr [ %16, %42 ], [ %0, %.preheader57.preheader ]
+.preheader59:                                     ; preds = %.preheader59.preheader, %42
+  %14 = phi ptr [ %16, %42 ], [ %0, %.preheader59.preheader ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.thread, label %18
 
-18:                                               ; preds = %.preheader57
+18:                                               ; preds = %.preheader59
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
@@ -157,7 +157,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
 42:                                               ; preds = %39, %31, %25
   %43 = phi ptr [ null, %25 ], [ %41, %39 ], [ null, %31 ]
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.preheader57, label %45, !llvm.loop !6
+  br i1 %44, label %.preheader59, label %45, !llvm.loop !6
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -177,8 +177,8 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 7
   br label %61
 
-61:                                               ; preds = %465, %45
-  %62 = phi ptr [ %43, %45 ], [ %468, %465 ]
+61:                                               ; preds = %462, %45
+  %62 = phi ptr [ %43, %45 ], [ %465, %462 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 -1, ptr %9, align 8
   store ptr null, ptr %46, align 8
@@ -186,51 +186,51 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   store i64 0, ptr %10, align 8, !annotation !5
   %63 = call i32 @acpi_evaluate_object(ptr noundef nonnull %62, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef nonnull %9) #9
   %64 = icmp eq i32 %63, 0
-  br i1 %64, label %65, label %.critedge
+  br i1 %64, label %65, label %.critedge30
 
 65:                                               ; preds = %61
   %66 = load ptr, ptr %46, align 8
   %67 = load i32, ptr %66, align 8
   %68 = icmp eq i32 %67, 4
-  br i1 %68, label %69, label %.thread44
+  br i1 %68, label %69, label %.thread46
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.loopexit55, label %73
+  br i1 %72, label %.loopexit57, label %73
 
 73:                                               ; preds = %69
   %74 = getelementptr inbounds nuw i8, ptr %66, i64 8
   br label %75
 
 75:                                               ; preds = %.loopexit, %73
-  %76 = phi i32 [ 0, %73 ], [ %424, %.loopexit ]
+  %76 = phi i32 [ 0, %73 ], [ %421, %.loopexit ]
   %77 = load ptr, ptr %74, align 8
   %78 = sext i32 %76 to i64
   %79 = getelementptr %union.acpi_object, ptr %77, i64 %78
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %80, 4
-  br i1 %81, label %82, label %.thread44
+  br i1 %81, label %82, label %.thread46
 
 82:                                               ; preds = %75
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load i32, ptr %84, align 8
   %86 = icmp eq i32 %85, 1
-  br i1 %86, label %87, label %.thread44
+  br i1 %86, label %87, label %.thread46
 
 87:                                               ; preds = %82
   %88 = getelementptr i8, ptr %84, i64 24
   %89 = load i32, ptr %88, align 8
   %90 = icmp eq i32 %89, 1
-  br i1 %90, label %91, label %.thread44
+  br i1 %90, label %91, label %.thread46
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = trunc i64 %93 to i32
-  switch i32 %94, label %422 [
+  switch i32 %94, label %419 [
     i32 0, label %95
     i32 1, label %126
     i32 2, label %148
@@ -249,7 +249,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %101 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = icmp eq i32 %102, 6
-  br i1 %103, label %.preheader, label %.thread44
+  br i1 %103, label %.preheader, label %.thread46
 
 104:                                              ; preds = %.preheader
   %105 = add nuw nsw i64 %107, 1
@@ -261,11 +261,11 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %108 = getelementptr %union.acpi_object, ptr %84, i64 %107
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, 1
-  br i1 %110, label %104, label %.thread44
+  br i1 %110, label %104, label %.thread46
 
 111:                                              ; preds = %95
   %112 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.7, ptr noundef nonnull @__func__.decode_type0_hpx_record, i32 noundef %98) #10
-  br label %.thread44
+  br label %.thread46
 
 113:                                              ; preds = %104
   %114 = getelementptr i8, ptr %84, i64 56
@@ -298,23 +298,23 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %132 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %133 = load i32, ptr %132, align 4
   %134 = icmp eq i32 %133, 5
-  br i1 %134, label %.preheader45, label %.thread44
+  br i1 %134, label %.preheader47, label %.thread46
 
-135:                                              ; preds = %.preheader45
+135:                                              ; preds = %.preheader47
   %136 = add nuw nsw i64 %138, 1
   %137 = icmp eq i64 %136, 5
-  br i1 %137, label %144, label %.preheader45, !llvm.loop !10
+  br i1 %137, label %144, label %.preheader47, !llvm.loop !10
 
-.preheader45:                                     ; preds = %131, %135
+.preheader47:                                     ; preds = %131, %135
   %138 = phi i64 [ %136, %135 ], [ 2, %131 ]
   %139 = getelementptr %union.acpi_object, ptr %84, i64 %138
   %140 = load i32, ptr %139, align 8
   %141 = icmp eq i32 %140, 1
-  br i1 %141, label %135, label %.thread44
+  br i1 %141, label %135, label %.thread46
 
 142:                                              ; preds = %126
   %143 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.9, ptr noundef nonnull @__func__.decode_type1_hpx_record, i32 noundef %129) #10
-  br label %.thread44
+  br label %.thread46
 
 144:                                              ; preds = %135
   %145 = call zeroext i8 @pci_find_capability(ptr noundef %0, i32 noundef 7) #9
@@ -336,23 +336,23 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %154 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %155 = load i32, ptr %154, align 4
   %156 = icmp eq i32 %155, 18
-  br i1 %156, label %.preheader48, label %.thread44
+  br i1 %156, label %.preheader50, label %.thread46
 
-157:                                              ; preds = %.preheader48
+157:                                              ; preds = %.preheader50
   %158 = add nuw nsw i64 %160, 1
   %159 = icmp eq i64 %158, 18
-  br i1 %159, label %166, label %.preheader48, !llvm.loop !11
+  br i1 %159, label %166, label %.preheader50, !llvm.loop !11
 
-.preheader48:                                     ; preds = %153, %157
+.preheader50:                                     ; preds = %153, %157
   %160 = phi i64 [ %158, %157 ], [ 2, %153 ]
   %161 = getelementptr %union.acpi_object, ptr %84, i64 %160
   %162 = load i32, ptr %161, align 8
   %163 = icmp eq i32 %162, 1
-  br i1 %163, label %157, label %.thread44
+  br i1 %163, label %157, label %.thread46
 
 164:                                              ; preds = %148
   %165 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11, ptr noundef nonnull @__func__.decode_type2_hpx_record, i32 noundef %151) #10
-  br label %.thread44
+  br label %.thread46
 
 166:                                              ; preds = %157
   %167 = getelementptr i8, ptr %84, i64 56
@@ -409,35 +409,35 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   br i1 %213, label %214, label %241
 
 214:                                              ; preds = %206
-  br i1 %51, label %.thread38, label %.preheader47
+  br i1 %51, label %.thread40, label %.preheader49
 
-.preheader47:                                     ; preds = %214, %230
+.preheader49:                                     ; preds = %214, %230
   %215 = phi ptr [ %232, %230 ], [ %0, %214 ]
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 100
   %217 = load i8, ptr %216, align 4
   %218 = icmp eq i8 %217, 0
   br i1 %218, label %224, label %219
 
-219:                                              ; preds = %.preheader47
+219:                                              ; preds = %.preheader49
   %220 = getelementptr inbounds nuw i8, ptr %215, i64 106
   %221 = load i16, ptr %220, align 2
   %222 = and i16 %221, 240
   %223 = icmp eq i16 %222, 64
   br i1 %223, label %234, label %224
 
-224:                                              ; preds = %219, %.preheader47
+224:                                              ; preds = %219, %.preheader49
   %225 = getelementptr inbounds nuw i8, ptr %215, i64 16
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %228 = load ptr, ptr %227, align 8
   %229 = icmp eq ptr %228, null
-  br i1 %229, label %.thread38, label %230
+  br i1 %229, label %.thread40, label %230
 
 230:                                              ; preds = %224
   %231 = getelementptr inbounds nuw i8, ptr %226, i64 56
   %232 = load ptr, ptr %231, align 8
   %233 = icmp eq ptr %232, null
-  br i1 %233, label %.thread38, label %.preheader47, !llvm.loop !12
+  br i1 %233, label %.thread40, label %.preheader49, !llvm.loop !12
 
 234:                                              ; preds = %219
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -447,14 +447,14 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %237 = and i16 %236, 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %238 = or disjoint i16 %237, %201
-  br label %.thread38
+  br label %.thread40
 
-.thread38:                                        ; preds = %230, %224, %214, %234
+.thread40:                                        ; preds = %230, %224, %214, %234
   %239 = phi i16 [ %238, %234 ], [ %201, %214 ], [ %201, %224 ], [ %201, %230 ]
   %240 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %0, i32 noundef 16, i16 noundef zeroext %203, i16 noundef zeroext %239) #9
   br label %241
 
-241:                                              ; preds = %.thread38, %206
+241:                                              ; preds = %.thread40, %206
   %242 = call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef 1) #9
   %243 = icmp eq i16 %242, 0
   br i1 %243, label %278, label %244
@@ -508,7 +508,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %281 = load i64, ptr %280, align 8
   %282 = trunc i64 %281 to i32
   %283 = icmp eq i32 %282, 1
-  br i1 %283, label %284, label %420
+  br i1 %283, label %284, label %417
 
 284:                                              ; preds = %279
   %285 = getelementptr i8, ptr %84, i64 56
@@ -519,35 +519,35 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %290 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %291 = load i32, ptr %290, align 4
   %292 = icmp eq i32 %291, %289
-  br i1 %292, label %293, label %.thread44
+  br i1 %292, label %293, label %.thread46
 
 293:                                              ; preds = %284
   %294 = icmp ult i32 %288, -3
-  br i1 %294, label %.preheader50, label %.loopexit52
+  br i1 %294, label %.preheader52, label %.loopexit54
 
-295:                                              ; preds = %.preheader50
+295:                                              ; preds = %.preheader52
   %296 = add nuw i32 %301, 1
   %297 = icmp eq i32 %296, %289
-  br i1 %297, label %.loopexit52, label %.preheader50, !llvm.loop !13
+  br i1 %297, label %.loopexit54, label %.preheader52, !llvm.loop !13
 
-.loopexit52:                                      ; preds = %295, %293
+.loopexit54:                                      ; preds = %295, %293
   %298 = icmp eq i32 %287, 0
   br i1 %298, label %.loopexit, label %299
 
-299:                                              ; preds = %.loopexit52
+299:                                              ; preds = %.loopexit54
   %300 = getelementptr i8, ptr %84, i64 72
   br label %306
 
-.preheader50:                                     ; preds = %293, %295
+.preheader52:                                     ; preds = %293, %295
   %301 = phi i32 [ %296, %295 ], [ 2, %293 ]
   %302 = sext i32 %301 to i64
   %303 = getelementptr %union.acpi_object, ptr %84, i64 %302
   %304 = load i32, ptr %303, align 8
   %305 = icmp eq i32 %304, 1
-  br i1 %305, label %295, label %.thread44
+  br i1 %305, label %295, label %.thread46
 
-306:                                              ; preds = %417, %299
-  %307 = phi i32 [ 0, %299 ], [ %418, %417 ]
+306:                                              ; preds = %414, %299
+  %307 = phi i32 [ 0, %299 ], [ %415, %414 ]
   %308 = mul i32 %307, 14
   %309 = sext i32 %308 to i64
   %310 = getelementptr %union.acpi_object, ptr %300, i64 %309
@@ -585,7 +585,7 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %342 = trunc i64 %341 to i32
   %343 = load i8, ptr %47, align 4
   %344 = icmp eq i8 %343, 0
-  br i1 %344, label %417, label %345
+  br i1 %344, label %414, label %345
 
 345:                                              ; preds = %306
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -598,148 +598,144 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   %347 = lshr i16 %346, 4
   %348 = and i16 %347, 15
   %349 = icmp samesign ugt i16 %348, 10
-  br i1 %349, label %355, label %350
+  br i1 %349, label %.critedge, label %350
 
 350:                                              ; preds = %345
   %351 = zext nneg i16 %348 to i64
   %352 = getelementptr i32, ptr @hpx3_device_type.pcie_to_hpx3_type, i64 %351
   %353 = load i32, ptr %352, align 4
   %354 = trunc i32 %353 to i16
-  br label %355
+  %355 = and i16 %354, %313
+  %356 = icmp eq i16 %355, 0
+  br i1 %356, label %.critedge, label %357
 
-355:                                              ; preds = %350, %345
-  %356 = phi i16 [ %354, %350 ], [ 0, %345 ]
-  %357 = and i16 %356, %313
-  %358 = icmp eq i16 %357, 0
-  br i1 %358, label %416, label %359
+357:                                              ; preds = %350
+  %358 = load i40, ptr %49, align 1
+  %359 = and i40 %358, 8388608
+  %360 = icmp eq i40 %359, 0
+  br i1 %360, label %361, label %365
 
-359:                                              ; preds = %355
-  %360 = load i40, ptr %49, align 1
-  %361 = and i40 %360, 8388608
-  %362 = icmp eq i40 %361, 0
-  br i1 %362, label %363, label %367
+361:                                              ; preds = %357
+  %362 = call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef 16) #9
+  %363 = icmp eq i16 %362, 0
+  %364 = select i1 %363, i16 1, i16 2
+  br label %365
 
-363:                                              ; preds = %359
-  %364 = call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef 16) #9
-  %365 = icmp eq i16 %364, 0
-  %366 = select i1 %365, i16 1, i16 2
-  br label %367
+365:                                              ; preds = %361, %357
+  %366 = phi i16 [ 4, %357 ], [ %364, %361 ]
+  %367 = and i16 %366, %316
+  %368 = icmp eq i16 %367, 0
+  br i1 %368, label %.critedge, label %369
 
-367:                                              ; preds = %363, %359
-  %368 = phi i16 [ 4, %359 ], [ %366, %363 ]
-  %369 = and i16 %368, %316
-  %370 = icmp eq i16 %369, 0
-  br i1 %370, label %416, label %371
-
-371:                                              ; preds = %367
-  switch i16 %319, label %396 [
-    i16 0, label %397
-    i16 1, label %372
-    i16 2, label %377
+369:                                              ; preds = %365
+  switch i16 %319, label %394 [
+    i16 0, label %395
+    i16 1, label %370
+    i16 2, label %375
   ]
 
-372:                                              ; preds = %371
-  %373 = and i32 %322, 65535
-  %374 = call zeroext i8 @pci_find_capability(ptr noundef %0, i32 noundef %373) #9
-  %375 = zext i8 %374 to i16
-  %376 = icmp eq i8 %374, 0
-  br i1 %376, label %416, label %397
+370:                                              ; preds = %369
+  %371 = and i32 %322, 65535
+  %372 = call zeroext i8 @pci_find_capability(ptr noundef %0, i32 noundef %371) #9
+  %373 = zext i8 %372 to i16
+  %374 = icmp eq i8 %372, 0
+  br i1 %374, label %.critedge, label %395
 
-377:                                              ; preds = %371
-  %378 = and i32 %322, 65535
-  %379 = call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef %378) #9
-  %380 = icmp eq i16 %379, 0
-  br i1 %380, label %416, label %381
+375:                                              ; preds = %369
+  %376 = and i32 %322, 65535
+  %377 = call zeroext i16 @pci_find_ext_capability(ptr noundef %0, i32 noundef %376) #9
+  %378 = icmp eq i16 %377, 0
+  br i1 %378, label %.critedge, label %379
 
-381:                                              ; preds = %377
-  %382 = zext i16 %379 to i32
-  %383 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %382, ptr noundef nonnull %6) #9
-  %384 = load i32, ptr %6, align 4
-  %385 = lshr i32 %384, 16
-  %386 = trunc i32 %385 to i8
+379:                                              ; preds = %375
+  %380 = zext i16 %377 to i32
+  %381 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %380, ptr noundef nonnull %6) #9
+  %382 = load i32, ptr %6, align 4
+  %383 = lshr i32 %382, 16
+  %384 = trunc i32 %383 to i8
+  %385 = and i8 %384, 15
+  %386 = trunc i64 %324 to i8
   %387 = and i8 %386, 15
-  %388 = trunc i64 %324 to i8
-  %389 = and i8 %388, 15
-  %390 = and i8 %388, 16
-  %391 = icmp ne i8 %390, 0
-  %392 = icmp samesign uge i8 %389, %387
-  %393 = and i1 %391, %392
-  %394 = icmp eq i8 %389, %387
-  %395 = or i1 %394, %393
-  br i1 %395, label %397, label %416
+  %388 = and i8 %386, 16
+  %389 = icmp ne i8 %388, 0
+  %390 = icmp samesign uge i8 %387, %385
+  %391 = and i1 %389, %390
+  %392 = icmp eq i8 %387, %385
+  %393 = or i1 %392, %391
+  br i1 %393, label %395, label %.critedge
 
-396:                                              ; preds = %371
+394:                                              ; preds = %369
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef nonnull %50, ptr noundef nonnull @.str.14) #10
-  br label %416
+  br label %.critedge
 
-397:                                              ; preds = %381, %372, %371
-  %398 = phi i16 [ %379, %381 ], [ %375, %372 ], [ %319, %371 ]
-  %399 = zext i16 %398 to i32
-  %400 = and i32 %327, 65535
-  %401 = add nuw nsw i32 %400, %399
-  %402 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %401, ptr noundef nonnull %4) #9
-  %403 = load i32, ptr %4, align 4
-  %404 = and i32 %403, %330
-  %405 = icmp eq i32 %404, %333
-  br i1 %405, label %406, label %416
+395:                                              ; preds = %379, %370, %369
+  %396 = phi i16 [ %377, %379 ], [ %373, %370 ], [ %319, %369 ]
+  %397 = zext i16 %396 to i32
+  %398 = and i32 %327, 65535
+  %399 = add nuw nsw i32 %398, %397
+  %400 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %399, ptr noundef nonnull %4) #9
+  %401 = load i32, ptr %4, align 4
+  %402 = and i32 %401, %330
+  %403 = icmp eq i32 %402, %333
+  br i1 %403, label %404, label %.critedge
 
-406:                                              ; preds = %397
-  %407 = and i32 %336, 65535
-  %408 = add nuw nsw i32 %407, %399
-  %409 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %408, ptr noundef nonnull %5) #9
-  %410 = load i32, ptr %5, align 4
-  %411 = and i32 %410, %339
-  %412 = or i32 %411, %342
-  store i32 %412, ptr %5, align 4
-  %413 = icmp eq i32 %410, %412
-  br i1 %413, label %416, label %414
+404:                                              ; preds = %395
+  %405 = and i32 %336, 65535
+  %406 = add nuw nsw i32 %405, %397
+  %407 = call i32 @pci_read_config_dword(ptr noundef %0, i32 noundef %406, ptr noundef nonnull %5) #9
+  %408 = load i32, ptr %5, align 4
+  %409 = and i32 %408, %339
+  %410 = or i32 %409, %342
+  store i32 %410, ptr %5, align 4
+  %411 = icmp eq i32 %408, %410
+  br i1 %411, label %.critedge, label %412
 
-414:                                              ; preds = %406
-  %415 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %408, i32 noundef %412) #9
-  br label %416
+412:                                              ; preds = %404
+  %413 = call i32 @pci_write_config_dword(ptr noundef %0, i32 noundef %406, i32 noundef %410) #9
+  br label %.critedge
 
-416:                                              ; preds = %414, %406, %397, %396, %381, %377, %372, %367, %355
+.critedge:                                        ; preds = %345, %412, %404, %395, %394, %379, %375, %370, %365, %350
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %417
+  br label %414
 
-417:                                              ; preds = %416, %306
-  %418 = add nuw i32 %307, 1
-  %419 = icmp eq i32 %418, %287
-  br i1 %419, label %.loopexit, label %306, !llvm.loop !14
+414:                                              ; preds = %.critedge, %306
+  %415 = add nuw i32 %307, 1
+  %416 = icmp eq i32 %415, %287
+  br i1 %416, label %.loopexit, label %306, !llvm.loop !14
 
-420:                                              ; preds = %279
-  %421 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.program_type3_hpx_record, i32 noundef %282) #10
-  br label %.thread44
+417:                                              ; preds = %279
+  %418 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.program_type3_hpx_record, i32 noundef %282) #10
+  br label %.thread46
 
-422:                                              ; preds = %91
-  %423 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.acpi_run_hpx, i32 noundef %94) #10
-  br label %.thread44
+419:                                              ; preds = %91
+  %420 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.acpi_run_hpx, i32 noundef %94) #10
+  br label %.thread46
 
-.loopexit:                                        ; preds = %417, %.loopexit52, %278, %147, %144, %113
-  %424 = add nuw i32 %76, 1
-  %425 = load i32, ptr %70, align 4
-  %426 = icmp ult i32 %424, %425
-  br i1 %426, label %75, label %.loopexit55.loopexit, !llvm.loop !15
+.loopexit:                                        ; preds = %414, %.loopexit54, %278, %147, %144, %113
+  %421 = add nuw i32 %76, 1
+  %422 = load i32, ptr %70, align 4
+  %423 = icmp ult i32 %421, %422
+  br i1 %423, label %75, label %.loopexit57.loopexit, !llvm.loop !15
 
-.thread44:                                        ; preds = %82, %87, %75, %100, %131, %153, %284, %.preheader50, %.preheader48, %.preheader45, %.preheader, %422, %65, %111, %142, %164, %420
-  %427 = load ptr, ptr %46, align 8
-  call void @kfree(ptr noundef %427) #9
-  br label %.critedge
+.thread46:                                        ; preds = %82, %87, %75, %100, %131, %153, %284, %.preheader52, %.preheader50, %.preheader47, %.preheader, %419, %65, %111, %142, %164, %417
+  %424 = load ptr, ptr %46, align 8
+  call void @kfree(ptr noundef %424) #9
+  br label %.critedge30
 
-.loopexit55.loopexit:                             ; preds = %.loopexit
+.loopexit57.loopexit:                             ; preds = %.loopexit
   %.pre = load ptr, ptr %46, align 8
-  br label %.loopexit55
+  br label %.loopexit57
 
-.loopexit55:                                      ; preds = %69, %.loopexit55.loopexit
-  %428 = phi ptr [ %.pre, %.loopexit55.loopexit ], [ %66, %69 ]
-  call void @kfree(ptr noundef %428) #9
+.loopexit57:                                      ; preds = %69, %.loopexit57.loopexit
+  %425 = phi ptr [ %.pre, %.loopexit57.loopexit ], [ %66, %69 ]
+  call void @kfree(ptr noundef %425) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
-.critedge:                                        ; preds = %61, %.thread44
+.critedge30:                                      ; preds = %61, %.thread46
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -747,87 +743,87 @@ define dso_local noundef range(i32 -19, 1) i32 @pci_acpi_program_hp_params(ptr n
   store ptr null, ptr %56, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8
-  %429 = call i32 @acpi_evaluate_object(ptr noundef nonnull %62, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %2) #9
-  %430 = icmp eq i32 %429, 0
-  br i1 %430, label %431, label %.critedge30
+  %426 = call i32 @acpi_evaluate_object(ptr noundef nonnull %62, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull %2) #9
+  %427 = icmp eq i32 %426, 0
+  br i1 %427, label %428, label %.critedge32
 
-431:                                              ; preds = %.critedge
-  %432 = load ptr, ptr %56, align 8
-  %433 = load i32, ptr %432, align 8
-  %434 = icmp eq i32 %433, 4
-  br i1 %434, label %435, label %.loopexit53
+428:                                              ; preds = %.critedge30
+  %429 = load ptr, ptr %56, align 8
+  %430 = load i32, ptr %429, align 8
+  %431 = icmp eq i32 %430, 4
+  br i1 %431, label %432, label %.loopexit55
 
-435:                                              ; preds = %431
-  %436 = getelementptr inbounds nuw i8, ptr %432, i64 4
-  %437 = load i32, ptr %436, align 4
-  %438 = icmp eq i32 %437, 4
-  br i1 %438, label %439, label %.loopexit53
+432:                                              ; preds = %428
+  %433 = getelementptr inbounds nuw i8, ptr %429, i64 4
+  %434 = load i32, ptr %433, align 4
+  %435 = icmp eq i32 %434, 4
+  br i1 %435, label %436, label %.loopexit55
 
-439:                                              ; preds = %435
-  %440 = getelementptr inbounds nuw i8, ptr %432, i64 8
-  %441 = load ptr, ptr %440, align 8
-  br label %445
+436:                                              ; preds = %432
+  %437 = getelementptr inbounds nuw i8, ptr %429, i64 8
+  %438 = load ptr, ptr %437, align 8
+  br label %442
 
-442:                                              ; preds = %445
-  %443 = add nuw nsw i64 %446, 1
-  %444 = icmp eq i64 %443, 4
-  br i1 %444, label %.critedge32, label %445, !llvm.loop !16
+439:                                              ; preds = %442
+  %440 = add nuw nsw i64 %443, 1
+  %441 = icmp eq i64 %440, 4
+  br i1 %441, label %.critedge34, label %442, !llvm.loop !16
 
-445:                                              ; preds = %442, %439
-  %446 = phi i64 [ 0, %439 ], [ %443, %442 ]
-  %447 = getelementptr %union.acpi_object, ptr %441, i64 %446
-  %448 = load i32, ptr %447, align 8
-  %449 = icmp eq i32 %448, 1
-  br i1 %449, label %442, label %.loopexit53
+442:                                              ; preds = %439, %436
+  %443 = phi i64 [ 0, %436 ], [ %440, %439 ]
+  %444 = getelementptr %union.acpi_object, ptr %438, i64 %443
+  %445 = load i32, ptr %444, align 8
+  %446 = icmp eq i32 %445, 1
+  br i1 %446, label %439, label %.loopexit55
 
-.critedge32:                                      ; preds = %442
+.critedge34:                                      ; preds = %439
   store i32 1, ptr %3, align 8
-  %450 = getelementptr inbounds nuw i8, ptr %441, i64 8
+  %447 = getelementptr inbounds nuw i8, ptr %438, i64 8
+  %448 = load i64, ptr %447, align 8
+  %449 = trunc i64 %448 to i8
+  store i8 %449, ptr %57, align 4
+  %450 = getelementptr i8, ptr %438, i64 32
   %451 = load i64, ptr %450, align 8
   %452 = trunc i64 %451 to i8
-  store i8 %452, ptr %57, align 4
-  %453 = getelementptr i8, ptr %441, i64 32
+  store i8 %452, ptr %58, align 1
+  %453 = getelementptr i8, ptr %438, i64 56
   %454 = load i64, ptr %453, align 8
   %455 = trunc i64 %454 to i8
-  store i8 %455, ptr %58, align 1
-  %456 = getelementptr i8, ptr %441, i64 56
+  store i8 %455, ptr %59, align 2
+  %456 = getelementptr i8, ptr %438, i64 80
   %457 = load i64, ptr %456, align 8
   %458 = trunc i64 %457 to i8
-  store i8 %458, ptr %59, align 2
-  %459 = getelementptr i8, ptr %441, i64 80
-  %460 = load i64, ptr %459, align 8
-  %461 = trunc i64 %460 to i8
-  store i8 %461, ptr %60, align 1
+  store i8 %458, ptr %60, align 1
   call fastcc void @program_hpx_type0(ptr noundef %0, ptr noundef nonnull %3)
-  %462 = load ptr, ptr %56, align 8
-  call void @kfree(ptr noundef %462) #9
+  %459 = load ptr, ptr %56, align 8
+  call void @kfree(ptr noundef %459) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread
 
-.loopexit53:                                      ; preds = %445, %435, %431
-  call void @kfree(ptr noundef %432) #9
-  br label %.critedge30
+.loopexit55:                                      ; preds = %442, %432, %428
+  call void @kfree(ptr noundef %429) #9
+  br label %.critedge32
 
-.critedge30:                                      ; preds = %.critedge, %.loopexit53
+.critedge32:                                      ; preds = %.critedge30, %.loopexit55
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %463 = call i32 @acpi_is_root_bridge(ptr noundef nonnull %62) #9
-  %464 = icmp eq i32 %463, 0
-  br i1 %464, label %465, label %.thread
+  %460 = call i32 @acpi_is_root_bridge(ptr noundef nonnull %62) #9
+  %461 = icmp eq i32 %460, 0
+  br i1 %461, label %462, label %.thread
 
-465:                                              ; preds = %.critedge30
-  %466 = call i32 @acpi_get_parent(ptr noundef nonnull %62, ptr noundef nonnull %11) #9
-  %467 = icmp ne i32 %466, 0
-  %468 = load ptr, ptr %11, align 8
-  %469 = icmp eq ptr %468, null
-  %470 = select i1 %467, i1 true, i1 %469
-  br i1 %470, label %.thread, label %61, !llvm.loop !17
+462:                                              ; preds = %.critedge32
+  %463 = call i32 @acpi_get_parent(ptr noundef nonnull %62, ptr noundef nonnull %11) #9
+  %464 = icmp ne i32 %463, 0
+  %465 = load ptr, ptr %11, align 8
+  %466 = icmp eq ptr %465, null
+  %467 = select i1 %464, i1 true, i1 %466
+  br i1 %467, label %.thread, label %61, !llvm.loop !17
 
-.thread:                                          ; preds = %.preheader57, %465, %.critedge30, %.loopexit55, %.critedge32, %1
-  %471 = phi i32 [ -19, %1 ], [ 0, %.loopexit55 ], [ 0, %.critedge32 ], [ -19, %.critedge30 ], [ -19, %465 ], [ -19, %.preheader57 ]
+.thread:                                          ; preds = %.preheader59, %462, %.critedge32, %.loopexit57, %.critedge34, %1
+  %468 = phi i32 [ -19, %1 ], [ 0, %.loopexit57 ], [ 0, %.critedge34 ], [ -19, %.critedge32 ], [ -19, %462 ], [ -19, %.preheader59 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  ret i32 %471
+  ret i32 %468
 }
 
 ; Function Attrs: null_pointer_is_valid

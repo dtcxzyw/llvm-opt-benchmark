@@ -28592,7 +28592,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %169 = and i64 %168, 15
   %.off = add nsw i64 %169, -2
   %switch = icmp ult i64 %.off, 3
-  br i1 %switch, label %.thread305, label %186
+  br i1 %switch, label %.thread305, label %191
 
 170:                                              ; preds = %156
   %171 = getelementptr inbounds nuw i8, ptr %157, i64 9
@@ -28623,28 +28623,25 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 136
   %185 = load i8, ptr %184, align 8, !range !439, !noalias !6265, !noundef !13
   %.not245 = icmp eq i8 %185, 3
-  br i1 %.not245, label %189, label %.thread305
+  br i1 %.not245, label %186, label %.thread305
 
 .thread305:                                       ; preds = %166, %182
   br i1 %4, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-186:                                              ; preds = %166
-  %187 = and i64 %167, 15728640
-  %188 = icmp ne i64 %187, 1048576
-  br label %193
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %188 = load i64, ptr %187, align 8, !range !325, !noundef !13
+  %189 = icmp eq i64 %188, 0
+  %190 = or i1 %4, %189
+  br i1 %190, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-189:                                              ; preds = %182
-  %190 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %191 = load i64, ptr %190, align 8, !range !325, !noundef !13
-  %192 = icmp eq i64 %191, 0
-  br label %193
+191:                                              ; preds = %166
+  %192 = and i64 %167, 15728640
+  %193 = icmp ne i64 %192, 1048576
+  %.259 = or i1 %4, %193
+  br i1 %.259, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-193:                                              ; preds = %186, %189
-  %.sroa.0118.0 = phi i1 [ %192, %189 ], [ %188, %186 ]
-  %brmerge = or i1 %4, %.sroa.0118.0
-  br i1 %brmerge, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
-
-194:                                              ; preds = %193, %.thread305
+194:                                              ; preds = %186, %191, %.thread305
   %195 = load ptr, ptr %42, align 8, !nonnull !13, !align !132, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6268
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdaeb688fd0fc36e4E.llvm.2441728074051575861"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %195)
@@ -28657,7 +28654,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %198 = invoke { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5782b8cf01ba3b14E.llvm.2441728074051575861"(ptr noalias noundef nonnull readonly align 8 %196, i64 noundef %197, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %162)
           to label %199 unwind label %.loopexit
 
-_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc273, %.noexc272, %261, %.critedge263, %193, %199, %.thread305
+_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc273, %.noexc272, %261, %186, %.critedge263, %191, %199, %.thread305
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %59
 
@@ -29556,7 +29553,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %157 = and i64 %156, 15
   %.off = add nsw i64 %157, -2
   %switch = icmp ult i64 %.off, 3
-  br i1 %switch, label %.thread320, label %174
+  br i1 %switch, label %.thread320, label %179
 
 158:                                              ; preds = %144
   %159 = getelementptr inbounds nuw i8, ptr %145, i64 9
@@ -29587,28 +29584,25 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 136
   %173 = load i8, ptr %172, align 8, !range !439, !noalias !6332, !noundef !13
   %.not245 = icmp eq i8 %173, 3
-  br i1 %.not245, label %177, label %.thread320
+  br i1 %.not245, label %174, label %.thread320
 
 .thread320:                                       ; preds = %154, %170
   br i1 %4, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-174:                                              ; preds = %154
-  %175 = and i64 %155, 15728640
-  %176 = icmp ne i64 %175, 1048576
-  br label %181
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 32
+  %176 = load i64, ptr %175, align 8, !range !325, !noundef !13
+  %177 = icmp eq i64 %176, 0
+  %178 = or i1 %4, %177
+  br i1 %178, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-177:                                              ; preds = %170
-  %178 = getelementptr inbounds nuw i8, ptr %171, i64 32
-  %179 = load i64, ptr %178, align 8, !range !325, !noundef !13
-  %180 = icmp eq i64 %179, 0
-  br label %181
+179:                                              ; preds = %154
+  %180 = and i64 %155, 15728640
+  %181 = icmp ne i64 %180, 1048576
+  %.261 = or i1 %4, %181
+  br i1 %.261, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-181:                                              ; preds = %174, %177
-  %.sroa.0118.0 = phi i1 [ %180, %177 ], [ %176, %174 ]
-  %brmerge = or i1 %4, %.sroa.0118.0
-  br i1 %brmerge, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
-
-182:                                              ; preds = %181, %.thread320
+182:                                              ; preds = %174, %179, %.thread320
   %183 = load ptr, ptr %45, align 8, !nonnull !13, !align !132, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6335
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdaeb688fd0fc36e4E.llvm.2441728074051575861"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %183)
@@ -29621,7 +29615,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %186 = invoke { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5782b8cf01ba3b14E.llvm.2441728074051575861"(ptr noalias noundef nonnull readonly align 8 %184, i64 noundef %185, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %150)
           to label %187 unwind label %.loopexit
 
-_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc274, %.noexc273, %250, %.critedge265, %181, %187, %.thread320
+_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc274, %.noexc273, %250, %174, %.critedge265, %179, %187, %.thread320
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %60
 
@@ -30547,7 +30541,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %157 = and i64 %156, 15
   %.off = add nsw i64 %157, -2
   %switch = icmp ult i64 %.off, 3
-  br i1 %switch, label %.thread320, label %174
+  br i1 %switch, label %.thread320, label %179
 
 158:                                              ; preds = %144
   %159 = getelementptr inbounds nuw i8, ptr %145, i64 9
@@ -30578,28 +30572,25 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 136
   %173 = load i8, ptr %172, align 8, !range !439, !noalias !6408, !noundef !13
   %.not245 = icmp eq i8 %173, 3
-  br i1 %.not245, label %177, label %.thread320
+  br i1 %.not245, label %174, label %.thread320
 
 .thread320:                                       ; preds = %154, %170
   br i1 %4, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-174:                                              ; preds = %154
-  %175 = and i64 %155, 15728640
-  %176 = icmp ne i64 %175, 1048576
-  br label %181
+174:                                              ; preds = %170
+  %175 = getelementptr inbounds nuw i8, ptr %171, i64 32
+  %176 = load i64, ptr %175, align 8, !range !325, !noundef !13
+  %177 = icmp eq i64 %176, 0
+  %178 = or i1 %4, %177
+  br i1 %178, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-177:                                              ; preds = %170
-  %178 = getelementptr inbounds nuw i8, ptr %171, i64 32
-  %179 = load i64, ptr %178, align 8, !range !325, !noundef !13
-  %180 = icmp eq i64 %179, 0
-  br label %181
+179:                                              ; preds = %154
+  %180 = and i64 %155, 15728640
+  %181 = icmp ne i64 %180, 1048576
+  %.261 = or i1 %4, %181
+  br i1 %.261, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-181:                                              ; preds = %174, %177
-  %.sroa.0118.0 = phi i1 [ %180, %177 ], [ %176, %174 ]
-  %brmerge = or i1 %4, %.sroa.0118.0
-  br i1 %brmerge, label %182, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
-
-182:                                              ; preds = %181, %.thread320
+182:                                              ; preds = %174, %179, %.thread320
   %183 = load ptr, ptr %45, align 8, !nonnull !13, !align !132, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !6411
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdaeb688fd0fc36e4E.llvm.2441728074051575861"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %183)
@@ -30612,7 +30603,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %186 = invoke { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5782b8cf01ba3b14E.llvm.2441728074051575861"(ptr noalias noundef nonnull readonly align 8 %184, i64 noundef %185, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %150)
           to label %187 unwind label %.loopexit
 
-_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc274, %.noexc273, %250, %.critedge265, %181, %187, %.thread320
+_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc274, %.noexc273, %250, %174, %.critedge265, %179, %187, %.thread320
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %60
 
@@ -31547,7 +31538,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %169 = and i64 %168, 15
   %.off = add nsw i64 %169, -2
   %switch = icmp ult i64 %.off, 3
-  br i1 %switch, label %.thread305, label %186
+  br i1 %switch, label %.thread305, label %191
 
 170:                                              ; preds = %156
   %171 = getelementptr inbounds nuw i8, ptr %157, i64 9
@@ -31578,28 +31569,25 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 136
   %185 = load i8, ptr %184, align 8, !range !439, !noalias !6492, !noundef !13
   %.not245 = icmp eq i8 %185, 3
-  br i1 %.not245, label %189, label %.thread305
+  br i1 %.not245, label %186, label %.thread305
 
 .thread305:                                       ; preds = %166, %182
   br i1 %4, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-186:                                              ; preds = %166
-  %187 = and i64 %167, 15728640
-  %188 = icmp ne i64 %187, 1048576
-  br label %193
+186:                                              ; preds = %182
+  %187 = getelementptr inbounds nuw i8, ptr %183, i64 32
+  %188 = load i64, ptr %187, align 8, !range !325, !noundef !13
+  %189 = icmp eq i64 %188, 0
+  %190 = or i1 %4, %189
+  br i1 %190, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-189:                                              ; preds = %182
-  %190 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %191 = load i64, ptr %190, align 8, !range !325, !noundef !13
-  %192 = icmp eq i64 %191, 0
-  br label %193
+191:                                              ; preds = %166
+  %192 = and i64 %167, 15728640
+  %193 = icmp ne i64 %192, 1048576
+  %.259 = or i1 %4, %193
+  br i1 %.259, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
 
-193:                                              ; preds = %186, %189
-  %.sroa.0118.0 = phi i1 [ %192, %189 ], [ %188, %186 ]
-  %brmerge = or i1 %4, %.sroa.0118.0
-  br i1 %brmerge, label %194, label %_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit
-
-194:                                              ; preds = %193, %.thread305
+194:                                              ; preds = %186, %191, %.thread305
   %195 = load ptr, ptr %42, align 8, !nonnull !13, !align !132, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !6495
   invoke void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17hdaeb688fd0fc36e4E.llvm.2441728074051575861"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %195)
@@ -31612,7 +31600,7 @@ define hidden void @_ZN11uv_resolver18candidate_selector17CandidateSelector16sel
   %198 = invoke { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h5782b8cf01ba3b14E.llvm.2441728074051575861"(ptr noalias noundef nonnull readonly align 8 %196, i64 noundef %197, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %162)
           to label %199 unwind label %.loopexit
 
-_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc273, %.noexc272, %261, %.critedge263, %193, %199, %.thread305
+_ZN11uv_resolver11version_map20VersionMapDistHandle16prioritized_dist17h106eea009bd9c6f7E.exit: ; preds = %.noexc273, %.noexc272, %261, %186, %.critedge263, %191, %199, %.thread305
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %59
 

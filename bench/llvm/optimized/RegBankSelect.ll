@@ -2122,7 +2122,7 @@ _ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit: ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !314
   %15 = icmp eq i64 %12, %14
-  br i1 %15, label %89, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit.thread
+  br i1 %15, label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79, label %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit.thread
 
 _ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit.thread: ; preds = %2, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit
   %16 = icmp eq i64 %3, -1
@@ -2175,7 +2175,7 @@ _ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73: ; preds = %_ZNK4llvm13RegB
   %36 = phi i1 [ false, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread ], [ false, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72 ], [ %34, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit72.thread.thread ]
   %37 = xor i1 %35, true
   %38 = and i1 %36, %37
-  br label %89
+  br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79
 
 _ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit71.thread: ; preds = %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit70.thread
   %39 = icmp eq i64 %3, -2
@@ -2194,15 +2194,15 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit.thread: ; preds = %_ZN
 
 .thread:                                          ; preds = %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit71.thread, %41
   %42 = icmp ne i64 %19, -1
+  %43 = and i1 %42, %27
   br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77
 
 _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77: ; preds = %41, %.thread
-  %43 = phi i1 [ true, %41 ], [ %42, %.thread ]
-  %44 = icmp eq i64 %4, -2
-  %or.cond.i78 = select i1 %44, i1 %24, i1 false
-  %spec.select = select i1 %or.cond.i78, i1 %27, i1 false
-  %45 = and i1 %43, %spec.select
-  br label %89
+  %44 = phi i1 [ %27, %41 ], [ %43, %.thread ]
+  %45 = icmp eq i64 %4, -2
+  %or.cond.i78 = select i1 %45, i1 %24, i1 false
+  %spec.select = select i1 %or.cond.i78, i1 %44, i1 false
+  br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79
 
 _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit.thread
   %46 = icmp eq i64 %19, %26
@@ -2211,7 +2211,7 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
 47:                                               ; preds = %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread
   %48 = icmp eq i64 %7, %23
   %49 = icmp ult i64 %3, %4
-  br i1 %48, label %89, label %50
+  br i1 %48, label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79, label %50
 
 50:                                               ; preds = %47
   br i1 %49, label %.thread117, label %52
@@ -2282,7 +2282,7 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
   %82 = icmp ne i32 %81, 0
   %83 = add i64 %64, %.0125
   %or.cond = select i1 %76, i1 %82, i1 false
-  br i1 %or.cond, label %89, label %84
+  br i1 %or.cond, label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79, label %84
 
 84:                                               ; preds = %70
   %or.cond3 = select i1 %76, i1 true, i1 %82
@@ -2290,14 +2290,14 @@ _ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit75.thread: ; preds = %_
 
 85:                                               ; preds = %84
   %86 = icmp samesign ult i32 %75, %81
-  br label %89
+  br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79
 
 87:                                               ; preds = %84
   %88 = icmp ult i64 %77, %83
-  br label %89
+  br label %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79
 
-89:                                               ; preds = %47, %70, %87, %85, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73
-  %.056 = phi i1 [ %38, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73 ], [ %45, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77 ], [ false, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit ], [ %86, %85 ], [ %88, %87 ], [ false, %70 ], [ %49, %47 ]
+_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit79: ; preds = %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77, %47, %70, %87, %85, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73
+  %.056 = phi i1 [ %38, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit73 ], [ false, %_ZNK4llvm13RegBankSelect11MappingCosteqERKS1_.exit ], [ %86, %85 ], [ %88, %87 ], [ false, %70 ], [ %spec.select, %_ZNK4llvm13RegBankSelect11MappingCost11isSaturatedEv.exit77 ], [ %49, %47 ]
   ret i1 %.056
 }
 

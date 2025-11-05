@@ -161,7 +161,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41: ; preds = %5
   %57 = load i16, ptr %56, align 4, !tbaa !18
   %58 = zext i16 %57 to i64
   %.not3177.not = icmp eq i16 %57, 0
-  br i1 %.not3177.not, label %.thread, label %.lr.ph
+  br i1 %.not3177.not, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %59 = icmp ugt i64 %2, 64
@@ -192,7 +192,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41: ; preds = %5
   %72 = tail call i64 @llvm.smax.i64(i64 %68, i64 0)
   %.223.i49.us = add nuw i64 %72, %.021.i43.us
   %.0.i50.us = select i1 %70, i32 1, i32 %spec.select28.i48.us
-  switch i32 %.0.i50.us, label %.thread [
+  switch i32 %.0.i50.us, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread [
     i32 0, label %.preheader.i42.us
     i32 3, label %73
   ], !llvm.loop !11
@@ -204,7 +204,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41: ; preds = %5
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us: ; preds = %73
   %74 = icmp eq i64 %.122.i44.us, 64
-  br i1 %74, label %.split86.us, label %.thread
+  br i1 %74, label %.split86.us, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread
 
 .split86.us:                                      ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -215,10 +215,10 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us: ; preds =
   %76 = tail call ptr @__errno_location() #21
   %77 = load i32, ptr %76, align 4, !tbaa !7
   %78 = icmp eq i32 %77, 4
-  br i1 %78, label %67, label %.thread, !llvm.loop !9
+  br i1 %78, label %67, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread, !llvm.loop !9
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %105
-  %.02778 = phi i64 [ %106, %105 ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %106
+  %.02778 = phi i64 [ %107, %106 ], [ 0, %.lr.ph ]
   %79 = mul nuw nsw i64 %.02778, %32
   %80 = add i64 %79, %29
   br label %.preheader.i42
@@ -243,7 +243,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us: ; preds =
   %90 = tail call ptr @__errno_location() #21
   %91 = load i32, ptr %90, align 4, !tbaa !7
   %92 = icmp eq i32 %91, 4
-  br i1 %92, label %86, label %.thread, !llvm.loop !9
+  br i1 %92, label %86, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread, !llvm.loop !9
 
 "_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47": ; preds = %86
   %93 = icmp slt i64 %87, 0
@@ -252,7 +252,7 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us: ; preds =
   %95 = tail call i64 @llvm.smax.i64(i64 %87, i64 0)
   %.223.i49 = add nuw i64 %95, %.021.i43
   %.0.i50 = select i1 %93, i32 1, i32 %spec.select28.i48
-  switch i32 %.0.i50, label %.thread [
+  switch i32 %.0.i50, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread [
     i32 0, label %.preheader.i42
     i32 3, label %96
   ], !llvm.loop !11
@@ -267,46 +267,40 @@ _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us: ; preds =
   unreachable
 
 _ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51: ; preds = %96
-  %.not124.not = icmp ne i64 %.122.i44, 64
-  br i1 %.not124.not, label %.thread, label %97
+  %97 = icmp eq i64 %.122.i44, 64
+  br i1 %97, label %98, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread
 
-97:                                               ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51
+98:                                               ; preds = %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %98 = load i32, ptr %3, align 8, !tbaa !19
-  %99 = zext i32 %98 to i64
-  %100 = add i64 %61, %99
-  %101 = call fastcc noundef i64 @_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm(i32 noundef %0, ptr noundef nonnull %7, i64 noundef %2, i64 noundef %100)
-  %.not125.not = icmp ne i64 %101, -1
-  br i1 %.not125.not, label %102, label %.thread58
+  %99 = load i32, ptr %3, align 8, !tbaa !19
+  %100 = zext i32 %99 to i64
+  %101 = add i64 %61, %100
+  %102 = call fastcc noundef i64 @_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm(i32 noundef %0, ptr noundef nonnull %7, i64 noundef %2, i64 noundef %101)
+  %.not125.not = icmp ne i64 %102, -1
+  br i1 %.not125.not, label %103, label %.thread58
 
-102:                                              ; preds = %97
-  %.not = icmp eq i64 %101, %2
-  br i1 %.not, label %103, label %105
+103:                                              ; preds = %98
+  %.not = icmp eq i64 %102, %2
+  br i1 %.not, label %104, label %106
 
-103:                                              ; preds = %102
+104:                                              ; preds = %103
   %bcmp = call i32 @bcmp(ptr nonnull %7, ptr %1, i64 %2)
-  %104 = icmp eq i32 %bcmp, 0
-  br i1 %104, label %.thread58, label %105
+  %105 = icmp eq i32 %bcmp, 0
+  br i1 %105, label %.thread58, label %106
 
-.thread58:                                        ; preds = %97, %103, %.split86.us
-  %.5.ph = phi i1 [ false, %.split86.us ], [ %.not125.not, %103 ], [ %.not125.not, %97 ]
+.thread58:                                        ; preds = %98, %104, %.split86.us
+  %.5.ph = phi i1 [ false, %.split86.us ], [ %.not125.not, %104 ], [ %.not125.not, %98 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread
-
-105:                                              ; preds = %102, %103
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %106 = add nuw nsw i64 %.02778, 1
-  %exitcond.not = icmp eq i64 %106, %58
-  br i1 %exitcond.not, label %.thread, label %.lr.ph.split, !llvm.loop !21
-
-.thread:                                          ; preds = %105, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47", %89, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us", %75, %.preheader, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us, %.thread58
-  %.not3171 = phi i1 [ true, %.thread58 ], [ false, %.preheader ], [ true, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ true, %75 ], [ true, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ true, %89 ], [ true, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ %.not124.not, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ %.not124.not, %105 ]
-  %.3 = phi i1 [ %.5.ph, %.thread58 ], [ undef, %.preheader ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ false, %75 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ false, %89 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ false, %105 ]
-  %spec.select = and i1 %.not3171, %.3
   br label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread
 
-_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread: ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37", %46, %.thread, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41
-  %.1 = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41 ], [ %spec.select, %.thread ], [ false, %46 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37" ]
+106:                                              ; preds = %103, %104
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  %107 = add nuw nsw i64 %.02778, 1
+  %exitcond.not = icmp eq i64 %107, %58
+  br i1 %exitcond.not, label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread, label %.lr.ph.split, !llvm.loop !21
+
+_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41.thread: ; preds = %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37", %46, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51, %106, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47", %89, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us", %75, %.thread58, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us, %.preheader, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41
+  %.1 = phi i1 [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit41 ], [ %.5.ph, %.thread58 ], [ false, %.preheader ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51.us ], [ false, %75 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47.us" ], [ false, %89 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i47" ], [ false, %106 ], [ false, %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit51 ], [ false, %46 ], [ false, %"_ZN6google24glog_internal_namespace_12_GLOBAL__N_112FailureRetryIZNS0_L14ReadFromOffsetEiPvmmE3$_0EEDaT_i.exit.i37" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6google24glog_internal_namespace_L14ReadFromOffsetEiPvmm.exit.thread
 
@@ -1932,11 +1926,9 @@ define internal fastcc noundef zeroext i1 @_ZN6google24glog_internal_namespace_L
   br i1 %.not39, label %.lr.ph57, label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %.lr.ph57, %5, %.thread44
-  %.not3950 = phi i1 [ true, %.thread44 ], [ false, %5 ], [ %14, %.lr.ph57 ], [ %14, %._crit_edge ]
-  %.1 = phi i1 [ true, %.thread44 ], [ undef, %5 ], [ false, %.lr.ph57 ], [ false, %._crit_edge ]
-  %spec.select40 = and i1 %.not3950, %.1
+  %.not3950 = phi i1 [ true, %.thread44 ], [ false, %5 ], [ false, %.lr.ph57 ], [ false, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %spec.select40
+  ret i1 %.not3950
 }
 
 ; Function Attrs: mustprogress nofree noinline uwtable

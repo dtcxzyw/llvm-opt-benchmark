@@ -114683,15 +114683,17 @@ define hidden noundef float @_ZN14polars_compute7rolling8no_nulls19compute_var_w
   %20 = fmul float %.val16.i, %.val17.i
   %21 = fadd float %.sroa.6.019.i, %20
   %exitcond.not.i = icmp eq i64 %13, %10
-  br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit", label %12
+  br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit.loopexit", label %12
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit": ; preds = %12, %4
-  %.sroa.6.0.lcssa.i = phi float [ 0.000000e+00, %4 ], [ %21, %12 ]
-  %.sroa.0.0.lcssa.i = phi float [ 0.000000e+00, %4 ], [ %19, %12 ]
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit.loopexit": ; preds = %12
+  %22 = fmul float %21, %21
+  %23 = fsub float %19, %22
+  br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit"
+
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit.loopexit", %4
+  %24 = phi float [ 0.000000e+00, %4 ], [ %23, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17hc6d9ba5ead8d381eE.exit.loopexit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %22 = fmul float %.sroa.6.0.lcssa.i, %.sroa.6.0.lcssa.i
-  %23 = fsub float %.sroa.0.0.lcssa.i, %22
-  ret float %23
+  ret float %24
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -114732,15 +114734,17 @@ define hidden noundef double @_ZN14polars_compute7rolling8no_nulls19compute_var_
   %20 = fmul double %.val16.i, %.val17.i
   %21 = fadd double %.sroa.6.019.i, %20
   %exitcond.not.i = icmp eq i64 %13, %10
-  br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit", label %12
+  br i1 %exitcond.not.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit.loopexit", label %12
 
-"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit": ; preds = %12, %4
-  %.sroa.6.0.lcssa.i = phi double [ 0.000000e+00, %4 ], [ %21, %12 ]
-  %.sroa.0.0.lcssa.i = phi double [ 0.000000e+00, %4 ], [ %19, %12 ]
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit.loopexit": ; preds = %12
+  %22 = fmul double %21, %21
+  %23 = fsub double %19, %22
+  br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit"
+
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit.loopexit", %4
+  %24 = phi double [ 0.000000e+00, %4 ], [ %23, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4fold17h6a4965934af9c689E.exit.loopexit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %22 = fmul double %.sroa.6.0.lcssa.i, %.sroa.6.0.lcssa.i
-  %23 = fsub double %.sroa.0.0.lcssa.i, %22
-  ret double %23
+  ret double %24
 }
 
 ; Function Attrs: nonlazybind uwtable

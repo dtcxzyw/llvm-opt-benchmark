@@ -3306,7 +3306,7 @@ define internal i32 @prune(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr r
   unreachable
 
 35:                                               ; preds = %.preheader, %prune_remote.exit
-  %.016 = phi i32 [ 0, %.preheader ], [ %110, %prune_remote.exit ]
+  %.016 = phi i32 [ 0, %.preheader ], [ %.0.i, %prune_remote.exit ]
   %.0915 = phi i32 [ %19, %.preheader ], [ %111, %prune_remote.exit ]
   %.01014 = phi ptr [ %1, %.preheader ], [ %112, %prune_remote.exit ]
   %36 = load ptr, ptr %.01014, align 8, !tbaa !20
@@ -3498,10 +3498,11 @@ abbrev_ref.exit.i:                                ; preds = %96, %95
   %109 = load ptr, ptr @stdout, align 8, !tbaa !87
   call void @refs_warn_dangling_symrefs(ptr noundef %108, ptr noundef %109, ptr noundef %40, ptr noundef nonnull %6) #19
   call void @string_list_clear(ptr noundef nonnull %6, i32 noundef 0) #19
+  %110 = or i32 %.02069.i, %.016
   br label %prune_remote.exit
 
 prune_remote.exit:                                ; preds = %_.exit.i, %.critedge2.i
-  %.0.i = phi i32 [ %.02069.i, %.critedge2.i ], [ 0, %_.exit.i ]
+  %.0.i = phi i32 [ %110, %.critedge2.i ], [ %.016, %_.exit.i ]
   call void @string_list_clear(ptr noundef nonnull %29, i32 noundef 0) #19
   call void @string_list_clear(ptr noundef nonnull %30, i32 noundef 0) #19
   call void @string_list_clear(ptr noundef nonnull %23, i32 noundef 1) #19
@@ -3510,7 +3511,6 @@ prune_remote.exit:                                ; preds = %_.exit.i, %.critedg
   call void @string_list_clear_func(ptr noundef nonnull %33, ptr noundef nonnull @clear_push_info) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %110 = or i32 %.0.i, %.016
   %111 = add nsw i32 %.0915, -1
   %112 = getelementptr inbounds nuw i8, ptr %.01014, i64 8
   %.not = icmp eq i32 %111, 0
@@ -3519,7 +3519,7 @@ prune_remote.exit:                                ; preds = %_.exit.i, %.critedg
 113:                                              ; preds = %prune_remote.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %110
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable

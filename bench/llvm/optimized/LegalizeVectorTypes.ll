@@ -17208,9 +17208,8 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
 
 146:                                              ; preds = %112, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56
   %.not = phi i1 [ true, %112 ], [ false, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56 ]
-  %indvars.iv = phi i64 [ 0, %112 ], [ 1, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56 ]
+  %indvars.iv = phi i64 [ 0, %112 ], [ %113, %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56 ]
   %147 = select i1 %.not, ptr %2, ptr %3
-  %148 = mul nuw nsw i64 %indvars.iv, %113
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %115, ptr %13, align 8, !tbaa !200
   store i32 0, ptr %116, align 8, !tbaa !201
@@ -17219,7 +17218,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm11SmallVect
 
 _ZN4llvm11SmallVectorIiLj12EEC2EmRKi.exit.loopexit: ; preds = %146
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %115, i64 noundef %114, i64 noundef 4) #16
-  %149 = load ptr, ptr %13, align 8, !tbaa !200
+  %148 = load ptr, ptr %13, align 8, !tbaa !200
   br label %.lr.ph.i.i.i.i.i.i.i.i.preheader
 
 _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i:          ; preds = %146
@@ -17230,31 +17229,31 @@ _ZN4llvm11SmallVectorIiLj12EEC2EmRKi.exit:        ; preds = %_ZSt6fill_nIPimiET_
   br label %_ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit
 
 .lr.ph.i.i.i.i.i.i.i.i.preheader:                 ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i, %_ZN4llvm11SmallVectorIiLj12EEC2EmRKi.exit.loopexit
-  %.sink = phi ptr [ %149, %_ZN4llvm11SmallVectorIiLj12EEC2EmRKi.exit.loopexit ], [ %115, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i ]
+  %.sink = phi ptr [ %148, %_ZN4llvm11SmallVectorIiLj12EEC2EmRKi.exit.loopexit ], [ %115, %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i ]
   call void @llvm.memset.p0.i64(ptr align 4 %.sink, i8 -1, i64 %.idx.i.i.i.i.i.i, i1 false), !tbaa !23
   store i32 %storemerge.i, ptr %116, align 8, !tbaa !201
-  %150 = load ptr, ptr %10, align 8, !tbaa !200
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %148
-  call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sink, ptr align 4 %151, i64 %114, i1 false)
+  %149 = load ptr, ptr %10, align 8, !tbaa !200
+  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv
+  call void @llvm.memmove.p0.p0.i64(ptr align 4 %.sink, ptr align 4 %150, i64 %114, i1 false)
   br label %_ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit
 
 _ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit: ; preds = %_ZN4llvm11SmallVectorIiLj12EEC2EmRKi.exit, %.lr.ph.i.i.i.i.i.i.i.i.preheader
   call fastcc void @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_0clERNS_15SmallVectorImplIiEE"(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call fastcc void @"_ZZN4llvm16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES4_ENK3$_3clERNS_15SmallVectorImplIiEE"(ptr nonnull %6, i32 %66, ptr noundef nonnull align 8 dereferenceable(16) %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  br label %152
+  br label %151
 
-152:                                              ; preds = %152, %_ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit
-  %.idx38 = phi i64 [ 0, %_ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit ], [ %.add39, %152 ]
+151:                                              ; preds = %151, %_ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit
+  %.idx38 = phi i64 [ 0, %_ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit ], [ %.add39, %151 ]
   %.ptr40 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx38
   store ptr null, ptr %.ptr40, align 16, !tbaa !158
-  %153 = getelementptr inbounds nuw i8, ptr %.ptr40, i64 8
-  store i32 0, ptr %153, align 8, !tbaa !159
+  %152 = getelementptr inbounds nuw i8, ptr %.ptr40, i64 8
+  store i32 0, ptr %152, align 8, !tbaa !159
   %.add39 = add nuw nsw i64 %.idx38, 16
-  %154 = icmp eq i64 %.add39, 64
-  br i1 %154, label %155, label %152
+  %153 = icmp eq i64 %.add39, 64
+  br i1 %153, label %154, label %151
 
-155:                                              ; preds = %152
+154:                                              ; preds = %151
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %14, ptr noundef nonnull align 16 dereferenceable(64) %6, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 -1, ptr %15, align 4, !tbaa !23
@@ -17263,19 +17262,19 @@ _ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit: ; preds = %_ZN4llvm11SmallVect
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store ptr %15, ptr %17, align 8, !tbaa !332
   store ptr %16, ptr %119, align 8, !tbaa !333
-  %156 = load ptr, ptr %13, align 8, !tbaa !200
-  %157 = load i32, ptr %116, align 8, !tbaa !201
-  %158 = zext i32 %157 to i64
+  %155 = load ptr, ptr %13, align 8, !tbaa !200
+  %156 = load i32, ptr %116, align 8, !tbaa !201
+  %157 = zext i32 %156 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store ptr %147, ptr %19, align 8, !tbaa !204
-  %159 = load ptr, ptr %68, align 8, !tbaa !63
-  store ptr %159, ptr %120, align 8, !tbaa !322
+  %158 = load ptr, ptr %68, align 8, !tbaa !63
+  store ptr %158, ptr %120, align 8, !tbaa !322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !207
   store ptr @"_ZN4llvm12function_refIFvvEE11callback_fnIZNS_16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueES8_E3$_5EEvl", ptr %18, align 8, !tbaa !335
   store i64 %123, ptr %122, align 8, !tbaa !337
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %147, ptr %21, align 8, !tbaa !204
-  store ptr %159, ptr %124, align 8, !tbaa !322
+  store ptr %158, ptr %124, align 8, !tbaa !322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !207
   store ptr %7, ptr %126, align 8, !tbaa !323
   store ptr %6, ptr %127, align 8, !tbaa !204
@@ -17285,7 +17284,7 @@ _ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit: ; preds = %_ZN4llvm11SmallVect
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store ptr %17, ptr %23, align 8, !tbaa !338
   store ptr %147, ptr %131, align 8, !tbaa !204
-  store ptr %159, ptr %132, align 8, !tbaa !322
+  store ptr %158, ptr %132, align 8, !tbaa !322
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !207
   store ptr %7, ptr %134, align 8, !tbaa !323
   store ptr %6, ptr %135, align 8, !tbaa !204
@@ -17293,7 +17292,7 @@ _ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit: ; preds = %_ZN4llvm11SmallVect
   store ptr %9, ptr %137, align 8, !tbaa !338
   store ptr @"_ZN4llvm12function_refIFvNS_8ArrayRefIiEEjjbEE11callback_fnIZNS_16DAGTypeLegalizer26SplitVecRes_VECTOR_SHUFFLEEPNS_19ShuffleVectorSDNodeERNS_7SDValueESA_E3$_7EEvlS2_jjb", ptr %22, align 8, !tbaa !342
   store i64 %139, ptr %138, align 8, !tbaa !344
-  call void @_ZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEE(ptr %156, i64 %158, i32 noundef 4, i32 noundef 4, i32 noundef 1, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %18, ptr noundef nonnull byval(%"class.llvm::function_ref.208") align 8 %20, ptr noundef nonnull byval(%"class.llvm::function_ref.209") align 8 %22) #16
+  call void @_ZN4llvm19processShuffleMasksENS_8ArrayRefIiEEjjjNS_12function_refIFvvEEENS2_IFvS1_jjEEENS2_IFvS1_jjbEEE(ptr %155, i64 %157, i32 noundef 4, i32 noundef 4, i32 noundef 1, ptr noundef nonnull byval(%"class.llvm::function_ref") align 8 %18, ptr noundef nonnull byval(%"class.llvm::function_ref.208") align 8 %20, ptr noundef nonnull byval(%"class.llvm::function_ref.209") align 8 %22) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -17302,15 +17301,15 @@ _ZN4llvm4copyINS_8ArrayRefIiEEPiEET0_OT_S4_.exit: ; preds = %_ZN4llvm11SmallVect
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %160 = load ptr, ptr %13, align 8, !tbaa !200
-  %161 = icmp eq ptr %160, %115
-  br i1 %161, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56, label %162
+  %159 = load ptr, ptr %13, align 8, !tbaa !200
+  %160 = icmp eq ptr %159, %115
+  br i1 %160, label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56, label %161
 
-162:                                              ; preds = %155
-  call void @free(ptr noundef %160) #16
+161:                                              ; preds = %154
+  call void @free(ptr noundef %159) #16
   br label %_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56
 
-_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56:         ; preds = %155, %162
+_ZN4llvm11SmallVectorIiLj12EED2Ev.exit56:         ; preds = %154, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %.not, label %146, label %140, !llvm.loop !345
 }

@@ -13254,8 +13254,7 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %804, %_ZL16isInterc
   br i1 %705, label %814, label %819
 
 814:                                              ; preds = %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i
-  %or.cond100.i = and i1 %.0.i, %not.
-  br i1 %or.cond100.i, label %.thread, label %815
+  br i1 %.0.i, label %.thread, label %815
 
 815:                                              ; preds = %814
   %816 = fcmp ugt float %813, %733
@@ -14287,8 +14286,7 @@ _ZL6add_ffP16HydrogenBondDataiiiii.exit.i:        ; preds = %_ZL6set_hbP16Hydrog
   br label %1295
 
 1295:                                             ; preds = %1289, %1283, %1278, %1273, %1266, %1261, %1254, %1239
-  %or.cond5.i = and i1 %.0145.i, %707
-  br i1 %or.cond5.i, label %1296, label %1302
+  br i1 %.0145.i, label %1296, label %1302
 
 1296:                                             ; preds = %1295
   %1297 = getelementptr inbounds nuw i8, ptr %696, i64 256

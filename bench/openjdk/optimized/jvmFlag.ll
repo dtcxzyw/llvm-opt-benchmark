@@ -2566,11 +2566,10 @@ define hidden void @_ZN7JVMFlag10set_originE13JVMFlagOrigin(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %1, 1
-  %6 = select i1 %5, i32 131072, i32 0
-  %7 = and i32 %4, -16
-  %8 = or i32 %6, %7
-  %9 = or i32 %8, %1
-  store i32 %9, ptr %3, align 8
+  %6 = and i32 %4, -16
+  %7 = select i1 %5, i32 131073, i32 %1
+  %8 = or i32 %7, %6
+  store i32 %8, ptr %3, align 8
   ret void
 }
 

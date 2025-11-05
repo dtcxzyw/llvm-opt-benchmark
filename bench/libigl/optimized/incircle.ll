@@ -1690,15 +1690,12 @@ define linkonce_odr dso_local i64 @_ZN4CGAL25side_of_oriented_circleC2INS_11Inte
   %280 = fcmp une double %274, %277
   %281 = fcmp une double %.sroa.0.8.vec.extract.i, %272
   %or.cond.not.i.i.i.i = or i1 %281, %280
-  %282 = select i1 %or.cond.not.i.i.i.i, i64 4294967296, i64 0
-  %283 = select i1 %or.cond.not.i.i.i.i, i64 4294967295, i64 0
+  %282 = select i1 %or.cond.not.i.i.i.i, i64 8589934591, i64 0
   br label %_ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit
 
 _ZN4CGAL19sign_of_determinantINS_11Interval_ntILb0EEEEENS_3SgnIT_E11result_typeERKS4_S8_S8_S8_.exit: ; preds = %8, %275, %279
-  %.sroa.5.0.i.i.i.i = phi i64 [ 4294967296, %8 ], [ -4294967296, %275 ], [ %282, %279 ]
-  %.sroa.0.0.i.i.i.i = phi i64 [ 1, %8 ], [ 4294967295, %275 ], [ %283, %279 ]
-  %.sroa.0.0.insert.insert.i.i.i.i = or disjoint i64 %.sroa.0.0.i.i.i.i, %.sroa.5.0.i.i.i.i
-  ret i64 %.sroa.0.0.insert.insert.i.i.i.i
+  %.sroa.5.0.i.i.i.i = phi i64 [ 4294967297, %8 ], [ -1, %275 ], [ %282, %279 ]
+  ret i64 %.sroa.5.0.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)

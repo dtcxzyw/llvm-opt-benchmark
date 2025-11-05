@@ -668,7 +668,7 @@ _ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i: ; p
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15
   unreachable
 
-180:                                              ; preds = %124, %118, %107, %147, %97
+180:                                              ; preds = %147, %124, %118, %107, %97
   %.8.i = phi i8 [ 0, %147 ], [ 1, %97 ], [ 1, %107 ], [ 1, %118 ], [ 1, %124 ]
   %.2.i = phi i32 [ 6, %147 ], [ 4, %97 ], [ 4, %107 ], [ 4, %118 ], [ 7, %124 ]
   %181 = load ptr, ptr %28, align 8, !alias.scope !129, !noalias !42, !noundef !4
@@ -715,7 +715,7 @@ _ZN21tree_sitter_highlight5c_lib14unwrap_mut_ptr17h2875e458d3fbf8d4E.exit.i: ; p
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #15, !noalias !42
   unreachable
 
-"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i": ; preds = %74, %196, %191, %180, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit"
+"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$regex..regex..string..Regex$GT$$GT$17hd65aca9c4fbb62a3E.exit.i": ; preds = %196, %191, %180, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit", %74
   %.6.i = phi i8 [ 1, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.8.i, %196 ], [ %.8.i, %180 ], [ %.8.i, %191 ], [ 1, %74 ]
   %.1.i = phi i32 [ 5, %"_ZN4core3ptr98drop_in_place$LT$core..result..Result$LT$regex..regex..string..Regex$C$regex..error..Error$GT$$GT$17h16129e056ebe067fE.exit" ], [ %.2.i, %196 ], [ %.2.i, %180 ], [ %.2.i, %191 ], [ 4, %74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !42

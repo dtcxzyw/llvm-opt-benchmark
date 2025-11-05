@@ -24920,8 +24920,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit3.thread: ; preds = %_ZNK4llvm9S
   br label %31
 
 31:                                               ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3.thread, %12
-  %.sroa.010.0 = phi i64 [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3.thread ], [ 0, %12 ], [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2 ], [ 2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3 ]
-  %.sroa.4.0 = phi i64 [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3.thread ], [ 0, %12 ], [ 4294967296, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 4294967296, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2 ], [ 4294967296, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3 ]
+  %.sroa.4.0 = phi i64 [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3.thread ], [ 0, %12 ], [ 4294967296, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 4294967297, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2 ], [ 4294967298, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %32 = load ptr, ptr %4, align 8, !tbaa !46
   %33 = icmp eq ptr %32, %6
@@ -24933,8 +24932,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit3.thread: ; preds = %_ZNK4llvm9S
 
 _ZN4llvm11SmallVectorIcLj12EED2Ev.exit:           ; preds = %31, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.010.0
-  ret i64 %.sroa.010.0.insert.insert
+  ret i64 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -25002,8 +25000,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit2.thread: ; preds = %_ZNK4llvm9S
   br label %27
 
 27:                                               ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2.thread, %12
-  %.sroa.06.0 = phi i64 [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2.thread ], [ 0, %12 ], [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2 ]
-  %.sroa.3.0 = phi i64 [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2.thread ], [ 0, %12 ], [ 4294967296, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 4294967296, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2 ]
+  %.sroa.3.0 = phi i64 [ 0, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2.thread ], [ 0, %12 ], [ 4294967296, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 4294967297, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %28 = load ptr, ptr %4, align 8, !tbaa !46
   %29 = icmp eq ptr %28, %6
@@ -25015,8 +25012,7 @@ _ZNK4llvm9StringRef18equals_insensitiveES0_.exit2.thread: ; preds = %_ZNK4llvm9S
 
 _ZN4llvm11SmallVectorIcLj12EED2Ev.exit:           ; preds = %27, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.06.0
-  ret i64 %.sroa.06.0.insert.insert
+  ret i64 %.sroa.3.0
 }
 
 declare noundef zeroext i1 @_ZN4llvm4yaml6Stream6failedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1

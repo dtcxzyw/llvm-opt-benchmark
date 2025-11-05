@@ -1613,11 +1613,10 @@ hpa_try_hugify.exit:                              ; preds = %171
   br label %hpa_try_hugify.exit.thread
 
 hpa_try_hugify.exit.thread:                       ; preds = %hpa_hugify_blocked_by_ndirty.exit.thread.i, %hpa_hugify_blocked_by_ndirty.exit.i, %hpa_try_hugify.exit, %215
-  %.0.i3753 = phi i1 [ true, %215 ], [ false, %hpa_try_hugify.exit ], [ false, %hpa_hugify_blocked_by_ndirty.exit.i ], [ false, %hpa_hugify_blocked_by_ndirty.exit.thread.i ]
+  %.0.i3753 = phi i1 [ true, %215 ], [ %.126, %hpa_try_hugify.exit ], [ %.126, %hpa_hugify_blocked_by_ndirty.exit.i ], [ %.126, %hpa_hugify_blocked_by_ndirty.exit.thread.i ]
   %217 = phi i64 [ %216, %215 ], [ %.1, %hpa_try_hugify.exit ], [ %.1, %hpa_hugify_blocked_by_ndirty.exit.i ], [ %.1, %hpa_hugify_blocked_by_ndirty.exit.thread.i ]
-  %or.cond = or i1 %.126, %.0.i3753
   %218 = icmp ult i64 %217, %15
-  %or.cond27 = select i1 %or.cond, i1 %218, i1 false
+  %or.cond27 = select i1 %.0.i3753, i1 %218, i1 false
   br i1 %or.cond27, label %.backedge, label %.critedge
 
 .critedge:                                        ; preds = %hpa_try_hugify.exit.thread, %10

@@ -1205,7 +1205,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %254 = and i32 %251, 262144
   %255 = and i32 %254, %253
   %256 = icmp eq i32 %255, 0
-  br i1 %256, label %257, label %273
+  br i1 %256, label %257, label %274
 
 257:                                              ; preds = %246
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1238,20 +1238,20 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %271 = icmp ne i32 %267, 0
   %.not11 = select i1 %271, i1 true, i1 %270
   %272 = select i1 %.not11, i32 2097152, i32 0
+  %273 = or disjoint i32 %272, %247
   %.pre41 = load i32, ptr %76, align 8
   %.pre42 = load ptr, ptr %0, align 8
-  br label %273
+  br label %274
 
-273:                                              ; preds = %257, %246
-  %274 = phi ptr [ %.pre42, %257 ], [ %249, %246 ]
-  %275 = phi i32 [ %.pre41, %257 ], [ %252, %246 ]
-  %276 = phi i32 [ %272, %257 ], [ 0, %246 ]
-  %277 = and i32 %275, -3670017
-  %278 = or disjoint i32 %248, %247
-  %279 = or disjoint i32 %278, %276
-  %280 = or disjoint i32 %279, %277
+274:                                              ; preds = %257, %246
+  %275 = phi ptr [ %.pre42, %257 ], [ %249, %246 ]
+  %276 = phi i32 [ %.pre41, %257 ], [ %252, %246 ]
+  %277 = phi i32 [ %273, %257 ], [ %247, %246 ]
+  %278 = and i32 %276, -3670017
+  %279 = or disjoint i32 %277, %248
+  %280 = or disjoint i32 %279, %278
   store i32 %280, ptr %76, align 8
-  %281 = getelementptr inbounds nuw i8, ptr %274, i64 104
+  %281 = getelementptr inbounds nuw i8, ptr %275, i64 104
   %282 = load i32, ptr %281, align 8
   %283 = xor i32 %280, -1
   %284 = and i32 %282, %283
@@ -1259,7 +1259,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %286 = icmp eq i32 %285, 0
   br i1 %286, label %378, label %287
 
-287:                                              ; preds = %273
+287:                                              ; preds = %274
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %16, i8 0, i64 36, i1 false), !annotation !46
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -1284,7 +1284,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %297 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i8 16, ptr %297, align 8
   store i8 2, ptr %291, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %274, i64 88
+  %298 = getelementptr inbounds nuw i8, ptr %275, i64 88
   %299 = load ptr, ptr %298, align 8
   %300 = call i32 %299(ptr noundef %0, ptr noundef nonnull %14) #17
   %301 = icmp eq i32 %300, 0
@@ -1418,7 +1418,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %select.unfold
 
-378:                                              ; preds = %273
+378:                                              ; preds = %274
   %379 = and i32 %284, 131072
   %380 = icmp eq i32 %379, 0
   br i1 %380, label %412, label %381
@@ -1441,7 +1441,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 2, ptr %386, align 8
   %387 = getelementptr inbounds nuw i8, ptr %11, i64 44
   store i32 1, ptr %387, align 4
-  %388 = getelementptr inbounds nuw i8, ptr %274, i64 88
+  %388 = getelementptr inbounds nuw i8, ptr %275, i64 88
   %389 = load ptr, ptr %388, align 8
   %390 = call i32 %389(ptr noundef %0, ptr noundef nonnull %11) #17
   %391 = icmp eq i32 %390, 0
@@ -1500,7 +1500,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   store i8 16, ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %9, i64 44
   store i32 1, ptr %422, align 4
-  %423 = getelementptr inbounds nuw i8, ptr %274, i64 88
+  %423 = getelementptr inbounds nuw i8, ptr %275, i64 88
   %424 = load ptr, ptr %423, align 8
   %425 = call i32 %424(ptr noundef %0, ptr noundef nonnull %9) #17
   %426 = icmp eq i32 %425, 0
@@ -1584,7 +1584,7 @@ cdrom_count_tracks.exit:                          ; preds = %82
   %464 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 4, ptr %464, align 8
   store i8 2, ptr %460, align 8
-  %465 = getelementptr inbounds nuw i8, ptr %274, i64 88
+  %465 = getelementptr inbounds nuw i8, ptr %275, i64 88
   %466 = load ptr, ptr %465, align 8
   %467 = call i32 %466(ptr noundef %0, ptr noundef nonnull %5) #17
   %468 = icmp eq i32 %467, 0

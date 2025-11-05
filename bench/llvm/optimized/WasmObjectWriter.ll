@@ -11054,12 +11054,12 @@ _ZN4llvm11raw_ostreamlsEc.exit.i1016:             ; preds = %3157, %3155
   %3173 = icmp eq i64 %3172, 0
   %.not31.i.i = or i1 %3171, %3173
   %spec.select.i1017 = select i1 %.not31.i.i, i8 -128, i8 0
+  %3174 = or disjoint i8 %spec.select.i1017, %3167
   br label %.thread.i
 
 .thread.i:                                        ; preds = %3170, %3165
-  %3174 = phi i1 [ %.not31.i.i, %3170 ], [ false, %3165 ]
-  %3175 = phi i8 [ %spec.select.i1017, %3170 ], [ 0, %3165 ]
-  %.025.i.i = or disjoint i8 %3175, %3167
+  %3175 = phi i1 [ %.not31.i.i, %3170 ], [ false, %3165 ]
+  %.025.i.i = phi i8 [ %3174, %3170 ], [ %3167, %3165 ]
   %3176 = load ptr, ptr %3163, align 8, !tbaa !365
   %3177 = load ptr, ptr %3164, align 8, !tbaa !500
   %.not.i.i41.i = icmp ult ptr %3176, %3177
@@ -11076,7 +11076,7 @@ _ZN4llvm11raw_ostreamlsEc.exit.i1016:             ; preds = %3157, %3155
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i42.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i42.i:             ; preds = %3180, %3178
-  br i1 %3174, label %3165, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i1018, !llvm.loop !514
+  br i1 %3175, label %3165, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i1018, !llvm.loop !514
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit.i1018: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i42.i
   %3182 = load ptr, ptr %94, align 8, !tbaa !25
@@ -14451,12 +14451,12 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit63: ; preds = %_ZN4llvm11raw_os
   %300 = icmp eq i64 %299, 0
   %.not31.i = or i1 %298, %300
   %spec.select = select i1 %.not31.i, i8 -128, i8 0
+  %301 = or disjoint i8 %spec.select, %294
   br label %.thread
 
 .thread:                                          ; preds = %292, %297
-  %301 = phi i1 [ %.not31.i, %297 ], [ false, %292 ]
-  %302 = phi i8 [ %spec.select, %297 ], [ 0, %292 ]
-  %.025.i = or disjoint i8 %302, %294
+  %302 = phi i1 [ %.not31.i, %297 ], [ false, %292 ]
+  %.025.i = phi i8 [ %301, %297 ], [ %294, %292 ]
   %303 = load ptr, ptr %290, align 8, !tbaa !365
   %304 = load ptr, ptr %291, align 8, !tbaa !500
   %.not.i.i65 = icmp ult ptr %303, %304
@@ -14473,7 +14473,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit63: ; preds = %_ZN4llvm11raw_os
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i66
 
 _ZN4llvm11raw_ostreamlsEc.exit.i66:               ; preds = %307, %305
-  br i1 %301, label %292, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit, !llvm.loop !514
+  br i1 %302, label %292, label %_ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit, !llvm.loop !514
 
 _ZN4llvm13encodeSLEB128ElRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit.i66, %_ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit63
   %309 = getelementptr inbounds nuw i8, ptr %.sroa.067.085, i64 40

@@ -879,18 +879,18 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %9 = icmp eq i64 %1, 16
-  br i1 %9, label %10, label %155
+  br i1 %9, label %10, label %151
 
 10:                                               ; preds = %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !16
   %11 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %0, i64 noundef 16) #11
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %155
+  br i1 %12, label %13, label %151
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %4, align 4
   %15 = icmp ugt i32 %14, 8191
-  br i1 %15, label %155, label %16
+  br i1 %15, label %151, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -904,7 +904,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %23 = and i8 %18, 32
   %24 = icmp eq i8 %23, 0
   %25 = or i1 %22, %24
-  br i1 %25, label %155, label %26
+  br i1 %25, label %151, label %26
 
 26:                                               ; preds = %21, %16
   %27 = icmp eq i32 %2, 0
@@ -916,7 +916,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %33 = load i32, ptr %32, align 4
   %34 = icmp ne i32 %33, 0
   %35 = select i1 %31, i1 true, i1 %34
-  br i1 %35, label %36, label %88
+  br i1 %35, label %36, label %90
 
 36:                                               ; preds = %26
   %37 = icmp eq i32 %29, 0
@@ -925,7 +925,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %40 = and i8 %18, 127
   %41 = icmp eq i8 %40, 40
   %42 = and i1 %41, %39
-  br i1 %42, label %88, label %43
+  br i1 %42, label %90, label %43
 
 43:                                               ; preds = %36
   %44 = and i8 %18, 1
@@ -972,18 +972,18 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %85 = zext i32 %84 to i64
   %86 = and i32 %33, 65535
   %87 = zext nneg i32 %86 to i64
-  br label %88
+  %88 = or disjoint i64 %83, %85
+  %89 = or disjoint i64 %88, %87
+  br label %90
 
-88:                                               ; preds = %43, %36, %26
-  %89 = phi i64 [ 0, %26 ], [ %83, %43 ], [ 0, %36 ]
-  %90 = phi i64 [ 0, %26 ], [ %85, %43 ], [ 0, %36 ]
-  %91 = phi i64 [ 0, %26 ], [ %87, %43 ], [ 0, %36 ]
+90:                                               ; preds = %43, %36, %26
+  %91 = phi i64 [ 0, %26 ], [ %89, %43 ], [ 0, %36 ]
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 1008
   %93 = call i32 @down_write_killable(ptr noundef nonnull %92) #11
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %95, label %155
+  br i1 %94, label %95, label %151
 
-95:                                               ; preds = %88
+95:                                               ; preds = %90
   %96 = getelementptr inbounds nuw i8, ptr %8, i64 1048
   %97 = load ptr, ptr %96, align 8
   %98 = icmp eq ptr %97, null
@@ -1044,62 +1044,58 @@ define internal fastcc noundef range(i32 -22, 1) i32 @write_ldt(ptr noundef %0, 
   %129 = load i32, ptr %4, align 4
   %130 = zext i32 %129 to i64
   %131 = getelementptr %struct.desc_struct, ptr %122, i64 %130
-  %132 = or disjoint i64 %90, %89
-  %133 = or i64 %132, %91
-  store i64 %133, ptr %131, align 1
-  %134 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %110, i32 noundef 0)
-  %135 = icmp eq i32 %134, 0
-  br i1 %135, label %153, label %150
+  store i64 %91, ptr %131, align 1
+  %132 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %110, i32 noundef 0)
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %149, label %146
 
 .thread5:                                         ; preds = %125
-  %136 = load ptr, ptr %97, align 8
-  %137 = shl i32 %103, 3
+  %134 = load ptr, ptr %97, align 8
+  %135 = shl i32 %103, 3
+  %136 = zext i32 %135 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr align 1 %134, i64 %136, i1 false)
+  %137 = load i32, ptr %4, align 4
   %138 = zext i32 %137 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %122, ptr align 1 %136, i64 %138, i1 false)
-  %139 = load i32, ptr %4, align 4
-  %140 = zext i32 %139 to i64
-  %141 = getelementptr %struct.desc_struct, ptr %122, i64 %140
-  %142 = or disjoint i64 %90, %89
-  %143 = or i64 %142, %91
-  store i64 %143, ptr %141, align 1
-  %144 = getelementptr inbounds nuw i8, ptr %97, i64 12
-  %145 = load i32, ptr %144, align 4
-  %146 = icmp eq i32 %145, 0
-  %147 = zext i1 %146 to i32
-  %148 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %110, i32 noundef %147)
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %153, label %.thread6
+  %139 = getelementptr %struct.desc_struct, ptr %122, i64 %138
+  store i64 %91, ptr %139, align 1
+  %140 = getelementptr inbounds nuw i8, ptr %97, i64 12
+  %141 = load i32, ptr %140, align 4
+  %142 = icmp eq i32 %141, 0
+  %143 = zext i1 %142 to i32
+  %144 = call fastcc i32 @map_ldt_struct(ptr noundef %8, ptr noundef nonnull %110, i32 noundef %143)
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %149, label %.thread6
 
 .thread6:                                         ; preds = %.thread5
   call void asm sideeffect "498: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 498b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 498) #11, !srcloc !50
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 650, i32 2307, i64 12) #11, !srcloc !51
   call void asm sideeffect "499: nop\0A\09.pushsection .discard.instr_end\0A\09.long 499b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 499) #11, !srcloc !52
-  br label %151
+  br label %147
 
-150:                                              ; preds = %128
+146:                                              ; preds = %128
   call fastcc void @free_ldt_pgtables(ptr noundef %8)
-  br label %151
+  br label %147
 
-151:                                              ; preds = %150, %.thread6
-  %152 = phi i32 [ %134, %150 ], [ %148, %.thread6 ]
+147:                                              ; preds = %146, %.thread6
+  %148 = phi i32 [ %132, %146 ], [ %144, %.thread6 ]
   call fastcc void @free_ldt_struct(ptr noundef nonnull %110)
   br label %.thread
 
-153:                                              ; preds = %.thread5, %128
+149:                                              ; preds = %.thread5, %128
   call fastcc void @install_ldt(ptr noundef %8, ptr noundef nonnull %110)
   call fastcc void @unmap_ldt_struct(ptr noundef %8, ptr noundef %97)
   call fastcc void @free_ldt_struct(ptr noundef %97)
   br label %.thread
 
-.thread:                                          ; preds = %108, %102, %124, %153, %151
-  %154 = phi i32 [ %152, %151 ], [ 0, %153 ], [ -12, %124 ], [ -12, %102 ], [ -12, %108 ]
+.thread:                                          ; preds = %108, %102, %124, %149, %147
+  %150 = phi i32 [ %148, %147 ], [ 0, %149 ], [ -12, %124 ], [ -12, %102 ], [ -12, %108 ]
   call void @up_write(ptr noundef nonnull %92) #11
-  br label %155
+  br label %151
 
-155:                                              ; preds = %.thread, %88, %21, %13, %10, %3
-  %156 = phi i32 [ -4, %88 ], [ -22, %3 ], [ -14, %10 ], [ -22, %13 ], [ -22, %21 ], [ %154, %.thread ]
+151:                                              ; preds = %.thread, %90, %21, %13, %10, %3
+  %152 = phi i32 [ -4, %90 ], [ -22, %3 ], [ -14, %10 ], [ -22, %13 ], [ -22, %21 ], [ %150, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %156
+  ret i32 %152
 }
 
 ; Function Attrs: null_pointer_is_valid

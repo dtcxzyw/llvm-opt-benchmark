@@ -173,38 +173,38 @@ switch.lookup:                                    ; preds = %3
   %27 = icmp ult ptr %.010, %1
   %.pre = load i16, ptr %18, align 4
   %.fr = freeze i16 %.pre
-  br i1 %27, label %.lr.ph11.i, label %.critedge.i
+  br i1 %27, label %.lr.ph10.i, label %.critedge.i
 
-.lr.ph11.i:                                       ; preds = %26
+.lr.ph10.i:                                       ; preds = %26
   %28 = and i16 %.fr, 7
   %29 = zext nneg i16 %28 to i64
   %30 = lshr i16 %.fr, 3
   %31 = and i16 %30, 63
   %32 = zext nneg i16 %31 to i64
-  %.not20.i = icmp eq i16 %28, 0
-  br i1 %.not20.i, label %.lr.ph11.i.split.us, label %.lr.ph11.i.split.preheader
+  %.not19.i = icmp eq i16 %28, 0
+  br i1 %.not19.i, label %.lr.ph10.i.split.us, label %.lr.ph10.i.split.preheader
 
-.lr.ph11.i.split.preheader:                       ; preds = %.lr.ph11.i
+.lr.ph10.i.split.preheader:                       ; preds = %.lr.ph10.i
   %scevgep = getelementptr i8, ptr %.010, i64 %4
   %33 = sub i64 0, %.01046
   %scevgep47 = getelementptr i8, ptr %scevgep, i64 %33
-  br label %.lr.ph11.i.split
+  br label %.lr.ph10.i.split
 
-.lr.ph11.i.split.us:                              ; preds = %.lr.ph11.i
+.lr.ph10.i.split.us:                              ; preds = %.lr.ph10.i
   %34 = getelementptr i8, ptr %.09, i64 %29
   %.not50.i.us = icmp ugt ptr %34, %10
-  br i1 %.not50.i.us, label %.critedge.i, label %.lr.ph11.i.split.us.split.preheader
+  br i1 %.not50.i.us, label %.critedge.i, label %.lr.ph10.i.split.us.split.preheader
 
-.lr.ph11.i.split.us.split.preheader:              ; preds = %.lr.ph11.i.split.us
+.lr.ph10.i.split.us.split.preheader:              ; preds = %.lr.ph10.i.split.us
   %scevgep48 = getelementptr i8, ptr %.010, i64 %4
   %35 = sub i64 0, %.01046
   %scevgep49 = getelementptr i8, ptr %scevgep48, i64 %35
-  br label %.lr.ph11.i.split.us.split
+  br label %.lr.ph10.i.split.us.split
 
-.lr.ph11.i.split.us.split:                        ; preds = %.lr.ph11.i.split.us.split.preheader, %.loopexit.i.us
-  %.212.us = phi ptr [ %47, %.loopexit.i.us ], [ %.010, %.lr.ph11.i.split.us.split.preheader ]
-  %.0439.i.us = phi i32 [ %.144.i.us, %.loopexit.i.us ], [ 0, %.lr.ph11.i.split.us.split.preheader ]
-  %.0458.i.us = phi i64 [ %.146.i.us, %.loopexit.i.us ], [ 0, %.lr.ph11.i.split.us.split.preheader ]
+.lr.ph10.i.split.us.split:                        ; preds = %.lr.ph10.i.split.us.split.preheader, %.loopexit.i.us
+  %.212.us = phi ptr [ %47, %.loopexit.i.us ], [ %.010, %.lr.ph10.i.split.us.split.preheader ]
+  %.0438.i.us = phi i32 [ %.144.i.us, %.loopexit.i.us ], [ 0, %.lr.ph10.i.split.us.split.preheader ]
+  %.0457.i.us = phi i64 [ %.146.i.us, %.loopexit.i.us ], [ 0, %.lr.ph10.i.split.us.split.preheader ]
   %36 = load i8, ptr %.212.us, align 1
   %37 = zext i8 %36 to i64
   %38 = getelementptr i8, ptr %19, i64 %37
@@ -214,33 +214,33 @@ switch.lookup:                                    ; preds = %3
     i8 -2, label %.loopexit.i.us
   ]
 
-40:                                               ; preds = %.lr.ph11.i.split.us.split
+40:                                               ; preds = %.lr.ph10.i.split.us.split
   %41 = sext i8 %39 to i64
-  %42 = shl i64 %.0458.i.us, %32
+  %42 = shl i64 %.0457.i.us, %32
   %43 = or i64 %42, %41
-  %44 = add i32 %.0439.i.us, 1
+  %44 = add i32 %.0438.i.us, 1
   %45 = load i32, ptr %20, align 8
   %46 = icmp eq i32 %44, %45
   %spec.select = select i1 %46, i32 0, i32 %44
   br label %.loopexit.i.us
 
-.loopexit.i.us:                                   ; preds = %40, %.lr.ph11.i.split.us.split
-  %.146.i.us = phi i64 [ %.0458.i.us, %.lr.ph11.i.split.us.split ], [ %43, %40 ]
-  %.144.i.us = phi i32 [ %.0439.i.us, %.lr.ph11.i.split.us.split ], [ %spec.select, %40 ]
+.loopexit.i.us:                                   ; preds = %40, %.lr.ph10.i.split.us.split
+  %.146.i.us = phi i64 [ %.0457.i.us, %.lr.ph10.i.split.us.split ], [ %43, %40 ]
+  %.144.i.us = phi i32 [ %.0438.i.us, %.lr.ph10.i.split.us.split ], [ %spec.select, %40 ]
   %47 = getelementptr i8, ptr %.212.us, i64 1
   %exitcond50.not = icmp eq ptr %47, %scevgep49
-  br i1 %exitcond50.not, label %.critedge.i, label %.lr.ph11.i.split.us.split, !llvm.loop !6
+  br i1 %exitcond50.not, label %.critedge.i, label %.lr.ph10.i.split.us.split, !llvm.loop !6
 
-.lr.ph11.i.split:                                 ; preds = %.lr.ph11.i.split.preheader, %.loopexit.i.loopexit
-  %.212 = phi ptr [ %69, %.loopexit.i.loopexit ], [ %.010, %.lr.ph11.i.split.preheader ]
-  %.3 = phi ptr [ %.4, %.loopexit.i.loopexit ], [ %.09, %.lr.ph11.i.split.preheader ]
-  %.0439.i = phi i32 [ %.144.i, %.loopexit.i.loopexit ], [ 0, %.lr.ph11.i.split.preheader ]
-  %.0458.i = phi i64 [ %.146.i, %.loopexit.i.loopexit ], [ 0, %.lr.ph11.i.split.preheader ]
+.lr.ph10.i.split:                                 ; preds = %.lr.ph10.i.split.preheader, %.loopexit.i.loopexit
+  %.212 = phi ptr [ %69, %.loopexit.i.loopexit ], [ %.010, %.lr.ph10.i.split.preheader ]
+  %.3 = phi ptr [ %.4, %.loopexit.i.loopexit ], [ %.09, %.lr.ph10.i.split.preheader ]
+  %.0438.i = phi i32 [ %.144.i, %.loopexit.i.loopexit ], [ 0, %.lr.ph10.i.split.preheader ]
+  %.0457.i = phi i64 [ %.146.i, %.loopexit.i.loopexit ], [ 0, %.lr.ph10.i.split.preheader ]
   %48 = getelementptr i8, ptr %.3, i64 %29
   %.not50.i = icmp ugt ptr %48, %10
   br i1 %.not50.i, label %.critedge.i, label %49
 
-49:                                               ; preds = %.lr.ph11.i.split
+49:                                               ; preds = %.lr.ph10.i.split
   %50 = load i8, ptr %.212, align 1
   %51 = zext i8 %50 to i64
   %52 = getelementptr i8, ptr %19, i64 %51
@@ -250,21 +250,21 @@ switch.lookup:                                    ; preds = %3
     i8 -2, label %.loopexit.i.loopexit
   ]
 
-.split.us:                                        ; preds = %49, %.lr.ph11.i.split.us.split
-  %.us-phi22 = phi ptr [ %.212.us, %.lr.ph11.i.split.us.split ], [ %.212, %49 ]
-  %.us-phi23 = phi ptr [ %.09, %.lr.ph11.i.split.us.split ], [ %.3, %49 ]
-  %.us-phi24 = phi i32 [ %.0439.i.us, %.lr.ph11.i.split.us.split ], [ %.0439.i, %49 ]
-  %.us-phi25 = phi i64 [ %.0458.i.us, %.lr.ph11.i.split.us.split ], [ %.0458.i, %49 ]
-  %.us-phi26 = phi i8 [ %36, %.lr.ph11.i.split.us.split ], [ %50, %49 ]
+.split.us:                                        ; preds = %49, %.lr.ph10.i.split.us.split
+  %.us-phi22 = phi ptr [ %.212.us, %.lr.ph10.i.split.us.split ], [ %.212, %49 ]
+  %.us-phi23 = phi ptr [ %.09, %.lr.ph10.i.split.us.split ], [ %.3, %49 ]
+  %.us-phi24 = phi i32 [ %.0438.i.us, %.lr.ph10.i.split.us.split ], [ %.0438.i, %49 ]
+  %.us-phi25 = phi i64 [ %.0457.i.us, %.lr.ph10.i.split.us.split ], [ %.0457.i, %49 ]
+  %.us-phi26 = phi i8 [ %36, %.lr.ph10.i.split.us.split ], [ %50, %49 ]
   %54 = zext i8 %.us-phi26 to i32
   tail call void (ptr, ...) @report_failure(ptr noundef nonnull @.str.24, i32 noundef %54)
   br label %.critedge.i
 
 55:                                               ; preds = %49
   %56 = sext i8 %53 to i64
-  %57 = shl i64 %.0458.i, %32
+  %57 = shl i64 %.0457.i, %32
   %58 = or i64 %57, %56
-  %59 = add i32 %.0439.i, 1
+  %59 = add i32 %.0438.i, 1
   %60 = load i32, ptr %20, align 8
   %61 = icmp eq i32 %59, %60
   br i1 %61, label %.lr.ph.i, label %.loopexit.i.loopexit
@@ -285,41 +285,41 @@ switch.lookup:                                    ; preds = %3
 
 .loopexit.i.loopexit:                             ; preds = %.lr.ph.i, %55, %49
   %.4 = phi ptr [ %.3, %55 ], [ %.3, %49 ], [ %67, %.lr.ph.i ]
-  %.146.i = phi i64 [ %58, %55 ], [ %.0458.i, %49 ], [ %58, %.lr.ph.i ]
-  %.144.i = phi i32 [ %59, %55 ], [ %.0439.i, %49 ], [ 0, %.lr.ph.i ]
+  %.146.i = phi i64 [ %58, %55 ], [ %.0457.i, %49 ], [ %58, %.lr.ph.i ]
+  %.144.i = phi i32 [ %59, %55 ], [ %.0438.i, %49 ], [ 0, %.lr.ph.i ]
   %69 = getelementptr i8, ptr %.212, i64 1
   %exitcond.not = icmp eq ptr %69, %scevgep47
-  br i1 %exitcond.not, label %.critedge.i, label %.lr.ph11.i.split, !llvm.loop !6
+  br i1 %exitcond.not, label %.critedge.i, label %.lr.ph10.i.split, !llvm.loop !6
 
-.critedge.i:                                      ; preds = %.lr.ph11.i.split, %.loopexit.i.loopexit, %.loopexit.i.us, %.lr.ph11.i.split.us, %.split.us, %26
-  %.111 = phi ptr [ %.us-phi22, %.split.us ], [ %.010, %26 ], [ %.010, %.lr.ph11.i.split.us ], [ %scevgep49, %.loopexit.i.us ], [ %scevgep47, %.loopexit.i.loopexit ], [ %.212, %.lr.ph11.i.split ]
-  %.1 = phi ptr [ %.us-phi23, %.split.us ], [ %.09, %26 ], [ %.09, %.lr.ph11.i.split.us ], [ %.09, %.loopexit.i.us ], [ %.4, %.loopexit.i.loopexit ], [ %.3, %.lr.ph11.i.split ]
-  %.0456.i = phi i64 [ %.us-phi25, %.split.us ], [ 0, %26 ], [ 0, %.lr.ph11.i.split.us ], [ %.146.i.us, %.loopexit.i.us ], [ %.146.i, %.loopexit.i.loopexit ], [ %.0458.i, %.lr.ph11.i.split ]
-  %.0434.i = phi i32 [ %.us-phi24, %.split.us ], [ 0, %26 ], [ 0, %.lr.ph11.i.split.us ], [ %.144.i.us, %.loopexit.i.us ], [ %.144.i, %.loopexit.i.loopexit ], [ %.0439.i, %.lr.ph11.i.split ]
+.critedge.i:                                      ; preds = %.lr.ph10.i.split, %.loopexit.i.loopexit, %.loopexit.i.us, %.lr.ph10.i.split.us, %.split.us, %26
+  %.111 = phi ptr [ %.us-phi22, %.split.us ], [ %.010, %26 ], [ %.010, %.lr.ph10.i.split.us ], [ %scevgep49, %.loopexit.i.us ], [ %scevgep47, %.loopexit.i.loopexit ], [ %.212, %.lr.ph10.i.split ]
+  %.1 = phi ptr [ %.us-phi23, %.split.us ], [ %.09, %26 ], [ %.09, %.lr.ph10.i.split.us ], [ %.09, %.loopexit.i.us ], [ %.4, %.loopexit.i.loopexit ], [ %.3, %.lr.ph10.i.split ]
+  %.0455.i = phi i64 [ %.us-phi25, %.split.us ], [ 0, %26 ], [ 0, %.lr.ph10.i.split.us ], [ %.146.i.us, %.loopexit.i.us ], [ %.146.i, %.loopexit.i.loopexit ], [ %.0457.i, %.lr.ph10.i.split ]
+  %.0433.i = phi i32 [ %.us-phi24, %.split.us ], [ 0, %26 ], [ 0, %.lr.ph10.i.split.us ], [ %.144.i.us, %.loopexit.i.us ], [ %.144.i, %.loopexit.i.loopexit ], [ %.0438.i, %.lr.ph10.i.split ]
   %70 = lshr i16 %.fr, 3
   %71 = and i16 %70, 63
   %72 = zext nneg i16 %71 to i32
-  %73 = mul i32 %.0434.i, %72
+  %73 = mul i32 %.0433.i, %72
   %74 = icmp sgt i32 %73, 7
-  br i1 %74, label %.lr.ph19.preheader.i, label %parse_plain_data.exit
+  br i1 %74, label %.lr.ph18.preheader.i, label %parse_plain_data.exit
 
-.lr.ph19.preheader.i:                             ; preds = %.critedge.i
+.lr.ph18.preheader.i:                             ; preds = %.critedge.i
   %75 = zext nneg i32 %73 to i64
-  br label %.lr.ph19.i
+  br label %.lr.ph18.i
 
-.lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
-  %.2 = phi ptr [ %.1, %.lr.ph19.preheader.i ], [ %78, %.lr.ph19.i ]
-  %indvars.iv25.i = phi i64 [ %75, %.lr.ph19.preheader.i ], [ %indvars.iv.next26.i, %.lr.ph19.i ]
-  %indvars.iv.next26.i = add nsw i64 %indvars.iv25.i, -8
-  %76 = lshr i64 %.0456.i, %indvars.iv.next26.i
+.lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
+  %.2 = phi ptr [ %.1, %.lr.ph18.preheader.i ], [ %78, %.lr.ph18.i ]
+  %indvars.iv24.i = phi i64 [ %75, %.lr.ph18.preheader.i ], [ %indvars.iv.next25.i, %.lr.ph18.i ]
+  %indvars.iv.next25.i = add nsw i64 %indvars.iv24.i, -8
+  %76 = lshr i64 %.0455.i, %indvars.iv.next25.i
   %77 = trunc i64 %76 to i8
   store i8 %77, ptr %.2, align 1
   %78 = getelementptr i8, ptr %.2, i64 1
-  %79 = icmp samesign ugt i64 %indvars.iv25.i, 15
-  br i1 %79, label %.lr.ph19.i, label %parse_plain_data.exit, !llvm.loop !9
+  %79 = icmp samesign ugt i64 %indvars.iv24.i, 15
+  br i1 %79, label %.lr.ph18.i, label %parse_plain_data.exit, !llvm.loop !9
 
-parse_plain_data.exit:                            ; preds = %.lr.ph19.i, %.critedge.i
-  %.7 = phi ptr [ %.1, %.critedge.i ], [ %78, %.lr.ph19.i ]
+parse_plain_data.exit:                            ; preds = %.lr.ph18.i, %.critedge.i
+  %.7 = phi ptr [ %.1, %.critedge.i ], [ %78, %.lr.ph18.i ]
   %80 = load ptr, ptr @packet_buf, align 8
   %81 = ptrtoint ptr %.7 to i64
   %82 = ptrtoint ptr %80 to i64

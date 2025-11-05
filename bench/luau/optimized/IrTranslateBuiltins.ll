@@ -672,11 +672,11 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 0, -4294967292) i64 @_ZN4Luau7CodeGenL23translateBuiltinMathLogERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc range(i64 -4294967296, 4294967299) i64 @_ZN4Luau7CodeGenL23translateBuiltinMathLogERNS0_9IrBuilderEiiiNS0_4IrOpEii(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = icmp slt i32 %1, 1
   %9 = icmp sgt i32 %5, 1
   %or.cond = or i1 %8, %9
-  br i1 %or.cond, label %54, label %10
+  br i1 %or.cond, label %.critedge, label %10
 
 10:                                               ; preds = %7
   %.not = icmp eq i32 %1, 1
@@ -761,14 +761,8 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds = 
   %52 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 12, i32 %50, i32 %51)
   br label %.critedge
 
-.critedge:                                        ; preds = %13, %11, %45, %49
-  %.sroa.043.2 = phi i64 [ 2, %49 ], [ 2, %45 ], [ 0, %11 ], [ 0, %13 ]
-  %.sroa.4.2 = phi i64 [ 4294967296, %49 ], [ 4294967296, %45 ], [ -4294967296, %11 ], [ -4294967296, %13 ]
-  %53 = or disjoint i64 %.sroa.4.2, %.sroa.043.2
-  br label %54
-
-54:                                               ; preds = %7, %.critedge
-  %.sroa.043.0.insert.insert = phi i64 [ %53, %.critedge ], [ -4294967296, %7 ]
+.critedge:                                        ; preds = %49, %45, %11, %13, %7
+  %.sroa.043.0.insert.insert = phi i64 [ -4294967296, %7 ], [ 4294967298, %49 ], [ 4294967298, %45 ], [ -4294967296, %11 ], [ -4294967296, %13 ]
   ret i64 %.sroa.043.0.insert.insert
 }
 
@@ -1397,8 +1391,8 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit74: ; preds 
   %41 = load double, ptr %40, align 8, !tbaa !20
   %42 = fcmp ult double %41, 0xC1E0000000000000
   %43 = fcmp ugt double %41, 0x41DFFFFFFFC00000
-  %or.cond88 = or i1 %42, %43
-  br i1 %or.cond88, label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread, label %44
+  %or.cond93 = or i1 %42, %43
+  br i1 %or.cond93, label %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread, label %44
 
 44:                                               ; preds = %39
   %45 = fptosi double %41 to i32
@@ -1413,7 +1407,7 @@ _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread: ; preds = %32, 
   %storemerge = phi i32 [ %47, %_ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread ], [ %46, %44 ]
   %49 = and i32 %storemerge, 15
   %.not.i75 = icmp eq i32 %49, 2
-  br i1 %.not.i75, label %50, label %.critedge
+  br i1 %.not.i75, label %50, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread
 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1422,16 +1416,16 @@ _ZN4Luau7CodeGen10IrFunction10asDoubleOpENS0_4IrOpE.exit.thread: ; preds = %32, 
   %54 = load ptr, ptr %51, align 8, !tbaa !14
   %55 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrConst", ptr %54, i64 %53
   %56 = load i8, ptr %55, align 8, !tbaa !17
-  %.not5.i78 = icmp eq i8 %56, 0
-  br i1 %.not5.i78, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, label %.critedge
+  %.not5.i77 = icmp eq i8 %56, 0
+  br i1 %.not5.i77, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread
 
 _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i32, ptr %57, align 4, !tbaa !22
   %59 = icmp ult i32 %58, 32
-  br i1 %59, label %64, label %.critedge
+  br i1 %59, label %64, label %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread
 
-.critedge:                                        ; preds = %48, %50, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit
+_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread: ; preds = %50, %48, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit
   %60 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 2)
   %61 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef 32)
   %62 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4condENS0_11IrConditionE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 13)
@@ -1439,7 +1433,7 @@ _ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit: ; preds = %50
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %60)
   br label %64
 
-64:                                               ; preds = %.critedge, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit
+64:                                               ; preds = %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit.thread, %_ZN4Luau7CodeGen10IrFunction7asIntOpENS0_4IrOpE.exit
   %65 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %1, i32 %30, i32 %storemerge)
   %66 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 64, i32 %65)
   %67 = trunc i32 %3 to i8
@@ -1530,7 +1524,7 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit51: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc range(i64 0, -4294967294) i64 @_ZN4Luau7CodeGenL28translateBuiltinBit32ExtractERNS0_9IrBuilderEiiiNS0_4IrOpES3_iS3_i(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i64 -4294967296, 4294967298) i64 @_ZN4Luau7CodeGenL28translateBuiltinBit32ExtractERNS0_9IrBuilderEiiiNS0_4IrOpES3_iS3_i(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef range(i32 0, -1) %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5, i32 noundef %6, i32 %7, i32 noundef %8) unnamed_addr #0 {
   %10 = icmp slt i32 %1, 2
   %11 = icmp sgt i32 %6, 1
   %or.cond = or i1 %10, %11
@@ -1695,10 +1689,8 @@ _ZN4Luau7CodeGenL17builtinLoadDoubleERNS0_9IrBuilderENS0_4IrOpE.exit189: ; preds
   br label %107
 
 107:                                              ; preds = %98, %103, %16, %9
-  %.sroa.0179.0 = phi i64 [ 0, %9 ], [ 0, %16 ], [ 1, %103 ], [ 1, %98 ]
-  %.sroa.4.0 = phi i64 [ -4294967296, %9 ], [ -4294967296, %16 ], [ 4294967296, %103 ], [ 4294967296, %98 ]
-  %.sroa.0179.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.0179.0
-  ret i64 %.sroa.0179.0.insert.insert
+  %.sroa.4.0 = phi i64 [ -4294967296, %9 ], [ -4294967296, %16 ], [ 4294967297, %103 ], [ 4294967297, %98 ]
+  ret i64 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress uwtable

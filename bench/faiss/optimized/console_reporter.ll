@@ -396,22 +396,22 @@ define void @_ZN9benchmark15ConsoleReporter10ReportRunsERKSt6vectorINS_17Benchma
   %13 = load i32, ptr %7, align 8, !tbaa !32
   %14 = and i32 %13, 2
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %20, label %15
+  br i1 %.not, label %21, label %15
 
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 496
   %17 = tail call noundef zeroext i1 @_ZN9benchmark8internal9SameNamesERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7CounterESt4lessIS7_ESaISt4pairIKS7_S8_EEESH_(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %8)
   %18 = xor i1 %17, true
   %19 = zext i1 %18 to i32
-  br label %20
+  %20 = or i32 %19, %12
+  br label %21
 
-20:                                               ; preds = %15, %9
-  %21 = phi i32 [ 0, %9 ], [ %19, %15 ]
-  %22 = or i32 %21, %12
+21:                                               ; preds = %15, %9
+  %22 = phi i32 [ %12, %9 ], [ %20, %15 ]
   %.not9 = icmp eq i32 %22, 0
   br i1 %.not9, label %29, label %23
 
-23:                                               ; preds = %20
+23:                                               ; preds = %21
   store i8 1, ptr %6, align 8, !tbaa !26
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 496
   %25 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9benchmark7CounterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EEaSERKSG_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %24)
@@ -421,7 +421,7 @@ define void @_ZN9benchmark15ConsoleReporter10ReportRunsERKSt6vectorINS_17Benchma
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.010.015)
   br label %29
 
-29:                                               ; preds = %23, %20
+29:                                               ; preds = %23, %21
   %30 = load ptr, ptr %0, align 8, !tbaa !45
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8

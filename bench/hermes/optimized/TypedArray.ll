@@ -13135,7 +13135,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i64 @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EE7compareEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(280) initializes((208, 228)) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
+define internal range(i64 -4294967295, 4294967298) i64 @_ZN6hermes2vm12_GLOBAL__N_119TypedArraySortModelILb1EE7compareEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(280) initializes((208, 228)) %this, i32 noundef %a, i32 noundef %b) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp61 = alloca %"class.hermes::vm::TwineChar16", align 8
   %gcMarker_ = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -13269,13 +13269,12 @@ if.end63:                                         ; preds = %_ZNK6hermes2vm16JST
   %31 = bitcast i64 %21 to double
   %cmp = fcmp olt double %31, 0.000000e+00
   %cmp66 = fcmp ogt double %31, 0.000000e+00
-  %32 = select i1 %cmp66, i64 4294967296, i64 0
-  %33 = select i1 %cmp, i64 -4294967296, i64 %32
+  %32 = select i1 %cmp66, i64 4294967297, i64 1
+  %33 = select i1 %cmp, i64 -4294967295, i64 %32
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit, %if.end63, %if.then59
-  %retval.sroa.0.0 = phi i64 [ 1, %if.end63 ], [ %30, %if.then59 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
-  %retval.sroa.5.0 = phi i64 [ %33, %if.end63 ], [ 0, %if.then59 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
+  %retval.sroa.5.0 = phi i64 [ %33, %if.end63 ], [ %30, %if.then59 ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleENS0_11HermesValueE.exit ], [ 0, %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit ]
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   %conv.i.i.i = zext i32 %gcMarker.sroa.4.8.copyload to i64
   %34 = load ptr, ptr %chunks_.i.i.i, align 8
@@ -13288,8 +13287,7 @@ cleanup:                                          ; preds = %_ZN6hermes2vm15Hand
   store ptr %add.ptr.i.i.i, ptr %curChunkEnd_.i.i.i, align 8
   %next_.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 208
   store ptr %gcMarker.sroa.2.8.copyload, ptr %next_.i.i.i, align 8
-  %retval.sroa.0.0.insert.insert = or i64 %retval.sroa.5.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  ret i64 %retval.sroa.5.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

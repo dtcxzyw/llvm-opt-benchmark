@@ -5501,8 +5501,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento10ExprEngine16shouldInlineCal
 14:                                               ; preds = %6
   %15 = load ptr, ptr %9, align 8, !tbaa !360
   %16 = tail call noundef i32 @_ZNK5clang15AnalyzerOptions10getIPAModeEv(ptr noundef nonnull align 8 dereferenceable(488) %15) #19
-  %.not45 = icmp eq i32 %16, 1
-  br i1 %.not45, label %125, label %17
+  %.not49 = icmp eq i32 %16, 1
+  br i1 %.not49, label %125, label %17
 
 17:                                               ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -5554,21 +5554,21 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesT
   %46 = zext i32 %22 to i64
   %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1013", ptr %20, i64 %46
   %.not9.i = icmp eq ptr %.sroa.0.1.i.i, %47
-  br i1 %.not9.i, label %.critedge, label %48
+  br i1 %.not9.i, label %_ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit.thread, label %48
 
 48:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 16
   %50 = load i64, ptr %49, align 8
   %51 = and i64 %50, 1073741824
   %.not.i = icmp eq i64 %51, 0
-  br i1 %.not.i, label %.critedge, label %_ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit
+  br i1 %.not.i, label %_ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit.thread, label %_ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit
 
 _ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit: ; preds = %48
   %52 = and i64 %50, 2147483648
-  %.not47 = icmp eq i64 %52, 0
-  br i1 %.not47, label %125, label %64
+  %.not50 = icmp eq i64 %52, 0
+  br i1 %.not50, label %125, label %64
 
-.critedge:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i, %48
+_ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit.thread: ; preds = %48, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit.i
   %53 = tail call noundef zeroext i1 @_ZNK5clang4ento10ExprEngine13mayInlineDeclEPNS_19AnalysisDeclContextE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull %12)
   %54 = load ptr, ptr %18, align 8, !tbaa !464
   %55 = tail call { ptr, ptr } @_ZN5clang4ento19FunctionSummariesTy19findOrInsertSummaryEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull %2)
@@ -5577,12 +5577,12 @@ _ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit: ; preds = %48
   %58 = load i64, ptr %57, align 8
   br i1 %53, label %59, label %61
 
-59:                                               ; preds = %.critedge
+59:                                               ; preds = %_ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit.thread
   %60 = or i64 %58, 3221225472
   store i64 %60, ptr %57, align 8
   br label %64
 
-61:                                               ; preds = %.critedge
+61:                                               ; preds = %_ZN5clang4ento19FunctionSummariesTy9mayInlineEPKNS_4DeclE.exit.thread
   %62 = and i64 %58, -3221225473
   %63 = or disjoint i64 %62, 1073741824
   store i64 %63, ptr %57, align 8
@@ -5701,8 +5701,8 @@ _ZN5clang4ento10ExprEngine18examineStackFramesEPKNS_4DeclEPKNS_15LocationContext
   %115 = load ptr, ptr %114, align 8, !tbaa !360
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 304
   %117 = load i32, ptr %116, align 8, !tbaa !439
-  %.not46 = icmp ult i32 %112, %117
-  br i1 %.not46, label %118, label %125
+  %.not51 = icmp ult i32 %112, %117
+  br i1 %.not51, label %118, label %125
 
 118:                                              ; preds = %109, %103
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 792

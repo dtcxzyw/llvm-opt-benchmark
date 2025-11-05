@@ -672,7 +672,7 @@ infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge: ; preds = %infer_p
 
 infer_prim_ref.exit21.thread:                     ; preds = %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge, %infer_prim_ref.exit
   %24 = phi i32 [ %.pre, %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge ], [ %.pre34, %infer_prim_ref.exit ]
-  %.0.i2029 = phi i32 [ 1, %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge ], [ 0, %infer_prim_ref.exit ]
+  %.0.i2029 = phi i32 [ 1, %infer_prim_ref.exit21.infer_prim_ref.exit21.thread_crit_edge ], [ %.0.i, %infer_prim_ref.exit ]
   %.not16 = icmp eq i32 %24, 2
   br i1 %.not16, label %25, label %26
 
@@ -763,11 +763,10 @@ infer_trc_ref.exit26.thread:                      ; preds = %infer_trc_ref.exit2
   unreachable
 
 57:                                               ; preds = %infer_trc_ref.exit26.thread
-  %58 = or i32 %.0.i2029, %.0.i
-  %59 = or i32 %58, %.0.i23
-  %60 = or i32 %59, %.0.i2533
-  %61 = icmp ne i32 %60, 0
-  ret i1 %61
+  %58 = or i32 %.0.i2029, %.0.i23
+  %59 = or i32 %58, %.0.i2533
+  %60 = icmp ne i32 %59, 0
+  ret i1 %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

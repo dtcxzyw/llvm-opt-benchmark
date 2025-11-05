@@ -547,7 +547,7 @@ define i64 @Sbd_ManSolve(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nou
   br label %22
 
 22:                                               ; preds = %._crit_edge, %7
-  %.075 = phi i64 [ 0, %7 ], [ %145, %._crit_edge ]
+  %.075 = phi i64 [ 0, %7 ], [ %.076.lcssa, %._crit_edge ]
   %23 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %12, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #12
   switch i32 %23, label %.preheader124 [
     i32 0, label %.loopexit.loopexit192
@@ -842,12 +842,15 @@ Vec_IntFind.exit:                                 ; preds = %136, %Vec_IntPush.e
   %.177 = phi i64 [ %.076135, %.lr.ph137 ], [ %143, %Vec_IntFind.exit ]
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph137, !llvm.loop !54
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph137, !llvm.loop !54
 
-._crit_edge:                                      ; preds = %144, %Vec_IntPush.exit114
-  %.val90 = phi ptr [ %94, %Vec_IntPush.exit114 ], [ %.pre.i117166, %144 ]
-  %.076.lcssa = phi i64 [ -1, %Vec_IntPush.exit114 ], [ %.177, %144 ]
-  %145 = or i64 %.076.lcssa, %.075
+._crit_edge.loopexit:                             ; preds = %144
+  %145 = or i64 %.177, %.075
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_IntPush.exit114
+  %.val90 = phi ptr [ %94, %Vec_IntPush.exit114 ], [ %.pre.i117166, %._crit_edge.loopexit ]
+  %.076.lcssa = phi i64 [ -1, %Vec_IntPush.exit114 ], [ %145, %._crit_edge.loopexit ]
   %.val82 = load i32, ptr %17, align 4, !tbaa !7
   %146 = sext i32 %.val82 to i64
   %147 = getelementptr inbounds i32, ptr %.val90, i64 %146

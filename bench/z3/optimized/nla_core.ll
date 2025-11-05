@@ -7363,7 +7363,7 @@ _ZNK2lp8lar_term5beginEv.exit.i:                  ; preds = %15, %.lr.ph.i.i.i.i
   %.sroa.0.1.i.i.i.i = phi ptr [ %7, %6 ], [ %11, %15 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %17 = getelementptr inbounds nuw %class.default_map_entry.325, ptr %7, i64 %10
   %.not4448.i = icmp eq ptr %.sroa.0.1.i.i.i.i, %17
-  br i1 %.not4448.i, label %36, label %.lr.ph.i
+  br i1 %.not4448.i, label %37, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK2lp8lar_term5beginEv.exit.i, %_ZN2lp8lar_term14const_iteratorppEv.exit.i
   %.025 = phi i32 [ %spec.select, %_ZN2lp8lar_term14const_iteratorppEv.exit.i ], [ undef, %_ZNK2lp8lar_term5beginEv.exit.i ]
@@ -7414,63 +7414,57 @@ _ZN2lp8lar_term14const_iteratorppEv.exit.i:       ; preds = %29, %.lr.ph.i.i.i.i
   %33 = zext nneg i8 %32 to i32
   %34 = select i1 %.220.i, i32 %33, i32 1
   %35 = shl i32 %spec.select, 1
-  br label %36
+  %36 = or disjoint i32 %34, %35
+  br label %37
 
-36:                                               ; preds = %._crit_edge.loopexit.i, %_ZNK2lp8lar_term5beginEv.exit.i
-  %.029.ph = phi i32 [ %34, %._crit_edge.loopexit.i ], [ 1, %_ZNK2lp8lar_term5beginEv.exit.i ]
-  %.227.ph = phi i32 [ %35, %._crit_edge.loopexit.i ], [ 0, %_ZNK2lp8lar_term5beginEv.exit.i ]
+37:                                               ; preds = %._crit_edge.loopexit.i, %_ZNK2lp8lar_term5beginEv.exit.i
+  %.227.ph = phi i32 [ %36, %._crit_edge.loopexit.i ], [ 1, %_ZNK2lp8lar_term5beginEv.exit.i ]
   %.2.ph = phi i32 [ %31, %._crit_edge.loopexit.i ], [ -2, %_ZNK2lp8lar_term5beginEv.exit.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !188
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit, label %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !188
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11, label %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i
 
-_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i: ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %39, i64 -4
-  %42 = load i32, ptr %41, align 4, !tbaa !249
-  %.not.i4 = icmp ult i32 %.2.ph, %42
+_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i: ; preds = %37
+  %42 = getelementptr inbounds i8, ptr %40, i64 -4
+  %43 = load i32, ptr %42, align 4, !tbaa !249
+  %.not.i4 = icmp ult i32 %.2.ph, %43
   br i1 %.not.i4, label %.preheader.i, label %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5
 
 .preheader.i:                                     ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i, %.preheader.i
-  %.08.i.i = phi i32 [ %45, %.preheader.i ], [ %.2.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
-  %43 = zext i32 %.08.i.i to i64
-  %44 = getelementptr inbounds nuw i32, ptr %39, i64 %43
-  %45 = load i32, ptr %44, align 4, !tbaa !249
-  %.not.i.i = icmp eq i32 %45, %.08.i.i
+  %.08.i.i = phi i32 [ %46, %.preheader.i ], [ %.2.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ]
+  %44 = zext i32 %.08.i.i to i64
+  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %44
+  %46 = load i32, ptr %45, align 4, !tbaa !249
+  %.not.i.i = icmp eq i32 %46, %.08.i.i
   br i1 %.not.i.i, label %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5, label %.preheader.i
-
-_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit: ; preds = %36
-  %46 = or disjoint i32 %.227.ph, %.029.ph
-  br label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11
 
 _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5: ; preds = %.preheader.i, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i
   %.sroa.03.0.i.ph = phi i32 [ %.2.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i ], [ %.08.i.i, %.preheader.i ]
-  %47 = or disjoint i32 %.227.ph, %.029.ph
-  %.not.i6 = icmp ult i32 %47, %42
+  %.not.i6 = icmp ult i32 %.227.ph, %43
   br i1 %.not.i6, label %.preheader.i8, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11
 
 .preheader.i8:                                    ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5, %.preheader.i8
-  %.08.i.i9 = phi i32 [ %50, %.preheader.i8 ], [ %47, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5 ]
-  %48 = zext i32 %.08.i.i9 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %39, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !249
-  %.not.i.i10 = icmp eq i32 %50, %.08.i.i9
+  %.08.i.i9 = phi i32 [ %49, %.preheader.i8 ], [ %.227.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5 ]
+  %47 = zext i32 %.08.i.i9 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %40, i64 %47
+  %49 = load i32, ptr %48, align 4, !tbaa !249
+  %.not.i.i10 = icmp eq i32 %49, %.08.i.i9
   br i1 %.not.i.i10, label %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11, label %.preheader.i8
 
-_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11: ; preds = %.preheader.i8, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5
-  %51 = phi i32 [ %47, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5 ], [ %46, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit ], [ %47, %.preheader.i8 ]
-  %.sroa.03.0.i39 = phi i32 [ %.sroa.03.0.i.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5 ], [ %.2.ph, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit ], [ %.sroa.03.0.i.ph, %.preheader.i8 ]
-  %.sroa.03.0.i7 = phi i32 [ %47, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5 ], [ %46, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit ], [ %.08.i.i9, %.preheader.i8 ]
+_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11: ; preds = %.preheader.i8, %37, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5
+  %.sroa.03.0.i39 = phi i32 [ %.sroa.03.0.i.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5 ], [ %.2.ph, %37 ], [ %.sroa.03.0.i.ph, %.preheader.i8 ]
+  %.sroa.03.0.i7 = phi i32 [ %.227.ph, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i5 ], [ %.227.ph, %37 ], [ %.08.i.i9, %.preheader.i8 ]
   %.not = icmp eq i32 %.sroa.03.0.i39, %.sroa.03.0.i7
-  br i1 %.not, label %52, label %_ZNK3nla4core15is_octagon_termERKN2lp8lar_termERbRjS6_.exit
+  br i1 %.not, label %50, label %_ZNK3nla4core15is_octagon_termERKN2lp8lar_termERbRjS6_.exit
 
-52:                                               ; preds = %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11
-  tail call void @_ZNK3nla7var_eqsINS_7emonicsEE11explain_bfsENS_10signed_varES3_RN2lp11explanationE(ptr noundef nonnull align 8 dereferenceable(184) %37, i32 %.2.ph, i32 %51, ptr noundef nonnull align 8 dereferenceable(32) %2)
+50:                                               ; preds = %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11
+  tail call void @_ZNK3nla7var_eqsINS_7emonicsEE11explain_bfsENS_10signed_varES3_RN2lp11explanationE(ptr noundef nonnull align 8 dereferenceable(184) %38, i32 %.2.ph, i32 %.227.ph, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br label %_ZNK3nla4core15is_octagon_termERKN2lp8lar_termERbRjS6_.exit
 
-_ZNK3nla4core15is_octagon_termERKN2lp8lar_termERbRjS6_.exit: ; preds = %22, %3, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11, %52
-  %.0 = phi i1 [ true, %52 ], [ false, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11 ], [ false, %3 ], [ false, %22 ]
+_ZNK3nla4core15is_octagon_termERKN2lp8lar_termERbRjS6_.exit: ; preds = %22, %3, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11, %50
+  %.0 = phi i1 [ true, %50 ], [ false, %_ZNK3nla7var_eqsINS_7emonicsEE4findENS_10signed_varE.exit11 ], [ false, %3 ], [ false, %22 ]
   ret i1 %.0
 }
 

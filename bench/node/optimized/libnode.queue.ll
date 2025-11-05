@@ -5435,10 +5435,8 @@ _ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6
   br label %return
 
 return:                                           ; preds = %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i, %if.then.i.i, %_ZNRSt8optionalImE5valueEv.exit16, %if.end, %entry
-  %retval.sroa.0.0 = phi i16 [ 0, %entry ], [ 0, %if.end ], [ 0, %_ZNRSt8optionalImE5valueEv.exit16 ], [ 1, %if.then.i.i ], [ 1, %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i ]
-  %retval.sroa.4.0 = phi i16 [ 0, %entry ], [ 256, %if.end ], [ 256, %_ZNRSt8optionalImE5valueEv.exit16 ], [ 256, %if.then.i.i ], [ 256, %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i ]
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.4.0, %retval.sroa.0.0
-  ret i16 %retval.sroa.0.0.insert.insert
+  %retval.sroa.4.0 = phi i16 [ 0, %entry ], [ 256, %if.end ], [ 256, %_ZNRSt8optionalImE5valueEv.exit16 ], [ 257, %if.then.i.i ], [ 257, %_ZNSt6vectorISt10unique_ptrIN4node9DataQueue5EntryESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i ]
+  ret i16 %retval.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

@@ -1481,13 +1481,13 @@ define noundef i64 @_ZNK5faiss7Repeats5countEv(ptr noundef nonnull readonly alig
   br label %13
 
 ._crit_edge:                                      ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit, %1
-  %.09.lcssa = phi i64 [ 1, %1 ], [ %24, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
+  %.09.lcssa = phi i64 [ 1, %1 ], [ %.0.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
   ret i64 %.09.lcssa
 
 13:                                               ; preds = %.lr.ph, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
   %.0812 = phi i32 [ %10, %.lr.ph ], [ %25, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
-  %.0911 = phi i64 [ 1, %.lr.ph ], [ %24, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
+  %.0911 = phi i64 [ 1, %.lr.ph ], [ %.0.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit ]
   %14 = getelementptr inbounds nuw %"struct.faiss::Repeat", ptr %5, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !87
@@ -1500,11 +1500,11 @@ define noundef i64 @_ZNK5faiss7Repeats5countEv(ptr noundef nonnull readonly alig
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i64, ptr %12, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !44
+  %24 = mul i64 %23, %.0911
   br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit:          ; preds = %13, %18
-  %.0.i = phi i64 [ %23, %18 ], [ 0, %13 ]
-  %24 = mul i64 %.0.i, %.0911
+  %.0.i = phi i64 [ %24, %18 ], [ 0, %13 ]
   %25 = sub nsw i32 %.0812, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %9
@@ -1533,8 +1533,8 @@ define noundef i64 @_ZNK5faiss7Repeats6encodeEPKf(ptr noundef nonnull readonly a
 10:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i, %.lr.ph.i
   %.021.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
   %.02520.i = phi i32 [ %3, %.lr.ph.i ], [ %46, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
-  %.03619.i = phi i64 [ 1, %.lr.ph.i ], [ %45, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
-  %.03718.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %.03619.i = phi i64 [ 1, %.lr.ph.i ], [ %.0.i40.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %.03718.i = phi i64 [ 0, %.lr.ph.i ], [ %45, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
   %.sroa.01.017.i = phi ptr [ %.val, %.lr.ph.i ], [ %47, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
   %11 = xor i64 %.021.i, -1
   %12 = load float, ptr %.sroa.01.017.i, align 4, !tbaa !85
@@ -1594,13 +1594,13 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %24, %22
   %40 = sext i32 %39 to i64
   %41 = getelementptr inbounds nuw i64, ptr %9, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !44
+  %43 = mul i64 %42, %.03619.i
   br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i:      ; preds = %37, %36
-  %.0.i40.i = phi i64 [ %42, %37 ], [ 0, %36 ]
-  %43 = mul i64 %30, %.03619.i
-  %44 = add i64 %43, %.03718.i
-  %45 = mul i64 %.0.i40.i, %.03619.i
+  %.0.i40.i = phi i64 [ %43, %37 ], [ 0, %36 ]
+  %44 = mul i64 %30, %.03619.i
+  %45 = add i64 %44, %.03718.i
   %46 = sub nsw i32 %.02520.i, %23
   %47 = getelementptr inbounds nuw i8, ptr %.sroa.01.017.i, i64 8
   %.not.i = icmp eq ptr %47, %.val42
@@ -1629,8 +1629,8 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i:      ; preds = %37, %36
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us
-  %.03199.us = phi i64 [ %99, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ], [ 1, %.preheader.us.preheader ]
-  %.03298.us = phi i64 [ %98, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ], [ 0, %.preheader.us.preheader ]
+  %.03199.us = phi i64 [ %.0.i50.us, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ], [ 1, %.preheader.us.preheader ]
+  %.03298.us = phi i64 [ %99, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ], [ 0, %.preheader.us.preheader ]
   %.03397.us = phi i32 [ %100, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ], [ %3, %.preheader.us.preheader ]
   %.sroa.065.096.us = phi ptr [ %101, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ], [ %55, %.preheader.us.preheader ]
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.065.096.us, i64 4
@@ -1710,25 +1710,25 @@ _ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i:      ; preds = %37, %36
   %94 = sext i32 %93 to i64
   %95 = getelementptr inbounds nuw i64, ptr %59, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !44
+  %97 = mul i64 %96, %.03199.us
   br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us:     ; preds = %91, %._crit_edge.us
-  %.0.i50.us = phi i64 [ %96, %91 ], [ 0, %._crit_edge.us ]
-  %97 = mul i64 %.1.us, %.03199.us
-  %98 = add i64 %97, %.03298.us
-  %99 = mul i64 %.0.i50.us, %.03199.us
+  %.0.i50.us = phi i64 [ %97, %91 ], [ 0, %._crit_edge.us ]
+  %98 = mul i64 %.1.us, %.03199.us
+  %99 = add i64 %98, %.03298.us
   %100 = sub nsw i32 %.03397.us, %89
   %101 = getelementptr inbounds nuw i8, ptr %.sroa.065.096.us, i64 8
   %.not.us = icmp eq ptr %101, %57
   br i1 %.not.us, label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit, label %.preheader.us, !llvm.loop !93
 
 _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us, %48
-  %.032.lcssa = phi i64 [ 0, %48 ], [ %98, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ]
+  %.032.lcssa = phi i64 [ 0, %48 ], [ %99, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit51.us ]
   tail call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %.idx.i) #26
   br label %_ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit
 
 _ZN5faiss12_GLOBAL__N_117repeats_encode_64ERKSt6vectorINS_6RepeatESaIS2_EEiPKf.exit: ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i, %5, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
-  %.0 = phi i64 [ %.032.lcssa, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ], [ 0, %5 ], [ %44, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
+  %.0 = phi i64 [ %.032.lcssa, %_ZNSt13_Bvector_baseISaIbEED2Ev.exit ], [ 0, %5 ], [ %45, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit41.i ]
   ret i64 %.0
 }
 
@@ -3924,7 +3924,7 @@ define void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferen
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
   %12 = load i32, ptr %11, align 8, !tbaa !4
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge55
+  br i1 %13, label %.lr.ph, label %._crit_edge54
 
 .lr.ph:                                           ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3942,9 +3942,9 @@ define void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferen
   br label %26
 
 ._crit_edge:                                      ; preds = %_ZN5faiss7RepeatsD2Ev.exit28
-  %.pre61 = load i64, ptr %10, align 8, !tbaa !128
-  %.not50 = icmp eq i64 %.pre61, 0
-  br i1 %.not50, label %._crit_edge55, label %.lr.ph54
+  %.pre59 = load i64, ptr %10, align 8, !tbaa !128
+  %.not49 = icmp eq i64 %.pre59, 0
+  br i1 %.not49, label %._crit_edge54, label %.lr.ph53
 
 26:                                               ; preds = %.lr.ph, %_ZN5faiss7RepeatsD2Ev.exit28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5faiss7RepeatsD2Ev.exit28 ]
@@ -4094,7 +4094,7 @@ _ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit: 
 88:                                               ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
   %.0812.i = phi i32 [ %85, %.lr.ph.i ], [ %100, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
-  %.0911.i = phi i64 [ 1, %.lr.ph.i ], [ %99, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
+  %.0911.i = phi i64 [ 1, %.lr.ph.i ], [ %.0.i.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
   %89 = getelementptr inbounds nuw %"struct.faiss::Repeat", ptr %80, i64 %indvars.iv.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i32, ptr %90, align 4, !tbaa !87
@@ -4107,18 +4107,18 @@ _ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit: 
   %96 = sext i32 %95 to i64
   %97 = getelementptr inbounds nuw i64, ptr %87, i64 %96
   %98 = load i64, ptr %97, align 8, !tbaa !44
+  %99 = mul i64 %98, %.0911.i
   br label %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i
 
 _ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i:        ; preds = %93, %88
-  %.0.i.i = phi i64 [ %98, %93 ], [ 0, %88 ]
-  %99 = mul i64 %.0.i.i, %.0911.i
+  %.0.i.i = phi i64 [ %99, %93 ], [ 0, %88 ]
   %100 = sub nsw i32 %.0812.i, %91
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %84
   br i1 %exitcond.not.i, label %_ZNK5faiss7Repeats5countEv.exit, label %88, !llvm.loop !89
 
 _ZNK5faiss7Repeats5countEv.exit:                  ; preds = %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i, %_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit
-  %.09.lcssa.i = phi i64 [ 1, %_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit ], [ %99, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
+  %.09.lcssa.i = phi i64 [ 1, %_ZNSt6vectorIN5faiss13ZnSphereCodec11CodeSegmentESaIS2_EE9push_backERKS2_.exit ], [ %.0.i.i, %_ZNK5faiss12_GLOBAL__N_14CombclEii.exit.i ]
   %101 = load i32, ptr %21, align 8, !tbaa !29
   %102 = zext nneg i32 %101 to i64
   %103 = shl i64 %.09.lcssa.i, %102
@@ -4234,16 +4234,16 @@ _ZN5faiss7RepeatsD2Ev.exit32:                     ; preds = %131, %_ZN5faiss7Rep
 _ZN5faiss14ZnSphereSearchD2Ev.exit:               ; preds = %_ZN5faiss7RepeatsD2Ev.exit32, %137
   resume { ptr, i32 } %.pn.pn
 
-.lr.ph54:                                         ; preds = %._crit_edge, %.lr.ph54
-  %.052 = phi i64 [ %143, %.lr.ph54 ], [ %.pre61, %._crit_edge ]
-  %storemerge51 = phi i64 [ %144, %.lr.ph54 ], [ 0, %._crit_edge ]
-  %143 = lshr i64 %.052, 8
-  %144 = add nuw nsw i64 %storemerge51, 1
-  %.not = icmp ult i64 %.052, 256
-  br i1 %.not, label %._crit_edge55, label %.lr.ph54, !llvm.loop !131
+.lr.ph53:                                         ; preds = %._crit_edge, %.lr.ph53
+  %.051 = phi i64 [ %143, %.lr.ph53 ], [ %.pre59, %._crit_edge ]
+  %storemerge50 = phi i64 [ %144, %.lr.ph53 ], [ 0, %._crit_edge ]
+  %143 = lshr i64 %.051, 8
+  %144 = add nuw nsw i64 %storemerge50, 1
+  %.not = icmp ult i64 %.051, 256
+  br i1 %.not, label %._crit_edge54, label %.lr.ph53, !llvm.loop !131
 
-._crit_edge55:                                    ; preds = %.lr.ph54, %3, %._crit_edge
-  %storemerge.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %3 ], [ %144, %.lr.ph54 ]
+._crit_edge54:                                    ; preds = %.lr.ph53, %3, %._crit_edge
+  %storemerge.lcssa = phi i64 [ 0, %._crit_edge ], [ 0, %3 ], [ %144, %.lr.ph53 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %storemerge.lcssa, ptr %145, align 8, !tbaa !132
   ret void

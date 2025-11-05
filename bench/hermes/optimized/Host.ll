@@ -1071,7 +1071,7 @@ if.then187:                                       ; preds = %if.end.i.i1547
   %add.ptr.i1324.idx = shl nuw nsw i64 %conv.i480, 4
   %add.ptr.i1324 = getelementptr inbounds nuw i8, ptr %84, i64 %add.ptr.i1324.idx
   %cmp191.not893 = icmp eq i32 %85, 0
-  br i1 %cmp191.not893, label %for.end223, label %for.body192.lr.ph
+  br i1 %cmp191.not893, label %cleanup, label %for.body192.lr.ph
 
 for.body192.lr.ph:                                ; preds = %if.then187
   %Length.i.i1346 = getelementptr inbounds nuw i8, ptr %I193, i64 8
@@ -1126,7 +1126,7 @@ for.end203:                                       ; preds = %for.inc202
   %add.ptr.i1318.idx = shl nuw nsw i64 %conv.i495, 4
   %add.ptr.i1318 = getelementptr inbounds nuw i8, ptr %.pre920, i64 %add.ptr.i1318.idx
   %cmp210.not897 = icmp eq i32 %.pre921, 0
-  br i1 %cmp210.not897, label %for.end223, label %for.body211.lr.ph
+  br i1 %cmp210.not897, label %cleanup, label %for.body211.lr.ph
 
 for.body211.lr.ph:                                ; preds = %for.end203
   %Length.i.i1333 = getelementptr inbounds nuw i8, ptr %I212, i64 8
@@ -1171,25 +1171,23 @@ for.inc221:                                       ; preds = %for.body211, %if.en
   %Part.1 = phi i32 [ %Part.2, %if.end.i1335 ], [ %Part.0898, %if.end.i1399 ], [ %Part.0898, %for.body211 ]
   %incdec.ptr222 = getelementptr inbounds nuw i8, ptr %__begin2205.0899, i64 16
   %cmp210.not = icmp eq ptr %incdec.ptr222, %add.ptr.i1318
-  br i1 %cmp210.not, label %for.end223, label %for.body211
+  br i1 %cmp210.not, label %for.end223.loopexit, label %for.body211
 
-for.end223:                                       ; preds = %for.inc221, %if.then187, %for.end203
-  %Variant.0.lcssa950 = phi i32 [ %92, %for.end203 ], [ 0, %if.then187 ], [ %92, %for.inc221 ]
-  %Part.0.lcssa = phi i32 [ 0, %for.end203 ], [ 0, %if.then187 ], [ %Part.1, %for.inc221 ]
-  %or = or i32 %Part.0.lcssa, %Variant.0.lcssa950
-  %cond = icmp eq i32 %or, 16385
-  %spec.select = select i1 %cond, ptr @.str.96, ptr @.str.95
+for.end223.loopexit:                              ; preds = %for.inc221
+  %99 = or i32 %Part.1, %92
+  %100 = icmp eq i32 %99, 16385
+  %101 = select i1 %100, ptr @.str.96, ptr @.str.95
   br label %cleanup
 
-cleanup:                                          ; preds = %entry, %for.end, %for.end223, %if.end.i.i1547, %cond.true.i423, %cond.true.i383, %cond.true.i333, %land.rhs.i1281, %land.rhs.i1270
-  %retval.sroa.0.0 = phi ptr [ @.str.37, %land.rhs.i1270 ], [ @.str.37, %land.rhs.i1281 ], [ %retval.i945.0751, %cond.true.i333 ], [ %retval.i934.0, %cond.true.i383 ], [ %retval.i.0867, %cond.true.i423 ], [ @.str.1, %if.end.i.i1547 ], [ %spec.select, %for.end223 ], [ @.str.1, %for.end ], [ @.str.1, %entry ]
-  %retval.sroa.8.0 = phi i64 [ 10, %land.rhs.i1270 ], [ 10, %land.rhs.i1281 ], [ %call.i334, %cond.true.i333 ], [ %call.i384, %cond.true.i383 ], [ %call.i424, %cond.true.i423 ], [ 7, %if.end.i.i1547 ], [ 9, %for.end223 ], [ 7, %for.end ], [ 7, %entry ]
-  %99 = load ptr, ptr %Lines, align 8
-  %cmp.i.i.i = icmp eq ptr %99, %add.ptr.i.i.i.i.i
+cleanup:                                          ; preds = %if.then187, %entry, %for.end203, %for.end223.loopexit, %for.end, %if.end.i.i1547, %cond.true.i423, %cond.true.i383, %cond.true.i333, %land.rhs.i1281, %land.rhs.i1270
+  %retval.sroa.0.0 = phi ptr [ @.str.37, %land.rhs.i1270 ], [ @.str.37, %land.rhs.i1281 ], [ %retval.i945.0751, %cond.true.i333 ], [ %retval.i934.0, %cond.true.i383 ], [ %retval.i.0867, %cond.true.i423 ], [ @.str.1, %if.end.i.i1547 ], [ @.str.1, %for.end ], [ @.str.95, %for.end203 ], [ %101, %for.end223.loopexit ], [ @.str.1, %entry ], [ @.str.95, %if.then187 ]
+  %retval.sroa.8.0 = phi i64 [ 10, %land.rhs.i1270 ], [ 10, %land.rhs.i1281 ], [ %call.i334, %cond.true.i333 ], [ %call.i384, %cond.true.i383 ], [ %call.i424, %cond.true.i423 ], [ 7, %if.end.i.i1547 ], [ 7, %for.end ], [ 9, %for.end203 ], [ 9, %for.end223.loopexit ], [ 7, %entry ], [ 9, %if.then187 ]
+  %102 = load ptr, ptr %Lines, align 8
+  %cmp.i.i.i = icmp eq ptr %102, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %cleanup
-  call void @free(ptr noundef %99) #19
+  call void @free(ptr noundef %102) #19
   br label %_ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit
 
 _ZN4llvh11SmallVectorINS_9StringRefELj32EED2Ev.exit: ; preds = %cleanup, %if.then.i.i

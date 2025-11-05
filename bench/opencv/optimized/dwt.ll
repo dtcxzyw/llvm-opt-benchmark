@@ -4987,12 +4987,15 @@ opj_v8dwt_interleave_v.exit.i:                    ; preds = %.lr.ph29.i.i, %._cr
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %337, ptr noundef nonnull readonly align 4 dereferenceable(1) %339, i64 %333, i1 false), !noalias !234
   %indvars.iv.next.i291.i = add nuw nsw i64 %indvars.iv.i290.i, 1
   %exitcond.not.i292.i = icmp eq i64 %indvars.iv.next.i291.i, %wide.trip.count.i289.i
-  br i1 %exitcond.not.i292.i, label %._crit_edge.i282.i, label %334, !llvm.loop !229
+  br i1 %exitcond.not.i292.i, label %._crit_edge.i282.loopexit.i, label %334, !llvm.loop !229
 
-._crit_edge.i282.i:                               ; preds = %334, %329
-  %.pre-phi.i = phi i64 [ 0, %329 ], [ %wide.trip.count.i289.i, %334 ]
-  %340 = mul nuw i64 %.pre-phi.i, %64
-  %341 = getelementptr inbounds nuw float, ptr %.6241.i, i64 %340
+._crit_edge.i282.loopexit.i:                      ; preds = %334
+  %340 = mul nuw i64 %wide.trip.count.i289.i, %64
+  br label %._crit_edge.i282.i
+
+._crit_edge.i282.i:                               ; preds = %._crit_edge.i282.loopexit.i, %329
+  %.pre-phi.i = phi i64 [ %340, %._crit_edge.i282.loopexit.i ], [ 0, %329 ]
+  %341 = getelementptr inbounds nuw float, ptr %.6241.i, i64 %.pre-phi.i
   %342 = sub nsw i64 0, %330
   %343 = getelementptr inbounds %union.opj_v8_t, ptr %63, i64 %342
   %.not304.i = icmp eq i32 %86, %.0250345.i

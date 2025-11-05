@@ -885,7 +885,7 @@ define hidden i64 @_ZNK2cv5kinfu20ColoredTSDFVolumeCPU2atERKNS_3VecIiLi3EEE(ptr 
   %.not = icmp sge i32 %3, %5
   %6 = icmp slt i32 %3, 0
   %or.cond = or i1 %6, %.not
-  br i1 %or.cond, label %40, label %7
+  br i1 %or.cond, label %36, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -895,7 +895,7 @@ define hidden i64 @_ZNK2cv5kinfu20ColoredTSDFVolumeCPU2atERKNS_3VecIiLi3EEE(ptr 
   %.not11 = icmp sge i32 %9, %11
   %12 = icmp slt i32 %9, 0
   %or.cond13 = or i1 %12, %.not11
-  br i1 %or.cond13, label %40, label %13
+  br i1 %or.cond13, label %36, label %13
 
 13:                                               ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -905,7 +905,7 @@ define hidden i64 @_ZNK2cv5kinfu20ColoredTSDFVolumeCPU2atERKNS_3VecIiLi3EEE(ptr 
   %.not12 = icmp sge i32 %15, %17
   %18 = icmp slt i32 %15, 0
   %or.cond14 = or i1 %18, %.not12
-  br i1 %or.cond14, label %40, label %19
+  br i1 %or.cond14, label %36, label %19
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -924,24 +924,11 @@ define hidden i64 @_ZNK2cv5kinfu20ColoredTSDFVolumeCPU2atERKNS_3VecIiLi3EEE(ptr 
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %21, i64 %33
   %35 = load i64, ptr %34, align 2
-  %.sroa.6.0.extract.shift = and i64 %35, -281474976710656
-  %36 = and i64 %35, 281470681743360
-  %37 = and i64 %35, 4294901760
-  %38 = and i64 %35, 65280
-  %39 = and i64 %35, 255
-  br label %40
+  br label %36
 
-40:                                               ; preds = %2, %7, %13, %19
-  %.sroa.6.0 = phi i64 [ %.sroa.6.0.extract.shift, %19 ], [ 45035996273704960, %13 ], [ 45035996273704960, %7 ], [ 45035996273704960, %2 ]
-  %.sroa.5.0 = phi i64 [ %36, %19 ], [ 687194767360, %13 ], [ 687194767360, %7 ], [ 687194767360, %2 ]
-  %.sroa.4.0 = phi i64 [ %37, %19 ], [ 10485760, %13 ], [ 10485760, %7 ], [ 10485760, %2 ]
-  %.sroa.3.0 = phi i64 [ %38, %19 ], [ 0, %13 ], [ 0, %7 ], [ 0, %2 ]
-  %.sroa.0.0 = phi i64 [ %39, %19 ], [ 128, %13 ], [ 128, %7 ], [ 128, %2 ]
-  %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.6.0
-  %.sroa.4.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.4.0
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.3.0
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+36:                                               ; preds = %2, %7, %13, %19
+  %.sroa.6.0 = phi i64 [ %35, %19 ], [ 45036683478958208, %13 ], [ 45036683478958208, %7 ], [ 45036683478958208, %2 ]
+  ret i64 %.sroa.6.0
 }
 
 ; Function Attrs: mustprogress uwtable

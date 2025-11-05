@@ -5467,16 +5467,18 @@ _ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_N
   %132 = load i8, ptr %131, align 1
   %133 = trunc i8 %132 to i1
   %or.cond.i194 = select i1 %130, i1 true, i1 %133
-  %134 = getelementptr inbounds nuw i8, ptr %15, i64 6
-  %135 = load i8, ptr %134, align 1
-  %136 = trunc i8 %135 to i1
-  %137 = select i1 %or.cond.i194, i1 true, i1 %136
+  br i1 %or.cond.i194, label %.thread, label %134
+
+134:                                              ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193
+  %135 = getelementptr inbounds nuw i8, ptr %15, i64 6
+  %136 = load i8, ptr %135, align 1
+  %137 = trunc i8 %136 to i1
   %.not359 = xor i1 %137, true
   %138 = or i1 %84, %.not359
   br label %.thread
 
-.thread:                                          ; preds = %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193
-  %.not348 = phi i1 [ %138, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193 ], [ false, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189 ]
+.thread:                                          ; preds = %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193, %134, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189
+  %.not348 = phi i1 [ false, %_ZN3vcg20GLMeshAttributesInfo16InternalRendAtts24replicatedPipelineNeededERKNS0_13RenderingAttsINS0_9ATT_NAMESEEE.exit189 ], [ %84, %_ZNK3vcg20GLMeshAttributesInfo16InternalRendAttscvNS0_13RenderingAttsINS0_9ATT_NAMESEEEEv.exit193 ], [ %138, %134 ]
   %139 = tail call noundef i64 @_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14boExpectedSizeENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb(ptr noundef nonnull align 8 dereferenceable(472) %0, i32 0, i1 noundef zeroext %84)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %141 = load ptr, ptr %140, align 8
@@ -7338,21 +7340,17 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit60: 
   %132 = load i32, ptr %131, align 4
   %switch.tableidx = add i32 %132, -5121
   %133 = icmp ult i32 %switch.tableidx, 6
-  br i1 %133, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i
+  br i1 %133, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit
 
 switch.lookup:                                    ; preds = %130
   %134 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %134
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i
-
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i: ; preds = %130, %switch.lookup
-  %.0.i.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %130 ]
-  %135 = mul i64 %.0.i.i, %109
+  %135 = mul i64 %switch.load, %109
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit: ; preds = %118, %127, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i
-  %.0.i = phi i64 [ %135, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i ], [ 0, %127 ], [ 0, %118 ]
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit: ; preds = %switch.lookup, %130, %118, %127
+  %.0.i = phi i64 [ 0, %127 ], [ 0, %118 ], [ %135, %switch.lookup ], [ 0, %130 ]
   %136 = load ptr, ptr @__glewGenBuffers, align 8
   %137 = getelementptr inbounds nuw i8, ptr %102, i64 32
   tail call void %136(i32 noundef 1, ptr noundef nonnull %137)
@@ -9360,30 +9358,30 @@ _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext
 
 1030:                                             ; preds = %1022
   %1031 = load ptr, ptr @__glewBufferSubData, align 8
-  %1032 = getelementptr inbounds nuw i8, ptr %1026, i64 8
-  %1033 = load i64, ptr %1032, align 8
-  %1034 = getelementptr inbounds nuw i8, ptr %1026, i64 20
-  %1035 = load i32, ptr %1034, align 4
-  %switch.tableidx = add i32 %1035, -5121
-  %1036 = icmp ult i32 %switch.tableidx, 6
-  br i1 %1036, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
+  %1032 = getelementptr inbounds nuw i8, ptr %1026, i64 20
+  %1033 = load i32, ptr %1032, align 4
+  %switch.tableidx = add i32 %1033, -5121
+  %1034 = icmp ult i32 %switch.tableidx, 6
+  br i1 %1034, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
 
 switch.lookup:                                    ; preds = %1030
+  %1035 = getelementptr inbounds nuw i8, ptr %1026, i64 8
+  %1036 = load i64, ptr %1035, align 8
   %1037 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %1037
   %switch.load = load i64, ptr %switch.gep, align 8
+  %1038 = mul i64 %switch.load, %1036
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373
 
 _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit373: ; preds = %1030, %switch.lookup
-  %.0.i372 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1030 ]
-  %1038 = mul i64 %.0.i372, %1033
+  %.0.i372 = phi i64 [ %1038, %switch.lookup ], [ 0, %1030 ]
   %1039 = load ptr, ptr %1007, align 8
   %1040 = load ptr, ptr %1006, align 8
   %1041 = ptrtoint ptr %1039 to i64
   %1042 = ptrtoint ptr %1040 to i64
   %1043 = sub i64 %1041, %1042
   %1044 = ashr exact i64 %1043, 3
-  %1045 = mul i64 %1038, %1044
+  %1045 = mul i64 %.0.i372, %1044
   invoke void %1031(i32 noundef 34963, i64 noundef 0, i64 noundef %1045, ptr noundef nonnull %1040)
           to label %1046 unwind label %.loopexit.split-lp
 
@@ -12071,24 +12069,20 @@ _ZNK3vcg20GLMeshAttributesInfo13RenderingAttsINS0_13INT_ATT_NAMESEEixEj.exit: ; 
   %50 = load i32, ptr %49, align 4
   %switch.tableidx = add i32 %50, -5121
   %51 = icmp ult i32 %switch.tableidx, 6
-  br i1 %51, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i
+  br i1 %51, label %switch.lookup, label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit
 
 switch.lookup:                                    ; preds = %48
   %52 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %52
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i
-
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i: ; preds = %48, %switch.lookup
-  %.0.i.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %48 ]
-  %53 = mul i64 %.0.i.i, %27
+  %53 = mul i64 %switch.load, %27
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit
 
 54:                                               ; preds = %40
   resume { ptr, i32 } %41
 
-_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit: ; preds = %36, %45, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i
-  %.0.i = phi i64 [ %53, %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit.i ], [ 0, %45 ], [ 0, %36 ]
+_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE19boExpectedDimensionENS_20GLMeshAttributesInfo13INT_ATT_NAMESEb.exit: ; preds = %switch.lookup, %48, %36, %45
+  %.0.i = phi i64 [ 0, %45 ], [ 0, %36 ], [ %53, %switch.lookup ], [ 0, %48 ]
   %55 = add nsw i64 %.0.i, %.016
   br label %56
 
@@ -12157,15 +12151,15 @@ switch.lookup:                                    ; preds = %25
   %31 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE27bufferDeAllocationRequestedENS_20GLMeshAttributesInfo13INT_ATT_NAMESE, i64 %31
   %switch.load = load i64, ptr %switch.gep, align 8
+  %32 = mul i64 %switch.load, %24
   br label %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit
 
 _ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit: ; preds = %25, %switch.lookup
-  %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %25 ]
-  %32 = mul i64 %.0.i, %24
+  %.0.i = phi i64 [ %32, %switch.lookup ], [ 0, %25 ]
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 40
   %35 = load ptr, ptr %34, align 8
-  tail call void %35(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %32)
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(24) %27, i64 noundef %.0.i)
   br label %36
 
 36:                                               ; preds = %_ZNK3vcg49NotThreadSafeGLMeshAttributesMultiViewerBOManagerI6CMeshOP10QGLContext18MLPerViewGLOptionsE14GLBufferObject15getSizeOfGLTypeEv.exit, %21

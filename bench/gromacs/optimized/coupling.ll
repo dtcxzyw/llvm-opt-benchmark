@@ -2258,126 +2258,123 @@ _ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptio
   %.pre81 = load float, ptr %.phi.trans.insert80, align 4, !tbaa !114
   %.phi.trans.insert82 = getelementptr i8, ptr %10, i64 28
   %.pre83 = load float, ptr %.phi.trans.insert82, align 4, !tbaa !114
+  %161 = fadd float %.pre, %.pre75
+  %162 = fadd float %.pre77, %.pre79
+  %163 = fadd float %.pre81, %.pre83
   br label %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit
 
 _ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit: ; preds = %123, %28, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59, %44
-  %161 = phi float [ %.pre83, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
-  %162 = phi float [ %.pre81, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
-  %163 = phi float [ %.pre79, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
-  %164 = phi float [ %.pre77, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
-  %165 = phi float [ %.pre75, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
-  %166 = phi float [ %.pre, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
+  %164 = phi float [ %163, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
+  %165 = phi float [ %162, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
+  %166 = phi float [ %161, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit.loopexit59 ], [ 0.000000e+00, %44 ], [ 0.000000e+00, %28 ], [ 0.000000e+00, %123 ]
   %167 = getelementptr i8, ptr %10, i64 4
   %168 = getelementptr i8, ptr %10, i64 12
-  %169 = fadd float %166, %165
-  store float %169, ptr %168, align 4, !tbaa !114
-  %170 = getelementptr i8, ptr %10, i64 8
-  %171 = getelementptr i8, ptr %10, i64 24
-  %172 = fadd float %164, %163
-  store float %172, ptr %171, align 4, !tbaa !114
-  %173 = getelementptr i8, ptr %10, i64 20
-  %174 = getelementptr i8, ptr %10, i64 28
-  %175 = fadd float %162, %161
-  store float %175, ptr %174, align 4, !tbaa !114
+  store float %166, ptr %168, align 4, !tbaa !114
+  %169 = getelementptr i8, ptr %10, i64 8
+  %170 = getelementptr i8, ptr %10, i64 24
+  store float %165, ptr %170, align 4, !tbaa !114
+  %171 = getelementptr i8, ptr %10, i64 20
+  %172 = getelementptr i8, ptr %10, i64 28
+  store float %164, ptr %172, align 4, !tbaa !114
   store float 0.000000e+00, ptr %167, align 4, !tbaa !114
-  store float 0.000000e+00, ptr %170, align 4, !tbaa !114
-  store float 0.000000e+00, ptr %173, align 4, !tbaa !114
+  store float 0.000000e+00, ptr %169, align 4, !tbaa !114
+  store float 0.000000e+00, ptr %171, align 4, !tbaa !114
   %.promoted55 = load double, ptr %11, align 8, !tbaa !115
   br label %.preheader
 
-.preheader:                                       ; preds = %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit, %185
-  %indvars.iv67 = phi i64 [ 0, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit ], [ %indvars.iv.next68, %185 ]
-  %indvars.iv65 = phi i64 [ 1, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit ], [ %indvars.iv.next66, %185 ]
-  %.lcssa535657 = phi double [ %.promoted55, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit ], [ %201, %185 ]
-  %176 = mul nuw nsw i64 %indvars.iv67, 12
-  %177 = getelementptr i8, ptr %10, i64 %176
-  %178 = getelementptr inbounds nuw [3 x float], ptr %8, i64 %indvars.iv67
-  %179 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv67
-  br label %186
+.preheader:                                       ; preds = %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit, %182
+  %indvars.iv67 = phi i64 [ 0, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit ], [ %indvars.iv.next68, %182 ]
+  %indvars.iv65 = phi i64 [ 1, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit ], [ %indvars.iv.next66, %182 ]
+  %.lcssa535657 = phi double [ %.promoted55, %_ZL26calculateScalingMatrixImplIL16PressureCoupling1EEvRK23PressureCouplingOptionslfPN3gmx13MultiDimArrayISt5arrayIfLm9EENS4_7extentsIJLl3ELl3EEEENS4_12layout_rightEEEfPA3_KfSF_l.exit ], [ %198, %182 ]
+  %173 = mul nuw nsw i64 %indvars.iv67, 12
+  %174 = getelementptr i8, ptr %10, i64 %173
+  %175 = getelementptr inbounds nuw [3 x float], ptr %8, i64 %indvars.iv67
+  %176 = getelementptr inbounds nuw [3 x float], ptr %9, i64 %indvars.iv67
+  br label %183
 
-180:                                              ; preds = %185
-  store double %201, ptr %11, align 8, !tbaa !115
-  %181 = load float, ptr %10, align 4, !tbaa !114
-  %182 = fpext float %181 to double
-  %183 = fcmp olt double %182, 0x3FEFAE147AE147AE
-  %184 = fcmp ogt double %182, 1.010000e+00
-  %or.cond = or i1 %183, %184
-  br i1 %or.cond, label %214, label %202
+177:                                              ; preds = %182
+  store double %198, ptr %11, align 8, !tbaa !115
+  %178 = load float, ptr %10, align 4, !tbaa !114
+  %179 = fpext float %178 to double
+  %180 = fcmp olt double %179, 0x3FEFAE147AE147AE
+  %181 = fcmp ogt double %179, 1.010000e+00
+  %or.cond = or i1 %180, %181
+  br i1 %or.cond, label %211, label %199
 
-185:                                              ; preds = %186
+182:                                              ; preds = %183
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next68, 3
-  br i1 %exitcond73.not, label %180, label %.preheader, !llvm.loop !245
+  br i1 %exitcond73.not, label %177, label %.preheader, !llvm.loop !245
 
-186:                                              ; preds = %.preheader, %186
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %186 ]
-  %187 = phi double [ %.lcssa535657, %.preheader ], [ %201, %186 ]
-  %188 = getelementptr float, ptr %177, i64 %indvars.iv
-  %189 = load float, ptr %188, align 4, !tbaa !114
-  %190 = icmp eq i64 %indvars.iv, %indvars.iv67
-  %191 = uitofp i1 %190 to float
-  %192 = fsub float %189, %191
-  %193 = fmul float %192, 2.000000e+00
-  %194 = getelementptr inbounds nuw float, ptr %178, i64 %indvars.iv
-  %195 = load float, ptr %194, align 4, !tbaa !114
-  %196 = getelementptr inbounds nuw float, ptr %179, i64 %indvars.iv
-  %197 = load float, ptr %196, align 4, !tbaa !114
-  %198 = fadd float %195, %197
-  %199 = fmul float %193, %198
-  %200 = fpext float %199 to double
-  %201 = fsub double %187, %200
+183:                                              ; preds = %.preheader, %183
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %183 ]
+  %184 = phi double [ %.lcssa535657, %.preheader ], [ %198, %183 ]
+  %185 = getelementptr float, ptr %174, i64 %indvars.iv
+  %186 = load float, ptr %185, align 4, !tbaa !114
+  %187 = icmp eq i64 %indvars.iv, %indvars.iv67
+  %188 = uitofp i1 %187 to float
+  %189 = fsub float %186, %188
+  %190 = fmul float %189, 2.000000e+00
+  %191 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv
+  %192 = load float, ptr %191, align 4, !tbaa !114
+  %193 = getelementptr inbounds nuw float, ptr %176, i64 %indvars.iv
+  %194 = load float, ptr %193, align 4, !tbaa !114
+  %195 = fadd float %192, %194
+  %196 = fmul float %190, %195
+  %197 = fpext float %196 to double
+  %198 = fsub double %184, %197
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv65
-  br i1 %exitcond.not, label %185, label %186, !llvm.loop !246
+  br i1 %exitcond.not, label %182, label %183, !llvm.loop !246
 
-202:                                              ; preds = %180
-  %203 = getelementptr i8, ptr %10, i64 16
-  %204 = load float, ptr %203, align 4, !tbaa !114
-  %205 = fpext float %204 to double
-  %206 = fcmp olt double %205, 0x3FEFAE147AE147AE
-  %207 = fcmp ogt double %205, 1.010000e+00
-  %or.cond49 = or i1 %206, %207
-  br i1 %or.cond49, label %214, label %208
+199:                                              ; preds = %177
+  %200 = getelementptr i8, ptr %10, i64 16
+  %201 = load float, ptr %200, align 4, !tbaa !114
+  %202 = fpext float %201 to double
+  %203 = fcmp olt double %202, 0x3FEFAE147AE147AE
+  %204 = fcmp ogt double %202, 1.010000e+00
+  %or.cond49 = or i1 %203, %204
+  br i1 %or.cond49, label %211, label %205
 
-208:                                              ; preds = %202
-  %209 = getelementptr i8, ptr %10, i64 32
-  %210 = load float, ptr %209, align 4, !tbaa !114
-  %211 = fpext float %210 to double
-  %212 = fcmp olt double %211, 0x3FEFAE147AE147AE
-  %213 = fcmp ogt double %211, 1.010000e+00
-  %or.cond50 = or i1 %212, %213
-  br i1 %or.cond50, label %214, label %229
+205:                                              ; preds = %199
+  %206 = getelementptr i8, ptr %10, i64 32
+  %207 = load float, ptr %206, align 4, !tbaa !114
+  %208 = fpext float %207 to double
+  %209 = fcmp olt double %208, 0x3FEFAE147AE147AE
+  %210 = fcmp ogt double %208, 1.010000e+00
+  %or.cond50 = or i1 %209, %210
+  br i1 %or.cond50, label %211, label %226
 
-214:                                              ; preds = %208, %202, %180
+211:                                              ; preds = %205, %199, %177
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %215 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %1, ptr noundef nonnull %15)
-  %216 = load ptr, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !178
+  %212 = call noundef ptr @_Z12gmx_step_strlPc(i64 noundef %1, ptr noundef nonnull %15)
+  %213 = load ptr, ptr %.sroa.3.0..sroa_idx.i.i, align 8, !tbaa !178
+  %214 = load float, ptr %213, align 4, !tbaa !114
+  %215 = fpext float %214 to double
+  %216 = getelementptr i8, ptr %213, i64 16
   %217 = load float, ptr %216, align 4, !tbaa !114
   %218 = fpext float %217 to double
-  %219 = getelementptr i8, ptr %216, i64 16
+  %219 = getelementptr i8, ptr %213, i64 32
   %220 = load float, ptr %219, align 4, !tbaa !114
   %221 = fpext float %220 to double
-  %222 = getelementptr i8, ptr %216, i64 32
-  %223 = load float, ptr %222, align 4, !tbaa !114
-  %224 = fpext float %223 to double
-  %225 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %215, double noundef %218, double noundef %221, double noundef %224) #21
+  %222 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) @.str.15, ptr noundef %212, double noundef %215, double noundef %218, double noundef %221) #21
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %227, label %226
+  br i1 %.not, label %224, label %223
 
-226:                                              ; preds = %214
+223:                                              ; preds = %211
   %fputs = call i32 @fputs(ptr nonnull %14, ptr nonnull %0)
-  br label %227
+  br label %224
 
-227:                                              ; preds = %226, %214
-  %228 = load ptr, ptr @stderr, align 8, !tbaa !135
-  %fputs47 = call i32 @fputs(ptr nonnull %14, ptr %228) #29
+224:                                              ; preds = %223, %211
+  %225 = load ptr, ptr @stderr, align 8, !tbaa !135
+  %fputs47 = call i32 @fputs(ptr nonnull %14, ptr %225) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %229
+  br label %226
 
-229:                                              ; preds = %208, %227
+226:                                              ; preds = %205, %224
   ret void
 }
 

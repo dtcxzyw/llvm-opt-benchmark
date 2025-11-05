@@ -133,36 +133,36 @@ define internal noundef i32 @dsd_channel(ptr noundef readonly captures(none) %0,
   %16 = load ptr, ptr %15, align 8, !tbaa !49
   %.off = add i32 %6, -86091
   %switch = icmp ult i32 %.off, 2
-  br i1 %switch, label %17, label %20
+  br i1 %switch, label %17, label %21
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %19 = load i32, ptr %18, align 8, !tbaa !36
-  br label %24
+  %20 = mul nsw i32 %19, %2
+  %.pre23 = sext i32 %20 to i64
+  br label %25
 
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 356
-  %22 = load i32, ptr %21, align 4, !tbaa !4
-  %23 = sext i32 %22 to i64
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 356
+  %23 = load i32, ptr %22, align 4, !tbaa !4
+  %24 = sext i32 %23 to i64
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %9, i64 112
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !36
-  br label %24
+  br label %25
 
-24:                                               ; preds = %20, %17
-  %25 = phi i32 [ %19, %17 ], [ %.pre, %20 ]
-  %.020 = phi i64 [ 1, %17 ], [ %23, %20 ]
-  %.0 = phi i32 [ %19, %17 ], [ 1, %20 ]
-  %26 = and i32 %6, -3
-  %narrow = icmp eq i32 %26, 86089
-  %27 = zext i1 %narrow to i32
-  %28 = getelementptr inbounds %struct.DSDContext, ptr %8, i64 %14
-  %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !51
-  %32 = mul nsw i32 %.0, %2
-  %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i8, ptr %31, i64 %33
-  tail call void @ff_dsd2pcm_translate(ptr noundef %28, i64 noundef %29, i32 noundef %27, ptr noundef %34, i64 noundef %.020, ptr noundef %16, i64 noundef 1) #5
+25:                                               ; preds = %21, %17
+  %.pre-phi = phi i64 [ %14, %21 ], [ %.pre23, %17 ]
+  %26 = phi i32 [ %.pre, %21 ], [ %19, %17 ]
+  %.020 = phi i64 [ %24, %21 ], [ 1, %17 ]
+  %27 = and i32 %6, -3
+  %narrow = icmp eq i32 %27, 86089
+  %28 = zext i1 %narrow to i32
+  %29 = getelementptr inbounds %struct.DSDContext, ptr %8, i64 %14
+  %30 = sext i32 %26 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %32 = load ptr, ptr %31, align 8, !tbaa !51
+  %33 = getelementptr inbounds i8, ptr %32, i64 %.pre-phi
+  tail call void @ff_dsd2pcm_translate(ptr noundef %29, i64 noundef %30, i32 noundef %28, ptr noundef %33, i64 noundef %.020, ptr noundef %16, i64 noundef 1) #5
   ret i32 0
 }
 

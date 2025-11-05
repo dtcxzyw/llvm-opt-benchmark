@@ -26347,38 +26347,38 @@ _ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i
 
 _ZNK3ue211hash_detail8ue2_hashINS_8flat_setIjSt4lessIjESaIjEEEvEclERKS6_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
   %124 = mul i64 %122, 814605021516865831
+  %125 = xor i64 %124, %.0.lcssa.i.i.i.i.i.i.i.i
   br label %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i
 
 _ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashINS_8flat_setIjSt4lessIjESaIjEEEvEclERKS6_.exit.loopexit.i.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i
-  %.0.lcssa.i.i.i.i.i.i.i.i.i = phi i64 [ 0, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i ], [ %124, %_ZNK3ue211hash_detail8ue2_hashINS_8flat_setIjSt4lessIjESaIjEEEvEclERKS6_.exit.loopexit.i.i.i.i.i.i.i.i ]
-  br i1 %.not.i.i11.i.i45.i, label %132, label %.lr.ph.i.i.i5.i.i.i.i.i.i
+  %.0.lcssa.i.i.i.i.i.i.i.i.i = phi i64 [ %.0.lcssa.i.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i ], [ %125, %_ZNK3ue211hash_detail8ue2_hashINS_8flat_setIjSt4lessIjESaIjEEEvEclERKS6_.exit.loopexit.i.i.i.i.i.i.i.i ]
+  %126 = add i64 %.0.lcssa.i.i.i.i.i.i.i.i.i, 3571081485394615273
+  br i1 %.not.i.i11.i.i45.i, label %135, label %.lr.ph.i.i.i5.i.i.i.i.i.i
 
 .lr.ph.i.i.i5.i.i.i.i.i.i:                        ; preds = %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i5.i.i.i.i.i.i
-  %.011.i.i.i6.i.i.i.i.i.i = phi i64 [ %129, %.lr.ph.i.i.i5.i.i.i.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i ]
-  %.sroa.05.010.i.i.i7.i.i.i.i.i.i = phi ptr [ %130, %.lr.ph.i.i.i5.i.i.i.i.i.i ], [ %.sroa.0.540.i, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i ]
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i7.i.i.i.i.i.i, i64 8
-  %126 = load i64, ptr %125, align 8
-  %127 = mul i64 %126, 814605021516865831
-  %128 = xor i64 %127, %.011.i.i.i6.i.i.i.i.i.i
-  %129 = add i64 %128, 3571081485394615273
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i7.i.i.i.i.i.i, i64 16
-  %.not.i.i.i8.i.i.i.i.i.i = icmp eq ptr %130, %.sroa.11.53543.i
+  %.011.i.i.i6.i.i.i.i.i.i = phi i64 [ %131, %.lr.ph.i.i.i5.i.i.i.i.i.i ], [ 0, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i ]
+  %.sroa.05.010.i.i.i7.i.i.i.i.i.i = phi ptr [ %132, %.lr.ph.i.i.i5.i.i.i.i.i.i ], [ %.sroa.0.540.i, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i ]
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i7.i.i.i.i.i.i, i64 8
+  %128 = load i64, ptr %127, align 8
+  %129 = mul i64 %128, 814605021516865831
+  %130 = xor i64 %129, %.011.i.i.i6.i.i.i.i.i.i
+  %131 = add i64 %130, 3571081485394615273
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.05.010.i.i.i7.i.i.i.i.i.i, i64 16
+  %.not.i.i.i8.i.i.i.i.i.i = icmp eq ptr %132, %.sroa.11.53543.i
   br i1 %.not.i.i.i8.i.i.i.i.i.i, label %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EEvEclERKSC_.exit.loopexit.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i5.i.i.i.i.i.i
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EEvEclERKSC_.exit.loopexit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i5.i.i.i.i.i.i
-  %131 = mul i64 %129, 814605021516865831
-  br label %132
+  %133 = mul i64 %131, 814605021516865831
+  %134 = xor i64 %133, %126
+  br label %135
 
-132:                                              ; preds = %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EEvEclERKSC_.exit.loopexit.i.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i
-  %.0.lcssa.i.i.i9.i.i.i.i.i.i = phi i64 [ 0, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i ], [ %131, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EEvEclERKSC_.exit.loopexit.i.i.i.i.i.i.i.i ]
-  %133 = xor i64 %.0.lcssa.i.i.i.i.i.i.i.i.i, %.0.lcssa.i.i.i.i.i.i.i.i
-  %134 = add i64 %133, 3571081485394615273
-  %135 = xor i64 %.0.lcssa.i.i.i9.i.i.i.i.i.i, %134
-  %136 = add i64 %135, 3571081485394615273
+135:                                              ; preds = %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EEvEclERKSC_.exit.loopexit.i.i.i.i.i.i.i.i, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i
+  %.0.lcssa.i.i.i9.i.i.i.i.i.i = phi i64 [ %126, %_ZN3ue211hash_detail10hash_buildINS_8flat_setIjSt4lessIjESaIjEEEEEvRmRKT_.exit.i.i.i.i.i.i ], [ %134, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEESaISA_EEvEclERKSC_.exit.loopexit.i.i.i.i.i.i.i.i ]
+  %136 = add i64 %.0.lcssa.i.i.i9.i.i.i.i.i.i, 3571081485394615273
   %137 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #31
           to label %.noexc45.i.i unwind label %260
 
-.noexc45.i.i:                                     ; preds = %132
+.noexc45.i.i:                                     ; preds = %135
   %138 = ptrtoint ptr %.sroa.11.2.i to i64
   %139 = ptrtoint ptr %.sroa.014.2.i to i64
   %140 = sub i64 %138, %139
@@ -26739,7 +26739,7 @@ _ZNSt6vectorIS_IN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseG
           cleanup
   br label %.body.i.i
 
-260:                                              ; preds = %132
+260:                                              ; preds = %135
   %261 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i

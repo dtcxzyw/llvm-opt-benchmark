@@ -2487,13 +2487,13 @@ define hidden void @_ZN7datalog10table_base12remove_factsEjPKm(ptr noundef nonnu
 8:                                                ; preds = %5
   %9 = getelementptr inbounds i8, ptr %6, i64 -4
   %10 = load i32, ptr %9, align 4, !tbaa !12
+  %11 = mul i32 %10, %.05
+  %12 = zext i32 %11 to i64
   br label %_ZNK6vectorImLb0EjE4sizeEv.exit
 
 _ZNK6vectorImLb0EjE4sizeEv.exit:                  ; preds = %5, %8
-  %.0.i = phi i32 [ %10, %8 ], [ 0, %5 ]
-  %11 = mul i32 %.0.i, %.05
-  %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %12
+  %.0.i = phi i64 [ %12, %8 ], [ 0, %5 ]
+  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %.0.i
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 168
   %16 = load ptr, ptr %15, align 8

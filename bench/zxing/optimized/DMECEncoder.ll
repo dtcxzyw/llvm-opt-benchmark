@@ -463,13 +463,13 @@ _ZN5ZXing10DataMatrixL4multEhh.exit:              ; preds = %._crit_edge.thread,
   %115 = zext nneg i16 %114 to i64
   %116 = getelementptr inbounds nuw i8, ptr @_ZN5ZXing10DataMatrixL4ALOGE, i64 %115
   %117 = load i8, ptr %116, align 1, !tbaa !16
+  %118 = xor i8 %117, %102
   br label %_ZN5ZXing10DataMatrixL4multEhh.exit41
 
 _ZN5ZXing10DataMatrixL4multEhh.exit41:            ; preds = %.lr.ph.split, %107
-  %.0.i40 = phi i8 [ %117, %107 ], [ 0, %.lr.ph.split ]
-  %118 = xor i8 %.0.i40, %102
+  %.0.i40 = phi i8 [ %118, %107 ], [ %102, %.lr.ph.split ]
   %119 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 %.02754
-  store i8 %118, ptr %119, align 1, !tbaa !16
+  store i8 %.0.i40, ptr %119, align 1, !tbaa !16
   %.027 = add i64 %.02754, -1
   %.not = icmp eq i64 %.027, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !27

@@ -13173,14 +13173,14 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112check_signalEPN5Yo
   %28 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %29 = load i32, ptr %1, align 8, !tbaa !104
   %.not = icmp eq i32 %29, 1
-  %.sink833.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.sink833.sroa.gep914 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %.sink833.sroa.gep915 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %.sink833.sroa.gep916 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %.sink833.sroa.gep917 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.sink833.sroa.gep918 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  %.sink833.sroa.gep919 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %.sink833.sroa.gep920 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %.sink830.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.sink830.sroa.gep911 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %.sink830.sroa.gep912 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %.sink830.sroa.gep913 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %.sink830.sroa.gep914 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %.sink830.sroa.gep915 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %.sink830.sroa.gep916 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %.sink830.sroa.gep917 = getelementptr inbounds nuw i8, ptr %27, i64 24
   br i1 %.not, label %30, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387
 
 30:                                               ; preds = %4
@@ -15517,34 +15517,32 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit143:              ; preds = %941, %_ZN5Yosys5RTL
   br i1 %1040, label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split, label %.lr.ph
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.sink.split: ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141
-  %.sink833.sroa.phi = phi ptr [ %.sink833.sroa.gep, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %.sink833.sroa.gep914, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %.sink833.sroa.gep915, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %.sink833.sroa.gep916, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %.sink833.sroa.gep917, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %.sink833.sroa.gep918, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %.sink833.sroa.gep919, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %.sink833.sroa.gep920, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ]
-  %.sink830 = phi ptr [ %148, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %267, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %388, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %509, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %677, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %752, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %931, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %1006, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ]
-  %.2.ph = phi i1 [ %97, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %216, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %337, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %458, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %626, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %701, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %880, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %955, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ]
-  %1041 = load ptr, ptr %.sink833.sroa.phi, align 8, !tbaa !151
+  %.sink830.sroa.phi = phi ptr [ %.sink830.sroa.gep, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %.sink830.sroa.gep911, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %.sink830.sroa.gep912, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %.sink830.sroa.gep913, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %.sink830.sroa.gep914, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %.sink830.sroa.gep915, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %.sink830.sroa.gep916, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %.sink830.sroa.gep917, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ]
+  %.sink827 = phi ptr [ %148, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %267, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %388, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %509, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %677, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %752, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %931, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %1006, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ]
+  %.not415455.ph = phi i1 [ %97, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %216, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %337, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %458, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %626, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %701, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %880, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %955, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ]
+  %1041 = load ptr, ptr %.sink830.sroa.phi, align 8, !tbaa !151
   %1042 = ptrtoint ptr %1041 to i64
-  %1043 = ptrtoint ptr %.sink830 to i64
+  %1043 = ptrtoint ptr %.sink827 to i64
   %1044 = sub i64 %1042, %1043
-  call void @_ZdlPvm(ptr noundef nonnull %.sink830, i64 noundef %1044) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.sink827, i64 noundef %1044) #24
   br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split
-
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit143, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.sink.split
-  %.2787.ph = phi i1 [ %97, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %216, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %337, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %458, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %626, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %701, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %880, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %955, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ], [ %.2.ph, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.sink.split ], [ undef, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit143 ]
-  %.not415455786.ph = phi i1 [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ true, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ], [ true, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.sink.split ], [ false, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit143 ]
-  %1045 = load i32, ptr %38, align 4, !tbaa !38
-  %1046 = add nsw i32 %1045, -1
-  store i32 %1046, ptr %38, align 4, !tbaa !38
-  %1047 = and i1 %.not415455786.ph, %.2787.ph
-  br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387
 
 _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit389: ; preds = %1011, %936, %757, %682, %516, %.body216, %395, %.body182, %274, %.body148, %155, %.body, %548, %.body254, %802, %.body322, %.loopexit.split-lp, %.loopexit
   %.pn128.pn = phi { ptr, i32 } [ %.pn125, %155 ], [ %.pn123, %274 ], [ %.pn121, %395 ], [ %.pn119, %516 ], [ %.pn117, %682 ], [ %.pn115, %757 ], [ %.pn113, %936 ], [ %.pn111, %1011 ], [ %.pn103, %.body216 ], [ %.pn101, %.body182 ], [ %.pn99, %.body148 ], [ %.pn, %.body ], [ %.pn105, %.body254 ], [ %549, %548 ], [ %.pn108, %.body322 ], [ %803, %802 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %1048 = load i32, ptr %38, align 4, !tbaa !38
-  %1049 = add nsw i32 %1048, -1
-  store i32 %1049, ptr %38, align 4, !tbaa !38
+  %1045 = load i32, ptr %38, align 4, !tbaa !38
+  %1046 = add nsw i32 %1045, -1
+  store i32 %1046, ptr %38, align 4, !tbaa !38
   resume { ptr, i32 } %.pn128.pn
 
-_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387: ; preds = %32, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split, %30, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %30 ], [ false, %32 ], [ %1047, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split ]
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split: ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit143, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.sink.split
+  %.0.ph = phi i1 [ %97, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i141 ], [ %216, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i175 ], [ %337, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i209 ], [ %458, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i243 ], [ %626, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i283 ], [ %701, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i309 ], [ %880, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i352 ], [ %955, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i378 ], [ %.not415455.ph, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit.sink.split ], [ false, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit143 ]
+  %1047 = load i32, ptr %38, align 4, !tbaa !38
+  %1048 = add nsw i32 %1047, -1
+  store i32 %1048, ptr %38, align 4, !tbaa !38
+  br label %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387
+
+_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387: ; preds = %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split, %32, %30, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %30 ], [ false, %32 ], [ %.0.ph, %_ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit387.sink.split ]
   ret i1 %.0
 }
 

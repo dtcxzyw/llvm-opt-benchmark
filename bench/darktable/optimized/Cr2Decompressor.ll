@@ -561,12 +561,12 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit: ; preds = %50
   %53 = load i32, ptr %14, align 8
   %54 = icmp eq i32 %53, 2
   %55 = select i1 %52, i1 %54, i1 false
-  br i1 %55, label %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread, label %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58
+  br i1 %55, label %66, label %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58
 
 _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58: ; preds = %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit
   %56 = icmp eq i32 %53, 1
   %57 = select i1 %52, i1 %56, i1 false
-  br i1 %57, label %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread, label %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread183
+  br i1 %57, label %66, label %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread183
 
 _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59: ; preds = %50
   %.pre235 = load i32, ptr %14, align 8
@@ -590,17 +590,18 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread183: ; preds = 
 65:                                               ; preds = %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread183
   unreachable
 
-_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60
-  %.not.i = phi i1 [ true, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit ], [ true, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58 ], [ false, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ false, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
-  %.sroa.2.0.copyload = phi i32 [ 2, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit ], [ 2, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
-  %66 = phi i1 [ true, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit ], [ false, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58 ], [ false, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ false, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
-  %.sroa.0149.0.copyload = phi i32 [ 2, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
-  %narrow.i = or i1 %.not.i, %66
-  %67 = zext i1 %narrow.i to i8
-  %68 = mul nuw nsw i32 %.sroa.2.0.copyload, %51
-  %69 = mul nuw nsw i32 %.sroa.2.0.copyload, %.sroa.0149.0.copyload
-  %70 = add nuw nsw i32 %69, 2
-  %71 = select i1 %narrow.i, i32 %70, i32 %51
+66:                                               ; preds = %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58
+  %.sroa.0149.0.copyload.ph = phi i32 [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit58 ], [ 2, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit ]
+  %67 = shl nuw nsw i32 %.sroa.0149.0.copyload.ph, 1
+  %68 = add nuw nsw i32 %67, 2
+  br label %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread
+
+_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59, %66
+  %69 = phi i32 [ 6, %66 ], [ %51, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ %51, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
+  %70 = phi i8 [ 1, %66 ], [ 0, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ 0, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
+  %.sroa.0149.0.copyload258 = phi i32 [ %.sroa.0149.0.copyload.ph, %66 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
+  %.sroa.2.0.copyload256 = phi i32 [ 2, %66 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ 1, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
+  %71 = phi i32 [ %68, %66 ], [ %51, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit59 ], [ %51, %_ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60 ]
   %72 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %73 = load i64, ptr %72, align 8
   store i64 %73, ptr %22, align 4
@@ -634,22 +635,22 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   br i1 %91, label %92, label %.invoke
 
 92:                                               ; preds = %85
-  %93 = add nsw i32 %.sroa.2.0.copyload, -1
+  %93 = add nsw i32 %.sroa.2.0.copyload256, -1
   %94 = and i32 %86, %93
   %.not44 = icmp eq i32 %94, 0
   br i1 %.not44, label %95, label %.invoke
 
 95:                                               ; preds = %92
-  %96 = add nsw i32 %.sroa.0149.0.copyload, -1
+  %96 = add nsw i32 %.sroa.0149.0.copyload258, -1
   %97 = and i32 %89, %96
   %.not45 = icmp eq i32 %97, 0
   br i1 %.not45, label %98, label %.invoke
 
 98:                                               ; preds = %95
-  %99 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.2.0.copyload, i1 true)
+  %99 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.2.0.copyload256, i1 true)
   %100 = lshr i32 %86, %99
   store i32 %100, ptr %24, align 4, !tbaa !140
-  %101 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0149.0.copyload, i1 true)
+  %101 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %.sroa.0149.0.copyload258, i1 true)
   %102 = lshr i32 %89, %101
   store i32 %102, ptr %88, align 8, !tbaa !141
   %103 = load i32, ptr %72, align 8, !tbaa !142
@@ -657,8 +658,8 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 44
   %.pre241 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !143
   %105 = icmp sgt i32 %.pre241, 5920
-  %or.cond271 = select i1 %104, i1 true, i1 %105
-  br i1 %or.cond271, label %._crit_edge240, label %.preheader195
+  %or.cond278 = select i1 %104, i1 true, i1 %105
+  br i1 %or.cond278, label %._crit_edge240, label %.preheader195
 
 .preheader195:                                    ; preds = %98
   %106 = load i32, ptr %25, align 4, !tbaa !144
@@ -680,7 +681,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
 109:                                              ; preds = %108
   %110 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %111 = load i8, ptr %110, align 8, !tbaa !145, !range !146, !noundef !147
-  %112 = icmp eq i8 %111, %67
+  %112 = icmp eq i8 %111, %70
   br i1 %112, label %.invoke, label %121
 
 113:                                              ; preds = %108
@@ -775,13 +776,13 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %.036.ptr = getelementptr inbounds nuw i8, ptr %9, i64 %.036.idx210
   %159 = load ptr, ptr %.036.ptr, align 8, !tbaa !149
   %160 = load i32, ptr %159, align 4, !tbaa !13
-  %161 = srem i32 %160, %68
-  %162 = sdiv i32 %160, %68
+  %161 = srem i32 %160, %69
+  %162 = sdiv i32 %160, %69
   %.not53 = icmp eq i32 %161, 0
   br i1 %.not53, label %167, label %163
 
 163:                                              ; preds = %158
-  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE, i32 noundef %160, i32 noundef %68) #13
+  invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.11, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE, i32 noundef %160, i32 noundef %69) #13
           to label %164 unwind label %165
 
 164:                                              ; preds = %163
@@ -812,7 +813,7 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %171 = icmp sgt i32 %170, -1
   tail call void @llvm.assume(i1 %171)
   %172 = icmp eq i32 %170, 0
-  br i1 %172, label %.invoke274, label %.lr.ph219
+  br i1 %172, label %.invoke281, label %.lr.ph219
 
 .lr.ph219:                                        ; preds = %169, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit
   %.sroa.14.0217 = phi i1 [ true, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ], [ false, %169 ]
@@ -862,9 +863,9 @@ _ZSteqIJiiiEJiiiEEbRKSt5tupleIJDpT_EERKS0_IJDpT0_EE.exit60.thread: ; preds = %_Z
   %187 = add nsw i32 %.sroa.8.8.extract.trunc133, %.sroa.0126.0.extract.trunc
   %188 = icmp eq i32 %187, %.sroa.17106.sroa.0.0213
   %or.cond193 = select i1 %186, i1 %188, i1 false
-  br i1 %or.cond193, label %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread, label %.invoke272
+  br i1 %or.cond193, label %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread, label %.invoke279
 
-189:                                              ; preds = %.invoke272
+189:                                              ; preds = %.invoke279
   %190 = landingpad { ptr, i32 }
           cleanup
   br label %215
@@ -878,14 +879,14 @@ _ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exi
   %193 = icmp slt i32 %.sroa.17106.sroa.0.0213, %150
   %194 = icmp slt i32 %.sroa.17106.sroa.8.0214, %153
   %195 = and i1 %193, %194
-  br i1 %195, label %.invoke272, label %.loopexit
+  br i1 %195, label %.invoke279, label %.loopexit
 
-.invoke272:                                       ; preds = %.critedge.i, %192
+.invoke279:                                       ; preds = %.critedge.i, %192
   %196 = phi ptr [ @.str.14, %192 ], [ @.str.13, %.critedge.i ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %196, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #13
-          to label %.cont273 unwind label %189
+          to label %.cont280 unwind label %189
 
-.cont273:                                         ; preds = %.invoke272
+.cont280:                                         ; preds = %.invoke279
   unreachable
 
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOBAL__N_124evaluateConsecutiveTilesERKNS_12iRectangle2DES3_.exit.thread
@@ -910,34 +911,34 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:     ; preds = %_ZN8rawspeed12_GLOB
   br i1 %205, label %.loopexit.thread, label %.lr.ph219
 
 .loopexit:                                        ; preds = %192
-  br i1 %.sroa.14.0217, label %.loopexit.thread, label %.invoke274
+  br i1 %.sroa.14.0217, label %.loopexit.thread, label %.invoke281
 
-206:                                              ; preds = %.invoke274
+206:                                              ; preds = %.invoke281
   %207 = landingpad { ptr, i32 }
           cleanup
   br label %215
 
 .loopexit.thread:                                 ; preds = %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit, %.loopexit
-  %.sroa.8.0201257 = phi i64 [ %.sroa.8.0216, %.loopexit ], [ %.sroa.3.8.insert.insert.i, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
-  %.sroa.0126.0204256 = phi i64 [ %.sroa.0126.0215, %.loopexit ], [ %.sroa.073.sroa.0.0.insert.insert81, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
-  %208 = add i64 %.sroa.8.0201257, %.sroa.0126.0204256
-  %.sroa.0126.4.extract.shift130 = lshr i64 %.sroa.0126.0204256, 32
+  %.sroa.8.0201264 = phi i64 [ %.sroa.8.0216, %.loopexit ], [ %.sroa.3.8.insert.insert.i, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
+  %.sroa.0126.0204263 = phi i64 [ %.sroa.0126.0215, %.loopexit ], [ %.sroa.073.sroa.0.0.insert.insert81, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ]
+  %208 = add i64 %.sroa.8.0201264, %.sroa.0126.0204263
+  %.sroa.0126.4.extract.shift130 = lshr i64 %.sroa.0126.0204263, 32
   %.sroa.0126.4.extract.trunc131 = trunc nuw i64 %.sroa.0126.4.extract.shift130 to i32
-  %.sroa.8.12.extract.shift137 = lshr i64 %.sroa.8.0201257, 32
+  %.sroa.8.12.extract.shift137 = lshr i64 %.sroa.8.0201264, 32
   %.sroa.8.12.extract.trunc138 = trunc nuw i64 %.sroa.8.12.extract.shift137 to i32
   %209 = add nsw i32 %.sroa.8.12.extract.trunc138, %.sroa.0126.4.extract.trunc131
   %.sroa.0.0.extract.trunc = trunc i64 %208 to i32
   %210 = icmp eq i32 %150, %.sroa.0.0.extract.trunc
   %211 = icmp eq i32 %209, %153
   %212 = select i1 %210, i1 %211, i1 false
-  br i1 %212, label %214, label %.invoke274
+  br i1 %212, label %214, label %.invoke281
 
-.invoke274:                                       ; preds = %.loopexit, %169, %.loopexit.thread
+.invoke281:                                       ; preds = %.loopexit, %169, %.loopexit.thread
   %213 = phi ptr [ @.str.16, %.loopexit.thread ], [ @.str.15, %169 ], [ @.str.15, %.loopexit ]
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull %213, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2DecompressorINS_20PrefixCodeLUTDecoderINS_15BaselineCodeTagENS_23PrefixCodeLookupDecoderIS2_EEEEEC2ENS_8RawImageESt5tupleIJiiiEENS_8iPoint2DENS_14Cr2SliceWidthsESt6vectorINS6_18PerComponentRecipeESaISD_EENS_10Array1DRefIKhEE) #13
-          to label %.cont275 unwind label %206
+          to label %.cont282 unwind label %206
 
-.cont275:                                         ; preds = %.invoke274
+.cont282:                                         ; preds = %.invoke281
   unreachable
 
 214:                                              ; preds = %.loopexit.thread

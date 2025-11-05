@@ -7595,19 +7595,19 @@ _ZN6icu_779UVector324popiEv.exit.thread:          ; preds = %56, %_ZN6icu_779UVe
   %75 = getelementptr inbounds nuw i64, ptr %73, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !116
   %77 = trunc i64 %76 to i32
+  %78 = or i32 %69, %77
   br label %_ZNK6icu_779UVector6410elementAtiEi.exit
 
 _ZNK6icu_779UVector6410elementAtiEi.exit:         ; preds = %_ZN6icu_779UVector324popiEv.exit.thread, %71
-  %78 = phi i32 [ %77, %71 ], [ 0, %_ZN6icu_779UVector324popiEv.exit.thread ]
-  %79 = or i32 %78, %69
+  %79 = phi i32 [ %78, %71 ], [ %69, %_ZN6icu_779UVector324popiEv.exit.thread ]
   %80 = sext i32 %79 to i64
   tail call void @_ZN6icu_779UVector6412setElementAtEli(ptr noundef nonnull align 8 dereferenceable(32) %67, i64 noundef %80, i32 noundef %.0.i88)
   store i32 %.0.i88, ptr %55, align 8, !tbaa !52
   br label %56, !llvm.loop !147
 
 81:                                               ; preds = %_ZN6icu_779UVector324popiEv.exit
-  %.not113 = icmp eq i32 %57, 1
-  br i1 %.not113, label %_ZN6icu_779UVector324popiEv.exit43, label %82
+  %.not115 = icmp eq i32 %57, 1
+  br i1 %.not115, label %_ZN6icu_779UVector324popiEv.exit43, label %82
 
 82:                                               ; preds = %81
   %83 = add nsw i32 %57, -2

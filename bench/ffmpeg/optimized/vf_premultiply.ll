@@ -951,14 +951,14 @@ define internal void @unpremultiply16offset(ptr noundef readonly captures(none) 
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %.091.us = phi i32 [ %36, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.07090.us = phi ptr [ %33, %._crit_edge.us ], [ %2, %.preheader.us.preheader ]
-  %.07189.us = phi ptr [ %35, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
-  %.07288.us = phi ptr [ %34, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
+  %.091.us = phi i32 [ %37, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.07090.us = phi ptr [ %34, %._crit_edge.us ], [ %2, %.preheader.us.preheader ]
+  %.07189.us = phi ptr [ %36, %._crit_edge.us ], [ %1, %.preheader.us.preheader ]
+  %.07288.us = phi ptr [ %35, %._crit_edge.us ], [ %0, %.preheader.us.preheader ]
   br label %17
 
-17:                                               ; preds = %.preheader.us, %31
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %31 ]
+17:                                               ; preds = %.preheader.us, %32
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %32 ]
   %18 = getelementptr inbounds nuw i16, ptr %.07189.us, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2, !tbaa !85
   %.not.us = icmp ne i16 %19, 0
@@ -967,33 +967,34 @@ define internal void @unpremultiply16offset(ptr noundef readonly captures(none) 
   %or.cond.us = and i1 %.not.us, %21
   %22 = getelementptr inbounds nuw i16, ptr %.07288.us, i64 %indvars.iv
   %23 = load i16, ptr %22, align 2, !tbaa !85
-  br i1 %or.cond.us, label %.thread85.us, label %31
+  br i1 %or.cond.us, label %.thread85.us, label %32
 
 .thread85.us:                                     ; preds = %17
   %24 = zext i16 %23 to i32
   %25 = sub nsw i32 %24, %10
-  %spec.select.us = tail call i32 @llvm.smax.i32(i32 %25, i32 0)
-  %26 = mul i32 %spec.select.us, %9
-  %27 = udiv i32 %26, %20
-  %28 = add i32 %27, %10
-  %29 = tail call i32 @llvm.umin.i32(i32 %28, i32 %9)
-  %30 = trunc i32 %29 to i16
-  br label %31
+  %26 = icmp sgt i32 %25, 0
+  %27 = mul i32 %25, %9
+  %spec.select.us = select i1 %26, i32 %27, i32 0
+  %28 = udiv i32 %spec.select.us, %20
+  %29 = add i32 %28, %10
+  %30 = tail call i32 @llvm.umin.i32(i32 %29, i32 %9)
+  %31 = trunc i32 %30 to i16
+  br label %32
 
-31:                                               ; preds = %17, %.thread85.us
-  %.sink = phi i16 [ %30, %.thread85.us ], [ %23, %17 ]
-  %32 = getelementptr inbounds nuw i16, ptr %.07090.us, i64 %indvars.iv
-  store i16 %.sink, ptr %32, align 2, !tbaa !85
+32:                                               ; preds = %17, %.thread85.us
+  %.sink = phi i16 [ %31, %.thread85.us ], [ %23, %17 ]
+  %33 = getelementptr inbounds nuw i16, ptr %.07090.us, i64 %indvars.iv
+  store i16 %.sink, ptr %33, align 2, !tbaa !85
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %17, !llvm.loop !89
 
-._crit_edge.us:                                   ; preds = %31
-  %33 = getelementptr inbounds i16, ptr %.07090.us, i64 %14
-  %34 = getelementptr inbounds i16, ptr %.07288.us, i64 %15
-  %35 = getelementptr inbounds i16, ptr %.07189.us, i64 %16
-  %36 = add nuw nsw i32 %.091.us, 1
-  %exitcond95.not = icmp eq i32 %36, %7
+._crit_edge.us:                                   ; preds = %32
+  %34 = getelementptr inbounds i16, ptr %.07090.us, i64 %14
+  %35 = getelementptr inbounds i16, ptr %.07288.us, i64 %15
+  %36 = getelementptr inbounds i16, ptr %.07189.us, i64 %16
+  %37 = add nuw nsw i32 %.091.us, 1
+  %exitcond95.not = icmp eq i32 %37, %7
   br i1 %exitcond95.not, label %._crit_edge92, label %.preheader.us, !llvm.loop !90
 
 ._crit_edge92:                                    ; preds = %._crit_edge.us, %.preheader.lr.ph, %11

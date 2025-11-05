@@ -1457,13 +1457,12 @@ define dso_local i64 @_ZNK4llvm15FunctionSummary16specialRefCountsEv(ptr noundef
 .critedge2.loopexit:                              ; preds = %21, %.lr.ph26
   %.015.lcssa.ph = phi i32 [ %.01524, %.lr.ph26 ], [ %17, %21 ]
   %24 = zext i32 %.015.lcssa.ph to i64
+  %25 = or disjoint i64 %15, %24
   br label %.critedge2
 
 .critedge2:                                       ; preds = %1, %.critedge.thread38, %.critedge2.loopexit, %.critedge
-  %.014.lcssa37 = phi i64 [ %15, %.critedge ], [ %15, %.critedge2.loopexit ], [ %13, %.critedge.thread38 ], [ 0, %1 ]
-  %.015.lcssa = phi i64 [ 0, %.critedge ], [ %24, %.critedge2.loopexit ], [ 0, %.critedge.thread38 ], [ 0, %1 ]
-  %.sroa.013.0.insert.insert = or disjoint i64 %.014.lcssa37, %.015.lcssa
-  ret i64 %.sroa.013.0.insert.insert
+  %.014.lcssa37 = phi i64 [ %15, %.critedge ], [ %25, %.critedge2.loopexit ], [ %13, %.critedge.thread38 ], [ 0, %1 ]
+  ret i64 %.014.lcssa37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

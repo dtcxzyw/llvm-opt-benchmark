@@ -1472,14 +1472,14 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIhEEvR
   %25 = getelementptr inbounds i8, ptr %2, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !192
   %27 = icmp ult i16 %21, %26
-  br i1 %27, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %.critedge
+  br i1 %27, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %19
   %28 = zext i16 %21 to i64
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !192
   %.not.i = icmp eq i16 %30, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit
+  br i1 %.not.i, label %_ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit.thread, label %_ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit
 
 _ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %31 = zext i16 %30 to i64
@@ -1489,7 +1489,7 @@ _ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIhEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext %33, ptr noundef nonnull align 8 dereferenceable(26) %34, i32 noundef %4)
   br label %88
 
-.critedge:                                        ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %19
+_ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit.thread: ; preds = %19, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1498,11 +1498,11 @@ _ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   %40 = icmp eq i64 %39, 4611686018427387900
   br i1 %40, label %41, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
-41:                                               ; preds = %.critedge
+41:                                               ; preds = %_ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNK11flatbuffers5Table11GetOptionalIhhEESt8optionalIT0_Et.exit.thread
   %42 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.3, i64 noundef 4)
   br label %88
 
@@ -1634,14 +1634,14 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIaEEvR
   %23 = getelementptr inbounds i8, ptr %2, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !192
   %25 = icmp ult i16 %19, %24
-  br i1 %25, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %.critedge
+  br i1 %25, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %17
   %26 = zext i16 %19 to i64
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !192
   %.not.i = icmp eq i16 %28, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit
+  br i1 %.not.i, label %_ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit.thread, label %_ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit
 
 _ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %29 = zext i16 %28 to i64
@@ -1651,7 +1651,7 @@ _ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIaEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %31, ptr noundef nonnull align 8 dereferenceable(26) %32, i32 noundef %4)
   br label %60
 
-.critedge:                                        ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %17
+_ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit.thread: ; preds = %17, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -1660,11 +1660,11 @@ _ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   %38 = icmp eq i64 %37, 4611686018427387900
   br i1 %38, label %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
-39:                                               ; preds = %.critedge
+39:                                               ; preds = %_ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNK11flatbuffers5Table11GetOptionalIaaEESt8optionalIT0_Et.exit.thread
   %40 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.3, i64 noundef 4)
   br label %60
 
@@ -1732,14 +1732,14 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIsEEvR
   %23 = getelementptr inbounds i8, ptr %2, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !192
   %25 = icmp ult i16 %19, %24
-  br i1 %25, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %.critedge
+  br i1 %25, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %17
   %26 = zext i16 %19 to i64
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !192
   %.not.i = icmp eq i16 %28, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit
+  br i1 %.not.i, label %_ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit.thread, label %_ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit
 
 _ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %29 = zext i16 %28 to i64
@@ -1749,7 +1749,7 @@ _ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIsEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef signext %31, ptr noundef nonnull align 8 dereferenceable(26) %32, i32 noundef %4)
   br label %60
 
-.critedge:                                        ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %17
+_ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit.thread: ; preds = %17, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -1758,11 +1758,11 @@ _ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   %38 = icmp eq i64 %37, 4611686018427387900
   br i1 %38, label %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
-39:                                               ; preds = %.critedge
+39:                                               ; preds = %_ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNK11flatbuffers5Table11GetOptionalIssEESt8optionalIT0_Et.exit.thread
   %40 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.3, i64 noundef 4)
   br label %60
 
@@ -1832,14 +1832,14 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldItEEvR
   %25 = getelementptr inbounds i8, ptr %2, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !192
   %27 = icmp ult i16 %21, %26
-  br i1 %27, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %.critedge
+  br i1 %27, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %19
   %28 = zext i16 %21 to i64
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !192
   %.not.i = icmp eq i16 %30, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit
+  br i1 %.not.i, label %_ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit.thread, label %_ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit
 
 _ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %31 = zext i16 %30 to i64
@@ -1849,7 +1849,7 @@ _ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarItEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i16 noundef zeroext %33, ptr noundef nonnull align 8 dereferenceable(26) %34, i32 noundef %4)
   br label %88
 
-.critedge:                                        ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %19
+_ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit.thread: ; preds = %19, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -1858,11 +1858,11 @@ _ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   %40 = icmp eq i64 %39, 4611686018427387900
   br i1 %40, label %41, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
-41:                                               ; preds = %.critedge
+41:                                               ; preds = %_ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNK11flatbuffers5Table11GetOptionalIttEESt8optionalIT0_Et.exit.thread
   %42 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.3, i64 noundef 4)
   br label %88
 
@@ -1994,14 +1994,14 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIiEEvR
   %23 = getelementptr inbounds i8, ptr %2, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !192
   %25 = icmp ult i16 %19, %24
-  br i1 %25, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %.critedge
+  br i1 %25, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %17
   %26 = zext i16 %19 to i64
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !192
   %.not.i = icmp eq i16 %28, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit
+  br i1 %.not.i, label %_ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit.thread, label %_ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit
 
 _ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %29 = zext i16 %28 to i64
@@ -2011,7 +2011,7 @@ _ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIiEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %31, ptr noundef nonnull align 8 dereferenceable(26) %32, i32 noundef %4)
   br label %60
 
-.critedge:                                        ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %17
+_ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit.thread: ; preds = %17, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -2020,11 +2020,11 @@ _ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   %38 = icmp eq i64 %37, 4611686018427387900
   br i1 %38, label %39, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
-39:                                               ; preds = %.critedge
+39:                                               ; preds = %_ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNK11flatbuffers5Table11GetOptionalIiiEESt8optionalIT0_Et.exit.thread
   %40 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %34, ptr noundef nonnull @.str.3, i64 noundef 4)
   br label %60
 
@@ -2094,14 +2094,14 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIjEEvR
   %25 = getelementptr inbounds i8, ptr %2, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !192
   %27 = icmp ult i16 %21, %26
-  br i1 %27, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %.critedge
+  br i1 %27, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %19
   %28 = zext i16 %21 to i64
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !192
   %.not.i = icmp eq i16 %30, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit
+  br i1 %.not.i, label %_ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit.thread, label %_ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit
 
 _ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %31 = zext i16 %30 to i64
@@ -2111,7 +2111,7 @@ _ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIjEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %33, ptr noundef nonnull align 8 dereferenceable(26) %34, i32 noundef %4)
   br label %88
 
-.critedge:                                        ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %19
+_ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit.thread: ; preds = %19, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -2120,11 +2120,11 @@ _ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   %40 = icmp eq i64 %39, 4611686018427387900
   br i1 %40, label %41, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
-41:                                               ; preds = %.critedge
+41:                                               ; preds = %_ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNK11flatbuffers5Table11GetOptionalIjjEESt8optionalIT0_Et.exit.thread
   %42 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.3, i64 noundef 4)
   br label %88
 
@@ -2493,14 +2493,14 @@ define linkonce_odr dso_local void @_ZN11flatbuffers11JsonPrinter8GenFieldIfEEvR
   %24 = getelementptr inbounds i8, ptr %2, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !192
   %26 = icmp ult i16 %20, %25
-  br i1 %26, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %.critedge
+  br i1 %26, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, label %_ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit.thread
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i: ; preds = %18
   %27 = zext i16 %20 to i64
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !192
   %.not.i = icmp eq i16 %29, 0
-  br i1 %.not.i, label %.critedge, label %_ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit
+  br i1 %.not.i, label %_ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit.thread, label %_ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit
 
 _ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %30 = zext i16 %29 to i64
@@ -2510,7 +2510,7 @@ _ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   tail call void @_ZN11flatbuffers11JsonPrinter11PrintScalarIfEEvT_RKNS_4TypeEi(ptr noundef nonnull align 8 dereferenceable(16) %0, float noundef %32, ptr noundef nonnull align 8 dereferenceable(26) %33, i32 noundef %4)
   br label %69
 
-.critedge:                                        ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i, %18
+_ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit.thread: ; preds = %18, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -2519,11 +2519,11 @@ _ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit: ; preds = %_ZNK
   %39 = icmp eq i64 %38, 4611686018427387900
   br i1 %39, label %40, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
 
-40:                                               ; preds = %.critedge
+40:                                               ; preds = %_ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.2) #24
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %.critedge
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNK11flatbuffers5Table11GetOptionalIffEESt8optionalIT0_Et.exit.thread
   %41 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull @.str.3, i64 noundef 4)
   br label %69
 

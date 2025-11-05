@@ -3065,7 +3065,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit110: ; pr
   br label %345
 
 345:                                              ; preds = %.preheader.i, %.critedge.loopexit.i
-  %.sroa.0.0.insert.insert.i = phi i64 [ 0, %.preheader.i ], [ %344, %.critedge.loopexit.i ]
+  %.sroa.2.1.i = phi i64 [ 0, %.preheader.i ], [ %344, %.critedge.loopexit.i ]
   %346 = getelementptr inbounds nuw i8, ptr %265, i64 68
   %347 = load i32, ptr %346, align 4, !tbaa !139
   %348 = add i32 %347, -1
@@ -3120,7 +3120,7 @@ _ZNSt14_Optional_baseIN5clang4ento12CallEventRefINS1_9CallEventEEELb0ELb0EED2Ev.
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit117
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit117: ; preds = %_ZNSt14_Optional_baseIN5clang4ento12CallEventRefINS1_9CallEventEEELb0ELb0EED2Ev.exit, %375
-  %376 = and i64 %.sroa.0.0.insert.insert.i, 4294967296
+  %376 = and i64 %.sroa.2.1.i, 4294967296
   %.not = icmp eq i64 %376, 0
   %377 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %378 = load ptr, ptr %377, align 8, !tbaa !125
@@ -3696,7 +3696,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit166:              ; preds = %675, %677
   %682 = load ptr, ptr %681, align 8
   %683 = call { ptr, i64 } %682(ptr noundef nonnull align 8 dereferenceable(72) %265) #20
   %684 = extractvalue { ptr, i64 } %683, 0
-  %685 = and i64 %.sroa.0.0.insert.insert.i, 4294967295
+  %685 = and i64 %.sroa.2.1.i, 4294967295
   %686 = getelementptr inbounds nuw ptr, ptr %684, i64 %685
   %687 = load ptr, ptr %686, align 8, !tbaa !113
   %688 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %687) #22

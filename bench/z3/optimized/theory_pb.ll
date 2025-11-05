@@ -16047,7 +16047,7 @@ _ZNK3smt9theory_pb13get_abs_coeffEj.exit:         ; preds = %_ZNK6vectorIiLb0EjE
           cleanup
   br label %597
 
-115:                                              ; preds = %314, %152, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170, %339, %338, %288, %163
+115:                                              ; preds = %314, %152, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170, %340, %339, %288, %163
   %116 = landingpad { ptr, i32 }
           cleanup
   br label %597
@@ -16137,7 +16137,7 @@ _ZNK3smt9theory_pb13get_abs_coeffEj.exit:         ; preds = %_ZNK6vectorIiLb0EjE
   %160 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
   %161 = trunc i64 %160 to i32
   %162 = and i32 %161, 7
-  switch i32 %162, label %338 [
+  switch i32 %162, label %339 [
     i32 0, label %163
     i32 1, label %288
     i32 2, label %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170
@@ -16449,31 +16449,31 @@ _ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit166: ; preds = %285
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 16
   %332 = load ptr, ptr %331, align 8, !tbaa !813
   invoke void @_ZN3smt9theory_pb12process_cardERNS0_4cardEi(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull align 8 dereferenceable(29) %332, i32 noundef %spec.select.i)
-          to label %333 unwind label %336
+          to label %333 unwind label %337
 
 333:                                              ; preds = %330
   %334 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %335 = load i32, ptr %334, align 8, !tbaa !667
+  %336 = mul nsw i32 %335, %spec.select.i
   br label %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170
 
-336:                                              ; preds = %330
-  %337 = landingpad { ptr, i32 }
+337:                                              ; preds = %330
+  %338 = landingpad { ptr, i32 }
           cleanup
   br label %597
 
-338:                                              ; preds = %153
+339:                                              ; preds = %153
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 1945, ptr noundef nonnull @.str.23)
-          to label %339 unwind label %115
+          to label %340 unwind label %115
 
-339:                                              ; preds = %338
+340:                                              ; preds = %339
   invoke void @_Z18invoke_exit_actionj(i32 noundef 114)
           to label %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170 unwind label %115
 
-_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170: ; preds = %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit166, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit, %322, %314, %333, %327, %153, %_ZNK3smt9theory_pb22is_proof_justificationERKNS_13justificationE.exit, %339
-  %.0109 = phi i32 [ 1, %339 ], [ 1, %_ZNK3smt9theory_pb22is_proof_justificationERKNS_13justificationE.exit ], [ 0, %153 ], [ %335, %333 ], [ 0, %327 ], [ 1, %314 ], [ 0, %322 ], [ 1, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit ], [ 1, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit166 ]
-  %340 = mul nsw i32 %.0109, %spec.select.i
+_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170: ; preds = %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit166, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit, %322, %314, %333, %327, %153, %_ZNK3smt9theory_pb22is_proof_justificationERKNS_13justificationE.exit, %340
+  %.0109 = phi i32 [ %spec.select.i, %340 ], [ %spec.select.i, %_ZNK3smt9theory_pb22is_proof_justificationERKNS_13justificationE.exit ], [ 0, %153 ], [ %336, %333 ], [ 0, %327 ], [ %spec.select.i, %314 ], [ 0, %322 ], [ %spec.select.i, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit ], [ %spec.select.i, %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit166 ]
   %341 = load i32, ptr %69, align 8, !tbaa !797
-  %342 = add nsw i32 %341, %340
+  %342 = add nsw i32 %341, %.0109
   store i32 %342, ptr %69, align 8, !tbaa !797
   invoke void @_ZN3smt9theory_pb3cutEv(ptr noundef nonnull align 8 dereferenceable(968) %0)
           to label %_ZN3smt9theory_pb18process_antecedentEN3sat7literalEi.exit170._ZNK3smt9theory_pb13get_abs_coeffEj.exit.thread_crit_edge unwind label %115
@@ -17098,8 +17098,8 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %599
 
-597:                                              ; preds = %.body, %465, %115, %200, %286, %336, %325, %113
-  %.pn141.pn = phi { ptr, i32 } [ %114, %113 ], [ %116, %115 ], [ %201, %200 ], [ %287, %286 ], [ %337, %336 ], [ %326, %325 ], [ %.pn, %.body ], [ %466, %465 ]
+597:                                              ; preds = %.body, %465, %115, %200, %286, %337, %325, %113
+  %.pn141.pn = phi { ptr, i32 } [ %114, %113 ], [ %116, %115 ], [ %201, %200 ], [ %287, %286 ], [ %338, %337 ], [ %326, %325 ], [ %.pn, %.body ], [ %466, %465 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #31

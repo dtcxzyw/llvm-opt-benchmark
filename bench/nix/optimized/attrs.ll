@@ -3118,60 +3118,59 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN
   %31 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 96
   %32 = load i8, ptr %31, align 8
   %.not = icmp eq i8 %32, 2
-  br i1 %.not, label %33, label %38
+  br i1 %.not, label %33, label %39
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %35 = load i8, ptr %34, align 1
   %36 = and i8 %35, 1
   %37 = zext nneg i8 %36 to i16
+  %38 = or disjoint i16 %37, 256
   br label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.thread
 
-38:                                               ; preds = %30
-  %39 = tail call ptr @__cxa_allocate_exception(i64 376) #27
+39:                                               ; preds = %30
+  %40 = tail call ptr @__cxa_allocate_exception(i64 376) #27
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.7, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %40 unwind label %.thread
+          to label %41 unwind label %.thread
 
-40:                                               ; preds = %38
-  invoke void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %39, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
-          to label %41 unwind label %43
+41:                                               ; preds = %39
+  invoke void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %40, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
+          to label %42 unwind label %44
 
-41:                                               ; preds = %40
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %39, align 8
-  invoke void @__cxa_throw(ptr nonnull %39, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #29
-          to label %47 unwind label %43
+42:                                               ; preds = %41
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3nix5ErrorE, i64 16), ptr %40, align 8
+  invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #29
+          to label %48 unwind label %44
 
-.thread:                                          ; preds = %38
-  %42 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %39
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
-  br label %45
+  br label %46
 
-43:                                               ; preds = %41, %40
-  %.0 = phi i1 [ false, %41 ], [ true, %40 ]
-  %44 = landingpad { ptr, i32 }
+44:                                               ; preds = %42, %41
+  %.0 = phi i1 [ false, %42 ], [ true, %41 ]
+  %45 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #27
-  br i1 %.0, label %45, label %46
+  br i1 %.0, label %46, label %47
 
-45:                                               ; preds = %.thread, %43
-  %.pn20 = phi { ptr, i32 } [ %42, %.thread ], [ %44, %43 ]
-  call void @__cxa_free_exception(ptr %39) #27
-  br label %46
+46:                                               ; preds = %.thread, %44
+  %.pn20 = phi { ptr, i32 } [ %43, %.thread ], [ %45, %44 ]
+  call void @__cxa_free_exception(ptr %40) #27
+  br label %47
 
 _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit.thread: ; preds = %2, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJS5_mN3nix8ExplicitIbEEEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit, %33
-  %.sroa.015.0 = phi i16 [ %37, %33 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJS5_mN3nix8ExplicitIbEEEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ 0, %2 ]
-  %.sroa.2.0 = phi i16 [ 256, %33 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJS5_mN3nix8ExplicitIbEEEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ 0, %2 ]
-  %.sroa.015.0.insert.insert = or disjoint i16 %.sroa.2.0, %.sroa.015.0
-  ret i16 %.sroa.015.0.insert.insert
+  %.sroa.2.0 = phi i16 [ %38, %33 ], [ 0, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS5_mN3nix8ExplicitIbEEEESt4lessIS5_ESaISt4pairIKS5_SA_EEE4findERSE_.exit ], [ 0, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St7variantIJS5_mN3nix8ExplicitIbEEEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISD_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i ], [ 0, %2 ]
+  ret i16 %.sroa.2.0
 
-46:                                               ; preds = %43, %45
-  %.pn19 = phi { ptr, i32 } [ %44, %43 ], [ %.pn20, %45 ]
+47:                                               ; preds = %44, %46
+  %.pn19 = phi { ptr, i32 } [ %45, %44 ], [ %.pn20, %46 ]
   resume { ptr, i32 } %.pn19
 
-47:                                               ; preds = %41
+48:                                               ; preds = %42
   unreachable
 }
 

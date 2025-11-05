@@ -5592,7 +5592,7 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %266 = load volatile i64, ptr %265, align 8
   %267 = and i64 %266, 4
   %268 = icmp eq i64 %267, 0
-  br i1 %268, label %275, label %269
+  br i1 %268, label %276, label %269
 
 269:                                              ; preds = %263
   %270 = getelementptr inbounds nuw i8, ptr %265, i64 1936
@@ -5600,11 +5600,11 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %272 = trunc i64 %271 to i32
   %273 = lshr i32 %272, 8
   %274 = and i32 %273, 1
-  br label %275
+  %275 = or i32 %274, %170
+  br label %276
 
-275:                                              ; preds = %269, %263
-  %276 = phi i32 [ 0, %263 ], [ %274, %269 ]
-  %277 = or i32 %276, %170
+276:                                              ; preds = %269, %263
+  %277 = phi i32 [ %170, %263 ], [ %275, %269 ]
   %278 = icmp eq i32 %277, 0
   br i1 %278, label %321, label %326
 
@@ -5687,15 +5687,15 @@ define dso_local noalias ptr @__vmalloc_node_range(i64 noundef %0, i64 noundef %
   %320 = icmp eq ptr %319, null
   br i1 %320, label %.critedge17, label %328
 
-321:                                              ; preds = %316, %275
-  %322 = phi i32 [ %317, %316 ], [ %261, %275 ]
-  %323 = phi ptr [ @.str.35, %316 ], [ @.str.34, %275 ]
+321:                                              ; preds = %316, %276
+  %322 = phi i32 [ %317, %316 ], [ %261, %276 ]
+  %323 = phi ptr [ @.str.35, %316 ], [ @.str.34, %276 ]
   %324 = zext i32 %322 to i64
   %325 = shl nuw nsw i64 %324, 12
   call void (i32, ptr, ptr, ...) @warn_alloc(i32 noundef %49, ptr noundef null, ptr noundef nonnull %323, i64 noundef %325) #20
   br label %326
 
-326:                                              ; preds = %321, %275
+326:                                              ; preds = %321, %276
   %327 = load ptr, ptr %125, align 8
   call void @vfree(ptr noundef %327)
   br label %.critedge17

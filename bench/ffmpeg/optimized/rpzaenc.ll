@@ -413,9 +413,9 @@ put_bits.exit.i:                                  ; preds = %188, %180, %170
   br label %put_bits.exit210.i
 
 put_bits.exit210.i:                               ; preds = %214, %206, %196
-  %.sink401.i = phi i32 [ -8, %196 ], [ 24, %214 ], [ 24, %206 ]
+  %.sink400.i = phi i32 [ -8, %196 ], [ 24, %214 ], [ 24, %206 ]
   %.026.i.i208.i = phi i32 [ %198, %196 ], [ %192, %214 ], [ %192, %206 ]
-  %215 = add nsw i32 %.sink401.i, %194
+  %215 = add nsw i32 %.sink400.i, %194
   store i32 %.026.i.i208.i, ptr %25, align 8, !tbaa !42
   store i32 %215, ptr %36, align 4, !tbaa !41
   %216 = add nsw i32 %.015995.i, %.0158222.i
@@ -915,9 +915,9 @@ update_block_in_prev_frame.exit259.i..critedge2.i_crit_edge: ; preds = %update_b
   br label %put_bits.exit263.i
 
 put_bits.exit263.i:                               ; preds = %446, %438, %428
-  %.sink402.i = phi i32 [ -8, %428 ], [ 24, %446 ], [ 24, %438 ]
+  %.sink401.i = phi i32 [ -8, %428 ], [ 24, %446 ], [ 24, %438 ]
   %.026.i.i261.i = phi i32 [ %430, %428 ], [ %424, %446 ], [ %424, %438 ]
-  %447 = add nsw i32 %.sink402.i, %426
+  %447 = add nsw i32 %.sink401.i, %426
   store i32 %.026.i.i261.i, ptr %25, align 8, !tbaa !42
   store i32 %447, ptr %36, align 4, !tbaa !41
   %448 = zext i8 %420 to i32
@@ -962,9 +962,9 @@ put_bits.exit263.i:                               ; preds = %446, %438, %428
   br label %put_bits.exit267.i
 
 put_bits.exit267.i:                               ; preds = %473, %465, %455
-  %.sink403.i = phi i32 [ -16, %455 ], [ 16, %473 ], [ 16, %465 ]
+  %.sink402.i = phi i32 [ -16, %455 ], [ 16, %473 ], [ 16, %465 ]
   %.026.i.i265.i = phi i32 [ %457, %455 ], [ %453, %473 ], [ %453, %465 ]
-  %474 = add nsw i32 %.sink403.i, %447
+  %474 = add nsw i32 %.sink402.i, %447
   store i32 %.026.i.i265.i, ptr %25, align 8, !tbaa !42
   store i32 %474, ptr %36, align 4, !tbaa !41
   br label %update_block_in_prev_frame.exit355.i
@@ -1138,20 +1138,23 @@ get_max_component_diff.exit.i:                    ; preds = %505, %._crit_edge12
   %537 = getelementptr inbounds i16, ptr %.06092.us.i.i, i64 %84
   %538 = add nuw nsw i32 %.06390.us.i.i, 1
   %exitcond109.not.i.i = icmp eq i32 %538, %.sink29.i26.i
-  br i1 %exitcond109.not.i.i, label %._crit_edge93.i.i, label %.preheader.us.i283.i, !llvm.loop !69
+  br i1 %exitcond109.not.i.i, label %._crit_edge93.loopexit.i.i, label %.preheader.us.i283.i, !llvm.loop !69
 
-._crit_edge93.i.i:                                ; preds = %._crit_edge.us.i287.i, %.preheader.lr.ph.i280.i, %.preheader75.i.i
-  %.068.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ 0, %.preheader.lr.ph.i280.i ], [ %536, %._crit_edge.us.i287.i ]
-  %.066.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ 0, %.preheader.lr.ph.i280.i ], [ %534, %._crit_edge.us.i287.i ]
-  %.064.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ 0, %.preheader.lr.ph.i280.i ], [ %532, %._crit_edge.us.i287.i ]
-  %.061.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ 0, %.preheader.lr.ph.i280.i ], [ %531, %._crit_edge.us.i287.i ]
-  %539 = mul nsw i32 %.061.lcssa.i.i, %.061.lcssa.i.i
-  %540 = mul nsw i32 %.066.lcssa.i.i, %507
-  %541 = icmp eq i32 %540, %539
+._crit_edge93.loopexit.i.i:                       ; preds = %._crit_edge.us.i287.i
+  %539 = mul nsw i32 %534, %507
+  br label %._crit_edge93.i.i
+
+._crit_edge93.i.i:                                ; preds = %._crit_edge93.loopexit.i.i, %.preheader.lr.ph.i280.i, %.preheader75.i.i
+  %.068.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ %536, %._crit_edge93.loopexit.i.i ], [ 0, %.preheader.lr.ph.i280.i ]
+  %.066.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ %539, %._crit_edge93.loopexit.i.i ], [ 0, %.preheader.lr.ph.i280.i ]
+  %.064.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ %532, %._crit_edge93.loopexit.i.i ], [ 0, %.preheader.lr.ph.i280.i ]
+  %.061.lcssa.i.i = phi i32 [ 0, %.preheader75.i.i ], [ %531, %._crit_edge93.loopexit.i.i ], [ 0, %.preheader.lr.ph.i280.i ]
+  %540 = mul nsw i32 %.061.lcssa.i.i, %.061.lcssa.i.i
+  %541 = icmp eq i32 %.066.lcssa.i.i, %540
   br i1 %541, label %leastsquares.exit.i, label %542
 
 542:                                              ; preds = %._crit_edge93.i.i
-  %543 = sub nsw i32 %540, %539
+  %543 = sub nsw i32 %.066.lcssa.i.i, %540
   %544 = mul nsw i32 %.061.lcssa.i.i, %.064.lcssa.i.i
   %545 = sub nsw i32 %544, %.068.lcssa.i.i
   %546 = sdiv i32 %545, %543
@@ -1387,7 +1390,7 @@ get_block_info.exit320.i..preheader.preheader.i_crit_edge: ; preds = %get_block_
 
 .lr.ph213.i.preheader:                            ; preds = %.preheader86.i, %.preheader87.i
   %.ph = phi i32 [ %.pre305.i.pre, %.preheader87.i ], [ %685, %.preheader86.i ]
-  %.ph632 = phi i32 [ %.pre304.i.pre, %.preheader87.i ], [ %.026.i.i330.i, %.preheader86.i ]
+  %.ph631 = phi i32 [ %.pre304.i.pre, %.preheader87.i ], [ %.026.i.i330.i, %.preheader86.i ]
   br label %.lr.ph213.i
 
 .preheader86.i:                                   ; preds = %put_bits.exit332.i
@@ -1435,9 +1438,9 @@ get_block_info.exit320.i..preheader.preheader.i_crit_edge: ; preds = %get_block_
   br label %put_bits.exit332.i
 
 put_bits.exit332.i:                               ; preds = %684, %676, %666
-  %.sink404.i = phi i32 [ -16, %666 ], [ 16, %684 ], [ 16, %676 ]
+  %.sink403.i = phi i32 [ -16, %666 ], [ 16, %684 ], [ 16, %676 ]
   %.026.i.i330.i = phi i32 [ %668, %666 ], [ %664, %684 ], [ %664, %676 ]
-  %685 = add nsw i32 %.sink404.i, %659
+  %685 = add nsw i32 %.sink403.i, %659
   store i32 %.026.i.i330.i, ptr %25, align 8, !tbaa !42
   store i32 %685, ptr %36, align 4, !tbaa !41
   %indvars.iv.next276.i = add nuw nsw i64 %indvars.iv275.i, 1
@@ -1454,7 +1457,7 @@ put_bits.exit332.i:                               ; preds = %684, %676, %666
 
 .lr.ph213.i:                                      ; preds = %.lr.ph213.i.preheader, %put_bits.exit336.i
   %688 = phi i32 [ %706, %put_bits.exit336.i ], [ %.ph, %.lr.ph213.i.preheader ]
-  %689 = phi i32 [ %.026.i.i334.i, %put_bits.exit336.i ], [ %.ph632, %.lr.ph213.i.preheader ]
+  %689 = phi i32 [ %.026.i.i334.i, %put_bits.exit336.i ], [ %.ph631, %.lr.ph213.i.preheader ]
   %.0155212.i = phi i32 [ %707, %put_bits.exit336.i ], [ %652, %.lr.ph213.i.preheader ]
   %690 = icmp sgt i32 %688, 16
   br i1 %690, label %691, label %693
@@ -1486,9 +1489,9 @@ put_bits.exit332.i:                               ; preds = %684, %676, %666
   br label %put_bits.exit336.i
 
 put_bits.exit336.i:                               ; preds = %705, %700, %691
-  %.sink405.i = phi i32 [ -16, %691 ], [ 16, %705 ], [ 16, %700 ]
+  %.sink404.i = phi i32 [ -16, %691 ], [ 16, %705 ], [ 16, %700 ]
   %.026.i.i334.i = phi i32 [ %692, %691 ], [ 0, %705 ], [ 0, %700 ]
-  %706 = add nsw i32 %.sink405.i, %688
+  %706 = add nsw i32 %.sink404.i, %688
   store i32 %.026.i.i334.i, ptr %25, align 8, !tbaa !42
   store i32 %706, ptr %36, align 4, !tbaa !41
   %707 = add i32 %.0155212.i, 1
@@ -1540,9 +1543,9 @@ put_bits.exit336.i:                               ; preds = %705, %700, %691
   br label %put_bits.exit340.i
 
 put_bits.exit340.i:                               ; preds = %728, %723, %714
-  %.sink406.i = phi i32 [ -16, %714 ], [ 16, %728 ], [ 16, %723 ]
+  %.sink405.i = phi i32 [ -16, %714 ], [ 16, %728 ], [ 16, %723 ]
   %.026.i.i338.i = phi i32 [ %715, %714 ], [ 0, %728 ], [ 0, %723 ]
-  %729 = add nsw i32 %.sink406.i, %711
+  %729 = add nsw i32 %.sink405.i, %711
   store i32 %.026.i.i338.i, ptr %25, align 8, !tbaa !42
   store i32 %729, ptr %36, align 4, !tbaa !41
   %730 = add nuw nsw i32 %.0216.i, 1
@@ -1941,13 +1944,13 @@ put_bits.exit60.us83.i.i:                         ; preds = %925, %924, %913
   br i1 %935, label %.preheader.i.i.preheader, label %encode_four_color_block.exit.i
 
 .preheader.i.i.preheader:                         ; preds = %.preheader70.i.i, %put_bits.exit51.i.i
-  %.ph633 = phi i32 [ %799, %put_bits.exit51.i.i ], [ %933, %.preheader70.i.i ]
-  %.ph634 = phi i32 [ %.026.i.i49.i.i, %put_bits.exit51.i.i ], [ %934, %.preheader70.i.i ]
+  %.ph632 = phi i32 [ %799, %put_bits.exit51.i.i ], [ %933, %.preheader70.i.i ]
+  %.ph633 = phi i32 [ %.026.i.i49.i.i, %put_bits.exit51.i.i ], [ %934, %.preheader70.i.i ]
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.preheader.i.i.preheader, %938
-  %936 = phi i32 [ %959, %938 ], [ %.ph633, %.preheader.i.i.preheader ]
-  %937 = phi i32 [ %.026.i.i62.i.i, %938 ], [ %.ph634, %.preheader.i.i.preheader ]
+  %936 = phi i32 [ %959, %938 ], [ %.ph632, %.preheader.i.i.preheader ]
+  %937 = phi i32 [ %.026.i.i62.i.i, %938 ], [ %.ph633, %.preheader.i.i.preheader ]
   %.03888.i.i = phi i32 [ %939, %938 ], [ %spec.select.i.i, %.preheader.i.i.preheader ]
   br label %940
 

@@ -380,13 +380,13 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
   %132 = sdiv exact i64 %44, 48
   br label %.lr.ph.i55
 
-._crit_edge.i58:                                  ; preds = %146
+._crit_edge.i58:                                  ; preds = %147
   %133 = fcmp ogt double %.sroa.speculated.i56, 0.000000e+00
   br i1 %133, label %_ZN3gmx12_GLOBAL__N_131getInitialHistogramSizeEstimateERKNS_13AwhBiasParamsENS_8ArrayRefIKNS_8GridAxisEEEdd.exit, label %.noexc18.i
 
-.lr.ph.i55:                                       ; preds = %146, %.lr.ph.preheader.i54
-  %.01635.i = phi i64 [ %152, %146 ], [ 0, %.lr.ph.preheader.i54 ]
-  %.034.i = phi double [ %.sroa.speculated.i56, %146 ], [ 0.000000e+00, %.lr.ph.preheader.i54 ]
+.lr.ph.i55:                                       ; preds = %147, %.lr.ph.preheader.i54
+  %.01635.i = phi i64 [ %152, %147 ], [ 0, %.lr.ph.preheader.i54 ]
+  %.034.i = phi double [ %.sroa.speculated.i56, %147 ], [ 0.000000e+00, %.lr.ph.preheader.i54 ]
   %134 = getelementptr inbounds %"class.gmx::AwhDimParams", ptr %131, i64 %.01635.i
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %136 = load double, ptr %135, align 8, !tbaa !75
@@ -402,16 +402,16 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 40
   %141 = load i8, ptr %140, align 8, !tbaa !78, !range !40, !noundef !41
   %142 = trunc nuw i8 %141 to i1
-  br i1 %142, label %146, label %143
+  br i1 %142, label %147, label %143
 
 143:                                              ; preds = %138
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %145 = load double, ptr %144, align 8, !tbaa !54
-  br label %146
+  %146 = fmul double %145, %145
+  br label %147
 
-146:                                              ; preds = %143, %138
-  %147 = phi double [ %145, %143 ], [ 1.000000e+00, %138 ]
-  %148 = fmul double %147, %147
+147:                                              ; preds = %143, %138
+  %148 = phi double [ %146, %143 ], [ 1.000000e+00, %138 ]
   %149 = fmul double %136, 2.000000e+00
   %150 = fdiv double %148, %149
   %151 = fcmp olt double %.034.i, %150

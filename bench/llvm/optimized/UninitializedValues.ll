@@ -9867,10 +9867,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i, %79
-  %.sroa.03.0.i.i = phi i32 [ %82, %79 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i32 [ %82, %79 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %83 = getelementptr inbounds nuw i8, ptr %48, i64 88
-  %84 = zext i32 %.sroa.03.0.i.i to i64
-  %85 = lshr i32 %.sroa.03.0.i.i, 6
+  %84 = zext i32 %.sroa.2.0.i.i to i64
+  %85 = lshr i32 %.sroa.2.0.i.i, 6
   %86 = zext nneg i32 %85 to i64
   %87 = load i64, ptr %83, align 8, !tbaa !13
   %88 = and i64 %87, 1
@@ -10006,7 +10006,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit.i
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit.i: ; preds = %169, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i.i
-  %.sroa.03.0.i.i.i = phi i64 [ %173, %169 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i.i ]
+  %.sroa.2.0.i.i.i = phi i64 [ %173, %169 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i.i ]
   %174 = getelementptr inbounds nuw i8, ptr %140, i64 88
   %175 = load i64, ptr %174, align 8, !tbaa !13
   %176 = and i64 %175, 1
@@ -10026,7 +10026,7 @@ _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit.i: ; preds = %169, %
 _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i:      ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i, %.split.us.i.i.i
   %indvars.iv15.i.i.i = phi i64 [ %indvars.iv.next16.i.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i ], [ 0, %.split.us.i.i.i ]
   %.078.us.i.i.i = phi i32 [ %193, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i ], [ 0, %.split.us.i.i.i ]
-  %183 = add nuw nsw i64 %indvars.iv15.i.i.i, %.sroa.03.0.i.i.i
+  %183 = add nuw nsw i64 %indvars.iv15.i.i.i, %.sroa.2.0.i.i.i
   %184 = lshr i64 %183, 6
   %185 = and i64 %184, 67108863
   %186 = getelementptr inbounds nuw i64, ptr %182, i64 %185
@@ -10044,7 +10044,7 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i:      ; preds = %_ZNK4llvm14SmallBit
 _ZNK4llvm14SmallBitVectorixEj.exit.i.i.i:         ; preds = %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit.i, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i ], [ 0, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit.i ]
   %.078.i.i.i = phi i32 [ %199, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i ], [ 0, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit.i ]
-  %194 = add nuw nsw i64 %indvars.iv.i.i.i, %.sroa.03.0.i.i.i
+  %194 = add nuw nsw i64 %indvars.iv.i.i.i, %.sroa.2.0.i.i.i
   %195 = lshr i64 %invariant.op.i.i.i, %194
   %196 = and i64 %195, 1
   %197 = shl nuw nsw i64 %196, %indvars.iv.i.i.i
@@ -10360,10 +10360,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i, %49
-  %.sroa.03.0.i.i = phi i32 [ %52, %49 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i32 [ %52, %49 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %53 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  %54 = zext i32 %.sroa.03.0.i.i to i64
-  %55 = lshr i32 %.sroa.03.0.i.i, 6
+  %54 = zext i32 %.sroa.2.0.i.i to i64
+  %55 = lshr i32 %.sroa.2.0.i.i, 6
   %56 = zext nneg i32 %55 to i64
   %57 = load i64, ptr %53, align 8, !tbaa !13
   %58 = and i64 %57, 1
@@ -10515,10 +10515,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i, %44
-  %.sroa.03.0.i.i = phi i32 [ %47, %44 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i32 [ %47, %44 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 88
-  %49 = zext i32 %.sroa.03.0.i.i to i64
-  %50 = lshr i32 %.sroa.03.0.i.i, 6
+  %49 = zext i32 %.sroa.2.0.i.i to i64
+  %50 = lshr i32 %.sroa.2.0.i.i, 6
   %51 = zext nneg i32 %50 to i64
   %52 = load i64, ptr %48, align 8, !tbaa !13
   %53 = and i64 %52, 1
@@ -10662,10 +10662,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i, %41
-  %.sroa.03.0.i.i = phi i32 [ %44, %41 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i32 [ %44, %41 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 88
-  %46 = zext i32 %.sroa.03.0.i.i to i64
-  %47 = lshr i32 %.sroa.03.0.i.i, 6
+  %46 = zext i32 %.sroa.2.0.i.i to i64
+  %47 = lshr i32 %.sroa.2.0.i.i, 6
   %48 = zext nneg i32 %47 to i64
   %49 = load i64, ptr %45, align 8, !tbaa !13
   %50 = and i64 %49, 1
@@ -10854,10 +10854,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i, %63
-  %.sroa.03.0.i.i = phi i32 [ %66, %63 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i32 [ %66, %63 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %67 = getelementptr inbounds nuw i8, ptr %34, i64 88
-  %68 = zext i32 %.sroa.03.0.i.i to i64
-  %69 = lshr i32 %.sroa.03.0.i.i, 6
+  %68 = zext i32 %.sroa.2.0.i.i to i64
+  %69 = lshr i32 %.sroa.2.0.i.i, 6
   %70 = zext nneg i32 %69 to i64
   br label %71
 
@@ -10994,10 +10994,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit41
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit41: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i35, %147
-  %.sroa.03.0.i.i37 = phi i32 [ %150, %147 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i35 ]
+  %.sroa.2.0.i.i37 = phi i32 [ %150, %147 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i35 ]
   %151 = getelementptr inbounds nuw i8, ptr %117, i64 88
-  %152 = zext i32 %.sroa.03.0.i.i37 to i64
-  %153 = lshr i32 %.sroa.03.0.i.i37, 6
+  %152 = zext i32 %.sroa.2.0.i.i37 to i64
+  %153 = lshr i32 %.sroa.2.0.i.i37, 6
   %154 = zext nneg i32 %153 to i64
   %155 = load i64, ptr %151, align 8, !tbaa !13
   %156 = and i64 %155, 1
@@ -11113,10 +11113,10 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit61
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit61: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i55, %223
-  %.sroa.03.0.i.i57 = phi i32 [ %226, %223 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i55 ]
+  %.sroa.2.0.i.i57 = phi i32 [ %226, %223 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i55 ]
   %227 = getelementptr inbounds nuw i8, ptr %117, i64 88
-  %228 = zext i32 %.sroa.03.0.i.i57 to i64
-  %229 = lshr i32 %.sroa.03.0.i.i57, 6
+  %228 = zext i32 %.sroa.2.0.i.i57 to i64
+  %229 = lshr i32 %.sroa.2.0.i.i57, 6
   %230 = zext nneg i32 %229 to i64
   br label %231
 
@@ -11357,7 +11357,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i, %77
-  %.sroa.03.0.i.i = phi i64 [ %81, %77 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i64 [ %81, %77 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %82 = getelementptr inbounds nuw i8, ptr %48, i64 88
   %83 = load i64, ptr %82, align 8, !tbaa !13
   %84 = and i64 %83, 1
@@ -11377,7 +11377,7 @@ _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llv
 _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i:        ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i, %.split.us.i.i
   %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i ], [ 0, %.split.us.i.i ]
   %.078.us.i.i = phi i32 [ %101, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i ], [ 0, %.split.us.i.i ]
-  %91 = add nuw nsw i64 %indvars.iv15.i.i, %.sroa.03.0.i.i
+  %91 = add nuw nsw i64 %indvars.iv15.i.i, %.sroa.2.0.i.i
   %92 = lshr i64 %91, 6
   %93 = and i64 %92, 67108863
   %94 = getelementptr inbounds nuw i64, ptr %90, i64 %93
@@ -11395,7 +11395,7 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i:        ; preds = %_ZNK4llvm14SmallBit
 _ZNK4llvm14SmallBitVectorixEj.exit.i.i:           ; preds = %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i ], [ 0, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit ]
   %.078.i.i = phi i32 [ %107, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i ], [ 0, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit ]
-  %102 = add nuw nsw i64 %indvars.iv.i.i, %.sroa.03.0.i.i
+  %102 = add nuw nsw i64 %indvars.iv.i.i, %.sroa.2.0.i.i
   %103 = lshr i64 %invariant.op.i.i, %102
   %104 = and i64 %103, 1
   %105 = shl nuw nsw i64 %104, %indvars.iv.i.i
@@ -11456,9 +11456,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit46
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit46: ; preds = %.lr.ph.i.i.i.i.i36, %108, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i40, %130
-  %.sroa.03.0.i.i42 = phi i32 [ %133, %130 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i40 ], [ 0, %108 ], [ 0, %.lr.ph.i.i.i.i.i36 ]
-  %134 = zext i32 %.sroa.03.0.i.i42 to i64
-  %135 = lshr i32 %.sroa.03.0.i.i42, 6
+  %.sroa.2.0.i.i42 = phi i32 [ %133, %130 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i40 ], [ 0, %108 ], [ 0, %.lr.ph.i.i.i.i.i36 ]
+  %134 = zext i32 %.sroa.2.0.i.i42 to i64
+  %135 = lshr i32 %.sroa.2.0.i.i42, 6
   %136 = zext nneg i32 %135 to i64
   br label %137
 
@@ -11688,7 +11688,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit
 
 _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i, %34
-  %.sroa.03.0.i.i = phi i64 [ %38, %34 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i64 [ %38, %34 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %39 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %40 = load i64, ptr %39, align 8, !tbaa !13
   %41 = and i64 %40, 1
@@ -11708,7 +11708,7 @@ _ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit: ; preds = %_ZNK4llv
 _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i:        ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i, %.split.us.i.i
   %indvars.iv15.i.i = phi i64 [ %indvars.iv.next16.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i ], [ 0, %.split.us.i.i ]
   %.078.us.i.i = phi i32 [ %58, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i ], [ 0, %.split.us.i.i ]
-  %48 = add nuw nsw i64 %indvars.iv15.i.i, %.sroa.03.0.i.i
+  %48 = add nuw nsw i64 %indvars.iv15.i.i, %.sroa.2.0.i.i
   %49 = lshr i64 %48, 6
   %50 = and i64 %49, 67108863
   %51 = getelementptr inbounds nuw i64, ptr %47, i64 %50
@@ -11726,7 +11726,7 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i:        ; preds = %_ZNK4llvm14SmallBit
 _ZNK4llvm14SmallBitVectorixEj.exit.i.i:           ; preds = %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i ], [ 0, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit ]
   %.078.i.i = phi i32 [ %64, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i ], [ 0, %_ZN12_GLOBAL__N_114CFGBlockValuesixEPKN5clang7VarDeclE.exit ]
-  %59 = add nuw nsw i64 %indvars.iv.i.i, %.sroa.03.0.i.i
+  %59 = add nuw nsw i64 %indvars.iv.i.i, %.sroa.2.0.i.i
   %60 = lshr i64 %invariant.op.i.i, %59
   %61 = and i64 %60, 1
   %62 = shl nuw nsw i64 %61, %indvars.iv.i.i
@@ -11988,7 +11988,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i
 
 _ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i: ; preds = %114, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i
-  %.sroa.03.0.i.i = phi i64 [ %118, %114 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
+  %.sroa.2.0.i.i = phi i64 [ %118, %114 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %.val.i = load ptr, ptr %119, align 8, !tbaa !8
   %120 = getelementptr i8, ptr %88, i64 48
@@ -12013,7 +12013,7 @@ _ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i: ; pred
 _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i:      ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i, %.split.us.i.i.i
   %indvars.iv15.i.i.i = phi i64 [ %indvars.iv.next16.i.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i ], [ 0, %.split.us.i.i.i ]
   %.078.us.i.i.i = phi i32 [ %141, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i ], [ 0, %.split.us.i.i.i ]
-  %131 = add nuw nsw i64 %indvars.iv15.i.i.i, %.sroa.03.0.i.i
+  %131 = add nuw nsw i64 %indvars.iv15.i.i.i, %.sroa.2.0.i.i
   %132 = lshr i64 %131, 6
   %133 = and i64 %132, 67108863
   %134 = getelementptr inbounds nuw i64, ptr %130, i64 %133
@@ -12031,7 +12031,7 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i:      ; preds = %_ZNK4llvm14SmallBit
 _ZNK4llvm14SmallBitVectorixEj.exit.i.i.i:         ; preds = %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i ], [ 0, %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i ]
   %.078.i.i.i = phi i32 [ %147, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i ], [ 0, %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i ]
-  %142 = add nuw nsw i64 %indvars.iv.i.i.i, %.sroa.03.0.i.i
+  %142 = add nuw nsw i64 %indvars.iv.i.i.i, %.sroa.2.0.i.i
   %143 = lshr i64 %invariant.op.i.i.i, %142
   %144 = and i64 %143, 1
   %145 = shl nuw nsw i64 %144, %indvars.iv.i.i.i
@@ -12090,7 +12090,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i93
 
 _ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i93: ; preds = %.lr.ph.i.i.i.i.i87, %148, %165, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i91
-  %.sroa.03.0.i.i94 = phi i64 [ %169, %165 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i91 ], [ 0, %148 ], [ 0, %.lr.ph.i.i.i.i.i87 ]
+  %.sroa.2.0.i.i94 = phi i64 [ %169, %165 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i91 ], [ 0, %148 ], [ 0, %.lr.ph.i.i.i.i.i87 ]
   %.val3.i96 = load i32, ptr %86, align 8, !tbaa !110
   %170 = zext i32 %.val3.i96 to i64
   %171 = getelementptr inbounds nuw %"class.llvm::PackedVector", ptr %.val.i, i64 %170
@@ -12112,7 +12112,7 @@ _ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i93: ; pr
 _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i106:   ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i106, %.split.us.i.i.i105
   %indvars.iv15.i.i.i107 = phi i64 [ %indvars.iv.next16.i.i.i109, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i106 ], [ 0, %.split.us.i.i.i105 ]
   %.078.us.i.i.i108 = phi i32 [ %190, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i106 ], [ 0, %.split.us.i.i.i105 ]
-  %180 = add nuw nsw i64 %indvars.iv15.i.i.i107, %.sroa.03.0.i.i94
+  %180 = add nuw nsw i64 %indvars.iv15.i.i.i107, %.sroa.2.0.i.i94
   %181 = lshr i64 %180, 6
   %182 = and i64 %181, 67108863
   %183 = getelementptr inbounds nuw i64, ptr %179, i64 %182
@@ -12130,7 +12130,7 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i106:   ; preds = %_ZNK4llvm14SmallBit
 _ZNK4llvm14SmallBitVectorixEj.exit.i.i.i99:       ; preds = %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i93, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i99
   %indvars.iv.i.i.i100 = phi i64 [ %indvars.iv.next.i.i.i102, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i99 ], [ 0, %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i93 ]
   %.078.i.i.i101 = phi i32 [ %196, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i99 ], [ 0, %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i93 ]
-  %191 = add nuw nsw i64 %indvars.iv.i.i.i100, %.sroa.03.0.i.i94
+  %191 = add nuw nsw i64 %indvars.iv.i.i.i100, %.sroa.2.0.i.i94
   %192 = lshr i64 %invariant.op.i.i.i98, %191
   %193 = and i64 %192, 1
   %194 = shl nuw nsw i64 %193, %indvars.iv.i.i.i100
@@ -12386,7 +12386,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEE
   br label %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i125
 
 _ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i125: ; preds = %321, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i123
-  %.sroa.03.0.i.i126 = phi i64 [ %325, %321 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i123 ]
+  %.sroa.2.0.i.i126 = phi i64 [ %325, %321 ], [ 0, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang7VarDeclEjNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_jEEEES5_jS7_SA_E4findES5_.exit.i.i123 ]
   %326 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %.val.i127 = load ptr, ptr %326, align 8, !tbaa !8
   %.val3.i128 = load i32, ptr %258, align 8, !tbaa !110
@@ -12410,7 +12410,7 @@ _ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i125: ; p
 _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i138:   ; preds = %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i138, %.split.us.i.i.i137
   %indvars.iv15.i.i.i139 = phi i64 [ %indvars.iv.next16.i.i.i141, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i138 ], [ 0, %.split.us.i.i.i137 ]
   %.078.us.i.i.i140 = phi i32 [ %347, %_ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i138 ], [ 0, %.split.us.i.i.i137 ]
-  %337 = add nuw nsw i64 %indvars.iv15.i.i.i139, %.sroa.03.0.i.i126
+  %337 = add nuw nsw i64 %indvars.iv15.i.i.i139, %.sroa.2.0.i.i126
   %338 = lshr i64 %337, 6
   %339 = and i64 %338, 67108863
   %340 = getelementptr inbounds nuw i64, ptr %336, i64 %339
@@ -12428,7 +12428,7 @@ _ZNK4llvm14SmallBitVectorixEj.exit.us.i.i.i138:   ; preds = %_ZNK4llvm14SmallBit
 _ZNK4llvm14SmallBitVectorixEj.exit.i.i.i131:      ; preds = %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i125, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i131
   %indvars.iv.i.i.i132 = phi i64 [ %indvars.iv.next.i.i.i134, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i131 ], [ 0, %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i125 ]
   %.078.i.i.i133 = phi i32 [ %353, %_ZNK4llvm14SmallBitVectorixEj.exit.i.i.i131 ], [ 0, %_ZNK12_GLOBAL__N_111DeclToIndex13getValueIndexEPKN5clang7VarDeclE.exit.i125 ]
-  %348 = add nuw nsw i64 %indvars.iv.i.i.i132, %.sroa.03.0.i.i126
+  %348 = add nuw nsw i64 %indvars.iv.i.i.i132, %.sroa.2.0.i.i126
   %349 = lshr i64 %invariant.op.i.i.i130, %348
   %350 = and i64 %349, 1
   %351 = shl nuw nsw i64 %350, %indvars.iv.i.i.i132

@@ -461,9 +461,9 @@ define i32 @ff_vvc_sao_band_position_decode(ptr noundef readonly captures(none) 
   br label %10
 
 10:                                               ; preds = %get_cabac_bypass.exit.i, %1
-  %11 = phi i32 [ %.promoted.i, %1 ], [ %35, %get_cabac_bypass.exit.i ]
+  %11 = phi i32 [ %.promoted.i, %1 ], [ %36, %get_cabac_bypass.exit.i ]
   %.07.i = phi i32 [ 0, %1 ], [ %37, %get_cabac_bypass.exit.i ]
-  %.056.i = phi i32 [ 0, %1 ], [ %36, %get_cabac_bypass.exit.i ]
+  %.056.i = phi i32 [ 0, %1 ], [ %.0.i.i, %get_cabac_bypass.exit.i ]
   %12 = shl i32 %.056.i, 1
   %13 = shl nsw i32 %11, 1
   store i32 %13, ptr %4, align 8, !tbaa !70
@@ -501,18 +501,18 @@ refill.exit.i.i:                                  ; preds = %29, %15, %10
 33:                                               ; preds = %refill.exit.i.i
   %34 = sub nsw i32 %31, %9
   store i32 %34, ptr %4, align 8, !tbaa !70
+  %35 = or disjoint i32 %12, 1
   br label %get_cabac_bypass.exit.i
 
 get_cabac_bypass.exit.i:                          ; preds = %33, %refill.exit.i.i
-  %35 = phi i32 [ %34, %33 ], [ %31, %refill.exit.i.i ]
-  %.0.i.i = phi i32 [ 1, %33 ], [ 0, %refill.exit.i.i ]
-  %36 = or disjoint i32 %.0.i.i, %12
+  %36 = phi i32 [ %34, %33 ], [ %31, %refill.exit.i.i ]
+  %.0.i.i = phi i32 [ %35, %33 ], [ %12, %refill.exit.i.i ]
   %37 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %37, 5
   br i1 %exitcond.not.i, label %fixed_length_decode.exit, label %10, !llvm.loop !101
 
 fixed_length_decode.exit:                         ; preds = %get_cabac_bypass.exit.i
-  ret i32 %36
+  ret i32 %.0.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -689,6 +689,7 @@ refill.exit.i:                                    ; preds = %24, %8, %1
   %30 = icmp slt i32 %26, %29
   %31 = select i1 %30, i32 0, i32 %29
   %spec.select = sub nsw i32 %26, %31
+  %spec.select11 = select i1 %30, i32 0, i32 2
   %32 = shl nsw i32 %spec.select, 1
   store i32 %32, ptr %4, align 8, !tbaa !70
   %33 = and i32 %26, 32767
@@ -727,13 +728,12 @@ refill.exit.i3:                                   ; preds = %50, %34, %refill.ex
 54:                                               ; preds = %refill.exit.i3
   %55 = sub nsw i32 %52, %29
   store i32 %55, ptr %4, align 8, !tbaa !70
+  %56 = or disjoint i32 %spec.select11, 1
   br label %get_cabac_bypass.exit5
 
 get_cabac_bypass.exit5:                           ; preds = %refill.exit.i3, %54
-  %.0.i4 = phi i32 [ 1, %54 ], [ 0, %refill.exit.i3 ]
-  %spec.select11 = select i1 %30, i32 0, i32 2
-  %56 = or disjoint i32 %.0.i4, %spec.select11
-  ret i32 %56
+  %.0.i4 = phi i32 [ %56, %54 ], [ %spec.select11, %refill.exit.i3 ]
+  ret i32 %.0.i4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
@@ -1045,16 +1045,16 @@ define internal fastcc i32 @truncated_binary_decode(ptr noundef readonly capture
   br label %22
 
 ._crit_edge:                                      ; preds = %get_cabac_bypass.exit, %2
-  %.015.lcssa = phi i32 [ 0, %2 ], [ %48, %get_cabac_bypass.exit ]
+  %.015.lcssa = phi i32 [ 0, %2 ], [ %.0.i, %get_cabac_bypass.exit ]
   %20 = shl nuw i32 2, %11
   %21 = sub nsw i32 %20, %3
   %.not = icmp slt i32 %.015.lcssa, %21
   br i1 %.not, label %85, label %50
 
 22:                                               ; preds = %.lr.ph, %get_cabac_bypass.exit
-  %23 = phi i32 [ %.promoted, %.lr.ph ], [ %47, %get_cabac_bypass.exit ]
+  %23 = phi i32 [ %.promoted, %.lr.ph ], [ %48, %get_cabac_bypass.exit ]
   %.023 = phi i32 [ 0, %.lr.ph ], [ %49, %get_cabac_bypass.exit ]
-  %.01522 = phi i32 [ 0, %.lr.ph ], [ %48, %get_cabac_bypass.exit ]
+  %.01522 = phi i32 [ 0, %.lr.ph ], [ %.0.i, %get_cabac_bypass.exit ]
   %24 = shl i32 %.01522, 1
   %25 = shl nsw i32 %23, 1
   store i32 %25, ptr %14, align 8, !tbaa !70
@@ -1092,12 +1092,12 @@ refill.exit.i:                                    ; preds = %41, %27, %22
 45:                                               ; preds = %refill.exit.i
   %46 = sub nsw i32 %43, %19
   store i32 %46, ptr %14, align 8, !tbaa !70
+  %47 = or disjoint i32 %24, 1
   br label %get_cabac_bypass.exit
 
 get_cabac_bypass.exit:                            ; preds = %refill.exit.i, %45
-  %47 = phi i32 [ %46, %45 ], [ %43, %refill.exit.i ]
-  %.0.i = phi i32 [ 1, %45 ], [ 0, %refill.exit.i ]
-  %48 = or disjoint i32 %.0.i, %24
+  %48 = phi i32 [ %46, %45 ], [ %43, %refill.exit.i ]
+  %.0.i = phi i32 [ %47, %45 ], [ %24, %refill.exit.i ]
   %49 = add nuw nsw i32 %.023, 1
   %exitcond.not = icmp eq i32 %49, %11
   br i1 %exitcond.not, label %._crit_edge, label %22, !llvm.loop !108
@@ -4800,7 +4800,7 @@ vvc_get_cabac.exit:                               ; preds = %1, %36, %61
   %84 = trunc i32 %83 to i16
   store i16 %84, ptr %9, align 2, !tbaa !58
   %.not = icmp eq i32 %64, %65
-  br i1 %.not, label %135, label %85
+  br i1 %.not, label %get_cabac_bypass.exit8, label %85
 
 85:                                               ; preds = %vvc_get_cabac.exit
   %86 = shl nsw i32 %63, 1
@@ -4877,15 +4877,11 @@ refill.exit.i6:                                   ; preds = %128, %112, %refill.
 132:                                              ; preds = %refill.exit.i6
   %133 = sub nsw i32 %130, %107
   store i32 %133, ptr %4, align 8, !tbaa !70
+  %134 = or disjoint i32 %spec.select17, 1
   br label %get_cabac_bypass.exit8
 
-get_cabac_bypass.exit8:                           ; preds = %refill.exit.i6, %132
-  %.0.i7 = phi i32 [ 1, %132 ], [ 0, %refill.exit.i6 ]
-  %134 = or disjoint i32 %.0.i7, %spec.select17
-  br label %135
-
-135:                                              ; preds = %vvc_get_cabac.exit, %get_cabac_bypass.exit8
-  %.0 = phi i32 [ %134, %get_cabac_bypass.exit8 ], [ 4, %vvc_get_cabac.exit ]
+get_cabac_bypass.exit8:                           ; preds = %132, %refill.exit.i6, %vvc_get_cabac.exit
+  %.0 = phi i32 [ 4, %vvc_get_cabac.exit ], [ %134, %132 ], [ %spec.select17, %refill.exit.i6 ]
   ret i32 %.0
 }
 
@@ -4958,13 +4954,13 @@ get_cabac_bypass.exit:                            ; preds = %refill.exit.i
   br i1 %.not18, label %63, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %get_cabac_bypass.exit22
-  %35 = add nsw i32 %61, %.01424
+  %35 = add nsw i32 %.0.i21, %.01424
   br label %63
 
 .lr.ph:                                           ; preds = %34, %get_cabac_bypass.exit22
-  %36 = phi i32 [ %60, %get_cabac_bypass.exit22 ], [ %28, %34 ]
+  %36 = phi i32 [ %61, %get_cabac_bypass.exit22 ], [ %28, %34 ]
   %.026 = phi i32 [ %62, %get_cabac_bypass.exit22 ], [ 0, %34 ]
-  %.01325 = phi i32 [ %61, %get_cabac_bypass.exit22 ], [ 0, %34 ]
+  %.01325 = phi i32 [ %.0.i21, %get_cabac_bypass.exit22 ], [ 0, %34 ]
   %37 = shl i32 %.01325, 1
   %38 = shl nsw i32 %36, 1
   store i32 %38, ptr %0, align 8, !tbaa !70
@@ -5002,12 +4998,12 @@ refill.exit.i20:                                  ; preds = %54, %40, %.lr.ph
 58:                                               ; preds = %refill.exit.i20
   %59 = sub nsw i32 %56, %5
   store i32 %59, ptr %0, align 8, !tbaa !70
+  %60 = or disjoint i32 %37, 1
   br label %get_cabac_bypass.exit22
 
 get_cabac_bypass.exit22:                          ; preds = %refill.exit.i20, %58
-  %60 = phi i32 [ %59, %58 ], [ %56, %refill.exit.i20 ]
-  %.0.i21 = phi i32 [ 1, %58 ], [ 0, %refill.exit.i20 ]
-  %61 = or disjoint i32 %.0.i21, %37
+  %61 = phi i32 [ %59, %58 ], [ %56, %refill.exit.i20 ]
+  %.0.i21 = phi i32 [ %60, %58 ], [ %37, %refill.exit.i20 ]
   %62 = add nuw nsw i32 %.026, 1
   %exitcond.not = icmp eq i32 %62, %.01623
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !136
@@ -5044,9 +5040,9 @@ define i32 @ff_vvc_new_palette_entries(ptr noundef readonly captures(none) %0, i
   br label %12
 
 12:                                               ; preds = %get_cabac_bypass.exit.i, %.lr.ph.i
-  %13 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %37, %get_cabac_bypass.exit.i ]
+  %13 = phi i32 [ %.promoted.i, %.lr.ph.i ], [ %38, %get_cabac_bypass.exit.i ]
   %.07.i = phi i32 [ 0, %.lr.ph.i ], [ %39, %get_cabac_bypass.exit.i ]
-  %.056.i = phi i32 [ 0, %.lr.ph.i ], [ %38, %get_cabac_bypass.exit.i ]
+  %.056.i = phi i32 [ 0, %.lr.ph.i ], [ %.0.i.i, %get_cabac_bypass.exit.i ]
   %14 = shl i32 %.056.i, 1
   %15 = shl nsw i32 %13, 1
   store i32 %15, ptr %5, align 8, !tbaa !70
@@ -5084,18 +5080,18 @@ refill.exit.i.i:                                  ; preds = %31, %17, %12
 35:                                               ; preds = %refill.exit.i.i
   %36 = sub nsw i32 %33, %11
   store i32 %36, ptr %5, align 8, !tbaa !70
+  %37 = or disjoint i32 %14, 1
   br label %get_cabac_bypass.exit.i
 
 get_cabac_bypass.exit.i:                          ; preds = %35, %refill.exit.i.i
-  %37 = phi i32 [ %36, %35 ], [ %33, %refill.exit.i.i ]
-  %.0.i.i = phi i32 [ 1, %35 ], [ 0, %refill.exit.i.i ]
-  %38 = or disjoint i32 %.0.i.i, %14
+  %38 = phi i32 [ %36, %35 ], [ %33, %refill.exit.i.i ]
+  %.0.i.i = phi i32 [ %37, %35 ], [ %14, %refill.exit.i.i ]
   %39 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %39, %1
   br i1 %exitcond.not.i, label %fixed_length_decode.exit, label %12, !llvm.loop !101
 
 fixed_length_decode.exit:                         ; preds = %get_cabac_bypass.exit.i, %2
-  %.05.lcssa.i = phi i32 [ 0, %2 ], [ %38, %get_cabac_bypass.exit.i ]
+  %.05.lcssa.i = phi i32 [ 0, %2 ], [ %.0.i.i, %get_cabac_bypass.exit.i ]
   ret i32 %.05.lcssa.i
 }
 
@@ -6463,6 +6459,7 @@ refill.exit.i.i11:                                ; preds = %132, %116, %mmvd_di
   %136 = icmp slt i32 %134, %135
   %137 = select i1 %136, i32 0, i32 %135
   %spec.select.i = sub nsw i32 %134, %137
+  %spec.select6.i = select i1 %136, i32 0, i32 2
   %138 = shl nsw i32 %spec.select.i, 1
   store i32 %138, ptr %5, align 8, !tbaa !70
   %139 = and i32 %134, 32767
@@ -6501,24 +6498,24 @@ refill.exit.i3.i:                                 ; preds = %156, %140, %refill.
 160:                                              ; preds = %refill.exit.i3.i
   %161 = sub nsw i32 %158, %135
   store i32 %161, ptr %5, align 8, !tbaa !70
+  %162 = or disjoint i32 %spec.select6.i, 1
   br label %mmvd_direction_idx_decode.exit
 
 mmvd_direction_idx_decode.exit:                   ; preds = %refill.exit.i3.i, %160
-  %.0.i4.i = phi i64 [ 1, %160 ], [ 0, %refill.exit.i3.i ]
+  %.0.i4.i = phi i32 [ %162, %160 ], [ %spec.select6.i, %refill.exit.i3.i ]
   %.not = icmp eq i32 %2, 0
-  %162 = select i1 %.not, i32 2, i32 4
-  %163 = add nuw nsw i32 %.06.i, %162
-  %spec.select6.i = select i1 %136, i64 0, i64 2
-  %164 = getelementptr inbounds nuw [2 x i32], ptr @__const.ff_vvc_mmvd_offset_coding.mmvd_signs, i64 %.0.i4.i
-  %165 = getelementptr inbounds nuw [2 x i32], ptr %164, i64 %spec.select6.i
-  %166 = load i32, ptr %165, align 8, !tbaa !123
-  %167 = shl i32 %166, %163
-  store i32 %167, ptr %1, align 4, !tbaa !141
-  %168 = getelementptr inbounds nuw i8, ptr %165, i64 4
-  %169 = load i32, ptr %168, align 4, !tbaa !123
-  %170 = shl i32 %169, %163
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %170, ptr %171, align 4, !tbaa !143
+  %163 = select i1 %.not, i32 2, i32 4
+  %164 = add nuw nsw i32 %.06.i, %163
+  %165 = zext nneg i32 %.0.i4.i to i64
+  %166 = getelementptr inbounds nuw [2 x i32], ptr @__const.ff_vvc_mmvd_offset_coding.mmvd_signs, i64 %165
+  %167 = load i32, ptr %166, align 8, !tbaa !123
+  %168 = shl i32 %167, %164
+  store i32 %168, ptr %1, align 4, !tbaa !141
+  %169 = getelementptr inbounds nuw i8, ptr %166, i64 4
+  %170 = load i32, ptr %169, align 4, !tbaa !123
+  %171 = shl i32 %170, %164
+  %172 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %171, ptr %172, align 4, !tbaa !143
   ret void
 }
 
@@ -6745,9 +6742,9 @@ define i32 @ff_vvc_merge_gpm_partition_idx(ptr noundef readonly captures(none) %
   br label %10
 
 10:                                               ; preds = %get_cabac_bypass.exit.i, %1
-  %11 = phi i32 [ %.promoted.i, %1 ], [ %35, %get_cabac_bypass.exit.i ]
+  %11 = phi i32 [ %.promoted.i, %1 ], [ %36, %get_cabac_bypass.exit.i ]
   %.07.i = phi i32 [ 0, %1 ], [ %37, %get_cabac_bypass.exit.i ]
-  %.056.i = phi i32 [ 0, %1 ], [ %36, %get_cabac_bypass.exit.i ]
+  %.056.i = phi i32 [ 0, %1 ], [ %.0.i.i, %get_cabac_bypass.exit.i ]
   %12 = shl i32 %.056.i, 1
   %13 = shl nsw i32 %11, 1
   store i32 %13, ptr %4, align 8, !tbaa !70
@@ -6785,18 +6782,18 @@ refill.exit.i.i:                                  ; preds = %29, %15, %10
 33:                                               ; preds = %refill.exit.i.i
   %34 = sub nsw i32 %31, %9
   store i32 %34, ptr %4, align 8, !tbaa !70
+  %35 = or disjoint i32 %12, 1
   br label %get_cabac_bypass.exit.i
 
 get_cabac_bypass.exit.i:                          ; preds = %33, %refill.exit.i.i
-  %35 = phi i32 [ %34, %33 ], [ %31, %refill.exit.i.i ]
-  %.0.i.i = phi i32 [ 1, %33 ], [ 0, %refill.exit.i.i ]
-  %36 = or disjoint i32 %.0.i.i, %12
+  %36 = phi i32 [ %34, %33 ], [ %31, %refill.exit.i.i ]
+  %.0.i.i = phi i32 [ %35, %33 ], [ %12, %refill.exit.i.i ]
   %37 = add nuw nsw i32 %.07.i, 1
   %exitcond.not.i = icmp eq i32 %37, 6
   br i1 %exitcond.not.i, label %fixed_length_decode.exit, label %10, !llvm.loop !101
 
 fixed_length_decode.exit:                         ; preds = %get_cabac_bypass.exit.i
-  ret i32 %36
+  ret i32 %.0.i.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -8228,8 +8225,8 @@ refill.exit.i:                                    ; preds = %29, %15, %11
   br label %44
 
 44:                                               ; preds = %.lr.ph27, %get_cabac_bypass.exit20
-  %45 = phi i32 [ %.promoted29, %.lr.ph27 ], [ %70, %get_cabac_bypass.exit20 ]
-  %.026 = phi i32 [ 0, %.lr.ph27 ], [ %71, %get_cabac_bypass.exit20 ]
+  %45 = phi i32 [ %.promoted29, %.lr.ph27 ], [ %71, %get_cabac_bypass.exit20 ]
+  %.026 = phi i32 [ 0, %.lr.ph27 ], [ %.0.i19, %get_cabac_bypass.exit20 ]
   %.125 = phi i32 [ %.015, %.lr.ph27 ], [ %46, %get_cabac_bypass.exit20 ]
   %46 = add nsw i32 %.125, -1
   %47 = shl i32 %.026, 1
@@ -8269,17 +8266,17 @@ refill.exit.i18:                                  ; preds = %64, %50, %44
 68:                                               ; preds = %refill.exit.i18
   %69 = sub nsw i32 %66, %43
   store i32 %69, ptr %0, align 8, !tbaa !70
+  %70 = or disjoint i32 %47, 1
   br label %get_cabac_bypass.exit20
 
 get_cabac_bypass.exit20:                          ; preds = %refill.exit.i18, %68
-  %70 = phi i32 [ %69, %68 ], [ %66, %refill.exit.i18 ]
-  %.0.i19 = phi i32 [ 1, %68 ], [ 0, %refill.exit.i18 ]
-  %71 = or disjoint i32 %.0.i19, %47
+  %71 = phi i32 [ %69, %68 ], [ %66, %refill.exit.i18 ]
+  %.0.i19 = phi i32 [ %70, %68 ], [ %47, %refill.exit.i18 ]
   %72 = icmp samesign ugt i32 %.125, 1
   br i1 %72, label %44, label %._crit_edge, !llvm.loop !152
 
 ._crit_edge:                                      ; preds = %get_cabac_bypass.exit20, %.critedge
-  %.0.lcssa = phi i32 [ 0, %.critedge ], [ %71, %get_cabac_bypass.exit20 ]
+  %.0.lcssa = phi i32 [ 0, %.critedge ], [ %.0.i19, %get_cabac_bypass.exit20 ]
   %notmask = shl nsw i32 -1, %.016.lcssa
   %73 = xor i32 %notmask, -1
   %74 = shl i32 %73, %1
@@ -9674,9 +9671,9 @@ refill.exit.i:                                    ; preds = %184, %170, %166
   br label %190
 
 190:                                              ; preds = %.lr.ph, %get_cabac_bypass.exit34
-  %191 = phi i32 [ %.promoted5069, %.lr.ph ], [ %216, %get_cabac_bypass.exit34 ]
+  %191 = phi i32 [ %.promoted5069, %.lr.ph ], [ %217, %get_cabac_bypass.exit34 ]
   %.149 = phi i32 [ %.0.lcssa70, %.lr.ph ], [ %192, %get_cabac_bypass.exit34 ]
-  %.12248 = phi i32 [ 0, %.lr.ph ], [ %217, %get_cabac_bypass.exit34 ]
+  %.12248 = phi i32 [ 0, %.lr.ph ], [ %.0.i33, %get_cabac_bypass.exit34 ]
   %192 = add nsw i32 %.149, -1
   %193 = shl i32 %.12248, 1
   %194 = shl nsw i32 %191, 1
@@ -9715,18 +9712,18 @@ refill.exit.i32:                                  ; preds = %210, %196, %190
 214:                                              ; preds = %refill.exit.i32
   %215 = sub nsw i32 %212, %90
   store i32 %215, ptr %4, align 8, !tbaa !70
+  %216 = or disjoint i32 %193, 1
   br label %get_cabac_bypass.exit34
 
 get_cabac_bypass.exit34:                          ; preds = %refill.exit.i32, %214
-  %216 = phi i32 [ %215, %214 ], [ %212, %refill.exit.i32 ]
-  %.0.i33 = phi i32 [ 1, %214 ], [ 0, %refill.exit.i32 ]
-  %217 = or disjoint i32 %.0.i33, %193
+  %217 = phi i32 [ %215, %214 ], [ %212, %refill.exit.i32 ]
+  %.0.i33 = phi i32 [ %216, %214 ], [ %193, %refill.exit.i32 ]
   %.not25 = icmp eq i32 %192, 0
   br i1 %.not25, label %._crit_edge, label %190, !llvm.loop !158
 
 ._crit_edge:                                      ; preds = %get_cabac_bypass.exit34, %.critedge2
   %.0.lcssa71 = phi i32 [ 0, %.critedge2 ], [ %.0.lcssa70, %get_cabac_bypass.exit34 ]
-  %.122.lcssa = phi i32 [ 0, %.critedge2 ], [ %217, %get_cabac_bypass.exit34 ]
+  %.122.lcssa = phi i32 [ 0, %.critedge2 ], [ %.0.i33, %get_cabac_bypass.exit34 ]
   %notmask.neg = shl nuw i32 1, %.0.lcssa71
   %218 = add nuw i32 %notmask.neg, 4
   %219 = add i32 %218, %.122.lcssa
@@ -10456,8 +10453,8 @@ define noundef i32 @ff_vvc_residual_coding(ptr noundef captures(none) %0, ptr no
   br i1 %142, label %.lr.ph.i, label %.lr.ph290.i.thread.i
 
 .lr.ph290.i.thread.i:                             ; preds = %.lr.ph.i.i
-  %.pre84.i = load ptr, ptr %83, align 8, !tbaa !182
-  %.pre5885.i = load ptr, ptr %86, align 8, !tbaa !183
+  %.pre83.i = load ptr, ptr %83, align 8, !tbaa !182
+  %.pre5784.i = load ptr, ptr %86, align 8, !tbaa !183
   br label %.critedge5.i.i
 
 143:                                              ; preds = %490
@@ -10959,7 +10956,7 @@ par_level_flag_ts_decode.exit.i.i:                ; preds = %466, %441, %412
   %wide.trip.count.i.i = zext nneg i32 %495 to i64
   %501 = icmp sgt i32 %.promoted294.i.pr.i, 3
   %.pre.i = load ptr, ptr %83, align 8, !tbaa !182
-  %.pre58.i = load ptr, ptr %86, align 8, !tbaa !183
+  %.pre57.i = load ptr, ptr %86, align 8, !tbaa !183
   br i1 %501, label %.lr.ph44.i, label %.critedge5.i.i
 
 .lr.ph44.i:                                       ; preds = %.lr.ph290.i.i
@@ -10981,7 +10978,7 @@ par_level_flag_ts_decode.exit.i.i:                ; preds = %466, %441, %412
   %512 = load i8, ptr %511, align 1, !tbaa !97
   %513 = zext i8 %512 to i32
   %514 = add nsw i32 %503, %513
-  %515 = getelementptr inbounds nuw i8, ptr %.pre58.i, i64 %indvars.iv301.i43.i
+  %515 = getelementptr inbounds nuw i8, ptr %.pre57.i, i64 %indvars.iv301.i43.i
   %516 = load i8, ptr %515, align 1, !tbaa !97
   %517 = zext i8 %516 to i32
   %518 = add nsw i32 %505, %517
@@ -11127,8 +11124,8 @@ abs_level_gtx_flag_ts_decode.exit.i.i:            ; preds = %591, %566, %532
   br label %.critedge5.i.i
 
 .critedge5.i.i:                                   ; preds = %.critedge5.i.loopexit.i, %.critedge7.i..critedge5.i_crit_edge.i, %.lr.ph290.i.i, %.lr.ph290.i.thread.i
-  %.pre5887.i = phi ptr [ %.pre58.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre58.i, %.lr.ph290.i.i ], [ %.pre58.i, %.critedge5.i.loopexit.i ], [ %.pre5885.i, %.lr.ph290.i.thread.i ]
-  %.pre86.i = phi ptr [ %.pre.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre.i, %.lr.ph290.i.i ], [ %.pre.i, %.critedge5.i.loopexit.i ], [ %.pre84.i, %.lr.ph290.i.thread.i ]
+  %.pre5786.i = phi ptr [ %.pre57.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre57.i, %.lr.ph290.i.i ], [ %.pre57.i, %.critedge5.i.loopexit.i ], [ %.pre5784.i, %.lr.ph290.i.thread.i ]
+  %.pre85.i = phi ptr [ %.pre.i, %.critedge7.i..critedge5.i_crit_edge.i ], [ %.pre.i, %.lr.ph290.i.i ], [ %.pre.i, %.critedge5.i.loopexit.i ], [ %.pre83.i, %.lr.ph290.i.thread.i ]
   %618 = phi i64 [ %498, %.critedge7.i..critedge5.i_crit_edge.i ], [ %498, %.lr.ph290.i.i ], [ %498, %.critedge5.i.loopexit.i ], [ -1, %.lr.ph290.i.thread.i ]
   %.0221.lcssa.ph.i.i = phi i32 [ %500, %.critedge7.i..critedge5.i_crit_edge.i ], [ -1, %.lr.ph290.i.i ], [ %617, %.critedge5.i.loopexit.i ], [ -1, %.lr.ph290.i.thread.i ]
   %619 = sext i32 %.0221.lcssa.ph.i.i to i64
@@ -11144,13 +11141,13 @@ abs_level_gtx_flag_ts_decode.exit.i.i:            ; preds = %591, %566, %532
   %indvars.iv305.i.i = phi i64 [ 0, %.critedge5.i.i ], [ %indvars.iv.next306.i.i, %817 ]
   %626 = load i32, ptr %41, align 8, !tbaa !170
   %627 = shl i32 %116, %626
-  %628 = getelementptr inbounds nuw i8, ptr %.pre86.i, i64 %indvars.iv305.i.i
+  %628 = getelementptr inbounds nuw i8, ptr %.pre85.i, i64 %indvars.iv305.i.i
   %629 = load i8, ptr %628, align 1, !tbaa !97
   %630 = zext i8 %629 to i32
   %631 = add nsw i32 %627, %630
   %632 = load i32, ptr %42, align 4, !tbaa !173
   %633 = shl i32 %120, %632
-  %634 = getelementptr inbounds nuw i8, ptr %.pre5887.i, i64 %indvars.iv305.i.i
+  %634 = getelementptr inbounds nuw i8, ptr %.pre5786.i, i64 %indvars.iv305.i.i
   %635 = load i8, ptr %634, align 1, !tbaa !97
   %636 = zext i8 %635 to i32
   %637 = add nsw i32 %633, %636
@@ -11254,9 +11251,9 @@ refill.exit.i.i.i:                                ; preds = %693, %679, %675
   br i1 %exitcond.not.i23.i, label %.critedge18.i.i, label %675, !llvm.loop !196
 
 .lr.ph.i25.i:                                     ; preds = %refill.exit.i.i.i, %get_cabac_bypass.exit22.i.i
-  %699 = phi i32 [ %723, %get_cabac_bypass.exit22.i.i ], [ %.lcssa.promoted.i.i, %refill.exit.i.i.i ]
+  %699 = phi i32 [ %724, %get_cabac_bypass.exit22.i.i ], [ %.lcssa.promoted.i.i, %refill.exit.i.i.i ]
   %.031.i.i = phi i32 [ %725, %get_cabac_bypass.exit22.i.i ], [ 0, %refill.exit.i.i.i ]
-  %.01630.i.i = phi i32 [ %724, %get_cabac_bypass.exit22.i.i ], [ 0, %refill.exit.i.i.i ]
+  %.01630.i.i = phi i32 [ %.0.i21.i.i, %get_cabac_bypass.exit22.i.i ], [ 0, %refill.exit.i.i.i ]
   %700 = shl i32 %.01630.i.i, 1
   %701 = shl nsw i32 %699, 1
   store i32 %701, ptr %669, align 8, !tbaa !70
@@ -11294,15 +11291,15 @@ refill.exit.i20.i.i:                              ; preds = %717, %703, %.lr.ph.
 721:                                              ; preds = %refill.exit.i20.i.i
   %722 = sub nsw i32 %719, %672
   store i32 %722, ptr %669, align 8, !tbaa !70
+  %723 = or disjoint i32 %700, 1
   br label %get_cabac_bypass.exit22.i.i
 
 get_cabac_bypass.exit22.i.i:                      ; preds = %721, %refill.exit.i20.i.i
-  %723 = phi i32 [ %722, %721 ], [ %719, %refill.exit.i20.i.i ]
-  %.0.i21.i.i = phi i32 [ 1, %721 ], [ 0, %refill.exit.i20.i.i ]
-  %724 = or disjoint i32 %.0.i21.i.i, %700
+  %724 = phi i32 [ %722, %721 ], [ %719, %refill.exit.i20.i.i ]
+  %.0.i21.i.i = phi i32 [ %723, %721 ], [ %700, %refill.exit.i20.i.i ]
   %725 = add nuw nsw i32 %.031.i.i, 1
-  %exitcond34.not.i.i = icmp eq i32 %.031.i.i, %663
-  br i1 %exitcond34.not.i.i, label %abs_decode.exit.i, label %.lr.ph.i25.i, !llvm.loop !197
+  %exitcond33.not.i.i = icmp eq i32 %.031.i.i, %663
+  br i1 %exitcond33.not.i.i, label %abs_decode.exit.i, label %.lr.ph.i25.i, !llvm.loop !197
 
 .critedge18.i.i:                                  ; preds = %696
   %726 = add nuw nsw i32 %663, 2
@@ -11315,7 +11312,7 @@ get_cabac_bypass.exit22.i.i:                      ; preds = %721, %refill.exit.i
 
 abs_decode.exit.i:                                ; preds = %get_cabac_bypass.exit22.i.i, %.critedge18.i.i
   %.01726.i.i = phi i32 [ 6, %.critedge18.i.i ], [ %.01729.i.i, %get_cabac_bypass.exit22.i.i ]
-  %.1.i24.i = phi i32 [ %731, %.critedge18.i.i ], [ %724, %get_cabac_bypass.exit22.i.i ]
+  %.1.i24.i = phi i32 [ %731, %.critedge18.i.i ], [ %.0.i21.i.i, %get_cabac_bypass.exit22.i.i ]
   %732 = shl i32 %.01726.i.i, %664
   %733 = add nsw i32 %.1.i24.i, %732
   br label %734
@@ -11954,8 +11951,8 @@ vvc_get_cabac.exit52.i.i:                         ; preds = %1102, %1079, %1045
 
 1126:                                             ; preds = %vvc_get_cabac.exit52.i.i
   %1127 = add nuw nsw i32 %.018.i73.i.i, 1
-  %exitcond90.not.i.i = icmp eq i32 %1127, %1023
-  br i1 %exitcond90.not.i.i, label %last_significant_coeff_xy_prefix.exit.i.i, label %1045, !llvm.loop !206
+  %exitcond89.not.i.i = icmp eq i32 %1127, %1023
+  br i1 %exitcond89.not.i.i, label %last_significant_coeff_xy_prefix.exit.i.i, label %1045, !llvm.loop !206
 
 last_significant_coeff_xy_prefix.exit.i.i:        ; preds = %1126, %vvc_get_cabac.exit52.i.i, %1036, %last_significant_coeff_xy_prefix.exit48.i.i
   %.017.i.i.i = phi i32 [ 0, %last_significant_coeff_xy_prefix.exit48.i.i ], [ 0, %1036 ], [ %.018.i73.i.i, %vvc_get_cabac.exit52.i.i ], [ %1023, %1126 ]
@@ -12024,9 +12021,9 @@ get_cabac_bypass.exit.i.i:                        ; preds = %1161, %refill.exit.
   br label %1166
 
 1166:                                             ; preds = %get_cabac_bypass.exit58.i.i, %.lr.ph81.i.i
-  %1167 = phi i32 [ %.promoted83.i.i, %.lr.ph81.i.i ], [ %1191, %get_cabac_bypass.exit58.i.i ]
+  %1167 = phi i32 [ %.promoted83.i.i, %.lr.ph81.i.i ], [ %1192, %get_cabac_bypass.exit58.i.i ]
   %.0.i80.i.i = phi i32 [ 1, %.lr.ph81.i.i ], [ %1193, %get_cabac_bypass.exit58.i.i ]
-  %.07.i79.i.i = phi i32 [ %.0.i54.i.i, %.lr.ph81.i.i ], [ %1192, %get_cabac_bypass.exit58.i.i ]
+  %.07.i79.i.i = phi i32 [ %.0.i54.i.i, %.lr.ph81.i.i ], [ %.0.i57.i.i, %get_cabac_bypass.exit58.i.i ]
   %1168 = shl i32 %.07.i79.i.i, 1
   %1169 = shl nsw i32 %1167, 1
   store i32 %1169, ptr %1134, align 8, !tbaa !70
@@ -12064,18 +12061,18 @@ refill.exit.i56.i.i:                              ; preds = %1185, %1171, %1166
 1189:                                             ; preds = %refill.exit.i56.i.i
   %1190 = sub nsw i32 %1187, %1159
   store i32 %1190, ptr %1134, align 8, !tbaa !70
+  %1191 = or disjoint i32 %1168, 1
   br label %get_cabac_bypass.exit58.i.i
 
 get_cabac_bypass.exit58.i.i:                      ; preds = %1189, %refill.exit.i56.i.i
-  %1191 = phi i32 [ %1190, %1189 ], [ %1187, %refill.exit.i56.i.i ]
-  %.0.i57.i.i = phi i32 [ 1, %1189 ], [ 0, %refill.exit.i56.i.i ]
-  %1192 = or disjoint i32 %.0.i57.i.i, %1168
+  %1192 = phi i32 [ %1190, %1189 ], [ %1187, %refill.exit.i56.i.i ]
+  %.0.i57.i.i = phi i32 [ %1191, %1189 ], [ %1168, %refill.exit.i56.i.i ]
   %1193 = add nuw nsw i32 %.0.i80.i.i, 1
-  %exitcond91.not.i.i = icmp eq i32 %1193, %1131
-  br i1 %exitcond91.not.i.i, label %last_sig_coeff_suffix_decode.exit.i.i, label %1166, !llvm.loop !207
+  %exitcond90.not.i.i = icmp eq i32 %1193, %1131
+  br i1 %exitcond90.not.i.i, label %last_sig_coeff_suffix_decode.exit.i.i, label %1166, !llvm.loop !207
 
 last_sig_coeff_suffix_decode.exit.i.i:            ; preds = %get_cabac_bypass.exit58.i.i, %get_cabac_bypass.exit.i.i
-  %.07.i.lcssa.i.i = phi i32 [ %.0.i54.i.i, %get_cabac_bypass.exit.i.i ], [ %1192, %get_cabac_bypass.exit58.i.i ]
+  %.07.i.lcssa.i.i = phi i32 [ %.0.i54.i.i, %get_cabac_bypass.exit.i.i ], [ %.0.i57.i.i, %get_cabac_bypass.exit58.i.i ]
   %1194 = and i32 %.017.i46.i.i, 1
   %1195 = or disjoint i32 %1194, 2
   %1196 = shl i32 %1195, %1131
@@ -12149,9 +12146,9 @@ get_cabac_bypass.exit62.i.i:                      ; preds = %1232, %refill.exit.
   br label %1237
 
 1237:                                             ; preds = %get_cabac_bypass.exit66.i.i, %.lr.ph86.i.i
-  %1238 = phi i32 [ %.promoted88.i.i, %.lr.ph86.i.i ], [ %1262, %get_cabac_bypass.exit66.i.i ]
+  %1238 = phi i32 [ %.promoted88.i.i, %.lr.ph86.i.i ], [ %1263, %get_cabac_bypass.exit66.i.i ]
   %.0.i3885.i.i = phi i32 [ 1, %.lr.ph86.i.i ], [ %1264, %get_cabac_bypass.exit66.i.i ]
-  %.07.i3784.i.i = phi i32 [ %.0.i61.i.i, %.lr.ph86.i.i ], [ %1263, %get_cabac_bypass.exit66.i.i ]
+  %.07.i3784.i.i = phi i32 [ %.0.i61.i.i, %.lr.ph86.i.i ], [ %.0.i65.i.i, %get_cabac_bypass.exit66.i.i ]
   %1239 = shl i32 %.07.i3784.i.i, 1
   %1240 = shl nsw i32 %1238, 1
   store i32 %1240, ptr %1205, align 8, !tbaa !70
@@ -12189,18 +12186,18 @@ refill.exit.i64.i.i:                              ; preds = %1256, %1242, %1237
 1260:                                             ; preds = %refill.exit.i64.i.i
   %1261 = sub nsw i32 %1258, %1230
   store i32 %1261, ptr %1205, align 8, !tbaa !70
+  %1262 = or disjoint i32 %1239, 1
   br label %get_cabac_bypass.exit66.i.i
 
 get_cabac_bypass.exit66.i.i:                      ; preds = %1260, %refill.exit.i64.i.i
-  %1262 = phi i32 [ %1261, %1260 ], [ %1258, %refill.exit.i64.i.i ]
-  %.0.i65.i.i = phi i32 [ 1, %1260 ], [ 0, %refill.exit.i64.i.i ]
-  %1263 = or disjoint i32 %.0.i65.i.i, %1239
+  %1263 = phi i32 [ %1261, %1260 ], [ %1258, %refill.exit.i64.i.i ]
+  %.0.i65.i.i = phi i32 [ %1262, %1260 ], [ %1239, %refill.exit.i64.i.i ]
   %1264 = add nuw nsw i32 %.0.i3885.i.i, 1
-  %exitcond92.not.i.i = icmp eq i32 %1264, %1202
-  br i1 %exitcond92.not.i.i, label %last_sig_coeff_suffix_decode.exit39.i.i, label %1237, !llvm.loop !207
+  %exitcond91.not.i.i = icmp eq i32 %1264, %1202
+  br i1 %exitcond91.not.i.i, label %last_sig_coeff_suffix_decode.exit39.i.i, label %1237, !llvm.loop !207
 
 last_sig_coeff_suffix_decode.exit39.i.i:          ; preds = %get_cabac_bypass.exit66.i.i, %get_cabac_bypass.exit62.i.i
-  %.07.i37.lcssa.i.i = phi i32 [ %.0.i61.i.i, %get_cabac_bypass.exit62.i.i ], [ %1263, %get_cabac_bypass.exit66.i.i ]
+  %.07.i37.lcssa.i.i = phi i32 [ %.0.i61.i.i, %get_cabac_bypass.exit62.i.i ], [ %.0.i65.i.i, %get_cabac_bypass.exit66.i.i ]
   %1265 = and i32 %.017.i.i.i, 1
   %1266 = or disjoint i32 %1265, 2
   %1267 = shl i32 %1266, %1202
@@ -13082,8 +13079,8 @@ abs_level_gtx_flag_decode.exit.i:                 ; preds = %1773, %1748, %par_l
   br i1 %1831, label %.lr.ph341.i.i, label %.preheader.._crit_edge_crit_edge.i.i
 
 .preheader.._crit_edge_crit_edge.i.i:             ; preds = %.preheader.i.i, %.thread376.i.i
-  %.0238.lcssa.i309315.i = phi i32 [ %.0238.lcssa.i.i, %.preheader.i.i ], [ -1, %.thread376.i.i ]
-  %.0237.lcssa.i310314.i = phi i32 [ %.0237.lcssa.i.i, %.preheader.i.i ], [ %1391, %.thread376.i.i ]
+  %.0238.lcssa.i297303.i = phi i32 [ %.0238.lcssa.i.i, %.preheader.i.i ], [ -1, %.thread376.i.i ]
+  %.0237.lcssa.i298302.i = phi i32 [ %.0237.lcssa.i.i, %.preheader.i.i ], [ %1391, %.thread376.i.i ]
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %1356, i64 2341
   %.pre.i.i21 = load i8, ptr %.phi.trans.insert.i.i, align 1, !tbaa !217
   br label %._crit_edge.i.i
@@ -13311,9 +13308,9 @@ refill.exit.i.i123.i:                             ; preds = %1976, %1962, %1958
   br i1 %exitcond.not.i125.i, label %.critedge18.i126.i, label %1958, !llvm.loop !196
 
 .lr.ph.i130.i:                                    ; preds = %.critedge.preheader.i129.i, %get_cabac_bypass.exit22.i135.i
-  %1983 = phi i32 [ %2007, %get_cabac_bypass.exit22.i135.i ], [ %.lcssa.promoted.i124.i, %.critedge.preheader.i129.i ]
+  %1983 = phi i32 [ %2008, %get_cabac_bypass.exit22.i135.i ], [ %.lcssa.promoted.i124.i, %.critedge.preheader.i129.i ]
   %.031.i131.i = phi i32 [ %2009, %get_cabac_bypass.exit22.i135.i ], [ 0, %.critedge.preheader.i129.i ]
-  %.01630.i132.i = phi i32 [ %2008, %get_cabac_bypass.exit22.i135.i ], [ 0, %.critedge.preheader.i129.i ]
+  %.01630.i132.i = phi i32 [ %.0.i21.i136.i, %get_cabac_bypass.exit22.i135.i ], [ 0, %.critedge.preheader.i129.i ]
   %1984 = shl i32 %.01630.i132.i, 1
   %1985 = shl nsw i32 %1983, 1
   store i32 %1985, ptr %1952, align 8, !tbaa !70
@@ -13351,15 +13348,15 @@ refill.exit.i20.i134.i:                           ; preds = %2001, %1987, %.lr.p
 2005:                                             ; preds = %refill.exit.i20.i134.i
   %2006 = sub nsw i32 %2003, %1955
   store i32 %2006, ptr %1952, align 8, !tbaa !70
+  %2007 = or disjoint i32 %1984, 1
   br label %get_cabac_bypass.exit22.i135.i
 
 get_cabac_bypass.exit22.i135.i:                   ; preds = %2005, %refill.exit.i20.i134.i
-  %2007 = phi i32 [ %2006, %2005 ], [ %2003, %refill.exit.i20.i134.i ]
-  %.0.i21.i136.i = phi i32 [ 1, %2005 ], [ 0, %refill.exit.i20.i134.i ]
-  %2008 = or disjoint i32 %.0.i21.i136.i, %1984
+  %2008 = phi i32 [ %2006, %2005 ], [ %2003, %refill.exit.i20.i134.i ]
+  %.0.i21.i136.i = phi i32 [ %2007, %2005 ], [ %1984, %refill.exit.i20.i134.i ]
   %2009 = add nuw nsw i32 %.031.i131.i, 1
-  %exitcond34.not.i137.i = icmp eq i32 %2009, %1950
-  br i1 %exitcond34.not.i137.i, label %abs_decode.exit138.i, label %.lr.ph.i130.i, !llvm.loop !197
+  %exitcond33.not.i137.i = icmp eq i32 %2009, %1950
+  br i1 %exitcond33.not.i137.i, label %abs_decode.exit138.i, label %.lr.ph.i130.i, !llvm.loop !197
 
 .critedge18.i126.i:                               ; preds = %1980
   %2010 = add nsw i32 %1950, 1
@@ -13423,8 +13420,8 @@ refill.exit.i.i172.i:                             ; preds = %2033, %2019, %.lr.p
   br i1 %2042, label %.lr.ph27.i160.i, label %limited_kth_order_egk_decode.exit174.i
 
 .lr.ph27.i160.i:                                  ; preds = %.critedge.i154.i, %get_cabac_bypass.exit20.i166.i
-  %2043 = phi i32 [ %2068, %get_cabac_bypass.exit20.i166.i ], [ %.promoted29.i161.i, %.critedge.i154.i ]
-  %.026.i162.i = phi i32 [ %2069, %get_cabac_bypass.exit20.i166.i ], [ 0, %.critedge.i154.i ]
+  %2043 = phi i32 [ %2069, %get_cabac_bypass.exit20.i166.i ], [ %.promoted29.i161.i, %.critedge.i154.i ]
+  %.026.i162.i = phi i32 [ %.0.i19.i167.i, %get_cabac_bypass.exit20.i166.i ], [ 0, %.critedge.i154.i ]
   %.125.i163.i = phi i32 [ %2044, %get_cabac_bypass.exit20.i166.i ], [ %.015.i156.i, %.critedge.i154.i ]
   %2044 = add nsw i32 %.125.i163.i, -1
   %2045 = shl i32 %.026.i162.i, 1
@@ -13464,17 +13461,17 @@ refill.exit.i18.i165.i:                           ; preds = %2062, %2048, %.lr.p
 2066:                                             ; preds = %refill.exit.i18.i165.i
   %2067 = sub nsw i32 %2064, %1955
   store i32 %2067, ptr %1952, align 8, !tbaa !70
+  %2068 = or disjoint i32 %2045, 1
   br label %get_cabac_bypass.exit20.i166.i
 
 get_cabac_bypass.exit20.i166.i:                   ; preds = %2066, %refill.exit.i18.i165.i
-  %2068 = phi i32 [ %2067, %2066 ], [ %2064, %refill.exit.i18.i165.i ]
-  %.0.i19.i167.i = phi i32 [ 1, %2066 ], [ 0, %refill.exit.i18.i165.i ]
-  %2069 = or disjoint i32 %.0.i19.i167.i, %2045
+  %2069 = phi i32 [ %2067, %2066 ], [ %2064, %refill.exit.i18.i165.i ]
+  %.0.i19.i167.i = phi i32 [ %2068, %2066 ], [ %2045, %refill.exit.i18.i165.i ]
   %2070 = icmp samesign ugt i32 %.125.i163.i, 1
   br i1 %2070, label %.lr.ph27.i160.i, label %limited_kth_order_egk_decode.exit174.i, !llvm.loop !152
 
 limited_kth_order_egk_decode.exit174.i:           ; preds = %get_cabac_bypass.exit20.i166.i, %.critedge.i154.i
-  %.0.lcssa.i158.i = phi i32 [ 0, %.critedge.i154.i ], [ %2069, %get_cabac_bypass.exit20.i166.i ]
+  %.0.lcssa.i158.i = phi i32 [ 0, %.critedge.i154.i ], [ %.0.i19.i167.i, %get_cabac_bypass.exit20.i166.i ]
   %notmask.i159.i = shl nsw i32 -1, %.016.lcssa.i155.i
   %2071 = xor i32 %notmask.i159.i, -1
   %2072 = shl i32 %2071, %2010
@@ -13483,7 +13480,7 @@ limited_kth_order_egk_decode.exit174.i:           ; preds = %get_cabac_bypass.ex
 
 abs_decode.exit138.i:                             ; preds = %get_cabac_bypass.exit22.i135.i, %limited_kth_order_egk_decode.exit174.i, %.critedge.preheader.i129.i
   %.01726.i127.i = phi i32 [ 6, %limited_kth_order_egk_decode.exit174.i ], [ %.01729.i121.i, %.critedge.preheader.i129.i ], [ %.01729.i121.i, %get_cabac_bypass.exit22.i135.i ]
-  %.1.i128.i = phi i32 [ %2073, %limited_kth_order_egk_decode.exit174.i ], [ 0, %.critedge.preheader.i129.i ], [ %2008, %get_cabac_bypass.exit22.i135.i ]
+  %.1.i128.i = phi i32 [ %2073, %limited_kth_order_egk_decode.exit174.i ], [ 0, %.critedge.preheader.i129.i ], [ %.0.i21.i136.i, %get_cabac_bypass.exit22.i135.i ]
   %2074 = shl i32 %.01726.i127.i, %1950
   %2075 = add nsw i32 %.1.i128.i, %2074
   %2076 = load i32, ptr %885, align 8, !tbaa !178
@@ -13721,9 +13718,9 @@ refill.exit.i.i116.i:                             ; preds = %2214, %2200, %2196
   br i1 %exitcond.not.i117.i, label %.critedge18.i.i28, label %2196, !llvm.loop !196
 
 .lr.ph.i119.i:                                    ; preds = %.critedge.preheader.i.i, %get_cabac_bypass.exit22.i.i35
-  %2221 = phi i32 [ %2245, %get_cabac_bypass.exit22.i.i35 ], [ %.lcssa.promoted.i.i27, %.critedge.preheader.i.i ]
+  %2221 = phi i32 [ %2246, %get_cabac_bypass.exit22.i.i35 ], [ %.lcssa.promoted.i.i27, %.critedge.preheader.i.i ]
   %.031.i.i31 = phi i32 [ %2247, %get_cabac_bypass.exit22.i.i35 ], [ 0, %.critedge.preheader.i.i ]
-  %.01630.i.i32 = phi i32 [ %2246, %get_cabac_bypass.exit22.i.i35 ], [ 0, %.critedge.preheader.i.i ]
+  %.01630.i.i32 = phi i32 [ %.0.i21.i.i36, %get_cabac_bypass.exit22.i.i35 ], [ 0, %.critedge.preheader.i.i ]
   %2222 = shl i32 %.01630.i.i32, 1
   %2223 = shl nsw i32 %2221, 1
   store i32 %2223, ptr %2190, align 8, !tbaa !70
@@ -13761,15 +13758,15 @@ refill.exit.i20.i.i34:                            ; preds = %2239, %2225, %.lr.p
 2243:                                             ; preds = %refill.exit.i20.i.i34
   %2244 = sub nsw i32 %2241, %2193
   store i32 %2244, ptr %2190, align 8, !tbaa !70
+  %2245 = or disjoint i32 %2222, 1
   br label %get_cabac_bypass.exit22.i.i35
 
 get_cabac_bypass.exit22.i.i35:                    ; preds = %2243, %refill.exit.i20.i.i34
-  %2245 = phi i32 [ %2244, %2243 ], [ %2241, %refill.exit.i20.i.i34 ]
-  %.0.i21.i.i36 = phi i32 [ 1, %2243 ], [ 0, %refill.exit.i20.i.i34 ]
-  %2246 = or disjoint i32 %.0.i21.i.i36, %2222
+  %2246 = phi i32 [ %2244, %2243 ], [ %2241, %refill.exit.i20.i.i34 ]
+  %.0.i21.i.i36 = phi i32 [ %2245, %2243 ], [ %2222, %refill.exit.i20.i.i34 ]
   %2247 = add nuw nsw i32 %.031.i.i31, 1
-  %exitcond34.not.i.i37 = icmp eq i32 %2247, %2188
-  br i1 %exitcond34.not.i.i37, label %abs_decode.exit.i29, label %.lr.ph.i119.i, !llvm.loop !197
+  %exitcond33.not.i.i37 = icmp eq i32 %2247, %2188
+  br i1 %exitcond33.not.i.i37, label %abs_decode.exit.i29, label %.lr.ph.i119.i, !llvm.loop !197
 
 .critedge18.i.i28:                                ; preds = %2218
   %2248 = add nsw i32 %2188, 1
@@ -13833,8 +13830,8 @@ refill.exit.i.i152.i:                             ; preds = %2271, %2257, %.lr.p
   br i1 %2280, label %.lr.ph27.i.i, label %limited_kth_order_egk_decode.exit.i
 
 .lr.ph27.i.i:                                     ; preds = %.critedge.i146.i, %get_cabac_bypass.exit20.i.i
-  %2281 = phi i32 [ %2306, %get_cabac_bypass.exit20.i.i ], [ %.promoted29.i.i, %.critedge.i146.i ]
-  %.026.i.i = phi i32 [ %2307, %get_cabac_bypass.exit20.i.i ], [ 0, %.critedge.i146.i ]
+  %2281 = phi i32 [ %2307, %get_cabac_bypass.exit20.i.i ], [ %.promoted29.i.i, %.critedge.i146.i ]
+  %.026.i.i = phi i32 [ %.0.i19.i.i, %get_cabac_bypass.exit20.i.i ], [ 0, %.critedge.i146.i ]
   %.125.i.i = phi i32 [ %2282, %get_cabac_bypass.exit20.i.i ], [ %.015.i.i, %.critedge.i146.i ]
   %2282 = add nsw i32 %.125.i.i, -1
   %2283 = shl i32 %.026.i.i, 1
@@ -13874,17 +13871,17 @@ refill.exit.i18.i.i:                              ; preds = %2300, %2286, %.lr.p
 2304:                                             ; preds = %refill.exit.i18.i.i
   %2305 = sub nsw i32 %2302, %2193
   store i32 %2305, ptr %2190, align 8, !tbaa !70
+  %2306 = or disjoint i32 %2283, 1
   br label %get_cabac_bypass.exit20.i.i
 
 get_cabac_bypass.exit20.i.i:                      ; preds = %2304, %refill.exit.i18.i.i
-  %2306 = phi i32 [ %2305, %2304 ], [ %2302, %refill.exit.i18.i.i ]
-  %.0.i19.i.i = phi i32 [ 1, %2304 ], [ 0, %refill.exit.i18.i.i ]
-  %2307 = or disjoint i32 %.0.i19.i.i, %2283
+  %2307 = phi i32 [ %2305, %2304 ], [ %2302, %refill.exit.i18.i.i ]
+  %.0.i19.i.i = phi i32 [ %2306, %2304 ], [ %2283, %refill.exit.i18.i.i ]
   %2308 = icmp samesign ugt i32 %.125.i.i, 1
   br i1 %2308, label %.lr.ph27.i.i, label %limited_kth_order_egk_decode.exit.i, !llvm.loop !152
 
 limited_kth_order_egk_decode.exit.i:              ; preds = %get_cabac_bypass.exit20.i.i, %.critedge.i146.i
-  %.0.lcssa.i.i = phi i32 [ 0, %.critedge.i146.i ], [ %2307, %get_cabac_bypass.exit20.i.i ]
+  %.0.lcssa.i.i = phi i32 [ 0, %.critedge.i146.i ], [ %.0.i19.i.i, %get_cabac_bypass.exit20.i.i ]
   %notmask.i148.i = shl nsw i32 -1, %.016.lcssa.i.i
   %2309 = xor i32 %notmask.i148.i, -1
   %2310 = shl i32 %2309, %2248
@@ -13893,7 +13890,7 @@ limited_kth_order_egk_decode.exit.i:              ; preds = %get_cabac_bypass.ex
 
 abs_decode.exit.i29:                              ; preds = %get_cabac_bypass.exit22.i.i35, %limited_kth_order_egk_decode.exit.i, %.critedge.preheader.i.i
   %.01726.i.i30 = phi i32 [ 6, %limited_kth_order_egk_decode.exit.i ], [ %.01729.i.i26, %.critedge.preheader.i.i ], [ %.01729.i.i26, %get_cabac_bypass.exit22.i.i35 ]
-  %.1.i118.i = phi i32 [ %2311, %limited_kth_order_egk_decode.exit.i ], [ 0, %.critedge.preheader.i.i ], [ %2246, %get_cabac_bypass.exit22.i.i35 ]
+  %.1.i118.i = phi i32 [ %2311, %limited_kth_order_egk_decode.exit.i ], [ 0, %.critedge.preheader.i.i ], [ %.0.i21.i.i36, %get_cabac_bypass.exit22.i.i35 ]
   %2312 = shl i32 %.01726.i.i30, %2188
   %2313 = add nsw i32 %.1.i118.i, %2312
   %2314 = load i32, ptr %915, align 4, !tbaa !189
@@ -13976,8 +13973,8 @@ ep_update_hist.exit310.i.i:                       ; preds = %2325, %dec_abs_leve
 
 ._crit_edge.i.i:                                  ; preds = %2355, %.preheader.._crit_edge_crit_edge.i.i
   %2357 = phi i8 [ %.pre.i.i21, %.preheader.._crit_edge_crit_edge.i.i ], [ %1835, %2355 ]
-  %.3241.lcssa.i.i = phi i32 [ %.0238.lcssa.i309315.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %.4.i.i, %2355 ]
-  %.2.lcssa.i.i = phi i32 [ %.0237.lcssa.i310314.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %.3.i.i, %2355 ]
+  %.3241.lcssa.i.i = phi i32 [ %.0238.lcssa.i297303.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %.4.i.i, %2355 ]
+  %.2.lcssa.i.i = phi i32 [ %.0237.lcssa.i298302.i, %.preheader.._crit_edge_crit_edge.i.i ], [ %.3.i.i, %2355 ]
   %2358 = getelementptr inbounds nuw i8, ptr %1356, i64 2342
   %2359 = load i8, ptr %2358, align 2, !tbaa !222
   %.not261.i.i = icmp ne i8 %2359, 0
@@ -15294,18 +15291,18 @@ define internal fastcc range(i32 0, 128) i32 @sb_coded_flag_decode(ptr noundef r
   %45 = phi i64 [ %43, %40 ], [ 0, %37 ]
   %46 = add nsw i32 %10, -1
   %47 = icmp slt i32 %4, %46
-  br i1 %47, label %48, label %53
+  br i1 %47, label %48, label %54
 
 48:                                               ; preds = %44
   %49 = sext i32 %8 to i64
   %50 = getelementptr inbounds i8, ptr %1, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !97
   %52 = zext i8 %51 to i64
-  br label %53
+  %53 = or i64 %45, %52
+  br label %54
 
-53:                                               ; preds = %44, %48
-  %54 = phi i64 [ %52, %48 ], [ 0, %44 ]
-  %55 = or i64 %54, %45
+54:                                               ; preds = %44, %48
+  %55 = phi i64 [ %53, %48 ], [ %45, %44 ]
   %56 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %57 = load i8, ptr %56, align 1, !tbaa !176
   %.not28 = icmp eq i8 %57, 0
@@ -15313,8 +15310,8 @@ define internal fastcc range(i32 0, 128) i32 @sb_coded_flag_decode(ptr noundef r
   %59 = add nuw nsw i64 %58, %55
   br label %60
 
-60:                                               ; preds = %53, %34
-  %.0 = phi i64 [ %59, %53 ], [ %36, %34 ]
+60:                                               ; preds = %54, %34
+  %.0 = phi i64 [ %59, %54 ], [ %36, %34 ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 4580560
   %62 = load ptr, ptr %61, align 16, !tbaa !67
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2672

@@ -10173,19 +10173,19 @@ _ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.
   %82 = getelementptr inbounds nuw i8, ptr %.pn43.i.lcssa, i64 2
   %spec.select = select i1 %81, ptr %82, ptr %.sroa.064.3.lcssa
   %spec.select76 = select i1 %81, i64 4294967296, i64 0
+  %83 = or i64 %spec.select76, %.017.i
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph, %.lr.ph.i._crit_edge, %69
   %.sroa.064.4 = phi ptr [ %storemerge41.i, %69 ], [ %spec.select, %.lr.ph.i._crit_edge ], [ %storemerge.i, %.lr.ph ]
   %.03639.i = phi i64 [ %71, %69 ], [ %.03644.i.lcssa, %.lr.ph.i._crit_edge ], [ %80, %.lr.ph ]
-  %.0.i = phi i64 [ 0, %69 ], [ %spec.select76, %.lr.ph.i._crit_edge ], [ 0, %.lr.ph ]
+  %.0.i = phi i64 [ %.017.i, %69 ], [ %83, %.lr.ph.i._crit_edge ], [ %.017.i, %.lr.ph ]
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %.03639.i, i64 64)
-  %83 = or i64 %.0.i, %.017.i
   br label %84
 
 84:                                               ; preds = %.critedge.i, %66, %64, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit
   %.sroa.064.5 = phi ptr [ %58, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit ], [ %.sroa.064.2, %64 ], [ %.sroa.064.4, %.critedge.i ], [ %.sroa.064.2, %66 ]
-  %.sroa.6.0.i = phi i64 [ 0, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit ], [ 0, %64 ], [ %83, %.critedge.i ], [ 0, %66 ]
+  %.sroa.6.0.i = phi i64 [ 0, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit ], [ 0, %64 ], [ %.0.i, %.critedge.i ], [ 0, %66 ]
   %.sroa.027.0.i = phi i64 [ 0, %_ZNSt10unique_ptrIN6spdlog7details14flag_formatterESt14default_deleteIS2_EED2Ev.exit ], [ 0, %64 ], [ %.sroa.speculated.i, %.critedge.i ], [ 0, %66 ]
   %.sroa.7.8.insert.mask = and i64 %.sroa.7.099, -281474976710656
   %.sroa.7.8.insert.insert = or i64 %.sroa.6.0.i, %.sroa.7.8.insert.mask

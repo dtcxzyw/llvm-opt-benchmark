@@ -930,7 +930,7 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 16
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %225, label %13
+  br i1 %12, label %.loopexit.thread, label %13
 
 13:                                               ; preds = %1
   %14 = lshr exact i64 %5, 1
@@ -969,7 +969,7 @@ define internal fastcc range(i32 -19, 1) i32 @acpi_battery_get_info(ptr noundef 
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = add nsw i32 %24, -1
   %37 = icmp sgt i32 %24, 0
-  br i1 %37, label %23, label %.loopexit, !llvm.loop !16
+  br i1 %37, label %23, label %.loopexit.thread, !llvm.loop !16
 
 38:                                               ; preds = %23
   %39 = icmp ne i32 %24, 0
@@ -1261,39 +1261,34 @@ extract_package.exit:                             ; preds = %178, %141, %134, %9
   %208 = load volatile i64, ptr %3, align 8
   %209 = and i64 %208, 16
   %210 = icmp eq i64 %209, 0
-  br i1 %210, label %216, label %211
+  br i1 %210, label %.loopexit, label %211
 
 211:                                              ; preds = %207
   %212 = load i32, ptr %22, align 8
   %213 = load i32, ptr %18, align 4
   %214 = icmp sgt i32 %212, %213
-  br i1 %214, label %215, label %216
+  br i1 %214, label %215, label %.loopexit
 
 215:                                              ; preds = %211
   store i32 %213, ptr %22, align 8
-  br label %216
-
-216:                                              ; preds = %207, %211, %215
-  %217 = load ptr, ptr %16, align 8
-  call void @kfree(ptr noundef %217) #11
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread, %216
-  %218 = phi i32 [ %181, %216 ], [ -19, %.thread ]
-  %219 = phi i32 [ %24, %216 ], [ -1, %.thread ]
-  %220 = or i32 %219, %218
-  %221 = icmp eq i32 %220, 0
-  %222 = select i1 %221, i1 %6, i1 false
-  br i1 %222, label %223, label %225
+.loopexit:                                        ; preds = %215, %211, %207
+  %216 = load ptr, ptr %16, align 8
+  call void @kfree(ptr noundef %216) #11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  %217 = or i32 %24, %181
+  %218 = icmp eq i32 %217, 0
+  %219 = select i1 %218, i1 %6, i1 false
+  br i1 %219, label %220, label %.loopexit.thread
 
-223:                                              ; preds = %.loopexit
-  %224 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #12
-  br label %225
+220:                                              ; preds = %.loopexit
+  %221 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17) #12
+  br label %.loopexit.thread
 
-225:                                              ; preds = %223, %.loopexit, %1
-  %226 = phi i32 [ 0, %1 ], [ %218, %223 ], [ %218, %.loopexit ]
-  ret i32 %226
+.loopexit.thread:                                 ; preds = %.thread, %220, %.loopexit, %1
+  %222 = phi i32 [ 0, %1 ], [ %181, %220 ], [ %181, %.loopexit ], [ -19, %.thread ]
+  ret i32 %222
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

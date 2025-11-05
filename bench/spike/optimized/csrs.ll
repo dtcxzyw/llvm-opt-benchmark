@@ -5888,16 +5888,16 @@ define noundef i64 @_ZNK22generic_int_accessor_t7ip_readEv(ptr noundef nonnull r
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = tail call noundef i64 %34(ptr noundef nonnull align 8 dereferenceable(37) %31) #30
+  %36 = and i64 %35, %24
   br label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %23, %28
-  %36 = phi i64 [ %35, %28 ], [ -1, %23 ]
-  %37 = or i64 %12, %6
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = load i64, ptr %38, align 8, !tbaa !217
-  %40 = and i64 %24, %37
-  %41 = and i64 %40, %36
-  %42 = and i64 %41, %39
+  %37 = phi i64 [ %36, %28 ], [ %24, %23 ]
+  %38 = or i64 %12, %6
+  %39 = and i64 %37, %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !217
+  %42 = and i64 %39, %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %44 = load i32, ptr %43, align 4, !tbaa !222
   %45 = zext nneg i32 %44 to i64
@@ -5927,7 +5927,7 @@ define noundef i64 @_ZNK22generic_int_accessor_t10deleg_maskEv(ptr noundef nonnu
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load i8, ptr %15, align 8, !tbaa !220, !range !94, !noundef !95
   %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %18, label %26
+  br i1 %17, label %18, label %27
 
 18:                                               ; preds = %13
   %19 = load ptr, ptr %0, align 8, !tbaa !215
@@ -5937,11 +5937,11 @@ define noundef i64 @_ZNK22generic_int_accessor_t10deleg_maskEv(ptr noundef nonnu
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef i64 %24(ptr noundef nonnull align 8 dereferenceable(37) %21) #30
-  br label %26
+  %26 = and i64 %25, %14
+  br label %27
 
-26:                                               ; preds = %13, %18
-  %27 = phi i64 [ %25, %18 ], [ -1, %13 ]
-  %28 = and i64 %27, %14
+27:                                               ; preds = %13, %18
+  %28 = phi i64 [ %26, %18 ], [ %14, %13 ]
   ret i64 %28
 }
 
@@ -5978,14 +5978,14 @@ define void @_ZN22generic_int_accessor_t8ip_writeEm(ptr noundef nonnull readonly
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(37) %23) #30
+  %28 = and i64 %27, %16
   br label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %15, %20
-  %28 = phi i64 [ %27, %20 ], [ -1, %15 ]
-  %29 = and i64 %28, %16
+  %29 = phi i64 [ %28, %20 ], [ %16, %15 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !218
-  %32 = and i64 %29, %31
+  %32 = and i64 %31, %29
   %33 = load ptr, ptr %0, align 8, !tbaa !215
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1016
   %35 = load ptr, ptr %34, align 8, !tbaa !212
@@ -6079,15 +6079,15 @@ define noundef i64 @_ZNK22generic_int_accessor_t7ie_readEv(ptr noundef nonnull r
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i64 %31(ptr noundef nonnull align 8 dereferenceable(37) %28) #30
+  %33 = and i64 %32, %21
   br label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %20, %25
-  %33 = phi i64 [ %32, %25 ], [ -1, %20 ]
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !217
-  %36 = and i64 %21, %8
-  %37 = and i64 %36, %33
-  %38 = and i64 %37, %35
+  %34 = phi i64 [ %33, %25 ], [ %21, %20 ]
+  %35 = and i64 %34, %8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !217
+  %38 = and i64 %35, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %40 = load i32, ptr %39, align 4, !tbaa !222
   %41 = zext nneg i32 %40 to i64
@@ -6128,14 +6128,14 @@ define void @_ZN22generic_int_accessor_t8ie_writeEm(ptr noundef nonnull readonly
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef i64 %26(ptr noundef nonnull align 8 dereferenceable(37) %23) #30
+  %28 = and i64 %27, %16
   br label %_ZNK22generic_int_accessor_t10deleg_maskEv.exit
 
 _ZNK22generic_int_accessor_t10deleg_maskEv.exit:  ; preds = %15, %20
-  %28 = phi i64 [ %27, %20 ], [ -1, %15 ]
-  %29 = and i64 %28, %16
+  %29 = phi i64 [ %28, %20 ], [ %16, %15 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i64, ptr %30, align 8, !tbaa !219
-  %32 = and i64 %29, %31
+  %32 = and i64 %31, %29
   %33 = load ptr, ptr %0, align 8, !tbaa !215
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 1000
   %35 = load ptr, ptr %34, align 8, !tbaa !209
@@ -6284,16 +6284,16 @@ define noundef i64 @_ZNK15mip_proxy_csr_t4readEv(ptr noundef nonnull readonly al
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef i64 %36(ptr noundef nonnull align 8 dereferenceable(37) %33) #30
+  %38 = and i64 %37, %26
   br label %_ZNK22generic_int_accessor_t7ip_readEv.exit
 
 _ZNK22generic_int_accessor_t7ip_readEv.exit:      ; preds = %25, %30
-  %38 = phi i64 [ %37, %30 ], [ -1, %25 ]
-  %39 = or i64 %14, %8
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !217
-  %42 = and i64 %26, %39
-  %43 = and i64 %42, %38
-  %44 = and i64 %43, %41
+  %39 = phi i64 [ %38, %30 ], [ %26, %25 ]
+  %40 = or i64 %14, %8
+  %41 = and i64 %39, %40
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !217
+  %44 = and i64 %41, %43
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %46 = load i32, ptr %45, align 4, !tbaa !222
   %47 = zext nneg i32 %46 to i64
@@ -6400,15 +6400,15 @@ define noundef i64 @_ZNK15mie_proxy_csr_t4readEv(ptr noundef nonnull readonly al
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef i64 %33(ptr noundef nonnull align 8 dereferenceable(37) %30) #30
+  %35 = and i64 %34, %23
   br label %_ZNK22generic_int_accessor_t7ie_readEv.exit
 
 _ZNK22generic_int_accessor_t7ie_readEv.exit:      ; preds = %22, %27
-  %35 = phi i64 [ %34, %27 ], [ -1, %22 ]
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %37 = load i64, ptr %36, align 8, !tbaa !217
-  %38 = and i64 %23, %10
-  %39 = and i64 %38, %35
-  %40 = and i64 %39, %37
+  %36 = phi i64 [ %35, %27 ], [ %23, %22 ]
+  %37 = and i64 %36, %10
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %39 = load i64, ptr %38, align 8, !tbaa !217
+  %40 = and i64 %37, %39
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %42 = load i32, ptr %41, align 4, !tbaa !222
   %43 = zext nneg i32 %42 to i64

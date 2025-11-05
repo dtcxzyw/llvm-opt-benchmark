@@ -441,9 +441,7 @@ _ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit: ; preds = %.lr.p
   br i1 %.not.not, label %_ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread, label %.lr.ph65.split
 
 _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %._crit_edge.split, %31, %.lr.ph65, %22, %18, %14, %14, %14, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i, %2, %5, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit
-  %35 = phi i1 [ false, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ true, %5 ], [ true, %2 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ false, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ false, %14 ], [ false, %14 ], [ false, %14 ], [ false, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ false, %31 ], [ false, %._crit_edge.split ]
-  %.0 = phi i1 [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ undef, %5 ], [ undef, %2 ], [ undef, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ true, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ true, %31 ], [ false, %._crit_edge.split ]
-  %spec.select39 = or i1 %35, %.0
+  %spec.select39 = phi i1 [ true, %_ZNK4llvm11GlobalValue18hasExactDefinitionEv.exit ], [ true, %5 ], [ true, %2 ], [ true, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i ], [ true, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit ], [ true, %14 ], [ true, %14 ], [ true, %14 ], [ true, %18 ], [ false, %22 ], [ false, %.lr.ph65 ], [ true, %31 ], [ false, %._crit_edge.split ]
   ret i1 %spec.select39
 }
 

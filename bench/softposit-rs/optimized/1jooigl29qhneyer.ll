@@ -2236,7 +2236,7 @@ define noundef zeroext i1 @"_ZN72_$LT$softposit..p32e2..P32E2$u20$as$u20$num_tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..Num$GT$14from_str_radix17h975f6fa421da1abfE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
+define range(i64 0, -4294967295) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$u20$num_traits..Num$GT$14from_str_radix17h975f6fa421da1abfE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca { i8, [15 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a4767a2e72cb71bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2)
@@ -2327,7 +2327,7 @@ define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
   %.0.i = phi i32 [ %.023.i, %23 ], [ 0, %6 ], [ -2147483648, %13 ], [ %..i, %19 ], [ %.33.i, %20 ], [ %.34.i, %55 ]
   %56 = zext i32 %.0.i to i64
   %57 = shl nuw i64 %56, 32
-  br label %63
+  br label %64
 
 58:                                               ; preds = %3
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -2335,13 +2335,12 @@ define range(i64 0, -4294967294) i64 @"_ZN59_$LT$softposit..p32e2..P32E2$u20$as$
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %61 = zext nneg i8 %60 to i64
   %62 = shl nuw nsw i64 %61, 8
-  br label %63
+  %63 = or disjoint i64 %62, 1
+  br label %64
 
-63:                                               ; preds = %58, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit"
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ], [ 1, %58 ]
-  %.sroa.3.0.insert.insert = phi i64 [ %57, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ], [ %62, %58 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+64:                                               ; preds = %58, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit"
+  %.sroa.3.0.insert.insert = phi i64 [ %57, %"_ZN9softposit5p32e27convert41_$LT$impl$u20$softposit..p32e2..P32E2$GT$8from_f6417hd3c83f3f036168c9E.exit" ], [ %63, %58 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable

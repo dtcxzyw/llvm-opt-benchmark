@@ -3215,9 +3215,9 @@ _ZN4llvm5APIntD2Ev.exit.i.i:                      ; preds = %59, %_ZNK4llvm6APSI
   br label %_ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit
 
 _ZNK5clang16PackIndexingExpr15getSelectedExprEv.exit: ; preds = %37, %_ZN4llvm5APIntD2Ev.exit.i.i
-  %.sroa.0.0.i.i = phi i64 [ %63, %_ZN4llvm5APIntD2Ev.exit.i.i ], [ 0, %37 ]
+  %.sroa.2.0.i.i = phi i64 [ %63, %_ZN4llvm5APIntD2Ev.exit.i.i ], [ 0, %37 ]
   %64 = getelementptr inbounds nuw i8, ptr %.tr936, i64 48
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.sroa.0.0.i.i
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.sroa.2.0.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !843
   br label %tailrecurse.backedge
 

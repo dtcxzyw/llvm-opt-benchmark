@@ -47385,8 +47385,8 @@ common.ret:                                       ; preds = %379, %384, %130
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 40
   %164 = load i64, ptr %163, align 8, !range !5512, !noundef !4
   %cond = icmp eq i64 %164, -9223372036854775808
-  %brmerge10 = or i1 %143, %cond
-  br i1 %brmerge10, label %788, label %787
+  %brmerge = or i1 %143, %cond
+  br i1 %brmerge, label %788, label %787
 
 "_ZN4core3ptr187drop_in_place$LT$std..collections..hash..map..HashMap$LT$alloc..sync..Arc$LT$std..path..Path$GT$$C$worktree..RepoPaths$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17hf79379308282d069E.exit": ; preds = %.body289, %.body203
   %.sroa.031.2 = phi i1 [ %.sroa.031.5, %.body203 ], [ true, %.body289 ]
@@ -49282,7 +49282,7 @@ _ZN3log13__private_api3log17h8283b0c56fbdbfabE.exit: ; preds = %649
   invoke void @_ZN11parking_lot9raw_mutex8RawMutex11unlock_slow17ha4648bd3047b88eeE(ptr noundef nonnull align 1 %135, i1 noundef zeroext false)
           to label %.noexc293 unwind label %631
 
-787:                                              ; preds = %802, %159
+787:                                              ; preds = %159, %802
   %exitcond.not = icmp eq i64 %160, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %159
 

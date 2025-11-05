@@ -141,7 +141,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 65552) i32 @_ZN6hermes2vm9ArrayImpl31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr noundef readonly captures(none) %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #2 align 2 {
+define hidden range(i32 0, 65551) i32 @_ZN6hermes2vm9ArrayImpl31_getOwnIndexedPropertyFlagsImplEPNS0_8JSObjectERNS0_7RuntimeEj(ptr noundef readonly captures(none) %selfObj, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %index) #2 align 2 {
 entry:
   %beginIndex_ = getelementptr inbounds nuw i8, ptr %selfObj, i64 20
   %0 = load i32, ptr %beginIndex_, align 4
@@ -197,14 +197,12 @@ if.then:                                          ; preds = %_ZNK6hermes2vm18Seg
 
 if.then14:                                        ; preds = %if.then
   %7 = and i32 %bf.load12, 4
-  %8 = xor i32 %7, 6
+  %8 = xor i32 %7, 65542
   br label %return
 
 return:                                           ; preds = %if.then14, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit, %entry, %land.lhs.true, %if.then
-  %retval.sroa.0.0 = phi i32 [ 14, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ %8, %if.then14 ]
-  %retval.sroa.3.0 = phi i32 [ 65536, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ 65536, %if.then14 ]
-  %retval.sroa.0.0.insert.insert = or i32 %retval.sroa.3.0, %retval.sroa.0.0
-  ret i32 %retval.sroa.0.0.insert.insert
+  %retval.sroa.3.0 = phi i32 [ 65550, %if.then ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %_ZNK6hermes2vm18SegmentedArrayBaseINS0_13HermesValue32EE2atILNS3_6InlineE0EEES2_RNS0_11PointerBaseEj.exit ], [ %8, %if.then14 ]
+  ret i32 %retval.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -1024,8 +1024,8 @@ define internal fastcc i32 @walk_path(ptr noundef nonnull %0, ptr noundef %1) un
   br label %74
 
 74:                                               ; preds = %.lr.ph, %add_tree_entries.exit
-  %.075 = phi i64 [ 0, %.lr.ph ], [ %168, %add_tree_entries.exit ]
-  %.274 = phi i32 [ %.05390, %.lr.ph ], [ %167, %add_tree_entries.exit ]
+  %.075 = phi i64 [ 0, %.lr.ph ], [ %167, %add_tree_entries.exit ]
+  %.274 = phi i32 [ %.05390, %.lr.ph ], [ %.0.i, %add_tree_entries.exit ]
   %75 = load ptr, ptr %10, align 8, !tbaa !116
   %76 = getelementptr inbounds nuw %struct.object_id, ptr %75, i64 %.075
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1243,18 +1243,17 @@ push_to_stack.exit.i:                             ; preds = %156, %153
   br label %add_tree_entries.exit
 
 add_tree_entries.exit:                            ; preds = %_.exit.i, %87, %.thread.i, %._crit_edge.i
-  %.0.i = phi i32 [ -1, %87 ], [ 0, %._crit_edge.i ], [ -1, %_.exit.i ], [ -1, %.thread.i ]
+  %.0.i = phi i32 [ -1, %87 ], [ %.274, %._crit_edge.i ], [ -1, %_.exit.i ], [ -1, %.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %167 = or i32 %.0.i, %.274
-  %168 = add nuw i64 %.075, 1
-  %169 = load i64, ptr %11, align 8, !tbaa !102
-  %170 = icmp ult i64 %168, %169
-  br i1 %170, label %74, label %.loopexit, !llvm.loop !129
+  %167 = add nuw i64 %.075, 1
+  %168 = load i64, ptr %11, align 8, !tbaa !102
+  %169 = icmp ult i64 %167, %168
+  br i1 %169, label %74, label %.loopexit, !llvm.loop !129
 
 .loopexit:                                        ; preds = %add_tree_entries.exit, %.critedge, %51, %55, %.preheader, %.thread71
-  %.1 = phi i32 [ %64, %.thread71 ], [ %.05390, %.preheader ], [ 0, %55 ], [ 0, %51 ], [ 0, %.critedge ], [ %167, %add_tree_entries.exit ]
+  %.1 = phi i32 [ %64, %.thread71 ], [ %.05390, %.preheader ], [ 0, %55 ], [ 0, %51 ], [ 0, %.critedge ], [ %.0.i, %add_tree_entries.exit ]
   call void @oid_array_clear(ptr noundef nonnull %10) #13
   call void @strmap_remove(ptr noundef nonnull %6, ptr noundef %1, i32 noundef 1) #13
   br label %.critedge.thread

@@ -2633,12 +2633,15 @@ define void @Wln_NtkStartFaninMap(ptr noundef readonly captures(none) %0, ptr no
   %11 = add nsw i32 %10, %.09.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Wln_NtkFaninNum.exit, label %7, !llvm.loop !102
+  br i1 %exitcond.not.i, label %Wln_NtkFaninNum.exit.loopexit, label %7, !llvm.loop !102
 
-Wln_NtkFaninNum.exit:                             ; preds = %7, %3
-  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %11, %7 ]
-  %12 = mul nsw i32 %.0.lcssa.i, %2
-  %13 = add nsw i32 %12, %.val15
+Wln_NtkFaninNum.exit.loopexit:                    ; preds = %7
+  %12 = mul nsw i32 %11, %2
+  br label %Wln_NtkFaninNum.exit
+
+Wln_NtkFaninNum.exit:                             ; preds = %Wln_NtkFaninNum.exit.loopexit, %3
+  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %12, %Wln_NtkFaninNum.exit.loopexit ]
+  %13 = add nsw i32 %.0.lcssa.i, %.val15
   %14 = load i32, ptr %1, align 8, !tbaa !18
   %.not.i.i = icmp slt i32 %14, %13
   br i1 %.not.i.i, label %15, label %Vec_IntGrow.exit.i
@@ -2734,12 +2737,15 @@ define void @Wln_NtkStartFanoutMap(ptr noundef readonly captures(none) %0, ptr n
   %14 = add nsw i32 %13, %.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Vec_IntSum.exit, label %11, !llvm.loop !104
+  br i1 %exitcond.not.i, label %Vec_IntSum.exit.loopexit, label %11, !llvm.loop !104
 
-Vec_IntSum.exit:                                  ; preds = %11, %4
-  %.0.lcssa.i = phi i32 [ 0, %4 ], [ %14, %11 ]
-  %15 = mul nsw i32 %.0.lcssa.i, %3
-  %16 = add nsw i32 %15, %.val15
+Vec_IntSum.exit.loopexit:                         ; preds = %11
+  %15 = mul nsw i32 %14, %3
+  br label %Vec_IntSum.exit
+
+Vec_IntSum.exit:                                  ; preds = %Vec_IntSum.exit.loopexit, %4
+  %.0.lcssa.i = phi i32 [ 0, %4 ], [ %15, %Vec_IntSum.exit.loopexit ]
+  %16 = add nsw i32 %.0.lcssa.i, %.val15
   %17 = load i32, ptr %1, align 8, !tbaa !18
   %.not.i.i = icmp slt i32 %17, %16
   br i1 %.not.i.i, label %18, label %Vec_IntGrow.exit.i

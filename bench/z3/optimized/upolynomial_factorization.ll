@@ -2765,28 +2765,28 @@ _ZN13mpzzp_manager6submulERK3mpzS2_S2_RS0_.exit:  ; preds = %221, %202, %215, %.
 
 ._crit_edge124.loopexit:                          ; preds = %_ZN13mpzzp_manager6submulERK3mpzS2_S2_RS0_.exit
   %.pre141 = load i32, ptr %9, align 8, !tbaa !63
+  %226 = mul i32 %.pre141, %.1
   br label %._crit_edge124
 
 ._crit_edge124:                                   ; preds = %._crit_edge124.loopexit, %_ZN13mpzzp_manager3setER3mpzS1_.exit
-  %226 = phi i32 [ %.pre141, %._crit_edge124.loopexit ], [ 1, %_ZN13mpzzp_manager3setER3mpzS1_.exit ]
-  %227 = load ptr, ptr %6, align 8, !tbaa !69
-  %228 = load ptr, ptr %2, align 8, !tbaa !24
-  %229 = mul i32 %226, %.1
+  %227 = phi i32 [ %226, %._crit_edge124.loopexit ], [ %.1, %_ZN13mpzzp_manager3setER3mpzS1_.exit ]
+  %228 = load ptr, ptr %6, align 8, !tbaa !69
+  %229 = load ptr, ptr %2, align 8, !tbaa !24
   %230 = load ptr, ptr %8, align 8, !tbaa !24
-  %231 = zext i32 %229 to i64
+  %231 = zext i32 %227 to i64
   %232 = getelementptr inbounds nuw %class.mpz, ptr %230, i64 %231
-  %233 = load ptr, ptr %227, align 8, !tbaa !3
-  invoke void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %233, ptr noundef nonnull align 8 dereferenceable(16) %228, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %232)
+  %233 = load ptr, ptr %228, align 8, !tbaa !3
+  invoke void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %233, ptr noundef nonnull align 8 dereferenceable(16) %229, ptr noundef nonnull align 8 dereferenceable(16) %66, ptr noundef nonnull align 8 dereferenceable(16) %232)
           to label %.noexc80 unwind label %161
 
 .noexc80:                                         ; preds = %._crit_edge124
-  %234 = getelementptr inbounds nuw i8, ptr %227, i64 8
+  %234 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %235 = load i8, ptr %234, align 8, !tbaa !41, !range !42, !noundef !43
   %236 = trunc nuw i8 %235 to i1
   br i1 %236, label %238, label %237
 
 237:                                              ; preds = %.noexc80
-  invoke void @_ZN13mpzzp_manager16p_normalize_coreER3mpz(ptr noundef nonnull align 8 dereferenceable(136) %227, ptr noundef nonnull align 8 dereferenceable(16) %232)
+  invoke void @_ZN13mpzzp_manager16p_normalize_coreER3mpz(ptr noundef nonnull align 8 dereferenceable(136) %228, ptr noundef nonnull align 8 dereferenceable(16) %232)
           to label %238 unwind label %161
 
 238:                                              ; preds = %237, %.noexc80

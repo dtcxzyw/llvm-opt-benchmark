@@ -975,11 +975,11 @@ bytestream2_init.exit:                            ; preds = %0
   br i1 %exitcond15.not, label %.preheader, label %.preheader2, !llvm.loop !70
 
 44:                                               ; preds = %.lr.ph, %bytestream2_put_byte.exit
-  %45 = phi ptr [ %32, %.lr.ph ], [ %130, %bytestream2_put_byte.exit ]
-  %46 = phi ptr [ %31, %.lr.ph ], [ %131, %bytestream2_put_byte.exit ]
-  %47 = phi i64 [ %34, %.lr.ph ], [ %133, %bytestream2_put_byte.exit ]
-  %.sroa.0.07 = phi i8 [ 0, %.lr.ph ], [ %70, %bytestream2_put_byte.exit ]
-  %.sroa.6.06 = phi i8 [ 0, %.lr.ph ], [ %67, %bytestream2_put_byte.exit ]
+  %45 = phi ptr [ %32, %.lr.ph ], [ %129, %bytestream2_put_byte.exit ]
+  %46 = phi ptr [ %31, %.lr.ph ], [ %130, %bytestream2_put_byte.exit ]
+  %47 = phi i64 [ %34, %.lr.ph ], [ %132, %bytestream2_put_byte.exit ]
+  %.sroa.0.07 = phi i8 [ 0, %.lr.ph ], [ %69, %bytestream2_put_byte.exit ]
+  %.sroa.6.06 = phi i8 [ 0, %.lr.ph ], [ %66, %bytestream2_put_byte.exit ]
   %48 = load ptr, ptr %38, align 8, !tbaa !46
   %49 = load ptr, ptr %1, align 8, !tbaa !44
   %50 = ptrtoint ptr %48 to i64
@@ -1003,184 +1003,179 @@ bytestream2_init.exit:                            ; preds = %0
 
 60:                                               ; preds = %58
   store ptr %48, ptr %1, align 8, !tbaa !44
-  br label %bytestream2_get_byte.exit.i
+  br label %read_bits2.exit
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store ptr %62, ptr %1, align 8, !tbaa !51
   %63 = load i8, ptr %49, align 1, !tbaa !36
-  br label %bytestream2_get_byte.exit.i
-
-bytestream2_get_byte.exit.i:                      ; preds = %61, %60
-  %64 = phi ptr [ %48, %60 ], [ %62, %61 ]
-  %.0.i.i = phi i8 [ 0, %60 ], [ %63, %61 ]
-  %65 = or i8 %.0.i.i, %.sroa.0.07
+  %64 = or i8 %63, %.sroa.0.07
   br label %read_bits2.exit
 
-read_bits2.exit:                                  ; preds = %._crit_edge.i, %bytestream2_get_byte.exit.i
-  %66 = phi ptr [ %49, %._crit_edge.i ], [ %64, %bytestream2_get_byte.exit.i ]
-  %67 = phi i8 [ %57, %._crit_edge.i ], [ 6, %bytestream2_get_byte.exit.i ]
-  %68 = phi i8 [ %.sroa.0.07, %._crit_edge.i ], [ %65, %bytestream2_get_byte.exit.i ]
-  %69 = lshr i8 %68, 6
-  %70 = shl i8 %68, 2
-  switch i8 %69, label %default.unreachable [
-    i8 0, label %71
-    i8 1, label %87
-    i8 2, label %109
+read_bits2.exit:                                  ; preds = %60, %61, %._crit_edge.i
+  %65 = phi ptr [ %49, %._crit_edge.i ], [ %48, %60 ], [ %62, %61 ]
+  %66 = phi i8 [ %57, %._crit_edge.i ], [ 6, %60 ], [ 6, %61 ]
+  %67 = phi i8 [ %.sroa.0.07, %._crit_edge.i ], [ %.sroa.0.07, %60 ], [ %64, %61 ]
+  %68 = lshr i8 %67, 6
+  %69 = shl i8 %67, 2
+  switch i8 %68, label %default.unreachable [
+    i8 0, label %70
+    i8 1, label %86
+    i8 2, label %108
     i8 3, label %.critedge.loopexit
   ]
 
-71:                                               ; preds = %read_bits2.exit
-  %72 = ptrtoint ptr %66 to i64
-  %73 = sub i64 %50, %72
-  %74 = icmp slt i64 %73, 1
-  br i1 %74, label %75, label %76
+70:                                               ; preds = %read_bits2.exit
+  %71 = ptrtoint ptr %65 to i64
+  %72 = sub i64 %50, %71
+  %73 = icmp slt i64 %72, 1
+  br i1 %73, label %74, label %75
 
-75:                                               ; preds = %71
+74:                                               ; preds = %70
   store ptr %48, ptr %1, align 8, !tbaa !44
   br label %bytestream2_get_byte.exit47
 
-76:                                               ; preds = %71
-  %77 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  store ptr %77, ptr %1, align 8, !tbaa !51
-  %78 = load i8, ptr %66, align 1, !tbaa !36
+75:                                               ; preds = %70
+  %76 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store ptr %76, ptr %1, align 8, !tbaa !51
+  %77 = load i8, ptr %65, align 1, !tbaa !36
   br label %bytestream2_get_byte.exit47
 
-bytestream2_get_byte.exit47:                      ; preds = %75, %76
-  %.0.i46 = phi i8 [ 0, %75 ], [ %78, %76 ]
-  %79 = load i32, ptr %14, align 8, !tbaa !50
-  %.not.i51 = icmp eq i32 %79, 0
-  %80 = ptrtoint ptr %46 to i64
-  %81 = sub i64 %80, %47
-  %82 = icmp sgt i64 %81, 0
-  %or.cond = and i1 %.not.i51, %82
-  br i1 %or.cond, label %83, label %86
+bytestream2_get_byte.exit47:                      ; preds = %74, %75
+  %.0.i46 = phi i8 [ 0, %74 ], [ %77, %75 ]
+  %78 = load i32, ptr %14, align 8, !tbaa !50
+  %.not.i51 = icmp eq i32 %78, 0
+  %79 = ptrtoint ptr %46 to i64
+  %80 = sub i64 %79, %47
+  %81 = icmp sgt i64 %80, 0
+  %or.cond = and i1 %.not.i51, %81
+  br i1 %or.cond, label %82, label %85
 
-83:                                               ; preds = %bytestream2_get_byte.exit47
+82:                                               ; preds = %bytestream2_get_byte.exit47
   store i8 %.0.i46, ptr %45, align 1, !tbaa !36
-  %84 = load ptr, ptr %3, align 8, !tbaa !47
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1
-  store ptr %85, ptr %3, align 8, !tbaa !47
+  %83 = load ptr, ptr %3, align 8, !tbaa !47
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
+  store ptr %84, ptr %3, align 8, !tbaa !47
   br label %bytestream2_put_byte.exit
 
-86:                                               ; preds = %bytestream2_get_byte.exit47
+85:                                               ; preds = %bytestream2_get_byte.exit47
   store i32 1, ptr %14, align 8, !tbaa !50
   br label %bytestream2_put_byte.exit
 
-87:                                               ; preds = %read_bits2.exit
-  %88 = ptrtoint ptr %66 to i64
-  %89 = sub i64 %50, %88
-  %90 = icmp slt i64 %89, 1
-  br i1 %90, label %bytestream2_get_byte.exit45, label %91
+86:                                               ; preds = %read_bits2.exit
+  %87 = ptrtoint ptr %65 to i64
+  %88 = sub i64 %50, %87
+  %89 = icmp slt i64 %88, 1
+  br i1 %89, label %bytestream2_get_byte.exit45, label %90
 
-91:                                               ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  store ptr %92, ptr %1, align 8, !tbaa !51
-  %93 = load i8, ptr %66, align 1, !tbaa !36
-  %94 = zext i8 %93 to i32
-  %.pre23 = ptrtoint ptr %92 to i64
+90:                                               ; preds = %86
+  %91 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store ptr %91, ptr %1, align 8, !tbaa !51
+  %92 = load i8, ptr %65, align 1, !tbaa !36
+  %93 = zext i8 %92 to i32
+  %.pre23 = ptrtoint ptr %91 to i64
   br label %bytestream2_get_byte.exit45
 
-bytestream2_get_byte.exit45:                      ; preds = %87, %91
-  %.pre-phi24 = phi i64 [ %.pre23, %91 ], [ %50, %87 ]
-  %95 = phi ptr [ %92, %91 ], [ %48, %87 ]
-  %.0.i44 = phi i32 [ %94, %91 ], [ 0, %87 ]
-  %96 = and i32 %.0.i44, 15
-  %97 = add nuw nsw i32 %96, 3
-  %98 = lshr i32 %.0.i44, 4
-  %99 = sub i64 %50, %.pre-phi24
-  %100 = icmp slt i64 %99, 1
-  br i1 %100, label %101, label %102
+bytestream2_get_byte.exit45:                      ; preds = %86, %90
+  %.pre-phi24 = phi i64 [ %.pre23, %90 ], [ %50, %86 ]
+  %94 = phi ptr [ %91, %90 ], [ %48, %86 ]
+  %.0.i44 = phi i32 [ %93, %90 ], [ 0, %86 ]
+  %95 = and i32 %.0.i44, 15
+  %96 = add nuw nsw i32 %95, 3
+  %97 = lshr i32 %.0.i44, 4
+  %98 = sub i64 %50, %.pre-phi24
+  %99 = icmp slt i64 %98, 1
+  br i1 %99, label %100, label %101
 
-101:                                              ; preds = %bytestream2_get_byte.exit45
+100:                                              ; preds = %bytestream2_get_byte.exit45
   store ptr %48, ptr %1, align 8, !tbaa !44
   br label %bytestream2_get_byte.exit43
 
-102:                                              ; preds = %bytestream2_get_byte.exit45
-  %103 = getelementptr inbounds nuw i8, ptr %95, i64 1
-  store ptr %103, ptr %1, align 8, !tbaa !51
-  %104 = load i8, ptr %95, align 1, !tbaa !36
-  %105 = zext i8 %104 to i32
-  %106 = shl nuw nsw i32 %105, 4
+101:                                              ; preds = %bytestream2_get_byte.exit45
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 1
+  store ptr %102, ptr %1, align 8, !tbaa !51
+  %103 = load i8, ptr %94, align 1, !tbaa !36
+  %104 = zext i8 %103 to i32
+  %105 = shl nuw nsw i32 %104, 4
+  %106 = or disjoint i32 %105, %97
   br label %bytestream2_get_byte.exit43
 
-bytestream2_get_byte.exit43:                      ; preds = %101, %102
-  %.0.i42 = phi i32 [ 0, %101 ], [ %106, %102 ]
-  %107 = or disjoint i32 %98, %.0.i42
-  %108 = or disjoint i32 %107, -4096
-  tail call fastcc void @lz_copy(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %108, i32 noundef %97)
+bytestream2_get_byte.exit43:                      ; preds = %100, %101
+  %.0.i42 = phi i32 [ %97, %100 ], [ %106, %101 ]
+  %107 = or disjoint i32 %.0.i42, -4096
+  tail call fastcc void @lz_copy(ptr noundef nonnull %3, ptr noundef nonnull %2, i32 noundef %107, i32 noundef %96)
   %.pre = load ptr, ptr %3, align 8, !tbaa !47
   br label %bytestream2_put_byte.exit
 
-109:                                              ; preds = %read_bits2.exit
-  %110 = ptrtoint ptr %66 to i64
-  %111 = sub i64 %50, %110
-  %112 = icmp slt i64 %111, 1
-  br i1 %112, label %113, label %114
+108:                                              ; preds = %read_bits2.exit
+  %109 = ptrtoint ptr %65 to i64
+  %110 = sub i64 %50, %109
+  %111 = icmp slt i64 %110, 1
+  br i1 %111, label %112, label %113
 
-113:                                              ; preds = %109
+112:                                              ; preds = %108
   store ptr %48, ptr %1, align 8, !tbaa !44
   br label %bytestream2_get_byte.exit
 
-114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw i8, ptr %66, i64 1
-  store ptr %115, ptr %1, align 8, !tbaa !51
-  %116 = load i8, ptr %66, align 1, !tbaa !36
-  %117 = zext i8 %116 to i32
-  %118 = add nuw nsw i32 %117, 2
+113:                                              ; preds = %108
+  %114 = getelementptr inbounds nuw i8, ptr %65, i64 1
+  store ptr %114, ptr %1, align 8, !tbaa !51
+  %115 = load i8, ptr %65, align 1, !tbaa !36
+  %116 = zext i8 %115 to i32
+  %117 = add nuw nsw i32 %116, 2
   br label %bytestream2_get_byte.exit
 
-bytestream2_get_byte.exit:                        ; preds = %113, %114
-  %.0.i = phi i32 [ 2, %113 ], [ %118, %114 ]
-  %119 = load i32, ptr %14, align 8, !tbaa !50
-  %.not.i48 = icmp eq i32 %119, 0
-  br i1 %.not.i48, label %120, label %bytestream2_put_byte.exit
+bytestream2_get_byte.exit:                        ; preds = %112, %113
+  %.0.i = phi i32 [ 2, %112 ], [ %117, %113 ]
+  %118 = load i32, ptr %14, align 8, !tbaa !50
+  %.not.i48 = icmp eq i32 %118, 0
+  br i1 %.not.i48, label %119, label %bytestream2_put_byte.exit
 
-120:                                              ; preds = %bytestream2_get_byte.exit
-  %121 = ptrtoint ptr %46 to i64
-  %122 = sub i64 %121, %47
-  %123 = zext nneg i32 %.0.i to i64
-  %124 = tail call i64 @llvm.smin.i64(i64 %122, i64 %123)
-  %125 = trunc i64 %124 to i32
-  %.not12.i49 = icmp eq i32 %.0.i, %125
-  br i1 %.not12.i49, label %127, label %126
+119:                                              ; preds = %bytestream2_get_byte.exit
+  %120 = ptrtoint ptr %46 to i64
+  %121 = sub i64 %120, %47
+  %122 = zext nneg i32 %.0.i to i64
+  %123 = tail call i64 @llvm.smin.i64(i64 %121, i64 %122)
+  %124 = trunc i64 %123 to i32
+  %.not12.i49 = icmp eq i32 %.0.i, %124
+  br i1 %.not12.i49, label %126, label %125
 
-126:                                              ; preds = %120
+125:                                              ; preds = %119
   store i32 1, ptr %14, align 8, !tbaa !50
-  br label %127
+  br label %126
 
-127:                                              ; preds = %126, %120
-  %128 = and i64 %124, 4294967295
-  %129 = getelementptr inbounds nuw i8, ptr %45, i64 %128
-  store ptr %129, ptr %3, align 8, !tbaa !47
+126:                                              ; preds = %125, %119
+  %127 = and i64 %123, 4294967295
+  %128 = getelementptr inbounds nuw i8, ptr %45, i64 %127
+  store ptr %128, ptr %3, align 8, !tbaa !47
   br label %bytestream2_put_byte.exit
 
 default.unreachable:                              ; preds = %read_bits2.exit
   unreachable
 
-bytestream2_put_byte.exit:                        ; preds = %127, %bytestream2_get_byte.exit, %86, %83, %bytestream2_get_byte.exit43
-  %130 = phi ptr [ %129, %127 ], [ %45, %bytestream2_get_byte.exit ], [ %45, %86 ], [ %85, %83 ], [ %.pre, %bytestream2_get_byte.exit43 ]
-  %131 = load ptr, ptr %30, align 8, !tbaa !49
-  %132 = ptrtoint ptr %131 to i64
-  %133 = ptrtoint ptr %130 to i64
-  %134 = sub i64 %132, %133
-  %135 = trunc i64 %134 to i32
-  %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %44, label %.critedge.loopexit
+bytestream2_put_byte.exit:                        ; preds = %126, %bytestream2_get_byte.exit, %85, %82, %bytestream2_get_byte.exit43
+  %129 = phi ptr [ %128, %126 ], [ %45, %bytestream2_get_byte.exit ], [ %45, %85 ], [ %84, %82 ], [ %.pre, %bytestream2_get_byte.exit43 ]
+  %130 = load ptr, ptr %30, align 8, !tbaa !49
+  %131 = ptrtoint ptr %130 to i64
+  %132 = ptrtoint ptr %129 to i64
+  %133 = sub i64 %131, %132
+  %134 = trunc i64 %133 to i32
+  %135 = icmp sgt i32 %134, 0
+  br i1 %135, label %44, label %.critedge.loopexit
 
 .critedge.loopexit:                               ; preds = %read_bits2.exit, %bytestream2_put_byte.exit, %44
-  %137 = phi ptr [ %45, %read_bits2.exit ], [ %130, %bytestream2_put_byte.exit ], [ %45, %44 ]
-  %138 = phi ptr [ %46, %read_bits2.exit ], [ %131, %bytestream2_put_byte.exit ], [ %46, %44 ]
-  %.pre16 = ptrtoint ptr %138 to i64
-  %.pre17 = ptrtoint ptr %137 to i64
+  %136 = phi ptr [ %45, %read_bits2.exit ], [ %129, %bytestream2_put_byte.exit ], [ %45, %44 ]
+  %137 = phi ptr [ %46, %read_bits2.exit ], [ %130, %bytestream2_put_byte.exit ], [ %46, %44 ]
+  %.pre16 = ptrtoint ptr %137 to i64
+  %.pre17 = ptrtoint ptr %136 to i64
   %.pre19 = sub i64 %.pre16, %.pre17
   %.pre21 = trunc i64 %.pre19 to i32
-  %139 = icmp sgt i32 %.pre21, 0
-  %140 = select i1 %139, i32 -1094995529, i32 0
+  %138 = icmp sgt i32 %.pre21, 0
+  %139 = select i1 %138, i32 -1094995529, i32 0
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.pre-phi22 = phi i32 [ %140, %.critedge.loopexit ], [ 0, %.preheader ]
+  %.pre-phi22 = phi i32 [ %139, %.critedge.loopexit ], [ 0, %.preheader ]
   ret i32 %.pre-phi22
 }
 
@@ -1295,23 +1290,23 @@ read_bits2.exit.thread:                           ; preds = %51
   %58 = getelementptr inbounds nuw i8, ptr %45, i64 1
   store ptr %58, ptr %2, align 8, !tbaa !51
   %59 = load i8, ptr %45, align 1, !tbaa !36
+  %60 = or i8 %59, %.sroa.0.012
   %.pre28 = ptrtoint ptr %58 to i64
   br label %read_bits2.exit
 
 read_bits2.exit:                                  ; preds = %56, %57
   %.pre20.pre-phi = phi i64 [ %.pre28, %57 ], [ %46, %56 ]
-  %60 = phi ptr [ %58, %57 ], [ %44, %56 ]
-  %.0.i.i = phi i8 [ %59, %57 ], [ 0, %56 ]
-  %61 = or i8 %.0.i.i, %.sroa.0.012
+  %61 = phi ptr [ %58, %57 ], [ %44, %56 ]
+  %.0.i.i = phi i8 [ %60, %57 ], [ %.sroa.0.012, %56 ]
   %.pre22 = sub i64 %46, %.pre20.pre-phi
   %.pre24 = trunc i64 %.pre22 to i32
   %62 = icmp slt i32 %.pre24, 1
   br i1 %62, label %bytestream2_put_byte.exit.thread, label %63
 
 63:                                               ; preds = %read_bits2.exit.thread, %read_bits2.exit
-  %64 = phi i8 [ %.sroa.0.012, %read_bits2.exit.thread ], [ %61, %read_bits2.exit ]
+  %64 = phi i8 [ %.sroa.0.012, %read_bits2.exit.thread ], [ %.0.i.i, %read_bits2.exit ]
   %65 = phi i8 [ %53, %read_bits2.exit.thread ], [ 6, %read_bits2.exit ]
-  %66 = phi ptr [ %45, %read_bits2.exit.thread ], [ %60, %read_bits2.exit ]
+  %66 = phi ptr [ %45, %read_bits2.exit.thread ], [ %61, %read_bits2.exit ]
   %.pre-phi2332 = phi i64 [ %48, %read_bits2.exit.thread ], [ %.pre22, %read_bits2.exit ]
   %67 = shl i8 %64, 2
   %68 = lshr i8 %64, 6
@@ -1389,12 +1384,12 @@ bytestream2_get_byte.exit56:                      ; preds = %83, %84
   %97 = load i8, ptr %88, align 1, !tbaa !36
   %98 = zext i8 %97 to i32
   %99 = shl nuw nsw i32 %98, 4
+  %100 = or disjoint i32 %99, %91
   br label %bytestream2_get_byte.exit54
 
 bytestream2_get_byte.exit54:                      ; preds = %94, %95
-  %.0.i53 = phi i32 [ 0, %94 ], [ %99, %95 ]
-  %100 = or disjoint i32 %91, %.0.i53
-  %101 = or disjoint i32 %100, -4096
+  %.0.i53 = phi i32 [ %91, %94 ], [ %100, %95 ]
+  %101 = or disjoint i32 %.0.i53, -4096
   tail call fastcc void @lz_copy(ptr noundef nonnull %4, ptr noundef nonnull %3, i32 noundef %101, i32 noundef %90)
   br label %bytestream2_put_byte.exit
 
@@ -2340,12 +2335,12 @@ read_bits32.exit204:                              ; preds = %bytestream2_get_le1
   store ptr %425, ptr %3, align 8, !tbaa !51
   %426 = load i8, ptr %419, align 1, !tbaa !36
   %427 = zext i8 %426 to i32
+  %428 = or disjoint i32 %.0119, %427
   br label %bytestream2_get_byte.exit153
 
 bytestream2_get_byte.exit153:                     ; preds = %423, %424
-  %.0.i152 = phi i32 [ 0, %423 ], [ %427, %424 ]
-  %428 = or disjoint i32 %.0.i152, %.0119
-  %429 = or i32 %428, -4096
+  %.0.i152 = phi i32 [ %.0119, %423 ], [ %428, %424 ]
+  %429 = or i32 %.0.i152, -4096
   br label %460
 
 430:                                              ; preds = %353
@@ -2400,12 +2395,12 @@ bytestream2_get_byte.exit149:                     ; preds = %436, %440, %bytestr
   store ptr %455, ptr %3, align 8, !tbaa !51
   %456 = load i8, ptr %448, align 1, !tbaa !36
   %457 = zext i8 %456 to i32
+  %458 = or disjoint i32 %449, %457
   br label %bytestream2_get_byte.exit
 
 bytestream2_get_byte.exit:                        ; preds = %453, %454
-  %.0.i = phi i32 [ 0, %453 ], [ %457, %454 ]
-  %458 = or disjoint i32 %.0.i, %449
-  %459 = or i32 %458, -4096
+  %.0.i = phi i32 [ %449, %453 ], [ %458, %454 ]
+  %459 = or i32 %.0.i, -4096
   br label %460
 
 460:                                              ; preds = %bytestream2_get_byte.exit155, %bytestream2_get_byte.exit153, %bytestream2_get_byte.exit

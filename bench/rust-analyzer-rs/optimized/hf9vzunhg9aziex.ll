@@ -1054,12 +1054,8 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
   br label %.thread
 
 95:                                               ; preds = %45, %46, %47, %48, %49, %50, %.thread98, %.thread
-  %.sroa.182.1 = phi i64 [ %118, %.thread ], [ 42949672960, %45 ], [ 55834574848, %46 ], [ 38654705664, %47 ], [ 395136991232, %48 ], [ 167503724544, %49 ], [ 0, %50 ], [ 146028888064, %.thread98 ]
-  %.sroa.11.1 = phi i64 [ %.sroa.11.0, %.thread ], [ 0, %45 ], [ 0, %46 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %.thread98 ]
-  %.sroa.0.1 = phi i64 [ %116, %.thread ], [ 0, %45 ], [ 0, %46 ], [ 0, %47 ], [ 0, %48 ], [ 0, %49 ], [ 0, %50 ], [ 0, %.thread98 ]
-  %.sroa.11.0.insert.insert = or i64 %.sroa.11.1, %.sroa.182.1
-  %.sroa.0.0.insert.insert = or i64 %.sroa.11.0.insert.insert, %.sroa.0.1
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.182.1 = phi i64 [ %120, %.thread ], [ 42949672960, %45 ], [ 55834574848, %46 ], [ 38654705664, %47 ], [ 395136991232, %48 ], [ 167503724544, %49 ], [ 0, %50 ], [ 146028888064, %.thread98 ]
+  ret i64 %.sroa.182.1
 
 .thread105:                                       ; preds = %67, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.llvm.14766145776867520687.exit15.i87", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.llvm.14766145776867520687.exit13.i84", %79
   %.sroa.4.0.i85.ph107 = phi i32 [ %89, %79 ], [ %68, %67 ], [ %77, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.llvm.14766145776867520687.exit15.i87" ], [ %65, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc3ce73c84d5059bbE.llvm.14766145776867520687.exit13.i84" ]
@@ -1115,6 +1111,8 @@ define internal fastcc range(i64 0, -4294901760) i64 @_ZN17ra_ap_rustc_lexer8une
   %116 = and i64 %.sroa.0.0, 255
   %117 = zext i32 %.sroa.182.0 to i64
   %118 = shl nuw i64 %117, 32
+  %119 = or disjoint i64 %118, %.sroa.11.0
+  %120 = or disjoint i64 %119, %116
   br label %95
 }
 
@@ -1226,15 +1224,14 @@ switch.lookup:
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %.thread38, %58
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %58 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %58 ]
   %63 = phi i64 [ %53, %.thread38 ], [ %59, %58 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %58 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %58 ]
   %64 = phi i64 [ %57, %.thread38 ], [ %60, %58 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %65
 
 65:                                               ; preds = %58, %62
@@ -1404,15 +1401,14 @@ switch.lookup:
   br i1 %57, label %61, label %58
 
 58:                                               ; preds = %.thread38, %54
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %54 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %54 ]
   %59 = phi i64 [ %49, %.thread38 ], [ %55, %54 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %54 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %54 ]
   %60 = phi i64 [ %53, %.thread38 ], [ %56, %54 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %61
 
 61:                                               ; preds = %54, %58
@@ -1593,15 +1589,14 @@ switch.lookup:
   br i1 %61, label %65, label %62
 
 62:                                               ; preds = %.thread38, %58
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %58 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %58 ]
   %63 = phi i64 [ %53, %.thread38 ], [ %59, %58 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %58 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %58 ]
   %64 = phi i64 [ %57, %.thread38 ], [ %60, %58 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %65
 
 65:                                               ; preds = %58, %62
@@ -1771,15 +1766,14 @@ switch.lookup:
   br i1 %57, label %61, label %58
 
 58:                                               ; preds = %.thread38, %54
-  %.not48 = phi i1 [ true, %.thread38 ], [ false, %54 ]
+  %.not48 = phi i1 [ %switch.masked, %.thread38 ], [ false, %54 ]
   %59 = phi i64 [ %49, %.thread38 ], [ %55, %54 ]
   %.sroa.0.1.ph3545 = phi ptr [ %.sroa.0.1.ph35, %.thread38 ], [ %.sroa.0.1.ph3546, %54 ]
   %.sroa.4.0.i.ph3642 = phi i32 [ %.sroa.4.0.i.ph36, %.thread38 ], [ %.sroa.4.0.i.ph3643, %54 ]
   %60 = phi i64 [ %53, %.thread38 ], [ %56, %54 ]
-  %or.cond.not = and i1 %.not48, %switch.masked
-  %.20 = zext i1 %or.cond.not to i64
-  %.sroa.411.0. = select i1 %or.cond.not, i8 19, i8 %.sroa.411.051
-  %.0..sroa.613.0 = select i1 %or.cond.not, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
+  %.20 = zext i1 %.not48 to i64
+  %.sroa.411.0. = select i1 %.not48, i8 19, i8 %.sroa.411.051
+  %.0..sroa.613.0 = select i1 %.not48, i32 %.sroa.613.052, i32 %.sroa.4.0.i.ph3642
   br label %61
 
 61:                                               ; preds = %54, %58
@@ -2142,7 +2136,7 @@ switch.lookup:
   br label %67
 
 67:                                               ; preds = %.thread62.thread, %63, %65, %.thread62
-  %.not71 = phi i1 [ false, %.thread62 ], [ true, %65 ], [ true, %63 ], [ false, %.thread62.thread ]
+  %.not71 = phi i1 [ false, %.thread62 ], [ %switch.masked, %65 ], [ %switch.masked, %63 ], [ false, %.thread62.thread ]
   %68 = phi i64 [ %61, %.thread62 ], [ %61, %65 ], [ %61, %63 ], [ %36, %.thread62.thread ]
   %69 = phi ptr [ %58, %.thread62 ], [ %58, %65 ], [ %58, %63 ], [ %20, %.thread62.thread ]
   %.sroa.4.0.i.ph6570 = phi i32 [ %.sroa.4.0.i.ph65, %.thread62 ], [ %.sroa.4.0.i.ph65, %65 ], [ %.sroa.4.0.i.ph65, %63 ], [ %33, %.thread62.thread ]
@@ -2156,12 +2150,11 @@ switch.lookup:
   ]
 
 72:                                               ; preds = %67
-  %or.cond3.not = and i1 %.not71, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph149, i32 %.sroa.4.0.i.ph6570
-  %.51 = zext i1 %or.cond3.not to i64
+  %.0..sroa.619.0 = select i1 %.not71, i32 %.sroa.619.0.ph149, i32 %.sroa.4.0.i.ph6570
+  %.51 = zext i1 %.not71 to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
-  %.sroa.46.0.i = select i1 %or.cond3.not, i64 0, i64 %.sroa.619.0.insert.shift
+  %.sroa.46.0.i = select i1 %.not71, i64 0, i64 %.sroa.619.0.insert.shift
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.46.0.i, %.51
   %.sroa.544.0.extract.shift = lshr exact i64 %.sroa.46.0.i, 16
   %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
@@ -2758,7 +2751,7 @@ switch.lookup:
   br label %67
 
 67:                                               ; preds = %.thread62.thread, %63, %65, %.thread62
-  %.not71 = phi i1 [ false, %.thread62 ], [ true, %65 ], [ true, %63 ], [ false, %.thread62.thread ]
+  %.not71 = phi i1 [ false, %.thread62 ], [ %switch.masked, %65 ], [ %switch.masked, %63 ], [ false, %.thread62.thread ]
   %68 = phi i64 [ %61, %.thread62 ], [ %61, %65 ], [ %61, %63 ], [ %36, %.thread62.thread ]
   %69 = phi ptr [ %58, %.thread62 ], [ %58, %65 ], [ %58, %63 ], [ %20, %.thread62.thread ]
   %.sroa.4.0.i.ph6570 = phi i32 [ %.sroa.4.0.i.ph65, %.thread62 ], [ %.sroa.4.0.i.ph65, %65 ], [ %.sroa.4.0.i.ph65, %63 ], [ %33, %.thread62.thread ]
@@ -2772,12 +2765,11 @@ switch.lookup:
   ]
 
 72:                                               ; preds = %67
-  %or.cond3.not = and i1 %.not71, %switch.masked
-  %.0..sroa.619.0 = select i1 %or.cond3.not, i32 %.sroa.619.0.ph149, i32 %.sroa.4.0.i.ph6570
-  %.51 = zext i1 %or.cond3.not to i64
+  %.0..sroa.619.0 = select i1 %.not71, i32 %.sroa.619.0.ph149, i32 %.sroa.4.0.i.ph6570
+  %.51 = zext i1 %.not71 to i64
   %.sroa.619.0.insert.ext = zext i32 %.0..sroa.619.0 to i64
   %.sroa.619.0.insert.shift = shl nuw i64 %.sroa.619.0.insert.ext, 32
-  %.sroa.46.0.i = select i1 %or.cond3.not, i64 0, i64 %.sroa.619.0.insert.shift
+  %.sroa.46.0.i = select i1 %.not71, i64 0, i64 %.sroa.619.0.insert.shift
   %.sroa.018.0.insert.insert = or disjoint i64 %.sroa.46.0.i, %.51
   %.sroa.544.0.extract.shift = lshr exact i64 %.sroa.46.0.i, 16
   %.sroa.544.0.extract.trunc = trunc nuw i64 %.sroa.544.0.extract.shift to i48
@@ -37848,7 +37840,7 @@ define void @_ZN3ide8Analysis6status17h92b7da3c87d72cccE(ptr noalias noundef sre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis11source_root17hbbf8d799713e5cb8E(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i64 0, -4294967295) i64 @_ZN3ide8Analysis11source_root17hbbf8d799713e5cb8E(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   %4 = alloca { ptr, [1 x i64] }, align 8
   %5 = alloca i32, align 4
@@ -37881,7 +37873,7 @@ define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis11source_root17hbbf8d79971
   %17 = icmp eq ptr %16, null
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !8040, !nonnull !11, !align !225, !noundef !11
-  br i1 %17, label %20, label %24
+  br i1 %17, label %20, label %25
 
 20:                                               ; preds = %11
   %21 = load i8, ptr %19, align 1, !range !437, !noundef !11
@@ -37889,17 +37881,16 @@ define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis11source_root17hbbf8d79971
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8040
   %22 = zext nneg i8 %21 to i64
   %23 = shl nuw nsw i64 %22, 8
+  %24 = or disjoint i64 %23, 1
   br label %_ZN5salsa9Cancelled5catch17h99da69599f066314E.exit
 
-24:                                               ; preds = %11
+25:                                               ; preds = %11
   call void @_ZN3std5panic13resume_unwind17h9069d5fb4eed56f5E(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #39
   unreachable
 
 _ZN5salsa9Cancelled5catch17h99da69599f066314E.exit: ; preds = %7, %20
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 1, %20 ]
-  %.sroa.3.0.insert.insert.i = phi i64 [ %10, %7 ], [ %23, %20 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.insert.i, %.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.3.0.insert.insert.i = phi i64 [ %10, %7 ], [ %24, %20 ]
+  ret i64 %.sroa.3.0.insert.insert.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -38617,7 +38608,7 @@ _ZN5salsa9Cancelled5catch17h0c69ba15709757d6E.exit: ; preds = %7, %18
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis10crate_root17h35da21741c33268aE(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define range(i64 0, -4294967295) i64 @_ZN3ide8Analysis10crate_root17h35da21741c33268aE(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64] }, align 8
   %4 = alloca { ptr, [1 x i64] }, align 8
   %5 = alloca i32, align 4
@@ -38650,7 +38641,7 @@ define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis10crate_root17h35da21741c3
   %17 = icmp eq ptr %16, null
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = load ptr, ptr %18, align 8, !noalias !8124, !nonnull !11, !align !225, !noundef !11
-  br i1 %17, label %20, label %24
+  br i1 %17, label %20, label %25
 
 20:                                               ; preds = %11
   %21 = load i8, ptr %19, align 1, !range !437, !noundef !11
@@ -38658,17 +38649,16 @@ define range(i64 0, -4294967294) i64 @_ZN3ide8Analysis10crate_root17h35da21741c3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8124
   %22 = zext nneg i8 %21 to i64
   %23 = shl nuw nsw i64 %22, 8
+  %24 = or disjoint i64 %23, 1
   br label %_ZN5salsa9Cancelled5catch17h30d5b0eea5099c9dE.exit
 
-24:                                               ; preds = %11
+25:                                               ; preds = %11
   call void @_ZN3std5panic13resume_unwind17h9069d5fb4eed56f5E(ptr noundef nonnull align 1 %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19) #39
   unreachable
 
 _ZN5salsa9Cancelled5catch17h30d5b0eea5099c9dE.exit: ; preds = %7, %20
-  %.sroa.0.0.i = phi i64 [ 0, %7 ], [ 1, %20 ]
-  %.sroa.3.0.insert.insert.i = phi i64 [ %10, %7 ], [ %23, %20 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.insert.i, %.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.3.0.insert.insert.i = phi i64 [ %10, %7 ], [ %24, %20 ]
+  ret i64 %.sroa.3.0.insert.insert.i
 }
 
 ; Function Attrs: nonlazybind uwtable

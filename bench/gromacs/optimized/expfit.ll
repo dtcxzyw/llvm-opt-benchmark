@@ -592,7 +592,7 @@ define internal noundef double @_ZL17lmc_errest_3_parmdPKd(double noundef %0, pt
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fadd double %4, %7
   %9 = fcmp une double %3, 0.000000e+00
-  br i1 %9, label %10, label %_ZL10safe_expm1d.exit
+  br i1 %9, label %10, label %19
 
 10:                                               ; preds = %2
   %11 = fneg double %0
@@ -608,54 +608,58 @@ define internal noundef double @_ZL17lmc_errest_3_parmdPKd(double noundef %0, pt
   %17 = tail call double @expm1(double noundef %12) #17, !tbaa !4
   br label %_ZL10safe_expm1d.exit
 
-_ZL10safe_expm1d.exit:                            ; preds = %16, %14, %10, %2
-  %.024 = phi double [ 0.000000e+00, %2 ], [ %17, %16 ], [ -1.000000e+00, %10 ], [ 0x51F73F60EA79F5B9, %14 ]
-  %18 = fcmp une double %6, 0.000000e+00
-  br i1 %18, label %19, label %_ZL10safe_expm1d.exit28
+_ZL10safe_expm1d.exit:                            ; preds = %10, %14, %16
+  %.0.i = phi double [ %17, %16 ], [ -1.000000e+00, %10 ], [ 0x51F73F60EA79F5B9, %14 ]
+  %18 = fmul double %4, %.0.i
+  br label %19
 
-19:                                               ; preds = %_ZL10safe_expm1d.exit
-  %20 = fneg double %0
-  %21 = fdiv double %20, %8
-  %22 = fcmp ugt double %21, -2.000000e+02
-  br i1 %22, label %23, label %_ZL10safe_expm1d.exit28
+19:                                               ; preds = %2, %_ZL10safe_expm1d.exit
+  %.024 = phi double [ %18, %_ZL10safe_expm1d.exit ], [ 0.000000e+00, %2 ]
+  %20 = fcmp une double %6, 0.000000e+00
+  br i1 %20, label %21, label %_ZL10safe_expm1d.exit28
 
-23:                                               ; preds = %19
-  %24 = fcmp ult double %21, 2.000000e+02
+21:                                               ; preds = %19
+  %22 = fneg double %0
+  %23 = fdiv double %22, %8
+  %24 = fcmp ugt double %23, -2.000000e+02
   br i1 %24, label %25, label %_ZL10safe_expm1d.exit28
 
-25:                                               ; preds = %23
-  %26 = tail call double @expm1(double noundef %21) #17, !tbaa !4
+25:                                               ; preds = %21
+  %26 = fcmp ult double %23, 2.000000e+02
+  br i1 %26, label %27, label %_ZL10safe_expm1d.exit28
+
+27:                                               ; preds = %25
+  %28 = tail call double @expm1(double noundef %23) #17, !tbaa !4
   br label %_ZL10safe_expm1d.exit28
 
-_ZL10safe_expm1d.exit28:                          ; preds = %25, %23, %19, %_ZL10safe_expm1d.exit
-  %.025 = phi double [ 0.000000e+00, %_ZL10safe_expm1d.exit ], [ %26, %25 ], [ -1.000000e+00, %19 ], [ 0x51F73F60EA79F5B9, %23 ]
-  %27 = fcmp ogt double %0, 0.000000e+00
-  br i1 %27, label %28, label %47
+_ZL10safe_expm1d.exit28:                          ; preds = %27, %25, %21, %19
+  %.025 = phi double [ 0.000000e+00, %19 ], [ %28, %27 ], [ -1.000000e+00, %21 ], [ 0x51F73F60EA79F5B9, %25 ]
+  %29 = fcmp ogt double %0, 0.000000e+00
+  br i1 %29, label %30, label %48
 
-28:                                               ; preds = %_ZL10safe_expm1d.exit28
-  %29 = fmul double %4, 2.000000e+00
-  %30 = fmul double %4, %.024
-  %31 = fdiv double %30, %0
-  %32 = fadd double %31, 1.000000e+00
-  %33 = fmul double %29, %32
-  %34 = fmul double %8, 2.000000e+00
-  %35 = fmul double %8, %.025
-  %36 = fdiv double %35, %0
-  %37 = fadd double %36, 1.000000e+00
-  %38 = fmul double %34, %37
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load double, ptr %39, align 8, !tbaa !13
-  %41 = fcmp ogt double %40, 0.000000e+00
-  %42 = select i1 %41, double %40, double 0.000000e+00
-  %43 = fcmp olt double %42, 1.000000e+00
-  %.sroa.speculated = select i1 %43, double %42, double 1.000000e+00
-  %44 = fsub double 1.000000e+00, %.sroa.speculated
-  %45 = fmul double %38, %44
-  %46 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %33, double %45)
-  br label %47
+30:                                               ; preds = %_ZL10safe_expm1d.exit28
+  %31 = fmul double %4, 2.000000e+00
+  %32 = fdiv double %.024, %0
+  %33 = fadd double %32, 1.000000e+00
+  %34 = fmul double %31, %33
+  %35 = fmul double %8, 2.000000e+00
+  %36 = fmul double %8, %.025
+  %37 = fdiv double %36, %0
+  %38 = fadd double %37, 1.000000e+00
+  %39 = fmul double %35, %38
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %41 = load double, ptr %40, align 8, !tbaa !13
+  %42 = fcmp ogt double %41, 0.000000e+00
+  %43 = select i1 %42, double %41, double 0.000000e+00
+  %44 = fcmp olt double %43, 1.000000e+00
+  %.sroa.speculated = select i1 %44, double %43, double 1.000000e+00
+  %45 = fsub double 1.000000e+00, %.sroa.speculated
+  %46 = fmul double %39, %45
+  %47 = tail call double @llvm.fmuladd.f64(double %.sroa.speculated, double %34, double %46)
+  br label %48
 
-47:                                               ; preds = %_ZL10safe_expm1d.exit28, %28
-  %.0 = phi double [ %46, %28 ], [ 0.000000e+00, %_ZL10safe_expm1d.exit28 ]
+48:                                               ; preds = %_ZL10safe_expm1d.exit28, %30
+  %.0 = phi double [ %47, %30 ], [ 0.000000e+00, %_ZL10safe_expm1d.exit28 ]
   ret double %.0
 }
 

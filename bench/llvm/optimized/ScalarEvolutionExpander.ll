@@ -1163,189 +1163,185 @@ define dso_local { ptr, i64 } @_ZNK4llvm12SCEVExpander20findInsertPointAfterEPNS
   %.sroa.16.sroa.0.2 = phi i16 [ 0, %15 ], [ %.sroa.2.0.extract.trunc, %18 ], [ %.sroa.16.sroa.0.1, %10 ]
   %.sroa.16.sroa.7.2 = phi i16 [ 0, %15 ], [ %.sroa.16.sroa.7.0.extract.shift, %18 ], [ 0, %10 ]
   %23 = and i16 %.sroa.16.sroa.0.2, 255
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %25 = load ptr, ptr %24, align 8, !tbaa !117
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %27 = load i32, ptr %26, align 8, !tbaa !120
-  %28 = icmp eq i32 %27, 0
-  %29 = add i32 %27, -1
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %33 = load i32, ptr %32, align 8
-  %.fr88 = freeze i32 %33
-  %34 = icmp eq i32 %.fr88, 0
-  %35 = add i32 %.fr88, -1
-  br i1 %28, label %.split.us, label %.split
+  %24 = or disjoint i16 %.sroa.16.sroa.7.2, %23
+  %25 = zext i16 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %27 = load ptr, ptr %26, align 8, !tbaa !117
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %29 = load i32, ptr %28, align 8, !tbaa !120
+  %30 = icmp eq i32 %29, 0
+  %31 = add i32 %29, -1
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %35 = load i32, ptr %34, align 8
+  %.fr74 = freeze i32 %35
+  %36 = icmp eq i32 %.fr74, 0
+  %37 = add i32 %.fr74, -1
+  br i1 %30, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %.loopexit42
-  br i1 %34, label %.critedge, label %.lr.ph.split
+  br i1 %36, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.split.us, %.loopexit.i.us
-  %.sroa.16.sroa.7.3.us73 = phi i16 [ 0, %.loopexit.i.us ], [ %.sroa.16.sroa.7.2, %.split.us ]
-  %.sroa.16.sroa.0.3.us72 = phi i16 [ 0, %.loopexit.i.us ], [ %23, %.split.us ]
-  %.sroa.022.3.us71 = phi ptr [ %55, %.loopexit.i.us ], [ %.sroa.022.2, %.split.us ]
-  %36 = getelementptr inbounds i8, ptr %.sroa.022.3.us71, i64 -24
-  %37 = ptrtoint ptr %36 to i64
-  %38 = trunc i64 %37 to i32
-  %39 = lshr i32 %38, 4
-  %40 = lshr i32 %38, 9
-  %41 = xor i32 %39, %40
-  %.01728.i.i.i.i.i3.i.us = and i32 %35, %41
-  %42 = zext nneg i32 %.01728.i.i.i.i.i3.i.us to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %31, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !121
-  %45 = icmp eq ptr %36, %44
-  br i1 %45, label %.loopexit.us, label %.lr.ph.i.i.i.i.i4.i.us, !prof !123
+  %.sroa.16.sroa.7.3.us64 = phi i64 [ 0, %.loopexit.i.us ], [ %25, %.split.us ]
+  %.sroa.022.3.us63 = phi ptr [ %57, %.loopexit.i.us ], [ %.sroa.022.2, %.split.us ]
+  %38 = getelementptr inbounds i8, ptr %.sroa.022.3.us63, i64 -24
+  %39 = ptrtoint ptr %38 to i64
+  %40 = trunc i64 %39 to i32
+  %41 = lshr i32 %40, 4
+  %42 = lshr i32 %40, 9
+  %43 = xor i32 %41, %42
+  %.01728.i.i.i.i.i3.i.us = and i32 %37, %43
+  %44 = zext nneg i32 %.01728.i.i.i.i.i3.i.us to i64
+  %45 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %33, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !121
+  %47 = icmp eq ptr %38, %46
+  br i1 %47, label %.loopexit.us, label %.lr.ph.i.i.i.i.i4.i.us, !prof !123
 
-.lr.ph.i.i.i.i.i4.i.us:                           ; preds = %.lr.ph.split, %47
-  %46 = phi ptr [ %52, %47 ], [ %44, %.lr.ph.split ]
-  %.01730.i.i.i.i.i5.i.us = phi i32 [ %.017.i.i.i.i.i7.i.us, %47 ], [ %.01728.i.i.i.i.i3.i.us, %.lr.ph.split ]
-  %.01529.i.i.i.i.i6.i.us = phi i32 [ %48, %47 ], [ 1, %.lr.ph.split ]
-  %.not.i.us = icmp eq ptr %46, inttoptr (i64 -4096 to ptr)
-  br i1 %.not.i.us, label %.critedge, label %47, !prof !33
+.lr.ph.i.i.i.i.i4.i.us:                           ; preds = %.lr.ph.split, %49
+  %48 = phi ptr [ %54, %49 ], [ %46, %.lr.ph.split ]
+  %.01730.i.i.i.i.i5.i.us = phi i32 [ %.017.i.i.i.i.i7.i.us, %49 ], [ %.01728.i.i.i.i.i3.i.us, %.lr.ph.split ]
+  %.01529.i.i.i.i.i6.i.us = phi i32 [ %50, %49 ], [ 1, %.lr.ph.split ]
+  %.not.i.us = icmp eq ptr %48, inttoptr (i64 -4096 to ptr)
+  br i1 %.not.i.us, label %.critedge, label %49, !prof !33
 
-47:                                               ; preds = %.lr.ph.i.i.i.i.i4.i.us
-  %48 = add i32 %.01529.i.i.i.i.i6.i.us, 1
-  %49 = add i32 %.01529.i.i.i.i.i6.i.us, %.01730.i.i.i.i.i5.i.us
-  %.017.i.i.i.i.i7.i.us = and i32 %49, %35
-  %50 = zext i32 %.017.i.i.i.i.i7.i.us to i64
-  %51 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %31, i64 %50
-  %52 = load ptr, ptr %51, align 8, !tbaa !121
-  %53 = icmp eq ptr %36, %52
-  br i1 %53, label %.loopexit.us, label %.lr.ph.i.i.i.i.i4.i.us, !prof !124, !llvm.loop !125
+49:                                               ; preds = %.lr.ph.i.i.i.i.i4.i.us
+  %50 = add i32 %.01529.i.i.i.i.i6.i.us, 1
+  %51 = add i32 %.01529.i.i.i.i.i6.i.us, %.01730.i.i.i.i.i5.i.us
+  %.017.i.i.i.i.i7.i.us = and i32 %51, %37
+  %52 = zext i32 %.017.i.i.i.i.i7.i.us to i64
+  %53 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %33, i64 %52
+  %54 = load ptr, ptr %53, align 8, !tbaa !121
+  %55 = icmp eq ptr %38, %54
+  br i1 %55, label %.loopexit.us, label %.lr.ph.i.i.i.i.i4.i.us, !prof !124, !llvm.loop !125
 
-.loopexit.us:                                     ; preds = %47, %.lr.ph.split
-  %.not19.us = icmp eq ptr %36, %2
+.loopexit.us:                                     ; preds = %49, %.lr.ph.split
+  %.not19.us = icmp eq ptr %38, %2
   br i1 %.not19.us, label %.critedge, label %.loopexit.i.us
 
 .loopexit.i.us:                                   ; preds = %.loopexit.us
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.022.3.us71, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !112
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.3.us63, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !112
   br label %.lr.ph.split
 
 .split:                                           ; preds = %.loopexit42
-  br i1 %34, label %.split.split.us, label %.split.split
+  br i1 %36, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %75
-  %.sroa.022.3.us58 = phi ptr [ %77, %75 ], [ %.sroa.022.2, %.split ]
-  %.sroa.16.sroa.0.3.us59 = phi i16 [ 0, %75 ], [ %23, %.split ]
-  %.sroa.16.sroa.7.3.us60 = phi i16 [ 0, %75 ], [ %.sroa.16.sroa.7.2, %.split ]
-  %56 = getelementptr inbounds i8, ptr %.sroa.022.3.us58, i64 -24
-  %57 = ptrtoint ptr %56 to i64
-  %58 = trunc i64 %57 to i32
-  %59 = lshr i32 %58, 4
-  %60 = lshr i32 %58, 9
-  %61 = xor i32 %59, %60
-  %.01728.i.i.i.i.i.i.us = and i32 %29, %61
-  %62 = zext nneg i32 %.01728.i.i.i.i.i.i.us to i64
-  %63 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %25, i64 %62
-  %64 = load ptr, ptr %63, align 8, !tbaa !121
-  %65 = icmp eq ptr %56, %64
-  br i1 %65, label %.loopexit40.us, label %.lr.ph.i.i.i.i.i.i.us, !prof !123
+.split.split.us:                                  ; preds = %.split, %77
+  %.sroa.022.3.us54 = phi ptr [ %79, %77 ], [ %.sroa.022.2, %.split ]
+  %.sroa.16.sroa.7.3.us55 = phi i64 [ 0, %77 ], [ %25, %.split ]
+  %58 = getelementptr inbounds i8, ptr %.sroa.022.3.us54, i64 -24
+  %59 = ptrtoint ptr %58 to i64
+  %60 = trunc i64 %59 to i32
+  %61 = lshr i32 %60, 4
+  %62 = lshr i32 %60, 9
+  %63 = xor i32 %61, %62
+  %.01728.i.i.i.i.i.i.us = and i32 %63, %31
+  %64 = zext nneg i32 %.01728.i.i.i.i.i.i.us to i64
+  %65 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %27, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !121
+  %67 = icmp eq ptr %58, %66
+  br i1 %67, label %.loopexit40.us, label %.lr.ph.i.i.i.i.i.i.us, !prof !123
 
-.lr.ph.i.i.i.i.i.i.us:                            ; preds = %.split.split.us, %68
-  %66 = phi ptr [ %73, %68 ], [ %64, %.split.split.us ]
-  %.01730.i.i.i.i.i.i.us = phi i32 [ %.017.i.i.i.i.i.i.us, %68 ], [ %.01728.i.i.i.i.i.i.us, %.split.split.us ]
-  %.01529.i.i.i.i.i.i.us = phi i32 [ %69, %68 ], [ 1, %.split.split.us ]
-  %67 = icmp eq ptr %66, inttoptr (i64 -4096 to ptr)
-  br i1 %67, label %.critedge, label %68, !prof !33
+.lr.ph.i.i.i.i.i.i.us:                            ; preds = %.split.split.us, %70
+  %68 = phi ptr [ %75, %70 ], [ %66, %.split.split.us ]
+  %.01730.i.i.i.i.i.i.us = phi i32 [ %.017.i.i.i.i.i.i.us, %70 ], [ %.01728.i.i.i.i.i.i.us, %.split.split.us ]
+  %.01529.i.i.i.i.i.i.us = phi i32 [ %71, %70 ], [ 1, %.split.split.us ]
+  %69 = icmp eq ptr %68, inttoptr (i64 -4096 to ptr)
+  br i1 %69, label %.critedge, label %70, !prof !33
 
-68:                                               ; preds = %.lr.ph.i.i.i.i.i.i.us
-  %69 = add i32 %.01529.i.i.i.i.i.i.us, 1
-  %70 = add i32 %.01529.i.i.i.i.i.i.us, %.01730.i.i.i.i.i.i.us
-  %.017.i.i.i.i.i.i.us = and i32 %70, %29
-  %71 = zext i32 %.017.i.i.i.i.i.i.us to i64
-  %72 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %25, i64 %71
-  %73 = load ptr, ptr %72, align 8, !tbaa !121
-  %74 = icmp eq ptr %56, %73
-  br i1 %74, label %.loopexit40.us, label %.lr.ph.i.i.i.i.i.i.us, !prof !124, !llvm.loop !125
+70:                                               ; preds = %.lr.ph.i.i.i.i.i.i.us
+  %71 = add i32 %.01529.i.i.i.i.i.i.us, 1
+  %72 = add i32 %.01529.i.i.i.i.i.i.us, %.01730.i.i.i.i.i.i.us
+  %.017.i.i.i.i.i.i.us = and i32 %72, %31
+  %73 = zext i32 %.017.i.i.i.i.i.i.us to i64
+  %74 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %27, i64 %73
+  %75 = load ptr, ptr %74, align 8, !tbaa !121
+  %76 = icmp eq ptr %58, %75
+  br i1 %76, label %.loopexit40.us, label %.lr.ph.i.i.i.i.i.i.us, !prof !124, !llvm.loop !125
 
-.loopexit40.us:                                   ; preds = %68, %.split.split.us
-  %.not19.us61 = icmp eq ptr %56, %2
-  br i1 %.not19.us61, label %.critedge, label %75
+.loopexit40.us:                                   ; preds = %70, %.split.split.us
+  %.not19.us56 = icmp eq ptr %58, %2
+  br i1 %.not19.us56, label %.critedge, label %77
 
-75:                                               ; preds = %.loopexit40.us
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.022.3.us58, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !112
+77:                                               ; preds = %.loopexit40.us
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.022.3.us54, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !112
   br label %.split.split.us, !llvm.loop !126
 
-.split.split:                                     ; preds = %.split, %109
-  %.sroa.022.3 = phi ptr [ %111, %109 ], [ %.sroa.022.2, %.split ]
-  %.sroa.16.sroa.0.3 = phi i16 [ 0, %109 ], [ %23, %.split ]
-  %.sroa.16.sroa.7.3 = phi i16 [ 0, %109 ], [ %.sroa.16.sroa.7.2, %.split ]
-  %78 = getelementptr inbounds i8, ptr %.sroa.022.3, i64 -24
-  %79 = ptrtoint ptr %78 to i64
-  %80 = trunc i64 %79 to i32
-  %81 = lshr i32 %80, 4
-  %82 = lshr i32 %80, 9
-  %83 = xor i32 %81, %82
-  %.01728.i.i.i.i.i.i = and i32 %29, %83
-  %84 = zext nneg i32 %.01728.i.i.i.i.i.i to i64
-  %85 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %25, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !121
-  %87 = icmp eq ptr %78, %86
-  br i1 %87, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !prof !123
+.split.split:                                     ; preds = %.split, %111
+  %.sroa.022.3 = phi ptr [ %113, %111 ], [ %.sroa.022.2, %.split ]
+  %.sroa.16.sroa.7.3 = phi i64 [ 0, %111 ], [ %25, %.split ]
+  %80 = getelementptr inbounds i8, ptr %.sroa.022.3, i64 -24
+  %81 = ptrtoint ptr %80 to i64
+  %82 = trunc i64 %81 to i32
+  %83 = lshr i32 %82, 4
+  %84 = lshr i32 %82, 9
+  %85 = xor i32 %83, %84
+  %.01728.i.i.i.i.i.i = and i32 %85, %31
+  %86 = zext nneg i32 %.01728.i.i.i.i.i.i to i64
+  %87 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %27, i64 %86
+  %88 = load ptr, ptr %87, align 8, !tbaa !121
+  %89 = icmp eq ptr %80, %88
+  br i1 %89, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !prof !123
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.split.split, %90
-  %88 = phi ptr [ %95, %90 ], [ %86, %.split.split ]
-  %.01730.i.i.i.i.i.i = phi i32 [ %.017.i.i.i.i.i.i, %90 ], [ %.01728.i.i.i.i.i.i, %.split.split ]
-  %.01529.i.i.i.i.i.i = phi i32 [ %91, %90 ], [ 1, %.split.split ]
-  %89 = icmp eq ptr %88, inttoptr (i64 -4096 to ptr)
-  br i1 %89, label %.loopexit.i.loopexit, label %90, !prof !33
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.split.split, %92
+  %90 = phi ptr [ %97, %92 ], [ %88, %.split.split ]
+  %.01730.i.i.i.i.i.i = phi i32 [ %.017.i.i.i.i.i.i, %92 ], [ %.01728.i.i.i.i.i.i, %.split.split ]
+  %.01529.i.i.i.i.i.i = phi i32 [ %93, %92 ], [ 1, %.split.split ]
+  %91 = icmp eq ptr %90, inttoptr (i64 -4096 to ptr)
+  br i1 %91, label %.loopexit.i.loopexit, label %92, !prof !33
 
-90:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %91 = add i32 %.01529.i.i.i.i.i.i, 1
-  %92 = add i32 %.01529.i.i.i.i.i.i, %.01730.i.i.i.i.i.i
-  %.017.i.i.i.i.i.i = and i32 %92, %29
-  %93 = zext i32 %.017.i.i.i.i.i.i to i64
-  %94 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %25, i64 %93
-  %95 = load ptr, ptr %94, align 8, !tbaa !121
-  %96 = icmp eq ptr %78, %95
-  br i1 %96, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !prof !124, !llvm.loop !125
+92:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+  %93 = add i32 %.01529.i.i.i.i.i.i, 1
+  %94 = add i32 %.01529.i.i.i.i.i.i, %.01730.i.i.i.i.i.i
+  %.017.i.i.i.i.i.i = and i32 %94, %31
+  %95 = zext i32 %.017.i.i.i.i.i.i to i64
+  %96 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %27, i64 %95
+  %97 = load ptr, ptr %96, align 8, !tbaa !121
+  %98 = icmp eq ptr %80, %97
+  br i1 %98, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !prof !124, !llvm.loop !125
 
 .loopexit.i.loopexit:                             ; preds = %.lr.ph.i.i.i.i.i.i
-  %.01728.i.i.i.i.i3.i = and i32 %35, %83
-  %97 = zext nneg i32 %.01728.i.i.i.i.i3.i to i64
-  %98 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %31, i64 %97
-  %99 = load ptr, ptr %98, align 8, !tbaa !121
-  %100 = icmp eq ptr %78, %99
-  br i1 %100, label %.loopexit, label %.lr.ph.i.i.i.i.i4.i, !prof !123
+  %.01728.i.i.i.i.i3.i = and i32 %37, %85
+  %99 = zext nneg i32 %.01728.i.i.i.i.i3.i to i64
+  %100 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %33, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !121
+  %102 = icmp eq ptr %80, %101
+  br i1 %102, label %.loopexit, label %.lr.ph.i.i.i.i.i4.i, !prof !123
 
-.lr.ph.i.i.i.i.i4.i:                              ; preds = %.loopexit.i.loopexit, %102
-  %101 = phi ptr [ %107, %102 ], [ %99, %.loopexit.i.loopexit ]
-  %.01730.i.i.i.i.i5.i = phi i32 [ %.017.i.i.i.i.i7.i, %102 ], [ %.01728.i.i.i.i.i3.i, %.loopexit.i.loopexit ]
-  %.01529.i.i.i.i.i6.i = phi i32 [ %103, %102 ], [ 1, %.loopexit.i.loopexit ]
-  %.not.i = icmp eq ptr %101, inttoptr (i64 -4096 to ptr)
-  br i1 %.not.i, label %.critedge, label %102, !prof !33
+.lr.ph.i.i.i.i.i4.i:                              ; preds = %.loopexit.i.loopexit, %104
+  %103 = phi ptr [ %109, %104 ], [ %101, %.loopexit.i.loopexit ]
+  %.01730.i.i.i.i.i5.i = phi i32 [ %.017.i.i.i.i.i7.i, %104 ], [ %.01728.i.i.i.i.i3.i, %.loopexit.i.loopexit ]
+  %.01529.i.i.i.i.i6.i = phi i32 [ %105, %104 ], [ 1, %.loopexit.i.loopexit ]
+  %.not.i = icmp eq ptr %103, inttoptr (i64 -4096 to ptr)
+  br i1 %.not.i, label %.critedge, label %104, !prof !33
 
-102:                                              ; preds = %.lr.ph.i.i.i.i.i4.i
-  %103 = add i32 %.01529.i.i.i.i.i6.i, 1
-  %104 = add i32 %.01529.i.i.i.i.i6.i, %.01730.i.i.i.i.i5.i
-  %.017.i.i.i.i.i7.i = and i32 %104, %35
-  %105 = zext i32 %.017.i.i.i.i.i7.i to i64
-  %106 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %31, i64 %105
-  %107 = load ptr, ptr %106, align 8, !tbaa !121
-  %108 = icmp eq ptr %78, %107
-  br i1 %108, label %.loopexit, label %.lr.ph.i.i.i.i.i4.i, !prof !124, !llvm.loop !125
+104:                                              ; preds = %.lr.ph.i.i.i.i.i4.i
+  %105 = add i32 %.01529.i.i.i.i.i6.i, 1
+  %106 = add i32 %.01529.i.i.i.i.i6.i, %.01730.i.i.i.i.i5.i
+  %.017.i.i.i.i.i7.i = and i32 %106, %37
+  %107 = zext i32 %.017.i.i.i.i.i7.i to i64
+  %108 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %33, i64 %107
+  %109 = load ptr, ptr %108, align 8, !tbaa !121
+  %110 = icmp eq ptr %80, %109
+  br i1 %110, label %.loopexit, label %.lr.ph.i.i.i.i.i4.i, !prof !124, !llvm.loop !125
 
-.loopexit:                                        ; preds = %90, %102, %.split.split, %.loopexit.i.loopexit
-  %.not19 = icmp eq ptr %78, %2
-  br i1 %.not19, label %.critedge, label %109
+.loopexit:                                        ; preds = %92, %104, %.split.split, %.loopexit.i.loopexit
+  %.not19 = icmp eq ptr %80, %2
+  br i1 %.not19, label %.critedge, label %111
 
-109:                                              ; preds = %.loopexit
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.022.3, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !112
+111:                                              ; preds = %.loopexit
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.022.3, i64 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !112
   br label %.split.split, !llvm.loop !126
 
 .critedge:                                        ; preds = %.loopexit, %.lr.ph.i.i.i.i.i4.i, %.loopexit40.us, %.lr.ph.i.i.i.i.i.i.us, %.loopexit.us, %.lr.ph.i.i.i.i.i4.i.us, %.split.us
-  %.sroa.022.348 = phi ptr [ %.sroa.022.2, %.split.us ], [ %.sroa.022.3.us71, %.lr.ph.i.i.i.i.i4.i.us ], [ %.sroa.022.3.us71, %.loopexit.us ], [ %.sroa.022.3.us58, %.lr.ph.i.i.i.i.i.i.us ], [ %.sroa.022.3.us58, %.loopexit40.us ], [ %.sroa.022.3, %.lr.ph.i.i.i.i.i4.i ], [ %.sroa.022.3, %.loopexit ]
-  %.sroa.16.sroa.0.346 = phi i16 [ %23, %.split.us ], [ %.sroa.16.sroa.0.3.us72, %.lr.ph.i.i.i.i.i4.i.us ], [ %.sroa.16.sroa.0.3.us72, %.loopexit.us ], [ %.sroa.16.sroa.0.3.us59, %.lr.ph.i.i.i.i.i.i.us ], [ %.sroa.16.sroa.0.3.us59, %.loopexit40.us ], [ %.sroa.16.sroa.0.3, %.lr.ph.i.i.i.i.i4.i ], [ %.sroa.16.sroa.0.3, %.loopexit ]
-  %.sroa.16.sroa.7.344 = phi i16 [ %.sroa.16.sroa.7.2, %.split.us ], [ %.sroa.16.sroa.7.3.us73, %.lr.ph.i.i.i.i.i4.i.us ], [ %.sroa.16.sroa.7.3.us73, %.loopexit.us ], [ %.sroa.16.sroa.7.3.us60, %.lr.ph.i.i.i.i.i.i.us ], [ %.sroa.16.sroa.7.3.us60, %.loopexit40.us ], [ %.sroa.16.sroa.7.3, %.lr.ph.i.i.i.i.i4.i ], [ %.sroa.16.sroa.7.3, %.loopexit ]
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.022.348, 0
-  %.sroa.16.sroa.0.0.insert.insert = or i16 %.sroa.16.sroa.7.344, %.sroa.16.sroa.0.346
-  %.sroa.16.8.insert.ext = zext i16 %.sroa.16.sroa.0.0.insert.insert to i64
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.16.8.insert.ext, 1
+  %.sroa.022.346 = phi ptr [ %.sroa.022.2, %.split.us ], [ %.sroa.022.3.us63, %.lr.ph.i.i.i.i.i4.i.us ], [ %.sroa.022.3.us63, %.loopexit.us ], [ %.sroa.022.3.us54, %.lr.ph.i.i.i.i.i.i.us ], [ %.sroa.022.3.us54, %.loopexit40.us ], [ %.sroa.022.3, %.lr.ph.i.i.i.i.i4.i ], [ %.sroa.022.3, %.loopexit ]
+  %.sroa.16.sroa.7.344 = phi i64 [ %25, %.split.us ], [ %.sroa.16.sroa.7.3.us64, %.lr.ph.i.i.i.i.i4.i.us ], [ %.sroa.16.sroa.7.3.us64, %.loopexit.us ], [ %.sroa.16.sroa.7.3.us55, %.lr.ph.i.i.i.i.i.i.us ], [ %.sroa.16.sroa.7.3.us55, %.loopexit40.us ], [ %.sroa.16.sroa.7.3, %.lr.ph.i.i.i.i.i4.i ], [ %.sroa.16.sroa.7.3, %.loopexit ]
+  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.022.346, 0
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.16.sroa.7.344, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 

@@ -7062,12 +7062,12 @@ if.then5:                                         ; preds = %if.then
   br label %if.end40
 
 if.else:                                          ; preds = %if.then
-  %hasValue.i.i19 = getelementptr inbounds nuw i8, ptr %exAttributes, i64 16
-  %4 = load i8, ptr %hasValue.i.i19, align 8
-  %tobool.i.i20 = trunc i8 %4 to i1
+  %hasValue.i.i18 = getelementptr inbounds nuw i8, ptr %exAttributes, i64 16
+  %4 = load i8, ptr %hasValue.i.i18, align 8
+  %tobool.i.i19 = trunc i8 %4 to i1
   %transportDirection_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i8, ptr %transportDirection_.i, align 8
-  br i1 %tobool.i.i20, label %if.then7, label %if.else12
+  br i1 %tobool.i.i19, label %if.then7, label %if.else12
 
 if.then7:                                         ; preds = %if.else
   %cmp.i = icmp ne i8 %5, 0
@@ -7101,10 +7101,10 @@ if.else17:                                        ; preds = %entry
   br i1 %cmp19, label %if.then20, label %if.end40
 
 if.then20:                                        ; preds = %if.else17
-  %hasValue.i.i21 = getelementptr inbounds nuw i8, ptr %this, i64 552
-  %10 = load i8, ptr %hasValue.i.i21, align 8
-  %tobool.i.i22 = trunc i8 %10 to i1
-  br i1 %tobool.i.i22, label %invoke.cont36, label %cond.false
+  %hasValue.i.i20 = getelementptr inbounds nuw i8, ptr %this, i64 552
+  %10 = load i8, ptr %hasValue.i.i20, align 8
+  %tobool.i.i21 = trunc i8 %10 to i1
+  br i1 %tobool.i.i21, label %invoke.cont36, label %cond.false
 
 cond.false:                                       ; preds = %if.then20
   invoke void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp24, ptr noundef nonnull @.str, i32 noundef 451)
@@ -7184,10 +7184,10 @@ _ZN8proxygen10HTTP2Codec18DeferredParseErroraSEOS1_.exit: ; preds = %invoke.cont
   %tobool52 = trunc i8 %19 to i1
   %20 = load i8, ptr %parseError, align 8
   %not.tobool52 = xor i1 %tobool52, true
-  %spec.select18 = select i1 %tobool52, i8 %20, i8 undef
+  %spec.select17 = select i1 %tobool52, i8 %20, i8 undef
   br label %cleanup
 
-lpad44:                                           ; preds = %if.then.i.i.i60.invoke, %if.then26.i, %if.then17.i, %cleanup.done206, %land.rhs.i, %if.end246, %invoke.cont236, %if.then232, %cond.false184, %cond.true175, %if.then160, %invoke.cont133, %invoke.cont98, %if.then80, %if.end60, %if.then43
+lpad44:                                           ; preds = %if.then.i.i.i59.invoke, %if.then26.i, %if.then17.i, %cleanup.done206, %land.rhs.i, %if.end246, %invoke.cont236, %if.then232, %cond.false184, %cond.true175, %if.then160, %invoke.cont133, %invoke.cont98, %if.then80, %if.end60, %if.then43
   %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -7200,9 +7200,9 @@ lpad48:                                           ; preds = %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %invoke.cont45
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #20
-          to label %.noexc28 unwind label %lpad48
+          to label %.noexc27 unwind label %lpad48
 
-.noexc28:                                         ; preds = %if.end.i.i.i
+.noexc27:                                         ; preds = %if.end.i.i.i
   unreachable
 
 invoke.cont56:                                    ; preds = %invoke.cont45
@@ -7220,7 +7220,7 @@ _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i: ; preds = 
 
 cleanup:                                          ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i, %invoke.cont56, %_ZN8proxygen10HTTP2Codec18DeferredParseErroraSEOS1_.exit
   %cond1 = phi i1 [ %not.tobool52, %_ZN8proxygen10HTTP2Codec18DeferredParseErroraSEOS1_.exit ], [ true, %invoke.cont56 ], [ true, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i ]
-  %retval.0 = phi i8 [ %spec.select18, %_ZN8proxygen10HTTP2Codec18DeferredParseErroraSEOS1_.exit ], [ undef, %invoke.cont56 ], [ undef, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i ]
+  %retval.0 = phi i8 [ %spec.select17, %_ZN8proxygen10HTTP2Codec18DeferredParseErroraSEOS1_.exit ], [ undef, %invoke.cont56 ], [ undef, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i ]
   %25 = load i8, ptr %which_.i, align 8
   switch i8 %25, label %_ZN5folly8ExpectedISt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS3_EENS2_10HTTP2Codec18DeferredParseErrorEED2Ev.exit [
     i8 1, label %sw.bb.i.i.i
@@ -7230,14 +7230,14 @@ cleanup:                                          ; preds = %_ZNKSt14default_del
 sw.bb.i.i.i:                                      ; preds = %cleanup
   %26 = load ptr, ptr %parseRes, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %26, null
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i31
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i30
 
-_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i31: ; preds = %sw.bb.i.i.i
+_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i30: ; preds = %sw.bb.i.i.i
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %26) #31
   call void @_ZdlPv(ptr noundef nonnull %26) #30
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i.i.i
 
-_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i31, %sw.bb.i.i.i
+_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i30, %sw.bb.i.i.i
   store ptr null, ptr %parseRes, align 8
   br label %_ZN5folly8ExpectedISt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS3_EENS2_10HTTP2Codec18DeferredParseErrorEED2Ev.exit
 
@@ -7245,14 +7245,14 @@ sw.bb2.i.i.i:                                     ; preds = %cleanup
   %partialMessage.i.i.i.i = getelementptr inbounds nuw i8, ptr %parseRes, i64 40
   %27 = load ptr, ptr %partialMessage.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %27, null
-  br i1 %cmp.not.i.i.i.i.i, label %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i.i30
+  br i1 %cmp.not.i.i.i.i.i, label %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i.i29
 
-_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i.i30: ; preds = %sw.bb2.i.i.i
+_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i.i29: ; preds = %sw.bb2.i.i.i
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %27) #31
   call void @_ZdlPv(ptr noundef nonnull %27) #30
   br label %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit.i.i.i
 
-_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i.i30, %sw.bb2.i.i.i
+_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i.i.i.i29, %sw.bb2.i.i.i
   store ptr null, ptr %partialMessage.i.i.i.i, align 8
   %errorMessage.i.i.i.i = getelementptr inbounds nuw i8, ptr %parseRes, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errorMessage.i.i.i.i) #31
@@ -7290,15 +7290,15 @@ _ZNK8proxygen10HTTP2Codec14parsingHeadersEv.exit.i: ; preds = %if.end66
   br i1 %cmp5.i.i, label %if.then.i, label %invoke.cont67
 
 if.then.i:                                        ; preds = %_ZNK8proxygen10HTTP2Codec14parsingHeadersEv.exit.i, %if.end66
-  %transportDirection_.i36 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %32 = load i8, ptr %transportDirection_.i36, align 8
-  %cmp.i37 = icmp eq i8 %32, 0
-  br i1 %cmp.i37, label %if.then2.i, label %if.else.i
+  %transportDirection_.i35 = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %32 = load i8, ptr %transportDirection_.i35, align 8
+  %cmp.i36 = icmp eq i8 %32, 0
+  br i1 %cmp.i36, label %if.then2.i, label %if.else.i
 
 if.then2.i:                                       ; preds = %if.then.i
   %parsingDownstreamTrailers_.i = getelementptr inbounds nuw i8, ptr %this, i64 1057
   %33 = load i8, ptr %parsingDownstreamTrailers_.i, align 1
-  %tobool.i38 = trunc i8 %33 to i1
+  %tobool.i37 = trunc i8 %33 to i1
   br label %invoke.cont67
 
 if.else.i:                                        ; preds = %if.then.i
@@ -7308,80 +7308,82 @@ if.else.i:                                        ; preds = %if.then.i
 
 land.rhs.i:                                       ; preds = %if.else.i
   %decodeInfo_.i = getelementptr inbounds nuw i8, ptr %this, i64 880
-  %call5.i39 = invoke noundef zeroext i1 @_ZNK8proxygen16HeaderDecodeInfo9hasStatusEv(ptr noundef nonnull align 8 dereferenceable(140) %decodeInfo_.i)
+  %call5.i38 = invoke noundef zeroext i1 @_ZNK8proxygen16HeaderDecodeInfo9hasStatusEv(ptr noundef nonnull align 8 dereferenceable(140) %decodeInfo_.i)
           to label %call5.i.noexc unwind label %lpad44
 
 call5.i.noexc:                                    ; preds = %land.rhs.i
-  %lnot.i = xor i1 %call5.i39, true
+  %lnot.i = xor i1 %call5.i38, true
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %call5.i.noexc, %if.else.i, %if.then2.i, %_ZNK8proxygen10HTTP2Codec14parsingHeadersEv.exit.i, %if.end66
-  %retval.0.i = phi i1 [ %tobool.i38, %if.then2.i ], [ false, %if.else.i ], [ %lnot.i, %call5.i.noexc ], [ false, %_ZNK8proxygen10HTTP2Codec14parsingHeadersEv.exit.i ], [ false, %if.end66 ]
+  %retval.0.i = phi i1 [ %tobool.i37, %if.then2.i ], [ false, %if.else.i ], [ %lnot.i, %call5.i.noexc ], [ false, %_ZNK8proxygen10HTTP2Codec14parsingHeadersEv.exit.i ], [ false, %if.end66 ]
   %34 = load i8, ptr %flags, align 1
   %35 = and i8 %34, 4
   %tobool74.not = icmp eq i8 %35, 0
+  br i1 %tobool74.not, label %if.else88, label %land.rhs
+
+land.rhs:                                         ; preds = %invoke.cont67
   %headerBlockFrameType_75 = getelementptr inbounds nuw i8, ptr %this, i64 1061
   %36 = load i8, ptr %headerBlockFrameType_75, align 1
   %cmp76 = icmp ne i8 %36, 1
-  %tobool78.not = select i1 %tobool74.not, i1 true, i1 %cmp76
-  %or.cond = or i1 %retval.0.i, %tobool78.not
-  br i1 %or.cond, label %if.else88, label %if.then80
+  %37 = or i1 %retval.0.i, %cmp76
+  br i1 %37, label %if.else88, label %if.then80
 
-if.then80:                                        ; preds = %invoke.cont67
-  %37 = load i32, ptr %stream, align 4
-  %conv83 = zext i32 %37 to i64
-  %38 = load ptr, ptr %msg, align 8
-  store ptr %38, ptr %ref.tmp84, align 8
+if.then80:                                        ; preds = %land.rhs
+  %38 = load i32, ptr %stream, align 4
+  %conv83 = zext i32 %38 to i64
+  %39 = load ptr, ptr %msg, align 8
+  store ptr %39, ptr %ref.tmp84, align 8
   %call87 = invoke noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec24deliverCallbackIfAllowedIMNS_9HTTPCodec8CallbackEFvmPNS_11HTTPMessageEEJS5_EEEbT_PKcmDpOT0_(ptr noundef nonnull align 8 dereferenceable(92) %this, i64 1, i64 0, ptr noundef nonnull @.str.35, i64 noundef %conv83, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp84)
           to label %if.end152 unwind label %lpad44
 
-if.else88:                                        ; preds = %invoke.cont67
-  %39 = load i8, ptr %type, align 8
-  switch i8 %39, label %if.end152 [
+if.else88:                                        ; preds = %invoke.cont67, %land.rhs
+  %40 = load i8, ptr %type, align 8
+  switch i8 %40, label %if.end152 [
     i8 -5, label %if.then92
     i8 5, label %while.end
   ]
 
 if.then92:                                        ; preds = %if.else88
-  %hasValue.i.i.i40 = getelementptr inbounds nuw i8, ptr %exAttributes, i64 16
-  %40 = load i8, ptr %hasValue.i.i.i40, align 8
-  %tobool.i.i.i41 = trunc i8 %40 to i1
-  br i1 %tobool.i.i.i41, label %invoke.cont98, label %if.then.i.i.i60.invoke
+  %hasValue.i.i.i39 = getelementptr inbounds nuw i8, ptr %exAttributes, i64 16
+  %41 = load i8, ptr %hasValue.i.i.i39, align 8
+  %tobool.i.i.i40 = trunc i8 %41 to i1
+  br i1 %tobool.i.i.i40, label %invoke.cont98, label %if.then.i.i.i59.invoke
 
 invoke.cont98:                                    ; preds = %if.then92
-  %41 = load i32, ptr %stream, align 4
-  %conv95 = zext i32 %41 to i64
+  %42 = load i32, ptr %stream, align 4
+  %conv95 = zext i32 %42 to i64
   %unidirectional = getelementptr inbounds nuw i8, ptr %exAttributes, i64 8
-  %42 = load ptr, ptr %msg, align 8
-  store ptr %42, ptr %ref.tmp100, align 8
+  %43 = load ptr, ptr %msg, align 8
+  store ptr %43, ptr %ref.tmp100, align 8
   %call104 = invoke noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec24deliverCallbackIfAllowedIMNS_9HTTPCodec8CallbackEFvmmbPNS_11HTTPMessageEEJRKmRKbS5_EEEbT_PKcmDpOT0_(ptr noundef nonnull align 8 dereferenceable(92) %this, i64 17, i64 0, ptr noundef nonnull @.str.36, i64 noundef %conv95, ptr noundef nonnull align 8 dereferenceable(8) %exAttributes, ptr noundef nonnull align 1 dereferenceable(1) %unidirectional, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp100)
           to label %if.end152 unwind label %lpad44
 
 while.end:                                        ; preds = %if.else88
-  %hasValue.i.i.i49 = getelementptr inbounds nuw i8, ptr %promisedStream, i64 4
-  %43 = load i8, ptr %hasValue.i.i.i49, align 4
-  %tobool.i.i.i50 = trunc i8 %43 to i1
-  br i1 %tobool.i.i.i50, label %invoke.cont133, label %if.then.i.i.i60.invoke
+  %hasValue.i.i.i48 = getelementptr inbounds nuw i8, ptr %promisedStream, i64 4
+  %44 = load i8, ptr %hasValue.i.i.i48, align 4
+  %tobool.i.i.i49 = trunc i8 %44 to i1
+  br i1 %tobool.i.i.i49, label %invoke.cont133, label %if.then.i.i.i59.invoke
 
 invoke.cont133:                                   ; preds = %while.end
-  %44 = load i32, ptr %promisedStream, align 4
-  %conv135 = zext i32 %44 to i64
-  %45 = load ptr, ptr %msg, align 8
-  store ptr %45, ptr %ref.tmp138, align 8
+  %45 = load i32, ptr %promisedStream, align 4
+  %conv135 = zext i32 %45 to i64
+  %46 = load ptr, ptr %msg, align 8
+  store ptr %46, ptr %ref.tmp138, align 8
   %call142 = invoke noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec24deliverCallbackIfAllowedIMNS_9HTTPCodec8CallbackEFvmmPNS_11HTTPMessageEEJRjS5_EEEbT_PKcmDpOT0_(ptr noundef nonnull align 8 dereferenceable(92) %this, i64 9, i64 0, ptr noundef nonnull @.str.38, i64 noundef %conv135, ptr noundef nonnull align 4 dereferenceable(4) %stream, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp138)
           to label %invoke.cont141 unwind label %lpad44
 
 invoke.cont141:                                   ; preds = %invoke.cont133
-  %46 = load i8, ptr %hasValue.i.i.i49, align 4
-  %tobool.i.i.i54 = trunc i8 %46 to i1
-  br i1 %tobool.i.i.i54, label %invoke.cont143, label %if.then.i.i.i60.invoke
+  %47 = load i8, ptr %hasValue.i.i.i48, align 4
+  %tobool.i.i.i53 = trunc i8 %47 to i1
+  br i1 %tobool.i.i.i53, label %invoke.cont143, label %if.then.i.i.i59.invoke
 
 invoke.cont143:                                   ; preds = %invoke.cont141
   %promisedStream_145 = getelementptr inbounds nuw i8, ptr %this, i64 544
-  %47 = load i32, ptr %promisedStream, align 4
+  %48 = load i32, ptr %promisedStream, align 4
   %hasValue.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 552
-  %48 = load i8, ptr %hasValue.i.i.i.i, align 8
-  %tobool.i.i.i.i = trunc i8 %48 to i1
+  %49 = load i8, ptr %hasValue.i.i.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %49 to i1
   br i1 %tobool.i.i.i.i, label %invoke.cont146, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %invoke.cont143
@@ -7389,46 +7391,46 @@ if.else.i.i:                                      ; preds = %invoke.cont143
   br label %invoke.cont146
 
 invoke.cont146:                                   ; preds = %if.else.i.i, %invoke.cont143
-  %conv.i = zext i32 %47 to i64
+  %conv.i = zext i32 %48 to i64
   store i64 %conv.i, ptr %promisedStream_145, align 8
-  %49 = load i8, ptr %hasValue.i.i.i49, align 4
-  %tobool.i.i.i59 = trunc i8 %49 to i1
-  br i1 %tobool.i.i.i59, label %invoke.cont148, label %if.then.i.i.i60.invoke
+  %50 = load i8, ptr %hasValue.i.i.i48, align 4
+  %tobool.i.i.i58 = trunc i8 %50 to i1
+  br i1 %tobool.i.i.i58, label %invoke.cont148, label %if.then.i.i.i59.invoke
 
-if.then.i.i.i60.invoke:                           ; preds = %invoke.cont146, %invoke.cont141, %while.end, %if.then92
+if.then.i.i.i59.invoke:                           ; preds = %invoke.cont146, %invoke.cont141, %while.end, %if.then92
   invoke void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #20
-          to label %if.then.i.i.i60.cont unwind label %lpad44
+          to label %if.then.i.i.i59.cont unwind label %lpad44
 
-if.then.i.i.i60.cont:                             ; preds = %if.then.i.i.i60.invoke
+if.then.i.i.i59.cont:                             ; preds = %if.then.i.i.i59.invoke
   unreachable
 
 invoke.cont148:                                   ; preds = %invoke.cont146
-  %50 = load i32, ptr %promisedStream, align 4
+  %51 = load i32, ptr %promisedStream, align 4
   br label %if.end152
 
 if.end152:                                        ; preds = %if.else88, %invoke.cont98, %invoke.cont148, %if.then80
-  %headersCompleteStream.1 = phi i32 [ %headersCompleteStream.0, %invoke.cont98 ], [ %50, %invoke.cont148 ], [ %headersCompleteStream.0, %if.then80 ], [ %headersCompleteStream.0, %if.else88 ]
-  %51 = load i8, ptr %flags, align 1
-  %52 = and i8 %51, 4
-  %tobool157.not = icmp eq i8 %52, 0
+  %headersCompleteStream.1 = phi i32 [ %headersCompleteStream.0, %invoke.cont98 ], [ %51, %invoke.cont148 ], [ %headersCompleteStream.0, %if.then80 ], [ %headersCompleteStream.0, %if.else88 ]
+  %52 = load i8, ptr %flags, align 1
+  %53 = and i8 %52, 4
+  %tobool157.not = icmp eq i8 %53, 0
   br i1 %tobool157.not, label %if.end254, label %if.then158
 
 if.then158:                                       ; preds = %if.end152
-  %53 = load ptr, ptr %msg, align 8
-  %cmp.i63.not = icmp eq ptr %53, null
-  br i1 %cmp.i63.not, label %if.then160, label %if.end162
+  %54 = load ptr, ptr %msg, align 8
+  %cmp.i62.not = icmp eq ptr %54, null
+  br i1 %cmp.i62.not, label %if.then160, label %if.end162
 
 if.then160:                                       ; preds = %if.then158
   invoke void @_ZN8proxygen10HTTP2Codec25deliverDeferredParseErrorERKNS0_18DeferredParseErrorE(ptr noundef nonnull align 8 dereferenceable(1062) %this, ptr noundef nonnull align 8 dereferenceable(48) %parseError)
           to label %cleanup257 unwind label %lpad44
 
 if.end162:                                        ; preds = %if.then158
-  %54 = and i8 %51, 1
-  %tobool167.not = icmp eq i8 %54, 0
+  %55 = and i8 %52, 1
+  %tobool167.not = icmp eq i8 %55, 0
   br i1 %tobool167.not, label %if.then168, label %if.end171
 
 if.then168:                                       ; preds = %if.end162
-  %chunked_.i = getelementptr inbounds nuw i8, ptr %53, i64 610
+  %chunked_.i = getelementptr inbounds nuw i8, ptr %54, i64 610
   %bf.load.i = load i8, ptr %chunked_.i, align 2
   %bf.set.i = or i8 %bf.load.i, 4
   store i8 %bf.set.i, ptr %chunked_.i, align 2
@@ -7438,8 +7440,8 @@ if.end171:                                        ; preds = %if.then168, %if.end
   br i1 %retval.0.i, label %if.then173, label %if.else219
 
 if.then173:                                       ; preds = %if.end171
-  %55 = load ptr, ptr @_ZZN8proxygen10HTTP2Codec16parseHeadersImplERN5folly2io6CursorESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EERKNS1_8OptionalINS_5http214PriorityUpdateEEERKNSA_IjEERKNSA_INS_9HTTPCodec12ExAttributesEEEE8vlocal__, align 8
-  %cmp174 = icmp eq ptr %55, null
+  %56 = load ptr, ptr @_ZZN8proxygen10HTTP2Codec16parseHeadersImplERN5folly2io6CursorESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EERKNS1_8OptionalINS_5http214PriorityUpdateEEERKNSA_IjEERKNSA_INS_9HTTPCodec12ExAttributesEEEE8vlocal__, align 8
+  %cmp174 = icmp eq ptr %56, null
   br i1 %cmp174, label %cond.true175, label %cond.false178
 
 cond.true175:                                     ; preds = %if.then173
@@ -7447,8 +7449,8 @@ cond.true175:                                     ; preds = %if.then173
           to label %cond.end180 unwind label %lpad44
 
 cond.false178:                                    ; preds = %if.then173
-  %56 = load i32, ptr %55, align 4
-  %cmp179 = icmp sgt i32 %56, 3
+  %57 = load i32, ptr %56, align 4
+  %cmp179 = icmp sgt i32 %57, 3
   br i1 %cmp179, label %cond.false184, label %cleanup.done206
 
 cond.end180:                                      ; preds = %cond.true175
@@ -7476,8 +7478,8 @@ invoke.cont195:                                   ; preds = %invoke.cont193
 
 invoke.cont197:                                   ; preds = %invoke.cont195
   %transportDirection_199 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %57 = load i8, ptr %transportDirection_199, align 8
-  %call201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoNS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(8) %call198, i8 noundef zeroext %57)
+  %58 = load i8, ptr %transportDirection_199, align 8
+  %call201 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoNS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(8) %call198, i8 noundef zeroext %58)
           to label %cleanup.action205 unwind label %lpad190
 
 cleanup.action205:                                ; preds = %invoke.cont197
@@ -7485,23 +7487,23 @@ cleanup.action205:                                ; preds = %invoke.cont197
   br label %cleanup.done206
 
 cleanup.done206:                                  ; preds = %cond.false178, %cond.end180, %cleanup.action205
-  %58 = load ptr, ptr %msg, align 8
+  %59 = load ptr, ptr %msg, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
-  %call.i6465 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
+  %call.i6364 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29
           to label %invoke.cont213 unwind label %lpad44
 
 invoke.cont213:                                   ; preds = %cleanup.done206
-  %headers_.i = getelementptr inbounds nuw i8, ptr %58, i64 480
-  call void @_ZN8proxygen11HTTPHeadersC1EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i6465, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i) #31, !noalias !56
-  store ptr %call.i6465, ptr %trailerHeaders, align 8, !alias.scope !56
-  %59 = load ptr, ptr %msg, align 8
+  %headers_.i = getelementptr inbounds nuw i8, ptr %59, i64 480
+  call void @_ZN8proxygen11HTTPHeadersC1EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i6364, ptr noundef nonnull align 8 dereferenceable(32) %headers_.i) #31, !noalias !56
+  store ptr %call.i6364, ptr %trailerHeaders, align 8, !alias.scope !56
+  %60 = load ptr, ptr %msg, align 8
   store ptr null, ptr %msg, align 8
-  %tobool.not.i.i = icmp eq ptr %59, null
+  %tobool.not.i.i = icmp eq ptr %60, null
   br i1 %tobool.not.i.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EE5resetEPS1_.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i: ; preds = %invoke.cont213
-  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %59) #31
-  call void @_ZdlPv(ptr noundef nonnull %59) #30
+  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %60) #31
+  call void @_ZdlPv(ptr noundef nonnull %60) #30
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %invoke.cont213, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i
@@ -7510,13 +7512,13 @@ _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EE5resetEPS1_.ex
           to label %invoke.cont217 unwind label %lpad216
 
 invoke.cont217:                                   ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EE5resetEPS1_.exit
-  %60 = load ptr, ptr %trailerHeaders, align 8
-  %cmp.not.i = icmp eq ptr %60, null
+  %61 = load ptr, ptr %trailerHeaders, align 8
+  %cmp.not.i = icmp eq ptr %61, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i: ; preds = %invoke.cont217
-  call void @_ZN8proxygen11HTTPHeadersD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %60) #31
-  call void @_ZdlPv(ptr noundef nonnull %60) #30
+  call void @_ZN8proxygen11HTTPHeadersD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #31
+  call void @_ZdlPv(ptr noundef nonnull %61) #30
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; preds = %invoke.cont217, %_ZNKSt14default_deleteIN8proxygen11HTTPHeadersEEclEPS1_.exit.i
@@ -7524,33 +7526,33 @@ _ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit: ; p
   br label %if.end254
 
 lpad190:                                          ; preds = %invoke.cont197, %invoke.cont195, %invoke.cont193, %invoke.cont191, %invoke.cont188
-  %61 = landingpad { ptr, i32 }
+  %62 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp187) #31
   br label %ehcleanup
 
 lpad216:                                          ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EE5resetEPS1_.exit
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %trailerHeaders) #31
   br label %ehcleanup
 
 if.else219:                                       ; preds = %if.end171
   %transportDirection_220 = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %63 = load i8, ptr %transportDirection_220, align 8
-  %cmp221 = icmp eq i8 %63, 1
+  %64 = load i8, ptr %transportDirection_220, align 8
+  %cmp221 = icmp eq i8 %64, 1
   br i1 %cmp221, label %land.lhs.true222, label %if.end246
 
 land.lhs.true222:                                 ; preds = %if.else219
-  %64 = load i32, ptr %stream, align 4
-  %and225 = and i32 %64, 1
+  %65 = load i32, ptr %stream, align 4
+  %and225 = and i32 %65, 1
   %tobool226.not = icmp eq i32 %and225, 0
-  %conv230 = zext i32 %64 to i64
+  %conv230 = zext i32 %65 to i64
   %nextEgressStreamID_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %65 = load i64, ptr %nextEgressStreamID_, align 8
-  %cmp231.not = icmp ugt i64 %65, %conv230
-  %or.cond17 = select i1 %tobool226.not, i1 true, i1 %cmp231.not
-  br i1 %or.cond17, label %if.end246, label %if.then232
+  %66 = load i64, ptr %nextEgressStreamID_, align 8
+  %cmp231.not = icmp ugt i64 %66, %conv230
+  %or.cond = select i1 %tobool226.not, i1 true, i1 %cmp231.not
+  br i1 %or.cond, label %if.end246, label %if.then232
 
 if.then232:                                       ; preds = %land.lhs.true222
   invoke void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJA33_cjEEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameIS9_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSC_EEEE5valueES9_E4typeEDpRKSB_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp233, ptr noundef nonnull align 1 dereferenceable(33) @.str.42, ptr noundef nonnull align 4 dereferenceable(4) %stream)
@@ -7576,7 +7578,7 @@ invoke.cont244:                                   ; preds = %invoke.cont241
   br label %cleanup257
 
 lpad240:                                          ; preds = %invoke.cont241, %invoke.cont239
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp238) #31
   br label %ehcleanup
@@ -7587,15 +7589,15 @@ if.end246:                                        ; preds = %land.lhs.true222, %
           to label %invoke.cont249 unwind label %lpad44
 
 invoke.cont249:                                   ; preds = %if.end246
-  %hasValue.i.i.i66 = getelementptr inbounds nuw i8, ptr %this, i64 552
-  store i8 0, ptr %hasValue.i.i.i66, align 8
+  %hasValue.i.i.i65 = getelementptr inbounds nuw i8, ptr %this, i64 552
+  store i8 0, ptr %hasValue.i.i.i65, align 8
   br label %if.end254
 
 if.end254:                                        ; preds = %_ZNSt10unique_ptrIN8proxygen11HTTPHeadersESt14default_deleteIS1_EED2Ev.exit, %invoke.cont249, %if.end152
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp31.i)
-  %67 = load i8, ptr %type, align 8
-  switch i8 %67, label %_ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit [
+  %68 = load i8, ptr %type, align 8
+  switch i8 %68, label %_ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit [
     i8 1, label %if.end.i
     i8 -5, label %if.end.i
     i8 9, label %if.end.i
@@ -7603,44 +7605,44 @@ if.end254:                                        ; preds = %_ZNSt10unique_ptrIN
   ]
 
 if.end.i:                                         ; preds = %if.end254, %if.end254, %if.end254, %if.end254
-  %68 = load i8, ptr %flags, align 1
+  %69 = load i8, ptr %flags, align 1
   %pendingEndStreamHandling_.i = getelementptr inbounds nuw i8, ptr %this, i64 561
-  %69 = load i8, ptr %pendingEndStreamHandling_.i, align 1
-  %70 = or i8 %69, %68
-  %or1.i = and i8 %70, 1
+  %70 = load i8, ptr %pendingEndStreamHandling_.i, align 1
+  %71 = or i8 %70, %69
+  %or1.i = and i8 %71, 1
   store i8 %or1.i, ptr %pendingEndStreamHandling_.i, align 1
   %ingressWebsocketUpgrade_.i = getelementptr inbounds nuw i8, ptr %this, i64 562
-  %71 = load i8, ptr %ingressWebsocketUpgrade_.i, align 2
-  %tobool16.i = trunc i8 %71 to i1
+  %72 = load i8, ptr %ingressWebsocketUpgrade_.i, align 2
+  %tobool16.i = trunc i8 %72 to i1
   br i1 %tobool16.i, label %if.then17.i, label %if.end21.i
 
 if.then17.i:                                      ; preds = %if.end.i
   store i8 0, ptr %ingressWebsocketUpgrade_.i, align 2
-  %72 = load i32, ptr %stream, align 4
-  %conv20.i = zext i32 %72 to i64
+  %73 = load i32, ptr %stream, align 4
+  %conv20.i = zext i32 %73 to i64
   store i8 1, ptr %ref.tmp.i, align 1
-  %call.i6869 = invoke noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec24deliverCallbackIfAllowedIMNS_9HTTPCodec8CallbackEFvmbEJbEEEbT_PKcmDpOT0_(ptr noundef nonnull align 8 dereferenceable(1062) %this, i64 65, i64 0, ptr noundef nonnull @.str.16, i64 noundef %conv20.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
-          to label %call.i68.noexc unwind label %lpad44
+  %call.i6768 = invoke noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec24deliverCallbackIfAllowedIMNS_9HTTPCodec8CallbackEFvmbEJbEEEbT_PKcmDpOT0_(ptr noundef nonnull align 8 dereferenceable(1062) %this, i64 65, i64 0, ptr noundef nonnull @.str.16, i64 noundef %conv20.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
+          to label %call.i67.noexc unwind label %lpad44
 
-call.i68.noexc:                                   ; preds = %if.then17.i
+call.i67.noexc:                                   ; preds = %if.then17.i
   %.pre.i = load i8, ptr %pendingEndStreamHandling_.i, align 1
   br label %if.end21.i
 
-if.end21.i:                                       ; preds = %call.i68.noexc, %if.end.i
-  %73 = phi i8 [ %.pre.i, %call.i68.noexc ], [ %or1.i, %if.end.i ]
-  %tobool23.i = trunc i8 %73 to i1
+if.end21.i:                                       ; preds = %call.i67.noexc, %if.end.i
+  %74 = phi i8 [ %.pre.i, %call.i67.noexc ], [ %or1.i, %if.end.i ]
+  %tobool23.i = trunc i8 %74 to i1
   %expectedContinuationStream_.i = getelementptr inbounds nuw i8, ptr %this, i64 536
-  %74 = load i64, ptr %expectedContinuationStream_.i, align 8
-  %cmp25.i = icmp eq i64 %74, 0
-  %or.cond.i67 = select i1 %tobool23.i, i1 %cmp25.i, i1 false
-  br i1 %or.cond.i67, label %if.then26.i, label %_ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit
+  %75 = load i64, ptr %expectedContinuationStream_.i, align 8
+  %cmp25.i = icmp eq i64 %75, 0
+  %or.cond.i66 = select i1 %tobool23.i, i1 %cmp25.i, i1 false
+  br i1 %or.cond.i66, label %if.then26.i, label %_ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit
 
 if.then26.i:                                      ; preds = %if.end21.i
   store i8 0, ptr %pendingEndStreamHandling_.i, align 1
-  %75 = load i32, ptr %stream, align 4
-  %conv30.i = zext i32 %75 to i64
+  %76 = load i32, ptr %stream, align 4
+  %conv30.i = zext i32 %76 to i64
   store i8 0, ptr %ref.tmp31.i, align 1
-  %call33.i70 = invoke noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec24deliverCallbackIfAllowedIMNS_9HTTPCodec8CallbackEFvmbEJbEEEbT_PKcmDpOT0_(ptr noundef nonnull align 8 dereferenceable(1062) %this, i64 65, i64 0, ptr noundef nonnull @.str.16, i64 noundef %conv30.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i)
+  %call33.i69 = invoke noundef zeroext i1 @_ZN8proxygen17HTTPParallelCodec24deliverCallbackIfAllowedIMNS_9HTTPCodec8CallbackEFvmbEJbEEEbT_PKcmDpOT0_(ptr noundef nonnull align 8 dereferenceable(1062) %this, i64 65, i64 0, ptr noundef nonnull @.str.16, i64 noundef %conv30.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp31.i)
           to label %_ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit unwind label %lpad44
 
 _ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit: ; preds = %if.then26.i, %if.end254, %if.end21.i
@@ -7650,32 +7652,32 @@ _ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit: ; preds = %if.then26.i, %if.en
 
 cleanup257:                                       ; preds = %_ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit, %if.then160, %_ZN5folly8ExpectedISt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS3_EENS2_10HTTP2Codec18DeferredParseErrorEED2Ev.exit, %invoke.cont244, %invoke.cont64
   %retval.1 = phi i8 [ %29, %invoke.cont64 ], [ 1, %invoke.cont244 ], [ %retval.0, %_ZN5folly8ExpectedISt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS3_EENS2_10HTTP2Codec18DeferredParseErrorEED2Ev.exit ], [ 0, %if.then160 ], [ 0, %_ZN8proxygen10HTTP2Codec15handleEndStreamEv.exit ]
-  %76 = load ptr, ptr %partialMessage.i, align 8
-  %cmp.not.i.i = icmp eq ptr %76, null
-  br i1 %cmp.not.i.i, label %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i72
+  %77 = load ptr, ptr %partialMessage.i, align 8
+  %cmp.not.i.i = icmp eq ptr %77, null
+  br i1 %cmp.not.i.i, label %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i71
 
-_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i72: ; preds = %cleanup257
-  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %76) #31
-  call void @_ZdlPv(ptr noundef nonnull %76) #30
-  br label %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit
-
-_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit: ; preds = %cleanup257, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i72
-  store ptr null, ptr %partialMessage.i, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errorMessage.i) #31
-  %77 = load ptr, ptr %msg, align 8
-  %cmp.not.i74 = icmp eq ptr %77, null
-  br i1 %cmp.not.i74, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
-
-_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit
+_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i71: ; preds = %cleanup257
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %77) #31
   call void @_ZdlPv(ptr noundef nonnull %77) #30
+  br label %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit
+
+_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit: ; preds = %cleanup257, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i.i71
+  store ptr null, ptr %partialMessage.i, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errorMessage.i) #31
+  %78 = load ptr, ptr %msg, align 8
+  %cmp.not.i73 = icmp eq ptr %78, null
+  br i1 %cmp.not.i73, label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
+
+_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i: ; preds = %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit
+  call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %78) #31
+  call void @_ZdlPv(ptr noundef nonnull %78) #30
   br label %_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev.exit, %_ZNKSt14default_deleteIN8proxygen11HTTPMessageEEclEPS1_.exit.i
   ret i8 %retval.1
 
 ehcleanup:                                        ; preds = %lpad190, %lpad240, %lpad216, %lpad48, %lpad44
-  %.pn = phi { ptr, i32 } [ %21, %lpad44 ], [ %62, %lpad216 ], [ %61, %lpad190 ], [ %66, %lpad240 ], [ %22, %lpad48 ]
+  %.pn = phi { ptr, i32 } [ %21, %lpad44 ], [ %63, %lpad216 ], [ %62, %lpad190 ], [ %67, %lpad240 ], [ %22, %lpad48 ]
   call void @_ZN8proxygen10HTTP2Codec18DeferredParseErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %parseError) #31
   br label %ehcleanup259
 

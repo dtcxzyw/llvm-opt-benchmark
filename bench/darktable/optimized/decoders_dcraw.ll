@@ -8058,6 +8058,7 @@ _ZN6LibRaw9pana_dataEiPj.exit117:                 ; preds = %_ZN6LibRaw9pana_dat
   %490 = and i32 %481, 7
   %491 = lshr i32 %489, %490
   %492 = and i32 %491, 15
+  %493 = or disjoint i32 %492, %444
   br label %_ZN6LibRaw9pana_dataEiPj.exit128
 
 _ZN6LibRaw9pana_dataEiPj.exit128.loopexit:        ; preds = %.preheader.i120
@@ -8065,10 +8066,9 @@ _ZN6LibRaw9pana_dataEiPj.exit128.loopexit:        ; preds = %.preheader.i120
   br label %_ZN6LibRaw9pana_dataEiPj.exit128
 
 _ZN6LibRaw9pana_dataEiPj.exit128:                 ; preds = %_ZN6LibRaw9pana_dataEiPj.exit128.loopexit, %480
-  %.012.i119 = phi i32 [ %492, %480 ], [ 0, %_ZN6LibRaw9pana_dataEiPj.exit128.loopexit ]
-  %493 = or disjoint i32 %.012.i119, %444
+  %.012.i119 = phi i32 [ %493, %480 ], [ %444, %_ZN6LibRaw9pana_dataEiPj.exit128.loopexit ]
   %494 = getelementptr inbounds nuw i32, ptr %2, i64 %325
-  store i32 %493, ptr %494, align 4, !tbaa !101
+  store i32 %.012.i119, ptr %494, align 4, !tbaa !101
   br label %_ZN6LibRaw9pana_dataEiPj.exit106.thread
 
 _ZN6LibRaw9pana_dataEiPj.exit106.thread.loopexit: ; preds = %.preheader.i98

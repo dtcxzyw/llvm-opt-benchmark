@@ -1487,7 +1487,7 @@ define void @_ZNK6icu_778TimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef non
   %11 = alloca i8, align 1
   %12 = load i32, ptr %5, align 4, !tbaa !13
   %13 = icmp slt i32 %12, 1
-  br i1 %13, label %14, label %78
+  br i1 %13, label %14, label %54
 
 14:                                               ; preds = %6
   %15 = load ptr, ptr %0, align 8, !tbaa !19
@@ -1509,10 +1509,9 @@ define void @_ZNK6icu_778TimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef non
   %23 = icmp slt i32 %22, 1
   br i1 %23, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %14
-  br i1 %19, label %.lr.ph.split.us, label %.lr.ph.split
-
-.lr.ph.split.us:                                  ; preds = %.lr.ph
+.lr.ph:                                           ; preds = %14, %49
+  %or.cond25 = phi i1 [ true, %49 ], [ %19, %14 ]
+  %.124 = phi double [ %51, %49 ], [ %.020, %14 ]
   %24 = load i32, ptr %7, align 4, !tbaa !12
   %25 = load i8, ptr %9, align 1, !tbaa !21
   %26 = sext i8 %25 to i32
@@ -1522,21 +1521,21 @@ define void @_ZNK6icu_778TimeZone9getOffsetEdaRiS1_R10UErrorCode(ptr noundef non
   %30 = load i32, ptr %8, align 4, !tbaa !12
   %31 = and i32 %24, 3
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i.us
+  br i1 %32, label %33, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i
 
-33:                                               ; preds = %.lr.ph.split.us
+33:                                               ; preds = %.lr.ph
   %34 = srem i32 %24, 100
-  %.not.i.i.us = icmp ne i32 %34, 0
+  %.not.i.i = icmp ne i32 %34, 0
   %35 = srem i32 %24, 400
-  %.not.i.us = icmp eq i32 %35, 0
-  %or.cond.i.us = or i1 %.not.i.i.us, %.not.i.us
-  br i1 %or.cond.i.us, label %_ZN6icu_775Grego11monthLengthEii.exit.us, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i.us
+  %.not.i = icmp eq i32 %35, 0
+  %or.cond.i = or i1 %.not.i.i, %.not.i
+  br i1 %or.cond.i, label %_ZN6icu_775Grego11monthLengthEii.exit, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i
 
-_ZN6icu_775Grego10isLeapYearEi.exit.thread.i.us:  ; preds = %33, %.lr.ph.split.us
-  br label %_ZN6icu_775Grego11monthLengthEii.exit.us
+_ZN6icu_775Grego10isLeapYearEi.exit.thread.i:     ; preds = %33, %.lr.ph
+  br label %_ZN6icu_775Grego11monthLengthEii.exit
 
-_ZN6icu_775Grego11monthLengthEii.exit.us:         ; preds = %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i.us, %33
-  %36 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i.us ], [ 12, %33 ]
+_ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %33, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i
+  %36 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i ], [ 12, %33 ]
   %37 = add nsw i32 %36, %26
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %38
@@ -1549,54 +1548,13 @@ _ZN6icu_775Grego11monthLengthEii.exit.us:         ; preds = %_ZN6icu_775Grego10i
   %46 = load i32, ptr %3, align 4, !tbaa !12
   %47 = sub nsw i32 %45, %46
   store i32 %47, ptr %4, align 4, !tbaa !12
-  br label %.critedge
+  %48 = icmp eq i32 %45, %46
+  %or.cond23 = select i1 %or.cond25, i1 true, i1 %48
+  br i1 %or.cond23, label %.critedge, label %49
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %73
-  %.not27 = phi i1 [ true, %73 ], [ false, %.lr.ph ]
-  %.126 = phi double [ %75, %73 ], [ %1, %.lr.ph ]
-  %48 = load i32, ptr %7, align 4, !tbaa !12
-  %49 = load i8, ptr %9, align 1, !tbaa !21
-  %50 = sext i8 %49 to i32
-  %51 = load i8, ptr %10, align 1, !tbaa !21
-  %52 = sext i8 %51 to i32
-  %53 = load i8, ptr %11, align 1, !tbaa !21
-  %54 = load i32, ptr %8, align 4, !tbaa !12
-  %55 = and i32 %48, 3
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %57, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i
-
-57:                                               ; preds = %.lr.ph.split
-  %58 = srem i32 %48, 100
-  %.not.i.i = icmp ne i32 %58, 0
-  %59 = srem i32 %48, 400
-  %.not.i = icmp eq i32 %59, 0
-  %or.cond.i = or i1 %.not.i.i, %.not.i
-  br i1 %or.cond.i, label %_ZN6icu_775Grego11monthLengthEii.exit, label %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i
-
-_ZN6icu_775Grego10isLeapYearEi.exit.thread.i:     ; preds = %57, %.lr.ph.split
-  br label %_ZN6icu_775Grego11monthLengthEii.exit
-
-_ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %57, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i
-  %60 = phi i32 [ 0, %_ZN6icu_775Grego10isLeapYearEi.exit.thread.i ], [ 12, %57 ]
-  %61 = add nsw i32 %60, %50
-  %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i8, ptr @_ZN6icu_775Grego12MONTH_LENGTHE, i64 %62
-  %64 = load i8, ptr %63, align 1, !tbaa !21
-  %65 = sext i8 %64 to i32
-  %66 = load ptr, ptr %0, align 8, !tbaa !19
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %69 = call noundef i32 %68(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 noundef zeroext 1, i32 noundef %48, i32 noundef %50, i32 noundef %52, i8 noundef zeroext %53, i32 noundef %54, i32 noundef %65, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %70 = load i32, ptr %3, align 4, !tbaa !12
-  %71 = sub nsw i32 %69, %70
-  store i32 %71, ptr %4, align 4, !tbaa !12
-  %72 = icmp eq i32 %69, %70
-  %or.cond23 = select i1 %.not27, i1 true, i1 %72
-  br i1 %or.cond23, label %.critedge, label %73
-
-73:                                               ; preds = %_ZN6icu_775Grego11monthLengthEii.exit
-  %74 = sitofp i32 %71 to double
-  %75 = fsub double %.126, %74
+49:                                               ; preds = %_ZN6icu_775Grego11monthLengthEii.exit
+  %50 = sitofp i32 %47 to double
+  %51 = fsub double %.124, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1607,20 +1565,20 @@ _ZN6icu_775Grego11monthLengthEii.exit:            ; preds = %57, %_ZN6icu_775Gre
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  call void @_ZN6icu_775Grego12timeToFieldsEdRiRaS2_S2_S1_R10UErrorCode(double noundef %75, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %76 = load i32, ptr %5, align 4, !tbaa !13
-  %77 = icmp slt i32 %76, 1
-  br i1 %77, label %.lr.ph.split, label %.critedge, !llvm.loop !28
+  call void @_ZN6icu_775Grego12timeToFieldsEdRiRaS2_S2_S1_R10UErrorCode(double noundef %51, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull align 1 dereferenceable(1) %10, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %52 = load i32, ptr %5, align 4, !tbaa !13
+  %53 = icmp slt i32 %52, 1
+  br i1 %53, label %.lr.ph, label %.critedge, !llvm.loop !28
 
-.critedge:                                        ; preds = %73, %_ZN6icu_775Grego11monthLengthEii.exit, %_ZN6icu_775Grego11monthLengthEii.exit.us, %14
+.critedge:                                        ; preds = %49, %_ZN6icu_775Grego11monthLengthEii.exit, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %78
+  br label %54
 
-78:                                               ; preds = %6, %.critedge
+54:                                               ; preds = %6, %.critedge
   ret void
 }
 

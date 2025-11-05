@@ -1697,8 +1697,9 @@ Ivy_ObjFaninId0.exit53:                           ; preds = %.split65.us, %57
   %74 = inttoptr i64 %73 to ptr
   %.val.i55 = load i32, ptr %74, align 8, !tbaa !35
   %75 = shl i32 %.val.i55, 8
-  %76 = trunc i64 %72 to i32
-  %77 = and i32 %76, 1
+  %76 = or disjoint i32 %75, %65
+  %77 = trunc i64 %72 to i32
+  %78 = and i32 %77, 1
   br label %Ivy_ObjFaninId1.exit
 
 common.ret117:                                    ; preds = %Ivy_ObjFaninId0.exit53, %.split69.us, %Ivy_ObjFaninId1.exit
@@ -1706,9 +1707,8 @@ common.ret117:                                    ; preds = %Ivy_ObjFaninId0.exi
   ret i32 %common.ret117.op
 
 Ivy_ObjFaninId1.exit:                             ; preds = %69, %71
-  %.pre-phi86 = phi i32 [ %77, %71 ], [ 0, %69 ]
-  %78 = phi i32 [ %75, %71 ], [ 0, %69 ]
-  %79 = or disjoint i32 %78, %65
+  %.pre-phi86 = phi i32 [ %78, %71 ], [ 0, %69 ]
+  %79 = phi i32 [ %76, %71 ], [ %65, %69 ]
   %80 = tail call i32 @Ivy_CutGetTruth_rec(ptr noundef nonnull %0, i32 noundef %79, ptr noundef %2, i32 noundef %3)
   %81 = sub nsw i32 0, %.pre-phi86
   %spec.select43 = xor i32 %80, %81

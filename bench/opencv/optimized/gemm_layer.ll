@@ -2411,29 +2411,32 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.thread186, %174, %
   %180 = mul nsw i32 %179, %.07.i
   %181 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 4
   %.not.i = icmp eq ptr %181, %178
-  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit, label %.lr.ph.i, !llvm.loop !102
+  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit.loopexit, label %.lr.ph.i, !llvm.loop !102
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit: ; preds = %.lr.ph.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.0.lcssa.i = phi i32 [ 1, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %180, %.lr.ph.i ]
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit.loopexit: ; preds = %.lr.ph.i
+  %182 = mul nsw i32 %180, %93
+  br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
+
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit.loopexit, %_ZNSt6vectorIiSaIiEED2Ev.exit
+  %.0.lcssa.i = phi i32 [ %93, %_ZNSt6vectorIiSaIiEED2Ev.exit ], [ %182, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %182 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
-          to label %183 unwind label %190
+  %183 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
+          to label %184 unwind label %190
 
-183:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
-  %184 = mul nsw i32 %.0.lcssa.i, %93
-  store ptr %182, ptr %6, align 8, !tbaa !100
-  %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
+184:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
+  store ptr %183, ptr %6, align 8, !tbaa !100
+  %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %185, ptr %186, align 8, !tbaa !103
-  store i32 %184, ptr %182, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %182, i64 4
+  store i32 %.0.lcssa.i, ptr %183, align 4
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %183, i64 4
   store i32 %97, ptr %.sroa.5.0..sroa_idx, align 4
   %187 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %185, ptr %187, align 8, !tbaa !98
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE14_M_fill_assignEmRKS1_(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(24) %6)
           to label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit unwind label %192
 
-_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %183
+_ZNSt6vectorIS_IiSaIiEESaIS1_EE6assignEmRKS1_.exit: ; preds = %184
   %188 = load ptr, ptr %6, align 8, !tbaa !100
   %.not.i.i.i89 = icmp eq ptr %188, null
   br i1 %.not.i.i.i89, label %_ZNSt6vectorIiSaIiEED2Ev.exit94, label %189
@@ -2453,7 +2456,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit94:                  ; preds = %_ZNSt6vectorIS_IiSa
           cleanup
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit96
 
-192:                                              ; preds = %183
+192:                                              ; preds = %184
   %193 = landingpad { ptr, i32 }
           cleanup
   %194 = load ptr, ptr %6, align 8, !tbaa !100

@@ -189,14 +189,17 @@ define { i32, i32 } @_ZN8wasmi_ir9primitive19ComparatorAndOffset3new17h581df51a5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @_ZN8wasmi_ir9primitive19ComparatorAndOffset8from_u6417h319113588d3c6badE(i64 noundef %0) unnamed_addr #0 {
+  %switch.idx.mult.i = and i64 %0, -4294967296
   %2 = trunc i64 %0 to i32
-  %3 = icmp ugt i64 %0, 154618822655
-  %4 = lshr i64 %0, 32
-  %5 = trunc nuw nsw i64 %4 to i32
-  %.sroa.02.0 = select i1 %3, i32 36, i32 %5
-  %6 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0, 0
-  %7 = insertvalue { i32, i32 } %6, i32 %2, 1
-  ret { i32, i32 } %7
+  %3 = icmp ult i64 %0, 154618822656
+  %.sroa.3937.0.i = select i1 %3, i64 %switch.idx.mult.i, i64 513
+  %4 = trunc i64 %.sroa.3937.0.i to i1
+  %.sroa.5.0.extract.shift = lshr i64 %.sroa.3937.0.i, 32
+  %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
+  %.sroa.02.0 = select i1 %4, i32 36, i32 %.sroa.5.0.extract.trunc
+  %5 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0, 0
+  %6 = insertvalue { i32, i32 } %5, i32 %2, 1
+  ret { i32, i32 } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -335,15 +338,13 @@ define noundef double @"_ZN8wasmi_ir9primitive97_$LT$impl$u20$core..convert..Fro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 512, 150323855874) i64 @"_ZN85_$LT$wasmi_ir..primitive..Comparator$u20$as$u20$core..convert..TryFrom$LT$u32$GT$$GT$8try_from17hc348f4b912607b8dE"(i32 noundef %0) unnamed_addr #0 {
-  %2 = icmp ugt i32 %0, 35
+define range(i64 512, 150323855873) i64 @"_ZN85_$LT$wasmi_ir..primitive..Comparator$u20$as$u20$core..convert..TryFrom$LT$u32$GT$$GT$8try_from17hc348f4b912607b8dE"(i32 noundef %0) unnamed_addr #0 {
+  %2 = icmp ult i32 %0, 36
   %switch.idx.cast = zext i32 %0 to i64
   %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 32
   %switch.offset = or disjoint i64 %switch.idx.mult, 512
-  %.sroa.036.0 = zext i1 %2 to i64
-  %.sroa.3937.0 = select i1 %2, i64 512, i64 %switch.offset
-  %.sroa.036.0.insert.insert = or disjoint i64 %.sroa.3937.0, %.sroa.036.0
-  ret i64 %.sroa.036.0.insert.insert
+  %.sroa.3937.0 = select i1 %2, i64 %switch.offset, i64 513
+  ret i64 %.sroa.3937.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

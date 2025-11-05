@@ -416,11 +416,11 @@ _ZNK11hb_ot_map_t10get_1_maskEj.exit:             ; preds = %23
   %.fr = freeze i32 %29
   %.not19 = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not19, i8 0, i8 2
+  %30 = or disjoint i8 %spec.select, %8
   br label %_ZNK11hb_ot_map_t10get_1_maskEj.exit.thread
 
 _ZNK11hb_ot_map_t10get_1_maskEj.exit.thread:      ; preds = %26, %_ZNK11hb_ot_map_t10get_1_maskEj.exit
-  %30 = phi i8 [ %spec.select, %_ZNK11hb_ot_map_t10get_1_maskEj.exit ], [ 0, %26 ]
-  %31 = or disjoint i8 %30, %8
+  %31 = phi i8 [ %30, %_ZNK11hb_ot_map_t10get_1_maskEj.exit ], [ %8, %26 ]
   store i8 %31, ptr %7, align 8
   br label %.lr.ph.preheader.i.i.i.i.i.i22.us52
 

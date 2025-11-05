@@ -7077,31 +7077,27 @@ declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef rea
 ; Function Attrs: mustprogress uwtable
 define dso_local i64 @_ZN13cmSystemTools19MoveFileIfDifferentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i1 @_ZN5cmsys11SystemTools11FilesDifferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  br i1 %3, label %4, label %12
+  br i1 %3, label %4, label %11
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %0, align 8, !tbaa !13
   %6 = load ptr, ptr %1, align 8, !tbaa !13
   %7 = tail call i32 @rename(ptr noundef %5, ptr noundef %6) #40
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %15, label %9
+  br i1 %8, label %13, label %9
 
 9:                                                ; preds = %4
   %10 = tail call { i64, i32 } @_ZN5cmsys11SystemTools14CopyFileAlwaysERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.fca.0.extract = extractvalue { i64, i32 } %10, 0
-  %.sroa.4.0.extract.shift = and i64 %.fca.0.extract, -4294967296
-  %11 = and i64 %.fca.0.extract, 4294967295
-  br label %12
+  br label %11
 
-12:                                               ; preds = %9, %2
-  %.sroa.4.0 = phi i64 [ %.sroa.4.0.extract.shift, %9 ], [ 0, %2 ]
-  %.sroa.0.0 = phi i64 [ %11, %9 ], [ 0, %2 ]
-  %13 = tail call i64 @_ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %14 = or disjoint i64 %.sroa.0.0, %.sroa.4.0
-  br label %15
+11:                                               ; preds = %9, %2
+  %.sroa.4.0 = phi i64 [ %.fca.0.extract, %9 ], [ 0, %2 ]
+  %12 = tail call i64 @_ZN5cmsys11SystemTools10RemoveFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
+  br label %13
 
-15:                                               ; preds = %4, %12
-  %.sroa.0.0.insert.insert = phi i64 [ 0, %4 ], [ %14, %12 ]
+13:                                               ; preds = %4, %11
+  %.sroa.0.0.insert.insert = phi i64 [ 0, %4 ], [ %.sroa.4.0, %11 ]
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -23682,13 +23678,13 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 define dso_local range(i64 0, 4294967298) i64 @_ZN13cmSystemTools10GetDirCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = tail call noundef zeroext i1 @_ZN5cmsys11SystemTools15FileIsDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  br i1 %3, label %4, label %15
+  br i1 %3, label %4, label %16
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !13
   %6 = tail call i32 (ptr, i32, ...) @open(ptr noundef %5, i32 noundef 0)
   %7 = icmp eq i32 %6, -1
-  br i1 %7, label %15, label %8
+  br i1 %7, label %16, label %8
 
 8:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -23702,13 +23698,12 @@ define dso_local range(i64 0, 4294967298) i64 @_ZN13cmSystemTools10GetDirCaseERK
   %.sroa.0.1 = select i1 %11, i32 0, i32 %.lobit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = zext nneg i32 %.sroa.0.1 to i64
-  br label %15
+  %15 = or disjoint i64 %14, 4294967296
+  br label %16
 
-15:                                               ; preds = %4, %1, %8
-  %.sroa.0.0 = phi i64 [ %14, %8 ], [ 0, %1 ], [ 0, %4 ]
-  %.sroa.4.0 = phi i64 [ 4294967296, %8 ], [ 0, %1 ], [ 4294967296, %4 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+16:                                               ; preds = %4, %1, %8
+  %.sroa.4.0 = phi i64 [ %15, %8 ], [ 0, %1 ], [ 4294967296, %4 ]
+  ret i64 %.sroa.4.0
 }
 
 ; Function Attrs: nofree

@@ -374,9 +374,8 @@ $_ZSt19piecewise_construct = comdat any
 @.str.75 = private unnamed_addr constant [17 x i8] c"arm64ec_exp_name\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_AArch64AsmPrinter.cpp, ptr null }]
 @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter18LowerJumpTableDestERN4llvm10MCStreamerERKNS1_12MachineInstrE = private unnamed_addr constant [4 x i32] [i32 4797, i32 4813, i32 poison, i32 4850], align 4
-@switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE = private unnamed_addr constant [3 x i64] [i64 2304, i64 2336, i64 5874], align 8
-@switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE.20 = private unnamed_addr constant [3 x i64] [i64 9826885173248, i64 9964324126720, i64 25211458027520], align 8
-@switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE.21 = private unnamed_addr constant [3 x i32] [i32 2272, i32 2256, i32 5855], align 4
+@switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE = private unnamed_addr constant [3 x i64] [i64 9826885175552, i64 9964324129056, i64 25211458033394], align 8
+@switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE.20 = private unnamed_addr constant [3 x i32] [i32 2272, i32 2256, i32 5855], align 4
 @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter17printAsmMRegisterERKN4llvm14MachineOperandEcRNS1_11raw_ostreamE = private unnamed_addr constant [12 x i32] [i32 261, i32 239, i32 241, i32 243, i32 245, i32 247, i32 249, i32 251, i32 253, i32 255, i32 257, i32 259], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13732,142 +13731,138 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep69 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE.20, i64 %12
-  %switch.load70 = load i64, ptr %switch.gep69, align 8
-  %13 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep71 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE.21, i64 %13
-  %switch.load72 = load i32, ptr %switch.gep71, align 4
-  %14 = or disjoint i64 %switch.load70, %switch.load
+  %switch.gep69 = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrE.20, i64 %12
+  %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrEENK3$_0clEv.exit"
 
 "_ZZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrEENK3$_0clEv.exit": ; preds = %switch.lookup, %9
-  %.sroa.9.0.i = phi i32 [ 5149, %9 ], [ %switch.load72, %switch.lookup ]
-  %.sroa.01.0.insert.insert.i = phi i64 [ 25177098295018, %9 ], [ %14, %switch.lookup ]
-  store i64 %.sroa.01.0.insert.insert.i, ptr %4, align 8
+  %.sroa.5.0.i = phi i64 [ 25177098295018, %9 ], [ %switch.load, %switch.lookup ]
+  %.sroa.9.0.i = phi i32 [ 5149, %9 ], [ %switch.load70, %switch.lookup ]
+  store i64 %.sroa.5.0.i, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sroa.9.0.i, ptr %.sroa.2.0..sroa_idx, align 8
-  %15 = and i16 %7, -2
-  %16 = icmp eq i16 %15, 954
-  %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 912
+  %13 = and i16 %7, -2
+  %14 = icmp eq i16 %13, 954
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %23 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.22.0..sroa_idx.i.i.i36 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %.sroa.22.0..sroa_idx.i.i.i41 = getelementptr inbounds nuw i8, ptr %5, i64 72
   br label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37
 
-25:                                               ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit
+23:                                               ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
 _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37: ; preds = %_ZN4llvm13MCInstBuilderD2Ev.exit, %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrEENK3$_0clEv.exit"
   %.0.idx64 = phi i64 [ 0, %"_ZZN12_GLOBAL__N_117AArch64AsmPrinter9LowerMOPSERN4llvm10MCStreamerERKNS1_12MachineInstrEENK3$_0clEv.exit" ], [ %.0.add, %_ZN4llvm13MCInstBuilderD2Ev.exit ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx64
-  %26 = load i32, ptr %.0.ptr, align 4, !tbaa !87
+  %24 = load i32, ptr %.0.ptr, align 4, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 16, i1 false)
-  store ptr %18, ptr %17, align 8, !tbaa !25
-  store i32 0, ptr %19, align 8, !tbaa !26
-  store i32 6, ptr %20, align 4, !tbaa !27
-  store i32 %26, ptr %5, align 8, !tbaa !651
-  %27 = load ptr, ptr %21, align 8, !tbaa !746
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
-  %29 = load i32, ptr %28, align 4, !tbaa !73
-  %.sroa.3.8.insert.ext.i.i = zext i32 %29 to i64
-  store i8 1, ptr %18, align 8
+  store ptr %16, ptr %15, align 8, !tbaa !25
+  store i32 0, ptr %17, align 8, !tbaa !26
+  store i32 6, ptr %18, align 4, !tbaa !27
+  store i32 %24, ptr %5, align 8, !tbaa !651
+  %25 = load ptr, ptr %19, align 8, !tbaa !746
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !73
+  %.sroa.3.8.insert.ext.i.i = zext i32 %27 to i64
+  store i8 1, ptr %16, align 8
   store i64 %.sroa.3.8.insert.ext.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 36
-  %31 = load i32, ptr %30, align 4, !tbaa !73
-  %.sroa.3.8.insert.ext.i.i35 = zext i32 %31 to i64
-  store i8 1, ptr %23, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 36
+  %29 = load i32, ptr %28, align 4, !tbaa !73
+  %.sroa.3.8.insert.ext.i.i35 = zext i32 %29 to i64
+  store i8 1, ptr %21, align 8
   store i64 %.sroa.3.8.insert.ext.i.i35, ptr %.sroa.22.0..sroa_idx.i.i.i36, align 8
-  store i32 2, ptr %19, align 8, !tbaa !26
-  br i1 %16, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit42
+  store i32 2, ptr %17, align 8, !tbaa !26
+  br i1 %14, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit42
 
 _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit42: ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 68
-  %33 = load i32, ptr %32, align 4, !tbaa !73
-  %.sroa.3.8.insert.ext.i.i40 = zext i32 %33 to i64
-  store i8 1, ptr %24, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 68
+  %31 = load i32, ptr %30, align 4, !tbaa !73
+  %.sroa.3.8.insert.ext.i.i40 = zext i32 %31 to i64
+  store i8 1, ptr %22, align 8
   store i64 %.sroa.3.8.insert.ext.i.i40, ptr %.sroa.22.0..sroa_idx.i.i.i41, align 8
-  store i32 3, ptr %19, align 8, !tbaa !26
+  store i32 3, ptr %17, align 8, !tbaa !26
   br label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52
 
 _ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52: ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit42
-  %34 = phi i32 [ 2, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37 ], [ 3, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit42 ]
+  %32 = phi i32 [ 2, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37 ], [ 3, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit42 ]
   %.031 = phi i64 [ 2, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37 ], [ 3, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit42 ]
-  %35 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %27, i64 %.031
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %37 = load i32, ptr %36, align 4, !tbaa !73
-  %.pre65 = zext nneg i32 %34 to i64
-  %.sroa.3.8.insert.ext.i.i45 = zext i32 %37 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %18, i64 %.pre65
-  store i8 1, ptr %38, align 8
-  %.sroa.22.0..sroa_idx.i.i.i46 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %33 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %25, i64 %.031
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !73
+  %.pre65 = zext nneg i32 %32 to i64
+  %.sroa.3.8.insert.ext.i.i45 = zext i32 %35 to i64
+  %36 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %.pre65
+  store i8 1, ptr %36, align 8
+  %.sroa.22.0..sroa_idx.i.i.i46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i45, ptr %.sroa.22.0..sroa_idx.i.i.i46, align 8
-  %39 = add nuw nsw i32 %34, 1
-  store i32 %39, ptr %19, align 8, !tbaa !26
-  %40 = getelementptr inbounds nuw i8, ptr %35, i64 36
-  %41 = load i32, ptr %40, align 4, !tbaa !73
-  %.sroa.3.8.insert.ext.i.i50 = zext i32 %41 to i64
-  %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %18, i64 %42
-  store i8 1, ptr %43, align 8
-  %.sroa.22.0..sroa_idx.i.i.i51 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %37 = add nuw nsw i32 %32, 1
+  store i32 %37, ptr %17, align 8, !tbaa !26
+  %38 = getelementptr inbounds nuw i8, ptr %33, i64 36
+  %39 = load i32, ptr %38, align 4, !tbaa !73
+  %.sroa.3.8.insert.ext.i.i50 = zext i32 %39 to i64
+  %40 = zext nneg i32 %37 to i64
+  %41 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %16, i64 %40
+  store i8 1, ptr %41, align 8
+  %.sroa.22.0..sroa_idx.i.i.i51 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i50, ptr %.sroa.22.0..sroa_idx.i.i.i51, align 8
-  %44 = load i32, ptr %19, align 8, !tbaa !26
-  %45 = add i32 %44, 1
-  store i32 %45, ptr %19, align 8, !tbaa !26
-  %46 = load ptr, ptr %21, align 8, !tbaa !746
-  %47 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %46, i64 %.031
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 68
-  %49 = load i32, ptr %48, align 4, !tbaa !73
-  %50 = load i32, ptr %20, align 4, !tbaa !27
-  %.not.i.i.not.i.i.i53 = icmp ult i32 %45, %50
-  br i1 %.not.i.i.not.i.i.i53, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57, label %51, !prof !33
+  %42 = load i32, ptr %17, align 8, !tbaa !26
+  %43 = add i32 %42, 1
+  store i32 %43, ptr %17, align 8, !tbaa !26
+  %44 = load ptr, ptr %19, align 8, !tbaa !746
+  %45 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %44, i64 %.031
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 68
+  %47 = load i32, ptr %46, align 4, !tbaa !73
+  %48 = load i32, ptr %18, align 4, !tbaa !27
+  %.not.i.i.not.i.i.i53 = icmp ult i32 %43, %48
+  br i1 %.not.i.i.not.i.i.i53, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57, label %49, !prof !33
 
-51:                                               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52
-  %52 = zext i32 %45 to i64
-  %53 = add nuw nsw i64 %52, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull %18, i64 noundef %53, i64 noundef 16) #25
-  %.pre.i.i.i54 = load i32, ptr %19, align 8, !tbaa !26
+49:                                               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52
+  %50 = zext i32 %43 to i64
+  %51 = add nuw nsw i64 %50, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %16, i64 noundef %51, i64 noundef 16) #25
+  %.pre.i.i.i54 = load i32, ptr %17, align 8, !tbaa !26
   br label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57
 
-_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57: ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52, %51
-  %54 = phi i32 [ %45, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52 ], [ %.pre.i.i.i54, %51 ]
-  %.sroa.3.8.insert.ext.i.i55 = zext i32 %49 to i64
-  %55 = load ptr, ptr %17, align 8, !tbaa !25
-  %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %55, i64 %56
-  store i8 1, ptr %57, align 1
-  %.sroa.22.0..sroa_idx.i.i.i56 = getelementptr inbounds nuw i8, ptr %57, i64 8
+_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57: ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52, %49
+  %52 = phi i32 [ %43, %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit52 ], [ %.pre.i.i.i54, %49 ]
+  %.sroa.3.8.insert.ext.i.i55 = zext i32 %47 to i64
+  %53 = load ptr, ptr %15, align 8, !tbaa !25
+  %54 = zext i32 %52 to i64
+  %55 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %53, i64 %54
+  store i8 1, ptr %55, align 1
+  %.sroa.22.0..sroa_idx.i.i.i56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i64 %.sroa.3.8.insert.ext.i.i55, ptr %.sroa.22.0..sroa_idx.i.i.i56, align 1
-  %58 = load i32, ptr %19, align 8, !tbaa !26
-  %59 = add i32 %58, 1
-  store i32 %59, ptr %19, align 8, !tbaa !26
-  %.val = load ptr, ptr %22, align 8, !tbaa !377
-  %60 = load ptr, ptr %1, align 8, !tbaa !3
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1272
-  %62 = load ptr, ptr %61, align 8
-  call void %62(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(304) %.val) #25
-  %63 = load ptr, ptr %17, align 8, !tbaa !25
-  %64 = icmp eq ptr %63, %18
-  br i1 %64, label %_ZN4llvm13MCInstBuilderD2Ev.exit, label %65
+  %56 = load i32, ptr %17, align 8, !tbaa !26
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %17, align 8, !tbaa !26
+  %.val = load ptr, ptr %20, align 8, !tbaa !377
+  %58 = load ptr, ptr %1, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1272
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef nonnull align 8 dereferenceable(304) %.val) #25
+  %61 = load ptr, ptr %15, align 8, !tbaa !25
+  %62 = icmp eq ptr %61, %16
+  br i1 %62, label %_ZN4llvm13MCInstBuilderD2Ev.exit, label %63
 
-65:                                               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57
-  call void @free(ptr noundef %63) #25
+63:                                               ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57
+  call void @free(ptr noundef %61) #25
   br label %_ZN4llvm13MCInstBuilderD2Ev.exit
 
-_ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57, %65
+_ZN4llvm13MCInstBuilderD2Ev.exit:                 ; preds = %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit57, %63
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.0.add = add nuw nsw i64 %.0.idx64, 4
   %.not = icmp eq i64 %.0.add, 12
-  br i1 %.not, label %25, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37
+  br i1 %.not, label %23, label %_ZN4llvm13MCInstBuilder6addRegENS_10MCRegisterE.exit37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

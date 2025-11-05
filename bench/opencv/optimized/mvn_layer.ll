@@ -819,7 +819,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn12MVNLayerImpl8finalizeERKNS_11_Input
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   invoke void @_ZNK2cv11_InputArray12getMatVectorERSt6vectorINS_3MatESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %4)
-          to label %5 unwind label %17
+          to label %5 unwind label %16
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 105
@@ -831,67 +831,66 @@ define linkonce_odr hidden void @_ZN2cv3dnn12MVNLayerImpl8finalizeERKNS_11_Input
   br label %12
 
 12:                                               ; preds = %5, %12
-  %13 = phi i1 [ false, %5 ], [ true, %12 ]
+  %.not15 = phi i1 [ %8, %5 ], [ true, %12 ]
   %indvars.iv = phi i64 [ 0, %5 ], [ 1, %12 ]
-  %.014 = phi i32 [ 1, %5 ], [ %16, %12 ]
-  %14 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
-  %15 = load i32, ptr %14, align 4, !tbaa !67
-  %16 = mul nsw i32 %15, %.014
-  %.not15 = or i1 %13, %8
-  br i1 %.not15, label %21, label %12, !llvm.loop !73
+  %.014 = phi i32 [ 1, %5 ], [ %15, %12 ]
+  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %14 = load i32, ptr %13, align 4, !tbaa !67
+  %15 = mul nsw i32 %14, %.014
+  br i1 %.not15, label %20, label %12, !llvm.loop !73
 
-17:                                               ; preds = %3
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %3
+  %17 = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %33
 
-19:                                               ; preds = %21
-  %20 = landingpad { ptr, i32 }
+18:                                               ; preds = %20
+  %19 = landingpad { ptr, i32 }
           cleanup
-  br label %34
+  br label %33
 
-21:                                               ; preds = %12
-  %22 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
-          to label %23 unwind label %19
+20:                                               ; preds = %12
+  %21 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
+          to label %22 unwind label %18
 
-23:                                               ; preds = %21
-  %24 = sext i32 %16 to i64
-  %25 = icmp eq i64 %22, %24
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 333
-  %27 = zext i1 %25 to i8
-  store i8 %27, ptr %26, align 1, !tbaa !66
-  %28 = load ptr, ptr %4, align 8, !tbaa !71
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !74
-  %.not4.i.i.i.i = icmp eq ptr %28, %30
+22:                                               ; preds = %20
+  %23 = sext i32 %15 to i64
+  %24 = icmp eq i64 %21, %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 333
+  %26 = zext i1 %24 to i8
+  store i8 %26, ptr %25, align 1, !tbaa !66
+  %27 = load ptr, ptr %4, align 8, !tbaa !71
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !74
+  %.not4.i.i.i.i = icmp eq ptr %27, %29
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %23, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i.i ], [ %28, %23 ]
+.lr.ph.i.i.i.i:                                   ; preds = %22, %.lr.ph.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %30, %.lr.ph.i.i.i.i ], [ %27, %22 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.05.i.i.i.i) #23
-  %31 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
-  %.not.i.i.i.i = icmp eq ptr %31, %30
+  %30 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 96
+  %.not.i.i.i.i = icmp eq ptr %30, %29
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !75
 
 _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
   %.pr.i = load ptr, ptr %4, align 8, !tbaa !71
   br label %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
 
-_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %23
-  %32 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %28, %23 ]
-  %.not.i.i.i = icmp eq ptr %32, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %33
+_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, %22
+  %31 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i ], [ %27, %22 ]
+  %.not.i.i.i = icmp eq ptr %31, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit, label %32
 
-33:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %32) #24
+32:                                               ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %31) #24
   br label %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %33
+_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-34:                                               ; preds = %19, %17
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
+33:                                               ; preds = %18, %16
+  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ]
   call void @_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

@@ -12404,7 +12404,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %378
 "_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread26.i": ; preds = %384, %383, %379, %378
   %.sroa.8.0.i.ph.i = phi ptr [ %.sroa.4.0.copyload.i.i, %384 ], [ undef, %383 ], [ undef, %378 ], [ %.sroa.4.0.copyload.i.i, %379 ]
   %.sroa.10.0.i.ph.i = phi ptr [ undef, %384 ], [ undef, %383 ], [ undef, %378 ], [ %.sroa.5.0.copyload.i.i, %379 ]
-  %.sroa.616.sroa.0.0.i.ph.i = phi i8 [ 12, %384 ], [ 11, %383 ], [ 7, %378 ], [ 6, %379 ]
+  %.sroa.616.sroa.5.sroa.0.0.i.ph.i = phi i8 [ 12, %384 ], [ 11, %383 ], [ 7, %378 ], [ 6, %379 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %49), !noalias !1696
   br label %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread16.i"
 
@@ -12450,7 +12450,7 @@ default.unreachable1.i.i.i.i.i:                   ; preds = %378
           to label %"_ZN4core3ptr201drop_in_place$LT$awc..client..connector..TcpConnectorFuture$LT$awc..client..connector..TcpConnectorInnerFuture$LT$actix_tls..connect..connector..ConnectServiceResponse$LT$http..uri..Uri$GT$$GT$$GT$$GT$17h534bc661ba3f8be8E.exit123" unwind label %284
 
 "_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread16.i": ; preds = %.noexc117, %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread26.i", %.noexc118
-  %.sroa.0216.sroa.0.0.ph = phi i8 [ 13, %.noexc118 ], [ %.sroa.616.sroa.0.0.i.ph.i, %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread26.i" ], [ 9, %.noexc117 ]
+  %.sroa.0216.sroa.0.0.ph = phi i8 [ 13, %.noexc118 ], [ %.sroa.616.sroa.5.sroa.0.0.i.ph.i, %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread26.i" ], [ 9, %.noexc117 ]
   %.sroa.12218.0.ph = phi i64 [ %.sroa.13.i.sroa.7.0.copyload, %.noexc118 ], [ undef, %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread26.i" ], [ undef, %.noexc117 ]
   %.sroa.11.0.ph = phi ptr [ %.sroa.13.i.sroa.6.0.copyload, %.noexc118 ], [ %.sroa.10.0.i.ph.i, %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread26.i" ], [ undef, %.noexc117 ]
   %.sroa.10217.0.ph = phi ptr [ %.sroa.13.i.sroa.4.0.copyload, %.noexc118 ], [ %.sroa.8.0.i.ph.i, %"_ZN107_$LT$awc..client..connector..TcpConnectorInnerFuture$LT$Fut$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hebcc384ae48b6087E.exit.thread26.i" ], [ undef, %.noexc117 ]

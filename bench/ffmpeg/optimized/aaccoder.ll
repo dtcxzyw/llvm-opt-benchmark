@@ -295,7 +295,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   %.013212047.us = phi i32 [ 0, %.preheader2000.lr.ph.split.us ], [ %238, %._crit_edge2041.us ]
   %.013652046.us = phi float [ -1.000000e+00, %.preheader2000.lr.ph.split.us ], [ %.21367.us, %._crit_edge2041.us ]
   %.013682045.us = phi float [ -1.000000e+00, %.preheader2000.lr.ph.split.us ], [ %.21370.us, %._crit_edge2041.us ]
-  %.014112044.us = phi i32 [ 0, %.preheader2000.lr.ph.split.us ], [ %184, %._crit_edge2041.us ]
+  %.014112044.us = phi i32 [ 0, %.preheader2000.lr.ph.split.us ], [ %185, %._crit_edge2041.us ]
   %154 = zext nneg i32 %.013212047.us to i64
   %155 = getelementptr inbounds nuw i8, ptr %147, i64 %154
   %156 = shl nsw i32 %.013212047.us, 4
@@ -343,54 +343,57 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   %.41451.us = phi i32 [ %175, %169 ], [ %.314502028.us, %160 ]
   %indvars.iv.next2352 = add nuw nsw i64 %indvars.iv2351, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next2352, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit1998.us, label %160, !llvm.loop !74
+  br i1 %exitcond.not, label %.loopexit1998.us.loopexit, label %160, !llvm.loop !74
 
-.loopexit1998.us:                                 ; preds = %.lr.ph.split.us2054, %176, %.preheader1999.us, %._crit_edge.us
-  %.01462.us = phi nsz float [ 0.000000e+00, %._crit_edge.us ], [ 0.000000e+00, %.preheader1999.us ], [ %.21464.us, %176 ], [ 0.000000e+00, %.lr.ph.split.us2054 ]
-  %.01457.us = phi nsz float [ 0.000000e+00, %._crit_edge.us ], [ 0.000000e+00, %.preheader1999.us ], [ %.21459.us, %176 ], [ 0.000000e+00, %.lr.ph.split.us2054 ]
-  %.01452.us = phi nsz float [ 0.000000e+00, %._crit_edge.us ], [ 0.000000e+00, %.preheader1999.us ], [ %.21454.us, %176 ], [ 0.000000e+00, %.lr.ph.split.us2054 ]
-  %.21449.us = phi i32 [ 0, %._crit_edge.us ], [ 0, %.preheader1999.us ], [ %.41451.us, %176 ], [ 0, %.lr.ph.split.us2054 ]
-  %177 = add nuw nsw i64 %indvars.iv2354, %157
-  %178 = getelementptr inbounds nuw float, ptr %11, i64 %177
-  store float %.01452.us, ptr %178, align 4, !tbaa !76
-  %179 = getelementptr inbounds nuw float, ptr %13, i64 %177
-  store float %.01457.us, ptr %179, align 4, !tbaa !76
-  %180 = trunc i32 %.21449.us to i8
-  %181 = getelementptr inbounds nuw i8, ptr %5, i64 %177
-  store i8 %180, ptr %181, align 1, !tbaa !77
+.loopexit1998.us.loopexit:                        ; preds = %176
+  %177 = fmul nsz float %.21464.us, %.21454.us
+  br label %.loopexit1998.us
+
+.loopexit1998.us:                                 ; preds = %.lr.ph.split.us2054, %.preheader1999.us, %.loopexit1998.us.loopexit, %._crit_edge.us
+  %.01462.us = phi float [ 0.000000e+00, %._crit_edge.us ], [ %177, %.loopexit1998.us.loopexit ], [ 0.000000e+00, %.preheader1999.us ], [ 0.000000e+00, %.lr.ph.split.us2054 ]
+  %.01457.us = phi nsz float [ 0.000000e+00, %._crit_edge.us ], [ %.21459.us, %.loopexit1998.us.loopexit ], [ 0.000000e+00, %.preheader1999.us ], [ 0.000000e+00, %.lr.ph.split.us2054 ]
+  %.01452.us = phi nsz float [ 0.000000e+00, %._crit_edge.us ], [ %.21454.us, %.loopexit1998.us.loopexit ], [ 0.000000e+00, %.preheader1999.us ], [ 0.000000e+00, %.lr.ph.split.us2054 ]
+  %.21449.us = phi i32 [ 0, %._crit_edge.us ], [ %.41451.us, %.loopexit1998.us.loopexit ], [ 0, %.preheader1999.us ], [ 0, %.lr.ph.split.us2054 ]
+  %178 = add nuw nsw i64 %indvars.iv2354, %157
+  %179 = getelementptr inbounds nuw float, ptr %11, i64 %178
+  store float %.01452.us, ptr %179, align 4, !tbaa !76
+  %180 = getelementptr inbounds nuw float, ptr %13, i64 %178
+  store float %.01457.us, ptr %180, align 4, !tbaa !76
+  %181 = trunc i32 %.21449.us to i8
+  %182 = getelementptr inbounds nuw i8, ptr %5, i64 %178
+  store i8 %181, ptr %182, align 1, !tbaa !77
   %.not1696.us = icmp eq i32 %.21449.us, 0
-  %182 = zext i1 %.not1696.us to i8
-  %183 = getelementptr inbounds nuw i8, ptr %150, i64 %177
-  store i8 %182, ptr %183, align 1, !tbaa !77
-  %184 = or i32 %.21449.us, %.114122035.us
-  br i1 %.not1696.us, label %199, label %185
+  %183 = zext i1 %.not1696.us to i8
+  %184 = getelementptr inbounds nuw i8, ptr %150, i64 %178
+  store i8 %183, ptr %184, align 1, !tbaa !77
+  %185 = or i32 %.21449.us, %.114122035.us
+  br i1 %.not1696.us, label %199, label %186
 
-185:                                              ; preds = %.loopexit1998.us
-  %186 = getelementptr inbounds nuw i8, ptr %151, i64 %177
-  %187 = load i8, ptr %186, align 1, !tbaa !77
-  %.not1697.us = icmp eq i8 %187, 0
-  br i1 %.not1697.us, label %199, label %188
+186:                                              ; preds = %.loopexit1998.us
+  %187 = getelementptr inbounds nuw i8, ptr %151, i64 %178
+  %188 = load i8, ptr %187, align 1, !tbaa !77
+  %.not1697.us = icmp eq i8 %188, 0
+  br i1 %.not1697.us, label %199, label %189
 
-188:                                              ; preds = %185
-  %189 = sitofp i32 %.21449.us to float
-  %190 = fmul nsz float %.01457.us, %189
-  %191 = fmul nsz float %.01462.us, %.01452.us
-  %192 = fdiv nsz float %190, %191
-  %193 = getelementptr inbounds nuw float, ptr %15, i64 %177
+189:                                              ; preds = %186
+  %190 = sitofp i32 %.21449.us to float
+  %191 = fmul nsz float %.01457.us, %190
+  %192 = fdiv nsz float %191, %.01462.us
+  %193 = getelementptr inbounds nuw float, ptr %15, i64 %178
   store float %192, ptr %193, align 4, !tbaa !76
   %194 = fcmp nsz olt float %.113662037.us, 0.000000e+00
   br i1 %194, label %199, label %195
 
-195:                                              ; preds = %188
+195:                                              ; preds = %189
   %196 = fcmp nsz ogt float %.113662037.us, %192
   %..11366.us = select nsz i1 %196, float %192, float %.113662037.us
   %197 = fcmp nsz ogt float %.113692036.us, %192
   %198 = select nsz i1 %197, float %.113692036.us, float %192
   br label %199
 
-199:                                              ; preds = %195, %188, %185, %.loopexit1998.us
-  %.21370.us = phi nsz float [ %198, %195 ], [ %.113692036.us, %185 ], [ %.113692036.us, %.loopexit1998.us ], [ %192, %188 ]
-  %.21367.us = phi nsz float [ %..11366.us, %195 ], [ %.113662037.us, %185 ], [ %.113662037.us, %.loopexit1998.us ], [ %192, %188 ]
+199:                                              ; preds = %195, %189, %186, %.loopexit1998.us
+  %.21370.us = phi nsz float [ %198, %195 ], [ %.113692036.us, %186 ], [ %.113692036.us, %.loopexit1998.us ], [ %192, %189 ]
+  %.21367.us = phi nsz float [ %..11366.us, %195 ], [ %.113662037.us, %186 ], [ %.113662037.us, %.loopexit1998.us ], [ %192, %189 ]
   %indvars.iv.next2355 = add nuw nsw i64 %indvars.iv2354, 1
   %200 = getelementptr inbounds nuw i8, ptr %153, i64 %indvars.iv2354
   %201 = load i8, ptr %200, align 1, !tbaa !77
@@ -416,7 +419,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   %.02040.us = phi i32 [ 0, %.preheader2000.us ], [ %203, %199 ]
   %.113662037.us = phi float [ %.013652046.us, %.preheader2000.us ], [ %.21367.us, %199 ]
   %.113692036.us = phi float [ %.013682045.us, %.preheader2000.us ], [ %.21370.us, %199 ]
-  %.114122035.us = phi i32 [ %.014112044.us, %.preheader2000.us ], [ %184, %199 ]
+  %.114122035.us = phi i32 [ %.014112044.us, %.preheader2000.us ], [ %185, %199 ]
   %209 = load i8, ptr %155, align 1, !tbaa !77
   %.not2288 = icmp eq i8 %209, 0
   br i1 %.not2288, label %.loopexit1998.us, label %.lr.ph.us
@@ -482,7 +485,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   br i1 %239, label %.preheader2000.us, label %.preheader1996, !llvm.loop !82
 
 .preheader1996:                                   ; preds = %._crit_edge2041.us
-  %240 = icmp eq i32 %184, 0
+  %240 = icmp eq i32 %185, 0
   br label %.preheader1995.lr.ph
 
 .preheader1995.lr.ph:                             ; preds = %.preheader1996, %.preheader2000.lr.ph

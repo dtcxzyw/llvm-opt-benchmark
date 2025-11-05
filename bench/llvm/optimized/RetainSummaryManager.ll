@@ -5620,7 +5620,7 @@ define dso_local range(i64 0, 4294967300) i64 @_ZN5clang4ento20RetainSummaryMana
   %12 = and i64 %9, -8
   %.not133 = icmp eq i64 %12, 0
   %.not = or i1 %11, %.not133
-  br i1 %.not, label %153, label %13
+  br i1 %.not, label %152, label %13
 
 13:                                               ; preds = %4
   %14 = inttoptr i64 %12 to ptr
@@ -5949,14 +5949,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit82.thread128:    ; preds = %_ZN4llvmeqENS_9Stri
   br label %.critedge55
 
 .critedge55:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit78, %_ZN4llvmeqENS_9StringRefES0_.exit82, %121, %112, %109, %96, %98, %100, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit65, %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit, %.critedge, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread128
-  %.sroa.0111.1 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread128 ], [ 1, %.critedge ], [ 1, %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit65 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 1, %100 ], [ 1, %98 ], [ 1, %96 ], [ 3, %109 ], [ 1, %112 ], [ 2, %121 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit82 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit78 ]
-  %.sroa.8.1 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread128 ], [ 4294967296, %.critedge ], [ 4294967296, %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit65 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 4294967296, %100 ], [ 4294967296, %98 ], [ 4294967296, %96 ], [ 4294967296, %109 ], [ 4294967296, %112 ], [ 4294967296, %121 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit82 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit78 ]
+  %.sroa.8.1 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit82.thread128 ], [ 4294967297, %.critedge ], [ 4294967297, %_ZNK5clang14IdentifierInfo5isStrILm18EEEbRAT__Kc.exit ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit65 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 4294967297, %100 ], [ 4294967297, %98 ], [ 4294967297, %96 ], [ 4294967299, %109 ], [ 4294967297, %112 ], [ 4294967298, %121 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit82 ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit78 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %152 = or disjoint i64 %.sroa.8.1, %.sroa.0111.1
-  br label %153
+  br label %152
 
-153:                                              ; preds = %4, %.critedge55
-  %.sroa.0111.0.insert.insert = phi i64 [ %152, %.critedge55 ], [ 0, %4 ]
+152:                                              ; preds = %4, %.critedge55
+  %.sroa.0111.0.insert.insert = phi i64 [ %.sroa.8.1, %.critedge55 ], [ 0, %4 ]
   ret i64 %.sroa.0111.0.insert.insert
 }
 

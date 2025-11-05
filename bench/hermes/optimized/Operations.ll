@@ -513,7 +513,7 @@ _ZNK6hermes2vm10StringView13castToCharPtrEv.exit: ; preds = %if.then.i.i, %if.th
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %retval.0.i.sink.i, i64 %bf.clear8.i
   %add.ptr = getelementptr inbounds nuw i8, ptr %add.ptr10.i, i64 %str.sroa.8.8.extract.shift
   %cmp.i = icmp ult i64 %str.coerce1, 4294967296
-  br i1 %cmp.i, label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit, label %if.end.i5
+  br i1 %cmp.i, label %return, label %if.end.i5
 
 if.end.i5:                                        ; preds = %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit
   %3 = load i8, ptr %add.ptr10.i, align 1
@@ -522,7 +522,7 @@ if.end.i5:                                        ; preds = %_ZNK6hermes2vm10Str
 
 if.then2.i:                                       ; preds = %if.end.i5
   %cmp3.i = icmp eq i64 %str.sroa.8.8.extract.shift, 1
-  br i1 %cmp3.i, label %8, label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit
+  br i1 %cmp3.i, label %8, label %return
 
 do.body.i:                                        ; preds = %if.end.i5, %if.end17.i
   %res.0.i = phi i64 [ %add.i, %if.end17.i ], [ 0, %if.end.i5 ]
@@ -531,7 +531,7 @@ do.body.i:                                        ; preds = %if.end.i5, %if.end1
   %.fr.i = freeze i8 %4
   %5 = add i8 %.fr.i, -58
   %or.cond.i = icmp ult i8 %5, -10
-  br i1 %or.cond.i, label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit, label %if.end12.i
+  br i1 %or.cond.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %do.body.i
   %mul.i = mul nuw nsw i64 %res.0.i, 10
@@ -539,7 +539,7 @@ if.end12.i:                                       ; preds = %do.body.i
   %conv15.i = zext nneg i8 %6 to i64
   %add.i = add nuw nsw i64 %mul.i, %conv15.i
   %7 = icmp samesign ugt i64 %add.i, 4294967295
-  br i1 %7, label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit, label %if.end17.i
+  br i1 %7, label %return, label %if.end17.i
 
 if.end17.i:                                       ; preds = %if.end12.i
   %incdec.ptr19.i = getelementptr inbounds nuw i8, ptr %first.addr.0.i, i64 1
@@ -548,16 +548,11 @@ if.end17.i:                                       ; preds = %if.end12.i
 
 return.i:                                         ; preds = %if.end17.i
   %cmp21.not.i = icmp eq i64 %add.i, 4294967295
-  br i1 %cmp21.not.i, label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit, label %8
+  br i1 %cmp21.not.i, label %return, label %8
 
 8:                                                ; preds = %return.i, %if.then2.i
   %retval.sroa.0.025.i = phi i64 [ 0, %if.then2.i ], [ %add.i, %return.i ]
-  br label %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit
-
-_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit: ; preds = %do.body.i, %if.end12.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit, %if.then2.i, %return.i, %8
-  %retval.sroa.0.023.i = phi i64 [ %retval.sroa.0.025.i, %8 ], [ 0, %return.i ], [ 0, %if.then2.i ], [ 0, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ 0, %if.end12.i ], [ 0, %do.body.i ]
-  %9 = phi i64 [ 4294967296, %8 ], [ 0, %return.i ], [ 0, %if.then2.i ], [ 0, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ 0, %if.end12.i ], [ 0, %do.body.i ]
-  %retval.sroa.0.0.insert.insert.i = or i64 %9, %retval.sroa.0.023.i
+  %9 = or disjoint i64 %retval.sroa.0.025.i, 4294967296
   br label %return
 
 if.end:                                           ; preds = %entry
@@ -608,16 +603,16 @@ _ZNK6hermes2vm10StringView15castToChar16PtrEv.exit: ; preds = %if.end, %if.then.
   %add.ptr6.idx = shl nuw nsw i64 %str.sroa.8.8.extract.shift, 1
   %add.ptr6 = getelementptr inbounds nuw i8, ptr %add.ptr10.i22, i64 %add.ptr6.idx
   %cmp.i32 = icmp ult i64 %str.coerce1, 4294967296
-  br i1 %cmp.i32, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit, label %if.end.i33
+  br i1 %cmp.i32, label %return, label %if.end.i33
 
 if.end.i33:                                       ; preds = %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit
   %14 = load i16, ptr %add.ptr10.i22, align 2
   %cmp1.i34 = icmp eq i16 %14, 48
-  br i1 %cmp1.i34, label %if.then2.i52, label %do.body.i35
+  br i1 %cmp1.i34, label %if.then2.i51, label %do.body.i35
 
-if.then2.i52:                                     ; preds = %if.end.i33
-  %cmp3.i54 = icmp eq i64 %str.sroa.8.8.extract.shift, 1
-  br i1 %cmp3.i54, label %19, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit
+if.then2.i51:                                     ; preds = %if.end.i33
+  %cmp3.i53 = icmp eq i64 %str.sroa.8.8.extract.shift, 1
+  br i1 %cmp3.i53, label %19, label %return
 
 do.body.i35:                                      ; preds = %if.end.i33, %if.end17.i44
   %res.0.i36 = phi i64 [ %add.i43, %if.end17.i44 ], [ 0, %if.end.i33 ]
@@ -626,7 +621,7 @@ do.body.i35:                                      ; preds = %if.end.i33, %if.end
   %.fr.i38 = freeze i16 %15
   %16 = add i16 %.fr.i38, -58
   %or.cond.i39 = icmp ult i16 %16, -10
-  br i1 %or.cond.i39, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit, label %if.end12.i40
+  br i1 %or.cond.i39, label %return, label %if.end12.i40
 
 if.end12.i40:                                     ; preds = %do.body.i35
   %mul.i41 = mul nuw nsw i64 %res.0.i36, 10
@@ -634,7 +629,7 @@ if.end12.i40:                                     ; preds = %do.body.i35
   %conv15.i42 = zext nneg i16 %17 to i64
   %add.i43 = add nuw nsw i64 %mul.i41, %conv15.i42
   %18 = icmp samesign ugt i64 %add.i43, 4294967295
-  br i1 %18, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit, label %if.end17.i44
+  br i1 %18, label %return, label %if.end17.i44
 
 if.end17.i44:                                     ; preds = %if.end12.i40
   %incdec.ptr19.i45 = getelementptr inbounds nuw i8, ptr %first.addr.0.i37, i64 2
@@ -643,20 +638,15 @@ if.end17.i44:                                     ; preds = %if.end12.i40
 
 return.i47:                                       ; preds = %if.end17.i44
   %cmp21.not.i48 = icmp eq i64 %add.i43, 4294967295
-  br i1 %cmp21.not.i48, label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit, label %19
+  br i1 %cmp21.not.i48, label %return, label %19
 
-19:                                               ; preds = %return.i47, %if.then2.i52
-  %retval.sroa.0.025.i49 = phi i64 [ 0, %if.then2.i52 ], [ %add.i43, %return.i47 ]
-  br label %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit
-
-_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit: ; preds = %do.body.i35, %if.end12.i40, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %if.then2.i52, %return.i47, %19
-  %retval.sroa.0.023.i50 = phi i64 [ %retval.sroa.0.025.i49, %19 ], [ 0, %return.i47 ], [ 0, %if.then2.i52 ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ 0, %if.end12.i40 ], [ 0, %do.body.i35 ]
-  %20 = phi i64 [ 4294967296, %19 ], [ 0, %return.i47 ], [ 0, %if.then2.i52 ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ 0, %if.end12.i40 ], [ 0, %do.body.i35 ]
-  %retval.sroa.0.0.insert.insert.i51 = or i64 %20, %retval.sroa.0.023.i50
+19:                                               ; preds = %return.i47, %if.then2.i51
+  %retval.sroa.0.025.i49 = phi i64 [ 0, %if.then2.i51 ], [ %add.i43, %return.i47 ]
+  %20 = or disjoint i64 %retval.sroa.0.025.i49, 4294967296
   br label %return
 
-return:                                           ; preds = %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit, %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit
-  %retval.sroa.0.0 = phi i64 [ %retval.sroa.0.0.insert.insert.i, %_ZN6hermes12toArrayIndexIPKcEENS_8OptValueIjEET_S5_.exit ], [ %retval.sroa.0.0.insert.insert.i51, %_ZN6hermes12toArrayIndexIPKDsEENS_8OptValueIjEET_S5_.exit ]
+return:                                           ; preds = %if.end12.i40, %do.body.i35, %if.end12.i, %do.body.i, %19, %return.i47, %if.then2.i51, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit, %8, %return.i, %if.then2.i, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit
+  %retval.sroa.0.0 = phi i64 [ %9, %8 ], [ 0, %return.i ], [ 0, %if.then2.i ], [ 0, %_ZNK6hermes2vm10StringView13castToCharPtrEv.exit ], [ %20, %19 ], [ 0, %return.i47 ], [ 0, %if.then2.i51 ], [ 0, %_ZNK6hermes2vm10StringView15castToChar16PtrEv.exit ], [ 0, %do.body.i ], [ 0, %if.end12.i ], [ 0, %do.body.i35 ], [ 0, %if.end12.i40 ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -7628,15 +7618,11 @@ if.end18.i:                                       ; preds = %if.end14.i
 
 if.then21.i:                                      ; preds = %if.end18.i
   %call22.i = tail call i32 @_ZN6hermes2vm15JSCallableProxy13isConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(48) %callable.addr.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #17
-  %retval.sroa.12.0.extract.shift.i = and i32 %call22.i, -65536
-  %14 = and i32 %call22.i, 65535
   br label %_ZN6hermes2vm13isConstructorERNS0_7RuntimeEPNS0_8CallableE.exit
 
 _ZN6hermes2vm13isConstructorERNS0_7RuntimeEPNS0_8CallableE.exit: ; preds = %entry, %cond.true.i, %if.end9.i, %if.end14.i, %if.end18.i, %if.then21.i
-  %retval.sroa.0.0.i = phi i32 [ %14, %if.then21.i ], [ %bf.set.i.i, %if.end9.i ], [ 257, %if.end14.i ], [ 1, %if.end18.i ], [ 1, %cond.true.i ], [ 1, %entry ]
-  %retval.sroa.12.0.i = phi i32 [ %retval.sroa.12.0.extract.shift.i, %if.then21.i ], [ 0, %if.end9.i ], [ 0, %if.end14.i ], [ 0, %if.end18.i ], [ 0, %cond.true.i ], [ 0, %entry ]
-  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.12.0.i, %retval.sroa.0.0.i
-  ret i32 %retval.sroa.0.0.insert.insert.i
+  %retval.sroa.12.0.i = phi i32 [ %call22.i, %if.then21.i ], [ %bf.set.i.i, %if.end9.i ], [ 257, %if.end14.i ], [ 1, %if.end18.i ], [ 1, %cond.true.i ], [ 1, %entry ]
+  ret i32 %retval.sroa.12.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7713,15 +7699,11 @@ if.end18:                                         ; preds = %if.end14
 
 if.then21:                                        ; preds = %if.end18
   %call22 = tail call i32 @_ZN6hermes2vm15JSCallableProxy13isConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(48) %callable.addr.0.lcssa, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) #17
-  %retval.sroa.12.0.extract.shift = and i32 %call22, -65536
-  %11 = and i32 %call22, 65535
   br label %return
 
 return:                                           ; preds = %if.end18, %if.end14, %entry, %if.then21, %if.end9
-  %retval.sroa.0.0 = phi i32 [ %11, %if.then21 ], [ %bf.set.i, %if.end9 ], [ 1, %entry ], [ 257, %if.end14 ], [ 1, %if.end18 ]
-  %retval.sroa.12.0 = phi i32 [ %retval.sroa.12.0.extract.shift, %if.then21 ], [ 0, %if.end9 ], [ 0, %entry ], [ 0, %if.end14 ], [ 0, %if.end18 ]
-  %retval.sroa.0.0.insert.insert = or disjoint i32 %retval.sroa.12.0, %retval.sroa.0.0
-  ret i32 %retval.sroa.0.0.insert.insert
+  %retval.sroa.12.0 = phi i32 [ %call22, %if.then21 ], [ %bf.set.i, %if.end9 ], [ 1, %entry ], [ 257, %if.end14 ], [ 1, %if.end18 ]
+  ret i32 %retval.sroa.12.0
 }
 
 declare i32 @_ZN6hermes2vm15JSCallableProxy13isConstructorERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #1

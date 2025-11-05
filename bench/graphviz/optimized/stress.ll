@@ -902,7 +902,7 @@ gv_calloc.exit112.thread:                         ; preds = %gv_calloc.exit
   br label %93
 
 93:                                               ; preds = %._crit_edge135, %._crit_edge126
-  %.not169 = phi i1 [ true, %._crit_edge126 ], [ false, %._crit_edge135 ]
+  %.not169 = phi i1 [ %3, %._crit_edge126 ], [ false, %._crit_edge135 ]
   %94 = phi ptr [ %65, %._crit_edge126 ], [ %91, %._crit_edge135 ]
   %95 = phi ptr [ %64, %._crit_edge126 ], [ null, %._crit_edge135 ]
   %96 = phi ptr [ %63, %._crit_edge126 ], [ %90, %._crit_edge135 ]
@@ -911,8 +911,7 @@ gv_calloc.exit112.thread:                         ; preds = %gv_calloc.exit
   %97 = load ptr, ptr %96, align 8, !tbaa !39
   tail call void @free(ptr noundef %97) #16
   store ptr null, ptr %96, align 8, !tbaa !39
-  %or.cond = and i1 %.not169, %3
-  br i1 %or.cond, label %.lr.ph138.preheader, label %.loopexit
+  br i1 %.not169, label %.lr.ph138.preheader, label %.loopexit
 
 .lr.ph138.preheader:                              ; preds = %93
   %wide.trip.count154 = zext nneg i32 %1 to i64

@@ -16566,11 +16566,11 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i:  ; preds = %357, %_ZNK3fmt3v116
   %367 = getelementptr inbounds i32, ptr %338, i64 %366
   %368 = load i32, ptr %367, align 4, !tbaa !138
   %369 = zext i32 %368 to i64
+  %370 = or disjoint i64 %.03554.i, %369
   br label %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i:  ; preds = %365, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i
-  %370 = phi i64 [ %369, %365 ], [ 0, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i ]
-  %371 = or disjoint i64 %370, %.03554.i
+  %371 = phi i64 [ %370, %365 ], [ %.03554.i, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i ]
   %372 = icmp samesign ugt i64 %363, %371
   br i1 %372, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit, label %373
 
@@ -16979,11 +16979,11 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i349: ; preds = %540, %_ZNK3fmt3v1
   %550 = getelementptr inbounds i32, ptr %521, i64 %549
   %551 = load i32, ptr %550, align 4, !tbaa !138
   %552 = zext i32 %551 to i64
+  %553 = or disjoint i64 %.03554.i342, %552
   br label %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i352
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i352: ; preds = %548, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i349
-  %553 = phi i64 [ %552, %548 ], [ 0, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i349 ]
-  %554 = or disjoint i64 %553, %.03554.i342
+  %554 = phi i64 [ %553, %548 ], [ %.03554.i342, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i349 ]
   %555 = icmp samesign ugt i64 %546, %554
   br i1 %555, label %.thread859, label %556
 
@@ -17108,11 +17108,11 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i368: ; preds = %598, %600
   %610 = getelementptr inbounds i32, ptr %590, i64 %609
   %611 = load i32, ptr %610, align 4, !tbaa !138
   %612 = zext i32 %611 to i64
+  %613 = or disjoint i64 %.03554.i361, %612
   br label %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i371
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i371: ; preds = %608, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i368
-  %613 = phi i64 [ %612, %608 ], [ 0, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i368 ]
-  %614 = or disjoint i64 %613, %.03554.i361
+  %614 = phi i64 [ %613, %608 ], [ %.03554.i361, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i368 ]
   %615 = icmp samesign ugt i64 %606, %614
   br i1 %615, label %.thread557.sink.split, label %616
 
@@ -17472,17 +17472,17 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i445: ; preds = %752, %754
   %764 = getelementptr inbounds i32, ptr %744, i64 %763
   %765 = load i32, ptr %764, align 4, !tbaa !138
   %766 = zext i32 %765 to i64
+  %767 = or disjoint i64 %.03554.i438, %766
   br label %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i448
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i448: ; preds = %762, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i445
-  %767 = phi i64 [ %766, %762 ], [ 0, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i445 ]
-  %768 = or disjoint i64 %767, %.03554.i438
+  %768 = phi i64 [ %767, %762 ], [ %.03554.i438, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i445 ]
   %769 = icmp samesign ugt i64 %760, %768
   br i1 %769, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit451, label %770
 
 770:                                              ; preds = %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i448
   %771 = sub nuw nsw i64 %768, %760
-  %772 = icmp samesign ult i64 %771, 2
+  %772 = icmp ult i64 %771, 2
   %773 = shl nuw nsw i64 %771, 32
   %.not.not.not.i449 = icmp sgt i64 %indvars.iv.next.i439, %751
   %or.cond574 = select i1 %772, i1 %.not.not.not.i449, i1 false
@@ -17695,11 +17695,11 @@ _ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i483: ; preds = %854, %856
   %866 = getelementptr inbounds i32, ptr %846, i64 %865
   %867 = load i32, ptr %866, align 4, !tbaa !138
   %868 = zext i32 %867 to i64
+  %869 = or disjoint i64 %.03554.i476, %868
   br label %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i486
 
 _ZNK3fmt3v116detail6bigint9get_bigitEi.exit46.i486: ; preds = %864, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i483
-  %869 = phi i64 [ %868, %864 ], [ 0, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i483 ]
-  %870 = or disjoint i64 %869, %.03554.i476
+  %870 = phi i64 [ %869, %864 ], [ %.03554.i476, %_ZNK3fmt3v116detail6bigint9get_bigitEi.exit44.i483 ]
   %871 = icmp samesign ugt i64 %862, %870
   br i1 %871, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit489, label %872
 

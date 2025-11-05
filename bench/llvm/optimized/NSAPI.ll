@@ -1056,7 +1056,7 @@ _ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 4294967312) i64 @_ZNK5clang5NSAPI28getNSNumberFactoryMethodKindENS_8QualTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %0, i64 %1) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 4294967311) i64 @_ZNK5clang5NSAPI28getNSNumberFactoryMethodKindENS_8QualTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %0, i64 %1) local_unnamed_addr #2 align 2 {
   %3 = and i64 %1, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16, !tbaa !400
@@ -1153,10 +1153,8 @@ define dso_local range(i64 0, 4294967312) i64 @_ZNK5clang5NSAPI28getNSNumberFact
   br label %.critedge
 
 .critedge:                                        ; preds = %15, %19, %21, %23, %23, %2, %27, %28, %29, %30, %31, %32, %33, %34, %35, %36, %37, %38, %39
-  %.sroa.030.0 = phi i64 [ 0, %39 ], [ 1, %27 ], [ 2, %28 ], [ 3, %29 ], [ 4, %30 ], [ 5, %31 ], [ 6, %32 ], [ 7, %33 ], [ 8, %34 ], [ 9, %35 ], [ 10, %36 ], [ 11, %37 ], [ 12, %38 ], [ 0, %2 ], [ 0, %23 ], [ 0, %23 ], [ 12, %15 ], [ 13, %19 ], [ 14, %21 ]
-  %.sroa.17.0 = phi i64 [ 0, %39 ], [ 4294967296, %27 ], [ 4294967296, %28 ], [ 4294967296, %29 ], [ 4294967296, %30 ], [ 4294967296, %31 ], [ 4294967296, %32 ], [ 4294967296, %33 ], [ 4294967296, %34 ], [ 4294967296, %35 ], [ 4294967296, %36 ], [ 4294967296, %37 ], [ 4294967296, %38 ], [ 0, %2 ], [ 4294967296, %23 ], [ 4294967296, %23 ], [ 4294967296, %15 ], [ 4294967296, %19 ], [ 4294967296, %21 ]
-  %.sroa.030.0.insert.insert = or disjoint i64 %.sroa.17.0, %.sroa.030.0
-  ret i64 %.sroa.030.0.insert.insert
+  %.sroa.17.0 = phi i64 [ 0, %39 ], [ 4294967297, %27 ], [ 4294967298, %28 ], [ 4294967299, %29 ], [ 4294967300, %30 ], [ 4294967301, %31 ], [ 4294967302, %32 ], [ 4294967303, %33 ], [ 4294967304, %34 ], [ 4294967305, %35 ], [ 4294967306, %36 ], [ 4294967307, %37 ], [ 4294967308, %38 ], [ 0, %2 ], [ 4294967296, %23 ], [ 4294967296, %23 ], [ 4294967308, %15 ], [ 4294967309, %19 ], [ 4294967310, %21 ]
+  ret i64 %.sroa.17.0
 }
 
 declare noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #4

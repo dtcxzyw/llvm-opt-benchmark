@@ -12940,29 +12940,29 @@ _ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit.thread: ; preds = %27
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #35, !noalias !2591
   unreachable
 
-common.resume:                                    ; preds = %53, %36, %43, %96, %70, %80, %25
-  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm.split-lp, %96 ], [ %71, %70 ], [ %81, %80 ], [ %54, %53 ], [ %37, %36 ], [ %37, %43 ]
+common.resume:                                    ; preds = %36, %43, %53, %96, %70, %80, %25
+  %common.resume.op = phi { ptr, i32 } [ %26, %25 ], [ %lpad.thr_comm.split-lp, %96 ], [ %71, %70 ], [ %81, %80 ], [ %37, %43 ], [ %37, %36 ], [ %54, %53 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit: ; preds = %27
-  %.sroa.0.0.copyload120 = load i64, ptr %11, align 8, !noalias !2588
-  %.sroa.6.0..sroa_idx121 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.6.0.copyload122 = load ptr, ptr %.sroa.6.0..sroa_idx121, align 8, !noalias !2588
-  %.sroa.7.0..sroa_idx123 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.7.0.copyload124 = load i64, ptr %.sroa.7.0..sroa_idx123, align 8, !noalias !2588
+  %.sroa.0.0.copyload117 = load i64, ptr %11, align 8, !noalias !2588
+  %.sroa.6.0..sroa_idx118 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.sroa.6.0.copyload119 = load ptr, ptr %.sroa.6.0..sroa_idx118, align 8, !noalias !2588
+  %.sroa.7.0..sroa_idx120 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.7.0.copyload121 = load i64, ptr %.sroa.7.0..sroa_idx120, align 8, !noalias !2588
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !2591
-  %34 = icmp eq i64 %.sroa.0.0.copyload120, -9223372036854775808
+  %34 = icmp eq i64 %.sroa.0.0.copyload117, -9223372036854775808
   br i1 %34, label %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit._crit_edge, label %35
 
 35:                                               ; preds = %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2621
-  store i64 %.sroa.0.0.copyload120, ptr %6, align 8
+  store i64 %.sroa.0.0.copyload117, ptr %6, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %.sroa.6.0.copyload122, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.6.0.copyload119, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 %.sroa.7.0.copyload124, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.7125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %.sink1.i.i, ptr %.sroa.7125.0..sroa_idx, align 8
+  store i64 %.sroa.7.0.copyload121, ptr %.sroa.7.0..sroa_idx, align 8
+  %.sroa.7122.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %.sink1.i.i, ptr %.sroa.7122.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i8 %29, ptr %.sroa.8.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !2632
@@ -13003,7 +13003,7 @@ _ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit: ; preds = %27
           to label %common.resume unwind label %41, !noalias !2632
 
 _ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit._crit_edge: ; preds = %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit, %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit.thread
-  %44 = phi ptr [ %31, %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit.thread ], [ %.sroa.6.0.copyload122, %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit ]
+  %44 = phi ptr [ %31, %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit.thread ], [ %.sroa.6.0.copyload119, %_ZN6fs_err3dir8read_dir17h21f7e790b47826d2E.exit ]
   %45 = tail call fastcc noundef i8 @_ZN3std2io5error5Error4kind17he6aa3f96c380349fE(ptr nonnull %44)
   %46 = icmp eq i8 %45, 0
   br i1 %46, label %.noexc42, label %62

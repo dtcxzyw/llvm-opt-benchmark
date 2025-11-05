@@ -270,7 +270,7 @@ _ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_1
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit: ; preds = %70
   %75 = load i64, ptr %36, align 8, !tbaa !24
   %76 = mul i64 %.116.i.i28.i, %75
-  %77 = add i64 %76, %.1.i.i29.i
+  %77 = add i64 %.1.i.i29.i, %76
   store i64 %77, ptr %36, align 8, !tbaa !24
   call void @_ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE13advance_tableEmb(ptr noundef nonnull align 8 dereferenceable(272) %4, i64 noundef 4, i1 noundef zeroext false)
   %78 = load i64, ptr %4, align 8, !tbaa !22
@@ -305,7 +305,7 @@ _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15sp
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit44: ; preds = %84
   %89 = load i64, ptr %36, align 8, !tbaa !24
   %90 = mul i64 %.116.i.i28.i41, %89
-  %91 = add i64 %90, %.1.i.i29.i42
+  %91 = add i64 %.1.i.i29.i42, %90
   store i64 %91, ptr %36, align 8, !tbaa !24
   %92 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN10pcg_detaillsIcSt11char_traitsIcELh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS3_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS8_IjEEEELb1EEERSt13basic_ostreamIT_T0_ESL_RKNS_8extendedIXT1_EXT2_ET3_T4_XT5_EEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(272) %4)
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef nonnull @.str, i64 noundef 1)
@@ -482,7 +482,7 @@ _ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_1
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit69: ; preds = %167
   %172 = load i64, ptr %36, align 8, !tbaa !24
   %173 = mul i64 %.116.i.i28.i66, %172
-  %174 = add i64 %173, %.1.i.i29.i67
+  %174 = add i64 %.1.i.i29.i67, %173
   store i64 %174, ptr %36, align 8, !tbaa !24
   %175 = and i64 %174, 65535
   %176 = icmp eq i64 %175, 0
@@ -592,7 +592,7 @@ _ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_1
 _ZN10pcg_detail8extendedILh6ELh16ENS_6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEEENS1_IjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS6_IjEEEELb1EE7advanceEmb.exit94: ; preds = %219
   %224 = load i64, ptr %36, align 8, !tbaa !24
   %225 = mul i64 %.116.i.i28.i91, %224
-  %226 = add i64 %225, %.1.i.i29.i92
+  %226 = add i64 %.1.i.i29.i92, %225
   store i64 %226, ptr %36, align 8, !tbaa !24
   br label %227
 
@@ -663,7 +663,7 @@ _ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_1
 29:                                               ; preds = %28, %_ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8distanceEmm.exit
   %30 = load i64, ptr %5, align 8, !tbaa !24
   %.not21.i.i = icmp eq i64 %1, 0
-  br i1 %2, label %31, label %43
+  br i1 %2, label %31, label %45
 
 31:                                               ; preds = %29
   br i1 %.not21.i.i, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit, label %.lr.ph.i.preheader.i
@@ -696,48 +696,65 @@ _ZNK10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_1
   %41 = mul i64 %.01823.i.i, %.01823.i.i
   %42 = lshr i64 %.01724.i.i, 1
   %.not.i.i17 = icmp ult i64 %.01724.i.i, 2
-  br i1 %.not.i.i17, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit, label %.lr.ph.i.i15, !llvm.loop !27
+  br i1 %.not.i.i17, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i15, !llvm.loop !27
 
-43:                                               ; preds = %29
-  br i1 %.not21.i.i, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit, label %.lr.ph.i.preheader.i20
+._crit_edge.loopexit.i.i:                         ; preds = %38
+  %43 = mul i64 %.116.i.i, %30
+  br label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit
 
-.lr.ph.i.preheader.i20:                           ; preds = %43
-  %44 = sub i64 0, %1
-  %45 = load i64, ptr %0, align 8, !tbaa !22
+_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit: ; preds = %31, %._crit_edge.loopexit.i.i
+  %.015.lcssa.i.i = phi i64 [ %30, %31 ], [ %43, %._crit_edge.loopexit.i.i ]
+  %.0.lcssa.i.i18 = phi i64 [ 0, %31 ], [ %.1.i.i16, %._crit_edge.loopexit.i.i ]
+  %44 = add i64 %.0.lcssa.i.i18, %.015.lcssa.i.i
+  br label %60
+
+45:                                               ; preds = %29
+  br i1 %.not21.i.i, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit34, label %.lr.ph.i.preheader.i20
+
+.lr.ph.i.preheader.i20:                           ; preds = %45
+  %46 = sub i64 0, %1
+  %47 = load i64, ptr %0, align 8, !tbaa !22
   br label %.lr.ph.i.i21
 
-.lr.ph.i.i21:                                     ; preds = %51, %.lr.ph.i.preheader.i20
-  %.026.i.i22 = phi i64 [ %.1.i.i29, %51 ], [ 0, %.lr.ph.i.preheader.i20 ]
-  %.01525.i.i23 = phi i64 [ %.116.i.i28, %51 ], [ 1, %.lr.ph.i.preheader.i20 ]
-  %.01724.i.i24 = phi i64 [ %55, %51 ], [ %44, %.lr.ph.i.preheader.i20 ]
-  %.01823.i.i25 = phi i64 [ %54, %51 ], [ 6364136223846793005, %.lr.ph.i.preheader.i20 ]
-  %.01922.i.i26 = phi i64 [ %53, %51 ], [ %45, %.lr.ph.i.preheader.i20 ]
-  %46 = and i64 %.01724.i.i24, 1
-  %.not20.i.i27 = icmp eq i64 %46, 0
-  br i1 %.not20.i.i27, label %51, label %47
+.lr.ph.i.i21:                                     ; preds = %53, %.lr.ph.i.preheader.i20
+  %.026.i.i22 = phi i64 [ %.1.i.i29, %53 ], [ 0, %.lr.ph.i.preheader.i20 ]
+  %.01525.i.i23 = phi i64 [ %.116.i.i28, %53 ], [ 1, %.lr.ph.i.preheader.i20 ]
+  %.01724.i.i24 = phi i64 [ %57, %53 ], [ %46, %.lr.ph.i.preheader.i20 ]
+  %.01823.i.i25 = phi i64 [ %56, %53 ], [ 6364136223846793005, %.lr.ph.i.preheader.i20 ]
+  %.01922.i.i26 = phi i64 [ %55, %53 ], [ %47, %.lr.ph.i.preheader.i20 ]
+  %48 = and i64 %.01724.i.i24, 1
+  %.not20.i.i27 = icmp eq i64 %48, 0
+  br i1 %.not20.i.i27, label %53, label %49
 
-47:                                               ; preds = %.lr.ph.i.i21
-  %48 = mul i64 %.01823.i.i25, %.01525.i.i23
-  %49 = mul i64 %.01823.i.i25, %.026.i.i22
-  %50 = add i64 %49, %.01922.i.i26
-  br label %51
+49:                                               ; preds = %.lr.ph.i.i21
+  %50 = mul i64 %.01823.i.i25, %.01525.i.i23
+  %51 = mul i64 %.01823.i.i25, %.026.i.i22
+  %52 = add i64 %51, %.01922.i.i26
+  br label %53
 
-51:                                               ; preds = %47, %.lr.ph.i.i21
-  %.116.i.i28 = phi i64 [ %48, %47 ], [ %.01525.i.i23, %.lr.ph.i.i21 ]
-  %.1.i.i29 = phi i64 [ %50, %47 ], [ %.026.i.i22, %.lr.ph.i.i21 ]
-  %52 = add i64 %.01823.i.i25, 1
-  %53 = mul i64 %52, %.01922.i.i26
-  %54 = mul i64 %.01823.i.i25, %.01823.i.i25
-  %55 = lshr i64 %.01724.i.i24, 1
+53:                                               ; preds = %49, %.lr.ph.i.i21
+  %.116.i.i28 = phi i64 [ %50, %49 ], [ %.01525.i.i23, %.lr.ph.i.i21 ]
+  %.1.i.i29 = phi i64 [ %52, %49 ], [ %.026.i.i22, %.lr.ph.i.i21 ]
+  %54 = add i64 %.01823.i.i25, 1
+  %55 = mul i64 %54, %.01922.i.i26
+  %56 = mul i64 %.01823.i.i25, %.01823.i.i25
+  %57 = lshr i64 %.01724.i.i24, 1
   %.not.i.i30 = icmp ult i64 %.01724.i.i24, 2
-  br i1 %.not.i.i30, label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit, label %.lr.ph.i.i21, !llvm.loop !27
+  br i1 %.not.i.i30, label %._crit_edge.loopexit.i.i31, label %.lr.ph.i.i21, !llvm.loop !27
 
-_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit: ; preds = %51, %38, %43, %31
-  %.015.lcssa.i.i31.sink = phi i64 [ 1, %31 ], [ 1, %43 ], [ %.116.i.i, %38 ], [ %.116.i.i28, %51 ]
-  %.0.lcssa.i.i32.sink = phi i64 [ 0, %31 ], [ 0, %43 ], [ %.1.i.i16, %38 ], [ %.1.i.i29, %51 ]
-  %56 = mul i64 %.015.lcssa.i.i31.sink, %30
-  %57 = add i64 %56, %.0.lcssa.i.i32.sink
-  store i64 %57, ptr %5, align 8, !tbaa !24
+._crit_edge.loopexit.i.i31:                       ; preds = %53
+  %58 = mul i64 %.116.i.i28, %30
+  br label %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit34
+
+_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit34: ; preds = %45, %._crit_edge.loopexit.i.i31
+  %.015.lcssa.i.i32 = phi i64 [ %30, %45 ], [ %58, %._crit_edge.loopexit.i.i31 ]
+  %.0.lcssa.i.i33 = phi i64 [ 0, %45 ], [ %.1.i.i29, %._crit_edge.loopexit.i.i31 ]
+  %59 = add i64 %.0.lcssa.i.i33, %.015.lcssa.i.i32
+  br label %60
+
+60:                                               ; preds = %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit34, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit
+  %storemerge = phi i64 [ %59, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit34 ], [ %44, %_ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE7advanceEm.exit ]
+  store i64 %storemerge, ptr %5, align 8, !tbaa !24
   ret void
 }
 
@@ -1078,16 +1095,19 @@ _ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18
   %31 = mul i32 %.01823.i, %.01823.i
   %32 = lshr i32 %.01724.i, 1
   %.not.i21 = icmp ult i32 %.01724.i, 2
-  br i1 %.not.i21, label %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE7advanceEjjjj.exit, label %.lr.ph.i19, !llvm.loop !61
+  br i1 %.not.i21, label %._crit_edge.loopexit.i, label %.lr.ph.i19, !llvm.loop !61
 
-_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE7advanceEjjjj.exit: ; preds = %.lr.ph.i19, %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE8distanceEjjjjj.exit
-  %.015.lcssa.i = phi i32 [ 1, %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE8distanceEjjjjj.exit ], [ %.116.i, %.lr.ph.i19 ]
-  %.0.lcssa.i22 = phi i32 [ 0, %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE8distanceEjjjjj.exit ], [ %.1.i20, %.lr.ph.i19 ]
-  %33 = sub i32 0, %.0.lcssa.i
-  %.v = select i1 %3, i32 %.0.lcssa.i, i32 %33
-  %34 = icmp uge i32 %2, %.v
-  %35 = mul i32 %.015.lcssa.i, %12
-  %36 = add i32 %35, %.0.lcssa.i22
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i19
+  %33 = mul i32 %.116.i, %12
+  br label %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE7advanceEjjjj.exit
+
+_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE7advanceEjjjj.exit: ; preds = %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE8distanceEjjjjj.exit, %._crit_edge.loopexit.i
+  %.015.lcssa.i = phi i32 [ %12, %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE8distanceEjjjjj.exit ], [ %33, %._crit_edge.loopexit.i ]
+  %.0.lcssa.i22 = phi i32 [ 0, %_ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18default_multiplierIjEEE8distanceEjjjjj.exit ], [ %.1.i20, %._crit_edge.loopexit.i ]
+  %34 = sub i32 0, %.0.lcssa.i
+  %.v = select i1 %3, i32 %.0.lcssa.i, i32 %34
+  %35 = icmp uge i32 %2, %.v
+  %36 = add i32 %.0.lcssa.i22, %.015.lcssa.i
   %37 = lshr i32 %36, 28
   %38 = add nuw nsw i32 %37, 4
   %39 = lshr i32 %36, %38
@@ -1096,7 +1116,7 @@ _ZN10pcg_detail6engineIjjNS_14rxs_m_xs_mixinIjjEELb1ENS_13oneseq_streamIjEENS_18
   %42 = lshr i32 %41, 22
   %43 = xor i32 %42, %41
   store i32 %43, ptr %0, align 4, !tbaa !15
-  ret i1 %34
+  ret i1 %35
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

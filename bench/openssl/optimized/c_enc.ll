@@ -1108,14 +1108,14 @@ define void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
 110:                                              ; preds = %._crit_edge
   %111 = getelementptr i8, ptr %.0239.lcssa, i64 %.0.lcssa
   %112 = getelementptr i8, ptr %.0239.lcssa, i64 %.0.in.lcssa
-  switch i64 %.0.in.lcssa, label %154 [
-    i64 1, label %148
+  switch i64 %.0.in.lcssa, label %156 [
+    i64 1, label %149
     i64 7, label %113
     i64 6, label %118
     i64 5, label %126
-    i64 4, label %132
-    i64 3, label %136
-    i64 2, label %142
+    i64 4, label %133
+    i64 3, label %137
+    i64 2, label %143
   ]
 
 113:                                              ; preds = %110
@@ -1144,57 +1144,57 @@ define void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   %129 = zext i8 %128 to i32
   %130 = shl nuw i32 %129, 24
   %131 = or i32 %130, %.3
-  br label %132
+  %132 = xor i32 %131, %.0229.lcssa
+  br label %133
 
-132:                                              ; preds = %126, %110
+133:                                              ; preds = %126, %110
   %.4243 = phi ptr [ %127, %126 ], [ %112, %110 ]
-  %.4 = phi i32 [ %131, %126 ], [ 0, %110 ]
-  %133 = getelementptr inbounds i8, ptr %.4243, i64 -1
-  %134 = load i8, ptr %133, align 1, !tbaa !9
-  %135 = zext i8 %134 to i32
-  br label %136
+  %.4 = phi i32 [ %132, %126 ], [ %.0229.lcssa, %110 ]
+  %134 = getelementptr inbounds i8, ptr %.4243, i64 -1
+  %135 = load i8, ptr %134, align 1, !tbaa !9
+  %136 = zext i8 %135 to i32
+  br label %137
 
-136:                                              ; preds = %132, %110
-  %.5244 = phi ptr [ %133, %132 ], [ %112, %110 ]
-  %.1236 = phi i32 [ %135, %132 ], [ 0, %110 ]
-  %.5 = phi i32 [ %.4, %132 ], [ 0, %110 ]
-  %137 = getelementptr inbounds i8, ptr %.5244, i64 -1
-  %138 = load i8, ptr %137, align 1, !tbaa !9
-  %139 = zext i8 %138 to i32
-  %140 = shl nuw nsw i32 %139, 8
-  %141 = or disjoint i32 %140, %.1236
-  br label %142
+137:                                              ; preds = %133, %110
+  %.5244 = phi ptr [ %134, %133 ], [ %112, %110 ]
+  %.1236 = phi i32 [ %136, %133 ], [ 0, %110 ]
+  %.5 = phi i32 [ %.4, %133 ], [ %.0229.lcssa, %110 ]
+  %138 = getelementptr inbounds i8, ptr %.5244, i64 -1
+  %139 = load i8, ptr %138, align 1, !tbaa !9
+  %140 = zext i8 %139 to i32
+  %141 = shl nuw nsw i32 %140, 8
+  %142 = or disjoint i32 %141, %.1236
+  br label %143
 
-142:                                              ; preds = %136, %110
-  %.6245 = phi ptr [ %137, %136 ], [ %112, %110 ]
-  %.2237 = phi i32 [ %141, %136 ], [ 0, %110 ]
-  %.6 = phi i32 [ %.5, %136 ], [ 0, %110 ]
-  %143 = getelementptr inbounds i8, ptr %.6245, i64 -1
-  %144 = load i8, ptr %143, align 1, !tbaa !9
-  %145 = zext i8 %144 to i32
-  %146 = shl nuw nsw i32 %145, 16
-  %147 = or i32 %146, %.2237
-  br label %148
+143:                                              ; preds = %137, %110
+  %.6245 = phi ptr [ %138, %137 ], [ %112, %110 ]
+  %.2237 = phi i32 [ %142, %137 ], [ 0, %110 ]
+  %.6 = phi i32 [ %.5, %137 ], [ %.0229.lcssa, %110 ]
+  %144 = getelementptr inbounds i8, ptr %.6245, i64 -1
+  %145 = load i8, ptr %144, align 1, !tbaa !9
+  %146 = zext i8 %145 to i32
+  %147 = shl nuw nsw i32 %146, 16
+  %148 = or i32 %147, %.2237
+  br label %149
 
-148:                                              ; preds = %110, %142
-  %.7246 = phi ptr [ %143, %142 ], [ %112, %110 ]
-  %.3238 = phi i32 [ %147, %142 ], [ 0, %110 ]
-  %.7 = phi i32 [ %.6, %142 ], [ 0, %110 ]
-  %149 = getelementptr inbounds i8, ptr %.7246, i64 -1
-  %150 = load i8, ptr %149, align 1, !tbaa !9
-  %151 = zext i8 %150 to i32
-  %152 = shl nuw i32 %151, 24
-  %153 = or i32 %152, %.3238
-  br label %154
+149:                                              ; preds = %110, %143
+  %.7246 = phi ptr [ %144, %143 ], [ %112, %110 ]
+  %.3238 = phi i32 [ %148, %143 ], [ 0, %110 ]
+  %.7 = phi i32 [ %.6, %143 ], [ %.0229.lcssa, %110 ]
+  %150 = getelementptr inbounds i8, ptr %.7246, i64 -1
+  %151 = load i8, ptr %150, align 1, !tbaa !9
+  %152 = zext i8 %151 to i32
+  %153 = shl nuw i32 %152, 24
+  %154 = or i32 %153, %.3238
+  %155 = xor i32 %154, %.0231.lcssa
+  br label %156
 
-154:                                              ; preds = %148, %110
-  %.0235 = phi i32 [ 0, %110 ], [ %153, %148 ]
-  %.0233 = phi i32 [ 0, %110 ], [ %.7, %148 ]
-  %155 = xor i32 %.0235, %.0231.lcssa
-  %156 = xor i32 %.0233, %.0229.lcssa
-  store i32 %155, ptr %7, align 4, !tbaa !3
+156:                                              ; preds = %149, %110
+  %.0235 = phi i32 [ %.0231.lcssa, %110 ], [ %155, %149 ]
+  %.0233 = phi i32 [ %.0229.lcssa, %110 ], [ %.7, %149 ]
+  store i32 %.0235, ptr %7, align 4, !tbaa !3
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %156, ptr %157, align 4, !tbaa !3
+  store i32 %.0233, ptr %157, align 4, !tbaa !3
   call void @CAST_encrypt(ptr noundef nonnull %7, ptr noundef %3)
   %158 = load i32, ptr %7, align 4, !tbaa !3
   %159 = load i32, ptr %157, align 4, !tbaa !3
@@ -1229,15 +1229,15 @@ define void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr nounde
   store i8 %180, ptr %179, align 1, !tbaa !9
   br label %181
 
-181:                                              ; preds = %._crit_edge._crit_edge, %154
-  %.pre-phi318 = phi i8 [ %.pre317, %._crit_edge._crit_edge ], [ %180, %154 ]
-  %.pre-phi316 = phi i8 [ %.pre315, %._crit_edge._crit_edge ], [ %178, %154 ]
-  %.pre-phi312 = phi i8 [ %.pre311, %._crit_edge._crit_edge ], [ %175, %154 ]
-  %.pre-phi308 = phi i8 [ %.pre307, %._crit_edge._crit_edge ], [ %172, %154 ]
-  %.pre-phi304 = phi i8 [ %.pre303, %._crit_edge._crit_edge ], [ %169, %154 ]
-  %.pre-phi302 = phi i8 [ %.pre301, %._crit_edge._crit_edge ], [ %167, %154 ]
-  %.pre-phi298 = phi i8 [ %.pre297, %._crit_edge._crit_edge ], [ %164, %154 ]
-  %.pre-phi294 = phi i8 [ %.pre293, %._crit_edge._crit_edge ], [ %161, %154 ]
+181:                                              ; preds = %._crit_edge._crit_edge, %156
+  %.pre-phi318 = phi i8 [ %.pre317, %._crit_edge._crit_edge ], [ %180, %156 ]
+  %.pre-phi316 = phi i8 [ %.pre315, %._crit_edge._crit_edge ], [ %178, %156 ]
+  %.pre-phi312 = phi i8 [ %.pre311, %._crit_edge._crit_edge ], [ %175, %156 ]
+  %.pre-phi308 = phi i8 [ %.pre307, %._crit_edge._crit_edge ], [ %172, %156 ]
+  %.pre-phi304 = phi i8 [ %.pre303, %._crit_edge._crit_edge ], [ %169, %156 ]
+  %.pre-phi302 = phi i8 [ %.pre301, %._crit_edge._crit_edge ], [ %167, %156 ]
+  %.pre-phi298 = phi i8 [ %.pre297, %._crit_edge._crit_edge ], [ %164, %156 ]
+  %.pre-phi294 = phi i8 [ %.pre293, %._crit_edge._crit_edge ], [ %161, %156 ]
   store i8 %.pre-phi294, ptr %4, align 1, !tbaa !9
   store i8 %.pre-phi298, ptr %8, align 1, !tbaa !9
   store i8 %.pre-phi302, ptr %12, align 1, !tbaa !9

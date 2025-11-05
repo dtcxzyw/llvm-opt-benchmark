@@ -1065,11 +1065,11 @@ _ZNK4decl13get_family_idEv.exit.thread.i.i.i.i:   ; preds = %.noexc34
   %102 = load i32, ptr %101, align 4, !tbaa !100
   %103 = icmp eq i32 %102, 1
   %104 = zext i1 %103 to i8
+  %105 = or i8 %.01691, %104
   br label %_ZNK17arith_recognizers6is_intEPK4expr.exit
 
 _ZNK17arith_recognizers6is_intEPK4expr.exit:      ; preds = %100, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i, %.noexc34
-  %105 = phi i8 [ %104, %100 ], [ 0, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ 0, %.noexc34 ]
-  %106 = or i8 %105, %.01691
+  %106 = phi i8 [ %105, %100 ], [ %.01691, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i.i ], [ %.01691, %.noexc34 ]
   store i32 0, ptr %8, align 8, !tbaa !84
   %107 = load i8, ptr %34, align 4
   %108 = and i8 %107, -4

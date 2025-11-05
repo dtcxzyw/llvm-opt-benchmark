@@ -156770,7 +156770,7 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i, i64 42, i1 false), !tbaa.struct !3045
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !3030
-  br label %769
+  br label %770
 
 82:                                               ; preds = %65
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3046)
@@ -156809,7 +156809,7 @@ _ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i113, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i108, i64 42, i1 false), !tbaa.struct !3045
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i108)
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !3046
-  br label %769
+  br label %770
 
 91:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
@@ -157072,1195 +157072,1195 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit129.thread301: ; preds = %188,
   %.sroa.speculated.i.i.i130 = select i1 %201, double 1.000000e+00, double %198
   %202 = fmul double %.sroa.speculated.i.i.i130, 0x3CB0000000000000
   %203 = fcmp ole double %198, %202
+  %204 = or i1 %173, %203
   br label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit132
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit132: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit129.thread301, %197, %200
-  %.0.i.i131 = phi i1 [ %203, %200 ], [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit129.thread301 ], [ false, %197 ]
-  %.098 = or i1 %173, %.0.i.i131
-  %204 = trunc nuw i8 %194 to i1
-  br i1 %204, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit, label %205
+  %.0.i.i131 = phi i1 [ %204, %200 ], [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit129.thread301 ], [ %173, %197 ]
+  %205 = trunc nuw i8 %194 to i1
+  br i1 %205, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit, label %206
 
-205:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit132
-  %206 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %207 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %208 = load double, ptr %206, align 8, !tbaa !1473
+206:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit132
+  %207 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %208 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %209 = load double, ptr %207, align 8, !tbaa !1473
-  %210 = fsub double %208, %209
-  %211 = fcmp ogt double %210, 0x400921FB54442D18
-  br i1 %211, label %.lr.ph.i.i, label %thread-pre-split.i.i
+  %210 = load double, ptr %208, align 8, !tbaa !1473
+  %211 = fsub double %209, %210
+  %212 = fcmp ogt double %211, 0x400921FB54442D18
+  br i1 %212, label %.lr.ph.i.i, label %thread-pre-split.i.i
 
-.lr.ph.i.i:                                       ; preds = %205, %.lr.ph.i.i
-  %212 = phi double [ %213, %.lr.ph.i.i ], [ %210, %205 ]
-  %213 = fadd double %212, 0xC01921FB54442D18
-  %214 = fcmp ogt double %213, 0x400921FB54442D18
-  br i1 %214, label %.lr.ph.i.i, label %thread-pre-split.i.i, !llvm.loop !3056
+.lr.ph.i.i:                                       ; preds = %206, %.lr.ph.i.i
+  %213 = phi double [ %214, %.lr.ph.i.i ], [ %211, %206 ]
+  %214 = fadd double %213, 0xC01921FB54442D18
+  %215 = fcmp ogt double %214, 0x400921FB54442D18
+  br i1 %215, label %.lr.ph.i.i, label %thread-pre-split.i.i, !llvm.loop !3056
 
-thread-pre-split.i.i:                             ; preds = %.lr.ph.i.i, %205
-  %.0.i = phi double [ %210, %205 ], [ %213, %.lr.ph.i.i ]
-  %215 = fcmp ugt double %.0.i, 0xC00921FB54442D18
-  br i1 %215, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i, label %.lr.ph10.i.i
+thread-pre-split.i.i:                             ; preds = %.lr.ph.i.i, %206
+  %.0.i = phi double [ %211, %206 ], [ %214, %.lr.ph.i.i ]
+  %216 = fcmp ugt double %.0.i, 0xC00921FB54442D18
+  br i1 %216, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i, label %.lr.ph10.i.i
 
 .lr.ph10.i.i:                                     ; preds = %thread-pre-split.i.i, %.lr.ph10.i.i
-  %216 = phi double [ %217, %.lr.ph10.i.i ], [ %.0.i, %thread-pre-split.i.i ]
-  %217 = fadd double %216, 0x401921FB54442D18
-  %218 = fcmp ugt double %217, 0xC00921FB54442D18
-  br i1 %218, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i, label %.lr.ph10.i.i, !llvm.loop !3057
+  %217 = phi double [ %218, %.lr.ph10.i.i ], [ %.0.i, %thread-pre-split.i.i ]
+  %218 = fadd double %217, 0x401921FB54442D18
+  %219 = fcmp ugt double %218, 0xC00921FB54442D18
+  br i1 %219, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i, label %.lr.ph10.i.i, !llvm.loop !3057
 
 _ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i: ; preds = %.lr.ph10.i.i, %thread-pre-split.i.i
-  %.1.i = phi double [ %.0.i, %thread-pre-split.i.i ], [ %217, %.lr.ph10.i.i ]
-  %219 = fcmp oeq double %.1.i, 0.000000e+00
-  br i1 %219, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit, label %220
+  %.1.i = phi double [ %.0.i, %thread-pre-split.i.i ], [ %218, %.lr.ph10.i.i ]
+  %220 = fcmp oeq double %.1.i, 0.000000e+00
+  br i1 %220, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit, label %221
 
-220:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i
-  %221 = call double @llvm.fabs.f64(double %.1.i)
-  %222 = fcmp ueq double %221, 0x7FF0000000000000
-  br i1 %222, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i
+221:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i
+  %222 = call double @llvm.fabs.f64(double %.1.i)
+  %223 = fcmp ueq double %222, 0x7FF0000000000000
+  br i1 %223, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i: ; preds = %220
-  %223 = fcmp olt double %221, 1.000000e+00
-  %.sroa.speculated.i.i.i.i = select i1 %223, double 1.000000e+00, double %221
-  %224 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
-  %225 = fcmp ole double %221, %224
-  %226 = fcmp oeq double %.1.i, 0x400921FB54442D18
-  %or.cond.i = or i1 %226, %225
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i: ; preds = %221
+  %224 = fcmp olt double %222, 1.000000e+00
+  %.sroa.speculated.i.i.i.i = select i1 %224, double 1.000000e+00, double %222
+  %225 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
+  %226 = fcmp ole double %222, %225
+  %227 = fcmp oeq double %.1.i, 0x400921FB54442D18
+  %or.cond.i = or i1 %227, %226
   br i1 %or.cond.i, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i: ; preds = %220
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i: ; preds = %221
   %.old.i = fcmp oeq double %.1.i, 0x400921FB54442D18
   %.old24.i = fcmp oeq double %.1.i, 0xC00921FB54442D18
   %or.cond36.i = or i1 %.old.i, %.old24.i
   br i1 %or.cond36.i, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i
-  %227 = fadd double %.1.i, 0xC00921FB54442D18
-  %228 = call noundef double @llvm.fabs.f64(double %227)
-  %229 = fcmp olt double %221, 0x400921FB54442D18
-  %230 = select i1 %229, double 0x400921FB54442D18, double %221
-  %231 = fcmp olt double %230, 1.000000e+00
-  %.sroa.speculated.i.i.i2.i = select i1 %231, double 1.000000e+00, double %230
-  %232 = fmul double %.sroa.speculated.i.i.i2.i, 0x3CB0000000000000
-  %233 = fcmp ole double %228, %232
-  %234 = fcmp oeq double %.1.i, 0xC00921FB54442D18
-  %or.cond25.i = or i1 %234, %233
+  %228 = fadd double %.1.i, 0xC00921FB54442D18
+  %229 = call noundef double @llvm.fabs.f64(double %228)
+  %230 = fcmp olt double %222, 0x400921FB54442D18
+  %231 = select i1 %230, double 0x400921FB54442D18, double %222
+  %232 = fcmp olt double %231, 1.000000e+00
+  %.sroa.speculated.i.i.i2.i = select i1 %232, double 1.000000e+00, double %231
+  %233 = fmul double %.sroa.speculated.i.i.i2.i, 0x3CB0000000000000
+  %234 = fcmp ole double %229, %233
+  %235 = fcmp oeq double %.1.i, 0xC00921FB54442D18
+  %or.cond25.i = or i1 %235, %234
   br i1 %or.cond25.i, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i
-  %235 = fadd double %.1.i, 0x400921FB54442D18
-  %236 = call noundef double @llvm.fabs.f64(double %235)
-  %237 = fcmp ugt double %236, %232
-  br i1 %237, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit
+  %236 = fadd double %.1.i, 0x400921FB54442D18
+  %237 = call noundef double @llvm.fabs.f64(double %236)
+  %238 = fcmp ugt double %237, %233
+  br i1 %238, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i
-  %238 = fcmp ogt double %.1.i, 0.000000e+00
-  %239 = select i1 %238, i32 -1, i32 1
+  %239 = fcmp ogt double %.1.i, 0.000000e+00
+  %240 = select i1 %239, i32 -1, i32 1
   br label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit
 
 _ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit132
-  %240 = phi i32 [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit132 ], [ %239, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i ]
-  br i1 %.098, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, label %241
+  %241 = phi i32 [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit132 ], [ %240, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i ]
+  br i1 %.0.i.i131, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, label %242
 
-241:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit
-  %242 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %243 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %244 = load double, ptr %242, align 8, !tbaa !1473
+242:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit
+  %243 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %245 = load double, ptr %243, align 8, !tbaa !1473
-  %246 = fsub double %244, %245
-  %247 = fcmp ogt double %246, 0x400921FB54442D18
-  br i1 %247, label %.lr.ph.i.i151, label %thread-pre-split.i.i133
+  %246 = load double, ptr %244, align 8, !tbaa !1473
+  %247 = fsub double %245, %246
+  %248 = fcmp ogt double %247, 0x400921FB54442D18
+  br i1 %248, label %.lr.ph.i.i151, label %thread-pre-split.i.i133
 
-.lr.ph.i.i151:                                    ; preds = %241, %.lr.ph.i.i151
-  %248 = phi double [ %249, %.lr.ph.i.i151 ], [ %246, %241 ]
-  %249 = fadd double %248, 0xC01921FB54442D18
-  %250 = fcmp ogt double %249, 0x400921FB54442D18
-  br i1 %250, label %.lr.ph.i.i151, label %thread-pre-split.i.i133, !llvm.loop !3056
+.lr.ph.i.i151:                                    ; preds = %242, %.lr.ph.i.i151
+  %249 = phi double [ %250, %.lr.ph.i.i151 ], [ %247, %242 ]
+  %250 = fadd double %249, 0xC01921FB54442D18
+  %251 = fcmp ogt double %250, 0x400921FB54442D18
+  br i1 %251, label %.lr.ph.i.i151, label %thread-pre-split.i.i133, !llvm.loop !3056
 
-thread-pre-split.i.i133:                          ; preds = %.lr.ph.i.i151, %241
-  %.0.i134 = phi double [ %246, %241 ], [ %249, %.lr.ph.i.i151 ]
-  %251 = fcmp ugt double %.0.i134, 0xC00921FB54442D18
-  br i1 %251, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136, label %.lr.ph10.i.i135
+thread-pre-split.i.i133:                          ; preds = %.lr.ph.i.i151, %242
+  %.0.i134 = phi double [ %247, %242 ], [ %250, %.lr.ph.i.i151 ]
+  %252 = fcmp ugt double %.0.i134, 0xC00921FB54442D18
+  br i1 %252, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136, label %.lr.ph10.i.i135
 
 .lr.ph10.i.i135:                                  ; preds = %thread-pre-split.i.i133, %.lr.ph10.i.i135
-  %252 = phi double [ %253, %.lr.ph10.i.i135 ], [ %.0.i134, %thread-pre-split.i.i133 ]
-  %253 = fadd double %252, 0x401921FB54442D18
-  %254 = fcmp ugt double %253, 0xC00921FB54442D18
-  br i1 %254, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136, label %.lr.ph10.i.i135, !llvm.loop !3057
+  %253 = phi double [ %254, %.lr.ph10.i.i135 ], [ %.0.i134, %thread-pre-split.i.i133 ]
+  %254 = fadd double %253, 0x401921FB54442D18
+  %255 = fcmp ugt double %254, 0xC00921FB54442D18
+  br i1 %255, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136, label %.lr.ph10.i.i135, !llvm.loop !3057
 
 _ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136: ; preds = %.lr.ph10.i.i135, %thread-pre-split.i.i133
-  %.1.i137 = phi double [ %.0.i134, %thread-pre-split.i.i133 ], [ %253, %.lr.ph10.i.i135 ]
-  %255 = fcmp oeq double %.1.i137, 0.000000e+00
-  br i1 %255, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, label %256
+  %.1.i137 = phi double [ %.0.i134, %thread-pre-split.i.i133 ], [ %254, %.lr.ph10.i.i135 ]
+  %256 = fcmp oeq double %.1.i137, 0.000000e+00
+  br i1 %256, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, label %257
 
-256:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136
-  %257 = call double @llvm.fabs.f64(double %.1.i137)
-  %258 = fcmp ueq double %257, 0x7FF0000000000000
-  br i1 %258, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138
+257:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136
+  %258 = call double @llvm.fabs.f64(double %.1.i137)
+  %259 = fcmp ueq double %258, 0x7FF0000000000000
+  br i1 %259, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138: ; preds = %256
-  %259 = fcmp olt double %257, 1.000000e+00
-  %.sroa.speculated.i.i.i.i139 = select i1 %259, double 1.000000e+00, double %257
-  %260 = fmul double %.sroa.speculated.i.i.i.i139, 0x3CB0000000000000
-  %261 = fcmp ole double %257, %260
-  %262 = fcmp oeq double %.1.i137, 0x400921FB54442D18
-  %or.cond.i140 = or i1 %262, %261
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138: ; preds = %257
+  %260 = fcmp olt double %258, 1.000000e+00
+  %.sroa.speculated.i.i.i.i139 = select i1 %260, double 1.000000e+00, double %258
+  %261 = fmul double %.sroa.speculated.i.i.i.i139, 0x3CB0000000000000
+  %262 = fcmp ole double %258, %261
+  %263 = fcmp oeq double %.1.i137, 0x400921FB54442D18
+  %or.cond.i140 = or i1 %263, %262
   br i1 %or.cond.i140, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i141
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147: ; preds = %256
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147: ; preds = %257
   %.old.i148 = fcmp oeq double %.1.i137, 0x400921FB54442D18
   %.old24.i149 = fcmp oeq double %.1.i137, 0xC00921FB54442D18
   %or.cond36.i150 = or i1 %.old.i148, %.old24.i149
   br i1 %or.cond36.i150, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i146
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i141: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138
-  %263 = fadd double %.1.i137, 0xC00921FB54442D18
-  %264 = call noundef double @llvm.fabs.f64(double %263)
-  %265 = fcmp olt double %257, 0x400921FB54442D18
-  %266 = select i1 %265, double 0x400921FB54442D18, double %257
-  %267 = fcmp olt double %266, 1.000000e+00
-  %.sroa.speculated.i.i.i2.i142 = select i1 %267, double 1.000000e+00, double %266
-  %268 = fmul double %.sroa.speculated.i.i.i2.i142, 0x3CB0000000000000
-  %269 = fcmp ole double %264, %268
-  %270 = fcmp oeq double %.1.i137, 0xC00921FB54442D18
-  %or.cond25.i143 = or i1 %270, %269
+  %264 = fadd double %.1.i137, 0xC00921FB54442D18
+  %265 = call noundef double @llvm.fabs.f64(double %264)
+  %266 = fcmp olt double %258, 0x400921FB54442D18
+  %267 = select i1 %266, double 0x400921FB54442D18, double %258
+  %268 = fcmp olt double %267, 1.000000e+00
+  %.sroa.speculated.i.i.i2.i142 = select i1 %268, double 1.000000e+00, double %267
+  %269 = fmul double %.sroa.speculated.i.i.i2.i142, 0x3CB0000000000000
+  %270 = fcmp ole double %265, %269
+  %271 = fcmp oeq double %.1.i137, 0xC00921FB54442D18
+  %or.cond25.i143 = or i1 %271, %270
   br i1 %or.cond25.i143, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i144
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i144: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i141
-  %271 = fadd double %.1.i137, 0x400921FB54442D18
-  %272 = call noundef double @llvm.fabs.f64(double %271)
-  %273 = fcmp ugt double %272, %268
-  br i1 %273, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i146, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152
+  %272 = fadd double %.1.i137, 0x400921FB54442D18
+  %273 = call noundef double @llvm.fabs.f64(double %272)
+  %274 = fcmp ugt double %273, %269
+  br i1 %274, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i146, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i146: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i144, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147
-  %274 = fcmp ogt double %.1.i137, 0.000000e+00
-  %275 = select i1 %274, i32 -1, i32 1
+  %275 = fcmp ogt double %.1.i137, 0.000000e+00
+  %276 = select i1 %275, i32 -1, i32 1
   br label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152
 
 _ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i146, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i144, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i141, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit
-  %276 = phi i32 [ 0, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit ], [ %275, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i146 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i144 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i141 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138 ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147 ]
-  store i32 %240, ptr %27, align 4, !tbaa !2954
-  store i32 %276, ptr %168, align 4, !tbaa !3058
-  %277 = mul nsw i32 %276, %240
-  %278 = icmp eq i32 %277, 1
-  br i1 %278, label %279, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
+  %277 = phi i32 [ 0, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit ], [ %276, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i146 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i144 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i141 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i138 ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i136 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i147 ]
+  store i32 %241, ptr %27, align 4, !tbaa !2954
+  store i32 %277, ptr %168, align 4, !tbaa !3058
+  %278 = mul nsw i32 %277, %241
+  %279 = icmp eq i32 %278, 1
+  br i1 %279, label %280, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
 
-279:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152
+280:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152
   call void @llvm.experimental.noalias.scope.decl(metadata !3059)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !3059
   store i64 0, ptr %15, align 8, !tbaa !3038, !alias.scope !3062, !noalias !3059
-  br label %280
+  br label %281
 
-280:                                              ; preds = %280, %279
-  %.idx.i.i.i154 = phi i64 [ 40, %279 ], [ %.add.i.i.i156, %280 ]
+281:                                              ; preds = %281, %280
+  %.idx.i.i.i154 = phi i64 [ 40, %280 ], [ %.add.i.i.i156, %281 ]
   %.ptr.i.i.i155 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i.i.i154
   store double 0.000000e+00, ptr %.ptr.i.i.i155, align 8, !tbaa !2933, !alias.scope !3062, !noalias !3059
-  %281 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 8
-  store double 1.000000e+00, ptr %281, align 8, !tbaa !2934, !alias.scope !3062, !noalias !3059
-  %282 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 16
-  %283 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %282, i8 0, i64 16, i1 false), !alias.scope !3062, !noalias !3059
-  store double 1.000000e+00, ptr %283, align 8, !tbaa !2934, !alias.scope !3062, !noalias !3059
-  %284 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 40
-  store double 0.000000e+00, ptr %284, align 8, !tbaa !3005, !alias.scope !3062, !noalias !3059
-  %285 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 48
-  store i8 0, ptr %285, align 8, !tbaa !3036, !alias.scope !3062, !noalias !3059
+  %282 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 8
+  store double 1.000000e+00, ptr %282, align 8, !tbaa !2934, !alias.scope !3062, !noalias !3059
+  %283 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 16
+  %284 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %283, i8 0, i64 16, i1 false), !alias.scope !3062, !noalias !3059
+  store double 1.000000e+00, ptr %284, align 8, !tbaa !2934, !alias.scope !3062, !noalias !3059
+  %285 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 40
+  store double 0.000000e+00, ptr %285, align 8, !tbaa !3005, !alias.scope !3062, !noalias !3059
+  %286 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i155, i64 48
+  store i8 0, ptr %286, align 8, !tbaa !3036, !alias.scope !3062, !noalias !3059
   %.add.i.i.i156 = add nuw nsw i64 %.idx.i.i.i154, 56
-  %286 = icmp eq i64 %.add.i.i.i156, 152
-  br i1 %286, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit160, label %280
+  %287 = icmp eq i64 %.add.i.i.i156, 152
+  br i1 %287, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit160, label %281
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit160: ; preds = %280
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit160: ; preds = %281
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i153)
   %.sroa.5.i153.2.i153.2.i153.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i153, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i153.2.i153.2.i153.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !3065, !noalias !3059
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %15, i64 152, i1 false), !tbaa.struct !3044
-  %287 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 100, ptr %287, align 8, !tbaa !24, !alias.scope !3059
+  %288 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 100, ptr %288, align 8, !tbaa !24, !alias.scope !3059
   %.sroa.4.0..sroa_idx.i158 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store i8 0, ptr %.sroa.4.0..sroa_idx.i158, align 1, !tbaa !15, !alias.scope !3059
   %.sroa.5.0..sroa_idx.i159 = getelementptr inbounds nuw i8, ptr %0, i64 154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i159, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i153, i64 42, i1 false), !tbaa.struct !3045
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i153)
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !3059
-  br label %768
+  br label %769
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread: ; preds = %177, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126
-  %288 = phi i32 [ 0, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126 ], [ %276, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ 0, %177 ]
-  %289 = phi i32 [ 0, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126 ], [ %240, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ 0, %177 ]
+  %289 = phi i32 [ 0, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126 ], [ %277, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ 0, %177 ]
+  %290 = phi i32 [ 0, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126 ], [ %241, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ 0, %177 ]
   %.0101.shrunk = phi i1 [ true, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126 ], [ false, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152 ], [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ true, %177 ]
   %.099 = phi i8 [ %172, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126 ], [ %194, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152 ], [ %172, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ %172, %177 ]
   %.096 = phi i8 [ 0, %_ZN5boost8geometry13get_as_radianILm1ENS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEEEENS0_18fp_coordinate_typeIT0_E4typeERKSA_.exit126 ], [ 0, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit152 ], [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit ], [ 1, %177 ]
-  %290 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7)
+  %291 = call noundef zeroext i1 @_ZN5boost8geometry6detail6within23point_point_on_spheroid15are_same_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESB_Lb1EE5applyERKSB_SE_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %291 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  %292 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, i8 0, i64 32, i1 false)
-  store double 1.000000e+00, ptr %291, align 8, !tbaa !2781
-  call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %292 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %292, align 8, !tbaa !2781
-  call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %293 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(ptr nonnull %35)
+  %293 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, i8 0, i64 32, i1 false)
   store double 1.000000e+00, ptr %293, align 8, !tbaa !2781
-  br i1 %63, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread, label %294
+  call void @llvm.lifetime.start.p0(ptr nonnull %36)
+  %294 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, i8 0, i64 32, i1 false)
+  store double 1.000000e+00, ptr %294, align 8, !tbaa !2781
+  br i1 %63, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread, label %295
 
-294:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
+295:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @_ZN5boost8geometry7formula15andoyer_inverseIdLb1ELb1ELb0ELb0ELb0EE5applyIddNS0_3srs8spheroidIdEEEENS1_14result_inverseIdEERKT_SC_RKT0_SF_RKT1_(ptr dead_on_unwind nonnull writable sret(%"struct.boost::geometry::formula::result_inverse") align 8 %37, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %37, i64 40, i1 false), !tbaa.struct !3055
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %295 = load double, ptr %34, align 8, !tbaa !1473
-  %296 = fcmp oeq double %295, 0.000000e+00
-  br i1 %296, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread, label %297
+  %296 = load double, ptr %34, align 8, !tbaa !1473
+  %297 = fcmp oeq double %296, 0.000000e+00
+  br i1 %297, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread, label %298
 
-297:                                              ; preds = %294
-  %298 = call double @llvm.fabs.f64(double %295)
-  %299 = fcmp ueq double %298, 0x7FF0000000000000
-  br i1 %299, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163
+298:                                              ; preds = %295
+  %299 = call double @llvm.fabs.f64(double %296)
+  %300 = fcmp ueq double %299, 0x7FF0000000000000
+  br i1 %300, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163: ; preds = %297
-  %300 = fcmp olt double %298, 1.000000e+00
-  %.sroa.speculated.i.i.i161 = select i1 %300, double 1.000000e+00, double %298
-  %301 = fmul double %.sroa.speculated.i.i.i161, 0x3CB0000000000000
-  %302 = fcmp ugt double %298, %301
-  br i1 %302, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163: ; preds = %298
+  %301 = fcmp olt double %299, 1.000000e+00
+  %.sroa.speculated.i.i.i161 = select i1 %301, double 1.000000e+00, double %299
+  %302 = fmul double %.sroa.speculated.i.i.i161, 0x3CB0000000000000
+  %303 = fcmp ugt double %299, %302
+  br i1 %303, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305: ; preds = %297, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305: ; preds = %298, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   call void @_ZN5boost8geometry7formula15andoyer_inverseIdLb1ELb1ELb0ELb0ELb0EE5applyIddNS0_3srs8spheroidIdEEEENS1_14result_inverseIdEERKT_SC_RKT0_SF_RKT1_(ptr dead_on_unwind nonnull writable sret(%"struct.boost::geometry::formula::result_inverse") align 8 %38, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %38, i64 40, i1 false), !tbaa.struct !3055
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  %303 = load double, ptr %35, align 8, !tbaa !1473
-  %.fr330 = freeze double %303
-  %304 = fcmp oeq double %.fr330, 0.000000e+00
-  br i1 %304, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread, label %305
+  %304 = load double, ptr %35, align 8, !tbaa !1473
+  %.fr330 = freeze double %304
+  %305 = fcmp oeq double %.fr330, 0.000000e+00
+  br i1 %305, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread, label %306
 
-305:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305
-  %306 = call double @llvm.fabs.f64(double %.fr330)
-  %307 = fcmp ueq double %306, 0x7FF0000000000000
-  br i1 %307, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166
+306:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305
+  %307 = call double @llvm.fabs.f64(double %.fr330)
+  %308 = fcmp ueq double %307, 0x7FF0000000000000
+  br i1 %308, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166: ; preds = %305
-  %308 = fcmp olt double %306, 1.000000e+00
-  %.sroa.speculated.i.i.i164 = select i1 %308, double 1.000000e+00, double %306
-  %309 = fmul double %.sroa.speculated.i.i.i164, 0x3CB0000000000000
-  %310 = fcmp ugt double %306, %309
-  br i1 %310, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166: ; preds = %306
+  %309 = fcmp olt double %307, 1.000000e+00
+  %.sroa.speculated.i.i.i164 = select i1 %309, double 1.000000e+00, double %307
+  %310 = fmul double %.sroa.speculated.i.i.i164, 0x3CB0000000000000
+  %311 = fcmp ugt double %307, %310
+  br i1 %311, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread305, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166
   br label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310: ; preds = %305, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread
-  %311 = phi i8 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread ], [ %.099, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166 ], [ %.099, %305 ]
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310: ; preds = %306, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread
+  %312 = phi i8 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread ], [ %.099, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166 ], [ %.099, %306 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @_ZN5boost8geometry7formula15andoyer_inverseIdLb1ELb1ELb0ELb0ELb0EE5applyIddNS0_3srs8spheroidIdEEEENS1_14result_inverseIdEERKT_SC_RKT0_SF_RKT1_(ptr dead_on_unwind nonnull writable sret(%"struct.boost::geometry::formula::result_inverse") align 8 %39, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false), !tbaa.struct !3055
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %312 = load double, ptr %36, align 8, !tbaa !1473
-  %.fr331 = freeze double %312
-  %313 = fcmp oeq double %.fr331, 0.000000e+00
-  br i1 %313, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread, label %314
+  %313 = load double, ptr %36, align 8, !tbaa !1473
+  %.fr331 = freeze double %313
+  %314 = fcmp oeq double %.fr331, 0.000000e+00
+  br i1 %314, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread, label %315
 
-314:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310
-  %315 = call double @llvm.fabs.f64(double %.fr331)
-  %316 = fcmp ueq double %315, 0x7FF0000000000000
-  br i1 %316, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169
+315:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310
+  %316 = call double @llvm.fabs.f64(double %.fr331)
+  %317 = fcmp ueq double %316, 0x7FF0000000000000
+  br i1 %317, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169: ; preds = %314
-  %317 = fcmp olt double %315, 1.000000e+00
-  %.sroa.speculated.i.i.i167 = select i1 %317, double 1.000000e+00, double %315
-  %318 = fmul double %.sroa.speculated.i.i.i167, 0x3CB0000000000000
-  %319 = fcmp ugt double %315, %318
-  br i1 %319, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169: ; preds = %315
+  %318 = fcmp olt double %316, 1.000000e+00
+  %.sroa.speculated.i.i.i167 = select i1 %318, double 1.000000e+00, double %316
+  %319 = fmul double %.sroa.speculated.i.i.i167, 0x3CB0000000000000
+  %320 = fcmp ugt double %316, %319
+  br i1 %320, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit166.thread310, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169
   br label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316: ; preds = %314, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread
-  %320 = phi i1 [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread ], [ %290, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169 ], [ %290, %314 ]
-  %321 = trunc nuw i8 %311 to i1
-  br i1 %321, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189, label %322
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316: ; preds = %315, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread
+  %321 = phi i1 [ true, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread ], [ %291, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169 ], [ %291, %315 ]
+  %322 = trunc nuw i8 %312 to i1
+  br i1 %322, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189, label %323
 
-322:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316
-  %323 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %324 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %325 = load double, ptr %323, align 8, !tbaa !1473
+323:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316
+  %324 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %325 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %326 = load double, ptr %324, align 8, !tbaa !1473
-  %327 = fsub double %325, %326
-  %328 = fcmp ogt double %327, 0x400921FB54442D18
-  br i1 %328, label %.lr.ph.i.i188, label %thread-pre-split.i.i170
+  %327 = load double, ptr %325, align 8, !tbaa !1473
+  %328 = fsub double %326, %327
+  %329 = fcmp ogt double %328, 0x400921FB54442D18
+  br i1 %329, label %.lr.ph.i.i188, label %thread-pre-split.i.i170
 
-.lr.ph.i.i188:                                    ; preds = %322, %.lr.ph.i.i188
-  %329 = phi double [ %330, %.lr.ph.i.i188 ], [ %327, %322 ]
-  %330 = fadd double %329, 0xC01921FB54442D18
-  %331 = fcmp ogt double %330, 0x400921FB54442D18
-  br i1 %331, label %.lr.ph.i.i188, label %thread-pre-split.i.i170, !llvm.loop !3056
+.lr.ph.i.i188:                                    ; preds = %323, %.lr.ph.i.i188
+  %330 = phi double [ %331, %.lr.ph.i.i188 ], [ %328, %323 ]
+  %331 = fadd double %330, 0xC01921FB54442D18
+  %332 = fcmp ogt double %331, 0x400921FB54442D18
+  br i1 %332, label %.lr.ph.i.i188, label %thread-pre-split.i.i170, !llvm.loop !3056
 
-thread-pre-split.i.i170:                          ; preds = %.lr.ph.i.i188, %322
-  %.0.i171 = phi double [ %327, %322 ], [ %330, %.lr.ph.i.i188 ]
-  %332 = fcmp ugt double %.0.i171, 0xC00921FB54442D18
-  br i1 %332, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173, label %.lr.ph10.i.i172
+thread-pre-split.i.i170:                          ; preds = %.lr.ph.i.i188, %323
+  %.0.i171 = phi double [ %328, %323 ], [ %331, %.lr.ph.i.i188 ]
+  %333 = fcmp ugt double %.0.i171, 0xC00921FB54442D18
+  br i1 %333, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173, label %.lr.ph10.i.i172
 
 .lr.ph10.i.i172:                                  ; preds = %thread-pre-split.i.i170, %.lr.ph10.i.i172
-  %333 = phi double [ %334, %.lr.ph10.i.i172 ], [ %.0.i171, %thread-pre-split.i.i170 ]
-  %334 = fadd double %333, 0x401921FB54442D18
-  %335 = fcmp ugt double %334, 0xC00921FB54442D18
-  br i1 %335, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173, label %.lr.ph10.i.i172, !llvm.loop !3057
+  %334 = phi double [ %335, %.lr.ph10.i.i172 ], [ %.0.i171, %thread-pre-split.i.i170 ]
+  %335 = fadd double %334, 0x401921FB54442D18
+  %336 = fcmp ugt double %335, 0xC00921FB54442D18
+  br i1 %336, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173, label %.lr.ph10.i.i172, !llvm.loop !3057
 
 _ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173: ; preds = %.lr.ph10.i.i172, %thread-pre-split.i.i170
-  %.1.i174 = phi double [ %.0.i171, %thread-pre-split.i.i170 ], [ %334, %.lr.ph10.i.i172 ]
-  %336 = fcmp oeq double %.1.i174, 0.000000e+00
-  br i1 %336, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189, label %337
+  %.1.i174 = phi double [ %.0.i171, %thread-pre-split.i.i170 ], [ %335, %.lr.ph10.i.i172 ]
+  %337 = fcmp oeq double %.1.i174, 0.000000e+00
+  br i1 %337, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189, label %338
 
-337:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173
-  %338 = call double @llvm.fabs.f64(double %.1.i174)
-  %339 = fcmp ueq double %338, 0x7FF0000000000000
-  br i1 %339, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175
+338:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173
+  %339 = call double @llvm.fabs.f64(double %.1.i174)
+  %340 = fcmp ueq double %339, 0x7FF0000000000000
+  br i1 %340, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175: ; preds = %337
-  %340 = fcmp olt double %338, 1.000000e+00
-  %.sroa.speculated.i.i.i.i176 = select i1 %340, double 1.000000e+00, double %338
-  %341 = fmul double %.sroa.speculated.i.i.i.i176, 0x3CB0000000000000
-  %342 = fcmp ole double %338, %341
-  %343 = fcmp oeq double %.1.i174, 0x400921FB54442D18
-  %or.cond.i177 = or i1 %343, %342
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175: ; preds = %338
+  %341 = fcmp olt double %339, 1.000000e+00
+  %.sroa.speculated.i.i.i.i176 = select i1 %341, double 1.000000e+00, double %339
+  %342 = fmul double %.sroa.speculated.i.i.i.i176, 0x3CB0000000000000
+  %343 = fcmp ole double %339, %342
+  %344 = fcmp oeq double %.1.i174, 0x400921FB54442D18
+  %or.cond.i177 = or i1 %344, %343
   br i1 %or.cond.i177, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i178
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184: ; preds = %337
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184: ; preds = %338
   %.old.i185 = fcmp oeq double %.1.i174, 0x400921FB54442D18
   %.old24.i186 = fcmp oeq double %.1.i174, 0xC00921FB54442D18
   %or.cond36.i187 = or i1 %.old.i185, %.old24.i186
   br i1 %or.cond36.i187, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i183
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i178: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175
-  %344 = fadd double %.1.i174, 0xC00921FB54442D18
-  %345 = call noundef double @llvm.fabs.f64(double %344)
-  %346 = fcmp olt double %338, 0x400921FB54442D18
-  %347 = select i1 %346, double 0x400921FB54442D18, double %338
-  %348 = fcmp olt double %347, 1.000000e+00
-  %.sroa.speculated.i.i.i2.i179 = select i1 %348, double 1.000000e+00, double %347
-  %349 = fmul double %.sroa.speculated.i.i.i2.i179, 0x3CB0000000000000
-  %350 = fcmp ole double %345, %349
-  %351 = fcmp oeq double %.1.i174, 0xC00921FB54442D18
-  %or.cond25.i180 = or i1 %351, %350
+  %345 = fadd double %.1.i174, 0xC00921FB54442D18
+  %346 = call noundef double @llvm.fabs.f64(double %345)
+  %347 = fcmp olt double %339, 0x400921FB54442D18
+  %348 = select i1 %347, double 0x400921FB54442D18, double %339
+  %349 = fcmp olt double %348, 1.000000e+00
+  %.sroa.speculated.i.i.i2.i179 = select i1 %349, double 1.000000e+00, double %348
+  %350 = fmul double %.sroa.speculated.i.i.i2.i179, 0x3CB0000000000000
+  %351 = fcmp ole double %346, %350
+  %352 = fcmp oeq double %.1.i174, 0xC00921FB54442D18
+  %or.cond25.i180 = or i1 %352, %351
   br i1 %or.cond25.i180, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i181
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i181: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i178
-  %352 = fadd double %.1.i174, 0x400921FB54442D18
-  %353 = call noundef double @llvm.fabs.f64(double %352)
-  %354 = fcmp ugt double %353, %349
-  br i1 %354, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i183, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189
+  %353 = fadd double %.1.i174, 0x400921FB54442D18
+  %354 = call noundef double @llvm.fabs.f64(double %353)
+  %355 = fcmp ugt double %354, %350
+  br i1 %355, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i183, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i183: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i181, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184
-  %355 = fcmp ogt double %.1.i174, 0.000000e+00
-  %356 = select i1 %355, i32 -1, i32 1
+  %356 = fcmp ogt double %.1.i174, 0.000000e+00
+  %357 = select i1 %356, i32 -1, i32 1
   br label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189
 
 _ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i183, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i181, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i178, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316
-  %357 = phi i32 [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316 ], [ %356, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i183 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i181 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i178 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175 ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184 ]
-  br i1 %320, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209, label %358
+  %358 = phi i32 [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit169.thread316 ], [ %357, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i183 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i181 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i178 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i175 ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i173 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i184 ]
+  br i1 %321, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209, label %359
 
-358:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189
-  %359 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %360 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %361 = load double, ptr %359, align 8, !tbaa !1473
+359:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189
+  %360 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %361 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %362 = load double, ptr %360, align 8, !tbaa !1473
-  %363 = fsub double %361, %362
-  %364 = fcmp ogt double %363, 0x400921FB54442D18
-  br i1 %364, label %.lr.ph.i.i208, label %thread-pre-split.i.i190
+  %363 = load double, ptr %361, align 8, !tbaa !1473
+  %364 = fsub double %362, %363
+  %365 = fcmp ogt double %364, 0x400921FB54442D18
+  br i1 %365, label %.lr.ph.i.i208, label %thread-pre-split.i.i190
 
-.lr.ph.i.i208:                                    ; preds = %358, %.lr.ph.i.i208
-  %365 = phi double [ %366, %.lr.ph.i.i208 ], [ %363, %358 ]
-  %366 = fadd double %365, 0xC01921FB54442D18
-  %367 = fcmp ogt double %366, 0x400921FB54442D18
-  br i1 %367, label %.lr.ph.i.i208, label %thread-pre-split.i.i190, !llvm.loop !3056
+.lr.ph.i.i208:                                    ; preds = %359, %.lr.ph.i.i208
+  %366 = phi double [ %367, %.lr.ph.i.i208 ], [ %364, %359 ]
+  %367 = fadd double %366, 0xC01921FB54442D18
+  %368 = fcmp ogt double %367, 0x400921FB54442D18
+  br i1 %368, label %.lr.ph.i.i208, label %thread-pre-split.i.i190, !llvm.loop !3056
 
-thread-pre-split.i.i190:                          ; preds = %.lr.ph.i.i208, %358
-  %.0.i191 = phi double [ %363, %358 ], [ %366, %.lr.ph.i.i208 ]
-  %368 = fcmp ugt double %.0.i191, 0xC00921FB54442D18
-  br i1 %368, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193, label %.lr.ph10.i.i192
+thread-pre-split.i.i190:                          ; preds = %.lr.ph.i.i208, %359
+  %.0.i191 = phi double [ %364, %359 ], [ %367, %.lr.ph.i.i208 ]
+  %369 = fcmp ugt double %.0.i191, 0xC00921FB54442D18
+  br i1 %369, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193, label %.lr.ph10.i.i192
 
 .lr.ph10.i.i192:                                  ; preds = %thread-pre-split.i.i190, %.lr.ph10.i.i192
-  %369 = phi double [ %370, %.lr.ph10.i.i192 ], [ %.0.i191, %thread-pre-split.i.i190 ]
-  %370 = fadd double %369, 0x401921FB54442D18
-  %371 = fcmp ugt double %370, 0xC00921FB54442D18
-  br i1 %371, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193, label %.lr.ph10.i.i192, !llvm.loop !3057
+  %370 = phi double [ %371, %.lr.ph10.i.i192 ], [ %.0.i191, %thread-pre-split.i.i190 ]
+  %371 = fadd double %370, 0x401921FB54442D18
+  %372 = fcmp ugt double %371, 0xC00921FB54442D18
+  br i1 %372, label %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193, label %.lr.ph10.i.i192, !llvm.loop !3057
 
 _ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193: ; preds = %.lr.ph10.i.i192, %thread-pre-split.i.i190
-  %.1.i194 = phi double [ %.0.i191, %thread-pre-split.i.i190 ], [ %370, %.lr.ph10.i.i192 ]
-  %372 = fcmp oeq double %.1.i194, 0.000000e+00
-  br i1 %372, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209, label %373
+  %.1.i194 = phi double [ %.0.i191, %thread-pre-split.i.i190 ], [ %371, %.lr.ph10.i.i192 ]
+  %373 = fcmp oeq double %.1.i194, 0.000000e+00
+  br i1 %373, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209, label %374
 
-373:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193
-  %374 = call double @llvm.fabs.f64(double %.1.i194)
-  %375 = fcmp ueq double %374, 0x7FF0000000000000
-  br i1 %375, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195
+374:                                              ; preds = %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193
+  %375 = call double @llvm.fabs.f64(double %.1.i194)
+  %376 = fcmp ueq double %375, 0x7FF0000000000000
+  br i1 %376, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195: ; preds = %373
-  %376 = fcmp olt double %374, 1.000000e+00
-  %.sroa.speculated.i.i.i.i196 = select i1 %376, double 1.000000e+00, double %374
-  %377 = fmul double %.sroa.speculated.i.i.i.i196, 0x3CB0000000000000
-  %378 = fcmp ole double %374, %377
-  %379 = fcmp oeq double %.1.i194, 0x400921FB54442D18
-  %or.cond.i197 = or i1 %379, %378
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195: ; preds = %374
+  %377 = fcmp olt double %375, 1.000000e+00
+  %.sroa.speculated.i.i.i.i196 = select i1 %377, double 1.000000e+00, double %375
+  %378 = fmul double %.sroa.speculated.i.i.i.i196, 0x3CB0000000000000
+  %379 = fcmp ole double %375, %378
+  %380 = fcmp oeq double %.1.i194, 0x400921FB54442D18
+  %or.cond.i197 = or i1 %380, %379
   br i1 %or.cond.i197, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i198
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204: ; preds = %373
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204: ; preds = %374
   %.old.i205 = fcmp oeq double %.1.i194, 0x400921FB54442D18
   %.old24.i206 = fcmp oeq double %.1.i194, 0xC00921FB54442D18
   %or.cond36.i207 = or i1 %.old.i205, %.old24.i206
   br i1 %or.cond36.i207, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i203
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i198: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195
-  %380 = fadd double %.1.i194, 0xC00921FB54442D18
-  %381 = call noundef double @llvm.fabs.f64(double %380)
-  %382 = fcmp olt double %374, 0x400921FB54442D18
-  %383 = select i1 %382, double 0x400921FB54442D18, double %374
-  %384 = fcmp olt double %383, 1.000000e+00
-  %.sroa.speculated.i.i.i2.i199 = select i1 %384, double 1.000000e+00, double %383
-  %385 = fmul double %.sroa.speculated.i.i.i2.i199, 0x3CB0000000000000
-  %386 = fcmp ole double %381, %385
-  %387 = fcmp oeq double %.1.i194, 0xC00921FB54442D18
-  %or.cond25.i200 = or i1 %387, %386
+  %381 = fadd double %.1.i194, 0xC00921FB54442D18
+  %382 = call noundef double @llvm.fabs.f64(double %381)
+  %383 = fcmp olt double %375, 0x400921FB54442D18
+  %384 = select i1 %383, double 0x400921FB54442D18, double %375
+  %385 = fcmp olt double %384, 1.000000e+00
+  %.sroa.speculated.i.i.i2.i199 = select i1 %385, double 1.000000e+00, double %384
+  %386 = fmul double %.sroa.speculated.i.i.i2.i199, 0x3CB0000000000000
+  %387 = fcmp ole double %382, %386
+  %388 = fcmp oeq double %.1.i194, 0xC00921FB54442D18
+  %or.cond25.i200 = or i1 %388, %387
   br i1 %or.cond25.i200, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i201
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i201: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i198
-  %388 = fadd double %.1.i194, 0x400921FB54442D18
-  %389 = call noundef double @llvm.fabs.f64(double %388)
-  %390 = fcmp ugt double %389, %385
-  br i1 %390, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i203, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209
+  %389 = fadd double %.1.i194, 0x400921FB54442D18
+  %390 = call noundef double @llvm.fabs.f64(double %389)
+  %391 = fcmp ugt double %390, %386
+  br i1 %391, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i203, label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i203: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i201, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204
-  %391 = fcmp ogt double %.1.i194, 0.000000e+00
-  %392 = select i1 %391, i32 -1, i32 1
+  %392 = fcmp ogt double %.1.i194, 0.000000e+00
+  %393 = select i1 %392, i32 -1, i32 1
   br label %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209
 
 _ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i203, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i201, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i198, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189
-  %393 = phi i32 [ 0, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189 ], [ %392, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i203 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i201 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i198 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195 ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204 ]
-  store i32 %357, ptr %169, align 4, !tbaa !2954
-  store i32 %393, ptr %170, align 4, !tbaa !3058
-  %394 = mul nsw i32 %393, %357
-  %395 = icmp eq i32 %394, 1
-  br i1 %395, label %396, label %.thread
+  %394 = phi i32 [ 0, %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit189 ], [ %393, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.thread22.i203 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit7.i201 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit4.i198 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i195 ], [ 0, %_ZN5boost8geometry4math6detail20normalize_angle_loopINS0_6radianEdEEvRT0_.exit.i193 ], [ 0, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i204 ]
+  store i32 %358, ptr %169, align 4, !tbaa !2954
+  store i32 %394, ptr %170, align 4, !tbaa !3058
+  %395 = mul nsw i32 %394, %358
+  %396 = icmp eq i32 %395, 1
+  br i1 %396, label %397, label %.thread
 
-396:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209
+397:                                              ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209
   call void @llvm.experimental.noalias.scope.decl(metadata !3068)
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !3068
   store i64 0, ptr %14, align 8, !tbaa !3038, !alias.scope !3071, !noalias !3068
-  br label %397
+  br label %398
 
-397:                                              ; preds = %397, %396
-  %.idx.i.i.i211 = phi i64 [ 40, %396 ], [ %.add.i.i.i213, %397 ]
+398:                                              ; preds = %398, %397
+  %.idx.i.i.i211 = phi i64 [ 40, %397 ], [ %.add.i.i.i213, %398 ]
   %.ptr.i.i.i212 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i.i.i211
   store double 0.000000e+00, ptr %.ptr.i.i.i212, align 8, !tbaa !2933, !alias.scope !3071, !noalias !3068
-  %398 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 8
-  store double 1.000000e+00, ptr %398, align 8, !tbaa !2934, !alias.scope !3071, !noalias !3068
-  %399 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 16
-  %400 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %399, i8 0, i64 16, i1 false), !alias.scope !3071, !noalias !3068
-  store double 1.000000e+00, ptr %400, align 8, !tbaa !2934, !alias.scope !3071, !noalias !3068
-  %401 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 40
-  store double 0.000000e+00, ptr %401, align 8, !tbaa !3005, !alias.scope !3071, !noalias !3068
-  %402 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 48
-  store i8 0, ptr %402, align 8, !tbaa !3036, !alias.scope !3071, !noalias !3068
+  %399 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 8
+  store double 1.000000e+00, ptr %399, align 8, !tbaa !2934, !alias.scope !3071, !noalias !3068
+  %400 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 16
+  %401 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %400, i8 0, i64 16, i1 false), !alias.scope !3071, !noalias !3068
+  store double 1.000000e+00, ptr %401, align 8, !tbaa !2934, !alias.scope !3071, !noalias !3068
+  %402 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 40
+  store double 0.000000e+00, ptr %402, align 8, !tbaa !3005, !alias.scope !3071, !noalias !3068
+  %403 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i212, i64 48
+  store i8 0, ptr %403, align 8, !tbaa !3036, !alias.scope !3071, !noalias !3068
   %.add.i.i.i213 = add nuw nsw i64 %.idx.i.i.i211, 56
-  %403 = icmp eq i64 %.add.i.i.i213, 152
-  br i1 %403, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit217, label %397
+  %404 = icmp eq i64 %.add.i.i.i213, 152
+  br i1 %404, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit217, label %398
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit217: ; preds = %397
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit217: ; preds = %398
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i210)
   %.sroa.5.i210.2.i210.2.i210.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i210, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i210.2.i210.2.i210.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !3074, !noalias !3068
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %14, i64 152, i1 false), !tbaa.struct !3044
-  %404 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 100, ptr %404, align 8, !tbaa !24, !alias.scope !3068
+  %405 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 100, ptr %405, align 8, !tbaa !24, !alias.scope !3068
   %.sroa.4.0..sroa_idx.i215 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store i8 0, ptr %.sroa.4.0..sroa_idx.i215, align 1, !tbaa !15, !alias.scope !3068
   %.sroa.5.0..sroa_idx.i216 = getelementptr inbounds nuw i8, ptr %0, i64 154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i216, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i210, i64 42, i1 false), !tbaa.struct !3045
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i210)
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !3068
-  br label %767
+  br label %768
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread: ; preds = %294, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
-  %.197 = phi i8 [ %.096, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread ], [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163 ], [ 1, %294 ]
-  br i1 %.0101.shrunk, label %405, label %.thread.thread
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread: ; preds = %295, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread
+  %.197 = phi i8 [ %.096, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread ], [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163 ], [ 1, %295 ]
+  br i1 %.0101.shrunk, label %406, label %.thread.thread
 
-405:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread
-  br i1 %290, label %406, label %421
+406:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread
+  br i1 %291, label %407, label %422
 
-406:                                              ; preds = %405
+407:                                              ; preds = %406
   call void @llvm.experimental.noalias.scope.decl(metadata !3077)
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3077
   call void @llvm.experimental.noalias.scope.decl(metadata !3080)
-  br label %407
+  br label %408
 
-407:                                              ; preds = %407, %406
-  %.idx.i.i.i219 = phi i64 [ 40, %406 ], [ %.add.i.i.i221, %407 ]
+408:                                              ; preds = %408, %407
+  %.idx.i.i.i219 = phi i64 [ 40, %407 ], [ %.add.i.i.i221, %408 ]
   %.ptr.i.i.i220 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i219
   store double 0.000000e+00, ptr %.ptr.i.i.i220, align 8, !tbaa !2933, !alias.scope !3080, !noalias !3077
-  %408 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 8
-  store double 1.000000e+00, ptr %408, align 8, !tbaa !2934, !alias.scope !3080, !noalias !3077
-  %409 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 16
-  %410 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %409, i8 0, i64 16, i1 false), !alias.scope !3080, !noalias !3077
-  store double 1.000000e+00, ptr %410, align 8, !tbaa !2934, !alias.scope !3080, !noalias !3077
-  %411 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 40
-  store double 0.000000e+00, ptr %411, align 8, !tbaa !3005, !alias.scope !3080, !noalias !3077
-  %412 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 48
-  store i8 0, ptr %412, align 8, !tbaa !3036, !alias.scope !3080, !noalias !3077
+  %409 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 8
+  store double 1.000000e+00, ptr %409, align 8, !tbaa !2934, !alias.scope !3080, !noalias !3077
+  %410 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 16
+  %411 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %410, i8 0, i64 16, i1 false), !alias.scope !3080, !noalias !3077
+  store double 1.000000e+00, ptr %411, align 8, !tbaa !2934, !alias.scope !3080, !noalias !3077
+  %412 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 40
+  store double 0.000000e+00, ptr %412, align 8, !tbaa !3005, !alias.scope !3080, !noalias !3077
+  %413 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i220, i64 48
+  store i8 0, ptr %413, align 8, !tbaa !3036, !alias.scope !3080, !noalias !3077
   %.add.i.i.i221 = add nuw nsw i64 %.idx.i.i.i219, 56
-  %413 = icmp eq i64 %.add.i.i.i221, 152
-  br i1 %413, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit225, label %407
+  %414 = icmp eq i64 %.add.i.i.i221, 152
+  br i1 %414, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit225, label %408
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit225: ; preds = %407
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit225: ; preds = %408
   store i64 1, ptr %13, align 8, !tbaa !3038, !alias.scope !3080, !noalias !3077
-  %414 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %415 = load ptr, ptr %2, align 8, !tbaa !2782, !noalias !3083
-  %416 = load double, ptr %415, align 8, !tbaa !1473, !noalias !3083
-  store double %416, ptr %414, align 8, !tbaa !1473, !alias.scope !3080, !noalias !3077
-  %417 = getelementptr inbounds nuw i8, ptr %415, i64 8
-  %418 = load double, ptr %417, align 8, !tbaa !1473, !noalias !3083
-  %419 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store double %418, ptr %419, align 8, !tbaa !1473, !alias.scope !3080, !noalias !3077
+  %415 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %416 = load ptr, ptr %2, align 8, !tbaa !2782, !noalias !3083
+  %417 = load double, ptr %416, align 8, !tbaa !1473, !noalias !3083
+  store double %417, ptr %415, align 8, !tbaa !1473, !alias.scope !3080, !noalias !3077
+  %418 = getelementptr inbounds nuw i8, ptr %416, i64 8
+  %419 = load double, ptr %418, align 8, !tbaa !1473, !noalias !3083
+  %420 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store double %419, ptr %420, align 8, !tbaa !1473, !alias.scope !3080, !noalias !3077
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i218)
   %.sroa.5.i218.2.i218.2.i218.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i218, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i218.2.i218.2.i218.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !3084, !noalias !3077
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %13, i64 152, i1 false), !tbaa.struct !3044
-  %420 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 48, ptr %420, align 8, !tbaa !24, !alias.scope !3077
+  %421 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 48, ptr %421, align 8, !tbaa !24, !alias.scope !3077
   %.sroa.4.0..sroa_idx.i223 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store i8 0, ptr %.sroa.4.0..sroa_idx.i223, align 1, !tbaa !15, !alias.scope !3077
   %.sroa.5.0..sroa_idx.i224 = getelementptr inbounds nuw i8, ptr %0, i64 154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i224, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i218, i64 42, i1 false), !tbaa.struct !3045
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i218)
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3077
-  br label %767
+  br label %768
 
-421:                                              ; preds = %405
+422:                                              ; preds = %406
   call void @llvm.experimental.noalias.scope.decl(metadata !3087)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !3087
   store i64 0, ptr %12, align 8, !tbaa !3038, !alias.scope !3090, !noalias !3087
-  br label %422
+  br label %423
 
-422:                                              ; preds = %422, %421
-  %.idx.i.i.i227 = phi i64 [ 40, %421 ], [ %.add.i.i.i229, %422 ]
+423:                                              ; preds = %423, %422
+  %.idx.i.i.i227 = phi i64 [ 40, %422 ], [ %.add.i.i.i229, %423 ]
   %.ptr.i.i.i228 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i227
   store double 0.000000e+00, ptr %.ptr.i.i.i228, align 8, !tbaa !2933, !alias.scope !3090, !noalias !3087
-  %423 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 8
-  store double 1.000000e+00, ptr %423, align 8, !tbaa !2934, !alias.scope !3090, !noalias !3087
-  %424 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 16
-  %425 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %424, i8 0, i64 16, i1 false), !alias.scope !3090, !noalias !3087
-  store double 1.000000e+00, ptr %425, align 8, !tbaa !2934, !alias.scope !3090, !noalias !3087
-  %426 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 40
-  store double 0.000000e+00, ptr %426, align 8, !tbaa !3005, !alias.scope !3090, !noalias !3087
-  %427 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 48
-  store i8 0, ptr %427, align 8, !tbaa !3036, !alias.scope !3090, !noalias !3087
+  %424 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 8
+  store double 1.000000e+00, ptr %424, align 8, !tbaa !2934, !alias.scope !3090, !noalias !3087
+  %425 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 16
+  %426 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %425, i8 0, i64 16, i1 false), !alias.scope !3090, !noalias !3087
+  store double 1.000000e+00, ptr %426, align 8, !tbaa !2934, !alias.scope !3090, !noalias !3087
+  %427 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 40
+  store double 0.000000e+00, ptr %427, align 8, !tbaa !3005, !alias.scope !3090, !noalias !3087
+  %428 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i228, i64 48
+  store i8 0, ptr %428, align 8, !tbaa !3036, !alias.scope !3090, !noalias !3087
   %.add.i.i.i229 = add nuw nsw i64 %.idx.i.i.i227, 56
-  %428 = icmp eq i64 %.add.i.i.i229, 152
-  br i1 %428, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit233, label %422
+  %429 = icmp eq i64 %.add.i.i.i229, 152
+  br i1 %429, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit233, label %423
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit233: ; preds = %422
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit233: ; preds = %423
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i226)
   %.sroa.5.i226.2.i226.2.i226.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i226, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i226.2.i226.2.i226.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !3093, !noalias !3087
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %12, i64 152, i1 false), !tbaa.struct !3044
-  %429 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 100, ptr %429, align 8, !tbaa !24, !alias.scope !3087
+  %430 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 100, ptr %430, align 8, !tbaa !24, !alias.scope !3087
   %.sroa.4.0..sroa_idx.i231 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store i8 0, ptr %.sroa.4.0..sroa_idx.i231, align 1, !tbaa !15, !alias.scope !3087
   %.sroa.5.0..sroa_idx.i232 = getelementptr inbounds nuw i8, ptr %0, i64 154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i232, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i226, i64 42, i1 false), !tbaa.struct !3045
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i226)
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !3087
-  br label %767
+  br label %768
 
 .thread:                                          ; preds = %_ZN5boost8geometry7formula18azimuth_side_valueIdEEiRKT_S5_.exit209
-  %430 = or i32 %289, %288
-  %431 = or i32 %430, %357
-  %or.cond5.i = icmp eq i32 %431, 0
-  %or.cond.i234 = icmp eq i32 %430, 0
+  %431 = or i32 %290, %289
+  %432 = or i32 %431, %358
+  %or.cond5.i = icmp eq i32 %432, 0
+  %or.cond.i234 = icmp eq i32 %431, 0
   %or.cond461 = or i1 %or.cond5.i, %or.cond.i234
-  %432 = or i32 %357, %393
-  %or.cond329 = icmp eq i32 %432, 0
+  %433 = or i32 %358, %394
+  %or.cond329 = icmp eq i32 %433, 0
   %or.cond462 = or i1 %or.cond461, %or.cond329
-  br i1 %or.cond462, label %.critedge.thread, label %695
+  br i1 %or.cond462, label %.critedge.thread, label %696
 
 .thread.thread:                                   ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit163.thread
-  %433 = trunc nuw i8 %.197 to i1
-  call void @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE25collinear_one_degeneratedINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEEEdNSE_17referring_segmentIKSK_EESK_SK_NS0_7formula14result_inverseIdEEEENT_11return_typeERKT1_bRKT2_S12_RKT3_S15_RKT4_S18_S18_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, i1 noundef zeroext %9, i1 noundef zeroext %433)
-  br label %767
+  %434 = trunc nuw i8 %.197 to i1
+  call void @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE25collinear_one_degeneratedINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEEEdNSE_17referring_segmentIKSK_EESK_SK_NS0_7formula14result_inverseIdEEEENT_11return_typeERKT1_bRKT2_S12_RKT3_S15_RKT4_S18_S18_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, i1 noundef zeroext %9, i1 noundef zeroext %434)
+  br label %768
 
 .critedge.thread:                                 ; preds = %.thread
-  br i1 %.0101.shrunk, label %434, label %436
+  br i1 %.0101.shrunk, label %435, label %437
 
-434:                                              ; preds = %.critedge.thread
-  %435 = trunc nuw i8 %.096 to i1
-  call void @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE25collinear_one_degeneratedINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEEEdNSE_17referring_segmentIKSK_EESK_SK_NS0_7formula14result_inverseIdEEEENT_11return_typeERKT1_bRKT2_S12_RKT3_S15_RKT4_S18_S18_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, i1 noundef zeroext %8, i1 noundef zeroext %435)
-  br label %767
+435:                                              ; preds = %.critedge.thread
+  %436 = trunc nuw i8 %.096 to i1
+  call void @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE25collinear_one_degeneratedINS0_8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEEEdNSE_17referring_segmentIKSK_EESK_SK_NS0_7formula14result_inverseIdEEEENT_11return_typeERKT1_bRKT2_S12_RKT3_S15_RKT4_S18_S18_bb(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, i1 noundef zeroext %8, i1 noundef zeroext %436)
+  br label %768
 
-436:                                              ; preds = %.critedge.thread
+437:                                              ; preds = %.critedge.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %437 = load double, ptr %34, align 8, !tbaa !3096
-  %438 = load double, ptr %28, align 8, !tbaa !3096
-  %439 = fcmp ugt double %437, %438
-  br i1 %439, label %449, label %440
+  %438 = load double, ptr %34, align 8, !tbaa !3096
+  %439 = load double, ptr %28, align 8, !tbaa !3096
+  %440 = fcmp ugt double %438, %439
+  br i1 %440, label %450, label %441
 
-440:                                              ; preds = %436
-  %441 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %41, i1 noundef zeroext false)
-  %442 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %42, i1 noundef zeroext false)
-  %443 = load double, ptr %42, align 8, !tbaa !1473
-  %444 = load double, ptr %41, align 8, !tbaa !1473
-  %445 = fsub double %443, %444
-  store double %445, ptr %43, align 8, !tbaa !1473
-  %446 = fneg double %444
-  store double %446, ptr %44, align 8, !tbaa !1473
-  %447 = load double, ptr %40, align 8, !tbaa !1473
-  %448 = fsub double %447, %444
-  store double %448, ptr %45, align 8, !tbaa !1473
-  br label %458
+441:                                              ; preds = %437
+  %442 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %41, i1 noundef zeroext false)
+  %443 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %42, i1 noundef zeroext false)
+  %444 = load double, ptr %42, align 8, !tbaa !1473
+  %445 = load double, ptr %41, align 8, !tbaa !1473
+  %446 = fsub double %444, %445
+  store double %446, ptr %43, align 8, !tbaa !1473
+  %447 = fneg double %445
+  store double %447, ptr %44, align 8, !tbaa !1473
+  %448 = load double, ptr %40, align 8, !tbaa !1473
+  %449 = fsub double %448, %445
+  store double %449, ptr %45, align 8, !tbaa !1473
+  br label %459
 
-449:                                              ; preds = %436
-  %450 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44, i1 noundef zeroext false)
-  %451 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %45, i1 noundef zeroext false)
-  %452 = load double, ptr %45, align 8, !tbaa !1473
-  %453 = load double, ptr %44, align 8, !tbaa !1473
-  %454 = fsub double %452, %453
-  store double %454, ptr %40, align 8, !tbaa !1473
-  %455 = fneg double %453
-  store double %455, ptr %41, align 8, !tbaa !1473
-  %456 = load double, ptr %43, align 8, !tbaa !1473
-  %457 = fsub double %456, %453
-  store double %457, ptr %42, align 8, !tbaa !1473
-  br label %458
+450:                                              ; preds = %437
+  %451 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44, i1 noundef zeroext false)
+  %452 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE24calculate_collinear_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_NS0_7formula14result_inverseIdEEdEEbRKT_SM_RKT0_SP_RKT1_SS_SS_RT2_SU_b(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %45, i1 noundef zeroext false)
+  %453 = load double, ptr %45, align 8, !tbaa !1473
+  %454 = load double, ptr %44, align 8, !tbaa !1473
+  %455 = fsub double %453, %454
+  store double %455, ptr %40, align 8, !tbaa !1473
+  %456 = fneg double %454
+  store double %456, ptr %41, align 8, !tbaa !1473
+  %457 = load double, ptr %43, align 8, !tbaa !1473
+  %458 = fsub double %457, %454
+  store double %458, ptr %42, align 8, !tbaa !1473
+  br label %459
 
-458:                                              ; preds = %449, %440
-  %459 = phi double [ %456, %449 ], [ %445, %440 ]
-  %460 = phi double [ %452, %449 ], [ %448, %440 ]
-  %461 = phi double [ %453, %449 ], [ %446, %440 ]
-  %462 = phi double [ %454, %449 ], [ %447, %440 ]
-  %463 = phi double [ %457, %449 ], [ %443, %440 ]
-  %464 = phi double [ %455, %449 ], [ %444, %440 ]
-  %465 = fcmp oeq double %464, 0.000000e+00
-  br i1 %465, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %466
+459:                                              ; preds = %450, %441
+  %460 = phi double [ %457, %450 ], [ %446, %441 ]
+  %461 = phi double [ %453, %450 ], [ %449, %441 ]
+  %462 = phi double [ %454, %450 ], [ %447, %441 ]
+  %463 = phi double [ %455, %450 ], [ %448, %441 ]
+  %464 = phi double [ %458, %450 ], [ %444, %441 ]
+  %465 = phi double [ %456, %450 ], [ %445, %441 ]
+  %466 = fcmp oeq double %465, 0.000000e+00
+  br i1 %466, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %467
 
-466:                                              ; preds = %458
-  %467 = call double @llvm.fabs.f64(double %464)
-  %468 = fcmp ueq double %467, 0x7FF0000000000000
-  br i1 %468, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235
+467:                                              ; preds = %459
+  %468 = call double @llvm.fabs.f64(double %465)
+  %469 = fcmp ueq double %468, 0x7FF0000000000000
+  br i1 %469, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235: ; preds = %466
-  %469 = fsub double 0.000000e+00, %464
-  %470 = call noundef double @llvm.fabs.f64(double %469)
-  %471 = fcmp olt double %467, 1.000000e+00
-  %.sroa.speculated.i.i.i.i236 = select i1 %471, double 1.000000e+00, double %467
-  %472 = fmul double %.sroa.speculated.i.i.i.i236, 0x3CB0000000000000
-  %473 = fcmp ugt double %470, %472
-  br i1 %473, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235: ; preds = %467
+  %470 = fsub double 0.000000e+00, %465
+  %471 = call noundef double @llvm.fabs.f64(double %470)
+  %472 = fcmp olt double %468, 1.000000e+00
+  %.sroa.speculated.i.i.i.i236 = select i1 %472, double 1.000000e+00, double %468
+  %473 = fmul double %.sroa.speculated.i.i.i.i236, 0x3CB0000000000000
+  %474 = fcmp ugt double %471, %473
+  br i1 %474, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235, %466
-  %474 = fcmp oeq double %463, 0.000000e+00
-  br i1 %474, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %475
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235, %467
+  %475 = fcmp oeq double %464, 0.000000e+00
+  br i1 %475, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %476
 
-475:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i
-  %476 = call double @llvm.fabs.f64(double %463)
-  %477 = fcmp ueq double %476, 0x7FF0000000000000
-  br i1 %477, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i
+476:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i
+  %477 = call double @llvm.fabs.f64(double %464)
+  %478 = fcmp ueq double %477, 0x7FF0000000000000
+  br i1 %478, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i: ; preds = %475
-  %478 = fsub double 0.000000e+00, %463
-  %479 = call noundef double @llvm.fabs.f64(double %478)
-  %480 = fcmp olt double %476, 1.000000e+00
-  %.sroa.speculated.i.i.i18.i = select i1 %480, double 1.000000e+00, double %476
-  %481 = fmul double %.sroa.speculated.i.i.i18.i, 0x3CB0000000000000
-  %482 = fcmp ugt double %479, %481
-  br i1 %482, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i: ; preds = %476
+  %479 = fsub double 0.000000e+00, %464
+  %480 = call noundef double @llvm.fabs.f64(double %479)
+  %481 = fcmp olt double %477, 1.000000e+00
+  %.sroa.speculated.i.i.i18.i = select i1 %481, double 1.000000e+00, double %477
+  %482 = fmul double %.sroa.speculated.i.i.i18.i, 0x3CB0000000000000
+  %483 = fcmp ugt double %480, %482
+  br i1 %483, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i, %475
-  %483 = fcmp olt double %464, %463
-  br i1 %483, label %484, label %489
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i, %476
+  %484 = fcmp olt double %465, %464
+  br i1 %484, label %485, label %490
 
-484:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i
-  %485 = fcmp ogt double %464, 0.000000e+00
-  br i1 %485, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %486
+485:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i
+  %486 = fcmp ogt double %465, 0.000000e+00
+  br i1 %486, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %487
 
-486:                                              ; preds = %484
-  %487 = fcmp olt double %463, 0.000000e+00
-  %488 = select i1 %487, i32 4, i32 2
+487:                                              ; preds = %485
+  %488 = fcmp olt double %464, 0.000000e+00
+  %489 = select i1 %488, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
 
-489:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i
-  %490 = fcmp olt double %464, 0.000000e+00
-  br i1 %490, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %491
+490:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i
+  %491 = fcmp olt double %465, 0.000000e+00
+  br i1 %491, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, label %492
 
-491:                                              ; preds = %489
-  %492 = fcmp ogt double %463, 0.000000e+00
-  %493 = select i1 %492, i32 4, i32 2
+492:                                              ; preds = %490
+  %493 = fcmp ogt double %464, 0.000000e+00
+  %494 = select i1 %493, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
 
-_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit: ; preds = %458, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i, %484, %486, %489, %491
-  %494 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i ], [ %488, %486 ], [ 0, %484 ], [ %493, %491 ], [ 0, %489 ], [ 1, %458 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i ]
-  %495 = fcmp oeq double %462, %464
-  br i1 %495, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %496
+_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit: ; preds = %459, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i, %485, %487, %490, %492
+  %495 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i235 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i ], [ %489, %487 ], [ 0, %485 ], [ %494, %492 ], [ 0, %490 ], [ 1, %459 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i ]
+  %496 = fcmp oeq double %463, %465
+  br i1 %496, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %497
 
-496:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
-  %497 = call double @llvm.fabs.f64(double %462)
-  %498 = fcmp ueq double %497, 0x7FF0000000000000
-  br i1 %498, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i, label %499
+497:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit
+  %498 = call double @llvm.fabs.f64(double %463)
+  %499 = fcmp ueq double %498, 0x7FF0000000000000
+  br i1 %499, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i, label %500
 
-499:                                              ; preds = %496
-  %500 = call double @llvm.fabs.f64(double %464)
-  %501 = fcmp ueq double %500, 0x7FF0000000000000
-  br i1 %501, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237
+500:                                              ; preds = %497
+  %501 = call double @llvm.fabs.f64(double %465)
+  %502 = fcmp ueq double %501, 0x7FF0000000000000
+  br i1 %502, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237: ; preds = %499
-  %502 = fsub double %462, %464
-  %503 = call noundef double @llvm.fabs.f64(double %502)
-  %504 = fcmp olt double %497, %500
-  %505 = select i1 %504, double %500, double %497
-  %506 = fcmp olt double %505, 1.000000e+00
-  %.sroa.speculated.i.i.i.i238 = select i1 %506, double 1.000000e+00, double %505
-  %507 = fmul double %.sroa.speculated.i.i.i.i238, 0x3CB0000000000000
-  %508 = fcmp ugt double %503, %507
-  br i1 %508, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237: ; preds = %500
+  %503 = fsub double %463, %465
+  %504 = call noundef double @llvm.fabs.f64(double %503)
+  %505 = fcmp olt double %498, %501
+  %506 = select i1 %505, double %501, double %498
+  %507 = fcmp olt double %506, 1.000000e+00
+  %.sroa.speculated.i.i.i.i238 = select i1 %507, double 1.000000e+00, double %506
+  %508 = fmul double %.sroa.speculated.i.i.i.i238, 0x3CB0000000000000
+  %509 = fcmp ugt double %504, %508
+  br i1 %509, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237, %499
-  %509 = fcmp oeq double %462, %463
-  br i1 %509, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %511
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237, %500
+  %510 = fcmp oeq double %463, %464
+  br i1 %510, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %512
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i: ; preds = %496
-  %510 = fcmp oeq double %462, %463
-  br i1 %510, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i: ; preds = %497
+  %511 = fcmp oeq double %463, %464
+  br i1 %511, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242
 
-511:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239
-  %512 = call double @llvm.fabs.f64(double %463)
-  %513 = fcmp ueq double %512, 0x7FF0000000000000
-  br i1 %513, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240
+512:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239
+  %513 = call double @llvm.fabs.f64(double %464)
+  %514 = fcmp ueq double %513, 0x7FF0000000000000
+  br i1 %514, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240: ; preds = %511
-  %514 = fsub double %462, %463
-  %515 = call noundef double @llvm.fabs.f64(double %514)
-  %516 = fcmp olt double %497, %512
-  %517 = select i1 %516, double %512, double %497
-  %518 = fcmp olt double %517, 1.000000e+00
-  %.sroa.speculated.i.i.i18.i241 = select i1 %518, double 1.000000e+00, double %517
-  %519 = fmul double %.sroa.speculated.i.i.i18.i241, 0x3CB0000000000000
-  %520 = fcmp ugt double %515, %519
-  br i1 %520, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240: ; preds = %512
+  %515 = fsub double %463, %464
+  %516 = call noundef double @llvm.fabs.f64(double %515)
+  %517 = fcmp olt double %498, %513
+  %518 = select i1 %517, double %513, double %498
+  %519 = fcmp olt double %518, 1.000000e+00
+  %.sroa.speculated.i.i.i18.i241 = select i1 %519, double 1.000000e+00, double %518
+  %520 = fmul double %.sroa.speculated.i.i.i18.i241, 0x3CB0000000000000
+  %521 = fcmp ugt double %516, %520
+  br i1 %521, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240, %511, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i
-  %521 = fcmp olt double %464, %463
-  br i1 %521, label %522, label %527
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240, %512, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i
+  %522 = fcmp olt double %465, %464
+  br i1 %522, label %523, label %528
 
-522:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242
-  %523 = fcmp olt double %462, %464
-  br i1 %523, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %524
+523:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242
+  %524 = fcmp olt double %463, %465
+  br i1 %524, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %525
 
-524:                                              ; preds = %522
-  %525 = fcmp ogt double %462, %463
-  %526 = select i1 %525, i32 4, i32 2
+525:                                              ; preds = %523
+  %526 = fcmp ogt double %463, %464
+  %527 = select i1 %526, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
 
-527:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242
-  %528 = fcmp ogt double %462, %464
-  br i1 %528, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %529
+528:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i242
+  %529 = fcmp ogt double %463, %465
+  br i1 %529, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, label %530
 
-529:                                              ; preds = %527
-  %530 = fcmp olt double %462, %463
-  %531 = select i1 %530, i32 4, i32 2
+530:                                              ; preds = %528
+  %531 = fcmp olt double %463, %464
+  %532 = select i1 %531, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
 
-_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243: ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240, %522, %524, %527, %529
-  %532 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240 ], [ %526, %524 ], [ 0, %522 ], [ %531, %529 ], [ 0, %527 ], [ 1, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i ]
-  %533 = fcmp oeq double %461, 0.000000e+00
-  br i1 %533, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %534
+_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243: ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240, %523, %525, %528, %530
+  %533 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i237 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i240 ], [ %527, %525 ], [ 0, %523 ], [ %532, %530 ], [ 0, %528 ], [ 1, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i239 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i ]
+  %534 = fcmp oeq double %462, 0.000000e+00
+  br i1 %534, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %535
 
-534:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
-  %535 = call double @llvm.fabs.f64(double %461)
-  %536 = fcmp ueq double %535, 0x7FF0000000000000
-  br i1 %536, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244
+535:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243
+  %536 = call double @llvm.fabs.f64(double %462)
+  %537 = fcmp ueq double %536, 0x7FF0000000000000
+  br i1 %537, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244: ; preds = %534
-  %537 = fsub double 0.000000e+00, %461
-  %538 = call noundef double @llvm.fabs.f64(double %537)
-  %539 = fcmp olt double %535, 1.000000e+00
-  %.sroa.speculated.i.i.i.i245 = select i1 %539, double 1.000000e+00, double %535
-  %540 = fmul double %.sroa.speculated.i.i.i.i245, 0x3CB0000000000000
-  %541 = fcmp ugt double %538, %540
-  br i1 %541, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244: ; preds = %535
+  %538 = fsub double 0.000000e+00, %462
+  %539 = call noundef double @llvm.fabs.f64(double %538)
+  %540 = fcmp olt double %536, 1.000000e+00
+  %.sroa.speculated.i.i.i.i245 = select i1 %540, double 1.000000e+00, double %536
+  %541 = fmul double %.sroa.speculated.i.i.i.i245, 0x3CB0000000000000
+  %542 = fcmp ugt double %539, %541
+  br i1 %542, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244, %534
-  %542 = fcmp oeq double %460, 0.000000e+00
-  br i1 %542, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %543
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244, %535
+  %543 = fcmp oeq double %461, 0.000000e+00
+  br i1 %543, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %544
 
-543:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246
-  %544 = call double @llvm.fabs.f64(double %460)
-  %545 = fcmp ueq double %544, 0x7FF0000000000000
-  br i1 %545, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247
+544:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246
+  %545 = call double @llvm.fabs.f64(double %461)
+  %546 = fcmp ueq double %545, 0x7FF0000000000000
+  br i1 %546, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247: ; preds = %543
-  %546 = fsub double 0.000000e+00, %460
-  %547 = call noundef double @llvm.fabs.f64(double %546)
-  %548 = fcmp olt double %544, 1.000000e+00
-  %.sroa.speculated.i.i.i18.i248 = select i1 %548, double 1.000000e+00, double %544
-  %549 = fmul double %.sroa.speculated.i.i.i18.i248, 0x3CB0000000000000
-  %550 = fcmp ugt double %547, %549
-  br i1 %550, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247: ; preds = %544
+  %547 = fsub double 0.000000e+00, %461
+  %548 = call noundef double @llvm.fabs.f64(double %547)
+  %549 = fcmp olt double %545, 1.000000e+00
+  %.sroa.speculated.i.i.i18.i248 = select i1 %549, double 1.000000e+00, double %545
+  %550 = fmul double %.sroa.speculated.i.i.i18.i248, 0x3CB0000000000000
+  %551 = fcmp ugt double %548, %550
+  br i1 %551, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247, %543
-  %551 = fcmp olt double %461, %460
-  br i1 %551, label %552, label %557
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247, %544
+  %552 = fcmp olt double %462, %461
+  br i1 %552, label %553, label %558
 
-552:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249
-  %553 = fcmp ogt double %461, 0.000000e+00
-  br i1 %553, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %554
+553:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249
+  %554 = fcmp ogt double %462, 0.000000e+00
+  br i1 %554, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %555
 
-554:                                              ; preds = %552
-  %555 = fcmp olt double %460, 0.000000e+00
-  %556 = select i1 %555, i32 4, i32 2
+555:                                              ; preds = %553
+  %556 = fcmp olt double %461, 0.000000e+00
+  %557 = select i1 %556, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
 
-557:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249
-  %558 = fcmp olt double %461, 0.000000e+00
-  br i1 %558, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %559
+558:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i249
+  %559 = fcmp olt double %462, 0.000000e+00
+  br i1 %559, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, label %560
 
-559:                                              ; preds = %557
-  %560 = fcmp ogt double %460, 0.000000e+00
-  %561 = select i1 %560, i32 4, i32 2
+560:                                              ; preds = %558
+  %561 = fcmp ogt double %461, 0.000000e+00
+  %562 = select i1 %561, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
 
-_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250: ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247, %552, %554, %557, %559
-  %562 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247 ], [ %556, %554 ], [ 0, %552 ], [ %561, %559 ], [ 0, %557 ], [ 1, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246 ]
-  %563 = fcmp oeq double %459, %461
-  br i1 %563, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %564
+_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250: ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247, %553, %555, %558, %560
+  %563 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i244 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i247 ], [ %557, %555 ], [ 0, %553 ], [ %562, %560 ], [ 0, %558 ], [ 1, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit243 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i246 ]
+  %564 = fcmp oeq double %460, %462
+  br i1 %564, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %565
 
-564:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
-  %565 = call double @llvm.fabs.f64(double %459)
-  %566 = fcmp ueq double %565, 0x7FF0000000000000
-  br i1 %566, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257, label %567
+565:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250
+  %566 = call double @llvm.fabs.f64(double %460)
+  %567 = fcmp ueq double %566, 0x7FF0000000000000
+  br i1 %567, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257, label %568
 
-567:                                              ; preds = %564
-  %568 = call double @llvm.fabs.f64(double %461)
-  %569 = fcmp ueq double %568, 0x7FF0000000000000
-  br i1 %569, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251
+568:                                              ; preds = %565
+  %569 = call double @llvm.fabs.f64(double %462)
+  %570 = fcmp ueq double %569, 0x7FF0000000000000
+  br i1 %570, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251: ; preds = %567
-  %570 = fsub double %459, %461
-  %571 = call noundef double @llvm.fabs.f64(double %570)
-  %572 = fcmp olt double %565, %568
-  %573 = select i1 %572, double %568, double %565
-  %574 = fcmp olt double %573, 1.000000e+00
-  %.sroa.speculated.i.i.i.i252 = select i1 %574, double 1.000000e+00, double %573
-  %575 = fmul double %.sroa.speculated.i.i.i.i252, 0x3CB0000000000000
-  %576 = fcmp ugt double %571, %575
-  br i1 %576, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251: ; preds = %568
+  %571 = fsub double %460, %462
+  %572 = call noundef double @llvm.fabs.f64(double %571)
+  %573 = fcmp olt double %566, %569
+  %574 = select i1 %573, double %569, double %566
+  %575 = fcmp olt double %574, 1.000000e+00
+  %.sroa.speculated.i.i.i.i252 = select i1 %575, double 1.000000e+00, double %574
+  %576 = fmul double %.sroa.speculated.i.i.i.i252, 0x3CB0000000000000
+  %577 = fcmp ugt double %572, %576
+  br i1 %577, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251, %567
-  %577 = fcmp oeq double %459, %460
-  br i1 %577, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %579
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251, %568
+  %578 = fcmp oeq double %460, %461
+  br i1 %578, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %580
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257: ; preds = %564
-  %578 = fcmp oeq double %459, %460
-  br i1 %578, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257: ; preds = %565
+  %579 = fcmp oeq double %460, %461
+  br i1 %579, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256
 
-579:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253
-  %580 = call double @llvm.fabs.f64(double %460)
-  %581 = fcmp ueq double %580, 0x7FF0000000000000
-  br i1 %581, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254
+580:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253
+  %581 = call double @llvm.fabs.f64(double %461)
+  %582 = fcmp ueq double %581, 0x7FF0000000000000
+  br i1 %582, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254: ; preds = %579
-  %582 = fsub double %459, %460
-  %583 = call noundef double @llvm.fabs.f64(double %582)
-  %584 = fcmp olt double %565, %580
-  %585 = select i1 %584, double %580, double %565
-  %586 = fcmp olt double %585, 1.000000e+00
-  %.sroa.speculated.i.i.i18.i255 = select i1 %586, double 1.000000e+00, double %585
-  %587 = fmul double %.sroa.speculated.i.i.i18.i255, 0x3CB0000000000000
-  %588 = fcmp ugt double %583, %587
-  br i1 %588, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254: ; preds = %580
+  %583 = fsub double %460, %461
+  %584 = call noundef double @llvm.fabs.f64(double %583)
+  %585 = fcmp olt double %566, %581
+  %586 = select i1 %585, double %581, double %566
+  %587 = fcmp olt double %586, 1.000000e+00
+  %.sroa.speculated.i.i.i18.i255 = select i1 %587, double 1.000000e+00, double %586
+  %588 = fmul double %.sroa.speculated.i.i.i18.i255, 0x3CB0000000000000
+  %589 = fcmp ugt double %584, %588
+  br i1 %589, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254, %579, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257
-  %589 = fcmp olt double %461, %460
-  br i1 %589, label %590, label %595
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254, %580, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257
+  %590 = fcmp olt double %462, %461
+  br i1 %590, label %591, label %596
 
-590:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256
-  %591 = fcmp olt double %459, %461
-  br i1 %591, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %592
+591:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256
+  %592 = fcmp olt double %460, %462
+  br i1 %592, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %593
 
-592:                                              ; preds = %590
-  %593 = fcmp ogt double %459, %460
-  %594 = select i1 %593, i32 4, i32 2
+593:                                              ; preds = %591
+  %594 = fcmp ogt double %460, %461
+  %595 = select i1 %594, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
 
-595:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256
-  %596 = fcmp ogt double %459, %461
-  br i1 %596, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %597
+596:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.thread.i256
+  %597 = fcmp ogt double %460, %462
+  br i1 %597, label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258, label %598
 
-597:                                              ; preds = %595
-  %598 = fcmp olt double %459, %460
-  %599 = select i1 %598, i32 4, i32 2
+598:                                              ; preds = %596
+  %599 = fcmp olt double %460, %461
+  %600 = select i1 %599, i32 4, i32 2
   br label %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
 
-_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258: ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254, %590, %592, %595, %597
-  %600 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254 ], [ %594, %592 ], [ 0, %590 ], [ %599, %597 ], [ 0, %595 ], [ 1, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257 ]
-  %601 = or i32 %532, %494
-  %or.cond5 = icmp eq i32 %601, 0
-  br i1 %or.cond5, label %605, label %602
+_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258: ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254, %591, %593, %596, %598
+  %601 = phi i32 [ 1, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i251 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit20.i254 ], [ %595, %593 ], [ 0, %591 ], [ %600, %598 ], [ 0, %596 ], [ 1, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit250 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i253 ], [ 3, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.thread.i257 ]
+  %602 = or i32 %533, %495
+  %or.cond5 = icmp eq i32 %602, 0
+  br i1 %or.cond5, label %606, label %603
 
-602:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
-  %603 = icmp samesign ugt i32 %494, 3
-  %604 = icmp samesign ugt i32 %532, 3
-  %or.cond7 = select i1 %603, i1 %604, i1 false
-  br i1 %or.cond7, label %605, label %614
+603:                                              ; preds = %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
+  %604 = icmp samesign ugt i32 %495, 3
+  %605 = icmp samesign ugt i32 %533, 3
+  %or.cond7 = select i1 %604, i1 %605, i1 false
+  br i1 %or.cond7, label %606, label %615
 
-605:                                              ; preds = %602, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
+606:                                              ; preds = %603, %_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14position_valueIddEEiRKT_RKT0_SF_.exit258
   call void @llvm.experimental.noalias.scope.decl(metadata !3097)
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !3097
   store i64 0, ptr %11, align 8, !tbaa !3038, !alias.scope !3100, !noalias !3097
-  br label %606
+  br label %607
 
-606:                                              ; preds = %606, %605
-  %.idx.i.i.i260 = phi i64 [ 40, %605 ], [ %.add.i.i.i262, %606 ]
+607:                                              ; preds = %607, %606
+  %.idx.i.i.i260 = phi i64 [ 40, %606 ], [ %.add.i.i.i262, %607 ]
   %.ptr.i.i.i261 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i.i260
   store double 0.000000e+00, ptr %.ptr.i.i.i261, align 8, !tbaa !2933, !alias.scope !3100, !noalias !3097
-  %607 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 8
-  store double 1.000000e+00, ptr %607, align 8, !tbaa !2934, !alias.scope !3100, !noalias !3097
-  %608 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 16
-  %609 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %608, i8 0, i64 16, i1 false), !alias.scope !3100, !noalias !3097
-  store double 1.000000e+00, ptr %609, align 8, !tbaa !2934, !alias.scope !3100, !noalias !3097
-  %610 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 40
-  store double 0.000000e+00, ptr %610, align 8, !tbaa !3005, !alias.scope !3100, !noalias !3097
-  %611 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 48
-  store i8 0, ptr %611, align 8, !tbaa !3036, !alias.scope !3100, !noalias !3097
+  %608 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 8
+  store double 1.000000e+00, ptr %608, align 8, !tbaa !2934, !alias.scope !3100, !noalias !3097
+  %609 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 16
+  %610 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %609, i8 0, i64 16, i1 false), !alias.scope !3100, !noalias !3097
+  store double 1.000000e+00, ptr %610, align 8, !tbaa !2934, !alias.scope !3100, !noalias !3097
+  %611 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 40
+  store double 0.000000e+00, ptr %611, align 8, !tbaa !3005, !alias.scope !3100, !noalias !3097
+  %612 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i261, i64 48
+  store i8 0, ptr %612, align 8, !tbaa !3036, !alias.scope !3100, !noalias !3097
   %.add.i.i.i262 = add nuw nsw i64 %.idx.i.i.i260, 56
-  %612 = icmp eq i64 %.add.i.i.i262, 152
-  br i1 %612, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit266, label %606
+  %613 = icmp eq i64 %.add.i.i.i262, 152
+  br i1 %613, label %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit266, label %607
 
-_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit266: ; preds = %606
+_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit266: ; preds = %607
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i259)
   %.sroa.5.i259.2.i259.2.i259.2..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.5.i259, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(40) %.sroa.5.i259.2.i259.2.i259.2..sroa_idx, i8 0, i64 40, i1 false), !alias.scope !3103, !noalias !3097
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(196) %0, ptr noundef nonnull align 8 dereferenceable(152) %11, i64 152, i1 false), !tbaa.struct !3044
-  %613 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i8 100, ptr %613, align 8, !tbaa !24, !alias.scope !3097
+  %614 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i8 100, ptr %614, align 8, !tbaa !24, !alias.scope !3097
   %.sroa.4.0..sroa_idx.i264 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store i8 0, ptr %.sroa.4.0..sroa_idx.i264, align 1, !tbaa !15, !alias.scope !3097
   %.sroa.5.0..sroa_idx.i265 = getelementptr inbounds nuw i8, ptr %0, i64 154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.0..sroa_idx.i265, ptr noundef nonnull align 2 dereferenceable(42) %.sroa.5.i259, i64 42, i1 false), !tbaa.struct !3045
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i259)
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !3097
-  br label %694
+  br label %695
 
-614:                                              ; preds = %602
-  switch i32 %494, label %616 [
+615:                                              ; preds = %603
+  switch i32 %495, label %617 [
     i32 1, label %.sink.split
-    i32 3, label %615
+    i32 3, label %616
   ]
 
-615:                                              ; preds = %614
+616:                                              ; preds = %615
   br label %.sink.split
 
-.sink.split:                                      ; preds = %614, %615
-  %.sink457 = phi double [ %459, %615 ], [ 0.000000e+00, %614 ]
-  %.sink = phi ptr [ %42, %615 ], [ %41, %614 ]
+.sink.split:                                      ; preds = %615, %616
+  %.sink457 = phi double [ %460, %616 ], [ 0.000000e+00, %615 ]
+  %.sink = phi ptr [ %42, %616 ], [ %41, %615 ]
   store double %.sink457, ptr %44, align 8, !tbaa !1473
   store double 0.000000e+00, ptr %.sink, align 8, !tbaa !1473
-  br label %616
+  br label %617
 
-616:                                              ; preds = %.sink.split, %614
-  switch i32 %532, label %618 [
+617:                                              ; preds = %.sink.split, %615
+  switch i32 %533, label %619 [
     i32 1, label %.sink.split458
-    i32 3, label %617
+    i32 3, label %618
   ]
 
-617:                                              ; preds = %616
+618:                                              ; preds = %617
   br label %.sink.split458
 
-.sink.split458:                                   ; preds = %616, %617
-  %.sink460 = phi double [ %459, %617 ], [ 0.000000e+00, %616 ]
-  %.sink459 = phi ptr [ %42, %617 ], [ %41, %616 ]
+.sink.split458:                                   ; preds = %617, %618
+  %.sink460 = phi double [ %460, %618 ], [ 0.000000e+00, %617 ]
+  %.sink459 = phi ptr [ %42, %618 ], [ %41, %617 ]
   store double %.sink460, ptr %45, align 8, !tbaa !1473
-  store double %462, ptr %.sink459, align 8, !tbaa !1473
-  br label %618
+  store double %463, ptr %.sink459, align 8, !tbaa !1473
+  br label %619
 
-618:                                              ; preds = %.sink.split458, %616
-  %619 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %620 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %621 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14same_directionIdEEbRKT_SC_(ptr noundef nonnull align 8 dereferenceable(8) %619, ptr noundef nonnull align 8 dereferenceable(8) %620)
-  %622 = xor i1 %621, true
+619:                                              ; preds = %.sink.split458, %617
+  %620 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %621 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %622 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE14same_directionIdEEbRKT_SC_(ptr noundef nonnull align 8 dereferenceable(8) %620, ptr noundef nonnull align 8 dereferenceable(8) %621)
+  %623 = xor i1 %622, true
   %.pre.pre = load double, ptr %44, align 8, !tbaa !1473
-  br i1 %8, label %623, label %632
+  br i1 %8, label %624, label %633
 
-623:                                              ; preds = %618
-  %624 = sub nuw nsw i32 4, %562
-  %625 = sub nuw nsw i32 4, %600
-  %626 = load double, ptr %45, align 8, !tbaa !1473
-  store double %626, ptr %44, align 8, !tbaa !1473
+624:                                              ; preds = %619
+  %625 = sub nuw nsw i32 4, %563
+  %626 = sub nuw nsw i32 4, %601
+  %627 = load double, ptr %45, align 8, !tbaa !1473
+  store double %627, ptr %44, align 8, !tbaa !1473
   store double %.pre.pre, ptr %45, align 8, !tbaa !1473
-  %627 = load double, ptr %40, align 8, !tbaa !1473
-  %628 = load double, ptr %41, align 8, !tbaa !1473
-  %629 = fsub double %627, %628
-  store double %629, ptr %41, align 8, !tbaa !1473
-  %630 = load double, ptr %42, align 8, !tbaa !1473
-  %631 = fsub double %627, %630
-  store double %631, ptr %42, align 8, !tbaa !1473
-  br label %632
+  %628 = load double, ptr %40, align 8, !tbaa !1473
+  %629 = load double, ptr %41, align 8, !tbaa !1473
+  %630 = fsub double %628, %629
+  store double %630, ptr %41, align 8, !tbaa !1473
+  %631 = load double, ptr %42, align 8, !tbaa !1473
+  %632 = fsub double %628, %631
+  store double %632, ptr %42, align 8, !tbaa !1473
+  br label %633
 
-632:                                              ; preds = %623, %618
-  %.pre = phi double [ %626, %623 ], [ %.pre.pre, %618 ]
-  %.0294 = phi i32 [ %625, %623 ], [ %600, %618 ]
-  %.0292 = phi i32 [ %624, %623 ], [ %562, %618 ]
-  %.0290 = phi i32 [ %494, %623 ], [ %532, %618 ]
-  %.0 = phi i32 [ %532, %623 ], [ %494, %618 ]
-  %.0.in = phi i1 [ %621, %623 ], [ %622, %618 ]
+633:                                              ; preds = %624, %619
+  %.pre = phi double [ %627, %624 ], [ %.pre.pre, %619 ]
+  %.0294 = phi i32 [ %626, %624 ], [ %601, %619 ]
+  %.0292 = phi i32 [ %625, %624 ], [ %563, %619 ]
+  %.0290 = phi i32 [ %495, %624 ], [ %533, %619 ]
+  %.0 = phi i32 [ %533, %624 ], [ %495, %619 ]
+  %.0.in = phi i1 [ %622, %624 ], [ %623, %619 ]
   %.pre346 = load double, ptr %43, align 8, !tbaa !1473
-  br i1 %9, label %633, label %642
+  br i1 %9, label %634, label %643
 
-633:                                              ; preds = %632
-  %634 = xor i1 %.0.in, true
-  %635 = sub nuw nsw i32 4, %.0
-  %636 = sub nuw nsw i32 4, %.0290
-  %637 = fsub double %.pre346, %.pre
-  store double %637, ptr %44, align 8, !tbaa !1473
-  %638 = load double, ptr %45, align 8, !tbaa !1473
-  %639 = fsub double %.pre346, %638
-  store double %639, ptr %45, align 8, !tbaa !1473
-  %640 = load double, ptr %41, align 8, !tbaa !1473
-  %641 = load double, ptr %42, align 8, !tbaa !1473
-  store double %641, ptr %41, align 8, !tbaa !1473
-  store double %640, ptr %42, align 8, !tbaa !1473
-  br label %642
+634:                                              ; preds = %633
+  %635 = xor i1 %.0.in, true
+  %636 = sub nuw nsw i32 4, %.0
+  %637 = sub nuw nsw i32 4, %.0290
+  %638 = fsub double %.pre346, %.pre
+  store double %638, ptr %44, align 8, !tbaa !1473
+  %639 = load double, ptr %45, align 8, !tbaa !1473
+  %640 = fsub double %.pre346, %639
+  store double %640, ptr %45, align 8, !tbaa !1473
+  %641 = load double, ptr %41, align 8, !tbaa !1473
+  %642 = load double, ptr %42, align 8, !tbaa !1473
+  store double %642, ptr %41, align 8, !tbaa !1473
+  store double %641, ptr %42, align 8, !tbaa !1473
+  br label %643
 
-642:                                              ; preds = %633, %632
-  %643 = phi double [ %637, %633 ], [ %.pre, %632 ]
-  %.1295 = phi i32 [ %.0292, %633 ], [ %.0294, %632 ]
-  %.1293 = phi i32 [ %.0294, %633 ], [ %.0292, %632 ]
-  %.1291 = phi i32 [ %636, %633 ], [ %.0290, %632 ]
-  %.1 = phi i32 [ %635, %633 ], [ %.0, %632 ]
-  %.1.in = phi i1 [ %634, %633 ], [ %.0.in, %632 ]
+643:                                              ; preds = %634, %633
+  %644 = phi double [ %638, %634 ], [ %.pre, %633 ]
+  %.1295 = phi i32 [ %.0292, %634 ], [ %.0294, %633 ]
+  %.1293 = phi i32 [ %.0294, %634 ], [ %.0292, %633 ]
+  %.1291 = phi i32 [ %637, %634 ], [ %.0290, %633 ]
+  %.1 = phi i32 [ %636, %634 ], [ %.0, %633 ]
+  %.1.in = phi i1 [ %635, %634 ], [ %.0.in, %633 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  store double %643, ptr %46, align 8, !tbaa !2933
-  %644 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store double %.pre346, ptr %644, align 8, !tbaa !2934
-  %645 = fcmp olt double %.pre346, 0.000000e+00
-  br i1 %645, label %646, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit
+  store double %644, ptr %46, align 8, !tbaa !2933
+  %645 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store double %.pre346, ptr %645, align 8, !tbaa !2934
+  %646 = fcmp olt double %.pre346, 0.000000e+00
+  br i1 %646, label %647, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit
 
-646:                                              ; preds = %642
-  %647 = fneg double %643
-  store double %647, ptr %46, align 8, !tbaa !2933
-  %648 = fneg double %.pre346
-  store double %648, ptr %644, align 8, !tbaa !2934
+647:                                              ; preds = %643
+  %648 = fneg double %644
+  store double %648, ptr %46, align 8, !tbaa !2933
+  %649 = fneg double %.pre346
+  store double %649, ptr %645, align 8, !tbaa !2934
   br label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit: ; preds = %642, %646
-  %649 = phi double [ %647, %646 ], [ %643, %642 ]
-  %650 = phi double [ %648, %646 ], [ %.pre346, %642 ]
-  %651 = fcmp oeq double %650, 0.000000e+00
-  %652 = fmul double %649, 1.000000e+06
-  %653 = fdiv double %652, %650
-  %654 = select i1 %651, double 0.000000e+00, double %653
-  %655 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store double %654, ptr %655, align 8, !tbaa !3005
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit: ; preds = %643, %647
+  %650 = phi double [ %648, %647 ], [ %644, %643 ]
+  %651 = phi double [ %649, %647 ], [ %.pre346, %643 ]
+  %652 = fcmp oeq double %651, 0.000000e+00
+  %653 = fmul double %650, 1.000000e+06
+  %654 = fdiv double %653, %651
+  %655 = select i1 %652, double 0.000000e+00, double %654
+  %656 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store double %655, ptr %656, align 8, !tbaa !3005
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %656 = load double, ptr %45, align 8, !tbaa !1473
-  store double %656, ptr %47, align 8, !tbaa !2933
-  %657 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store double %.pre346, ptr %657, align 8, !tbaa !2934
-  br i1 %645, label %658, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267
+  %657 = load double, ptr %45, align 8, !tbaa !1473
+  store double %657, ptr %47, align 8, !tbaa !2933
+  %658 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store double %.pre346, ptr %658, align 8, !tbaa !2934
+  br i1 %646, label %659, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267
 
-658:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit
-  %659 = fneg double %656
-  store double %659, ptr %47, align 8, !tbaa !2933
-  %660 = fneg double %.pre346
-  store double %660, ptr %657, align 8, !tbaa !2934
+659:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit
+  %660 = fneg double %657
+  store double %660, ptr %47, align 8, !tbaa !2933
+  %661 = fneg double %.pre346
+  store double %661, ptr %658, align 8, !tbaa !2934
   br label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267: ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit, %658
-  %661 = phi double [ %659, %658 ], [ %656, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit ]
-  %662 = phi double [ %660, %658 ], [ %.pre346, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit ]
-  %663 = fcmp oeq double %662, 0.000000e+00
-  %664 = fmul double %661, 1.000000e+06
-  %665 = fdiv double %664, %662
-  %666 = select i1 %663, double 0.000000e+00, double %665
-  %667 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store double %666, ptr %667, align 8, !tbaa !3005
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267: ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit, %659
+  %662 = phi double [ %660, %659 ], [ %657, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit ]
+  %663 = phi double [ %661, %659 ], [ %.pre346, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit ]
+  %664 = fcmp oeq double %663, 0.000000e+00
+  %665 = fmul double %662, 1.000000e+06
+  %666 = fdiv double %665, %663
+  %667 = select i1 %664, double 0.000000e+00, double %666
+  %668 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store double %667, ptr %668, align 8, !tbaa !3005
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %668 = load double, ptr %41, align 8, !tbaa !1473
-  store double %668, ptr %48, align 8, !tbaa !2933
-  %669 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %670 = load double, ptr %40, align 8, !tbaa !1473
-  store double %670, ptr %669, align 8, !tbaa !2934
-  %671 = fcmp olt double %670, 0.000000e+00
-  br i1 %671, label %672, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268
+  %669 = load double, ptr %41, align 8, !tbaa !1473
+  store double %669, ptr %48, align 8, !tbaa !2933
+  %670 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %671 = load double, ptr %40, align 8, !tbaa !1473
+  store double %671, ptr %670, align 8, !tbaa !2934
+  %672 = fcmp olt double %671, 0.000000e+00
+  br i1 %672, label %673, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268
 
-672:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267
-  %673 = fneg double %668
-  store double %673, ptr %48, align 8, !tbaa !2933
-  %674 = fneg double %670
-  store double %674, ptr %669, align 8, !tbaa !2934
+673:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267
+  %674 = fneg double %669
+  store double %674, ptr %48, align 8, !tbaa !2933
+  %675 = fneg double %671
+  store double %675, ptr %670, align 8, !tbaa !2934
   br label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268: ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267, %672
-  %675 = phi double [ %673, %672 ], [ %668, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267 ]
-  %676 = phi double [ %674, %672 ], [ %670, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267 ]
-  %677 = fcmp oeq double %676, 0.000000e+00
-  %678 = fmul double %675, 1.000000e+06
-  %679 = fdiv double %678, %676
-  %680 = select i1 %677, double 0.000000e+00, double %679
-  %681 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store double %680, ptr %681, align 8, !tbaa !3005
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268: ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267, %673
+  %676 = phi double [ %674, %673 ], [ %669, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267 ]
+  %677 = phi double [ %675, %673 ], [ %671, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit267 ]
+  %678 = fcmp oeq double %677, 0.000000e+00
+  %679 = fmul double %676, 1.000000e+06
+  %680 = fdiv double %679, %677
+  %681 = select i1 %678, double 0.000000e+00, double %680
+  %682 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store double %681, ptr %682, align 8, !tbaa !3005
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %682 = load double, ptr %42, align 8, !tbaa !1473
-  store double %682, ptr %49, align 8, !tbaa !2933
-  %683 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store double %670, ptr %683, align 8, !tbaa !2934
-  br i1 %671, label %684, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269
+  %683 = load double, ptr %42, align 8, !tbaa !1473
+  store double %683, ptr %49, align 8, !tbaa !2933
+  %684 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store double %671, ptr %684, align 8, !tbaa !2934
+  br i1 %672, label %685, label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269
 
-684:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268
-  %685 = fneg double %682
-  store double %685, ptr %49, align 8, !tbaa !2933
-  %686 = fneg double %670
-  store double %686, ptr %683, align 8, !tbaa !2934
+685:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268
+  %686 = fneg double %683
+  store double %686, ptr %49, align 8, !tbaa !2933
+  %687 = fneg double %671
+  store double %687, ptr %684, align 8, !tbaa !2934
   br label %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269
 
-_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269: ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268, %684
-  %687 = phi double [ %685, %684 ], [ %682, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268 ]
-  %688 = phi double [ %686, %684 ], [ %670, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268 ]
-  %689 = fcmp oeq double %688, 0.000000e+00
-  %690 = fmul double %687, 1.000000e+06
-  %691 = fdiv double %690, %688
-  %692 = select i1 %689, double 0.000000e+00, double %691
-  %693 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store double %692, ptr %693, align 8, !tbaa !3005
+_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269: ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268, %685
+  %688 = phi double [ %686, %685 ], [ %683, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268 ]
+  %689 = phi double [ %687, %685 ], [ %671, %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit268 ]
+  %690 = fcmp oeq double %689, 0.000000e+00
+  %691 = fmul double %688, 1.000000e+06
+  %692 = fdiv double %691, %689
+  %693 = select i1 %690, double 0.000000e+00, double %692
+  %694 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store double %693, ptr %694, align 8, !tbaa !3005
   call void @_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE18segments_collinearINS5_17referring_segmentIKSB_EESJ_SD_EENSF_11return_typeERKT_RKT0_biiiiRKT1_ST_ST_ST_(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %.1.in, i32 noundef %.1, i32 noundef %.1291, i32 noundef %.1293, i32 noundef %.1295, ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %48, ptr noundef nonnull align 8 dereferenceable(24) %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  br label %694
+  br label %695
 
-694:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit266
+695:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit266
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %767
+  br label %768
 
-695:                                              ; preds = %.thread
-  br i1 %.0101.shrunk, label %696, label %697
+696:                                              ; preds = %.thread
+  br i1 %.0101.shrunk, label %697, label %698
 
-696:                                              ; preds = %695
+697:                                              ; preds = %696
   call void @_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0)
-  br label %767
+  br label %768
 
-697:                                              ; preds = %695
+698:                                              ; preds = %696
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store double 0.000000e+00, ptr %50, align 8, !tbaa !1473
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -158270,130 +158270,130 @@ _ZN5boost8geometry13segment_ratioIdEC2ERKdS4_.exit269: ; preds = %_ZN5boost8geom
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  %698 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE17calculate_ip_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_dNS0_7formula14result_inverseIdEES7_EEbRKT_SM_RKT0_SP_RKT1_SS_SS_SS_SS_SS_SS_SS_RKT2_SV_SV_SV_SV_SV_RKNS0_9side_infoERKT3_RSQ_S12_S12_S12_S12_S12_RNS8_23intersection_point_flagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 4 dereferenceable(4) %52)
-  br i1 %698, label %699, label %765
+  %699 = call noundef zeroext i1 @_ZN5boost8geometry8strategy12intersection19geographic_segmentsINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE17calculate_ip_dataINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEESG_dNS0_7formula14result_inverseIdEES7_EEbRKT_SM_RKT0_SP_RKT1_SS_SS_SS_SS_SS_SS_SS_RKT2_SV_SV_SV_SV_SV_RKNS0_9side_infoERKT3_RSQ_S12_S12_S12_S12_S12_RNS8_23intersection_point_flagE(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef nonnull align 8 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51, ptr noundef nonnull align 8 dereferenceable(8) %53, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull align 4 dereferenceable(4) %52)
+  br i1 %699, label %700, label %766
 
-699:                                              ; preds = %697
-  br i1 %8, label %700, label %714
+700:                                              ; preds = %698
+  br i1 %8, label %701, label %715
 
-700:                                              ; preds = %699
-  %701 = load i32, ptr %27, align 4, !tbaa !2954
-  %702 = load i32, ptr %168, align 4, !tbaa !3058
-  store i32 %702, ptr %27, align 4, !tbaa !2954
-  store i32 %701, ptr %168, align 4, !tbaa !3058
-  %703 = load i32, ptr %169, align 4, !tbaa !2954
-  %704 = load i32, ptr %170, align 4, !tbaa !3058
-  %705 = sub nsw i32 0, %703
+701:                                              ; preds = %700
+  %702 = load i32, ptr %27, align 4, !tbaa !2954
+  %703 = load i32, ptr %168, align 4, !tbaa !3058
+  store i32 %703, ptr %27, align 4, !tbaa !2954
+  store i32 %702, ptr %168, align 4, !tbaa !3058
+  %704 = load i32, ptr %169, align 4, !tbaa !2954
+  %705 = load i32, ptr %170, align 4, !tbaa !3058
   %706 = sub nsw i32 0, %704
-  store i32 %705, ptr %169, align 4, !tbaa !2954
-  store i32 %706, ptr %170, align 4, !tbaa !3058
-  %707 = load double, ptr %53, align 8, !tbaa !1473
-  %708 = load double, ptr %54, align 8, !tbaa !1473
-  %709 = fsub double %707, %708
-  store double %709, ptr %54, align 8, !tbaa !1473
-  %710 = load i32, ptr %52, align 4, !tbaa !3106
-  %711 = icmp eq i32 %710, 1
-  %712 = icmp eq i32 %710, 2
-  %..i = select i1 %712, i32 1, i32 %710
-  %713 = select i1 %711, i32 2, i32 %..i
-  store i32 %713, ptr %52, align 4, !tbaa !3106
-  br label %714
+  %707 = sub nsw i32 0, %705
+  store i32 %706, ptr %169, align 4, !tbaa !2954
+  store i32 %707, ptr %170, align 4, !tbaa !3058
+  %708 = load double, ptr %53, align 8, !tbaa !1473
+  %709 = load double, ptr %54, align 8, !tbaa !1473
+  %710 = fsub double %708, %709
+  store double %710, ptr %54, align 8, !tbaa !1473
+  %711 = load i32, ptr %52, align 4, !tbaa !3106
+  %712 = icmp eq i32 %711, 1
+  %713 = icmp eq i32 %711, 2
+  %..i = select i1 %713, i32 1, i32 %711
+  %714 = select i1 %712, i32 2, i32 %..i
+  store i32 %714, ptr %52, align 4, !tbaa !3106
+  br label %715
 
-714:                                              ; preds = %700, %699
-  br i1 %9, label %715, label %729
+715:                                              ; preds = %701, %700
+  br i1 %9, label %716, label %730
 
-715:                                              ; preds = %714
-  %716 = load i32, ptr %169, align 4, !tbaa !2954
-  %717 = load i32, ptr %170, align 4, !tbaa !3058
-  store i32 %717, ptr %169, align 4, !tbaa !2954
-  store i32 %716, ptr %170, align 4, !tbaa !3058
-  %718 = load i32, ptr %27, align 4, !tbaa !2954
-  %719 = load i32, ptr %168, align 4, !tbaa !3058
-  %720 = sub nsw i32 0, %718
+716:                                              ; preds = %715
+  %717 = load i32, ptr %169, align 4, !tbaa !2954
+  %718 = load i32, ptr %170, align 4, !tbaa !3058
+  store i32 %718, ptr %169, align 4, !tbaa !2954
+  store i32 %717, ptr %170, align 4, !tbaa !3058
+  %719 = load i32, ptr %27, align 4, !tbaa !2954
+  %720 = load i32, ptr %168, align 4, !tbaa !3058
   %721 = sub nsw i32 0, %719
-  store i32 %720, ptr %27, align 4, !tbaa !2954
-  store i32 %721, ptr %168, align 4, !tbaa !3058
-  %722 = load double, ptr %55, align 8, !tbaa !1473
-  %723 = load double, ptr %56, align 8, !tbaa !1473
-  %724 = fsub double %722, %723
-  store double %724, ptr %56, align 8, !tbaa !1473
-  %725 = load i32, ptr %52, align 4, !tbaa !3106
-  %726 = icmp eq i32 %725, 3
-  %727 = icmp eq i32 %725, 4
-  %..i270 = select i1 %727, i32 3, i32 %725
-  %728 = select i1 %726, i32 4, i32 %..i270
-  store i32 %728, ptr %52, align 4, !tbaa !3106
-  br label %729
+  %722 = sub nsw i32 0, %720
+  store i32 %721, ptr %27, align 4, !tbaa !2954
+  store i32 %722, ptr %168, align 4, !tbaa !3058
+  %723 = load double, ptr %55, align 8, !tbaa !1473
+  %724 = load double, ptr %56, align 8, !tbaa !1473
+  %725 = fsub double %723, %724
+  store double %725, ptr %56, align 8, !tbaa !1473
+  %726 = load i32, ptr %52, align 4, !tbaa !3106
+  %727 = icmp eq i32 %726, 3
+  %728 = icmp eq i32 %726, 4
+  %..i270 = select i1 %728, i32 3, i32 %726
+  %729 = select i1 %727, i32 4, i32 %..i270
+  store i32 %729, ptr %52, align 4, !tbaa !3106
+  br label %730
 
-729:                                              ; preds = %715, %714
+730:                                              ; preds = %716, %715
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  %730 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %731 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %732 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %733 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %734 = getelementptr inbounds nuw i8, ptr %57, i64 56
-  %735 = load double, ptr %50, align 8, !tbaa !1473
-  store double %735, ptr %57, align 8, !tbaa !3108
-  %736 = load double, ptr %51, align 8, !tbaa !1473
-  %737 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store double %736, ptr %737, align 8, !tbaa !3110
-  %738 = load double, ptr %54, align 8, !tbaa !1473
-  store double %738, ptr %730, align 8, !tbaa !2933
-  %739 = load double, ptr %53, align 8, !tbaa !1473
-  store double %739, ptr %731, align 8, !tbaa !2934
-  %740 = fcmp olt double %739, 0.000000e+00
-  br i1 %740, label %741, label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
+  %731 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %732 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %733 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %734 = getelementptr inbounds nuw i8, ptr %57, i64 48
+  %735 = getelementptr inbounds nuw i8, ptr %57, i64 56
+  %736 = load double, ptr %50, align 8, !tbaa !1473
+  store double %736, ptr %57, align 8, !tbaa !3108
+  %737 = load double, ptr %51, align 8, !tbaa !1473
+  %738 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store double %737, ptr %738, align 8, !tbaa !3110
+  %739 = load double, ptr %54, align 8, !tbaa !1473
+  store double %739, ptr %731, align 8, !tbaa !2933
+  %740 = load double, ptr %53, align 8, !tbaa !1473
+  store double %740, ptr %732, align 8, !tbaa !2934
+  %741 = fcmp olt double %740, 0.000000e+00
+  br i1 %741, label %742, label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
 
-741:                                              ; preds = %729
-  %742 = fneg double %738
-  store double %742, ptr %730, align 8, !tbaa !2933
+742:                                              ; preds = %730
   %743 = fneg double %739
-  store double %743, ptr %731, align 8, !tbaa !2934
+  store double %743, ptr %731, align 8, !tbaa !2933
+  %744 = fneg double %740
+  store double %744, ptr %732, align 8, !tbaa !2934
   br label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
 
-_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit: ; preds = %729, %741
-  %744 = phi double [ %742, %741 ], [ %738, %729 ]
-  %745 = phi double [ %743, %741 ], [ %739, %729 ]
-  %746 = fcmp oeq double %745, 0.000000e+00
-  %747 = fmul double %744, 1.000000e+06
-  %748 = fdiv double %747, %745
-  %749 = select i1 %746, double 0.000000e+00, double %748
-  store double %749, ptr %732, align 8, !tbaa !3005
-  %750 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %751 = load double, ptr %56, align 8, !tbaa !1473
-  store double %751, ptr %750, align 8, !tbaa !2933
-  %752 = load double, ptr %55, align 8, !tbaa !1473
-  store double %752, ptr %733, align 8, !tbaa !2934
-  %753 = fcmp olt double %752, 0.000000e+00
-  br i1 %753, label %754, label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271
+_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit: ; preds = %730, %742
+  %745 = phi double [ %743, %742 ], [ %739, %730 ]
+  %746 = phi double [ %744, %742 ], [ %740, %730 ]
+  %747 = fcmp oeq double %746, 0.000000e+00
+  %748 = fmul double %745, 1.000000e+06
+  %749 = fdiv double %748, %746
+  %750 = select i1 %747, double 0.000000e+00, double %749
+  store double %750, ptr %733, align 8, !tbaa !3005
+  %751 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %752 = load double, ptr %56, align 8, !tbaa !1473
+  store double %752, ptr %751, align 8, !tbaa !2933
+  %753 = load double, ptr %55, align 8, !tbaa !1473
+  store double %753, ptr %734, align 8, !tbaa !2934
+  %754 = fcmp olt double %753, 0.000000e+00
+  br i1 %754, label %755, label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271
 
-754:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
-  %755 = fneg double %751
-  store double %755, ptr %750, align 8, !tbaa !2933
+755:                                              ; preds = %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit
   %756 = fneg double %752
-  store double %756, ptr %733, align 8, !tbaa !2934
+  store double %756, ptr %751, align 8, !tbaa !2933
+  %757 = fneg double %753
+  store double %757, ptr %734, align 8, !tbaa !2934
   br label %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271
 
-_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271: ; preds = %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit, %754
-  %757 = phi double [ %755, %754 ], [ %751, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
-  %758 = phi double [ %756, %754 ], [ %752, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
-  %759 = fcmp oeq double %758, 0.000000e+00
-  %760 = fmul double %757, 1.000000e+06
-  %761 = fdiv double %760, %758
-  %762 = select i1 %759, double 0.000000e+00, double %761
-  store double %762, ptr %734, align 8, !tbaa !3005
-  %763 = load i32, ptr %52, align 4, !tbaa !3106
-  %764 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  store i32 %763, ptr %764, align 8, !tbaa !3111
+_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271: ; preds = %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit, %755
+  %758 = phi double [ %756, %755 ], [ %752, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
+  %759 = phi double [ %757, %755 ], [ %753, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit ]
+  %760 = fcmp oeq double %759, 0.000000e+00
+  %761 = fmul double %758, 1.000000e+06
+  %762 = fdiv double %761, %759
+  %763 = select i1 %760, double 0.000000e+00, double %762
+  store double %763, ptr %735, align 8, !tbaa !3005
+  %764 = load i32, ptr %52, align 4, !tbaa !3106
+  %765 = getelementptr inbounds nuw i8, ptr %57, i64 64
+  store i32 %764, ptr %765, align 8, !tbaa !3111
   call void @_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE16segments_crossesINS5_17referring_segmentIKSB_EESJ_NS0_8strategy12intersection19geographic_segmentsINSK_7andoyerELm1ENS0_3srs8spheroidIdEEvE25segment_intersection_infoIdSD_EEEENSF_11return_typeERKNS0_9side_infoERKT1_RKT_RKT0_(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0, ptr noundef nonnull align 4 dereferenceable(16) %27, ptr noundef nonnull align 8 dereferenceable(68) %57, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  br label %766
+  br label %767
 
-765:                                              ; preds = %697
+766:                                              ; preds = %698
   call void @_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv(ptr dead_on_unwind writable sret(%"struct.boost::geometry::policies::relate::segments_intersection_policy<boost::geometry::segment_intersection_points<boost::geometry::model::point<double, 2, boost::geometry::cs::geographic<boost::geometry::degree>>>>::return_type") align 8 %0)
-  br label %766
+  br label %767
 
-766:                                              ; preds = %765, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271
+767:                                              ; preds = %766, %_ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
@@ -158401,15 +158401,15 @@ _ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271: ; preds = %_ZN5boost
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
-  br label %767
+  br label %768
 
-767:                                              ; preds = %.thread.thread, %434, %694, %696, %766, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit225, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit233, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit217
+768:                                              ; preds = %.thread.thread, %435, %695, %697, %767, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit225, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit233, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit217
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br label %768
+  br label %769
 
-768:                                              ; preds = %767, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit160
+769:                                              ; preds = %768, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit160
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -158422,9 +158422,9 @@ _ZN5boost8geometry13segment_ratioIdE6assignERKdS4_.exit271: ; preds = %_ZN5boost
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %769
+  br label %770
 
-769:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit, %768
+770:                                              ; preds = %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE10degenerateINS5_17referring_segmentIKSB_EEEENSF_11return_typeERKT_b.exit, %_ZN5boost8geometry8policies6relate28segments_intersection_policyINS0_27segment_intersection_pointsINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENS0_13segment_ratioIdEEEEE8disjointEv.exit, %769
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret void
 }

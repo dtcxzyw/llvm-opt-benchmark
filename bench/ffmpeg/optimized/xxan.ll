@@ -1317,12 +1317,12 @@ define internal fastcc i32 @xan_unpack(ptr noundef captures(none) %0, ptr nounde
   store ptr %35, ptr %7, align 8, !tbaa !45
   %36 = load i8, ptr %20, align 1, !tbaa !46
   %37 = zext i8 %36 to i32
+  %38 = or disjoint i32 %29, %37
   br label %bytestream2_get_byte.exit
 
 bytestream2_get_byte.exit:                        ; preds = %33, %34
-  %38 = phi ptr [ %12, %33 ], [ %35, %34 ]
-  %.0.i = phi i32 [ 0, %33 ], [ %37, %34 ]
-  %39 = or disjoint i32 %.0.i, %29
+  %39 = phi ptr [ %12, %33 ], [ %35, %34 ]
+  %.0.i = phi i32 [ %29, %33 ], [ %38, %34 ]
   %40 = lshr i32 %22, 2
   %41 = and i32 %40, 7
   %42 = add nuw nsw i32 %41, 3
@@ -1383,14 +1383,14 @@ bytestream2_get_be16.exit:                        ; preds = %bytestream2_peek_by
   %74 = load i16, ptr %20, align 1, !tbaa !46
   %75 = tail call i16 @llvm.bswap.i16(i16 %74)
   %76 = zext i16 %75 to i32
+  %77 = or disjoint i32 %68, %76
   %.pre = ptrtoint ptr %73 to i64
   br label %bytestream2_get_be16.exit81
 
 bytestream2_get_be16.exit81:                      ; preds = %65, %72
   %.pre-phi = phi i64 [ %.pre, %72 ], [ %14, %65 ]
-  %77 = phi ptr [ %73, %72 ], [ %12, %65 ]
-  %.0.i80 = phi i32 [ %76, %72 ], [ 0, %65 ]
-  %78 = or disjoint i32 %.0.i80, %68
+  %78 = phi ptr [ %73, %72 ], [ %12, %65 ]
+  %.0.i80 = phi i32 [ %77, %72 ], [ %68, %65 ]
   %79 = shl nuw nsw i32 %22, 6
   %80 = and i32 %79, 768
   %81 = sub i64 %14, %.pre-phi
@@ -1402,17 +1402,17 @@ bytestream2_get_be16.exit81:                      ; preds = %65, %72
   br label %bytestream2_get_byte.exit77
 
 84:                                               ; preds = %bytestream2_get_be16.exit81
-  %85 = getelementptr inbounds nuw i8, ptr %77, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %78, i64 1
   store ptr %85, ptr %7, align 8, !tbaa !45
-  %86 = load i8, ptr %77, align 1, !tbaa !46
+  %86 = load i8, ptr %78, align 1, !tbaa !46
   %87 = zext i8 %86 to i32
+  %88 = or disjoint i32 %80, %87
   br label %bytestream2_get_byte.exit77
 
 bytestream2_get_byte.exit77:                      ; preds = %83, %84
-  %88 = phi ptr [ %12, %83 ], [ %85, %84 ]
-  %.0.i76 = phi i32 [ 0, %83 ], [ %87, %84 ]
-  %89 = or disjoint i32 %.0.i76, %80
-  %90 = add nuw nsw i32 %89, 5
+  %89 = phi ptr [ %12, %83 ], [ %85, %84 ]
+  %.0.i76 = phi i32 [ %80, %83 ], [ %88, %84 ]
+  %90 = add nuw nsw i32 %.0.i76, 5
   %91 = add nuw nsw i32 %90, %66
   %92 = zext nneg i32 %91 to i64
   %93 = ptrtoint ptr %.06594 to i64
@@ -1421,10 +1421,10 @@ bytestream2_get_byte.exit77:                      ; preds = %83, %84
   br i1 %95, label %._crit_edge.loopexit, label %96
 
 96:                                               ; preds = %bytestream2_get_be16.exit, %bytestream2_get_byte.exit77, %bytestream2_get_byte.exit
-  %97 = phi ptr [ %38, %bytestream2_get_byte.exit ], [ %61, %bytestream2_get_be16.exit ], [ %88, %bytestream2_get_byte.exit77 ]
+  %97 = phi ptr [ %39, %bytestream2_get_byte.exit ], [ %61, %bytestream2_get_be16.exit ], [ %89, %bytestream2_get_byte.exit77 ]
   %.070 = phi i32 [ %27, %bytestream2_get_byte.exit ], [ %62, %bytestream2_get_be16.exit ], [ %66, %bytestream2_get_byte.exit77 ]
   %.062 = phi i32 [ %42, %bytestream2_get_byte.exit ], [ %64, %bytestream2_get_be16.exit ], [ %90, %bytestream2_get_byte.exit77 ]
-  %.061.in = phi i32 [ %39, %bytestream2_get_byte.exit ], [ %.0.i79, %bytestream2_get_be16.exit ], [ %78, %bytestream2_get_byte.exit77 ]
+  %.061.in = phi i32 [ %.0.i, %bytestream2_get_byte.exit ], [ %.0.i79, %bytestream2_get_be16.exit ], [ %.0.i80, %bytestream2_get_byte.exit77 ]
   %.061 = add nuw nsw i32 %.061.in, 1
   %98 = zext nneg i32 %.070 to i64
   %99 = getelementptr inbounds nuw i8, ptr %.06594, i64 %98

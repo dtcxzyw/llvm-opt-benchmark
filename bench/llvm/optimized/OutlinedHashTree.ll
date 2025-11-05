@@ -1113,18 +1113,11 @@ define dso_local i64 @_ZNK4llvm16OutlinedHashTree4findERKNS_11SmallVectorImLj6EE
   %.015.lcssa = phi ptr [ %0, %2 ], [ %39, %.loopexit ]
   %41 = getelementptr inbounds nuw i8, ptr %.015.lcssa, i64 8
   %42 = load i64, ptr %41, align 8
-  %.sroa.4.0.extract.shift = and i64 %42, -1099511627776
-  %43 = and i64 %42, 1095216660480
-  %44 = and i64 %42, 4294967295
   br label %.thread30
 
 .thread30:                                        ; preds = %18, %.lr.ph.i.i.i.i, %13, %..loopexit_crit_edge21.i.i.i.i, %.thread27
-  %.sroa.022.3 = phi i64 [ %44, %.thread27 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %13 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %18 ]
-  %.sroa.3.3 = phi i64 [ %43, %.thread27 ], [ 4294967296, %..loopexit_crit_edge21.i.i.i.i ], [ 4294967296, %13 ], [ 4294967296, %.lr.ph.i.i.i.i ], [ 4294967296, %18 ]
-  %.sroa.4.sroa.0.0 = phi i64 [ %.sroa.4.0.extract.shift, %.thread27 ], [ 0, %..loopexit_crit_edge21.i.i.i.i ], [ 0, %13 ], [ 0, %.lr.ph.i.i.i.i ], [ 0, %18 ]
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.3, %.sroa.022.3
-  %.sroa.022.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.4.sroa.0.0
-  ret i64 %.sroa.022.0.insert.insert
+  %.sroa.4.sroa.0.0 = phi i64 [ %42, %.thread27 ], [ 4294967296, %..loopexit_crit_edge21.i.i.i.i ], [ 4294967296, %13 ], [ 4294967296, %.lr.ph.i.i.i.i ], [ 4294967296, %18 ]
+  ret i64 %.sroa.4.sroa.0.0
 }
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3

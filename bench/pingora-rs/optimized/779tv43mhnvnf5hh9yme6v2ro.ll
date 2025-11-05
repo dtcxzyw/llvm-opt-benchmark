@@ -27310,8 +27310,8 @@ default.unreachable:                              ; preds = %58, %select.unfold
   store ptr %51, ptr %52, align 8
   %53 = icmp eq i64 %50, 0
   %54 = icmp eq ptr %51, null
-  %or.cond40 = select i1 %53, i1 true, i1 %54
-  br i1 %or.cond40, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$17hac3bfd828a1c0b6bE.exit", label %94
+  %or.cond39 = select i1 %53, i1 true, i1 %54
+  br i1 %or.cond39, label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$17hac3bfd828a1c0b6bE.exit", label %94
 
 55:                                               ; preds = %86, %80, %71, %65
   %56 = landingpad { ptr, i32 }

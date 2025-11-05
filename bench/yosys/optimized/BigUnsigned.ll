@@ -1629,11 +1629,11 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %96, %.preheader58.s
   %119 = getelementptr inbounds nuw i64, ptr %90, i64 %indvars.iv
   %120 = load i64, ptr %119, align 8, !tbaa !15
   %121 = shl i64 %120, %indvars.iv80
+  %122 = or i64 %121, %116
   br label %_Z15getShiftedBlockRK11BigUnsignedjj.exit
 
 _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %115, %118
-  %122 = phi i64 [ %121, %118 ], [ 0, %115 ]
-  %123 = or i64 %122, %116
+  %123 = phi i64 [ %122, %118 ], [ %116, %115 ]
   %124 = add i64 %123, %108
   %125 = icmp ult i64 %124, %108
   %126 = add i64 %124, 1
@@ -1931,11 +1931,11 @@ _ZN15NumberlikeArrayImE8allocateEj.exit:          ; preds = %_ZN15NumberlikeArra
   %108 = getelementptr inbounds nuw i64, ptr %89, i64 %indvars.iv
   %109 = load i64, ptr %108, align 8, !tbaa !15
   %110 = shl i64 %109, %indvars.iv.next126
+  %111 = or i64 %110, %105
   br label %_Z15getShiftedBlockRK11BigUnsignedjj.exit
 
 _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %104, %107
-  %111 = phi i64 [ %110, %107 ], [ 0, %104 ]
-  %112 = or i64 %111, %105
+  %112 = phi i64 [ %111, %107 ], [ %105, %104 ]
   %113 = sub i64 %97, %112
   %114 = icmp ugt i64 %112, %97
   %115 = add i64 %113, -1
@@ -2881,11 +2881,11 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %84, %.preheader.spl
   %101 = getelementptr inbounds nuw i64, ptr %77, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8, !tbaa !15
   %103 = shl i64 %102, %80
+  %104 = or i64 %103, %98
   br label %_Z15getShiftedBlockRK11BigUnsignedjj.exit
 
 _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %97, %100
-  %104 = phi i64 [ %103, %100 ], [ 0, %97 ]
-  %105 = or i64 %104, %98
+  %105 = phi i64 [ %104, %100 ], [ %98, %97 ]
   %106 = zext i32 %.136 to i64
   %107 = getelementptr inbounds nuw i64, ptr %.pre, i64 %106
   store i64 %105, ptr %107, align 8, !tbaa !15
@@ -3141,11 +3141,11 @@ _Z15getShiftedBlockRK11BigUnsignedjj.exit.us:     ; preds = %85, %.lr.ph.split.u
   %105 = getelementptr inbounds nuw i64, ptr %78, i64 %104
   %106 = load i64, ptr %105, align 8, !tbaa !15
   %107 = shl i64 %106, %81
+  %108 = or i64 %107, %101
   br label %_Z15getShiftedBlockRK11BigUnsignedjj.exit
 
 _Z15getShiftedBlockRK11BigUnsignedjj.exit:        ; preds = %100, %103
-  %108 = phi i64 [ %107, %103 ], [ 0, %100 ]
-  %109 = or i64 %108, %101
+  %109 = phi i64 [ %108, %103 ], [ %101, %100 ]
   %110 = getelementptr inbounds nuw i64, ptr %83, i64 %indvars.iv
   store i64 %109, ptr %110, align 8, !tbaa !15
   %111 = add i32 %.037, 1

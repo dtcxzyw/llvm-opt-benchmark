@@ -45611,12 +45611,11 @@ switch.lookup:                                    ; preds = %2
   br i1 %switch.masked, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit.thread", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3f0d101823ed4b15E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit.thread": ; preds = %"_ZN15ruff_python_ast7helpers23is_unpacking_assignment28_$u7b$$u7b$closure$u7d$$u7d$17h9d1465536086fda7E.exit.backedge.i", %.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit"
-  %41 = phi i1 [ false, %.loopexit ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit" ], [ false, %"_ZN15ruff_python_ast7helpers23is_unpacking_assignment28_$u7b$$u7b$closure$u7d$$u7d$17h9d1465536086fda7E.exit.backedge.i" ]
-  %spec.select = and i1 %41, %switch.masked
+  %.sroa.09.0 = phi i1 [ false, %.loopexit ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit" ], [ false, %"_ZN15ruff_python_ast7helpers23is_unpacking_assignment28_$u7b$$u7b$closure$u7d$$u7d$17h9d1465536086fda7E.exit.backedge.i" ]
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3f0d101823ed4b15E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h3f0d101823ed4b15E.exit": ; preds = %.backedge.i, %31, %19, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit.thread", %.loopexit, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit", %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit" ], [ true, %.loopexit ], [ %spec.select, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit.thread" ], [ false, %19 ], [ false, %.backedge.i ], [ true, %31 ]
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit" ], [ true, %.loopexit ], [ %.sroa.09.0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3any17h38b63bfa326e1d1dE.exit.thread" ], [ false, %19 ], [ false, %.backedge.i ], [ true, %31 ]
   ret i1 %.sroa.0.0.shrunk
 }
 

@@ -7856,7 +7856,7 @@ _ZNK7glslang11TArraySizes10hasUnsizedEv.exit:     ; preds = %_ZNK7glslang17TSmal
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
+  br i1 %119, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %112
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
@@ -7869,7 +7869,7 @@ _ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i: ; preds = %112
   %127 = lshr exact i64 %126, 4
   %128 = trunc i64 %127 to i32
   %129 = icmp sgt i32 %128, 0
-  br i1 %129, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit
+  br i1 %129, label %.lr.ph.i, label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
 
 .lr.ph.i:                                         ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
   %wide.trip.count.i = and i64 %127, 2147483647
@@ -7883,15 +7883,14 @@ _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmal
   %132 = mul i32 %131, %.05611.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
+  br i1 %exitcond.not.i, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit, label %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
 
-_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %112, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i
-  %.05.lcssa.i = phi i32 [ 1, %112 ], [ 1, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %132, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %133 = mul nsw i32 %.05.lcssa.i, %81
+_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit: ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i
+  %133 = mul nsw i32 %132, %81
   br label %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread
 
-_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread: ; preds = %104, %86, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, %.lr.ph.split
-  %.0 = phi i32 [ %133, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit ], [ %81, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit ], [ %81, %.lr.ph.split ], [ %81, %86 ], [ %81, %104 ]
+_ZNK7glslang11TArraySizes10hasUnsizedEv.exit.thread: ; preds = %104, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i, %112, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit, %86, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit, %.lr.ph.split
+  %.0 = phi i32 [ %81, %_ZNK7glslang11TArraySizes10hasUnsizedEv.exit ], [ %81, %.lr.ph.split ], [ %81, %86 ], [ %81, %112 ], [ %81, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.lr.ph.i ], [ %133, %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit.loopexit ], [ %81, %104 ]
   %134 = add nsw i32 %.0, %.02426
   %135 = add nuw i64 %.02327, 1
   %136 = load ptr, ptr %32, align 8

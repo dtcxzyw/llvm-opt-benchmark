@@ -847,20 +847,20 @@ create_vorbis_context.exit:                       ; preds = %384
   %391 = load i32, ptr %386, align 8, !tbaa !133
   %392 = and i32 %391, 2
   %.not25 = icmp eq i32 %392, 0
-  br i1 %.not25, label %398, label %393
+  br i1 %.not25, label %399, label %393
 
 393:                                              ; preds = %389
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 420
   %395 = load i32, ptr %394, align 4, !tbaa !135
   %396 = sitofp i32 %395 to float
   %397 = fdiv nsz float %396, 1.180000e+02
-  br label %398
+  %398 = fmul nsz float %397, %397
+  br label %399
 
-398:                                              ; preds = %389, %393
-  %.sink = phi float [ %397, %393 ], [ 8.000000e+00, %389 ]
-  %399 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %400 = fmul nsz float %.sink, %.sink
-  store float %400, ptr %399, align 8, !tbaa !136
+399:                                              ; preds = %389, %393
+  %.sink = phi float [ %398, %393 ], [ 6.400000e+01, %389 ]
+  %400 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  store float %.sink, ptr %400, align 8, !tbaa !136
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -869,7 +869,7 @@ create_vorbis_context.exit:                       ; preds = %384
   %.not.i26 = icmp eq ptr %402, null
   br i1 %.not.i26, label %put_main_header.exit.thread, label %put_bits.exit.i
 
-put_bits.exit.i:                                  ; preds = %398
+put_bits.exit.i:                                  ; preds = %399
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 50000
   %404 = ptrtoint ptr %403 to i64
   br label %405
@@ -4219,7 +4219,7 @@ flush_put_bits.exit311.i:                         ; preds = %1805, %put_bits.exi
   %exitcond.not.i30 = icmp eq i64 %indvars.iv.next835.i, 3
   br i1 %exitcond.not.i30, label %put_main_header.exit, label %1832, !llvm.loop !165
 
-put_main_header.exit.thread:                      ; preds = %398, %flush_put_bits.exit311.i
+put_main_header.exit.thread:                      ; preds = %399, %flush_put_bits.exit311.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %create_vorbis_context.exit.thread

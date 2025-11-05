@@ -8873,8 +8873,8 @@ _ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb
   %172 = icmp eq ptr %171, %165
   br i1 %172, label %.backedge, label %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb1ELb1ELb0ELb1ELb0EEppEv.exit, !llvm.loop !667
 
-_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit: ; preds = %58, %58, %.preheader.i.i.i, %125, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit, %166, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %34, %5, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %34 ], [ false, %5 ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ false, %166 ], [ false, %125 ], [ true, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit ], [ false, %.preheader.i.i.i ], [ false, %58 ], [ false, %58 ]
+_ZL11isMoveInstrRKN4llvm18TargetRegisterInfoEPKNS_12MachineInstrERNS_8RegisterES7_RjS8_.exit: ; preds = %58, %58, %.preheader.i.i.i, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit, %125, %166, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit, %34, %5, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %34 ], [ false, %5 ], [ false, %_ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit ], [ false, %166 ], [ true, %_ZNK4llvm9LiveRange8overlapsERKS0_.exit ], [ false, %125 ], [ false, %.preheader.i.i.i ], [ false, %58 ], [ false, %58 ]
   ret i1 %.0
 }
 
@@ -16964,7 +16964,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242: ; preds = %_ZNK4llvm9Li
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %178, align 8
   %179 = and i64 %.0.copyload.i.i.i.i.i.i, 6
   %180 = icmp eq i64 %179, 0
-  br i1 %180, label %503, label %181
+  br i1 %180, label %505, label %181
 
 181:                                              ; preds = %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242
   %182 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -16972,7 +16972,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242: ; preds = %_ZNK4llvm9Li
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   %185 = load ptr, ptr %184, align 8, !tbaa !777
   %.not = icmp eq ptr %185, null
-  br i1 %.not, label %503, label %186
+  br i1 %.not, label %505, label %186
 
 186:                                              ; preds = %181
   %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
@@ -16981,7 +16981,7 @@ _ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242: ; preds = %_ZNK4llvm9Li
   %190 = load i64, ptr %189, align 8, !tbaa !662
   %191 = and i64 %190, 33554432
   %.not403 = icmp eq i64 %191, 0
-  br i1 %.not403, label %503, label %192
+  br i1 %.not403, label %505, label %192
 
 192:                                              ; preds = %186
   %193 = getelementptr inbounds nuw i8, ptr %.0.i, i64 112
@@ -17629,25 +17629,22 @@ _ZN4llvm9LiveRange20getSegmentContainingENS_9SlotIndexE.exit.thread: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %501 = zext nneg i8 %500 to i16
   %502 = shl nuw nsw i16 %501, 8
+  %503 = or disjoint i16 %502, 1
   br label %.loopexit419
 
 .loopexit419:                                     ; preds = %316, %.loopexit, %.critedge, %219, %223, %.critedge215, %337, %203
-  %.sroa.0391.2 = phi i16 [ 0, %203 ], [ 1, %.loopexit ], [ 0, %.critedge ], [ 0, %219 ], [ 0, %223 ], [ 0, %.critedge215 ], [ 0, %337 ], [ 0, %316 ]
-  %.sroa.12.2 = phi i16 [ 0, %203 ], [ %502, %.loopexit ], [ 0, %.critedge ], [ 0, %219 ], [ 0, %223 ], [ 0, %.critedge215 ], [ 0, %337 ], [ 0, %316 ]
+  %.sroa.12.2 = phi i16 [ 0, %203 ], [ %503, %.loopexit ], [ 0, %.critedge ], [ 0, %219 ], [ 0, %223 ], [ 0, %.critedge215 ], [ 0, %337 ], [ 0, %316 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit
 
 _ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit: ; preds = %192, %.loopexit419
-  %.sroa.0391.1 = phi i16 [ %.sroa.0391.2, %.loopexit419 ], [ 0, %192 ]
-  %.sroa.12.1 = phi i16 [ %.sroa.12.2, %.loopexit419 ], [ 0, %192 ]
+  %504 = phi i16 [ %.sroa.12.2, %.loopexit419 ], [ 0, %192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %503
+  br label %505
 
-503:                                              ; preds = %186, %181, %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242, %_ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit
-  %.sroa.0391.0 = phi i16 [ %.sroa.0391.1, %_ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit ], [ 0, %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242 ], [ 0, %181 ], [ 0, %186 ]
-  %.sroa.12.0 = phi i16 [ %.sroa.12.1, %_ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit ], [ 0, %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242 ], [ 0, %181 ], [ 0, %186 ]
-  %.sroa.0391.0.insert.insert = or i16 %.sroa.12.0, %.sroa.0391.0
-  ret i16 %.sroa.0391.0.insert.insert
+505:                                              ; preds = %186, %181, %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242, %_ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit
+  %.sroa.12.0 = phi i16 [ %504, %_ZNK4llvm12MachineInstr21isRegTiedToUseOperandEjPj.exit ], [ 0, %_ZNK4llvm9LiveRange11getVNInfoAtENS_9SlotIndexE.exit242 ], [ 0, %181 ], [ 0, %186 ]
+  ret i16 %.sroa.12.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

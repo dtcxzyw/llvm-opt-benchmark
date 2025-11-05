@@ -3590,48 +3590,40 @@ _ZNK4llvm12MemIntrinsic10isVolatileEv.exit:       ; preds = %94
   %126 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %125, i32 noundef 0) #23
   %127 = and i16 %126, 256
   %.not478 = icmp eq i16 %127, 0
-  br i1 %.not478, label %128, label %.critedge
+  br i1 %.not478, label %128, label %131
 
 128:                                              ; preds = %119
   %129 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %125, i32 noundef 1) #23
   %130 = and i16 %129, 256
   %.not479 = icmp eq i16 %130, 0
-  br i1 %.not479, label %139, label %.critedge
+  br i1 %.not479, label %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit, label %131
 
-.critedge:                                        ; preds = %119, %128
-  %131 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %125, i32 noundef 0) #23
-  %.sroa.0327.0.extract.trunc = trunc i16 %131 to i8
-  %132 = and i16 %131, 256
-  %.not480 = icmp eq i16 %132, 0
-  %133 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %125, i32 noundef 1) #23
-  %.sroa.0323.0.extract.trunc = trunc i16 %133 to i8
-  %134 = and i16 %133, 256
-  %.not481 = icmp eq i16 %134, 0
-  %135 = tail call i8 @llvm.umin.i8(i8 %.sroa.0323.0.extract.trunc, i8 %.sroa.0327.0.extract.trunc)
-  %136 = select i1 %.not481, i1 true, i1 %.not480
-  %137 = zext i8 %135 to i16
-  %138 = select i1 %136, i16 0, i16 %137
-  br label %139
-
-139:                                              ; preds = %.critedge, %128
-  %.sroa.0337.0 = phi i16 [ %138, %.critedge ], [ 0, %128 ]
-  %.sroa.5341.0 = phi i16 [ 256, %.critedge ], [ 0, %128 ]
-  %.sroa.0337.0.insert.insert340 = or i16 %.sroa.5341.0, %.sroa.0337.0
-  %140 = and i16 %.sroa.0337.0.insert.insert340, 256
-  %.not.i = icmp eq i16 %140, 0
-  br i1 %.not.i, label %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit, label %141
-
-141:                                              ; preds = %139
-  %142 = zext nneg i16 %.sroa.0337.0 to i64
+131:                                              ; preds = %128, %119
+  %132 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %125, i32 noundef 0) #23
+  %.sroa.0327.0.extract.trunc = trunc i16 %132 to i8
+  %133 = and i16 %132, 256
+  %.not480 = icmp eq i16 %133, 0
+  %134 = tail call i16 @_ZNK4llvm13AttributeList17getParamAlignmentEj(ptr noundef nonnull align 8 dereferenceable(8) %125, i32 noundef 1) #23
+  %.sroa.0323.0.extract.trunc = trunc i16 %134 to i8
+  %135 = and i16 %134, 256
+  %.not481 = icmp eq i16 %135, 0
+  %136 = tail call i8 @llvm.umin.i8(i8 %.sroa.0323.0.extract.trunc, i8 %.sroa.0327.0.extract.trunc)
+  %137 = select i1 %.not481, i1 true, i1 %.not480
+  %138 = zext i8 %136 to i16
+  %139 = or disjoint i16 %138, 256
+  %140 = select i1 %137, i16 256, i16 %139
+  %141 = and i16 %140, 255
+  %142 = zext nneg i16 %141 to i64
   %143 = lshr i64 %.0.i.i167, %142
   %144 = icmp ult i64 %143, 5
   br i1 %144, label %146, label %.thread
 
-_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; preds = %139
+_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; preds = %128
   %145 = icmp ult i64 %.0.i.i167, 32
   br i1 %145, label %146, label %.thread
 
-146:                                              ; preds = %141, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit
+146:                                              ; preds = %131, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit
+  %.sroa.5341.0530 = phi i16 [ %140, %131 ], [ 0, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 8, !tbaa !706
   %147 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -3682,12 +3674,12 @@ _ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit: ; p
   br label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread
 
 173:                                              ; preds = %164
-  %174 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18tryEmitSmallMemCpyENS0_7AddressES1_mN4llvm10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull byval(%"class.(anonymous namespace)::AArch64FastISel::Address") align 8 %13, ptr noundef nonnull byval(%"class.(anonymous namespace)::AArch64FastISel::Address") align 8 %14, i64 noundef %.0.i.i167, i16 %.sroa.0337.0.insert.insert340)
+  %174 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel18tryEmitSmallMemCpyENS0_7AddressES1_mN4llvm10MaybeAlignE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull byval(%"class.(anonymous namespace)::AArch64FastISel::Address") align 8 %13, ptr noundef nonnull byval(%"class.(anonymous namespace)::AArch64FastISel::Address") align 8 %14, i64 noundef %.0.i.i167, i16 %.sroa.5341.0530)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br i1 %174, label %_ZN12_GLOBAL__N_115AArch64FastISel11isTypeLegalEPN4llvm4TypeERNS1_3MVTE.exit.thread, label %.thread
 
-.thread:                                          ; preds = %141, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit, %173, %112
+.thread:                                          ; preds = %131, %_ZN12_GLOBAL__N_115AArch64FastISel13isMemCpySmallEmN4llvm10MaybeAlignE.exit, %173, %112
   %175 = load i32, ptr %95, align 4
   %176 = and i32 %175, 134217727
   %177 = zext nneg i32 %176 to i64

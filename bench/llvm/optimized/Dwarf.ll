@@ -1019,48 +1019,46 @@ $_ZN4llvm5dwarf10EnumTraitsINS0_12LocationAtomEE4TypeE = comdat any
 @switch.table._ZN4llvm5dwarf16AttributeVersionENS0_9AttributeE = private unnamed_addr constant [140 x i32] [i32 2, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0, i32 2, i32 2, i32 2, i32 0, i32 0, i32 2, i32 2, i32 2, i32 2, i32 0, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 0, i32 2, i32 2, i32 2, i32 0, i32 0, i32 2, i32 0, i32 2, i32 0, i32 0, i32 2, i32 0, i32 2, i32 0, i32 2, i32 2, i32 0, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 0, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5], align 4
 @switch.table._ZN4llvm5dwarf11FormVersionENS0_4FormE = private unnamed_addr constant [44 x i32] [i32 2, i32 0, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 4, i32 4, i32 4, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 4, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5], align 4
 @switch.table._ZN4llvm5dwarf16OperationVersionENS0_12LocationAtomE = private unnamed_addr constant [167 x i32] [i32 2, i32 0, i32 0, i32 2, i32 0, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 4, i32 4, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5], align 4
-@switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE = private unnamed_addr constant [250 x i64] [i64 1, i64 0, i64 0, i64 0, i64 0, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 0, i64 0, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 2, i64 1, i64 1, i64 1, i64 0, i64 0, i64 1, i64 1, i64 1, i64 0, i64 0, i64 2, i64 2, i64 0, i64 2, i64 1, i64 1, i64 2, i64 3, i64 2, i64 2, i64 2, i64 2, i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 2, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 1], align 8
-@switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE.1 = private unnamed_addr constant [250 x i64] [i64 4294967296, i64 0, i64 0, i64 4294967296, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296], align 8
-@switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE = private unnamed_addr constant [250 x i64] [i64 0, i64 0, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 1, i64 1, i64 0, i64 2, i64 3, i64 2, i64 1, i64 2, i64 2, i64 2, i64 2, i64 2, i64 1, i64 1, i64 2, i64 2, i64 1, i64 2, i64 2, i64 2, i64 2, i64 1, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 1, i64 0, i64 0, i64 0, i64 0, i64 1, i64 1, i64 0, i64 0, i64 0, i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 1, i64 2, i64 1, i64 1, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0], align 8
-@switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE.2 = private unnamed_addr constant [250 x i64] [i64 4294967296, i64 0, i64 0, i64 4294967296, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296], align 8
+@switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE = private unnamed_addr constant [250 x i64] [i64 4294967297, i64 0, i64 0, i64 4294967296, i64 0, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967298, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967298, i64 4294967298, i64 4294967296, i64 4294967298, i64 4294967297, i64 4294967297, i64 4294967298, i64 4294967299, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967297, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967298, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967297, i64 4294967297], align 8
+@switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE = private unnamed_addr constant [250 x i64] [i64 4294967296, i64 0, i64 0, i64 4294967297, i64 0, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967297, i64 4294967297, i64 0, i64 4294967298, i64 4294967299, i64 4294967298, i64 4294967297, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967297, i64 4294967297, i64 4294967298, i64 4294967298, i64 4294967297, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967297, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967298, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967296, i64 4294967297, i64 4294967298, i64 4294967297, i64 4294967297, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296], align 8
 @switch.table._ZN4llvm5dwarf15OperationVendorENS0_12LocationAtomE = private unnamed_addr constant [29 x i32] [i32 3, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 0, i32 14, i32 5, i32 0, i32 0, i32 0, i32 7, i32 7, i32 0, i32 1, i32 0, i32 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 15, i32 0, i32 0, i32 3, i32 3], align 4
 @switch.table._ZN4llvm5dwarf15LanguageVersionENS0_14SourceLanguageE = private unnamed_addr constant [37 x i32] [i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 4, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5], align 4
 @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE = private unnamed_addr constant [44 x i64] [i64 7, i64 5, i64 15, i64 7, i64 9, i64 7, i64 1, i64 5, i64 11, i64 2, i64 7, i64 4, i64 5, i64 6, i64 8, i64 8, i64 11, i64 13, i64 5, i64 8, i64 10, i64 9, i64 6, i64 28, i64 4, i64 5, i64 24, i64 3, i64 8, i64 2, i64 4, i64 23, i64 26, i64 27, i64 10, i64 14, i64 4, i64 4, i64 4, i64 4, i64 7, i64 7, i64 7, i64 5], align 8
-@switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE.8 = private unnamed_addr constant [44 x ptr] [ptr @.str.765, ptr @.str.766, ptr @.str.767, ptr @.str.768, ptr @.str.769, ptr @.str.770, ptr @.str.771, ptr @.str.772, ptr @.str.773, ptr @.str.774, ptr @.str.775, ptr @.str.776, ptr @.str.777, ptr @.str.778, ptr @.str.779, ptr @.str.780, ptr @.str.781, ptr @.str.782, ptr @.str.783, ptr @.str.784, ptr @.str.785, ptr @.str.786, ptr @.str.787, ptr @.str.788, ptr @.str.789, ptr @.str.790, ptr @.str.791, ptr @.str.792, ptr @.str.793, ptr @.str.794, ptr @.str.795, ptr @.str.796, ptr @.str.797, ptr @.str.798, ptr @.str.799, ptr @.str.800, ptr @.str.801, ptr @.str.802, ptr @.str.803, ptr @.str.804, ptr @.str.806, ptr @.str.806, ptr @.str.806, ptr @.str.805], align 8
+@switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE.6 = private unnamed_addr constant [44 x ptr] [ptr @.str.765, ptr @.str.766, ptr @.str.767, ptr @.str.768, ptr @.str.769, ptr @.str.770, ptr @.str.771, ptr @.str.772, ptr @.str.773, ptr @.str.774, ptr @.str.775, ptr @.str.776, ptr @.str.777, ptr @.str.778, ptr @.str.779, ptr @.str.780, ptr @.str.781, ptr @.str.782, ptr @.str.783, ptr @.str.784, ptr @.str.785, ptr @.str.786, ptr @.str.787, ptr @.str.788, ptr @.str.789, ptr @.str.790, ptr @.str.791, ptr @.str.792, ptr @.str.793, ptr @.str.794, ptr @.str.795, ptr @.str.796, ptr @.str.797, ptr @.str.798, ptr @.str.799, ptr @.str.800, ptr @.str.801, ptr @.str.802, ptr @.str.803, ptr @.str.804, ptr @.str.806, ptr @.str.806, ptr @.str.806, ptr @.str.805], align 8
 @switch.table._ZN4llvm5dwarf16LNStandardStringEj = private unnamed_addr constant [13 x ptr] [ptr @.str.848, ptr @.str.849, ptr @.str.850, ptr @.str.851, ptr @.str.852, ptr @.str.853, ptr @.str.854, ptr @.str.855, ptr @.str.856, ptr @.str.857, ptr @.str.858, ptr @.str.859, ptr @.str.860], align 8
-@switch.table._ZN4llvm5dwarf16LNStandardStringEj.11 = private unnamed_addr constant [13 x i64] [i64 18, i64 11, i64 17, i64 19, i64 15, i64 17, i64 18, i64 22, i64 19, i64 23, i64 23, i64 25, i64 14], align 8
+@switch.table._ZN4llvm5dwarf16LNStandardStringEj.9 = private unnamed_addr constant [13 x i64] [i64 18, i64 11, i64 17, i64 19, i64 15, i64 17, i64 18, i64 22, i64 19, i64 23, i64 23, i64 25, i64 14], align 8
 @switch.table._ZN4llvm5dwarf16LNExtendedStringEj = private unnamed_addr constant [4 x ptr] [ptr @.str.861, ptr @.str.862, ptr @.str.863, ptr @.str.864], align 8
-@switch.table._ZN4llvm5dwarf16LNExtendedStringEj.12 = private unnamed_addr constant [4 x i64] [i64 19, i64 18, i64 18, i64 24], align 8
+@switch.table._ZN4llvm5dwarf16LNExtendedStringEj.10 = private unnamed_addr constant [4 x i64] [i64 19, i64 18, i64 18, i64 24], align 8
 @switch.table._ZN4llvm5dwarf11MacroStringEj = private unnamed_addr constant [12 x ptr] [ptr @.str.871, ptr @.str.872, ptr @.str.873, ptr @.str.874, ptr @.str.875, ptr @.str.876, ptr @.str.877, ptr @.str.878, ptr @.str.879, ptr @.str.880, ptr @.str.881, ptr @.str.882], align 8
-@switch.table._ZN4llvm5dwarf11MacroStringEj.13 = private unnamed_addr constant [12 x i64] [i64 15, i64 14, i64 19, i64 17, i64 20, i64 19, i64 15, i64 19, i64 18, i64 19, i64 20, i64 19], align 8
+@switch.table._ZN4llvm5dwarf11MacroStringEj.11 = private unnamed_addr constant [12 x i64] [i64 15, i64 14, i64 19, i64 17, i64 20, i64 19, i64 15, i64 19, i64 18, i64 19, i64 20, i64 19], align 8
 @switch.table._ZN4llvm5dwarf14GnuMacroStringEj = private unnamed_addr constant [10 x ptr] [ptr @.str.883, ptr @.str.884, ptr @.str.885, ptr @.str.886, ptr @.str.887, ptr @.str.888, ptr @.str.889, ptr @.str.890, ptr @.str.891, ptr @.str.892], align 8
-@switch.table._ZN4llvm5dwarf14GnuMacroStringEj.14 = private unnamed_addr constant [10 x i64] [i64 19, i64 18, i64 23, i64 21, i64 28, i64 27, i64 32, i64 32, i64 31, i64 36], align 8
+@switch.table._ZN4llvm5dwarf14GnuMacroStringEj.12 = private unnamed_addr constant [10 x i64] [i64 19, i64 18, i64 23, i64 21, i64 28, i64 27, i64 32, i64 32, i64 31, i64 36], align 8
 @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj = private unnamed_addr constant [9 x ptr] [ptr @.str.901, ptr @.str.902, ptr @.str.903, ptr @.str.904, ptr @.str.905, ptr @.str.906, ptr @.str.907, ptr @.str.908, ptr @.str.909], align 8
-@switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.16 = private unnamed_addr constant [9 x i64] [i64 18, i64 20, i64 18, i64 20, i64 18, i64 23, i64 19, i64 16, i64 19], align 8
+@switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.14 = private unnamed_addr constant [9 x i64] [i64 18, i64 20, i64 18, i64 20, i64 18, i64 23, i64 19, i64 16, i64 19], align 8
 @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj = private unnamed_addr constant [15 x ptr] [ptr @.str.943, ptr @.str.944, ptr @.str.945, ptr @.str.946, ptr @.str.947, ptr @.str.948, ptr @.str.949, ptr @.str.950, ptr @.str.951, ptr @.str.952, ptr @.str.953, ptr @.str.954, ptr @.str.955, ptr @.str.956, ptr @.str.957], align 8
-@switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.17 = private unnamed_addr constant [15 x i64] [i64 26, i64 24, i64 24, i64 27, i64 24, i64 22, i64 27, i64 24, i64 24, i64 22, i64 24, i64 35, i64 29, i64 33, i64 23], align 8
+@switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.15 = private unnamed_addr constant [15 x i64] [i64 26, i64 24, i64 24, i64 27, i64 24, i64 22, i64 27, i64 24, i64 24, i64 22, i64 24, i64 35, i64 29, i64 33, i64 23], align 8
 @switch.table._ZN4llvm5dwarf14UnitTypeStringEj = private unnamed_addr constant [6 x ptr] [ptr @.str.958, ptr @.str.959, ptr @.str.960, ptr @.str.961, ptr @.str.962, ptr @.str.963], align 8
-@switch.table._ZN4llvm5dwarf14UnitTypeStringEj.18 = private unnamed_addr constant [6 x i64] [i64 13, i64 10, i64 13, i64 14, i64 19, i64 16], align 8
+@switch.table._ZN4llvm5dwarf14UnitTypeStringEj.16 = private unnamed_addr constant [6 x i64] [i64 13, i64 10, i64 13, i64 14, i64 19, i64 16], align 8
 @switch.table._ZN4llvm5dwarf14AtomTypeStringEj = private unnamed_addr constant [7 x ptr] [ptr @.str.964, ptr @.str.965, ptr @.str.966, ptr @.str.967, ptr @.str.968, ptr @.str.968, ptr @.str.969], align 8
-@switch.table._ZN4llvm5dwarf14AtomTypeStringEj.19 = private unnamed_addr constant [7 x i64] [i64 12, i64 18, i64 17, i64 15, i64 18, i64 18, i64 22], align 8
+@switch.table._ZN4llvm5dwarf14AtomTypeStringEj.17 = private unnamed_addr constant [7 x i64] [i64 12, i64 18, i64 17, i64 15, i64 18, i64 18, i64 22], align 8
 @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE = private unnamed_addr constant [8 x i64] [i64 4, i64 4, i64 8, i64 8, i64 5, i64 7, i64 7, i64 7], align 8
-@switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.20 = private unnamed_addr constant [8 x ptr] [ptr @.str.970, ptr @.str.971, ptr @.str.972, ptr @.str.973, ptr @.str.974, ptr @.str.975, ptr @.str.976, ptr @.str.977], align 8
+@switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.18 = private unnamed_addr constant [8 x ptr] [ptr @.str.970, ptr @.str.971, ptr @.str.972, ptr @.str.973, ptr @.str.974, ptr @.str.975, ptr @.str.976, ptr @.str.977], align 8
 @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj = private unnamed_addr constant [3 x ptr] [ptr @.str.690, ptr @.str.691, ptr @.str.692], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21 = private unnamed_addr constant [3 x i64] [i64 16, i64 19, i64 17], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22 = private unnamed_addr constant [3 x ptr] [ptr @.str.699, ptr @.str.700, ptr @.str.701], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23 = private unnamed_addr constant [3 x i64] [i64 18, i64 21, i64 26], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24 = private unnamed_addr constant [5 x ptr] [ptr @.str.680, ptr @.str.681, ptr @.str.682, ptr @.str.683, ptr @.str.684], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25 = private unnamed_addr constant [5 x i64] [i64 14, i64 23, i64 24, i64 22, i64 23], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26 = private unnamed_addr constant [3 x ptr] [ptr @.str.696, ptr @.str.697, ptr @.str.698], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27 = private unnamed_addr constant [3 x i64] [i64 12, i64 15, i64 16], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28 = private unnamed_addr constant [4 x ptr] [ptr @.str.807, ptr @.str.808, ptr @.str.809, ptr @.str.810], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29 = private unnamed_addr constant [4 x i64] [i64 20, i64 13, i64 15, i64 22], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30 = private unnamed_addr constant [4 x ptr] [ptr @.str.842, ptr @.str.843, ptr @.str.844, ptr @.str.845], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31 = private unnamed_addr constant [4 x i64] [i64 18, i64 14, i64 27, i64 23], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32 = private unnamed_addr constant [3 x ptr] [ptr @.str.693, ptr @.str.694, ptr @.str.695], align 8
-@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.33 = private unnamed_addr constant [3 x i64] [i64 15, i64 21, i64 25], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.19 = private unnamed_addr constant [3 x i64] [i64 16, i64 19, i64 17], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20 = private unnamed_addr constant [3 x ptr] [ptr @.str.699, ptr @.str.700, ptr @.str.701], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21 = private unnamed_addr constant [3 x i64] [i64 18, i64 21, i64 26], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22 = private unnamed_addr constant [5 x ptr] [ptr @.str.680, ptr @.str.681, ptr @.str.682, ptr @.str.683, ptr @.str.684], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23 = private unnamed_addr constant [5 x i64] [i64 14, i64 23, i64 24, i64 22, i64 23], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24 = private unnamed_addr constant [3 x ptr] [ptr @.str.696, ptr @.str.697, ptr @.str.698], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25 = private unnamed_addr constant [3 x i64] [i64 12, i64 15, i64 16], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26 = private unnamed_addr constant [4 x ptr] [ptr @.str.807, ptr @.str.808, ptr @.str.809, ptr @.str.810], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27 = private unnamed_addr constant [4 x i64] [i64 20, i64 13, i64 15, i64 22], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28 = private unnamed_addr constant [4 x ptr] [ptr @.str.842, ptr @.str.843, ptr @.str.844, ptr @.str.845], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29 = private unnamed_addr constant [4 x i64] [i64 18, i64 14, i64 27, i64 23], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30 = private unnamed_addr constant [3 x ptr] [ptr @.str.693, ptr @.str.694, ptr @.str.695], align 8
+@switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31 = private unnamed_addr constant [3 x i64] [i64 15, i64 21, i64 25], align 8
 @switch.table._ZN4llvm5dwarf9RLEStringEj = private unnamed_addr constant [8 x ptr] [ptr @.str.893, ptr @.str.894, ptr @.str.895, ptr @.str.896, ptr @.str.897, ptr @.str.898, ptr @.str.899, ptr @.str.900], align 8
-@switch.table._ZN4llvm5dwarf9RLEStringEj.34 = private unnamed_addr constant [8 x i64] [i64 18, i64 20, i64 18, i64 20, i64 18, i64 19, i64 16, i64 19], align 8
+@switch.table._ZN4llvm5dwarf9RLEStringEj.32 = private unnamed_addr constant [8 x i64] [i64 18, i64 20, i64 18, i64 20, i64 18, i64 19, i64 16, i64 19], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm5dwarf9TagStringEj(i32 noundef %0) local_unnamed_addr #0 {
@@ -6554,42 +6552,34 @@ switch.lookup:                                    ; preds = %1
 define dso_local range(i64 0, 4294967300) i64 @_ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -3
   %2 = icmp ult i32 %switch.tableidx, 250
-  br i1 %2, label %switch.lookup, label %6
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep168 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf17OperationOperandsENS0_12LocationAtomE.1, i64 %4
-  %switch.load169 = load i64, ptr %switch.gep168, align 8
-  %5 = or disjoint i64 %switch.load169, %switch.load
-  br label %6
+  br label %4
 
-6:                                                ; preds = %switch.lookup, %1
-  %.sroa.0.0.insert.insert = phi i64 [ 0, %1 ], [ %5, %switch.lookup ]
-  ret i64 %.sroa.0.0.insert.insert
+4:                                                ; preds = %switch.lookup, %1
+  %.sroa.169.0 = phi i64 [ 0, %1 ], [ %switch.load, %switch.lookup ]
+  ret i64 %.sroa.169.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i64 0, 4294967300) i64 @_ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE(i32 noundef %0) local_unnamed_addr #0 {
   %switch.tableidx = add i32 %0, -3
   %2 = icmp ult i32 %switch.tableidx, 250
-  br i1 %2, label %switch.lookup, label %6
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep167 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14OperationArityENS0_12LocationAtomE.2, i64 %4
-  %switch.load168 = load i64, ptr %switch.gep167, align 8
-  %5 = or disjoint i64 %switch.load168, %switch.load
-  br label %6
+  br label %4
 
-6:                                                ; preds = %switch.lookup, %1
-  %.sroa.0.0.insert.insert = phi i64 [ 0, %1 ], [ %5, %switch.lookup ]
-  ret i64 %.sroa.0.0.insert.insert
+4:                                                ; preds = %switch.lookup, %1
+  %.sroa.168.0 = phi i64 [ 0, %1 ], [ %switch.load, %switch.lookup ]
+  ret i64 %.sroa.168.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -6990,10 +6980,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf17DecimalSignStringEj(i32 noundef %
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7049,7 +7039,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.19, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7068,10 +7058,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf21DefaultedMemberStringEj(i32 nound
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.33, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7091,10 +7081,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16VisibilityStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -7113,10 +7103,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16VirtualityStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8212,10 +8202,8 @@ define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm5dwarf18LanguageLowerBoun
   br label %4
 
 4:                                                ; preds = %1, %3, %2
-  %.sroa.0.0 = phi i64 [ 0, %2 ], [ 1, %3 ], [ 0, %1 ]
-  %.sroa.63.0 = phi i64 [ 4294967296, %2 ], [ 4294967296, %3 ], [ 0, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.63.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.63.0 = phi i64 [ 4294967296, %2 ], [ 4294967297, %3 ], [ 0, %1 ]
+  ret i64 %.sroa.63.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -8229,7 +8217,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE.8, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf19LanguageDescriptionENS0_18SourceLanguageNameE.6, i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %5
 
@@ -8248,10 +8236,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf10CaseStringEj(i32 noundef %0) loca
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8695,10 +8683,10 @@ define dso_local { ptr, i64 } @_ZN4llvm5dwarf16InlineCodeStringEj(i32 noundef %0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %3
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8741,7 +8729,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj.11, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNStandardStringEj.9, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8764,7 +8752,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj.12, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf16LNExtendedStringEj.10, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8873,7 +8861,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf11MacroStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf11MacroStringEj.13, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf11MacroStringEj.11, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -8896,7 +8884,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj.14, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14GnuMacroStringEj.12, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9020,7 +9008,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.34, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.32, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9042,7 +9030,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.16, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf21LocListEncodingStringEj.14, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9226,7 +9214,7 @@ switch.lookup:                                    ; preds = %.split
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = zext nneg i32 %4 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.17, i64 %7
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf19ApplePropertyStringEj.15, i64 %7
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %8
 
@@ -9249,7 +9237,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.18, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14UnitTypeStringEj.16, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9271,7 +9259,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.19, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf14AtomTypeStringEj.17, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 
@@ -9290,7 +9278,7 @@ switch.lookup:
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.20, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf23GDBIndexEntryKindStringENS0_17GDBIndexEntryKindE.18, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -9421,61 +9409,61 @@ switch.lookup:                                    ; preds = %3
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj, i64 %42
   %switch.load = load ptr, ptr %switch.gep, align 8
   %43 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep45 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %43
+  %switch.gep45 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.19, i64 %43
   %switch.load46 = load i64, ptr %switch.gep45, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup47:                                  ; preds = %5
   %44 = zext nneg i32 %1 to i64
-  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %44
+  %switch.gep48 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.20, i64 %44
   %switch.load49 = load ptr, ptr %switch.gep48, align 8
   %45 = zext nneg i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %45
+  %switch.gep50 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.21, i64 %45
   %switch.load51 = load i64, ptr %switch.gep50, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup53:                                  ; preds = %15
   %46 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep54 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %46
+  %switch.gep54 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.22, i64 %46
   %switch.load55 = load ptr, ptr %switch.gep54, align 8
   %47 = zext nneg i32 %switch.tableidx52 to i64
-  %switch.gep56 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %47
+  %switch.gep56 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.23, i64 %47
   %switch.load57 = load i64, ptr %switch.gep56, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup59:                                  ; preds = %23
   %48 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %48
+  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.24, i64 %48
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   %49 = zext nneg i32 %switch.tableidx58 to i64
-  %switch.gep62 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %49
+  %switch.gep62 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.25, i64 %49
   %switch.load63 = load i64, ptr %switch.gep62, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup64:                                  ; preds = %25
   %50 = zext nneg i32 %1 to i64
-  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %50
+  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.26, i64 %50
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   %51 = zext nneg i32 %1 to i64
-  %switch.gep67 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %51
+  %switch.gep67 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.27, i64 %51
   %switch.load68 = load i64, ptr %switch.gep67, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup69:                                  ; preds = %31
   %52 = zext nneg i32 %1 to i64
-  %switch.gep70 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %52
+  %switch.gep70 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.28, i64 %52
   %switch.load71 = load ptr, ptr %switch.gep70, align 8
   %53 = zext nneg i32 %1 to i64
-  %switch.gep72 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %53
+  %switch.gep72 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.29, i64 %53
   %switch.load73 = load i64, ptr %switch.gep72, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
 switch.lookup74:                                  ; preds = %40
   %54 = zext nneg i32 %1 to i64
-  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.32, i64 %54
+  %switch.gep75 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.30, i64 %54
   %switch.load76 = load ptr, ptr %switch.gep75, align 8
   %55 = zext nneg i32 %1 to i64
-  %switch.gep77 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.33, i64 %55
+  %switch.gep77 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf20AttributeValueStringEtj.31, i64 %55
   %switch.load78 = load i64, ptr %switch.gep77, align 8
   br label %_ZN4llvm5dwarf19AccessibilityStringEj.exit
 
@@ -9765,7 +9753,7 @@ switch.lookup:                                    ; preds = %1
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.34, i64 %4
+  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm5dwarf9RLEStringEj.32, i64 %4
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %5
 

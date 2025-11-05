@@ -5217,8 +5217,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   %.not = icmp ugt i64 %39, %35
   %40 = load i8, ptr %11, align 1, !range !32
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %41 = select i1 %.not, i16 0, i16 256
-  %42 = zext nneg i8 %40 to i16
+  %41 = zext nneg i8 %40 to i16
+  %42 = or disjoint i16 %41, 256
   %43 = select i1 %.not, i16 0, i16 %42
   br label %46
 
@@ -5229,8 +5229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   br label %50
 
 46:                                               ; preds = %38, %22
-  %.sroa.2.0 = phi i16 [ %41, %38 ], [ 0, %22 ]
-  %.sroa.0.0 = phi i16 [ %43, %38 ], [ 0, %22 ]
+  %.sroa.2.0 = phi i16 [ %43, %38 ], [ 0, %22 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %47
 
@@ -5243,8 +5242,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.sroa.0.0.insert.insert = or i16 %.sroa.0.0, %.sroa.2.0
-  ret i16 %.sroa.0.0.insert.insert
+  ret i16 %.sroa.2.0
 
 50:                                               ; preds = %44, %31
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %32, %31 ]
@@ -7801,8 +7799,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   %.not = icmp ugt i64 %39, %35
   %40 = load i32, ptr %11, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %41 = select i1 %.not, i64 0, i64 4294967296
-  %42 = zext i32 %40 to i64
+  %41 = zext i32 %40 to i64
+  %42 = or disjoint i64 %41, 4294967296
   %43 = select i1 %.not, i64 0, i64 %42
   br label %46
 
@@ -7813,8 +7811,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   br label %50
 
 46:                                               ; preds = %38, %22
-  %.sroa.2.0 = phi i64 [ %41, %38 ], [ 0, %22 ]
-  %.sroa.0.0 = phi i64 [ %43, %38 ], [ 0, %22 ]
+  %.sroa.2.0 = phi i64 [ %43, %38 ], [ 0, %22 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %47
 
@@ -7827,8 +7824,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.sroa.0.0.insert.insert = or i64 %.sroa.0.0, %.sroa.2.0
-  ret i64 %.sroa.0.0.insert.insert
+  ret i64 %.sroa.2.0
 
 50:                                               ; preds = %44, %31
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %32, %31 ]
@@ -7931,8 +7927,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %23,
   %.not = icmp ugt i64 %38, %34
   %.val = load i8, ptr %10, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %39 = select i1 %.not, i16 0, i16 256
-  %40 = zext i8 %.val to i16
+  %39 = zext i8 %.val to i16
+  %40 = or disjoint i16 %39, 256
   %41 = select i1 %.not, i16 0, i16 %40
   br label %44
 
@@ -7943,8 +7939,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %23,
   br label %48
 
 44:                                               ; preds = %37, %21
-  %.sroa.2.0 = phi i16 [ %39, %37 ], [ 0, %21 ]
-  %.sroa.0.0 = phi i16 [ %41, %37 ], [ 0, %21 ]
+  %.sroa.2.0 = phi i16 [ %41, %37 ], [ 0, %21 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %45
 
@@ -7957,8 +7952,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %23,
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.sroa.0.0.insert.insert = or i16 %.sroa.0.0, %.sroa.2.0
-  ret i16 %.sroa.0.0.insert.insert
+  ret i16 %.sroa.2.0
 
 48:                                               ; preds = %42, %30
   %.pn = phi { ptr, i32 } [ %43, %42 ], [ %31, %30 ]
@@ -15524,8 +15518,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   %.not = icmp ugt i64 %39, %35
   %40 = load i32, ptr %11, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %41 = select i1 %.not, i64 0, i64 4294967296
-  %42 = zext i32 %40 to i64
+  %41 = zext i32 %40 to i64
+  %42 = or disjoint i64 %41, 4294967296
   %43 = select i1 %.not, i64 0, i64 %42
   br label %46
 
@@ -15536,8 +15530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
   br label %50
 
 46:                                               ; preds = %38, %22
-  %.sroa.2.0 = phi i64 [ %41, %38 ], [ 0, %22 ]
-  %.sroa.0.0 = phi i64 [ %43, %38 ], [ 0, %22 ]
+  %.sroa.2.0 = phi i64 [ %43, %38 ], [ 0, %22 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(80) %4)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %47
 
@@ -15550,8 +15543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %24,
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.sroa.0.0.insert.insert = or i64 %.sroa.0.0, %.sroa.2.0
-  ret i64 %.sroa.0.0.insert.insert
+  ret i64 %.sroa.2.0
 
 50:                                               ; preds = %44, %31
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %32, %31 ]

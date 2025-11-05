@@ -2272,39 +2272,36 @@ define hidden noundef ptr @_ZN4Type32make_constant_from_array_elementEP7ciArrayi
 18:                                               ; preds = %16
   %19 = icmp eq i8 %.0.i, 8
   %or.cond.i = and i1 %4, %19
-  br i1 %or.cond.i, label %24, label %20
-
-20:                                               ; preds = %18
-  %.sroa.11.8.extract.shift.i = and i64 %10, -4294967296
-  br label %24
+  %20 = and i64 %10, 255
+  %spec.select21.i = select i1 %or.cond.i, i8 10, i8 %9
+  %spec.select22.i = select i1 %or.cond.i, i64 %20, i64 %10
+  br label %select.unfold
 
 21:                                               ; preds = %16
   %22 = icmp eq i8 %.0.i, 9
   %23 = icmp eq i8 %.013.i, 5
   %or.cond5.i = and i1 %22, %23
-  br i1 %or.cond5.i, label %24, label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
+  %24 = and i64 %10, 65535
+  br i1 %or.cond5.i, label %select.unfold, label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
 
-24:                                               ; preds = %21, %18, %20
-  %.sink = phi i64 [ 4294967295, %20 ], [ 255, %18 ], [ 65535, %21 ]
-  %.sroa.019.0.i.ph = phi i8 [ %9, %20 ], [ 10, %18 ], [ 10, %21 ]
-  %.sroa.11.0.i.ph = phi i64 [ %.sroa.11.8.extract.shift.i, %20 ], [ 0, %18 ], [ 0, %21 ]
-  %25 = and i64 %10, %.sink
-  %.sroa.6.8.insert.insert.i16 = or disjoint i64 %.sroa.11.0.i.ph, %25
+select.unfold:                                    ; preds = %21, %18
+  %.sroa.019.0.i.ph = phi i8 [ %spec.select21.i, %18 ], [ 10, %21 ]
+  %.sroa.11.0.i.ph = phi i64 [ %spec.select22.i, %18 ], [ %24, %21 ]
   store i8 %.sroa.019.0.i.ph, ptr %6, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.6.8.insert.insert.i16, ptr %26, align 8
-  %27 = call noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
-  br i1 %27, label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit, label %28
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 %.sroa.11.0.i.ph, ptr %25, align 8
+  %26 = call noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #17
+  br i1 %26, label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit, label %27
 
-28:                                               ; preds = %24
-  %29 = icmp eq i8 %3, 16
+27:                                               ; preds = %select.unfold
+  %28 = icmp eq i8 %3, 16
   %.sroa.0.0.copyload = load i8, ptr %6, align 8
-  %.sroa.21.0.copyload = load i64, ptr %26, align 8
-  %30 = call noundef ptr @_ZN4Type18make_from_constantE10ciConstantbibb(i8 %.sroa.0.0.copyload, i64 %.sroa.21.0.copyload, i1 noundef zeroext true, i32 noundef %2, i1 noundef zeroext %29, i1 noundef zeroext false)
+  %.sroa.21.0.copyload = load i64, ptr %25, align 8
+  %29 = call noundef ptr @_ZN4Type18make_from_constantE10ciConstantbibb(i8 %.sroa.0.0.copyload, i64 %.sroa.21.0.copyload, i1 noundef zeroext true, i32 noundef %2, i1 noundef zeroext %28, i1 noundef zeroext false)
   br label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
 
-_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit: ; preds = %21, %5, %24, %28
-  %.0 = phi ptr [ %30, %28 ], [ null, %5 ], [ null, %24 ], [ null, %21 ]
+_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit: ; preds = %21, %5, %select.unfold, %27
+  %.0 = phi ptr [ %29, %27 ], [ null, %5 ], [ null, %select.unfold ], [ null, %21 ]
   ret ptr %.0
 }
 
@@ -2416,113 +2413,104 @@ define hidden noundef ptr @_ZN4Type24make_constant_from_fieldEP7ciFieldP10ciInst
 21:                                               ; preds = %20, %19, %18
   %.013.i = phi i8 [ %2, %18 ], [ 8, %19 ], [ 12, %20 ]
   %22 = icmp eq i8 %.0.i, %.013.i
-  br i1 %22, label %23, label %29
+  br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
   %24 = icmp eq i8 %.0.i, 8
   %or.cond.i = and i1 %3, %24
-  br i1 %or.cond.i, label %25, label %27
-
-25:                                               ; preds = %23
-  %26 = and i64 %.sroa.5.0, 255
+  %25 = and i64 %.sroa.5.0, 255
+  %spec.select21.i = select i1 %or.cond.i, i8 10, i8 %.sroa.037.0
+  %spec.select22.i = select i1 %or.cond.i, i64 %25, i64 %.sroa.5.0
   br label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
 
-27:                                               ; preds = %23
-  %.sroa.11.8.extract.shift.i = and i64 %.sroa.5.0, -4294967296
-  %28 = and i64 %.sroa.5.0, 4294967295
+26:                                               ; preds = %21
+  %27 = icmp eq i8 %.0.i, 9
+  %28 = icmp eq i8 %.013.i, 5
+  %or.cond5.i = and i1 %27, %28
+  %29 = and i64 %.sroa.5.0, 65535
+  %spec.select.i = select i1 %or.cond5.i, i8 10, i8 99
+  %spec.select20.i = select i1 %or.cond5.i, i64 %29, i64 -1
   br label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
 
-29:                                               ; preds = %21
-  %30 = icmp eq i8 %.0.i, 9
-  %31 = icmp eq i8 %.013.i, 5
-  %or.cond5.i = and i1 %30, %31
-  br i1 %or.cond5.i, label %32, label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
+_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit: ; preds = %23, %26
+  %.sroa.019.0.i = phi i8 [ %spec.select.i, %26 ], [ %spec.select21.i, %23 ]
+  %.sroa.11.0.i = phi i64 [ %spec.select20.i, %26 ], [ %spec.select22.i, %23 ]
+  %30 = load i8, ptr @FoldStableValues, align 1
+  %31 = trunc i8 %30 to i1
+  br i1 %31, label %32, label %.critedge
 
-32:                                               ; preds = %29
-  %33 = and i64 %.sroa.5.0, 65535
-  br label %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
-
-_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit: ; preds = %25, %27, %29, %32
-  %.sroa.019.0.i = phi i8 [ 10, %25 ], [ %.sroa.037.0, %27 ], [ 10, %32 ], [ 99, %29 ]
-  %.sroa.6.0.i = phi i64 [ %26, %25 ], [ %28, %27 ], [ %33, %32 ], [ 4294967295, %29 ]
-  %.sroa.11.0.i = phi i64 [ 0, %25 ], [ %.sroa.11.8.extract.shift.i, %27 ], [ 0, %32 ], [ -4294967296, %29 ]
-  %.sroa.6.8.insert.insert.i = or disjoint i64 %.sroa.11.0.i, %.sroa.6.0.i
-  %34 = load i8, ptr @FoldStableValues, align 1
-  %35 = trunc i8 %34 to i1
-  br i1 %35, label %36, label %.critedge
-
-36:                                               ; preds = %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
+32:                                               ; preds = %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit
   %.sroa.0.0.copyload.i.i35 = load i64, ptr %0, align 8
-  %37 = and i64 %.sroa.0.0.copyload.i.i35, 4294967296
-  %.not43 = icmp eq i64 %37, 0
-  br i1 %.not43, label %.critedge, label %38
+  %33 = and i64 %.sroa.0.0.copyload.i.i35, 4294967296
+  %.not43 = icmp eq i64 %33, 0
+  br i1 %.not43, label %.critedge, label %34
 
-38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %_ZN7ciField4typeEv.exit
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %_ZN7ciField4typeEv.exit
 
-42:                                               ; preds = %38
-  %43 = tail call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
+38:                                               ; preds = %34
+  %39 = tail call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
   br label %_ZN7ciField4typeEv.exit
 
-_ZN7ciField4typeEv.exit:                          ; preds = %38, %42
-  %44 = phi ptr [ %43, %42 ], [ %40, %38 ]
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 88
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(24) %44) #17
-  br i1 %48, label %49, label %.critedge
+_ZN7ciField4typeEv.exit:                          ; preds = %34, %38
+  %40 = phi ptr [ %39, %38 ], [ %36, %34 ]
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(24) %40) #17
+  br i1 %44, label %45, label %.critedge
 
-49:                                               ; preds = %_ZN7ciField4typeEv.exit
-  %50 = load ptr, ptr %39, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %_ZN7ciField4typeEv.exit36
+45:                                               ; preds = %_ZN7ciField4typeEv.exit
+  %46 = load ptr, ptr %35, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %_ZN7ciField4typeEv.exit36
 
-52:                                               ; preds = %49
-  %53 = tail call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
+48:                                               ; preds = %45
+  %49 = tail call noundef ptr @_ZN7ciField12compute_typeEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
   br label %_ZN7ciField4typeEv.exit36
 
-_ZN7ciField4typeEv.exit36:                        ; preds = %49, %52
-  %54 = phi ptr [ %53, %52 ], [ %50, %49 ]
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 44
-  %56 = load i32, ptr %55, align 4
+_ZN7ciField4typeEv.exit36:                        ; preds = %45, %48
+  %50 = phi ptr [ %49, %48 ], [ %46, %45 ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 44
+  %52 = load i32, ptr %51, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %36, %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit, %_ZN7ciField4typeEv.exit, %_ZN7ciField4typeEv.exit36
-  %57 = phi i32 [ %56, %_ZN7ciField4typeEv.exit36 ], [ 0, %_ZN7ciField4typeEv.exit ], [ 0, %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit ], [ 0, %36 ]
-  %58 = icmp eq i8 %2, 16
-  %59 = tail call noundef zeroext i1 @_ZN7ciField16is_autobox_cacheEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
-  %60 = tail call noundef ptr @_ZN4Type18make_from_constantE10ciConstantbibb(i8 %.sroa.019.0.i, i64 %.sroa.6.8.insert.insert.i, i1 noundef zeroext true, i32 noundef %57, i1 noundef zeroext %58, i1 noundef zeroext %59)
-  %.not34 = icmp eq ptr %60, null
-  br i1 %.not34, label %.thread, label %61
+.critedge:                                        ; preds = %32, %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit, %_ZN7ciField4typeEv.exit, %_ZN7ciField4typeEv.exit36
+  %53 = phi i32 [ %52, %_ZN7ciField4typeEv.exit36 ], [ 0, %_ZN7ciField4typeEv.exit ], [ 0, %_ZL23check_mismatched_access10ciConstant9BasicTypeb.exit ], [ 0, %32 ]
+  %54 = icmp eq i8 %2, 16
+  %55 = tail call noundef zeroext i1 @_ZN7ciField16is_autobox_cacheEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
+  %56 = tail call noundef ptr @_ZN4Type18make_from_constantE10ciConstantbibb(i8 %.sroa.019.0.i, i64 %.sroa.11.0.i, i1 noundef zeroext true, i32 noundef %53, i1 noundef zeroext %54, i1 noundef zeroext %55)
+  %.not34 = icmp eq ptr %56, null
+  br i1 %.not34, label %.thread, label %57
 
-61:                                               ; preds = %.critedge
-  %62 = tail call noundef zeroext i1 @_ZN7ciField19is_call_site_targetEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
-  br i1 %62, label %63, label %.thread
+57:                                               ; preds = %.critedge
+  %58 = tail call noundef zeroext i1 @_ZN7ciField19is_call_site_targetEv(ptr noundef nonnull align 8 dereferenceable(80) %0) #17
+  br i1 %58, label %59, label %.thread
 
-63:                                               ; preds = %61
-  %64 = tail call noundef zeroext i1 @_ZN10ciCallSite39is_fully_initialized_constant_call_siteEv(ptr noundef nonnull align 8 dereferenceable(41) %1) #17
-  br i1 %64, label %.thread, label %65
+59:                                               ; preds = %57
+  %60 = tail call noundef zeroext i1 @_ZN10ciCallSite39is_fully_initialized_constant_call_siteEv(ptr noundef nonnull align 8 dereferenceable(41) %1) #17
+  br i1 %60, label %.thread, label %61
 
-65:                                               ; preds = %63
-  %66 = inttoptr i64 %.sroa.6.8.insert.insert.i to ptr
-  %67 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+61:                                               ; preds = %59
+  %62 = inttoptr i64 %.sroa.11.0.i to ptr
+  %63 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1808
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 128
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 1808
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 352
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 128
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 80
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 352
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 80
-  %76 = load ptr, ptr %75, align 8
-  tail call void @_ZN12Dependencies29assert_call_site_target_valueEP10ciCallSiteP14ciMethodHandle(ptr noundef nonnull align 8 dereferenceable(192) %76, ptr noundef nonnull %1, ptr noundef %66) #17
+  tail call void @_ZN12Dependencies29assert_call_site_target_valueEP10ciCallSiteP14ciMethodHandle(ptr noundef nonnull align 8 dereferenceable(192) %72, ptr noundef nonnull %1, ptr noundef %62) #17
   br label %.thread
 
-.thread:                                          ; preds = %15, %12, %.critedge, %61, %65, %63, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %15 ], [ %60, %63 ], [ %60, %65 ], [ %60, %61 ], [ null, %.critedge ], [ null, %12 ]
+.thread:                                          ; preds = %15, %12, %.critedge, %57, %61, %59, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %15 ], [ %56, %59 ], [ %56, %61 ], [ %56, %57 ], [ null, %.critedge ], [ null, %12 ]
   ret ptr %.0
 }
 

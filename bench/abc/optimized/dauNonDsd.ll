@@ -1473,36 +1473,36 @@ define i32 @Dau_DecReadSet(ptr noundef readonly captures(none) %0) local_unnamed
   %.not25 = icmp eq i8 %2, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %11
-  %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %1 ]
-  %3 = phi i8 [ %13, %11 ], [ %2, %1 ]
-  %.01926 = phi i32 [ %.1, %11 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %12
+  %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %1 ]
+  %3 = phi i8 [ %14, %12 ], [ %2, %1 ]
+  %.01926 = phi i32 [ %.pn, %12 ], [ 0, %1 ]
   %4 = add i8 %3, -97
   %or.cond = icmp ult i8 %4, 26
-  br i1 %or.cond, label %5, label %9
+  br i1 %or.cond, label %5, label %10
 
 5:                                                ; preds = %.lr.ph
   %6 = shl nuw nsw i8 %4, 1
   %7 = zext nneg i8 %6 to i32
   %8 = shl nuw i32 1, %7
-  br label %11
+  %9 = or i32 %8, %.01926
+  br label %12
 
-9:                                                ; preds = %.lr.ph
-  %10 = add i8 %3, -65
-  %or.cond24 = icmp ult i8 %10, 26
-  br i1 %or.cond24, label %11, label %._crit_edge
+10:                                               ; preds = %.lr.ph
+  %11 = add i8 %3, -65
+  %or.cond24 = icmp ult i8 %11, 26
+  br i1 %or.cond24, label %12, label %._crit_edge
 
-11:                                               ; preds = %9, %5
-  %.pn = phi i32 [ %8, %5 ], [ poison, %9 ]
-  %.1 = or i32 %.pn, %.01926
+12:                                               ; preds = %10, %5
+  %.pn = phi i32 [ %9, %5 ], [ poison, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
-  %13 = load i8, ptr %12, align 1, !tbaa !31
-  %.not = icmp eq i8 %13, 0
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.next
+  %14 = load i8, ptr %13, align 1, !tbaa !31
+  %.not = icmp eq i8 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %11, %9, %1
-  %.019.lcssa = phi i32 [ 0, %1 ], [ %.01926, %9 ], [ %.1, %11 ]
+._crit_edge:                                      ; preds = %12, %10, %1
+  %.019.lcssa = phi i32 [ 0, %1 ], [ %.01926, %10 ], [ %.pn, %12 ]
   ret i32 %.019.lcssa
 }
 
@@ -3963,37 +3963,37 @@ define void @Dau_DecFindSetsTest3() local_unnamed_addr #9 {
   store i64 -91518295031524336, ptr %1, align 8, !tbaa !9
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %10, %0
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %10 ], [ 0, %0 ]
-  %2 = phi i8 [ %12, %10 ], [ 66, %0 ]
-  %.01926.i = phi i32 [ %.1.i, %10 ], [ 0, %0 ]
+.lr.ph.i:                                         ; preds = %11, %0
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %0 ]
+  %2 = phi i8 [ %13, %11 ], [ 66, %0 ]
+  %.01926.i = phi i32 [ %.pn.i, %11 ], [ 0, %0 ]
   %3 = add i8 %2, -97
   %or.cond.i = icmp ult i8 %3, 26
-  br i1 %or.cond.i, label %4, label %8
+  br i1 %or.cond.i, label %4, label %9
 
 4:                                                ; preds = %.lr.ph.i
   %5 = shl nuw nsw i8 %3, 1
   %6 = zext nneg i8 %5 to i32
   %7 = shl nuw i32 1, %6
-  br label %10
+  %8 = or i32 %7, %.01926.i
+  br label %11
 
-8:                                                ; preds = %.lr.ph.i
-  %9 = add i8 %2, -65
-  %or.cond24.i = icmp ult i8 %9, 26
-  br i1 %or.cond24.i, label %10, label %Dau_DecReadSet.exit
+9:                                                ; preds = %.lr.ph.i
+  %10 = add i8 %2, -65
+  %or.cond24.i = icmp ult i8 %10, 26
+  br i1 %or.cond24.i, label %11, label %Dau_DecReadSet.exit
 
-10:                                               ; preds = %8, %4
-  %.pn.i = phi i32 [ %7, %4 ], [ poison, %8 ]
-  %.1.i = or i32 %.pn.i, %.01926.i
+11:                                               ; preds = %9, %4
+  %.pn.i = phi i32 [ %8, %4 ], [ poison, %9 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %11 = getelementptr inbounds nuw i8, ptr @.str.14, i64 %indvars.iv.next.i
-  %12 = load i8, ptr %11, align 1, !tbaa !31
+  %12 = getelementptr inbounds nuw i8, ptr @.str.14, i64 %indvars.iv.next.i
+  %13 = load i8, ptr %12, align 1, !tbaa !31
   %.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %.not.i, label %Dau_DecReadSet.exit, label %.lr.ph.i, !llvm.loop !32
 
-Dau_DecReadSet.exit:                              ; preds = %8, %10
-  %.019.lcssa.i = phi i32 [ %.01926.i, %8 ], [ %.1.i, %10 ]
-  %13 = call i32 @Dau_DecPerform6(ptr noundef nonnull %1, i32 noundef 6, i32 noundef %.019.lcssa.i)
+Dau_DecReadSet.exit:                              ; preds = %9, %11
+  %.019.lcssa.i = phi i32 [ %.01926.i, %9 ], [ %.pn.i, %11 ]
+  %14 = call i32 @Dau_DecPerform6(ptr noundef nonnull %1, i32 noundef 6, i32 noundef %.019.lcssa.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

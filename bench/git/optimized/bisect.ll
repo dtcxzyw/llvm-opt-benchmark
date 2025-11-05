@@ -2647,28 +2647,28 @@ filter_skipped.exit.thread.i:                     ; preds = %204
 
 225:                                              ; preds = %.preheader.i.i.i
   %226 = fptosi float %219 to i32
+  %227 = mul nsw i32 %215, %226
   br label %sqrti.exit.i.i
 
 sqrti.exit.i.i:                                   ; preds = %225, %209
-  %.0.i.i.i = phi i32 [ %226, %225 ], [ 0, %209 ]
+  %.0.i.i.i = phi i32 [ %227, %225 ], [ 0, %209 ]
   br label %.preheader.i29.i.i
 
 .preheader.i29.i.i:                               ; preds = %.preheader.i29.i.i, %sqrti.exit.i.i
-  %.014.i30.i.i = phi float [ %229, %.preheader.i29.i.i ], [ 3.276800e+04, %sqrti.exit.i.i ]
-  %227 = fdiv float 3.276800e+04, %.014.i30.i.i
-  %228 = fadd float %.014.i30.i.i, %227
-  %229 = fmul float %228, 5.000000e-01
-  %230 = fcmp ogt float %229, %.014.i30.i.i
-  %231 = fsub float %229, %.014.i30.i.i
-  %232 = fsub float %.014.i30.i.i, %229
-  %233 = select i1 %230, float %231, float %232
-  %234 = fcmp ult float %233, 5.000000e-01
-  br i1 %234, label %sqrti.exit32.i.i, label %.preheader.i29.i.i, !llvm.loop !117
+  %.014.i30.i.i = phi float [ %230, %.preheader.i29.i.i ], [ 3.276800e+04, %sqrti.exit.i.i ]
+  %228 = fdiv float 3.276800e+04, %.014.i30.i.i
+  %229 = fadd float %.014.i30.i.i, %228
+  %230 = fmul float %229, 5.000000e-01
+  %231 = fcmp ogt float %230, %.014.i30.i.i
+  %232 = fsub float %230, %.014.i30.i.i
+  %233 = fsub float %.014.i30.i.i, %230
+  %234 = select i1 %231, float %232, float %233
+  %235 = fcmp ult float %234, 5.000000e-01
+  br i1 %235, label %sqrti.exit32.i.i, label %.preheader.i29.i.i, !llvm.loop !117
 
 sqrti.exit32.i.i:                                 ; preds = %.preheader.i29.i.i
-  %235 = mul nsw i32 %.0.i.i.i, %215
-  %236 = fptosi float %229 to i32
-  %237 = sdiv i32 %235, %236
+  %236 = fptosi float %230 to i32
+  %237 = sdiv i32 %.0.i.i.i, %236
   %.not37.i.i = icmp eq ptr %.0..0..0..0..0..0..0..0.43.i29.pre.i, null
   br i1 %.not37.i.i, label %managed_skipped.exit.thread, label %.lr.ph.i8.preheader.i
 

@@ -27,12 +27,12 @@ define internal i32 @g723_1_parse(ptr noundef captures(none) %0, ptr noundef rea
   %17 = zext i8 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 356
   %19 = load i32, ptr %18, align 4, !tbaa !16
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %19, i32 1)
-  %20 = mul nuw nsw i32 %spec.select, %17
+  %20 = tail call i32 @llvm.smax.i32(i32 %19, i32 1)
+  %spec.select = mul nuw nsw i32 %20, %17
   br label %21
 
 21:                                               ; preds = %11, %6
-  %.0 = phi i32 [ %20, %11 ], [ -100, %6 ]
+  %.0 = phi i32 [ %spec.select, %11 ], [ -100, %6 ]
   %22 = call i32 @ff_combine_frame(ptr noundef %9, i32 noundef %.0, ptr noundef nonnull %7, ptr noundef nonnull %8) #3
   %23 = icmp sgt i32 %22, -1
   %24 = load i32, ptr %8, align 4

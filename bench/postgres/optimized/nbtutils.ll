@@ -1061,17 +1061,17 @@ define internal fastcc noundef zeroext i1 @_bt_check_compare(ptr noundef %0, i32
   %or.cond5 = and i1 %21, %29
   %or.cond7 = and i1 %20, %32
   %or.cond86 = or i1 %or.cond5, %or.cond7
+  %spec.select = and i1 %7, %or.cond86
   br label %34
 
 34:                                               ; preds = %33, %22, %30
   %.076 = phi i1 [ true, %30 ], [ true, %22 ], [ false, %33 ]
-  %.075 = phi i1 [ false, %30 ], [ false, %22 ], [ %or.cond86, %33 ]
-  %or.cond9 = and i1 %7, %.075
-  %or.cond87 = or i1 %.076, %or.cond9
-  %or.cond88 = and i1 %6, %or.cond87
+  %.075 = phi i1 [ false, %30 ], [ false, %22 ], [ %spec.select, %33 ]
+  %brmerge = or i1 %.076, %.075
+  %or.cond87 = and i1 %6, %brmerge
   %35 = and i32 %27, 4
   %.not = icmp eq i32 %35, 0
-  %or.cond105 = and i1 %.not, %or.cond88
+  %or.cond105 = and i1 %.not, %or.cond87
   br i1 %or.cond105, label %.thread101, label %36
 
 36:                                               ; preds = %34
@@ -1261,9 +1261,9 @@ select.unfold.i:                                  ; preds = %87, %50
   br i1 %brmerge91, label %158, label %125
 
 124:                                              ; preds = %119
-  %brmerge.not = and i1 %.076, %122
+  %brmerge89.not = and i1 %.076, %122
   %.mux = select i1 %122, i32 1, i32 4
-  br i1 %brmerge.not, label %125, label %158
+  br i1 %brmerge89.not, label %125, label %158
 
 125:                                              ; preds = %123, %124
   store i8 0, ptr %8, align 1
@@ -1298,7 +1298,7 @@ select.unfold.i:                                  ; preds = %87, %50
   br label %.thread
 
 137:                                              ; preds = %126
-  br i1 %or.cond9, label %.thread101, label %138
+  br i1 %.075, label %.thread101, label %138
 
 138:                                              ; preds = %137
   %139 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1366,7 +1366,7 @@ select.unfold.i:                                  ; preds = %87, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @_bt_tuple_before_array_skeys(ptr readonly captures(none) %.56.val, i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_bt_tuple_before_array_skeys(ptr readonly captures(none) %.56.val, i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %9
@@ -1503,10 +1503,8 @@ _bt_compare_array_skey.exit:                      ; preds = %47, %50, %52, %59
   br i1 %.not44, label %18, label %.loopexit, !llvm.loop !13
 
 .loopexit:                                        ; preds = %66, %10, %.thread8
-  %.not4413 = phi i1 [ true, %.thread8 ], [ false, %10 ], [ false, %66 ]
-  %.1 = phi i1 [ %.2.ph, %.thread8 ], [ undef, %10 ], [ undef, %66 ]
-  %spec.select = and i1 %.not4413, %.1
-  ret i1 %spec.select
+  %.not4413 = phi i1 [ %.2.ph, %.thread8 ], [ false, %10 ], [ false, %66 ]
+  ret i1 %.not4413
 }
 
 ; Function Attrs: nounwind uwtable

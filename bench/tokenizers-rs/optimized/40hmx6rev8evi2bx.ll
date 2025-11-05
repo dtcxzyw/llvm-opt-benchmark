@@ -20831,10 +20831,10 @@ define hidden void @_ZN9itertools9Itertools4join17h45f7a79b591fd0f7E(ptr noalias
   br label %42
 
 24:                                               ; preds = %"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf4b9cc24f892635cE.exit"
+  %25 = mul i64 %19, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %21, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %25 = mul i64 %19, %3
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17heeab8dede0374036E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, i64 noundef %25, i1 noundef zeroext false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4722)

@@ -79,39 +79,39 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeEN
   br label %38
 
 38:                                               ; preds = %34, %._crit_edge.i, %15
-  %.178.ph = phi ptr [ %4, %15 ], [ %37, %34 ], [ %4, %._crit_edge.i ]
+  %.177.ph = phi ptr [ %4, %15 ], [ %37, %34 ], [ %4, %._crit_edge.i ]
   %.173.ph = phi i32 [ 0, %15 ], [ %.24551.i, %34 ], [ 0, %._crit_edge.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false), !tbaa !16
-  %.not100 = icmp eq ptr %.178.ph, %6
-  br i1 %.not100, label %._crit_edge109, label %.lr.ph108
+  %.not98 = icmp eq ptr %.177.ph, %6
+  br i1 %.not98, label %._crit_edge107, label %.lr.ph106
 
-.lr.ph108:                                        ; preds = %38
+.lr.ph106:                                        ; preds = %38
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %2, i64 56
   %umax = tail call i32 @llvm.umax.i32(i32 %.173.ph, i32 256)
   br label %40
 
-40:                                               ; preds = %.lr.ph108, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit
-  %.040106 = phi i32 [ %.173.ph, %.lr.ph108 ], [ %146, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
-  %.043105 = phi i32 [ 72, %.lr.ph108 ], [ %85, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
-  %.046104 = phi i32 [ 128, %.lr.ph108 ], [ %87, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
-  %.072103 = phi i32 [ %.173.ph, %.lr.ph108 ], [ %76, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
-  %.074102 = phi i32 [ 0, %.lr.ph108 ], [ %147, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
-  %.077101 = phi ptr [ %.178.ph, %.lr.ph108 ], [ %46, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
-  %exitcond = icmp eq i32 %.072103, %umax
+40:                                               ; preds = %.lr.ph106, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit
+  %.040104 = phi i32 [ %.173.ph, %.lr.ph106 ], [ %146, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
+  %.043103 = phi i32 [ 72, %.lr.ph106 ], [ %85, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
+  %.046102 = phi i32 [ 128, %.lr.ph106 ], [ %87, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
+  %.072101 = phi i32 [ %.173.ph, %.lr.ph106 ], [ %76, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
+  %.074100 = phi i32 [ 0, %.lr.ph106 ], [ %147, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
+  %.07699 = phi ptr [ %.177.ph, %.lr.ph106 ], [ %46, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
+  %exitcond = icmp eq i32 %.072101, %umax
   br i1 %exitcond, label %.critedge, label %.lr.ph.i51
 
 .lr.ph.i51:                                       ; preds = %40
-  %41 = add i32 %.043105, 1
-  %42 = add i32 %.043105, 26
+  %41 = add i32 %.043103, 1
+  %42 = add i32 %.043103, 26
   br label %43
 
 43:                                               ; preds = %67, %.lr.ph.i51
   %.02551.i = phi i64 [ 1, %.lr.ph.i51 ], [ %70, %67 ]
   %.03350.i = phi i32 [ 36, %.lr.ph.i51 ], [ %71, %67 ]
-  %44 = phi ptr [ %.077101, %.lr.ph.i51 ], [ %46, %67 ]
-  %45 = phi i32 [ %.074102, %.lr.ph.i51 ], [ %65, %67 ]
+  %44 = phi ptr [ %.07699, %.lr.ph.i51 ], [ %46, %67 ]
+  %45 = phi i32 [ %.074100, %.lr.ph.i51 ], [ %65, %67 ]
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
   %47 = load i8, ptr %44, align 1, !tbaa !13
   %48 = sext i8 %47 to i32
@@ -151,7 +151,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i: ; preds 
   %65 = trunc nuw nsw i64 %62 to i32
   %.not37.i = icmp ugt i32 %.03350.i, %41
   %.not38.i = icmp ult i32 %.03350.i, %42
-  %66 = sub i32 %.03350.i, %.043105
+  %66 = sub i32 %.03350.i, %.043103
   %spec.select39.i = select i1 %.not38.i, i32 %66, i32 26
   %.0.i = select i1 %.not37.i, i32 %spec.select39.i, i32 1
   %.not47.i = icmp ult i32 %.0.i41.i, %.0.i
@@ -166,22 +166,22 @@ _ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i: ; preds 
   br i1 %.not.not.i, label %.critedge, label %43, !llvm.loop !18
 
 _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; preds = %64
-  %72 = sub nsw i32 %65, %.074102
-  %73 = icmp eq i32 %.074102, 0
+  %72 = sub nsw i32 %65, %.074100
+  %73 = icmp eq i32 %.074100, 0
   %74 = select i1 %73, i32 700, i32 2
   %75 = udiv i32 %72, %74
-  %76 = add nuw nsw i32 %.072103, 1
+  %76 = add nuw nsw i32 %.072101, 1
   %77 = udiv i32 %75, %76
   %78 = add nuw i32 %77, %75
   %79 = icmp ugt i32 %78, 455
   br i1 %79, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit, %.lr.ph
-  %.03798 = phi i32 [ %80, %.lr.ph ], [ %78, %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit ]
-  %.24597 = phi i32 [ %81, %.lr.ph ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit ]
-  %80 = udiv i32 %.03798, 35
-  %81 = add i32 %.24597, 36
-  %82 = icmp ugt i32 %.03798, 15959
+  %.03796 = phi i32 [ %80, %.lr.ph ], [ %78, %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit ]
+  %.24595 = phi i32 [ %81, %.lr.ph ], [ 0, %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit ]
+  %80 = udiv i32 %.03796, 35
+  %81 = add i32 %.24595, 36
+  %82 = icmp ugt i32 %.03796, 15959
   br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit
@@ -194,17 +194,17 @@ _ZN4absl18debugging_internal12_GLOBAL__N_113ScanNextDeltaERPKcS3_jRj.exit: ; pre
   %.zext = zext nneg i16 %84 to i32
   %85 = add i32 %.245.lcssa, %.zext
   %86 = udiv i32 %65, %76
-  %87 = add i32 %86, %.046104
+  %87 = add i32 %86, %.046102
   %88 = urem i32 %65, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %89 = zext i32 %87 to i64
   call void @_ZN4absl18debugging_internal16Utf8ForCodePointC1Em(ptr noundef nonnull align 4 dereferenceable(8) %3, i64 noundef %89)
   %90 = load i32, ptr %39, align 4, !tbaa !20
-  %.not88 = icmp eq i32 %90, 0
-  br i1 %.not88, label %.critedge.critedge, label %91
+  %.not86 = icmp eq i32 %90, 0
+  br i1 %.not86, label %.critedge.critedge, label %91
 
 91:                                               ; preds = %._crit_edge
-  %92 = add i32 %.040106, 1
+  %92 = add i32 %.040104, 1
   %93 = add i32 %92, %90
   %94 = zext i32 %93 to i64
   %95 = icmp ult i64 %13, %94
@@ -298,13 +298,13 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   %145 = zext i32 %144 to i64
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %143, ptr nonnull align 1 %141, i64 %145, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %141, ptr nonnull align 4 %3, i64 %142, i1 false)
-  %146 = add i32 %90, %.040106
+  %146 = add i32 %90, %.040104
   %147 = add nuw nsw i32 %88, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.not = icmp eq ptr %46, %6
-  br i1 %.not, label %._crit_edge109, label %40, !llvm.loop !25
+  br i1 %.not, label %._crit_edge107, label %40, !llvm.loop !25
 
-._crit_edge109:                                   ; preds = %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit, %38
+._crit_edge107:                                   ; preds = %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit, %38
   %.040.lcssa = phi i32 [ %.173.ph, %38 ], [ %146, %_ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturnSumOfPredecessorsEjj.exit ]
   %148 = zext i32 %.040.lcssa to i64
   %149 = getelementptr inbounds nuw i8, ptr %8, i64 %148
@@ -314,8 +314,8 @@ _ZN4absl18debugging_internal25BoundedUtf8LengthSequenceILj256EE32InsertAndReturn
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge
 
-.critedge:                                        ; preds = %40, %56, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i, %67, %.critedge.critedge, %._crit_edge109
-  %.3 = phi ptr [ %149, %._crit_edge109 ], [ null, %.critedge.critedge ], [ null, %67 ], [ null, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i ], [ null, %56 ], [ null, %40 ]
+.critedge:                                        ; preds = %40, %67, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i, %56, %.critedge.critedge, %._crit_edge107
+  %.3 = phi ptr [ %149, %._crit_edge107 ], [ null, %.critedge.critedge ], [ null, %56 ], [ null, %_ZN4absl18debugging_internal12_GLOBAL__N_110DigitValueEc.exit.thread.i ], [ null, %67 ], [ null, %40 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZN4absl18debugging_internal12_GLOBAL__N_126ConsumeOptionalAsciiPrefixERPKcS3_PcS5_Rj.exit
 

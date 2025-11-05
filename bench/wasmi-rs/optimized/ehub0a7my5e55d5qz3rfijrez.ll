@@ -202,7 +202,7 @@ define noundef i64 @_ZN10wasmi_core4wasm8i64_rotr17h72882a1d0c29f95fE(i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm9i32_div_s17h3719d81a5a6cfd0aE(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
+define range(i64 0, -4294967295) i64 @_ZN10wasmi_core4wasm9i32_div_s17h3719d81a5a6cfd0aE(i32 noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %"_ZN50_$LT$i32$u20$as$u20$wasmi_core..value..Integer$GT$5div_s17hd947b519a6bffcf4E.exit", label %4, !prof !3
 
@@ -219,10 +219,8 @@ define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm9i32_div_s17h3719d81a5
   br label %"_ZN50_$LT$i32$u20$as$u20$wasmi_core..value..Integer$GT$5div_s17hd947b519a6bffcf4E.exit"
 
 "_ZN50_$LT$i32$u20$as$u20$wasmi_core..value..Integer$GT$5div_s17hd947b519a6bffcf4E.exit": ; preds = %2, %4, %8
-  %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 1, %2 ], [ 1, %4 ]
-  %.sroa.4.0.insert.insert.i = phi i64 [ %11, %8 ], [ 1024, %2 ], [ 1280, %4 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.insert.i, %.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.4.0.insert.insert.i = phi i64 [ %11, %8 ], [ 1025, %2 ], [ 1281, %4 ]
+  ret i64 %.sroa.4.0.insert.insert.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -927,7 +925,7 @@ define noundef double @_ZN10wasmi_core4wasm15f64_promote_f3217h1ffd967cdb2a6033E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f32_s17hd2e256862942f9a6E(float noundef %0) unnamed_addr #0 {
+define range(i64 0, -4294967295) i64 @_ZN10wasmi_core4wasm15i32_trunc_f32_s17hd2e256862942f9a6E(float noundef %0) unnamed_addr #0 {
   %2 = fcmp uno float %0, 0.000000e+00
   br i1 %2, label %10, label %3
 
@@ -944,10 +942,8 @@ define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f32_s17hd2
   br label %10
 
 10:                                               ; preds = %3, %1, %6
-  %.sroa.0.0 = phi i64 [ 0, %6 ], [ 1, %1 ], [ 1, %3 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1536, %1 ], [ 1280, %3 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1537, %1 ], [ 1281, %3 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -984,7 +980,7 @@ define void @_ZN10wasmi_core4wasm15i64_trunc_f32_s17h46d087446ea9f653E(ptr dead_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f32_u17hb19cb6acaf9758f6E(float noundef %0) unnamed_addr #0 {
+define range(i64 0, -4294967295) i64 @_ZN10wasmi_core4wasm15i32_trunc_f32_u17hb19cb6acaf9758f6E(float noundef %0) unnamed_addr #0 {
   %2 = fcmp uno float %0, 0.000000e+00
   br i1 %2, label %10, label %3
 
@@ -1001,10 +997,8 @@ define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f32_u17hb1
   br label %10
 
 10:                                               ; preds = %3, %1, %6
-  %.sroa.0.0 = phi i64 [ 0, %6 ], [ 1, %1 ], [ 1, %3 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1536, %1 ], [ 1280, %3 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1537, %1 ], [ 1281, %3 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1041,7 +1035,7 @@ define void @_ZN10wasmi_core4wasm15i64_trunc_f32_u17hd80bdc3994425540E(ptr dead_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f64_s17h0633d5b09e80c190E(double noundef %0) unnamed_addr #0 {
+define range(i64 0, -4294967295) i64 @_ZN10wasmi_core4wasm15i32_trunc_f64_s17h0633d5b09e80c190E(double noundef %0) unnamed_addr #0 {
   %2 = fcmp uno double %0, 0.000000e+00
   br i1 %2, label %10, label %3
 
@@ -1058,10 +1052,8 @@ define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f64_s17h06
   br label %10
 
 10:                                               ; preds = %3, %1, %6
-  %.sroa.0.0 = phi i64 [ 0, %6 ], [ 1, %1 ], [ 1, %3 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1536, %1 ], [ 1280, %3 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1537, %1 ], [ 1281, %3 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1098,7 +1090,7 @@ define void @_ZN10wasmi_core4wasm15i64_trunc_f64_s17h88f3bde78313f079E(ptr dead_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f64_u17h1e4cc1a91976eba5E(double noundef %0) unnamed_addr #0 {
+define range(i64 0, -4294967295) i64 @_ZN10wasmi_core4wasm15i32_trunc_f64_u17h1e4cc1a91976eba5E(double noundef %0) unnamed_addr #0 {
   %2 = fcmp uno double %0, 0.000000e+00
   br i1 %2, label %10, label %3
 
@@ -1115,10 +1107,8 @@ define range(i64 0, -4294967294) i64 @_ZN10wasmi_core4wasm15i32_trunc_f64_u17h1e
   br label %10
 
 10:                                               ; preds = %3, %1, %6
-  %.sroa.0.0 = phi i64 [ 0, %6 ], [ 1, %1 ], [ 1, %3 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1536, %1 ], [ 1280, %3 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.0.insert.insert = phi i64 [ %9, %6 ], [ 1537, %1 ], [ 1281, %3 ]
+  ret i64 %.sroa.4.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

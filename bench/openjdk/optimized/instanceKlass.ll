@@ -5025,16 +5025,14 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   br label %167
 
 167:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit, %166, %163, %154, %.critedge, %141, %138, %131, %128, %124
-  %.1 = phi i1 [ false, %124 ], [ true, %128 ], [ false, %131 ], [ false, %138 ], [ false, %141 ], [ false, %.critedge ], [ false, %154 ], [ undef, %163 ], [ undef, %166 ], [ undef, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
-  %cond = phi i1 [ false, %124 ], [ false, %128 ], [ false, %131 ], [ false, %138 ], [ false, %141 ], [ false, %.critedge ], [ false, %154 ], [ true, %163 ], [ true, %166 ], [ true, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
+  %cond = phi i1 [ false, %124 ], [ true, %128 ], [ false, %131 ], [ false, %138 ], [ false, %141 ], [ false, %.critedge ], [ false, %154 ], [ true, %163 ], [ true, %166 ], [ true, %_ZN6HandleC2EP6ThreadP7oopDesc.exit ]
   call void @_ZN12ObjectLockerD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #26
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #26
-  %spec.select48 = or i1 %.1, %cond
   call void @_ZN18PerfClassTraceTimeD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #26
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %73, %60, %58, %30, %28, %._crit_edge, %61, %31, %167
-  %.045 = phi i1 [ %spec.select48, %167 ], [ true, %31 ], [ false, %61 ], [ true, %._crit_edge ], [ false, %28 ], [ false, %30 ], [ false, %58 ], [ false, %60 ], [ false, %73 ]
+  %.045 = phi i1 [ %cond, %167 ], [ true, %31 ], [ false, %61 ], [ true, %._crit_edge ], [ false, %28 ], [ false, %30 ], [ false, %58 ], [ false, %60 ], [ false, %73 ]
   ret i1 %.045
 }
 

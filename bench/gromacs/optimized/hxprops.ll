@@ -411,16 +411,14 @@ define noundef float @_Z3dipiPKiPA3_KfPK6t_atom(i32 noundef %0, ptr noundef read
   %.pre = load float, ptr %5, align 4, !tbaa !21
   %.pre21 = load float, ptr %6, align 4, !tbaa !21
   %.pre22 = load float, ptr %7, align 4, !tbaa !21
+  %23 = fmul float %.pre21, %.pre21
+  %24 = tail call float @llvm.fmuladd.f32(float %.pre, float %.pre, float %23)
+  %25 = tail call float @llvm.fmuladd.f32(float %.pre22, float %.pre22, float %24)
+  %26 = tail call float @llvm.sqrt.f32(float %25)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
-  %23 = phi float [ %.pre22, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
-  %24 = phi float [ %.pre21, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
-  %25 = phi float [ %.pre, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
-  %26 = fmul float %24, %24
-  %27 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %26)
-  %28 = tail call noundef float @llvm.fmuladd.f32(float %23, float %23, float %27)
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %28)
+  %sqrt.i = phi float [ %26, %._crit_edge.loopexit ], [ 0.000000e+00, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret float %sqrt.i
 }

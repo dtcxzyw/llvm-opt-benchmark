@@ -15388,21 +15388,20 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_remove_names(ptr nounde
   %or.cond3 = or i1 %7, %or.cond.not
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  br i1 %or.cond3, label %._crit_edge225, label %14
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br i1 %or.cond3, label %16, label %.thread
 
-14:                                               ; preds = %8
+.thread:                                          ; preds = %8
   %15 = or i32 %.pre, %1
   store i32 %15, ptr %.phi.trans.insert, align 8
-  br label %._crit_edge225
+  br label %.preheader165
 
-._crit_edge225:                                   ; preds = %8, %14
-  %16 = phi i32 [ %15, %14 ], [ %.pre, %8 ]
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %18 = and i32 %16, %1
-  %.not130 = icmp eq i32 %18, 0
-  br i1 %.not130, label %25, label %.preheader165
+16:                                               ; preds = %8
+  %17 = and i32 %.pre, %1
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %25, label %.preheader165
 
-.preheader165:                                    ; preds = %._crit_edge225
+.preheader165:                                    ; preds = %.thread, %16
   %19 = icmp sgt i32 %2, 0
   br i1 %19, label %.lr.ph.preheader, label %._crit_edge.thread
 
@@ -15438,9 +15437,9 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_remove_names(ptr nounde
   br i1 %or.cond5, label %24, label %.lr.ph182
 
 ._crit_edge.thread:                               ; preds = %.preheader165
-  %.not239 = xor i1 %6, true
-  %or.cond5240 = or i1 %7, %.not239
-  br i1 %or.cond5240, label %24, label %.loopexit
+  %.not240 = xor i1 %6, true
+  %or.cond5241 = or i1 %7, %.not240
+  br i1 %or.cond5241, label %24, label %.loopexit
 
 24:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %spec.select = or i1 %6, %7
@@ -15451,7 +15450,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_add_remove_names(ptr nounde
   %.pre227 = load i32, ptr %.0124, align 4
   br label %26
 
-25:                                               ; preds = %._crit_edge225
+25:                                               ; preds = %16
   br i1 %6, label %26, label %.loopexit164
 
 26:                                               ; preds = %._crit_edge226, %25
@@ -15753,7 +15752,7 @@ _remove_name_from_str.exit:                       ; preds = %.loopexit.i, %75, %
   br label %155
 
 155:                                              ; preds = %154, %152, %._crit_edge180
-  %156 = load i32, ptr %17, align 8
+  %156 = load i32, ptr %14, align 8
   %157 = and i32 %156, %1
   %.not135 = icmp eq i32 %157, 0
   br i1 %.not135, label %159, label %158

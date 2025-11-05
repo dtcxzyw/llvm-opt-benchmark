@@ -703,10 +703,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit: ; pr
   resume { ptr, i32 } %.pn
 
 32:                                               ; preds = %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit, %23, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit, %22, %3
-  %.sroa.019.0 = phi i16 [ 0, %3 ], [ 1, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit ], [ 1, %23 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit ], [ 0, %22 ]
-  %.sroa.4.0 = phi i16 [ 0, %3 ], [ 256, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit ], [ 256, %23 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit ], [ 256, %22 ]
-  %.sroa.019.0.insert.insert = or disjoint i16 %.sroa.4.0, %.sroa.019.0
-  ret i16 %.sroa.019.0.insert.insert
+  %.sroa.4.0 = phi i16 [ 0, %3 ], [ 257, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi17EEERS2_RAT__Kc.exit ], [ 257, %23 ], [ 0, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi32EEERS2_RAT__Kc.exit ], [ 256, %22 ]
+  ret i16 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

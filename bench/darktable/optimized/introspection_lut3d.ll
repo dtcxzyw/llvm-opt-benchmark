@@ -298,7 +298,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %194
 
-17:                                               ; preds = %201
+17:                                               ; preds = %202
   %18 = getelementptr inbounds nuw float, ptr %1, i64 %.0126
   %19 = load float, ptr %6, align 16, !tbaa !18
   %20 = fptosi float %19 to i32
@@ -483,23 +483,23 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %193 = icmp ult i64 %192, %9
   br i1 %193, label %15, label %._crit_edge
 
-194:                                              ; preds = %15, %201
-  %.0114125 = phi i64 [ 0, %15 ], [ %205, %201 ]
+194:                                              ; preds = %15, %202
+  %.0114125 = phi i64 [ 0, %15 ], [ %205, %202 ]
   %195 = getelementptr inbounds nuw float, ptr %16, i64 %.0114125
   %196 = load float, ptr %195, align 4, !tbaa !18
   %197 = fcmp reassoc nsz arcp contract afn ult float %196, 0.000000e+00
-  br i1 %197, label %201, label %198
+  br i1 %197, label %202, label %198
 
 198:                                              ; preds = %194
   %199 = fcmp reassoc nsz arcp contract afn ugt float %196, 1.000000e+00
-  br i1 %199, label %201, label %200
+  br i1 %199, label %202, label %200
 
 200:                                              ; preds = %198
-  br label %201
+  %201 = fmul reassoc nsz arcp contract afn float %196, %11
+  br label %202
 
-201:                                              ; preds = %194, %200, %198
-  %202 = phi reassoc nsz arcp contract afn float [ %196, %200 ], [ 1.000000e+00, %198 ], [ 0.000000e+00, %194 ]
-  %203 = fmul reassoc nsz arcp contract afn float %202, %11
+202:                                              ; preds = %194, %200, %198
+  %203 = phi float [ %201, %200 ], [ %11, %198 ], [ 0.000000e+00, %194 ]
   %204 = getelementptr inbounds nuw float, ptr %6, i64 %.0114125
   store float %203, ptr %204, align 4, !tbaa !18
   %205 = add nuw nsw i64 %.0114125, 1
@@ -533,7 +533,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %53
 
-17:                                               ; preds = %60
+17:                                               ; preds = %61
   %18 = getelementptr inbounds nuw float, ptr %1, i64 %.0216
   %19 = load float, ptr %6, align 16, !tbaa !18
   %20 = fptosi float %19 to i32
@@ -573,23 +573,23 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %52 = fcmp reassoc nsz arcp contract afn ogt float %35, %37
   br i1 %52, label %65, label %216
 
-53:                                               ; preds = %15, %60
-  %.0204215 = phi i64 [ 0, %15 ], [ %64, %60 ]
+53:                                               ; preds = %15, %61
+  %.0204215 = phi i64 [ 0, %15 ], [ %64, %61 ]
   %54 = getelementptr inbounds nuw float, ptr %16, i64 %.0204215
   %55 = load float, ptr %54, align 4, !tbaa !18
   %56 = fcmp reassoc nsz arcp contract afn ult float %55, 0.000000e+00
-  br i1 %56, label %60, label %57
+  br i1 %56, label %61, label %57
 
 57:                                               ; preds = %53
   %58 = fcmp reassoc nsz arcp contract afn ugt float %55, 1.000000e+00
-  br i1 %58, label %60, label %59
+  br i1 %58, label %61, label %59
 
 59:                                               ; preds = %57
-  br label %60
+  %60 = fmul reassoc nsz arcp contract afn float %55, %11
+  br label %61
 
-60:                                               ; preds = %53, %59, %57
-  %61 = phi reassoc nsz arcp contract afn float [ %55, %59 ], [ 1.000000e+00, %57 ], [ 0.000000e+00, %53 ]
-  %62 = fmul reassoc nsz arcp contract afn float %61, %11
+61:                                               ; preds = %53, %59, %57
+  %62 = phi float [ %60, %59 ], [ %11, %57 ], [ 0.000000e+00, %53 ]
   %63 = getelementptr inbounds nuw float, ptr %6, i64 %.0204215
   store float %62, ptr %63, align 4, !tbaa !18
   %64 = add nuw nsw i64 %.0204215, 1
@@ -964,7 +964,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %52
 
-17:                                               ; preds = %59
+17:                                               ; preds = %60
   %18 = getelementptr inbounds nuw float, ptr %1, i64 %.0307
   %19 = load float, ptr %6, align 16, !tbaa !18
   %20 = fptosi float %19 to i32
@@ -1004,23 +1004,23 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
   %or.cond = select i1 %50, i1 %51, i1 false
   br i1 %or.cond, label %64, label %134
 
-52:                                               ; preds = %15, %59
-  %.0249306 = phi i64 [ 0, %15 ], [ %63, %59 ]
+52:                                               ; preds = %15, %60
+  %.0249306 = phi i64 [ 0, %15 ], [ %63, %60 ]
   %53 = getelementptr inbounds nuw float, ptr %16, i64 %.0249306
   %54 = load float, ptr %53, align 4, !tbaa !18
   %55 = fcmp reassoc nsz arcp contract afn ult float %54, 0.000000e+00
-  br i1 %55, label %59, label %56
+  br i1 %55, label %60, label %56
 
 56:                                               ; preds = %52
   %57 = fcmp reassoc nsz arcp contract afn ugt float %54, 1.000000e+00
-  br i1 %57, label %59, label %58
+  br i1 %57, label %60, label %58
 
 58:                                               ; preds = %56
-  br label %59
+  %59 = fmul reassoc nsz arcp contract afn float %54, %11
+  br label %60
 
-59:                                               ; preds = %52, %58, %56
-  %60 = phi reassoc nsz arcp contract afn float [ %54, %58 ], [ 1.000000e+00, %56 ], [ 0.000000e+00, %52 ]
-  %61 = fmul reassoc nsz arcp contract afn float %60, %11
+60:                                               ; preds = %52, %58, %56
+  %61 = phi float [ %59, %58 ], [ %11, %56 ], [ 0.000000e+00, %52 ]
   %62 = getelementptr inbounds nuw float, ptr %6, i64 %.0249306
   store float %61, ptr %62, align 4, !tbaa !18
   %63 = add nuw nsw i64 %.0249306, 1
@@ -1764,15 +1764,15 @@ sub_1101:                                         ; preds = %sub_095
 
 .critedge2._crit_edge.loopexit:                   ; preds = %.critedge2
   %50 = fdiv reassoc nsz arcp contract afn double %48, %49
+  %51 = fadd reassoc nsz arcp contract afn double %50, %.077.lcssa
   br label %.critedge2._crit_edge
 
 .critedge2._crit_edge:                            ; preds = %.critedge2.preheader, %.critedge2._crit_edge.loopexit, %.critedge._crit_edge
-  %51 = phi i8 [ %29, %.critedge._crit_edge ], [ %41, %.critedge2._crit_edge.loopexit ], [ %41, %.critedge2.preheader ]
-  %.075 = phi nsz double [ 0.000000e+00, %.critedge._crit_edge ], [ %50, %.critedge2._crit_edge.loopexit ], [ 0.000000e+00, %.critedge2.preheader ]
+  %52 = phi i8 [ %29, %.critedge._crit_edge ], [ %41, %.critedge2._crit_edge.loopexit ], [ %41, %.critedge2.preheader ]
+  %.075 = phi double [ %.077.lcssa, %.critedge._crit_edge ], [ %51, %.critedge2._crit_edge.loopexit ], [ %.077.lcssa, %.critedge2.preheader ]
   %.2 = phi ptr [ %.173, %.critedge._crit_edge ], [ %.3.ptr.le, %.critedge2._crit_edge.loopexit ], [ %.3.ptr.le, %.critedge2.preheader ]
-  %52 = fadd reassoc nsz arcp contract afn double %.075, %.077.lcssa
-  %53 = fmul reassoc nsz arcp contract afn double %52, %.074
-  switch i8 %51, label %73 [
+  %53 = fmul reassoc nsz arcp contract afn double %.075, %.074
+  switch i8 %52, label %73 [
     i8 101, label %54
     i8 69, label %54
   ]

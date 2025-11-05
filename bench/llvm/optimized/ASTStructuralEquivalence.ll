@@ -369,13 +369,12 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %51, %58
 .loopexit.loopexit:                               ; preds = %.thread70, %66, %30
   %.sroa.061.0.ph = phi i32 [ %.265.ph, %.thread70 ], [ %.06385, %66 ], [ %.06385, %30 ]
   %79 = zext i32 %.sroa.061.0.ph to i64
+  %80 = or disjoint i64 %79, 4294967296
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %14, %_ZN5clang4Decl14getDeclContextEv.exit
-  %.sroa.061.0 = phi i64 [ 0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 0, %14 ], [ %79, %.loopexit.loopexit ]
-  %.sroa.2.0 = phi i64 [ 0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 4294967296, %14 ], [ 4294967296, %.loopexit.loopexit ]
-  %.sroa.061.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.061.0
-  ret i64 %.sroa.061.0.insert.insert
+  %.sroa.2.0 = phi i64 [ 0, %_ZN5clang4Decl14getDeclContextEv.exit ], [ 4294967296, %14 ], [ %80, %.loopexit.loopexit ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

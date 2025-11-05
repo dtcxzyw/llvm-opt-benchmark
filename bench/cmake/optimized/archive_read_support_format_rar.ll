@@ -6963,81 +6963,84 @@ tailrecurse._crit_edge:                           ; preds = %6
   br label %.loopexit
 
 .lr.ph141:                                        ; preds = %.lr.ph, %tailrecurse
-  %accumulator.tr76140 = phi i32 [ %38, %tailrecurse ], [ 0, %.lr.ph ]
-  %.tr5577139 = phi i32 [ %34, %tailrecurse ], [ %2, %.lr.ph ]
-  %.tr5678138 = phi ptr [ %37, %tailrecurse ], [ %3, %.lr.ph ]
-  %.tr5779137 = phi i32 [ %29, %tailrecurse ], [ %4, %.lr.ph ]
-  %10 = phi ptr [ %31, %tailrecurse ], [ %7, %.lr.ph ]
+  %accumulator.tr76140 = phi i32 [ %39, %tailrecurse ], [ 0, %.lr.ph ]
+  %.tr5577139 = phi i32 [ %35, %tailrecurse ], [ %2, %.lr.ph ]
+  %.tr5678138 = phi ptr [ %38, %tailrecurse ], [ %3, %.lr.ph ]
+  %.tr5779137 = phi i32 [ %30, %tailrecurse ], [ %4, %.lr.ph ]
+  %10 = phi ptr [ %32, %tailrecurse ], [ %7, %.lr.ph ]
   %11 = load i32, ptr %8, align 8, !tbaa !253
   %.not53 = icmp slt i32 %.tr5577139, %11
-  br i1 %.not53, label %12, label %._crit_edge
+  br i1 %.not53, label %13, label %._crit_edge.loopexit
 
-._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph141, %.lr.ph
-  %accumulator.tr76.lcssa = phi i32 [ 0, %.lr.ph ], [ %38, %tailrecurse ], [ %accumulator.tr76140, %.lr.ph141 ]
+._crit_edge.loopexit:                             ; preds = %.lr.ph141, %tailrecurse
+  %accumulator.tr76.lcssa.ph = phi i32 [ %39, %tailrecurse ], [ %accumulator.tr76140, %.lr.ph141 ]
+  %12 = or i32 %accumulator.tr76.lcssa.ph, -30
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph
+  %accumulator.tr76.lcssa = phi i32 [ -30, %.lr.ph ], [ %12, %._crit_edge.loopexit ]
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 84, ptr noundef nonnull @.str.49) #19
   br label %.loopexit
 
-12:                                               ; preds = %.lr.ph141
-  %13 = sub nsw i32 %5, %.tr5779137
-  %14 = shl nuw i32 1, %13
-  %15 = zext nneg i32 %.tr5577139 to i64
-  %16 = getelementptr inbounds nuw %struct.huffman_tree_node, ptr %10, i64 %15
-  %17 = load i32, ptr %16, align 4, !tbaa !153
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !153
-  %20 = icmp eq i32 %17, %19
-  br i1 %20, label %.preheader, label %24
+13:                                               ; preds = %.lr.ph141
+  %14 = sub nsw i32 %5, %.tr5779137
+  %15 = shl nuw i32 1, %14
+  %16 = zext nneg i32 %.tr5577139 to i64
+  %17 = getelementptr inbounds nuw %struct.huffman_tree_node, ptr %10, i64 %16
+  %18 = load i32, ptr %17, align 4, !tbaa !153
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  %20 = load i32, ptr %19, align 4, !tbaa !153
+  %21 = icmp eq i32 %18, %20
+  br i1 %21, label %.preheader, label %25
 
-.preheader:                                       ; preds = %12
-  %.not82 = icmp eq i32 %13, 31
+.preheader:                                       ; preds = %13
+  %.not82 = icmp eq i32 %14, 31
   br i1 %.not82, label %.loopexit, label %.lr.ph81.preheader
 
 .lr.ph81.preheader:                               ; preds = %.preheader
-  %smax = tail call i32 @llvm.smax.i32(i32 %14, i32 1)
+  %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %.lr.ph81
   %indvars.iv = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next, %.lr.ph81 ]
-  %21 = getelementptr inbounds nuw %struct.huffman_table_entry, ptr %.tr5678138, i64 %indvars.iv
-  store i32 %.tr5779137, ptr %21, align 4, !tbaa !261
-  %22 = load i32, ptr %16, align 4, !tbaa !153
-  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store i32 %22, ptr %23, align 4, !tbaa !263
+  %22 = getelementptr inbounds nuw %struct.huffman_table_entry, ptr %.tr5678138, i64 %indvars.iv
+  store i32 %.tr5779137, ptr %22, align 4, !tbaa !261
+  %23 = load i32, ptr %17, align 4, !tbaa !153
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store i32 %23, ptr %24, align 4, !tbaa !263
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph81, !llvm.loop !265
 
-24:                                               ; preds = %12
-  %25 = icmp eq i32 %.tr5779137, %5
-  br i1 %25, label %26, label %tailrecurse
+25:                                               ; preds = %13
+  %26 = icmp eq i32 %.tr5779137, %5
+  br i1 %26, label %27, label %tailrecurse
 
-26:                                               ; preds = %24
-  %27 = add nsw i32 %5, 1
-  store i32 %27, ptr %.tr5678138, align 4, !tbaa !261
-  %28 = getelementptr inbounds nuw i8, ptr %.tr5678138, i64 4
-  store i32 %.tr5577139, ptr %28, align 4, !tbaa !263
+27:                                               ; preds = %25
+  %28 = add nsw i32 %5, 1
+  store i32 %28, ptr %.tr5678138, align 4, !tbaa !261
+  %29 = getelementptr inbounds nuw i8, ptr %.tr5678138, i64 4
+  store i32 %.tr5577139, ptr %29, align 4, !tbaa !263
   br label %.loopexit
 
-tailrecurse:                                      ; preds = %24
-  %29 = add nsw i32 %.tr5779137, 1
-  %30 = tail call fastcc i32 @make_table_recurse(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %17, ptr noundef %.tr5678138, i32 noundef %29, i32 noundef %5)
-  %31 = load ptr, ptr %1, align 8, !tbaa !199
-  %32 = getelementptr inbounds nuw %struct.huffman_tree_node, ptr %31, i64 %15
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %34 = load i32, ptr %33, align 4, !tbaa !153
-  %35 = sdiv i32 %14, 2
-  %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.huffman_table_entry, ptr %.tr5678138, i64 %36
-  %38 = or i32 %30, %accumulator.tr76140
-  %39 = icmp slt i32 %34, 0
-  br i1 %39, label %._crit_edge, label %.lr.ph141
+tailrecurse:                                      ; preds = %25
+  %30 = add nsw i32 %.tr5779137, 1
+  %31 = tail call fastcc i32 @make_table_recurse(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %18, ptr noundef %.tr5678138, i32 noundef %30, i32 noundef %5)
+  %32 = load ptr, ptr %1, align 8, !tbaa !199
+  %33 = getelementptr inbounds nuw %struct.huffman_tree_node, ptr %32, i64 %16
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %35 = load i32, ptr %34, align 4, !tbaa !153
+  %36 = sdiv i32 %15, 2
+  %37 = sext i32 %36 to i64
+  %38 = getelementptr inbounds %struct.huffman_table_entry, ptr %.tr5678138, i64 %37
+  %39 = or i32 %31, %accumulator.tr76140
+  %40 = icmp slt i32 %35, 0
+  br i1 %40, label %._crit_edge.loopexit, label %.lr.ph141
 
-.loopexit:                                        ; preds = %.lr.ph81, %.preheader, %26, %._crit_edge, %tailrecurse._crit_edge
-  %accumulator.tr71 = phi i32 [ %accumulator.tr76.lcssa, %._crit_edge ], [ 0, %tailrecurse._crit_edge ], [ %accumulator.tr76140, %26 ], [ %accumulator.tr76140, %.preheader ], [ %accumulator.tr76140, %.lr.ph81 ]
-  %.047 = phi i32 [ -30, %._crit_edge ], [ -30, %tailrecurse._crit_edge ], [ 0, %26 ], [ 0, %.preheader ], [ 0, %.lr.ph81 ]
-  %accumulator.ret.tr = or i32 %.047, %accumulator.tr71
-  ret i32 %accumulator.ret.tr
+.loopexit:                                        ; preds = %.lr.ph81, %.preheader, %27, %._crit_edge, %tailrecurse._crit_edge
+  %.047 = phi i32 [ %accumulator.tr76.lcssa, %._crit_edge ], [ -30, %tailrecurse._crit_edge ], [ %accumulator.tr76140, %27 ], [ %accumulator.tr76140, %.preheader ], [ %accumulator.tr76140, %.lr.ph81 ]
+  ret i32 %.047
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -7285,12 +7288,12 @@ membr_fill.exit.i33:                              ; preds = %110, %membr_bits.ex
   %124 = lshr i64 %121, %123
   %125 = trunc i64 %124 to i32
   %126 = and i32 %125, 15
+  %127 = or disjoint i32 %126, %96
   br label %membr_bits.exit39
 
 membr_bits.exit39:                                ; preds = %98, %membr_fill.exit.thread.i38, %membr_fill.exit.i33
-  %.0.i34 = phi i32 [ %126, %membr_fill.exit.i33 ], [ 0, %98 ], [ 0, %membr_fill.exit.thread.i38 ]
-  %127 = or disjoint i32 %.0.i34, %96
-  %128 = or disjoint i32 %127, -256
+  %.0.i34 = phi i32 [ %127, %membr_fill.exit.i33 ], [ %96, %98 ], [ %96, %membr_fill.exit.thread.i38 ]
+  %128 = add nuw nsw i32 %.0.i34, -256
   br label %membr_bits.exit19
 
 129:                                              ; preds = %membr_bits.exit

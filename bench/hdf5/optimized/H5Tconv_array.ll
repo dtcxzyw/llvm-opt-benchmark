@@ -206,7 +206,7 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   %102 = icmp uge i64 %97, %101
   %103 = icmp ne i64 %5, 0
   %or.cond5 = or i1 %103, %102
-  br i1 %or.cond5, label %113, label %104
+  br i1 %or.cond5, label %114, label %104
 
 104:                                              ; preds = %91
   %105 = add i64 %4, -1
@@ -221,22 +221,22 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 %110
   %.0130.ph = select i1 %.not, ptr null, ptr %111
   %112 = sub nsw i64 0, %97
+  %113 = sub nsw i64 0, %101
   br label %.thread213
 
-113:                                              ; preds = %91
+114:                                              ; preds = %91
   %.not168 = icmp eq i64 %5, 0
   %spec.select273 = select i1 %.not168, i64 %97, i64 %5
   %spec.select274 = select i1 %.not168, i64 %101, i64 %5
   br label %.thread213
 
-.thread213:                                       ; preds = %113, %104
-  %114 = phi i64 [ %112, %104 ], [ %spec.select273, %113 ]
-  %.0135189211 = phi ptr [ %107, %104 ], [ %7, %113 ]
-  %.0133191209 = phi ptr [ %109, %104 ], [ %7, %113 ]
-  %.0130193207 = phi ptr [ %.0130.ph, %104 ], [ %8, %113 ]
-  %.0126195205 = phi i64 [ -1, %104 ], [ 1, %113 ]
-  %115 = phi i64 [ %101, %104 ], [ %spec.select274, %113 ]
-  %116 = mul nsw i64 %115, %.0126195205
+.thread213:                                       ; preds = %114, %104
+  %115 = phi i64 [ %112, %104 ], [ %spec.select273, %114 ]
+  %.0135189211 = phi ptr [ %107, %104 ], [ %7, %114 ]
+  %.0133191209 = phi ptr [ %109, %104 ], [ %7, %114 ]
+  %.0130193207 = phi ptr [ %.0130.ph, %104 ], [ %8, %114 ]
+  %.0126195205 = phi i64 [ -1, %104 ], [ 1, %114 ]
+  %116 = phi i64 [ %113, %104 ], [ %spec.select274, %114 ]
   %.not169 = icmp eq i64 %6, 0
   %spec.select275 = select i1 %.not169, i64 %101, i64 %6
   %117 = mul nsw i64 %.0126195205, %spec.select275
@@ -343,7 +343,7 @@ define range(i32 -1, 1) i32 @H5T__conv_array(ptr noundef readonly captures(addre
   br i1 %173, label %179, label %174
 
 174:                                              ; preds = %.lr.ph
-  %175 = getelementptr inbounds i8, ptr %.1136276, i64 %114
+  %175 = getelementptr inbounds i8, ptr %.1136276, i64 %115
   %176 = getelementptr inbounds i8, ptr %.1134277, i64 %116
   %.not171 = icmp eq ptr %.1131278, null
   %177 = getelementptr inbounds i8, ptr %.1131278, i64 %117

@@ -6842,11 +6842,11 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
 
 ._crit_edge.us.loopexit:                          ; preds = %.lr.ph.us
   %157 = sitofp i32 %186 to float
+  %158 = fmul fast float %157, %154
   br label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %155
-  %.069.lcssa.us = phi float [ 0.000000e+00, %155 ], [ %157, %._crit_edge.us.loopexit ]
-  %158 = fmul fast float %.069.lcssa.us, %154
+  %.069.lcssa.us = phi float [ 0.000000e+00, %155 ], [ %158, %._crit_edge.us.loopexit ]
   switch i32 %147, label %.thread82.us [
     i32 0, label %.thread.us
     i32 1, label %167
@@ -6881,7 +6881,7 @@ define internal void @_ZN4ncnnL16gemm_transB_int8ERKNS_3MatES2_S2_fS2_RS0_ffiiRK
   %.4.us = phi nsz float [ %161, %159 ], [ %164, %162 ], [ %166, %165 ], [ %169, %.thread.us ], [ %168, %167 ], [ 0.000000e+00, %._crit_edge.us ]
   %170 = load float, ptr %12, align 4, !tbaa !63
   %171 = fmul fast float %170, %.4.us
-  %172 = fadd fast float %171, %158
+  %172 = fadd fast float %171, %.069.lcssa.us
   %173 = load float, ptr %13, align 4, !tbaa !63
   %174 = fmul fast float %173, %172
   br i1 %.not74, label %177, label %175

@@ -527,7 +527,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
 
 .preheader80:                                     ; preds = %25, %1
   %.not101 = icmp eq i32 %5, 0
-  br i1 %.not101, label %.critedge._crit_edge, label %.preheader79.lr.ph
+  br i1 %.not101, label %._crit_edge99, label %.preheader79.lr.ph
 
 .preheader79.lr.ph:                               ; preds = %.preheader80
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -599,7 +599,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   br i1 %exitcond113.not, label %._crit_edge.us, label %38, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %38
-  %48 = add i32 %.17485.us, 1
+  %48 = add nuw i32 %.17485.us, 1
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %13, i64 %49
   %51 = load i8, ptr %50, align 1, !tbaa !24, !range !25, !noundef !26
@@ -610,7 +610,7 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.17485 = phi i32 [ %54, %.preheader ], [ %.07393, %.preheader.lr.ph ]
-  %54 = add i32 %.17485, 1
+  %54 = add nuw i32 %.17485, 1
   %55 = zext i32 %54 to i64
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 %55
   %57 = load i8, ptr %56, align 1, !tbaa !24, !range !25, !noundef !26
@@ -772,33 +772,33 @@ define void @_ZN9RSCoder1619InvertDecoderMatrixEv(ptr noundef nonnull readonly a
   %158 = icmp ult i32 %157, %155
   br i1 %158, label %111, label %._crit_edge, !llvm.loop !42
 
-.critedge._crit_edge:                             ; preds = %._crit_edge, %.critedge, %.preheader80
-  %159 = phi i32 [ 0, %.preheader80 ], [ %106, %._crit_edge ], [ %31, %.critedge ]
-  %160 = phi i32 [ %3, %.preheader80 ], [ %107, %._crit_edge ], [ %32, %.critedge ]
+.critedge._crit_edge:                             ; preds = %._crit_edge, %.critedge
+  %159 = phi i32 [ %31, %.critedge ], [ %106, %._crit_edge ]
+  %160 = phi i32 [ %32, %.critedge ], [ %107, %._crit_edge ]
   %161 = mul i32 %159, %160
-  %.not106 = icmp eq i32 %161, 0
-  br i1 %.not106, label %._crit_edge99, label %.lr.ph98
+  %162 = icmp eq i32 %161, 0
+  br i1 %162, label %._crit_edge99, label %.lr.ph98
 
 .lr.ph98:                                         ; preds = %.critedge._crit_edge
-  %162 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %163 = load ptr, ptr %162, align 8, !tbaa !19
-  br label %164
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %164 = load ptr, ptr %163, align 8, !tbaa !19
+  br label %165
 
-164:                                              ; preds = %.lr.ph98, %164
-  %indvars.iv120 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next121, %164 ]
-  %165 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv120
-  %166 = load i32, ptr %165, align 4, !tbaa !15
-  %167 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv120
-  store i32 %166, ptr %167, align 4, !tbaa !15
+165:                                              ; preds = %.lr.ph98, %165
+  %indvars.iv120 = phi i64 [ 0, %.lr.ph98 ], [ %indvars.iv.next121, %165 ]
+  %166 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv120
+  %167 = load i32, ptr %166, align 4, !tbaa !15
+  %168 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv120
+  store i32 %167, ptr %168, align 4, !tbaa !15
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %168 = load i32, ptr %2, align 4, !tbaa !23
-  %169 = load i32, ptr %4, align 4, !tbaa !21
-  %170 = mul i32 %169, %168
-  %171 = zext i32 %170 to i64
-  %172 = icmp samesign ult i64 %indvars.iv.next121, %171
-  br i1 %172, label %164, label %._crit_edge99, !llvm.loop !43
+  %169 = load i32, ptr %2, align 4, !tbaa !23
+  %170 = load i32, ptr %4, align 4, !tbaa !21
+  %171 = mul i32 %170, %169
+  %172 = zext i32 %171 to i64
+  %173 = icmp samesign ult i64 %indvars.iv.next121, %172
+  br i1 %173, label %165, label %._crit_edge99, !llvm.loop !43
 
-._crit_edge99:                                    ; preds = %164, %.critedge._crit_edge
+._crit_edge99:                                    ; preds = %165, %.preheader80, %.critedge._crit_edge
   tail call void @_ZdaPv(ptr noundef nonnull %9) #8
   ret void
 }

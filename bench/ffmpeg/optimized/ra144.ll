@@ -860,18 +860,18 @@ ff_t_sqrt.exit.i:                                 ; preds = %47, %39
   %76 = shl i32 %.0.i.i.i, %.0.lcssa.i9.i
   %77 = ashr i32 %76, 8
   %78 = sdiv i32 536870912, %77
+  %79 = mul i32 %78, %5
+  %80 = lshr i32 %79, 12
   br label %ff_irms.exit
 
 ff_irms.exit:                                     ; preds = %ff_copy_and_dup.exit, %ff_t_sqrt.exit.i
-  %.0.i = phi i32 [ %78, %ff_t_sqrt.exit.i ], [ 0, %ff_copy_and_dup.exit ]
-  %79 = mul i32 %.0.i, %5
-  %80 = lshr i32 %79, 12
+  %.0.i = phi i32 [ %80, %ff_t_sqrt.exit.i ], [ 0, %ff_copy_and_dup.exit ]
   %81 = icmp eq i32 %11, 0
   %82 = zext i1 %81 to i64
   br label %83
 
 83:                                               ; preds = %7, %ff_irms.exit
-  %storemerge = phi i32 [ %80, %ff_irms.exit ], [ 0, %7 ]
+  %storemerge = phi i32 [ %.0.i, %ff_irms.exit ], [ 0, %7 ]
   %.0 = phi i64 [ %82, %ff_irms.exit ], [ 1, %7 ]
   store i32 %storemerge, ptr %9, align 4, !tbaa !8
   %84 = sext i32 %3 to i64

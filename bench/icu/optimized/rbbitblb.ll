@@ -2703,10 +2703,10 @@ define noundef zeroext i1 @_ZN6icu_7716RBBITableBuilder21findDuplCharClassFromEP
 .split.us.us:                                     ; preds = %22, %.lr.ph.split.us
   %27 = phi i32 [ %26, %22 ], [ %10, %.lr.ph.split.us ]
   %storemerge.in.us.us.pre = load i32, ptr %1, align 4, !tbaa !77
-  %storemerge.us.us72 = add nsw i32 %storemerge.in.us.us.pre, 1
-  store i32 %storemerge.us.us72, ptr %14, align 4, !tbaa !109
-  %.not38.us.us73 = icmp slt i32 %storemerge.us.us72, %27
-  br i1 %.not38.us.us73, label %.preheader.us.us, label %.critedge.split.us.us
+  %storemerge.us.us71 = add nsw i32 %storemerge.in.us.us.pre, 1
+  store i32 %storemerge.us.us71, ptr %14, align 4, !tbaa !109
+  %.not38.us.us72 = icmp slt i32 %storemerge.us.us71, %27
+  br i1 %.not38.us.us72, label %.preheader.us.us, label %.critedge.split.us.us
 
 28:                                               ; preds = %._crit_edge.us.us
   %storemerge.us.us = add nsw i32 %45, 1
@@ -2750,11 +2750,11 @@ _ZNK6icu_779UVector3210elementAtiEi.exit.us.us:   ; preds = %38, %.preheader.us.
   %51 = zext nneg i32 %45 to i64
   %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !77
+  %54 = xor i32 %53, %44
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit40.us.us
 
 _ZNK6icu_779UVector3210elementAtiEi.exit40.us.us: ; preds = %48, %_ZNK6icu_779UVector3210elementAtiEi.exit.us.us
-  %54 = phi i32 [ %53, %48 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.us.us ]
-  %55 = xor i32 %54, %44
+  %55 = phi i32 [ %54, %48 ], [ %44, %_ZNK6icu_779UVector3210elementAtiEi.exit.us.us ]
   %56 = and i32 %55, 65535
   %.not.us.us = icmp eq i32 %56, 0
   %57 = add nuw nsw i32 %.03143.us.us, 1
@@ -2770,8 +2770,8 @@ _ZNK6icu_779UVector3210elementAtiEi.exit40.us.us: ; preds = %48, %_ZNK6icu_779UV
   br i1 %.not.us.us, label %.loopexit, label %28, !llvm.loop !110
 
 .critedge.split.us.us:                            ; preds = %28, %.split.us.us
-  %.lcssa70 = phi i32 [ %storemerge.in.us.us.pre, %.split.us.us ], [ %33, %28 ]
-  %59 = add nsw i32 %.lcssa70, 1
+  %.lcssa69 = phi i32 [ %storemerge.in.us.us.pre, %.split.us.us ], [ %33, %28 ]
+  %59 = add nsw i32 %.lcssa69, 1
   store i32 %59, ptr %1, align 4, !tbaa !107
   %60 = icmp slt i32 %59, %11
   br i1 %60, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !111

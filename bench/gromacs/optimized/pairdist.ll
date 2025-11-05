@@ -1006,27 +1006,27 @@ _ZNSt12__shared_ptrIN3gmx22AnalysisDataPlotModuleELN9__gnu_cxx12_Lock_policyE2EE
 
 161:                                              ; preds = %154
   store double 0.000000e+00, ptr %156, align 8, !tbaa !143
-  br label %165
+  br label %167
 
 162:                                              ; preds = %154
   %163 = fmul double %159, %159
   %164 = fptrunc double %163 to float
-  br label %165
+  %165 = fmul double %159, %159
+  %166 = fptrunc double %165 to float
+  br label %167
 
-165:                                              ; preds = %162, %161
-  %166 = phi double [ %159, %162 ], [ 0.000000e+00, %161 ]
+167:                                              ; preds = %162, %161
+  %168 = phi float [ %166, %162 ], [ 0.000000e+00, %161 ]
   %.sink = phi float [ %164, %162 ], [ 0x47EFFFFFE0000000, %161 ]
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  store float %.sink, ptr %167, align 4, !tbaa !144
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %169 = load i32, ptr %168, align 8, !tbaa !136
-  %170 = icmp eq i32 %169, 1
-  %spec.store.select = select i1 %170, float 0.000000e+00, float %.sink
-  store float %spec.store.select, ptr %167, align 4
-  %171 = fmul double %166, %166
-  %172 = fptrunc double %171 to float
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 132
+  store float %.sink, ptr %169, align 4, !tbaa !144
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %171 = load i32, ptr %170, align 8, !tbaa !136
+  %172 = icmp eq i32 %171, 1
+  %spec.store.select = select i1 %172, float 0.000000e+00, float %.sink
+  store float %spec.store.select, ptr %169, align 4
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store float %172, ptr %173, align 8, !tbaa !145
+  store float %168, ptr %173, align 8, !tbaa !145
   ret void
 }
 

@@ -82053,52 +82053,51 @@ define hidden range(i40 0, 4328521728) i40 @_ZN11ruff_server7session12capabiliti
 "_ZN11ruff_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h4995c594080d29dfE.exit": ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hbbc3a1362a4c82d1E.exit.i"
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17ha9f3a99a12a897cbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %32 = and i1 %26, %11
   br label %.thread
 
 .thread:                                          ; preds = %1, %8, %"_ZN11ruff_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h4995c594080d29dfE.exit"
-  %.sroa.029.060 = phi i1 [ %11, %"_ZN11ruff_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h4995c594080d29dfE.exit" ], [ %11, %8 ], [ false, %1 ]
-  %.sroa.028.0 = phi i1 [ %26, %"_ZN11ruff_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h4995c594080d29dfE.exit" ], [ false, %8 ], [ false, %1 ]
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %33 = load i64, ptr %32, align 8, !range !3314, !noundef !3
-  %.not37 = icmp eq i64 %33, -9223372036854775806
-  br i1 %.not37, label %.thread77, label %34
+  %.sroa.029.060 = phi i1 [ %32, %"_ZN11ruff_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h4995c594080d29dfE.exit" ], [ false, %8 ], [ false, %1 ]
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %34 = load i64, ptr %33, align 8, !range !3314, !noundef !3
+  %.not37 = icmp eq i64 %34, -9223372036854775806
+  br i1 %.not37, label %.thread77, label %35
 
-34:                                               ; preds = %.thread
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 898
-  %36 = load i8, ptr %35, align 2, !range !2997, !noundef !3
-  %37 = and i8 %36, 1
-  %.not42 = icmp eq i64 %33, -9223372036854775807
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %39 = load i8, ptr %38, align 8, !range !2997
-  %40 = and i8 %39, 1
-  %41 = select i1 %.not42, i8 0, i8 %40
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 914
-  %43 = load i8, ptr %42, align 2, !range !3170, !noundef !3
-  %.not47 = icmp eq i8 %43, 3
-  %44 = and i8 %43, 1
-  %45 = select i1 %.not47, i8 0, i8 %44
+35:                                               ; preds = %.thread
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 898
+  %37 = load i8, ptr %36, align 2, !range !2997, !noundef !3
+  %38 = and i8 %37, 1
+  %.not42 = icmp eq i64 %34, -9223372036854775807
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %40 = load i8, ptr %39, align 8, !range !2997
+  %41 = and i8 %40, 1
+  %42 = select i1 %.not42, i8 0, i8 %41
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 914
+  %44 = load i8, ptr %43, align 2, !range !3170, !noundef !3
+  %.not47 = icmp eq i8 %44, 3
+  %45 = and i8 %44, 1
+  %46 = select i1 %.not47, i8 0, i8 %45
   br label %.thread77
 
-.thread77:                                        ; preds = %34, %.thread
-  %46 = phi i8 [ 0, %.thread ], [ %37, %34 ]
-  %47 = phi i8 [ 0, %.thread ], [ %41, %34 ]
-  %.sroa.019.0 = phi i8 [ 0, %.thread ], [ %45, %34 ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 586
-  %49 = load i8, ptr %48, align 2, !range !3170
-  %.not52 = icmp ne i8 %49, 3
+.thread77:                                        ; preds = %35, %.thread
+  %47 = phi i8 [ 0, %.thread ], [ %38, %35 ]
+  %48 = phi i8 [ 0, %.thread ], [ %42, %35 ]
+  %.sroa.019.0 = phi i8 [ 0, %.thread ], [ %46, %35 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 586
+  %50 = load i8, ptr %49, align 2, !range !3170
+  %.not52 = icmp ne i8 %50, 3
   %narrow = select i1 %.not, i1 %.not52, i1 false
-  %spec.select = and i1 %.sroa.029.060, %.sroa.028.0
   %.sroa.5.0.insert.shift = select i1 %narrow, i40 4294967296, i40 0
   %.sroa.4.0.insert.ext = zext nneg i8 %.sroa.019.0 to i40
   %.sroa.4.0.insert.shift = shl nuw nsw i40 %.sroa.4.0.insert.ext, 24
   %.sroa.4.0.insert.insert = or disjoint i40 %.sroa.5.0.insert.shift, %.sroa.4.0.insert.shift
-  %.sroa.3.0.insert.ext = zext nneg i8 %47 to i40
+  %.sroa.3.0.insert.ext = zext nneg i8 %48 to i40
   %.sroa.3.0.insert.shift = shl nuw nsw i40 %.sroa.3.0.insert.ext, 16
   %.sroa.3.0.insert.insert = or disjoint i40 %.sroa.4.0.insert.insert, %.sroa.3.0.insert.shift
-  %.sroa.2.0.insert.ext = zext nneg i8 %46 to i40
+  %.sroa.2.0.insert.ext = zext nneg i8 %47 to i40
   %.sroa.2.0.insert.shift = shl nuw nsw i40 %.sroa.2.0.insert.ext, 8
   %.sroa.2.0.insert.insert = or disjoint i40 %.sroa.3.0.insert.insert, %.sroa.2.0.insert.shift
-  %.sroa.0.0.insert.ext = zext i1 %spec.select to i40
+  %.sroa.0.0.insert.ext = zext i1 %.sroa.029.060 to i40
   %.sroa.0.0.insert.insert = or disjoint i40 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext
   ret i40 %.sroa.0.0.insert.insert
 }

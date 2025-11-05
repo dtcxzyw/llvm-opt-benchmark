@@ -783,7 +783,7 @@ define internal i32 @nv_mode_filter(ptr noundef %0, i32 noundef %1) #2 align 16 
   %33 = load i32, ptr %32, align 32
   %34 = and i32 %33, 524288
   %35 = icmp eq i32 %34, 0
-  br i1 %35, label %46, label %36
+  br i1 %35, label %47, label %36
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 15896
@@ -795,11 +795,11 @@ define internal i32 @nv_mode_filter(ptr noundef %0, i32 noundef %1) #2 align 16 
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 15912
   %44 = load i32, ptr %43, align 1
   %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32, ptr noundef nonnull @.str.4, i32 noundef %40, i32 noundef %42, i32 noundef %44) #8
-  br label %46
+  %46 = or i32 %38, %31
+  br label %47
 
-46:                                               ; preds = %36, %30
-  %47 = phi i32 [ %38, %36 ], [ 0, %30 ]
-  %48 = or i32 %47, %31
+47:                                               ; preds = %36, %30
+  %48 = phi i32 [ %46, %36 ], [ %31, %30 ]
   %49 = and i32 %48, 127
   %50 = icmp eq i32 %49, 0
   %51 = or disjoint i32 %48, 127

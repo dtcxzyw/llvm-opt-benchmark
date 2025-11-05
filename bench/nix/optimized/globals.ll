@@ -19185,7 +19185,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIjNS_14iterator_rangeIPKcEEEEbR
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %8, ptr %18, align 8
   %19 = invoke noundef zeroext i1 @_ZN5boost6detail18lcast_ret_unsignedISt11char_traitsIcEjcE7convertEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
-          to label %.noexc unwind label %32
+          to label %.noexc unwind label %33
 
 .noexc:                                           ; preds = %13
   br i1 %10, label %20, label %_ZN5boost10conversion6detail19try_lexical_convertIjNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.i.i
@@ -19229,33 +19229,32 @@ _ZN5boost10conversion6detail19try_lexical_convertIjNS_14iterator_rangeIPKcEEEEbR
   %30 = phi i32 [ %.pre.i.i, %_ZN5boost10conversion6detail19try_lexical_convertIjNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit._crit_edge.i.i ], [ %22, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %31 = zext i32 %30 to i64
+  %32 = or disjoint i64 %31, 4294967296
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
-32:                                               ; preds = %13
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %13
+  %34 = landingpad { ptr, i32 }
           catch ptr @_ZTIN5boost16bad_lexical_castE
   br label %.body
 
-.body:                                            ; preds = %27, %32
-  %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %28, %27 ]
-  %34 = extractvalue { ptr, i32 } %eh.lpad-body, 1
-  %35 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost16bad_lexical_castE) #31
-  %36 = icmp eq i32 %34, %35
-  br i1 %36, label %37, label %40
+.body:                                            ; preds = %27, %33
+  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %28, %27 ]
+  %35 = extractvalue { ptr, i32 } %eh.lpad-body, 1
+  %36 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN5boost16bad_lexical_castE) #31
+  %37 = icmp eq i32 %35, %36
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %.body
-  %38 = extractvalue { ptr, i32 } %eh.lpad-body, 0
-  %39 = call ptr @__cxa_begin_catch(ptr %38) #31
+38:                                               ; preds = %.body
+  %39 = extractvalue { ptr, i32 } %eh.lpad-body, 0
+  %40 = call ptr @__cxa_begin_catch(ptr %39) #31
   call void @__cxa_end_catch()
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
-_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %37, %29
-  %.sroa.06.0 = phi i64 [ 0, %37 ], [ %31, %29 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  %.sroa.27.0 = phi i64 [ 0, %37 ], [ 4294967296, %29 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
-  %.sroa.06.0.insert.insert = or disjoint i64 %.sroa.27.0, %.sroa.06.0
-  ret i64 %.sroa.06.0.insert.insert
+_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %38, %29
+  %.sroa.27.0 = phi i64 [ 0, %38 ], [ %32, %29 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ]
+  ret i64 %.sroa.27.0
 
-40:                                               ; preds = %.body
+41:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 

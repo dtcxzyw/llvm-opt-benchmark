@@ -5545,12 +5545,12 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us.loopexit: ; preds = %.lr.ph.i22.us
   %49 = sext i32 %48 to i64
+  %50 = mul nsw i64 %.0.lcssa.i, %49
   br label %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us
 
 _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us: ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us.loopexit, %.preheader.i.us, %35
-  %.024.i.us = phi i64 [ 0, %35 ], [ 1, %.preheader.i.us ], [ %49, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us.loopexit ]
-  %50 = mul nsw i64 %.024.i.us, %.0.lcssa.i
-  %51 = add i64 %50, %.01640.us
+  %.024.i.us = phi i64 [ 0, %35 ], [ %.0.lcssa.i, %.preheader.i.us ], [ %50, %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us.loopexit ]
+  %51 = add i64 %.024.i.us, %.01640.us
   br label %52
 
 52:                                               ; preds = %_ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit.us, %.lr.ph.split.us

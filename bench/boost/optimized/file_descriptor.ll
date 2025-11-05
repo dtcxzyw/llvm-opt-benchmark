@@ -188,7 +188,7 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_implD2Ev(ptr nou
   %8 = invoke i32 @close(i32 noundef %3)
           to label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit.sink.split unwind label %9
 
-_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit.sink.split: ; preds = %7, %4
+_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit.sink.split: ; preds = %4, %7
   store i32 -1, ptr %0, align 4, !tbaa !3
   store i32 0, ptr %2, align 4, !tbaa !8
   br label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit
@@ -209,27 +209,21 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl10close_impl
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %.not4 = icmp eq i32 %5, -1
-  br i1 %.not4, label %16, label %6
+  br i1 %.not4, label %17, label %6
 
 6:                                                ; preds = %3
-  br i1 %1, label %8, label %.thread
+  br i1 %1, label %7, label %.critedge
 
-.thread:                                          ; preds = %6
-  store i32 -1, ptr %0, align 4, !tbaa !3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %7, align 4, !tbaa !8
-  br label %16
-
-8:                                                ; preds = %6
-  %9 = tail call i32 @close(i32 noundef %5)
-  %10 = icmp eq i32 %9, -1
+7:                                                ; preds = %6
+  %8 = tail call i32 @close(i32 noundef %5)
+  %9 = icmp eq i32 %8, -1
+  %10 = and i1 %2, %9
   store i32 -1, ptr %0, align 4, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %11, align 4, !tbaa !8
-  %or.cond = and i1 %2, %10
-  br i1 %or.cond, label %12, label %16
+  br i1 %10, label %12, label %17
 
-12:                                               ; preds = %8
+12:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5boost9iostreams6detail14system_failureB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::ios_base::failure") align 8 %4, ptr noundef nonnull @.str.2)
   invoke void @_ZN5boost15throw_exceptionINSt8ios_base7failureB5cxx11EEEvRKT_(ptr noundef nonnull align 8 dereferenceable(32) %4) #27
@@ -245,7 +239,13 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl10close_impl
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %15
 
-16:                                               ; preds = %.thread, %8, %3
+.critedge:                                        ; preds = %6
+  store i32 -1, ptr %0, align 4, !tbaa !3
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %16, align 4, !tbaa !8
+  br label %17
+
+17:                                               ; preds = %7, %.critedge, %3
   ret void
 }
 
@@ -340,12 +340,7 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv(ptr
   %6 = load i32, ptr %3, align 4, !tbaa !8
   %7 = and i32 %6, 2
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %.thread.i, label %8
-
-.thread.i:                                        ; preds = %5
-  store i32 -1, ptr %0, align 4, !tbaa !3
-  store i32 0, ptr %3, align 4, !tbaa !8
-  br label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit
+  br i1 %.not, label %.critedge.i, label %8
 
 8:                                                ; preds = %5
   %9 = tail call i32 @close(i32 noundef %4)
@@ -370,7 +365,12 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv(ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %14
 
-_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = %1, %.thread.i, %8
+.critedge.i:                                      ; preds = %5
+  store i32 -1, ptr %0, align 4, !tbaa !3
+  store i32 0, ptr %3, align 4, !tbaa !8
+  br label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit
+
+_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = %1, %8, %.critedge.i
   ret void
 }
 
@@ -390,12 +390,7 @@ define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl4openERKNS1_
   %12 = load i32, ptr %9, align 4, !tbaa !8
   %13 = and i32 %12, 1
   %.not43 = icmp eq i32 %13, 0
-  br i1 %.not43, label %.thread.i, label %14
-
-.thread.i:                                        ; preds = %11
-  store i32 -1, ptr %0, align 4, !tbaa !3
-  store i32 0, ptr %9, align 4, !tbaa !8
-  br label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit
+  br i1 %.not43, label %.critedge.i, label %14
 
 14:                                               ; preds = %11
   %15 = tail call i32 @close(i32 noundef %10)
@@ -424,7 +419,12 @@ common.resume:                                    ; preds = %28, %54, %44, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %common.resume
 
-_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = %3, %.thread.i, %14
+.critedge.i:                                      ; preds = %11
+  store i32 -1, ptr %0, align 4, !tbaa !3
+  store i32 0, ptr %9, align 4, !tbaa !8
+  br label %_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit
+
+_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = %3, %14, %.critedge.i
   %21 = and i32 %2, 25
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %25, label %22
@@ -1353,12 +1353,7 @@ define void @_ZN5boost9iostreams15file_descriptor5closeEv(ptr noundef nonnull re
   %7 = load i32, ptr %4, align 4, !tbaa !8
   %8 = and i32 %7, 2
   %.not.i = icmp eq i32 %8, 0
-  br i1 %.not.i, label %.thread.i.i, label %9
-
-.thread.i.i:                                      ; preds = %6
-  store i32 -1, ptr %3, align 4, !tbaa !3
-  store i32 0, ptr %4, align 4, !tbaa !8
-  br label %_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv.exit
+  br i1 %.not.i, label %.critedge.i.i, label %9
 
 9:                                                ; preds = %6
   %10 = tail call i32 @close(i32 noundef %5)
@@ -1383,7 +1378,12 @@ define void @_ZN5boost9iostreams15file_descriptor5closeEv(ptr noundef nonnull re
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %15
 
-_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv.exit: ; preds = %1, %.thread.i.i, %9
+.critedge.i.i:                                    ; preds = %6
+  store i32 -1, ptr %3, align 4, !tbaa !3
+  store i32 0, ptr %4, align 4, !tbaa !8
+  br label %_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv.exit
+
+_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv.exit: ; preds = %1, %9, %.critedge.i.i
   ret void
 }
 

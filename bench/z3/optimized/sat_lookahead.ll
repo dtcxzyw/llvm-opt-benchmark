@@ -3592,14 +3592,13 @@ _ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread: ; preds = %_ZN
   %82 = getelementptr inbounds i8, ptr %79, i64 -4
   %83 = load i32, ptr %82, align 4, !tbaa !87
   %84 = icmp eq i32 %83, 0
-  br label %_ZNK16tracked_uint_set5emptyEv.exit45
+  %85 = and i1 %2, %84
+  br i1 %85, label %86, label %.loopexit
 
-_ZNK16tracked_uint_set5emptyEv.exit45:            ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread, %81
-  %85 = phi i1 [ true, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread ], [ %84, %81 ]
-  %or.cond3 = and i1 %2, %85
-  br i1 %or.cond3, label %86, label %.loopexit
+_ZNK16tracked_uint_set5emptyEv.exit45:            ; preds = %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit.thread
+  br i1 %2, label %86, label %.loopexit
 
-86:                                               ; preds = %_ZNK16tracked_uint_set5emptyEv.exit45
+86:                                               ; preds = %81, %_ZNK16tracked_uint_set5emptyEv.exit45
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %89 = load ptr, ptr %88, align 8, !tbaa !91
@@ -3662,8 +3661,8 @@ _ZN6vectorIN3sat9lookahead9candidateELb0EjE9push_backEOS2_.exit49: ; preds = %10
   %.not42 = icmp eq ptr %119, %92
   br i1 %.not42, label %.loopexit, label %94
 
-.loopexit:                                        ; preds = %_ZN6vectorIN3sat9lookahead9candidateELb0EjE9push_backEOS2_.exit49, %86, %_ZNK16tracked_uint_set5emptyEv.exit45, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit
-  %.3 = phi double [ %.0, %_ZNK16tracked_uint_set5emptyEv.exit45 ], [ %.0, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit ], [ %.0, %86 ], [ %118, %_ZN6vectorIN3sat9lookahead9candidateELb0EjE9push_backEOS2_.exit49 ]
+.loopexit:                                        ; preds = %_ZN6vectorIN3sat9lookahead9candidateELb0EjE9push_backEOS2_.exit49, %81, %86, %_ZNK16tracked_uint_set5emptyEv.exit45, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit
+  %.3 = phi double [ %.0, %_ZNK16tracked_uint_set5emptyEv.exit45 ], [ %.0, %_ZNK6vectorIN3sat9lookahead9candidateELb0EjE5emptyEv.exit ], [ %.0, %86 ], [ %.0, %81 ], [ %118, %_ZN6vectorIN3sat9lookahead9candidateELb0EjE9push_backEOS2_.exit49 ]
   %.not43 = icmp eq i32 %.035, 0
   br i1 %.not43, label %152, label %120
 

@@ -26,8 +26,7 @@ $_ZN4absl12lts_2024072216strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_i
 @.str.9 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.10 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_xds_health_status.cc, ptr null }]
-@switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj = private unnamed_addr constant [4 x i64] [i64 0, i64 1, i64 0, i64 2], align 8
-@switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj.1 = private unnamed_addr constant [4 x i64] [i64 4294967296, i64 4294967296, i64 0, i64 4294967296], align 8
+@switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj = private unnamed_addr constant [4 x i64] [i64 4294967296, i64 4294967297, i64 0, i64 4294967298], align 8
 @switch.table._ZNK9grpc_core18XdsHealthStatusSet8ToStringB5cxx11Ev = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -39,27 +38,23 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i64 0, 4294967300) i64 @_ZN9grpc_core15XdsHealthStatus7FromUpbEj(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 4294967299) i64 @_ZN9grpc_core15XdsHealthStatus7FromUpbEj(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = icmp ult i32 %0, 4
-  br i1 %2, label %switch.lookup, label %6
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i32 %0 to i64
-  %switch.gep4 = getelementptr inbounds nuw i64, ptr @switch.table._ZN9grpc_core15XdsHealthStatus7FromUpbEj.1, i64 %4
-  %switch.load5 = load i64, ptr %switch.gep4, align 8
-  %5 = or disjoint i64 %switch.load5, %switch.load
-  br label %6
+  br label %4
 
-6:                                                ; preds = %1, %switch.lookup
-  %.sroa.03.0.insert.insert = phi i64 [ %5, %switch.lookup ], [ 0, %1 ]
-  ret i64 %.sroa.03.0.insert.insert
+4:                                                ; preds = %1, %switch.lookup
+  %.sroa.4.0 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1 ]
+  ret i64 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 4294967300) i64 @_ZN9grpc_core15XdsHealthStatus10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 0, 4294967299) i64 @_ZN9grpc_core15XdsHealthStatus10FromStringESt17basic_string_viewIcSt11char_traitsIcEE(i64 %0, ptr readonly captures(none) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   switch i64 %0, label %6 [
     i64 7, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i
     i64 8, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12
@@ -84,10 +79,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12: ; preds = %2
   br label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
 
 _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i, %6
-  %.sroa.023.0 = phi i64 [ 0, %6 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 1, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ 2, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ]
-  %.sroa.4.0 = phi i64 [ 0, %6 ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ]
-  %.sroa.023.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.023.0
-  ret i64 %.sroa.023.0.insert.insert
+  %.sroa.4.0 = phi i64 [ 0, %6 ], [ 4294967296, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i ], [ 4294967297, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i8 ], [ 4294967298, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i12 ]
+  ret i64 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

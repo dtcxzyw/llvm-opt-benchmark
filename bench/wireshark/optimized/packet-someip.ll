@@ -9442,13 +9442,13 @@ define internal fastcc noundef ptr @update_dynamic_hf_entry(ptr noundef writeonl
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %get_typedef_config.exit.thread.i
   %11 = phi ptr [ %22, %get_typedef_config.exit.thread.i ], [ %9, %.lr.ph.i ]
-  %.03765.i = phi i32 [ %23, %get_typedef_config.exit.thread.i ], [ 10, %.lr.ph.i ]
-  %.03864.i = phi i32 [ %.139.i, %get_typedef_config.exit.thread.i ], [ %3, %.lr.ph.i ]
+  %.03764.i = phi i32 [ %23, %get_typedef_config.exit.thread.i ], [ 10, %.lr.ph.i ]
+  %.03863.i = phi i32 [ %.139.i, %get_typedef_config.exit.thread.i ], [ %3, %.lr.ph.i ]
   %12 = icmp eq ptr %11, null
   br i1 %12, label %get_typedef_config.exit.thread.i, label %get_typedef_config.exit.i
 
 get_typedef_config.exit.i:                        ; preds = %.lr.ph.split.i
-  %13 = zext i32 %.03864.i to i64
+  %13 = zext i32 %.03863.i to i64
   %14 = inttoptr i64 %13 to ptr
   %15 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %11, ptr noundef %14)
   %.not49.i = icmp eq ptr %15, null
@@ -9465,11 +9465,11 @@ get_typedef_config.exit.i:                        ; preds = %.lr.ph.split.i
 
 get_typedef_config.exit.thread.i:                 ; preds = %16, %get_typedef_config.exit.i, %.lr.ph.split.i
   %22 = phi ptr [ %.pre.i, %16 ], [ %.pre.i, %get_typedef_config.exit.i ], [ null, %.lr.ph.split.i ]
-  %.139.i = phi i32 [ %21, %16 ], [ %.03864.i, %get_typedef_config.exit.i ], [ %.03864.i, %.lr.ph.split.i ]
+  %.139.i = phi i32 [ %21, %16 ], [ %.03863.i, %get_typedef_config.exit.i ], [ %.03863.i, %.lr.ph.split.i ]
   %.1.i = phi i8 [ %19, %16 ], [ 6, %get_typedef_config.exit.i ], [ 6, %.lr.ph.split.i ]
-  %23 = add nsw i32 %.03765.i, -1
+  %23 = add nsw i32 %.03764.i, -1
   %24 = icmp eq i8 %.1.i, 6
-  %25 = icmp samesign ugt i32 %.03765.i, 1
+  %25 = icmp samesign ugt i32 %.03764.i, 1
   %26 = select i1 %24, i1 %25, i1 false
   br i1 %26, label %.lr.ph.split.i, label %._crit_edge.i, !llvm.loop !35
 
@@ -9527,14 +9527,14 @@ get_string_config.exit.i:                         ; preds = %41
 50:                                               ; preds = %40
   %51 = load ptr, ptr @data_someip_parameter_base_type_list, align 8
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %get_base_type_config.exit.thread.i, label %get_base_type_config.exit.i
+  br i1 %52, label %get_param_attributes.exit.thread, label %get_base_type_config.exit.i
 
 get_base_type_config.exit.i:                      ; preds = %50
   %53 = zext i32 %.240.i to i64
   %54 = inttoptr i64 %53 to ptr
   %55 = tail call ptr @g_hash_table_lookup(ptr noundef nonnull %51, ptr noundef %54)
   %.not47.i = icmp eq ptr %55, null
-  br i1 %.not47.i, label %get_base_type_config.exit.thread.i, label %56
+  br i1 %.not47.i, label %get_param_attributes.exit.thread, label %56
 
 56:                                               ; preds = %get_base_type_config.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -9543,170 +9543,162 @@ get_base_type_config.exit.i:                      ; preds = %50
   %60 = load ptr, ptr %59, align 8
   %61 = tail call i32 @g_strcmp0(ptr noundef %60, ptr noundef nonnull @.str.432)
   %62 = icmp eq i32 %61, 0
-  br i1 %62, label %get_base_type_config.exit.thread.i, label %63
+  br i1 %62, label %get_param_attributes.exit, label %63
 
 63:                                               ; preds = %56
   %64 = load ptr, ptr %59, align 8
   %65 = tail call i32 @g_strcmp0(ptr noundef %64, ptr noundef nonnull @.str.433)
   %66 = icmp eq i32 %65, 0
-  br i1 %66, label %get_base_type_config.exit.thread.i, label %67
+  br i1 %66, label %get_param_attributes.exit, label %67
 
 67:                                               ; preds = %63
   %68 = load ptr, ptr %59, align 8
   %69 = tail call i32 @g_strcmp0(ptr noundef %68, ptr noundef nonnull @.str.434)
   %70 = icmp eq i32 %69, 0
-  br i1 %70, label %get_base_type_config.exit.thread.i, label %71
+  br i1 %70, label %get_param_attributes.exit, label %71
 
 71:                                               ; preds = %67
   %72 = load ptr, ptr %59, align 8
   %73 = tail call i32 @g_strcmp0(ptr noundef %72, ptr noundef nonnull @.str.435)
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %get_base_type_config.exit.thread.i, label %75
+  br i1 %74, label %get_param_attributes.exit, label %75
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr %59, align 8
   %77 = tail call i32 @g_strcmp0(ptr noundef %76, ptr noundef nonnull @.str.436)
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %get_base_type_config.exit.thread.i, label %79
+  br i1 %78, label %get_param_attributes.exit, label %79
 
 79:                                               ; preds = %75
   %80 = load ptr, ptr %59, align 8
   %81 = tail call i32 @g_strcmp0(ptr noundef %80, ptr noundef nonnull @.str.437)
   %82 = icmp eq i32 %81, 0
-  br i1 %82, label %get_base_type_config.exit.thread.i, label %83
+  br i1 %82, label %get_param_attributes.exit, label %83
 
 83:                                               ; preds = %79
   %84 = load ptr, ptr %59, align 8
   %85 = tail call i32 @g_strcmp0(ptr noundef %84, ptr noundef nonnull @.str.438)
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %get_base_type_config.exit.thread.i, label %87
+  br i1 %86, label %get_param_attributes.exit, label %87
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr %59, align 8
   %89 = tail call i32 @g_strcmp0(ptr noundef %88, ptr noundef nonnull @.str.439)
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %get_base_type_config.exit.thread.i, label %91
+  br i1 %90, label %get_param_attributes.exit, label %91
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %59, align 8
   %93 = tail call i32 @g_strcmp0(ptr noundef %92, ptr noundef nonnull @.str.440)
   %94 = icmp eq i32 %93, 0
-  br i1 %94, label %get_base_type_config.exit.thread.i, label %95
+  br i1 %94, label %get_param_attributes.exit, label %95
 
 95:                                               ; preds = %91
   %96 = load ptr, ptr %59, align 8
   %97 = tail call i32 @g_strcmp0(ptr noundef %96, ptr noundef nonnull @.str.441)
   %98 = icmp eq i32 %97, 0
-  br i1 %98, label %get_base_type_config.exit.thread.i, label %99
+  br i1 %98, label %get_param_attributes.exit, label %99
 
 99:                                               ; preds = %95
   %100 = load ptr, ptr %59, align 8
   %101 = tail call i32 @g_strcmp0(ptr noundef %100, ptr noundef nonnull @.str.442)
   %102 = icmp eq i32 %101, 0
-  br i1 %102, label %get_base_type_config.exit.thread.i, label %103
+  br i1 %102, label %get_param_attributes.exit, label %103
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %59, align 8
   %105 = tail call i32 @g_strcmp0(ptr noundef %104, ptr noundef nonnull @.str.443)
   %106 = icmp eq i32 %105, 0
-  br i1 %106, label %get_base_type_config.exit.thread.i, label %107
+  br i1 %106, label %get_param_attributes.exit, label %107
 
 107:                                              ; preds = %103
   %108 = load ptr, ptr %59, align 8
   %109 = tail call i32 @g_strcmp0(ptr noundef %108, ptr noundef nonnull @.str.444)
   %110 = icmp eq i32 %109, 0
-  br i1 %110, label %get_base_type_config.exit.thread.i, label %111
+  br i1 %110, label %get_param_attributes.exit, label %111
 
 111:                                              ; preds = %107
   %112 = load ptr, ptr %59, align 8
   %113 = tail call i32 @g_strcmp0(ptr noundef %112, ptr noundef nonnull @.str.445)
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %get_base_type_config.exit.thread.i, label %115
+  br i1 %114, label %get_param_attributes.exit, label %115
 
 115:                                              ; preds = %111
   %116 = load ptr, ptr %59, align 8
   %117 = tail call i32 @g_strcmp0(ptr noundef %116, ptr noundef nonnull @.str.446)
   %118 = icmp eq i32 %117, 0
-  br i1 %118, label %get_base_type_config.exit.thread.i, label %119
+  br i1 %118, label %get_param_attributes.exit, label %119
 
 119:                                              ; preds = %115
   %120 = load ptr, ptr %59, align 8
   %121 = tail call i32 @g_strcmp0(ptr noundef %120, ptr noundef nonnull @.str.447)
   %122 = icmp eq i32 %121, 0
-  br i1 %122, label %get_base_type_config.exit.thread.i, label %123
+  br i1 %122, label %get_param_attributes.exit, label %123
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %59, align 8
   %125 = tail call i32 @g_strcmp0(ptr noundef %124, ptr noundef nonnull @.str.448)
   %126 = icmp eq i32 %125, 0
-  br i1 %126, label %get_base_type_config.exit.thread.i, label %127
+  br i1 %126, label %get_param_attributes.exit, label %127
 
 127:                                              ; preds = %123
   %128 = load ptr, ptr %59, align 8
   %129 = tail call i32 @g_strcmp0(ptr noundef %128, ptr noundef nonnull @.str.449)
   %130 = icmp eq i32 %129, 0
-  %..i = select i1 %130, i64 23, i64 0
-  %.50.i = select i1 %130, i64 0, i64 4294967296
-  br label %get_base_type_config.exit.thread.i
-
-get_base_type_config.exit.thread.i:               ; preds = %127, %123, %119, %115, %111, %107, %103, %99, %95, %91, %87, %83, %79, %75, %71, %67, %63, %56, %get_base_type_config.exit.i, %50
-  %.sroa.0.2.i = phi i64 [ 4, %56 ], [ 5, %63 ], [ 6, %67 ], [ 7, %71 ], [ 8, %75 ], [ 9, %79 ], [ 10, %83 ], [ 11, %87 ], [ 12, %91 ], [ 13, %95 ], [ 14, %99 ], [ 15, %103 ], [ 16, %107 ], [ 17, %111 ], [ 18, %115 ], [ 19, %119 ], [ 22, %123 ], [ %..i, %127 ], [ 0, %get_base_type_config.exit.i ], [ 0, %50 ]
-  %.sroa.23.2.i = phi i64 [ 4294967296, %56 ], [ 4294967296, %63 ], [ 4294967296, %67 ], [ 4294967296, %71 ], [ 4294967296, %75 ], [ 4294967296, %79 ], [ 4294967296, %83 ], [ 4294967296, %87 ], [ 4294967296, %91 ], [ 4294967296, %95 ], [ 4294967296, %99 ], [ 4294967296, %103 ], [ 4294967296, %107 ], [ 4294967296, %111 ], [ 4294967296, %115 ], [ 4294967296, %119 ], [ 0, %123 ], [ %.50.i, %127 ], [ 4294967296, %get_base_type_config.exit.i ], [ 4294967296, %50 ]
-  %.sroa.28.3.i = phi ptr [ %58, %56 ], [ %58, %63 ], [ %58, %67 ], [ %58, %71 ], [ %58, %75 ], [ %58, %79 ], [ %58, %83 ], [ %58, %87 ], [ %58, %91 ], [ %58, %95 ], [ %58, %99 ], [ %58, %103 ], [ %58, %107 ], [ %58, %111 ], [ %58, %115 ], [ %58, %119 ], [ %58, %123 ], [ %58, %127 ], [ null, %get_base_type_config.exit.i ], [ null, %50 ]
-  %131 = or disjoint i64 %.sroa.23.2.i, %.sroa.0.2.i
+  %..i = select i1 %130, i64 23, i64 4294967296
   br label %get_param_attributes.exit
 
-get_param_attributes.exit:                        ; preds = %41, %get_string_config.exit.i, %47, %get_base_type_config.exit.thread.i
-  %.sroa.28.1.i = phi ptr [ %49, %47 ], [ null, %get_string_config.exit.i ], [ %.sroa.28.3.i, %get_base_type_config.exit.thread.i ], [ null, %41 ]
-  %.sroa.0.0.insert.insert.i = phi i64 [ 26, %47 ], [ 26, %get_string_config.exit.i ], [ %131, %get_base_type_config.exit.thread.i ], [ 26, %41 ]
-  %132 = icmp eq ptr %0, null
-  %133 = and i64 %.sroa.0.0.insert.insert.i, 4294967295
-  %134 = icmp eq i64 %133, 0
-  %or.cond = select i1 %132, i1 true, i1 %134
-  br i1 %or.cond, label %get_param_attributes.exit.thread, label %135
+get_param_attributes.exit:                        ; preds = %41, %get_string_config.exit.i, %47, %56, %63, %67, %71, %75, %79, %83, %87, %91, %95, %99, %103, %107, %111, %115, %119, %123, %127
+  %.sroa.28.1.i = phi ptr [ %49, %47 ], [ null, %get_string_config.exit.i ], [ %58, %56 ], [ %58, %63 ], [ %58, %67 ], [ %58, %71 ], [ %58, %75 ], [ %58, %79 ], [ %58, %83 ], [ %58, %87 ], [ %58, %91 ], [ %58, %95 ], [ %58, %99 ], [ %58, %103 ], [ %58, %107 ], [ %58, %111 ], [ %58, %115 ], [ %58, %119 ], [ %58, %123 ], [ %58, %127 ], [ null, %41 ]
+  %.sroa.0.0.insert.insert.i = phi i64 [ 26, %47 ], [ 26, %get_string_config.exit.i ], [ 4294967300, %56 ], [ 4294967301, %63 ], [ 4294967302, %67 ], [ 4294967303, %71 ], [ 4294967304, %75 ], [ 4294967305, %79 ], [ 4294967306, %83 ], [ 4294967307, %87 ], [ 4294967308, %91 ], [ 4294967309, %95 ], [ 4294967310, %99 ], [ 4294967311, %103 ], [ 4294967312, %107 ], [ 4294967313, %111 ], [ 4294967314, %115 ], [ 4294967315, %119 ], [ 22, %123 ], [ %..i, %127 ], [ 26, %41 ]
+  %131 = icmp eq ptr %0, null
+  %132 = and i64 %.sroa.0.0.insert.insert.i, 31
+  %133 = icmp eq i64 %132, 0
+  %or.cond = select i1 %131, i1 true, i1 %133
+  br i1 %or.cond, label %get_param_attributes.exit.thread, label %134
 
-135:                                              ; preds = %get_param_attributes.exit
-  %136 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
-  store i32 0, ptr %136, align 4
-  %137 = sext i32 %1 to i64
-  %138 = getelementptr %struct.hf_register_info, ptr %0, i64 %137
-  store ptr %136, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
-  %140 = getelementptr inbounds nuw i8, ptr %138, i64 32
-  %141 = icmp eq ptr %.sroa.28.1.i, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %140, i8 0, i64 24, i1 false)
-  br i1 %141, label %142, label %144
+134:                                              ; preds = %get_param_attributes.exit
+  %135 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
+  store i32 0, ptr %135, align 4
+  %136 = sext i32 %1 to i64
+  %137 = getelementptr %struct.hf_register_info, ptr %0, i64 %136
+  store ptr %135, ptr %137, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 32
+  %140 = icmp eq ptr %.sroa.28.1.i, null
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %139, i8 0, i64 24, i1 false)
+  br i1 %140, label %141, label %143
 
-142:                                              ; preds = %135
-  %143 = tail call noalias ptr @g_strdup(ptr noundef %4)
-  br label %146
+141:                                              ; preds = %134
+  %142 = tail call noalias ptr @g_strdup(ptr noundef %4)
+  br label %145
 
-144:                                              ; preds = %135
-  %145 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.360, ptr noundef %4, ptr noundef nonnull %.sroa.28.1.i)
-  br label %146
+143:                                              ; preds = %134
+  %144 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.360, ptr noundef %4, ptr noundef nonnull %.sroa.28.1.i)
+  br label %145
 
-146:                                              ; preds = %144, %142
-  %storemerge = phi ptr [ %145, %144 ], [ %143, %142 ]
-  store ptr %storemerge, ptr %139, align 8
-  %147 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.397, ptr noundef %5)
-  %148 = getelementptr inbounds nuw i8, ptr %138, i64 16
-  store ptr %147, ptr %148, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %138, i64 24
-  store i64 %.sroa.0.0.insert.insert.i, ptr %149, align 8
-  %150 = getelementptr inbounds nuw i8, ptr %138, i64 56
-  store i32 -1, ptr %150, align 8
-  %151 = getelementptr inbounds nuw i8, ptr %138, i64 60
-  store i32 0, ptr %151, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %138, i64 64
-  store i32 0, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %138, i64 68
-  store i32 -1, ptr %153, align 4
-  %154 = getelementptr inbounds nuw i8, ptr %138, i64 72
-  store ptr null, ptr %154, align 8
+145:                                              ; preds = %143, %141
+  %storemerge = phi ptr [ %144, %143 ], [ %142, %141 ]
+  store ptr %storemerge, ptr %138, align 8
+  %146 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.431, ptr noundef nonnull @.str.397, ptr noundef %5)
+  %147 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  store ptr %146, ptr %147, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %137, i64 24
+  store i64 %.sroa.0.0.insert.insert.i, ptr %148, align 8
+  %149 = getelementptr inbounds nuw i8, ptr %137, i64 56
+  store i32 -1, ptr %149, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %137, i64 60
+  store i32 0, ptr %150, align 4
+  %151 = getelementptr inbounds nuw i8, ptr %137, i64 64
+  store i32 0, ptr %151, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %137, i64 68
+  store i32 -1, ptr %152, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %137, i64 72
+  store ptr null, ptr %153, align 8
   br label %get_param_attributes.exit.thread
 
-get_param_attributes.exit.thread:                 ; preds = %.lr.ph.i, %28, %get_enum_config.exit.i, %40, %get_param_attributes.exit, %146
-  %.0 = phi ptr [ %136, %146 ], [ null, %get_param_attributes.exit ], [ null, %40 ], [ null, %get_enum_config.exit.i ], [ null, %28 ], [ null, %.lr.ph.i ]
+get_param_attributes.exit.thread:                 ; preds = %.lr.ph.i, %50, %28, %get_enum_config.exit.i, %get_base_type_config.exit.i, %40, %get_param_attributes.exit, %145
+  %.0 = phi ptr [ %135, %145 ], [ null, %get_param_attributes.exit ], [ null, %40 ], [ null, %get_base_type_config.exit.i ], [ null, %get_enum_config.exit.i ], [ null, %28 ], [ null, %50 ], [ null, %.lr.ph.i ]
   ret ptr %.0
 }
 

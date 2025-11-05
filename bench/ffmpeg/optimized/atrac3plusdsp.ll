@@ -527,7 +527,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 
 ._crit_edge107:                                   ; preds = %6
   %.pre = sext i32 %5 to i64
-  br label %17
+  br label %18
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -536,15 +536,15 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
   %14 = load i8, ptr %13, align 1, !tbaa !34
   %15 = icmp ne i8 %14, 0
   %16 = zext i1 %15 to i32
-  br label %17
+  %17 = xor i32 %2, %16
+  br label %18
 
-17:                                               ; preds = %._crit_edge107, %10
+18:                                               ; preds = %._crit_edge107, %10
   %.pre-phi = phi i64 [ %.pre, %._crit_edge107 ], [ %12, %10 ]
-  %18 = phi i32 [ 0, %._crit_edge107 ], [ %16, %10 ]
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = xor i32 %18, %2
-  %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.Atrac3pChanParams, ptr %19, i64 %21
+  %19 = phi i32 [ %2, %._crit_edge107 ], [ %17, %10 ]
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %21 = sext i32 %19 to i64
+  %22 = getelementptr inbounds %struct.Atrac3pChanParams, ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4500
   %24 = getelementptr inbounds i8, ptr @subband_to_powgrp, i64 %.pre-phi
   %25 = load i8, ptr %24, align 1, !tbaa !34
@@ -554,9 +554,9 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
   %29 = icmp eq i8 %28, 15
   br i1 %29, label %.loopexit, label %.preheader82
 
-.preheader82:                                     ; preds = %17, %.preheader82
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader82 ], [ 0, %17 ]
-  %.084 = phi i32 [ %35, %.preheader82 ], [ %4, %17 ]
+.preheader82:                                     ; preds = %18, %.preheader82
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader82 ], [ 0, %18 ]
+  %.084 = phi i32 [ %35, %.preheader82 ], [ %4, %18 ]
   %30 = and i32 %.084, 1023
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw float, ptr @noise_tab, i64 %31
@@ -649,7 +649,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 
 .lr.ph93:                                         ; preds = %._crit_edge
   %77 = sext i32 %2 to i64
-  %78 = getelementptr inbounds %struct.Atrac3pChanParams, ptr %19, i64 %77
+  %78 = getelementptr inbounds %struct.Atrac3pChanParams, ptr %20, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 148
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -698,7 +698,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
   %115 = icmp samesign ult i64 %indvars.iv.next105, %85
   br i1 %115, label %86, label %.loopexit, !llvm.loop !66
 
-.loopexit:                                        ; preds = %114, %._crit_edge, %17
+.loopexit:                                        ; preds = %114, %._crit_edge, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

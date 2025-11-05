@@ -34,7 +34,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
 16:                                               ; preds = %11, %2
   %17 = fmul double %0, %1
   %18 = fdiv double %17, %17
-  br label %160
+  br label %161
 
 19:                                               ; preds = %11
   %.not = icmp samesign ugt i32 %6, %7
@@ -44,7 +44,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %21 = icmp samesign ult i32 %6, %7
   %22 = icmp ult i32 %.sroa.04.0.extract.trunc, %.sroa.03.0.extract.trunc
   %or.cond183 = or i1 %22, %21
-  br i1 %or.cond183, label %160, label %23
+  br i1 %or.cond183, label %161, label %23
 
 23:                                               ; preds = %20
   %24 = icmp eq i32 %.sroa.04.0.extract.trunc, %.sroa.03.0.extract.trunc
@@ -54,7 +54,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %26 = lshr i64 %3, 63
   %27 = getelementptr inbounds nuw double, ptr @Zero, i64 %26
   %28 = load double, ptr %27, align 8
-  br label %160
+  br label %161
 
 29:                                               ; preds = %23, %19
   %30 = icmp samesign ult i32 %6, 1048576
@@ -225,7 +225,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %110 = lshr i64 %3, 63
   %111 = getelementptr inbounds nuw double, ptr @Zero, i64 %110
   %112 = load double, ptr %111, align 8
-  br label %160
+  br label %161
 
 113:                                              ; preds = %106
   %114 = tail call i32 @llvm.fshl.i32(i32 %spec.select, i32 %100, i32 1)
@@ -262,7 +262,7 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %126 = lshr i64 %3, 63
   %127 = getelementptr inbounds nuw double, ptr @Zero, i64 %126
   %128 = load double, ptr %127, align 8
-  br label %160
+  br label %161
 
 .lr.ph213:                                        ; preds = %.preheader, %.lr.ph213
   %.4212 = phi i32 [ %130, %.lr.ph213 ], [ %.3, %.preheader ]
@@ -279,57 +279,58 @@ define hidden double @SDL_uclibc_fmod(double noundef %0, double noundef %1) loca
   %.3159.lcssa = phi i32 [ %.2158, %.preheader ], [ %131, %.lr.ph213 ]
   %.4.lcssa = phi i32 [ %.3, %.preheader ], [ %130, %.lr.ph213 ]
   %133 = icmp sgt i32 %.3159.lcssa, -1023
-  br i1 %133, label %134, label %139
+  br i1 %133, label %134, label %140
 
 134:                                              ; preds = %._crit_edge214
   %135 = add nsw i32 %.4170.lcssa, -1048576
   %136 = shl i32 %.3159.lcssa, 20
   %137 = add i32 %136, 1072693248
   %138 = or i32 %135, %137
-  br label %158
+  %139 = or i32 %138, %5
+  br label %160
 
-139:                                              ; preds = %._crit_edge214
-  %140 = sub nuw nsw i32 -1022, %.3159.lcssa
-  %141 = icmp samesign ugt i32 %.3159.lcssa, -1043
-  br i1 %141, label %142, label %148
+140:                                              ; preds = %._crit_edge214
+  %141 = sub nuw nsw i32 -1022, %.3159.lcssa
+  %142 = icmp samesign ugt i32 %.3159.lcssa, -1043
+  br i1 %142, label %143, label %150
 
-142:                                              ; preds = %139
-  %143 = lshr i32 %.4.lcssa, %140
-  %144 = add nsw i32 %.3159.lcssa, 1054
-  %145 = shl i32 %.4170.lcssa, %144
-  %146 = or i32 %143, %145
-  %147 = lshr i32 %.4170.lcssa, %140
-  br label %158
+143:                                              ; preds = %140
+  %144 = lshr i32 %.4.lcssa, %141
+  %145 = add nsw i32 %.3159.lcssa, 1054
+  %146 = shl i32 %.4170.lcssa, %145
+  %147 = or i32 %144, %146
+  %148 = lshr i32 %.4170.lcssa, %141
+  %149 = or disjoint i32 %148, %5
+  br label %160
 
-148:                                              ; preds = %139
-  %149 = icmp samesign ugt i32 %.3159.lcssa, -1054
-  br i1 %149, label %150, label %155
+150:                                              ; preds = %140
+  %151 = icmp samesign ugt i32 %.3159.lcssa, -1054
+  br i1 %151, label %152, label %157
 
-150:                                              ; preds = %148
-  %151 = add nsw i32 %.3159.lcssa, 1054
-  %152 = shl i32 %.4170.lcssa, %151
-  %153 = lshr i32 %.4.lcssa, %140
-  %154 = or i32 %152, %153
-  br label %158
+152:                                              ; preds = %150
+  %153 = add nsw i32 %.3159.lcssa, 1054
+  %154 = shl i32 %.4170.lcssa, %153
+  %155 = lshr i32 %.4.lcssa, %141
+  %156 = or i32 %154, %155
+  br label %160
 
-155:                                              ; preds = %148
-  %156 = sub nuw nsw i32 -1054, %.3159.lcssa
-  %157 = lshr i32 %.4170.lcssa, %156
-  br label %158
+157:                                              ; preds = %150
+  %158 = sub nuw nsw i32 -1054, %.3159.lcssa
+  %159 = lshr i32 %.4170.lcssa, %158
+  br label %160
 
-158:                                              ; preds = %150, %155, %142, %134
-  %.5171.sink = phi i32 [ %138, %134 ], [ %147, %142 ], [ %5, %150 ], [ %5, %155 ]
-  %.5.sink = phi i32 [ %.4.lcssa, %134 ], [ %146, %142 ], [ %154, %150 ], [ %157, %155 ]
-  %159 = or i32 %.5171.sink, %5
-  %.sroa.0.4.insert.ext = zext i32 %159 to i64
+160:                                              ; preds = %152, %157, %143, %134
+  %.5171.sink = phi i32 [ %139, %134 ], [ %149, %143 ], [ %5, %152 ], [ %5, %157 ]
+  %.5.sink = phi i32 [ %.4.lcssa, %134 ], [ %147, %143 ], [ %156, %152 ], [ %159, %157 ]
+  %.sroa.0.4.insert.ext = zext i32 %.5171.sink to i64
   %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %.5.sink to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
   %.0148 = bitcast i64 %.sroa.0.0.insert.insert to double
-  br label %160
+  br label %161
 
-160:                                              ; preds = %20, %158, %125, %109, %25, %16
-  %.0 = phi double [ %18, %16 ], [ %28, %25 ], [ %112, %109 ], [ %128, %125 ], [ %.0148, %158 ], [ %0, %20 ]
+161:                                              ; preds = %20, %160, %125, %109, %25, %16
+  %.0 = phi double [ %18, %16 ], [ %28, %25 ], [ %112, %109 ], [ %128, %125 ], [ %.0148, %160 ], [ %0, %20 ]
   ret double %.0
 }
 

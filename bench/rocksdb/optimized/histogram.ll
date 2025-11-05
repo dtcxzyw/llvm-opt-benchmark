@@ -66,11 +66,11 @@ _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit:
   %10 = fcmp ugt double %9, 0x43F0000000000000
   br i1 %10, label %._crit_edge22, label %.lr.ph21
 
-.lr.ph21:                                         ; preds = %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit, %45
-  %11 = phi ptr [ %36, %45 ], [ %4, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
-  %12 = phi ptr [ %37, %45 ], [ %2, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
-  %13 = phi ptr [ %38, %45 ], [ %4, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
-  %14 = phi double [ %47, %45 ], [ %9, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
+.lr.ph21:                                         ; preds = %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit, %46
+  %11 = phi ptr [ %36, %46 ], [ %4, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
+  %12 = phi ptr [ %37, %46 ], [ %2, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
+  %13 = phi ptr [ %38, %46 ], [ %4, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
+  %14 = phi double [ %47, %46 ], [ %9, %_ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit ]
   %15 = fptoui double %14 to i64
   %.not.i.i = icmp eq ptr %11, %13
   br i1 %.not.i.i, label %18, label %16
@@ -134,7 +134,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   %39 = getelementptr inbounds i8, ptr %36, i64 -8
   %.promoted = load i64, ptr %39, align 8, !tbaa !12
   %40 = icmp ugt i64 %.promoted, 109
-  br i1 %40, label %.lr.ph, label %45
+  br i1 %40, label %.lr.ph, label %46
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit, %.lr.ph
   %.017 = phi i64 [ %43, %.lr.ph ], [ 1, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
@@ -157,18 +157,17 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
 
 ._crit_edge:                                      ; preds = %.lr.ph
   store i64 %42, ptr %39, align 8, !tbaa !12
-  br label %45
+  %45 = mul i64 %42, %43
+  br label %46
 
-45:                                               ; preds = %._crit_edge, %_ZNSt6vectorImSaImEE9push_backEOm.exit
-  %.0.lcssa = phi i64 [ %43, %._crit_edge ], [ 1, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
-  %.lcssa = phi i64 [ %42, %._crit_edge ], [ %.promoted, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
-  %46 = mul i64 %.lcssa, %.0.lcssa
-  store i64 %46, ptr %39, align 8, !tbaa !12
+46:                                               ; preds = %._crit_edge, %_ZNSt6vectorImSaImEE9push_backEOm.exit
+  %.lcssa = phi i64 [ %45, %._crit_edge ], [ %.promoted, %_ZNSt6vectorImSaImEE9push_backEOm.exit ]
+  store i64 %.lcssa, ptr %39, align 8, !tbaa !12
   %47 = fmul double %14, 1.500000e+00
   %48 = fcmp ugt double %47, 0x43F0000000000000
   br i1 %48, label %._crit_edge22.loopexit, label %.lr.ph21, !llvm.loop !16
 
-._crit_edge22.loopexit:                           ; preds = %45
+._crit_edge22.loopexit:                           ; preds = %46
   %.pre25 = load ptr, ptr %5, align 8, !tbaa !17
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre25, i64 -8
   %.pre26 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !12

@@ -8836,7 +8836,7 @@ define dso_local void @_ZN5clang8SemaObjC26CheckObjCCircularContainerEPNS_15ObjC
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 16580608
   %spec.select.i = icmp eq i32 %16, 65536
-  br i1 %spec.select.i, label %17, label %.critedge117
+  br i1 %spec.select.i, label %17, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -8885,7 +8885,7 @@ _ZN5clangL35GetNSMutableDictionaryArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageE
   %42 = tail call noundef ptr @_ZNK5clang15ObjCMessageExpr20getReceiverInterfaceEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #20
   %43 = tail call noundef zeroext i1 @_ZNK5clang5NSAPI19isSubclassOfNSClassEPNS_17ObjCInterfaceDeclENS0_17NSClassIdKindKindE(ptr noundef nonnull align 8 dereferenceable(712) %41, ptr noundef %42, i32 noundef 8) #20
   %or.cond.i = or i1 %40, %43
-  br i1 %or.cond.i, label %44, label %.critedge117
+  br i1 %or.cond.i, label %44, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 44:                                               ; preds = %_ZN5clangL35GetNSMutableDictionaryArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
   %45 = tail call i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #20
@@ -8895,8 +8895,8 @@ _ZN5clangL35GetNSMutableDictionaryArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageE
   %.not.i60 = icmp ne i64 %48, 0
   %.sroa.0.0.extract.trunc.i61 = trunc i64 %47 to i32
   %49 = icmp ult i32 %.sroa.0.0.extract.trunc.i61, 5
-  %or.cond136 = and i1 %.not.i60, %49
-  br i1 %or.cond136, label %switch.lookup133, label %.critedge117
+  %or.cond153 = and i1 %.not.i60, %49
+  br i1 %or.cond153, label %switch.lookup150, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 switch.lookup:                                    ; preds = %27
   %50 = zext nneg i32 %switch.tableidx to i64
@@ -8904,14 +8904,14 @@ switch.lookup:                                    ; preds = %27
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.critedge
 
-switch.lookup133:                                 ; preds = %44
+switch.lookup150:                                 ; preds = %44
   %51 = and i64 %47, 7
-  %switch.gep134 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang8SemaObjC26CheckObjCCircularContainerEPNS_15ObjCMessageExprE.11, i64 %51
-  %switch.load135 = load i64, ptr %switch.gep134, align 8
+  %switch.gep151 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang8SemaObjC26CheckObjCCircularContainerEPNS_15ObjCMessageExprE.11, i64 %51
+  %switch.load152 = load i64, ptr %switch.gep151, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %switch.lookup133, %switch.lookup, %33
-  %.sroa.087.0 = phi i64 [ 0, %33 ], [ %switch.load, %switch.lookup ], [ %switch.load135, %switch.lookup133 ]
+.critedge:                                        ; preds = %switch.lookup150, %switch.lookup, %33
+  %.sroa.087.0 = phi i64 [ 0, %33 ], [ %switch.load, %switch.lookup ], [ %switch.load152, %switch.lookup150 ]
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %.sroa.087.0
   %54 = load ptr, ptr %53, align 8, !tbaa !788
@@ -8937,12 +8937,12 @@ switch.lookup133:                                 ; preds = %44
 66:                                               ; preds = %62
   %67 = load i16, ptr %.0, align 8
   %68 = and i16 %67, 511
-  %.not116 = icmp eq i16 %68, 73
-  br i1 %.not116, label %69, label %.critedge117
+  %.not136 = icmp eq i16 %68, 73
+  br i1 %.not136, label %69, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 69:                                               ; preds = %66
   %70 = tail call noundef zeroext i1 @_ZNK5clang4Expr14isObjCSelfExprEv(ptr noundef nonnull align 8 dereferenceable(16) %.0) #20
-  br i1 %70, label %71, label %.critedge117
+  br i1 %70, label %71, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 71:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -9157,7 +9157,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i64: ; preds = %168
 _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit: ; preds = %157, %159, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i64
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.critedge117
+  br label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %62
   %180 = icmp eq i32 %64, 65536
@@ -9167,8 +9167,8 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %62
   %183 = tail call noundef ptr @_ZN5clang4Expr14IgnoreImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %182) #21
   %184 = load i16, ptr %183, align 8
   %185 = and i16 %184, 511
-  %.not106 = icmp eq i16 %185, 28
-  br i1 %.not106, label %186, label %190
+  %.not126 = icmp eq i16 %185, 28
+  br i1 %.not126, label %186, label %190
 
 186:                                              ; preds = %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit
   %187 = getelementptr inbounds nuw i8, ptr %183, i64 16
@@ -9181,7 +9181,7 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %62
   %191 = phi i16 [ %.pre, %186 ], [ %184, %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ]
   %.043 = phi ptr [ %189, %186 ], [ %183, %_ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit ]
   %192 = and i16 %191, 511
-  switch i16 %192, label %.critedge117 [
+  switch i16 %192, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread [
     i16 73, label %193
     i16 36, label %264
   ]
@@ -9189,8 +9189,8 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %62
 193:                                              ; preds = %190
   %194 = load i16, ptr %.0, align 8
   %195 = and i16 %194, 511
-  %.not110 = icmp eq i16 %195, 73
-  br i1 %.not110, label %196, label %.critedge117
+  %.not130 = icmp eq i16 %195, 73
+  br i1 %.not130, label %196, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 196:                                              ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %.043, i64 16
@@ -9198,7 +9198,7 @@ _ZN5clang15ObjCMessageExpr19getInstanceReceiverEv.exit: ; preds = %62
   %199 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %200 = load ptr, ptr %199, align 8, !tbaa !1303
   %201 = icmp eq ptr %198, %200
-  br i1 %201, label %202, label %.critedge117
+  br i1 %201, label %202, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 202:                                              ; preds = %196
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -9319,13 +9319,13 @@ _ZN5clanglsIPNS_9ValueDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit7
 
 263:                                              ; preds = %260, %_ZN5clanglsIPNS_9ValueDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit73
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.critedge117
+  br label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 264:                                              ; preds = %190
   %265 = load i16, ptr %.0, align 8
   %266 = and i16 %265, 511
-  %.not114 = icmp eq i16 %266, 36
-  br i1 %.not114, label %267, label %.critedge117
+  %.not134 = icmp eq i16 %266, 36
+  br i1 %.not134, label %267, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 267:                                              ; preds = %264
   %268 = getelementptr inbounds nuw i8, ptr %.043, i64 16
@@ -9333,7 +9333,7 @@ _ZN5clanglsIPNS_9ValueDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit7
   %270 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %271 = load ptr, ptr %270, align 8, !tbaa !1308
   %272 = icmp eq ptr %269, %271
-  br i1 %272, label %273, label %.critedge117
+  br i1 %272, label %273, label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
 273:                                              ; preds = %267
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -9355,9 +9355,9 @@ _ZN5clanglsIPNS_9ValueDeclEEERKNS_8SemaBase21SemaDiagnosticBuilderES6_RKT_.exit7
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %13) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.critedge117
+  br label %_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread
 
-.critedge117:                                     ; preds = %_ZN5clangL35GetNSMutableDictionaryArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread, %44, %190, %196, %263, %193, %264, %273, %267, %66, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit, %69, %2
+_ZN5clangL21GetNSSetArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread: ; preds = %190, %44, %_ZN5clangL35GetNSMutableDictionaryArgumentIndexERNS_8SemaObjCEPNS_15ObjCMessageExprE.exit.thread, %196, %263, %193, %264, %273, %267, %66, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIN4llvm9StringRefEvEERKS1_OT_.exit, %69, %2
   ret void
 }
 

@@ -9369,13 +9369,12 @@ _ZN12_GLOBAL__N_125IRBuilderPrefixedInserterD2Ev.exit.i: ; preds = %_ZN12_GLOBAL
 _ZN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEED2Ev.exit: ; preds = %_ZN12_GLOBAL__N_125IRBuilderPrefixedInserterD2Ev.exit.i, %2512
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %2513 = zext nneg i8 %.sroa.0139.2 to i16
+  %2514 = or disjoint i16 %.sroa.7.2, %2513
   br label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread143
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread143: ; preds = %switch.early.test.i, %_ZN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEED2Ev.exit, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit, %69, %67
-  %.sroa.0139.0 = phi i16 [ 1, %67 ], [ %2513, %_ZN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEED2Ev.exit ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ 0, %69 ], [ 0, %switch.early.test.i ]
-  %.sroa.7.0 = phi i16 [ 0, %67 ], [ %.sroa.7.2, %_ZN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEED2Ev.exit ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ 0, %69 ], [ 0, %switch.early.test.i ]
-  %.sroa.0139.0.insert.insert = or i16 %.sroa.7.0, %.sroa.0139.0
-  ret i16 %.sroa.0139.0.insert.insert
+  %.sroa.7.0 = phi i16 [ 1, %67 ], [ %2514, %_ZN4llvm9IRBuilderINS_14ConstantFolderEN12_GLOBAL__N_125IRBuilderPrefixedInserterEED2Ev.exit ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread ], [ 0, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit ], [ 0, %69 ], [ 0, %switch.early.test.i ]
+  ret i16 %.sroa.7.0
 }
 
 declare noundef zeroext i1 @_ZN4llvm27isAssignmentTrackingEnabledERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(841)) local_unnamed_addr #4

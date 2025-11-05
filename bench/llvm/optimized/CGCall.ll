@@ -24044,8 +24044,7 @@ _ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE.exit: ; preds = %40
   br label %478
 
 478:                                              ; preds = %474, %465
-  %.03290 = phi i1 [ true, %474 ], [ false, %465 ]
-  %.03388 = phi i1 [ %.03389, %474 ], [ true, %465 ]
+  %.03290 = phi i1 [ %.03389, %474 ], [ false, %465 ]
   call void @_ZN5clang7CodeGen15CodeGenFunction11EmitAggExprEPKNS_4ExprENS0_12AggValueSlotE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull %2, ptr noundef nonnull byval(%"class.clang::CodeGen::AggValueSlot") align 8 %30) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6)
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %30, align 8
@@ -24078,8 +24077,7 @@ _ZNK5clang7CodeGen12AggValueSlot8asRValueEv.exit: ; preds = %478, %480
   %.sroa.661.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 48
   store i8 %.sroa.661.0, ptr %.sroa.661.0..sroa_idx, align 8, !tbaa !37
   call void @_ZN5clang7CodeGen11CallArgList3addENS0_6RValueENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(1496) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::RValue") align 8 %32, i64 %3)
-  %or.cond = and i1 %.03290, %.03388
-  br i1 %or.cond, label %488, label %502
+  br i1 %.03290, label %488, label %502
 
 488:                                              ; preds = %_ZNK5clang7CodeGen12AggValueSlot8asRValueEv.exit
   call fastcc void @_ZN5clang7CodeGen15CodeGenFunction19pushFullExprCleanupIN12_GLOBAL__N_118DestroyUnpassedArgEJNS0_7AddressENS_8QualTypeEEEEvNS0_11CleanupKindEDpT0_(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %30, i64 %3)

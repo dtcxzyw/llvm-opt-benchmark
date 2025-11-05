@@ -465,11 +465,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %128
   %147 = getelementptr i64, ptr %145, i64 %146
   %148 = getelementptr i8, ptr %147, i64 -8
   %149 = load i64, ptr %148, align 8, !tbaa !46
+  %150 = mul i64 %149, %140
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %141, %144
-  %150 = phi i64 [ %149, %144 ], [ 0, %141 ]
-  %151 = mul i64 %150, %140
+  %151 = phi i64 [ %150, %144 ], [ 0, %141 ]
   %152 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %153 = load i32, ptr %152, align 4, !tbaa !47
   %154 = or i32 %153, 1

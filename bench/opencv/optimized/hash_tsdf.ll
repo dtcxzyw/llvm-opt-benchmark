@@ -2543,17 +2543,13 @@ _ZNKSt13unordered_mapIN2cv3VecIiLi3EEENS0_5kinfu10VolumeUnitENS3_9tsdf_hashESt8e
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 104
   %105 = load ptr, ptr %104, align 8
   %106 = call i16 %105(ptr noundef nonnull align 8 dereferenceable(404) %0, ptr noundef nonnull align 4 dereferenceable(12) %4, i32 noundef %102)
-  %.sroa.3.0.extract.shift = and i16 %106, -256
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %107 = and i16 %106, 255
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i.i.i.i, %61, %28, %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS5_.exit.i.i, %_ZNKSt13unordered_mapIN2cv3VecIiLi3EEENS0_5kinfu10VolumeUnitENS3_9tsdf_hashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit
-  %.sroa.018.0 = phi i16 [ %107, %_ZNKSt13unordered_mapIN2cv3VecIiLi3EEENS0_5kinfu10VolumeUnitENS3_9tsdf_hashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit ], [ 128, %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS5_.exit.i.i ], [ 128, %28 ], [ 128, %61 ], [ 128, %_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i.i.i.i ]
-  %.sroa.3.0 = phi i16 [ %.sroa.3.0.extract.shift, %_ZNKSt13unordered_mapIN2cv3VecIiLi3EEENS0_5kinfu10VolumeUnitENS3_9tsdf_hashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit ], [ 0, %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS5_.exit.i.i ], [ 0, %28 ], [ 0, %61 ], [ 0, %_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i.i.i.i ]
+  %.sroa.3.0 = phi i16 [ %106, %_ZNKSt13unordered_mapIN2cv3VecIiLi3EEENS0_5kinfu10VolumeUnitENS3_9tsdf_hashESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE4findERS9_.exit ], [ 128, %_ZNKSt8__detail15_Hash_code_baseIN2cv3VecIiLi3EEESt4pairIKS3_NS1_5kinfu10VolumeUnitEENS_10_Select1stENS6_9tsdf_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb0EE12_M_hash_codeERS5_.exit.i.i ], [ 128, %28 ], [ 128, %61 ], [ 128, %_ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ENS5_9tsdf_hashENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_indexERKNS9_16_Hash_node_valueIS7_Lb0EEE.exit.i.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.sroa.018.0.insert.insert = or disjoint i16 %.sroa.3.0, %.sroa.018.0
-  ret i16 %.sroa.018.0.insert.insert
+  ret i16 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5725,7 +5721,7 @@ define linkonce_odr hidden i16 @_ZNK2cv5kinfu17HashTSDFVolumeCPU3_atERKNS_3VecIi
   %.not = icmp sge i32 %4, %6
   %7 = icmp slt i32 %4, 0
   %or.cond = or i1 %7, %.not
-  br i1 %or.cond, label %40, label %8
+  br i1 %or.cond, label %39, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -5733,7 +5729,7 @@ define linkonce_odr hidden i16 @_ZNK2cv5kinfu17HashTSDFVolumeCPU3_atERKNS_3VecIi
   %.not12 = icmp sge i32 %10, %6
   %11 = icmp slt i32 %10, 0
   %or.cond14 = or i1 %.not12, %11
-  br i1 %or.cond14, label %40, label %12
+  br i1 %or.cond14, label %39, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5741,7 +5737,7 @@ define linkonce_odr hidden i16 @_ZNK2cv5kinfu17HashTSDFVolumeCPU3_atERKNS_3VecIi
   %.not13 = icmp sge i32 %14, %6
   %15 = icmp slt i32 %14, 0
   %or.cond15 = or i1 %.not13, %15
-  br i1 %or.cond15, label %40, label %16
+  br i1 %or.cond15, label %39, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -5766,15 +5762,11 @@ define linkonce_odr hidden i16 @_ZNK2cv5kinfu17HashTSDFVolumeCPU3_atERKNS_3VecIi
   %36 = sext i32 %35 to i64
   %37 = getelementptr inbounds %"struct.cv::kinfu::TsdfVoxel", ptr %24, i64 %36
   %38 = load i16, ptr %37, align 1
-  %.sroa.3.0.extract.shift = and i16 %38, -256
-  %39 = and i16 %38, 255
-  br label %40
+  br label %39
 
-40:                                               ; preds = %3, %8, %12, %16
-  %.sroa.3.0 = phi i16 [ %.sroa.3.0.extract.shift, %16 ], [ 0, %12 ], [ 0, %8 ], [ 0, %3 ]
-  %.sroa.0.0 = phi i16 [ %39, %16 ], [ 128, %12 ], [ 128, %8 ], [ 128, %3 ]
-  %.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.0, %.sroa.3.0
-  ret i16 %.sroa.0.0.insert.insert
+39:                                               ; preds = %3, %8, %12, %16
+  %.sroa.3.0 = phi i16 [ %38, %16 ], [ 128, %12 ], [ 128, %8 ], [ 128, %3 ]
+  ret i16 %.sroa.3.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

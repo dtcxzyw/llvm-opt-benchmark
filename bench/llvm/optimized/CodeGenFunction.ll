@@ -1853,7 +1853,7 @@ define internal fastcc void @_ZL26makeNaturalAlignAddrLValuePN4llvm5ValueEN5clan
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %13 = load ptr, ptr %12, align 8, !tbaa !714
   %14 = call i64 @_ZN5clang7CodeGen13CodeGenModule23getNaturalTypeAlignmentENS_8QualTypeEPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoEb(ptr noundef nonnull align 8 dereferenceable(3608) %13, i64 %2, ptr noundef nonnull %9, ptr noundef nonnull %10, i1 noundef zeroext %3) #24
-  br i1 %4, label %15, label %33
+  br i1 %4, label %15, label %28
 
 15:                                               ; preds = %7
   %16 = icmp eq i64 %14, 0
@@ -1874,91 +1874,81 @@ _ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueEN
   %25 = call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %24, i64 %2) #24, !noalias !832
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
-  %.not.i.i = icmp eq i32 %6, 0
-  %28 = ptrtoint ptr %1 to i64
-  %29 = and i64 %28, -5
-  %30 = select i1 %.not.i.i, i64 0, i64 4
-  %31 = or disjoint i64 %30, %29
-  %.sroa.9.sroa.6.0.extract.shift = and i64 %26, -256
-  %32 = and i64 %26, 255
-  br label %42
+  br label %33
 
-33:                                               ; preds = %7
-  %34 = load ptr, ptr %12, align 8, !tbaa !714
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 296
-  %36 = load ptr, ptr %35, align 8, !tbaa !835
-  %37 = call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %36, i64 %2) #24
-  %.not.i = icmp eq i32 %6, 0
-  %38 = ptrtoint ptr %1 to i64
-  %39 = and i64 %38, -5
-  %40 = select i1 %.not.i, i64 0, i64 4
-  %41 = or disjoint i64 %40, %39
-  br label %42
+28:                                               ; preds = %7
+  %29 = load ptr, ptr %12, align 8, !tbaa !714
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 296
+  %31 = load ptr, ptr %30, align 8, !tbaa !835
+  %32 = call noundef ptr @_ZN5clang7CodeGen12CodeGenTypes17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(232) %31, i64 %2) #24
+  br label %33
 
-42:                                               ; preds = %33, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit
-  %.sroa.9.sroa.6.sroa.0.0 = phi i64 [ %.sroa.9.sroa.6.0.extract.shift, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ 0, %33 ]
-  %.sroa.9.sroa.0.0 = phi i64 [ %32, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ 0, %33 ]
-  %.sroa.12.0 = phi ptr [ %27, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ null, %33 ]
-  %.sroa.7.0 = phi i64 [ %.sroa.0.0.i, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ %14, %33 ]
-  %.sroa.5.0 = phi ptr [ %23, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ %37, %33 ]
-  %.sroa.0.0 = phi i64 [ %31, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ %41, %33 ]
+33:                                               ; preds = %28, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit
+  %.sroa.9.sroa.6.sroa.0.0 = phi i64 [ %26, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ 0, %28 ]
+  %.sroa.12.0 = phi ptr [ %27, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ null, %28 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.0.0.i, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ %14, %28 ]
+  %.sroa.5.0 = phi ptr [ %23, %_ZN5clang7CodeGen15CodeGenFunction28makeNaturalAddressForPointerEPN4llvm5ValueENS_8QualTypeENS_9CharUnitsEbPNS0_14LValueBaseInfoEPNS0_14TBAAAccessInfoENS0_14KnownNonNull_tE.exit ], [ %32, %28 ]
   %.sroa.0.0.copyload = load i32, ptr %9, align 4, !tbaa !836
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   call void @llvm.experimental.noalias.scope.decl(metadata !837)
-  %43 = load ptr, ptr %12, align 8, !tbaa !714, !noalias !837
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 144
-  %45 = load ptr, ptr %44, align 8, !tbaa !840, !noalias !837
+  %34 = load ptr, ptr %12, align 8, !tbaa !714, !noalias !837
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
+  %36 = load ptr, ptr %35, align 8, !tbaa !840, !noalias !837
   call void @llvm.experimental.noalias.scope.decl(metadata !841)
-  %46 = and i64 %2, -16
-  %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %48, align 8, !noalias !844
-  %49 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 8
-  %.not.i.i.i.i.i = icmp eq i64 %49, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit, label %50
+  %37 = and i64 %2, -16
+  %38 = inttoptr i64 %37 to ptr
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %39, align 8, !noalias !844
+  %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 8
+  %.not.i.i.i.i.i = icmp eq i64 %40, 0
+  br i1 %.not.i.i.i.i.i, label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit, label %41
 
-50:                                               ; preds = %42
-  %51 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -16
-  %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %53, align 8, !tbaa !845, !noalias !844
-  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -49
+41:                                               ; preds = %33
+  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -16
+  %43 = inttoptr i64 %42 to ptr
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %44, align 8, !tbaa !845, !noalias !844
+  %45 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, -49
   br label %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit
 
-_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit: ; preds = %42, %50
-  %.sroa.0.0.i.i.i.i.i = phi i64 [ %54, %50 ], [ 0, %42 ]
-  %.sroa.9.sroa.0.0.insert.insert = or disjoint i64 %.sroa.9.sroa.0.0, %.sroa.9.sroa.6.sroa.0.0
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = or i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %2
-  %60 = and i64 %59, 7
-  %61 = call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %45, i64 %2) #24, !noalias !844
-  %62 = or i64 %.sroa.0.0.i.i.i.i.i, %60
-  %63 = shl i32 %61, 4
-  %64 = sext i32 %63 to i64
-  %65 = or i64 %62, %64
+_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_14LValueBaseInfoENS0_14TBAAAccessInfoE.exit: ; preds = %33, %41
+  %.sroa.0.0.i.i.i.i.i = phi i64 [ %45, %41 ], [ 0, %33 ]
+  %.not.i = icmp eq i32 %6, 0
+  %46 = select i1 %.not.i, i64 0, i64 4
+  %47 = ptrtoint ptr %1 to i64
+  %48 = and i64 %47, -5
+  %49 = or disjoint i64 %46, %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = or i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %2
+  %55 = and i64 %54, 7
+  %56 = call noundef i32 @_ZNK5clang10ASTContext17getObjCGCAttrKindENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %36, i64 %2) #24, !noalias !844
+  %57 = or i64 %.sroa.0.0.i.i.i.i.i, %55
+  %58 = shl i32 %56, 4
+  %59 = sext i32 %58 to i64
+  %60 = or i64 %57, %59
   store i32 0, ptr %0, align 8, !tbaa !846, !alias.scope !844
-  store i64 %2, ptr %57, align 8, !tbaa !11, !alias.scope !844
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %65, ptr %66, align 8, !tbaa !845, !alias.scope !844
-  store i32 %.sroa.0.0.copyload, ptr %56, align 4, !tbaa !836, !alias.scope !844
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %55, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %68 = load i8, ptr %67, align 8, !alias.scope !844
-  %69 = and i8 %68, -128
-  store i8 %69, ptr %67, align 8, !alias.scope !844
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store ptr null, ptr %70, align 8, !tbaa !850, !alias.scope !844
-  store i64 %.sroa.0.0, ptr %58, align 8
+  store i64 %2, ptr %52, align 8, !tbaa !11, !alias.scope !844
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %60, ptr %61, align 8, !tbaa !845, !alias.scope !844
+  store i32 %.sroa.0.0.copyload, ptr %51, align 4, !tbaa !836, !alias.scope !844
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %50, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %63 = load i8, ptr %62, align 8, !alias.scope !844
+  %64 = and i8 %63, -128
+  store i8 %64, ptr %62, align 8, !alias.scope !844
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  store ptr null, ptr %65, align 8, !tbaa !850, !alias.scope !844
+  store i64 %49, ptr %53, align 8
   %.sroa.425.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.5.0, ptr %.sroa.425.0..sroa_idx, align 8
   %.sroa.526.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %.sroa.7.0, ptr %.sroa.526.0..sroa_idx, align 8
   %.sroa.627.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.9.sroa.0.0.insert.insert, ptr %.sroa.627.0..sroa_idx, align 8
+  store i64 %.sroa.9.sroa.6.sroa.0.0, ptr %.sroa.627.0..sroa_idx, align 8
   %.sroa.728.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.sroa.12.0, ptr %.sroa.728.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48

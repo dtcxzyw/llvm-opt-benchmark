@@ -21,7 +21,7 @@ $_ZNSt6vectorIcSaIcEE13_M_assign_auxIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1
 @_ZN15cmProcessOutputC1ENS_8EncodingEj = dso_local unnamed_addr alias void (ptr, i32, i32), ptr @_ZN15cmProcessOutputC2ENS_8EncodingEj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 4294967304) i64 @_ZN15cmProcessOutput12FindEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 4, 4294967301) i64 @_ZN15cmProcessOutput12FindEncodingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %20, label %4
@@ -49,14 +49,12 @@ define dso_local range(i64 0, 4294967304) i64 @_ZN15cmProcessOutput12FindEncodin
 16:                                               ; preds = %13
   %17 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.5) #10
   %18 = icmp eq i32 %17, 0
-  %19 = select i1 %18, i64 4294967296, i64 0
+  %19 = select i1 %18, i64 4294967300, i64 4
   br label %20
 
 20:                                               ; preds = %16, %13, %10, %7, %1, %4
-  %.sroa.038.0 = phi i64 [ 2, %4 ], [ 2, %1 ], [ 0, %7 ], [ 3, %10 ], [ 1, %13 ], [ 4, %16 ]
-  %.sroa.6.0 = phi i64 [ 4294967296, %4 ], [ 4294967296, %1 ], [ 4294967296, %7 ], [ 4294967296, %10 ], [ 4294967296, %13 ], [ %19, %16 ]
-  %.sroa.038.0.insert.insert = or disjoint i64 %.sroa.6.0, %.sroa.038.0
-  ret i64 %.sroa.038.0.insert.insert
+  %.sroa.6.0 = phi i64 [ 4294967298, %4 ], [ 4294967298, %1 ], [ 4294967296, %7 ], [ 4294967299, %10 ], [ 4294967297, %13 ], [ %19, %16 ]
+  ret i64 %.sroa.6.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

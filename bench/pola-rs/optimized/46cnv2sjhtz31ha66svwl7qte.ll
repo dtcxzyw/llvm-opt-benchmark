@@ -1356,15 +1356,14 @@ define internal fastcc i64 @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$
   %.sroa.4.6.insert.ext.i = zext i16 %.sroa.4.0.i2047.i to i64
   %80 = shl nuw i64 %.sroa.4.6.insert.ext.i, 48
   %81 = shl nuw nsw i64 %.sroa.4.2.insert.ext.i, 16
-  %82 = or disjoint i64 %.sroa.0.0.i2148.i, %81
-  %83 = add nuw nsw i64 %82, %80
+  %82 = or disjoint i64 %81, %.sroa.0.0.i37.i
+  %83 = or disjoint i64 %82, %.sroa.0.0.i2148.i
+  %84 = add nuw nsw i64 %83, %80
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h4adafb8180fc9a06E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h4adafb8180fc9a06E.exit": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i", %33, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i", %72, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804e92bddc6af327E.exit27.thread43.i"
-  %.sroa.4.sroa.0.0.i = phi i64 [ %83, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804e92bddc6af327E.exit27.thread43.i" ], [ 0, %33 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i" ], [ 0, %72 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i" ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i37.i, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804e92bddc6af327E.exit27.thread43.i" ], [ 2, %33 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i" ], [ 2, %72 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i" ]
-  %.sroa.0.0.insert.insert.i = or i64 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.4.sroa.0.0.i = phi i64 [ %84, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h804e92bddc6af327E.exit27.thread43.i" ], [ 2, %33 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i" ], [ 2, %72 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i" ]
+  ret i64 %.sroa.4.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1521,13 +1520,12 @@ select.unfold36.i:                                ; preds = %70, %"_ZN134_$LT$po
   %78 = or disjoint i32 %76, %77
   %79 = or disjoint i32 %78, %75
   %80 = zext nneg i8 %.sroa.0.0.i.i to i32
+  %81 = or disjoint i32 %79, %80
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc41e05eefedbce94E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hc41e05eefedbce94E.exit": ; preds = %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i.i", %33, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i18.i", %70, %select.unfold36.i
-  %.sroa.4.sroa.0.0.i = phi i32 [ %79, %select.unfold36.i ], [ 0, %33 ], [ 0, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i.i" ], [ 0, %70 ], [ 0, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i18.i" ]
-  %.sroa.0.0.i = phi i32 [ %80, %select.unfold36.i ], [ 2, %33 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i.i" ], [ 2, %70 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i18.i" ]
-  %.sroa.0.0.insert.insert.i = or i32 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
-  ret i32 %.sroa.0.0.insert.insert.i
+  %.sroa.4.sroa.0.0.i = phi i32 [ %81, %select.unfold36.i ], [ 2, %33 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i.i" ], [ 2, %70 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h89ed22cfc2530cd3E.exit.i18.i" ]
+  ret i32 %.sroa.4.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1868,13 +1866,12 @@ select.unfold36.i:                                ; preds = %70, %"_ZN134_$LT$po
   %78 = or disjoint i32 %76, %77
   %79 = or disjoint i32 %78, %75
   %80 = zext nneg i8 %.sroa.0.0.i.i to i32
+  %81 = or disjoint i32 %79, %80
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h904981606aa8fc71E.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h904981606aa8fc71E.exit": ; preds = %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i.i", %33, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i18.i", %70, %select.unfold36.i
-  %.sroa.4.sroa.0.0.i = phi i32 [ %79, %select.unfold36.i ], [ 0, %33 ], [ 0, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i.i" ], [ 0, %70 ], [ 0, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i18.i" ]
-  %.sroa.0.0.i = phi i32 [ %80, %select.unfold36.i ], [ 2, %33 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i.i" ], [ 2, %70 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i18.i" ]
-  %.sroa.0.0.insert.insert.i = or i32 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
-  ret i32 %.sroa.0.0.insert.insert.i
+  %.sroa.4.sroa.0.0.i = phi i32 [ %81, %select.unfold36.i ], [ 2, %33 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i.i" ], [ 2, %70 ], [ 2, %"_ZN134_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidityIter$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2ecd52593969eeceE.exit.i18.i" ]
+  ret i32 %.sroa.4.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -2229,15 +2226,14 @@ define internal fastcc i64 @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$
   %.sroa.4.6.insert.ext.i = zext i16 %.sroa.4.0.i2047.i to i64
   %80 = shl nuw i64 %.sroa.4.6.insert.ext.i, 48
   %81 = shl nuw nsw i64 %.sroa.4.2.insert.ext.i, 16
-  %82 = or disjoint i64 %.sroa.0.0.i2148.i, %81
-  %83 = add nuw nsw i64 %82, %80
+  %82 = or disjoint i64 %81, %.sroa.0.0.i37.i
+  %83 = or disjoint i64 %82, %.sroa.0.0.i2148.i
+  %84 = add nuw nsw i64 %83, %80
   br label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he7105ddba6545aacE.exit"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he7105ddba6545aacE.exit": ; preds = %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i", %33, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i", %72, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cea1ca5d09a719cE.exit27.thread43.i"
-  %.sroa.4.sroa.0.0.i = phi i64 [ %83, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cea1ca5d09a719cE.exit27.thread43.i" ], [ 0, %33 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i" ], [ 0, %72 ], [ 0, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i" ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.i37.i, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cea1ca5d09a719cE.exit27.thread43.i" ], [ 2, %33 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i" ], [ 2, %72 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i" ]
-  %.sroa.0.0.insert.insert.i = or i64 %.sroa.0.0.i, %.sroa.4.sroa.0.0.i
-  ret i64 %.sroa.0.0.insert.insert.i
+  %.sroa.4.sroa.0.0.i = phi i64 [ %84, %"_ZN130_$LT$polars_arrow..bitmap..utils..zip_validity..ZipValidity$LT$T$C$I$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cea1ca5d09a719cE.exit27.thread43.i" ], [ 2, %33 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i.i" ], [ 2, %72 ], [ 2, %"_ZN108_$LT$polars_arrow..bitmap..utils..iterator..BitmapIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heae0858f236b137eE.exit.i.i18.i" ]
+  ret i64 %.sroa.4.sroa.0.0.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

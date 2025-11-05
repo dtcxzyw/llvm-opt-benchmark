@@ -4979,8 +4979,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvvEELb0EE19moveElementsForGrowEPS
 869:                                              ; preds = %852
   %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
   %exitcond590.not = icmp ne i64 %indvars.iv.next587, %264
-  %or.cond674.not = select i1 %or.cond527, i1 %exitcond590.not, i1 false
-  br i1 %or.cond674.not, label %594, label %.loopexit545.loopexit, !llvm.loop !416
+  %or.cond.not = select i1 %or.cond527, i1 %exitcond590.not, i1 false
+  br i1 %or.cond.not, label %594, label %.loopexit545.loopexit, !llvm.loop !416
 
 .loopexit545.loopexit:                            ; preds = %869
   %.ph = xor i1 %or.cond527, true
@@ -4997,19 +4997,16 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvvEELb0EE19moveElementsForGrowEPS
   br i1 %.not.i359, label %874, label %_ZNK4llvm3EVTneES0_.exit
 
 874:                                              ; preds = %873
-  %875 = icmp eq i16 %.sroa.0.0.copyload.i290, 0
-  br i1 %875, label %876, label %.thread515
+  %875 = icmp ne i16 %.sroa.0.0.copyload.i290, 0
+  %876 = icmp eq ptr %246, null
+  %877 = or i1 %876, %871
+  %or.cond675 = select i1 %875, i1 true, i1 %877
+  br i1 %or.cond675, label %.thread515, label %878
 
-876:                                              ; preds = %874
-  %877 = icmp eq ptr %246, null
-  br label %_ZNK4llvm3EVTneES0_.exit
+_ZNK4llvm3EVTneES0_.exit:                         ; preds = %873
+  br i1 %871, label %.thread515, label %878
 
-_ZNK4llvm3EVTneES0_.exit:                         ; preds = %873, %876
-  %.0.i360 = phi i1 [ %877, %876 ], [ false, %873 ]
-  %or.cond = or i1 %871, %.0.i360
-  br i1 %or.cond, label %.thread515, label %878
-
-878:                                              ; preds = %_ZNK4llvm3EVTneES0_.exit
+878:                                              ; preds = %874, %_ZNK4llvm3EVTneES0_.exit
   %879 = load ptr, ptr %2, align 8, !tbaa !58
   %880 = getelementptr inbounds nuw %"struct.llvm::CallLowering::ArgInfo", ptr %879, i64 %indvars.iv591
   %881 = getelementptr inbounds nuw i8, ptr %880, i64 128

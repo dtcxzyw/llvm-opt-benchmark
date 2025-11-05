@@ -561,30 +561,30 @@ BufferGetPage.exit205:                            ; preds = %182, %188
 225:                                              ; preds = %._crit_edge
   %226 = load i8, ptr %70, align 8, !range !7, !noundef !8
   %227 = trunc nuw i8 %226 to i1
-  br i1 %227, label %233, label %228
+  br i1 %227, label %234, label %228
 
 228:                                              ; preds = %225
   %229 = load i32, ptr %71, align 8
   %.not.i207 = icmp eq i32 %229, 0
-  br i1 %.not.i207, label %230, label %233
+  br i1 %.not.i207, label %230, label %234
 
 230:                                              ; preds = %228
   %231 = call i32 @RelationExtensionLockWaiterCount(ptr noundef nonnull %0) #7
   %232 = add i32 %231, 1
-  br label %233
+  %233 = mul i32 %232, %spec.store.select
+  br label %234
 
-233:                                              ; preds = %230, %228, %225
-  %.067.i = phi i32 [ %232, %230 ], [ 1, %228 ], [ 1, %225 ]
-  %234 = mul i32 %.067.i, %spec.store.select
+234:                                              ; preds = %230, %228, %225
+  %.067.i = phi i32 [ %233, %230 ], [ %spec.store.select, %228 ], [ %spec.store.select, %225 ]
   br i1 %69, label %237, label %235
 
-235:                                              ; preds = %233
-  %236 = call i32 @llvm.umin.i32(i32 %234, i32 64)
+235:                                              ; preds = %234
+  %236 = call i32 @llvm.umin.i32(i32 %.067.i, i32 64)
   br label %.critedge.i
 
-237:                                              ; preds = %233
+237:                                              ; preds = %234
   %238 = load i32, ptr %73, align 4
-  %..i = call i32 @llvm.umax.i32(i32 %234, i32 %238)
+  %..i = call i32 @llvm.umax.i32(i32 %.067.i, i32 %238)
   %239 = call i32 @llvm.umin.i32(i32 %..i, i32 64)
   store i32 %239, ptr %10, align 4
   %240 = load i32, ptr %65, align 8

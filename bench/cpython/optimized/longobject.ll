@@ -8294,7 +8294,7 @@ Py_XDECREF.exit277:                               ; preds = %Py_XDECREF.exit, %1
 148:                                              ; preds = %123, %142
   %149 = phi i64 [ %147, %142 ], [ 0, %123 ]
   %.not231 = icmp samesign ult i64 %88, %82
-  br i1 %.not231, label %156, label %150
+  br i1 %.not231, label %157, label %150
 
 150:                                              ; preds = %148
   %151 = getelementptr inbounds nuw i8, ptr %.2372, i64 24
@@ -8302,15 +8302,15 @@ Py_XDECREF.exit277:                               ; preds = %Py_XDECREF.exit, %1
   %153 = load i32, ptr %152, align 4, !tbaa !33
   %154 = zext i32 %153 to i64
   %155 = shl i64 %154, %133
-  br label %156
+  %156 = or i64 %155, %149
+  br label %157
 
-156:                                              ; preds = %148, %150
-  %157 = phi i64 [ %155, %150 ], [ 0, %148 ]
-  %158 = or i64 %157, %149
+157:                                              ; preds = %148, %150
+  %158 = phi i64 [ %156, %150 ], [ %149, %148 ]
   %.not232 = icmp samesign ult i64 %88, %80
   br i1 %.not232, label %165, label %159
 
-159:                                              ; preds = %156
+159:                                              ; preds = %157
   %160 = getelementptr inbounds nuw i8, ptr %.2372, i64 24
   %161 = getelementptr i32, ptr %160, i64 %82
   %162 = load i32, ptr %161, align 4, !tbaa !33
@@ -8318,8 +8318,8 @@ Py_XDECREF.exit277:                               ; preds = %Py_XDECREF.exit, %1
   %164 = shl i64 %163, %126
   br label %165
 
-165:                                              ; preds = %156, %159
-  %166 = phi i64 [ %164, %159 ], [ 0, %156 ]
+165:                                              ; preds = %157, %159
+  %166 = phi i64 [ %164, %159 ], [ 0, %157 ]
   %167 = or i64 %158, %166
   %168 = icmp eq i64 %167, 0
   br i1 %168, label %._crit_edge.thread, label %.lr.ph

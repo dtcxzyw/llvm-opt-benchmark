@@ -502,13 +502,12 @@ define dso_local i64 @_ZN5clang4sema17FunctionScopeInfo19WeakObjectProfileTy11ge
 
 54:                                               ; preds = %26, %15, %5, %52
   %55 = phi i64 [ %14, %5 ], [ %.0.v.i, %52 ], [ %25, %15 ], [ %33, %26 ]
+  %56 = or disjoint i64 %55, 4
   br label %.thread
 
 .thread:                                          ; preds = %34, %39, %1, %26, %15, %5, %52, %54
-  %56 = phi i64 [ %55, %54 ], [ %.0.v.i, %52 ], [ %14, %5 ], [ %25, %15 ], [ %33, %26 ], [ %.0.v.i, %39 ], [ 0, %34 ], [ 0, %1 ]
-  %57 = phi i64 [ 4, %54 ], [ 0, %52 ], [ 0, %5 ], [ 0, %15 ], [ 0, %26 ], [ 0, %39 ], [ 0, %34 ], [ 0, %1 ]
-  %58 = or disjoint i64 %57, %56
-  ret i64 %58
+  %57 = phi i64 [ %56, %54 ], [ %.0.v.i, %52 ], [ %14, %5 ], [ %25, %15 ], [ %33, %26 ], [ %.0.v.i, %39 ], [ 0, %34 ], [ 0, %1 ]
+  ret i64 %57
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

@@ -459,16 +459,16 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   %4 = icmp eq i64 %3, 0
   %5 = icmp ult i32 %1, 2
   %6 = select i1 %4, i1 %5, i1 false
-  br i1 %6, label %93, label %7
+  br i1 %6, label %88, label %7
 
 7:                                                ; preds = %0
-  switch i32 %1, label %.thread5 [
-    i32 0, label %93
+  switch i32 %1, label %.thread6 [
+    i32 0, label %88
     i32 2, label %8
     i32 1, label %8
-    i32 5, label %.thread6
-    i32 4, label %.thread4
-    i32 3, label %.thread4
+    i32 5, label %.thread5
+    i32 4, label %.thread3
+    i32 3, label %.thread3
     i32 9, label %30
     i32 6, label %27
     i32 8, label %28
@@ -486,13 +486,13 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   %14 = freeze i64 %13
   %15 = and i64 %14, 576460752303423488
   %16 = icmp eq i64 %15, 0
-  br i1 %16, label %.thread4, label %17
+  br i1 %16, label %.thread3, label %17
 
 17:                                               ; preds = %12
   %18 = load i32, ptr @retbleed_cmd, align 4
   switch i32 %18, label %19 [
-    i32 4, label %.thread4
-    i32 0, label %.thread4
+    i32 4, label %.thread3
+    i32 0, label %.thread3
   ]
 
 19:                                               ; preds = %17
@@ -502,9 +502,9 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
   %24 = icmp eq i8 %23, 0
   %25 = select i1 %22, i1 %24, i1 false
-  br i1 %25, label %30, label %.thread4
+  br i1 %25, label %30, label %.thread3
 
-.thread6:                                         ; preds = %7
+.thread5:                                         ; preds = %7
   %26 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.68) #17
   br label %46
 
@@ -518,9 +518,8 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   br label %30
 
 30:                                               ; preds = %7, %29, %28, %27, %8, %19
-  %.ph = phi i1 [ false, %19 ], [ false, %8 ], [ false, %27 ], [ true, %28 ], [ false, %29 ], [ false, %7 ]
-  %.ph1 = phi i1 [ false, %19 ], [ false, %8 ], [ false, %27 ], [ false, %28 ], [ true, %29 ], [ false, %7 ]
-  %.ph2 = phi i32 [ 6, %19 ], [ 3, %8 ], [ 3, %27 ], [ 5, %28 ], [ 4, %29 ], [ 6, %7 ]
+  %.ph = phi i1 [ false, %19 ], [ false, %8 ], [ false, %27 ], [ true, %28 ], [ true, %29 ], [ false, %7 ]
+  %.ph1 = phi i32 [ 6, %19 ], [ 3, %8 ], [ 3, %27 ], [ 5, %28 ], [ 4, %29 ], [ 6, %7 ]
   %31 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %32 = and i64 %31, 256
   %33 = icmp eq i64 %32, 0
@@ -538,8 +537,8 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   br label %39
 
 39:                                               ; preds = %36, %34
-  switch i32 %.ph2, label %.thread5 [
-    i32 4, label %.thread4
+  switch i32 %.ph1, label %53 [
+    i32 4, label %.thread3
     i32 5, label %46
     i32 6, label %40
   ]
@@ -550,105 +549,100 @@ define internal fastcc void @spectre_v2_select_mitigation() unnamed_addr #3 sect
   %41 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
   %42 = and i64 %41, 4611686018427387904
   %43 = icmp eq i64 %42, 0
-  br i1 %43, label %.thread5, label %44
+  br i1 %43, label %53, label %44
 
 44:                                               ; preds = %40
   %45 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.70) #17
-  br label %.thread5
+  br i1 %.ph, label %55, label %.thread6
 
-46:                                               ; preds = %39, %.thread6
-  %47 = phi i1 [ false, %.thread6 ], [ %.ph, %39 ]
-  %48 = phi i1 [ false, %.thread6 ], [ %.ph1, %39 ]
-  %49 = phi i1 [ false, %.thread6 ], [ true, %39 ]
-  %50 = phi i32 [ 2, %.thread6 ], [ %.ph2, %39 ]
+46:                                               ; preds = %39, %.thread5
+  %47 = phi i1 [ false, %.thread5 ], [ %.ph, %39 ]
+  %48 = phi i1 [ false, %.thread5 ], [ true, %39 ]
+  %49 = phi i32 [ 2, %.thread5 ], [ %.ph1, %39 ]
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 85), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 85)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 45), i32 32, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 45)) #15, !srcloc !12
-  br label %.thread4
+  br label %.thread3
 
-.thread4:                                         ; preds = %7, %7, %12, %17, %17, %19, %46, %39
-  %51 = phi i1 [ %47, %46 ], [ %.ph, %39 ], [ false, %19 ], [ false, %17 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %7 ]
-  %52 = phi i1 [ %48, %46 ], [ %.ph1, %39 ], [ false, %19 ], [ false, %17 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %7 ]
-  %53 = phi i1 [ false, %46 ], [ false, %39 ], [ true, %19 ], [ true, %17 ], [ true, %17 ], [ true, %12 ], [ true, %7 ], [ true, %7 ]
-  %54 = phi i1 [ %49, %46 ], [ true, %39 ], [ false, %19 ], [ false, %17 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %7 ]
-  %55 = phi i32 [ %50, %46 ], [ %.ph2, %39 ], [ 1, %19 ], [ 1, %17 ], [ 1, %17 ], [ 1, %12 ], [ 1, %7 ], [ 1, %7 ]
+.thread3:                                         ; preds = %7, %7, %12, %17, %17, %19, %46, %39
+  %50 = phi i1 [ %47, %46 ], [ %.ph, %39 ], [ true, %19 ], [ true, %17 ], [ true, %17 ], [ true, %12 ], [ true, %7 ], [ true, %7 ]
+  %51 = phi i1 [ %48, %46 ], [ true, %39 ], [ false, %19 ], [ false, %17 ], [ false, %17 ], [ false, %12 ], [ false, %7 ], [ false, %7 ]
+  %52 = phi i32 [ %49, %46 ], [ %.ph1, %39 ], [ 1, %19 ], [ 1, %17 ], [ 1, %17 ], [ 1, %12 ], [ 1, %7 ], [ 1, %7 ]
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 85), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 85)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 45), i32 16, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 45)) #15, !srcloc !12
-  br label %.thread5
+  br i1 %50, label %55, label %.thread6
 
-.thread5:                                         ; preds = %7, %.thread4, %44, %40, %39
-  %56 = phi i1 [ %51, %.thread4 ], [ %.ph, %44 ], [ %.ph, %40 ], [ %.ph, %39 ], [ false, %7 ]
-  %57 = phi i1 [ %52, %.thread4 ], [ %.ph1, %44 ], [ %.ph1, %40 ], [ %.ph1, %39 ], [ false, %7 ]
-  %58 = phi i1 [ %53, %.thread4 ], [ false, %44 ], [ false, %40 ], [ false, %39 ], [ false, %7 ]
-  %59 = phi i1 [ %54, %.thread4 ], [ true, %44 ], [ true, %40 ], [ true, %39 ], [ false, %7 ]
-  %60 = phi i32 [ %55, %.thread4 ], [ 6, %44 ], [ 6, %40 ], [ 3, %39 ], [ 0, %7 ]
-  %61 = or i1 %56, %57
-  %62 = or i1 %61, %58
-  br i1 %62, label %63, label %64
+53:                                               ; preds = %40, %39
+  %54 = phi i32 [ 6, %40 ], [ 3, %39 ]
+  br i1 %.ph, label %55, label %.thread6
 
-63:                                               ; preds = %.thread5
+55:                                               ; preds = %44, %.thread3, %53
+  %56 = phi i32 [ %52, %.thread3 ], [ %54, %53 ], [ 6, %44 ]
+  %57 = phi i1 [ %51, %.thread3 ], [ true, %53 ], [ true, %44 ]
   tail call fastcc void @spec_ctrl_disable_kernel_rrsba() #16
-  br label %64
+  br label %.thread6
 
-64:                                               ; preds = %63, %.thread5
-  store i32 %60, ptr @spectre_v2_enabled, align 4
-  %65 = zext nneg i32 %60 to i64
-  %66 = getelementptr ptr, ptr @spectre_v2_strings, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, ptr noundef %67) #17
+.thread6:                                         ; preds = %7, %44, %.thread3, %55, %53
+  %58 = phi i32 [ %56, %55 ], [ %54, %53 ], [ %52, %.thread3 ], [ 6, %44 ], [ 0, %7 ]
+  %59 = phi i1 [ %57, %55 ], [ true, %53 ], [ %51, %.thread3 ], [ true, %44 ], [ false, %7 ]
+  store i32 %58, ptr @spectre_v2_enabled, align 4
+  %60 = zext nneg i32 %58 to i64
+  %61 = getelementptr ptr, ptr @spectre_v2_strings, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.55, ptr noundef %62) #17
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 70), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 70)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 30), i32 8, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 30)) #15, !srcloc !12
-  %69 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71) #17
-  tail call fastcc void @spectre_v2_determine_rsb_fill_type_at_vmexit(i32 noundef %60) #16
-  %70 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
-  %71 = and i64 %70, 576460752303423488
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %83, label %73
+  %64 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71) #17
+  tail call fastcc void @spectre_v2_determine_rsb_fill_type_at_vmexit(i32 noundef %58) #16
+  %65 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
+  %66 = and i64 %65, 576460752303423488
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %78, label %68
 
-73:                                               ; preds = %64
-  %74 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
-  %75 = and i64 %74, 288230376151711744
-  %76 = icmp eq i64 %75, 0
-  br i1 %76, label %83, label %77
+68:                                               ; preds = %.thread6
+  %69 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
+  %70 = and i64 %69, 288230376151711744
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %78, label %72
 
-77:                                               ; preds = %73
-  %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
-  switch i8 %78, label %83 [
-    i8 9, label %79
-    i8 2, label %79
+72:                                               ; preds = %68
+  %73 = load i8, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 1), align 1
+  switch i8 %73, label %78 [
+    i8 9, label %74
+    i8 2, label %74
   ]
 
-79:                                               ; preds = %77, %77
-  %80 = load i32, ptr @retbleed_cmd, align 4
-  %81 = icmp eq i32 %80, 3
-  br i1 %81, label %92, label %82
+74:                                               ; preds = %72, %72
+  %75 = load i32, ptr @retbleed_cmd, align 4
+  %76 = icmp eq i32 %75, 3
+  br i1 %76, label %87, label %77
 
-82:                                               ; preds = %79
+77:                                               ; preds = %74
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 86), i32 1, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 86)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 46), i32 1, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 46)) #15, !srcloc !12
-  br label %89
+  br label %84
 
-83:                                               ; preds = %77, %73, %64
-  %84 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
-  %85 = and i64 %84, 144115188075855872
-  %86 = icmp eq i64 %85, 0
-  %87 = or i1 %59, %86
-  br i1 %87, label %92, label %88
+78:                                               ; preds = %72, %68, %.thread6
+  %79 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 64), align 8
+  %80 = and i64 %79, 144115188075855872
+  %81 = icmp eq i64 %80, 0
+  %82 = or i1 %59, %81
+  br i1 %82, label %87, label %83
 
-88:                                               ; preds = %83
+83:                                               ; preds = %78
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 70), i32 64, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 70)) #15, !srcloc !12
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 30), i32 64, ptr nonnull elementtype(i8) getelementptr inbounds nuw (i8, ptr @cpu_caps_set, i64 30)) #15, !srcloc !12
-  br label %89
+  br label %84
 
-89:                                               ; preds = %88, %82
-  %90 = phi ptr [ @.str.73, %88 ], [ @.str.72, %82 ]
-  %91 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %90) #17
-  br label %92
+84:                                               ; preds = %83, %77
+  %85 = phi ptr [ @.str.73, %83 ], [ @.str.72, %77 ]
+  %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull %85) #17
+  br label %87
 
-92:                                               ; preds = %89, %83, %79
+87:                                               ; preds = %84, %78, %74
   store i32 %1, ptr @spectre_v2_cmd, align 4
-  br label %93
+  br label %88
 
-93:                                               ; preds = %92, %7, %0
+88:                                               ; preds = %87, %7, %0
   ret void
 }
 

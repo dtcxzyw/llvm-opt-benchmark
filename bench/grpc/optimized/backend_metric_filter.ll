@@ -466,12 +466,12 @@ define void @_ZN9grpc_core19BackendMetricFilter4Call24OnServerTrailingMetadataER
   %18 = alloca ptr, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %20 = load i16, ptr %19, align 4, !tbaa !16
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %22 = load i8, ptr %21, align 1, !range !18
-  %23 = and i16 %20, 4
-  %.not.not = icmp ne i16 %23, 0
-  %24 = trunc nuw i8 %22 to i1
-  %.0.i = select i1 %.not.not, i1 %24, i1 false
+  %21 = and i16 %20, 4
+  %.not.i.i.i = icmp ne i16 %21, 0
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %23 = load i8, ptr %22, align 1, !range !18
+  %24 = trunc nuw i8 %23 to i1
+  %.0.i = select i1 %.not.i.i.i, i1 %24, i1 false
   br i1 %.0.i, label %.critedge45, label %25
 
 25:                                               ; preds = %2

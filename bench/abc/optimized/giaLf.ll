@@ -665,18 +665,18 @@ Lf_CutSwitches.exit.i:                            ; preds = %16
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 132
   %35 = load i32, ptr %34, align 4, !tbaa !63
   %.not20.i = icmp eq i32 %35, 0
-  br i1 %.not20.i, label %41, label %36
+  br i1 %.not20.i, label %42, label %36
 
 36:                                               ; preds = %30
   %37 = load i32, ptr %11, align 8, !tbaa !64
   %38 = sdiv i32 %37, 2
   %39 = icmp sgt i32 %6, %38
-  %40 = select i1 %39, i32 2, i32 1
-  br label %41
+  %40 = zext i1 %39 to i32
+  %41 = shl i32 %33, %40
+  br label %42
 
-41:                                               ; preds = %36, %30
-  %42 = phi i32 [ 1, %30 ], [ %40, %36 ]
-  %43 = mul nsw i32 %42, %33
+42:                                               ; preds = %36, %30
+  %43 = phi i32 [ %33, %30 ], [ %41, %36 ]
   %44 = sitofp i32 %43 to float
   br label %.lr.ph
 
@@ -698,8 +698,8 @@ Lf_CutArea.exit:                                  ; preds = %2
   %.not24 = icmp ult i32 %5, 16777216
   br i1 %.not24, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %48, %45, %41, %Lf_CutSwitches.exit.i, %Lf_CutArea.exit
-  %.0.i29 = phi float [ 0.000000e+00, %Lf_CutArea.exit ], [ %53, %48 ], [ 1.000000e+00, %45 ], [ %44, %41 ], [ %26, %Lf_CutSwitches.exit.i ]
+.lr.ph:                                           ; preds = %48, %45, %42, %Lf_CutSwitches.exit.i, %Lf_CutArea.exit
+  %.0.i29 = phi float [ 0.000000e+00, %Lf_CutArea.exit ], [ %53, %48 ], [ 1.000000e+00, %45 ], [ %44, %42 ], [ %26, %Lf_CutSwitches.exit.i ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = getelementptr i8, ptr %0, i64 176
   %56 = getelementptr i8, ptr %0, i64 240
@@ -1039,18 +1039,18 @@ Lf_CutSwitches.exit.i:                            ; preds = %16
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 132
   %35 = load i32, ptr %34, align 4, !tbaa !63
   %.not20.i = icmp eq i32 %35, 0
-  br i1 %.not20.i, label %41, label %36
+  br i1 %.not20.i, label %42, label %36
 
 36:                                               ; preds = %30
   %37 = load i32, ptr %11, align 8, !tbaa !64
   %38 = sdiv i32 %37, 2
   %39 = icmp sgt i32 %6, %38
-  %40 = select i1 %39, i32 2, i32 1
-  br label %41
+  %40 = zext i1 %39 to i32
+  %41 = shl i32 %33, %40
+  br label %42
 
-41:                                               ; preds = %36, %30
-  %42 = phi i32 [ 1, %30 ], [ %40, %36 ]
-  %43 = mul nsw i32 %42, %33
+42:                                               ; preds = %36, %30
+  %43 = phi i32 [ %33, %30 ], [ %41, %36 ]
   %44 = sitofp i32 %43 to float
   br label %.lr.ph
 
@@ -1072,8 +1072,8 @@ Lf_CutArea.exit:                                  ; preds = %2
   %.not24 = icmp ult i32 %5, 16777216
   br i1 %.not24, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %48, %45, %41, %Lf_CutSwitches.exit.i, %Lf_CutArea.exit
-  %.0.i29 = phi float [ 0.000000e+00, %Lf_CutArea.exit ], [ %53, %48 ], [ 1.000000e+00, %45 ], [ %44, %41 ], [ %26, %Lf_CutSwitches.exit.i ]
+.lr.ph:                                           ; preds = %48, %45, %42, %Lf_CutSwitches.exit.i, %Lf_CutArea.exit
+  %.0.i29 = phi float [ 0.000000e+00, %Lf_CutArea.exit ], [ %53, %48 ], [ 1.000000e+00, %45 ], [ %44, %42 ], [ %26, %Lf_CutSwitches.exit.i ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = getelementptr i8, ptr %0, i64 176
   %56 = getelementptr i8, ptr %0, i64 240
@@ -4365,18 +4365,18 @@ Lf_CutSwitches.exit.i:                            ; preds = %125
   %143 = getelementptr inbounds nuw i8, ptr %120, i64 132
   %144 = load i32, ptr %143, align 4, !tbaa !63
   %.not20.i = icmp eq i32 %144, 0
-  br i1 %.not20.i, label %150, label %145
+  br i1 %.not20.i, label %151, label %145
 
 145:                                              ; preds = %139
   %146 = load i32, ptr %120, align 8, !tbaa !64
   %147 = sdiv i32 %146, 2
   %148 = icmp sgt i32 %115, %147
-  %149 = select i1 %148, i32 2, i32 1
-  br label %150
+  %149 = zext i1 %148 to i32
+  %150 = shl i32 %142, %149
+  br label %151
 
-150:                                              ; preds = %145, %139
-  %151 = phi i32 [ 1, %139 ], [ %149, %145 ]
-  %152 = mul nsw i32 %151, %142
+151:                                              ; preds = %145, %139
+  %152 = phi i32 [ %142, %139 ], [ %150, %145 ]
   %153 = sitofp i32 %152 to float
   br label %Lf_CutArea.exit
 
@@ -4394,8 +4394,8 @@ Lf_CutSwitches.exit.i:                            ; preds = %125
   %162 = uitofp nneg i32 %161 to float
   br label %Lf_CutArea.exit
 
-Lf_CutArea.exit:                                  ; preds = %114, %Lf_CutSwitches.exit.i, %150, %154, %157
-  %.0.i61 = phi float [ %135, %Lf_CutSwitches.exit.i ], [ %153, %150 ], [ 0.000000e+00, %114 ], [ 1.000000e+00, %154 ], [ %162, %157 ]
+Lf_CutArea.exit:                                  ; preds = %114, %Lf_CutSwitches.exit.i, %151, %154, %157
+  %.0.i61 = phi float [ %135, %Lf_CutSwitches.exit.i ], [ %153, %151 ], [ 0.000000e+00, %114 ], [ 1.000000e+00, %154 ], [ %162, %157 ]
   %163 = fadd float %98, %.0.i61
   %164 = fdiv float %163, %3
   %165 = fcmp ogt float %164, 0x4693B8B5C0000000
@@ -12256,11 +12256,11 @@ Vec_IntPush.exit266.i:                            ; preds = %Vec_IntPush.exit266
   %624 = getelementptr inbounds i8, ptr %616, i64 %623
   %625 = load i32, ptr %624, align 4, !tbaa !40
   %626 = and i32 %625, 1
+  %627 = xor i32 %626, %613
   br label %Gia_ObjFaninC2.exit.i
 
 Gia_ObjFaninC2.exit.i:                            ; preds = %617, %Vec_IntPush.exit266.i
-  %627 = phi i32 [ 0, %Vec_IntPush.exit266.i ], [ %626, %617 ]
-  %628 = xor i32 %627, %613
+  %628 = phi i32 [ %613, %Vec_IntPush.exit266.i ], [ %627, %617 ]
   %629 = load i32, ptr %63, align 4, !tbaa !50
   %630 = load i32, ptr %62, align 8, !tbaa !155
   %631 = icmp eq i32 %629, %630

@@ -1871,17 +1871,16 @@ _ZN6evmmax3ecceqERKNS0_12ExtFieldElemINS_5bn2549Fq6ConfigEEES6_.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %126) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %125) #11
   %714 = zext i1 %709 to i16
+  %715 = or disjoint i16 %714, 256
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit53, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit48, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit43, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit38, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit33, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit, %.critedge28, %713
-  %.sroa.072.1 = phi i16 [ %714, %713 ], [ 0, %.critedge28 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit33 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit38 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit43 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit48 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit53 ]
-  %.sroa.373.2 = phi i16 [ 256, %713 ], [ 0, %.critedge28 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit33 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit38 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit43 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit48 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit53 ]
+  %.sroa.373.2 = phi i16 [ %715, %713 ], [ 0, %.critedge28 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit33 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit38 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit43 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit48 ], [ 0, %_ZN6evmmax5bn25416is_field_elementERKN4intx4uintILj256EEE.exit53 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %118) #11
-  %715 = or disjoint i16 %.sroa.373.2, %.sroa.072.1
   br label %716
 
 716:                                              ; preds = %2, %.critedge
-  %.sroa.072.0.insert.insert = phi i16 [ %715, %.critedge ], [ 257, %2 ]
+  %.sroa.072.0.insert.insert = phi i16 [ %.sroa.373.2, %.critedge ], [ 257, %2 ]
   ret i16 %.sroa.072.0.insert.insert
 }
 
@@ -16663,7 +16662,7 @@ _ZN4intxplERKNS_4uintILj256EEES3_.exit:           ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %21) #11
   %62 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %.sroa.248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.sroa.243.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %65 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -16696,7 +16695,7 @@ _ZN4intxplERKNS_4uintILj256EEES3_.exit:           ; preds = %46
 _ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %72
   %80 = icmp eq i64 %78, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %22) #11
-  br i1 %80, label %232, label %81
+  br i1 %80, label %234, label %81
 
 81:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %23) #11
@@ -16905,12 +16904,12 @@ _ZNK6evmmax8ModArithIN4intx4uintILj256EEEE3subERKS3_S6_.exit: ; preds = %154
 
 170:                                              ; preds = %_ZNK6evmmax8ModArithIN4intx4uintILj256EEEE3subERKS3_S6_.exit, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit6
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.248.0..sroa_idx, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.243.0..sroa_idx, i8 0, i64 24, i1 false)
   br label %172
 
 171:                                              ; preds = %172
   %.not.i.i = icmp eq i64 %175, 0
-  br i1 %.not.i.i, label %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i, label %_ZN4intx4uintILj256EErSES1_.exit, !prof !2686
+  br i1 %.not.i.i, label %177, label %_ZN4intx4uintILj256EErSES1_.exit, !prof !2686
 
 172:                                              ; preds = %172, %170
   %.09.i.i = phi i64 [ 1, %170 ], [ %176, %172 ]
@@ -16922,22 +16921,22 @@ _ZNK6evmmax8ModArithIN4intx4uintILj256EEEE3subERKS3_S6_.exit: ; preds = %154
   %exitcond.not.i.i15 = icmp eq i64 %176, 4
   br i1 %exitcond.not.i.i15, label %171, label %172, !llvm.loop !2690
 
-_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i:         ; preds = %171
-  %177 = load i64, ptr %64, align 8, !tbaa !19, !noalias !2691
-  %178 = load i64, ptr %65, align 8, !tbaa !19, !noalias !2691
-  %179 = tail call i64 @llvm.fshl.i64(i64 %178, i64 %177, i64 63)
-  %180 = lshr i64 %178, 1
-  %181 = load i64, ptr %18, align 8, !tbaa !19, !noalias !2691
-  %182 = load i64, ptr %66, align 8, !tbaa !19, !noalias !2691
-  %183 = tail call i64 @llvm.fshl.i64(i64 %182, i64 %181, i64 63)
-  %184 = tail call i64 @llvm.fshl.i64(i64 %177, i64 %182, i64 63)
+177:                                              ; preds = %171
+  %178 = load i64, ptr %64, align 8, !tbaa !19, !noalias !2691
+  %179 = load i64, ptr %65, align 8, !tbaa !19, !noalias !2691
+  %180 = tail call i64 @llvm.fshl.i64(i64 %179, i64 %178, i64 63)
+  %181 = lshr i64 %179, 1
+  %182 = load i64, ptr %18, align 8, !tbaa !19, !noalias !2691
+  %183 = load i64, ptr %66, align 8, !tbaa !19, !noalias !2691
+  %184 = tail call i64 @llvm.fshl.i64(i64 %183, i64 %182, i64 63)
+  %185 = tail call i64 @llvm.fshl.i64(i64 %178, i64 %183, i64 63)
   br label %_ZN4intx4uintILj256EErSES1_.exit
 
-_ZN4intx4uintILj256EErSES1_.exit:                 ; preds = %171, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i
-  %.sroa.0.0.i = phi i64 [ 0, %171 ], [ %183, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i ]
-  %.sroa.7.0.i = phi i64 [ 0, %171 ], [ %184, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i ]
-  %.sroa.9.0.i = phi i64 [ 0, %171 ], [ %179, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i ]
-  %.sroa.11.0.i = phi i64 [ 0, %171 ], [ %180, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i ]
+_ZN4intx4uintILj256EErSES1_.exit:                 ; preds = %171, %177
+  %.sroa.0.0.i = phi i64 [ 0, %171 ], [ %184, %177 ]
+  %.sroa.7.0.i = phi i64 [ 0, %171 ], [ %185, %177 ]
+  %.sroa.9.0.i = phi i64 [ 0, %171 ], [ %180, %177 ]
+  %.sroa.11.0.i = phi i64 [ 0, %171 ], [ %181, %177 ]
   store i64 %.sroa.0.0.i, ptr %18, align 8
   store i64 %.sroa.7.0.i, ptr %66, align 8
   store i64 %.sroa.9.0.i, ptr %64, align 8
@@ -16949,153 +16948,153 @@ _ZN4intx4uintILj256EErSES1_.exit:                 ; preds = %171, %_ZN4intxrsENS
   store i64 1, ptr %28, align 8, !tbaa !19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2694)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 0, i64 32, i1 false), !tbaa !19, !alias.scope !2694
-  br label %185
+  br label %186
 
-185:                                              ; preds = %185, %_ZN4intx4uintILj256EErSES1_.exit
-  %.06.i16 = phi i64 [ 0, %_ZN4intx4uintILj256EErSES1_.exit ], [ %192, %185 ]
-  %186 = getelementptr inbounds nuw i64, ptr %20, i64 %.06.i16
-  %187 = load i64, ptr %186, align 8, !tbaa !19, !noalias !2694
-  %188 = getelementptr inbounds nuw i64, ptr %28, i64 %.06.i16
-  %189 = load i64, ptr %188, align 8, !tbaa !19, !noalias !2694
-  %190 = and i64 %189, %187
-  %191 = getelementptr inbounds nuw i64, ptr %27, i64 %.06.i16
-  store i64 %190, ptr %191, align 8, !tbaa !19, !alias.scope !2694
-  %192 = add nuw nsw i64 %.06.i16, 1
-  %exitcond.not.i17 = icmp eq i64 %192, 4
-  br i1 %exitcond.not.i17, label %_ZN4intxanERKNS_4uintILj256EEES3_.exit18, label %185, !llvm.loop !2657
+186:                                              ; preds = %186, %_ZN4intx4uintILj256EErSES1_.exit
+  %.06.i16 = phi i64 [ 0, %_ZN4intx4uintILj256EErSES1_.exit ], [ %193, %186 ]
+  %187 = getelementptr inbounds nuw i64, ptr %20, i64 %.06.i16
+  %188 = load i64, ptr %187, align 8, !tbaa !19, !noalias !2694
+  %189 = getelementptr inbounds nuw i64, ptr %28, i64 %.06.i16
+  %190 = load i64, ptr %189, align 8, !tbaa !19, !noalias !2694
+  %191 = and i64 %190, %188
+  %192 = getelementptr inbounds nuw i64, ptr %27, i64 %.06.i16
+  store i64 %191, ptr %192, align 8, !tbaa !19, !alias.scope !2694
+  %193 = add nuw nsw i64 %.06.i16, 1
+  %exitcond.not.i17 = icmp eq i64 %193, 4
+  br i1 %exitcond.not.i17, label %_ZN4intxanERKNS_4uintILj256EEES3_.exit18, label %186, !llvm.loop !2657
 
-_ZN4intxanERKNS_4uintILj256EEES3_.exit18:         ; preds = %185
+_ZN4intxanERKNS_4uintILj256EEES3_.exit18:         ; preds = %186
   call void @llvm.lifetime.start.p0(ptr nonnull %29) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
-  br label %193
+  br label %194
 
-193:                                              ; preds = %193, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18
-  %.09.i19 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18 ], [ %200, %193 ]
-  %.078.i20 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18 ], [ %199, %193 ]
-  %194 = getelementptr inbounds nuw i64, ptr %27, i64 %.09.i19
-  %195 = load i64, ptr %194, align 8, !tbaa !19
-  %196 = getelementptr inbounds nuw i64, ptr %29, i64 %.09.i19
-  %197 = load i64, ptr %196, align 8, !tbaa !19
-  %198 = xor i64 %197, %195
-  %199 = or i64 %198, %.078.i20
-  %200 = add nuw nsw i64 %.09.i19, 1
-  %exitcond.not.i21 = icmp eq i64 %200, 4
-  br i1 %exitcond.not.i21, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22, label %193, !llvm.loop !21
+194:                                              ; preds = %194, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18
+  %.09.i19 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18 ], [ %201, %194 ]
+  %.078.i20 = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit18 ], [ %200, %194 ]
+  %195 = getelementptr inbounds nuw i64, ptr %27, i64 %.09.i19
+  %196 = load i64, ptr %195, align 8, !tbaa !19
+  %197 = getelementptr inbounds nuw i64, ptr %29, i64 %.09.i19
+  %198 = load i64, ptr %197, align 8, !tbaa !19
+  %199 = xor i64 %198, %196
+  %200 = or i64 %199, %.078.i20
+  %201 = add nuw nsw i64 %.09.i19, 1
+  %exitcond.not.i21 = icmp eq i64 %201, 4
+  br i1 %exitcond.not.i21, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22, label %194, !llvm.loop !21
 
-_ZN4intxeqERKNS_4uintILj256EEES3_.exit22:         ; preds = %193
+_ZN4intxeqERKNS_4uintILj256EEES3_.exit22:         ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %29) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %28) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %27) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.2.0..sroa_idx, i8 0, i64 24, i1 false)
-  br label %203
+  br label %204
 
-201:                                              ; preds = %203
-  %202 = icmp eq i64 %199, 0
-  %.not.i.i26 = icmp eq i64 %206, 0
-  br i1 %.not.i.i26, label %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i34, label %_ZN4intx4uintILj256EErSES1_.exit39, !prof !2686
+202:                                              ; preds = %204
+  %203 = icmp eq i64 %200, 0
+  %.not.i.i26 = icmp eq i64 %207, 0
+  br i1 %.not.i.i26, label %209, label %_ZN4intx4uintILj256EErSES1_.exit34, !prof !2686
 
-203:                                              ; preds = %203, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22
-  %.09.i.i23 = phi i64 [ 1, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22 ], [ %207, %203 ]
-  %.078.i.i24 = phi i64 [ 0, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22 ], [ %206, %203 ]
-  %204 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i23
-  %205 = load i64, ptr %204, align 8, !tbaa !19, !noalias !2697
-  %206 = or i64 %205, %.078.i.i24
-  %207 = add nuw nsw i64 %.09.i.i23, 1
-  %exitcond.not.i.i25 = icmp eq i64 %207, 4
-  br i1 %exitcond.not.i.i25, label %201, label %203, !llvm.loop !2690
+204:                                              ; preds = %204, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22
+  %.09.i.i23 = phi i64 [ 1, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22 ], [ %208, %204 ]
+  %.078.i.i24 = phi i64 [ 0, %_ZN4intxeqERKNS_4uintILj256EEES3_.exit22 ], [ %207, %204 ]
+  %205 = getelementptr inbounds nuw i64, ptr %5, i64 %.09.i.i23
+  %206 = load i64, ptr %205, align 8, !tbaa !19, !noalias !2697
+  %207 = or i64 %206, %.078.i.i24
+  %208 = add nuw nsw i64 %.09.i.i23, 1
+  %exitcond.not.i.i25 = icmp eq i64 %208, 4
+  br i1 %exitcond.not.i.i25, label %202, label %204, !llvm.loop !2690
 
-_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i34:       ; preds = %201
-  %208 = load i64, ptr %68, align 8, !tbaa !19, !noalias !2700
-  %209 = load i64, ptr %69, align 8, !tbaa !19, !noalias !2700
-  %210 = tail call i64 @llvm.fshl.i64(i64 %209, i64 %208, i64 63)
-  %211 = lshr i64 %209, 1
-  %212 = load i64, ptr %20, align 8, !tbaa !19, !noalias !2700
-  %213 = load i64, ptr %70, align 8, !tbaa !19, !noalias !2700
-  %214 = tail call i64 @llvm.fshl.i64(i64 %213, i64 %212, i64 63)
-  %215 = tail call i64 @llvm.fshl.i64(i64 %208, i64 %213, i64 63)
-  br label %_ZN4intx4uintILj256EErSES1_.exit39
+209:                                              ; preds = %202
+  %210 = load i64, ptr %68, align 8, !tbaa !19, !noalias !2700
+  %211 = load i64, ptr %69, align 8, !tbaa !19, !noalias !2700
+  %212 = tail call i64 @llvm.fshl.i64(i64 %211, i64 %210, i64 63)
+  %213 = lshr i64 %211, 1
+  %214 = load i64, ptr %20, align 8, !tbaa !19, !noalias !2700
+  %215 = load i64, ptr %70, align 8, !tbaa !19, !noalias !2700
+  %216 = tail call i64 @llvm.fshl.i64(i64 %215, i64 %214, i64 63)
+  %217 = tail call i64 @llvm.fshl.i64(i64 %210, i64 %215, i64 63)
+  br label %_ZN4intx4uintILj256EErSES1_.exit34
 
-_ZN4intx4uintILj256EErSES1_.exit39:               ; preds = %201, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i34
-  %.sroa.0.0.i27 = phi i64 [ 0, %201 ], [ %214, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i34 ]
-  %.sroa.7.0.i28 = phi i64 [ 0, %201 ], [ %215, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i34 ]
-  %.sroa.9.0.i29 = phi i64 [ 0, %201 ], [ %210, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i34 ]
-  %.sroa.11.0.i30 = phi i64 [ 0, %201 ], [ %211, %_ZN4intxrsENS_4uintILj128EEEm.exit30.i.i34 ]
+_ZN4intx4uintILj256EErSES1_.exit34:               ; preds = %202, %209
+  %.sroa.0.0.i27 = phi i64 [ 0, %202 ], [ %216, %209 ]
+  %.sroa.7.0.i28 = phi i64 [ 0, %202 ], [ %217, %209 ]
+  %.sroa.9.0.i29 = phi i64 [ 0, %202 ], [ %212, %209 ]
+  %.sroa.11.0.i30 = phi i64 [ 0, %202 ], [ %213, %209 ]
   store i64 %.sroa.0.0.i27, ptr %20, align 8
   store i64 %.sroa.7.0.i28, ptr %70, align 8
   store i64 %.sroa.9.0.i29, ptr %68, align 8
   store i64 %.sroa.11.0.i30, ptr %69, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %202, label %.backedge, label %216
+  br i1 %203, label %.backedge, label %218
 
-216:                                              ; preds = %_ZN4intx4uintILj256EErSES1_.exit39
+218:                                              ; preds = %_ZN4intx4uintILj256EErSES1_.exit34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br label %217
+  br label %219
 
-217:                                              ; preds = %217, %216
-  %.0.in11.i.i.i40 = phi i1 [ false, %216 ], [ %229, %217 ]
-  %.0910.i.i.i41 = phi i64 [ 0, %216 ], [ %231, %217 ]
-  %218 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i41
-  %219 = load i64, ptr %218, align 8, !tbaa !19, !noalias !2703
-  %220 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i41
+219:                                              ; preds = %219, %218
+  %.0.in11.i.i.i35 = phi i1 [ false, %218 ], [ %231, %219 ]
+  %.0910.i.i.i36 = phi i64 [ 0, %218 ], [ %233, %219 ]
+  %220 = getelementptr inbounds nuw i64, ptr %20, i64 %.0910.i.i.i36
   %221 = load i64, ptr %220, align 8, !tbaa !19, !noalias !2703
-  %222 = zext i1 %.0.in11.i.i.i40 to i64
-  %223 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %219, i64 %221)
-  %224 = extractvalue { i64, i1 } %223, 1
-  %225 = extractvalue { i64, i1 } %223, 0
-  %226 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %225, i64 %222)
-  %227 = extractvalue { i64, i1 } %226, 1
-  %228 = extractvalue { i64, i1 } %226, 0
-  %229 = or i1 %224, %227
-  %230 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i41
-  store i64 %228, ptr %230, align 8
-  %231 = add nuw nsw i64 %.0910.i.i.i41, 1
-  %exitcond.not.i.i.i42 = icmp eq i64 %231, 4
-  br i1 %exitcond.not.i.i.i42, label %_ZN4intx4uintILj256EEpLERKS1_.exit, label %217, !llvm.loop !58
+  %222 = getelementptr inbounds nuw i64, ptr %15, i64 %.0910.i.i.i36
+  %223 = load i64, ptr %222, align 8, !tbaa !19, !noalias !2703
+  %224 = zext i1 %.0.in11.i.i.i35 to i64
+  %225 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %221, i64 %223)
+  %226 = extractvalue { i64, i1 } %225, 1
+  %227 = extractvalue { i64, i1 } %225, 0
+  %228 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %227, i64 %224)
+  %229 = extractvalue { i64, i1 } %228, 1
+  %230 = extractvalue { i64, i1 } %228, 0
+  %231 = or i1 %226, %229
+  %232 = getelementptr inbounds nuw i64, ptr %4, i64 %.0910.i.i.i36
+  store i64 %230, ptr %232, align 8
+  %233 = add nuw nsw i64 %.0910.i.i.i36, 1
+  %exitcond.not.i.i.i37 = icmp eq i64 %233, 4
+  br i1 %exitcond.not.i.i.i37, label %_ZN4intx4uintILj256EEpLERKS1_.exit, label %219, !llvm.loop !58
 
-_ZN4intx4uintILj256EEpLERKS1_.exit:               ; preds = %217
+_ZN4intx4uintILj256EEpLERKS1_.exit:               ; preds = %219
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN4intx4uintILj256EEpLERKS1_.exit, %_ZN4intx4uintILj256EErSES1_.exit39
+.backedge:                                        ; preds = %_ZN4intx4uintILj256EEpLERKS1_.exit, %_ZN4intx4uintILj256EErSES1_.exit34
   br label %71, !llvm.loop !2708
 
-232:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
+234:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %30) #11
-  %233 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %233, i8 0, i64 24, i1 false)
+  %235 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %235, i8 0, i64 24, i1 false)
   store i64 1, ptr %30, align 8, !tbaa !19
-  br label %234
+  br label %236
 
-234:                                              ; preds = %234, %232
-  %.09.i43 = phi i64 [ 0, %232 ], [ %241, %234 ]
-  %.078.i44 = phi i64 [ 0, %232 ], [ %240, %234 ]
-  %235 = getelementptr inbounds nuw i64, ptr %19, i64 %.09.i43
-  %236 = load i64, ptr %235, align 8, !tbaa !19
-  %237 = getelementptr inbounds nuw i64, ptr %30, i64 %.09.i43
+236:                                              ; preds = %236, %234
+  %.09.i38 = phi i64 [ 0, %234 ], [ %243, %236 ]
+  %.078.i39 = phi i64 [ 0, %234 ], [ %242, %236 ]
+  %237 = getelementptr inbounds nuw i64, ptr %19, i64 %.09.i38
   %238 = load i64, ptr %237, align 8, !tbaa !19
-  %239 = xor i64 %238, %236
-  %240 = or i64 %239, %.078.i44
-  %241 = add nuw nsw i64 %.09.i43, 1
-  %exitcond.not.i45 = icmp eq i64 %241, 4
-  br i1 %exitcond.not.i45, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit46, label %234, !llvm.loop !21
+  %239 = getelementptr inbounds nuw i64, ptr %30, i64 %.09.i38
+  %240 = load i64, ptr %239, align 8, !tbaa !19
+  %241 = xor i64 %240, %238
+  %242 = or i64 %241, %.078.i39
+  %243 = add nuw nsw i64 %.09.i38, 1
+  %exitcond.not.i40 = icmp eq i64 %243, 4
+  br i1 %exitcond.not.i40, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit41, label %236, !llvm.loop !21
 
-_ZN4intxeqERKNS_4uintILj256EEES3_.exit46:         ; preds = %234
-  %242 = icmp eq i64 %240, 0
+_ZN4intxeqERKNS_4uintILj256EEES3_.exit41:         ; preds = %236
+  %244 = icmp eq i64 %242, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %30) #11
-  br i1 %242, label %244, label %243
+  br i1 %244, label %246, label %245
 
-243:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit46
+245:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  br label %245
+  br label %247
 
-244:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit46
+246:                                              ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %21, i64 32, i1 false), !tbaa.struct !13
-  br label %245
+  br label %247
 
-245:                                              ; preds = %244, %243
+247:                                              ; preds = %246, %245
   call void @llvm.lifetime.end.p0(ptr nonnull %21) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %20) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %19) #11

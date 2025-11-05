@@ -17955,7 +17955,7 @@ define dso_local range(i32 0, 131072) i32 @_ZNK4llvm16AArch64Subtarget44getPtrAu
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.57, i64 22) #24
-  br i1 %5, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %22
+  br i1 %5, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %23
 
 _ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -17992,13 +17992,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4l
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = zext i16 %15 to i32
-  br label %22
+  %22 = or disjoint i32 %21, 65536
+  br label %23
 
-22:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.sroa.05.0 = phi i32 [ %21, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
-  %.sroa.26.0 = phi i32 [ 65536, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
-  %.sroa.05.0.insert.insert = or disjoint i32 %.sroa.26.0, %.sroa.05.0
-  ret i32 %.sroa.05.0.insert.insert
+23:                                               ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.sroa.26.0 = phi i32 [ %22, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 0, %2 ]
+  ret i32 %.sroa.26.0
 }
 
 declare noundef zeroext i16 @_ZN4llvm27getPointerAuthStableSipHashENS_9StringRefE(ptr, i64) local_unnamed_addr #1

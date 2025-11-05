@@ -683,7 +683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i: ; preds = %19
   br label %.body76
 
 _ZNK3gmx26StringToEnumValueConverterI11BondedTypesXadL_Z17enumValueToStringS1_EELNS_17StringCompareTypeE1ELNS_12StripStringsE1EE9valueFromERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %193, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i72
-  %.sroa.09.0.insert.insert.i = phi i64 [ %197, %193 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i72 ]
+  %.sroa.2.0.i = phi i64 [ %197, %193 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i72 ]
   %203 = load ptr, ptr %33, align 8, !tbaa !4
   %204 = icmp eq ptr %203, %72
   br i1 %204, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i92.i
@@ -738,7 +738,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i: ; preds = %
 
 219:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.sroa.0224.0.extract.trunc.i = trunc i64 %.sroa.09.0.insert.insert.i to i32
+  %.sroa.0224.0.extract.trunc.i = trunc i64 %.sroa.2.0.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 1, ptr %29, align 8, !tbaa !40
   store i32 0, ptr %75, align 8, !tbaa !41
@@ -1563,7 +1563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6.i.i.i: ; preds =
   br label %.body.i.i
 
 _ZNK3gmx26StringToEnumValueConverterI11ReplaceTypeXadL_ZL17enumValueToStringS1_EELNS_17StringCompareTypeE1ELNS_12StripStringsE1EE9valueFromERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i: ; preds = %479, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i11.i.i
-  %.sroa.09.0.insert.insert.i.i.i = phi i64 [ %483, %479 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i11.i.i ]
+  %.sroa.2.0.i.i.i = phi i64 [ %483, %479 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i11.i.i ]
   %489 = load ptr, ptr %30, align 8, !tbaa !4
   %490 = icmp eq ptr %489, %85
   br i1 %490, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i97.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15.i.i
@@ -1618,10 +1618,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18.i.i: ; preds = 
 
 505:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i97.i
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  %.sroa.0216.0.extract.trunc.i = trunc i64 %.sroa.09.0.insert.insert.i.i.i to i32
-  %506 = and i64 %.sroa.09.0.insert.insert.i.i.i, 4294967296
+  %.sroa.0216.0.extract.trunc.i = trunc i64 %.sroa.2.0.i.i.i to i32
+  %506 = and i64 %.sroa.2.0.i.i.i, 4294967296
   %.sroa.11.0.extract.trunc.i = icmp ne i64 %506, 0
-  %507 = and i64 %.sroa.09.0.insert.insert.i, 4294967296
+  %507 = and i64 %.sroa.2.0.i, 4294967296
   %.not238.i = icmp eq i64 %507, 0
   br i1 %.not238.i, label %508, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit154.i
 

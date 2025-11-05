@@ -13812,7 +13812,7 @@ _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %80
   %127 = and i32 %126, -2
   %128 = or disjoint i32 %127, %125
   store i32 %128, ptr %5, align 4
-  br i1 %.not.i, label %129, label %137
+  br i1 %.not.i, label %129, label %138
 
 129:                                              ; preds = %121
   %130 = load ptr, ptr %30, align 8, !tbaa !63
@@ -13822,11 +13822,11 @@ _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %80
   %134 = load i64, ptr %133, align 8, !tbaa !200
   %135 = trunc i64 %134 to i32
   %136 = shl i32 %135, 1
-  br label %137
+  %137 = or disjoint i32 %136, %125
+  br label %138
 
-137:                                              ; preds = %121, %129
-  %138 = phi i32 [ %136, %129 ], [ 0, %121 ]
-  %139 = or disjoint i32 %138, %125
+138:                                              ; preds = %121, %129
+  %139 = phi i32 [ %137, %129 ], [ 0, %121 ]
   store i32 %139, ptr %5, align 4
   %140 = load i8, ptr %37, align 8, !tbaa !1201, !range !224, !noundef !225
   %141 = trunc nuw i8 %140 to i1
@@ -13848,7 +13848,7 @@ _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %80
   %.not33 = icmp eq i64 %148, -1
   br i1 %.not33, label %160, label %149
 
-149:                                              ; preds = %137
+149:                                              ; preds = %138
   %150 = load ptr, ptr %2, align 8, !tbaa !63
   %151 = getelementptr inbounds nuw %"class.llvm::DbgValueHistoryMap::Entry", ptr %150, i64 %148
   %.0.copyload.i.i.i.i.i41 = load i64, ptr %151, align 8
@@ -13866,7 +13866,7 @@ _ZL18needsReferenceTypeRKN4llvm19DbgVariableLocationE.exit.thread: ; preds = %80
   %159 = call noundef ptr @_ZN4llvm16DebugHandlerBase17getLabelAfterInsnEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %155) #26
   br label %164
 
-160:                                              ; preds = %137
+160:                                              ; preds = %138
   %161 = load ptr, ptr %8, align 8, !tbaa !6
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 240
   %163 = load ptr, ptr %162, align 8, !tbaa !1148
@@ -28321,10 +28321,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit30:     ; preds = %_ZNK4llvm9StringRef
   br label %26
 
 26:                                               ; preds = %.thread50, %_ZN4llvm9StringRef13consume_frontES0_.exit30, %_ZN4llvm9StringRef13consume_frontES0_.exit18, %_ZN4llvm9StringRef13consume_frontES0_.exit24, %1, %11, %7
-  %.sroa.046.0 = phi i64 [ 1, %7 ], [ 0, %11 ], [ 0, %1 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 2, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 2, %.thread50 ]
-  %.sroa.5.0 = phi i64 [ 4294967296, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967296, %.thread50 ]
-  %.sroa.046.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.046.0
-  ret i64 %.sroa.046.0.insert.insert
+  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
+  ret i64 %.sroa.5.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

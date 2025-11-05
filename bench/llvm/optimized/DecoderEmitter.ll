@@ -23435,8 +23435,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70:    ; preds = %130, %138, %140
   br label %_ZN4llvm11raw_ostreamlsEc.exit73
 
 _ZN4llvm11raw_ostreamlsEc.exit73:                 ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70, %._crit_edge, %149, %151, %103, %106, %_ZN4llvm11raw_ostreamlsEc.exit
-  %153 = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEc.exit ], [ true, %106 ], [ true, %103 ], [ false, %151 ], [ false, %149 ], [ false, %._crit_edge ], [ false, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70 ]
-  %.3 = phi i1 [ %99, %_ZN4llvm11raw_ostreamlsEc.exit ], [ undef, %106 ], [ undef, %103 ], [ false, %151 ], [ false, %149 ], [ false, %._crit_edge ], [ true, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70 ]
+  %153 = phi i1 [ %99, %_ZN4llvm11raw_ostreamlsEc.exit ], [ true, %106 ], [ true, %103 ], [ false, %151 ], [ false, %149 ], [ false, %._crit_edge ], [ true, %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70 ]
   %154 = load ptr, ptr %6, align 8, !tbaa !166
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %156 = icmp eq ptr %154, %155
@@ -23450,11 +23449,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76: ; preds = %_ZN4llvm11raw_ostreamlsEc.exit73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i74
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %159 = or i1 %153, %.3
   br label %.thread
 
 .thread:                                          ; preds = %4, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %9
-  %.1 = phi i1 [ true, %9 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %159, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ true, %4 ]
+  %.1 = phi i1 [ true, %9 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %153, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76 ], [ true, %4 ]
   ret i1 %.1
 }
 

@@ -4338,13 +4338,13 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   %.pre = load ptr, ptr %11, align 8, !tbaa !29
   br label %20
 
-20:                                               ; preds = %.lr.ph, %39
-  %21 = phi ptr [ %.pre, %.lr.ph ], [ %45, %39 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %.26897 = phi i32 [ %.167105, %.lr.ph ], [ %.3, %39 ]
-  %.27396 = phi i32 [ %.172104, %.lr.ph ], [ %41, %39 ]
-  %.27695 = phi i32 [ %.175103, %.lr.ph ], [ %.377, %39 ]
-  %.28094 = phi i32 [ %.179102, %.lr.ph ], [ %31, %39 ]
+20:                                               ; preds = %.lr.ph, %40
+  %21 = phi ptr [ %.pre, %.lr.ph ], [ %45, %40 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
+  %.26897 = phi i32 [ %.167105, %.lr.ph ], [ %.3, %40 ]
+  %.27396 = phi i32 [ %.172104, %.lr.ph ], [ %41, %40 ]
+  %.27695 = phi i32 [ %.175103, %.lr.ph ], [ %.377, %40 ]
+  %.28094 = phi i32 [ %.179102, %.lr.ph ], [ %31, %40 ]
   %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !19
   %24 = tail call ptr @av_pix_fmt_desc_get(i32 noundef %23) #10
@@ -4357,18 +4357,18 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   %31 = or i32 %30, %.28094
   %32 = load i8, ptr %19, align 8, !tbaa !128
   %33 = icmp ugt i8 %32, 1
-  br i1 %33, label %34, label %39
+  br i1 %33, label %34, label %40
 
 34:                                               ; preds = %20
   %35 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %36 = load i8, ptr %35, align 8, !tbaa !128
   %37 = icmp ugt i8 %36, 1
   %38 = zext i1 %37 to i32
-  br label %39
+  %39 = or i32 %.27396, %38
+  br label %40
 
-39:                                               ; preds = %34, %20
-  %40 = phi i32 [ 0, %20 ], [ %38, %34 ]
-  %41 = or i32 %40, %.27396
+40:                                               ; preds = %34, %20
+  %41 = phi i32 [ %.27396, %20 ], [ %39, %34 ]
   %42 = load ptr, ptr %10, align 8, !tbaa !29
   %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv135
   %44 = load i32, ptr %43, align 4, !tbaa !19
@@ -4389,11 +4389,11 @@ define internal fastcc range(i32 -12, 2) i32 @merge_formats_internal(ptr noundef
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
   br i1 %55, label %20, label %._crit_edge, !llvm.loop !129
 
-._crit_edge:                                      ; preds = %39, %12
-  %.280.lcssa = phi i32 [ %.179102, %12 ], [ %31, %39 ]
-  %.276.lcssa = phi i32 [ %.175103, %12 ], [ %.377, %39 ]
-  %.273.lcssa = phi i32 [ %.172104, %12 ], [ %41, %39 ]
-  %.268.lcssa = phi i32 [ %.167105, %12 ], [ %.3, %39 ]
+._crit_edge:                                      ; preds = %40, %12
+  %.280.lcssa = phi i32 [ %.179102, %12 ], [ %31, %40 ]
+  %.276.lcssa = phi i32 [ %.175103, %12 ], [ %.377, %40 ]
+  %.273.lcssa = phi i32 [ %.172104, %12 ], [ %41, %40 ]
+  %.268.lcssa = phi i32 [ %.167105, %12 ], [ %.3, %40 ]
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %56 = load i32, ptr %0, align 8, !tbaa !24
   %57 = zext i32 %56 to i64

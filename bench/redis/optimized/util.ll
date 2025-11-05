@@ -111,7 +111,7 @@ define internal fastcc range(i32 0, 2) i32 @stringmatchlen_impl(ptr noundef read
   %10 = icmp ne i32 %.0170, 0
   %11 = icmp ne i32 %.0185, 0
   %12 = and i1 %11, %10
-  br i1 %12, label %13, label %.critedge15
+  br i1 %12, label %13, label %.critedge15.loopexit282
 
 13:                                               ; preds = %9
   %14 = load i8, ptr %.0165, align 1, !tbaa !9
@@ -376,31 +376,29 @@ thread-pre-split:                                 ; preds = %58
 
 .preheader:                                       ; preds = %128
   %.not220277 = icmp eq i32 %130, 0
-  br i1 %.not220277, label %.critedge15, label %.lr.ph
+  br i1 %.not220277, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %134
   %.8279 = phi ptr [ %135, %134 ], [ %129, %.preheader ]
   %.9278 = phi i32 [ %136, %134 ], [ %130, %.preheader ]
   %132 = load i8, ptr %.8279, align 1, !tbaa !9
   %133 = icmp eq i8 %132, 42
-  br i1 %133, label %134, label %.critedge15
+  br i1 %133, label %134, label %.loopexit
 
 134:                                              ; preds = %.lr.ph
   %135 = getelementptr inbounds nuw i8, ptr %.8279, i64 1
   %136 = add nsw i32 %.9278, -1
   %.not220 = icmp eq i32 %136, 0
-  br i1 %.not220, label %.critedge15, label %.lr.ph, !llvm.loop !18
+  br i1 %.not220, label %.loopexit, label %.lr.ph, !llvm.loop !18
 
-.critedge15:                                      ; preds = %9, %134, %.lr.ph, %.preheader
-  %.1186 = phi i32 [ 0, %.preheader ], [ 0, %.lr.ph ], [ 0, %134 ], [ %.0185, %9 ]
-  %.1171 = phi i32 [ 0, %.preheader ], [ 0, %134 ], [ 1, %.lr.ph ], [ %.0170, %9 ]
-  %137 = or i32 %.1171, %.1186
-  %or.cond17 = icmp eq i32 %137, 0
-  %. = zext i1 %or.cond17 to i32
+.critedge15.loopexit282:                          ; preds = %9
+  %137 = or i32 %.0170, %.0185
+  %138 = icmp eq i32 %137, 0
+  %139 = zext i1 %138 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit248, %118, %116, %29, %27, %.critedge15, %.critedge, %7, %34
-  %.0 = phi i32 [ 0, %34 ], [ 0, %7 ], [ 1, %.critedge ], [ %., %.critedge15 ], [ 0, %29 ], [ 1, %27 ], [ 0, %116 ], [ 0, %118 ], [ 0, %.loopexit248 ]
+.loopexit:                                        ; preds = %.loopexit248, %118, %116, %29, %27, %.lr.ph, %134, %.preheader, %.critedge15.loopexit282, %.critedge, %7, %34
+  %.0 = phi i32 [ 0, %34 ], [ 0, %7 ], [ 1, %.critedge ], [ 1, %.preheader ], [ %139, %.critedge15.loopexit282 ], [ 0, %.lr.ph ], [ 1, %134 ], [ 0, %29 ], [ 1, %27 ], [ 0, %116 ], [ 0, %118 ], [ 0, %.loopexit248 ]
   ret i32 %.0
 }
 

@@ -2791,14 +2791,13 @@ define dso_local range(i32 0, 131072) i32 @_ZNK4llvm21AppleAcceleratorTable5Entr
   %22 = extractvalue { i64, i8 } %18, 0
   %23 = trunc i64 %22 to i32
   %24 = and i32 %23, 65535
+  %25 = or disjoint i32 %24, 65536
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.i, %1, %16, %21
-  %.sroa.01.0 = phi i32 [ %24, %21 ], [ 0, %16 ], [ 0, %1 ], [ 0, %.critedge.i ]
-  %.sroa.2.0 = phi i32 [ 65536, %21 ], [ 0, %16 ], [ 0, %1 ], [ 0, %.critedge.i ]
+  %.sroa.2.0 = phi i32 [ %25, %21 ], [ 0, %16 ], [ 0, %1 ], [ 0, %.critedge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.sroa.01.0.insert.insert = or disjoint i32 %.sroa.2.0, %.sroa.01.0
-  ret i32 %.sroa.01.0.insert.insert
+  ret i32 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4697,24 +4696,28 @@ _ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit: ; preds = %62, %64
   %68 = load i32, ptr %40, align 8, !tbaa !42
   %69 = urem i32 %53, %68
   %70 = icmp eq i32 %69, %2
-  br i1 %70, label %71, label %.thread23
+  br i1 %70, label %71, label %.thread23.loopexit
 
 71:                                               ; preds = %.critedge35
   %72 = icmp eq i32 %53, %1
-  br i1 %72, label %.thread23, label %73
+  br i1 %72, label %.thread23.loopexit, label %73
 
 73:                                               ; preds = %71
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %74 = load i32, ptr %37, align 4, !tbaa !43
   %75 = zext i32 %74 to i64
   %76 = icmp samesign ult i64 %indvars.iv.next, %75
-  br i1 %76, label %42, label %.thread23, !llvm.loop !411
+  br i1 %76, label %42, label %.thread23.loopexit, !llvm.loop !411
 
-.thread23:                                        ; preds = %71, %73, %.critedge35, %.critedge, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit
-  %.sroa.017.0 = phi i64 [ 0, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit ], [ 0, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit ], [ 0, %.critedge ], [ 0, %.critedge35 ], [ 0, %73 ], [ %indvars.iv, %71 ]
-  %.sroa.2.0 = phi i64 [ 0, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit ], [ 0, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit ], [ 0, %.critedge ], [ 0, %.critedge35 ], [ 0, %73 ], [ 4294967296, %71 ]
-  %.sroa.017.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.017.0
-  ret i64 %.sroa.017.0.insert.insert
+.thread23.loopexit:                               ; preds = %.critedge35, %73, %71
+  %.sroa.017.0.ph = phi i64 [ 0, %.critedge35 ], [ 0, %73 ], [ %indvars.iv, %71 ]
+  %.sroa.2.0.ph = phi i64 [ 0, %.critedge35 ], [ 0, %73 ], [ 4294967296, %71 ]
+  %77 = or disjoint i64 %.sroa.2.0.ph, %.sroa.017.0.ph
+  br label %.thread23
+
+.thread23:                                        ; preds = %.thread23.loopexit, %.critedge, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit
+  %.sroa.2.0 = phi i64 [ 0, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit ], [ 0, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit ], [ 0, %.critedge ], [ %77, %.thread23.loopexit ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -13162,10 +13165,8 @@ _ZN4llvm9StringRef13consume_frontES0_.exit30:     ; preds = %_ZNK4llvm9StringRef
   br label %26
 
 26:                                               ; preds = %.thread50, %_ZN4llvm9StringRef13consume_frontES0_.exit30, %_ZN4llvm9StringRef13consume_frontES0_.exit18, %_ZN4llvm9StringRef13consume_frontES0_.exit24, %1, %11, %7
-  %.sroa.046.0 = phi i64 [ 1, %7 ], [ 0, %11 ], [ 0, %1 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 3, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 2, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 2, %.thread50 ]
-  %.sroa.5.0 = phi i64 [ 4294967296, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967296, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967296, %.thread50 ]
-  %.sroa.046.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.046.0
-  ret i64 %.sroa.046.0.insert.insert
+  %.sroa.5.0 = phi i64 [ 4294967297, %7 ], [ 4294967296, %11 ], [ 0, %1 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit24 ], [ 4294967299, %_ZN4llvm9StringRef13consume_frontES0_.exit18 ], [ 4294967298, %_ZN4llvm9StringRef13consume_frontES0_.exit30 ], [ 4294967298, %.thread50 ]
+  ret i64 %.sroa.5.0
 }
 
 declare void @_ZN4llvm9write_hexERNS_11raw_ostreamEmNS_13HexPrintStyleESt8optionalImE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef, i64, i8) local_unnamed_addr #4

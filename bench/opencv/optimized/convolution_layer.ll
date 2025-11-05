@@ -5162,11 +5162,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %14, %
   %49 = mul i32 %.07.i, %48
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
   %.not.i = icmp eq ptr %50, %46
-  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit, label %.lr.ph.i, !llvm.loop !207
+  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit, label %.lr.ph.i, !llvm.loop !207
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit: ; preds = %.lr.ph.i, %31
-  %.0.lcssa.i = phi i32 [ 1, %31 ], [ %49, %.lr.ph.i ]
-  %51 = mul nsw i32 %.0.lcssa.i, %42
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit: ; preds = %.lr.ph.i
+  %51 = mul nsw i32 %49, %42
+  br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit
+
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit, %31
+  %.0.lcssa.i = phi i32 [ %42, %31 ], [ %51, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit ]
   %52 = mul nsw i32 %36, %32
   %53 = mul nsw i32 %52, %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !210)
@@ -5174,7 +5177,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
   %55 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29, !noalias !210
   store i32 %53, ptr %55, align 4, !noalias !210
   %.sroa.4.0..sroa_idx.ptr.i = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 %51, ptr %.sroa.4.0..sroa_idx.ptr.i, align 4, !noalias !210
+  store i32 %.0.lcssa.i, ptr %.sroa.4.0..sroa_idx.ptr.i, align 4, !noalias !210
   %.sroa.5.0..sroa_idx.ptr.i = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 -1, ptr %.sroa.5.0..sroa_idx.ptr.i, align 4, !noalias !210
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 12
@@ -5185,7 +5188,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
   store ptr %57, ptr %56, align 8, !tbaa !199, !alias.scope !210
   store ptr %57, ptr %54, align 8, !tbaa !200, !alias.scope !210
   %58 = icmp slt i32 %53, 0
-  %59 = icmp slt i32 %51, 0
+  %59 = icmp slt i32 %.0.lcssa.i, 0
   %spec.select.i = select i1 %59, i64 4, i64 8
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i = select i1 %58, i64 0, i64 %spec.select.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.add.i = add nuw nsw i64 %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i, 4
@@ -13630,33 +13633,36 @@ _ZNK2cv3dnn24BaseConvolutionLayerImpl5is1x1Ev.exit.thread: ; preds = %_ZNSt6vect
   %409 = mul i32 %.07.i.i, %408
   %410 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
   %.not.i.i118 = icmp eq ptr %410, %406
-  br i1 %.not.i.i118, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.i, label %.lr.ph.i.i, !llvm.loop !207
+  br i1 %.not.i.i118, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit.i, label %.lr.ph.i.i, !llvm.loop !207
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.i: ; preds = %.lr.ph.i.i, %386
-  %.0.lcssa.i.i = phi i32 [ 1, %386 ], [ %409, %.lr.ph.i.i ]
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit.i: ; preds = %.lr.ph.i.i
+  %411 = mul nsw i32 %409, %402
+  br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.i
+
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.i: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit.i, %386
+  %.0.lcssa.i.i = phi i32 [ %402, %386 ], [ %411, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !358)
-  %411 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
+  %412 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
           to label %.noexc120 unwind label %437
 
 .noexc120:                                        ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.i
-  %412 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %413 = mul nsw i32 %391, %387
-  %414 = mul nsw i32 %413, %393
-  %415 = mul nsw i32 %.0.lcssa.i.i, %402
-  store i32 %415, ptr %411, align 4, !noalias !361
-  %.sroa.4.0..sroa_idx.ptr.i.i = getelementptr inbounds nuw i8, ptr %411, i64 4
-  store i32 %414, ptr %.sroa.4.0..sroa_idx.ptr.i.i, align 4, !noalias !361
-  %.sroa.5.0..sroa_idx.ptr.i.i = getelementptr inbounds nuw i8, ptr %411, i64 8
+  %413 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %414 = mul nsw i32 %391, %387
+  %415 = mul nsw i32 %414, %393
+  store i32 %.0.lcssa.i.i, ptr %412, align 4, !noalias !361
+  %.sroa.4.0..sroa_idx.ptr.i.i = getelementptr inbounds nuw i8, ptr %412, i64 4
+  store i32 %415, ptr %.sroa.4.0..sroa_idx.ptr.i.i, align 4, !noalias !361
+  %.sroa.5.0..sroa_idx.ptr.i.i = getelementptr inbounds nuw i8, ptr %412, i64 8
   store i32 -1, ptr %.sroa.5.0..sroa_idx.ptr.i.i, align 4, !noalias !361
-  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %411, i64 12
+  %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %412, i64 12
   store i32 -1, ptr %.sroa.6.0..sroa_idx.i.i, align 4, !noalias !361
   %416 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store ptr %411, ptr %18, align 8, !tbaa !171, !alias.scope !361
-  %417 = getelementptr inbounds nuw i8, ptr %411, i64 16
+  store ptr %412, ptr %18, align 8, !tbaa !171, !alias.scope !361
+  %417 = getelementptr inbounds nuw i8, ptr %412, i64 16
   store ptr %417, ptr %416, align 8, !tbaa !199, !alias.scope !361
-  store ptr %417, ptr %412, align 8, !tbaa !200, !alias.scope !361
-  %418 = icmp slt i32 %415, 0
-  %419 = icmp slt i32 %414, 0
+  store ptr %417, ptr %413, align 8, !tbaa !200, !alias.scope !361
+  %418 = icmp slt i32 %.0.lcssa.i.i, 0
+  %419 = icmp slt i32 %415, 0
   %spec.select.i.i = select i1 %419, i64 4, i64 8
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i.i = select i1 %418, i64 0, i64 %spec.select.i.i
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.add.i.i = add nuw nsw i64 %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i.i, 4
@@ -13665,13 +13671,13 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
 .lr.ph.i.i.i.i:                                   ; preds = %423, %.noexc120
   %.sroa.07.029.i.i.idx.i.i = phi i64 [ %.sroa.07.029.i.i.add.i.i, %423 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.add.i.i, %.noexc120 ]
   %.sroa.013.128.i.i.idx.i.i = phi i64 [ %.sroa.013.2.i.i.idx.i.i, %423 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i.i, %.noexc120 ]
-  %.sroa.07.029.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %411, i64 %.sroa.07.029.i.i.idx.i.i
+  %.sroa.07.029.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %412, i64 %.sroa.07.029.i.i.idx.i.i
   %420 = load i32, ptr %.sroa.07.029.i.i.ptr.i.i, align 4, !tbaa !75, !noalias !361
   %421 = icmp slt i32 %420, 0
   br i1 %421, label %423, label %422
 
 422:                                              ; preds = %.lr.ph.i.i.i.i
-  %.sroa.013.128.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %411, i64 %.sroa.013.128.i.i.idx.i.i
+  %.sroa.013.128.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %412, i64 %.sroa.013.128.i.i.idx.i.i
   store i32 %420, ptr %.sroa.013.128.i.i.ptr.i.i, align 4, !tbaa !75, !noalias !361
   %.sroa.013.128.i.i.add.i.i = add nuw nsw i64 %.sroa.013.128.i.i.idx.i.i, 4
   br label %423
@@ -13687,7 +13693,7 @@ _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9
   br i1 %.not.i.i10.i.i, label %_ZNK2cv3dnn22DeConvolutionLayerImpl18computeColRowShapeERKSt6vectorIiSaIiEES6_.exit, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEPFbiEET_S9_S9_T0_.exit.i.i
-  %424 = getelementptr inbounds i8, ptr %411, i64 %.sroa.013.2.i.i.idx.i.i
+  %424 = getelementptr inbounds i8, ptr %412, i64 %.sroa.013.2.i.i.idx.i.i
   store ptr %424, ptr %416, align 8, !tbaa !199, !alias.scope !361
   br label %_ZNK2cv3dnn22DeConvolutionLayerImpl18computeColRowShapeERKSt6vectorIiSaIiEES6_.exit
 
@@ -13701,7 +13707,7 @@ _ZNK2cv3dnn22DeConvolutionLayerImpl18computeColRowShapeERKSt6vectorIiSaIiEES6_.e
   br i1 %.not.i.i121, label %433, label %_ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread
 
 _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backEOS1_.exit.thread: ; preds = %_ZNK2cv3dnn22DeConvolutionLayerImpl18computeColRowShapeERKSt6vectorIiSaIiEES6_.exit
-  store ptr %411, ptr %427, align 8, !tbaa !171
+  store ptr %412, ptr %427, align 8, !tbaa !171
   %430 = getelementptr inbounds nuw i8, ptr %427, i64 8
   store ptr %425, ptr %430, align 8, !tbaa !199
   %431 = getelementptr inbounds nuw i8, ptr %427, i64 16
@@ -13986,17 +13992,20 @@ define linkonce_odr hidden void @_ZNK2cv3dnn22DeConvolutionLayerImpl18computeCol
   %42 = mul i32 %.07.i, %41
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
   %.not.i = icmp eq ptr %43, %39
-  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit, label %.lr.ph.i, !llvm.loop !207
+  br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit, label %.lr.ph.i, !llvm.loop !207
 
-_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit: ; preds = %.lr.ph.i, %18
-  %.0.lcssa.i = phi i32 [ 1, %18 ], [ %42, %.lr.ph.i ]
-  %44 = mul nsw i32 %.0.lcssa.i, %35
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit: ; preds = %.lr.ph.i
+  %44 = mul nsw i32 %42, %35
+  br label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit
+
+_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit: ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit, %18
+  %.0.lcssa.i = phi i32 [ %35, %18 ], [ %44, %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multipliesImEET0_T_SB_SA_T1_.exit.loopexit ]
   %45 = mul nsw i32 %23, %19
   %46 = mul nsw i32 %45, %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !363)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %48 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29, !noalias !363
-  store i32 %44, ptr %48, align 4, !noalias !363
+  store i32 %.0.lcssa.i, ptr %48, align 4, !noalias !363
   %.sroa.4.0..sroa_idx.ptr.i = getelementptr inbounds nuw i8, ptr %48, i64 4
   store i32 %46, ptr %.sroa.4.0..sroa_idx.ptr.i, align 4, !noalias !363
   %.sroa.5.0..sroa_idx.ptr.i = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -14008,7 +14017,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEiSt10multi
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %50, ptr %49, align 8, !tbaa !199, !alias.scope !363
   store ptr %50, ptr %47, align 8, !tbaa !200, !alias.scope !363
-  %51 = icmp slt i32 %44, 0
+  %51 = icmp slt i32 %.0.lcssa.i, 0
   %52 = icmp slt i32 %46, 0
   %spec.select.i = select i1 %52, i64 4, i64 8
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.idx.i = select i1 %51, i64 0, i64 %spec.select.i

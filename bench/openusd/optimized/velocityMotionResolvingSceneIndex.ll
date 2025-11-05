@@ -37448,7 +37448,7 @@ define internal { i64, i64 } @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_
 
 16:                                               ; preds = %14
   %17 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__8GfRect2iE)
-          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit unwind label %29
+          to label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit unwind label %28
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit: ; preds = %16
   %.pre10 = load ptr, ptr %5, align 8
@@ -37471,7 +37471,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8
   %25 = invoke noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit_crit_edge unwind label %29
+          to label %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit_crit_edge unwind label %28
 
 ._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit_crit_edge: ; preds = %20
   %.pre9.pre = load ptr, ptr %5, align 8
@@ -37485,52 +37485,47 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT
   %.pre9 = phi ptr [ %18, %26 ], [ %.pre9.pre, %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit_crit_edge ]
   %.0.i.i = phi ptr [ %27, %26 ], [ %25, %._ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit_crit_edge ]
   %.sroa.0.0.copyload = load i64, ptr %.0.i.i, align 4
-  %.sroa.0.sroa.3.0.extract.shift = and i64 %.sroa.0.0.copyload, -4294967296
   %.sroa.4.0..0.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..0.i.i.sroa_idx, align 4
-  %28 = and i64 %.sroa.0.0.copyload, 4294967295
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread
 
-29:                                               ; preds = %20, %16
-  %30 = landingpad { ptr, i32 }
+28:                                               ; preds = %20, %16
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
-  resume { ptr, i32 } %30
+  resume { ptr, i32 } %29
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread: ; preds = %14, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit
-  %31 = phi ptr [ %.pre9, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit ], [ %.pre10, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit ], [ %6, %14 ]
-  %.sroa.0.sroa.3.0 = phi i64 [ %.sroa.0.sroa.3.0.extract.shift, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit ], [ 0, %14 ]
-  %.sroa.0.sroa.0.0 = phi i64 [ %28, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit ], [ 0, %14 ]
+  %30 = phi ptr [ %.pre9, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit ], [ %.pre10, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit ], [ %6, %14 ]
+  %.sroa.0.sroa.3.0 = phi i64 [ %.sroa.0.0.copyload, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit ], [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit ], [ 0, %14 ]
   %.sroa.4.0 = phi i64 [ %.sroa.4.0.copyload, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_8GfRect2iEEERKT_v.exit ], [ -1, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit ], [ -1, %14 ]
-  %32 = ptrtoint ptr %31 to i64
-  %.not.i.i7 = icmp eq ptr %31, null
-  %33 = and i64 %32, 3
-  %34 = icmp eq i64 %33, 3
-  %or.cond.i.i = or i1 %.not.i.i7, %34
-  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %35
+  %31 = ptrtoint ptr %30 to i64
+  %.not.i.i7 = icmp eq ptr %30, null
+  %32 = and i64 %31, 3
+  %33 = icmp eq i64 %32, 3
+  %or.cond.i.i = or i1 %.not.i.i7, %33
+  br i1 %or.cond.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit, label %34
 
-35:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread
-  %36 = and i64 %32, -8
-  %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load ptr, ptr %38, align 8
-  invoke void %39(ptr noundef nonnull align 8 dereferenceable(16) %3)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %40
+34:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread
+  %35 = and i64 %31, -8
+  %36 = inttoptr i64 %35 to ptr
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+  %38 = load ptr, ptr %37, align 8
+  invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %3)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit unwind label %39
 
-40:                                               ; preds = %35
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %34
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #30
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #30
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread, %35
-  %.sroa.4.019 = phi i64 [ %.sroa.4.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread ], [ %.sroa.4.0, %35 ], [ -1, %2 ]
-  %.sroa.0.sroa.0.018 = phi i64 [ %.sroa.0.sroa.0.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread ], [ %.sroa.0.sroa.0.0, %35 ], [ 0, %2 ]
-  %.sroa.0.sroa.3.017 = phi i64 [ %.sroa.0.sroa.3.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread ], [ %.sroa.0.sroa.3.0, %35 ], [ 0, %2 ]
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.0.018, %.sroa.0.sroa.3.017
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.0.0.insert.insert, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.019, 1
+_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %2, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread, %34
+  %.sroa.4.017 = phi i64 [ %.sroa.4.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread ], [ %.sroa.4.0, %34 ], [ -1, %2 ]
+  %.sroa.0.sroa.3.016 = phi i64 [ %.sroa.0.sroa.3.0, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_8GfRect2iEEEbv.exit.thread ], [ %.sroa.0.sroa.3.0, %34 ], [ 0, %2 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.3.016, 0
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.017, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

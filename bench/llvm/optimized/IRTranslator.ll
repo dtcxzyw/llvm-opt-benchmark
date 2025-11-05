@@ -1901,7 +1901,7 @@ _ZN4llvm8DebugLocD2Ev.exit228:                    ; preds = %3, %_ZN4llvm8DebugL
   %42 = load ptr, ptr %41, align 8
   %43 = call { ptr, ptr } %42(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(40) %1) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %463
+  br label %.thread255
 
 44:                                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit228
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 640
@@ -2696,14 +2696,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit299: ; pr
   %461 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder17buildBlockAddressENS_8RegisterEPKNS_12BlockAddressE(ptr noundef nonnull align 8 dereferenceable(88) %460, i32 %2, ptr noundef nonnull %1) #29
   br label %.thread255
 
-.thread255:                                       ; preds = %67, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit290, %127, %.thread250, %.thread246, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit292, %175, %179, %183, %187, %191, %195, %199, %203, %207, %211, %215, %219, %223, %227, %231, %235, %239, %243, %247, %251, %255, %259, %263, %267, %271, %275, %279, %283, %287, %291, %298, %302, %306, %310, %314, %318, %322, %326, %330, %334, %338, %342, %346, %350, %354, %358, %362, %366, %370, %374, %378, %382, %386, %390, %394, %396, %398, %402, %172, %411, %458, %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit236, %72, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit288, %44, %61, %54
-  %.9198 = phi i1 [ true, %54 ], [ true, %61 ], [ true, %44 ], [ true, %67 ], [ true, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit288 ], [ false, %127 ], [ false, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit290 ], [ false, %.thread250 ], [ true, %.thread246 ], [ true, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit292 ], [ false, %175 ], [ false, %179 ], [ false, %183 ], [ false, %187 ], [ false, %191 ], [ false, %195 ], [ false, %199 ], [ false, %203 ], [ false, %207 ], [ false, %211 ], [ false, %215 ], [ false, %219 ], [ false, %223 ], [ false, %227 ], [ false, %231 ], [ false, %235 ], [ false, %239 ], [ false, %243 ], [ false, %247 ], [ false, %251 ], [ false, %255 ], [ false, %259 ], [ false, %263 ], [ false, %267 ], [ false, %271 ], [ false, %275 ], [ false, %279 ], [ false, %283 ], [ false, %287 ], [ false, %291 ], [ false, %298 ], [ false, %302 ], [ false, %306 ], [ false, %310 ], [ false, %314 ], [ false, %318 ], [ false, %322 ], [ false, %326 ], [ false, %330 ], [ false, %334 ], [ false, %338 ], [ false, %342 ], [ false, %346 ], [ false, %350 ], [ false, %354 ], [ false, %358 ], [ false, %362 ], [ false, %366 ], [ false, %370 ], [ false, %374 ], [ false, %378 ], [ false, %382 ], [ false, %386 ], [ false, %390 ], [ false, %394 ], [ false, %396 ], [ false, %398 ], [ false, %402 ], [ false, %411 ], [ true, %458 ], [ true, %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit236 ], [ false, %172 ], [ false, %72 ]
-  %.16 = phi i1 [ undef, %54 ], [ undef, %61 ], [ undef, %44 ], [ undef, %67 ], [ undef, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit288 ], [ true, %127 ], [ true, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit290 ], [ true, %.thread250 ], [ undef, %.thread246 ], [ true, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit292 ], [ %178, %175 ], [ true, %179 ], [ true, %183 ], [ true, %187 ], [ %194, %191 ], [ true, %195 ], [ %202, %199 ], [ %206, %203 ], [ %210, %207 ], [ %214, %211 ], [ %218, %215 ], [ %222, %219 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %238, %235 ], [ %242, %239 ], [ %246, %243 ], [ %250, %247 ], [ %254, %251 ], [ %258, %255 ], [ %262, %259 ], [ %266, %263 ], [ %270, %267 ], [ %274, %271 ], [ %278, %275 ], [ true, %279 ], [ true, %283 ], [ true, %287 ], [ true, %291 ], [ true, %298 ], [ %305, %302 ], [ %309, %306 ], [ %313, %310 ], [ %317, %314 ], [ %321, %318 ], [ %325, %322 ], [ %329, %326 ], [ %333, %330 ], [ %337, %334 ], [ %341, %338 ], [ %345, %342 ], [ %349, %346 ], [ %353, %350 ], [ %357, %354 ], [ %361, %358 ], [ %365, %362 ], [ true, %366 ], [ %373, %370 ], [ true, %374 ], [ true, %378 ], [ true, %382 ], [ true, %386 ], [ true, %390 ], [ true, %394 ], [ true, %396 ], [ %401, %398 ], [ true, %402 ], [ true, %411 ], [ false, %458 ], [ false, %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit236 ], [ false, %172 ], [ false, %72 ]
-  %462 = or i1 %.9198, %.16
-  br label %463
-
-463:                                              ; preds = %.thread255, %36
-  %spec.select = phi i1 [ true, %36 ], [ %462, %.thread255 ]
+.thread255:                                       ; preds = %54, %61, %44, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit288, %72, %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit236, %458, %411, %172, %402, %398, %396, %394, %390, %386, %382, %378, %374, %370, %366, %362, %358, %354, %350, %346, %342, %338, %334, %330, %326, %322, %318, %314, %310, %306, %302, %298, %291, %287, %283, %279, %275, %271, %267, %263, %259, %255, %251, %247, %243, %239, %235, %231, %227, %223, %219, %215, %211, %207, %203, %199, %195, %191, %187, %183, %179, %175, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit292, %.thread246, %.thread250, %127, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit290, %67, %36
+  %spec.select = phi i1 [ true, %36 ], [ true, %54 ], [ true, %61 ], [ true, %44 ], [ true, %67 ], [ true, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit288 ], [ true, %127 ], [ true, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit290 ], [ true, %.thread250 ], [ true, %.thread246 ], [ true, %_ZN4llvm12IRTranslator15getOrCreateVRegERKNS_5ValueE.exit292 ], [ %178, %175 ], [ true, %179 ], [ true, %183 ], [ true, %187 ], [ %194, %191 ], [ true, %195 ], [ %202, %199 ], [ %206, %203 ], [ %210, %207 ], [ %214, %211 ], [ %218, %215 ], [ %222, %219 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %238, %235 ], [ %242, %239 ], [ %246, %243 ], [ %250, %247 ], [ %254, %251 ], [ %258, %255 ], [ %262, %259 ], [ %266, %263 ], [ %270, %267 ], [ %274, %271 ], [ %278, %275 ], [ true, %279 ], [ true, %283 ], [ true, %287 ], [ true, %291 ], [ true, %298 ], [ %305, %302 ], [ %309, %306 ], [ %313, %310 ], [ %317, %314 ], [ %321, %318 ], [ %325, %322 ], [ %329, %326 ], [ %333, %330 ], [ %337, %334 ], [ %341, %338 ], [ %345, %342 ], [ %349, %346 ], [ %353, %350 ], [ %357, %354 ], [ %361, %358 ], [ %365, %362 ], [ true, %366 ], [ %373, %370 ], [ true, %374 ], [ true, %378 ], [ true, %382 ], [ true, %386 ], [ true, %390 ], [ true, %394 ], [ true, %396 ], [ %401, %398 ], [ true, %402 ], [ true, %411 ], [ true, %458 ], [ true, %_ZN4llvm11SmallVectorINS_8RegisterELj4EED2Ev.exit236 ], [ false, %172 ], [ false, %72 ]
   ret i1 %spec.select
 }
 
@@ -15544,7 +15538,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm12IRTranslator13getArgPhy
   %3 = tail call { ptr, i64 } @_ZN4llvm12IRTranslator16getOrCreateVRegsERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %4 = extractvalue { ptr, i64 } %3, 1
   %.not = icmp eq i64 %4, 1
-  br i1 %.not, label %5, label %22
+  br i1 %.not, label %5, label %23
 
 5:                                                ; preds = %2
   %6 = extractvalue { ptr, i64 } %3, 0
@@ -15555,13 +15549,13 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm12IRTranslator13getArgPhy
   %.sroa.0.0.copyload = load i32, ptr %6, align 4, !tbaa !257
   %11 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %10, i32 %.sroa.0.0.copyload) #29
   %.not5 = icmp eq ptr %11, null
-  br i1 %.not5, label %22, label %12
+  br i1 %.not5, label %23, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 68
   %14 = load i16, ptr %13, align 4, !tbaa !883
   %15 = icmp eq i16 %14, 20
-  br i1 %15, label %16, label %22
+  br i1 %15, label %16, label %23
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -15569,13 +15563,12 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm12IRTranslator13getArgPhy
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !224
   %21 = zext i32 %20 to i64
-  br label %22
+  %22 = or disjoint i64 %21, 4294967296
+  br label %23
 
-22:                                               ; preds = %5, %12, %2, %16
-  %.sroa.08.0 = phi i64 [ %21, %16 ], [ 0, %2 ], [ 0, %12 ], [ 0, %5 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %16 ], [ 0, %2 ], [ 0, %12 ], [ 0, %5 ]
-  %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.08.0
-  ret i64 %.sroa.08.0.insert.insert
+23:                                               ; preds = %5, %12, %2, %16
+  %.sroa.2.0 = phi i64 [ %22, %16 ], [ 0, %2 ], [ 0, %12 ], [ 0, %5 ]
+  ret i64 %.sroa.2.0
 }
 
 declare noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504), i32) local_unnamed_addr #4
@@ -15589,17 +15582,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator29translateIfEntryVal
   %12 = alloca i64, align 8
   %13 = load i8, ptr %2, align 8, !tbaa !255
   %.not = icmp eq i8 %13, 22
-  br i1 %.not, label %14, label %.critedge
+  br i1 %.not, label %14, label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread
 
 14:                                               ; preds = %7
   %15 = tail call noundef zeroext i1 @_ZNK4llvm12DIExpression12isEntryValueEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #29
-  br i1 %15, label %16, label %.critedge
+  br i1 %15, label %16, label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread
 
 16:                                               ; preds = %14
   %17 = tail call { ptr, i64 } @_ZN4llvm12IRTranslator16getOrCreateVRegsERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1832) %0, ptr noundef nonnull align 8 dereferenceable(40) %2)
   %18 = extractvalue { ptr, i64 } %17, 1
   %.not.i = icmp eq i64 %18, 1
-  br i1 %.not.i, label %19, label %.critedge
+  br i1 %.not.i, label %19, label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread
 
 19:                                               ; preds = %16
   %20 = extractvalue { ptr, i64 } %17, 0
@@ -15610,13 +15603,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator29translateIfEntryVal
   %.sroa.0.0.copyload.i = load i32, ptr %20, align 4, !tbaa !257
   %25 = tail call noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504) %24, i32 %.sroa.0.0.copyload.i) #29
   %.not5.i = icmp eq ptr %25, null
-  br i1 %.not5.i, label %.critedge, label %26
+  br i1 %.not5.i, label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread, label %26
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 68
   %28 = load i16, ptr %27, align 4, !tbaa !883
   %29 = icmp eq i16 %28, 20
-  br i1 %29, label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit, label %.critedge
+  br i1 %29, label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit, label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread
 
 _ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit: ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -15675,14 +15668,14 @@ _ZN4llvm15MachineFunction18setVariableDbgInfoEPKNS_15DILocalVariableEPKNS_12DIEx
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.critedge
+  br label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread
 
 55:                                               ; preds = %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit
   %56 = tail call { ptr, ptr } @_ZN4llvm16MachineIRBuilder19buildDirectDbgValueENS_8RegisterEPKNS_6MDNodeES4_(ptr noundef nonnull align 8 dereferenceable(88) %6, i32 %33, ptr noundef %3, ptr noundef nonnull %4) #29
-  br label %.critedge
+  br label %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread
 
-.critedge:                                        ; preds = %16, %26, %19, %55, %_ZN4llvm15MachineFunction18setVariableDbgInfoEPKNS_15DILocalVariableEPKNS_12DIExpressionENS_10MCRegisterEPKNS_10DILocationE.exit, %14, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %14 ], [ true, %_ZN4llvm15MachineFunction18setVariableDbgInfoEPKNS_15DILocalVariableEPKNS_12DIExpressionENS_10MCRegisterEPKNS_10DILocationE.exit ], [ true, %55 ], [ true, %19 ], [ true, %26 ], [ true, %16 ]
+_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.thread: ; preds = %19, %26, %16, %55, %_ZN4llvm15MachineFunction18setVariableDbgInfoEPKNS_15DILocalVariableEPKNS_12DIExpressionENS_10MCRegisterEPKNS_10DILocationE.exit, %14, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %14 ], [ true, %_ZN4llvm15MachineFunction18setVariableDbgInfoEPKNS_15DILocalVariableEPKNS_12DIExpressionENS_10MCRegisterEPKNS_10DILocationE.exit ], [ true, %55 ], [ true, %16 ], [ true, %26 ], [ true, %19 ]
   ret i1 %.0
 }
 
@@ -18804,7 +18797,7 @@ _ZN4llvm12IRTranslator29translateIfEntryValueArgumentEbPNS_5ValueEPKNS_15DILocal
   %.not55 = icmp eq ptr %72, %70
   br i1 %.not55, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %48, %58, %51, %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.i, %_ZN4llvm12IRTranslator29translateIfEntryValueArgumentEbPNS_5ValueEPKNS_15DILocalVariableEPKNS_12DIExpressionERKNS_8DebugLocERNS_16MachineIRBuilderE.exit, %29, %22, %17
+.loopexit:                                        ; preds = %.lr.ph, %51, %58, %48, %_ZN4llvm12IRTranslator13getArgPhysRegERNS_8ArgumentE.exit.i, %_ZN4llvm12IRTranslator29translateIfEntryValueArgumentEbPNS_5ValueEPKNS_15DILocalVariableEPKNS_12DIExpressionERKNS_8DebugLocERNS_16MachineIRBuilderE.exit, %29, %22, %17
   ret void
 }
 

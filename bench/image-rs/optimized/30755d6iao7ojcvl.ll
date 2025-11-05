@@ -29068,8 +29068,8 @@ define void @_ZN5image6codecs4jpeg7encoder26build_quantization_segment17h1d32434
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %5, align 8
   %6 = icmp eq i8 %1, 8
-  %. = select i1 %6, i8 0, i8 16
-  %7 = or i8 %., %2
+  %7 = or i8 %2, 16
+  %.0 = select i1 %6, i8 %2, i8 %7
   %8 = load i64, ptr %0, align 8, !alias.scope !5224, !noundef !13
   %9 = icmp eq i64 %8, 0
   br i1 %9, label %10, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5b16a9667111dcdE.llvm.7602948157661992270.exit"
@@ -29084,7 +29084,7 @@ define void @_ZN5image6codecs4jpeg7encoder26build_quantization_segment17h1d32434
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !5224, !nonnull !13, !noundef !13
   %14 = getelementptr inbounds i8, ptr %13, i64 %11
-  store i8 %7, ptr %14, align 1
+  store i8 %.0, ptr %14, align 1
   %storemerge.in11 = load i64, ptr %5, align 8, !noundef !13
   %storemerge12 = add i64 %storemerge.in11, 1
   store i64 %storemerge12, ptr %5, align 8

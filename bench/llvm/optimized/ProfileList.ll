@@ -478,7 +478,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 4294967300) i64 @_ZNK5clang11ProfileList9inSectionEN4llvm9StringRefES2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 4294967299) i64 @_ZNK5clang11ProfileList9inSectionEN4llvm9StringRefES2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
@@ -514,10 +514,8 @@ define dso_local range(i64 0, 4294967300) i64 @_ZNK5clang11ProfileList9inSection
   br label %26
 
 26:                                               ; preds = %22, %18, %14, %6
-  %.sroa.0.0 = phi i64 [ 0, %6 ], [ 1, %14 ], [ 2, %18 ], [ 0, %22 ]
-  %.sroa.5.0 = phi i64 [ 4294967296, %6 ], [ 4294967296, %14 ], [ 4294967296, %18 ], [ %25, %22 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.5.0 = phi i64 [ 4294967296, %6 ], [ 4294967297, %14 ], [ 4294967298, %18 ], [ %25, %22 ]
+  ret i64 %.sroa.5.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

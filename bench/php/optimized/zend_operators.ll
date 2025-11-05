@@ -11610,7 +11610,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
 74:                                               ; preds = %56, %70, %63, %64, %42
   %75 = phi ptr [ %32, %42 ], [ %58, %56 ], [ %61, %64 ], [ %61, %63 ], [ %.promoted, %70 ]
   %.3103 = phi i32 [ %.2102, %42 ], [ %.2102, %56 ], [ %.1101, %64 ], [ %.1101, %63 ], [ 0, %70 ]
-  %.299.not = phi i1 [ false, %42 ], [ false, %56 ], [ true, %64 ], [ true, %63 ], [ false, %70 ]
+  %.299.not = phi i1 [ %4, %42 ], [ %4, %56 ], [ true, %64 ], [ true, %63 ], [ %4, %70 ]
   %.391 = phi i64 [ %.290, %42 ], [ %.290, %56 ], [ %.189, %64 ], [ %.189, %63 ], [ 0, %70 ]
   %.not129 = icmp eq ptr %3, null
   br i1 %.not129, label %78, label %76
@@ -11621,8 +11621,7 @@ define dso_local zeroext range(i8 0, 6) i8 @_is_numeric_string_ex(ptr noundef %0
   br label %84
 
 78:                                               ; preds = %74
-  %or.cond7.not = or i1 %4, %.299.not
-  br i1 %or.cond7.not, label %84, label %79
+  br i1 %.299.not, label %84, label %79
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %75, i64 1

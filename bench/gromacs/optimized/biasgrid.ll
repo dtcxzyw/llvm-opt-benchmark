@@ -1223,13 +1223,12 @@ define range(i64 0, 8589934592) i64 @_ZNK3gmx8BiasGrid15lambdaAxisIndexEv(ptr no
 
 16:                                               ; preds = %.lr.ph
   %17 = and i64 %storemerge8, 4294967295
+  %18 = or disjoint i64 %17, 4294967296
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %1, %16
-  %.sroa.0.05 = phi i64 [ %17, %16 ], [ 0, %1 ], [ 0, %14 ]
-  %.sroa.2.1 = phi i64 [ 4294967296, %16 ], [ 0, %1 ], [ 0, %14 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.0.05
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.2.1 = phi i64 [ %18, %16 ], [ 0, %1 ], [ 0, %14 ]
+  ret i64 %.sroa.2.1
 }
 
 declare i32 @__gxx_personality_v0(...)

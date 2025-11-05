@@ -4329,7 +4329,7 @@ define noundef i32 @_ZN7ruff_db5files5Files10try_system17h3866f241cb4e0ab3E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i64 0, -4294967294) i64 @_ZN7ruff_db5files5Files8vendored17h9640ca539e93ce1aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(176) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define range(i64 1, -4294967295) i64 @_ZN7ruff_db5files5Files8vendored17h9640ca539e93ce1aE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(176) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [32 x i8], align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [48 x i8], align 8
@@ -4640,10 +4640,8 @@ _ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit: ; pr
   br label %41
 
 123:                                              ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$ruff_db..vendored..Metadata$C$std..io..error..Error$GT$$GT$17ha55515a6c7dab867E.exit75", %41
-  %.sroa.0.0 = phi i64 [ 1, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$ruff_db..vendored..Metadata$C$std..io..error..Error$GT$$GT$17ha55515a6c7dab867E.exit75" ], [ 0, %41 ]
   %.sroa.4.0.insert.insert = phi i64 [ %.sroa.4.192, %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$ruff_db..vendored..Metadata$C$std..io..error..Error$GT$$GT$17ha55515a6c7dab867E.exit75" ], [ %43, %41 ]
-  %.sroa.0.0.insert.insert = or i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  ret i64 %.sroa.4.0.insert.insert
 
 124:                                              ; preds = %117
   %125 = landingpad { ptr, i32 }
@@ -4663,12 +4661,12 @@ _ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit: ; pr
   br i1 %.not.i73, label %.thread89, label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$ruff_db..vendored..Metadata$C$std..io..error..Error$GT$$GT$17ha55515a6c7dab867E.exit75"
 
 .thread89:                                        ; preds = %_ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit, %128
-  %.sroa.4.193 = phi i64 [ 0, %128 ], [ 256, %_ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit ]
+  %.sroa.4.193 = phi i64 [ 1, %128 ], [ 257, %_ZN7ruff_db8vendored18VendoredFileSystem8metadata17h88ceedfe5bcdc229E.exit ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17he48251e7e8c2994fE"(ptr noalias noundef nonnull align 16 dereferenceable(32) %20)
           to label %"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$ruff_db..vendored..Metadata$C$std..io..error..Error$GT$$GT$17ha55515a6c7dab867E.exit75" unwind label %.thread86
 
 "_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$ruff_db..vendored..Metadata$C$std..io..error..Error$GT$$GT$17ha55515a6c7dab867E.exit75": ; preds = %128, %.thread89
-  %.sroa.4.192 = phi i64 [ 0, %128 ], [ %.sroa.4.193, %.thread89 ]
+  %.sroa.4.192 = phi i64 [ 1, %128 ], [ %.sroa.4.193, %.thread89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @"_ZN4core3ptr127drop_in_place$LT$dashmap..mapref..entry..VacantEntry$LT$ruff_db..vendored..path..VendoredPathBuf$C$ruff_db..files..File$GT$$GT$17hce7baa8b181c6be8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22)

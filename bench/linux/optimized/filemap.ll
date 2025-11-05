@@ -8912,18 +8912,18 @@ folio_unlock.exit:                                ; preds = %193, %212
   %253 = load volatile i64, ptr %114, align 8
   %254 = and i64 %253, 64
   %255 = icmp eq i64 %254, 0
-  br i1 %255, label %261, label %256
+  br i1 %255, label %262, label %256
 
 256:                                              ; preds = %252
   %257 = getelementptr inbounds nuw i8, ptr %114, i64 100
   %258 = load i32, ptr %257, align 4
   %259 = zext i32 %258 to i64
   %260 = add nsw i64 %259, -1
-  br label %261
+  %261 = and i64 %260, %12
+  br label %262
 
-261:                                              ; preds = %256, %252
-  %262 = phi i64 [ %260, %256 ], [ 0, %252 ]
-  %263 = and i64 %262, %12
+262:                                              ; preds = %256, %252
+  %263 = phi i64 [ %261, %256 ], [ 0, %252 ]
   %264 = getelementptr %struct.page, ptr %114, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %264, ptr %265, align 8
@@ -9090,8 +9090,8 @@ filemap_read_folio.exit:                          ; preds = %maybe_unlock_mmap_f
   %348 = or i32 %331, 1024
   br label %349
 
-349:                                              ; preds = %347, %327, %261, %251, %246, %110, %1
-  %350 = phi i32 [ %348, %347 ], [ 1, %110 ], [ 2, %327 ], [ %266, %261 ], [ 2, %1 ], [ 2, %246 ], [ 2, %251 ]
+349:                                              ; preds = %347, %327, %262, %251, %246, %110, %1
+  %350 = phi i32 [ %348, %347 ], [ 1, %110 ], [ 2, %327 ], [ %266, %262 ], [ 2, %1 ], [ 2, %246 ], [ 2, %251 ]
   ret i32 %350
 }
 
@@ -10504,23 +10504,23 @@ define dso_local ptr @read_cache_page(ptr noundef %0, i64 noundef %1, ptr nounde
   %10 = load volatile i64, ptr %7, align 8
   %11 = and i64 %10, 64
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %18, label %13
+  br i1 %12, label %19, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 100
   %15 = load i32, ptr %14, align 4
   %16 = zext i32 %15 to i64
   %17 = add nsw i64 %16, -1
-  br label %18
+  %18 = and i64 %17, %1
+  br label %19
 
-18:                                               ; preds = %13, %9
-  %19 = phi i64 [ %17, %13 ], [ 0, %9 ]
-  %20 = and i64 %19, %1
+19:                                               ; preds = %13, %9
+  %20 = phi i64 [ %18, %13 ], [ 0, %9 ]
   %21 = getelementptr %struct.page, ptr %7, i64 %20
   br label %22
 
-22:                                               ; preds = %18, %4
-  %23 = phi ptr [ %21, %18 ], [ %7, %4 ]
+22:                                               ; preds = %19, %4
+  %23 = phi ptr [ %21, %19 ], [ %7, %4 ]
   ret ptr %23
 }
 
@@ -10534,23 +10534,23 @@ define dso_local ptr @read_cache_page_gfp(ptr noundef %0, i64 noundef %1, i32 no
   %7 = load volatile i64, ptr %4, align 8
   %8 = and i64 %7, 64
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %15, label %10
+  br i1 %9, label %16, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 100
   %12 = load i32, ptr %11, align 4
   %13 = zext i32 %12 to i64
   %14 = add nsw i64 %13, -1
-  br label %15
+  %15 = and i64 %14, %1
+  br label %16
 
-15:                                               ; preds = %10, %6
-  %16 = phi i64 [ %14, %10 ], [ 0, %6 ]
-  %17 = and i64 %16, %1
+16:                                               ; preds = %10, %6
+  %17 = phi i64 [ %15, %10 ], [ 0, %6 ]
   %18 = getelementptr %struct.page, ptr %4, i64 %17
   br label %19
 
-19:                                               ; preds = %15, %3
-  %20 = phi ptr [ %18, %15 ], [ %4, %3 ]
+19:                                               ; preds = %16, %3
+  %20 = phi ptr [ %18, %16 ], [ %4, %3 ]
   ret ptr %20
 }
 

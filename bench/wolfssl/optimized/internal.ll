@@ -7029,7 +7029,7 @@ define void @CleanupStoreCtxCallback(ptr noundef %0, ptr noundef readnone captur
 ; Function Attrs: nounwind uwtable
 define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %.critedge, label %6
+  br i1 %5, label %.critedge64, label %6
 
 6:                                                ; preds = %4
   %7 = icmp ne ptr %1, null
@@ -7041,36 +7041,36 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   %.043 = zext i1 %11 to i32
   %12 = icmp ne i32 %2, 0
   %or.cond3 = and i1 %7, %12
-  br i1 %or.cond3, label %13, label %.thread
+  br i1 %or.cond3, label %13, label %.critedge
 
 13:                                               ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1024
   %15 = load i64, ptr %14, align 8
   %16 = and i64 %15, 128
   %.not = icmp eq i64 %16, 0
-  br i1 %.not, label %17, label %.thread
+  br i1 %.not, label %17, label %.critedge
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %19 = load ptr, ptr %18, align 8, !tbaa !138
   %.not53 = icmp eq ptr %19, null
-  br i1 %.not53, label %.thread, label %22
+  br i1 %.not53, label %.critedge, label %22
 
-.thread:                                          ; preds = %6, %17, %13
+.critedge:                                        ; preds = %6, %17, %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load ptr, ptr %20, align 8, !tbaa !273
   %.not54 = icmp eq ptr %21, null
-  br i1 %.not54, label %.critedge, label %22
+  br i1 %.not54, label %.critedge64, label %22
 
-22:                                               ; preds = %.thread, %17
+22:                                               ; preds = %.critedge, %17
   %23 = tail call ptr @wolfSSL_X509_STORE_CTX_new_ex(ptr noundef %10) #28
   %cond.i = icmp eq ptr %23, null
-  br i1 %cond.i, label %.critedge, label %24
+  br i1 %cond.i, label %.critedge64, label %24
 
 24:                                               ; preds = %22
   %25 = tail call ptr @wolfSSL_Malloc(i64 noundef 256) #28
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.critedge.sink.split, label %27
+  br i1 %26, label %.critedge64.sink.split, label %27
 
 27:                                               ; preds = %24
   store i8 0, ptr %25, align 1, !tbaa !45
@@ -7152,11 +7152,11 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   store ptr %0, ptr %60, align 8, !tbaa !266
   %69 = tail call i32 %67(i32 noundef %.043, ptr noundef nonnull %23) #28
   %.not57 = icmp ne i32 %69, 0
-  %spec.select64 = select i1 %.not57, i32 0, i32 %2
+  %spec.select66 = select i1 %.not57, i32 0, i32 %2
   br label %70
 
 70:                                               ; preds = %68, %59
-  %.2 = phi i32 [ %2, %59 ], [ %spec.select64, %68 ]
+  %.2 = phi i32 [ %2, %59 ], [ %spec.select66, %68 ]
   %.040 = phi i1 [ true, %59 ], [ %.not57, %68 ]
   br i1 %7, label %71, label %76
 
@@ -7170,13 +7170,13 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   %75 = tail call i32 %73(i32 noundef %.043, ptr noundef nonnull %23) #28
   %.not59 = icmp eq i32 %75, 0
   %spec.select61 = select i1 %12, i32 0, i32 %.2
-  br i1 %.not59, label %.thread77, label %76
+  br i1 %.not59, label %.thread, label %76
 
 76:                                               ; preds = %74, %71, %70
   %.3 = phi i32 [ %.2, %71 ], [ %.2, %70 ], [ %spec.select61, %74 ]
-  br i1 %.040, label %79, label %.thread77
+  br i1 %.040, label %79, label %.thread
 
-.thread77:                                        ; preds = %74, %76
+.thread:                                          ; preds = %74, %76
   %.381 = phi i32 [ %.3, %76 ], [ %.2, %74 ]
   %spec.select62 = select i1 %11, i32 -329, i32 %.381
   %77 = load i8, ptr %28, align 1
@@ -7184,11 +7184,11 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
   store i8 %78, ptr %28, align 1
   br label %79
 
-79:                                               ; preds = %.thread77, %76
-  %.4 = phi i32 [ %spec.select62, %.thread77 ], [ %.3, %76 ]
+79:                                               ; preds = %.thread, %76
+  %.4 = phi i32 [ %spec.select62, %.thread ], [ %.3, %76 ]
   %80 = load ptr, ptr %51, align 8, !tbaa !263
-  %.not.i68 = icmp eq ptr %80, null
-  br i1 %.not.i68, label %CleanupStoreCtxCallback.exit, label %81
+  %.not.i70 = icmp eq ptr %80, null
+  br i1 %.not.i70, label %CleanupStoreCtxCallback.exit, label %81
 
 81:                                               ; preds = %79
   tail call void @wolfSSL_Free(ptr noundef nonnull %80) #28
@@ -7196,15 +7196,15 @@ define i32 @DoVerifyCallback(ptr noundef %0, ptr noundef readonly captures(addre
 
 CleanupStoreCtxCallback.exit:                     ; preds = %79, %81
   store ptr null, ptr %51, align 8, !tbaa !263
-  br label %.critedge.sink.split
+  br label %.critedge64.sink.split
 
-.critedge.sink.split:                             ; preds = %24, %CleanupStoreCtxCallback.exit
+.critedge64.sink.split:                           ; preds = %24, %CleanupStoreCtxCallback.exit
   %.0.ph = phi i32 [ %.4, %CleanupStoreCtxCallback.exit ], [ -125, %24 ]
   tail call void @wolfSSL_X509_STORE_CTX_free(ptr noundef nonnull %23) #28
-  br label %.critedge
+  br label %.critedge64
 
-.critedge:                                        ; preds = %.critedge.sink.split, %22, %.thread, %4
-  %.0 = phi i32 [ -173, %4 ], [ %2, %.thread ], [ -125, %22 ], [ %.0.ph, %.critedge.sink.split ]
+.critedge64:                                      ; preds = %.critedge64.sink.split, %22, %.critedge, %4
+  %.0 = phi i32 [ -173, %4 ], [ %2, %.critedge ], [ -125, %22 ], [ %.0.ph, %.critedge64.sink.split ]
   ret i32 %.0
 }
 
@@ -15096,12 +15096,15 @@ IsEncryptionOn.exit406.i:                         ; preds = %183
   %217 = or i32 %.010.i.i.i, %216
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %208
-  br i1 %exitcond.not.i.i.i, label %ConstantCompare.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !357
+  br i1 %exitcond.not.i.i.i, label %ConstantCompare.exit.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !357
 
-ConstantCompare.exit.i.i:                         ; preds = %.lr.ph.i.i.i, %199
-  %.0.lcssa.i.i.i = phi i32 [ 0, %199 ], [ %217, %.lr.ph.i.i.i ]
-  %218 = or i32 %.0.lcssa.i.i.i, %205
-  %.not.i407.i = icmp eq i32 %218, 0
+ConstantCompare.exit.loopexit.i.i:                ; preds = %.lr.ph.i.i.i
+  %218 = or i32 %217, %205
+  br label %ConstantCompare.exit.i.i
+
+ConstantCompare.exit.i.i:                         ; preds = %ConstantCompare.exit.loopexit.i.i, %199
+  %.0.lcssa.i.i.i = phi i32 [ %205, %199 ], [ %218, %ConstantCompare.exit.loopexit.i.i ]
+  %.not.i407.i = icmp eq i32 %.0.lcssa.i.i.i, 0
   br i1 %.not.i407.i, label %219, label %VerifyMacEnc.exit.thread.i
 
 VerifyMacEnc.exit.thread.i:                       ; preds = %ConstantCompare.exit.i.i, %190

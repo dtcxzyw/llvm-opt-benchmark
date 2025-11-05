@@ -798,7 +798,7 @@ define i32 @hash_bytes_uint32(i32 noundef %0) local_unnamed_addr #1 {
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @hash_bytes_uint32_extended(i32 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %30, label %3
+  br i1 %.not, label %31, label %3
 
 3:                                                ; preds = %2
   %4 = lshr i64 %1, 32
@@ -827,17 +827,17 @@ define i64 @hash_bytes_uint32_extended(i32 noundef %0, i64 noundef %1) local_unn
   %27 = tail call noundef i32 @llvm.fshl.i32(i32 %24, i32 %24, i32 4)
   %28 = xor i32 %26, %27
   %29 = add i32 %24, %25
-  br label %30
+  %30 = xor i32 %28, %29
+  br label %31
 
-30:                                               ; preds = %3, %2
+31:                                               ; preds = %3, %2
   %.074 = phi i32 [ %25, %3 ], [ -1636608428, %2 ]
   %.073 = phi i32 [ %29, %3 ], [ -1636608428, %2 ]
-  %.0 = phi i32 [ %28, %3 ], [ -1636608428, %2 ]
-  %31 = add i32 %.074, %0
-  %32 = xor i32 %.0, %.073
+  %.0 = phi i32 [ %30, %3 ], [ 0, %2 ]
+  %32 = add i32 %.074, %0
   %33 = tail call noundef i32 @llvm.fshl.i32(i32 %.073, i32 %.073, i32 14)
-  %34 = sub i32 %32, %33
-  %35 = xor i32 %34, %31
+  %34 = sub i32 %.0, %33
+  %35 = xor i32 %34, %32
   %36 = tail call noundef i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 11)
   %37 = sub i32 %35, %36
   %38 = xor i32 %37, %.073

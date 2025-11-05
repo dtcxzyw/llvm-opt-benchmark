@@ -1479,21 +1479,21 @@ _ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit93.i: ; preds = %_ZN6Assimp
 381:                                              ; preds = %_ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit93.i
   %switch.tableidx = add i8 %309, -99
   %382 = icmp ult i8 %switch.tableidx, 10
-  br i1 %382, label %switch.lookup, label %384
+  br i1 %382, label %switch.lookup, label %385
 
 switch.lookup:                                    ; preds = %381
   %383 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp3FBX12_GLOBAL__N_19ReadScopeERSt6vectorIPKNS0_5TokenESaIS5_EERNS_14StackAllocatorEPKcRSC_SC_b, i64 %383
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %384
+  %384 = mul i32 %switch.load, %.0.copyload.i79.i
+  br label %385
 
-384:                                              ; preds = %switch.lookup, %381
-  %.0.i192 = phi i32 [ 0, %381 ], [ %switch.load, %switch.lookup ]
-  %385 = mul i32 %.0.i192, %.0.copyload.i79.i
-  %.not65.i = icmp eq i32 %385, %.0.copyload.i89.i
+385:                                              ; preds = %switch.lookup, %381
+  %.0.i192 = phi i32 [ 0, %381 ], [ %384, %switch.lookup ]
+  %.not65.i = icmp eq i32 %.0.i192, %.0.copyload.i89.i
   br i1 %.not65.i, label %412, label %386
 
-386:                                              ; preds = %384
+386:                                              ; preds = %385
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.26, ptr noundef nonnull align 1 dereferenceable(1) %18)
@@ -1571,7 +1571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.i: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %common.resume
 
-412:                                              ; preds = %384, %_ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit93.i
+412:                                              ; preds = %385, %_ZN6Assimp3FBX12_GLOBAL__N_18ReadWordEPKcRS3_S3_.exit93.i
   %413 = zext i32 %.0.copyload.i89.i to i64
   %414 = getelementptr inbounds nuw i8, ptr %380, i64 %413
   store ptr %414, ptr %3, align 8

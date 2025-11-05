@@ -545,7 +545,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly cap
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 3) #10
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %95, label %17
+  br i1 %16, label %100, label %17
 
 17:                                               ; preds = %.critedge
   %18 = load ptr, ptr %0, align 8
@@ -553,7 +553,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly cap
   %20 = load ptr, ptr %19, align 8
   %21 = tail call ptr %20(ptr noundef nonnull %0, ptr noundef %2) #10
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %95, label %23
+  br i1 %22, label %100, label %23
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %0, align 8
@@ -561,7 +561,7 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly cap
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr %26(ptr noundef nonnull %0, ptr noundef nonnull %21, ptr noundef %3, ptr noundef %4) #10
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %91, label %29
+  br i1 %28, label %96, label %29
 
 29:                                               ; preds = %23
   call void @llvm.va_start.p0(ptr nonnull %6)
@@ -698,43 +698,37 @@ define i64 @JNU_CallStaticMethodByName(ptr noundef %0, ptr noundef writeonly cap
   call void @llvm.va_end.p0(ptr nonnull %6)
   %88 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.2, 8
   %89 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.2 to i16
-  %90 = shl i32 %.sroa.0.sroa.0.sroa.11.2, 16
-  br label %91
+  %90 = or disjoint i16 %88, %89
+  %91 = shl i32 %.sroa.0.sroa.0.sroa.11.2, 16
+  %92 = zext i16 %90 to i32
+  %93 = or disjoint i32 %91, %92
+  %94 = zext i32 %93 to i64
+  %95 = or disjoint i64 %.sroa.0.sroa.11.2, %94
+  br label %96
 
-91:                                               ; preds = %23, %87
-  %.sroa.0.sroa.11.1 = phi i64 [ 0, %23 ], [ %.sroa.0.sroa.11.2, %87 ]
-  %.sroa.0.sroa.0.sroa.11.1 = phi i32 [ 0, %23 ], [ %90, %87 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.1 = phi i16 [ 0, %23 ], [ %89, %87 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.1 = phi i16 [ 0, %23 ], [ %88, %87 ]
-  %92 = load ptr, ptr %0, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 184
-  %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull %0, ptr noundef nonnull %21) #10
-  br label %95
-
-95:                                               ; preds = %17, %.critedge, %91
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.11.1, %91 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.11.1, %91 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.0.1, %91 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.0.sroa.0.sroa.11.1, %91 ]
-  %.not116 = icmp eq ptr %1, null
-  br i1 %.not116, label %101, label %96
-
-96:                                               ; preds = %95
+96:                                               ; preds = %23, %87
+  %.sroa.0.sroa.11.1 = phi i64 [ 0, %23 ], [ %95, %87 ]
   %97 = load ptr, ptr %0, align 8
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 1824
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 184
   %99 = load ptr, ptr %98, align 8
-  %100 = call zeroext i8 %99(ptr noundef nonnull %0) #10
-  store i8 %100, ptr %1, align 1
-  br label %101
+  call void %99(ptr noundef nonnull %0, ptr noundef nonnull %21) #10
+  br label %100
 
-101:                                              ; preds = %96, %95
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
-  %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
-  ret i64 %.sroa.0.sroa.0.0.insert.insert
+100:                                              ; preds = %17, %.critedge, %96
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %.critedge ], [ 0, %17 ], [ %.sroa.0.sroa.11.1, %96 ]
+  %.not116 = icmp eq ptr %1, null
+  br i1 %.not116, label %106, label %101
+
+101:                                              ; preds = %100
+  %102 = load ptr, ptr %0, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 1824
+  %104 = load ptr, ptr %103, align 8
+  %105 = call zeroext i8 %104(ptr noundef nonnull %0) #10
+  store i8 %105, ptr %1, align 1
+  br label %106
+
+106:                                              ; preds = %101, %100
+  ret i64 %.sroa.0.sroa.11.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
@@ -766,7 +760,7 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly captures
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef nonnull %0, i32 noundef 3) #10
   %16 = icmp slt i32 %15, 0
-  br i1 %16, label %92, label %17
+  br i1 %16, label %97, label %17
 
 17:                                               ; preds = %.critedge
   %18 = load ptr, ptr %0, align 8
@@ -917,32 +911,29 @@ define i64 @JNU_CallMethodByNameV(ptr noundef %0, ptr noundef writeonly captures
   tail call void %88(ptr noundef nonnull %0, ptr noundef %21) #10
   %89 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
   %90 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.1 to i16
-  %91 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
-  br label %92
+  %91 = or disjoint i16 %89, %90
+  %92 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
+  %93 = zext i16 %91 to i32
+  %94 = or disjoint i32 %92, %93
+  %95 = zext i32 %94 to i64
+  %96 = or disjoint i64 %.sroa.0.sroa.11.1, %95
+  br label %97
 
-92:                                               ; preds = %.critedge, %85
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %.critedge ], [ %.sroa.0.sroa.11.1, %85 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %.critedge ], [ %91, %85 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %.critedge ], [ %90, %85 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %.critedge ], [ %89, %85 ]
+97:                                               ; preds = %.critedge, %85
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %.critedge ], [ %96, %85 ]
   %.not124 = icmp eq ptr %1, null
-  br i1 %.not124, label %98, label %93
+  br i1 %.not124, label %103, label %98
 
-93:                                               ; preds = %92
-  %94 = load ptr, ptr %0, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 1824
-  %96 = load ptr, ptr %95, align 8
-  %97 = tail call zeroext i8 %96(ptr noundef nonnull %0) #10
-  store i8 %97, ptr %1, align 1
-  br label %98
+98:                                               ; preds = %97
+  %99 = load ptr, ptr %0, align 8
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 1824
+  %101 = load ptr, ptr %100, align 8
+  %102 = tail call zeroext i8 %101(ptr noundef nonnull %0) #10
+  store i8 %102, ptr %1, align 1
+  br label %103
 
-98:                                               ; preds = %93, %92
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
-  %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
-  ret i64 %.sroa.0.sroa.0.0.insert.insert
+103:                                              ; preds = %98, %97
+  ret i64 %.sroa.0.sroa.11.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2449,7 +2440,7 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly captures(ad
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 3) #10
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %82, label %11
+  br i1 %10, label %87, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
@@ -2592,32 +2583,29 @@ define i64 @JNU_GetFieldByName(ptr noundef %0, ptr noundef writeonly captures(ad
   tail call void %78(ptr noundef nonnull %0, ptr noundef %15) #10
   %79 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
   %80 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.1 to i16
-  %81 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
-  br label %82
+  %81 = or disjoint i16 %79, %80
+  %82 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
+  %83 = zext i16 %81 to i32
+  %84 = or disjoint i32 %82, %83
+  %85 = zext i32 %84 to i64
+  %86 = or disjoint i64 %.sroa.0.sroa.11.1, %85
+  br label %87
 
-82:                                               ; preds = %5, %75
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %5 ], [ %.sroa.0.sroa.11.1, %75 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %5 ], [ %81, %75 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %5 ], [ %80, %75 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %5 ], [ %79, %75 ]
+87:                                               ; preds = %5, %75
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %5 ], [ %86, %75 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %88, label %83
+  br i1 %.not, label %93, label %88
 
-83:                                               ; preds = %82
-  %84 = load ptr, ptr %0, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 1824
-  %86 = load ptr, ptr %85, align 8
-  %87 = tail call zeroext i8 %86(ptr noundef nonnull %0) #10
-  store i8 %87, ptr %1, align 1
-  br label %88
+88:                                               ; preds = %87
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1824
+  %91 = load ptr, ptr %90, align 8
+  %92 = tail call zeroext i8 %91(ptr noundef nonnull %0) #10
+  store i8 %92, ptr %1, align 1
+  br label %93
 
-88:                                               ; preds = %83, %82
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
-  %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
-  ret i64 %.sroa.0.sroa.0.0.insert.insert
+93:                                               ; preds = %88, %87
+  ret i64 %.sroa.0.sroa.11.0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2976,7 +2964,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly captu
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef nonnull %0, i32 noundef 3) #10
   %10 = icmp slt i32 %9, 0
-  br i1 %10, label %84, label %11
+  br i1 %10, label %89, label %11
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %0, align 8
@@ -2984,7 +2972,7 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly captu
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %2) #10
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %84, label %17
+  br i1 %16, label %89, label %17
 
 17:                                               ; preds = %11
   %18 = load ptr, ptr %0, align 8
@@ -3123,32 +3111,29 @@ define i64 @JNU_GetStaticFieldByName(ptr noundef %0, ptr noundef writeonly captu
   tail call void %80(ptr noundef nonnull %0, ptr noundef nonnull %15) #10
   %81 = shl i16 %.sroa.0.sroa.0.sroa.0.sroa.11.1, 8
   %82 = zext i8 %.sroa.0.sroa.0.sroa.0.sroa.0.1 to i16
-  %83 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
-  br label %84
+  %83 = or disjoint i16 %81, %82
+  %84 = shl i32 %.sroa.0.sroa.0.sroa.11.1, 16
+  %85 = zext i16 %83 to i32
+  %86 = or disjoint i32 %84, %85
+  %87 = zext i32 %86 to i64
+  %88 = or disjoint i64 %.sroa.0.sroa.11.1, %87
+  br label %89
 
-84:                                               ; preds = %11, %5, %77
-  %.sroa.0.sroa.11.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %.sroa.0.sroa.11.1, %77 ]
-  %.sroa.0.sroa.0.sroa.11.0 = phi i32 [ 0, %5 ], [ 0, %11 ], [ %83, %77 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0 = phi i16 [ 0, %5 ], [ 0, %11 ], [ %82, %77 ]
-  %.sroa.0.sroa.0.sroa.0.sroa.11.0 = phi i16 [ 0, %5 ], [ 0, %11 ], [ %81, %77 ]
+89:                                               ; preds = %11, %5, %77
+  %.sroa.0.sroa.11.0 = phi i64 [ 0, %5 ], [ 0, %11 ], [ %88, %77 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %90, label %85
+  br i1 %.not, label %95, label %90
 
-85:                                               ; preds = %84
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 1824
-  %88 = load ptr, ptr %87, align 8
-  %89 = tail call zeroext i8 %88(ptr noundef nonnull %0) #10
-  store i8 %89, ptr %1, align 1
-  br label %90
+90:                                               ; preds = %89
+  %91 = load ptr, ptr %0, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1824
+  %93 = load ptr, ptr %92, align 8
+  %94 = tail call zeroext i8 %93(ptr noundef nonnull %0) #10
+  store i8 %94, ptr %1, align 1
+  br label %95
 
-90:                                               ; preds = %85, %84
-  %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i16 %.sroa.0.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.sroa.0.0
-  %.sroa.0.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.sroa.0.sroa.0.0.insert.insert to i32
-  %.sroa.0.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.0.sroa.11.0, %.sroa.0.sroa.0.sroa.0.0.insert.ext
-  %.sroa.0.sroa.0.0.insert.ext = zext i32 %.sroa.0.sroa.0.sroa.0.0.insert.insert to i64
-  %.sroa.0.sroa.0.0.insert.insert = or i64 %.sroa.0.sroa.11.0, %.sroa.0.sroa.0.0.insert.ext
-  ret i64 %.sroa.0.sroa.0.0.insert.insert
+95:                                               ; preds = %90, %89
+  ret i64 %.sroa.0.sroa.11.0
 }
 
 ; Function Attrs: nounwind uwtable

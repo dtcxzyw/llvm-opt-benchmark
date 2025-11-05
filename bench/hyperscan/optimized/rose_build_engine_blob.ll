@@ -621,12 +621,12 @@ _ZNK3ue211hash_detail8ue2_hashINS_9CharReachEvEclERKS2_.exit.i.i.i.i: ; preds = 
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashINS_9CharReachEvEclERKS2_.exit.i.i.i.i
   %65 = mul i64 %63, 814605021516865831
+  %66 = xor i64 %65, %.012.i.i.i
   br label %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.i.i.i
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.i.i.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i, %.lr.ph.i.i.i
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %65, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i ]
-  %66 = xor i64 %.0.lcssa.i.i.i.i, %.012.i.i.i
-  %67 = add i64 %66, 3571081485394615273
+  %.0.lcssa.i.i.i.i = phi i64 [ %.012.i.i.i, %.lr.ph.i.i.i ], [ %66, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i ]
+  %67 = add i64 %.0.lcssa.i.i.i.i, 3571081485394615273
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %68, %52
   br i1 %.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseISt6vectorIS1_IN3ue29CharReachESaIS3_EESaIS5_EESt4pairIKS7_jENS_10_Select1stENS2_10ue2_hasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS9_.exit, label %.lr.ph.i.i.i
@@ -1200,12 +1200,12 @@ _ZNK3ue211hash_detail8ue2_hashINS_9CharReachEvEclERKS2_.exit.i.i.i.i: ; preds = 
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashINS_9CharReachEvEclERKS2_.exit.i.i.i.i
   %68 = mul i64 %66, 814605021516865831
+  %69 = xor i64 %68, %.012.i.i.i
   br label %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.i.i.i
 
 _ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.i.i.i: ; preds = %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i, %.lr.ph.i.i.i
-  %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %68, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i ]
-  %69 = xor i64 %.0.lcssa.i.i.i.i, %.012.i.i.i
-  %70 = add i64 %69, 3571081485394615273
+  %.0.lcssa.i.i.i.i = phi i64 [ %.012.i.i.i, %.lr.ph.i.i.i ], [ %69, %_ZNK3ue211hash_detail8ue2_hashISt6vectorINS_9CharReachESaIS3_EEvEclERKS5_.exit.loopexit.i.i.i ]
+  %70 = add i64 %.0.lcssa.i.i.i.i, 3571081485394615273
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i.i.i, i64 24
   %.not.i.i.i = icmp eq ptr %71, %55
   br i1 %.not.i.i.i, label %.loopexit, label %.lr.ph.i.i.i

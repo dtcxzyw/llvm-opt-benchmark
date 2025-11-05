@@ -3011,11 +3011,11 @@ get_bit.exit104.i:                                ; preds = %913, %.preheader.i
   %928 = trunc nuw i32 %927 to i8
   %929 = shl i8 %928, 4
   %930 = and i8 %929, 16
+  %931 = or disjoint i8 %930, %.0.i103.i
   br label %get_bit.exit107.i
 
 get_bit.exit107.i:                                ; preds = %924, %get_bit.exit104.i
-  %.0.i106.i = phi i8 [ %930, %924 ], [ 0, %get_bit.exit104.i ]
-  %931 = or disjoint i8 %.0.i106.i, %.0.i103.i
+  %.0.i106.i = phi i8 [ %931, %924 ], [ %.0.i103.i, %get_bit.exit104.i ]
   br i1 %or.cond.i108.i, label %get_bit.exit110.i, label %932
 
 932:                                              ; preds = %get_bit.exit107.i
@@ -3025,11 +3025,11 @@ get_bit.exit107.i:                                ; preds = %924, %get_bit.exit1
   %936 = trunc nuw i32 %935 to i8
   %937 = shl i8 %936, 3
   %938 = and i8 %937, 8
+  %939 = or disjoint i8 %938, %.0.i106.i
   br label %get_bit.exit110.i
 
 get_bit.exit110.i:                                ; preds = %932, %get_bit.exit107.i
-  %.0.i109.i = phi i8 [ %938, %932 ], [ 0, %get_bit.exit107.i ]
-  %939 = or disjoint i8 %931, %.0.i109.i
+  %.0.i109.i = phi i8 [ %939, %932 ], [ %.0.i106.i, %get_bit.exit107.i ]
   br i1 %or.cond.i111.i, label %get_bit.exit113.i, label %940
 
 940:                                              ; preds = %get_bit.exit110.i
@@ -3043,7 +3043,7 @@ get_bit.exit110.i:                                ; preds = %932, %get_bit.exit1
 
 get_bit.exit113.i:                                ; preds = %940, %get_bit.exit110.i
   %.0.i112.i = phi i8 [ %946, %940 ], [ 0, %get_bit.exit110.i ]
-  %947 = or disjoint i8 %939, %.0.i112.i
+  %947 = or disjoint i8 %.0.i109.i, %.0.i112.i
   br i1 %or.cond.i114.i, label %get_bit.exit116.i, label %948
 
 948:                                              ; preds = %get_bit.exit113.i

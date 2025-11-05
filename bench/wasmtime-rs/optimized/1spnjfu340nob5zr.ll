@@ -5703,7 +5703,7 @@ _ZN16wasmtime_runtime6memory6Memory13atomic_notify17hdbd220eaa4b19c52E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, 8589934594) i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait3217hafc2c7a452591e2aE(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden range(i64 0, 8589934593) i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait3217hafc2c7a452591e2aE(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, { i64 } }, align 8
   %7 = icmp sgt i64 %4, -1
   br i1 %7, label %8, label %18
@@ -5771,12 +5771,24 @@ _ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit: ; p
   %.merged.i = phi { i1, i8 } [ %44, %43 ], [ %42, %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i ]
   %45 = extractvalue { i1, i8 } %.merged.i, 0
   %46 = extractvalue { i1, i8 } %.merged.i, 1
-  %spec.select = select i1 %45, i64 8, i64 32
-  %spec.select14 = zext i1 %45 to i64
-  %47 = zext i8 %46 to i64
-  %48 = shl nuw nsw i64 %47, %spec.select
-  %.sroa.0.0.insert.insert = or disjoint i64 %48, %spec.select14
-  ret i64 %.sroa.0.0.insert.insert
+  br i1 %45, label %51, label %47
+
+47:                                               ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit
+  %48 = icmp ult i8 %46, 3
+  call void @llvm.assume(i1 %48)
+  %49 = zext nneg i8 %46 to i64
+  %50 = shl nuw nsw i64 %49, 32
+  br label %55
+
+51:                                               ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit
+  %52 = zext i8 %46 to i64
+  %53 = shl nuw nsw i64 %52, 8
+  %54 = or disjoint i64 %53, 1
+  br label %55
+
+55:                                               ; preds = %51, %47
+  %.sroa.3.0.insert.insert = phi i64 [ %50, %47 ], [ %54, %51 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5794,7 +5806,7 @@ _ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.13870219068130913800.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i64 0, 8589934594) i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait6417h862b18889fbf4207E(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden range(i64 0, 8589934593) i64 @_ZN16wasmtime_runtime8libcalls20memory_atomic_wait6417h862b18889fbf4207E(ptr noundef nonnull align 16 %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, { i64 } }, align 8
   %7 = icmp sgt i64 %4, -1
   br i1 %7, label %8, label %18
@@ -5862,12 +5874,24 @@ _ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit: ; p
   %.merged.i = phi { i1, i8 } [ %44, %43 ], [ %42, %_ZN16wasmtime_runtime6memory20validate_atomic_addr17he3c8806ff4ecac7dE.exit.i ]
   %45 = extractvalue { i1, i8 } %.merged.i, 0
   %46 = extractvalue { i1, i8 } %.merged.i, 1
-  %spec.select = select i1 %45, i64 8, i64 32
-  %spec.select14 = zext i1 %45 to i64
-  %47 = zext i8 %46 to i64
-  %48 = shl nuw nsw i64 %47, %spec.select
-  %.sroa.0.0.insert.insert = or disjoint i64 %48, %spec.select14
-  ret i64 %.sroa.0.0.insert.insert
+  br i1 %45, label %51, label %47
+
+47:                                               ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit
+  %48 = icmp ult i8 %46, 3
+  call void @llvm.assume(i1 %48)
+  %49 = zext nneg i8 %46 to i64
+  %50 = shl nuw nsw i64 %49, 32
+  br label %55
+
+51:                                               ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit
+  %52 = zext i8 %46 to i64
+  %53 = shl nuw nsw i64 %52, 8
+  %54 = or disjoint i64 %53, 1
+  br label %55
+
+55:                                               ; preds = %51, %47
+  %.sroa.3.0.insert.insert = phi i64 [ %50, %47 ], [ %54, %51 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

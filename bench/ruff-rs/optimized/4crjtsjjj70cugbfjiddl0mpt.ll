@@ -9021,115 +9021,114 @@ define hidden range(i64 0, 72620543991349248) i64 @_ZN9ty_server7session12capabi
 "_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17hfbadf503c5f93a46E.exit": ; preds = %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17hff80b0b38c28f76aE.exit.i"
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h4c11bd06e1390470E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %32 = and i1 %26, %11
+  %33 = zext i1 %32 to i64
   br label %.thread99
 
 .thread99:                                        ; preds = %8, %1, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17hfbadf503c5f93a46E.exit"
-  %32 = phi i1 [ %11, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17hfbadf503c5f93a46E.exit" ], [ false, %1 ], [ %11, %8 ]
-  %.sroa.039.0 = phi i1 [ %26, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17hfbadf503c5f93a46E.exit" ], [ false, %1 ], [ false, %8 ]
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 784
-  %34 = load i64, ptr %33, align 8, !range !757, !noundef !7
-  %.not55 = icmp eq i64 %34, -9223372036854775806
+  %spec.select = phi i64 [ %33, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17hfbadf503c5f93a46E.exit" ], [ 0, %1 ], [ 0, %8 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 784
+  %35 = load i64, ptr %34, align 8, !range !757, !noundef !7
+  %.not55 = icmp eq i64 %35, -9223372036854775806
   br i1 %.not55, label %.thread109, label %.thread105
 
 .thread105:                                       ; preds = %.thread99
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 898
-  %36 = load i8, ptr %35, align 2, !range !151, !noundef !7
-  %37 = and i8 %36, 1
-  %38 = zext nneg i8 %37 to i64
-  %39 = shl nuw nsw i64 %38, 8
-  %.not60 = icmp eq i64 %34, -9223372036854775807
-  br i1 %.not60, label %.thread109, label %40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 898
+  %37 = load i8, ptr %36, align 2, !range !151, !noundef !7
+  %38 = and i8 %37, 1
+  %39 = zext nneg i8 %38 to i64
+  %40 = shl nuw nsw i64 %39, 8
+  %.not60 = icmp eq i64 %35, -9223372036854775807
+  br i1 %.not60, label %.thread109, label %41
 
-40:                                               ; preds = %.thread105
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %42 = load i8, ptr %41, align 8, !range !151, !noundef !7
-  %43 = and i8 %42, 1
-  %44 = zext nneg i8 %43 to i64
-  %45 = shl nuw nsw i64 %44, 16
+41:                                               ; preds = %.thread105
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %43 = load i8, ptr %42, align 8, !range !151, !noundef !7
+  %44 = and i8 %43, 1
+  %45 = zext nneg i8 %44 to i64
+  %46 = shl nuw nsw i64 %45, 16
   br label %.thread109
 
-.thread109:                                       ; preds = %40, %.thread99, %.thread105
-  %46 = phi i64 [ %39, %.thread105 ], [ 0, %.thread99 ], [ %39, %40 ]
-  %47 = phi i64 [ 0, %.thread105 ], [ 0, %.thread99 ], [ %45, %40 ]
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %49 = load i8, ptr %48, align 4, !range !12
-  %.not64 = icmp eq i8 %49, 3
+.thread109:                                       ; preds = %41, %.thread99, %.thread105
+  %47 = phi i64 [ %40, %.thread105 ], [ 0, %.thread99 ], [ %40, %41 ]
+  %48 = phi i64 [ 0, %.thread105 ], [ 0, %.thread99 ], [ %46, %41 ]
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 580
+  %50 = load i8, ptr %49, align 4, !range !12
+  %.not64 = icmp eq i8 %50, 3
   %or.cond = select i1 %.not, i1 true, i1 %.not64
-  br i1 %or.cond, label %.thread113, label %50
+  br i1 %or.cond, label %.thread113, label %51
 
-50:                                               ; preds = %.thread109
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 581
-  %52 = load i8, ptr %51, align 1
-  %.fr = freeze i8 %52
+51:                                               ; preds = %.thread109
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 581
+  %53 = load i8, ptr %52, align 1
+  %.fr = freeze i8 %53
   %.not65 = icmp eq i8 %.fr, 2
-  %53 = and i8 %.fr, 1
-  %54 = zext nneg i8 %53 to i64
-  %55 = shl nuw nsw i64 %54, 48
-  br i1 %.not65, label %.thread113, label %56
+  %54 = and i8 %.fr, 1
+  %55 = zext nneg i8 %54 to i64
+  %56 = shl nuw nsw i64 %55, 48
+  br i1 %.not65, label %.thread113, label %57
 
-.thread113:                                       ; preds = %.thread109, %50
-  br label %56
+.thread113:                                       ; preds = %.thread109, %51
+  br label %57
 
-56:                                               ; preds = %50, %.thread113
-  %57 = phi i64 [ 0, %.thread113 ], [ %55, %50 ]
+57:                                               ; preds = %51, %.thread113
+  %58 = phi i64 [ 0, %.thread113 ], [ %56, %51 ]
   br i1 %.not55, label %.thread128, label %.thread123
 
-.thread123:                                       ; preds = %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 914
-  %59 = load i8, ptr %58, align 2, !range !12, !noundef !7
-  %.not68 = icmp eq i8 %59, 3
-  %60 = and i8 %59, 1
-  %61 = zext nneg i8 %60 to i64
-  %62 = shl nuw nsw i64 %61, 24
-  %63 = select i1 %.not68, i64 0, i64 %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 913
-  %65 = load i8, ptr %64, align 1, !range !12, !noundef !7
-  %.not72 = icmp eq i8 %65, 3
-  br i1 %.not72, label %.thread128, label %66
+.thread123:                                       ; preds = %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 914
+  %60 = load i8, ptr %59, align 2, !range !12, !noundef !7
+  %.not68 = icmp eq i8 %60, 3
+  %61 = and i8 %60, 1
+  %62 = zext nneg i8 %61 to i64
+  %63 = shl nuw nsw i64 %62, 24
+  %64 = select i1 %.not68, i64 0, i64 %63
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 913
+  %66 = load i8, ptr %65, align 1, !range !12, !noundef !7
+  %.not72 = icmp eq i8 %66, 3
+  br i1 %.not72, label %.thread128, label %67
 
-66:                                               ; preds = %.thread123
-  %67 = and i8 %65, 1
-  %68 = zext nneg i8 %67 to i64
-  %69 = shl nuw nsw i64 %68, 32
+67:                                               ; preds = %.thread123
+  %68 = and i8 %66, 1
+  %69 = zext nneg i8 %68 to i64
+  %70 = shl nuw nsw i64 %69, 32
   br label %.thread128
 
-.thread128:                                       ; preds = %66, %.thread123, %56
-  %70 = phi i64 [ 0, %56 ], [ %63, %.thread123 ], [ %63, %66 ]
-  %71 = phi i64 [ 0, %56 ], [ 0, %.thread123 ], [ %69, %66 ]
-  br i1 %.not, label %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit.thread", label %72
+.thread128:                                       ; preds = %67, %.thread123, %57
+  %71 = phi i64 [ 0, %57 ], [ %64, %.thread123 ], [ %64, %67 ]
+  %72 = phi i64 [ 0, %57 ], [ 0, %.thread123 ], [ %70, %67 ]
+  br i1 %.not, label %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit.thread", label %73
 
-72:                                               ; preds = %.thread128
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 586
-  %74 = load i8, ptr %73, align 2, !range !12, !noundef !7
-  %.not76 = icmp eq i8 %74, 3
+73:                                               ; preds = %.thread128
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 586
+  %75 = load i8, ptr %74, align 2, !range !12, !noundef !7
+  %.not76 = icmp eq i8 %75, 3
   %.85 = select i1 %.not76, i64 0, i64 1099511627776
   call void @llvm.experimental.noalias.scope.decl(metadata !758)
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %76 = load i64, ptr %75, align 8, !range !467, !alias.scope !758, !noundef !7
-  %switch.i = icmp slt i64 %76, -9223372036854775806
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %77 = load i64, ptr %76, align 8, !range !467, !alias.scope !758, !noundef !7
+  %switch.i = icmp slt i64 %77, -9223372036854775806
   br i1 %switch.i, label %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit.thread", label %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit"
 
-"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit": ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %78 = load ptr, ptr %77, align 8, !alias.scope !758, !nonnull !7, !noundef !7
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %80 = load i64, ptr %79, align 8, !alias.scope !758, !noundef !7
-  %81 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h914b131307946a3fE"(ptr noalias noundef readonly align 1 dereferenceable(1) @anon.eba55380089a960f7e0d0404e133dd42.164, ptr noalias noundef nonnull readonly align 1 %78, i64 noundef %80), !noalias !758
-  %82 = select i1 %81, i64 72057594037927936, i64 0
+"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit": ; preds = %73
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %79 = load ptr, ptr %78, align 8, !alias.scope !758, !nonnull !7, !noundef !7
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %81 = load i64, ptr %80, align 8, !alias.scope !758, !noundef !7
+  %82 = call noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17h914b131307946a3fE"(ptr noalias noundef readonly align 1 dereferenceable(1) @anon.eba55380089a960f7e0d0404e133dd42.164, ptr noalias noundef nonnull readonly align 1 %79, i64 noundef %81), !noalias !758
+  %83 = select i1 %82, i64 72057594037927936, i64 0
+  %84 = or i64 %83, %58
   br label %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit.thread"
 
-"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit.thread": ; preds = %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit", %.thread128, %72
-  %.sroa.6.0.insert.ext133137 = phi i64 [ %.85, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit" ], [ %.85, %72 ], [ 0, %.thread128 ]
-  %83 = phi i64 [ %82, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit" ], [ 0, %72 ], [ 0, %.thread128 ]
-  %spec.select = and i1 %32, %.sroa.039.0
-  %.sroa.0.0.insert.ext = zext i1 %spec.select to i64
-  %.sroa.7.0.insert.insert = or disjoint i64 %46, %.sroa.0.0.insert.ext
-  %.sroa.6.0.insert.insert = or i64 %.sroa.7.0.insert.insert, %47
-  %.sroa.5.0.insert.insert = or i64 %.sroa.6.0.insert.insert, %57
-  %.sroa.3.0.insert.mask = or i64 %.sroa.5.0.insert.insert, %70
-  %.sroa.2.0.insert.mask.masked = or i64 %.sroa.3.0.insert.mask, %71
+"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit.thread": ; preds = %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit", %.thread128, %73
+  %.sroa.6.0.insert.ext133137 = phi i64 [ %.85, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit" ], [ %.85, %73 ], [ 0, %.thread128 ]
+  %85 = phi i64 [ %84, %"_ZN9ty_server7session12capabilities26ResolvedClientCapabilities3new28_$u7b$$u7b$closure$u7d$$u7d$17h14914301f67191b4E.exit" ], [ %58, %73 ], [ %58, %.thread128 ]
+  %.sroa.6.0.insert.insert.masked = or disjoint i64 %47, %spec.select
+  %.sroa.5.0.insert.insert.masked = or i64 %.sroa.6.0.insert.insert.masked, %48
+  %.sroa.3.0.insert.mask = or i64 %.sroa.5.0.insert.insert.masked, %71
+  %.sroa.2.0.insert.mask.masked = or i64 %.sroa.3.0.insert.mask, %72
   %.sroa.0.0.insert.mask = or i64 %.sroa.2.0.insert.mask.masked, %.sroa.6.0.insert.ext133137
-  %.sroa.0.0.insert.insert = or i64 %.sroa.0.0.insert.mask, %83
+  %.sroa.0.0.insert.insert = or i64 %.sroa.0.0.insert.mask, %85
   ret i64 %.sroa.0.0.insert.insert
 }
 

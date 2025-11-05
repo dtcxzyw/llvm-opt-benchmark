@@ -507,14 +507,17 @@ define internal fastcc zeroext range(i8 0, 2) i8 @handle_compress(ptr %.48.val) 
   %.pre27.pre = load i32, ptr %5, align 4, !tbaa !40
   %.not.i = icmp slt i32 %29, %.pre27.pre
   %or.cond59 = select i1 %46, i1 %.not.i, i1 false
-  br i1 %or.cond59, label %.lr.ph, label %copy_output_until_stop.exit
+  br i1 %or.cond59, label %.lr.ph, label %copy_output_until_stop.exit.loopexit
 
-copy_output_until_stop.exit:                      ; preds = %45, %17
-  %47 = phi i32 [ %.pre28, %17 ], [ %.pre27.pre, %45 ]
-  %48 = phi i32 [ %.pre26, %17 ], [ %29, %45 ]
-  %.0.lcssa.i = phi i8 [ 0, %17 ], [ 1, %45 ]
-  %49 = or i8 %.0.lcssa.i, %.029.ph
-  %50 = icmp slt i32 %48, %47
+copy_output_until_stop.exit.loopexit:             ; preds = %45
+  %47 = or i8 %.029.ph, 1
+  br label %copy_output_until_stop.exit
+
+copy_output_until_stop.exit:                      ; preds = %copy_output_until_stop.exit.loopexit, %17
+  %48 = phi i32 [ %.pre28, %17 ], [ %.pre27.pre, %copy_output_until_stop.exit.loopexit ]
+  %49 = phi i32 [ %.pre26, %17 ], [ %29, %copy_output_until_stop.exit.loopexit ]
+  %.0.lcssa.i = phi i8 [ %.029.ph, %17 ], [ %47, %copy_output_until_stop.exit.loopexit ]
+  %50 = icmp slt i32 %49, %48
   br i1 %50, label %isempty_RL.exit, label %51
 
 51:                                               ; preds = %copy_output_until_stop.exit
@@ -566,13 +569,13 @@ isempty_RL.exit.thread:                           ; preds = %60, %54, %51
   br i1 %74, label %..thread_crit_edge, label %isempty_RL.exit
 
 ..thread_crit_edge:                               ; preds = %16, %66, %72
-  %.13056 = phi i8 [ %49, %72 ], [ %49, %66 ], [ %.029.ph, %16 ]
+  %.13056 = phi i8 [ %.0.lcssa.i, %72 ], [ %.0.lcssa.i, %66 ], [ %.029.ph, %16 ]
   %.pre29 = load i32, ptr %7, align 8, !tbaa !22
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %isempty_RL.exit.thread
   %75 = phi i32 [ %.pre29, %..thread_crit_edge ], [ %52, %isempty_RL.exit.thread ]
-  %.1307 = phi i8 [ %.13056, %..thread_crit_edge ], [ %49, %isempty_RL.exit.thread ]
+  %.1307 = phi i8 [ %.13056, %..thread_crit_edge ], [ %.0.lcssa.i, %isempty_RL.exit.thread ]
   %76 = icmp eq i32 %75, 2
   %77 = load i32, ptr %9, align 4, !tbaa !39
   %78 = load i32, ptr %13, align 8, !tbaa !25
@@ -852,7 +855,7 @@ flush_RL.exit:                                    ; preds = %197, %200
   br label %.outer.backedge
 
 isempty_RL.exit:                                  ; preds = %72, %69, %60, %57, %205, %copy_output_until_stop.exit
-  %.231 = phi i8 [ %49, %copy_output_until_stop.exit ], [ %.1307, %205 ], [ %49, %57 ], [ %49, %60 ], [ %49, %69 ], [ %49, %72 ]
+  %.231 = phi i8 [ %.0.lcssa.i, %copy_output_until_stop.exit ], [ %.1307, %205 ], [ %.0.lcssa.i, %57 ], [ %.0.lcssa.i, %60 ], [ %.0.lcssa.i, %69 ], [ %.0.lcssa.i, %72 ]
   %.1 = phi i8 [ %.0.ph, %copy_output_until_stop.exit ], [ %192, %205 ], [ %.0.ph, %57 ], [ %.0.ph, %60 ], [ %.0.ph, %69 ], [ %.0.ph, %72 ]
   %210 = icmp ne i8 %.1, 0
   %211 = icmp ne i8 %.231, 0

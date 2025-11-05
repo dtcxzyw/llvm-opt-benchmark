@@ -2407,7 +2407,7 @@ define dso_local ptr @ExecBuildSlotValueDescription(i32 noundef %0, ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = tail call i32 @check_enable_rls(i32 noundef %0, i32 noundef 0, i1 noundef zeroext true) #8
   %11 = icmp eq i32 %10, 2
-  br i1 %11, label %93, label %12
+  br i1 %11, label %94, label %12
 
 12:                                               ; preds = %5
   call void @initStringInfo(ptr noundef nonnull %6) #8
@@ -2448,12 +2448,12 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   br label %30
 
-30:                                               ; preds = %.lr.ph, %79
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %31 = phi i32 [ %25, %.lr.ph ], [ %80, %79 ]
-  %.168 = phi i8 [ %.044, %.lr.ph ], [ %.2, %79 ]
-  %.04766 = phi i1 [ false, %.lr.ph ], [ %.148, %79 ]
-  %.05165 = phi i1 [ false, %.lr.ph ], [ %.152, %79 ]
+30:                                               ; preds = %.lr.ph, %80
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
+  %31 = phi i32 [ %25, %.lr.ph ], [ %81, %80 ]
+  %.167 = phi i8 [ %.044, %.lr.ph ], [ %.2, %80 ]
+  %.04765 = phi i1 [ false, %.lr.ph ], [ %.148, %80 ]
+  %.05164 = phi i1 [ false, %.lr.ph ], [ %.152, %80 ]
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 4
   %34 = getelementptr i8, ptr %2, i64 %33
@@ -2462,10 +2462,10 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 91
   %38 = load i8, ptr %37, align 1, !range !4, !noundef !5
   %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %79, label %40
+  br i1 %39, label %80, label %40
 
 40:                                               ; preds = %30
-  br i1 %27, label %.thread, label %41
+  br i1 %27, label %55, label %41
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 74
@@ -2478,10 +2478,10 @@ slot_getallattrs.exit:                            ; preds = %16, %24
   %49 = call zeroext i1 @bms_is_member(i32 noundef %48, ptr noundef %3) #8
   %50 = icmp eq i32 %45, 0
   %or.cond = select i1 %49, i1 true, i1 %50
-  br i1 %or.cond, label %51, label %79
+  br i1 %or.cond, label %51, label %80
 
 51:                                               ; preds = %41
-  br i1 %.04766, label %52, label %53
+  br i1 %.04765, label %52, label %53
 
 52:                                               ; preds = %51
   call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.26) #8
@@ -2490,97 +2490,97 @@ slot_getallattrs.exit:                            ; preds = %16, %24
 53:                                               ; preds = %51, %52
   %54 = getelementptr inbounds nuw i8, ptr %36, i64 4
   call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull %54) #8
-  br label %.thread
+  br label %55
 
-.thread:                                          ; preds = %40, %53
-  %.364 = phi i8 [ 1, %53 ], [ %.168, %40 ]
-  %.24963 = phi i1 [ true, %53 ], [ %.04766, %40 ]
-  %55 = getelementptr inbounds nuw i8, ptr %36, i64 90
-  %56 = load i8, ptr %55, align 2
-  %57 = icmp eq i8 %56, 118
-  br i1 %57, label %71, label %58
+55:                                               ; preds = %40, %53
+  %.249.ph = phi i1 [ true, %53 ], [ %.04765, %40 ]
+  %.3.ph = phi i8 [ 1, %53 ], [ %.167, %40 ]
+  %56 = getelementptr inbounds nuw i8, ptr %36, i64 90
+  %57 = load i8, ptr %56, align 2
+  %58 = icmp eq i8 %57, 118
+  br i1 %58, label %72, label %59
 
-58:                                               ; preds = %.thread
-  %59 = load ptr, ptr %28, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
-  %61 = load i8, ptr %60, align 1, !range !4, !noundef !5
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %71, label %63
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %28, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv
+  %62 = load i8, ptr %61, align 1, !range !4, !noundef !5
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %72, label %64
 
-63:                                               ; preds = %58
+64:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %64 = getelementptr inbounds nuw i8, ptr %36, i64 68
-  %65 = load i32, ptr %64, align 4
-  call void @getTypeOutputInfo(i32 noundef %65, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
-  %66 = load i32, ptr %8, align 4
-  %67 = load ptr, ptr %29, align 8
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %indvars.iv
-  %69 = load i64, ptr %68, align 8
-  %70 = call ptr @OidOutputFunctionCall(i32 noundef %66, i64 noundef %69) #8
+  %65 = getelementptr inbounds nuw i8, ptr %36, i64 68
+  %66 = load i32, ptr %65, align 4
+  call void @getTypeOutputInfo(i32 noundef %66, ptr noundef nonnull %8, ptr noundef nonnull %9) #8
+  %67 = load i32, ptr %8, align 4
+  %68 = load ptr, ptr %29, align 8
+  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
+  %70 = load i64, ptr %69, align 8
+  %71 = call ptr @OidOutputFunctionCall(i32 noundef %67, i64 noundef %70) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %71
+  br label %72
 
-71:                                               ; preds = %58, %.thread, %63
-  %.042 = phi ptr [ %70, %63 ], [ @.str.27, %.thread ], [ @.str.28, %58 ]
-  br i1 %.05165, label %72, label %73
+72:                                               ; preds = %59, %55, %64
+  %.042 = phi ptr [ %71, %64 ], [ @.str.27, %55 ], [ @.str.28, %59 ]
+  br i1 %.05164, label %73, label %74
 
-72:                                               ; preds = %71
+73:                                               ; preds = %72
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.26) #8
-  br label %73
+  br label %74
 
-73:                                               ; preds = %71, %72
-  %74 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #10
-  %75 = trunc i64 %74 to i32
-  %.not58 = icmp slt i32 %4, %75
-  br i1 %.not58, label %77, label %76
+74:                                               ; preds = %72, %73
+  %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.042) #10
+  %76 = trunc i64 %75 to i32
+  %.not58 = icmp slt i32 %4, %76
+  br i1 %.not58, label %78, label %77
 
-76:                                               ; preds = %73
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %75) #8
-  br label %79
+77:                                               ; preds = %74
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %76) #8
+  br label %80
 
-77:                                               ; preds = %73
-  %78 = call i32 @pg_mbcliplen(ptr noundef nonnull %.042, i32 noundef %75, i32 noundef %4) #8
-  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %78) #8
+78:                                               ; preds = %74
+  %79 = call i32 @pg_mbcliplen(ptr noundef nonnull %.042, i32 noundef %76, i32 noundef %4) #8
+  call void @appendBinaryStringInfo(ptr noundef nonnull %6, ptr noundef nonnull %.042, i32 noundef %79) #8
   call void @appendStringInfoString(ptr noundef nonnull %6, ptr noundef nonnull @.str.29) #8
-  br label %79
+  br label %80
 
-79:                                               ; preds = %41, %77, %76, %30
-  %.152 = phi i1 [ %.05165, %30 ], [ true, %76 ], [ true, %77 ], [ %.05165, %41 ]
-  %.148 = phi i1 [ %.04766, %30 ], [ %.24963, %76 ], [ %.24963, %77 ], [ %.04766, %41 ]
-  %.2 = phi i8 [ %.168, %30 ], [ %.364, %76 ], [ %.364, %77 ], [ %.168, %41 ]
+80:                                               ; preds = %41, %78, %77, %30
+  %.152 = phi i1 [ %.05164, %30 ], [ true, %77 ], [ true, %78 ], [ %.05164, %41 ]
+  %.148 = phi i1 [ %.04765, %30 ], [ %.249.ph, %77 ], [ %.249.ph, %78 ], [ %.04765, %41 ]
+  %.2 = phi i8 [ %.167, %30 ], [ %.3.ph, %77 ], [ %.3.ph, %78 ], [ %.167, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %80 = load i32, ptr %2, align 8
-  %81 = sext i32 %80 to i64
-  %82 = icmp slt i64 %indvars.iv.next, %81
-  br i1 %82, label %30, label %._crit_edge, !llvm.loop !9
+  %81 = load i32, ptr %2, align 8
+  %82 = sext i32 %81 to i64
+  %83 = icmp slt i64 %indvars.iv.next, %82
+  br i1 %83, label %30, label %._crit_edge, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %79, %slot_getallattrs.exit
-  %.1.lcssa = phi i8 [ %.044, %slot_getallattrs.exit ], [ %.2, %79 ]
-  %83 = trunc nuw i8 %.1.lcssa to i1
-  br i1 %83, label %84, label %93
+._crit_edge:                                      ; preds = %80, %slot_getallattrs.exit
+  %.1.lcssa = phi i8 [ %.044, %slot_getallattrs.exit ], [ %.2, %80 ]
+  %84 = trunc nuw i8 %.1.lcssa to i1
+  br i1 %84, label %85, label %94
 
-84:                                               ; preds = %._crit_edge
+85:                                               ; preds = %._crit_edge
   call void @appendStringInfoChar(ptr noundef nonnull %6, i8 noundef signext 41) #8
-  %85 = trunc nuw i8 %.044 to i1
-  br i1 %85, label %91, label %86
+  %86 = trunc nuw i8 %.044 to i1
+  br i1 %86, label %92, label %87
 
-86:                                               ; preds = %84
+87:                                               ; preds = %85
   call void @appendStringInfoString(ptr noundef nonnull %7, ptr noundef nonnull @.str.30) #8
-  %87 = load ptr, ptr %6, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %89 = load i32, ptr %88, align 8
-  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %87, i32 noundef %89) #8
-  %90 = load ptr, ptr %7, align 8
-  br label %93
+  %88 = load ptr, ptr %6, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %90 = load i32, ptr %89, align 8
+  call void @appendBinaryStringInfo(ptr noundef nonnull %7, ptr noundef %88, i32 noundef %90) #8
+  %91 = load ptr, ptr %7, align 8
+  br label %94
 
-91:                                               ; preds = %84
-  %92 = load ptr, ptr %6, align 8
-  br label %93
+92:                                               ; preds = %85
+  %93 = load ptr, ptr %6, align 8
+  br label %94
 
-93:                                               ; preds = %._crit_edge, %5, %91, %86
-  %.0 = phi ptr [ %92, %91 ], [ %90, %86 ], [ null, %5 ], [ null, %._crit_edge ]
+94:                                               ; preds = %._crit_edge, %5, %92, %87
+  %.0 = phi ptr [ %93, %92 ], [ %91, %87 ], [ null, %5 ], [ null, %._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0

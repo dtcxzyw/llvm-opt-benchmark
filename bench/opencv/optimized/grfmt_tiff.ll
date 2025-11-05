@@ -1729,29 +1729,29 @@ define linkonce_odr hidden noundef i64 @_ZN2cv20TiffDecoderBufHelper5writeEPvS1_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN2cv20TiffDecoderBufHelper4seekEPvmi(ptr noundef %0, i64 noundef %1, i32 noundef %2) #3 comdat align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !96
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  %6 = load i32, ptr %5, align 4, !tbaa !98
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load i32, ptr %7, align 8, !tbaa !99
-  %9 = mul nsw i32 %8, %6
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !100
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %6 = load i32, ptr %5, align 4, !tbaa !100
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %8, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-14:                                               ; preds = %3
+8:                                                ; preds = %3
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !98
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %12 = load i32, ptr %11, align 8, !tbaa !99
+  %13 = mul nsw i32 %12, %10
+  %14 = sext i32 %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !101
-  %17 = zext nneg i32 %12 to i64
+  %17 = zext nneg i32 %6 to i64
   %18 = getelementptr i64, ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !102
+  %21 = mul i64 %20, %14
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %14
-  %21 = phi i64 [ %20, %14 ], [ 0, %3 ]
-  %22 = mul i64 %21, %10
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %8
+  %22 = phi i64 [ %21, %8 ], [ 0, %3 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !103
   %25 = load i64, ptr %24, align 8, !tbaa !102

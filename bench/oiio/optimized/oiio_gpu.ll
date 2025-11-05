@@ -185,9 +185,7 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit19: ; 
   br i1 %.not.not, label %.loopexit, label %_ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit
 
 .loopexit:                                        ; preds = %37, %26, %.thread
-  %.not60 = phi i1 [ true, %.thread ], [ false, %26 ], [ false, %37 ]
-  %.1 = phi i1 [ %36, %.thread ], [ undef, %26 ], [ undef, %37 ]
-  %spec.select = and i1 %.not60, %.1
+  %.not60 = phi i1 [ %36, %.thread ], [ false, %26 ], [ false, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %54
 
@@ -234,7 +232,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN11OpenImageIO6v3
   br label %54
 
 54:                                               ; preds = %50, %42, %46, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %.loopexit
-  %.4 = phi i1 [ %spec.select, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %50 ], [ true, %42 ], [ false, %46 ]
+  %.4 = phi i1 [ %.not60, %.loopexit ], [ false, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ], [ true, %50 ], [ true, %42 ], [ false, %46 ]
   ret i1 %.4
 }
 

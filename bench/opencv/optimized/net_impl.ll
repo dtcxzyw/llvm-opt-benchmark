@@ -40532,11 +40532,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   %43 = getelementptr i64, ptr %41, i64 %42
   %44 = getelementptr i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !tbaa !102
+  %46 = mul i64 %45, %35
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %.lr.ph, %39
-  %46 = phi i64 [ %45, %39 ], [ 0, %.lr.ph ]
-  %47 = mul i64 %46, %35
+  %47 = phi i64 [ %46, %39 ], [ 0, %.lr.ph ]
   %48 = load i64, ptr %3, align 8, !tbaa !102
   %49 = add i64 %48, %47
   store i64 %49, ptr %3, align 8, !tbaa !102
@@ -41188,13 +41188,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %84, %
   %110 = getelementptr i64, ptr %108, i64 %109
   %111 = getelementptr i8, ptr %110, i64 -8
   %112 = load i64, ptr %111, align 8, !tbaa !102
+  %113 = mul i64 %112, %101
+  %114 = trunc i64 %113 to i32
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %102, %106
-  %113 = phi i64 [ %112, %106 ], [ 0, %102 ]
-  %114 = mul i64 %113, %101
-  %115 = trunc i64 %114 to i32
-  %116 = add i32 %.032101, %115
+  %115 = phi i32 [ %114, %106 ], [ 0, %102 ]
+  %116 = add i32 %115, %.032101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %117 = load ptr, ptr %77, align 8, !tbaa !148
   %118 = load ptr, ptr %76, align 8, !tbaa !147

@@ -259,9 +259,9 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN22cranelift_code
   %2 = load i8, ptr %0, align 8, !range !3, !noundef !4
   switch i8 %2, label %default.unreachable [
     i8 2, label %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i
-    i8 0, label %6
-    i8 1, label %9
-    i8 3, label %13
+    i8 0, label %7
+    i8 1, label %10
+    i8 3, label %14
   ]
 
 _ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i: ; preds = %1
@@ -270,35 +270,34 @@ _ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE
   %5 = getelementptr i8, ptr %0, i64 17
   %.val1.i.i = load i8, ptr %5, align 1, !noundef !4
   %.0.i.i.i.i = zext i8 %.val1.i.i to i64
+  %6 = mul i64 %4, %.0.i.i.i.i
   br label %_ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit
 
 default.unreachable:                              ; preds = %1
   unreachable
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %8 = load i8, ptr %7, align 2, !noundef !4
-  %.0.i.i.i = zext i8 %8 to i64
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %9 = load i8, ptr %8, align 2, !noundef !4
+  %.0.i.i.i = zext i8 %9 to i64
   br label %_ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit
 
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %11 = load i8, ptr %10, align 1, !range !9, !noundef !4
-  %12 = icmp eq i8 %11, 32
-  %..i4.i.i = select i1 %12, i64 32, i64 64
+10:                                               ; preds = %1
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %12 = load i8, ptr %11, align 1, !range !9, !noundef !4
+  %13 = icmp eq i8 %12, 32
+  %..i4.i.i = select i1 %13, i64 32, i64 64
   br label %_ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit
 
-13:                                               ; preds = %1
-  %14 = getelementptr i8, ptr %0, i64 17
-  %.val3.i.i = load i8, ptr %14, align 1, !noundef !4
+14:                                               ; preds = %1
+  %15 = getelementptr i8, ptr %0, i64 17
+  %.val3.i.i = load i8, ptr %15, align 1, !noundef !4
   %.0.i.i7.i.i = zext i8 %.val3.i.i to i64
   br label %_ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit
 
-_ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit: ; preds = %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i, %6, %9, %13
-  %.0.i3.i = phi i64 [ 1, %6 ], [ 1, %9 ], [ %4, %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i ], [ 1, %13 ]
-  %.0.i1.i = phi i64 [ %.0.i.i.i, %6 ], [ %..i4.i.i, %9 ], [ %.0.i.i.i.i, %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i ], [ %.0.i.i7.i.i, %13 ]
-  %15 = mul i64 %.0.i1.i, %.0.i3.i
-  %16 = lshr i64 %15, 3
+_ZN22cranelift_codegen_meta4cdsl5types9ValueType5width17h1e099cc1e6dbc643E.exit: ; preds = %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i, %7, %10, %14
+  %.0.i3.i = phi i64 [ %.0.i.i.i, %7 ], [ %..i4.i.i, %10 ], [ %6, %_ZN22cranelift_codegen_meta4cdsl5types9ValueType10lane_count17hae8fba4f47327accE.exit.thread.i ], [ %.0.i.i7.i.i, %14 ]
+  %16 = lshr i64 %.0.i3.i, 3
   ret i64 %16
 }
 

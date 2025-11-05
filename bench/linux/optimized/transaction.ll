@@ -3860,7 +3860,7 @@ define dso_local range(i32 -16, 1) i32 @jbd2_journal_invalidate_folio(ptr nounde
   %107 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %select.unfold, label %145
+  br i1 %109, label %select.unfold, label %146
 
 110:                                              ; preds = %105
   %111 = load volatile i64, ptr %52, align 8
@@ -3944,20 +3944,20 @@ define dso_local range(i32 -16, 1) i32 @jbd2_journal_invalidate_folio(ptr nounde
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %143, i32 -9, ptr elementtype(i8) %143) #11, !srcloc !87
   %144 = getelementptr inbounds nuw i8, ptr %52, i64 48
   store ptr null, ptr %144, align 8
+  %145 = and i32 %137, %54
   br label %select.unfold
 
-145:                                              ; preds = %106
+146:                                              ; preds = %106
   tail call void @unlock_buffer(ptr noundef %52) #11
   br label %.loopexit
 
 select.unfold:                                    ; preds = %106, %142, %125
-  %.ph = phi i32 [ 0, %125 ], [ %137, %142 ], [ 0, %106 ]
+  %.ph = phi i32 [ 0, %125 ], [ %145, %142 ], [ 0, %106 ]
   tail call void @unlock_buffer(ptr noundef %52) #11
-  %146 = and i32 %.ph, %54
   br label %147
 
 147:                                              ; preds = %select.unfold, %62
-  %.ph10 = phi i32 [ %54, %62 ], [ %146, %select.unfold ]
+  %.ph10 = phi i32 [ %54, %62 ], [ %.ph, %select.unfold ]
   %148 = icmp eq ptr %60, %28
   br i1 %148, label %149, label %51, !llvm.loop !165
 
@@ -3980,8 +3980,8 @@ select.unfold:                                    ; preds = %106, %142, %125
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2493, i32 0, i64 12) #11, !srcloc !167
   unreachable
 
-.loopexit:                                        ; preds = %51, %145, %154, %152, %149, %26
-  %158 = phi i32 [ 0, %26 ], [ 0, %152 ], [ 0, %154 ], [ 0, %149 ], [ -16, %145 ], [ 0, %51 ]
+.loopexit:                                        ; preds = %51, %146, %154, %152, %149, %26
+  %158 = phi i32 [ 0, %26 ], [ 0, %152 ], [ 0, %154 ], [ 0, %149 ], [ -16, %146 ], [ 0, %51 ]
   ret i32 %158
 }
 

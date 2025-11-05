@@ -95082,7 +95082,7 @@ _ZN5typst5model10numbering_13NumberingKind9from_char17h2c74da6d5069f7a3E.exit: ;
 
 .thread103:                                       ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br label %89
+  br label %105
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i": ; preds = %62
   %65 = getelementptr inbounds i8, ptr %1, i64 %.0.ph
@@ -95147,23 +95147,17 @@ _ZN5typst5model10numbering_13NumberingKind9from_char17h2c74da6d5069f7a3E.exit: ;
 85:                                               ; preds = %81
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %7, i8 0, i64 15, i1 false), !noalias !24734
   %.not.i.i53 = icmp eq i64 %82, 0
-  br i1 %.not.i.i53, label %89, label %.lr.ph.preheader.i.i
+  br i1 %.not.i.i53, label %105, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %85
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7, ptr nonnull readonly align 1 %83, i64 %82, i1 false), !noalias !24736
   %86 = shl nuw nsw i64 %82, 56
-  %87 = or disjoint i64 %86, -9223372036854775808
   %.0..0..0..sroa.083.0.copyload84.pre = load ptr, ptr %7, align 8, !noalias !24731
   %.8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.8..8..8..sroa.585.0.copyload87.pre = load i56, ptr %.8..8..8..sroa_idx, align 8, !noalias !24731
-  %88 = zext i56 %.8..8..8..sroa.585.0.copyload87.pre to i64
-  br label %89
-
-89:                                               ; preds = %.thread103, %.lr.ph.preheader.i.i, %85
-  %.8..8..sroa.585.0.copyload87 = phi i64 [ 0, %.thread103 ], [ %88, %.lr.ph.preheader.i.i ], [ 0, %85 ]
-  %.0..0..sroa.083.0.copyload84 = phi ptr [ null, %.thread103 ], [ %.0..0..0..sroa.083.0.copyload84.pre, %.lr.ph.preheader.i.i ], [ null, %85 ]
-  %.sroa.585.15.insert.ext = phi i64 [ -9223372036854775808, %.thread103 ], [ %87, %.lr.ph.preheader.i.i ], [ -9223372036854775808, %85 ]
-  %.sroa.585.15.insert.insert = or i64 %.sroa.585.15.insert.ext, %.8..8..sroa.585.0.copyload87
+  %87 = zext i56 %.8..8..8..sroa.585.0.copyload87.pre to i64
+  %88 = or disjoint i64 %86, %87
+  %89 = or disjoint i64 %88, -9223372036854775808
   br label %105
 
 .lr.ph.i.i.i:                                     ; preds = %81
@@ -95214,10 +95208,10 @@ _ZN5typst5model10numbering_13NumberingKind9from_char17h2c74da6d5069f7a3E.exit: ;
   %.pre = load i64, ptr %12, align 8
   br label %105
 
-105:                                              ; preds = %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i", %89
-  %106 = phi i64 [ %.pre, %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i" ], [ %17, %89 ]
-  %.sroa.083.0 = phi ptr [ %.pre.i.i, %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i" ], [ %.0..0..sroa.083.0.copyload84, %89 ]
-  %.sroa.585.0 = phi i64 [ %99, %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i" ], [ %.sroa.585.15.insert.insert, %89 ]
+105:                                              ; preds = %85, %.lr.ph.preheader.i.i, %.thread103, %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i"
+  %106 = phi i64 [ %.pre, %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i" ], [ %17, %.thread103 ], [ %17, %.lr.ph.preheader.i.i ], [ %17, %85 ]
+  %.sroa.083.0 = phi ptr [ %.pre.i.i, %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i" ], [ null, %.thread103 ], [ %.0..0..0..sroa.083.0.copyload84.pre, %.lr.ph.preheader.i.i ], [ null, %85 ]
+  %.sroa.585.0 = phi i64 [ %99, %"_ZN89_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..convert..From$LT$$RF$$u5b$T$u5d$$GT$$GT$4from17h4b21451a145e6dd5E.exit.i" ], [ -9223372036854775808, %.thread103 ], [ %89, %.lr.ph.preheader.i.i ], [ -9223372036854775808, %85 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   store ptr %.sroa.083.0, ptr %8, align 8
   %.sroa.585.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -103801,8 +103795,8 @@ default.unreachable:                              ; preds = %40
   br label %_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit
 
 _ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit: ; preds = %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %40
-  %.0.i21 = phi i32 [ 97, %43 ], [ 105, %44 ], [ 42, %45 ], [ 1488, %46 ], [ 19968, %47 ], [ 12354, %48 ], [ 12356, %49 ], [ 12450, %50 ], [ 12452, %51 ], [ 12593, %52 ], [ 44032, %53 ], [ 49, %40 ]
   %.0 = phi i1 [ true, %43 ], [ true, %44 ], [ false, %45 ], [ false, %46 ], [ false, %47 ], [ false, %48 ], [ false, %49 ], [ false, %50 ], [ false, %51 ], [ false, %52 ], [ false, %53 ], [ false, %40 ]
+  %.0.i21 = phi i32 [ 97, %43 ], [ 105, %44 ], [ 42, %45 ], [ 1488, %46 ], [ 19968, %47 ], [ 12354, %48 ], [ 12356, %49 ], [ 12450, %50 ], [ 12452, %51 ], [ 12593, %52 ], [ 44032, %53 ], [ 49, %40 ]
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 17
   %55 = load i8, ptr %54, align 1, !range !87, !noundef !4
   %56 = trunc nuw i8 %55 to i1

@@ -674,17 +674,13 @@ define dso_local { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule32getPointerAuthI
 14:                                               ; preds = %3
   %15 = tail call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule26getFunctionPointerAuthInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %0, i64 %1)
   %16 = extractvalue { i64, ptr } %15, 0
-  %.sroa.6.0.extract.shift.i = and i64 %16, -256
   %17 = extractvalue { i64, ptr } %15, 1
-  %18 = and i64 %16, 255
   br label %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 _ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %2, %3, %14
   %.sroa.65.0.i = phi ptr [ %17, %14 ], [ null, %2 ], [ null, %3 ]
-  %.sroa.03.0.i = phi i64 [ %18, %14 ], [ 0, %2 ], [ 0, %3 ]
-  %.sroa.6.sroa.0.0.i = phi i64 [ %.sroa.6.0.extract.shift.i, %14 ], [ 0, %2 ], [ 0, %3 ]
-  %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.6.sroa.0.0.i, %.sroa.03.0.i
-  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.03.0.insert.insert.i, 0
+  %.sroa.6.sroa.0.0.i = phi i64 [ %16, %14 ], [ 0, %2 ], [ 0, %3 ]
+  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.6.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.sroa.65.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i
 }
@@ -722,27 +718,18 @@ define dso_local { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule25getPointerAuthI
   %24 = load i8, ptr %23, align 16
   %25 = add i8 %24, -25
   %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %25, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %26, label %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %26, label %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 26:                                               ; preds = %15
   %27 = tail call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule26getFunctionPointerAuthInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %0, i64 %14)
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  br label %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.i
-
-_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.i: ; preds = %26, %15
-  %.sroa.65.0.i.i = phi ptr [ %29, %26 ], [ null, %15 ]
-  %.sroa.03.0.insert.insert.i.i = phi i64 [ %28, %26 ], [ 0, %15 ]
-  %.sroa.6.0.extract.shift.i = and i64 %.sroa.03.0.insert.insert.i.i, -256
-  %30 = and i64 %.sroa.03.0.insert.insert.i.i, 255
   br label %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
-_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %2, %13, %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.i
-  %.sroa.05.0.i = phi i64 [ 0, %2 ], [ %30, %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.i ], [ 0, %13 ]
-  %.sroa.67.0.i = phi ptr [ null, %2 ], [ %.sroa.65.0.i.i, %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.i ], [ null, %13 ]
-  %.sroa.6.sroa.0.0.i = phi i64 [ 0, %2 ], [ %.sroa.6.0.extract.shift.i, %_ZL32getPointerAuthInfoForPointeeTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit.i ], [ 0, %13 ]
-  %.sroa.05.0.insert.insert.i = or disjoint i64 %.sroa.6.sroa.0.0.i, %.sroa.05.0.i
-  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.05.0.insert.insert.i, 0
+_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %2, %13, %15, %26
+  %.sroa.67.0.i = phi ptr [ null, %2 ], [ null, %13 ], [ %29, %26 ], [ null, %15 ]
+  %.sroa.6.sroa.0.0.i = phi i64 [ 0, %2 ], [ 0, %13 ], [ %28, %26 ], [ 0, %15 ]
+  %.fca.0.insert.i = insertvalue { i64, ptr } poison, i64 %.sroa.6.sroa.0.0.i, 0
   %.fca.1.insert.i = insertvalue { i64, ptr } %.fca.0.insert.i, ptr %.sroa.67.0.i, 1
   ret { i64, ptr } %.fca.1.insert.i
 }
@@ -1872,16 +1859,14 @@ _ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread:
   %70 = shl nuw nsw i32 %.3, 6
   %71 = or disjoint i32 %69, %70
   %72 = shl i32 %.4, 16
-  %73 = or i32 %72, %71
-  %74 = or disjoint i32 %73, 12
-  %75 = zext i32 %74 to i64
+  %73 = or i32 %71, %72
+  %74 = zext i32 %73 to i64
+  %75 = or disjoint i64 %74, 4294967308
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit, %2, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread
-  %.sroa.049.0 = phi i64 [ %75, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
-  %.sroa.049.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.049.0
-  ret i64 %.sroa.049.0.insert.insert
+  %.sroa.2.0 = phi i64 [ %75, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit.thread ], [ 0, %2 ], [ 0, %_ZNK5clang4Decl7getAttrINS_31VTablePointerAuthenticationAttrEEEPT_v.exit ]
+  ret i64 %.sroa.2.0
 }
 
 declare noundef ptr @_ZN5clang10ASTContext27baseForVTableAuthenticationEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(23216), ptr noundef) local_unnamed_addr #1
@@ -1978,8 +1963,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclESt8optionalINS2_20P
 54:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclESt8optionalINS2_20PointerAuthQualifierEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
   %56 = load i64, ptr %55, align 4
-  %.sroa.6.0.extract.shift22 = and i64 %56, -1099511627776
-  %57 = and i64 %56, 1095216660480
+  %57 = and i64 %56, -4294967296
   br label %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread
 
 58:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclESt8optionalINS2_20PointerAuthQualifierEENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4findES5_.exit
@@ -1997,11 +1981,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclESt8optionalINS2_20P
 
 _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread: ; preds = %7, %54, %58, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit, %16
   %.sroa.08.0 = phi i64 [ 0, %16 ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %56, %54 ], [ %59, %58 ], [ 0, %7 ]
-  %.sroa.414.0 = phi i64 [ 0, %16 ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %57, %54 ], [ %.sroa.414.0.extract.shift, %58 ], [ 0, %7 ]
-  %.sroa.6.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %.sroa.6.0.extract.shift22, %54 ], [ 0, %58 ], [ 0, %7 ]
+  %.sroa.6.sroa.0.0 = phi i64 [ 0, %16 ], [ 0, %_ZNK5clang13CXXRecordDecl13getDefinitionEv.exit ], [ %57, %54 ], [ %.sroa.414.0.extract.shift, %58 ], [ 0, %7 ]
   %.sroa.08.0.insert.ext = and i64 %.sroa.08.0, 4294967295
-  %.sroa.414.0.insert.insert = or disjoint i64 %.sroa.08.0.insert.ext, %.sroa.414.0
-  %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.414.0.insert.insert, %.sroa.6.sroa.0.0
+  %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.6.sroa.0.0, %.sroa.08.0.insert.ext
   ret i64 %.sroa.08.0.insert.insert
 }
 
@@ -2156,12 +2138,12 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction24authPointerToP
   %37 = extractvalue { i64, ptr } %35, 1
   br label %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
-_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %23, %34, %19
+_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %19, %23, %34
   %.sroa.67.0.i = phi ptr [ null, %19 ], [ %37, %34 ], [ null, %23 ]
-  %.sroa.05.0.insert.insert.i = phi i64 [ 0, %19 ], [ %36, %34 ], [ 0, %23 ]
-  store i64 %.sroa.05.0.insert.insert.i, ptr %5, align 8
+  %.sroa.6.sroa.0.0.i = phi i64 [ 0, %19 ], [ %36, %34 ], [ 0, %23 ]
+  store i64 %.sroa.6.sroa.0.0.i, ptr %5, align 8
   store ptr %.sroa.67.0.i, ptr %7, align 8, !tbaa !619
-  %38 = and i64 %.sroa.05.0.insert.insert.i, 3
+  %38 = and i64 %.sroa.6.sroa.0.0.i, 3
   %39 = icmp eq i64 %38, 0
   br label %40
 
@@ -2178,7 +2160,7 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i8, ptr %48, align 16
   %50 = icmp eq i8 %49, 41
-  br i1 %50, label %51, label %.thread64
+  br i1 %50, label %51, label %.thread58
 
 51:                                               ; preds = %40
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2208,20 +2190,20 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
   %69 = extractvalue { i64, ptr } %67, 1
   br label %70
 
-70:                                               ; preds = %51, %66, %55
-  %.sroa.67.0.i27 = phi ptr [ null, %51 ], [ %69, %66 ], [ null, %55 ]
-  %.sroa.05.0.insert.insert.i29 = phi i64 [ 0, %51 ], [ %68, %66 ], [ 0, %55 ]
-  store i64 %.sroa.05.0.insert.insert.i29, ptr %6, align 8
-  store ptr %.sroa.67.0.i27, ptr %8, align 8, !tbaa !619
-  %71 = and i64 %.sroa.05.0.insert.insert.i29, 3
+70:                                               ; preds = %66, %55, %51
+  %.sroa.67.0.i22 = phi ptr [ null, %51 ], [ %69, %66 ], [ null, %55 ]
+  %.sroa.6.sroa.0.0.i23 = phi i64 [ 0, %51 ], [ %68, %66 ], [ 0, %55 ]
+  store i64 %.sroa.6.sroa.0.0.i23, ptr %6, align 8
+  store ptr %.sroa.67.0.i22, ptr %8, align 8, !tbaa !619
+  %71 = and i64 %.sroa.6.sroa.0.0.i23, 3
   %72 = icmp eq i64 %71, 0
   br i1 %.not, label %73, label %.thread
 
-.thread64:                                        ; preds = %40
-  br i1 %.not, label %.thread68, label %.thread.thread71
+.thread58:                                        ; preds = %40
+  br i1 %.not, label %.thread62, label %.thread.thread65
 
 73:                                               ; preds = %70
-  br i1 %72, label %.thread68, label %74
+  br i1 %72, label %.thread62, label %74
 
 74:                                               ; preds = %73
   %75 = load ptr, ptr %42, align 16, !tbaa !361
@@ -2232,19 +2214,19 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i34 = load i64, ptr %79, align 8, !tbaa !3
-  %80 = and i64 %.sroa.0.0.copyload.i.i.i.i.i34, -16
+  %.sroa.0.0.copyload.i.i.i.i.i28 = load i64, ptr %79, align 8, !tbaa !3
+  %80 = and i64 %.sroa.0.0.copyload.i.i.i.i.i28, -16
   %81 = inttoptr i64 %80 to ptr
   %82 = load ptr, ptr %81, align 16, !tbaa !361
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i8, ptr %83, align 16
   %85 = icmp eq i8 %84, 41
-  br i1 %85, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  br i1 %85, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
 
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i: ; preds = %78
   %86 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %75) #11
   %.not.i = icmp eq ptr %86, null
-  br i1 %.not.i, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
+  br i1 %.not.i, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
 
 _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %74, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i
   %.1.i11.i = phi ptr [ %86, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ %75, %74 ]
@@ -2262,7 +2244,7 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %74, %_ZNK5clang4Typ
   %96 = load i8, ptr %95, align 16
   %97 = add i8 %96, -25
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %97, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %98, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %98, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
 
 98:                                               ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2272,53 +2254,53 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %74, %_ZNK5clang4Typ
   %103 = extractvalue { i64, ptr } %101, 1
   store i64 %102, ptr %5, align 8
   store ptr %103, ptr %7, align 8, !tbaa !619
-  br label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  br label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
 
 .thread:                                          ; preds = %70
-  br i1 %72, label %.thread.thread71, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  br i1 %72, label %.thread.thread65, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
 
-.thread.thread71:                                 ; preds = %.thread64, %.thread
+.thread.thread65:                                 ; preds = %.thread58, %.thread
   %104 = load ptr, ptr %10, align 16, !tbaa !361
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load i8, ptr %105, align 16
-  %.not.i.i36 = icmp eq i8 %106, 41
-  br i1 %.not.i.i36, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46, label %107
+  %.not.i.i30 = icmp eq i8 %106, 41
+  br i1 %.not.i.i30, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40, label %107
 
-107:                                              ; preds = %.thread.thread71
+107:                                              ; preds = %.thread.thread65
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i37 = load i64, ptr %108, align 8, !tbaa !3
-  %109 = and i64 %.sroa.0.0.copyload.i.i.i.i.i37, -16
+  %.sroa.0.0.copyload.i.i.i.i.i31 = load i64, ptr %108, align 8, !tbaa !3
+  %109 = and i64 %.sroa.0.0.copyload.i.i.i.i.i31, -16
   %110 = inttoptr i64 %109 to ptr
   %111 = load ptr, ptr %110, align 16, !tbaa !361
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %113 = load i8, ptr %112, align 16
   %114 = icmp eq i8 %113, 41
-  br i1 %114, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  br i1 %114, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39: ; preds = %107
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33: ; preds = %107
   %115 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %104) #11
-  %.not.i40 = icmp eq ptr %115, null
-  br i1 %.not.i40, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46
+  %.not.i34 = icmp eq ptr %115, null
+  br i1 %.not.i34, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40
 
-_ZNK5clang4Type21isFunctionPointerTypeEv.exit46:  ; preds = %.thread.thread71, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39
-  %.1.i11.i42 = phi ptr [ %115, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39 ], [ %104, %.thread.thread71 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.1.i11.i42, i64 32
-  %.sroa.0.0.copyload.i.i43 = load i64, ptr %116, align 16, !tbaa !3
-  %117 = and i64 %.sroa.0.0.copyload.i.i43, -16
+_ZNK5clang4Type21isFunctionPointerTypeEv.exit40:  ; preds = %.thread.thread65, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33
+  %.1.i11.i36 = phi ptr [ %115, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33 ], [ %104, %.thread.thread65 ]
+  %116 = getelementptr inbounds nuw i8, ptr %.1.i11.i36, i64 32
+  %.sroa.0.0.copyload.i.i37 = load i64, ptr %116, align 16, !tbaa !3
+  %117 = and i64 %.sroa.0.0.copyload.i.i37, -16
   %118 = inttoptr i64 %117 to ptr
   %119 = load ptr, ptr %118, align 16, !tbaa !361
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %.sroa.0.0.copyload.i.i.i.i5.i44 = load i64, ptr %120, align 8, !tbaa !3
-  %121 = and i64 %.sroa.0.0.copyload.i.i.i.i5.i44, -16
+  %.sroa.0.0.copyload.i.i.i.i5.i38 = load i64, ptr %120, align 8, !tbaa !3
+  %121 = and i64 %.sroa.0.0.copyload.i.i.i.i5.i38, -16
   %122 = inttoptr i64 %121 to ptr
   %123 = load ptr, ptr %122, align 16, !tbaa !361
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i8, ptr %124, align 16
   %126 = add i8 %125, -25
-  %spec.select.i.i.i.i.i.i.i.i.i.i45 = icmp ult i8 %126, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i45, label %127, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  %spec.select.i.i.i.i.i.i.i.i.i.i39 = icmp ult i8 %126, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i39, label %127, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
 
-127:                                              ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46
+127:                                              ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %129 = load ptr, ptr %128, align 8, !tbaa !365
   %130 = tail call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule26getFunctionPointerAuthInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %129, i64 %3)
@@ -2326,14 +2308,14 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit46:  ; preds = %.thread.thread71, %
   %132 = extractvalue { i64, ptr } %130, 1
   store i64 %131, ptr %6, align 8
   store ptr %132, ptr %8, align 8, !tbaa !619
-  br label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
+  br label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
 
-_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread: ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit, %98, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %78, %107, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i39, %127, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46, %.thread
+_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread: ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit, %98, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %78, %107, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33, %127, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40, %.thread
   %133 = call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21emitPointerAuthResignEPN4llvm5ValueENS_8QualTypeERKNS0_17CGPointerAuthInfoES8_b(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, i64 %3, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i1 noundef zeroext false)
-  br label %.thread68
+  br label %.thread62
 
-.thread68:                                        ; preds = %.thread64, %73, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread
-  %.0 = phi ptr [ %133, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread ], [ %1, %73 ], [ %1, %.thread64 ]
+.thread62:                                        ; preds = %.thread58, %73, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread
+  %.0 = phi ptr [ %133, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40.thread ], [ %1, %73 ], [ %1, %.thread58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -2387,8 +2369,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24authPointerToPointerC
   %38 = icmp eq i64 %37, 0
   br label %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
-_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %19, %34, %23, %5
-  %.sroa.045.0 = phi i1 [ true, %5 ], [ true, %19 ], [ %38, %34 ], [ true, %23 ]
+_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit: ; preds = %34, %23, %19, %5
+  %.sroa.039.0 = phi i1 [ true, %5 ], [ true, %19 ], [ %38, %34 ], [ true, %23 ]
   %39 = and i64 %4, -16
   %40 = inttoptr i64 %39 to ptr
   %41 = load ptr, ptr %40, align 16, !tbaa !361
@@ -2400,7 +2382,7 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i8, ptr %46, align 16
   %48 = icmp eq i8 %47, 41
-  br i1 %48, label %49, label %.thread65
+  br i1 %48, label %49, label %.thread59
 
 49:                                               ; preds = %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2431,15 +2413,15 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
   %68 = icmp eq i64 %67, 0
   br label %69
 
-69:                                               ; preds = %49, %64, %53
-  %.sroa.05.0.insert.insert.i23 = phi i1 [ true, %49 ], [ %68, %64 ], [ true, %53 ]
-  br i1 %.sroa.045.0, label %70, label %.thread
+69:                                               ; preds = %64, %53, %49
+  %.sroa.6.sroa.0.0.i17 = phi i1 [ true, %49 ], [ %68, %64 ], [ true, %53 ]
+  br i1 %.sroa.039.0, label %70, label %.thread
 
-.thread65:                                        ; preds = %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
-  br i1 %.sroa.045.0, label %.thread69, label %.thread.thread72
+.thread59:                                        ; preds = %_ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
+  br i1 %.sroa.039.0, label %.thread63, label %.thread.thread66
 
 70:                                               ; preds = %69
-  br i1 %.sroa.05.0.insert.insert.i23, label %.thread69, label %71
+  br i1 %.sroa.6.sroa.0.0.i17, label %.thread63, label %71
 
 71:                                               ; preds = %70
   %72 = load ptr, ptr %40, align 16, !tbaa !361
@@ -2450,19 +2432,19 @@ _ZL25getPointerAuthInfoForTypeRN5clang7CodeGen13CodeGenModuleENS_8QualTypeE.exit
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i28 = load i64, ptr %76, align 8, !tbaa !3
-  %77 = and i64 %.sroa.0.0.copyload.i.i.i.i.i28, -16
+  %.sroa.0.0.copyload.i.i.i.i.i22 = load i64, ptr %76, align 8, !tbaa !3
+  %77 = and i64 %.sroa.0.0.copyload.i.i.i.i.i22, -16
   %78 = inttoptr i64 %77 to ptr
   %79 = load ptr, ptr %78, align 16, !tbaa !361
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load i8, ptr %80, align 16
   %82 = icmp eq i8 %81, 41
-  br i1 %82, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, label %.thread69
+  br i1 %82, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, label %.thread63
 
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i: ; preds = %75
   %83 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %72) #11
   %.not.i = icmp eq ptr %83, null
-  br i1 %.not.i, label %.thread69, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
+  br i1 %.not.i, label %.thread63, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
 
 _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %71, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i
   %.1.i11.i = phi ptr [ %83, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i ], [ %72, %71 ]
@@ -2480,7 +2462,7 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %71, %_ZNK5clang4Typ
   %93 = load i8, ptr %92, align 16
   %94 = add i8 %93, -25
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %94, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %95, label %.thread69
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %95, label %.thread63
 
 95:                                               ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2490,53 +2472,53 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit:    ; preds = %71, %_ZNK5clang4Typ
   %100 = extractvalue { i64, ptr } %98, 1
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 %99, ptr %101, align 8
-  br label %.thread69.sink.split
+  br label %.thread63.sink.split
 
 .thread:                                          ; preds = %69
-  br i1 %.sroa.05.0.insert.insert.i23, label %.thread.thread72, label %.thread69
+  br i1 %.sroa.6.sroa.0.0.i17, label %.thread.thread66, label %.thread63
 
-.thread.thread72:                                 ; preds = %.thread65, %.thread
+.thread.thread66:                                 ; preds = %.thread59, %.thread
   %102 = load ptr, ptr %10, align 16, !tbaa !361
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load i8, ptr %103, align 16
-  %.not.i.i30 = icmp eq i8 %104, 41
-  br i1 %.not.i.i30, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40, label %105
+  %.not.i.i24 = icmp eq i8 %104, 41
+  br i1 %.not.i.i24, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit34, label %105
 
-105:                                              ; preds = %.thread.thread72
+105:                                              ; preds = %.thread.thread66
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i31 = load i64, ptr %106, align 8, !tbaa !3
-  %107 = and i64 %.sroa.0.0.copyload.i.i.i.i.i31, -16
+  %.sroa.0.0.copyload.i.i.i.i.i25 = load i64, ptr %106, align 8, !tbaa !3
+  %107 = and i64 %.sroa.0.0.copyload.i.i.i.i.i25, -16
   %108 = inttoptr i64 %107 to ptr
   %109 = load ptr, ptr %108, align 16, !tbaa !361
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load i8, ptr %110, align 16
   %112 = icmp eq i8 %111, 41
-  br i1 %112, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33, label %.thread69
+  br i1 %112, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i27, label %.thread63
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33: ; preds = %105
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i27: ; preds = %105
   %113 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %102) #11
-  %.not.i34 = icmp eq ptr %113, null
-  br i1 %.not.i34, label %.thread69, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40
+  %.not.i28 = icmp eq ptr %113, null
+  br i1 %.not.i28, label %.thread63, label %_ZNK5clang4Type21isFunctionPointerTypeEv.exit34
 
-_ZNK5clang4Type21isFunctionPointerTypeEv.exit40:  ; preds = %.thread.thread72, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33
-  %.1.i11.i36 = phi ptr [ %113, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33 ], [ %102, %.thread.thread72 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.1.i11.i36, i64 32
-  %.sroa.0.0.copyload.i.i37 = load i64, ptr %114, align 16, !tbaa !3
-  %115 = and i64 %.sroa.0.0.copyload.i.i37, -16
+_ZNK5clang4Type21isFunctionPointerTypeEv.exit34:  ; preds = %.thread.thread66, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i27
+  %.1.i11.i30 = phi ptr [ %113, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i27 ], [ %102, %.thread.thread66 ]
+  %114 = getelementptr inbounds nuw i8, ptr %.1.i11.i30, i64 32
+  %.sroa.0.0.copyload.i.i31 = load i64, ptr %114, align 16, !tbaa !3
+  %115 = and i64 %.sroa.0.0.copyload.i.i31, -16
   %116 = inttoptr i64 %115 to ptr
   %117 = load ptr, ptr %116, align 16, !tbaa !361
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %.sroa.0.0.copyload.i.i.i.i5.i38 = load i64, ptr %118, align 8, !tbaa !3
-  %119 = and i64 %.sroa.0.0.copyload.i.i.i.i5.i38, -16
+  %.sroa.0.0.copyload.i.i.i.i5.i32 = load i64, ptr %118, align 8, !tbaa !3
+  %119 = and i64 %.sroa.0.0.copyload.i.i.i.i5.i32, -16
   %120 = inttoptr i64 %119 to ptr
   %121 = load ptr, ptr %120, align 16, !tbaa !361
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load i8, ptr %122, align 16
   %124 = add i8 %123, -25
-  %spec.select.i.i.i.i.i.i.i.i.i.i39 = icmp ult i8 %124, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i39, label %125, label %.thread69
+  %spec.select.i.i.i.i.i.i.i.i.i.i33 = icmp ult i8 %124, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i33, label %125, label %.thread63
 
-125:                                              ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40
+125:                                              ; preds = %_ZNK5clang4Type21isFunctionPointerTypeEv.exit34
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %127 = load ptr, ptr %126, align 8, !tbaa !365
   %128 = tail call { i64, ptr } @_ZN5clang7CodeGen13CodeGenModule26getFunctionPointerAuthInfoENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(3608) %127, i64 %4)
@@ -2550,15 +2532,15 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit40:  ; preds = %.thread.thread72, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %131 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %131, align 8, !tbaa !3
-  br label %.thread69.sink.split
+  br label %.thread63.sink.split
 
-.thread69.sink.split:                             ; preds = %95, %125
+.thread63.sink.split:                             ; preds = %95, %125
   %.sink = phi ptr [ null, %125 ], [ %100, %95 ]
-  %.sroa.542.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr %.sink, ptr %.sroa.542.0..sroa_idx, align 8, !tbaa !619
-  br label %.thread69
+  %.sroa.536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr %.sink, ptr %.sroa.536.0..sroa_idx, align 8, !tbaa !619
+  br label %.thread63
 
-.thread69:                                        ; preds = %.thread69.sink.split, %.thread, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit40, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i33, %105, %75, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit, %70, %.thread65
+.thread63:                                        ; preds = %.thread63.sink.split, %.thread, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit34, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i27, %105, %75, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.i, %_ZNK5clang4Type21isFunctionPointerTypeEv.exit, %70, %.thread59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
@@ -2721,8 +2703,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21getAsNaturalAddressOf
 
 _ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit: ; preds = %7, %18
   %.sroa.65.0.i.i = phi ptr [ %23, %18 ], [ null, %7 ]
-  %.sroa.03.0.insert.insert.i.i = phi i64 [ %22, %18 ], [ 0, %7 ]
-  store i64 %.sroa.03.0.insert.insert.i.i, ptr %5, align 8
+  %.sroa.6.sroa.0.0.i.i = phi i64 [ %22, %18 ], [ 0, %7 ]
+  store i64 %.sroa.6.sroa.0.0.i.i, ptr %5, align 8
   br label %24
 
 24:                                               ; preds = %_ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit, %6
@@ -2801,8 +2783,8 @@ define dso_local noundef ptr @_ZNK5clang7CodeGen6LValue10getPointerERNS0_15CodeG
 
 _ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i.i: ; preds = %20, %9
   %.sroa.65.0.i.i.i.i = phi ptr [ %25, %20 ], [ null, %9 ]
-  %.sroa.03.0.insert.insert.i.i.i.i = phi i64 [ %24, %20 ], [ 0, %9 ]
-  store i64 %.sroa.03.0.insert.insert.i.i.i.i, ptr %3, align 8, !noalias !764
+  %.sroa.6.sroa.0.0.i.i.i.i = phi i64 [ %24, %20 ], [ 0, %9 ]
+  store i64 %.sroa.6.sroa.0.0.i.i.i.i, ptr %3, align 8, !noalias !764
   br label %_ZNK5clang7CodeGen6LValue19emitResignedPointerENS_8QualTypeERNS0_15CodeGenFunctionE.exit
 
 _ZNK5clang7CodeGen6LValue19emitResignedPointerENS_8QualTypeERNS0_15CodeGenFunctionE.exit: ; preds = %8, %_ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i.i
@@ -2861,8 +2843,8 @@ define dso_local noundef ptr @_ZNK5clang7CodeGen6LValue19emitResignedPointerENS_
 
 _ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i: ; preds = %20, %9
   %.sroa.65.0.i.i.i = phi ptr [ %25, %20 ], [ null, %9 ]
-  %.sroa.03.0.insert.insert.i.i.i = phi i64 [ %24, %20 ], [ 0, %9 ]
-  store i64 %.sroa.03.0.insert.insert.i.i.i, ptr %4, align 8, !noalias !767
+  %.sroa.6.sroa.0.0.i.i.i = phi i64 [ %24, %20 ], [ 0, %9 ]
+  store i64 %.sroa.6.sroa.0.0.i.i.i, ptr %4, align 8, !noalias !767
   br label %_ZN5clang7CodeGen15CodeGenFunction21getAsNaturalAddressOfENS0_7AddressENS_8QualTypeE.exit
 
 _ZN5clang7CodeGen15CodeGenFunction21getAsNaturalAddressOfENS0_7AddressENS_8QualTypeE.exit: ; preds = %8, %_ZN5clang7CodeGen13CodeGenModule32getPointerAuthInfoForPointeeTypeENS_8QualTypeE.exit.i

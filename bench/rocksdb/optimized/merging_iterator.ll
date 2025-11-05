@@ -1595,7 +1595,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %45
   %555 = load ptr, ptr %554, align 8, !tbaa !193, !noalias !230
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 16
   %.sroa.6.0..sroa_idx251 = getelementptr inbounds nuw i8, ptr %555, i64 24
-  br label %561
+  br label %562
 
 557:                                              ; preds = %.noexc147
   %558 = load ptr, ptr %540, align 8, !tbaa !222, !noalias !223
@@ -1606,35 +1606,34 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %45
   %.sroa.9.0.copyload = load i8, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !205
   %559 = shl i64 %.sroa.7.0.copyload, 8
   %560 = zext i8 %.sroa.9.0.copyload to i64
-  br label %561
+  %561 = or disjoint i64 %559, %560
+  br label %562
 
-561:                                              ; preds = %557, %552
+562:                                              ; preds = %557, %552
   %.sroa.0249.0.in = phi ptr [ %556, %552 ], [ %558, %557 ]
   %.sroa.6.0.in = phi ptr [ %.sroa.6.0..sroa_idx251, %552 ], [ %.sroa.6.0..sroa_idx, %557 ]
-  %.sroa.7.0 = phi i64 [ -256, %552 ], [ %559, %557 ]
-  %.sroa.9.0 = phi i64 [ 15, %552 ], [ %560, %557 ]
+  %.sroa.7.0 = phi i64 [ -241, %552 ], [ %561, %557 ]
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !tbaa !70
   %.sroa.0249.0 = load ptr, ptr %.sroa.0249.0.in, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !223
-  %562 = add i64 %.sroa.6.0, 8
-  %563 = load i64, ptr %229, align 8, !tbaa !96
-  %564 = icmp ugt i64 %562, %563
-  br i1 %564, label %565, label %566
+  %563 = add i64 %.sroa.6.0, 8
+  %564 = load i64, ptr %229, align 8, !tbaa !96
+  %565 = icmp ugt i64 %563, %564
+  br i1 %565, label %566, label %567
 
-565:                                              ; preds = %561
-  invoke void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(208) %11, i64 noundef %562)
-          to label %566 unwind label %583
+566:                                              ; preds = %562
+  invoke void @_ZN7rocksdb7IterKey13EnlargeBufferEm(ptr noundef nonnull align 8 dereferenceable(208) %11, i64 noundef %563)
+          to label %567 unwind label %583
 
-566:                                              ; preds = %561, %565
-  %567 = load ptr, ptr %11, align 8, !tbaa !93
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %567, ptr align 1 %.sroa.0249.0, i64 %.sroa.6.0, i1 false)
+567:                                              ; preds = %562, %566
   %568 = load ptr, ptr %11, align 8, !tbaa !93
-  %569 = getelementptr inbounds nuw i8, ptr %568, i64 %.sroa.6.0
-  %570 = or disjoint i64 %.sroa.9.0, %.sroa.7.0
-  store i64 %570, ptr %569, align 1
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %568, ptr align 1 %.sroa.0249.0, i64 %.sroa.6.0, i1 false)
+  %569 = load ptr, ptr %11, align 8, !tbaa !93
+  %570 = getelementptr inbounds nuw i8, ptr %569, i64 %.sroa.6.0
+  store i64 %.sroa.7.0, ptr %570, align 1
   %571 = load ptr, ptr %11, align 8, !tbaa !93
   store ptr %571, ptr %238, align 8, !tbaa !100
-  store i64 %562, ptr %239, align 8, !tbaa !101
+  store i64 %563, ptr %239, align 8, !tbaa !101
   store i8 0, ptr %240, align 1, !tbaa !99
   br label %585
 
@@ -1671,13 +1670,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %45
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %647
 
-583:                                              ; preds = %565, %543
+583:                                              ; preds = %566, %543
   %584 = landingpad { ptr, i32 }
           cleanup
   br label %647
 
-585:                                              ; preds = %460, %537, %566, %470, %381
-  %.1 = phi i1 [ %.0334, %381 ], [ true, %566 ], [ %.0334, %537 ], [ %.0334, %470 ], [ %.0334, %460 ]
+585:                                              ; preds = %460, %537, %567, %470, %381
+  %.1 = phi i1 [ %.0334, %381 ], [ true, %567 ], [ %.0334, %537 ], [ %.0334, %470 ], [ %.0334, %460 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   %586 = load i64, ptr %13, align 8, !tbaa !70
   %587 = load ptr, ptr %247, align 8, !tbaa !67

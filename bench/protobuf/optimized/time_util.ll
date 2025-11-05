@@ -703,17 +703,20 @@ for.body.i:                                       ; preds = %if.end57, %for.body
   %mul.i = mul nuw nsw i64 %result.04.i, 10
   %inc.i = add nuw nsw i32 %i.05.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %conv60
-  br i1 %exitcond.not.i, label %invoke.cont68, label %for.body.i, !llvm.loop !39
+  br i1 %exitcond.not.i, label %invoke.cont68.loopexit, label %for.body.i, !llvm.loop !39
 
-invoke.cont68:                                    ; preds = %for.body.i, %if.end57
-  %result.0.lcssa.i = phi i64 [ 1, %if.end57 ], [ %mul.i, %for.body.i ]
-  %mul = mul nsw i64 %result.0.lcssa.i, %call51
+invoke.cont68.loopexit:                           ; preds = %for.body.i
+  %28 = mul nsw i64 %mul.i, %call51
+  br label %invoke.cont68
+
+invoke.cont68:                                    ; preds = %invoke.cont68.loopexit, %if.end57
+  %result.0.lcssa.i = phi i64 [ %call51, %if.end57 ], [ %28, %invoke.cont68.loopexit ]
   %sub65 = sub nsw i64 0, %call44
-  %sub66 = sub nsw i64 0, %mul
+  %sub66 = sub nsw i64 0, %result.0.lcssa.i
   %seconds.0 = select i1 %cmp6, i64 %sub65, i64 %call44
-  %nanos.0 = select i1 %cmp6, i64 %sub66, i64 %mul
-  %28 = getelementptr inbounds nuw i8, ptr %duration, i64 16
-  store i64 %seconds.0, ptr %28, align 8
+  %nanos.0 = select i1 %cmp6, i64 %sub66, i64 %result.0.lcssa.i
+  %29 = getelementptr inbounds nuw i8, ptr %duration, i64 16
+  store i64 %seconds.0, ptr %29, align 8
   %conv69 = trunc i64 %nanos.0 to i32
   %nanos_.i.i = getelementptr inbounds nuw i8, ptr %duration, i64 24
   store i32 %conv69, ptr %nanos_.i.i, align 8

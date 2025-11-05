@@ -240,7 +240,7 @@ define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr noundef captures(non
   %7 = phi ptr [ %.pr137, %.splitthread-pre-split ], [ %5, %1 ]
   %.0 = phi i32 [ 1, %.splitthread-pre-split ], [ 0, %1 ]
   %.not9.i = icmp eq ptr %7, null
-  br i1 %.not9.i, label %_MultiplyMatrix.exit.sink.split, label %.lr.ph.i
+  br i1 %.not9.i, label %_Remove2Op.exit69.thread109, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.split, %15
   %8 = phi ptr [ %16, %15 ], [ %7, %.split ]
@@ -268,7 +268,7 @@ define internal fastcc range(i32 0, 2) i32 @PreOptimize(ptr noundef captures(non
 _Remove1Op.exit:                                  ; preds = %15
   %.pr = load ptr, ptr %0, align 8
   %17 = icmp eq ptr %.pr, null
-  br i1 %17, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i
+  br i1 %17, label %_Remove2Op.exit69.thread109, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_Remove1Op.exit, %36
   %.021.i = phi i32 [ %.1.i18, %36 ], [ 0, %_Remove1Op.exit ]
@@ -316,7 +316,7 @@ _Remove2Op.exit:                                  ; preds = %.preheader.i, %36
   %.pr77 = load ptr, ptr %0, align 8
   %37 = or i32 %.015.i.ph, %.1.i
   %38 = icmp eq ptr %.pr77, null
-  br i1 %38, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i20
+  br i1 %38, label %_Remove2Op.exit69.thread121, label %.preheader.i20
 
 .preheader.i20:                                   ; preds = %_Remove2Op.exit, %57
   %.021.i21 = phi i32 [ %.1.i25, %57 ], [ 0, %_Remove2Op.exit ]
@@ -364,7 +364,7 @@ _Remove2Op.exit29:                                ; preds = %.preheader.i20, %57
   %.pr80.pr = load ptr, ptr %0, align 8
   %58 = or i32 %.015.i27.ph.ph, %37
   %59 = icmp eq ptr %.pr80.pr, null
-  br i1 %59, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i30
+  br i1 %59, label %_Remove2Op.exit69.thread121, label %.preheader.i30
 
 .preheader.i30:                                   ; preds = %_Remove2Op.exit29, %78
   %.021.i31 = phi i32 [ %.1.i35, %78 ], [ 0, %_Remove2Op.exit29 ]
@@ -412,7 +412,7 @@ _Remove2Op.exit39:                                ; preds = %.preheader.i30, %78
   %.pr82 = load ptr, ptr %0, align 8
   %79 = or i32 %.015.i37.ph, %58
   %80 = icmp eq ptr %.pr82, null
-  br i1 %80, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i40
+  br i1 %80, label %_Remove2Op.exit69.thread109, label %.preheader.i40
 
 .preheader.i40:                                   ; preds = %_Remove2Op.exit39, %99
   %.021.i41 = phi i32 [ %.1.i45, %99 ], [ 0, %_Remove2Op.exit39 ]
@@ -460,7 +460,7 @@ _Remove2Op.exit49:                                ; preds = %.preheader.i40, %99
   %.pr87.pr.pr = load ptr, ptr %0, align 8
   %100 = or i32 %.015.i47.ph.ph.ph, %79
   %101 = icmp eq ptr %.pr87.pr.pr, null
-  br i1 %101, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i50
+  br i1 %101, label %_Remove2Op.exit69.thread109, label %.preheader.i50
 
 .preheader.i50:                                   ; preds = %_Remove2Op.exit49, %120
   %.021.i51 = phi i32 [ %.1.i55, %120 ], [ 0, %_Remove2Op.exit49 ]
@@ -508,7 +508,11 @@ _Remove2Op.exit59:                                ; preds = %.preheader.i50, %12
   %.pr89 = load ptr, ptr %0, align 8
   %121 = or i32 %.015.i57.ph, %100
   %122 = icmp eq ptr %.pr89, null
-  br i1 %122, label %_MultiplyMatrix.exit.sink.split, label %.preheader.i60
+  br i1 %122, label %_Remove2Op.exit69.thread, label %.preheader.i60
+
+_Remove2Op.exit69.thread:                         ; preds = %_Remove2Op.exit59
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  br label %_MultiplyMatrix.exit
 
 .preheader.i60:                                   ; preds = %_Remove2Op.exit59, %141
   %.021.i61 = phi i32 [ %.1.i65, %141 ], [ 0, %_Remove2Op.exit59 ]
@@ -551,6 +555,16 @@ _Remove2Op.exit59:                                ; preds = %.preheader.i50, %12
   %.not.i66 = icmp eq ptr %.pr.i63, null
   br i1 %.not.i66, label %_Remove2Op.exit69, label %.preheader.i60, !llvm.loop !12
 
+_Remove2Op.exit69.thread109:                      ; preds = %.split, %_Remove1Op.exit, %_Remove2Op.exit39, %_Remove2Op.exit49
+  %.ph93.ph108 = phi i32 [ %79, %_Remove2Op.exit39 ], [ %100, %_Remove2Op.exit49 ], [ %.1.i, %_Remove1Op.exit ], [ 0, %.split ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  br label %_MultiplyMatrix.exit
+
+_Remove2Op.exit69.thread121:                      ; preds = %_Remove2Op.exit29, %_Remove2Op.exit
+  %.ph93.ph.ph = phi i32 [ %58, %_Remove2Op.exit29 ], [ %37, %_Remove2Op.exit ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  br label %_MultiplyMatrix.exit
+
 _Remove2Op.exit69:                                ; preds = %.preheader.i60, %141
   %.015.i67.ph.ph.ph = phi i32 [ %.1.i65, %141 ], [ %.021.i61, %.preheader.i60 ]
   %.pr94.pr.pr = load ptr, ptr %0, align 8
@@ -566,7 +580,7 @@ _Remove2Op.exit69:                                ; preds = %.preheader.i60, %14
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 56
   %146 = load ptr, ptr %145, align 8
   %147 = icmp eq ptr %146, null
-  br i1 %147, label %_MultiplyMatrix.exit, label %148
+  br i1 %147, label %_MultiplyMatrix.exit.loopexit, label %148
 
 148:                                              ; preds = %.preheader.i70
   %149 = getelementptr inbounds nuw i8, ptr %144, i64 12
@@ -587,37 +601,37 @@ _Remove2Op.exit69:                                ; preds = %.preheader.i60, %14
   %160 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %161 = load ptr, ptr %160, align 8
   %.not36.i = icmp eq ptr %161, null
-  br i1 %.not36.i, label %162, label %_MultiplyMatrix.exit
+  br i1 %.not36.i, label %162, label %_MultiplyMatrix.exit.loopexit
 
 162:                                              ; preds = %156
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %164 = load ptr, ptr %163, align 8
   %.not37.i = icmp eq ptr %164, null
-  br i1 %.not37.i, label %165, label %_MultiplyMatrix.exit
+  br i1 %.not37.i, label %165, label %_MultiplyMatrix.exit.loopexit
 
 165:                                              ; preds = %162
   %166 = load ptr, ptr %.03046.i, align 8
   %167 = call i32 @cmsStageInputChannels(ptr noundef %166) #11
   %.not38.i = icmp eq i32 %167, 3
-  br i1 %.not38.i, label %168, label %_MultiplyMatrix.exit
+  br i1 %.not38.i, label %168, label %_MultiplyMatrix.exit.loopexit
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr %.03046.i, align 8
   %170 = call i32 @cmsStageOutputChannels(ptr noundef %169) #11
   %.not39.i = icmp eq i32 %170, 3
-  br i1 %.not39.i, label %171, label %_MultiplyMatrix.exit
+  br i1 %.not39.i, label %171, label %_MultiplyMatrix.exit.loopexit
 
 171:                                              ; preds = %168
   %172 = load ptr, ptr %145, align 8
   %173 = call i32 @cmsStageInputChannels(ptr noundef %172) #11
   %.not40.i = icmp eq i32 %173, 3
-  br i1 %.not40.i, label %174, label %_MultiplyMatrix.exit
+  br i1 %.not40.i, label %174, label %_MultiplyMatrix.exit.loopexit
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %145, align 8
   %176 = call i32 @cmsStageOutputChannels(ptr noundef %175) #11
   %.not41.i = icmp eq i32 %176, 3
-  br i1 %.not41.i, label %177, label %_MultiplyMatrix.exit
+  br i1 %.not41.i, label %177, label %_MultiplyMatrix.exit.loopexit
 
 177:                                              ; preds = %174
   %178 = load ptr, ptr %159, align 8
@@ -674,7 +688,7 @@ isFloatMatrixIdentity.exit.i:                     ; preds = %197
   %199 = load ptr, ptr %4, align 8
   %200 = call ptr @cmsStageAllocMatrix(ptr noundef %199, i32 noundef 3, i32 noundef 3, ptr noundef nonnull %3, ptr noundef null) #11
   %201 = icmp eq ptr %200, null
-  br i1 %201, label %_MultiplyMatrix.exit, label %202
+  br i1 %201, label %_MultiplyMatrix.exit.loopexit, label %202
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 56
@@ -687,19 +701,17 @@ isFloatMatrixIdentity.exit.i:                     ; preds = %197
   %.132.i = phi i32 [ 1, %202 ], [ 1, %isFloatMatrixIdentity.exit.i ], [ %.03145.i, %152 ], [ %.03145.i, %148 ]
   %.1.i72 = phi ptr [ %.03046.i, %202 ], [ %.03046.i, %isFloatMatrixIdentity.exit.i ], [ %145, %152 ], [ %145, %148 ]
   %.not.i73 = icmp eq ptr %.pr.i71, null
-  br i1 %.not.i73, label %_MultiplyMatrix.exit, label %.preheader.i70, !llvm.loop !15
+  br i1 %.not.i73, label %_MultiplyMatrix.exit.loopexit, label %.preheader.i70, !llvm.loop !15
 
-_MultiplyMatrix.exit.sink.split:                  ; preds = %_Remove2Op.exit, %_Remove2Op.exit29, %_Remove2Op.exit49, %_Remove2Op.exit39, %_Remove1Op.exit, %.split, %_Remove2Op.exit59
-  %.ph = phi i32 [ %121, %_Remove2Op.exit59 ], [ %79, %_Remove2Op.exit39 ], [ %100, %_Remove2Op.exit49 ], [ %.1.i, %_Remove1Op.exit ], [ 0, %.split ], [ %58, %_Remove2Op.exit29 ], [ %37, %_Remove2Op.exit ]
-  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+_MultiplyMatrix.exit.loopexit:                    ; preds = %204, %198, %174, %171, %168, %165, %162, %156, %.preheader.i70
+  %.0.i.ph = phi i32 [ %.03145.i, %.preheader.i70 ], [ 0, %156 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ], [ 0, %198 ], [ %.132.i, %204 ]
+  %205 = or i32 %.0.i.ph, %142
   br label %_MultiplyMatrix.exit
 
-_MultiplyMatrix.exit:                             ; preds = %.preheader.i70, %156, %162, %165, %168, %171, %174, %198, %204, %_MultiplyMatrix.exit.sink.split, %_Remove2Op.exit69
-  %205 = phi i32 [ %142, %_Remove2Op.exit69 ], [ %.ph, %_MultiplyMatrix.exit.sink.split ], [ %142, %204 ], [ %142, %198 ], [ %142, %174 ], [ %142, %171 ], [ %142, %168 ], [ %142, %165 ], [ %142, %162 ], [ %142, %156 ], [ %142, %.preheader.i70 ]
-  %.0.i = phi i32 [ 0, %_Remove2Op.exit69 ], [ 0, %_MultiplyMatrix.exit.sink.split ], [ %.03145.i, %.preheader.i70 ], [ 0, %156 ], [ 0, %162 ], [ 0, %165 ], [ 0, %168 ], [ 0, %171 ], [ 0, %174 ], [ 0, %198 ], [ %.132.i, %204 ]
+_MultiplyMatrix.exit:                             ; preds = %_MultiplyMatrix.exit.loopexit, %_Remove2Op.exit69.thread121, %_Remove2Op.exit69.thread109, %_Remove2Op.exit69.thread, %_Remove2Op.exit69
+  %.0.i = phi i32 [ %142, %_Remove2Op.exit69 ], [ %121, %_Remove2Op.exit69.thread ], [ %.ph93.ph108, %_Remove2Op.exit69.thread109 ], [ %.ph93.ph.ph, %_Remove2Op.exit69.thread121 ], [ %205, %_MultiplyMatrix.exit.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %206 = or i32 %.0.i, %205
-  %.not = icmp eq i32 %206, 0
+  %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %.split126, label %.splitthread-pre-split, !llvm.loop !16
 
 .split126:                                        ; preds = %_MultiplyMatrix.exit, %1
@@ -3882,11 +3894,11 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
   %invariant.gep323 = getelementptr i16, ptr %9, i64 %97
   br label %.lr.ph.split.us.split.us.split.us.split.us.split.us
 
-.lr.ph.split.us.split.us.split.us.split.us.split.us: ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.us.preheader, %110
-  %indvars.iv269 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.us.preheader ], [ %indvars.iv.next270, %110 ]
+.lr.ph.split.us.split.us.split.us.split.us.split.us: ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.us.preheader, %116
+  %indvars.iv269 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.us.preheader ], [ %indvars.iv.next270, %116 ]
   %gep318 = getelementptr i16, ptr %invariant.gep317, i64 %indvars.iv269
   %98 = load i16, ptr %gep318, align 2
-  br i1 %brmerge241, label %110, label %99
+  br i1 %brmerge241, label %116, label %99
 
 99:                                               ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.us
   %100 = zext i16 %98 to i32
@@ -3902,25 +3914,23 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
   %107 = zext i16 %106 to i32
   %108 = sub nsw i32 %104, %107
   %109 = sub nsw i32 %107, %100
-  br label %110
+  %110 = mul nsw i32 %105, %33
+  %111 = mul nsw i32 %108, %37
+  %112 = mul nsw i32 %109, %41
+  %113 = add i32 %112, 32769
+  %114 = add i32 %113, %111
+  %115 = add i32 %114, %110
+  br label %116
 
-110:                                              ; preds = %99, %.lr.ph.split.us.split.us.split.us.split.us.split.us
-  %.0227.us.us.us.us.us = phi i32 [ %109, %99 ], [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.us ]
-  %.0226.us.us.us.us.us = phi i32 [ %108, %99 ], [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.us ]
-  %.0.us.us.us.us.us = phi i32 [ %105, %99 ], [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.us ]
-  %111 = mul nsw i32 %.0.us.us.us.us.us, %33
-  %112 = mul nsw i32 %.0226.us.us.us.us.us, %37
-  %113 = mul nsw i32 %.0227.us.us.us.us.us, %41
-  %114 = add i32 %113, 32769
-  %115 = add i32 %114, %112
-  %116 = add i32 %115, %111
-  %117 = ashr i32 %116, 16
-  %118 = add nsw i32 %117, %116
-  %119 = lshr i32 %118, 16
-  %120 = trunc nuw i32 %119 to i16
-  %121 = add i16 %98, %120
-  %122 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv269
-  store i16 %121, ptr %122, align 2
+116:                                              ; preds = %99, %.lr.ph.split.us.split.us.split.us.split.us.split.us
+  %117 = phi i32 [ %115, %99 ], [ 32769, %.lr.ph.split.us.split.us.split.us.split.us.split.us ]
+  %118 = ashr i32 %117, 16
+  %119 = add nsw i32 %118, %117
+  %120 = lshr i32 %119, 16
+  %121 = trunc nuw i32 %120 to i16
+  %122 = add i16 %98, %121
+  %123 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv269
+  store i16 %122, ptr %123, align 2
   %indvars.iv.next270 = add nuw nsw i64 %indvars.iv269, 1
   %exitcond273.not = icmp eq i64 %indvars.iv.next270, %wide.trip.count272
   br i1 %exitcond273.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us.split.us.split.us, !llvm.loop !64
@@ -3928,33 +3938,33 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.split.us.split.us.split.us.split.us.split: ; preds = %.lr.ph.split.us.split.us.split.us.split.us.split.preheader, %.lr.ph.split.us.split.us.split.us.split.us.split
   %indvars.iv264 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.us.split.preheader ], [ %indvars.iv.next265, %.lr.ph.split.us.split.us.split.us.split.us.split ]
   %gep310 = getelementptr i16, ptr %invariant.gep317, i64 %indvars.iv264
-  %123 = load i16, ptr %gep310, align 2
-  %124 = zext i16 %123 to i32
+  %124 = load i16, ptr %gep310, align 2
+  %125 = zext i16 %124 to i32
   %gep312 = getelementptr i16, ptr %invariant.gep319, i64 %indvars.iv264
-  %125 = load i16, ptr %gep312, align 2
-  %126 = zext i16 %125 to i32
+  %126 = load i16, ptr %gep312, align 2
+  %127 = zext i16 %126 to i32
   %gep314 = getelementptr i16, ptr %invariant.gep321, i64 %indvars.iv264
-  %127 = load i16, ptr %gep314, align 2
-  %128 = zext i16 %127 to i32
-  %129 = sub nsw i32 %126, %128
+  %128 = load i16, ptr %gep314, align 2
+  %129 = zext i16 %128 to i32
+  %130 = sub nsw i32 %127, %129
   %gep316 = getelementptr i16, ptr %invariant.gep315, i64 %indvars.iv264
-  %130 = load i16, ptr %gep316, align 2
-  %131 = zext i16 %130 to i32
-  %132 = sub nsw i32 %131, %124
-  %133 = sub nsw i32 %128, %131
-  %134 = mul nsw i32 %129, %33
-  %135 = mul nsw i32 %132, %37
-  %136 = mul nsw i32 %133, %41
-  %137 = add i32 %136, 32769
-  %138 = add i32 %137, %135
-  %139 = add i32 %138, %134
-  %140 = ashr i32 %139, 16
-  %141 = add nsw i32 %140, %139
-  %142 = lshr i32 %141, 16
-  %143 = trunc nuw i32 %142 to i16
-  %144 = add i16 %123, %143
-  %145 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv264
-  store i16 %144, ptr %145, align 2
+  %131 = load i16, ptr %gep316, align 2
+  %132 = zext i16 %131 to i32
+  %133 = sub nsw i32 %132, %125
+  %134 = sub nsw i32 %129, %132
+  %135 = mul nsw i32 %130, %33
+  %136 = mul nsw i32 %133, %37
+  %137 = mul nsw i32 %134, %41
+  %138 = add i32 %137, 32769
+  %139 = add i32 %138, %136
+  %140 = add i32 %139, %135
+  %141 = ashr i32 %140, 16
+  %142 = add nsw i32 %141, %140
+  %143 = lshr i32 %142, 16
+  %144 = trunc nuw i32 %143 to i16
+  %145 = add i16 %124, %144
+  %146 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv264
+  store i16 %145, ptr %146, align 2
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond268.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count272
   br i1 %exitcond268.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us.split.us.split, !llvm.loop !64
@@ -3962,33 +3972,33 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.split.us.split.us.split.us.split:          ; preds = %.lr.ph.split.us.split.us.split.us.split.preheader, %.lr.ph.split.us.split.us.split.us.split
   %indvars.iv259 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.us.split.preheader ], [ %indvars.iv.next260, %.lr.ph.split.us.split.us.split.us.split ]
   %gep302 = getelementptr i16, ptr %invariant.gep301, i64 %indvars.iv259
-  %146 = load i16, ptr %gep302, align 2
-  %147 = zext i16 %146 to i32
+  %147 = load i16, ptr %gep302, align 2
+  %148 = zext i16 %147 to i32
   %gep304 = getelementptr i16, ptr %invariant.gep303, i64 %indvars.iv259
-  %148 = load i16, ptr %gep304, align 2
-  %149 = zext i16 %148 to i32
+  %149 = load i16, ptr %gep304, align 2
+  %150 = zext i16 %149 to i32
   %gep306 = getelementptr i16, ptr %invariant.gep305, i64 %indvars.iv259
-  %150 = load i16, ptr %gep306, align 2
-  %151 = zext i16 %150 to i32
-  %152 = sub nsw i32 %149, %151
-  %153 = sub nsw i32 %151, %147
+  %151 = load i16, ptr %gep306, align 2
+  %152 = zext i16 %151 to i32
+  %153 = sub nsw i32 %150, %152
+  %154 = sub nsw i32 %152, %148
   %gep308 = getelementptr i16, ptr %invariant.gep307, i64 %indvars.iv259
-  %154 = load i16, ptr %gep308, align 2
-  %155 = zext i16 %154 to i32
-  %156 = sub nsw i32 %155, %149
-  %157 = mul nsw i32 %152, %33
-  %158 = mul nsw i32 %153, %37
-  %159 = mul nsw i32 %156, %41
-  %160 = add i32 %159, 32769
-  %161 = add i32 %160, %158
-  %162 = add i32 %161, %157
-  %163 = ashr i32 %162, 16
-  %164 = add nsw i32 %163, %162
-  %165 = lshr i32 %164, 16
-  %166 = trunc nuw i32 %165 to i16
-  %167 = add i16 %146, %166
-  %168 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv259
-  store i16 %167, ptr %168, align 2
+  %155 = load i16, ptr %gep308, align 2
+  %156 = zext i16 %155 to i32
+  %157 = sub nsw i32 %156, %150
+  %158 = mul nsw i32 %153, %33
+  %159 = mul nsw i32 %154, %37
+  %160 = mul nsw i32 %157, %41
+  %161 = add i32 %160, 32769
+  %162 = add i32 %161, %159
+  %163 = add i32 %162, %158
+  %164 = ashr i32 %163, 16
+  %165 = add nsw i32 %164, %163
+  %166 = lshr i32 %165, 16
+  %167 = trunc nuw i32 %166 to i16
+  %168 = add i16 %147, %167
+  %169 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv259
+  store i16 %168, ptr %169, align 2
   %indvars.iv.next260 = add nuw nsw i64 %indvars.iv259, 1
   %exitcond263.not = icmp eq i64 %indvars.iv.next260, %wide.trip.count262
   br i1 %exitcond263.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split.us.split, !llvm.loop !64
@@ -3996,33 +4006,33 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us.split.preheader, %.lr.ph.split.us.split.us.split
   %indvars.iv254 = phi i64 [ 0, %.lr.ph.split.us.split.us.split.preheader ], [ %indvars.iv.next255, %.lr.ph.split.us.split.us.split ]
   %gep294 = getelementptr i16, ptr %invariant.gep293, i64 %indvars.iv254
-  %169 = load i16, ptr %gep294, align 2
-  %170 = zext i16 %169 to i32
+  %170 = load i16, ptr %gep294, align 2
+  %171 = zext i16 %170 to i32
   %gep296 = getelementptr i16, ptr %invariant.gep295, i64 %indvars.iv254
-  %171 = load i16, ptr %gep296, align 2
-  %172 = zext i16 %171 to i32
+  %172 = load i16, ptr %gep296, align 2
+  %173 = zext i16 %172 to i32
   %gep298 = getelementptr i16, ptr %invariant.gep297, i64 %indvars.iv254
-  %173 = load i16, ptr %gep298, align 2
-  %174 = zext i16 %173 to i32
-  %175 = sub nsw i32 %172, %174
+  %174 = load i16, ptr %gep298, align 2
+  %175 = zext i16 %174 to i32
+  %176 = sub nsw i32 %173, %175
   %gep300 = getelementptr i16, ptr %invariant.gep299, i64 %indvars.iv254
-  %176 = load i16, ptr %gep300, align 2
-  %177 = zext i16 %176 to i32
-  %178 = sub nsw i32 %177, %172
-  %179 = sub nsw i32 %174, %170
-  %180 = mul nsw i32 %175, %33
-  %181 = mul nsw i32 %178, %37
-  %182 = mul nsw i32 %179, %41
-  %183 = add i32 %182, 32769
-  %184 = add i32 %183, %181
-  %185 = add i32 %184, %180
-  %186 = ashr i32 %185, 16
-  %187 = add nsw i32 %186, %185
-  %188 = lshr i32 %187, 16
-  %189 = trunc nuw i32 %188 to i16
-  %190 = add i16 %169, %189
-  %191 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv254
-  store i16 %190, ptr %191, align 2
+  %177 = load i16, ptr %gep300, align 2
+  %178 = zext i16 %177 to i32
+  %179 = sub nsw i32 %178, %173
+  %180 = sub nsw i32 %175, %171
+  %181 = mul nsw i32 %176, %33
+  %182 = mul nsw i32 %179, %37
+  %183 = mul nsw i32 %180, %41
+  %184 = add i32 %183, 32769
+  %185 = add i32 %184, %182
+  %186 = add i32 %185, %181
+  %187 = ashr i32 %186, 16
+  %188 = add nsw i32 %187, %186
+  %189 = lshr i32 %188, 16
+  %190 = trunc nuw i32 %189 to i16
+  %191 = add i16 %170, %190
+  %192 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv254
+  store i16 %191, ptr %192, align 2
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %exitcond258.not = icmp eq i64 %indvars.iv.next255, %wide.trip.count257
   br i1 %exitcond258.not, label %._crit_edge, label %.lr.ph.split.us.split.us.split, !llvm.loop !64
@@ -4030,33 +4040,33 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us.split.preheader, %.lr.ph.split.us.split
   %indvars.iv249 = phi i64 [ 0, %.lr.ph.split.us.split.preheader ], [ %indvars.iv.next250, %.lr.ph.split.us.split ]
   %gep286 = getelementptr i16, ptr %invariant.gep285, i64 %indvars.iv249
-  %192 = load i16, ptr %gep286, align 2
-  %193 = zext i16 %192 to i32
+  %193 = load i16, ptr %gep286, align 2
+  %194 = zext i16 %193 to i32
   %gep288 = getelementptr i16, ptr %invariant.gep287, i64 %indvars.iv249
-  %194 = load i16, ptr %gep288, align 2
-  %195 = zext i16 %194 to i32
-  %196 = sub nsw i32 %195, %193
+  %195 = load i16, ptr %gep288, align 2
+  %196 = zext i16 %195 to i32
+  %197 = sub nsw i32 %196, %194
   %gep290 = getelementptr i16, ptr %invariant.gep289, i64 %indvars.iv249
-  %197 = load i16, ptr %gep290, align 2
-  %198 = zext i16 %197 to i32
+  %198 = load i16, ptr %gep290, align 2
+  %199 = zext i16 %198 to i32
   %gep292 = getelementptr i16, ptr %invariant.gep291, i64 %indvars.iv249
-  %199 = load i16, ptr %gep292, align 2
-  %200 = zext i16 %199 to i32
-  %201 = sub nsw i32 %198, %200
-  %202 = sub nsw i32 %200, %195
-  %203 = mul nsw i32 %196, %33
-  %204 = mul nsw i32 %201, %37
-  %205 = mul nsw i32 %202, %41
-  %206 = add i32 %205, 32769
-  %207 = add i32 %206, %204
-  %208 = add i32 %207, %203
-  %209 = ashr i32 %208, 16
-  %210 = add nsw i32 %209, %208
-  %211 = lshr i32 %210, 16
-  %212 = trunc nuw i32 %211 to i16
-  %213 = add i16 %192, %212
-  %214 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv249
-  store i16 %213, ptr %214, align 2
+  %200 = load i16, ptr %gep292, align 2
+  %201 = zext i16 %200 to i32
+  %202 = sub nsw i32 %199, %201
+  %203 = sub nsw i32 %201, %196
+  %204 = mul nsw i32 %197, %33
+  %205 = mul nsw i32 %202, %37
+  %206 = mul nsw i32 %203, %41
+  %207 = add i32 %206, 32769
+  %208 = add i32 %207, %205
+  %209 = add i32 %208, %204
+  %210 = ashr i32 %209, 16
+  %211 = add nsw i32 %210, %209
+  %212 = lshr i32 %211, 16
+  %213 = trunc nuw i32 %212 to i16
+  %214 = add i16 %193, %213
+  %215 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv249
+  store i16 %214, ptr %215, align 2
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
   %exitcond253.not = icmp eq i64 %indvars.iv.next250, %wide.trip.count252
   br i1 %exitcond253.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !64
@@ -4064,38 +4074,38 @@ define internal void @PrelinEval8(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv
-  %215 = load i16, ptr %gep, align 2
-  %216 = zext i16 %215 to i32
+  %216 = load i16, ptr %gep, align 2
+  %217 = zext i16 %216 to i32
   %gep280 = getelementptr i16, ptr %invariant.gep279, i64 %indvars.iv
-  %217 = load i16, ptr %gep280, align 2
-  %218 = zext i16 %217 to i32
-  %219 = sub nsw i32 %218, %216
+  %218 = load i16, ptr %gep280, align 2
+  %219 = zext i16 %218 to i32
+  %220 = sub nsw i32 %219, %217
   %gep282 = getelementptr i16, ptr %invariant.gep281, i64 %indvars.iv
-  %220 = load i16, ptr %gep282, align 2
-  %221 = zext i16 %220 to i32
-  %222 = sub nsw i32 %221, %218
+  %221 = load i16, ptr %gep282, align 2
+  %222 = zext i16 %221 to i32
+  %223 = sub nsw i32 %222, %219
   %gep284 = getelementptr i16, ptr %invariant.gep283, i64 %indvars.iv
-  %223 = load i16, ptr %gep284, align 2
-  %224 = zext i16 %223 to i32
-  %225 = sub nsw i32 %224, %221
-  %226 = mul nsw i32 %219, %33
-  %227 = mul nsw i32 %222, %37
-  %228 = mul nsw i32 %225, %41
-  %229 = add i32 %228, 32769
-  %230 = add i32 %229, %227
-  %231 = add i32 %230, %226
-  %232 = ashr i32 %231, 16
-  %233 = add nsw i32 %232, %231
-  %234 = lshr i32 %233, 16
-  %235 = trunc nuw i32 %234 to i16
-  %236 = add i16 %215, %235
-  %237 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
-  store i16 %236, ptr %237, align 2
+  %224 = load i16, ptr %gep284, align 2
+  %225 = zext i16 %224 to i32
+  %226 = sub nsw i32 %225, %222
+  %227 = mul nsw i32 %220, %33
+  %228 = mul nsw i32 %223, %37
+  %229 = mul nsw i32 %226, %41
+  %230 = add i32 %229, 32769
+  %231 = add i32 %230, %228
+  %232 = add i32 %231, %227
+  %233 = ashr i32 %232, 16
+  %234 = add nsw i32 %233, %232
+  %235 = lshr i32 %234, 16
+  %236 = trunc nuw i32 %235 to i16
+  %237 = add i16 %216, %236
+  %238 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  store i16 %237, ptr %238, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !64
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us.split.us.split, %110, %60
+._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us.split, %.lr.ph.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us.split, %.lr.ph.split.us.split.us.split.us.split.us.split, %116, %60
   ret void
 }
 

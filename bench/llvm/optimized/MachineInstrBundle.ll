@@ -1432,15 +1432,15 @@ _ZNKSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_low
   %.not = icmp eq ptr %474, %179
   br i1 %.not, label %._crit_edge308, label %423
 
-.preheader:                                       ; preds = %524, %._crit_edge308
+.preheader:                                       ; preds = %525, %._crit_edge308
   br i1 %.not7.i, label %._crit_edge316, label %.lr.ph315
 
 .lr.ph315:                                        ; preds = %.preheader
   %475 = getelementptr inbounds nuw i8, ptr %90, i64 44
   br label %577
 
-476:                                              ; preds = %.lr.ph312, %524
-  %.066310 = phi ptr [ %416, %.lr.ph312 ], [ %532, %524 ]
+476:                                              ; preds = %.lr.ph312, %525
+  %.066310 = phi ptr [ %416, %.lr.ph312 ], [ %532, %525 ]
   %477 = load i32, ptr %.066310, align 4, !tbaa !248
   %.fr258 = freeze i32 %477
   %478 = load i64, ptr %149, align 8, !tbaa !227
@@ -1536,7 +1536,7 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173: ; pre
   %.1.i.i.i174.fr = freeze ptr %.1.i.i.i174
   %.not263 = icmp eq ptr %.1.i.i.i174.fr, %511
   %512 = select i1 %.0.i.i148, i32 8, i32 0
-  br i1 %.not263, label %524, label %522
+  br i1 %.not263, label %525, label %522
 
 513:                                              ; preds = %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit156
   %514 = load ptr, ptr %154, align 8, !tbaa !224
@@ -1562,7 +1562,7 @@ _ZNKSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_low
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175.thread: ; preds = %_ZNKSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i.i166, %513
   %519 = select i1 %.0.i.i148, i32 8, i32 0
-  br label %524
+  br label %525
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175: ; preds = %_ZNKSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS1_EPKSt18_Rb_tree_node_baseRKS1_.exit.i.i.i.i166
   %.19.i.i.i.i.i161.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %517, ptr %.0811.i.i.i.i.i160, ptr %.012.i.i.i.i.i159
@@ -1571,20 +1571,20 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175: ; preds =
   %.fr259 = freeze i32 %520
   %.not260 = icmp ult i32 %.fr258, %.fr259
   %521 = select i1 %.0.i.i148, i32 8, i32 0
-  br i1 %.not260, label %524, label %522
+  br i1 %.not260, label %525, label %522
 
 522:                                              ; preds = %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175
   %523 = phi i32 [ %512, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173 ], [ %521, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175 ]
-  br label %524
+  %524 = or disjoint i32 %523, 32
+  br label %525
 
-524:                                              ; preds = %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175.thread, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175, %522
-  %525 = phi i32 [ %523, %522 ], [ %521, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175 ], [ %519, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175.thread ], [ %512, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173 ]
-  %526 = phi i32 [ 32, %522 ], [ 0, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175 ], [ 0, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175.thread ], [ 0, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173 ]
-  %527 = or i32 %526, %525
+525:                                              ; preds = %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175.thread, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175, %522
+  %526 = phi i32 [ %523, %522 ], [ %521, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175 ], [ %519, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175.thread ], [ %512, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173 ]
+  %527 = phi i32 [ %524, %522 ], [ %521, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175 ], [ %519, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit175.thread ], [ %512, %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %420, align 8, !tbaa !284, !alias.scope !290
   %528 = shl nuw nsw i32 %527, 23
-  %.not.i176 = icmp eq i32 %525, 0
+  %.not.i176 = icmp eq i32 %526, 0
   store i32 %.fr258, ptr %421, align 4, !tbaa !25, !alias.scope !290
   %529 = and i32 %528, 285212672
   %530 = select i1 %.not.i176, i32 33554432, i32 100663296

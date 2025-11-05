@@ -47415,15 +47415,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i: ; preds = 
   %6 = shl i64 %5, 8
   %7 = or disjoint i64 %6, 1
   %extract = lshr i64 %5, 56
+  %8 = xor i64 %extract, %3
   br label %"_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit"
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i
   %.sroa.02.1.off0 = phi i64 [ %7, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %extract.t14, %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i ]
-  %.sroa.02.1.off64 = phi i64 [ %extract, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i ]
-  %8 = xor i64 %.sroa.02.1.off0, %2
-  %9 = xor i64 %.sroa.02.1.off64, %3
-  %10 = zext i64 %8 to i128
-  %11 = zext i64 %9 to i128
+  %.sroa.02.1.off64 = phi i64 [ %8, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %3, %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i ]
+  %9 = xor i64 %.sroa.02.1.off0, %2
+  %10 = zext i64 %9 to i128
+  %11 = zext i64 %.sroa.02.1.off64 to i128
   %12 = mul nuw i128 %11, %10
   %13 = lshr i128 %12, 64
   %.masked = and i128 %12, 18446744073709551615
@@ -47726,15 +47726,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i: ; preds = 
   %9 = shl i64 %8, 8
   %10 = or disjoint i64 %9, 1
   %extract17 = lshr i64 %8, 56
+  %11 = xor i64 %extract17, %3
   br label %"_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit"
 
 "_ZN68_$LT$foldhash..quality..FoldHasher$u20$as$u20$core..hash..Hasher$GT$6finish17hcb2b74a370351cc7E.exit": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i
   %.sroa.02.0.off0 = phi i64 [ %extract.t, %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i ], [ %10, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ]
-  %.sroa.02.0.off64 = phi i64 [ 0, %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i ], [ %extract17, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ]
-  %11 = xor i64 %.sroa.02.0.off0, %2
-  %12 = xor i64 %.sroa.02.0.off64, %3
-  %13 = zext i64 %11 to i128
-  %14 = zext i64 %12 to i128
+  %.sroa.02.0.off64 = phi i64 [ %3, %_ZN8foldhash4fast10FoldHasher9write_num17h5a5c3e488586b799E.exit.i.i ], [ %11, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ]
+  %12 = xor i64 %.sroa.02.0.off0, %2
+  %13 = zext i64 %12 to i128
+  %14 = zext i64 %.sroa.02.0.off64 to i128
   %15 = mul nuw i128 %14, %13
   %16 = lshr i128 %15, 64
   %.masked = and i128 %15, 18446744073709551615
@@ -132061,15 +132061,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i: ; preds = 
   %10 = shl i64 %9, 8
   %extract.t.i = or disjoint i64 %10, 1
   %11 = lshr i64 %9, 56
+  %12 = xor i64 %5, %11
+  %13 = xor i64 %.val, %extract.t.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hee5e2536d82a738cE.exit"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hee5e2536d82a738cE.exit": ; preds = %3, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i
-  %.sroa.0.1.off0.i = phi i64 [ %extract.t.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %3 ]
-  %.sroa.0.1.off64.i = phi i64 [ %11, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %3 ]
-  %12 = xor i64 %.sroa.0.1.off0.i, %.val
-  %13 = xor i64 %.sroa.0.1.off64.i, %5
-  %14 = zext i64 %12 to i128
-  %15 = zext i64 %13 to i128
+  %.sroa.0.1.off0.i = phi i64 [ %13, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %.val, %3 ]
+  %.sroa.0.1.off64.i = phi i64 [ %12, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %5, %3 ]
+  %14 = zext i64 %.sroa.0.1.off0.i to i128
+  %15 = zext i64 %.sroa.0.1.off64.i to i128
   %16 = mul nuw i128 %15, %14
   %17 = lshr i128 %16, 64
   %.masked.i = and i128 %16, 18446744073709551615
@@ -132147,12 +132147,12 @@ _ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i: ; preds = 
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 8
   %extract.t.i = or disjoint i64 %11, 1
+  %12 = xor i64 %.val, %extract.t.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hfdd6f061a28a4ee6E.exit"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hfdd6f061a28a4ee6E.exit": ; preds = %3, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i
-  %.sroa.0.1.off0.i = phi i64 [ %extract.t.i, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i ], [ 0, %3 ]
-  %12 = xor i64 %.sroa.0.1.off0.i, %.val
-  %13 = zext i64 %12 to i128
+  %.sroa.0.1.off0.i = phi i64 [ %12, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i ], [ %.val, %3 ]
+  %13 = zext i64 %.sroa.0.1.off0.i to i128
   %14 = zext i64 %5 to i128
   %15 = mul nuw i128 %13, %14
   %16 = lshr i128 %15, 64
@@ -132611,7 +132611,7 @@ define hidden { i64, i1 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_
   call fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he6d41b14c333f6cbE"(ptr nonnull %1, i64 %2, ptr noalias noundef nonnull align 16 dereferenceable(64) %4)
   %.pr.i = load i8, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !16842
   %.not.i.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i.i, label %12, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
+  br i1 %.not.i.i, label %13, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
   %.pre.i = load i128, ptr %4, align 16, !alias.scope !16842
@@ -132620,29 +132620,28 @@ define hidden { i64, i1 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11insert_
   %extract.t.i = trunc i128 %.pre.i to i64
   %extract.i = lshr i128 %.pre.i, 64
   %extract.t5.i = trunc nuw i128 %extract.i to i64
+  %12 = xor i64 %.pre3.i, %extract.t5.i
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
 
-12:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
-  %13 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !16842, !noundef !3
+13:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
+  %14 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !16842, !noundef !3
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i", %3
-  %14 = phi i64 [ %.pre3.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %6, %3 ]
-  %15 = phi i64 [ %.pre2.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %3 ]
+  %15 = phi i64 [ %12, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %6, %3 ]
+  %16 = phi i64 [ %.pre2.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %3 ]
   %.off0.i = phi i64 [ %extract.t.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %extract.t4.i, %3 ]
-  %.off64.i = phi i64 [ %extract.t5.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ 0, %3 ]
-  %16 = xor i64 %.off0.i, %15
-  %17 = xor i64 %.off64.i, %14
-  %18 = zext i64 %16 to i128
-  %19 = zext i64 %17 to i128
-  %20 = mul nuw i128 %19, %18
+  %17 = xor i64 %.off0.i, %16
+  %18 = zext i64 %17 to i128
+  %19 = zext i64 %15 to i128
+  %20 = mul nuw i128 %18, %19
   %21 = lshr i128 %20, 64
   %22 = xor i128 %21, %20
   %23 = trunc i128 %22 to i64
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit"
 
-"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit": ; preds = %12, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
-  %.sroa.0.0.i.i = phi i64 [ %23, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %13, %12 ]
+"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit": ; preds = %13, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
+  %.sroa.0.0.i.i = phi i64 [ %23, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %14, %13 ]
   %24 = zext i64 %.sroa.0.0.i.i to i128
   %25 = mul nuw nsw i128 %24, 2611923443488327891
   %26 = lshr i128 %25, 64
@@ -132716,12 +132715,12 @@ _ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i: ; preds 
   %29 = zext i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 8
   %extract.t.i.i = or disjoint i64 %30, 1
+  %31 = xor i64 %extract.t.i.i, %.val.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hfdd6f061a28a4ee6E.exit.i"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hfdd6f061a28a4ee6E.exit.i": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i, %21
-  %.sroa.0.1.off0.i.i = phi i64 [ %extract.t.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i ], [ 0, %21 ]
-  %31 = xor i64 %.sroa.0.1.off0.i.i, %.val.i
-  %32 = zext i64 %31 to i128
+  %.sroa.0.1.off0.i.i = phi i64 [ %31, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i ], [ %.val.i, %21 ]
+  %32 = zext i64 %.sroa.0.1.off0.i.i to i128
   %33 = zext i64 %23 to i128
   %34 = mul nuw i128 %32, %33
   %35 = lshr i128 %34, 64
@@ -133441,7 +133440,7 @@ define hidden noundef zeroext i1 @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11
   call fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he6d41b14c333f6cbE"(ptr nonnull %.val8.i, i64 %.val9.i, ptr noalias noundef nonnull align 16 dereferenceable(64) %3), !noalias !17142
   %.pr.i.i = load i8, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !alias.scope !17166, !noalias !17142
   %.not.i.i10.i = icmp eq i8 %.pr.i.i, 0
-  br i1 %.not.i.i10.i, label %28, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i"
+  br i1 %.not.i.i10.i, label %29, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i.i"
   %.pre.i.i = load i128, ptr %3, align 16, !alias.scope !17166, !noalias !17142
@@ -133450,29 +133449,28 @@ define hidden noundef zeroext i1 @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$11
   %extract.t.i.i = trunc i128 %.pre.i.i to i64
   %extract.i.i = lshr i128 %.pre.i.i, 64
   %extract.t5.i.i = trunc nuw i128 %extract.i.i to i64
+  %28 = xor i64 %.pre3.i.i, %extract.t5.i.i
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i.i"
 
-28:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i.i"
-  %29 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 16, !alias.scope !17166, !noalias !17142, !noundef !3
+29:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i.i"
+  %30 = load i64, ptr %.sroa.4.0..sroa_idx.i.i, align 16, !alias.scope !17166, !noalias !17142, !noundef !3
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i", %19
-  %30 = phi i64 [ %.pre3.i.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i" ], [ %22, %19 ]
-  %31 = phi i64 [ %.pre2.i.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i" ], [ %.val7.i, %19 ]
+  %31 = phi i64 [ %28, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i" ], [ %22, %19 ]
+  %32 = phi i64 [ %.pre2.i.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i" ], [ %.val7.i, %19 ]
   %.off0.i.i = phi i64 [ %extract.t.i.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i" ], [ %extract.t4.i.i, %19 ]
-  %.off64.i.i = phi i64 [ %extract.t5.i.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i.i" ], [ 0, %19 ]
-  %32 = xor i64 %.off0.i.i, %31
-  %33 = xor i64 %.off64.i.i, %30
-  %34 = zext i64 %32 to i128
-  %35 = zext i64 %33 to i128
-  %36 = mul nuw i128 %35, %34
+  %33 = xor i64 %.off0.i.i, %32
+  %34 = zext i64 %33 to i128
+  %35 = zext i64 %31 to i128
+  %36 = mul nuw i128 %34, %35
   %37 = lshr i128 %36, 64
   %38 = xor i128 %37, %36
   %39 = trunc i128 %38 to i64
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit.i"
 
-"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i.i", %28
-  %.sroa.0.0.i.i.i = phi i64 [ %39, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i.i" ], [ %29, %28 ]
+"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i.i", %29
+  %.sroa.0.0.i.i.i = phi i64 [ %39, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i.i" ], [ %30, %29 ]
   %40 = zext i64 %.sroa.0.0.i.i.i to i128
   %41 = mul nuw nsw i128 %40, 2611923443488327891
   %42 = lshr i128 %41, 64
@@ -133553,15 +133551,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i: ; preds 
   %29 = shl i64 %28, 8
   %extract.t.i.i = or disjoint i64 %29, 1
   %30 = lshr i64 %28, 56
+  %31 = xor i64 %30, %23
+  %32 = xor i64 %extract.t.i.i, %.val.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hee5e2536d82a738cE.exit.i"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hee5e2536d82a738cE.exit.i": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i, %21
-  %.sroa.0.1.off0.i.i = phi i64 [ %extract.t.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ 0, %21 ]
-  %.sroa.0.1.off64.i.i = phi i64 [ %30, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ 0, %21 ]
-  %31 = xor i64 %.sroa.0.1.off0.i.i, %.val.i
-  %32 = xor i64 %.sroa.0.1.off64.i.i, %23
-  %33 = zext i64 %31 to i128
-  %34 = zext i64 %32 to i128
+  %.sroa.0.1.off0.i.i = phi i64 [ %32, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ %.val.i, %21 ]
+  %.sroa.0.1.off64.i.i = phi i64 [ %31, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ %23, %21 ]
+  %33 = zext i64 %.sroa.0.1.off0.i.i to i128
+  %34 = zext i64 %.sroa.0.1.off64.i.i to i128
   %35 = mul nuw i128 %34, %33
   %36 = lshr i128 %35, 64
   %.masked.i.i = and i128 %35, 18446744073709551615
@@ -133879,7 +133877,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   call fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he6d41b14c333f6cbE"(ptr nonnull %.val6, i64 %.val7, ptr noalias noundef nonnull align 16 dereferenceable(64) %3)
   %.pr.i = load i8, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !17278
   %.not.i.i8 = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i.i8, label %26, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
+  br i1 %.not.i.i8, label %27, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
   %.pre.i = load i128, ptr %3, align 16, !alias.scope !17278
@@ -133888,29 +133886,28 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
   %extract.t.i = trunc i128 %.pre.i to i64
   %extract.i = lshr i128 %.pre.i, 64
   %extract.t5.i = trunc nuw i128 %extract.i to i64
+  %26 = xor i64 %.pre3.i, %extract.t5.i
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
 
-26:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
-  %27 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !17278, !noundef !3
+27:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
+  %28 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !17278, !noundef !3
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i", %17
-  %28 = phi i64 [ %.pre3.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %20, %17 ]
-  %29 = phi i64 [ %.pre2.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val5, %17 ]
+  %29 = phi i64 [ %26, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %20, %17 ]
+  %30 = phi i64 [ %.pre2.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val5, %17 ]
   %.off0.i = phi i64 [ %extract.t.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %extract.t4.i, %17 ]
-  %.off64.i = phi i64 [ %extract.t5.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ 0, %17 ]
-  %30 = xor i64 %.off0.i, %29
-  %31 = xor i64 %.off64.i, %28
-  %32 = zext i64 %30 to i128
-  %33 = zext i64 %31 to i128
-  %34 = mul nuw i128 %33, %32
+  %31 = xor i64 %.off0.i, %30
+  %32 = zext i64 %31 to i128
+  %33 = zext i64 %29 to i128
+  %34 = mul nuw i128 %32, %33
   %35 = lshr i128 %34, 64
   %36 = xor i128 %35, %34
   %37 = trunc i128 %36 to i64
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit"
 
-"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit": ; preds = %26, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
-  %.sroa.0.0.i.i = phi i64 [ %37, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %27, %26 ]
+"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hc5f6c6398b96a68eE.exit": ; preds = %27, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
+  %.sroa.0.0.i.i = phi i64 [ %37, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %28, %27 ]
   %38 = zext i64 %.sroa.0.0.i.i to i128
   %39 = mul nuw nsw i128 %38, 2611923443488327891
   %40 = lshr i128 %39, 64
@@ -134062,15 +134059,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i: ; preds = 
   %28 = shl i64 %27, 8
   %extract.t.i = or disjoint i64 %28, 1
   %29 = lshr i64 %27, 56
+  %30 = xor i64 %29, %22
+  %31 = xor i64 %extract.t.i, %.val
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hee5e2536d82a738cE.exit"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hee5e2536d82a738cE.exit": ; preds = %20, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i
-  %.sroa.0.1.off0.i = phi i64 [ %extract.t.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %20 ]
-  %.sroa.0.1.off64.i = phi i64 [ %29, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %20 ]
-  %30 = xor i64 %.sroa.0.1.off0.i, %.val
-  %31 = xor i64 %.sroa.0.1.off64.i, %22
-  %32 = zext i64 %30 to i128
-  %33 = zext i64 %31 to i128
+  %.sroa.0.1.off0.i = phi i64 [ %31, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %.val, %20 ]
+  %.sroa.0.1.off64.i = phi i64 [ %30, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %22, %20 ]
+  %32 = zext i64 %.sroa.0.1.off0.i to i128
+  %33 = zext i64 %.sroa.0.1.off64.i to i128
   %34 = mul nuw i128 %33, %32
   %35 = lshr i128 %34, 64
   %.masked.i = and i128 %34, 18446744073709551615
@@ -134875,12 +134872,12 @@ _ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i: ; preds = 
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 8
   %extract.t.i = or disjoint i64 %29, 1
+  %30 = xor i64 %extract.t.i, %.val
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hfdd6f061a28a4ee6E.exit"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hfdd6f061a28a4ee6E.exit": ; preds = %20, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i
-  %.sroa.0.1.off0.i = phi i64 [ %extract.t.i, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i ], [ 0, %20 ]
-  %30 = xor i64 %.sroa.0.1.off0.i, %.val
-  %31 = zext i64 %30 to i128
+  %.sroa.0.1.off0.i = phi i64 [ %30, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i ], [ %.val, %20 ]
+  %31 = zext i64 %.sroa.0.1.off0.i to i128
   %32 = zext i64 %22 to i128
   %33 = mul nuw i128 %31, %32
   %34 = lshr i128 %33, 64
@@ -135012,7 +135009,7 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h21c52c1
   call fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he6d41b14c333f6cbE"(ptr nonnull %2, i64 %3, ptr noalias noundef nonnull align 16 dereferenceable(64) %5)
   %.pr.i = load i8, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !17536
   %.not.i.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i.i, label %13, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
+  br i1 %.not.i.i, label %14, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
   %.pre.i = load i128, ptr %5, align 16, !alias.scope !17536
@@ -135021,29 +135018,28 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$5entry17h21c52c1
   %extract.t.i = trunc i128 %.pre.i to i64
   %extract.i = lshr i128 %.pre.i, 64
   %extract.t5.i = trunc nuw i128 %extract.i to i64
+  %13 = xor i64 %.pre3.i, %extract.t5.i
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
 
-13:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
-  %14 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !17536, !noundef !3
+14:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
+  %15 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !17536, !noundef !3
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h3decbbf48a45a867E.exit"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i", %4
-  %15 = phi i64 [ %.pre3.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %7, %4 ]
-  %16 = phi i64 [ %.pre2.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %4 ]
+  %16 = phi i64 [ %13, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %7, %4 ]
+  %17 = phi i64 [ %.pre2.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %4 ]
   %.off0.i = phi i64 [ %extract.t.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %extract.t4.i, %4 ]
-  %.off64.i = phi i64 [ %extract.t5.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ 0, %4 ]
-  %17 = xor i64 %.off0.i, %16
-  %18 = xor i64 %.off64.i, %15
-  %19 = zext i64 %17 to i128
-  %20 = zext i64 %18 to i128
-  %21 = mul nuw i128 %20, %19
+  %18 = xor i64 %.off0.i, %17
+  %19 = zext i64 %18 to i128
+  %20 = zext i64 %16 to i128
+  %21 = mul nuw i128 %19, %20
   %22 = lshr i128 %21, 64
   %23 = xor i128 %22, %21
   %24 = trunc i128 %23 to i64
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h3decbbf48a45a867E.exit"
 
-"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h3decbbf48a45a867E.exit": ; preds = %13, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
-  %.sroa.0.0.i.i = phi i64 [ %24, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %14, %13 ]
+"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h3decbbf48a45a867E.exit": ; preds = %14, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
+  %.sroa.0.0.i.i = phi i64 [ %24, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %15, %14 ]
   %25 = zext i64 %.sroa.0.0.i.i to i128
   %26 = mul nuw nsw i128 %25, 2611923443488327891
   %27 = lshr i128 %26, 64
@@ -135144,12 +135140,12 @@ _ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i: ; preds = 
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 8
   %extract.t.i = or disjoint i64 %12, 1
+  %13 = xor i64 %.val, %extract.t.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h15593ee4e0b2c755E.exit"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h15593ee4e0b2c755E.exit": ; preds = %4, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i
-  %.sroa.0.1.off0.i = phi i64 [ %extract.t.i, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i ], [ 0, %4 ]
-  %13 = xor i64 %.sroa.0.1.off0.i, %.val
-  %14 = zext i64 %13 to i128
+  %.sroa.0.1.off0.i = phi i64 [ %13, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i ], [ %.val, %4 ]
+  %14 = zext i64 %.sroa.0.1.off0.i to i128
   %15 = zext i64 %6 to i128
   %16 = mul nuw i128 %14, %15
   %17 = lshr i128 %16, 64
@@ -135467,15 +135463,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i: ; preds = 
   %11 = shl i64 %10, 8
   %extract.t.i = or disjoint i64 %11, 1
   %12 = lshr i64 %10, 56
+  %13 = xor i64 %6, %12
+  %14 = xor i64 %.val, %extract.t.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hab5ef6a3d8825116E.exit"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hab5ef6a3d8825116E.exit": ; preds = %4, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i
-  %.sroa.0.1.off0.i = phi i64 [ %extract.t.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %4 ]
-  %.sroa.0.1.off64.i = phi i64 [ %12, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %4 ]
-  %13 = xor i64 %.sroa.0.1.off0.i, %.val
-  %14 = xor i64 %.sroa.0.1.off64.i, %6
-  %15 = zext i64 %13 to i128
-  %16 = zext i64 %14 to i128
+  %.sroa.0.1.off0.i = phi i64 [ %14, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %.val, %4 ]
+  %.sroa.0.1.off64.i = phi i64 [ %13, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %6, %4 ]
+  %15 = zext i64 %.sroa.0.1.off0.i to i128
+  %16 = zext i64 %.sroa.0.1.off64.i to i128
   %17 = mul nuw i128 %16, %15
   %18 = lshr i128 %17, 64
   %.masked.i = and i128 %17, 18446744073709551615
@@ -140133,7 +140129,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$5en
   call fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he6d41b14c333f6cbE"(ptr nonnull %2, i64 %3, ptr noalias noundef nonnull align 16 dereferenceable(64) %5)
   %.pr.i = load i8, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !18583
   %.not.i.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i.i, label %13, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
+  br i1 %.not.i.i, label %14, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
   %.pre.i = load i128, ptr %5, align 16, !alias.scope !18583
@@ -140142,29 +140138,28 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$5en
   %extract.t.i = trunc i128 %.pre.i to i64
   %extract.i = lshr i128 %.pre.i, 64
   %extract.t7.i = trunc nuw i128 %extract.i to i64
+  %13 = xor i64 %.pre5.i, %extract.t7.i
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
 
-13:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
-  %14 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !18583, !noundef !3
+14:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
+  %15 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !18583, !noundef !3
   br label %_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i", %4
-  %15 = phi i64 [ %.pre5.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %7, %4 ]
-  %16 = phi i64 [ %.pre4.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %4 ]
+  %16 = phi i64 [ %13, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %7, %4 ]
+  %17 = phi i64 [ %.pre4.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %4 ]
   %.off0.i = phi i64 [ %extract.t.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %extract.t6.i, %4 ]
-  %.off64.i = phi i64 [ %extract.t7.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ 0, %4 ]
-  %17 = xor i64 %.off0.i, %16
-  %18 = xor i64 %.off64.i, %15
-  %19 = zext i64 %17 to i128
-  %20 = zext i64 %18 to i128
-  %21 = mul nuw i128 %20, %19
+  %18 = xor i64 %.off0.i, %17
+  %19 = zext i64 %18 to i128
+  %20 = zext i64 %16 to i128
+  %21 = mul nuw i128 %19, %20
   %22 = lshr i128 %21, 64
   %23 = xor i128 %22, %21
   %24 = trunc i128 %23 to i64
   br label %_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit
 
-_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit: ; preds = %13, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
-  %.sroa.0.0.i.i = phi i64 [ %24, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %14, %13 ]
+_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit: ; preds = %14, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
+  %.sroa.0.0.i.i = phi i64 [ %24, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %15, %14 ]
   %25 = zext i64 %.sroa.0.0.i.i to i128
   %26 = mul nuw nsw i128 %25, 2611923443488327891
   %27 = lshr i128 %26, 64
@@ -140328,15 +140323,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i: ; preds = 
   %7 = shl i64 %6, 8
   %8 = or disjoint i64 %7, 1
   %extract.i = lshr i64 %6, 56
+  %9 = xor i64 %extract.i, %4
   br label %_ZN9hashbrown3map9make_hash17h495d42a467e50154E.exit
 
 _ZN9hashbrown3map9make_hash17h495d42a467e50154E.exit: ; preds = %2, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i
   %.sroa.0.1.off0.i = phi i64 [ %8, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %extract.t14.i, %2 ]
-  %.sroa.0.1.off64.i = phi i64 [ %extract.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ 0, %2 ]
-  %9 = xor i64 %.sroa.0.1.off0.i, %.val
-  %10 = xor i64 %.sroa.0.1.off64.i, %4
-  %11 = zext i64 %9 to i128
-  %12 = zext i64 %10 to i128
+  %.sroa.0.1.off64.i = phi i64 [ %9, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ], [ %4, %2 ]
+  %10 = xor i64 %.sroa.0.1.off0.i, %.val
+  %11 = zext i64 %10 to i128
+  %12 = zext i64 %.sroa.0.1.off64.i to i128
   %13 = mul nuw i128 %12, %11
   %14 = lshr i128 %13, 64
   %.masked.i = and i128 %13, 18446744073709551615
@@ -141596,15 +141591,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i: ; preds = 
   %10 = shl i64 %9, 8
   %11 = or disjoint i64 %10, 1
   %extract17.i = lshr i64 %9, 56
+  %12 = xor i64 %extract17.i, %4
   br label %_ZN9hashbrown3map9make_hash17hcf60e481d8896f5bE.exit
 
 _ZN9hashbrown3map9make_hash17hcf60e481d8896f5bE.exit: ; preds = %2, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i
   %.sroa.0.0.off0.i = phi i64 [ %extract.t.i, %2 ], [ %11, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ]
-  %.sroa.0.0.off64.i = phi i64 [ 0, %2 ], [ %extract17.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ]
-  %12 = xor i64 %.sroa.0.0.off0.i, %.val
-  %13 = xor i64 %.sroa.0.0.off64.i, %4
-  %14 = zext i64 %12 to i128
-  %15 = zext i64 %13 to i128
+  %.sroa.0.0.off64.i = phi i64 [ %4, %2 ], [ %12, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i ]
+  %13 = xor i64 %.sroa.0.0.off0.i, %.val
+  %14 = zext i64 %13 to i128
+  %15 = zext i64 %.sroa.0.0.off64.i to i128
   %16 = mul nuw i128 %15, %14
   %17 = lshr i128 %16, 64
   %.masked.i = and i128 %16, 18446744073709551615
@@ -141852,15 +141847,15 @@ _ZN4core4hash6Hasher9write_i6417h0eb723ae389a270fE.exit.i.i: ; preds = %2
   %7 = shl i64 %6, 8
   %8 = or disjoint i64 %7, 1
   %extract.i = lshr i64 %6, 56
+  %9 = xor i64 %extract.i, %4
   br label %_ZN9hashbrown3map9make_hash17hf615c66c225591ffE.exit
 
 _ZN9hashbrown3map9make_hash17hf615c66c225591ffE.exit: ; preds = %2, %_ZN4core4hash6Hasher9write_i6417h0eb723ae389a270fE.exit.i.i
   %.sroa.0.0.off0.i = phi i64 [ %8, %_ZN4core4hash6Hasher9write_i6417h0eb723ae389a270fE.exit.i.i ], [ %extract.t13.i, %2 ]
-  %.sroa.0.0.off64.i = phi i64 [ %extract.i, %_ZN4core4hash6Hasher9write_i6417h0eb723ae389a270fE.exit.i.i ], [ 0, %2 ]
-  %9 = xor i64 %.sroa.0.0.off0.i, %.val
-  %10 = xor i64 %.sroa.0.0.off64.i, %4
-  %11 = zext i64 %9 to i128
-  %12 = zext i64 %10 to i128
+  %.sroa.0.0.off64.i = phi i64 [ %9, %_ZN4core4hash6Hasher9write_i6417h0eb723ae389a270fE.exit.i.i ], [ %4, %2 ]
+  %10 = xor i64 %.sroa.0.0.off0.i, %.val
+  %11 = zext i64 %10 to i128
+  %12 = zext i64 %.sroa.0.0.off64.i to i128
   %13 = mul nuw i128 %12, %11
   %14 = lshr i128 %13, 64
   %.masked.i = and i128 %13, 18446744073709551615
@@ -143135,7 +143130,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   call fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17he6d41b14c333f6cbE"(ptr nonnull %1, i64 %2, ptr noalias noundef nonnull align 16 dereferenceable(64) %4)
   %.pr.i = load i8, ptr %.sroa.9.0..sroa_idx.i, align 8, !alias.scope !19193
   %.not.i.i = icmp eq i8 %.pr.i, 0
-  br i1 %.not.i.i, label %12, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
+  br i1 %.not.i.i, label %13, label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i"
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
   %.pre.i = load i128, ptr %4, align 16, !alias.scope !19193
@@ -143144,29 +143139,28 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   %extract.t.i = trunc i128 %.pre.i to i64
   %extract.i = lshr i128 %.pre.i, 64
   %extract.t7.i = trunc nuw i128 %extract.i to i64
+  %12 = xor i64 %.pre5.i, %extract.t7.i
   br label %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
 
-12:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
-  %13 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !19193, !noundef !3
+13:                                               ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.i"
+  %14 = load i64, ptr %.sroa.4.0..sroa_idx.i, align 16, !alias.scope !19193, !noundef !3
   br label %_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit
 
 "_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i": ; preds = %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i", %3
-  %14 = phi i64 [ %.pre5.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %6, %3 ]
-  %15 = phi i64 [ %.pre4.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %3 ]
+  %15 = phi i64 [ %12, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %6, %3 ]
+  %16 = phi i64 [ %.pre4.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %.val, %3 ]
   %.off0.i = phi i64 [ %extract.t.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ %extract.t6.i, %3 ]
-  %.off64.i = phi i64 [ %extract.t7.i, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit._ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread_crit_edge.i" ], [ 0, %3 ]
-  %16 = xor i64 %.off0.i, %15
-  %17 = xor i64 %.off64.i, %14
-  %18 = zext i64 %16 to i128
-  %19 = zext i64 %17 to i128
-  %20 = mul nuw i128 %19, %18
+  %17 = xor i64 %.off0.i, %16
+  %18 = zext i64 %17 to i128
+  %19 = zext i64 %15 to i128
+  %20 = mul nuw i128 %18, %19
   %21 = lshr i128 %20, 64
   %22 = xor i128 %21, %20
   %23 = trunc i128 %22 to i64
   br label %_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit
 
-_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit: ; preds = %12, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
-  %.sroa.0.0.i.i = phi i64 [ %23, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %13, %12 ]
+_ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit: ; preds = %13, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i"
+  %.sroa.0.0.i.i = phi i64 [ %23, %"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..hash..Hash$GT$4hash17h633bd3433c482709E.exit.thread.i" ], [ %14, %13 ]
   %24 = zext i64 %.sroa.0.0.i.i to i128
   %25 = mul nuw nsw i128 %24, 2611923443488327891
   %26 = lshr i128 %25, 64
@@ -150579,15 +150573,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i: ; preds 
   %53 = shl i64 %52, 8
   %extract.t.i.i = or disjoint i64 %53, 1
   %54 = lshr i64 %52, 56
+  %55 = xor i64 %48, %54
+  %56 = xor i64 %.val.i, %extract.t.i.i
   br label %_ZN9hashbrown3map9make_hash17he24b8c686ca9c6e2E.exit.i
 
 _ZN9hashbrown3map9make_hash17he24b8c686ca9c6e2E.exit.i: ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i, %46
-  %.sroa.0.1.off0.i.i = phi i64 [ %extract.t.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ 0, %46 ]
-  %.sroa.0.1.off64.i.i = phi i64 [ %54, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ 0, %46 ]
-  %55 = xor i64 %.sroa.0.1.off0.i.i, %.val.i
-  %56 = xor i64 %.sroa.0.1.off64.i.i, %48
-  %57 = zext i64 %55 to i128
-  %58 = zext i64 %56 to i128
+  %.sroa.0.1.off0.i.i = phi i64 [ %56, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ %.val.i, %46 ]
+  %.sroa.0.1.off64.i.i = phi i64 [ %55, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ %48, %46 ]
+  %57 = zext i64 %.sroa.0.1.off0.i.i to i128
+  %58 = zext i64 %.sroa.0.1.off64.i.i to i128
   %59 = mul nuw i128 %58, %57
   %60 = lshr i128 %59, 64
   %.masked.i.i = and i128 %59, 18446744073709551615
@@ -151018,12 +151012,12 @@ _ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i: ; preds 
   %53 = zext i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 8
   %extract.t.i.i = or disjoint i64 %54, 1
+  %55 = xor i64 %.val.i, %extract.t.i.i
   br label %_ZN9hashbrown3map9make_hash17hc5a5a162f3d9c582E.exit.i
 
 _ZN9hashbrown3map9make_hash17hc5a5a162f3d9c582E.exit.i: ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i, %46
-  %.sroa.0.1.off0.i.i = phi i64 [ %extract.t.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i ], [ 0, %46 ]
-  %55 = xor i64 %.sroa.0.1.off0.i.i, %.val.i
-  %56 = zext i64 %55 to i128
+  %.sroa.0.1.off0.i.i = phi i64 [ %55, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i ], [ %.val.i, %46 ]
+  %56 = zext i64 %.sroa.0.1.off0.i.i to i128
   %57 = zext i64 %48 to i128
   %58 = mul nuw i128 %56, %57
   %59 = lshr i128 %58, 64
@@ -155395,12 +155389,12 @@ _ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i: ; preds 
   %77 = zext i32 %76 to i64
   %78 = shl nuw nsw i64 %77, 8
   %extract.t.i.i = or disjoint i64 %78, 1
+  %79 = xor i64 %.val.i, %extract.t.i.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h15593ee4e0b2c755E.exit.i"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17h15593ee4e0b2c755E.exit.i": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i, %70
-  %.sroa.0.1.off0.i.i = phi i64 [ %extract.t.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i ], [ 0, %70 ]
-  %79 = xor i64 %.sroa.0.1.off0.i.i, %.val.i
-  %80 = zext i64 %79 to i128
+  %.sroa.0.1.off0.i.i = phi i64 [ %79, %_ZN8foldhash4fast10FoldHasher9write_num17h741d2713a59ba02bE.exit.i.i.i ], [ %.val.i, %70 ]
+  %80 = zext i64 %.sroa.0.1.off0.i.i to i128
   %81 = zext i64 %72 to i128
   %82 = mul nuw i128 %80, %81
   %83 = lshr i128 %82, 64
@@ -155878,15 +155872,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i: ; preds 
   %77 = shl i64 %76, 8
   %extract.t.i.i = or disjoint i64 %77, 1
   %78 = lshr i64 %76, 56
+  %79 = xor i64 %72, %78
+  %80 = xor i64 %.val.i, %extract.t.i.i
   br label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hab5ef6a3d8825116E.exit.i"
 
 "_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$4hash17hab5ef6a3d8825116E.exit.i": ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i, %70
-  %.sroa.0.1.off0.i.i = phi i64 [ %extract.t.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ 0, %70 ]
-  %.sroa.0.1.off64.i.i = phi i64 [ %78, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ 0, %70 ]
-  %79 = xor i64 %.sroa.0.1.off0.i.i, %.val.i
-  %80 = xor i64 %.sroa.0.1.off64.i.i, %72
-  %81 = zext i64 %79 to i128
-  %82 = zext i64 %80 to i128
+  %.sroa.0.1.off0.i.i = phi i64 [ %80, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ %.val.i, %70 ]
+  %.sroa.0.1.off64.i.i = phi i64 [ %79, %_ZN8foldhash4fast10FoldHasher9write_num17h6a5a927509602053E.exit.i.i.i ], [ %72, %70 ]
+  %81 = zext i64 %.sroa.0.1.off0.i.i to i128
+  %82 = zext i64 %.sroa.0.1.off64.i.i to i128
   %83 = mul nuw i128 %82, %81
   %84 = lshr i128 %83, 64
   %.masked.i.i = and i128 %83, 18446744073709551615

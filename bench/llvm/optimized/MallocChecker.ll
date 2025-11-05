@@ -22752,13 +22752,12 @@ _ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exi
   %.sroa.5.0.i = phi i8 [ 0, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111RegionStateEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit ], [ %48, %46 ], [ %55, %53 ], [ %51, %49 ]
   %56 = zext nneg i8 %.sroa.5.0.i to i64
   %57 = shl nuw nsw i64 %56, 32
+  %58 = or disjoint i64 %57, %.sroa.0.0.i
   br label %_ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_122ReallocSizeZeroSymbolsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit
 
 _ZNK5clang4ento12ProgramState8containsIN12_GLOBAL__N_122ReallocSizeZeroSymbolsEEEbNS0_17ProgramStateTraitIT_E8key_typeE.exit: ; preds = %24, %27, %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit
-  %.sroa.09.0 = phi i64 [ %.sroa.0.0.i, %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit ], [ 0, %27 ], [ 0, %24 ]
-  %.sroa.3.0 = phi i64 [ %57, %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit ], [ 4294967296, %27 ], [ 4294967296, %24 ]
-  %.sroa.09.0.insert.insert = or i64 %.sroa.3.0, %.sroa.09.0
-  ret i64 %.sroa.09.0.insert.insert
+  %.sroa.3.0 = phi i64 [ %58, %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit ], [ 4294967296, %27 ], [ 4294967296, %24 ]
+  ret i64 %.sroa.3.0
 }
 
 declare void @_ZN5clang4ento22PathSensitiveBugReport15markInterestingEPKNS0_7SymExprENS0_11bugreporter12TrackingKindE(ptr noundef nonnull align 8 dereferenceable(1000), ptr noundef, i32 noundef) local_unnamed_addr #0
@@ -40645,7 +40644,7 @@ define internal fastcc range(i16 0, 258) i16 @_ZL18getFreeWhenDoneArgRKN5clang4e
   br i1 %.not15, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12
-  %.016 = phi i32 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12 ], [ 1, %1 ]
+  %.016 = phi i32 [ %22, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12 ], [ 1, %1 ]
   %10 = call { ptr, i64 } @_ZNK5clang8Selector14getNameForSlotEj(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %.016) #28
   %11 = extractvalue { ptr, i64 } %10, 1
   %.not.i = icmp eq i64 %11, 12
@@ -40672,20 +40671,19 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   %19 = xor i1 %18, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %20 = zext i1 %19 to i16
+  %21 = or disjoint i16 %20, 256
   br label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread12:       ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %21 = add nuw i32 %.016, 1
-  %22 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #28
-  %.not = icmp ult i32 %21, %22
+  %22 = add nuw i32 %.016, 1
+  %23 = call noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align 8 dereferenceable(8) %2) #28
+  %.not = icmp ult i32 %22, %23
   br i1 %.not, label %.lr.ph, label %.critedge, !llvm.loop !1990
 
 .critedge:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread12, %1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread
-  %.sroa.09.0 = phi i16 [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %1 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12 ]
-  %.sroa.210.0 = phi i16 [ 256, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %1 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12 ]
+  %.sroa.210.0 = phi i16 [ %21, %_ZN4llvmeqENS_9StringRefES0_.exit.thread ], [ 0, %1 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %.sroa.09.0.insert.insert = or disjoint i16 %.sroa.210.0, %.sroa.09.0
-  ret i16 %.sroa.09.0.insert.insert
+  ret i16 %.sroa.210.0
 }
 
 declare { ptr, i64 } @_ZNK5clang8Selector14getNameForSlotEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0

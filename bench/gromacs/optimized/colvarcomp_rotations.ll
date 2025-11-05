@@ -2344,9 +2344,9 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit: ; preds = %1, %_ZNSt6vec
   %59 = call noundef double @cos(double noundef %58) #22, !tbaa !147
   %60 = fcmp une double %59, 0.000000e+00
   %61 = fdiv double %54, %59
-  %62 = select i1 %60, double %61, double 0.000000e+00
-  %63 = fmul double %62, %62
-  %64 = call noundef double @llvm.fmuladd.f64(double %63, double 2.000000e+00, double -1.000000e+00)
+  %62 = fmul double %61, %61
+  %63 = call double @llvm.fmuladd.f64(double %62, double 2.000000e+00, double -1.000000e+00)
+  %64 = select i1 %60, double %63, double -1.000000e+00
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store double %64, ptr %65, align 8, !tbaa !148
   ret void

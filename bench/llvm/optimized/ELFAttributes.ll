@@ -369,18 +369,17 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %4, %5
   %.028.i.i.i.i = phi ptr [ %8, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit101.thread121.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit77.i.i.i.i" ], [ %.1.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit89.i.i.i.i" ], [ %.2.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit101.i.i.i.i" ], [ %.029.lcssa.i.i.i.i, %45 ], [ %.1.i.i.i.i, %52 ], [ %.2.i.i.i.i, %59 ], [ %62, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit124.i.i.i.i" ], [ %63, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit126.i.i.i.i" ], [ %64, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit128.i.i.i.i" ], [ %65, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit132.i.i.i.i" ], [ %66, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit134.i.i.i.i" ], [ %67, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.thread.loopexit.split.loop.exit136.i.i.i.i" ], [ %.029144.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN4llvm8ELFAttrs18attrTypeFromStringENS2_9StringRefENS2_8ArrayRefINS2_11TagNameItemEEEE3$_0EclIPKS6_EEbT_.exit.i.i.i.i" ], [ %.029144.i.i.i.i, %16 ]
   %68 = getelementptr inbounds nuw %"struct.llvm::TagNameItem", ptr %2, i64 %3
   %69 = icmp eq ptr %.028.i.i.i.i, %68
-  br i1 %69, label %73, label %70
+  br i1 %69, label %74, label %70
 
 70:                                               ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit"
   %71 = load i32, ptr %.028.i.i.i.i, align 4, !tbaa !3
   %72 = zext i32 %71 to i64
-  br label %73
+  %73 = or disjoint i64 %72, 4294967296
+  br label %74
 
-73:                                               ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit", %70
-  %.sroa.011.0 = phi i64 [ %72, %70 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit" ]
-  %.sroa.212.0 = phi i64 [ 4294967296, %70 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit" ]
-  %.sroa.011.0.insert.insert = or disjoint i64 %.sroa.212.0, %.sroa.011.0
-  ret i64 %.sroa.011.0.insert.insert
+74:                                               ; preds = %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit", %70
+  %.sroa.212.0 = phi i64 [ %73, %70 ], [ 0, %"_ZN4llvm7find_ifIRNS_8ArrayRefINS_11TagNameItemEEEZNS_8ELFAttrs18attrTypeFromStringENS_9StringRefES3_E3$_0EEDaOT_T0_.exit" ]
+  ret i64 %.sroa.212.0
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)

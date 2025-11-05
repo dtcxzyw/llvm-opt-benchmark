@@ -49626,7 +49626,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %179 = icmp eq i32 %.1394, 49
   %.3 = select i1 %179, double %159, double %.2
   %180 = fcmp une double %.3356, %.3
-  br i1 %180, label %181, label %188
+  br i1 %180, label %181, label %189
 
 181:                                              ; preds = %176
   %182 = fsub double %.3356, %.1366
@@ -49635,19 +49635,19 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %185 = fmul double %184, 5.000000e-01
   %186 = fadd double %182, %183
   %187 = fdiv double %185, %186
-  br label %188
+  %188 = fadd double %187, %177
+  br label %189
 
-188:                                              ; preds = %181, %176
-  %.0357 = phi double [ %187, %181 ], [ 0.000000e+00, %176 ]
-  %189 = fadd double %.0357, %177
-  %190 = fmul double %189, 0x3FC015BF9217271A
+189:                                              ; preds = %181, %176
+  %.0357 = phi double [ %188, %181 ], [ %177, %176 ]
+  %190 = fmul double %.0357, 0x3FC015BF9217271A
   %191 = tail call double @cos(double noundef %190) #25
   %192 = tail call double @sin(double noundef %190) #25
   br i1 %.not469, label %._crit_edge542, label %.lr.ph541
 
-.lr.ph541:                                        ; preds = %188, %.lr.ph541
-  %indvars.iv650 = phi i64 [ %indvars.iv.next651, %.lr.ph541 ], [ 1, %188 ]
-  %.4539 = phi double [ %208, %.lr.ph541 ], [ 0.000000e+00, %188 ]
+.lr.ph541:                                        ; preds = %189, %.lr.ph541
+  %indvars.iv650 = phi i64 [ %indvars.iv.next651, %.lr.ph541 ], [ 1, %189 ]
+  %.4539 = phi double [ %208, %.lr.ph541 ], [ 0.000000e+00, %189 ]
   %193 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv650
   %194 = load double, ptr %193, align 8
   %195 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv650
@@ -49670,8 +49670,8 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %exitcond654.not = icmp eq i64 %indvars.iv.next651, %wide.trip.count653
   br i1 %exitcond654.not, label %._crit_edge542, label %.lr.ph541, !llvm.loop !1166
 
-._crit_edge542:                                   ; preds = %.lr.ph541, %188
-  %.4.lcssa = phi double [ 0.000000e+00, %188 ], [ %208, %.lr.ph541 ]
+._crit_edge542:                                   ; preds = %.lr.ph541, %189
+  %.4.lcssa = phi double [ 0.000000e+00, %189 ], [ %208, %.lr.ph541 ]
   %209 = tail call double @llvm.fmuladd.f64(double %158, double %191, double %.0377.ph)
   %210 = fneg double %209
   %211 = tail call double @llvm.fmuladd.f64(double %210, double %191, double %159)

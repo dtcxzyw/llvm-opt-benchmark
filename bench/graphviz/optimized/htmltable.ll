@@ -3894,7 +3894,7 @@ gv_strdup.exit:                                   ; preds = %15
   %.pre166 = zext i16 %.pre160 to i64
   %.pre168 = zext i16 %.pre162 to i64
   %.pre170 = zext i16 %.pre164 to i64
-  br label %161
+  br label %162
 
 141:                                              ; preds = %138
   %142 = icmp eq i16 %.pre, 0
@@ -3920,35 +3920,35 @@ gv_strdup.exit:                                   ; preds = %15
   %159 = icmp eq i64 %157, %158
   %160 = zext i1 %159 to i8
   %spec.select139 = or disjoint i8 %.3, %160
-  br label %161
+  %161 = and i8 %spec.select139, %2
+  br label %162
 
-161:                                              ; preds = %._crit_edge158, %141
+162:                                              ; preds = %._crit_edge158, %141
   %.pre-phi171 = phi i64 [ %.pre170, %._crit_edge158 ], [ %156, %141 ]
   %.pre-phi169 = phi i64 [ %.pre168, %._crit_edge158 ], [ %153, %141 ]
   %.pre-phi167 = phi i64 [ %.pre166, %._crit_edge158 ], [ %148, %141 ]
   %.pre-phi = phi i64 [ %.pre165, %._crit_edge158 ], [ %145, %141 ]
-  %.0 = phi i8 [ 0, %._crit_edge158 ], [ %spec.select139, %141 ]
-  %162 = load ptr, ptr %91, align 8, !tbaa !174
-  %163 = getelementptr inbounds nuw double, ptr %162, i64 %.pre-phi
-  %164 = load double, ptr %163, align 8, !tbaa !25
-  %165 = getelementptr inbounds nuw double, ptr %163, i64 %.pre-phi167
-  %166 = load double, ptr %165, align 8, !tbaa !25
-  %167 = load i8, ptr %79, align 4, !tbaa !120
-  %168 = sitofp i8 %167 to double
-  %169 = fsub double %166, %168
-  %170 = load ptr, ptr %105, align 8, !tbaa !173
-  %171 = getelementptr inbounds nuw double, ptr %170, i64 %.pre-phi169
-  %172 = load double, ptr %171, align 8, !tbaa !25
-  %173 = getelementptr inbounds nuw double, ptr %171, i64 %.pre-phi171
-  %174 = load double, ptr %173, align 8, !tbaa !25
-  %175 = fadd double %174, %168
-  %176 = and i8 %.0, %2
+  %.0 = phi i8 [ 0, %._crit_edge158 ], [ %161, %141 ]
+  %163 = load ptr, ptr %91, align 8, !tbaa !174
+  %164 = getelementptr inbounds nuw double, ptr %163, i64 %.pre-phi
+  %165 = load double, ptr %164, align 8, !tbaa !25
+  %166 = getelementptr inbounds nuw double, ptr %164, i64 %.pre-phi167
+  %167 = load double, ptr %166, align 8, !tbaa !25
+  %168 = load i8, ptr %79, align 4, !tbaa !120
+  %169 = sitofp i8 %168 to double
+  %170 = fsub double %167, %169
+  %171 = load ptr, ptr %105, align 8, !tbaa !173
+  %172 = getelementptr inbounds nuw double, ptr %171, i64 %.pre-phi169
+  %173 = load double, ptr %172, align 8, !tbaa !25
+  %174 = getelementptr inbounds nuw double, ptr %172, i64 %.pre-phi171
+  %175 = load double, ptr %174, align 8, !tbaa !25
+  %176 = fadd double %175, %169
   %177 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %178 = load ptr, ptr %177, align 8, !tbaa !264
   %.not.i = icmp eq ptr %178, null
   br i1 %.not.i, label %179, label %192
 
-179:                                              ; preds = %161
+179:                                              ; preds = %162
   %180 = getelementptr inbounds nuw i8, ptr %139, i64 128
   %181 = load ptr, ptr %180, align 8, !tbaa !117
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 48
@@ -3973,7 +3973,7 @@ gv_strdup.exit141:                                ; preds = %184
   store ptr %185, ptr %177, align 8, !tbaa !264
   br label %192
 
-192:                                              ; preds = %gv_strdup.exit141, %179, %161
+192:                                              ; preds = %gv_strdup.exit141, %179, %162
   %193 = getelementptr inbounds nuw i8, ptr %139, i64 64
   %194 = load i16, ptr %193, align 8, !tbaa !231
   %195 = zext i16 %194 to i32
@@ -3986,7 +3986,7 @@ gv_strdup.exit141:                                ; preds = %184
   %.sroa.0.0.copyload.i = load double, ptr %198, align 8, !tbaa !25
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %139, i64 96
   %.sroa.9.0.copyload.i = load double, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !25
-  %199 = fsub double %169, %164
+  %199 = fsub double %170, %165
   %200 = fsub double %199, %.sroa.0.0.copyload.i
   %201 = fcmp ogt double %200, 0.000000e+00
   br i1 %201, label %202, label %213
@@ -3999,24 +3999,24 @@ gv_strdup.exit141:                                ; preds = %184
   ]
 
 204:                                              ; preds = %202
-  %205 = fadd double %164, %.sroa.0.0.copyload.i
+  %205 = fadd double %165, %.sroa.0.0.copyload.i
   br label %213
 
 206:                                              ; preds = %202
-  %207 = fadd double %169, %200
-  %208 = fadd double %164, %200
+  %207 = fadd double %170, %200
+  %208 = fadd double %165, %200
   br label %213
 
 209:                                              ; preds = %202
   %210 = fmul double %200, 5.000000e-01
-  %211 = fadd double %164, %210
-  %212 = fsub double %169, %210
+  %211 = fadd double %165, %210
+  %212 = fsub double %170, %210
   br label %213
 
 213:                                              ; preds = %209, %206, %204, %197
-  %.sroa.0142.0 = phi double [ %211, %209 ], [ %164, %204 ], [ %208, %206 ], [ %164, %197 ]
-  %.sroa.15.0 = phi double [ %212, %209 ], [ %205, %204 ], [ %207, %206 ], [ %169, %197 ]
-  %214 = fsub double %172, %175
+  %.sroa.0142.0 = phi double [ %211, %209 ], [ %165, %204 ], [ %208, %206 ], [ %165, %197 ]
+  %.sroa.15.0 = phi double [ %212, %209 ], [ %205, %204 ], [ %207, %206 ], [ %170, %197 ]
+  %214 = fsub double %173, %176
   %215 = fsub double %214, %.sroa.9.0.copyload.i
   %216 = fcmp ogt double %215, 0.000000e+00
   br i1 %216, label %217, label %228
@@ -4029,25 +4029,25 @@ gv_strdup.exit141:                                ; preds = %184
   ]
 
 219:                                              ; preds = %217
-  %220 = fadd double %175, %.sroa.9.0.copyload.i
+  %220 = fadd double %176, %.sroa.9.0.copyload.i
   br label %228
 
 221:                                              ; preds = %217
-  %222 = fadd double %172, %215
-  %223 = fadd double %175, %215
+  %222 = fadd double %173, %215
+  %223 = fadd double %176, %215
   br label %228
 
 224:                                              ; preds = %217
   %225 = fmul double %215, 5.000000e-01
-  %226 = fadd double %175, %225
-  %227 = fsub double %172, %225
+  %226 = fadd double %176, %225
+  %227 = fsub double %173, %225
   br label %228
 
 228:                                              ; preds = %224, %221, %219, %213, %192
-  %.sroa.0142.1 = phi double [ %164, %192 ], [ %.sroa.0142.0, %224 ], [ %.sroa.0142.0, %219 ], [ %.sroa.0142.0, %221 ], [ %.sroa.0142.0, %213 ]
-  %.sroa.9.0 = phi double [ %175, %192 ], [ %226, %224 ], [ %175, %219 ], [ %223, %221 ], [ %175, %213 ]
-  %.sroa.15.1 = phi double [ %169, %192 ], [ %.sroa.15.0, %224 ], [ %.sroa.15.0, %219 ], [ %.sroa.15.0, %221 ], [ %.sroa.15.0, %213 ]
-  %.sroa.22.0 = phi double [ %172, %192 ], [ %227, %224 ], [ %220, %219 ], [ %222, %221 ], [ %172, %213 ]
+  %.sroa.0142.1 = phi double [ %165, %192 ], [ %.sroa.0142.0, %224 ], [ %.sroa.0142.0, %219 ], [ %.sroa.0142.0, %221 ], [ %.sroa.0142.0, %213 ]
+  %.sroa.9.0 = phi double [ %176, %192 ], [ %226, %224 ], [ %176, %219 ], [ %223, %221 ], [ %176, %213 ]
+  %.sroa.15.1 = phi double [ %170, %192 ], [ %.sroa.15.0, %224 ], [ %.sroa.15.0, %219 ], [ %.sroa.15.0, %221 ], [ %.sroa.15.0, %213 ]
+  %.sroa.22.0 = phi double [ %173, %192 ], [ %227, %224 ], [ %220, %219 ], [ %222, %221 ], [ %173, %213 ]
   %229 = getelementptr inbounds nuw i8, ptr %139, i64 72
   store double %.sroa.0142.1, ptr %229, align 8, !tbaa !25
   %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 80
@@ -4057,7 +4057,7 @@ gv_strdup.exit141:                                ; preds = %184
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %139, i64 96
   store double %.sroa.22.0, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !25
   %230 = getelementptr inbounds nuw i8, ptr %139, i64 63
-  store i8 %176, ptr %230, align 1, !tbaa !269
+  store i8 %.0, ptr %230, align 1, !tbaa !269
   %231 = getelementptr inbounds nuw i8, ptr %139, i64 61
   %232 = load i8, ptr %231, align 1, !tbaa !106
   %233 = uitofp i8 %232 to double
@@ -4086,7 +4086,7 @@ gv_strdup.exit141:                                ; preds = %184
   ]
 
 249:                                              ; preds = %228
-  tail call fastcc void @pos_html_tbl(ptr noundef %248, ptr noundef nonnull byval(%struct.boxf) align 8 %4, i8 noundef zeroext range(i8 0, 16) %176)
+  tail call fastcc void @pos_html_tbl(ptr noundef %248, ptr noundef nonnull byval(%struct.boxf) align 8 %4, i8 noundef zeroext range(i8 0, 16) %.0)
   br label %pos_html_cell.exit
 
 250:                                              ; preds = %228

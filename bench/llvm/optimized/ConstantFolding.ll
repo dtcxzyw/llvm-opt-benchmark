@@ -20401,11 +20401,11 @@ define linkonce_odr hidden void @_ZN4llvm15MinMaxIntrinsic18getSaturationPointEj
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8, !tbaa !23
   %5 = icmp ult i32 %2, 65
-  switch i32 %1, label %66 [
+  switch i32 %1, label %65 [
     i32 364, label %6
     i32 363, label %9
     i32 328, label %18
-    i32 327, label %39
+    i32 327, label %38
   ]
 
 6:                                                ; preds = %3
@@ -20445,7 +20445,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %18
   %20 = and i32 %19, 63
   %21 = zext nneg i32 %20 to i64
   %22 = shl nuw i64 1, %21
-  br label %28
+  br label %29
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %18
   tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef 0, i1 noundef zeroext false) #19
@@ -20455,81 +20455,80 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %18
   %25 = zext nneg i32 %24 to i64
   %26 = shl nuw i64 1, %25
   %27 = icmp ult i32 %.pr.i, 65
-  br i1 %27, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, label %32
+  br i1 %27, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, label %31
 
 _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i:          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
   %.pre.i = load i64, ptr %0, align 8, !tbaa !25, !alias.scope !308
-  br label %28
+  %28 = or i64 %.pre.i, %26
+  br label %29
 
-28:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i
-  %29 = phi i64 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %.pre.i, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
-  %30 = phi i64 [ %22, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %26, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
-  %31 = or i64 %30, %29
-  store i64 %31, ptr %0, align 8, !tbaa !25, !alias.scope !308
+29:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i
+  %30 = phi i64 [ %22, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %28, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
+  store i64 %30, ptr %0, align 8, !tbaa !25, !alias.scope !308
   br label %_ZN4llvm5APInt11getMinValueEj.exit
 
-32:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
-  %33 = load ptr, ptr %0, align 8, !tbaa !25, !alias.scope !308
-  %34 = lshr i32 %23, 6
-  %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %35
-  %37 = load i64, ptr %36, align 8, !tbaa !93
-  %38 = or i64 %37, %26
-  store i64 %38, ptr %36, align 8, !tbaa !93
+31:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
+  %32 = load ptr, ptr %0, align 8, !tbaa !25, !alias.scope !308
+  %33 = lshr i32 %23, 6
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds nuw i64, ptr %32, i64 %34
+  %36 = load i64, ptr %35, align 8, !tbaa !93
+  %37 = or i64 %36, %26
+  store i64 %37, ptr %35, align 8, !tbaa !93
   br label %_ZN4llvm5APInt11getMinValueEj.exit
 
-39:                                               ; preds = %3
+38:                                               ; preds = %3
   br i1 %5, label %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i, label %_ZN4llvm5APInt10getAllOnesEj.exit.i
 
-_ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %39
-  %40 = add nuw nsw i32 %2, 63
-  %41 = and i32 %40, 63
-  %42 = xor i32 %41, 63
-  %43 = zext nneg i32 %42 to i64
-  %44 = lshr i64 -1, %43
-  %45 = icmp eq i32 %2, 0
-  %spec.select.i.i.i6 = select i1 %45, i64 0, i64 %44, !prof !26
-  %46 = zext nneg i32 %41 to i64
-  %47 = shl nuw i64 1, %46
-  %48 = xor i64 %47, -1
-  br label %55
+_ZN4llvm5APInt10getAllOnesEj.exit.thread.i:       ; preds = %38
+  %39 = add nuw nsw i32 %2, 63
+  %40 = and i32 %39, 63
+  %41 = xor i32 %40, 63
+  %42 = zext nneg i32 %41 to i64
+  %43 = lshr i64 -1, %42
+  %44 = icmp eq i32 %2, 0
+  %spec.select.i.i.i6 = select i1 %44, i64 0, i64 %43, !prof !26
+  %45 = zext nneg i32 %40 to i64
+  %46 = shl nuw i64 1, %45
+  %47 = xor i64 %46, -1
+  br label %54
 
-_ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %39
+_ZN4llvm5APInt10getAllOnesEj.exit.i:              ; preds = %38
   tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef -1, i1 noundef zeroext true) #19
   %.pre.i5 = load i32, ptr %4, align 8, !tbaa !23, !alias.scope !311
-  %49 = icmp ult i32 %.pre.i5, 65
-  %50 = add i32 %2, -1
-  %51 = and i32 %50, 63
-  %52 = zext nneg i32 %51 to i64
-  %53 = shl nuw i64 1, %52
-  %54 = xor i64 %53, -1
-  br i1 %49, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, label %59
+  %48 = icmp ult i32 %.pre.i5, 65
+  %49 = add i32 %2, -1
+  %50 = and i32 %49, 63
+  %51 = zext nneg i32 %50 to i64
+  %52 = shl nuw i64 1, %51
+  %53 = xor i64 %52, -1
+  br i1 %48, label %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, label %58
 
 _ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge:   ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
   %.pre = load i64, ptr %0, align 8, !tbaa !25, !alias.scope !311
-  br label %55
+  br label %54
 
-55:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i
-  %56 = phi i64 [ %spec.select.i.i.i6, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
-  %57 = phi i64 [ %48, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %54, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
-  %58 = and i64 %56, %57
-  store i64 %58, ptr %0, align 8, !tbaa !25, !alias.scope !311
+54:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i
+  %55 = phi i64 [ %spec.select.i.i.i6, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %.pre, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
+  %56 = phi i64 [ %47, %_ZN4llvm5APInt10getAllOnesEj.exit.thread.i ], [ %53, %_ZN4llvm5APInt10getAllOnesEj.exit.i._crit_edge ]
+  %57 = and i64 %55, %56
+  store i64 %57, ptr %0, align 8, !tbaa !25, !alias.scope !311
   br label %_ZN4llvm5APInt11getMinValueEj.exit
 
-59:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
-  %60 = load ptr, ptr %0, align 8, !tbaa !25, !alias.scope !311
-  %61 = lshr i32 %50, 6
-  %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %60, i64 %62
-  %64 = load i64, ptr %63, align 8, !tbaa !93
-  %65 = and i64 %64, %54
-  store i64 %65, ptr %63, align 8, !tbaa !93
+58:                                               ; preds = %_ZN4llvm5APInt10getAllOnesEj.exit.i
+  %59 = load ptr, ptr %0, align 8, !tbaa !25, !alias.scope !311
+  %60 = lshr i32 %49, 6
+  %61 = zext nneg i32 %60 to i64
+  %62 = getelementptr inbounds nuw i64, ptr %59, i64 %61
+  %63 = load i64, ptr %62, align 8, !tbaa !93
+  %64 = and i64 %63, %53
+  store i64 %64, ptr %62, align 8, !tbaa !93
   br label %_ZN4llvm5APInt11getMinValueEj.exit
 
-66:                                               ; preds = %3
+65:                                               ; preds = %3
   unreachable
 
-_ZN4llvm5APInt11getMinValueEj.exit:               ; preds = %59, %55, %32, %28, %17, %10, %8, %7
+_ZN4llvm5APInt11getMinValueEj.exit:               ; preds = %58, %54, %31, %29, %17, %10, %8, %7
   ret void
 }
 
@@ -20545,7 +20544,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread:                ; preds = %2
   %6 = and i32 %5, 63
   %7 = zext nneg i32 %6 to i64
   %8 = shl nuw i64 1, %7
-  br label %14
+  br label %15
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %2
   tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef 0, i1 noundef zeroext false) #19
@@ -20555,30 +20554,29 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %2
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw i64 1, %11
   %13 = icmp ult i32 %.pr, 65
-  br i1 %13, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, label %18
+  br i1 %13, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, label %17
 
 _ZN4llvm5APIntC2Ejmbb.exit._crit_edge:            ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
   %.pre = load i64, ptr %0, align 8, !tbaa !25
-  br label %14
+  %14 = or i64 %.pre, %12
+  br label %15
 
-14:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, %_ZN4llvm5APIntC2Ejmbb.exit.thread
-  %15 = phi i64 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.thread ], [ %.pre, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge ]
-  %16 = phi i64 [ %8, %_ZN4llvm5APIntC2Ejmbb.exit.thread ], [ %12, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge ]
-  %17 = or i64 %15, %16
-  store i64 %17, ptr %0, align 8, !tbaa !25
+15:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, %_ZN4llvm5APIntC2Ejmbb.exit.thread
+  %16 = phi i64 [ %8, %_ZN4llvm5APIntC2Ejmbb.exit.thread ], [ %14, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge ]
+  store i64 %16, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm5APInt6setBitEj.exit
 
-18:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !25
-  %20 = lshr i32 %9, 6
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
-  %23 = load i64, ptr %22, align 8, !tbaa !93
-  %24 = or i64 %23, %12
-  store i64 %24, ptr %22, align 8, !tbaa !93
+17:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
+  %18 = load ptr, ptr %0, align 8, !tbaa !25
+  %19 = lshr i32 %9, 6
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !93
+  %23 = or i64 %22, %12
+  store i64 %23, ptr %21, align 8, !tbaa !93
   br label %_ZN4llvm5APInt6setBitEj.exit
 
-_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %14, %18
+_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %15, %17
   ret void
 }
 

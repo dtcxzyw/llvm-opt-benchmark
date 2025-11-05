@@ -2503,12 +2503,12 @@ thread-pre-split:                                 ; preds = %19, %23, %26, %30, 
   %81 = tail call i32 @BN_num_bits(ptr noundef %3) #6
   %82 = tail call ptr @bn_wexpand(ptr noundef %0, i32 noundef %80) #6
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %127, label %84
+  br i1 %83, label %BN_mod_exp_mont_consttime.exit93, label %84
 
 84:                                               ; preds = %79
   %85 = tail call ptr @bn_wexpand(ptr noundef %5, i32 noundef %80) #6
   %86 = icmp eq ptr %85, null
-  br i1 %86, label %127, label %87
+  br i1 %86, label %BN_mod_exp_mont_consttime.exit93, label %87
 
 87:                                               ; preds = %84
   %.not87 = icmp eq ptr %4, null
@@ -2517,12 +2517,12 @@ thread-pre-split:                                 ; preds = %19, %23, %26, %30, 
 88:                                               ; preds = %87
   %89 = tail call ptr @BN_MONT_CTX_new() #6
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %127, label %91
+  br i1 %90, label %BN_mod_exp_mont_consttime.exit93, label %91
 
 91:                                               ; preds = %88
   %92 = tail call i32 @BN_MONT_CTX_set(ptr noundef nonnull %89, ptr noundef %3, ptr noundef %10) #6
   %.not88 = icmp eq i32 %92, 0
-  br i1 %.not88, label %127, label %93
+  br i1 %.not88, label %BN_mod_exp_mont_consttime.exit93, label %93
 
 93:                                               ; preds = %87, %91
   %.179 = phi ptr [ %89, %91 ], [ %4, %87 ]
@@ -2567,8 +2567,7 @@ thread-pre-split:                                 ; preds = %19, %23, %26, %30, 
   store i32 %80, ptr %119, align 8, !tbaa !5
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i32 0, ptr %120, align 8, !tbaa !12
-  tail call void @bn_correct_top(ptr noundef nonnull %5) #6
-  br label %127
+  br label %BN_mod_exp_mont_consttime.exit93.sink.split
 
 121:                                              ; preds = %76, %72, %68, %65, %61, %58, %13
   %122 = tail call i32 @bn_mod_exp_mont_fixed_top(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %10, ptr noundef %4)
@@ -2583,42 +2582,40 @@ BN_mod_exp_mont_consttime.exit:                   ; preds = %121, %123
   %.0.i = phi i32 [ 1, %123 ], [ 0, %121 ]
   %124 = tail call i32 @bn_mod_exp_mont_fixed_top(ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %10, ptr noundef %9)
   %.not.i91 = icmp eq i32 %124, 0
-  br i1 %.not.i91, label %BN_mod_exp_mont_consttime.exit93, label %125
+  br i1 %.not.i91, label %BN_mod_exp_mont_consttime.exit93, label %BN_mod_exp_mont_consttime.exit93.sink.split
 
-125:                                              ; preds = %BN_mod_exp_mont_consttime.exit
+BN_mod_exp_mont_consttime.exit93.sink.split:      ; preds = %BN_mod_exp_mont_consttime.exit, %99
+  %.280.ph = phi ptr [ %.179, %99 ], [ null, %BN_mod_exp_mont_consttime.exit ]
+  %.2.ph = phi ptr [ %.177, %99 ], [ null, %BN_mod_exp_mont_consttime.exit ]
+  %.1.ph = phi i32 [ %116, %99 ], [ %.0.i, %BN_mod_exp_mont_consttime.exit ]
   tail call void @bn_correct_top(ptr noundef %5) #6
   br label %BN_mod_exp_mont_consttime.exit93
 
-BN_mod_exp_mont_consttime.exit93:                 ; preds = %BN_mod_exp_mont_consttime.exit, %125
-  %.0.i92 = phi i32 [ 1, %125 ], [ 0, %BN_mod_exp_mont_consttime.exit ]
-  %126 = and i32 %.0.i92, %.0.i
-  br label %127
+BN_mod_exp_mont_consttime.exit93:                 ; preds = %BN_mod_exp_mont_consttime.exit93.sink.split, %BN_mod_exp_mont_consttime.exit, %79, %84, %88, %91
+  %.280 = phi ptr [ null, %79 ], [ null, %84 ], [ null, %88 ], [ %89, %91 ], [ null, %BN_mod_exp_mont_consttime.exit ], [ %.280.ph, %BN_mod_exp_mont_consttime.exit93.sink.split ]
+  %.2 = phi ptr [ null, %79 ], [ null, %84 ], [ null, %88 ], [ null, %91 ], [ null, %BN_mod_exp_mont_consttime.exit ], [ %.2.ph, %BN_mod_exp_mont_consttime.exit93.sink.split ]
+  %.1 = phi i32 [ 0, %79 ], [ 0, %84 ], [ 0, %88 ], [ 0, %91 ], [ 0, %BN_mod_exp_mont_consttime.exit ], [ %.1.ph, %BN_mod_exp_mont_consttime.exit93.sink.split ]
+  %125 = icmp eq ptr %9, null
+  br i1 %125, label %.thread, label %126
 
-127:                                              ; preds = %99, %79, %84, %88, %91, %BN_mod_exp_mont_consttime.exit93
-  %.280 = phi ptr [ null, %BN_mod_exp_mont_consttime.exit93 ], [ %.179, %99 ], [ null, %79 ], [ null, %84 ], [ null, %88 ], [ %89, %91 ]
-  %.2 = phi ptr [ null, %BN_mod_exp_mont_consttime.exit93 ], [ %.177, %99 ], [ null, %79 ], [ null, %84 ], [ null, %88 ], [ null, %91 ]
-  %.1 = phi i32 [ %126, %BN_mod_exp_mont_consttime.exit93 ], [ %116, %99 ], [ 0, %79 ], [ 0, %84 ], [ 0, %88 ], [ 0, %91 ]
-  %128 = icmp eq ptr %9, null
-  br i1 %128, label %.thread, label %129
-
-.thread:                                          ; preds = %97, %94, %127
-  %.1101 = phi i32 [ %.1, %127 ], [ 0, %94 ], [ 0, %97 ]
-  %.299 = phi ptr [ %.2, %127 ], [ null, %94 ], [ %95, %97 ]
-  %.28098 = phi ptr [ %.280, %127 ], [ %.179, %94 ], [ %.179, %97 ]
+.thread:                                          ; preds = %97, %94, %BN_mod_exp_mont_consttime.exit93
+  %.1101 = phi i32 [ %.1, %BN_mod_exp_mont_consttime.exit93 ], [ 0, %94 ], [ 0, %97 ]
+  %.299 = phi ptr [ %.2, %BN_mod_exp_mont_consttime.exit93 ], [ null, %94 ], [ %95, %97 ]
+  %.28098 = phi ptr [ %.280, %BN_mod_exp_mont_consttime.exit93 ], [ %.179, %94 ], [ %.179, %97 ]
   tail call void @BN_MONT_CTX_free(ptr noundef %.299) #6
+  br label %126
+
+126:                                              ; preds = %.thread, %BN_mod_exp_mont_consttime.exit93
+  %.1100 = phi i32 [ %.1101, %.thread ], [ %.1, %BN_mod_exp_mont_consttime.exit93 ]
+  %.28097 = phi ptr [ %.28098, %.thread ], [ %.280, %BN_mod_exp_mont_consttime.exit93 ]
+  %127 = icmp eq ptr %4, null
+  br i1 %127, label %128, label %129
+
+128:                                              ; preds = %126
+  tail call void @BN_MONT_CTX_free(ptr noundef %.28097) #6
   br label %129
 
-129:                                              ; preds = %.thread, %127
-  %.1100 = phi i32 [ %.1101, %.thread ], [ %.1, %127 ]
-  %.28097 = phi ptr [ %.28098, %.thread ], [ %.280, %127 ]
-  %130 = icmp eq ptr %4, null
-  br i1 %130, label %131, label %132
-
-131:                                              ; preds = %129
-  tail call void @BN_MONT_CTX_free(ptr noundef %.28097) #6
-  br label %132
-
-132:                                              ; preds = %129, %131
+129:                                              ; preds = %126, %128
   ret i32 %.1100
 }
 

@@ -6474,25 +6474,25 @@ prepare_kswapd_sleep.exit20:                      ; preds = %126
   %301 = call i64 @node_page_state(ptr noundef %0, i32 noundef 1) #14
   %302 = add i64 %301, %300
   %303 = icmp ult i64 %302, 262144
-  br i1 %303, label %308, label %304
+  br i1 %303, label %309, label %304
 
 304:                                              ; preds = %299
   %305 = lshr i64 %302, 18
   %306 = mul nuw nsw i64 %305, 10
   %307 = call i64 @int_sqrt(i64 noundef %306) #14
-  br label %308
+  %308 = mul i64 %307, %300
+  br label %309
 
-308:                                              ; preds = %304, %299
-  %309 = phi i64 [ %307, %304 ], [ 1, %299 ]
-  %310 = mul i64 %309, %300
+309:                                              ; preds = %304, %299
+  %310 = phi i64 [ %308, %304 ], [ %300, %299 ]
   %311 = icmp ult i64 %310, %301
   br i1 %311, label %312, label %313
 
-312:                                              ; preds = %308
+312:                                              ; preds = %309
   call fastcc void @shrink_active_list(i64 noundef 32, ptr noundef nonnull %36, ptr noundef nonnull %3, i32 noundef 1)
   br label %313
 
-313:                                              ; preds = %312, %308, %295, %289
+313:                                              ; preds = %312, %309, %295, %289
   %314 = load i8, ptr %33, align 1
   %315 = icmp slt i8 %314, 10
   br i1 %315, label %316, label %319
@@ -8579,26 +8579,26 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %62 = call i64 @node_page_state(ptr noundef %0, i32 noundef 1) #14
   %63 = add i64 %62, %61
   %64 = icmp ult i64 %63, 262144
-  br i1 %64, label %69, label %65
+  br i1 %64, label %70, label %65
 
 65:                                               ; preds = %60
   %66 = lshr i64 %63, 18
   %67 = mul nuw nsw i64 %66, 10
   %68 = call i64 @int_sqrt(i64 noundef %67) #14
-  br label %69
+  %69 = mul i64 %68, %61
+  br label %70
 
-69:                                               ; preds = %65, %60
-  %70 = phi i64 [ %68, %65 ], [ 1, %60 ]
-  %71 = mul i64 %70, %61
+70:                                               ; preds = %65, %60
+  %71 = phi i64 [ %69, %65 ], [ %61, %60 ]
   %72 = icmp ult i64 %71, %62
   br i1 %72, label %73, label %76
 
-73:                                               ; preds = %69, %56
+73:                                               ; preds = %70, %56
   %74 = load i16, ptr %17, align 8
   %75 = or i16 %74, 1
   br label %79
 
-76:                                               ; preds = %69
+76:                                               ; preds = %70
   %77 = load i16, ptr %17, align 8
   %78 = and i16 %77, -2
   br label %79
@@ -8616,26 +8616,26 @@ define internal fastcc void @shrink_node(ptr noundef %0, ptr noundef captures(ad
   %86 = call i64 @node_page_state(ptr noundef %0, i32 noundef 3) #14
   %87 = add i64 %86, %85
   %88 = icmp ult i64 %87, 262144
-  br i1 %88, label %93, label %89
+  br i1 %88, label %94, label %89
 
 89:                                               ; preds = %84
   %90 = lshr i64 %87, 18
   %91 = mul nuw nsw i64 %90, 10
   %92 = call i64 @int_sqrt(i64 noundef %91) #14
-  br label %93
+  %93 = mul i64 %92, %85
+  br label %94
 
-93:                                               ; preds = %89, %84
-  %94 = phi i64 [ %92, %89 ], [ 1, %84 ]
-  %95 = mul i64 %94, %85
+94:                                               ; preds = %89, %84
+  %95 = phi i64 [ %93, %89 ], [ %85, %84 ]
   %96 = icmp ult i64 %95, %86
   br i1 %96, label %97, label %100
 
-97:                                               ; preds = %93, %79
+97:                                               ; preds = %94, %79
   %98 = load i16, ptr %17, align 8
   %99 = or i16 %98, 2
   br label %105
 
-100:                                              ; preds = %93
+100:                                              ; preds = %94
   %101 = load i16, ptr %17, align 8
   %102 = and i16 %101, -3
   br label %105
@@ -9259,25 +9259,25 @@ default.unreachable71:                            ; preds = %.loopexit29
   %486 = call i64 @node_page_state(ptr noundef %0, i32 noundef 1) #14
   %487 = add i64 %486, %485
   %488 = icmp ult i64 %487, 262144
-  br i1 %488, label %493, label %489
+  br i1 %488, label %494, label %489
 
 489:                                              ; preds = %484
   %490 = lshr i64 %487, 18
   %491 = mul nuw nsw i64 %490, 10
   %492 = call i64 @int_sqrt(i64 noundef %491) #14
-  br label %493
+  %493 = mul i64 %492, %485
+  br label %494
 
-493:                                              ; preds = %489, %484
-  %494 = phi i64 [ %492, %489 ], [ 1, %484 ]
-  %495 = mul i64 %494, %485
+494:                                              ; preds = %489, %484
+  %495 = phi i64 [ %493, %489 ], [ %485, %484 ]
   %496 = icmp ult i64 %495, %486
   br i1 %496, label %497, label %498
 
-497:                                              ; preds = %493
+497:                                              ; preds = %494
   call fastcc void @shrink_active_list(i64 noundef 32, ptr noundef nonnull %9, ptr noundef %1, i32 noundef 1)
   br label %498
 
-498:                                              ; preds = %497, %493, %481, %477, %472
+498:                                              ; preds = %497, %494, %481, %477, %472
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

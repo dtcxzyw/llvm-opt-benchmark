@@ -3376,19 +3376,19 @@ parse_pcr.exit.thread:                            ; preds = %159, %157, %154, %1
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 1556
   %240 = load i32, ptr %239, align 4, !tbaa !129
   %.not150 = icmp eq i32 %240, 0
-  br i1 %.not150, label %._crit_edge.split.loop.exit191, label %241
+  br i1 %.not150, label %._crit_edge.split.loop.exit190, label %241
 
 241:                                              ; preds = %237
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %237, !llvm.loop !181
 
-._crit_edge.split.loop.exit191:                   ; preds = %237
+._crit_edge.split.loop.exit190:                   ; preds = %237
   %242 = trunc nuw nsw i64 %indvars.iv to i32
-  %.not195 = icmp eq i32 %234, %242
-  br i1 %.not195, label %.critedge, label %._crit_edge.thread
+  %.not194 = icmp eq i32 %234, %242
+  br i1 %.not194, label %.critedge, label %._crit_edge.thread
 
-.critedge:                                        ; preds = %241, %._crit_edge.split.loop.exit191
+.critedge:                                        ; preds = %241, %._crit_edge.split.loop.exit190
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %225, i32 noundef 48, ptr noundef nonnull @.str.62) #12
   %243 = load ptr, ptr %224, align 8, !tbaa !57
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 40
@@ -3413,8 +3413,8 @@ parse_pcr.exit.thread:                            ; preds = %159, %157, %154, %1
 .thread161:                                       ; preds = %247, %197
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.preheader, %229, %223, %.critedge, %._crit_edge.split.loop.exit191, %.thread161, %247, %209, %201, %187, %95, %93, %43
-  %.0 = phi i32 [ 0, %43 ], [ 0, %93 ], [ 0, %95 ], [ 0, %187 ], [ 0, %201 ], [ 0, %209 ], [ %256, %247 ], [ 0, %.thread161 ], [ 0, %._crit_edge.split.loop.exit191 ], [ 0, %.critedge ], [ 0, %223 ], [ 0, %229 ], [ 0, %.preheader ]
+._crit_edge.thread:                               ; preds = %.preheader, %229, %223, %.critedge, %._crit_edge.split.loop.exit190, %.thread161, %247, %209, %201, %187, %95, %93, %43
+  %.0 = phi i32 [ 0, %43 ], [ 0, %93 ], [ 0, %95 ], [ 0, %187 ], [ 0, %201 ], [ 0, %209 ], [ %256, %247 ], [ 0, %.thread161 ], [ 0, %._crit_edge.split.loop.exit190 ], [ 0, %.critedge ], [ 0, %223 ], [ 0, %229 ], [ 0, %.preheader ]
   ret i32 %.0
 }
 

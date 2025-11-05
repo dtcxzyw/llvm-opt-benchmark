@@ -2810,7 +2810,7 @@ _is_fed_job.exit:                                 ; preds = %25
   br label %38
 
 38:                                               ; preds = %36, %_is_fed_job.exit
-  %.0 = phi i1 [ true, %_is_fed_job.exit ], [ %.not42, %36 ]
+  %.0 = phi i1 [ false, %_is_fed_job.exit ], [ %.not42, %36 ]
   tail call void @job_record_free_fed_details(ptr noundef nonnull %23) #16
   %39 = load i32, ptr %15, align 8
   %40 = and i32 %39, 255
@@ -2840,8 +2840,7 @@ _is_fed_job.exit:                                 ; preds = %25
   br i1 %or.cond51, label %_is_fed_job.exit.thread, label %53, !llvm.loop !22
 
 53:                                               ; preds = %49
-  %or.cond52 = and i1 %35, %.0
-  br i1 %or.cond52, label %56, label %54
+  br i1 %.0, label %56, label %54
 
 54:                                               ; preds = %53
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 856
@@ -8039,7 +8038,7 @@ define dso_local zeroext i1 @fed_mgr_is_job_id_in_fed(i32 noundef %0) local_unna
   %.not = icmp eq ptr %2, null
   %.not4 = icmp ult i32 %0, 67108864
   %or.cond = or i1 %.not4, %.not
-  br i1 %or.cond, label %25, label %3
+  br i1 %or.cond, label %_get_all_sibling_bits.exit, label %3
 
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 26
@@ -8073,21 +8072,20 @@ define dso_local zeroext i1 @fed_mgr_is_job_id_in_fed(i32 noundef %0) local_unna
   %21 = or i64 %20, %.110.i
   %22 = tail call ptr @list_next(ptr noundef %13) #16
   %.not8.i = icmp eq ptr %22, null
-  br i1 %.not8.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
+  br i1 %.not8.i, label %._crit_edge.i.loopexit, label %.lr.ph.i, !llvm.loop !31
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %12
-  %.1.lcssa.i = phi i64 [ 0, %12 ], [ %21, %.lr.ph.i ]
+._crit_edge.i.loopexit:                           ; preds = %.lr.ph.i
+  %23 = and i64 %21, %7
+  %24 = icmp ne i64 %23, 0
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.i.loopexit, %12
+  %.1.lcssa.i = phi i1 [ false, %12 ], [ %24, %._crit_edge.i.loopexit ]
   tail call void @list_iterator_destroy(ptr noundef %13) #16
   br label %_get_all_sibling_bits.exit
 
-_get_all_sibling_bits.exit:                       ; preds = %3, %9, %._crit_edge.i
-  %.0.i = phi i64 [ %.1.lcssa.i, %._crit_edge.i ], [ 0, %9 ], [ 0, %3 ]
-  %23 = and i64 %.0.i, %7
-  %24 = icmp ne i64 %23, 0
-  br label %25
-
-25:                                               ; preds = %1, %_get_all_sibling_bits.exit
-  %.0 = phi i1 [ %24, %_get_all_sibling_bits.exit ], [ false, %1 ]
+_get_all_sibling_bits.exit:                       ; preds = %._crit_edge.i, %9, %3, %1
+  %.0 = phi i1 [ false, %1 ], [ %.1.lcssa.i, %._crit_edge.i ], [ false, %9 ], [ false, %3 ]
   ret i1 %.0
 }
 

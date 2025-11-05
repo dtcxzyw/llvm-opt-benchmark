@@ -160,8 +160,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.28 = private unnamed_addr constant [36 x i8] c"function end without function start\00", align 1
 @.str.30 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SPVRemapper.cpp, ptr null }]
-@switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE = private unnamed_addr constant [16 x i64] [i64 2, i64 2, i64 0, i64 2, i64 0, i64 2, i64 2, i64 2, i64 0, i64 3, i64 2, i64 0, i64 0, i64 0, i64 0, i64 2], align 8
-@switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE.215 = private unnamed_addr constant [16 x i64] [i64 12884901888, i64 12884901888, i64 0, i64 12884901888, i64 0, i64 12884901888, i64 12884901888, i64 4611686018427387904, i64 0, i64 17179869184, i64 4611686018427387904, i64 0, i64 0, i64 0, i64 0, i64 12884901888], align 8
+@switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE = private unnamed_addr constant [16 x i64] [i64 12884901890, i64 12884901890, i64 0, i64 12884901890, i64 0, i64 12884901890, i64 12884901890, i64 4611686018427387906, i64 0, i64 17179869187, i64 4611686018427387906, i64 0, i64 0, i64 0, i64 0, i64 12884901890], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
@@ -282,36 +281,29 @@ define range(i64 0, 4611686018427387908) i64 @_ZNK3spv10spirvbin_t12literalRange
   br label %8
 
 8:                                                ; preds = %2, %2, %7, %6, %5, %4, %3
-  %.sroa.0.0 = phi i64 [ 0, %7 ], [ 2, %3 ], [ 3, %4 ], [ 3, %5 ], [ 3, %6 ], [ 2, %2 ], [ 2, %2 ]
-  %.sroa.7.0 = phi i64 [ 0, %7 ], [ 17179869184, %3 ], [ 34359738368, %4 ], [ 17179869184, %5 ], [ 4611686018427387904, %6 ], [ 12884901888, %2 ], [ 12884901888, %2 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.7.0 = phi i64 [ 0, %7 ], [ 17179869186, %3 ], [ 34359738371, %4 ], [ 17179869187, %5 ], [ 4611686018427387907, %6 ], [ 12884901890, %2 ], [ 12884901890, %2 ]
+  ret i64 %.sroa.7.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i64 0, 4611686018427387908) i64 @_ZNK3spv10spirvbin_t9typeRangeENS_2OpE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define range(i64 0, 4611686018427387907) i64 @_ZNK3spv10spirvbin_t9typeRangeENS_2OpE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK3spv10spirvbin_t9isConstOpENS_2OpE(ptr noundef nonnull align 8 dereferenceable(473) %0, i32 noundef %1)
-  br i1 %3, label %8, label %4
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
   %switch.tableidx = add i32 %1, -23
   %5 = icmp ult i32 %switch.tableidx, 16
-  br i1 %5, label %switch.lookup, label %8
+  br i1 %5, label %switch.lookup, label %7
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK3spv10spirvbin_t9typeRangeENS_2OpE.215, i64 %7
-  %switch.load11 = load i64, ptr %switch.gep10, align 8
-  br label %8
+  br label %7
 
-8:                                                ; preds = %4, %switch.lookup, %2
-  %.sroa.0.0 = phi i64 [ 1, %2 ], [ %switch.load, %switch.lookup ], [ 0, %4 ]
-  %.sroa.6.0 = phi i64 [ 8589934592, %2 ], [ %switch.load11, %switch.lookup ], [ 0, %4 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.6.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+7:                                                ; preds = %4, %switch.lookup, %2
+  %.sroa.6.0 = phi i64 [ 8589934593, %2 ], [ %switch.load, %switch.lookup ], [ 0, %4 ]
+  ret i64 %.sroa.6.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -372,10 +364,8 @@ define range(i64 0, 4611686018427387908) i64 @_ZNK3spv10spirvbin_t10constRangeEN
   br label %5
 
 5:                                                ; preds = %2, %2, %4, %3
-  %.sroa.0.0 = phi i64 [ 0, %4 ], [ 3, %3 ], [ 3, %2 ], [ 3, %2 ]
-  %.sroa.4.0 = phi i64 [ 0, %4 ], [ 4611686018427387904, %3 ], [ 17179869184, %2 ], [ 17179869184, %2 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.0 = phi i64 [ 0, %4 ], [ 4611686018427387907, %3 ], [ 17179869187, %2 ], [ 17179869187, %2 ]
+  ret i64 %.sroa.4.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

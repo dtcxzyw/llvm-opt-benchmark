@@ -1214,15 +1214,14 @@ _ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit
   %retval.sroa.8.0.i = phi i32 [ %retval.sroa.8.8.extract.trunc.i, %_ZN6hermes2vm6HandleINS0_15StringPrimitiveEEC2ERNS0_15HandleRootOwnerEPS2_.exit.i ], [ %bf.lshr.i12.i, %if.end.i ]
   %11 = zext i32 %retval.sroa.8.0.i to i64
   %12 = shl nuw i64 %11, 32
+  %13 = or disjoint i64 %12, %retval.sroa.4.0.i
   br label %return
 
 return:                                           ; preds = %if.end11, %entry, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit, %if.then10
-  %retval.sroa.5.0 = phi i64 [ 2147483648, %if.then10 ], [ %retval.sroa.4.0.i, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 2147483648, %entry ], [ 2147483648, %if.end11 ]
   %retval.sroa.0.0 = phi ptr [ @.str.1, %if.then10 ], [ %retval.sroa.0.0.i, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ @.str, %entry ], [ @.str.2, %if.end11 ]
-  %retval.sroa.10.0 = phi i64 [ 47244640256, %if.then10 ], [ %12, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 38654705664, %entry ], [ 47244640256, %if.end11 ]
+  %retval.sroa.10.0 = phi i64 [ 49392123904, %if.then10 ], [ %13, %_ZNK6hermes2vm15IdentifierTable13getStringViewERNS0_7RuntimeENS0_8SymbolIDE.exit ], [ 40802189312, %entry ], [ 49392123904, %if.end11 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %retval.sroa.0.0, 0
-  %retval.sroa.5.8.insert.insert = or i64 %retval.sroa.10.0, %retval.sroa.5.0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.5.8.insert.insert, 1
+  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %retval.sroa.10.0, 1
   ret { ptr, i64 } %.fca.1.insert
 }
 
@@ -2754,15 +2753,13 @@ _ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63: ;
   br label %if.end34
 
 if.end34:                                         ; preds = %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63, %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit
-  %or.i = or i32 %call, 268435456
-  %18 = zext i32 %or.i to i64
+  %.pre-phi = phi i64 [ %conv31, %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit63 ], [ %conv, %_ZN6hermes2vm15IdentifierTable11LookupEntryC2EPNS0_15StringPrimitiveEb.exit ]
+  %18 = or i64 %.pre-phi, 4563402752
   br label %return
 
 return:                                           ; preds = %cond.end, %if.end34
-  %retval.sroa.0.0 = phi i64 [ %18, %if.end34 ], [ 0, %cond.end ]
-  %retval.sroa.2.0 = phi i64 [ 4294967296, %if.end34 ], [ 0, %cond.end ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.2.0 = phi i64 [ %18, %if.end34 ], [ 0, %cond.end ]
+  ret i64 %retval.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

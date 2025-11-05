@@ -405,8 +405,8 @@ define i32 @mriStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   %. = select i1 %30, double %26, double %29
   store double %., ptr %24, align 8, !tbaa !55
   %31 = fcmp olt double %., 1.000000e+00
-  %32 = select i1 %31, double %., double 1.000000e+00
-  %33 = fmul double %16, %32
+  %32 = fmul double %16, %.
+  %33 = select i1 %31, double %32, double %16
   %34 = fdiv double %33, %3
   %35 = fcmp ugt double %34, 1.000000e+00
   br i1 %35, label %41, label %49
@@ -415,8 +415,8 @@ define i32 @mriStep_NlsConvTest(ptr noundef %0, ptr readnone captures(none) %1, 
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 248
   %.pre20 = load double, ptr %.phi.trans.insert, align 8, !tbaa !55
   %36 = fcmp olt double %.pre20, 1.000000e+00
-  %37 = select i1 %36, double %.pre20, double 1.000000e+00
-  %38 = fmul double %16, %37
+  %37 = fmul double %16, %.pre20
+  %38 = select i1 %36, double %37, double %16
   %39 = fdiv double %38, %3
   %40 = fcmp ugt double %39, 1.000000e+00
   br i1 %40, label %.thread22, label %49

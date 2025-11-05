@@ -26510,8 +26510,8 @@ define linkonce_odr { ptr, ptr } @_ZSt9transformIN8nlohmann6detail9iter_implIKNS
   br label %_ZZN8nlohmann6detail20from_json_array_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEES4_ISt8optionalIiESaISG_EETnNSt9enable_ifIXsr3std13is_assignableIRT0_SK_EE5valueEiE4typeELi0EEEDTcmcmcldtfL0p0_7reserveclsr3stdE7declvalINSK_9size_typeEEEEcldtfL0p_3getINSK_10value_typeEEEcvv_EERKT_SL_NS0_12priority_tagILj1EEEENKUlRKSE_E_clESX_.exit
 
 _ZZN8nlohmann6detail20from_json_array_implINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEES4_ISt8optionalIiESaISG_EETnNSt9enable_ifIXsr3std13is_assignableIRT0_SK_EE5valueEiE4typeELi0EEEDTcmcmcldtfL0p0_7reserveclsr3stdE7declvalINSK_9size_typeEEEEcldtfL0p_3getINSK_10value_typeEEEcvv_EERKT_SL_NS0_12priority_tagILj1EEEENKUlRKSE_E_clESX_.exit: ; preds = %11, %15
-  %.sroa.0.0.insert.insert.i.i.i.i = phi i64 [ %18, %15 ], [ 0, %11 ]
-  store i64 %.sroa.0.0.insert.insert.i.i.i.i, ptr %6, align 8
+  %.sroa.2.0.i.i.i.i = phi i64 [ %18, %15 ], [ 0, %11 ]
+  store i64 %.sroa.2.0.i.i.i.i, ptr %6, align 8
   %19 = call ptr @_ZNSt6vectorISt8optionalIiESaIS1_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %.sroa.3.01, ptr noundef nonnull align 4 dereferenceable(8) %6)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %0, align 8

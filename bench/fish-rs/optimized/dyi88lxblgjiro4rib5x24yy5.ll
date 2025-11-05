@@ -266,9 +266,9 @@ define void @_ZN11fish_printf3arg3Arg8as_float17hbebf32eb5a507c15E(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define range(i64 768, -4294965248) i64 @_ZN11fish_printf3arg3Arg7as_char17hc408ed71f61477d1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
+define range(i64 769, -4294965248) i64 @_ZN11fish_printf3arg3Arg7as_char17hc408ed71f61477d1E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !3, !alias.scope !8, !noalias !11, !noundef !4
-  switch i8 %2, label %17 [
+  switch i8 %2, label %19 [
     i8 4, label %3
     i8 5, label %6
   ]
@@ -282,12 +282,12 @@ define range(i64 768, -4294965248) i64 @_ZN11fish_printf3arg3Arg7as_char17hc408e
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !8, !noalias !11, !noundef !4
   %9 = icmp sgt i64 %8, -1
-  br i1 %9, label %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, label %17
+  br i1 %9, label %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, label %19
 
 _ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit: ; preds = %6, %3
   %.sroa.819.0 = phi i64 [ %5, %3 ], [ %8, %6 ]
   %10 = icmp ugt i64 %.sroa.819.0, 4294967295
-  br i1 %10, label %17, label %11
+  br i1 %10, label %19, label %11
 
 11:                                               ; preds = %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit
   %12 = trunc nuw i64 %.sroa.819.0 to i32
@@ -296,15 +296,13 @@ _ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit: ; preds = %6, %3
   %15 = icmp ult i32 %14, -1112064
   %spec.select = zext i1 %15 to i64
   %16 = shl nuw i64 %.sroa.819.0, 32
-  br label %17
+  %17 = or disjoint i64 %16, %spec.select
+  %18 = or disjoint i64 %17, 1024
+  br label %19
 
-17:                                               ; preds = %6, %1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, %11
-  %.sroa.81.1 = phi i64 [ %16, %11 ], [ 0, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 0, %1 ], [ 0, %6 ]
-  %.sroa.5.2 = phi i64 [ 1024, %11 ], [ 1024, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 768, %1 ], [ 1024, %6 ]
-  %.sroa.0.2 = phi i64 [ %spec.select, %11 ], [ 1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 1, %1 ], [ 1, %6 ]
-  %.sroa.5.0.insert.insert = or disjoint i64 %.sroa.5.2, %.sroa.81.1
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert, %.sroa.0.2
-  ret i64 %.sroa.0.0.insert.insert
+19:                                               ; preds = %6, %1, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit, %11
+  %.sroa.0.2 = phi i64 [ %18, %11 ], [ 1025, %_ZN11fish_printf3arg3Arg7as_uint17he29dcf03f8e1b8f2E.exit ], [ 1025, %6 ], [ 769, %1 ]
+  ret i64 %.sroa.0.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

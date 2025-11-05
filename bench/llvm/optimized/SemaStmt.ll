@@ -35356,12 +35356,12 @@ define dso_local void @_ZN5clang4Sema24ActOnCapturedRegionStartENS_14SourceLocat
   %14 = icmp eq i64 %13, 0
   %15 = icmp ne i32 %3, 2
   %or.cond.i = or i1 %15, %14
-  br i1 %or.cond.i, label %.critedge, label %16
+  br i1 %or.cond.i, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread31, label %16
 
 16:                                               ; preds = %5
   %17 = tail call noundef ptr @_ZNK5clang4Sema18getCurFunctionDeclEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, i1 noundef zeroext true) #27
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %.critedge, label %18
+  br i1 %.not.i, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread31, label %18
 
 18:                                               ; preds = %16
   %19 = tail call noundef zeroext i1 @_ZN5clang22IsArmStreamingFunctionEPKNS_12FunctionDeclEb(ptr noundef nonnull %17, i1 noundef zeroext true) #27
@@ -35373,10 +35373,10 @@ define dso_local void @_ZN5clang4Sema24ActOnCapturedRegionStartENS_14SourceLocat
 
 _ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit: ; preds = %20
   %22 = tail call noundef zeroext i1 @_ZN5clang14hasArmZT0StateEPKNS_12FunctionDeclE(ptr noundef nonnull %17) #27
-  br i1 %22, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread, label %.critedge
+  br i1 %22, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread31
 
 _ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread: ; preds = %18, %20, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit
-  %.sroa.0.0.i35 = phi i64 [ 2, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit ], [ 0, %18 ], [ 1, %20 ]
+  %.sroa.023.0.extract.trunc29 = phi i64 [ 2, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit ], [ 0, %18 ], [ 1, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %23, i32 %1, i32 noundef 4694, i1 noundef zeroext false) #27
@@ -35498,7 +35498,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i8 %78, ptr %75, align 8, !tbaa !746
   %79 = zext i8 %77 to i64
   %80 = getelementptr inbounds nuw i64, ptr %76, i64 %79
-  store i64 %.sroa.0.0.i35, ptr %80, align 8, !tbaa !683
+  store i64 %.sroa.023.0.extract.trunc29, ptr %80, align 8, !tbaa !683
   br label %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
 81:                                               ; preds = %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread
@@ -35532,16 +35532,16 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %90, %
   %99 = load ptr, ptr %96, align 8, !tbaa !781
   %100 = getelementptr inbounds nuw %"struct.std::pair.1490", ptr %99, i64 %98
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %101, i64 noundef %.sroa.0.0.i35, i32 noundef 2)
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %101, i64 noundef %.sroa.023.0.extract.trunc29, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
 _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %81, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.critedge
+  br label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread31
 
-.critedge:                                        ; preds = %5, %16, %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit
+_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread31: ; preds = %16, %5, %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !1996
   %102 = call noundef ptr @_ZN5clang4Sema28CreateCapturedStmtRecordDeclERPNS_12CapturedDeclENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(8) %8, i32 %1, i32 noundef %4)
@@ -35568,11 +35568,11 @@ _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %119, label %118
 
-118:                                              ; preds = %.critedge
+118:                                              ; preds = %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread31
   call void @_ZN5clang4Sema15PushDeclContextEPNS_5ScopeEPNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %2, ptr noundef nonnull %105) #27
   br label %121
 
-119:                                              ; preds = %.critedge
+119:                                              ; preds = %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread31
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 552
   store ptr %105, ptr %120, align 8, !tbaa !1208
   br label %121
@@ -35691,12 +35691,12 @@ define dso_local void @_ZN5clang4Sema24ActOnCapturedRegionStartENS_14SourceLocat
   %16 = icmp eq i64 %15, 0
   %17 = icmp ne i32 %3, 2
   %or.cond.i = or i1 %17, %16
-  br i1 %or.cond.i, label %.critedge, label %18
+  br i1 %or.cond.i, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74, label %18
 
 18:                                               ; preds = %7
   %19 = tail call noundef ptr @_ZNK5clang4Sema18getCurFunctionDeclEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, i1 noundef zeroext true) #27
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %.critedge, label %20
+  br i1 %.not.i, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74, label %20
 
 20:                                               ; preds = %18
   %21 = tail call noundef zeroext i1 @_ZN5clang22IsArmStreamingFunctionEPKNS_12FunctionDeclEb(ptr noundef nonnull %19, i1 noundef zeroext true) #27
@@ -35708,10 +35708,10 @@ define dso_local void @_ZN5clang4Sema24ActOnCapturedRegionStartENS_14SourceLocat
 
 _ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit: ; preds = %22
   %24 = tail call noundef zeroext i1 @_ZN5clang14hasArmZT0StateEPKNS_12FunctionDeclE(ptr noundef nonnull %19) #27
-  br i1 %24, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread, label %.critedge
+  br i1 %24, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread, label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74
 
 _ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread: ; preds = %20, %22, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit
-  %.sroa.0.0.i84 = phi i64 [ 2, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit ], [ 0, %20 ], [ 1, %22 ]
+  %.sroa.063.0.extract.trunc72 = phi i64 [ 2, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit ], [ 0, %20 ], [ 1, %22 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %25, i32 %1, i32 noundef 4694, i1 noundef zeroext false) #27
@@ -35833,7 +35833,7 @@ _ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentK
   store i8 %80, ptr %77, align 8, !tbaa !746
   %81 = zext i8 %79 to i64
   %82 = getelementptr inbounds nuw i64, ptr %78, i64 %81
-  store i64 %.sroa.0.0.i84, ptr %82, align 8, !tbaa !683
+  store i64 %.sroa.063.0.extract.trunc72, ptr %82, align 8, !tbaa !683
   br label %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
 83:                                               ; preds = %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread
@@ -35867,16 +35867,16 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %92, %
   %101 = load ptr, ptr %98, align 8, !tbaa !781
   %102 = getelementptr inbounds nuw %"struct.std::pair.1490", ptr %101, i64 %100
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %103, i64 noundef %.sroa.0.0.i84, i32 noundef 2)
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %103, i64 noundef %.sroa.063.0.extract.trunc72, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
 _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %83, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.critedge
+  br label %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74
 
-.critedge:                                        ; preds = %7, %18, %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit
+_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74: ; preds = %18, %7, %_ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store ptr null, ptr %10, align 8, !tbaa !1996
   %104 = trunc i64 %5 to i32
@@ -35887,10 +35887,10 @@ _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   %spec.select.i = select i1 %107, ptr null, ptr %108
   %.idx = mul nuw nsw i64 %5, 24
   %109 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not68 = icmp eq i64 %5, 0
-  br i1 %.not68, label %._crit_edge.thread, label %.lr.ph
+  %.not79 = icmp eq i64 %5, 0
+  br i1 %.not79, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.critedge
+.lr.ph:                                           ; preds = %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %111 = getelementptr inbounds nuw i8, ptr %106, i64 88
   %112 = getelementptr inbounds nuw i8, ptr %106, i64 76
@@ -35900,10 +35900,10 @@ _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   br i1 %.1, label %149, label %._crit_edge.thread
 
 113:                                              ; preds = %.lr.ph, %130
-  %.071 = phi i1 [ false, %.lr.ph ], [ %.1, %130 ]
-  %.05370 = phi i32 [ 0, %.lr.ph ], [ %134, %130 ]
-  %.05469 = phi ptr [ %4, %.lr.ph ], [ %133, %130 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.05469, i64 16
+  %.082 = phi i1 [ false, %.lr.ph ], [ %.1, %130 ]
+  %.05381 = phi i32 [ 0, %.lr.ph ], [ %134, %130 ]
+  %.05480 = phi ptr [ %4, %.lr.ph ], [ %133, %130 ]
+  %114 = getelementptr inbounds nuw i8, ptr %.05480, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %114, align 8
   %.not.i.i57 = icmp ult i64 %.0.copyload.i.i.i.i, 16
   %115 = load ptr, ptr %110, align 8, !tbaa !3
@@ -35920,12 +35920,12 @@ _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   %124 = load ptr, ptr %110, align 8, !tbaa !3
   %125 = call noundef ptr @_ZN5clang17ImplicitParamDecl6CreateERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEPNS_14IdentifierInfoENS_8QualTypeENS_17ImplicitParamKindE(ptr noundef nonnull align 8 dereferenceable(23216) %124, ptr noundef %spec.select.i, i32 %1, ptr noundef nonnull %119, i64 %123, i32 noundef 4) #27
   call void @_ZN5clang11DeclContext7addDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %125) #27
-  store i32 %.05370, ptr %112, align 4, !tbaa !1998
+  store i32 %.05381, ptr %112, align 4, !tbaa !1998
   br label %130
 
 126:                                              ; preds = %113
-  %.sroa.011.0.copyload = load ptr, ptr %.05469, align 8, !tbaa !2017
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.05469, i64 8
+  %.sroa.011.0.copyload = load ptr, ptr %.05480, align 8, !tbaa !2017
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.05480, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !683
   %127 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %117, ptr %.sroa.011.0.copyload, i64 %.sroa.2.0.copyload)
   %128 = load ptr, ptr %110, align 8, !tbaa !3
@@ -35936,17 +35936,17 @@ _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
 
 130:                                              ; preds = %118, %126
   %.sink = phi ptr [ %125, %118 ], [ %129, %126 ]
-  %.1 = phi i1 [ true, %118 ], [ %.071, %126 ]
-  %131 = zext i32 %.05370 to i64
+  %.1 = phi i1 [ true, %118 ], [ %.082, %126 ]
+  %131 = zext i32 %.05381 to i64
   %132 = getelementptr inbounds nuw ptr, ptr %111, i64 %131
   store ptr %.sink, ptr %132, align 8, !tbaa !2002
-  %133 = getelementptr inbounds nuw i8, ptr %.05469, i64 24
-  %134 = add i32 %.05370, 1
+  %133 = getelementptr inbounds nuw i8, ptr %.05480, i64 24
+  %134 = add i32 %.05381, 1
   %.not = icmp eq ptr %133, %109
   br i1 %.not, label %._crit_edge, label %113, !llvm.loop !2018
 
-._crit_edge.thread:                               ; preds = %.critedge, %._crit_edge
-  %.053.lcssa87 = phi i32 [ %134, %._crit_edge ], [ 0, %.critedge ]
+._crit_edge.thread:                               ; preds = %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74, %._crit_edge
+  %.053.lcssa95 = phi i32 [ %134, %._crit_edge ], [ 0, %_ZL38isOpenMPCapturedRegionInArmSMEFunctionRKN5clang4SemaENS_18CapturedRegionKindE.exit.thread74 ]
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %136 = load ptr, ptr %135, align 8, !tbaa !3
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 17344
@@ -35959,9 +35959,9 @@ _ZN5clanglsIiEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_Z
   %144 = call noundef ptr @_ZN5clang17ImplicitParamDecl6CreateERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationEPNS_14IdentifierInfoENS_8QualTypeENS_17ImplicitParamKindE(ptr noundef nonnull align 8 dereferenceable(23216) %143, ptr noundef %spec.select.i, i32 %1, ptr noundef nonnull %139, i64 %142, i32 noundef 4) #27
   call void @_ZN5clang11DeclContext7addDeclEPNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(32) %108, ptr noundef %144) #27
   %145 = getelementptr inbounds nuw i8, ptr %106, i64 76
-  store i32 %.053.lcssa87, ptr %145, align 4, !tbaa !1998
+  store i32 %.053.lcssa95, ptr %145, align 4, !tbaa !1998
   %146 = getelementptr inbounds nuw i8, ptr %106, i64 88
-  %147 = zext i32 %.053.lcssa87 to i64
+  %147 = zext i32 %.053.lcssa95 to i64
   %148 = getelementptr inbounds nuw ptr, ptr %146, i64 %147
   store ptr %144, ptr %148, align 8, !tbaa !2002
   br label %149

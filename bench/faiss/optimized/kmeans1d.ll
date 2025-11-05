@@ -2025,8 +2025,8 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge
 _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 1, ptr %8, align 8, !tbaa !9
-  %.not360 = icmp eq i64 %2, 1
-  br i1 %.not360, label %.lr.ph268.preheader, label %.lr.ph260
+  %.not359 = icmp eq i64 %2, 1
+  br i1 %.not359, label %.lr.ph268.preheader, label %.lr.ph260
 
 .lr.ph260:                                        ; preds = %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
   %229 = icmp ugt i64 %1, 1152921504606846975
@@ -2261,15 +2261,15 @@ _ZNSt6vectorIlSaIlEED2Ev.exit153:                 ; preds = %.loopexit, %.loopex
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit172
 
-.loopexit349:                                     ; preds = %389
-  %326 = uitofp nneg i64 %2 to double
-  %327 = fmul double %395, %326
-  %328 = fmul double %394, %394
-  %329 = fdiv double %327, %328
+._crit_edge269.loopexit:                          ; preds = %389
+  %326 = fmul double %394, %394
+  %327 = uitofp nneg i64 %2 to double
+  %328 = fmul double %395, %327
+  %329 = fdiv double %328, %326
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit155
 
-_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %.loopexit349
-  %330 = phi double [ %329, %.loopexit349 ], [ 0x7FF8000000000000, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
+_ZNSt6vectorIlSaIlEED2Ev.exit155:                 ; preds = %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i, %._crit_edge269.loopexit
+  %330 = phi double [ %329, %._crit_edge269.loopexit ], [ 0x7FF8000000000000, %_ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i ]
   %.not.i.i.i.i156 = icmp eq ptr %.sroa.0213.0, null
   br i1 %.not.i.i.i.i156, label %_ZN5faiss12_GLOBAL__N_16MatrixIlED2Ev.exit, label %331
 
@@ -2429,7 +2429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170: ; preds = %38
   %394 = fadd double %.087263, %393
   %395 = call double @llvm.fmuladd.f64(double %393, double %393, double %.086264)
   %396 = icmp sgt i64 %.084266.in, 1
-  br i1 %396, label %.lr.ph268, label %.loopexit349, !llvm.loop !95
+  br i1 %396, label %.lr.ph268, label %._crit_edge269.loopexit, !llvm.loop !95
 
 _ZNSt6vectorIlSaIlEED2Ev.exit172:                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170, %_ZNSt6vectorIlSaIlEED2Ev.exit153, %236
   %.pn98.pn.pn.pn = phi { ptr, i32 } [ %237, %236 ], [ %.pn98.pn, %_ZNSt6vectorIlSaIlEED2Ev.exit153 ], [ %.pn94, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit170 ]

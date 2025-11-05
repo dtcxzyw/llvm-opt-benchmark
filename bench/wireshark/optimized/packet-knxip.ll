@@ -2307,7 +2307,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   br label %49
 
 49:                                               ; preds = %.lr.ph, %dissect_dib.exit
-  %50 = phi i32 [ %34, %.lr.ph ], [ %555, %dissect_dib.exit ]
+  %50 = phi i32 [ %34, %.lr.ph ], [ %554, %dissect_dib.exit ]
   %51 = phi i32 [ %33, %.lr.ph ], [ %.0217.i, %dissect_dib.exit ]
   %.014 = phi i32 [ %48, %.lr.ph ], [ 44, %dissect_dib.exit ]
   %52 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %51)
@@ -2342,7 +2342,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
 
 70:                                               ; preds = %68
   %71 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %58, ptr noundef nonnull @ei_knxip_error, ptr noundef nonnull @.str.345)
-  br label %541
+  br label %540
 
 72:                                               ; preds = %68
   %73 = load i32, ptr @hf_knxip_description_type, align 4
@@ -2375,7 +2375,7 @@ define internal fastcc void @dissect_dibs(ptr noundef %0, ptr noundef %1, ptr no
   br label %87
 
 87:                                               ; preds = %82, %81
-  switch i8 %75, label %531 [
+  switch i8 %75, label %530 [
     i8 1, label %88
     i8 2, label %222
     i8 3, label %266
@@ -2636,7 +2636,7 @@ dissect_dib_devinfo.exit.i:                       ; preds = %218, %217
   %220 = call ptr @wmem_strbuf_get_str(ptr noundef %90)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.263, ptr noundef %220)
   %221 = and i8 %.0116130.i.i, %.0146.i
-  br label %533
+  br label %532
 
 222:                                              ; preds = %87
   %223 = zext i8 %.1.i to i32
@@ -2731,7 +2731,7 @@ dissect_dib_devinfo.exit.i:                       ; preds = %218, %217
 dissect_dib_suppsvc.exit.i:                       ; preds = %263, %261
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %265 = and i8 %.042.i.i, %.0146.i
-  br label %533
+  br label %532
 
 266:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -2808,7 +2808,7 @@ dissect_dib_ipconfig.exit.i:                      ; preds = %304, %300, %296, %2
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.263, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   %307 = and i8 %.038.i.i, %.0146.i
-  br label %533
+  br label %532
 
 308:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -2896,7 +2896,7 @@ dissect_dib_curconfig.exit.i:                     ; preds = %352, %348, %344, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %355 = and i8 %354, %.0146.i
-  br label %533
+  br label %532
 
 356:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -2979,7 +2979,7 @@ dissect_dib_knxaddr.exit.i:                       ; preds = %.lr.ph.i180.i, %369
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %394 = and i8 %.025.i.i, %.0146.i
-  br label %533
+  br label %532
 
 395:                                              ; preds = %87
   %396 = zext i8 %.1.i to i32
@@ -3038,7 +3038,7 @@ dissect_dib_knxaddr.exit.i:                       ; preds = %.lr.ph.i180.i, %369
 dissect_dib_secured_service_families.exit.i:      ; preds = %421, %401
   %.0.lcssa.i.i = phi i32 [ %78, %401 ], [ %403, %421 ]
   %423 = and i8 %.034.i.i, %.0146.i
-  br label %533
+  br label %532
 
 424:                                              ; preds = %87
   %425 = icmp ult i8 %.1.i, 4
@@ -3152,7 +3152,7 @@ dissect_dib_tunneling_info.exit.i:                ; preds = %482, %439, %427, %4
   %.046.i.i = phi i8 [ 0, %427 ], [ 1, %426 ], [ %.147.i.i, %439 ], [ %.147.i.i, %482 ]
   %.0.i191.i = phi i32 [ %78, %427 ], [ %78, %426 ], [ %434, %439 ], [ %441, %482 ]
   %484 = and i8 %.046.i.i, %.0146.i
-  br label %533
+  br label %532
 
 485:                                              ; preds = %87
   %.not.i192.i = icmp eq i8 %.1.i, 8
@@ -3223,7 +3223,7 @@ dissect_dib_extdevinfo.exit.i:                    ; preds = %511, %506, %knxip_t
   %.1.i193.i = phi i8 [ %.03739.i.i, %496 ], [ %.2.i.i, %511 ], [ %.2.i.i, %506 ], [ %.2.i.i, %knxip_tree_add_reserved.exit.i.i ], [ 0, %489 ]
   %.0.i194.i = phi i32 [ %497, %496 ], [ %514, %511 ], [ %509, %506 ], [ %504, %knxip_tree_add_reserved.exit.i.i ], [ %78, %489 ]
   %515 = and i8 %.1.i193.i, %.0146.i
-  br label %533
+  br label %532
 
 516:                                              ; preds = %87
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3253,98 +3253,97 @@ dissect_dib_extdevinfo.exit.i:                    ; preds = %511, %506, %knxip_t
 
 dissect_dib_mfrdata.exit.i:                       ; preds = %523, %521
   %.014.i.i = phi i32 [ %78, %521 ], [ %529, %523 ]
-  %.0.i198.i = phi i8 [ 0, %521 ], [ 1, %523 ]
+  %.0.i198.i = phi i8 [ 0, %521 ], [ %.0146.i, %523 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.263, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %530 = and i8 %.0.i198.i, %.0146.i
-  br label %533
+  br label %532
 
-531:                                              ; preds = %87
-  %532 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %74, ptr noundef nonnull @ei_knxip_warning, ptr noundef nonnull @.str.347)
-  br label %533
+530:                                              ; preds = %87
+  %531 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %74, ptr noundef nonnull @ei_knxip_warning, ptr noundef nonnull @.str.347)
+  br label %532
 
-533:                                              ; preds = %531, %dissect_dib_mfrdata.exit.i, %dissect_dib_extdevinfo.exit.i, %dissect_dib_tunneling_info.exit.i, %dissect_dib_secured_service_families.exit.i, %dissect_dib_knxaddr.exit.i, %dissect_dib_curconfig.exit.i, %dissect_dib_ipconfig.exit.i, %dissect_dib_suppsvc.exit.i, %dissect_dib_devinfo.exit.i
-  %.1218.i = phi i32 [ %78, %531 ], [ %.0.i.i, %dissect_dib_devinfo.exit.i ], [ %.0.lcssa59.i.i, %dissect_dib_suppsvc.exit.i ], [ %.033.i.i, %dissect_dib_ipconfig.exit.i ], [ %.0.i177.i, %dissect_dib_curconfig.exit.i ], [ %.0.i181.i, %dissect_dib_knxaddr.exit.i ], [ %.0.lcssa.i.i, %dissect_dib_secured_service_families.exit.i ], [ %.0.i191.i, %dissect_dib_tunneling_info.exit.i ], [ %.0.i194.i, %dissect_dib_extdevinfo.exit.i ], [ %.014.i.i, %dissect_dib_mfrdata.exit.i ]
-  %.2.i = phi i8 [ %.0146.i, %531 ], [ %221, %dissect_dib_devinfo.exit.i ], [ %265, %dissect_dib_suppsvc.exit.i ], [ %307, %dissect_dib_ipconfig.exit.i ], [ %355, %dissect_dib_curconfig.exit.i ], [ %394, %dissect_dib_knxaddr.exit.i ], [ %423, %dissect_dib_secured_service_families.exit.i ], [ %484, %dissect_dib_tunneling_info.exit.i ], [ %515, %dissect_dib_extdevinfo.exit.i ], [ %530, %dissect_dib_mfrdata.exit.i ]
-  %534 = icmp slt i32 %.1218.i, %56
-  br i1 %534, label %535, label %539
+532:                                              ; preds = %530, %dissect_dib_mfrdata.exit.i, %dissect_dib_extdevinfo.exit.i, %dissect_dib_tunneling_info.exit.i, %dissect_dib_secured_service_families.exit.i, %dissect_dib_knxaddr.exit.i, %dissect_dib_curconfig.exit.i, %dissect_dib_ipconfig.exit.i, %dissect_dib_suppsvc.exit.i, %dissect_dib_devinfo.exit.i
+  %.1218.i = phi i32 [ %78, %530 ], [ %.0.i.i, %dissect_dib_devinfo.exit.i ], [ %.0.lcssa59.i.i, %dissect_dib_suppsvc.exit.i ], [ %.033.i.i, %dissect_dib_ipconfig.exit.i ], [ %.0.i177.i, %dissect_dib_curconfig.exit.i ], [ %.0.i181.i, %dissect_dib_knxaddr.exit.i ], [ %.0.lcssa.i.i, %dissect_dib_secured_service_families.exit.i ], [ %.0.i191.i, %dissect_dib_tunneling_info.exit.i ], [ %.0.i194.i, %dissect_dib_extdevinfo.exit.i ], [ %.014.i.i, %dissect_dib_mfrdata.exit.i ]
+  %.2.i = phi i8 [ %.0146.i, %530 ], [ %221, %dissect_dib_devinfo.exit.i ], [ %265, %dissect_dib_suppsvc.exit.i ], [ %307, %dissect_dib_ipconfig.exit.i ], [ %355, %dissect_dib_curconfig.exit.i ], [ %394, %dissect_dib_knxaddr.exit.i ], [ %423, %dissect_dib_secured_service_families.exit.i ], [ %484, %dissect_dib_tunneling_info.exit.i ], [ %515, %dissect_dib_extdevinfo.exit.i ], [ %.0.i198.i, %dissect_dib_mfrdata.exit.i ]
+  %533 = icmp slt i32 %.1218.i, %56
+  br i1 %533, label %534, label %538
 
-535:                                              ; preds = %533
-  %536 = sub i32 %56, %.1218.i
-  %537 = load i32, ptr @hf_bytes, align 4
-  %538 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %60, i32 noundef %537, ptr noundef %0, i32 noundef %.1218.i, i32 noundef %536, ptr noundef null, ptr noundef nonnull @.str.246, i32 noundef %536)
-  br label %539
+534:                                              ; preds = %532
+  %535 = sub i32 %56, %.1218.i
+  %536 = load i32, ptr @hf_bytes, align 4
+  %537 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %60, i32 noundef %536, ptr noundef %0, i32 noundef %.1218.i, i32 noundef %535, ptr noundef null, ptr noundef nonnull @.str.246, i32 noundef %535)
+  br label %538
 
-539:                                              ; preds = %535, %533
-  %.2219.i = phi i32 [ %56, %535 ], [ %.1218.i, %533 ]
-  %540 = icmp eq i8 %.2.i, 0
-  br label %541
+538:                                              ; preds = %534, %532
+  %.2219.i = phi i32 [ %56, %534 ], [ %.1218.i, %532 ]
+  %539 = icmp eq i8 %.2.i, 0
+  br label %540
 
-541:                                              ; preds = %539, %70
-  %.0217.i = phi i32 [ %63, %70 ], [ %.2219.i, %539 ]
-  %.1147.i = phi i1 [ true, %70 ], [ %540, %539 ]
-  %.0145.i = phi ptr [ null, %70 ], [ %77, %539 ]
-  br i1 %.not127.i.i, label %542, label %552
+540:                                              ; preds = %538, %70
+  %.0217.i = phi i32 [ %63, %70 ], [ %.2219.i, %538 ]
+  %.1147.i = phi i1 [ true, %70 ], [ %539, %538 ]
+  %.0145.i = phi ptr [ null, %70 ], [ %77, %538 ]
+  br i1 %.not127.i.i, label %541, label %551
+
+541:                                              ; preds = %540
+  br i1 %.not162.i, label %545, label %542
 
 542:                                              ; preds = %541
-  br i1 %.not162.i, label %546, label %543
-
-543:                                              ; preds = %542
-  %544 = load ptr, ptr %47, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %544, i32 noundef 25, ptr noundef nonnull @.str.348, i32 noundef %.014)
+  %543 = load ptr, ptr %47, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %543, i32 noundef 25, ptr noundef nonnull @.str.348, i32 noundef %.014)
   %.not163.i = icmp ne ptr %.0145.i, null
   %brmerge.not261.i = select i1 %.not163.i, i1 %.1147.i, i1 false
   %.str.266.mux.i = select i1 %.not163.i, ptr %.0145.i, ptr @.str.266
-  br i1 %brmerge.not261.i, label %545, label %.sink.split.i
+  br i1 %brmerge.not261.i, label %544, label %.sink.split.i
 
-545:                                              ; preds = %543
-  call void @col_append_str(ptr noundef %544, i32 noundef 25, ptr noundef nonnull @.str.231)
+544:                                              ; preds = %542
+  call void @col_append_str(ptr noundef %543, i32 noundef 25, ptr noundef nonnull @.str.231)
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %545, %543
-  %.str.266.sink.i = phi ptr [ %.str.266.mux.i, %543 ], [ %.0145.i, %545 ]
-  call void @col_append_str(ptr noundef %544, i32 noundef 25, ptr noundef nonnull %.str.266.sink.i)
-  br label %546
+.sink.split.i:                                    ; preds = %544, %542
+  %.str.266.sink.i = phi ptr [ %.str.266.mux.i, %542 ], [ %.0145.i, %544 ]
+  call void @col_append_str(ptr noundef %543, i32 noundef 25, ptr noundef nonnull %.str.266.sink.i)
+  br label %545
 
-546:                                              ; preds = %.sink.split.i, %542
-  br i1 %.not165.i, label %552, label %547
+545:                                              ; preds = %.sink.split.i, %541
+  br i1 %.not165.i, label %551, label %546
 
-547:                                              ; preds = %546
+546:                                              ; preds = %545
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.348, i32 noundef %.014)
   %.not166.i = icmp eq ptr %.0145.i, null
-  br i1 %.not166.i, label %548, label %549
+  br i1 %.not166.i, label %547, label %548
 
-548:                                              ; preds = %547
+547:                                              ; preds = %546
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.266)
-  br label %552
-
-549:                                              ; preds = %547
-  br i1 %.1147.i, label %550, label %551
-
-550:                                              ; preds = %549
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.231)
   br label %551
 
-551:                                              ; preds = %550, %549
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.242, ptr noundef nonnull %.0145.i)
-  br label %552
+548:                                              ; preds = %546
+  br i1 %.1147.i, label %549, label %550
 
-552:                                              ; preds = %551, %548, %546, %541
-  br i1 %.1147.i, label %553, label %dissect_dib.exit
+549:                                              ; preds = %548
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.231)
+  br label %550
+
+550:                                              ; preds = %549, %548
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %2, ptr noundef nonnull @.str.242, ptr noundef nonnull %.0145.i)
+  br label %551
+
+551:                                              ; preds = %550, %547, %545, %540
+  br i1 %.1147.i, label %552, label %dissect_dib.exit
+
+552:                                              ; preds = %551
+  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %58, ptr noundef nonnull @.str.231)
+  br i1 %.not169.i, label %dissect_dib.exit, label %553
 
 553:                                              ; preds = %552
-  call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %58, ptr noundef nonnull @.str.231)
-  br i1 %.not169.i, label %dissect_dib.exit, label %554
-
-554:                                              ; preds = %553
   store i8 0, ptr %8, align 1
   br label %dissect_dib.exit
 
-dissect_dib.exit:                                 ; preds = %552, %553, %554
+dissect_dib.exit:                                 ; preds = %551, %552, %553
   store i32 %.0217.i, ptr %4, align 4
-  %555 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0217.i)
-  %556 = icmp slt i32 %555, 1
-  br i1 %556, label %dissect_dib.exit.thread, label %49, !llvm.loop !22
+  %554 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.0217.i)
+  %555 = icmp slt i32 %554, 1
+  br i1 %555, label %dissect_dib.exit.thread, label %49, !llvm.loop !22
 
 dissect_dib.exit.thread:                          ; preds = %49, %dissect_dib.exit, %9
   ret void

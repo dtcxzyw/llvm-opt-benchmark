@@ -129828,9 +129828,9 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   %.pr.pr = load ptr, ptr %18, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %.not42 = icmp eq ptr %.pr.pr, null
-  br i1 %.not42, label %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68.thread116", label %97
+  br i1 %.not42, label %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68.thread119", label %97
 
-"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68.thread116": ; preds = %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit"
+"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68.thread119": ; preds = %"_ZN4core3ptr51drop_in_place$LT$http..header..name..HeaderName$GT$17hb3a76cdbb94023edE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 280, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %115
@@ -130132,9 +130132,9 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   store i64 2, ptr %1, align 8
   %.sroa.512.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %.pr78, ptr %.sroa.512.0..sroa_idx13, align 8
+  %105 = trunc nuw i8 %.44079 to i1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 280, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %105 = trunc nuw i8 %.44079 to i1
   br i1 %105, label %.noexc69, label %115
 
 106:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit"
@@ -130164,7 +130164,7 @@ define hidden void @_ZN7reqwest10async_impl7request14RequestBuilder16header_sens
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !22959
   br label %115
 
-115:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68.thread116", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit", %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68"
+115:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68.thread119", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h06f7a3c3528303c7E.exit", %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit68"
   ret void
 
 116:                                              ; preds = %106, %"_ZN4core3ptr42drop_in_place$LT$reqwest..error..Error$GT$17h8648f489454d99fcE.exit"

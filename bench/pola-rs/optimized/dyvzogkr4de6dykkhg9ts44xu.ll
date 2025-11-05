@@ -15451,12 +15451,12 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
 
 "_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i58": ; preds = %.preheader.i9.i53
   %133 = icmp ult i64 %.sroa.04.0.i.i.i50, %130
+  %134 = xor i1 %.sroa.04.0.i.i14.i, %133
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit60"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit60": ; preds = %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i49", %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i58"
-  %.sroa.04.0.i.i14.i59 = phi i1 [ false, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i49" ], [ %133, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i58" ]
-  %134 = xor i1 %.sroa.04.0.i.i14.i, %.sroa.04.0.i.i14.i59
-  %..i = select i1 %134, ptr %.sroa.08.0, ptr %.sroa.04.0
+  %.sroa.04.0.i.i14.i59 = phi i1 [ %.sroa.04.0.i.i14.i, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i49" ], [ %134, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i58" ]
+  %..i = select i1 %.sroa.04.0.i.i14.i59, ptr %.sroa.08.0, ptr %.sroa.04.0
   br label %_ZN4core5slice4sort6shared5pivot7median317hb124afb82423deb3E.exit
 
 _ZN4core5slice4sort6shared5pivot7median317hb124afb82423deb3E.exit: ; preds = %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i30._ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit41_crit_edge", %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit41", %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit60"
@@ -19752,12 +19752,12 @@ define void @_ZN4core5slice4sort6stable9quicksort9quicksort17he116900aa3253faaE(
 
 "_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i51.i": ; preds = %.preheader.i9.i46.i
   %197 = icmp ult i64 %.sroa.04.0.i.i.i43.i, %194
+  %198 = xor i1 %.sroa.04.0.i.i14.i.i, %197
   br label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit53.i"
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit53.i": ; preds = %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i51.i", %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i42.i"
-  %.sroa.04.0.i.i14.i52.i = phi i1 [ false, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i42.i" ], [ %197, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i51.i" ]
-  %198 = xor i1 %.sroa.04.0.i.i14.i.i, %.sroa.04.0.i.i14.i52.i
-  %..i.i = select i1 %198, ptr %83, ptr %82
+  %.sroa.04.0.i.i14.i52.i = phi i1 [ %.sroa.04.0.i.i14.i.i, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i42.i" ], [ %198, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit15.loopexit.i51.i" ]
+  %..i.i = select i1 %.sroa.04.0.i.i14.i52.i, ptr %83, ptr %82
   br label %_ZN4core5slice4sort6shared5pivot12choose_pivot17ha928c5dee9ae9659E.exit
 
 _ZN4core5slice4sort6shared5pivot12choose_pivot17ha928c5dee9ae9659E.exit: ; preds = %85, %"_ZN13polars_stream7execute22find_runnable_subgraph28_$u7b$$u7b$closure$u7d$$u7d$17hf0e94bdfd331d9c9E.exit.i23._ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit34_crit_edge.i", %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit34.i", %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17hb97ea7fcfb517500E.exit53.i"

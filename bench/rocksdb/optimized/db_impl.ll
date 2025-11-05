@@ -77035,9 +77035,9 @@ _ZN7rocksdb21InstrumentedMutexLockD2Ev.exit:      ; preds = %158
   %164 = load i64, ptr %154, align 8
   %165 = icmp eq i64 %164, 0
   %or.cond140 = select i1 %163, i1 %165, i1 false
-  br i1 %or.cond140, label %.thread138.thread177, label %173
+  br i1 %or.cond140, label %.thread138.thread176, label %173
 
-.thread138.thread177:                             ; preds = %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit
+.thread138.thread176:                             ; preds = %_ZN7rocksdb21InstrumentedMutexLockD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.thread138.thread
@@ -77446,7 +77446,7 @@ _ZN7rocksdb6StatusD2Ev.exit111:                   ; preds = %_ZN7rocksdb6Statusa
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZNSt6vectorIN7rocksdb8RangePtrESaIS1_EED2Ev.exit81
 
-.thread138.thread:                                ; preds = %108, %149, %.thread138.thread177, %_ZN7rocksdb6StatusD2Ev.exit111, %.thread138
+.thread138.thread:                                ; preds = %108, %149, %.thread138.thread176, %_ZN7rocksdb6StatusD2Ev.exit111, %.thread138
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 

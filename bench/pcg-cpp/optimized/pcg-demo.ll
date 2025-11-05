@@ -420,7 +420,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %128,
 _ZN10pcg_detail6engineIjmNS_12xsh_rr_mixinIjmEELb1ENS_15specific_streamImEENS_18default_multiplierImEEE8backstepEm.exit: ; preds = %145
   %150 = load i64, ptr %74, align 8, !tbaa !9
   %151 = mul i64 %.116.i.i.i, %150
-  %152 = add i64 %151, %.1.i.i.i
+  %152 = add i64 %.1.i.i.i, %151
   store i64 %152, ptr %74, align 8, !tbaa !9
   br label %226
 

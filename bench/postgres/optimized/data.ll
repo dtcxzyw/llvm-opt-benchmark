@@ -844,13 +844,13 @@ get_hex.exit.i:                                   ; preds = %342, %339
   %352 = zext nneg i8 %349 to i64
   %353 = getelementptr inbounds nuw i8, ptr @get_hex.hexlookup, i64 %352
   %354 = load i8, ptr %353, align 1
+  %355 = or i8 %354, %.0.i.i
   br label %get_hex.exit27.i
 
 get_hex.exit27.i:                                 ; preds = %351, %347
-  %.0.i26.i = phi i8 [ %354, %351 ], [ -1, %347 ]
-  %355 = or i8 %.0.i26.i, %.0.i.i
+  %.0.i26.i = phi i8 [ %355, %351 ], [ -1, %347 ]
   %356 = getelementptr inbounds nuw i8, ptr %.0.ph33.i, i64 1
-  store i8 %355, ptr %.0.ph33.i, align 1
+  store i8 %.0.i26.i, ptr %.0.ph33.i, align 1
   %357 = icmp ult ptr %348, %333
   br i1 %357, label %.lr.ph.i, label %.outer._crit_edge.i, !llvm.loop !8
 

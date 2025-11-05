@@ -8157,93 +8157,93 @@ define internal i32 @ff_tx_rdft_init_double_c(ptr noundef initializes((140, 152)
   %27 = fdiv nsz double 0x401921FB54442D18, %26
   %.not67 = icmp eq i32 %5, 0
   %28 = load double, ptr %12, align 8, !tbaa !26
+  %.pre = fmul nsz double %28, 5.000000e-01
   %29 = fmul nsz double %28, 2.000000e+00
-  %30 = select i1 %.not67, double 1.000000e+00, double 5.000000e-01
-  %31 = select nsz i1 %.not67, double %28, double %29
-  %32 = fmul nsz double %30, %31
+  %30 = fmul nsz double %29, 5.000000e-01
+  %.pre-phi = select i1 %.not67, double %.pre, double %30
+  %31 = select i1 %.not67, double %28, double %30
+  %32 = select nsz i1 %.not67, double %28, double %29
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store double %32, ptr %23, align 8, !tbaa !28
-  %34 = fmul nsz double %31, 5.000000e-01
-  %35 = select nsz i1 %.not67, double %28, double %34
-  %36 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store double %35, ptr %33, align 8, !tbaa !28
-  %37 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store double %31, ptr %36, align 8, !tbaa !28
-  %38 = fneg nsz double %31
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store double %38, ptr %37, align 8, !tbaa !28
-  %40 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store double %34, ptr %39, align 8, !tbaa !28
+  store double %31, ptr %23, align 8, !tbaa !28
+  %34 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store double %31, ptr %33, align 8, !tbaa !28
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store double %32, ptr %34, align 8, !tbaa !28
+  %36 = fneg nsz double %32
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store double %36, ptr %35, align 8, !tbaa !28
+  %38 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store double %.pre-phi, ptr %37, align 8, !tbaa !28
   %.not68 = icmp eq i64 %8, 0
-  br i1 %.not68, label %45, label %41
+  br i1 %.not68, label %43, label %39
 
-41:                                               ; preds = %25
-  %42 = load float, ptr %14, align 4, !tbaa !85
-  %43 = fdiv nsz float 1.000000e+00, %42
-  %44 = fpext nsz float %43 to double
-  br label %47
+39:                                               ; preds = %25
+  %40 = load float, ptr %14, align 4, !tbaa !85
+  %41 = fdiv nsz float 1.000000e+00, %40
+  %42 = fpext nsz float %41 to double
+  br label %45
 
-45:                                               ; preds = %25
-  %46 = fmul nsz double %31, -5.000000e-01
-  br label %47
+43:                                               ; preds = %25
+  %44 = fmul nsz double %32, -5.000000e-01
+  br label %45
 
-47:                                               ; preds = %45, %41
-  %storemerge = phi double [ %46, %45 ], [ %44, %41 ]
+45:                                               ; preds = %43, %39
+  %storemerge = phi double [ %44, %43 ], [ %42, %39 ]
   %.062 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store double %storemerge, ptr %40, align 8, !tbaa !28
-  %48 = sitofp i32 %5 to double
-  %49 = fsub nsz double 5.000000e-01, %48
-  %50 = fmul nsz double %49, %31
-  %51 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  store double %50, ptr %.062, align 8, !tbaa !28
-  %52 = fneg nsz double %49
-  %53 = fmul nsz double %31, %52
-  store double %53, ptr %51, align 8, !tbaa !28
-  %54 = icmp sgt i32 %10, 0
-  br i1 %54, label %.lr.ph.preheader, label %.loopexit
+  store double %storemerge, ptr %38, align 8, !tbaa !28
+  %46 = sitofp i32 %5 to double
+  %47 = fsub nsz double 5.000000e-01, %46
+  %48 = fmul nsz double %47, %32
+  %49 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  store double %48, ptr %.062, align 8, !tbaa !28
+  %50 = fneg nsz double %47
+  %51 = fmul nsz double %32, %50
+  store double %51, ptr %49, align 8, !tbaa !28
+  %52 = icmp sgt i32 %10, 0
+  br i1 %52, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %47
-  %55 = getelementptr inbounds nuw i8, ptr %23, i64 64
+.lr.ph.preheader:                                 ; preds = %45
+  %53 = getelementptr inbounds nuw i8, ptr %23, i64 64
   br label %.lr.ph
 
 .lr.ph74:                                         ; preds = %.lr.ph
-  %56 = zext nneg i32 %10 to i64
-  %57 = getelementptr inbounds nuw double, ptr %23, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %59 = select i1 %.not67, i32 -1, i32 1
-  %60 = sitofp i32 %59 to double
-  br label %66
+  %54 = zext nneg i32 %10 to i64
+  %55 = getelementptr inbounds nuw double, ptr %23, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
+  %57 = select i1 %.not67, i32 -1, i32 1
+  %58 = sitofp i32 %57 to double
+  br label %64
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.06070 = phi i32 [ %65, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.169 = phi ptr [ %64, %.lr.ph ], [ %55, %.lr.ph.preheader ]
-  %61 = uitofp nneg i32 %.06070 to double
-  %62 = fmul nsz double %27, %61
-  %63 = tail call nsz double @llvm.cos.f64(double %62)
-  %64 = getelementptr inbounds nuw i8, ptr %.169, i64 8
-  store double %63, ptr %.169, align 8, !tbaa !28
-  %65 = add nuw nsw i32 %.06070, 1
-  %exitcond.not = icmp eq i32 %65, %10
+  %.06070 = phi i32 [ %63, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.169 = phi ptr [ %62, %.lr.ph ], [ %53, %.lr.ph.preheader ]
+  %59 = uitofp nneg i32 %.06070 to double
+  %60 = fmul nsz double %27, %59
+  %61 = tail call nsz double @llvm.cos.f64(double %60)
+  %62 = getelementptr inbounds nuw i8, ptr %.169, i64 8
+  store double %61, ptr %.169, align 8, !tbaa !28
+  %63 = add nuw nsw i32 %.06070, 1
+  %exitcond.not = icmp eq i32 %63, %10
   br i1 %exitcond.not, label %.lr.ph74, label %.lr.ph, !llvm.loop !140
 
-66:                                               ; preds = %.lr.ph74, %66
-  %.072 = phi i32 [ 0, %.lr.ph74 ], [ %75, %66 ]
-  %.271 = phi ptr [ %58, %.lr.ph74 ], [ %74, %66 ]
-  %67 = shl nsw i32 %.072, 2
-  %68 = sub nsw i32 %4, %67
-  %69 = sitofp i32 %68 to double
-  %70 = fmul nsz double %69, 2.500000e-01
-  %71 = fmul nsz double %27, %70
-  %72 = tail call nsz double @llvm.cos.f64(double %71)
-  %73 = fmul nsz double %72, %60
-  %74 = getelementptr inbounds nuw i8, ptr %.271, i64 8
-  store double %73, ptr %.271, align 8, !tbaa !28
-  %75 = add nuw nsw i32 %.072, 1
-  %exitcond75.not = icmp eq i32 %75, %10
-  br i1 %exitcond75.not, label %.loopexit, label %66, !llvm.loop !141
+64:                                               ; preds = %.lr.ph74, %64
+  %.072 = phi i32 [ 0, %.lr.ph74 ], [ %73, %64 ]
+  %.271 = phi ptr [ %56, %.lr.ph74 ], [ %72, %64 ]
+  %65 = shl nsw i32 %.072, 2
+  %66 = sub nsw i32 %4, %65
+  %67 = sitofp i32 %66 to double
+  %68 = fmul nsz double %67, 2.500000e-01
+  %69 = fmul nsz double %27, %68
+  %70 = tail call nsz double @llvm.cos.f64(double %69)
+  %71 = fmul nsz double %70, %58
+  %72 = getelementptr inbounds nuw i8, ptr %.271, i64 8
+  store double %71, ptr %.271, align 8, !tbaa !28
+  %73 = add nuw nsw i32 %.072, 1
+  %exitcond75.not = icmp eq i32 %73, %10
+  br i1 %exitcond75.not, label %.loopexit, label %64, !llvm.loop !141
 
-.loopexit:                                        ; preds = %66, %47, %18, %7
-  %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %47 ], [ 0, %66 ]
+.loopexit:                                        ; preds = %64, %45, %18, %7
+  %.061 = phi i32 [ %17, %7 ], [ -12, %18 ], [ 0, %45 ], [ 0, %64 ]
   ret i32 %.061
 }
 

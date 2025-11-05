@@ -68,7 +68,7 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr noundef nonnull 
   br label %25
 
 25:                                               ; preds = %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i", %.lr.ph.i
-  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %42, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ]
+  %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %.0.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ]
   %.sroa.04.07.i = phi ptr [ %18, %.lr.ph.i ], [ %43, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ]
   %26 = load i32, ptr %.sroa.04.07.i, align 4, !tbaa !8
   %27 = icmp eq i32 %.08.i, 0
@@ -88,17 +88,17 @@ define noundef i32 @_ZNK5ZXing13GenericGFPoly10evaluateAtEi(ptr noundef nonnull 
   %39 = getelementptr i16, ptr %38, i64 %36
   %40 = load i16, ptr %39, align 2, !tbaa !15
   %41 = sext i16 %40 to i32
+  %42 = xor i32 %26, %41
   br label %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i"
 
 "_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i": ; preds = %28, %25
-  %.0.i.i.i = phi i32 [ %41, %28 ], [ 0, %25 ]
-  %42 = xor i32 %.0.i.i.i, %26
+  %.0.i.i.i = phi i32 [ %42, %28 ], [ %26, %25 ]
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.04.07.i, i64 4
   %44 = icmp eq ptr %43, %20
   br i1 %44, label %"_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_1EET0_RKT_S4_T1_.exit", label %25, !llvm.loop !17
 
 "_ZN5ZXing6ReduceINS_13GenericGFPoly12CoefficientsEiZNKS1_10evaluateAtEiE3$_1EET0_RKT_S4_T1_.exit": ; preds = %.lr.ph.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i", %16, %8, %3
-  %.0 = phi i32 [ %7, %3 ], [ 0, %8 ], [ 0, %16 ], [ %42, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ], [ %13, %.lr.ph.i.i.i ]
+  %.0 = phi i32 [ %7, %3 ], [ 0, %8 ], [ 0, %16 ], [ %.0.i.i.i, %"_ZZNK5ZXing13GenericGFPoly10evaluateAtEiENK3$_0clIiiEEDaT_T0_.exit.i" ], [ %13, %.lr.ph.i.i.i ]
   ret i32 %.0
 }
 

@@ -1599,8 +1599,8 @@ _ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %51, %_ZNK4llvm6APSI
   br label %_ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit
 
 _ZNK5clang16PackIndexingExpr16getSelectedIndexEv.exit: ; preds = %29, %_ZN4llvm5APIntD2Ev.exit.i
-  %.sroa.0.0.i = phi i64 [ %55, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %29 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %18, i64 %.sroa.0.0.i
+  %.sroa.2.0.i = phi i64 [ %55, %_ZN4llvm5APIntD2Ev.exit.i ], [ 0, %29 ]
+  %56 = getelementptr inbounds nuw ptr, ptr %18, i64 %.sroa.2.0.i
   %57 = load ptr, ptr %56, align 8, !tbaa !434
   %58 = load i24, ptr %57, align 8
   %59 = lshr i24 %58, 14

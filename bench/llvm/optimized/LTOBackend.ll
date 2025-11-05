@@ -5443,14 +5443,12 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %4, %_ZNKSt7__cxx111
 49:                                               ; preds = %42
   %50 = call i64 @_ZNK4llvm6Module12getCodeModelEv(ptr noundef nonnull align 8 dereferenceable(841) %3) #27
   %.sroa.028.0.extract.trunc = trunc i64 %50 to i32
-  %.sroa.636.0.extract.shift = and i64 %50, -1099511627776
-  %51 = and i64 %50, 1095216660480
+  %51 = and i64 %50, -4294967296
   br label %52
 
 52:                                               ; preds = %49, %46
   %.sroa.028.0 = phi i32 [ %48, %46 ], [ %.sroa.028.0.extract.trunc, %49 ]
-  %.sroa.5.0 = phi i64 [ 4294967296, %46 ], [ %51, %49 ]
-  %.sroa.636.sroa.0.0 = phi i64 [ 0, %46 ], [ %.sroa.636.0.extract.shift, %49 ]
+  %.sroa.636.sroa.0.0 = phi i64 [ 4294967296, %46 ], [ %51, %49 ]
   %53 = load ptr, ptr %1, align 8, !tbaa !148
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !149
@@ -5466,8 +5464,7 @@ _ZN4llvm6TripleD2Ev.exit:                         ; preds = %4, %_ZNKSt7__cxx111
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 560
   %61 = load i32, ptr %60, align 8, !tbaa !434
   %.sroa.028.0.insert.ext = zext i32 %.sroa.028.0 to i64
-  %.sroa.5.0.insert.insert33 = or disjoint i64 %.sroa.5.0, %.sroa.028.0.insert.ext
-  %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.insert33, %.sroa.636.sroa.0.0
+  %.sroa.028.0.insert.insert = or disjoint i64 %.sroa.636.sroa.0.0, %.sroa.028.0.insert.ext
   %.sroa.047.0.insert.ext = zext i32 %.sroa.047.0 to i64
   %.sroa.047.0.insert.insert = or disjoint i64 %.sroa.549.0, %.sroa.047.0.insert.ext
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 32

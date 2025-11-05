@@ -12339,14 +12339,12 @@ do.end26:                                         ; preds = %do.body
   %call43 = tail call ptr @_ZNK4node6crypto16CryptoErrorStore11ToExceptionEPNS_11EnvironmentEN2v85LocalINS4_6StringEEE(ptr noundef nonnull align 8 dereferenceable(32) %errors_.i, ptr noundef nonnull %1, ptr null) #22
   store ptr %call43, ptr %err, align 8
   %cmp.i.i.not = icmp eq ptr %call43, null
-  %10 = select i1 %cmp.i.i.not, i16 0, i16 256
+  %10 = select i1 %cmp.i.i.not, i16 1, i16 257
   br label %return
 
 return:                                           ; preds = %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread, %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit, %do.end26
-  %retval.sroa.0.0.in = phi i16 [ 1, %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit ], [ 1, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
-  %retval.sroa.5.0.in = phi i16 [ 256, %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit ], [ %10, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.5.0.in, %retval.sroa.0.0.in
-  ret i16 %retval.sroa.0.0.insert.insert
+  %retval.sroa.5.0.in = phi i16 [ 257, %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit ], [ %10, %do.end26 ], [ 0, %_ZN4node6crypto16KeyPairGenTraitsINS0_14EcKeyGenTraitsEE9EncodeKeyEPNS_11EnvironmentEPNS0_16KeyPairGenConfigINS0_15EcKeyPairParamsEEEPN2v85LocalINSA_5ValueEEE.exit.thread ]
+  ret i16 %retval.sroa.5.0.in
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

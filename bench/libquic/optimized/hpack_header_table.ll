@@ -101,12 +101,15 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %15 = add i64 %12, %14
   %16 = getelementptr inbounds nuw i8, ptr %.09.i9, i64 1
   %.not.i11 = icmp eq ptr %16, %11
-  br i1 %.not.i11, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13, label %.lr.ph.i8, !llvm.loop !11
+  br i1 %.not.i11, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit, label %.lr.ph.i8, !llvm.loop !11
 
-_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13: ; preds = %.lr.ph.i8, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
-  %.06.lcssa.i12 = phi i64 [ 0, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit ], [ %15, %.lr.ph.i8 ]
-  %17 = xor i64 %.06.lcssa.i12, %.06.lcssa.i
-  ret i64 %17
+_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit: ; preds = %.lr.ph.i8
+  %17 = xor i64 %15, %.06.lcssa.i
+  br label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13
+
+_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13: ; preds = %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
+  %.06.lcssa.i12 = phi i64 [ %.06.lcssa.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit ], [ %17, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit ]
+  ret i64 %.06.lcssa.i12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2420,15 +2423,18 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %44 = add i64 %41, %43
   %45 = getelementptr inbounds nuw i8, ptr %.09.i9.i.i, i64 1
   %.not.i11.i.i = icmp eq ptr %45, %40
-  br i1 %.not.i11.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit, label %.lr.ph.i8.i.i, !llvm.loop !11
+  br i1 %.not.i11.i.i, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i, label %.lr.ph.i8.i.i, !llvm.loop !11
 
-_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit: ; preds = %.lr.ph.i8.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i
-  %.06.lcssa.i12.i.i = phi i64 [ 0, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i ], [ %44, %.lr.ph.i8.i.i ]
-  %46 = xor i64 %.06.lcssa.i12.i.i, %.06.lcssa.i.i.i
+_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i: ; preds = %.lr.ph.i8.i.i
+  %46 = xor i64 %44, %.06.lcssa.i.i.i
+  br label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit
+
+_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit: ; preds = %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i
+  %.06.lcssa.i12.i.i = phi i64 [ %.06.lcssa.i.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i ], [ %46, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !26
-  %49 = urem i64 %46, %48
-  %50 = tail call noundef ptr @_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeEmRKS2_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %46)
+  %49 = urem i64 %.06.lcssa.i12.i.i, %48
+  %50 = tail call noundef ptr @_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeEmRKS2_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.06.lcssa.i12.i.i)
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, label %51
 
@@ -2679,15 +2685,18 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %44 = add i64 %41, %43
   %45 = getelementptr inbounds nuw i8, ptr %.09.i9.i.i, i64 1
   %.not.i11.i.i = icmp eq ptr %45, %40
-  br i1 %.not.i11.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit, label %.lr.ph.i8.i.i, !llvm.loop !11
+  br i1 %.not.i11.i.i, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i, label %.lr.ph.i8.i.i, !llvm.loop !11
 
-_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit: ; preds = %.lr.ph.i8.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i
-  %.06.lcssa.i12.i.i = phi i64 [ 0, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i ], [ %44, %.lr.ph.i8.i.i ]
-  %46 = xor i64 %.06.lcssa.i12.i.i, %.06.lcssa.i.i.i
+_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i: ; preds = %.lr.ph.i8.i.i
+  %46 = xor i64 %44, %.06.lcssa.i.i.i
+  br label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit
+
+_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERKS3_.exit: ; preds = %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i
+  %.06.lcssa.i12.i.i = phi i64 [ %.06.lcssa.i.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i ], [ %46, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !26
-  %49 = urem i64 %46, %48
-  %50 = tail call noundef ptr @_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeEmRKS2_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %46)
+  %49 = urem i64 %.06.lcssa.i12.i.i, %48
+  %50 = tail call noundef ptr @_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE19_M_find_before_nodeEmRKS2_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %49, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.06.lcssa.i12.i.i)
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_M_find_nodeEmRKS2_m.exit, label %51
 
@@ -3075,20 +3084,23 @@ _ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIc
   %45 = add i64 %42, %44
   %46 = getelementptr inbounds nuw i8, ptr %.09.i9.i.i, i64 1
   %.not.i11.i.i = icmp eq ptr %46, %41
-  br i1 %.not.i11.i.i, label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS3_EEmRKT_.exit, label %.lr.ph.i8.i.i, !llvm.loop !11
+  br i1 %.not.i11.i.i, label %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i, label %.lr.ph.i8.i.i, !llvm.loop !11
 
-_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS3_EEmRKT_.exit: ; preds = %.lr.ph.i8.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i
-  %.06.lcssa.i12.i.i = phi i64 [ 0, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i ], [ %45, %.lr.ph.i8.i.i ]
-  %47 = xor i64 %.06.lcssa.i12.i.i, %.06.lcssa.i.i.i
+_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i: ; preds = %.lr.ph.i8.i.i
+  %47 = xor i64 %45, %.06.lcssa.i.i.i
+  br label %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS3_EEmRKT_.exit
+
+_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS3_EEmRKT_.exit: ; preds = %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i
+  %.06.lcssa.i12.i.i = phi i64 [ %.06.lcssa.i.i.i, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.i.i ], [ %47, %_ZNK4base15StringPieceHashclERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit13.loopexit.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !26
-  %50 = urem i64 %47, %49
+  %50 = urem i64 %.06.lcssa.i12.i.i, %49
   %51 = load i64, ptr %9, align 8, !tbaa !116
   %.not41 = icmp eq i64 %51, 0
   br i1 %.not41, label %.critedge, label %52
 
 52:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIPN3net10HpackEntryES3_NS_9_IdentityENS1_16HpackHeaderTable11EntryHasherENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS3_EEmRKT_.exit
-  %53 = call noundef ptr @_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_find_before_node_trIS2_EEPNS4_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %47)
+  %53 = call noundef ptr @_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_find_before_node_trIS2_EEPNS4_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.06.lcssa.i12.i.i)
   %.not.i = icmp eq ptr %53, null
   br i1 %.not.i, label %.critedge, label %_ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS2_EEPNS4_10_Hash_nodeIS2_Lb1EEEmRKT_m.exit
 
@@ -3103,7 +3115,7 @@ _ZNKSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16Hpa
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %1, align 8, !tbaa !64
   store ptr %57, ptr %56, align 8, !tbaa !64
-  %58 = invoke ptr @_ZNSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %50, i64 noundef %47, ptr noundef nonnull %55, i64 noundef 1)
+  %58 = invoke ptr @_ZNSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %50, i64 noundef %.06.lcssa.i12.i.i, ptr noundef nonnull %55, i64 noundef 1)
           to label %_ZNSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %_ZNSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit24
 
 _ZNSt10_HashtableIPN3net10HpackEntryES2_SaIS2_ENSt8__detail9_IdentityENS0_16HpackHeaderTable9EntriesEqENS6_11EntryHasherENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit24: ; preds = %.critedge

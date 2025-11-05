@@ -121,7 +121,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %23 = getelementptr i8, ptr %22, i64 -388
   %24 = load i32, ptr %23, align 4, !tbaa !3
   %25 = xor i32 %24, %.0142
-  br label %149
+  br label %._crit_edge179
 
 26:                                               ; preds = %17
   switch i8 %18, label %118 [
@@ -156,7 +156,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
 ._crit_edge185:                                   ; preds = %.lr.ph184, %27
   %.0143.lcssa = phi i32 [ 1, %27 ], [ %37, %.lr.ph184 ]
   %40 = xor i32 %.0143.lcssa, %.0142
-  br label %149
+  br label %._crit_edge179
 
 41:                                               ; preds = %26
   %42 = ptrtoint ptr %.pn168 to i64
@@ -196,12 +196,11 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %storemerge156 = getelementptr inbounds nuw i8, ptr %59, i64 1
   store ptr %storemerge156, ptr %2, align 8, !tbaa !30
   %60 = icmp ult ptr %storemerge156, %48
-  br i1 %60, label %51, label %._crit_edge179, !llvm.loop !34
+  br i1 %60, label %51, label %._crit_edge179.loopexit, !llvm.loop !34
 
-._crit_edge179:                                   ; preds = %58, %41
-  %.0144.lcssa = phi i32 [ 0, %41 ], [ %.1, %58 ]
-  %61 = xor i32 %.0144.lcssa, %.0142
-  br label %149
+._crit_edge179.loopexit:                          ; preds = %58
+  %61 = xor i32 %.1, %.0142
+  br label %._crit_edge179
 
 62:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -313,7 +312,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %117 = xor i32 %.0147, %.0142
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %149
+  br label %._crit_edge179
 
 118:                                              ; preds = %26
   %119 = add i8 %18, -65
@@ -321,7 +320,7 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %120 = add i8 %18, -48
   %or.cond162 = icmp ult i8 %120, 10
   %or.cond166 = or i1 %or.cond161, %or.cond162
-  br i1 %or.cond166, label %121, label %149
+  br i1 %or.cond166, label %121, label %._crit_edge179
 
 121:                                              ; preds = %118
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -372,10 +371,10 @@ define i32 @Dau_DsdToGia2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %149
+  br label %._crit_edge179
 
-149:                                              ; preds = %118, %._crit_edge190, %116, %._crit_edge179, %._crit_edge185, %20
-  %.0 = phi i32 [ %25, %20 ], [ %40, %._crit_edge185 ], [ %61, %._crit_edge179 ], [ %117, %116 ], [ %148, %._crit_edge190 ], [ 0, %118 ]
+._crit_edge179:                                   ; preds = %41, %._crit_edge179.loopexit, %118, %._crit_edge190, %116, %._crit_edge185, %20
+  %.0 = phi i32 [ %25, %20 ], [ %40, %._crit_edge185 ], [ %117, %116 ], [ %148, %._crit_edge190 ], [ 0, %118 ], [ %.0142, %41 ], [ %61, %._crit_edge179.loopexit ]
   ret i32 %.0
 }
 

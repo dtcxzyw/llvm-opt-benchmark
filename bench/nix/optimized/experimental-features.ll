@@ -751,7 +751,7 @@ define range(i64 0, 8589934592) i64 @_ZN3nix24parseExperimentalFeatureERKSt17bas
 
 6:                                                ; preds = %4
   invoke fastcc void @"_ZZN3nix24parseExperimentalFeatureERKSt17basic_string_viewIcSt11char_traitsIcEEENK3$_0clEv"()
-          to label %7 unwind label %32
+          to label %7 unwind label %33
 
 7:                                                ; preds = %6
   %8 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt10unique_ptrISt3mapISt17basic_string_viewIcSt11char_traitsIcEEN3nix19ExperimentalFeatureESt4lessIS4_ESaISt4pairIKS4_S6_EEESt14default_deleteISD_EED2Ev, ptr nonnull @_ZZN3nix24parseExperimentalFeatureERKSt17basic_string_viewIcSt11char_traitsIcEEE12reverseXpMap, ptr nonnull @__dso_handle) #25
@@ -839,19 +839,18 @@ _ZN3nix3getISt3mapISt17basic_string_viewIcSt11char_traitsIcEENS_19ExperimentalFe
   %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 48
   %30 = load i32, ptr %29, align 4
   %31 = zext i32 %30 to i64
+  %32 = or disjoint i64 %31, 4294967296
   br label %select.unfold
 
-32:                                               ; preds = %6
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %6
+  %34 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN3nix24parseExperimentalFeatureERKSt17basic_string_viewIcSt11char_traitsIcEEE12reverseXpMap) #25
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %34
 
 select.unfold:                                    ; preds = %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN3nix19ExperimentalFeatureESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.i, %9, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N3nix19ExperimentalFeatureEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i, %_ZN3nix3getISt3mapISt17basic_string_viewIcSt11char_traitsIcEENS_19ExperimentalFeatureESt4lessIS5_ESaISt4pairIKS5_S6_EEEEEPNT_11mapped_typeERSE_RKNSE_8key_typeE.exit
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZN3nix3getISt3mapISt17basic_string_viewIcSt11char_traitsIcEENS_19ExperimentalFeatureESt4lessIS5_ESaISt4pairIKS5_S6_EEEEEPNT_11mapped_typeERSE_RKNSE_8key_typeE.exit ], [ 0, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N3nix19ExperimentalFeatureEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i ], [ 0, %9 ], [ 0, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN3nix19ExperimentalFeatureESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.i ]
-  %.sroa.0.0 = phi i64 [ %31, %_ZN3nix3getISt3mapISt17basic_string_viewIcSt11char_traitsIcEENS_19ExperimentalFeatureESt4lessIS5_ESaISt4pairIKS5_S6_EEEEEPNT_11mapped_typeERSE_RKNSE_8key_typeE.exit ], [ 0, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N3nix19ExperimentalFeatureEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i ], [ 0, %9 ], [ 0, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN3nix19ExperimentalFeatureESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.i ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0, %.sroa.2.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = phi i64 [ %32, %_ZN3nix3getISt3mapISt17basic_string_viewIcSt11char_traitsIcEENS_19ExperimentalFeatureESt4lessIS5_ESaISt4pairIKS5_S6_EEEEEPNT_11mapped_typeERSE_RKNSE_8key_typeE.exit ], [ 0, %_ZNSt8_Rb_treeISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N3nix19ExperimentalFeatureEESt10_Select1stIS8_ESt4lessIS3_ESaIS8_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS8_EPSt18_Rb_tree_node_baseRS5_.exit.i.i.i ], [ 0, %9 ], [ 0, %_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEN3nix19ExperimentalFeatureESt4lessIS3_ESaISt4pairIKS3_S5_EEE4findERS9_.exit.i ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress uwtable

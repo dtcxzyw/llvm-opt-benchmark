@@ -149,13 +149,12 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %mul8 = add i32 %div.i.i, %call10
   %add = shl i32 %mul8, 3
   %11 = zext i32 %add to i64
+  %12 = or disjoint i64 %11, 4294967296
   br label %return
 
 return:                                           ; preds = %for.body, %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit, %for.end
-  %retval.sroa.0.0 = phi i64 [ %11, %for.end ], [ 0, %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit ], [ 0, %for.body ]
-  %retval.sroa.2.0 = phi i64 [ 4294967296, %for.end ], [ 0, %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit ], [ 0, %for.body ]
-  %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.2.0, %retval.sroa.0.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  %retval.sroa.2.0 = phi i64 [ %12, %for.end ], [ 0, %_ZN8facebook5velox3row12_GLOBAL__N_112isFixedWidthERKSt10shared_ptrIKNS0_4TypeEE.exit ], [ 0, %for.body ]
+  ret i64 %retval.sroa.2.0
 }
 
 ; Function Attrs: mustprogress uwtable

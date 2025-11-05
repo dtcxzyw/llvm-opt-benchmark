@@ -2524,7 +2524,7 @@ define i64 @Acb_ComputeFunction(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 
 19:                                               ; preds = %.critedge4, %5
   %20 = phi ptr [ %9, %5 ], [ %.val68115, %.critedge4 ]
-  %.063 = phi i64 [ 0, %5 ], [ %78, %.critedge4 ]
+  %.063 = phi i64 [ 0, %5 ], [ %.061.lcssa, %.critedge4 ]
   %21 = call i32 @sat_solver_solve(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %15, i64 noundef 0, i64 noundef 0, i64 noundef 0, i64 noundef 0) #25
   %22 = icmp eq i32 %21, -1
   br i1 %22, label %23, label %24
@@ -2617,7 +2617,7 @@ Vec_IntFind.exit.us:                              ; preds = %46, %._crit_edge.lo
   %53 = and i64 %52, %.06184.us
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge4, label %.lr.ph.i.us, !llvm.loop !58
+  br i1 %exitcond.not, label %.critedge4.loopexit, label %.lr.ph.i.us, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %Vec_IntGrow.exit.i, %Vec_IntPush.exit
   %.val68105 = phi ptr [ %.val68106, %Vec_IntPush.exit ], [ %.val68102, %Vec_IntGrow.exit.i ]
@@ -2645,9 +2645,9 @@ Vec_IntPush.exit.sink.split:                      ; preds = %.lr.ph
   %69 = shl nuw nsw i32 %65, 1
   %70 = zext nneg i32 %69 to i64
   %71 = shl nuw nsw i64 %70, 2
-  %.sink123 = select i1 %68, i64 64, i64 %71
+  %.sink122 = select i1 %68, i64 64, i64 %71
   %.sink = select i1 %68, i32 16, i32 %69
-  %72 = call ptr @realloc(ptr noundef nonnull %54, i64 noundef %.sink123) #23
+  %72 = call ptr @realloc(ptr noundef nonnull %54, i64 noundef %.sink122) #23
   store ptr %72, ptr %10, align 8, !tbaa !18
   store i32 %.sink, ptr %7, align 8, !tbaa !31
   br label %Vec_IntPush.exit
@@ -2666,11 +2666,14 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %77 = icmp slt i64 %indvars.iv.next, %76
   br i1 %77, label %.lr.ph, label %.critedge2.preheader, !llvm.loop !69
 
-.critedge4:                                       ; preds = %Vec_IntFind.exit.us, %Vec_IntGrow.exit.i, %.lr.ph85, %.critedge2.preheader
-  %.val116 = phi i32 [ %.val.pre, %.critedge2.preheader ], [ %.val.pre, %.lr.ph85 ], [ 1, %Vec_IntGrow.exit.i ], [ %.val.pre, %Vec_IntFind.exit.us ]
-  %.val68115 = phi ptr [ %.val68106, %.critedge2.preheader ], [ %.val68106, %.lr.ph85 ], [ %.val68102, %Vec_IntGrow.exit.i ], [ %.val68106, %Vec_IntFind.exit.us ]
-  %.061.lcssa = phi i64 [ -1, %.critedge2.preheader ], [ poison, %.lr.ph85 ], [ -1, %Vec_IntGrow.exit.i ], [ %53, %Vec_IntFind.exit.us ]
-  %78 = or i64 %.061.lcssa, %.063
+.critedge4.loopexit:                              ; preds = %Vec_IntFind.exit.us
+  %78 = or i64 %53, %.063
+  br label %.critedge4
+
+.critedge4:                                       ; preds = %Vec_IntGrow.exit.i, %.lr.ph85, %.critedge4.loopexit, %.critedge2.preheader
+  %.val116 = phi i32 [ %.val.pre, %.critedge2.preheader ], [ %.val.pre, %.critedge4.loopexit ], [ %.val.pre, %.lr.ph85 ], [ 1, %Vec_IntGrow.exit.i ]
+  %.val68115 = phi ptr [ %.val68106, %.critedge2.preheader ], [ %.val68106, %.critedge4.loopexit ], [ %.val68106, %.lr.ph85 ], [ %.val68102, %Vec_IntGrow.exit.i ]
+  %.061.lcssa = phi i64 [ -1, %.critedge2.preheader ], [ %78, %.critedge4.loopexit ], [ poison, %.lr.ph85 ], [ -1, %Vec_IntGrow.exit.i ]
   %79 = sext i32 %.val116 to i64
   %80 = getelementptr inbounds i32, ptr %.val68115, i64 %79
   %81 = call i32 @sat_solver_addclause(ptr noundef %0, ptr noundef %.val68115, ptr noundef %80) #25
@@ -2683,12 +2686,12 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 Vec_IntFree.exit.sink.split:                      ; preds = %83, %23
   %.val68115.lcssa.sink = phi ptr [ %20, %23 ], [ %.val68115, %83 ]
-  %.0.ph = phi i64 [ %.063, %23 ], [ %78, %83 ]
+  %.0.ph = phi i64 [ %.063, %23 ], [ %.061.lcssa, %83 ]
   call void @free(ptr noundef nonnull %.val68115.lcssa.sink) #25
   br label %Vec_IntFree.exit
 
 Vec_IntFree.exit:                                 ; preds = %Vec_IntFree.exit.sink.split, %83, %23
-  %.0 = phi i64 [ %.063, %23 ], [ %78, %83 ], [ %.0.ph, %Vec_IntFree.exit.sink.split ]
+  %.0 = phi i64 [ %.063, %23 ], [ %.061.lcssa, %83 ], [ %.0.ph, %Vec_IntFree.exit.sink.split ]
   call void @free(ptr noundef nonnull %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i64 %.0

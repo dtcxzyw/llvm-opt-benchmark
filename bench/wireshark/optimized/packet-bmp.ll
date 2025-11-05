@@ -1651,11 +1651,11 @@ bmpv4_dissect_tlv_hdr.exit:                       ; preds = %11, %28
   ]
 
 32:                                               ; preds = %bmpv4_dissect_tlv_hdr.exit
-  %.sroa.4.0.insert.ext.i = zext i16 %14 to i32
+  %.sroa.5.0.extract.trunc = zext i16 %14 to i32
   %33 = load i32, ptr @hf_bmpv4_tlv_group_id, align 4
   %34 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %33, ptr noundef %1, i32 noundef %.0.i, i32 noundef 2, i32 noundef 0)
   %35 = add i32 %.0.i, 2
-  %36 = add nsw i32 %.sroa.4.0.insert.ext.i, -2
+  %36 = add nsw i32 %.sroa.5.0.extract.trunc, -2
   %37 = load i32, ptr @hf_bmpv4_tlv_value_bytes, align 4
   %38 = call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %37, ptr noundef %1, i32 noundef %35, i32 noundef %36, i32 noundef 0)
   %39 = sdiv i32 %36, 2

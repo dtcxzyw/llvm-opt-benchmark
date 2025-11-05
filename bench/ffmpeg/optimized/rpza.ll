@@ -214,15 +214,15 @@ bytestream2_get_byte.exit.thread.i:               ; preds = %bytestream2_get_byt
   store ptr %87, ptr %8, align 8, !tbaa !42
   %88 = load i8, ptr %.promoted288.i, align 1, !tbaa !41
   %89 = zext i8 %88 to i32
+  %90 = or disjoint i32 %.0.i208219.i, %89
   %.pre350.i = ptrtoint ptr %87 to i64
   br label %bytestream2_get_byte.exit210.i
 
 bytestream2_get_byte.exit210.i:                   ; preds = %86, %85
   %.pre-phi351.i = phi i64 [ %67, %85 ], [ %.pre350.i, %86 ]
   %.promoted286.i = phi ptr [ %66, %85 ], [ %87, %86 ]
-  %.0.i209.i = phi i32 [ 0, %85 ], [ %89, %86 ]
-  %90 = or disjoint i32 %.0.i209.i, %.0.i208219.i
-  %91 = trunc nuw nsw i32 %90 to i16
+  %.0.i209.i = phi i32 [ %.0.i208219.i, %85 ], [ %90, %86 ]
+  %91 = trunc nuw nsw i32 %.0.i209.i to i16
   %92 = sub i64 %67, %.pre-phi351.i
   %93 = icmp slt i64 %92, 1
   br i1 %93, label %.thread.thread.i, label %bytestream2_peek_byte.exit206.i

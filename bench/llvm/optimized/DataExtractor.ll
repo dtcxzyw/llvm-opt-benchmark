@@ -509,17 +509,15 @@ _ZL7isErrorPN4llvm5ErrorE.exit.thread.i:          ; preds = %_ZL7isErrorPN4llvm5
   %14 = zext i8 %spec.select.i to i32
   %15 = zext i8 %.sroa.5.0.copyload.i to i32
   %16 = shl nuw nsw i32 %15, 8
-  %17 = zext i8 %spec.select21.i to i32
-  %18 = shl nuw nsw i32 %17, 16
+  %17 = or disjoint i32 %16, %14
+  %18 = zext i8 %spec.select21.i to i32
+  %19 = shl nuw nsw i32 %18, 16
+  %20 = or disjoint i32 %17, %19
   br label %_ZNK4llvm13DataExtractor4getUINS_6Uint24EEET_PmPNS_5ErrorE.exit
 
 _ZNK4llvm13DataExtractor4getUINS_6Uint24EEET_PmPNS_5ErrorE.exit: ; preds = %_ZL7isErrorPN4llvm5ErrorE.exit.i, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i, %7
-  %.sroa.5.0.i = phi i32 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i ], [ %16, %7 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i ]
-  %.sroa.08.0.i = phi i32 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i ], [ %14, %7 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i ]
-  %.sroa.6.0.i = phi i32 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i ], [ %18, %7 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i ]
-  %19 = or disjoint i32 %.sroa.08.0.i, %.sroa.5.0.i
-  %20 = or disjoint i32 %19, %.sroa.6.0.i
-  ret i32 %20
+  %.sroa.5.0.i = phi i32 [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.i ], [ %20, %7 ], [ 0, %_ZL7isErrorPN4llvm5ErrorE.exit.thread.i ]
+  ret i32 %.sroa.5.0.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

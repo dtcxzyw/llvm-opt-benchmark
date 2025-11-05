@@ -342,7 +342,6 @@ $_ZTVN4llvm2cl11OptionValueIbEE = comdat any
 @_ZN4llvm25PostDominatorTreeAnalysis3KeyE = external global %"struct.llvm::AnalysisKey", align 8
 @_ZN4llvm9GlobalsAA3KeyE = external global %"struct.llvm::AnalysisKey", align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SanitizerCoverage.cpp, ptr null }]
-@switch.table._ZN4llvm21SanitizerCoveragePass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 3, i32 3], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEEC2IJA25_cNS0_4descENS0_12OptionHiddenEEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 1 dereferenceable(25) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 comdat align 2 {
@@ -1444,24 +1443,24 @@ define dso_local void @_ZN4llvm21SanitizerCoveragePass3runERNS_6ModuleERNS_15Ana
   %.sroa.18.0.copyload = load i8, ptr %.sroa.18.0..sroa_idx, align 4, !tbaa !60
   %.sroa.1964.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 21
   %82 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL15ClCoverageLevel, i64 120), align 8, !tbaa !34, !noalias !69
-  %switch.tableidx = add i32 %82, -1
-  %83 = icmp ult i32 %switch.tableidx, 4
-  br i1 %83, label %switch.lookup, label %_ZN12_GLOBAL__N_110getOptionsEi.exit.i
+  switch i32 %82, label %_ZN12_GLOBAL__N_110getOptionsEi.exit.i [
+    i32 4, label %84
+    i32 1, label %83
+    i32 2, label %83
+    i32 3, label %83
+  ]
 
-switch.lookup:                                    ; preds = %4
-  %84 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm21SanitizerCoveragePass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE, i64 %84
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %switch.shiftamt = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.downshift = lshr exact i32 16777216, %switch.shiftamt
-  %switch.masked = trunc i32 %switch.downshift to i8
+83:                                               ; preds = %4, %4, %4
   br label %_ZN12_GLOBAL__N_110getOptionsEi.exit.i
 
-_ZN12_GLOBAL__N_110getOptionsEi.exit.i:           ; preds = %switch.lookup, %4
-  %.sroa.0.0.i = phi i32 [ 0, %4 ], [ %switch.load, %switch.lookup ]
-  %.sroa.9.0.i = phi i8 [ 0, %4 ], [ %switch.masked, %switch.lookup ]
+84:                                               ; preds = %4
+  %85 = or i8 %.sroa.257.0.copyload, 1
+  br label %_ZN12_GLOBAL__N_110getOptionsEi.exit.i
+
+_ZN12_GLOBAL__N_110getOptionsEi.exit.i:           ; preds = %84, %83, %4
+  %.sroa.0.0.i = phi i32 [ 0, %4 ], [ 3, %84 ], [ %82, %83 ]
+  %.sroa.9.0.i = phi i8 [ %.sroa.257.0.copyload, %4 ], [ %85, %84 ], [ %.sroa.257.0.copyload, %83 ]
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %.sroa.056.0.copyload, i32 %.sroa.0.0.i)
-  %85 = or i8 %.sroa.9.0.i, %.sroa.257.0.copyload
   %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12ClCMPTracing, i64 120), align 8, !tbaa !50, !range !48, !noalias !69, !noundef !49
   %87 = or i8 %86, %.sroa.4.0.copyload
   %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL12ClDIVTracing, i64 120), align 8, !tbaa !50, !range !48, !noalias !69, !noundef !49
@@ -1552,7 +1551,7 @@ _ZN12_GLOBAL__N_110getOptionsEi.exit.i:           ; preds = %switch.lookup, %4
   %143 = getelementptr inbounds nuw i8, ptr %76, i64 1016
   store i32 %.sroa.speculated.i, ptr %143, align 8, !tbaa !67
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1020
-  store i8 %85, ptr %.sroa.466.0..sroa_idx, align 4, !tbaa !60
+  store i8 %.sroa.9.0.i, ptr %.sroa.466.0..sroa_idx, align 4, !tbaa !60
   %.sroa.567.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1021
   store i8 %.sroa.3.0.copyload, ptr %.sroa.567.0..sroa_idx, align 1, !tbaa !60
   %.sroa.668.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 1022

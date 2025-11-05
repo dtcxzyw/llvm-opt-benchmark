@@ -1318,18 +1318,11 @@ if.end6.i:                                        ; preds = %if.end.i
   %13 = load ptr, ptr %m_data.i, align 8, !tbaa !43
   %arrayidx11.i = getelementptr inbounds %struct.MapNode, ptr %13, i64 %idxprom.i
   %14 = load i32, ptr %arrayidx11.i, align 4, !tbaa.struct !84
-  %retval.sroa.6.0.extract.shift.i = and i32 %14, -16777216
-  %15 = and i32 %14, 16711680
-  %16 = and i32 %14, 65535
   br label %_ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit
 
 _ZN16VoxelManipulator19getNodeNoExNoEmergeERKN3irr4core8vector3dIsEE.exit: ; preds = %if.end6.i, %if.end.i, %land.lhs.true22.i.i, %land.lhs.true9.i.i, %entry
-  %retval.sroa.6.0.i = phi i32 [ %retval.sroa.6.0.extract.shift.i, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %entry ]
-  %retval.sroa.4.0.i = phi i32 [ %15, %if.end6.i ], [ 0, %if.end.i ], [ 0, %land.lhs.true22.i.i ], [ 0, %land.lhs.true9.i.i ], [ 0, %entry ]
-  %retval.sroa.0.0.i = phi i32 [ %16, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %entry ]
-  %retval.sroa.4.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.i, %retval.sroa.6.0.i
-  %retval.sroa.0.0.insert.insert.i = or disjoint i32 %retval.sroa.4.0.insert.insert.i, %retval.sroa.0.0.i
-  store i32 %retval.sroa.0.0.insert.insert.i, ptr %ref.tmp, align 4
+  %retval.sroa.4.0.i = phi i32 [ %14, %if.end6.i ], [ 127, %if.end.i ], [ 127, %land.lhs.true22.i.i ], [ 127, %land.lhs.true9.i.i ], [ 127, %entry ]
+  store i32 %retval.sroa.4.0.i, ptr %ref.tmp, align 4
   call void @_Z8pushnodeP9lua_StateRK7MapNode(ptr noundef %L, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   ret i32 1

@@ -827,17 +827,16 @@ Vec_IntFetch.exit:                                ; preds = %68, %73, %79
   %.val138307 = phi i32 [ %.val138308, %91 ], [ %.val138309, %.critedge8 ]
   %.val149.lcssa.ph = phi i32 [ %.val149246.fr, %91 ], [ %.val149, %.critedge8 ]
   %.val139.pre = load i32, ptr %69, align 4, !tbaa !3
+  %169 = mul nsw i32 %.val138307, %.val139.pre
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_IntFetch.exit
-  %.val138 = phi i32 [ %.val150, %Vec_IntFetch.exit ], [ %.val138307, %.critedge.loopexit ]
-  %.val139 = phi i32 [ 0, %Vec_IntFetch.exit ], [ %.val139.pre, %.critedge.loopexit ]
+  %.val138 = phi i32 [ 0, %Vec_IntFetch.exit ], [ %169, %.critedge.loopexit ]
   %.val149.lcssa = phi i32 [ %.val151, %Vec_IntFetch.exit ], [ %.val149.lcssa.ph, %.critedge.loopexit ]
-  %169 = mul nsw i32 %.val138, %.val139
-  %170 = sub nsw i32 %.val149.lcssa, %169
+  %170 = sub nsw i32 %.val149.lcssa, %.val138
   %171 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %171, align 4, !tbaa !3
-  %172 = icmp eq i32 %.val149.lcssa, %169
+  %172 = icmp eq i32 %.val149.lcssa, %.val138
   br i1 %172, label %Vec_IntFetch.exit164, label %173
 
 173:                                              ; preds = %.critedge

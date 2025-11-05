@@ -228,6 +228,10 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF6X86ISA12create_isa_1ENS1_4FLAGERNS
   store i64 %6, ptr %5, align 8, !tbaa !9
   br i1 %.not.i.i, label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, label %12
 
+_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %3
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %_ZNSt6vectorISt4pairIN4LIEF3ELF6X86ISA4FLAGENS3_3ISAEESaIS6_EED2Ev.exit65
+
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i8, ptr %13, align 8, !tbaa !18, !range !19, !noundef !20
@@ -236,15 +240,11 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF6X86ISA12create_isa_1ENS1_4FLAGERNS
 
 16:                                               ; preds = %12
   call void @_ZN4LIEF11swap_endianIjEEvPT_(ptr noundef nonnull %4) #20
-  %.pre = load i64, ptr %5, align 8, !tbaa !9
+  %.pre.i = load i64, ptr %5, align 8, !tbaa !9
   br label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit
 
-_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %3
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_ZNSt6vectorISt4pairIN4LIEF3ELF6X86ISA4FLAGENS3_3ISAEESaIS6_EED2Ev.exit65
-
 _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds = %12, %16
-  %17 = phi i64 [ %.pre, %16 ], [ %6, %12 ]
+  %17 = phi i64 [ %6, %12 ], [ %.pre.i, %16 ]
   %18 = load i32, ptr %4, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %19 = add i64 %17, 4
@@ -634,6 +634,10 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF6X86ISA19create_compat_isa_1ENS1_4F
   store i64 %7, ptr %6, align 8, !tbaa !9
   br i1 %.not.i.i, label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, label %13
 
+_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %4
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %_ZNSt6vectorISt4pairIN4LIEF3ELF6X86ISA4FLAGENS3_3ISAEESaIS6_EED2Ev.exit628
+
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i8, ptr %14, align 8, !tbaa !18, !range !19, !noundef !20
@@ -642,15 +646,11 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF6X86ISA19create_compat_isa_1ENS1_4F
 
 17:                                               ; preds = %13
   call void @_ZN4LIEF11swap_endianIjEEvPT_(ptr noundef nonnull %5) #20
-  %.pre = load i64, ptr %6, align 8, !tbaa !9
+  %.pre.i = load i64, ptr %6, align 8, !tbaa !9
   br label %_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit
 
-_ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %4
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZNSt6vectorISt4pairIN4LIEF3ELF6X86ISA4FLAGENS3_3ISAEESaIS6_EED2Ev.exit628
-
 _ZNK4LIEF12BinaryStream4readIjEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds = %13, %17
-  %18 = phi i64 [ %.pre, %17 ], [ %7, %13 ]
+  %18 = phi i64 [ %7, %13 ], [ %.pre.i, %17 ]
   %19 = load i32, ptr %5, align 4, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %20 = add i64 %18, 4

@@ -1724,11 +1724,11 @@ scalar_product.exit395:                           ; preds = %scalar_product.exit
   %811 = load float, ptr %810, align 4, !tbaa !64
   %812 = fsub reassoc nsz arcp contract afn float %811, %806
   %813 = fmul reassoc nsz arcp contract afn float %812, %808
+  %814 = fadd reassoc nsz arcp contract afn float %813, %806
   br label %lookup_gamut.exit
 
 lookup_gamut.exit:                                ; preds = %scalar_product.exit395, %807
-  %814 = phi reassoc nsz arcp contract afn float [ %813, %807 ], [ 0.000000e+00, %scalar_product.exit395 ]
-  %815 = fadd reassoc nsz arcp contract afn float %814, %806
+  %815 = phi float [ %814, %807 ], [ %806, %scalar_product.exit395 ]
   br i1 %786, label %816, label %soft_clip.exit
 
 816:                                              ; preds = %lookup_gamut.exit
@@ -2195,11 +2195,11 @@ soft_clip.exit423:                                ; preds = %1070, %1079
   %1126 = load float, ptr %1125, align 4, !tbaa !64
   %1127 = fsub reassoc nsz arcp contract afn float %1126, %1121
   %1128 = fmul reassoc nsz arcp contract afn float %1127, %1123
+  %1129 = fadd reassoc nsz arcp contract afn float %1128, %1121
   br label %lookup_gamut.exit425
 
 lookup_gamut.exit425:                             ; preds = %soft_clip.exit423, %1122
-  %1129 = phi reassoc nsz arcp contract afn float [ %1128, %1122 ], [ 0.000000e+00, %soft_clip.exit423 ]
-  %1130 = fadd reassoc nsz arcp contract afn float %1129, %1121
+  %1130 = phi float [ %1129, %1122 ], [ %1121, %soft_clip.exit423 ]
   %1131 = fmul reassoc nsz arcp contract afn float %1107, %173
   %1132 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %1131, float 0x3FE4E07580000000)
   %1133 = fmul reassoc nsz arcp contract afn float %1132, 0x402FDDB160000000

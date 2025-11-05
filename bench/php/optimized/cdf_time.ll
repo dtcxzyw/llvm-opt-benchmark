@@ -135,77 +135,77 @@ cdf_getday.exit.loopexit35:                       ; preds = %43, %.split.us.i
   %.us-phi.i.ph36 = phi i32 [ %44, %43 ], [ %.01722.us.i, %.split.us.i ]
   %.pre = srem i32 %20, 100
   %61 = icmp ne i32 %.pre, 0
+  %62 = or i1 %61, %40
   br label %cdf_getday.exit
 
 cdf_getday.exit:                                  ; preds = %.split.split.i, %58, %.split.split.us.i, %51, %cdf_getday.exit.loopexit35
-  %.pre-phi = phi i1 [ %61, %cdf_getday.exit.loopexit35 ], [ false, %51 ], [ false, %.split.split.us.i ], [ true, %58 ], [ true, %.split.split.i ]
+  %.pre-phi = phi i1 [ %62, %cdf_getday.exit.loopexit35 ], [ %40, %51 ], [ %40, %.split.split.us.i ], [ true, %58 ], [ true, %.split.split.i ]
   %.us-phi.i = phi i32 [ %.us-phi.i.ph36, %cdf_getday.exit.loopexit35 ], [ %.01722.us27.i, %.split.split.us.i ], [ %52, %51 ], [ %.01722.i, %.split.split.i ], [ %59, %58 ]
-  %62 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %.us-phi.i, ptr %62, align 4, !tbaa !17
-  %or.cond17.i = or i1 %.pre-phi, %40
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %.us-phi.i, ptr %63, align 4, !tbaa !17
   br i1 %38, label %.split.i22, label %.split.us.i19
 
-.split.us.i19:                                    ; preds = %cdf_getday.exit, %67
-  %.019.us.i = phi i64 [ %68, %67 ], [ 0, %cdf_getday.exit ]
-  %.01318.us.i = phi i32 [ %65, %67 ], [ %36, %cdf_getday.exit ]
-  %63 = getelementptr inbounds nuw i32, ptr @mdays, i64 %.019.us.i
-  %64 = load i32, ptr %63, align 4, !tbaa !16
-  %65 = sub nsw i32 %.01318.us.i, %64
-  %66 = icmp slt i32 %65, 1
-  br i1 %66, label %cdf_getmonth.exit, label %67
+.split.us.i19:                                    ; preds = %cdf_getday.exit, %68
+  %.019.us.i = phi i64 [ %69, %68 ], [ 0, %cdf_getday.exit ]
+  %.01318.us.i = phi i32 [ %66, %68 ], [ %36, %cdf_getday.exit ]
+  %64 = getelementptr inbounds nuw i32, ptr @mdays, i64 %.019.us.i
+  %65 = load i32, ptr %64, align 4, !tbaa !16
+  %66 = sub nsw i32 %.01318.us.i, %65
+  %67 = icmp slt i32 %66, 1
+  br i1 %67, label %cdf_getmonth.exit, label %68
 
-67:                                               ; preds = %.split.us.i19
-  %68 = add nuw nsw i64 %.019.us.i, 1
-  %exitcond.not.i20 = icmp eq i64 %68, 12
+68:                                               ; preds = %.split.us.i19
+  %69 = add nuw nsw i64 %.019.us.i, 1
+  %exitcond.not.i20 = icmp eq i64 %69, 12
   br i1 %exitcond.not.i20, label %cdf_getmonth.exit, label %.split.us.i19
 
-.split.i22:                                       ; preds = %cdf_getday.exit, %74
-  %.019.i = phi i64 [ %75, %74 ], [ 0, %cdf_getday.exit ]
-  %.01318.i = phi i32 [ %spec.select22.i, %74 ], [ %36, %cdf_getday.exit ]
-  %69 = getelementptr inbounds nuw i32, ptr @mdays, i64 %.019.i
-  %70 = load i32, ptr %69, align 4, !tbaa !16
-  %71 = sub nsw i32 %.01318.i, %70
-  %72 = icmp eq i64 %.019.i, 1
-  %narrow.i23 = and i1 %or.cond17.i, %72
+.split.i22:                                       ; preds = %cdf_getday.exit, %75
+  %.019.i = phi i64 [ %76, %75 ], [ 0, %cdf_getday.exit ]
+  %.01318.i = phi i32 [ %spec.select22.i, %75 ], [ %36, %cdf_getday.exit ]
+  %70 = getelementptr inbounds nuw i32, ptr @mdays, i64 %.019.i
+  %71 = load i32, ptr %70, align 4, !tbaa !16
+  %72 = sub nsw i32 %.01318.i, %71
+  %73 = icmp eq i64 %.019.i, 1
+  %narrow.i23 = and i1 %.pre-phi, %73
   %spec.select.i24 = sext i1 %narrow.i23 to i32
-  %spec.select22.i = add nsw i32 %71, %spec.select.i24
-  %73 = icmp slt i32 %spec.select22.i, 1
-  br i1 %73, label %cdf_getmonth.exit, label %74
+  %spec.select22.i = add nsw i32 %72, %spec.select.i24
+  %74 = icmp slt i32 %spec.select22.i, 1
+  br i1 %74, label %cdf_getmonth.exit, label %75
 
-74:                                               ; preds = %.split.i22
-  %75 = add nuw nsw i64 %.019.i, 1
-  %exitcond25.not.i = icmp eq i64 %75, 12
+75:                                               ; preds = %.split.i22
+  %76 = add nuw nsw i64 %.019.i, 1
+  %exitcond25.not.i = icmp eq i64 %76, 12
   br i1 %exitcond25.not.i, label %cdf_getmonth.exit, label %.split.i22
 
-cdf_getmonth.exit:                                ; preds = %.split.us.i19, %67, %.split.i22, %74
-  %.us-phi.i21 = phi i64 [ %.019.i, %.split.i22 ], [ 12, %74 ], [ %.019.us.i, %.split.us.i19 ], [ 12, %67 ]
+cdf_getmonth.exit:                                ; preds = %.split.us.i19, %68, %.split.i22, %75
+  %.us-phi.i21 = phi i64 [ %.019.i, %.split.i22 ], [ 12, %75 ], [ %.019.us.i, %.split.us.i19 ], [ 12, %68 ]
   %.014.i = trunc i64 %.us-phi.i21 to i32
-  %76 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 %.014.i, ptr %76, align 8, !tbaa !18
-  %77 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i32 0, ptr %77, align 8, !tbaa !19
-  %78 = getelementptr inbounds nuw i8, ptr %3, i64 28
-  store i32 0, ptr %78, align 4, !tbaa !20
-  %79 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i32 0, ptr %79, align 8, !tbaa !21
-  %80 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 0, ptr %80, align 8, !tbaa !22
-  %81 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @cdf_timestamp_to_timespec.UTC, ptr %81, align 8, !tbaa !23
-  %82 = add nsw i32 %19, -299
-  store i32 %82, ptr %21, align 4, !tbaa !24
-  %83 = call i64 @mktime(ptr noundef nonnull %3) #8
-  store i64 %83, ptr %0, align 8, !tbaa !25
-  %84 = icmp eq i64 %83, -1
-  br i1 %84, label %85, label %87
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 %.014.i, ptr %77, align 8, !tbaa !18
+  %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i32 0, ptr %78, align 8, !tbaa !19
+  %79 = getelementptr inbounds nuw i8, ptr %3, i64 28
+  store i32 0, ptr %79, align 4, !tbaa !20
+  %80 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store i32 0, ptr %80, align 8, !tbaa !21
+  %81 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i64 0, ptr %81, align 8, !tbaa !22
+  %82 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr @cdf_timestamp_to_timespec.UTC, ptr %82, align 8, !tbaa !23
+  %83 = add nsw i32 %19, -299
+  store i32 %83, ptr %21, align 4, !tbaa !24
+  %84 = call i64 @mktime(ptr noundef nonnull %3) #8
+  store i64 %84, ptr %0, align 8, !tbaa !25
+  %85 = icmp eq i64 %84, -1
+  br i1 %85, label %86, label %88
 
-85:                                               ; preds = %cdf_getmonth.exit
-  %86 = tail call ptr @__errno_location() #9
-  store i32 22, ptr %86, align 4, !tbaa !16
-  br label %87
+86:                                               ; preds = %cdf_getmonth.exit
+  %87 = tail call ptr @__errno_location() #9
+  store i32 22, ptr %87, align 4, !tbaa !16
+  br label %88
 
-87:                                               ; preds = %cdf_getmonth.exit, %85
-  %.0 = phi i32 [ -1, %85 ], [ 0, %cdf_getmonth.exit ]
+88:                                               ; preds = %cdf_getmonth.exit, %86
+  %.0 = phi i32 [ -1, %86 ], [ 0, %cdf_getmonth.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

@@ -4341,11 +4341,11 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %115 = and i64 %109, 1
   %116 = ptrtoint ptr %114 to i64
   %117 = xor i64 %115, %116
+  %118 = xor i64 %117, %98
   br label %Aig_ObjChild0Copy.exit125
 
 Aig_ObjChild0Copy.exit125:                        ; preds = %103, %111
-  %118 = phi i64 [ %117, %111 ], [ 0, %103 ]
-  %119 = xor i64 %118, %98
+  %119 = phi i64 [ %118, %111 ], [ %98, %103 ]
   %120 = inttoptr i64 %119 to ptr
   %121 = tail call ptr @Aig_Or(ptr noundef nonnull %13, ptr noundef %.086136, ptr noundef %120) #16
   %.val104.pre = load i32, ptr %95, align 8, !tbaa !32
@@ -6269,11 +6269,11 @@ Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.e
   %115 = and i64 %109, 1
   %116 = ptrtoint ptr %114 to i64
   %117 = xor i64 %115, %116
+  %118 = xor i64 %117, %98
   br label %Aig_ObjChild0Copy.exit205
 
 Aig_ObjChild0Copy.exit205:                        ; preds = %103, %111
-  %118 = phi i64 [ %117, %111 ], [ 0, %103 ]
-  %119 = xor i64 %118, %98
+  %119 = phi i64 [ %118, %111 ], [ %98, %103 ]
   %120 = inttoptr i64 %119 to ptr
   %121 = tail call ptr @Aig_Or(ptr noundef nonnull %13, ptr noundef %.0133223, ptr noundef %120) #16
   br label %122

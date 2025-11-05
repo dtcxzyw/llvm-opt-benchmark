@@ -1866,8 +1866,7 @@ define hidden void @_ZN12clap_builder6output13help_template8AutoHelp10write_help
   br i1 %or.cond.i31, label %.backedge.i.i26, label %"_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit34"
 
 "_ZN90_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5c9a5ad8bf840250E.llvm.7816201618593889606.exit34": ; preds = %45, %.backedge.us.i.i14, %56, %.backedge.i.i26, %1
-  %.lcssa.i.i3958 = phi i1 [ false, %1 ], [ %.lcssa.i.i39, %.backedge.i.i26 ], [ %.lcssa.i.i39, %56 ], [ %.lcssa.i.i39, %.backedge.us.i.i14 ], [ %.lcssa.i.i39, %45 ]
-  %.lcssa.i.i1941 = phi i1 [ false, %1 ], [ true, %56 ], [ false, %.backedge.i.i26 ], [ true, %45 ], [ false, %.backedge.us.i.i14 ]
+  %.lcssa.i.i1941 = phi i1 [ false, %1 ], [ true, %56 ], [ %.lcssa.i.i39, %.backedge.i.i26 ], [ true, %45 ], [ %.lcssa.i.i39, %.backedge.us.i.i14 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !355
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 184
@@ -1895,8 +1894,7 @@ _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85c
 
 _ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit: ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !355
-  %brmerge = or i1 %.lcssa.i.i3958, %.lcssa.i.i1941
-  br i1 %brmerge, label %.split6, label %.split
+  br i1 %.lcssa.i.i1941, label %.split6, label %.split
 
 .split6:                                          ; preds = %_ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit.thread, %_ZN12clap_builder7builder7command7Command23has_visible_subcommands17h33da8fae85ccf465E.exit
   call void @_ZN12clap_builder6output13help_template12HelpTemplate20write_templated_help17h7ba8a0fd121e4435E(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 @anon.d61c2e717104e98006f69608d75dbe7b.41.llvm.7816201618593889606, i64 noundef 81)

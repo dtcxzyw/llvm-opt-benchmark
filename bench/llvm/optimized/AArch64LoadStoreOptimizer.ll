@@ -12239,13 +12239,12 @@ _ZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS_8RegisterERNS_12LiveR
   %.sroa.049.0.i = phi i16 [ %541, %.critedge.i33 ], [ undef, %303 ], [ %541, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i42.i ], [ undef, %_ZNK4llvm12LiveRegUnits9availableEt.exit.i ]
   %.sroa.2.0.i = phi i32 [ 65536, %.critedge.i33 ], [ 0, %303 ], [ 65536, %_ZN4llvm17MCRegUnitIteratorppEv.exit.i42.i ], [ 0, %_ZNK4llvm12LiveRegUnits9availableEt.exit.i ]
   %569 = zext i16 %.sroa.049.0.i to i32
+  %570 = or disjoint i32 %.sroa.2.0.i, %569
   br label %_ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit.thread
 
 _ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit.thread: ; preds = %.thread, %30, %8, %_ZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS_8RegisterERNS_12LiveRegUnitsES5_RNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit, %_ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit
-  %.sroa.047.0 = phi i32 [ 0, %8 ], [ %569, %_ZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS_8RegisterERNS_12LiveRegUnitsES5_RNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit ], [ 0, %_ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit ], [ 0, %30 ], [ 0, %.thread ]
-  %.sroa.2.0 = phi i32 [ 0, %8 ], [ %.sroa.2.0.i, %_ZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS_8RegisterERNS_12LiveRegUnitsES5_RNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit ], [ 0, %_ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit ], [ 0, %30 ], [ 0, %.thread ]
-  %.sroa.047.0.insert.insert = or i32 %.sroa.2.0, %.sroa.047.0
-  ret i32 %.sroa.047.0.insert.insert
+  %.sroa.2.0 = phi i32 [ 0, %8 ], [ %570, %_ZL25tryToFindRegisterToRenameRKN4llvm15MachineFunctionENS_8RegisterERNS_12LiveRegUnitsES5_RNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit ], [ 0, %_ZL24canRenameUntilSecondLoadRN4llvm12MachineInstrES1_RNS_12LiveRegUnitsERNS_15SmallPtrSetImplIPKNS_19TargetRegisterClassEEEPKNS_18TargetRegisterInfoE.exit ], [ 0, %30 ], [ 0, %.thread ]
+  ret i32 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

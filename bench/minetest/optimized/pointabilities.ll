@@ -327,13 +327,12 @@ for.end:                                          ; preds = %for.inc
   %6 = xor i8 %5, 2
   %spec.select = zext nneg i8 %6 to i16
   %spec.select62 = select i1 %2, i16 %4, i16 256
+  %7 = or disjoint i16 %spec.select62, %spec.select
   br label %cleanup21
 
 cleanup21:                                        ; preds = %if.then, %for.end, %entry
-  %retval.sroa.0.3 = phi i16 [ 2, %entry ], [ %spec.select, %for.end ], [ 1, %if.then ]
-  %retval.sroa.4.3 = phi i16 [ 0, %entry ], [ %spec.select62, %for.end ], [ 256, %if.then ]
-  %retval.sroa.0.0.insert.insert = or disjoint i16 %retval.sroa.4.3, %retval.sroa.0.3
-  ret i16 %retval.sroa.0.0.insert.insert
+  %retval.sroa.4.3 = phi i16 [ 2, %entry ], [ %7, %for.end ], [ 257, %if.then ]
+  ret i16 %retval.sroa.4.3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -463,13 +462,12 @@ for.end.i:                                        ; preds = %for.inc.i
   %6 = xor i8 %5, 2
   %spec.select.i = zext nneg i8 %6 to i16
   %spec.select62.i = select i1 %2, i16 %4, i16 256
+  %7 = or disjoint i16 %spec.select62.i, %spec.select.i
   br label %_ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit
 
 _ZN14Pointabilities11matchGroupsERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_iEEERKS0_IS6_16PointabilityTypeS8_SA_SaISB_ISC_SI_EEE.exit: ; preds = %if.then.i, %for.end.i, %entry
-  %retval.sroa.0.3.i = phi i16 [ 2, %entry ], [ %spec.select.i, %for.end.i ], [ 1, %if.then.i ]
-  %retval.sroa.4.3.i = phi i16 [ 0, %entry ], [ %spec.select62.i, %for.end.i ], [ 256, %if.then.i ]
-  %retval.sroa.0.0.insert.insert.i = or disjoint i16 %retval.sroa.4.3.i, %retval.sroa.0.3.i
-  ret i16 %retval.sroa.0.0.insert.insert.i
+  %retval.sroa.4.3.i = phi i16 [ 2, %entry ], [ %7, %for.end.i ], [ 257, %if.then.i ]
+  ret i16 %retval.sroa.4.3.i
 }
 
 ; Function Attrs: mustprogress uwtable

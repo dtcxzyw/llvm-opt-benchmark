@@ -28613,7 +28613,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm17MachineMemOperand13getSizeInBitsEv(pt
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, -7
   %spec.select.i.not = icmp eq i64 %4, 0
-  br i1 %spec.select.i.not, label %19, label %5
+  br i1 %spec.select.i.not, label %_ZNK4llvm3LLT13getSizeInBitsEv.exit, label %5
 
 5:                                                ; preds = %1
   %6 = and i64 %3, 2
@@ -28640,16 +28640,11 @@ define linkonce_odr hidden i64 @_ZNK4llvm17MachineMemOperand13getSizeInBitsEv(pt
   %15 = and i64 %14, 4294967295
   %16 = shl i64 %3, 59
   %17 = and i64 %16, 4611686018427387904
+  %18 = or disjoint i64 %15, %17
   br label %_ZNK4llvm3LLT13getSizeInBitsEv.exit
 
-_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %11, %12
-  %.sroa.06.0.i = phi i64 [ %.0.in.i.i, %11 ], [ %15, %12 ]
-  %.sroa.3.0.i = phi i64 [ 0, %11 ], [ %17, %12 ]
-  %18 = or i64 %.sroa.3.0.i, %.sroa.06.0.i
-  br label %19
-
-19:                                               ; preds = %1, %_ZNK4llvm3LLT13getSizeInBitsEv.exit
-  %.sroa.03.0 = phi i64 [ %18, %_ZNK4llvm3LLT13getSizeInBitsEv.exit ], [ -1, %1 ]
+_ZNK4llvm3LLT13getSizeInBitsEv.exit:              ; preds = %12, %11, %1
+  %.sroa.03.0 = phi i64 [ -1, %1 ], [ %.0.in.i.i, %11 ], [ %18, %12 ]
   ret i64 %.sroa.03.0
 }
 

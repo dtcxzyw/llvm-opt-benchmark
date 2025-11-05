@@ -7984,11 +7984,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit226: ; preds = %_Z
   %156 = getelementptr i64, ptr %154, i64 %155
   %157 = getelementptr i8, ptr %156, i64 -8
   %158 = load i64, ptr %157, align 8, !tbaa !115
+  %159 = mul i64 %158, %147
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %148, %152
-  %159 = phi i64 [ %158, %152 ], [ 0, %148 ]
-  %160 = mul i64 %159, %147
+  %160 = phi i64 [ %159, %152 ], [ 0, %148 ]
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !82
   %163 = call i64 @fwrite(ptr noundef %162, i64 noundef 1, i64 noundef %160, ptr noundef nonnull %143)
@@ -9909,11 +9909,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit228: ; preds = %_Z
   %142 = getelementptr i64, ptr %140, i64 %141
   %143 = getelementptr i8, ptr %142, i64 -8
   %144 = load i64, ptr %143, align 8, !tbaa !115
+  %145 = mul i64 %144, %133
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %134, %138
-  %145 = phi i64 [ %144, %138 ], [ 0, %134 ]
-  %146 = mul i64 %145, %133
+  %146 = phi i64 [ %145, %138 ], [ 0, %134 ]
   %147 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %148 = load ptr, ptr %147, align 8, !tbaa !82
   %149 = call i64 @fwrite(ptr noundef %148, i64 noundef 1, i64 noundef %146, ptr noundef nonnull %129)
@@ -16720,28 +16720,28 @@ _ZN2cvL9getCodecsEv.exit:                         ; preds = %14, %17, %20
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit unwind label %78
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = %._crit_edge
-  %42 = load i32, ptr %4, align 8, !tbaa !283
-  %43 = load i32, ptr %6, align 4, !tbaa !284
-  %44 = mul nsw i32 %43, %42
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !176
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %43 = load i32, ptr %42, align 4, !tbaa !176
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %45, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-49:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
+45:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
+  %46 = load i32, ptr %4, align 8, !tbaa !283
+  %47 = load i32, ptr %6, align 4, !tbaa !284
+  %48 = mul nsw i32 %47, %46
+  %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !177
-  %52 = zext nneg i32 %47 to i64
+  %52 = zext nneg i32 %43 to i64
   %53 = getelementptr i64, ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i64, ptr %54, align 8, !tbaa !115
+  %56 = mul i64 %55, %49
+  %57 = call i64 @llvm.umin.i64(i64 %56, i64 %.0.lcssa)
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit, %49
-  %56 = phi i64 [ %55, %49 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit ]
-  %57 = mul i64 %56, %45
-  %.sroa.speculated = call i64 @llvm.umin.i64(i64 %57, i64 %.0.lcssa)
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit, %45
+  %.sroa.speculated = phi i64 [ %57, %45 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit ]
   %58 = load ptr, ptr %3, align 8, !tbaa !32
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !82

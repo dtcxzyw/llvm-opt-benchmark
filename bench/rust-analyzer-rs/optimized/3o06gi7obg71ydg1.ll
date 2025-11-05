@@ -33801,29 +33801,31 @@ _ZN11ide_assists8handlers22add_missing_match_arms32cursor_at_trivial_match_arm_l
     i32 1, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit"
   ]
 
+._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
+  %611 = mul i64 %spec.select.i251, %615
+  br label %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit"
+
 .lr.ph.i:                                         ; preds = %607, %.lr.ph.i
-  %.017.i = phi i32 [ %613, %.lr.ph.i ], [ %610, %607 ]
-  %.01216.i = phi i64 [ %614, %.lr.ph.i ], [ %600, %607 ]
+  %.017.i = phi i32 [ %614, %.lr.ph.i ], [ %610, %607 ]
+  %.01216.i = phi i64 [ %615, %.lr.ph.i ], [ %600, %607 ]
   %.01315.i = phi i64 [ %spec.select.i251, %.lr.ph.i ], [ 1, %607 ]
-  %611 = and i32 %.017.i, 1
-  %.not.i250 = icmp eq i32 %611, 0
-  %612 = select i1 %.not.i250, i64 1, i64 %.01216.i
-  %spec.select.i251 = mul i64 %612, %.01315.i
-  %613 = lshr i32 %.017.i, 1
-  %614 = mul i64 %.01216.i, %.01216.i
-  %615 = icmp ugt i32 %.017.i, 3
-  br i1 %615, label %.lr.ph.i, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit"
+  %612 = and i32 %.017.i, 1
+  %.not.i250 = icmp eq i32 %612, 0
+  %613 = select i1 %.not.i250, i64 1, i64 %.01216.i
+  %spec.select.i251 = mul i64 %613, %.01315.i
+  %614 = lshr i32 %.017.i, 1
+  %615 = mul i64 %.01216.i, %.01216.i
+  %616 = icmp ugt i32 %.017.i, 3
+  br i1 %616, label %.lr.ph.i, label %._crit_edge.loopexit.i
 
 .body190.thread351:                               ; preds = %625, %624
   %lpad.thr_comm349 = landingpad { ptr, i32 }
           cleanup
   br label %.body190.thread
 
-"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit": ; preds = %.lr.ph.i, %607
-  %.013.lcssa.i = phi i64 [ 1, %607 ], [ %spec.select.i251, %.lr.ph.i ]
-  %.012.lcssa.i = phi i64 [ %600, %607 ], [ %614, %.lr.ph.i ]
-  %616 = mul i64 %.012.lcssa.i, %.013.lcssa.i
-  %617 = icmp ugt i64 %616, 256
+"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit": ; preds = %607, %._crit_edge.loopexit.i
+  %.011.i = phi i64 [ %611, %._crit_edge.loopexit.i ], [ %600, %607 ]
+  %617 = icmp ugt i64 %.011.i, 256
   br i1 %617, label %623, label %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit.thread"
 
 "_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit.thread": ; preds = %607, %"_ZN4core3num23_$LT$impl$u20$usize$GT$3pow17h449f101cd85356e8E.exit"

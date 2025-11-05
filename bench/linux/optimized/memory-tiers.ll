@@ -911,11 +911,11 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
 
 .loopexit35.loopexit.i:                           ; preds = %.preheader34.i
   %191 = xor i64 %188, -1
+  %192 = and i64 %165, %191
   br label %.loopexit35.i
 
 .loopexit35.i:                                    ; preds = %.loopexit35.loopexit.i, %180
-  %192 = phi i64 [ -1, %180 ], [ %191, %.loopexit35.loopexit.i ]
-  %193 = and i64 %192, %165
+  %193 = phi i64 [ %165, %180 ], [ %192, %.loopexit35.loopexit.i ]
   store i64 %193, ptr %1, align 8
   %194 = call i32 @find_next_best_node(i32 noundef %166, ptr noundef nonnull %1) #12
   %195 = icmp eq i32 %194, -1
@@ -956,12 +956,16 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   %217 = icmp ult i32 %216, 64
   br i1 %217, label %.preheader36.i, label %.thread25.i, !llvm.loop !33
 
-218:                                              ; preds = %237, %163
-  %219 = phi ptr [ %161, %163 ], [ %239, %237 ]
+218:                                              ; preds = %236, %163
+  %219 = phi ptr [ %161, %163 ], [ %238, %236 ]
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 16
   %221 = load ptr, ptr %220, align 8
   %222 = icmp eq ptr %221, %220
-  br i1 %222, label %.loopexit31.i, label %.preheader30.i
+  br i1 %222, label %.loopexit31.thread.i, label %.preheader30.i
+
+.loopexit31.thread.i:                             ; preds = %218
+  store i64 0, ptr %1, align 8
+  br label %236
 
 .preheader30.i:                                   ; preds = %218, %.preheader30.i
   %223 = phi ptr [ %228, %.preheader30.i ], [ %221, %218 ]
@@ -973,63 +977,62 @@ set_node_memory_tier.exit:                        ; preds = %.loopexit10.i
   %229 = icmp eq ptr %228, %220
   br i1 %229, label %.loopexit31.i, label %.preheader30.i, !llvm.loop !31
 
-.loopexit31.i:                                    ; preds = %.preheader30.i, %218
-  %230 = phi i64 [ 0, %218 ], [ %227, %.preheader30.i ]
-  %231 = and i64 %230, %164
-  store i64 %231, ptr %1, align 8
-  %232 = icmp eq i64 %231, 0
-  br i1 %232, label %237, label %233
+.loopexit31.i:                                    ; preds = %.preheader30.i
+  %230 = and i64 %227, %164
+  store i64 %230, ptr %1, align 8
+  %231 = icmp eq i64 %230, 0
+  br i1 %231, label %236, label %232
 
-233:                                              ; preds = %.loopexit31.i
-  %234 = getelementptr inbounds nuw i8, ptr %219, i64 32
-  %235 = load i32, ptr %234, align 8
-  %236 = add i32 %235, 127
-  store i32 %236, ptr @top_tier_adistance, align 4
+232:                                              ; preds = %.loopexit31.i
+  %233 = getelementptr inbounds nuw i8, ptr %219, i64 32
+  %234 = load i32, ptr %233, align 8
+  %235 = add i32 %234, 127
+  store i32 %235, ptr @top_tier_adistance, align 4
   br label %.loopexit32.i
 
-237:                                              ; preds = %.loopexit31.i
-  %238 = getelementptr inbounds nuw i8, ptr %219, i64 8
-  %239 = load ptr, ptr %238, align 8
-  %240 = icmp eq ptr %239, @memory_tiers
-  br i1 %240, label %.loopexit32.i, label %218, !llvm.loop !34
+236:                                              ; preds = %.loopexit31.i, %.loopexit31.thread.i
+  %237 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %238 = load ptr, ptr %237, align 8
+  %239 = icmp eq ptr %238, @memory_tiers
+  br i1 %239, label %.loopexit32.i, label %218, !llvm.loop !34
 
-.loopexit32.i:                                    ; preds = %237, %233, %.thread25.i
-  %241 = load ptr, ptr @memory_tiers, align 8
-  %242 = icmp eq ptr %241, @memory_tiers
-  br i1 %242, label %establish_demotion_targets.exit, label %243
+.loopexit32.i:                                    ; preds = %236, %232, %.thread25.i
+  %240 = load ptr, ptr @memory_tiers, align 8
+  %241 = icmp eq ptr %240, @memory_tiers
+  br i1 %241, label %establish_demotion_targets.exit, label %242
 
-243:                                              ; preds = %.loopexit32.i
-  %244 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
-  br label %245
+242:                                              ; preds = %.loopexit32.i
+  %243 = load i64, ptr getelementptr inbounds nuw (i8, ptr @node_states, i64 24), align 8
+  br label %244
 
-245:                                              ; preds = %.loopexit.i5, %243
-  %246 = phi ptr [ %262, %.loopexit.i5 ], [ %241, %243 ]
-  %247 = phi i64 [ %260, %.loopexit.i5 ], [ %244, %243 ]
-  %248 = getelementptr inbounds nuw i8, ptr %246, i64 16
-  %249 = load ptr, ptr %248, align 8
-  %250 = icmp eq ptr %249, %248
-  br i1 %250, label %.loopexit.i5, label %.preheader.i4
+244:                                              ; preds = %.loopexit.i5, %242
+  %245 = phi ptr [ %261, %.loopexit.i5 ], [ %240, %242 ]
+  %246 = phi i64 [ %259, %.loopexit.i5 ], [ %243, %242 ]
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 16
+  %248 = load ptr, ptr %247, align 8
+  %249 = icmp eq ptr %248, %247
+  br i1 %249, label %.loopexit.i5, label %.preheader.i4
 
-.preheader.i4:                                    ; preds = %245, %.preheader.i4
-  %251 = phi ptr [ %256, %.preheader.i4 ], [ %249, %245 ]
-  %252 = phi i64 [ %255, %.preheader.i4 ], [ 0, %245 ]
-  %253 = getelementptr inbounds nuw i8, ptr %251, i64 40
-  %254 = load i64, ptr %253, align 8
-  %255 = or i64 %254, %252
-  %256 = load ptr, ptr %251, align 8
-  %257 = icmp eq ptr %256, %248
-  br i1 %257, label %.loopexit.i5, label %.preheader.i4, !llvm.loop !31
+.preheader.i4:                                    ; preds = %244, %.preheader.i4
+  %250 = phi ptr [ %255, %.preheader.i4 ], [ %248, %244 ]
+  %251 = phi i64 [ %254, %.preheader.i4 ], [ 0, %244 ]
+  %252 = getelementptr inbounds nuw i8, ptr %250, i64 40
+  %253 = load i64, ptr %252, align 8
+  %254 = or i64 %253, %251
+  %255 = load ptr, ptr %250, align 8
+  %256 = icmp eq ptr %255, %247
+  br i1 %256, label %.loopexit.i5, label %.preheader.i4, !llvm.loop !31
 
-.loopexit.i5:                                     ; preds = %.preheader.i4, %245
-  %258 = phi i64 [ 0, %245 ], [ %255, %.preheader.i4 ]
-  store i64 %258, ptr %1, align 8
-  %259 = xor i64 %258, -1
-  %260 = and i64 %247, %259
-  %261 = getelementptr inbounds nuw i8, ptr %246, i64 768
-  store i64 %260, ptr %261, align 8
-  %262 = load ptr, ptr %246, align 8
-  %263 = icmp eq ptr %262, @memory_tiers
-  br i1 %263, label %establish_demotion_targets.exit, label %245, !llvm.loop !35
+.loopexit.i5:                                     ; preds = %.preheader.i4, %244
+  %257 = phi i64 [ 0, %244 ], [ %254, %.preheader.i4 ]
+  store i64 %257, ptr %1, align 8
+  %258 = xor i64 %257, -1
+  %259 = and i64 %246, %258
+  %260 = getelementptr inbounds nuw i8, ptr %245, i64 768
+  store i64 %259, ptr %260, align 8
+  %261 = load ptr, ptr %245, align 8
+  %262 = icmp eq ptr %261, @memory_tiers
+  br i1 %262, label %establish_demotion_targets.exit, label %244, !llvm.loop !35
 
 establish_demotion_targets.exit:                  ; preds = %.loopexit.i5, %.thread, %.loopexit32.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

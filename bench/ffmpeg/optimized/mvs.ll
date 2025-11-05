@@ -1829,11 +1829,11 @@ check_available.exit.i.thread:                    ; preds = %.critedge.i59.i, %.
   %286 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %287 = tail call fastcc i32 @temporal_luma_motion_vector(ptr noundef nonnull readonly %0, i32 noundef 0, ptr noundef nonnull %286, i32 noundef 1, i32 noundef 1)
   %288 = shl nuw nsw i32 %287, 1
+  %289 = or disjoint i32 %288, %277
   br label %mv_merge_temporal_candidate.exit
 
 mv_merge_temporal_candidate.exit:                 ; preds = %276, %285
-  %289 = phi i32 [ %288, %285 ], [ 0, %276 ]
-  %290 = or disjoint i32 %289, %277
+  %290 = phi i32 [ %289, %285 ], [ %277, %276 ]
   %291 = trunc nuw nsw i32 %290 to i8
   %292 = getelementptr inbounds nuw i8, ptr %262, i64 20
   store i8 %291, ptr %292, align 4, !tbaa !92
@@ -3258,23 +3258,23 @@ affine_merge_const1.exit.thread.i.i:              ; preds = %447, %404, %390
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 1345
   %460 = load i8, ptr %459, align 1, !tbaa !178
   %461 = icmp eq i8 %460, 0
-  br i1 %461, label %462, label %466
+  br i1 %461, label %462, label %467
 
 462:                                              ; preds = %453
   %463 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %464 = call fastcc i32 @temporal_luma_motion_vector(ptr noundef nonnull readonly %0, i32 noundef 0, ptr noundef nonnull %463, i32 noundef 1, i32 noundef 0)
   %465 = shl nuw nsw i32 %464, 1
-  br label %466
+  %466 = or disjoint i32 %465, %454
+  br label %467
 
-466:                                              ; preds = %462, %453
-  %467 = phi i32 [ %465, %462 ], [ 0, %453 ]
-  %468 = or disjoint i32 %467, %454
+467:                                              ; preds = %462, %453
+  %468 = phi i32 [ %466, %462 ], [ %454, %453 ]
   %.not62.i.i = icmp ne i32 %468, 0
   %spec.select.i.i = select i1 %.not62.i.i, ptr %4, ptr null
   %or.cond3.i87.i.i = and i1 %or.cond.i.i44.i, %.not62.i.i
   br i1 %or.cond3.i87.i.i, label %469, label %affine_merge_const2.exit.thread.i.i
 
-469:                                              ; preds = %466
+469:                                              ; preds = %467
   %470 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 0, ptr %470, align 4, !tbaa !99
   %471 = getelementptr inbounds nuw i8, ptr %spec.select.i.i42.i, i64 20
@@ -3383,8 +3383,8 @@ compare_pf_ref_idx.exit.thread.i92.i.i:           ; preds = %compare_pf_ref_idx.
   %535 = add nuw nsw i32 %.155.i.i, 1
   br label %affine_merge_const2.exit.thread.i.i
 
-affine_merge_const2.exit.thread.i.i:              ; preds = %534, %478, %466
-  %.3.i.i = phi i32 [ %535, %534 ], [ %.155.i.i, %478 ], [ %.155.i.i, %466 ]
+affine_merge_const2.exit.thread.i.i:              ; preds = %534, %478, %467
+  %.3.i.i = phi i32 [ %535, %534 ], [ %.155.i.i, %478 ], [ %.155.i.i, %467 ]
   %or.cond.i96.i.i = and i1 %391, %393
   %or.cond3.i97.i.i = and i1 %or.cond.i96.i.i, %.not62.i.i
   br i1 %or.cond3.i97.i.i, label %536, label %affine_merge_const3.exit.thread.i.i

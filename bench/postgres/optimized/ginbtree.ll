@@ -1410,7 +1410,7 @@ define internal fastcc void @ginFinishSplit(ptr noundef %0, ptr noundef %1, i1 n
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %4
-  %.not = phi i1 [ false, %4 ], [ true, %.backedge.backedge ]
+  %.not = phi i1 [ %2, %4 ], [ true, %.backedge.backedge ]
   %.0 = phi ptr [ %1, %4 ], [ %.059, %.backedge.backedge ]
   %9 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -1943,8 +1943,7 @@ BufferGetPage.exit77:                             ; preds = %299, %305
   %315 = load i32, ptr %314, align 4
   %316 = tail call fastcc zeroext i1 @ginPlaceToPage(ptr noundef nonnull %0, ptr noundef nonnull %.059, ptr noundef %296, i32 noundef %315, i32 noundef %297, ptr noundef %3)
   tail call void @pfree(ptr noundef %296) #5
-  %or.cond = or i1 %2, %.not
-  br i1 %or.cond, label %317, label %319
+  br i1 %.not, label %317, label %319
 
 317:                                              ; preds = %BufferGetPage.exit77
   %318 = load i32, ptr %294, align 4

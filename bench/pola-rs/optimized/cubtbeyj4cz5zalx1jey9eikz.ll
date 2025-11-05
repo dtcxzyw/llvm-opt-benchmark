@@ -99988,7 +99988,7 @@ define { ptr, ptr } @_ZN14polars_compute18horizontal_flatten28horizontal_flatten
   %72 = add i64 %.val.i, %.sroa.07.0.i
   %73 = add nuw i64 %.sroa.09.0.i, 1
   %74 = icmp eq i64 %73, %3
-  br i1 %74, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit", label %.preheader
+  br i1 %74, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit.loopexit", label %.preheader
 
 75:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -100092,10 +100092,13 @@ define { ptr, ptr } @_ZN14polars_compute18horizontal_flatten28horizontal_flatten
   invoke void @_ZN14polars_compute18horizontal_flatten41horizontal_flatten_unchecked_impl_generic17h768b73b797df81b8E(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %10, ptr noundef nonnull align 8 %115, i64 noundef %117, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %58)
           to label %392 unwind label %390
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit": ; preds = %.preheader, %69
-  %.sroa.04.0.i = phi i64 [ 0, %69 ], [ %72, %.preheader ]
-  %118 = mul i64 %.sroa.04.0.i, %4
-  call void @_ZN12polars_arrow5array4null9NullArray3new17ha41b318de417a2e1E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %51, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %50, i64 noundef %118)
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit.loopexit": ; preds = %.preheader
+  %118 = mul i64 %72, %4
+  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit"
+
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit.loopexit", %69
+  %.sroa.04.0.i = phi i64 [ 0, %69 ], [ %118, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7fcc6a8125b70c66E.exit.loopexit" ]
+  call void @_ZN12polars_arrow5array4null9NullArray3new17ha41b318de417a2e1E(ptr noalias noundef nonnull sret([72 x i8]) align 8 captures(none) dereferenceable(72) %51, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %50, i64 noundef %.sroa.04.0.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %119 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !7854
   %120 = tail call noalias noundef align 8 dereferenceable_or_null(72) ptr @_RNvCsjH7bwORMyv9_7___rustc12___rust_alloc(i64 noundef range(i64 72, 137) 72, i64 noundef 8) #27, !noalias !7854

@@ -27214,10 +27214,13 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGrap
   %1368 = getelementptr inbounds nuw i8, ptr %62, i64 16
   br label %1372
 
-._crit_edge586:                                   ; preds = %_ZN3ue210eager_infoD2Ev.exit, %1335
-  %.097.lcssa = phi i64 [ -1, %1335 ], [ %.198, %_ZN3ue210eager_infoD2Ev.exit ]
-  %1369 = and i64 %.097.lcssa, %1339
-  %.not99 = icmp ne i64 %1369, 0
+._crit_edge586.loopexit:                          ; preds = %_ZN3ue210eager_infoD2Ev.exit
+  %1369 = and i64 %.198, %1339
+  br label %._crit_edge586
+
+._crit_edge586:                                   ; preds = %._crit_edge586.loopexit, %1335
+  %.097.lcssa = phi i64 [ %1339, %1335 ], [ %1369, %._crit_edge586.loopexit ]
+  %.not99 = icmp ne i64 %.097.lcssa, 0
   %or.cond128.not = select i1 %5, i1 %.not99, i1 false
   br i1 %or.cond128.not, label %2050, label %2064
 
@@ -28891,7 +28894,7 @@ _ZN3ue210eager_infoD2Ev.exit:                     ; preds = %_ZN3ue2L21checkSuit
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   %2049 = getelementptr inbounds nuw i8, ptr %.sroa.0347.0582, i64 64
   %.not361 = icmp eq ptr %2049, %1347
-  br i1 %.not361, label %._crit_edge586, label %1372
+  br i1 %.not361, label %._crit_edge586.loopexit, label %1372
 
 2050:                                             ; preds = %._crit_edge586
   %2051 = getelementptr inbounds nuw i8, ptr %4, i64 16

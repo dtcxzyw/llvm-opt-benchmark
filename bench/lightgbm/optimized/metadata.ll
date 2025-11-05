@@ -1069,12 +1069,15 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %90, %_ZNSt6vectorIi
   %116 = load i8, ptr %115, align 1, !tbaa !13
   %117 = add i8 %116, -48
   %or.cond.i = icmp ult i8 %117, 10
-  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !66
+  br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.loopexit.i, !llvm.loop !66
 
-.critedge.i:                                      ; preds = %.lr.ph.i, %.loopexit.i
-  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %114, %.lr.ph.i ]
-  %118 = mul nsw i32 %.0.lcssa.i, %.016.i
-  %119 = add nsw i32 %98, %118
+.critedge.loopexit.i:                             ; preds = %.lr.ph.i
+  %118 = mul nsw i32 %114, %.016.i
+  br label %.critedge.i
+
+.critedge.i:                                      ; preds = %.critedge.loopexit.i, %.loopexit.i
+  %.0.lcssa.i = phi i32 [ 0, %.loopexit.i ], [ %118, %.critedge.loopexit.i ]
+  %119 = add nsw i32 %98, %.0.lcssa.i
   %120 = add nuw i64 %.031, 1
   %121 = getelementptr inbounds nuw i32, ptr %91, i64 %120
   store i32 %119, ptr %121, align 4, !tbaa !59

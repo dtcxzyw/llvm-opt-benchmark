@@ -181,8 +181,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.116 = private unnamed_addr constant [9 x i8] c"bad dist\00", align 1
 @.str.117 = private unnamed_addr constant [12 x i8] c"#?RADIANCE\0A\00", align 1
 @.str.118 = private unnamed_addr constant [8 x i8] c"#?RGBE\0A\00", align 1
-@switch.table.nvgGlobalCompositeOperation = private unnamed_addr constant [11 x i64] [i64 2, i64 256, i64 512, i64 256, i64 512, i64 1, i64 1, i64 512, i64 2, i64 2, i64 512], align 8
-@switch.table.nvgGlobalCompositeOperation.32 = private unnamed_addr constant [11 x i64] [i64 549755813888, i64 4294967296, i64 4294967296, i64 549755813888, i64 8589934592, i64 274877906944, i64 549755813888, i64 274877906944, i64 8589934592, i64 4294967296, i64 549755813888], align 8
+@switch.table.nvgGlobalCompositeOperation = private unnamed_addr constant [11 x i64] [i64 549755813890, i64 4294967552, i64 4294967808, i64 549755814144, i64 8589935104, i64 274877906945, i64 549755813889, i64 274877907456, i64 8589934594, i64 4294967298, i64 549755814400], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local i32 @stbtt_GetFontOffsetForIndex(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -20806,20 +20805,16 @@ switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %1 to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.nvgGlobalCompositeOperation, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
-  %7 = zext nneg i32 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw i64, ptr @switch.table.nvgGlobalCompositeOperation.32, i64 %7
-  %switch.load3 = load i64, ptr %switch.gep2, align 8
-  %8 = or disjoint i64 %switch.load3, %switch.load
   br label %nvg__compositeOperationState.exit
 
 nvg__compositeOperationState.exit:                ; preds = %2, %switch.lookup
-  %.sroa.0.0.insert.insert.i = phi i64 [ %8, %switch.lookup ], [ 4294967298, %2 ]
-  %9 = sext i32 %4 to i64
-  %10 = getelementptr %struct.NVGstate, ptr %0, i64 %9
-  %11 = getelementptr i8, ptr %10, i64 -136
-  store i64 %.sroa.0.0.insert.insert.i, ptr %11, align 4
-  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %10, i64 -128
-  store i64 %.sroa.0.0.insert.insert.i, ptr %.sroa.2.0..sroa_idx, align 4
+  %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 4294967298, %2 ]
+  %7 = sext i32 %4 to i64
+  %8 = getelementptr %struct.NVGstate, ptr %0, i64 %7
+  %9 = getelementptr i8, ptr %8, i64 -136
+  store i64 %.0.i, ptr %9, align 4
+  %.sroa.2.0..sroa_idx = getelementptr i8, ptr %8, i64 -128
+  store i64 %.0.i, ptr %.sroa.2.0..sroa_idx, align 4
   ret void
 }
 

@@ -8386,15 +8386,15 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7rema
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i: ; preds = %12, %8
   %.sroa.0.0.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i, %12 ], [ %10, %8 ]
-  %.sroa.4.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
-  %16 = icmp ne i8 %.sroa.4.0.i.i.i.i.i.i, 0
+  %.sroa.6.sroa.0.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
+  %16 = icmp ne i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i, 0
   %17 = add i32 %.sroa.0.0.i.i.i.i.i.i, -32
   %18 = icmp ult i32 %17, 1114080
   %or.cond.i.i.i.i.i = and i1 %16, %18
   br i1 %or.cond.i.i.i.i.i, label %19, label %.thread
 
 19:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i
-  %20 = zext i8 %.sroa.4.0.i.i.i.i.i.i to i64
+  %20 = zext i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i to i64
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   store ptr %22, ptr %4, align 8
@@ -8869,15 +8869,15 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7rema
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i: ; preds = %12, %8
   %.sroa.0.0.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i, %12 ], [ %10, %8 ]
-  %.sroa.4.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
-  %16 = icmp ne i8 %.sroa.4.0.i.i.i.i.i.i, 0
+  %.sroa.6.sroa.0.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
+  %16 = icmp ne i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i, 0
   %17 = add i32 %.sroa.0.0.i.i.i.i.i.i, -32
   %18 = icmp ult i32 %17, 1114080
   %or.cond.i.i.i.i.i = and i1 %16, %18
   br i1 %or.cond.i.i.i.i.i, label %19, label %.thread
 
 19:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i
-  %20 = zext i8 %.sroa.4.0.i.i.i.i.i.i to i64
+  %20 = zext i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i to i64
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   store ptr %22, ptr %4, align 8
@@ -13308,15 +13308,15 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7rema
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i: ; preds = %12, %8
   %.sroa.0.0.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i, %12 ], [ %10, %8 ]
-  %.sroa.4.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
-  %16 = icmp ne i8 %.sroa.4.0.i.i.i.i.i.i, 0
+  %.sroa.6.sroa.0.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
+  %16 = icmp ne i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i, 0
   %17 = add i32 %.sroa.0.0.i.i.i.i.i.i, -32
   %18 = icmp ult i32 %17, 1114080
   %or.cond.i.i.i.i.i = and i1 %16, %18
   br i1 %or.cond.i.i.i.i.i, label %19, label %.thread
 
 19:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i
-  %20 = zext i8 %.sroa.4.0.i.i.i.i.i.i to i64
+  %20 = zext i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i to i64
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   store ptr %22, ptr %4, align 8
@@ -13501,15 +13501,15 @@ define linkonce_odr noundef zeroext i1 @_ZN21PXR_INTERNAL_NS_pegtl8internal7rema
 
 _ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i: ; preds = %12, %8
   %.sroa.0.0.i.i.i.i.i.i = phi i32 [ %.sroa.0.0.extract.trunc.i.i.i.i.i.i, %12 ], [ %10, %8 ]
-  %.sroa.4.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
-  %16 = icmp ne i8 %.sroa.4.0.i.i.i.i.i.i, 0
+  %.sroa.6.sroa.0.0.i.i.i.i.i.i = phi i8 [ %15, %12 ], [ 1, %8 ]
+  %16 = icmp ne i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i, 0
   %17 = add i32 %.sroa.0.0.i.i.i.i.i.i, -32
   %18 = icmp ult i32 %17, 1114080
   %or.cond.i.i.i.i.i = and i1 %16, %18
   br i1 %or.cond.i.i.i.i.i, label %19, label %.thread
 
 19:                                               ; preds = %_ZN21PXR_INTERNAL_NS_pegtl8internal9peek_utf84peekINS_12string_inputILNS_13tracking_modeE0ENS_5ascii3eol7lf_crlfENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS0_10input_pairIDiEERT_.exit.i.i.i.i.i
-  %20 = zext i8 %.sroa.4.0.i.i.i.i.i.i to i64
+  %20 = zext i8 %.sroa.6.sroa.0.0.i.i.i.i.i.i to i64
   %21 = load ptr, ptr %4, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %20
   store ptr %22, ptr %4, align 8

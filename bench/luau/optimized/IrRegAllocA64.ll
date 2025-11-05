@@ -770,7 +770,7 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %9 = load ptr, ptr %6, align 8, !tbaa !57
   %10 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8, !tbaa !31, !range !35, !noundef !36
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %12, label %.loopexit163
+  br i1 %11, label %12, label %.loopexit166
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -786,14 +786,14 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %23 = xor i32 %22, -1
   %24 = and i32 %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %4
-  %.not164 = icmp samesign eq i64 %4, 0
-  br i1 %.not164, label %.loopexit163, label %.cont
+  %.not167 = icmp samesign eq i64 %4, 0
+  br i1 %.not167, label %.loopexit166, label %.cont
 
 .cont:                                            ; preds = %12, %.cont
-  %.1167 = phi i32 [ %.1., %.cont ], [ %18, %12 ]
-  %.176166 = phi i32 [ %..176, %.cont ], [ %24, %12 ]
-  %.079165 = phi ptr [ %33, %.cont ], [ %3, %12 ]
-  %.sroa.055.0.copyload = load i8, ptr %.079165, align 1, !tbaa !38
+  %.1170 = phi i32 [ %.1., %.cont ], [ %18, %12 ]
+  %.176169 = phi i32 [ %..176, %.cont ], [ %24, %12 ]
+  %.079168 = phi ptr [ %33, %.cont ], [ %3, %12 ]
+  %.sroa.055.0.copyload = load i8, ptr %.079168, align 1, !tbaa !38
   %26 = and i8 %.sroa.055.0.copyload, 7
   %27 = add nsw i8 %26, -3
   %switch.i = icmp ult i8 %27, -2
@@ -801,15 +801,15 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %29 = zext nneg i8 %28 to i32
   %30 = shl nuw i32 1, %29
   %31 = xor i32 %30, -1
-  %.sroa.speculated = select i1 %switch.i, i32 %.176166, i32 %.1167
+  %.sroa.speculated = select i1 %switch.i, i32 %.176169, i32 %.1170
   %32 = and i32 %.sroa.speculated, %31
-  %..176 = select i1 %switch.i, i32 %32, i32 %.176166
-  %.1. = select i1 %switch.i, i32 %.1167, i32 %32
-  %33 = getelementptr inbounds nuw i8, ptr %.079165, i64 1
+  %..176 = select i1 %switch.i, i32 %32, i32 %.176169
+  %.1. = select i1 %switch.i, i32 %.1170, i32 %32
+  %33 = getelementptr inbounds nuw i8, ptr %.079168, i64 1
   %.not = icmp eq ptr %33, %25
-  br i1 %.not, label %.loopexit163, label %.cont
+  br i1 %.not, label %.loopexit166, label %.cont
 
-.loopexit163:                                     ; preds = %.cont, %12, %5
+.loopexit166:                                     ; preds = %.cont, %12, %5
   %.075 = phi i32 [ 0, %5 ], [ %24, %12 ], [ %..176, %.cont ]
   %.074 = phi i32 [ 0, %5 ], [ %18, %12 ], [ %.1., %.cont ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -818,15 +818,15 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 324
   br label %41
 
-38:                                               ; preds = %.loopexit162
+38:                                               ; preds = %.loopexit165
   %39 = load i8, ptr @_ZN5FFlag20DebugCodegenChaosA64E, align 8, !tbaa !31, !range !35, !noundef !36
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %.preheader, label %.loopexit
 
-41:                                               ; preds = %.loopexit163, %.loopexit162
-  %.not88 = phi i1 [ false, %.loopexit163 ], [ true, %.loopexit162 ]
-  %.080.idx171 = phi i64 [ 0, %.loopexit163 ], [ 1, %.loopexit162 ]
-  %.080.ptr = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EEE4sets, i64 %.080.idx171
+41:                                               ; preds = %.loopexit166, %.loopexit165
+  %.not88 = phi i1 [ false, %.loopexit166 ], [ true, %.loopexit165 ]
+  %.080.idx174 = phi i64 [ 0, %.loopexit166 ], [ 1, %.loopexit165 ]
+  %.080.ptr = getelementptr inbounds nuw i8, ptr @_ZZN4Luau7CodeGen3A6413IrRegAllocA645spillERNS1_18AssemblyBuilderA64EjSt16initializer_listINS1_11RegisterA64EEE4sets, i64 %.080.idx174
   %42 = load i8, ptr %.080.ptr, align 1, !tbaa !58
   %.off.i96 = add i8 %42, -1
   %switch.i97 = icmp ult i8 %.off.i96, 2
@@ -836,7 +836,7 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %44 = load i32, ptr %43, align 4, !tbaa !21
   %45 = load i32, ptr %.0.i99, align 4, !tbaa !20
   %46 = icmp eq i32 %44, %45
-  br i1 %46, label %.loopexit162, label %47
+  br i1 %46, label %.loopexit165, label %47
 
 47:                                               ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 8
@@ -846,16 +846,16 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   store i32 0, ptr %48, align 4, !tbaa !22
   %51 = xor i32 %50, -1
   %52 = and i32 %45, %51
-  %.not91169 = icmp eq i32 %52, 0
-  br i1 %.not91169, label %.loopexit162, label %.lr.ph
+  %.not91172 = icmp eq i32 %52, 0
+  br i1 %.not91172, label %.loopexit165, label %.lr.ph
 
 .lr.ph:                                           ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 12
   br label %54
 
 54:                                               ; preds = %.lr.ph, %190
-  %.082170 = phi i32 [ %52, %.lr.ph ], [ %194, %190 ]
-  %55 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.082170, i1 true)
+  %.082173 = phi i32 [ %52, %.lr.ph ], [ %194, %190 ]
+  %55 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.082173, i1 true)
   %56 = xor i32 %55, 31
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr %53, i64 %57
@@ -880,7 +880,7 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %75 = sub i64 %73, %74
   %76 = ashr exact i64 %75, 2
   %.not.i.i.i = icmp ugt i64 %76, %62
-  br i1 %.not.i.i.i, label %77, label %.critedge
+  br i1 %.not.i.i.i, label %77, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread
 
 77:                                               ; preds = %68
   %78 = getelementptr inbounds nuw i8, ptr %60, i64 176
@@ -888,7 +888,7 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
   %80 = getelementptr inbounds nuw i8, ptr %60, i64 184
   %81 = load ptr, ptr %80, align 8, !tbaa !63
   %.not2526.i.i.i = icmp eq ptr %79, %81
-  br i1 %.not2526.i.i.i, label %.critedge, label %.lr.ph.i.i.i
+  br i1 %.not2526.i.i.i, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %77
   %82 = load ptr, ptr %60, align 8, !tbaa !65
@@ -913,23 +913,23 @@ define dso_local noundef range(i64 -1152921504606846976, 1152921504606846976) i6
 92:                                               ; preds = %89, %83
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i.i.i, i64 4
   %.not25.i.i.i = icmp eq ptr %93, %81
-  br i1 %.not25.i.i.i, label %.critedge, label %83
+  br i1 %.not25.i.i.i, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread, label %83
 
 _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i: ; preds = %89
   %94 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrOp", ptr %72, i64 %62
   %95 = load i32, ptr %94, align 4, !tbaa !38
   %96 = and i32 %95, 15
-  switch i32 %96, label %.critedge [
-    i32 6, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
+  switch i32 %96, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread [
+    i32 6, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
     i32 7, label %97
   ]
 
 97:                                               ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i
   %98 = and i32 %95, -16
   %99 = icmp ult i32 %98, 4093
-  br i1 %99, label %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i, label %.critedge
+  br i1 %99, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit, label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread
 
-_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i: ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i, %97
+_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit: ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i, %97
   %100 = load i8, ptr %64, align 4, !tbaa !73
   %101 = tail call noundef zeroext i8 @_ZN4Luau7CodeGen15getCmdValueKindENS0_5IrCmdE(i8 noundef zeroext %100)
   %102 = getelementptr inbounds nuw i8, ptr %64, i64 39
@@ -939,7 +939,7 @@ _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.sp
   %.not.i = icmp eq ptr %104, %105
   br i1 %.not.i, label %109, label %106
 
-106:                                              ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
+106:                                              ; preds = %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
   %.sroa.5136.0.insert.ext = zext i8 %103 to i64
   %.sroa.5136.0.insert.shift = shl nuw nsw i64 %.sroa.5136.0.insert.ext, 32
   %.sroa.5136.0.insert.insert = or disjoint i64 %.sroa.5136.0.insert.shift, %62
@@ -950,7 +950,7 @@ _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.sp
   store ptr %108, ptr %7, align 8, !tbaa !56
   br label %_ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.exit
 
-109:                                              ; preds = %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
+109:                                              ; preds = %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
   %110 = load ptr, ptr %6, align 8, !tbaa !57
   %111 = ptrtoint ptr %104 to i64
   %112 = ptrtoint ptr %110 to i64
@@ -1016,7 +1016,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   store i32 %134, ptr %132, align 4, !tbaa !76
   br label %190
 
-.critedge:                                        ; preds = %92, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i, %97, %68, %77
+_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread: ; preds = %92, %77, %68, %97, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.i
   %135 = getelementptr inbounds nuw i8, ptr %64, i64 39
   %136 = load i8, ptr %135, align 1
   %137 = and i8 %136, 7
@@ -1028,7 +1028,7 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %149, label %_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit
 
-_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit: ; preds = %.critedge
+_ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit: ; preds = %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread
   %144 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %142, i1 true)
   %145 = select i1 %138, i32 3, i32 1
   %146 = shl i32 %145, %144
@@ -1037,7 +1037,7 @@ _ZN4Luau7CodeGen3A64L10allocSpillERjNS1_7KindA64E.exit: ; preds = %.critedge
   store i32 %148, ptr %36, align 8, !tbaa !37
   br label %150
 
-149:                                              ; preds = %.critedge
+149:                                              ; preds = %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit.thread
   store i8 1, ptr %37, align 4, !tbaa !30
   br label %150
 
@@ -1153,26 +1153,26 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   store i8 0, ptr %191, align 1, !tbaa !38
   %192 = lshr exact i32 -2147483648, %55
   %193 = xor i32 %192, -1
-  %194 = and i32 %.082170, %193
+  %194 = and i32 %.082173, %193
   %195 = load i32, ptr %43, align 4, !tbaa !21
   %196 = or i32 %195, %192
   store i32 %196, ptr %43, align 4, !tbaa !21
   store i32 -1, ptr %58, align 4, !tbaa !37
   %.not91 = icmp eq i32 %194, 0
-  br i1 %.not91, label %.loopexit162, label %54, !llvm.loop !88
+  br i1 %.not91, label %.loopexit165, label %54, !llvm.loop !88
 
-.loopexit162:                                     ; preds = %190, %47, %41
+.loopexit165:                                     ; preds = %190, %47, %41
   br i1 %.not88, label %38, label %41
 
 .preheader:                                       ; preds = %38, %209
-  %.0172 = phi i32 [ %210, %209 ], [ 0, %38 ]
-  %197 = shl nuw i32 1, %.0172
+  %.0175 = phi i32 [ %210, %209 ], [ 0, %38 ]
+  %197 = shl nuw i32 1, %.0175
   %198 = and i32 %197, %.074
   %.not89 = icmp eq i32 %198, 0
   br i1 %.not89, label %203, label %199
 
 199:                                              ; preds = %.preheader
-  %200 = trunc nuw nsw i32 %.0172 to i8
+  %200 = trunc nuw nsw i32 %.0175 to i8
   %201 = shl nuw i8 %200, 3
   %202 = or disjoint i8 %201, 2
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643movENS1_11RegisterA64Ei(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %202, i32 noundef 57005)
@@ -1184,14 +1184,14 @@ _ZNSt6vectorIN4Luau7CodeGen3A6413IrRegAllocA645SpillESaIS4_EE9push_backERKS4_.ex
   br i1 %.not90, label %209, label %205
 
 205:                                              ; preds = %203
-  %206 = trunc nuw nsw i32 %.0172 to i8
+  %206 = trunc nuw nsw i32 %.0175 to i8
   %207 = shl nuw i8 %206, 3
   %208 = or disjoint i8 %207, 4
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA644fmovENS1_11RegisterA64Ed(ptr noundef nonnull align 8 dereferenceable(176) %1, i8 %208, double noundef -1.250000e-01)
   br label %209
 
 209:                                              ; preds = %203, %205
-  %210 = add nuw nsw i32 %.0172, 1
+  %210 = add nuw nsw i32 %.0175, 1
   %exitcond.not = icmp eq i32 %210, 32
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !89
 
@@ -1309,7 +1309,7 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.41.0.insert.shift, 16447489
   tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3, i64 %.sroa.0.0.insert.insert)
   %.not = icmp eq i8 %.5.val, 64
-  br i1 %.not, label %46, label %14
+  br i1 %.not, label %47, label %14
 
 14:                                               ; preds = %10
   %15 = and i8 %3, 7
@@ -1319,7 +1319,7 @@ define internal fastcc void @_ZN4Luau7CodeGen3A64L11restoreInstERNS1_18AssemblyB
   %19 = load i32, ptr %1, align 4, !tbaa !37
   %20 = or i32 %19, %18
   store i32 %20, ptr %1, align 4, !tbaa !37
-  br label %46
+  br label %47
 
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 152
@@ -1361,23 +1361,22 @@ _ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.sp
   %42 = or disjoint i32 %..i14.i, %.sink.i
   %43 = zext i32 %42 to i64
   %44 = shl nuw i64 %43, 32
-  %45 = or disjoint i64 %44, 16384001
+  %45 = or disjoint i64 %44, %.sroa.4.0.ph.i
+  %46 = or disjoint i64 %45, 16384001
   br label %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
 
 _ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit: ; preds = %21, %30, %36, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i
-  %.sroa.1015.0.i = phi i64 [ 16384001, %30 ], [ 16384001, %36 ], [ 16384001, %21 ], [ %45, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i ]
-  %.sroa.4.0.i = phi i64 [ 64000, %30 ], [ 64000, %36 ], [ 64000, %21 ], [ %.sroa.4.0.ph.i, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.1015.0.i, %.sroa.4.0.i
-  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3, i64 %.sroa.0.0.insert.insert.i)
-  br label %46
+  %.sroa.1015.0.i = phi i64 [ 16448001, %30 ], [ 16448001, %36 ], [ 16448001, %21 ], [ %46, %_ZNK4Luau7CodeGen10IrFunction13findRestoreOpERKNS0_6IrInstEb.exit.thread.sink.split.i ]
+  tail call void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA643ldrENS1_11RegisterA64ENS1_10AddressA64E(ptr noundef nonnull align 8 dereferenceable(176) %0, i8 %3, i64 %.sroa.1015.0.i)
+  br label %47
 
-46:                                               ; preds = %10, %14, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
-  %47 = getelementptr inbounds nuw i8, ptr %8, i64 41
-  store i8 0, ptr %47, align 1, !tbaa !85
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 42
-  store i8 0, ptr %48, align 2, !tbaa !75
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 39
-  store i8 %3, ptr %49, align 1, !tbaa !38
+47:                                               ; preds = %10, %14, %_ZN4Luau7CodeGen3A64L16getReloadAddressERKNS0_10IrFunctionERKNS0_6IrInstEb.exit
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 41
+  store i8 0, ptr %48, align 1, !tbaa !85
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 42
+  store i8 0, ptr %49, align 2, !tbaa !75
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 39
+  store i8 %3, ptr %50, align 1, !tbaa !38
   ret void
 }
 

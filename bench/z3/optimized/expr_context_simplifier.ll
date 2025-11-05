@@ -2453,25 +2453,24 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %19
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 864
   %34 = load ptr, ptr %33, align 8, !tbaa !152
   %35 = icmp eq ptr %32, %34
-  br label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit
+  %36 = and i1 %1, %35
+  br i1 %36, label %.thread54, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread
 
-_ZNK23expr_context_simplifier7is_trueEP4expr.exit: ; preds = %30, %8
-  %36 = phi i1 [ true, %8 ], [ %35, %30 ]
-  %or.cond = and i1 %1, %36
-  br i1 %or.cond, label %122, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread
+_ZNK23expr_context_simplifier7is_trueEP4expr.exit: ; preds = %8
+  br i1 %1, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread
 
-37:                                               ; preds = %115, %99, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread, %4
+37:                                               ; preds = %114, %98, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread, %4
   %38 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %38
 
-_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread: ; preds = %19, %14, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit
+_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread: ; preds = %30, %19, %14, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 864
   %40 = load ptr, ptr %39, align 8, !tbaa !152
   %41 = icmp eq ptr %9, %40
-  br i1 %41, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit, label %42
+  br i1 %41, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52, label %42
 
 42:                                               ; preds = %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -2497,15 +2496,12 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i24:        ; preds = %47
   %57 = select i1 %53, i1 %56, i1 false
   br i1 %57, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34, label %61
 
-_ZNK23expr_context_simplifier8is_falseEP4expr.exit: ; preds = %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread
-  br i1 %1, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27, label %122
-
 _ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i24
   %58 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %59 = load ptr, ptr %58, align 8, !tbaa !49
   %60 = icmp ne ptr %59, %12
   %or.cond336 = or i1 %1, %60
-  br i1 %or.cond336, label %61, label %.thread52
+  br i1 %or.cond336, label %61, label %.thread54
 
 61:                                               ; preds = %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34, %_ZNK11ast_manager6is_notEPK4expr.exit.i24, %47
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -2522,154 +2518,150 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i26:        ; preds = %61
   %69 = load i32, ptr %68, align 4
   %70 = icmp eq i32 %69, 8
   %71 = select i1 %67, i1 %70, i1 false
-  br i1 %71, label %72, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
+  br i1 %71, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
 
-72:                                               ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i26
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %74 = load ptr, ptr %73, align 8, !tbaa !49
-  %75 = icmp eq ptr %74, %12
-  br label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27
-
-_ZNK23expr_context_simplifier8is_falseEP4expr.exit27: ; preds = %72, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit
-  %76 = phi i1 [ %75, %72 ], [ true, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit ]
-  %or.cond5 = and i1 %1, %76
-  br i1 %or.cond5, label %122, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
+_ZNK23expr_context_simplifier8is_falseEP4expr.exit27: ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i26
+  %72 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %73 = load ptr, ptr %72, align 8, !tbaa !49
+  %74 = icmp eq ptr %73, %12
+  %75 = and i1 %1, %74
+  br i1 %75, label %.thread54, label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
 
 _ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread: ; preds = %42, %61, %_ZNK11ast_manager6is_notEPK4expr.exit.i26, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27
-  br i1 %13, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30, label %77
+  br i1 %13, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30, label %76
 
-77:                                               ; preds = %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  %79 = load i32, ptr %78, align 4
-  %80 = and i32 %79, 65535
-  %81 = icmp eq i32 %80, 0
-  br i1 %81, label %82, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread
+76:                                               ; preds = %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
+  %77 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %78 = load i32, ptr %77, align 4
+  %79 = and i32 %78, 65535
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %81, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread
 
-82:                                               ; preds = %77
-  %83 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %84 = load ptr, ptr %83, align 8, !tbaa !71
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !76
-  %.not.i.i.i.i.i28 = icmp eq ptr %86, null
+81:                                               ; preds = %76
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %83 = load ptr, ptr %82, align 8, !tbaa !71
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
+  %85 = load ptr, ptr %84, align 8, !tbaa !76
+  %.not.i.i.i.i.i28 = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i.i28, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread, label %_ZNK11ast_manager6is_notEPK4expr.exit.i29
 
-_ZNK11ast_manager6is_notEPK4expr.exit.i29:        ; preds = %82
-  %87 = load i32, ptr %86, align 8, !tbaa !81
-  %88 = icmp eq i32 %87, 0
-  %89 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  %90 = load i32, ptr %89, align 4
-  %91 = icmp eq i32 %90, 8
-  %92 = select i1 %88, i1 %91, i1 false
-  br i1 %92, label %93, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread
+_ZNK11ast_manager6is_notEPK4expr.exit.i29:        ; preds = %81
+  %86 = load i32, ptr %85, align 8, !tbaa !81
+  %87 = icmp eq i32 %86, 0
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = icmp eq i32 %89, 8
+  %91 = select i1 %87, i1 %90, i1 false
+  br i1 %91, label %92, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread
 
-93:                                               ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i29
-  %94 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %95 = load ptr, ptr %94, align 8, !tbaa !49
-  %96 = icmp ne ptr %95, %40
+92:                                               ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i29
+  %93 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %94 = load ptr, ptr %93, align 8, !tbaa !49
+  %95 = icmp ne ptr %94, %40
   br label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30
 
-_ZNK23expr_context_simplifier7is_trueEP4expr.exit30: ; preds = %93, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
-  %.not6 = phi i1 [ false, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread ], [ %96, %93 ]
+_ZNK23expr_context_simplifier7is_trueEP4expr.exit30: ; preds = %92, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread
+  %.not6 = phi i1 [ false, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread ], [ %95, %92 ]
   %or.cond8 = or i1 %1, %.not6
-  br i1 %or.cond8, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread, label %122
+  br i1 %or.cond8, label %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread, label %.thread54
 
-_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread: ; preds = %82, %77, %_ZNK11ast_manager6is_notEPK4expr.exit.i29, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30
-  invoke void @_ZN23expr_context_simplifier14insert_contextEP4exprb(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr noundef %9, i1 noundef zeroext %1)
-          to label %97 unwind label %37
+_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread: ; preds = %81, %76, %_ZNK11ast_manager6is_notEPK4expr.exit.i29, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30
+  invoke void @_ZN23expr_context_simplifier14insert_contextEP4exprb(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr noundef nonnull %9, i1 noundef zeroext %1)
+          to label %96 unwind label %37
 
-97:                                               ; preds = %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread
-  %98 = load ptr, ptr %5, align 8, !tbaa !55
-  %.not22 = icmp eq ptr %2, %98
-  br i1 %.not22, label %100, label %99
+96:                                               ; preds = %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30.thread
+  %97 = load ptr, ptr %5, align 8, !tbaa !55
+  %.not22 = icmp eq ptr %2, %97
+  br i1 %.not22, label %99, label %98
 
-99:                                               ; preds = %97
+98:                                               ; preds = %96
   invoke void @_ZN23expr_context_simplifier14insert_contextEP4exprb(ptr noundef nonnull align 8 dereferenceable(161) %0, ptr noundef %2, i1 noundef zeroext %1)
           to label %thread-pre-split unwind label %37
 
-thread-pre-split:                                 ; preds = %99
+thread-pre-split:                                 ; preds = %98
   %.pr = load ptr, ptr %5, align 8, !tbaa !55
-  br label %100
+  br label %99
 
-100:                                              ; preds = %thread-pre-split, %97
-  %101 = phi ptr [ %.pr, %thread-pre-split ], [ %98, %97 ]
-  %.not.i.i.i.i = icmp eq ptr %101, null
-  br i1 %.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %102
+99:                                               ; preds = %thread-pre-split, %96
+  %100 = phi ptr [ %.pr, %thread-pre-split ], [ %97, %96 ]
+  %.not.i.i.i.i = icmp eq ptr %100, null
+  br i1 %.not.i.i.i.i, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, label %101
 
-102:                                              ; preds = %100
-  %103 = getelementptr inbounds nuw i8, ptr %101, i64 8
-  %104 = load i32, ptr %103, align 4, !tbaa !51
-  %105 = add i32 %104, 1
-  store i32 %105, ptr %103, align 4, !tbaa !51
+101:                                              ; preds = %99
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %103 = load i32, ptr %102, align 4, !tbaa !51
+  %104 = add i32 %103, 1
+  store i32 %104, ptr %102, align 4, !tbaa !51
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %102, %100
-  %106 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %107 = load ptr, ptr %106, align 8, !tbaa !22
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %115, label %109
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i: ; preds = %101, %99
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %106 = load ptr, ptr %105, align 8, !tbaa !22
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %114, label %108
 
-109:                                              ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
-  %110 = getelementptr inbounds i8, ptr %107, i64 -4
-  %111 = load i32, ptr %110, align 4, !tbaa !48
-  %112 = getelementptr inbounds i8, ptr %107, i64 -8
-  %113 = load i32, ptr %112, align 4, !tbaa !48
-  %114 = icmp eq i32 %111, %113
-  br i1 %114, label %115, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
+108:                                              ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
+  %109 = getelementptr inbounds i8, ptr %106, i64 -4
+  %110 = load i32, ptr %109, align 4, !tbaa !48
+  %111 = getelementptr inbounds i8, ptr %106, i64 -8
+  %112 = load i32, ptr %111, align 4, !tbaa !48
+  %113 = icmp eq i32 %110, %112
+  br i1 %113, label %114, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
 
-115:                                              ; preds = %109, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
-  invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %106)
+114:                                              ; preds = %108, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i
+  invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %105)
           to label %.noexc unwind label %37
 
-.noexc:                                           ; preds = %115
-  %.pre.i.i = load ptr, ptr %106, align 8, !tbaa !22
+.noexc:                                           ; preds = %114
+  %.pre.i.i = load ptr, ptr %105, align 8, !tbaa !22
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !48
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit: ; preds = %109, %.noexc
-  %116 = phi i32 [ %.pre2.i.i, %.noexc ], [ %111, %109 ]
-  %117 = phi ptr [ %.pre.i.i, %.noexc ], [ %107, %109 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 -4
-  %119 = zext i32 %116 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %117, i64 %119
-  store ptr %101, ptr %120, align 8, !tbaa !49
-  %121 = add i32 %116, 1
-  store i32 %121, ptr %118, align 4, !tbaa !48
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit: ; preds = %108, %.noexc
+  %115 = phi i32 [ %.pre2.i.i, %.noexc ], [ %110, %108 ]
+  %116 = phi ptr [ %.pre.i.i, %.noexc ], [ %106, %108 ]
+  %117 = getelementptr inbounds i8, ptr %116, i64 -4
+  %118 = zext i32 %115 to i64
+  %119 = getelementptr inbounds nuw ptr, ptr %116, i64 %118
+  store ptr %100, ptr %119, align 8, !tbaa !49
+  %120 = add i32 %115, 1
+  store i32 %120, ptr %117, align 4, !tbaa !48
   %.pre = load ptr, ptr %5, align 8, !tbaa !55
-  br label %122
+  br label %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52
 
-122:                                              ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27
-  %123 = phi ptr [ %9, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27 ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30 ], [ %9, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit ], [ %.pre, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ]
-  %.0 = phi i1 [ true, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27 ], [ true, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30 ], [ false, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit ], [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ false, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ]
-  %.not.i.i = icmp eq ptr %123, null
-  br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %.thread52
+_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52: ; preds = %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit
+  %121 = phi ptr [ %.pre, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
+  %.0 = phi i1 [ false, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit ], [ false, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit ], [ %1, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit.thread ]
+  %.not.i.i = icmp eq ptr %121, null
+  br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %.thread54
 
-.thread52:                                        ; preds = %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34, %122
-  %.055 = phi i1 [ %.0, %122 ], [ false, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34 ]
-  %124 = phi ptr [ %123, %122 ], [ %9, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34 ]
-  %125 = load ptr, ptr %7, align 8, !tbaa !60
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %127 = load i32, ptr %126, align 4, !tbaa !51
-  %128 = add i32 %127, -1
-  store i32 %128, ptr %126, align 4, !tbaa !51
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %130, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+.thread54:                                        ; preds = %30, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52
+  %.057 = phi i1 [ %.0, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52 ], [ false, %30 ], [ false, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34 ], [ true, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30 ], [ true, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27 ]
+  %122 = phi ptr [ %121, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52 ], [ %9, %30 ], [ %9, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit.thread34 ], [ %9, %_ZNK23expr_context_simplifier7is_trueEP4expr.exit30 ], [ %9, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27 ]
+  %123 = load ptr, ptr %7, align 8, !tbaa !60
+  %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  %125 = load i32, ptr %124, align 4, !tbaa !51
+  %126 = add i32 %125, -1
+  store i32 %126, ptr %124, align 4, !tbaa !51
+  %127 = icmp eq i32 %126, 0
+  br i1 %127, label %128, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
-130:                                              ; preds = %.thread52
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %125, ptr noundef nonnull %124)
-          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %131
+128:                                              ; preds = %.thread54
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %123, ptr noundef nonnull %122)
+          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %129
 
-131:                                              ; preds = %130
-  %132 = landingpad { ptr, i32 }
+129:                                              ; preds = %128
+  %130 = landingpad { ptr, i32 }
           catch ptr null
-  %133 = extractvalue { ptr, i32 } %132, 0
-  call void @__clang_call_terminate(ptr %133) #20
+  %131 = extractvalue { ptr, i32 } %130, 0
+  call void @__clang_call_terminate(ptr %131) #20
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %122, %.thread52, %130
-  %.056 = phi i1 [ %.0, %122 ], [ %.055, %.thread52 ], [ %.055, %130 ]
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52, %.thread54, %128
+  %.058 = phi i1 [ %.0, %_ZNK23expr_context_simplifier8is_falseEP4expr.exit27.thread52 ], [ %.057, %.thread54 ], [ %.057, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.056
+  ret i1 %.058
 }
 
 ; Function Attrs: mustprogress uwtable

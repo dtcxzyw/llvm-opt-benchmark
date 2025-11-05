@@ -1478,9 +1478,9 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %32
 
-32:                                               ; preds = %1344, %2
-  %33 = phi i64 [ 0, %2 ], [ %1349, %1344 ]
-  %34 = phi i8 [ 0, %2 ], [ %917, %1344 ]
+32:                                               ; preds = %.loopexit76, %2
+  %33 = phi i64 [ 0, %2 ], [ %1347, %.loopexit76 ]
+  %34 = phi i8 [ 0, %2 ], [ %917, %.loopexit76 ]
   %35 = trunc i64 %33 to i32
   %36 = shl nuw nsw i32 %35, 3
   %37 = load i32, ptr %19, align 4, !tbaa !16
@@ -2916,7 +2916,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   br i1 %1066, label %.loopexit80, label %1016, !llvm.loop !176
 
 .loopexit80:                                      ; preds = %1063, %1005, %.loopexit81
-  br i1 %921, label %1344, label %1067
+  br i1 %921, label %.loopexit76, label %1067
 
 1067:                                             ; preds = %.loopexit80
   %1068 = load ptr, ptr %22, align 8, !tbaa !22
@@ -3278,29 +3278,28 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1339 = phi i32 [ %1334, %1330 ], [ %1148, %1146 ]
   %1340 = add nuw nsw i64 %1147, 1
   %1341 = icmp eq i64 %1340, %918
-  br i1 %1341, label %.loopexit76, label %1146, !llvm.loop !185
+  br i1 %1341, label %.loopexit76.loopexit, label %1146, !llvm.loop !185
 
-.loopexit76:                                      ; preds = %1337, %.loopexit78
-  %1342 = phi i32 [ 0, %.loopexit78 ], [ %1339, %1337 ]
-  %1343 = or i32 %1342, %923
-  br label %1344
+.loopexit76.loopexit:                             ; preds = %1337
+  %1342 = or i32 %1339, %923
+  br label %.loopexit76
 
-1344:                                             ; preds = %.loopexit76, %.loopexit80
-  %1345 = phi i32 [ %1343, %.loopexit76 ], [ %923, %.loopexit80 ]
-  %1346 = getelementptr inbounds nuw i32, ptr %28, i64 %33
-  %1347 = load i32, ptr %1346, align 4, !tbaa !91
-  %1348 = or i32 %1347, %1345
-  store i32 %1348, ptr %1346, align 4, !tbaa !91
-  %1349 = add nuw nsw i64 %33, 1
-  %1350 = icmp eq i64 %1349, 4
-  br i1 %1350, label %.loopexit72, label %32
+.loopexit76:                                      ; preds = %.loopexit78, %.loopexit76.loopexit, %.loopexit80
+  %1343 = phi i32 [ %923, %.loopexit80 ], [ %923, %.loopexit78 ], [ %1342, %.loopexit76.loopexit ]
+  %1344 = getelementptr inbounds nuw i32, ptr %28, i64 %33
+  %1345 = load i32, ptr %1344, align 4, !tbaa !91
+  %1346 = or i32 %1345, %1343
+  store i32 %1346, ptr %1344, align 4, !tbaa !91
+  %1347 = add nuw nsw i64 %33, 1
+  %1348 = icmp eq i64 %1347, 4
+  br i1 %1348, label %.loopexit72, label %32
 
-.loopexit72:                                      ; preds = %1344, %1133, %1078, %176, %70, %501, %458, %627, %595, %947, %1044, %1260, %835, %801, %775, %698, %271
-  %1351 = phi i32 [ 61, %271 ], [ %723, %698 ], [ %849, %835 ], [ %826, %801 ], [ %780, %775 ], [ %1268, %1260 ], [ %1049, %1044 ], [ %953, %947 ], [ %618, %595 ], [ %633, %627 ], [ %515, %501 ], [ %482, %458 ], [ 3, %70 ], [ 3, %176 ], [ 0, %1344 ], [ 61, %1133 ], [ 61, %1078 ]
+.loopexit72:                                      ; preds = %.loopexit76, %1133, %1078, %176, %70, %501, %458, %627, %595, %947, %1044, %1260, %835, %801, %775, %698, %271
+  %1349 = phi i32 [ 61, %271 ], [ %723, %698 ], [ %849, %835 ], [ %826, %801 ], [ %780, %775 ], [ %1268, %1260 ], [ %1049, %1044 ], [ %953, %947 ], [ %618, %595 ], [ %633, %627 ], [ %515, %501 ], [ %482, %458 ], [ 3, %70 ], [ 3, %176 ], [ 0, %.loopexit76 ], [ 61, %1133 ], [ 61, %1078 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %1351
+  ret i32 %1349
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

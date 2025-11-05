@@ -1519,12 +1519,15 @@ __gmpz_getlimbn.exit.i6.i:                        ; preds = %__gmpz_getlimbn.exi
   %17 = xor i64 %15, %16
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i7.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, %wide.trip.count.i5.i
-  br i1 %exitcond.not.i10.i, label %_ZNK4cvc58internal8Rational4hashEv.exit, label %__gmpz_getlimbn.exit.i6.i, !llvm.loop !38
+  br i1 %exitcond.not.i10.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i, label %__gmpz_getlimbn.exit.i6.i, !llvm.loop !38
 
-_ZNK4cvc58internal8Rational4hashEv.exit:          ; preds = %__gmpz_getlimbn.exit.i6.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i
-  %.0.lcssa.i11.i = phi i64 [ 0, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i ], [ %17, %__gmpz_getlimbn.exit.i6.i ]
-  %18 = xor i64 %.0.lcssa.i11.i, %.0.lcssa.i.i
-  ret i64 %18
+_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i: ; preds = %__gmpz_getlimbn.exit.i6.i
+  %18 = xor i64 %17, %.0.lcssa.i.i
+  br label %_ZNK4cvc58internal8Rational4hashEv.exit
+
+_ZNK4cvc58internal8Rational4hashEv.exit:          ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i
+  %.0.lcssa.i11.i = phi i64 [ %.0.lcssa.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i ], [ %18, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i ]
+  ret i64 %.0.lcssa.i11.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1621,12 +1624,15 @@ __gmpz_getlimbn.exit.i6.i.i:                      ; preds = %__gmpz_getlimbn.exi
   %18 = xor i64 %16, %17
   %indvars.iv.next.i9.i.i = add nuw nsw i64 %indvars.iv.i7.i.i, 1
   %exitcond.not.i10.i.i = icmp eq i64 %indvars.iv.next.i9.i.i, %wide.trip.count.i5.i.i
-  br i1 %exitcond.not.i10.i.i, label %_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit, label %__gmpz_getlimbn.exit.i6.i.i, !llvm.loop !38
+  br i1 %exitcond.not.i10.i.i, label %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i, label %__gmpz_getlimbn.exit.i6.i.i, !llvm.loop !38
 
-_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit: ; preds = %__gmpz_getlimbn.exit.i6.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i
-  %.0.lcssa.i11.i.i = phi i64 [ 0, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i ], [ %18, %__gmpz_getlimbn.exit.i6.i.i ]
-  %19 = xor i64 %.0.lcssa.i11.i.i, %.0.lcssa.i.i.i
-  ret i64 %19
+_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i: ; preds = %__gmpz_getlimbn.exit.i6.i.i
+  %19 = xor i64 %18, %.0.lcssa.i.i.i
+  br label %_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit
+
+_ZNK4cvc58internal19RealAlgebraicNumber4hashEv.exit: ; preds = %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i
+  %.0.lcssa.i11.i.i = phi i64 [ %.0.lcssa.i.i.i, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit.i.i ], [ %19, %_ZN4cvc58internal9gmpz_hashEPK12__mpz_struct.exit12.loopexit.i.i ]
+  ret i64 %.0.lcssa.i11.i.i
 }
 
 declare void @__gmpq_init(ptr noundef) local_unnamed_addr #3

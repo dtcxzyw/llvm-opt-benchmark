@@ -182,16 +182,16 @@ define dso_local void @intel_pmu_lbr_reset() local_unnamed_addr #0 align 16 {
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define dso_local noundef i64 @lbr_from_signext_quirk_wr(i64 noundef %0) local_unnamed_addr #1 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @lbr_from_quirk_key, i32 2) #11
-          to label %5 [label %2], !srcloc !6
+          to label %6 [label %2], !srcloc !6
 
 2:                                                ; preds = %1
   %3 = shl i64 %0, 2
   %4 = and i64 %3, 6917529027641081856
-  br label %5
+  %5 = or i64 %4, %0
+  br label %6
 
-5:                                                ; preds = %1, %2
-  %6 = phi i64 [ %4, %2 ], [ 0, %1 ]
-  %7 = or i64 %6, %0
+6:                                                ; preds = %1, %2
+  %7 = phi i64 [ %5, %2 ], [ %0, %1 ]
   ret i64 %7
 }
 
@@ -225,16 +225,16 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
   %21 = getelementptr %struct.lbr_entry, ptr %16, i64 %17
   %22 = load i64, ptr %21, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @lbr_from_quirk_key, i32 2) #11
-          to label %26 [label %23], !srcloc !6
+          to label %27 [label %23], !srcloc !6
 
 23:                                               ; preds = %.split.us
   %24 = shl i64 %22, 2
   %25 = and i64 %24, 6917529027641081856
-  br label %26
+  %26 = or i64 %25, %22
+  br label %27
 
-26:                                               ; preds = %23, %.split.us
-  %27 = phi i64 [ %25, %23 ], [ 0, %.split.us ]
-  %28 = or i64 %27, %22
+27:                                               ; preds = %23, %.split.us
+  %28 = phi i64 [ %26, %23 ], [ %22, %.split.us ]
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
   %30 = add i32 %29, %20
   %31 = trunc i64 %22 to i32
@@ -244,11 +244,11 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #11
           to label %35 [label %34], !srcloc !6
 
-34:                                               ; preds = %26
+34:                                               ; preds = %27
   tail call void @do_trace_write_msr(i32 noundef %30, i64 noundef %28, i32 noundef 0) #11
   br label %35
 
-35:                                               ; preds = %34, %26
+35:                                               ; preds = %34, %27
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 456), align 8
@@ -329,16 +329,16 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
   %73 = getelementptr %struct.lbr_entry, ptr %16, i64 %69
   %74 = load i64, ptr %73, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @lbr_from_quirk_key, i32 2) #11
-          to label %78 [label %75], !srcloc !6
+          to label %79 [label %75], !srcloc !6
 
 75:                                               ; preds = %.split
   %76 = shl i64 %74, 2
   %77 = and i64 %76, 6917529027641081856
-  br label %78
+  %78 = or i64 %77, %74
+  br label %79
 
-78:                                               ; preds = %.split, %75
-  %79 = phi i64 [ %77, %75 ], [ 0, %.split ]
-  %80 = or i64 %79, %74
+79:                                               ; preds = %.split, %75
+  %80 = phi i64 [ %78, %75 ], [ %74, %.split ]
   %81 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
   %82 = add i32 %81, %72
   %83 = trunc i64 %74 to i32
@@ -348,11 +348,11 @@ define dso_local void @intel_pmu_lbr_restore(ptr noundef readonly captures(none)
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #11
           to label %87 [label %86], !srcloc !6
 
-86:                                               ; preds = %78
+86:                                               ; preds = %79
   tail call void @do_trace_write_msr(i32 noundef %82, i64 noundef %80, i32 noundef 0) #11
   br label %87
 
-87:                                               ; preds = %86, %78
+87:                                               ; preds = %86, %79
   %88 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %89 = load i64, ptr %88, align 8
   %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 456), align 8
@@ -1480,15 +1480,15 @@ define dso_local void @intel_pmu_lbr_enable_all(i1 noundef zeroext %0) local_unn
 27:                                               ; preds = %22, %17
   %28 = phi i64 [ %26, %22 ], [ 0, %17 ]
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 595, i32 8, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 114)) #11
-          to label %.thread [label %.thread, label %29], !srcloc !12
+          to label %.critedge [label %.critedge, label %29], !srcloc !12
 
 29:                                               ; preds = %27
-  br i1 %0, label %.thread, label %30
+  br i1 %0, label %.critedge, label %30
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %19, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread, label %33
+  br i1 %32, label %.critedge, label %33
 
 33:                                               ; preds = %30
   %34 = trunc i64 %28 to i32
@@ -1496,13 +1496,13 @@ define dso_local void @intel_pmu_lbr_enable_all(i1 noundef zeroext %0) local_unn
   %36 = trunc nuw i64 %35 to i32
   tail call void asm sideeffect "1: wrmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 8 \0A .popsection\0A", "{cx},{ax},{dx},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 456, i32 %34, i32 %36) #11, !srcloc !5
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #11
-          to label %.thread [label %37], !srcloc !6
+          to label %.critedge [label %37], !srcloc !6
 
 37:                                               ; preds = %33
   tail call void @do_trace_write_msr(i32 noundef 456, i64 noundef %28, i32 noundef 0) #11
-  br label %.thread
+  br label %.critedge
 
-.thread:                                          ; preds = %27, %27, %37, %33, %30, %29
+.critedge:                                        ; preds = %27, %27, %37, %33, %30, %29
   %38 = tail call { i64, i64 } asm sideeffect "1: rdmsr\0A2:\0A .pushsection \22__ex_table\22,\22a\22\0A .balign 4\0A .long (1b) - .\0A .long (2b) - .\0A .long 9 \0A .popsection\0A", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 473) #11, !srcloc !17
   %39 = extractvalue { i64, i64 } %38, 0
   %40 = extractvalue { i64, i64 } %38, 1
@@ -1511,11 +1511,11 @@ define dso_local void @intel_pmu_lbr_enable_all(i1 noundef zeroext %0) local_unn
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_read_msr, i64 8), i32 2) #11
           to label %44 [label %43], !srcloc !6
 
-43:                                               ; preds = %.thread
+43:                                               ; preds = %.critedge
   tail call void @do_trace_read_msr(i32 noundef 473, i64 noundef %42, i32 noundef 0) #11
   br label %44
 
-44:                                               ; preds = %43, %.thread
+44:                                               ; preds = %43, %.critedge
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 595, i32 8, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 114)) #11
           to label %46 [label %46, label %45], !srcloc !12
 
@@ -3276,16 +3276,16 @@ define internal void @intel_pmu_arch_lbr_restore(ptr noundef readonly captures(n
 
 20:                                               ; preds = %.preheader
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @lbr_from_quirk_key, i32 2) #11
-          to label %24 [label %21], !srcloc !6
+          to label %25 [label %21], !srcloc !6
 
 21:                                               ; preds = %20
   %22 = shl i64 %18, 2
   %23 = and i64 %22, 6917529027641081856
-  br label %24
+  %24 = or i64 %23, %18
+  br label %25
 
-24:                                               ; preds = %20, %21
-  %25 = phi i64 [ %23, %21 ], [ 0, %20 ]
-  %26 = or i64 %25, %18
+25:                                               ; preds = %20, %21
+  %26 = phi i64 [ %24, %21 ], [ %18, %20 ]
   %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 452), align 4
   %28 = add i32 %27, %15
   %29 = trunc i64 %18 to i32
@@ -3295,11 +3295,11 @@ define internal void @intel_pmu_arch_lbr_restore(ptr noundef readonly captures(n
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_write_msr, i64 8), i32 2) #11
           to label %33 [label %32], !srcloc !6
 
-32:                                               ; preds = %24
+32:                                               ; preds = %25
   tail call void @do_trace_write_msr(i32 noundef %28, i64 noundef %26, i32 noundef 0) #11
   br label %33
 
-33:                                               ; preds = %32, %24
+33:                                               ; preds = %32, %25
   %34 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = load i32, ptr getelementptr inbounds nuw (i8, ptr @x86_pmu, i64 456), align 8

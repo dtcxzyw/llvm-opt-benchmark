@@ -23777,11 +23777,11 @@ _ZN14inc_sat_solver10is_literalEP4expr.exit.sink.split: ; preds = %61, %42
   %.sink94 = phi ptr [ %40, %42 ], [ %65, %61 ]
   %67 = load i32, ptr %.sink94, align 8, !tbaa !390
   %68 = icmp eq i32 %67, -1
+  %69 = and i1 %68, %26
   br label %_ZN14inc_sat_solver10is_literalEP4expr.exit
 
 _ZN14inc_sat_solver10is_literalEP4expr.exit:      ; preds = %_ZN14inc_sat_solver10is_literalEP4expr.exit.sink.split, %25, %42, %.thread4.i, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i, %50, %57, %61
-  %69 = phi i1 [ false, %57 ], [ false, %50 ], [ true, %61 ], [ true, %42 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %.thread4.i ], [ false, %25 ], [ %68, %_ZN14inc_sat_solver10is_literalEP4expr.exit.sink.split ]
-  %70 = and i1 %69, %26
+  %70 = phi i1 [ false, %57 ], [ false, %50 ], [ %26, %61 ], [ %26, %42 ], [ false, %_ZNK11ast_manager6is_notEPK4expr.exit.i.i ], [ false, %.thread4.i ], [ false, %25 ], [ %69, %_ZN14inc_sat_solver10is_literalEP4expr.exit.sink.split ]
   %71 = zext i1 %70 to i8
   store i8 %71, ptr %18, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

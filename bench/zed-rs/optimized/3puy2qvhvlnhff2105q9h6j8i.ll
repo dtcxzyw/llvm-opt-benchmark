@@ -181734,8 +181734,8 @@ _ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E
   br label %10
 
 10:                                               ; preds = %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit, %8
-  %.sroa.0.0.insert.insert = phi i32 [ %.sroa.01.0.copyload, %8 ], [ 2, %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit ]
-  ret i32 %.sroa.0.0.insert.insert
+  %.sroa.3.sroa.0.0 = phi i32 [ %.sroa.01.0.copyload, %8 ], [ 2, %_ZN4gpui8platform5linux7wayland6window13WaylandWindow6borrow17h6c5f3c0ba95c6c68E.exit ]
+  ret i32 %.sroa.3.sroa.0.0
 }
 
 ; Function Attrs: nonlazybind uwtable

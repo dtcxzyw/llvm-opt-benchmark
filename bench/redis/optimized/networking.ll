@@ -14421,47 +14421,47 @@ getClientType.exit:                               ; preds = %getClientOutputBuff
   %45 = zext nneg i32 %43 to i64
   %46 = getelementptr inbounds nuw %struct.clientBufferLimitsConfig, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6408), i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !265
-  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7112), align 8
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %50 = load i64, ptr %49, align 8, !tbaa !267
-  %51 = add i64 %50, -1
-  %or.cond33.not = icmp ult i64 %51, %44
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  br i1 %or.cond33.not, label %.critedge, label %62
-
-.critedge:                                        ; preds = %getClientType.exit
-  %53 = load i64, ptr %52, align 8, !tbaa !97
-  %54 = icmp eq i64 %53, 0
-  %55 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7784) seq_cst, align 8, !tbaa !79
-  br i1 %54, label %56, label %57
-
-56:                                               ; preds = %.critedge
-  store i64 %55, ptr %52, align 8, !tbaa !97
-  br label %63
-
-57:                                               ; preds = %.critedge
-  %58 = load i64, ptr %52, align 8, !tbaa !97
-  %59 = sub nsw i64 %55, %58
-  %60 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %61 = load i64, ptr %60, align 8, !tbaa !268
-  %.not31 = icmp sgt i64 %59, %61
-  br label %63
-
-62:                                               ; preds = %getClientType.exit
-  store i64 0, ptr %52, align 8, !tbaa !97
-  br label %63
-
-63:                                               ; preds = %56, %57, %62
-  %.2 = phi i1 [ false, %56 ], [ %.not31, %57 ], [ false, %62 ]
-  %64 = icmp eq i32 %43, 1
-  %65 = icmp ne i64 %47, 0
-  %or.cond = select i1 %64, i1 %65, i1 false
-  %spec.select = tail call i64 @llvm.smax.i64(i64 %47, i64 %48)
+  %48 = icmp eq i32 %43, 1
+  %49 = icmp ne i64 %47, 0
+  %or.cond = select i1 %48, i1 %49, i1 false
+  %50 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7112), align 8
+  %spec.select = tail call i64 @llvm.smax.i64(i64 %47, i64 %50)
   %.022 = select i1 %or.cond, i64 %spec.select, i64 %47
   %.not27 = icmp uge i64 %44, %.022
-  %or.cond32.not = select i1 %65, i1 %.not27, i1 false
-  %66 = or i1 %or.cond32.not, %.2
-  %67 = zext i1 %66 to i32
+  %or.cond32.not = select i1 %49, i1 %.not27, i1 false
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %52 = load i64, ptr %51, align 8, !tbaa !267
+  %53 = add i64 %52, -1
+  %or.cond33.not = icmp ult i64 %53, %44
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  br i1 %or.cond33.not, label %.critedge, label %65
+
+.critedge:                                        ; preds = %getClientType.exit
+  %55 = load i64, ptr %54, align 8, !tbaa !97
+  %56 = icmp eq i64 %55, 0
+  %57 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7784) seq_cst, align 8, !tbaa !79
+  br i1 %56, label %58, label %59
+
+58:                                               ; preds = %.critedge
+  store i64 %57, ptr %54, align 8, !tbaa !97
+  br label %66
+
+59:                                               ; preds = %.critedge
+  %60 = load i64, ptr %54, align 8, !tbaa !97
+  %61 = sub nsw i64 %57, %60
+  %62 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %63 = load i64, ptr %62, align 8, !tbaa !268
+  %.not31 = icmp sgt i64 %61, %63
+  %64 = or i1 %or.cond32.not, %.not31
+  br label %66
+
+65:                                               ; preds = %getClientType.exit
+  store i64 0, ptr %54, align 8, !tbaa !97
+  br label %66
+
+66:                                               ; preds = %58, %59, %65
+  %.2 = phi i1 [ %or.cond32.not, %58 ], [ %64, %59 ], [ %or.cond32.not, %65 ]
+  %67 = zext i1 %.2 to i32
   ret i32 %67
 }
 

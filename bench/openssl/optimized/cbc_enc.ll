@@ -60,14 +60,14 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
 26:                                               ; preds = %._crit_edge
   %27 = getelementptr i8, ptr %.0200.lcssa, i64 %.0.lcssa
   %28 = getelementptr i8, ptr %.0200.lcssa, i64 %.0.in.lcssa
-  switch i64 %.0.in.lcssa, label %69 [
-    i64 1, label %64
+  switch i64 %.0.in.lcssa, label %71 [
+    i64 1, label %65
     i64 7, label %29
     i64 6, label %34
     i64 5, label %42
-    i64 4, label %47
-    i64 3, label %52
-    i64 2, label %58
+    i64 4, label %48
+    i64 3, label %53
+    i64 2, label %59
   ]
 
 29:                                               ; preds = %26
@@ -95,57 +95,57 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = zext i8 %44 to i32
   %46 = or i32 %.3, %45
-  br label %47
+  %47 = xor i32 %46, %.0192.lcssa
+  br label %48
 
-47:                                               ; preds = %42, %26
+48:                                               ; preds = %42, %26
   %.4204 = phi ptr [ %43, %42 ], [ %28, %26 ]
-  %.4 = phi i32 [ %46, %42 ], [ 0, %26 ]
-  %48 = getelementptr inbounds i8, ptr %.4204, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !9
-  %50 = zext i8 %49 to i32
-  %51 = shl nuw i32 %50, 24
-  br label %52
+  %.4 = phi i32 [ %47, %42 ], [ %.0192.lcssa, %26 ]
+  %49 = getelementptr inbounds i8, ptr %.4204, i64 -1
+  %50 = load i8, ptr %49, align 1, !tbaa !9
+  %51 = zext i8 %50 to i32
+  %52 = shl nuw i32 %51, 24
+  br label %53
 
-52:                                               ; preds = %47, %26
-  %.5205 = phi ptr [ %48, %47 ], [ %28, %26 ]
-  %.1197 = phi i32 [ %51, %47 ], [ 0, %26 ]
-  %.5 = phi i32 [ %.4, %47 ], [ 0, %26 ]
-  %53 = getelementptr inbounds i8, ptr %.5205, i64 -1
-  %54 = load i8, ptr %53, align 1, !tbaa !9
-  %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 %55, 16
-  %57 = or disjoint i32 %56, %.1197
-  br label %58
+53:                                               ; preds = %48, %26
+  %.5205 = phi ptr [ %49, %48 ], [ %28, %26 ]
+  %.1197 = phi i32 [ %52, %48 ], [ 0, %26 ]
+  %.5 = phi i32 [ %.4, %48 ], [ %.0192.lcssa, %26 ]
+  %54 = getelementptr inbounds i8, ptr %.5205, i64 -1
+  %55 = load i8, ptr %54, align 1, !tbaa !9
+  %56 = zext i8 %55 to i32
+  %57 = shl nuw nsw i32 %56, 16
+  %58 = or disjoint i32 %57, %.1197
+  br label %59
 
-58:                                               ; preds = %52, %26
-  %.6206 = phi ptr [ %53, %52 ], [ %28, %26 ]
-  %.2198 = phi i32 [ %57, %52 ], [ 0, %26 ]
-  %.6 = phi i32 [ %.5, %52 ], [ 0, %26 ]
-  %59 = getelementptr inbounds i8, ptr %.6206, i64 -1
-  %60 = load i8, ptr %59, align 1, !tbaa !9
-  %61 = zext i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 8
-  %63 = or i32 %62, %.2198
-  br label %64
+59:                                               ; preds = %53, %26
+  %.6206 = phi ptr [ %54, %53 ], [ %28, %26 ]
+  %.2198 = phi i32 [ %58, %53 ], [ 0, %26 ]
+  %.6 = phi i32 [ %.5, %53 ], [ %.0192.lcssa, %26 ]
+  %60 = getelementptr inbounds i8, ptr %.6206, i64 -1
+  %61 = load i8, ptr %60, align 1, !tbaa !9
+  %62 = zext i8 %61 to i32
+  %63 = shl nuw nsw i32 %62, 8
+  %64 = or i32 %63, %.2198
+  br label %65
 
-64:                                               ; preds = %26, %58
-  %.7207 = phi ptr [ %59, %58 ], [ %28, %26 ]
-  %.3199 = phi i32 [ %63, %58 ], [ 0, %26 ]
-  %.7 = phi i32 [ %.6, %58 ], [ 0, %26 ]
-  %65 = getelementptr inbounds i8, ptr %.7207, i64 -1
-  %66 = load i8, ptr %65, align 1, !tbaa !9
-  %67 = zext i8 %66 to i32
-  %68 = or i32 %.3199, %67
-  br label %69
+65:                                               ; preds = %26, %59
+  %.7207 = phi ptr [ %60, %59 ], [ %28, %26 ]
+  %.3199 = phi i32 [ %64, %59 ], [ 0, %26 ]
+  %.7 = phi i32 [ %.6, %59 ], [ %.0192.lcssa, %26 ]
+  %66 = getelementptr inbounds i8, ptr %.7207, i64 -1
+  %67 = load i8, ptr %66, align 1, !tbaa !9
+  %68 = zext i8 %67 to i32
+  %69 = or i32 %.3199, %68
+  %70 = xor i32 %69, %.0193.lcssa
+  br label %71
 
-69:                                               ; preds = %64, %26
-  %.0196 = phi i32 [ 0, %26 ], [ %68, %64 ]
-  %.0194 = phi i32 [ 0, %26 ], [ %.7, %64 ]
-  %70 = xor i32 %.0196, %.0193.lcssa
-  store i32 %70, ptr %7, align 4, !tbaa !3
-  %71 = xor i32 %.0194, %.0192.lcssa
+71:                                               ; preds = %65, %26
+  %.0196 = phi i32 [ %.0193.lcssa, %26 ], [ %70, %65 ]
+  %.0194 = phi i32 [ %.0192.lcssa, %26 ], [ %.7, %65 ]
+  store i32 %.0196, ptr %7, align 4, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %71, ptr %72, align 4, !tbaa !3
+  store i32 %.0194, ptr %72, align 4, !tbaa !3
   call void @DES_encrypt1(ptr noundef nonnull %7, ptr noundef %3, i32 noundef 1) #3
   %73 = load i32, ptr %7, align 4, !tbaa !3
   store i32 %73, ptr %.0208.lcssa, align 1
@@ -296,7 +296,7 @@ define void @DES_cbc_encrypt(ptr noundef readonly captures(none) %0, ptr noundef
   store i8 %149, ptr %150, align 1, !tbaa !9
   br label %151
 
-151:                                              ; preds = %._crit_edge238, %148, %112, %._crit_edge, %69
+151:                                              ; preds = %._crit_edge238, %148, %112, %._crit_edge, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

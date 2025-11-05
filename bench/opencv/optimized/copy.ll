@@ -1778,24 +1778,24 @@ _ZNK2cv11_InputArray6getMatEi.exit85:             ; preds = %203, %206
           to label %219 unwind label %241
 
 219:                                              ; preds = %217
-  %220 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  %221 = load i64, ptr %220, align 8, !tbaa !108
-  %222 = load i32, ptr %51, align 4, !tbaa !76
-  %223 = icmp sgt i32 %222, 0
-  br i1 %223, label %224, label %_ZNK2cv3Mat8elemSizeEv.exit86
+  %220 = load i32, ptr %51, align 4, !tbaa !76
+  %221 = icmp sgt i32 %220, 0
+  br i1 %221, label %222, label %_ZNK2cv3Mat8elemSizeEv.exit86
 
-224:                                              ; preds = %219
+222:                                              ; preds = %219
+  %223 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  %224 = load i64, ptr %223, align 8, !tbaa !108
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %226 = load ptr, ptr %225, align 8, !tbaa !81
-  %227 = zext nneg i32 %222 to i64
+  %227 = zext nneg i32 %220 to i64
   %228 = getelementptr i64, ptr %226, i64 %227
   %229 = getelementptr i8, ptr %228, i64 -8
   %230 = load i64, ptr %229, align 8, !tbaa !72
+  %231 = mul i64 %230, %224
   br label %_ZNK2cv3Mat8elemSizeEv.exit86
 
-_ZNK2cv3Mat8elemSizeEv.exit86:                    ; preds = %219, %224
-  %231 = phi i64 [ %230, %224 ], [ 0, %219 ]
-  %232 = mul i64 %231, %221
+_ZNK2cv3Mat8elemSizeEv.exit86:                    ; preds = %219, %222
+  %232 = phi i64 [ %231, %222 ], [ 0, %219 ]
   %233 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %234 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %235
@@ -2464,25 +2464,25 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scala
           to label %15 unwind label %45
 
 15:                                               ; preds = %14
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %17 = load i64, ptr %16, align 8, !tbaa !108
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %19 = load i32, ptr %18, align 4, !tbaa !76
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %21, label %_ZNK2cv3Mat8elemSizeEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %17 = load i32, ptr %16, align 4, !tbaa !76
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %_ZNK2cv3Mat8elemSizeEv.exit
 
-21:                                               ; preds = %15
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %21 = load i64, ptr %20, align 8, !tbaa !108
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !81
-  %24 = zext nneg i32 %19 to i64
+  %24 = zext nneg i32 %17 to i64
   %25 = getelementptr i64, ptr %23, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load i64, ptr %26, align 8, !tbaa !72
+  %28 = mul i64 %27, %21
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
-_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %15, %21
-  %28 = phi i64 [ %27, %21 ], [ 0, %15 ]
-  %29 = mul i64 %28, %17
+_ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %15, %19
+  %29 = phi i64 [ %28, %19 ], [ 0, %15 ]
   %30 = load i64, ptr %1, align 8, !tbaa !72
   %31 = icmp eq i64 %30, 0
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8

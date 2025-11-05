@@ -22572,7 +22572,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he471e0abdb384a7dE.exit: ; preds = %
           to label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit.i" unwind label %843, !noalias !5210
 
 1810:                                             ; preds = %1831, %1795
-  %.5157.i = phi i8 [ %.3155517.i, %1795 ], [ %.4156678.i, %1831 ]
+  %.5157.i = phi i8 [ %.3155517.i, %1795 ], [ %.4156677.i, %1831 ]
   %1811 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TokenTree$GT$17h793833e29b29744dE.exit419.i"
@@ -22597,7 +22597,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he471e0abdb384a7dE.exit: ; preds = %
   br i1 %or.cond23.i, label %1852, label %.body162.thread
 
 1817:                                             ; preds = %1839, %1814
-  %.9161.i = phi i8 [ %.3155517.i, %1814 ], [ %.4156678.i, %1839 ]
+  %.9161.i = phi i8 [ %.3155517.i, %1814 ], [ %.4156677.i, %1839 ]
   %1818 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit.i"
@@ -22621,8 +22621,8 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he471e0abdb384a7dE.exit: ; preds = %
           to label %1871 unwind label %.body162.thread356.loopexit
 
 "_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2eb7c822b0ae57aeE.exit428.i": ; preds = %1836, %1832, %1274, %1267
-  %.7679.i = phi i8 [ %.7.i, %1832 ], [ %.7.i, %1836 ], [ %.7.i, %1267 ], [ 0, %1274 ]
-  %.4156678.i = phi i8 [ %.4156.i, %1832 ], [ %.4156.i, %1836 ], [ %.4156.i, %1267 ], [ 1, %1274 ]
+  %.7678.i = phi i8 [ %.7.i, %1832 ], [ %.7.i, %1836 ], [ %.7.i, %1267 ], [ 0, %1274 ]
+  %.4156677.i = phi i8 [ %.4156.i, %1832 ], [ %.4156.i, %1836 ], [ %.4156.i, %1267 ], [ 1, %1274 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6214)
   call void @llvm.experimental.noalias.scope.decl(metadata !6217)
   call void @llvm.experimental.noalias.scope.decl(metadata !6220)
@@ -22662,7 +22662,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he471e0abdb384a7dE.exit: ; preds = %
 
 "_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit430.i": ; preds = %1839, %"_ZN4core3ptr61drop_in_place$LT$syntax..ast..generated..nodes..TokenTree$GT$17h793833e29b29744dE.exit426.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !5210
-  %1840 = trunc nuw i8 %.4156678.i to i1
+  %1840 = trunc nuw i8 %.4156677.i to i1
   %or.cond21.i = select i1 %.not190.not.i, i1 %1840, i1 false
   br i1 %or.cond21.i, label %1841, label %1871
 
@@ -22737,7 +22737,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he471e0abdb384a7dE.exit: ; preds = %
   br label %1869
 
 1869:                                             ; preds = %.thread.i, %991
-  %.0674.i = phi i8 [ 0, %.thread.i ], [ %992, %991 ]
+  %.0673.i = phi i8 [ 0, %.thread.i ], [ %992, %991 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !5210
   br label %1871
 
@@ -22761,7 +22761,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17he471e0abdb384a7dE.exit: ; preds = %
   br label %"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h7396b4bf1c0f1002E.exit169"
 
 1871:                                             ; preds = %1869, %1841, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit430.i", %1820, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit422.i", %1825, %1846
-  %.16.i = phi i8 [ %.0674.i, %1869 ], [ %.4518.i, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit422.i" ], [ %.4518.i, %1820 ], [ %.7679.i, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit430.i" ], [ %.7679.i, %1841 ], [ %.4518.i, %1825 ], [ %.7679.i, %1846 ]
+  %.16.i = phi i8 [ %.0673.i, %1869 ], [ %.4518.i, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit422.i" ], [ %.4518.i, %1820 ], [ %.7678.i, %"_ZN4core3ptr112drop_in_place$LT$core..option..Option$LT$$LP$span..MacroCallId$C$syntax..ast..generated..nodes..Item$RP$$GT$$GT$17hac568f49ee5b279dE.exit430.i" ], [ %.7678.i, %1841 ], [ %.4518.i, %1825 ], [ %.7678.i, %1846 ]
   %1872 = trunc nuw i8 %.16.i to i1
   br i1 %1872, label %.critedge94, label %1873
 

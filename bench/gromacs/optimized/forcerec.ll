@@ -1080,7 +1080,7 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread: ; preds = %4, %4, %4
 13:                                               ; preds = %4
   %.val13 = load i32, ptr %1, align 4, !tbaa !165
   %14 = icmp eq i32 %.val13, 5
-  br i1 %14, label %15, label %188
+  br i1 %14, label %15, label %186
 
 15:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread, %13
   %16 = phi i1 [ %12, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.thread ], [ false, %13 ]
@@ -1107,342 +1107,340 @@ _ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i: ; preds = %21, %15, %15, 
   %26 = phi ptr [ %20, %15 ], [ %22, %21 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ], [ %20, %15 ]
   %27 = phi ptr [ %18, %15 ], [ %23, %21 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ], [ %18, %15 ]
   %28 = phi ptr [ %17, %15 ], [ %24, %21 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ], [ %17, %15 ]
-  %29 = phi i1 [ %16, %15 ], [ %25, %21 ], [ %16, %15 ], [ %16, %15 ], [ %16, %15 ], [ %16, %15 ]
-  %30 = phi i1 [ true, %15 ], [ false, %21 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ]
-  %31 = or i1 %29, %30
-  %32 = icmp ne ptr %27, null
-  %33 = and i1 %32, %31
+  %29 = phi i1 [ true, %15 ], [ %25, %21 ], [ true, %15 ], [ true, %15 ], [ true, %15 ], [ true, %15 ]
+  %30 = icmp ne ptr %27, null
+  %31 = and i1 %30, %29
   %.val32.i = load i32, ptr %1, align 4, !tbaa !165
-  %34 = icmp eq i32 %.val32.i, 5
-  %35 = icmp ne ptr %26, null
-  %36 = and i1 %35, %34
-  %37 = tail call noundef float @_Z25ewald_spline3_table_scaleRK19interaction_const_tbb(ptr noundef nonnull align 8 dereferenceable(152) %1, i1 noundef zeroext %33, i1 noundef zeroext %36)
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  %39 = load ptr, ptr %38, align 8, !tbaa !167
-  %40 = icmp ne ptr %39, null
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %42 = load float, ptr %41, align 4, !tbaa !169
-  %or.cond.i = or i1 %33, %36
-  %or.cond3.i = and i1 %or.cond.i, %40
-  br i1 %or.cond3.i, label %43, label %47
+  %32 = icmp eq i32 %.val32.i, 5
+  %33 = icmp ne ptr %26, null
+  %34 = and i1 %33, %32
+  %35 = tail call noundef float @_Z25ewald_spline3_table_scaleRK19interaction_const_tbb(ptr noundef nonnull align 8 dereferenceable(152) %1, i1 noundef zeroext %31, i1 noundef zeroext %34)
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  %37 = load ptr, ptr %36, align 8, !tbaa !167
+  %38 = icmp ne ptr %37, null
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %40 = load float, ptr %39, align 4, !tbaa !169
+  %or.cond.i = or i1 %31, %34
+  %or.cond3.i = and i1 %or.cond.i, %38
+  br i1 %or.cond3.i, label %41, label %45
 
-43:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-  %44 = fadd float %2, %3
-  %45 = fcmp ogt float %44, 0.000000e+00
-  br i1 %45, label %46, label %47
+41:                                               ; preds = %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+  %42 = fadd float %2, %3
+  %43 = fcmp ogt float %42, 0.000000e+00
+  br i1 %43, label %44, label %45
 
-46:                                               ; preds = %43
-  br label %47
+44:                                               ; preds = %41
+  br label %45
 
-47:                                               ; preds = %46, %43, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
-  %.0.i = phi float [ %44, %46 ], [ %42, %43 ], [ %42, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i ]
-  %48 = fmul float %37, %.0.i
-  %49 = fptosi float %48 to i32
-  %50 = add nsw i32 %49, 2
-  br i1 %33, label %51, label %112
+45:                                               ; preds = %44, %41, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i
+  %.0.i = phi float [ %42, %44 ], [ %40, %41 ], [ %40, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit.i ]
+  %46 = fmul float %35, %.0.i
+  %47 = fptosi float %46 to i32
+  %48 = add nsw i32 %47, 2
+  br i1 %31, label %49, label %110
 
-51:                                               ; preds = %47
+49:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %52 = fpext float %37 to double
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  %54 = load float, ptr %53, align 4, !tbaa !186
-  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %5, i32 noundef %50, double noundef %52, float noundef %54, ptr noundef nonnull @_Z12v_q_ewald_lrdd)
-  %55 = load float, ptr %5, align 8, !tbaa !187
-  store float %55, ptr %27, align 8, !tbaa !187
-  %56 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %58 = load ptr, ptr %56, align 8, !tbaa !193
-  %59 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %60 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %61 = load ptr, ptr %57, align 8, !tbaa !193
-  store ptr %61, ptr %56, align 8, !tbaa !193
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %63 = load ptr, ptr %62, align 8, !tbaa !194
-  store ptr %63, ptr %59, align 8, !tbaa !194
-  %64 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %65 = load ptr, ptr %64, align 8, !tbaa !195
-  store ptr %65, ptr %60, align 8, !tbaa !195
-  %.not.i.i.i.i.i.i.i = icmp eq ptr %58, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i, label %66
+  %50 = fpext float %35 to double
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 84
+  %52 = load float, ptr %51, align 4, !tbaa !186
+  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %5, i32 noundef %48, double noundef %50, float noundef %52, ptr noundef nonnull @_Z12v_q_ewald_lrdd)
+  %53 = load float, ptr %5, align 8, !tbaa !187
+  store float %53, ptr %27, align 8, !tbaa !187
+  %54 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %56 = load ptr, ptr %54, align 8, !tbaa !193
+  %57 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  %59 = load ptr, ptr %55, align 8, !tbaa !193
+  store ptr %59, ptr %54, align 8, !tbaa !193
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %61 = load ptr, ptr %60, align 8, !tbaa !194
+  store ptr %61, ptr %57, align 8, !tbaa !194
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %63 = load ptr, ptr %62, align 8, !tbaa !195
+  store ptr %63, ptr %58, align 8, !tbaa !195
+  %.not.i.i.i.i.i.i.i = icmp eq ptr %56, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i, label %64
 
-66:                                               ; preds = %51
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %58)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i unwind label %67
+64:                                               ; preds = %49
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %56)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i unwind label %65
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+65:                                               ; preds = %64
+  %66 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  call void @__clang_call_terminate(ptr %69) #30
+  %67 = extractvalue { ptr, i32 } %66, 0
+  call void @__clang_call_terminate(ptr %67) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i: ; preds = %66, %51
-  %70 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %71 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %72 = load ptr, ptr %70, align 8, !tbaa !193
-  %73 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %74 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %75 = load ptr, ptr %71, align 8, !tbaa !193
-  store ptr %75, ptr %70, align 8, !tbaa !193
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %77 = load ptr, ptr %76, align 8, !tbaa !194
-  store ptr %77, ptr %73, align 8, !tbaa !194
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %79 = load ptr, ptr %78, align 8, !tbaa !195
-  store ptr %79, ptr %74, align 8, !tbaa !195
-  %.not.i.i.i.i.i5.i.i = icmp eq ptr %72, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %71, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i5.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i, label %80
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i: ; preds = %64, %49
+  %68 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %70 = load ptr, ptr %68, align 8, !tbaa !193
+  %71 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %73 = load ptr, ptr %69, align 8, !tbaa !193
+  store ptr %73, ptr %68, align 8, !tbaa !193
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %75 = load ptr, ptr %74, align 8, !tbaa !194
+  store ptr %75, ptr %71, align 8, !tbaa !194
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %77 = load ptr, ptr %76, align 8, !tbaa !195
+  store ptr %77, ptr %72, align 8, !tbaa !195
+  %.not.i.i.i.i.i5.i.i = icmp eq ptr %70, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i5.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i, label %78
 
-80:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %72)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i unwind label %81
+78:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %70)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i unwind label %79
 
-81:                                               ; preds = %80
-  %82 = landingpad { ptr, i32 }
+79:                                               ; preds = %78
+  %80 = landingpad { ptr, i32 }
           catch ptr null
-  %83 = extractvalue { ptr, i32 } %82, 0
-  call void @__clang_call_terminate(ptr %83) #30
+  %81 = extractvalue { ptr, i32 } %80, 0
+  call void @__clang_call_terminate(ptr %81) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i: ; preds = %80, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i
-  %84 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %85 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %86 = load ptr, ptr %84, align 8, !tbaa !193
-  %87 = getelementptr inbounds nuw i8, ptr %27, i64 64
-  %88 = getelementptr inbounds nuw i8, ptr %27, i64 72
-  %89 = load ptr, ptr %85, align 8, !tbaa !193
-  store ptr %89, ptr %84, align 8, !tbaa !193
-  %90 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %91 = load ptr, ptr %90, align 8, !tbaa !194
-  store ptr %91, ptr %87, align 8, !tbaa !194
-  %92 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %93 = load ptr, ptr %92, align 8, !tbaa !195
-  store ptr %93, ptr %88, align 8, !tbaa !195
-  %.not.i.i.i.i.i7.i.i = icmp eq ptr %86, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i7.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i, label %94
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i: ; preds = %78, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i.i
+  %82 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %83 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %84 = load ptr, ptr %82, align 8, !tbaa !193
+  %85 = getelementptr inbounds nuw i8, ptr %27, i64 64
+  %86 = getelementptr inbounds nuw i8, ptr %27, i64 72
+  %87 = load ptr, ptr %83, align 8, !tbaa !193
+  store ptr %87, ptr %82, align 8, !tbaa !193
+  %88 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %89 = load ptr, ptr %88, align 8, !tbaa !194
+  store ptr %89, ptr %85, align 8, !tbaa !194
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %91 = load ptr, ptr %90, align 8, !tbaa !195
+  store ptr %91, ptr %86, align 8, !tbaa !195
+  %.not.i.i.i.i.i7.i.i = icmp eq ptr %84, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i7.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i, label %92
 
-94:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %86)
-          to label %_ZN21EwaldCorrectionTablesaSEOS_.exit.i unwind label %95
+92:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %84)
+          to label %_ZN21EwaldCorrectionTablesaSEOS_.exit.i unwind label %93
 
-95:                                               ; preds = %94
-  %96 = landingpad { ptr, i32 }
+93:                                               ; preds = %92
+  %94 = landingpad { ptr, i32 }
           catch ptr null
-  %97 = extractvalue { ptr, i32 } %96, 0
-  call void @__clang_call_terminate(ptr %97) #30
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #30
   unreachable
 
-_ZN21EwaldCorrectionTablesaSEOS_.exit.i:          ; preds = %94
-  %.pr.i = load ptr, ptr %85, align 8, !tbaa !193
+_ZN21EwaldCorrectionTablesaSEOS_.exit.i:          ; preds = %92
+  %.pr.i = load ptr, ptr %83, align 8, !tbaa !193
   %.not.i.i.i.i.i = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i, label %98
+  br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i, label %96
 
-98:                                               ; preds = %_ZN21EwaldCorrectionTablesaSEOS_.exit.i
+96:                                               ; preds = %_ZN21EwaldCorrectionTablesaSEOS_.exit.i
   invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %.pr.i)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i unwind label %99
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i unwind label %97
 
-99:                                               ; preds = %98
-  %100 = landingpad { ptr, i32 }
+97:                                               ; preds = %96
+  %98 = landingpad { ptr, i32 }
           catch ptr null
-  %101 = extractvalue { ptr, i32 } %100, 0
-  call void @__clang_call_terminate(ptr %101) #30
+  %99 = extractvalue { ptr, i32 } %98, 0
+  call void @__clang_call_terminate(ptr %99) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i: ; preds = %98, %_ZN21EwaldCorrectionTablesaSEOS_.exit.i, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i
-  %102 = load ptr, ptr %71, align 8, !tbaa !193
-  %.not.i.i.i1.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i.i1.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i, label %103
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i: ; preds = %96, %_ZN21EwaldCorrectionTablesaSEOS_.exit.i, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i.i
+  %100 = load ptr, ptr %69, align 8, !tbaa !193
+  %.not.i.i.i1.i.i = icmp eq ptr %100, null
+  br i1 %.not.i.i.i1.i.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i, label %101
 
-103:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %102)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i unwind label %104
+101:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %100)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i unwind label %102
 
-104:                                              ; preds = %103
-  %105 = landingpad { ptr, i32 }
+102:                                              ; preds = %101
+  %103 = landingpad { ptr, i32 }
           catch ptr null
-  %106 = extractvalue { ptr, i32 } %105, 0
-  call void @__clang_call_terminate(ptr %106) #30
+  %104 = extractvalue { ptr, i32 } %103, 0
+  call void @__clang_call_terminate(ptr %104) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i: ; preds = %103, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
-  %107 = load ptr, ptr %57, align 8, !tbaa !193
-  %.not.i.i.i3.i.i = icmp eq ptr %107, null
-  br i1 %.not.i.i.i3.i.i, label %_ZN21EwaldCorrectionTablesD2Ev.exit.i, label %108
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i: ; preds = %101, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i.i
+  %105 = load ptr, ptr %55, align 8, !tbaa !193
+  %.not.i.i.i3.i.i = icmp eq ptr %105, null
+  br i1 %.not.i.i.i3.i.i, label %_ZN21EwaldCorrectionTablesD2Ev.exit.i, label %106
 
-108:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %107)
-          to label %_ZN21EwaldCorrectionTablesD2Ev.exit.i unwind label %109
+106:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %105)
+          to label %_ZN21EwaldCorrectionTablesD2Ev.exit.i unwind label %107
 
-109:                                              ; preds = %108
-  %110 = landingpad { ptr, i32 }
+107:                                              ; preds = %106
+  %108 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #30
+  %109 = extractvalue { ptr, i32 } %108, 0
+  call void @__clang_call_terminate(ptr %109) #30
   unreachable
 
-_ZN21EwaldCorrectionTablesD2Ev.exit.i:            ; preds = %108, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i
+_ZN21EwaldCorrectionTablesD2Ev.exit.i:            ; preds = %106, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %112
+  br label %110
 
-112:                                              ; preds = %_ZN21EwaldCorrectionTablesD2Ev.exit.i, %47
-  br i1 %36, label %113, label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
+110:                                              ; preds = %_ZN21EwaldCorrectionTablesD2Ev.exit.i, %45
+  br i1 %34, label %111, label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
 
-113:                                              ; preds = %112
+111:                                              ; preds = %110
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %114 = fpext float %37 to double
-  %115 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %116 = load float, ptr %115, align 8, !tbaa !196
-  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %6, i32 noundef %50, double noundef %114, float noundef %116, ptr noundef nonnull @_Z13v_lj_ewald_lrdd)
-  %117 = load float, ptr %6, align 8, !tbaa !187
-  store float %117, ptr %26, align 8, !tbaa !187
-  %118 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %119 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %120 = load ptr, ptr %118, align 8, !tbaa !193
-  %121 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %122 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %123 = load ptr, ptr %119, align 8, !tbaa !193
-  store ptr %123, ptr %118, align 8, !tbaa !193
-  %124 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !194
-  store ptr %125, ptr %121, align 8, !tbaa !194
-  %126 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %127 = load ptr, ptr %126, align 8, !tbaa !195
-  store ptr %127, ptr %122, align 8, !tbaa !195
-  %.not.i.i.i.i.i.i33.i = icmp eq ptr %120, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %119, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i33.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i, label %128
+  %112 = fpext float %35 to double
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %114 = load float, ptr %113, align 8, !tbaa !196
+  call void @_Z29generateEwaldCorrectionTablesidfPFdddE(ptr dead_on_unwind nonnull writable sret(%struct.EwaldCorrectionTables) align 8 %6, i32 noundef %48, double noundef %112, float noundef %114, ptr noundef nonnull @_Z13v_lj_ewald_lrdd)
+  %115 = load float, ptr %6, align 8, !tbaa !187
+  store float %115, ptr %26, align 8, !tbaa !187
+  %116 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %118 = load ptr, ptr %116, align 8, !tbaa !193
+  %119 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %121 = load ptr, ptr %117, align 8, !tbaa !193
+  store ptr %121, ptr %116, align 8, !tbaa !193
+  %122 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %123 = load ptr, ptr %122, align 8, !tbaa !194
+  store ptr %123, ptr %119, align 8, !tbaa !194
+  %124 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %125 = load ptr, ptr %124, align 8, !tbaa !195
+  store ptr %125, ptr %120, align 8, !tbaa !195
+  %.not.i.i.i.i.i.i33.i = icmp eq ptr %118, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %117, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i.i33.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i, label %126
 
-128:                                              ; preds = %113
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %120)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i unwind label %129
+126:                                              ; preds = %111
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %118)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i unwind label %127
 
-129:                                              ; preds = %128
-  %130 = landingpad { ptr, i32 }
+127:                                              ; preds = %126
+  %128 = landingpad { ptr, i32 }
           catch ptr null
-  %131 = extractvalue { ptr, i32 } %130, 0
-  call void @__clang_call_terminate(ptr %131) #30
+  %129 = extractvalue { ptr, i32 } %128, 0
+  call void @__clang_call_terminate(ptr %129) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i: ; preds = %128, %113
-  %132 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %133 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %134 = load ptr, ptr %132, align 8, !tbaa !193
-  %135 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %136 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  %137 = load ptr, ptr %133, align 8, !tbaa !193
-  store ptr %137, ptr %132, align 8, !tbaa !193
-  %138 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %139 = load ptr, ptr %138, align 8, !tbaa !194
-  store ptr %139, ptr %135, align 8, !tbaa !194
-  %140 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %141 = load ptr, ptr %140, align 8, !tbaa !195
-  store ptr %141, ptr %136, align 8, !tbaa !195
-  %.not.i.i.i.i.i5.i35.i = icmp eq ptr %134, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %133, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i5.i35.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i, label %142
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i: ; preds = %126, %111
+  %130 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %132 = load ptr, ptr %130, align 8, !tbaa !193
+  %133 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %134 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  %135 = load ptr, ptr %131, align 8, !tbaa !193
+  store ptr %135, ptr %130, align 8, !tbaa !193
+  %136 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  %137 = load ptr, ptr %136, align 8, !tbaa !194
+  store ptr %137, ptr %133, align 8, !tbaa !194
+  %138 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %139 = load ptr, ptr %138, align 8, !tbaa !195
+  store ptr %139, ptr %134, align 8, !tbaa !195
+  %.not.i.i.i.i.i5.i35.i = icmp eq ptr %132, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %131, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i5.i35.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i, label %140
 
-142:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %134)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i unwind label %143
+140:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %132)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i unwind label %141
 
-143:                                              ; preds = %142
-  %144 = landingpad { ptr, i32 }
+141:                                              ; preds = %140
+  %142 = landingpad { ptr, i32 }
           catch ptr null
-  %145 = extractvalue { ptr, i32 } %144, 0
-  call void @__clang_call_terminate(ptr %145) #30
+  %143 = extractvalue { ptr, i32 } %142, 0
+  call void @__clang_call_terminate(ptr %143) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i: ; preds = %142, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i
-  %146 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %147 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %148 = load ptr, ptr %146, align 8, !tbaa !193
-  %149 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %150 = getelementptr inbounds nuw i8, ptr %26, i64 72
-  %151 = load ptr, ptr %147, align 8, !tbaa !193
-  store ptr %151, ptr %146, align 8, !tbaa !193
-  %152 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %153 = load ptr, ptr %152, align 8, !tbaa !194
-  store ptr %153, ptr %149, align 8, !tbaa !194
-  %154 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %155 = load ptr, ptr %154, align 8, !tbaa !195
-  store ptr %155, ptr %150, align 8, !tbaa !195
-  %.not.i.i.i.i.i7.i37.i = icmp eq ptr %148, null
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %147, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i7.i37.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i, label %156
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i: ; preds = %140, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit.i34.i
+  %144 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %145 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %146 = load ptr, ptr %144, align 8, !tbaa !193
+  %147 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  %148 = getelementptr inbounds nuw i8, ptr %26, i64 72
+  %149 = load ptr, ptr %145, align 8, !tbaa !193
+  store ptr %149, ptr %144, align 8, !tbaa !193
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  %151 = load ptr, ptr %150, align 8, !tbaa !194
+  store ptr %151, ptr %147, align 8, !tbaa !194
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 72
+  %153 = load ptr, ptr %152, align 8, !tbaa !195
+  store ptr %153, ptr %148, align 8, !tbaa !195
+  %.not.i.i.i.i.i7.i37.i = icmp eq ptr %146, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false)
+  br i1 %.not.i.i.i.i.i7.i37.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i, label %154
 
-156:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %148)
-          to label %_ZN21EwaldCorrectionTablesaSEOS_.exit38.i unwind label %157
+154:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %146)
+          to label %_ZN21EwaldCorrectionTablesaSEOS_.exit38.i unwind label %155
 
-157:                                              ; preds = %156
-  %158 = landingpad { ptr, i32 }
+155:                                              ; preds = %154
+  %156 = landingpad { ptr, i32 }
           catch ptr null
-  %159 = extractvalue { ptr, i32 } %158, 0
-  call void @__clang_call_terminate(ptr %159) #30
+  %157 = extractvalue { ptr, i32 } %156, 0
+  call void @__clang_call_terminate(ptr %157) #30
   unreachable
 
-_ZN21EwaldCorrectionTablesaSEOS_.exit38.i:        ; preds = %156
-  %.pr45.i = load ptr, ptr %147, align 8, !tbaa !193
+_ZN21EwaldCorrectionTablesaSEOS_.exit38.i:        ; preds = %154
+  %.pr45.i = load ptr, ptr %145, align 8, !tbaa !193
   %.not.i.i.i.i39.i = icmp eq ptr %.pr45.i, null
-  br i1 %.not.i.i.i.i39.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i, label %160
+  br i1 %.not.i.i.i.i39.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i, label %158
 
-160:                                              ; preds = %_ZN21EwaldCorrectionTablesaSEOS_.exit38.i
+158:                                              ; preds = %_ZN21EwaldCorrectionTablesaSEOS_.exit38.i
   invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %.pr45.i)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i unwind label %161
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i unwind label %159
 
-161:                                              ; preds = %160
-  %162 = landingpad { ptr, i32 }
+159:                                              ; preds = %158
+  %160 = landingpad { ptr, i32 }
           catch ptr null
-  %163 = extractvalue { ptr, i32 } %162, 0
-  call void @__clang_call_terminate(ptr %163) #30
+  %161 = extractvalue { ptr, i32 } %160, 0
+  call void @__clang_call_terminate(ptr %161) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i: ; preds = %160, %_ZN21EwaldCorrectionTablesaSEOS_.exit38.i, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i
-  %164 = load ptr, ptr %133, align 8, !tbaa !193
-  %.not.i.i.i1.i41.i = icmp eq ptr %164, null
-  br i1 %.not.i.i.i1.i41.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i, label %165
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i: ; preds = %158, %_ZN21EwaldCorrectionTablesaSEOS_.exit38.i, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEEaSEOS4_.exit6.i36.i
+  %162 = load ptr, ptr %131, align 8, !tbaa !193
+  %.not.i.i.i1.i41.i = icmp eq ptr %162, null
+  br i1 %.not.i.i.i1.i41.i, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i, label %163
 
-165:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %164)
-          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i unwind label %166
+163:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %162)
+          to label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i unwind label %164
 
-166:                                              ; preds = %165
-  %167 = landingpad { ptr, i32 }
+164:                                              ; preds = %163
+  %165 = landingpad { ptr, i32 }
           catch ptr null
-  %168 = extractvalue { ptr, i32 } %167, 0
-  call void @__clang_call_terminate(ptr %168) #30
+  %166 = extractvalue { ptr, i32 } %165, 0
+  call void @__clang_call_terminate(ptr %166) #30
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i: ; preds = %165, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i
-  %169 = load ptr, ptr %119, align 8, !tbaa !193
-  %.not.i.i.i3.i43.i = icmp eq ptr %169, null
-  br i1 %.not.i.i.i3.i43.i, label %_ZN21EwaldCorrectionTablesD2Ev.exit44.i, label %170
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i: ; preds = %163, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit.i40.i
+  %167 = load ptr, ptr %117, align 8, !tbaa !193
+  %.not.i.i.i3.i43.i = icmp eq ptr %167, null
+  br i1 %.not.i.i.i3.i43.i, label %_ZN21EwaldCorrectionTablesD2Ev.exit44.i, label %168
 
-170:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i
-  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %169)
-          to label %_ZN21EwaldCorrectionTablesD2Ev.exit44.i unwind label %171
+168:                                              ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i
+  invoke void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef nonnull %167)
+          to label %_ZN21EwaldCorrectionTablesD2Ev.exit44.i unwind label %169
 
-171:                                              ; preds = %170
-  %172 = landingpad { ptr, i32 }
+169:                                              ; preds = %168
+  %170 = landingpad { ptr, i32 }
           catch ptr null
-  %173 = extractvalue { ptr, i32 } %172, 0
-  call void @__clang_call_terminate(ptr %173) #30
+  %171 = extractvalue { ptr, i32 } %170, 0
+  call void @__clang_call_terminate(ptr %171) #30
   unreachable
 
-_ZN21EwaldCorrectionTablesD2Ev.exit44.i:          ; preds = %170, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i
+_ZN21EwaldCorrectionTablesD2Ev.exit44.i:          ; preds = %168, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit2.i42.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
 
-_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit: ; preds = %112, %_ZN21EwaldCorrectionTablesD2Ev.exit44.i
+_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit: ; preds = %110, %_ZN21EwaldCorrectionTablesD2Ev.exit44.i
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %188, label %174
+  br i1 %.not, label %186, label %172
 
-174:                                              ; preds = %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
+172:                                              ; preds = %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
   %.val12 = load i32, ptr %7, align 4, !tbaa !161
-  switch i32 %.val12, label %188 [
+  switch i32 %.val12, label %186 [
     i32 3, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
     i32 14, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
     i32 13, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
@@ -1451,23 +1449,23 @@ _ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit
     i32 4, label %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread
   ]
 
-_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread: ; preds = %174, %174, %174, %174, %174, %174
-  %175 = load ptr, ptr %28, align 8, !tbaa !163
-  %176 = load float, ptr %175, align 8, !tbaa !187
-  %177 = fdiv float 1.000000e+00, %176
-  %178 = fpext float %177 to double
-  %179 = getelementptr inbounds nuw i8, ptr %175, i64 8
-  %180 = getelementptr inbounds nuw i8, ptr %175, i64 16
-  %181 = load ptr, ptr %180, align 8, !tbaa !194
-  %182 = load ptr, ptr %179, align 8, !tbaa !193
-  %183 = ptrtoint ptr %181 to i64
-  %184 = ptrtoint ptr %182 to i64
-  %185 = sub i64 %183, %184
-  %186 = ashr exact i64 %185, 2
-  %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, double noundef %178, i64 noundef %186) #28
-  br label %188
+_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread: ; preds = %172, %172, %172, %172, %172, %172
+  %173 = load ptr, ptr %28, align 8, !tbaa !163
+  %174 = load float, ptr %173, align 8, !tbaa !187
+  %175 = fdiv float 1.000000e+00, %174
+  %176 = fpext float %175 to double
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %178 = getelementptr inbounds nuw i8, ptr %173, i64 16
+  %179 = load ptr, ptr %178, align 8, !tbaa !194
+  %180 = load ptr, ptr %177, align 8, !tbaa !193
+  %181 = ptrtoint ptr %179 to i64
+  %182 = ptrtoint ptr %180 to i64
+  %183 = sub i64 %181, %182
+  %184 = ashr exact i64 %183, 2
+  %185 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, double noundef %176, i64 noundef %184) #28
+  br label %186
 
-188:                                              ; preds = %174, %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread, %13
+186:                                              ; preds = %172, %_ZL18init_ewald_f_tableRK19interaction_const_tffP21EwaldCorrectionTablesS3_.exit, %_ZL15usingPmeOrEwaldRK22CoulombInteractionType.exit14.thread, %13
   ret void
 }
 
@@ -1897,7 +1895,7 @@ _ZNKSt14default_deleteIN3gmx22WholeMoleculeTransformEEclEPS1_.exit.i.i.i.i: ; pr
   br label %_ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread, %_ZSt11make_uniqueIN3gmx22WholeMoleculeTransformEJRK10gmx_mtop_tRK7PbcTypebEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNKSt14default_deleteIN3gmx22WholeMoleculeTransformEEclEPS1_.exit.i.i.i.i, %_ZL25havePPDomainDecompositionPK9t_commrec.exit, %191
-  %.not469 = phi i1 [ true, %_ZL25havePPDomainDecompositionPK9t_commrec.exit ], [ false, %191 ], [ true, %_ZNKSt14default_deleteIN3gmx22WholeMoleculeTransformEEclEPS1_.exit.i.i.i.i ], [ true, %_ZSt11make_uniqueIN3gmx22WholeMoleculeTransformEJRK10gmx_mtop_tRK7PbcTypebEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ true, %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread ]
+  %.not469 = phi i1 [ %188, %_ZL25havePPDomainDecompositionPK9t_commrec.exit ], [ false, %191 ], [ %188, %_ZNKSt14default_deleteIN3gmx22WholeMoleculeTransformEEclEPS1_.exit.i.i.i.i ], [ %188, %_ZSt11make_uniqueIN3gmx22WholeMoleculeTransformEJRK10gmx_mtop_tRK7PbcTypebEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %188, %_ZL25havePPDomainDecompositionPK9t_commrec.exit.thread ]
   %.val303 = load ptr, ptr %175, align 8, !tbaa !307
   %.not468 = icmp eq ptr %.val303, null
   br i1 %.not468, label %221, label %217
@@ -1911,8 +1909,7 @@ _ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exi
 221:                                              ; preds = %217, %_ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exit
   %222 = phi i8 [ 1, %_ZNSt10unique_ptrIN3gmx22WholeMoleculeTransformESt14default_deleteIS1_EED2Ev.exit ], [ %220, %217 ]
   store i8 %222, ptr %180, align 4, !tbaa !306
-  %brmerge.not = and i1 %188, %.not469
-  br i1 %brmerge.not, label %223, label %227
+  br i1 %.not469, label %223, label %227
 
 223:                                              ; preds = %221
   %224 = getelementptr inbounds nuw i8, ptr %3, i64 248

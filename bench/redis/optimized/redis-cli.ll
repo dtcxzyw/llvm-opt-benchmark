@@ -13195,14 +13195,14 @@ getLongInfoField.exit75.i:                        ; preds = %2400, %getLongInfoF
   %2425 = call i64 @strtol(ptr noundef nonnull captures(none) %2423, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %2423) #34
   %2426 = shl i64 %2425, 1
+  %2427 = or i64 %2426, %.0.i74.i
   %.pre101.i = load ptr, ptr %2286, align 8, !tbaa !36
   br label %getLongInfoField.exit81.i
 
 getLongInfoField.exit81.i:                        ; preds = %2414, %getLongInfoField.exit75.i
-  %2427 = phi ptr [ %.pre101.i, %2414 ], [ %2412, %getLongInfoField.exit75.i ]
-  %.0.i80.i = phi i64 [ %2426, %2414 ], [ 0, %getLongInfoField.exit75.i ]
-  %2428 = or i64 %.0.i80.i, %.0.i74.i
-  %2429 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2427, ptr noundef nonnull readonly dereferenceable(1) @.str.769) #36
+  %2428 = phi ptr [ %.pre101.i, %2414 ], [ %2412, %getLongInfoField.exit75.i ]
+  %.0.i80.i = phi i64 [ %2427, %2414 ], [ %.0.i74.i, %getLongInfoField.exit75.i ]
+  %2429 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2428, ptr noundef nonnull readonly dereferenceable(1) @.str.769) #36
   %.not.i.i82.i = icmp eq ptr %2429, null
   br i1 %.not.i.i82.i, label %getLongInfoField.exit87.i, label %2430
 
@@ -13225,12 +13225,12 @@ getLongInfoField.exit81.i:                        ; preds = %2414, %getLongInfoF
   %2441 = call i64 @strtol(ptr noundef nonnull captures(none) %2439, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %2439) #34
   %2442 = shl i64 %2441, 2
+  %2443 = or i64 %2442, %.0.i80.i
   br label %getLongInfoField.exit87.i
 
 getLongInfoField.exit87.i:                        ; preds = %2430, %getLongInfoField.exit81.i
-  %.0.i86.i = phi i64 [ %2442, %2430 ], [ 0, %getLongInfoField.exit81.i ]
-  %2443 = or i64 %2428, %.0.i86.i
-  %switch.tableidx = add i64 %2443, -1
+  %.0.i86.i = phi i64 [ %2443, %2430 ], [ %.0.i80.i, %getLongInfoField.exit81.i ]
+  %switch.tableidx = add i64 %.0.i86.i, -1
   %2444 = icmp ult i64 %switch.tableidx, 4
   br i1 %2444, label %switch.lookup, label %2446
 

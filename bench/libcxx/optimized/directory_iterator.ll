@@ -1883,7 +1883,7 @@ _ZNKSt3__14__fs10filesystem15directory_entry8__get_ftB8ne210000EPNS_10error_code
           cleanup
   call void @_ZNSt3__14__fs10filesystem12__dir_streamD2Ev(ptr noundef nonnull align 16 dereferenceable(112) %7) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %191
+  br label %190
 
 86:                                               ; preds = %63, %.noexc
   %87 = phi ptr [ %.pre, %.noexc ], [ %62, %63 ]
@@ -2006,104 +2006,104 @@ _ZNSt3__14__fs10filesystem15directory_entryD2B8ne210000Ev.exit.i38: ; preds = %1
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 40
   %151 = load ptr, ptr %150, align 8
   %152 = call noundef zeroext i1 %151(ptr noundef nonnull align 8 dereferenceable(8) %147, ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef %148) #29
-  br label %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit
-
-_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit: ; preds = %.thread151.thread, %146
-  %153 = phi i1 [ true, %.thread151.thread ], [ %152, %146 ]
-  %154 = and i1 %139, %153
+  %153 = and i1 %139, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %154, label %155, label %158
+  br i1 %153, label %154, label %157
 
-155:                                              ; preds = %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit
-  br i1 %.not.i, label %.thread151.thread181, label %156
+_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit: ; preds = %.thread151.thread
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br i1 %139, label %154, label %157
 
-156:                                              ; preds = %155
+154:                                              ; preds = %146, %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit
+  br i1 %.not.i, label %.thread151.thread181, label %155
+
+155:                                              ; preds = %154
   store i32 0, ptr %1, align 8, !tbaa !15
-  %157 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %.pre-phi, ptr %157, align 8, !tbaa !19
+  %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %.pre-phi, ptr %156, align 8, !tbaa !19
   br label %.thread151.thread181
 
-158:                                              ; preds = %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit
+157:                                              ; preds = %146, %_ZNSt3__1eqB8ne210000ERKNS_10error_codeERKNS_15error_conditionE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %159 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %159, i64 24, i1 false), !tbaa.struct !52
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %159, i8 0, i64 24, i1 false)
+  %158 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %158, i64 24, i1 false), !tbaa.struct !52
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %158, i8 0, i64 24, i1 false)
   store ptr null, ptr %0, align 8, !tbaa !78
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %161 = load ptr, ptr %160, align 8, !tbaa !29
-  store ptr null, ptr %160, align 8, !tbaa !29
-  %.not.i.i = icmp eq ptr %161, null
-  br i1 %.not.i.i, label %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit, label %162
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %160 = load ptr, ptr %159, align 8, !tbaa !29
+  store ptr null, ptr %159, align 8, !tbaa !29
+  %.not.i.i = icmp eq ptr %160, null
+  br i1 %.not.i.i, label %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit, label %161
 
-162:                                              ; preds = %158
-  %163 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  %164 = atomicrmw add ptr %163, i64 -1 acq_rel, align 8
-  %165 = icmp eq i64 %164, 0
-  br i1 %165, label %166, label %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
+161:                                              ; preds = %157
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 8
+  %163 = atomicrmw add ptr %162, i64 -1 acq_rel, align 8
+  %164 = icmp eq i64 %163, 0
+  br i1 %164, label %165, label %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
 
-166:                                              ; preds = %162
-  %167 = load ptr, ptr %161, align 8, !tbaa !25
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
-  %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(24) %161) #29
-  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %161) #29
+165:                                              ; preds = %161
+  %166 = load ptr, ptr %160, align 8, !tbaa !25
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %168 = load ptr, ptr %167, align 8
+  call void %168(ptr noundef nonnull align 8 dereferenceable(24) %160) #29
+  call void @_ZNSt3__119__shared_weak_count14__release_weakEv(ptr noundef nonnull align 8 dereferenceable(24) %160) #29
   br label %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
 
-_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit: ; preds = %158, %162, %166
-  %170 = load i8, ptr %9, align 8
-  %171 = and i8 %170, 1
-  %.not.i.i.i.i42 = icmp eq i8 %171, 0
-  %172 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  %175 = select i1 %.not.i.i.i.i42, ptr %174, ptr %173
-  invoke void (ptr, ptr, ptr, ...) @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIvE6reportB8ne210000ERKNS_10error_codeEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.5, ptr noundef %175)
-          to label %176 unwind label %183
+_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit: ; preds = %157, %161, %165
+  %169 = load i8, ptr %9, align 8
+  %170 = and i8 %169, 1
+  %.not.i.i.i.i42 = icmp eq i8 %170, 0
+  %171 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %172 = load ptr, ptr %171, align 8
+  %173 = getelementptr inbounds nuw i8, ptr %9, i64 1
+  %174 = select i1 %.not.i.i.i.i42, ptr %173, ptr %172
+  invoke void (ptr, ptr, ptr, ...) @_ZNKSt3__14__fs10filesystem6detail12ErrorHandlerIvE6reportB8ne210000ERKNS_10error_codeEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull @.str.5, ptr noundef %174)
+          to label %175 unwind label %182
 
-176:                                              ; preds = %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
-  %177 = load i8, ptr %9, align 8
-  %178 = and i8 %177, 1
-  %.not.i.i43 = icmp eq i8 %178, 0
-  br i1 %.not.i.i43, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit, label %179
+175:                                              ; preds = %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
+  %176 = load i8, ptr %9, align 8
+  %177 = and i8 %176, 1
+  %.not.i.i43 = icmp eq i8 %177, 0
+  br i1 %.not.i.i43, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit, label %178
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %172, align 8, !tbaa !51
-  %181 = load i64, ptr %9, align 8
-  %182 = and i64 %181, -2
-  call void @_ZdlPvm(ptr noundef %180, i64 noundef %182) #30
+178:                                              ; preds = %175
+  %179 = load ptr, ptr %171, align 8, !tbaa !51
+  %180 = load i64, ptr %9, align 8
+  %181 = and i64 %180, -2
+  call void @_ZdlPvm(ptr noundef %179, i64 noundef %181) #30
   br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit
 
-_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit: ; preds = %176, %179
+_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit: ; preds = %175, %178
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread151.thread181
 
-183:                                              ; preds = %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
-  %184 = landingpad { ptr, i32 }
+182:                                              ; preds = %_ZNSt3__110shared_ptrINS_4__fs10filesystem28recursive_directory_iterator12__shared_impEE5resetB8ne210000Ev.exit
+  %183 = landingpad { ptr, i32 }
           cleanup
-  %185 = load i8, ptr %9, align 8
-  %186 = and i8 %185, 1
-  %.not.i.i44 = icmp eq i8 %186, 0
-  br i1 %.not.i.i44, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45, label %187
+  %184 = load i8, ptr %9, align 8
+  %185 = and i8 %184, 1
+  %.not.i.i44 = icmp eq i8 %185, 0
+  br i1 %.not.i.i44, label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45, label %186
 
-187:                                              ; preds = %183
-  %188 = load ptr, ptr %172, align 8, !tbaa !51
-  %189 = load i64, ptr %9, align 8
-  %190 = and i64 %189, -2
-  call void @_ZdlPvm(ptr noundef %188, i64 noundef %190) #30
+186:                                              ; preds = %182
+  %187 = load ptr, ptr %171, align 8, !tbaa !51
+  %188 = load i64, ptr %9, align 8
+  %189 = and i64 %188, -2
+  call void @_ZdlPvm(ptr noundef %187, i64 noundef %189) #30
   br label %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45
 
-_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45: ; preds = %183, %187
+_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45: ; preds = %182, %186
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %191
+  br label %190
 
-.thread151.thread181:                             ; preds = %35, %35, %35, %35, %.thread141.thread, %.thread118.thread, %_ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit, %.thread151, %155, %156, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit
-  %.1 = phi i1 [ true, %_ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit ], [ false, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit ], [ false, %156 ], [ false, %155 ], [ false, %.thread151 ], [ false, %.thread118.thread ], [ false, %.thread141.thread ], [ false, %35 ], [ false, %35 ], [ false, %35 ], [ false, %35 ]
+.thread151.thread181:                             ; preds = %35, %35, %35, %35, %.thread141.thread, %.thread118.thread, %_ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit, %.thread151, %154, %155, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit
+  %.1 = phi i1 [ true, %_ZNSt3__14__fs10filesystem12__dir_streamD2Ev.exit ], [ false, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit ], [ false, %155 ], [ false, %154 ], [ false, %.thread151 ], [ false, %.thread118.thread ], [ false, %.thread141.thread ], [ false, %35 ], [ false, %35 ], [ false, %35 ], [ false, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.1
 
-191:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45, %84
-  %.pn = phi { ptr, i32 } [ %184, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45 ], [ %85, %84 ]
+190:                                              ; preds = %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45, %84
+  %.pn = phi { ptr, i32 } [ %183, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit45 ], [ %85, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn

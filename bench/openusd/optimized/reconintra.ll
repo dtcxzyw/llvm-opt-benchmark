@@ -1364,7 +1364,7 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %132 = load i32, ptr %131, align 4
   %133 = icmp slt i32 %130, %132
   %134 = icmp sgt i32 %127, 0
-  br i1 %134, label %135, label %142
+  br i1 %134, label %135, label %143
 
 135:                                              ; preds = %104
   %136 = add nsw i32 %93, %14
@@ -1373,10 +1373,11 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 7844
   %140 = load i32, ptr %139, align 4
   %141 = icmp slt i32 %138, %140
-  br label %142
+  %142 = and i1 %105, %141
+  br label %143
 
-142:                                              ; preds = %135, %104
-  %143 = phi i1 [ false, %104 ], [ %141, %135 ]
+143:                                              ; preds = %135, %104
+  %or.cond.i205 = phi i1 [ false, %104 ], [ %142, %135 ]
   %144 = getelementptr inbounds nuw i8, ptr %26, i64 1
   %145 = load i8, ptr %144, align 1
   %146 = load i8, ptr %26, align 8
@@ -1385,7 +1386,7 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %or.cond = select i1 %147, i1 true, i1 %148
   br i1 %or.cond, label %149, label %scale_chroma_bsize.exit
 
-149:                                              ; preds = %142
+149:                                              ; preds = %143
   switch i8 %146, label %scale_chroma_bsize.exit [
     i8 0, label %150
     i8 1, label %153
@@ -1422,8 +1423,8 @@ define hidden void @av1_predict_intra_block(ptr noundef readonly captures(none) 
   %.mux41.i = select i1 %160, i8 5, i8 17
   br label %scale_chroma_bsize.exit
 
-scale_chroma_bsize.exit:                          ; preds = %159, %157, %155, %153, %150, %149, %142
-  %.0190 = phi i8 [ %146, %142 ], [ %146, %149 ], [ %spec.select42.i, %150 ], [ %spec.select43.i, %153 ], [ %.mux38.i, %155 ], [ %spec.select45.i, %157 ], [ %.mux41.i, %159 ]
+scale_chroma_bsize.exit:                          ; preds = %159, %157, %155, %153, %150, %149, %143
+  %.0190 = phi i8 [ %146, %143 ], [ %146, %149 ], [ %spec.select42.i, %150 ], [ %spec.select43.i, %153 ], [ %.mux38.i, %155 ], [ %spec.select45.i, %157 ], [ %.mux41.i, %159 ]
   %or.cond.i = and i1 %101, %133
   br i1 %or.cond.i, label %161, label %has_top_right.exit
 
@@ -1513,7 +1514,6 @@ scale_chroma_bsize.exit:                          ; preds = %159, %157, %155, %1
 
 has_top_right.exit:                               ; preds = %172, %scale_chroma_bsize.exit, %._crit_edge.i, %180, %182, %184, %203, %206
   %.0.i204 = phi i1 [ %179, %._crit_edge.i ], [ %181, %180 ], [ %219, %206 ], [ true, %scale_chroma_bsize.exit ], [ false, %182 ], [ false, %184 ], [ true, %203 ], [ false, %172 ]
-  %or.cond.i205 = and i1 %105, %143
   br i1 %or.cond.i205, label %220, label %has_bottom_left.exit
 
 220:                                              ; preds = %has_top_right.exit

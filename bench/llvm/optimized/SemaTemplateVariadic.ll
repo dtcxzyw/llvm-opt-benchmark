@@ -6311,8 +6311,8 @@ _ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit: ; preds
   br label %_ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread
 
 _ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit.thread: ; preds = %62, %57, %_ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit, %34, %4, %._crit_edge.loopexit
-  %.sroa.071.0.insert.insert = phi i64 [ 0, %4 ], [ %80, %._crit_edge.loopexit ], [ 0, %34 ], [ 0, %_ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit ], [ 0, %57 ], [ 0, %62 ]
-  ret i64 %.sroa.071.0.insert.insert
+  %.sroa.2.7 = phi i64 [ 0, %4 ], [ %80, %._crit_edge.loopexit ], [ 0, %34 ], [ 0, %_ZNK5clang30MultiLevelTemplateArgumentList19hasTemplateArgumentEjj.exit ], [ 0, %57 ], [ 0, %62 ]
+  ret i64 %.sroa.2.7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

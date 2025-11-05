@@ -2840,7 +2840,7 @@ define internal void @rps_work(ptr noundef %0) #0 align 16 {
   %25 = getelementptr i8, ptr %0, i64 144
   %26 = and i32 %11, 4
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %72, label %28
+  br i1 %27, label %73, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr i8, ptr %0, i64 -3744
@@ -2895,11 +2895,11 @@ define internal void @rps_work(ptr noundef %0) #0 align 16 {
   store i32 %34, ptr %70, align 8
   %71 = getelementptr i8, ptr %0, i64 156
   store i32 %36, ptr %71, align 4
-  br label %72
+  %72 = or i32 %69, %11
+  br label %73
 
-72:                                               ; preds = %68, %24
-  %73 = phi i32 [ %69, %68 ], [ 0, %24 ]
-  %74 = or i32 %73, %11
+73:                                               ; preds = %68, %24
+  %74 = phi i32 [ %72, %68 ], [ %11, %24 ]
   %75 = getelementptr i8, ptr %0, i64 80
   %76 = load i32, ptr %75, align 8
   %77 = getelementptr i8, ptr %0, i64 64
@@ -2914,7 +2914,7 @@ define internal void @rps_work(ptr noundef %0) #0 align 16 {
   %86 = zext i8 %85 to i32
   br i1 %14, label %87, label %.thread
 
-87:                                               ; preds = %72
+87:                                               ; preds = %73
   %88 = getelementptr i8, ptr %0, i64 70
   %89 = load i8, ptr %88, align 2
   %90 = icmp ult i8 %78, %89
@@ -2925,7 +2925,7 @@ define internal void @rps_work(ptr noundef %0) #0 align 16 {
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %139, label %96
 
-.thread:                                          ; preds = %72
+.thread:                                          ; preds = %73
   %94 = and i32 %74, 32
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %112, label %96
@@ -7684,7 +7684,7 @@ define dso_local zeroext i1 @rps_read_mask_mmio(ptr noundef readonly captures(no
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i64 @intel_runtime_pm_get(ptr noundef %7) #11
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %18, label %10
+  br i1 %9, label %20, label %10
 
 10:                                               ; preds = %3
   %11 = load ptr, ptr %4, align 8
@@ -7695,12 +7695,12 @@ define dso_local zeroext i1 @rps_read_mask_mmio(ptr noundef readonly captures(no
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   tail call void @intel_runtime_pm_put_unchecked(ptr noundef %17) #11
-  br label %18
+  %18 = and i32 %14, %2
+  %19 = icmp ne i32 %18, 0
+  br label %20
 
-18:                                               ; preds = %10, %3
-  %19 = phi i32 [ %14, %10 ], [ 0, %3 ]
-  %20 = and i32 %19, %2
-  %21 = icmp ne i32 %20, 0
+20:                                               ; preds = %10, %3
+  %21 = phi i1 [ %19, %10 ], [ false, %3 ]
   ret i1 %21
 }
 

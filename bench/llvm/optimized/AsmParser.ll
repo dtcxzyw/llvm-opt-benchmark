@@ -24673,13 +24673,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt14_Optional_baseISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0ELb0EED2Ev.exit: ; preds = %100, %75, %92, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
-  %.527 = phi i1 [ %98, %92 ], [ %98, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ], [ undef, %75 ], [ %98, %100 ]
+  %.527 = phi i1 [ %98, %92 ], [ %98, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i ], [ false, %75 ], [ %98, %100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %spec.select = and i1 %.527, %91
   br label %.thread
 
 .thread:                                          ; preds = %56, %69, %_ZNSt14_Optional_baseISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0ELb0EED2Ev.exit, %73, %25, %.critedge, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %.critedge ], [ true, %25 ], [ %spec.select, %_ZNSt14_Optional_baseISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0ELb0EED2Ev.exit ], [ %72, %69 ], [ true, %73 ], [ true, %56 ]
+  %.0 = phi i1 [ true, %2 ], [ true, %.critedge ], [ true, %25 ], [ %.527, %_ZNSt14_Optional_baseISt4pairIbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEELb0ELb0EED2Ev.exit ], [ %72, %69 ], [ true, %73 ], [ true, %56 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.0

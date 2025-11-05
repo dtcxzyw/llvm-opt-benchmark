@@ -22272,18 +22272,18 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
   %34 = ptrtoint ptr %29 to i64
   %35 = sub nuw i64 %33, %34
   %36 = udiv exact i64 %35, 96
+  %37 = or i64 %36, %.sroa.7.0.i.i.i.i.i.i.i.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit47.i.i.i.i.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit47.i.i.i.i.i.i.i.i": ; preds = %31, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit.i.i.i.i.i.i.i.i"
-  %.sroa.8.0.i.i.i.i.i.i.i.i = phi i64 [ %36, %31 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit.i.i.i.i.i.i.i.i" ]
+  %.sroa.8.0.i.i.i.i.i.i.i.i = phi i64 [ %37, %31 ], [ %.sroa.7.0.i.i.i.i.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit.i.i.i.i.i.i.i.i" ]
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i64 %16 to i1
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %.val.i.i.i.i.i.i.i.i = load ptr, ptr %37, align 8, !alias.scope !8412, !noalias !8419
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 152
+  %.val.i.i.i.i.i.i.i.i = load ptr, ptr %38, align 8, !alias.scope !8412, !noalias !8419
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %.val.i.i.i.i.i.i.i.i, null
   %not.trunc.i.i.i.i.i.i.i.i = xor i1 %trunc.i.i.i.i.i.i.i.i, true
   %or.cond.not.i.i.i.i.i.i.i.i = select i1 %not.trunc.i.i.i.i.i.i.i.i, i1 true, i1 %.not.i.i.i.i.i.i.i.i
-  %38 = or i64 %.sroa.8.0.i.i.i.i.i.i.i.i, %.sroa.7.0.i.i.i.i.i.i.i.i
-  %39 = icmp eq i64 %38, 0
+  %39 = icmp eq i64 %.sroa.8.0.i.i.i.i.i.i.i.i, 0
   %or.cond.i.i.i.i.i = select i1 %or.cond.not.i.i.i.i.i.i.i.i, i1 %39, i1 false
   br i1 %or.cond.i.i.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3fc6fad9700383a9E.exit.thread69.i.i.i.i.i", label %_ZN4core3ops8function6FnOnce9call_once17h37fa4ee33f4924ffE.exit.i.i
 
@@ -22378,18 +22378,18 @@ _ZN4core3ops8function6FnOnce9call_once17h37fa4ee33f4924ffE.exit.i.i: ; preds = %
   %76 = ptrtoint ptr %71 to i64
   %77 = sub nuw i64 %75, %76
   %78 = udiv exact i64 %77, 96
+  %79 = or i64 %78, %.sroa.7.0.i.i.i.i.i.i.i55.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit47.i.i.i.i.i.i.i57.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit47.i.i.i.i.i.i.i57.i": ; preds = %73, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit.i.i.i.i.i.i.i54.i"
-  %.sroa.8.0.i.i.i.i.i.i.i58.i = phi i64 [ %78, %73 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit.i.i.i.i.i.i.i54.i" ]
+  %.sroa.8.0.i.i.i.i.i.i.i58.i = phi i64 [ %79, %73 ], [ %.sroa.7.0.i.i.i.i.i.i.i55.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b70ec931935051cE.exit.i.i.i.i.i.i.i54.i" ]
   %trunc.i.i.i.i.i.i.i59.i = trunc nuw i64 %58 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %.val.i.i.i.i.i.i.i60.i = load ptr, ptr %79, align 8, !alias.scope !8461, !noalias !8468
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %.val.i.i.i.i.i.i.i60.i = load ptr, ptr %80, align 8, !alias.scope !8461, !noalias !8468
   %.not.i.i.i.i.i.i.i61.i = icmp eq ptr %.val.i.i.i.i.i.i.i60.i, null
   %not.trunc.i.i.i.i.i.i.i62.i = xor i1 %trunc.i.i.i.i.i.i.i59.i, true
   %or.cond.not.i.i.i.i.i.i.i63.i = select i1 %not.trunc.i.i.i.i.i.i.i62.i, i1 true, i1 %.not.i.i.i.i.i.i.i61.i
-  %80 = or i64 %.sroa.8.0.i.i.i.i.i.i.i58.i, %.sroa.7.0.i.i.i.i.i.i.i55.i
-  %81 = icmp eq i64 %80, 0
+  %81 = icmp eq i64 %.sroa.8.0.i.i.i.i.i.i.i58.i, 0
   %or.cond.i.i.i.i64.i = select i1 %or.cond.not.i.i.i.i.i.i.i63.i, i1 %81, i1 false
   br i1 %or.cond.i.i.i.i64.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3fc6fad9700383a9E.exit.thread69.i.i.i.i69.i", label %_ZN4core3ops8function6FnOnce9call_once17h37fa4ee33f4924ffE.exit.i66.i
 

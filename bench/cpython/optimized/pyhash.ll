@@ -164,19 +164,19 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.0209 = phi i64 [ %11, %.lr.ph ], [ %3, %4 ]
-  %.0159208 = phi i64 [ %25, %.lr.ph ], [ %8, %4 ]
-  %.0160207 = phi i64 [ %26, %.lr.ph ], [ %7, %4 ]
-  %.0161206 = phi i64 [ %23, %.lr.ph ], [ %6, %4 ]
-  %.0162205 = phi i64 [ %27, %.lr.ph ], [ %5, %4 ]
-  %.0163204 = phi ptr [ %10, %.lr.ph ], [ %2, %4 ]
-  %.0.copyload = load i64, ptr %.0163204, align 1
-  %10 = getelementptr i8, ptr %.0163204, i64 8
-  %11 = add nsw i64 %.0209, -8
-  %12 = xor i64 %.0.copyload, %.0159208
-  %13 = add i64 %.0161206, %.0162205
-  %14 = add i64 %12, %.0160207
-  %15 = tail call i64 @llvm.fshl.i64(i64 %.0161206, i64 %.0161206, i64 13)
+  %.0210 = phi i64 [ %11, %.lr.ph ], [ %3, %4 ]
+  %.0159209 = phi i64 [ %25, %.lr.ph ], [ %8, %4 ]
+  %.0160208 = phi i64 [ %26, %.lr.ph ], [ %7, %4 ]
+  %.0161207 = phi i64 [ %23, %.lr.ph ], [ %6, %4 ]
+  %.0162206 = phi i64 [ %27, %.lr.ph ], [ %5, %4 ]
+  %.0163205 = phi ptr [ %10, %.lr.ph ], [ %2, %4 ]
+  %.0.copyload = load i64, ptr %.0163205, align 1
+  %10 = getelementptr i8, ptr %.0163205, i64 8
+  %11 = add nsw i64 %.0210, -8
+  %12 = xor i64 %.0.copyload, %.0159209
+  %13 = add i64 %.0161207, %.0162206
+  %14 = add i64 %12, %.0160208
+  %15 = tail call i64 @llvm.fshl.i64(i64 %.0161207, i64 %.0161207, i64 13)
   %16 = xor i64 %15, %13
   %17 = tail call i64 @llvm.fshl.i64(i64 %12, i64 %12, i64 16)
   %18 = xor i64 %17, %14
@@ -189,7 +189,7 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   %25 = xor i64 %24, %21
   %26 = tail call i64 @llvm.fshl.i64(i64 %20, i64 %20, i64 32)
   %27 = xor i64 %21, %.0.copyload
-  %28 = icmp samesign ugt i64 %.0209, 15
+  %28 = icmp samesign ugt i64 %.0210, 15
   br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
@@ -199,14 +199,14 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   %.0160.lcssa = phi i64 [ %7, %4 ], [ %26, %.lr.ph ]
   %.0159.lcssa = phi i64 [ %8, %4 ], [ %25, %.lr.ph ]
   %.0.lcssa = phi i64 [ %3, %4 ], [ %11, %.lr.ph ]
-  switch i64 %.0.lcssa, label %55 [
+  switch i64 %.0.lcssa, label %58 [
     i64 7, label %29
     i64 6, label %34
-    i64 5, label %39
-    i64 4, label %44
-    i64 3, label %47
-    i64 2, label %50
-    i64 1, label %53
+    i64 5, label %40
+    i64 4, label %46
+    i64 3, label %50
+    i64 2, label %53
+    i64 1, label %56
   ]
 
 29:                                               ; preds = %._crit_edge
@@ -222,21 +222,20 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   %36 = load i8, ptr %35, align 1, !tbaa !14
   %37 = zext i8 %36 to i64
   %38 = shl nuw nsw i64 %37, 40
-  br label %39
+  %39 = or disjoint i64 %38, %.sroa.12.1
+  br label %40
 
-39:                                               ; preds = %34, %._crit_edge
-  %.sroa.12.2 = phi i64 [ %.sroa.12.1, %34 ], [ 0, %._crit_edge ]
-  %.sroa.11.1 = phi i64 [ %38, %34 ], [ 0, %._crit_edge ]
-  %40 = getelementptr i8, ptr %.0163.lcssa, i64 4
-  %41 = load i8, ptr %40, align 1, !tbaa !14
-  %42 = zext i8 %41 to i64
-  %43 = shl nuw nsw i64 %42, 32
-  br label %44
+40:                                               ; preds = %34, %._crit_edge
+  %.masked204 = phi i64 [ %39, %34 ], [ 0, %._crit_edge ]
+  %41 = getelementptr i8, ptr %.0163.lcssa, i64 4
+  %42 = load i8, ptr %41, align 1, !tbaa !14
+  %43 = zext i8 %42 to i64
+  %44 = shl nuw nsw i64 %43, 32
+  %45 = or i64 %44, %.masked204
+  br label %46
 
-44:                                               ; preds = %39, %._crit_edge
-  %.sroa.12.3 = phi i64 [ %.sroa.12.2, %39 ], [ 0, %._crit_edge ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %39 ], [ 0, %._crit_edge ]
-  %.sroa.10183.1 = phi i64 [ %43, %39 ], [ 0, %._crit_edge ]
+46:                                               ; preds = %40, %._crit_edge
+  %.masked = phi i64 [ %45, %40 ], [ 0, %._crit_edge ]
   %.sroa.0.0.copyload = load i8, ptr %.0163.lcssa, align 1
   %.sroa.8.0..0163.sroa_idx = getelementptr inbounds nuw i8, ptr %.0163.lcssa, i64 1
   %.sroa.8.0.copyload = load i8, ptr %.sroa.8.0..0163.sroa_idx, align 1
@@ -244,108 +243,102 @@ define internal fastcc i64 @siphash13(i64 noundef %0, i64 noundef %1, ptr nounde
   %.sroa.9.0.copyload = load i8, ptr %.sroa.9.0..0163.sroa_idx, align 1
   %.sroa.10.0..0163.sroa_idx = getelementptr inbounds nuw i8, ptr %.0163.lcssa, i64 3
   %.sroa.10.0.copyload = load i8, ptr %.sroa.10.0..0163.sroa_idx, align 1
-  %45 = zext i8 %.sroa.10.0.copyload to i64
-  %46 = shl nuw nsw i64 %45, 24
-  br label %55
+  %47 = zext i8 %.sroa.10.0.copyload to i64
+  %48 = shl nuw nsw i64 %47, 24
+  %49 = or i64 %48, %.masked
+  br label %58
 
-47:                                               ; preds = %._crit_edge
-  %48 = getelementptr i8, ptr %.0163.lcssa, i64 2
-  %49 = load i8, ptr %48, align 1, !tbaa !14
-  br label %50
-
-50:                                               ; preds = %47, %._crit_edge
-  %.sroa.9.1 = phi i8 [ %49, %47 ], [ 0, %._crit_edge ]
-  %51 = getelementptr i8, ptr %.0163.lcssa, i64 1
+50:                                               ; preds = %._crit_edge
+  %51 = getelementptr i8, ptr %.0163.lcssa, i64 2
   %52 = load i8, ptr %51, align 1, !tbaa !14
   br label %53
 
 53:                                               ; preds = %50, %._crit_edge
-  %.sroa.9.2 = phi i8 [ %.sroa.9.1, %50 ], [ 0, %._crit_edge ]
-  %.sroa.8.1 = phi i8 [ %52, %50 ], [ 0, %._crit_edge ]
-  %54 = load i8, ptr %.0163.lcssa, align 1, !tbaa !14
-  br label %55
+  %.sroa.9.1 = phi i8 [ %52, %50 ], [ 0, %._crit_edge ]
+  %54 = getelementptr i8, ptr %.0163.lcssa, i64 1
+  %55 = load i8, ptr %54, align 1, !tbaa !14
+  br label %56
 
-55:                                               ; preds = %53, %44, %._crit_edge
-  %.sroa.12.0 = phi i64 [ 0, %._crit_edge ], [ %.sroa.12.3, %44 ], [ 0, %53 ]
-  %.sroa.11.0 = phi i64 [ 0, %._crit_edge ], [ %.sroa.11.2, %44 ], [ 0, %53 ]
-  %.sroa.10183.0 = phi i64 [ 0, %._crit_edge ], [ %.sroa.10183.1, %44 ], [ 0, %53 ]
-  %.sroa.10.0 = phi i64 [ 0, %._crit_edge ], [ %46, %44 ], [ 0, %53 ]
-  %.sroa.9.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.9.0.copyload, %44 ], [ %.sroa.9.2, %53 ]
-  %.sroa.8.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.8.0.copyload, %44 ], [ %.sroa.8.1, %53 ]
-  %.sroa.0.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.0.0.copyload, %44 ], [ %54, %53 ]
-  %56 = shl i64 %3, 56
-  %.sroa.11.0.insert.insert = or i64 %.sroa.11.0, %.sroa.12.0
-  %.sroa.10183.0.insert.insert = or i64 %.sroa.11.0.insert.insert, %.sroa.10183.0
+56:                                               ; preds = %53, %._crit_edge
+  %.sroa.9.2 = phi i8 [ %.sroa.9.1, %53 ], [ 0, %._crit_edge ]
+  %.sroa.8.1 = phi i8 [ %55, %53 ], [ 0, %._crit_edge ]
+  %57 = load i8, ptr %.0163.lcssa, align 1, !tbaa !14
+  br label %58
+
+58:                                               ; preds = %56, %46, %._crit_edge
+  %.sroa.12.0 = phi i64 [ 0, %._crit_edge ], [ %49, %46 ], [ 0, %56 ]
+  %.sroa.9.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.9.0.copyload, %46 ], [ %.sroa.9.2, %56 ]
+  %.sroa.8.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.8.0.copyload, %46 ], [ %.sroa.8.1, %56 ]
+  %.sroa.0.0 = phi i8 [ 0, %._crit_edge ], [ %.sroa.0.0.copyload, %46 ], [ %57, %56 ]
+  %59 = shl i64 %3, 56
   %.sroa.9.0.insert.ext = zext i8 %.sroa.9.0 to i64
   %.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.9.0.insert.ext, 16
   %.sroa.8.0.insert.ext = zext i8 %.sroa.8.0 to i64
   %.sroa.8.0.insert.shift = shl nuw nsw i64 %.sroa.8.0.insert.ext, 8
-  %.sroa.10183.0.insert.insert.masked = and i64 %.sroa.10183.0.insert.insert, -65536
-  %.sroa.10.0.insert.insert.masked = or i64 %.sroa.10183.0.insert.insert.masked, %.sroa.10.0
-  %.sroa.8.0.insert.mask = or i64 %.sroa.10.0.insert.insert.masked, %.sroa.9.0.insert.shift
-  %.sroa.8.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.mask, %.sroa.8.0.insert.shift
   %.sroa.0.0.insert.ext = zext i8 %.sroa.0.0 to i64
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.insert, %.sroa.0.0.insert.ext
-  %57 = or i64 %.sroa.0.0.insert.insert, %56
-  %58 = xor i64 %57, %.0159.lcssa
-  %59 = add i64 %.0161.lcssa, %.0162.lcssa
-  %60 = add i64 %58, %.0160.lcssa
-  %61 = tail call i64 @llvm.fshl.i64(i64 %.0161.lcssa, i64 %.0161.lcssa, i64 13)
-  %62 = xor i64 %61, %59
-  %63 = tail call i64 @llvm.fshl.i64(i64 %58, i64 %58, i64 16)
-  %64 = xor i64 %63, %60
-  %65 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 32)
-  %66 = add i64 %60, %62
-  %67 = add i64 %64, %65
-  %68 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 17)
-  %69 = xor i64 %66, %68
-  %70 = tail call i64 @llvm.fshl.i64(i64 %64, i64 %64, i64 21)
-  %71 = xor i64 %70, %67
-  %72 = tail call i64 @llvm.fshl.i64(i64 %66, i64 %66, i64 32)
-  %73 = xor i64 %67, %57
-  %74 = xor i64 %72, 255
-  %75 = add i64 %73, %69
-  %76 = add i64 %74, %71
-  %77 = tail call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 13)
-  %78 = xor i64 %75, %77
-  %79 = tail call i64 @llvm.fshl.i64(i64 %71, i64 %71, i64 16)
-  %80 = xor i64 %79, %76
-  %81 = tail call i64 @llvm.fshl.i64(i64 %75, i64 %75, i64 32)
-  %82 = add i64 %78, %76
-  %83 = add i64 %81, %80
-  %84 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 17)
-  %85 = xor i64 %84, %82
-  %86 = tail call i64 @llvm.fshl.i64(i64 %80, i64 %80, i64 21)
-  %87 = xor i64 %86, %83
-  %88 = tail call i64 @llvm.fshl.i64(i64 %82, i64 %82, i64 32)
-  %89 = add i64 %85, %83
-  %90 = add i64 %88, %87
-  %91 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 13)
-  %92 = xor i64 %91, %89
-  %93 = tail call i64 @llvm.fshl.i64(i64 %87, i64 %87, i64 16)
-  %94 = xor i64 %93, %90
-  %95 = tail call i64 @llvm.fshl.i64(i64 %89, i64 %89, i64 32)
-  %96 = add i64 %92, %90
-  %97 = add i64 %95, %94
-  %98 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 17)
-  %99 = xor i64 %98, %96
-  %100 = tail call i64 @llvm.fshl.i64(i64 %94, i64 %94, i64 21)
-  %101 = xor i64 %100, %97
-  %102 = tail call i64 @llvm.fshl.i64(i64 %96, i64 %96, i64 32)
-  %103 = add i64 %99, %97
-  %104 = add i64 %102, %101
-  %105 = tail call i64 @llvm.fshl.i64(i64 %99, i64 %99, i64 13)
-  %106 = xor i64 %105, %103
-  %107 = tail call i64 @llvm.fshl.i64(i64 %101, i64 %101, i64 16)
-  %108 = xor i64 %107, %104
-  %109 = add i64 %106, %104
-  %110 = tail call i64 @llvm.fshl.i64(i64 %106, i64 %106, i64 17)
-  %111 = tail call i64 @llvm.fshl.i64(i64 %108, i64 %108, i64 21)
-  %112 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 32)
-  %113 = xor i64 %110, %111
-  %114 = xor i64 %113, %112
-  %115 = xor i64 %114, %109
-  ret i64 %115
+  %.sroa.8.0.insert.mask.masked = or i64 %.sroa.12.0, %59
+  %.sroa.0.0.insert.mask = or i64 %.sroa.8.0.insert.mask.masked, %.sroa.9.0.insert.shift
+  %.sroa.0.0.insert.insert = or i64 %.sroa.0.0.insert.mask, %.sroa.8.0.insert.shift
+  %60 = or i64 %.sroa.0.0.insert.insert, %.sroa.0.0.insert.ext
+  %61 = xor i64 %60, %.0159.lcssa
+  %62 = add i64 %.0161.lcssa, %.0162.lcssa
+  %63 = add i64 %61, %.0160.lcssa
+  %64 = tail call i64 @llvm.fshl.i64(i64 %.0161.lcssa, i64 %.0161.lcssa, i64 13)
+  %65 = xor i64 %64, %62
+  %66 = tail call i64 @llvm.fshl.i64(i64 %61, i64 %61, i64 16)
+  %67 = xor i64 %66, %63
+  %68 = tail call i64 @llvm.fshl.i64(i64 %62, i64 %62, i64 32)
+  %69 = add i64 %63, %65
+  %70 = add i64 %67, %68
+  %71 = tail call i64 @llvm.fshl.i64(i64 %65, i64 %65, i64 17)
+  %72 = xor i64 %69, %71
+  %73 = tail call i64 @llvm.fshl.i64(i64 %67, i64 %67, i64 21)
+  %74 = xor i64 %73, %70
+  %75 = tail call i64 @llvm.fshl.i64(i64 %69, i64 %69, i64 32)
+  %76 = xor i64 %70, %60
+  %77 = xor i64 %75, 255
+  %78 = add i64 %76, %72
+  %79 = add i64 %77, %74
+  %80 = tail call i64 @llvm.fshl.i64(i64 %72, i64 %72, i64 13)
+  %81 = xor i64 %78, %80
+  %82 = tail call i64 @llvm.fshl.i64(i64 %74, i64 %74, i64 16)
+  %83 = xor i64 %82, %79
+  %84 = tail call i64 @llvm.fshl.i64(i64 %78, i64 %78, i64 32)
+  %85 = add i64 %81, %79
+  %86 = add i64 %84, %83
+  %87 = tail call i64 @llvm.fshl.i64(i64 %81, i64 %81, i64 17)
+  %88 = xor i64 %87, %85
+  %89 = tail call i64 @llvm.fshl.i64(i64 %83, i64 %83, i64 21)
+  %90 = xor i64 %89, %86
+  %91 = tail call i64 @llvm.fshl.i64(i64 %85, i64 %85, i64 32)
+  %92 = add i64 %88, %86
+  %93 = add i64 %91, %90
+  %94 = tail call i64 @llvm.fshl.i64(i64 %88, i64 %88, i64 13)
+  %95 = xor i64 %94, %92
+  %96 = tail call i64 @llvm.fshl.i64(i64 %90, i64 %90, i64 16)
+  %97 = xor i64 %96, %93
+  %98 = tail call i64 @llvm.fshl.i64(i64 %92, i64 %92, i64 32)
+  %99 = add i64 %95, %93
+  %100 = add i64 %98, %97
+  %101 = tail call i64 @llvm.fshl.i64(i64 %95, i64 %95, i64 17)
+  %102 = xor i64 %101, %99
+  %103 = tail call i64 @llvm.fshl.i64(i64 %97, i64 %97, i64 21)
+  %104 = xor i64 %103, %100
+  %105 = tail call i64 @llvm.fshl.i64(i64 %99, i64 %99, i64 32)
+  %106 = add i64 %102, %100
+  %107 = add i64 %105, %104
+  %108 = tail call i64 @llvm.fshl.i64(i64 %102, i64 %102, i64 13)
+  %109 = xor i64 %108, %106
+  %110 = tail call i64 @llvm.fshl.i64(i64 %104, i64 %104, i64 16)
+  %111 = xor i64 %110, %107
+  %112 = add i64 %109, %107
+  %113 = tail call i64 @llvm.fshl.i64(i64 %109, i64 %109, i64 17)
+  %114 = tail call i64 @llvm.fshl.i64(i64 %111, i64 %111, i64 21)
+  %115 = tail call i64 @llvm.fshl.i64(i64 %112, i64 %112, i64 32)
+  %116 = xor i64 %113, %114
+  %117 = xor i64 %116, %115
+  %118 = xor i64 %117, %112
+  ret i64 %118
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable

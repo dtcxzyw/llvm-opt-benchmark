@@ -262,27 +262,27 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder4initERKNS0_11Envi
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %24 = load i32, ptr %23, align 8, !tbaa !38
   %25 = icmp eq i32 %22, %24
-  br i1 %25, label %26, label %28
+  br i1 %25, label %26, label %29
 
 26:                                               ; preds = %18
   %27 = tail call noundef i32 @_ZN6asmjit9_abi_1_1014ZoneVectorBase5_growEPNS0_13ZoneAllocatorEjj(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull %10, i32 noundef 8, i32 noundef 1) #17
-  br label %28
+  %28 = or i32 %27, %19
+  br label %29
 
-28:                                               ; preds = %26, %18
-  %29 = phi i32 [ %27, %26 ], [ 0, %18 ]
-  %30 = or i32 %29, %19
+29:                                               ; preds = %26, %18
+  %30 = phi i32 [ %28, %26 ], [ %19, %18 ]
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %35
 
-32:                                               ; preds = %28
+32:                                               ; preds = %29
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %33 = call noundef ptr @_ZN6asmjit9_abi_1_1013ZoneAllocator12_allocZeroedEmRm(ptr noundef nonnull align 8 dereferenceable(96) %10, i64 noundef 104, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %38, !prof !41
 
-35:                                               ; preds = %32, %28
-  %36 = phi i32 [ 1, %32 ], [ %30, %28 ]
+35:                                               ; preds = %32, %29
+  %36 = phi i32 [ 1, %32 ], [ %30, %29 ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @_ZN6asmjit9_abi_1_104Zone5resetENS0_11ResetPolicyE(ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 0) #17
   br label %58

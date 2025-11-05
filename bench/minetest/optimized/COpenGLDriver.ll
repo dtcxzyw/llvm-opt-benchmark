@@ -17454,134 +17454,134 @@ if.end:                                           ; preds = %if.then, %_ZNK3irr5
   store i64 %6, ptr %OriginalSize, align 8, !tbaa.struct !128
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 80
   store i64 %6, ptr %Size, align 8, !tbaa.struct !128
-  %7 = trunc i64 %6 to i32
-  %8 = icmp ult i32 %format.sink, 17
-  br i1 %8, label %switch.lookup, label %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
+  %7 = icmp ult i32 %format.sink, 17
+  br i1 %7, label %switch.lookup, label %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
 
 switch.lookup:                                    ; preds = %if.end
+  %8 = trunc i64 %6 to i32
   %9 = zext nneg i32 %format.sink to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE14getImageValuesEPKNS0_6IImageE, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
+  %10 = mul i32 %switch.load, %8
+  %11 = lshr exact i32 %10, 3
   br label %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
 
 _ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit: ; preds = %switch.lookup, %if.end
-  %retval.0.i109 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end ]
-  %mul = mul i32 %retval.0.i109, %7
-  %div108 = lshr exact i32 %mul, 3
+  %retval.0.i109 = phi i32 [ %11, %switch.lookup ], [ 0, %if.end ]
   %Pitch = getelementptr inbounds nuw i8, ptr %this, i64 100
-  store i32 %div108, ptr %Pitch, align 4, !tbaa !454
-  %10 = load ptr, ptr %Driver, align 8, !tbaa !367
-  %call23 = tail call noundef zeroext i1 @_ZNK3irr5video13COpenGLDriver24getColorFormatParametersENS0_13ECOLOR_FORMATERiRjS4_PPFvPKviPvE(ptr noundef nonnull align 8 dereferenceable(4344) %10, i32 noundef %format.sink, ptr noundef nonnull align 4 dereferenceable(4) %InternalFormat, ptr noundef nonnull align 4 dereferenceable(4) %PixelFormat, ptr noundef nonnull align 4 dereferenceable(4) %PixelType, ptr nonnull poison)
+  store i32 %retval.0.i109, ptr %Pitch, align 4, !tbaa !454
+  %12 = load ptr, ptr %Driver, align 8, !tbaa !367
+  %call23 = tail call noundef zeroext i1 @_ZNK3irr5video13COpenGLDriver24getColorFormatParametersENS0_13ECOLOR_FORMATERiRjS4_PPFvPKviPvE(ptr noundef nonnull align 8 dereferenceable(4344) %12, i32 noundef %format.sink, ptr noundef nonnull align 4 dereferenceable(4) %InternalFormat, ptr noundef nonnull align 4 dereferenceable(4) %PixelFormat, ptr noundef nonnull align 4 dereferenceable(4) %PixelType, ptr nonnull poison)
   br i1 %call23, label %if.end28, label %if.then24
 
 if.then24:                                        ; preds = %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
-  %11 = load i32, ptr %5, align 8, !tbaa !379
-  %narrow = tail call i32 @llvm.smin.i32(i32 %11, i32 17)
+  %13 = load i32, ptr %5, align 8, !tbaa !379
+  %narrow = tail call i32 @llvm.smin.i32(i32 %13, i32 17)
   %spec.select = zext i32 %narrow to i64
   %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %spec.select
-  %12 = load ptr, ptr %arrayidx, align 8, !tbaa !135
-  tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.62, ptr noundef %12, i32 noundef 3) #25
+  %14 = load ptr, ptr %arrayidx, align 8, !tbaa !135
+  tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.62, ptr noundef %14, i32 noundef 3) #25
   br label %return
 
 if.end28:                                         ; preds = %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
-  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 536), align 8, !tbaa !390
-  tail call void %13(i32 noundef 1, ptr noundef nonnull %TextureName) #25
-  %14 = load ptr, ptr %Driver, align 8, !tbaa !367
-  %CacheHandler.i = getelementptr inbounds nuw i8, ptr %14, i64 3048
-  %15 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
-  %TextureCache.i = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %Texture.i = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %16 = load ptr, ptr %Texture.i, align 8, !tbaa !135
+  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 536), align 8, !tbaa !390
+  tail call void %15(i32 noundef 1, ptr noundef nonnull %TextureName) #25
+  %16 = load ptr, ptr %Driver, align 8, !tbaa !367
+  %CacheHandler.i = getelementptr inbounds nuw i8, ptr %16, i64 3048
+  %17 = load ptr, ptr %CacheHandler.i, align 8, !tbaa !6
+  %TextureCache.i = getelementptr inbounds nuw i8, ptr %17, i64 16
+  %Texture.i = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %18 = load ptr, ptr %Texture.i, align 8, !tbaa !135
   %call37 = tail call noundef zeroext i1 @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE(ptr noundef nonnull align 8 dereferenceable(52) %TextureCache.i, i32 noundef 0, ptr noundef nonnull %this, i32 noundef 0)
-  %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 128), align 8, !tbaa !391
-  %18 = load i32, ptr %TextureType, align 8, !tbaa !325
-  tail call void %17(i32 noundef %18, i32 noundef 10241, i32 noundef 9728) #25
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 128), align 8, !tbaa !391
   %20 = load i32, ptr %TextureType, align 8, !tbaa !325
-  tail call void %19(i32 noundef %20, i32 noundef 10240, i32 noundef 9728) #25
+  tail call void %19(i32 noundef %20, i32 noundef 10241, i32 noundef 9728) #25
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 128), align 8, !tbaa !391
   %22 = load i32, ptr %TextureType, align 8, !tbaa !325
-  tail call void %21(i32 noundef %22, i32 noundef 10242, i32 noundef 33071) #25
+  tail call void %21(i32 noundef %22, i32 noundef 10240, i32 noundef 9728) #25
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 128), align 8, !tbaa !391
   %24 = load i32, ptr %TextureType, align 8, !tbaa !325
-  tail call void %23(i32 noundef %24, i32 noundef 10243, i32 noundef 33071) #25
+  tail call void %23(i32 noundef %24, i32 noundef 10242, i32 noundef 33071) #25
   %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 128), align 8, !tbaa !391
   %26 = load i32, ptr %TextureType, align 8, !tbaa !325
-  tail call void %25(i32 noundef %26, i32 noundef 32882, i32 noundef 33071) #25
+  tail call void %25(i32 noundef %26, i32 noundef 10243, i32 noundef 33071) #25
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 128), align 8, !tbaa !391
+  %28 = load i32, ptr %TextureType, align 8, !tbaa !325
+  tail call void %27(i32 noundef %28, i32 noundef 32882, i32 noundef 33071) #25
   store i8 2, ptr %StatesCache, align 4, !tbaa !455
   %WrapV = getelementptr inbounds nuw i8, ptr %this, i64 221
   store i8 2, ptr %WrapV, align 1, !tbaa !456
   %WrapW = getelementptr inbounds nuw i8, ptr %this, i64 222
   store i8 2, ptr %WrapW, align 2, !tbaa !457
-  %27 = load i32, ptr %Type, align 8, !tbaa !351
-  switch i32 %27, label %sw.epilog [
+  %29 = load i32, ptr %Type, align 8, !tbaa !351
+  switch i32 %29, label %sw.epilog [
     i32 0, label %sw.bb
     i32 1, label %sw.bb53
   ]
 
 sw.bb:                                            ; preds = %if.end28
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
-  %29 = load i32, ptr %InternalFormat, align 8, !tbaa !377
-  %30 = load i32, ptr %Size, align 8, !tbaa !459
+  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
+  %31 = load i32, ptr %InternalFormat, align 8, !tbaa !377
+  %32 = load i32, ptr %Size, align 8, !tbaa !459
   %Height = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %31 = load i32, ptr %Height, align 4, !tbaa !460
-  %32 = load i32, ptr %PixelFormat, align 4, !tbaa !461
-  %33 = load i32, ptr %PixelType, align 8, !tbaa !368
-  tail call void %28(i32 noundef 3553, i32 noundef 0, i32 noundef %29, i32 noundef %30, i32 noundef %31, i32 noundef 0, i32 noundef %32, i32 noundef %33, ptr noundef null) #25
+  %33 = load i32, ptr %Height, align 4, !tbaa !460
+  %34 = load i32, ptr %PixelFormat, align 4, !tbaa !461
+  %35 = load i32, ptr %PixelType, align 8, !tbaa !368
+  tail call void %30(i32 noundef 3553, i32 noundef 0, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef 0, i32 noundef %34, i32 noundef %35, ptr noundef null) #25
   br label %sw.epilog
 
 sw.bb53:                                          ; preds = %if.end28
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
-  %35 = load i32, ptr %InternalFormat, align 8, !tbaa !377
-  %36 = load i32, ptr %Size, align 8, !tbaa !459
+  %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
+  %37 = load i32, ptr %InternalFormat, align 8, !tbaa !377
+  %38 = load i32, ptr %Size, align 8, !tbaa !459
   %Height58 = getelementptr inbounds nuw i8, ptr %this, i64 84
-  %37 = load i32, ptr %Height58, align 4, !tbaa !460
-  %38 = load i32, ptr %PixelFormat, align 4, !tbaa !461
-  %39 = load i32, ptr %PixelType, align 8, !tbaa !368
-  tail call void %34(i32 noundef 34069, i32 noundef 0, i32 noundef %35, i32 noundef %36, i32 noundef %37, i32 noundef 0, i32 noundef %38, i32 noundef %39, ptr noundef null) #25
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
-  %41 = load i32, ptr %InternalFormat, align 8, !tbaa !377
-  %42 = load i32, ptr %Size, align 8, !tbaa !459
-  %43 = load i32, ptr %Height58, align 4, !tbaa !460
-  %44 = load i32, ptr %PixelFormat, align 4, !tbaa !461
-  %45 = load i32, ptr %PixelType, align 8, !tbaa !368
-  tail call void %40(i32 noundef 34070, i32 noundef 0, i32 noundef %41, i32 noundef %42, i32 noundef %43, i32 noundef 0, i32 noundef %44, i32 noundef %45, ptr noundef null) #25
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
-  %47 = load i32, ptr %InternalFormat, align 8, !tbaa !377
-  %48 = load i32, ptr %Size, align 8, !tbaa !459
-  %49 = load i32, ptr %Height58, align 4, !tbaa !460
-  %50 = load i32, ptr %PixelFormat, align 4, !tbaa !461
-  %51 = load i32, ptr %PixelType, align 8, !tbaa !368
-  tail call void %46(i32 noundef 34071, i32 noundef 0, i32 noundef %47, i32 noundef %48, i32 noundef %49, i32 noundef 0, i32 noundef %50, i32 noundef %51, ptr noundef null) #25
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
-  %53 = load i32, ptr %InternalFormat, align 8, !tbaa !377
-  %54 = load i32, ptr %Size, align 8, !tbaa !459
-  %55 = load i32, ptr %Height58, align 4, !tbaa !460
-  %56 = load i32, ptr %PixelFormat, align 4, !tbaa !461
-  %57 = load i32, ptr %PixelType, align 8, !tbaa !368
-  tail call void %52(i32 noundef 34072, i32 noundef 0, i32 noundef %53, i32 noundef %54, i32 noundef %55, i32 noundef 0, i32 noundef %56, i32 noundef %57, ptr noundef null) #25
-  %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
-  %59 = load i32, ptr %InternalFormat, align 8, !tbaa !377
-  %60 = load i32, ptr %Size, align 8, !tbaa !459
-  %61 = load i32, ptr %Height58, align 4, !tbaa !460
-  %62 = load i32, ptr %PixelFormat, align 4, !tbaa !461
-  %63 = load i32, ptr %PixelType, align 8, !tbaa !368
-  tail call void %58(i32 noundef 34073, i32 noundef 0, i32 noundef %59, i32 noundef %60, i32 noundef %61, i32 noundef 0, i32 noundef %62, i32 noundef %63, ptr noundef null) #25
-  %64 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
-  %65 = load i32, ptr %InternalFormat, align 8, !tbaa !377
-  %66 = load i32, ptr %Size, align 8, !tbaa !459
-  %67 = load i32, ptr %Height58, align 4, !tbaa !460
-  %68 = load i32, ptr %PixelFormat, align 4, !tbaa !461
-  %69 = load i32, ptr %PixelType, align 8, !tbaa !368
-  tail call void %64(i32 noundef 34074, i32 noundef 0, i32 noundef %65, i32 noundef %66, i32 noundef %67, i32 noundef 0, i32 noundef %68, i32 noundef %69, ptr noundef null) #25
+  %39 = load i32, ptr %Height58, align 4, !tbaa !460
+  %40 = load i32, ptr %PixelFormat, align 4, !tbaa !461
+  %41 = load i32, ptr %PixelType, align 8, !tbaa !368
+  tail call void %36(i32 noundef 34069, i32 noundef 0, i32 noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef 0, i32 noundef %40, i32 noundef %41, ptr noundef null) #25
+  %42 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
+  %43 = load i32, ptr %InternalFormat, align 8, !tbaa !377
+  %44 = load i32, ptr %Size, align 8, !tbaa !459
+  %45 = load i32, ptr %Height58, align 4, !tbaa !460
+  %46 = load i32, ptr %PixelFormat, align 4, !tbaa !461
+  %47 = load i32, ptr %PixelType, align 8, !tbaa !368
+  tail call void %42(i32 noundef 34070, i32 noundef 0, i32 noundef %43, i32 noundef %44, i32 noundef %45, i32 noundef 0, i32 noundef %46, i32 noundef %47, ptr noundef null) #25
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
+  %49 = load i32, ptr %InternalFormat, align 8, !tbaa !377
+  %50 = load i32, ptr %Size, align 8, !tbaa !459
+  %51 = load i32, ptr %Height58, align 4, !tbaa !460
+  %52 = load i32, ptr %PixelFormat, align 4, !tbaa !461
+  %53 = load i32, ptr %PixelType, align 8, !tbaa !368
+  tail call void %48(i32 noundef 34071, i32 noundef 0, i32 noundef %49, i32 noundef %50, i32 noundef %51, i32 noundef 0, i32 noundef %52, i32 noundef %53, ptr noundef null) #25
+  %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
+  %55 = load i32, ptr %InternalFormat, align 8, !tbaa !377
+  %56 = load i32, ptr %Size, align 8, !tbaa !459
+  %57 = load i32, ptr %Height58, align 4, !tbaa !460
+  %58 = load i32, ptr %PixelFormat, align 4, !tbaa !461
+  %59 = load i32, ptr %PixelType, align 8, !tbaa !368
+  tail call void %54(i32 noundef 34072, i32 noundef 0, i32 noundef %55, i32 noundef %56, i32 noundef %57, i32 noundef 0, i32 noundef %58, i32 noundef %59, ptr noundef null) #25
+  %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
+  %61 = load i32, ptr %InternalFormat, align 8, !tbaa !377
+  %62 = load i32, ptr %Size, align 8, !tbaa !459
+  %63 = load i32, ptr %Height58, align 4, !tbaa !460
+  %64 = load i32, ptr %PixelFormat, align 4, !tbaa !461
+  %65 = load i32, ptr %PixelType, align 8, !tbaa !368
+  tail call void %60(i32 noundef 34073, i32 noundef 0, i32 noundef %61, i32 noundef %62, i32 noundef %63, i32 noundef 0, i32 noundef %64, i32 noundef %65, ptr noundef null) #25
+  %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @GL, i64 152), align 8, !tbaa !458
+  %67 = load i32, ptr %InternalFormat, align 8, !tbaa !377
+  %68 = load i32, ptr %Size, align 8, !tbaa !459
+  %69 = load i32, ptr %Height58, align 4, !tbaa !460
+  %70 = load i32, ptr %PixelFormat, align 4, !tbaa !461
+  %71 = load i32, ptr %PixelType, align 8, !tbaa !368
+  tail call void %66(i32 noundef 34074, i32 noundef 0, i32 noundef %67, i32 noundef %68, i32 noundef %69, i32 noundef 0, i32 noundef %70, i32 noundef %71, ptr noundef null) #25
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb53, %sw.bb, %if.end28
-  %70 = load ptr, ptr %Driver, align 8, !tbaa !367
-  %CacheHandler.i114 = getelementptr inbounds nuw i8, ptr %70, i64 3048
-  %71 = load ptr, ptr %CacheHandler.i114, align 8, !tbaa !6
-  %TextureCache.i115 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  %call99 = tail call noundef zeroext i1 @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE(ptr noundef nonnull align 8 dereferenceable(52) %TextureCache.i115, i32 noundef 0, ptr noundef %16, i32 noundef 0)
+  %72 = load ptr, ptr %Driver, align 8, !tbaa !367
+  %CacheHandler.i114 = getelementptr inbounds nuw i8, ptr %72, i64 3048
+  %73 = load ptr, ptr %CacheHandler.i114, align 8, !tbaa !6
+  %TextureCache.i115 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %call99 = tail call noundef zeroext i1 @_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE(ptr noundef nonnull align 8 dereferenceable(52) %TextureCache.i115, i32 noundef 0, ptr noundef %18, i32 noundef 0)
   br label %return
 
 return:                                           ; preds = %sw.epilog, %if.then24
@@ -24488,14 +24488,14 @@ switch.lookup:                                    ; preds = %if.end26.i
   %23 = zext nneg i32 %21 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE14getImageValuesEPKNS0_6IImageE, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
+  %24 = mul i32 %switch.load, %i.4.i
+  %25 = lshr exact i32 %24, 3
   br label %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
 
 _ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit: ; preds = %switch.lookup, %if.end26.i
-  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end26.i ]
-  %mul83 = mul i32 %retval.0.i, %i.4.i
-  %div8492 = lshr exact i32 %mul83, 3
+  %retval.0.i = phi i32 [ %25, %switch.lookup ], [ 0, %if.end26.i ]
   %Pitch = getelementptr inbounds nuw i8, ptr %this, i64 100
-  store i32 %div8492, ptr %Pitch, align 4, !tbaa !454
+  store i32 %retval.0.i, ptr %Pitch, align 4, !tbaa !454
   br label %return
 
 return:                                           ; preds = %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit, %if.then19, %if.then

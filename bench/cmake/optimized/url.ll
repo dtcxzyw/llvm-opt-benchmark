@@ -4782,7 +4782,7 @@ xfer_may_multiplex.exit:                          ; preds = %22, %26
   %28 = load i64, ptr %27, align 8, !tbaa !291
   %29 = and i64 %28, 8
   %.not = icmp eq i64 %29, 0
-  br i1 %.not, label %36, label %30
+  br i1 %.not, label %37, label %30
 
 30:                                               ; preds = %xfer_may_multiplex.exit
   %31 = load ptr, ptr %9, align 8, !tbaa !203
@@ -4791,54 +4791,55 @@ xfer_may_multiplex.exit:                          ; preds = %22, %26
   %34 = and i32 %33, -1073741821
   %.not15 = icmp eq i32 %34, 0
   %35 = select i1 %.not15, i8 0, i8 2
-  br label %36
+  %36 = or disjoint i8 %35, %.0.i
+  br label %37
 
-36:                                               ; preds = %30, %xfer_may_multiplex.exit
-  %37 = phi i8 [ 0, %xfer_may_multiplex.exit ], [ %35, %30 ]
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 920
-  %39 = load i64, ptr %38, align 8
-  %40 = and i64 %39, 4
-  %.not16 = icmp eq i64 %40, 0
-  br i1 %.not16, label %51, label %41
+37:                                               ; preds = %30, %xfer_may_multiplex.exit
+  %38 = phi i8 [ %.0.i, %xfer_may_multiplex.exit ], [ %36, %30 ]
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 920
+  %40 = load i64, ptr %39, align 8
+  %41 = and i64 %40, 4
+  %.not16 = icmp eq i64 %41, 0
+  br i1 %.not16, label %52, label %42
 
-41:                                               ; preds = %36
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 3304
-  %43 = load i64, ptr %42, align 8, !tbaa !292
-  %44 = and i64 %43, 8
-  %.not17 = icmp eq i64 %44, 0
-  br i1 %.not17, label %51, label %45
+42:                                               ; preds = %37
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 3304
+  %44 = load i64, ptr %43, align 8, !tbaa !292
+  %45 = and i64 %44, 8
+  %.not17 = icmp eq i64 %45, 0
+  br i1 %.not17, label %52, label %46
 
-45:                                               ; preds = %41
-  %46 = load ptr, ptr %9, align 8, !tbaa !203
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 140
-  %48 = load i32, ptr %47, align 4, !tbaa !217
-  %49 = and i32 %48, -1073741821
-  %.not18 = icmp eq i32 %49, 0
-  %50 = select i1 %.not18, i8 0, i8 4
-  br label %51
+46:                                               ; preds = %42
+  %47 = load ptr, ptr %9, align 8, !tbaa !203
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 140
+  %49 = load i32, ptr %48, align 4, !tbaa !217
+  %50 = and i32 %49, -1073741821
+  %.not18 = icmp eq i32 %50, 0
+  %51 = select i1 %.not18, i8 0, i8 4
+  br label %52
 
-51:                                               ; preds = %45, %41, %36
-  %52 = phi i8 [ 0, %41 ], [ 0, %36 ], [ %50, %45 ]
-  %53 = or disjoint i8 %37, %.0.i
+52:                                               ; preds = %46, %42, %37
+  %53 = phi i8 [ 0, %42 ], [ 0, %37 ], [ %51, %46 ]
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %55 = or disjoint i8 %52, %53
-  store i8 %55, ptr %54, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %57 = load ptr, ptr %56, align 8, !tbaa !195
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %59 = load i64, ptr %58, align 8, !tbaa !283
-  %60 = call zeroext i1 @Curl_cpool_find(ptr noundef nonnull %0, ptr noundef %57, i64 noundef %59, ptr noundef nonnull @url_match_conn, ptr noundef nonnull @url_match_result, ptr noundef nonnull %6) #12
-  %61 = load ptr, ptr %6, align 8, !tbaa !293
-  store ptr %61, ptr %2, align 8, !tbaa !225
-  %62 = load i8, ptr %54, align 8
-  %63 = lshr i8 %62, 4
-  %.lobit = and i8 %63, 1
+  %55 = and i8 %38, -5
+  %56 = or disjoint i8 %53, %55
+  store i8 %56, ptr %54, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %58 = load ptr, ptr %57, align 8, !tbaa !195
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  %60 = load i64, ptr %59, align 8, !tbaa !283
+  %61 = call zeroext i1 @Curl_cpool_find(ptr noundef nonnull %0, ptr noundef %58, i64 noundef %60, ptr noundef nonnull @url_match_conn, ptr noundef nonnull @url_match_result, ptr noundef nonnull %6) #12
+  %62 = load ptr, ptr %6, align 8, !tbaa !293
+  store ptr %62, ptr %2, align 8, !tbaa !225
+  %63 = load i8, ptr %54, align 8
+  %64 = lshr i8 %63, 4
+  %.lobit = and i8 %64, 1
   store i8 %.lobit, ptr %3, align 1, !tbaa !206
-  %64 = lshr i8 %62, 3
-  %.lobit19 = and i8 %64, 1
+  %65 = lshr i8 %63, 3
+  %.lobit19 = and i8 %65, 1
   store i8 %.lobit19, ptr %4, align 1, !tbaa !206
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i1 %60
+  ret i1 %61
 }
 
 ; Function Attrs: nounwind uwtable

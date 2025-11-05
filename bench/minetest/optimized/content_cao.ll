@@ -10870,14 +10870,15 @@ if.then.i.i.i.i763:                               ; preds = %_ZN16SmoothTranslat
   %.pre1025.pre = load float, ptr %new_target.sroa.2.0.val_target.sroa_idx.i, align 4, !tbaa !49
   %.pre1026.pre = load float, ptr %anim_time.i, align 8, !tbaa !40
   %.pre1027.pre = load i8, ptr %aim_is_end.i, align 8, !tbaa !41, !range !32
+  %106 = fadd nsz float %dtime, %.pre.pre
   br label %_ZN19collisionMoveResultD2Ev.exit764
 
 _ZN19collisionMoveResultD2Ev.exit764:             ; preds = %if.then.i.i.i.i763, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit
   %.pre1027 = phi i8 [ %frombool.i, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit ], [ %.pre1027.pre, %if.then.i.i.i.i763 ]
   %.pre1026 = phi float [ %.sink.i, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit ], [ %.pre1026.pre, %if.then.i.i.i.i763 ]
   %.pre1025 = phi float [ %agg.tmp335.sroa.2.0.copyload, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit ], [ %.pre1025.pre, %if.then.i.i.i.i763 ]
-  %.pre = phi float [ 0.000000e+00, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit ], [ %.pre.pre, %if.then.i.i.i.i763 ]
-  %106 = phi <2 x float> [ %agg.tmp335.sroa.0.0.copyload, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit ], [ %105, %if.then.i.i.i.i763 ]
+  %.pre = phi float [ %dtime, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit ], [ %106, %if.then.i.i.i.i763 ]
+  %107 = phi <2 x float> [ %agg.tmp335.sroa.0.0.copyload, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit ], [ %105, %if.then.i.i.i.i763 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %box)
   br label %if.end377
 
@@ -10888,93 +10889,92 @@ if.else347:                                       ; preds = %if.else309
   %mul357 = fmul nsz double %mul355, %conv354
   %m_acceleration358 = getelementptr inbounds nuw i8, ptr %this, i64 560
   %conv.i771 = fptrunc double %mul357 to float
-  %107 = load float, ptr %m_acceleration358, align 8, !tbaa !195
-  %mul.i.i772 = fmul nsz float %107, %conv.i771
+  %108 = load float, ptr %m_acceleration358, align 8, !tbaa !195
+  %mul.i.i772 = fmul nsz float %108, %conv.i771
   %Y.i.i773 = getelementptr inbounds nuw i8, ptr %this, i64 564
   %m_position363 = getelementptr inbounds nuw i8, ptr %this, i64 536
-  %108 = load <4 x float>, ptr %m_position363, align 8, !tbaa !34
-  %109 = extractelement <4 x float> %108, i64 3
-  %mul.i.i769 = fmul nsz float %dtime, %109
-  %110 = insertelement <4 x float> poison, float %mul.i.i769, i64 0
-  %111 = insertelement <4 x float> poison, float %mul.i.i772, i64 0
-  %112 = load <2 x float>, ptr %Y.i.i, align 8, !tbaa !34
-  %113 = insertelement <2 x float> poison, float %dtime, i64 0
-  %114 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> zeroinitializer
-  %115 = fmul nsz <2 x float> %114, %112
-  %116 = load <2 x float>, ptr %Y.i.i773, align 4, !tbaa !34
-  %117 = extractelement <2 x float> %116, i64 0
-  %mul2.i.i774 = fmul nsz float %117, %conv.i771
-  %118 = extractelement <2 x float> %116, i64 1
-  %mul3.i.i776 = fmul nsz float %118, %conv.i771
-  %119 = fmul nsz <2 x float> %114, %116
-  %120 = shufflevector <2 x float> %115, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
-  %121 = shufflevector <4 x float> %110, <4 x float> %120, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
-  %122 = insertelement <4 x float> %121, float %107, i64 3
-  %123 = insertelement <4 x float> %111, float %mul2.i.i774, i64 1
-  %124 = insertelement <4 x float> %123, float %mul3.i.i776, i64 2
-  %125 = insertelement <4 x float> %124, float %dtime, i64 3
-  %126 = fadd nsz <4 x float> %122, %125
-  %127 = fmul nsz <4 x float> %122, %125
-  %128 = shufflevector <4 x float> %126, <4 x float> %127, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %129 = fadd nsz <4 x float> %108, %128
-  store <4 x float> %129, ptr %m_position363, align 8, !tbaa !34
-  %130 = fadd nsz <2 x float> %112, %119
-  store <2 x float> %130, ptr %Y.i.i, align 8, !tbaa !34
-  %bc = bitcast <4 x float> %129 to <2 x i64>
-  %131 = extractelement <2 x i64> %bc, i64 0
-  %132 = bitcast i64 %131 to <2 x float>
+  %109 = load <4 x float>, ptr %m_position363, align 8, !tbaa !34
+  %110 = extractelement <4 x float> %109, i64 3
+  %mul.i.i769 = fmul nsz float %dtime, %110
+  %111 = insertelement <4 x float> poison, float %mul.i.i769, i64 0
+  %112 = insertelement <4 x float> poison, float %mul.i.i772, i64 0
+  %113 = load <2 x float>, ptr %Y.i.i, align 8, !tbaa !34
+  %114 = insertelement <2 x float> poison, float %dtime, i64 0
+  %115 = shufflevector <2 x float> %114, <2 x float> poison, <2 x i32> zeroinitializer
+  %116 = fmul nsz <2 x float> %115, %113
+  %117 = load <2 x float>, ptr %Y.i.i773, align 4, !tbaa !34
+  %118 = extractelement <2 x float> %117, i64 0
+  %mul2.i.i774 = fmul nsz float %118, %conv.i771
+  %119 = extractelement <2 x float> %117, i64 1
+  %mul3.i.i776 = fmul nsz float %119, %conv.i771
+  %120 = fmul nsz <2 x float> %115, %117
+  %121 = shufflevector <2 x float> %116, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
+  %122 = shufflevector <4 x float> %111, <4 x float> %121, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
+  %123 = insertelement <4 x float> %122, float %108, i64 3
+  %124 = insertelement <4 x float> %112, float %mul2.i.i774, i64 1
+  %125 = insertelement <4 x float> %124, float %mul3.i.i776, i64 2
+  %126 = insertelement <4 x float> %125, float %dtime, i64 3
+  %127 = fadd nsz <4 x float> %123, %126
+  %128 = fmul nsz <4 x float> %123, %126
+  %129 = shufflevector <4 x float> %127, <4 x float> %128, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
+  %130 = fadd nsz <4 x float> %109, %129
+  store <4 x float> %130, ptr %m_position363, align 8, !tbaa !34
+  %131 = fadd nsz <2 x float> %113, %120
+  store <2 x float> %131, ptr %Y.i.i, align 8, !tbaa !34
+  %bc = bitcast <4 x float> %130 to <2 x i64>
+  %132 = extractelement <2 x i64> %bc, i64 0
+  %133 = bitcast i64 %132 to <2 x float>
   %aim_is_end = getelementptr inbounds nuw i8, ptr %this, i64 632
-  %133 = load i8, ptr %aim_is_end, align 8, !tbaa !475, !range !32, !noundef !33
+  %134 = load i8, ptr %aim_is_end, align 8, !tbaa !475, !range !32, !noundef !33
   %anim_time = getelementptr inbounds nuw i8, ptr %this, i64 624
-  %134 = load float, ptr %anim_time, align 8, !tbaa !40
+  %135 = load float, ptr %anim_time, align 8, !tbaa !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %pos_translator311, ptr noundef nonnull align 8 dereferenceable(12) %val_current312, i64 12, i1 false), !tbaa.struct !110
   %val_target.i812 = getelementptr inbounds nuw i8, ptr %this, i64 612
-  store i64 %131, ptr %val_target.i812, align 4, !tbaa.struct !110
+  store i64 %132, ptr %val_target.i812, align 4, !tbaa.struct !110
   %new_target.sroa.2.0.val_target.sroa_idx.i813 = getelementptr inbounds nuw i8, ptr %this, i64 620
-  %135 = extractelement <4 x float> %129, i64 2
-  store float %135, ptr %new_target.sroa.2.0.val_target.sroa_idx.i813, align 4, !tbaa !34
-  %cmp.i814 = fcmp nsz ogt float %134, 0.000000e+00
+  %136 = extractelement <4 x float> %130, i64 2
+  store float %136, ptr %new_target.sroa.2.0.val_target.sroa_idx.i813, align 4, !tbaa !34
+  %cmp.i814 = fcmp nsz ogt float %135, 0.000000e+00
   br i1 %cmp.i814, label %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828, label %if.else.i816
 
 if.else.i816:                                     ; preds = %if.else347
-  %conv.i817 = fpext float %134 to double
+  %conv.i817 = fpext float %135 to double
   %cmp4.i818 = fcmp nsz olt double %conv.i817, 1.000000e-03
   %anim_time_counter.i821 = getelementptr inbounds nuw i8, ptr %this, i64 628
-  %136 = load float, ptr %anim_time_counter.i821, align 4, !tbaa !35
+  %137 = load float, ptr %anim_time_counter.i821, align 4, !tbaa !35
   br i1 %cmp4.i818, label %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828, label %if.else10.i822
 
 if.else10.i822:                                   ; preds = %if.else.i816
-  %conv14.i823 = fpext float %136 to double
+  %conv14.i823 = fpext float %137 to double
   %mul15.i824 = fmul nsz double %conv14.i823, 1.000000e-01
-  %137 = call nsz double @llvm.fmuladd.f64(double %conv.i817, double 9.000000e-01, double %mul15.i824)
-  %conv16.i825 = fptrunc double %137 to float
+  %138 = call nsz double @llvm.fmuladd.f64(double %conv.i817, double 9.000000e-01, double %mul15.i824)
+  %conv16.i825 = fptrunc double %138 to float
   br label %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828
 
 _ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828: ; preds = %if.else10.i822, %if.else.i816, %if.else347
-  %.sink.i826 = phi float [ %conv16.i825, %if.else10.i822 ], [ %134, %if.else347 ], [ %136, %if.else.i816 ]
+  %.sink.i826 = phi float [ %conv16.i825, %if.else10.i822 ], [ %135, %if.else347 ], [ %137, %if.else.i816 ]
   store float %.sink.i826, ptr %anim_time, align 8, !tbaa !40
   %anim_time_counter19.i827 = getelementptr inbounds nuw i8, ptr %this, i64 628
   store float 0.000000e+00, ptr %anim_time_counter19.i827, align 4, !tbaa !35
   br label %if.end377
 
 if.end377:                                        ; preds = %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828, %_ZN19collisionMoveResultD2Ev.exit764
-  %138 = phi i8 [ %133, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre1027, %_ZN19collisionMoveResultD2Ev.exit764 ]
-  %139 = phi float [ %.sink.i826, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre1026, %_ZN19collisionMoveResultD2Ev.exit764 ]
-  %140 = phi float [ %135, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre1025, %_ZN19collisionMoveResultD2Ev.exit764 ]
-  %141 = phi float [ 0.000000e+00, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre, %_ZN19collisionMoveResultD2Ev.exit764 ]
-  %142 = phi <2 x float> [ %132, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %106, %_ZN19collisionMoveResultD2Ev.exit764 ]
+  %139 = phi i8 [ %134, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre1027, %_ZN19collisionMoveResultD2Ev.exit764 ]
+  %140 = phi float [ %.sink.i826, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre1026, %_ZN19collisionMoveResultD2Ev.exit764 ]
+  %141 = phi float [ %136, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre1025, %_ZN19collisionMoveResultD2Ev.exit764 ]
+  %add.i830 = phi float [ %dtime, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %.pre, %_ZN19collisionMoveResultD2Ev.exit764 ]
+  %142 = phi <2 x float> [ %133, %_ZN16SmoothTranslatorIN3irr4core8vector3dIfEEE6updateES3_bf.exit828 ], [ %107, %_ZN19collisionMoveResultD2Ev.exit764 ]
   %anim_time_counter.i829 = getelementptr inbounds nuw i8, ptr %this, i64 628
-  %add.i830 = fadd nsz float %dtime, %141
   store float %add.i830, ptr %anim_time_counter.i829, align 4, !tbaa !35
   %Z5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 596
   %143 = load float, ptr %Z5.i.i, align 4, !tbaa !49
-  %sub6.i.i = fsub nsz float %140, %143
-  %conv.i835 = fpext float %139 to double
+  %sub6.i.i = fsub nsz float %141, %143
+  %conv.i835 = fpext float %140 to double
   %cmp.i836 = fcmp nsz ogt double %conv.i835, 1.000000e-03
-  %div.i = fdiv nsz float %add.i830, %139
+  %div.i = fdiv nsz float %add.i830, %140
   %144 = fmul nsz float %div.i, 0x3FE99999A0000000
   %moveratio.0.i = select i1 %cmp.i836, float %144, float 0x3FE99999A0000000
-  %tobool.not.i838 = icmp eq i8 %138, 0
+  %tobool.not.i838 = icmp eq i8 %139, 0
   %conv5.i = select i1 %tobool.not.i838, float 1.500000e+00, float 1.000000e+00
   %cmp.i.i839 = fcmp nsz olt float %conv5.i, %moveratio.0.i
   %.sroa.speculated.i = select i1 %cmp.i.i839, float %conv5.i, float %moveratio.0.i

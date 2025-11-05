@@ -213,28 +213,28 @@ define dso_local noundef float @_ZN27btMultiBodyConstraintSolver20solveSingleIte
   %93 = getelementptr inbounds nuw %struct.btMultiBodySolverConstraint, ptr %92, i64 %indvars.iv280
   %94 = load i32, ptr %49, align 4, !tbaa !47
   %95 = icmp slt i32 %1, %94
-  br i1 %95, label %96, label %98
+  br i1 %95, label %96, label %99
 
 96:                                               ; preds = %91
   %97 = tail call noundef float @_ZN27btMultiBodyConstraintSolver33resolveSingleConstraintRowGenericERK27btMultiBodySolverConstraint(ptr noundef nonnull align 8 dereferenceable(788) %0, ptr noundef nonnull align 8 dereferenceable(220) %93)
-  br label %98
+  %98 = fmul float %97, %97
+  br label %99
 
-98:                                               ; preds = %96, %91
-  %.0158 = phi float [ %97, %96 ], [ 0.000000e+00, %91 ]
-  %99 = fmul float %.0158, %.0158
-  %100 = fcmp ogt float %.0231246, %99
-  %.sroa.speculated213 = select i1 %100, float %.0231246, float %99
+99:                                               ; preds = %96, %91
+  %.0158 = phi float [ %98, %96 ], [ 0.000000e+00, %91 ]
+  %100 = fcmp ogt float %.0231246, %.0158
+  %.sroa.speculated213 = select i1 %100, float %.0231246, float %.0158
   %101 = getelementptr inbounds nuw i8, ptr %93, i64 176
   %102 = load ptr, ptr %101, align 8, !tbaa !17
   %.not194 = icmp eq ptr %102, null
   br i1 %.not194, label %105, label %103
 
-103:                                              ; preds = %98
+103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 625
   store i8 0, ptr %104, align 1, !tbaa !22
   br label %105
 
-105:                                              ; preds = %103, %98
+105:                                              ; preds = %103, %99
   %106 = getelementptr inbounds nuw i8, ptr %93, i64 192
   %107 = load ptr, ptr %106, align 8, !tbaa !41
   %.not195 = icmp eq ptr %107, null

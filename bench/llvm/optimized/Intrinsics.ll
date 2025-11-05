@@ -952,7 +952,7 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
 145:                                              ; preds = %tailrecurse
   %146 = zext i32 %9 to i64
   %147 = icmp eq i64 %2, %146
-  br i1 %147, label %155, label %148
+  br i1 %147, label %154, label %148
 
 148:                                              ; preds = %145
   %149 = add i32 %8, 2
@@ -961,29 +961,29 @@ tailrecurse.backedge:                             ; preds = %31, %35, %39, %43, 
   %151 = load i8, ptr %150, align 1, !tbaa !17
   %152 = zext i8 %151 to i64
   %153 = shl nuw nsw i64 %152, 48
-  %154 = or disjoint i64 %153, 19
   %.pre = zext i32 %149 to i64
-  br label %155
+  br label %154
 
-155:                                              ; preds = %145, %148
+154:                                              ; preds = %145, %148
   %.pre-phi = phi i64 [ %146, %145 ], [ %.pre, %148 ]
-  %156 = phi i32 [ %9, %145 ], [ %149, %148 ]
-  %.sroa.25.0.insert.shift.i = phi i64 [ 19, %145 ], [ %154, %148 ]
+  %155 = phi i32 [ %9, %145 ], [ %149, %148 ]
+  %156 = phi i64 [ 0, %145 ], [ %153, %148 ]
   %157 = icmp eq i64 %2, %.pre-phi
-  br i1 %157, label %164, label %158
+  br i1 %157, label %165, label %158
 
-158:                                              ; preds = %155
-  %159 = add i32 %156, 1
+158:                                              ; preds = %154
+  %159 = add i32 %155, 1
   store i32 %159, ptr %0, align 4, !tbaa !3
   %160 = getelementptr inbounds nuw i8, ptr %1, i64 %.pre-phi
   %161 = load i8, ptr %160, align 1, !tbaa !17
   %162 = zext i8 %161 to i64
   %163 = shl nuw nsw i64 %162, 32
-  br label %164
+  %164 = or disjoint i64 %163, %156
+  br label %165
 
-164:                                              ; preds = %155, %158
-  %165 = phi i64 [ %163, %158 ], [ 0, %155 ]
-  %.sroa.04.0.insert.insert.i = or disjoint i64 %.sroa.25.0.insert.shift.i, %165
+165:                                              ; preds = %154, %158
+  %.sroa.25.0.insert.shift.i = phi i64 [ %164, %158 ], [ %156, %154 ]
+  %.sroa.04.0.insert.insert.i = or disjoint i64 %.sroa.25.0.insert.shift.i, 19
   br label %.loopexit.sink.split
 
 166:                                              ; preds = %tailrecurse
@@ -1118,8 +1118,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES
 .loopexit.sink.split.loopexit1500:                ; preds = %tailrecurse
   br label %.loopexit.sink.split
 
-.loopexit.sink.split:                             ; preds = %tailrecurse, %.loopexit.sink.split.loopexit1500, %.loopexit.sink.split.loopexit, %221, %218, %211, %208, %201, %198, %191, %188, %138, %135, %128, %125, %118, %115, %108, %105, %98, %95, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %87, %88, %89, %90, %164, %166
-  %.sroa.23.0.insert.ext.i895.sink = phi i64 [ 13, %166 ], [ %.sroa.04.0.insert.insert.i, %164 ], [ %.sroa.02.0.insert.insert.i, %90 ], [ 12, %89 ], [ 85899345932, %88 ], [ 42949672972, %87 ], [ 549755813898, %30 ], [ 274877906954, %29 ], [ 137438953482, %28 ], [ 68719476746, %27 ], [ 34359738378, %26 ], [ 26, %25 ], [ 17179869194, %24 ], [ 8589934602, %23 ], [ 4294967306, %22 ], [ 25, %21 ], [ 9, %20 ], [ 8, %19 ], [ 7, %18 ], [ 6, %17 ], [ 5, %16 ], [ 4, %15 ], [ 3, %14 ], [ 24, %13 ], [ %104, %98 ], [ 14, %95 ], [ %114, %108 ], [ 15, %105 ], [ %124, %118 ], [ 16, %115 ], [ %134, %128 ], [ 17, %125 ], [ %144, %138 ], [ 18, %135 ], [ %197, %191 ], [ 21, %188 ], [ %207, %201 ], [ 22, %198 ], [ %217, %211 ], [ 20, %208 ], [ %227, %221 ], [ 23, %218 ], [ 0, %.loopexit.sink.split.loopexit ], [ 1, %.loopexit.sink.split.loopexit1500 ], [ 2, %tailrecurse ]
+.loopexit.sink.split:                             ; preds = %tailrecurse, %.loopexit.sink.split.loopexit1500, %.loopexit.sink.split.loopexit, %221, %218, %211, %208, %201, %198, %191, %188, %138, %135, %128, %125, %118, %115, %108, %105, %98, %95, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %30, %87, %88, %89, %90, %165, %166
+  %.sroa.23.0.insert.ext.i895.sink = phi i64 [ 13, %166 ], [ %.sroa.04.0.insert.insert.i, %165 ], [ %.sroa.02.0.insert.insert.i, %90 ], [ 12, %89 ], [ 85899345932, %88 ], [ 42949672972, %87 ], [ 549755813898, %30 ], [ 274877906954, %29 ], [ 137438953482, %28 ], [ 68719476746, %27 ], [ 34359738378, %26 ], [ 26, %25 ], [ 17179869194, %24 ], [ 8589934602, %23 ], [ 4294967306, %22 ], [ 25, %21 ], [ 9, %20 ], [ 8, %19 ], [ 7, %18 ], [ 6, %17 ], [ 5, %16 ], [ 4, %15 ], [ 3, %14 ], [ 24, %13 ], [ %104, %98 ], [ 14, %95 ], [ %114, %108 ], [ 15, %105 ], [ %124, %118 ], [ 16, %115 ], [ %134, %128 ], [ 17, %125 ], [ %144, %138 ], [ 18, %135 ], [ %197, %191 ], [ 21, %188 ], [ %207, %201 ], [ 22, %198 ], [ %217, %211 ], [ 20, %208 ], [ %227, %221 ], [ 23, %218 ], [ 0, %.loopexit.sink.split.loopexit ], [ 1, %.loopexit.sink.split.loopexit1500 ], [ 2, %tailrecurse ]
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_9Intrinsic13IITDescriptorELb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %4, i64 %.sroa.23.0.insert.ext.i895.sink, i8 undef)
   br label %.loopexit
 

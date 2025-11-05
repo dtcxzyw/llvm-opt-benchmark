@@ -61945,14 +61945,14 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store i64 %25, ptr %0, align 8
   br label %37
 
-37:                                               ; preds = %153, %156, %148, %144, %39, %35
+37:                                               ; preds = %152, %155, %147, %143, %39, %35
   ret void
 
 38:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   switch i32 %31, label %40 [
     i32 118, label %125
-    i32 97, label %141
+    i32 97, label %140
   ]
 
 39:                                               ; preds = %27
@@ -62225,7 +62225,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
 
 "_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread161": ; preds = %96, %100, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !19739
-  br label %154
+  br label %153
 
 105:                                              ; preds = %84, %88, %90, %95, %80, %75
   %.sroa.12.sroa.12.1 = phi i32 [ %.sroa.12.sroa.12.0.extract.trunc95, %95 ], [ %.sroa.12.sroa.12.0.extract.trunc93, %80 ], [ %.sroa.12.sroa.12.0.extract.trunc91, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
@@ -62311,7 +62311,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !19795
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !19739
   %124 = icmp eq i64 %.sroa.063.0.copyload64, 14
-  br i1 %124, label %154, label %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread"
+  br i1 %124, label %153, label %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread"
 
 125:                                              ; preds = %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19804)
@@ -62334,18 +62334,18 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
   %130 = add i8 %.sroa.5.0.extract.trunc.i.i, 1
   %131 = icmp ugt i8 %.sroa.09.0.extract.trunc.i.i49, 32
-  br i1 %131, label %148, label %132
+  br i1 %131, label %147, label %132
 
 132:                                              ; preds = %128
   %133 = icmp ugt i8 %.sroa.410.0.extract.trunc.i.i, 32
-  br i1 %133, label %148, label %134
+  br i1 %133, label %147, label %134
 
 134:                                              ; preds = %132
   %135 = add nuw nsw i8 %.sroa.410.0.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i49
   %136 = add i8 %135, %.sroa.6.0.extract.trunc.i.i
   %137 = add i8 %136, %130
   %138 = icmp ugt i8 %137, 64
-  br i1 %138, label %148, label %144
+  br i1 %138, label %147, label %143
 
 139:                                              ; preds = %125
   %.sroa.527.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -62357,28 +62357,26 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.14.16..sroa.628.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %.sroa.14, ptr noundef nonnull align 1 dereferenceable(43) %.sroa.14.16..sroa.628.0..sroa_idx.i.sroa_idx, i64 43, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !19807
-  %.sroa.752.sroa.7.0.extract.shift57 = and i64 %.sroa.527.0.copyload.i, -4294967296
-  %140 = and i64 %.sroa.527.0.copyload.i, 4294967295
-  br label %148
+  br label %147
 
-141:                                              ; preds = %38
+140:                                              ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h9782bf1932ae7afaE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %21, ptr noalias noundef nonnull align 8 dereferenceable(144) %1, i64 poison, i64 poison)
-  %142 = load i64, ptr %21, align 8, !range !192, !noundef !4
-  %143 = icmp eq i64 %142, 14
-  br i1 %143, label %149, label %152
+  %141 = load i64, ptr %21, align 8, !range !192, !noundef !4
+  %142 = icmp eq i64 %141, 14
+  br i1 %142, label %148, label %151
 
-144:                                              ; preds = %134
+143:                                              ; preds = %134
   %.sroa.844.10.insert.ext.i = zext i8 %130 to i32
   %.sroa.844.10.insert.shift.i = shl nuw nsw i32 %.sroa.844.10.insert.ext.i, 16
-  %145 = and i32 %.sroa.06.0.copyload.i, -16711873
-  %.sroa.844.11.insert.insert.i = or disjoint i32 %.sroa.844.10.insert.shift.i, %145
+  %144 = and i32 %.sroa.06.0.copyload.i, -16711873
+  %.sroa.844.11.insert.insert.i = or disjoint i32 %.sroa.844.10.insert.shift.i, %144
   store i32 %.sroa.844.11.insert.insert.i, ptr %129, align 8, !alias.scope !19804, !noalias !19809
-  %146 = ptrtoint ptr %1 to i64
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %147, align 8
+  %145 = ptrtoint ptr %1 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %146, align 8
   %.sroa.4112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %146, ptr %.sroa.4112.0..sroa_idx, align 8
+  store i64 %145, ptr %.sroa.4112.0..sroa_idx, align 8
   %.sroa.4112.sroa.4.0..sroa.4112.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.06.0.copyload.i, ptr %.sroa.4112.sroa.4.0..sroa.4112.0..sroa_idx.sroa_idx, align 8
   %.sroa.4112.sroa.5.0..sroa.4112.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -62386,16 +62384,14 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store i64 14, ptr %0, align 8
   br label %37
 
-148:                                              ; preds = %139, %134, %132, %128
-  %.sroa.752.sroa.7.0.ph = phi i64 [ 0, %128 ], [ 0, %132 ], [ 0, %134 ], [ %.sroa.752.sroa.7.0.extract.shift57, %139 ]
-  %.sroa.752.sroa.0.0.ph = phi i64 [ 0, %128 ], [ 1, %132 ], [ 2, %134 ], [ %140, %139 ]
+147:                                              ; preds = %139, %134, %132, %128
+  %.sroa.752.sroa.7.0.ph = phi i64 [ 0, %128 ], [ 1, %132 ], [ 2, %134 ], [ %.sroa.527.0.copyload.i, %139 ]
   %.sroa.13.0.ph = phi i8 [ undef, %128 ], [ undef, %132 ], [ undef, %134 ], [ %.sroa.13.16.copyload, %139 ]
   %.sroa.11.0.ph = phi i32 [ undef, %128 ], [ undef, %132 ], [ undef, %134 ], [ %.sroa.11.16.copyload, %139 ]
   %.sroa.0.0.ph = phi i64 [ 13, %128 ], [ 13, %132 ], [ 13, %134 ], [ %126, %139 ]
-  %.sroa.752.sroa.0.0.insert.insert = or disjoint i64 %.sroa.752.sroa.0.0.ph, %.sroa.752.sroa.7.0.ph
   store i64 %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.4119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.752.sroa.0.0.insert.insert, ptr %.sroa.4119.0..sroa_idx, align 8
+  store i64 %.sroa.752.sroa.7.0.ph, ptr %.sroa.4119.0..sroa_idx, align 8
   %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.11.0.ph, ptr %.sroa.5120.0..sroa_idx, align 8
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -62404,22 +62400,22 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %.sroa.7122.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(43) %.sroa.14, i64 43, i1 false)
   br label %37
 
-149:                                              ; preds = %141
-  %150 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %151, ptr noundef nonnull align 8 dereferenceable(40) %150, i64 40, i1 false)
+148:                                              ; preds = %140
+  %149 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %150, ptr noundef nonnull align 8 dereferenceable(40) %149, i64 40, i1 false)
   store i64 14, ptr %0, align 8
-  br label %153
+  br label %152
 
-152:                                              ; preds = %141
+151:                                              ; preds = %140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
-  br label %153
+  br label %152
 
-153:                                              ; preds = %152, %149
+152:                                              ; preds = %151, %148
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %37
 
-154:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread161", %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit"
+153:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread161", %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit"
   %.sroa.21.2170 = phi i32 [ %.sroa.040.0.copyload.i, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread161" ], [ %.sroa.21.0.copyload70, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit" ]
   %.sroa.24.2169 = phi i8 [ 1, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread161" ], [ %.sroa.24.0.copyload75, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit" ]
   %.sroa.12.sroa.0.2168 = phi i64 [ %98, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread161" ], [ %.sroa.12.0.copyload66, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit" ]
@@ -62429,8 +62425,8 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.12.sroa.0.0.insert.insert87 = or disjoint i64 %.sroa.12.sroa.12.0.insert.shift99, %.sroa.12.sroa.0.0.insert.ext85
   %.sroa.4128.sroa.6.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4128.sroa.6.0..sroa.4128.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.25, i64 3, i1 false)
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %155, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %154, align 8
   %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.12.sroa.0.0.insert.insert87, ptr %.sroa.4128.0..sroa_idx, align 8
   %.sroa.4128.sroa.4.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -62438,7 +62434,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.4128.sroa.5.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %.sroa.24.2169, ptr %.sroa.4128.sroa.5.0..sroa.4128.0..sroa_idx.sroa_idx, align 4
   store i64 14, ptr %0, align 8
-  br label %156
+  br label %155
 
 "_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread": ; preds = %46, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h03cb693f323859a8E.exit130.i", %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit"
   %.sroa.063.2160 = phi i64 [ %.sroa.063.0.copyload64, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit" ], [ %41, %46 ], [ %.sroa.063.0, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h03cb693f323859a8E.exit130.i" ]
@@ -62459,9 +62455,9 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store i32 %.sroa.21.2159, ptr %.sroa.5136.0..sroa_idx, align 8
   %.sroa.6137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sroa.24.2158, ptr %.sroa.6137.0..sroa_idx, align 4
-  br label %156
+  br label %155
 
-156:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread", %154
+155:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17haa64a815d627722dE.exit.thread", %153
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.25)
   br label %37
 }
@@ -62546,14 +62542,14 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store i64 %25, ptr %0, align 8
   br label %37
 
-37:                                               ; preds = %153, %156, %148, %144, %39, %35
+37:                                               ; preds = %152, %155, %147, %143, %39, %35
   ret void
 
 38:                                               ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   switch i32 %31, label %40 [
     i32 118, label %125
-    i32 97, label %141
+    i32 97, label %140
   ]
 
 39:                                               ; preds = %27
@@ -62826,7 +62822,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
 
 "_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread161": ; preds = %96, %100, %104
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !19813
-  br label %154
+  br label %153
 
 105:                                              ; preds = %84, %88, %90, %95, %80, %75
   %.sroa.12.sroa.12.1 = phi i32 [ %.sroa.12.sroa.12.0.extract.trunc95, %95 ], [ %.sroa.12.sroa.12.0.extract.trunc93, %80 ], [ %.sroa.12.sroa.12.0.extract.trunc91, %75 ], [ undef, %90 ], [ undef, %88 ], [ undef, %84 ]
@@ -62912,7 +62908,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !19869
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !19813
   %124 = icmp eq i64 %.sroa.063.0.copyload64, 14
-  br i1 %124, label %154, label %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread"
+  br i1 %124, label %153, label %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread"
 
 125:                                              ; preds = %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19878)
@@ -62935,18 +62931,18 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.6.0.extract.trunc.i.i = trunc nuw i32 %.sroa.6.0.extract.shift.i.i to i8
   %130 = add i8 %.sroa.5.0.extract.trunc.i.i, 1
   %131 = icmp ugt i8 %.sroa.09.0.extract.trunc.i.i49, 32
-  br i1 %131, label %148, label %132
+  br i1 %131, label %147, label %132
 
 132:                                              ; preds = %128
   %133 = icmp ugt i8 %.sroa.410.0.extract.trunc.i.i, 32
-  br i1 %133, label %148, label %134
+  br i1 %133, label %147, label %134
 
 134:                                              ; preds = %132
   %135 = add nuw nsw i8 %.sroa.410.0.extract.trunc.i.i, %.sroa.09.0.extract.trunc.i.i49
   %136 = add i8 %135, %.sroa.6.0.extract.trunc.i.i
   %137 = add i8 %136, %130
   %138 = icmp ugt i8 %137, 64
-  br i1 %138, label %148, label %144
+  br i1 %138, label %147, label %143
 
 139:                                              ; preds = %125
   %.sroa.527.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -62958,28 +62954,26 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.14.16..sroa.628.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %.sroa.14, ptr noundef nonnull align 1 dereferenceable(43) %.sroa.14.16..sroa.628.0..sroa_idx.i.sroa_idx, i64 43, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !19881
-  %.sroa.752.sroa.7.0.extract.shift57 = and i64 %.sroa.527.0.copyload.i, -4294967296
-  %140 = and i64 %.sroa.527.0.copyload.i, 4294967295
-  br label %148
+  br label %147
 
-141:                                              ; preds = %38
+140:                                              ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17h1383277e410add65E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %21, ptr noalias noundef nonnull align 8 dereferenceable(144) %1, i64 poison, i64 poison)
-  %142 = load i64, ptr %21, align 8, !range !192, !noundef !4
-  %143 = icmp eq i64 %142, 14
-  br i1 %143, label %149, label %152
+  %141 = load i64, ptr %21, align 8, !range !192, !noundef !4
+  %142 = icmp eq i64 %141, 14
+  br i1 %142, label %148, label %151
 
-144:                                              ; preds = %134
+143:                                              ; preds = %134
   %.sroa.844.10.insert.ext.i = zext i8 %130 to i32
   %.sroa.844.10.insert.shift.i = shl nuw nsw i32 %.sroa.844.10.insert.ext.i, 16
-  %145 = and i32 %.sroa.06.0.copyload.i, -16711873
-  %.sroa.844.11.insert.insert.i = or disjoint i32 %.sroa.844.10.insert.shift.i, %145
+  %144 = and i32 %.sroa.06.0.copyload.i, -16711873
+  %.sroa.844.11.insert.insert.i = or disjoint i32 %.sroa.844.10.insert.shift.i, %144
   store i32 %.sroa.844.11.insert.insert.i, ptr %129, align 8, !alias.scope !19878, !noalias !19883
-  %146 = ptrtoint ptr %1 to i64
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %147, align 8
+  %145 = ptrtoint ptr %1 to i64
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %146, align 8
   %.sroa.4112.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %146, ptr %.sroa.4112.0..sroa_idx, align 8
+  store i64 %145, ptr %.sroa.4112.0..sroa_idx, align 8
   %.sroa.4112.sroa.4.0..sroa.4112.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.06.0.copyload.i, ptr %.sroa.4112.sroa.4.0..sroa.4112.0..sroa_idx.sroa_idx, align 8
   %.sroa.4112.sroa.5.0..sroa.4112.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -62987,16 +62981,14 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store i64 14, ptr %0, align 8
   br label %37
 
-148:                                              ; preds = %139, %134, %132, %128
-  %.sroa.752.sroa.7.0.ph = phi i64 [ 0, %128 ], [ 0, %132 ], [ 0, %134 ], [ %.sroa.752.sroa.7.0.extract.shift57, %139 ]
-  %.sroa.752.sroa.0.0.ph = phi i64 [ 0, %128 ], [ 1, %132 ], [ 2, %134 ], [ %140, %139 ]
+147:                                              ; preds = %139, %134, %132, %128
+  %.sroa.752.sroa.7.0.ph = phi i64 [ 0, %128 ], [ 1, %132 ], [ 2, %134 ], [ %.sroa.527.0.copyload.i, %139 ]
   %.sroa.13.0.ph = phi i8 [ undef, %128 ], [ undef, %132 ], [ undef, %134 ], [ %.sroa.13.16.copyload, %139 ]
   %.sroa.11.0.ph = phi i32 [ undef, %128 ], [ undef, %132 ], [ undef, %134 ], [ %.sroa.11.16.copyload, %139 ]
   %.sroa.0.0.ph = phi i64 [ 13, %128 ], [ 13, %132 ], [ 13, %134 ], [ %126, %139 ]
-  %.sroa.752.sroa.0.0.insert.insert = or disjoint i64 %.sroa.752.sroa.0.0.ph, %.sroa.752.sroa.7.0.ph
   store i64 %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.4119.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.752.sroa.0.0.insert.insert, ptr %.sroa.4119.0..sroa_idx, align 8
+  store i64 %.sroa.752.sroa.7.0.ph, ptr %.sroa.4119.0..sroa_idx, align 8
   %.sroa.5120.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sroa.11.0.ph, ptr %.sroa.5120.0..sroa_idx, align 8
   %.sroa.6121.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -63005,22 +62997,22 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(43) %.sroa.7122.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(43) %.sroa.14, i64 43, i1 false)
   br label %37
 
-149:                                              ; preds = %141
-  %150 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %151, ptr noundef nonnull align 8 dereferenceable(40) %150, i64 40, i1 false)
+148:                                              ; preds = %140
+  %149 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %150, ptr noundef nonnull align 8 dereferenceable(40) %149, i64 40, i1 false)
   store i64 14, ptr %0, align 8
-  br label %153
+  br label %152
 
-152:                                              ; preds = %141
+151:                                              ; preds = %140
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
-  br label %153
+  br label %152
 
-153:                                              ; preds = %152, %149
+152:                                              ; preds = %151, %148
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %37
 
-154:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread161", %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit"
+153:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread161", %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit"
   %.sroa.21.2170 = phi i32 [ %.sroa.040.0.copyload.i, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread161" ], [ %.sroa.21.0.copyload70, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit" ]
   %.sroa.24.2169 = phi i8 [ 1, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread161" ], [ %.sroa.24.0.copyload75, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit" ]
   %.sroa.12.sroa.0.2168 = phi i64 [ %98, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread161" ], [ %.sroa.12.0.copyload66, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit" ]
@@ -63030,8 +63022,8 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.12.sroa.0.0.insert.insert87 = or disjoint i64 %.sroa.12.sroa.12.0.insert.shift99, %.sroa.12.sroa.0.0.insert.ext85
   %.sroa.4128.sroa.6.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.4128.sroa.6.0..sroa.4128.0..sroa_idx.sroa_idx, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.25, i64 3, i1 false)
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %155, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %154, align 8
   %.sroa.4128.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.12.sroa.0.0.insert.insert87, ptr %.sroa.4128.0..sroa_idx, align 8
   %.sroa.4128.sroa.4.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -63039,7 +63031,7 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   %.sroa.4128.sroa.5.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 %.sroa.24.2169, ptr %.sroa.4128.sroa.5.0..sroa.4128.0..sroa_idx.sroa_idx, align 4
   store i64 14, ptr %0, align 8
-  br label %156
+  br label %155
 
 "_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread": ; preds = %46, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h03cb693f323859a8E.exit130.i", %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit"
   %.sroa.063.2160 = phi i64 [ %.sroa.063.0.copyload64, %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit" ], [ %41, %46 ], [ %.sroa.063.0, %"_ZN4core3ptr51drop_in_place$LT$zvariant..signature..Signature$GT$17h03cb693f323859a8E.exit130.i" ]
@@ -63060,9 +63052,9 @@ define hidden void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$
   store i32 %.sroa.21.2159, ptr %.sroa.5136.0..sroa_idx, align 8
   %.sroa.6137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sroa.24.2158, ptr %.sroa.6137.0..sroa_idx, align 4
-  br label %156
+  br label %155
 
-156:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread", %154
+155:                                              ; preds = %"_ZN8zvariant4dbus3ser25StructSerializer$LT$W$GT$9structure17h4c6b14119ed32823E.exit.thread", %153
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.25)
   br label %37
 }

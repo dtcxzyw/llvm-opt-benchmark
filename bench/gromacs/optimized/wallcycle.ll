@@ -506,7 +506,7 @@ define range(i64 0, 8589934592) i64 @_ZN13gmx_wallcycle20registerCycleCounterERK
   %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = icmp ugt i64 %10, 128
-  br i1 %11, label %42, label %12
+  br i1 %11, label %43, label %12
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2568
@@ -575,13 +575,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %39 = lshr exact i64 %38, 5
   %40 = add nuw nsw i64 %39, 11
   %41 = and i64 %40, 4294967295
-  br label %42
+  %42 = or disjoint i64 %41, 4294967296
+  br label %43
 
-42:                                               ; preds = %2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
-  %.sroa.0.0 = phi i64 [ %41, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit ], [ 0, %2 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit ], [ 0, %2 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+43:                                               ; preds = %2, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit
+  %.sroa.2.0 = phi i64 [ %42, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKS5_EEERS5_DpOT_.exit ], [ 0, %2 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -13435,321 +13435,319 @@ define hidden zeroext i1 @SDL_GL_GetAttribute_REAL(i32 noundef %0, ptr noundef %
   br label %.critedge82
 
 81:                                               ; preds = %16, %17, %18, %19, %20, %21, %22, %23, %24, %25, %26, %27, %28, %29, %15
-  %82 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ true, %20 ], [ false, %21 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %28 ], [ false, %29 ], [ false, %15 ]
-  %83 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ false, %20 ], [ true, %21 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %28 ], [ false, %29 ], [ false, %15 ]
+  %or.cond6 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ false, %19 ], [ true, %20 ], [ true, %21 ], [ false, %22 ], [ false, %23 ], [ false, %24 ], [ false, %25 ], [ false, %26 ], [ false, %27 ], [ false, %28 ], [ false, %29 ], [ false, %15 ]
   %.061 = phi i32 [ 1026, %16 ], [ 1026, %17 ], [ 1026, %18 ], [ 1026, %19 ], [ 6145, %20 ], [ 6146, %21 ], [ 1026, %22 ], [ 1026, %23 ], [ 1026, %24 ], [ 1026, %25 ], [ 1026, %26 ], [ 1026, %27 ], [ 1026, %28 ], [ 1026, %29 ], [ 1026, %15 ]
   %.not75 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ true, %19 ], [ false, %20 ], [ false, %21 ], [ true, %22 ], [ true, %23 ], [ true, %24 ], [ true, %25 ], [ true, %26 ], [ true, %27 ], [ true, %28 ], [ true, %29 ], [ false, %15 ]
   %.060 = phi i32 [ 33300, %16 ], [ 33299, %17 ], [ 33301, %18 ], [ 0, %19 ], [ 33302, %20 ], [ 33303, %21 ], [ 0, %22 ], [ 0, %23 ], [ 0, %24 ], [ 0, %25 ], [ 0, %26 ], [ 0, %27 ], [ 0, %28 ], [ 0, %29 ], [ 33298, %15 ]
   %.057 = phi i32 [ 3412, %16 ], [ 3411, %17 ], [ 3413, %18 ], [ 3122, %19 ], [ 3414, %20 ], [ 3415, %21 ], [ 3416, %22 ], [ 3417, %23 ], [ 3418, %24 ], [ 3419, %25 ], [ 3123, %26 ], [ 32936, %27 ], [ 32937, %28 ], [ 33531, %29 ], [ 3410, %15 ]
-  %84 = getelementptr inbounds nuw i8, ptr %12, i64 408
-  %85 = load ptr, ptr %84, align 8
-  %.not6.i = icmp eq ptr %85, null
-  br i1 %.not6.i, label %91, label %86
+  %82 = getelementptr inbounds nuw i8, ptr %12, i64 408
+  %83 = load ptr, ptr %82, align 8
+  %.not6.i = icmp eq ptr %83, null
+  br i1 %.not6.i, label %89, label %84
 
-86:                                               ; preds = %81
-  %87 = getelementptr inbounds nuw i8, ptr %12, i64 1032
-  %88 = load i32, ptr %87, align 8
-  %.not7.i = icmp eq i32 %88, 0
-  br i1 %.not7.i, label %89, label %SDL_GL_GetProcAddress_REAL.exit
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %12, i64 1032
+  %86 = load i32, ptr %85, align 8
+  %.not7.i = icmp eq i32 %86, 0
+  br i1 %.not7.i, label %87, label %SDL_GL_GetProcAddress_REAL.exit
 
-89:                                               ; preds = %86
-  %90 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
+87:                                               ; preds = %84
+  %88 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
   br label %.critedge82
 
-91:                                               ; preds = %81
-  %92 = load ptr, ptr %12, align 8
-  %93 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %92) #19
+89:                                               ; preds = %81
+  %90 = load ptr, ptr %12, align 8
+  %91 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %90) #19
   br label %.critedge82
 
-SDL_GL_GetProcAddress_REAL.exit:                  ; preds = %86
-  %94 = tail call ptr %85(ptr noundef nonnull %12, ptr noundef nonnull @.str.65) #19
-  %.not74 = icmp eq ptr %94, null
-  br i1 %.not74, label %.critedge82, label %95
+SDL_GL_GetProcAddress_REAL.exit:                  ; preds = %84
+  %92 = tail call ptr %83(ptr noundef nonnull %12, ptr noundef nonnull @.str.65) #19
+  %.not74 = icmp eq ptr %92, null
+  br i1 %.not74, label %.critedge82, label %93
 
-95:                                               ; preds = %SDL_GL_GetProcAddress_REAL.exit
-  br i1 %.not75, label %isAtLeastGL3.exit.thread, label %96
+93:                                               ; preds = %SDL_GL_GetProcAddress_REAL.exit
+  br i1 %.not75, label %isAtLeastGL3.exit.thread, label %94
 
-96:                                               ; preds = %95
-  %97 = tail call ptr %94(i32 noundef 7938) #19
-  %.not.i83 = icmp eq ptr %97, null
+94:                                               ; preds = %93
+  %95 = tail call ptr %92(i32 noundef 7938) #19
+  %.not.i83 = icmp eq ptr %95, null
   br i1 %.not.i83, label %isAtLeastGL3.exit.thread, label %isAtLeastGL3.exit
 
-isAtLeastGL3.exit:                                ; preds = %96
-  %98 = tail call i32 @SDL_atoi_REAL(ptr noundef nonnull %97) #19
-  %99 = icmp sgt i32 %98, 2
-  br i1 %99, label %100, label %isAtLeastGL3.exit.thread
+isAtLeastGL3.exit:                                ; preds = %94
+  %96 = tail call i32 @SDL_atoi_REAL(ptr noundef nonnull %95) #19
+  %97 = icmp sgt i32 %96, 2
+  br i1 %97, label %98, label %isAtLeastGL3.exit.thread
 
-100:                                              ; preds = %isAtLeastGL3.exit
+98:                                               ; preds = %isAtLeastGL3.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
-  %101 = load ptr, ptr @_this, align 8
-  %.not.i84 = icmp eq ptr %101, null
-  br i1 %.not.i84, label %102, label %104
+  %99 = load ptr, ptr @_this, align 8
+  %.not.i84 = icmp eq ptr %99, null
+  br i1 %.not.i84, label %100, label %102
 
-102:                                              ; preds = %100
-  %103 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+100:                                              ; preds = %98
+  %101 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
   br label %SDL_GL_GetProcAddress_REAL.exit88
 
-104:                                              ; preds = %100
-  %105 = getelementptr inbounds nuw i8, ptr %101, i64 408
-  %106 = load ptr, ptr %105, align 8
-  %.not6.i85 = icmp eq ptr %106, null
-  br i1 %.not6.i85, label %114, label %107
+102:                                              ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %99, i64 408
+  %104 = load ptr, ptr %103, align 8
+  %.not6.i85 = icmp eq ptr %104, null
+  br i1 %.not6.i85, label %112, label %105
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds nuw i8, ptr %101, i64 1032
-  %109 = load i32, ptr %108, align 8
-  %.not7.i86 = icmp eq i32 %109, 0
-  br i1 %.not7.i86, label %112, label %110
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 1032
+  %107 = load i32, ptr %106, align 8
+  %.not7.i86 = icmp eq i32 %107, 0
+  br i1 %.not7.i86, label %110, label %108
 
-110:                                              ; preds = %107
-  %111 = tail call ptr %106(ptr noundef nonnull %101, ptr noundef nonnull @.str.67) #19
+108:                                              ; preds = %105
+  %109 = tail call ptr %104(ptr noundef nonnull %99, ptr noundef nonnull @.str.67) #19
   br label %SDL_GL_GetProcAddress_REAL.exit88
 
-112:                                              ; preds = %107
-  %113 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
+110:                                              ; preds = %105
+  %111 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
   br label %SDL_GL_GetProcAddress_REAL.exit88
 
-114:                                              ; preds = %104
-  %115 = load ptr, ptr %101, align 8
-  %116 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %115) #19
+112:                                              ; preds = %102
+  %113 = load ptr, ptr %99, align 8
+  %114 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %113) #19
   br label %SDL_GL_GetProcAddress_REAL.exit88
 
-SDL_GL_GetProcAddress_REAL.exit88:                ; preds = %102, %110, %112, %114
-  %.03.i87 = phi ptr [ null, %102 ], [ %111, %110 ], [ null, %112 ], [ null, %114 ]
-  %117 = load ptr, ptr @_this, align 8
-  %.not.i89 = icmp eq ptr %117, null
-  br i1 %.not.i89, label %118, label %120
+SDL_GL_GetProcAddress_REAL.exit88:                ; preds = %100, %108, %110, %112
+  %.03.i87 = phi ptr [ null, %100 ], [ %109, %108 ], [ null, %110 ], [ null, %112 ]
+  %115 = load ptr, ptr @_this, align 8
+  %.not.i89 = icmp eq ptr %115, null
+  br i1 %.not.i89, label %116, label %118
+
+116:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit88
+  %117 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+  br label %SDL_GL_GetProcAddress_REAL.exit93.thread
 
 118:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit88
-  %119 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 408
+  %120 = load ptr, ptr %119, align 8
+  %.not6.i90 = icmp eq ptr %120, null
+  br i1 %.not6.i90, label %126, label %121
+
+121:                                              ; preds = %118
+  %122 = getelementptr inbounds nuw i8, ptr %115, i64 1032
+  %123 = load i32, ptr %122, align 8
+  %.not7.i91 = icmp eq i32 %123, 0
+  br i1 %.not7.i91, label %124, label %SDL_GL_GetProcAddress_REAL.exit93
+
+124:                                              ; preds = %121
+  %125 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
   br label %SDL_GL_GetProcAddress_REAL.exit93.thread
 
-120:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit88
-  %121 = getelementptr inbounds nuw i8, ptr %117, i64 408
-  %122 = load ptr, ptr %121, align 8
-  %.not6.i90 = icmp eq ptr %122, null
-  br i1 %.not6.i90, label %128, label %123
-
-123:                                              ; preds = %120
-  %124 = getelementptr inbounds nuw i8, ptr %117, i64 1032
-  %125 = load i32, ptr %124, align 8
-  %.not7.i91 = icmp eq i32 %125, 0
-  br i1 %.not7.i91, label %126, label %SDL_GL_GetProcAddress_REAL.exit93
-
-126:                                              ; preds = %123
-  %127 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
+126:                                              ; preds = %118
+  %127 = load ptr, ptr %115, align 8
+  %128 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %127) #19
   br label %SDL_GL_GetProcAddress_REAL.exit93.thread
 
-128:                                              ; preds = %120
-  %129 = load ptr, ptr %117, align 8
-  %130 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %129) #19
-  br label %SDL_GL_GetProcAddress_REAL.exit93.thread
+SDL_GL_GetProcAddress_REAL.exit93:                ; preds = %121
+  %129 = tail call ptr %120(ptr noundef nonnull %115, ptr noundef nonnull @.str.75) #19
+  %130 = icmp ne ptr %.03.i87, null
+  %131 = icmp ne ptr %129, null
+  %or.cond = select i1 %130, i1 %131, i1 false
+  br i1 %or.cond, label %132, label %SDL_GL_GetProcAddress_REAL.exit93.thread
 
-SDL_GL_GetProcAddress_REAL.exit93:                ; preds = %123
-  %131 = tail call ptr %122(ptr noundef nonnull %117, ptr noundef nonnull @.str.75) #19
-  %132 = icmp ne ptr %.03.i87, null
-  %133 = icmp ne ptr %131, null
-  %or.cond = select i1 %132, i1 %133, i1 false
-  br i1 %or.cond, label %134, label %SDL_GL_GetProcAddress_REAL.exit93.thread
-
-134:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit93
+132:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit93
   call void %.03.i87(i32 noundef 36006, ptr noundef nonnull %7) #19
   br label %SDL_GL_GetProcAddress_REAL.exit93.thread
 
-SDL_GL_GetProcAddress_REAL.exit93.thread:         ; preds = %128, %126, %118, %134, %SDL_GL_GetProcAddress_REAL.exit93
-  %135 = phi i1 [ true, %134 ], [ %133, %SDL_GL_GetProcAddress_REAL.exit93 ], [ false, %118 ], [ false, %126 ], [ false, %128 ]
-  %.03.i92113 = phi ptr [ %131, %134 ], [ %131, %SDL_GL_GetProcAddress_REAL.exit93 ], [ null, %118 ], [ null, %126 ], [ null, %128 ]
-  %136 = load ptr, ptr @_this, align 8
-  %.not.i94 = icmp eq ptr %136, null
-  br i1 %.not.i94, label %137, label %139
+SDL_GL_GetProcAddress_REAL.exit93.thread:         ; preds = %126, %124, %116, %132, %SDL_GL_GetProcAddress_REAL.exit93
+  %133 = phi i1 [ true, %132 ], [ %131, %SDL_GL_GetProcAddress_REAL.exit93 ], [ false, %116 ], [ false, %124 ], [ false, %126 ]
+  %.03.i92113 = phi ptr [ %129, %132 ], [ %129, %SDL_GL_GetProcAddress_REAL.exit93 ], [ null, %116 ], [ null, %124 ], [ null, %126 ]
+  %134 = load ptr, ptr @_this, align 8
+  %.not.i94 = icmp eq ptr %134, null
+  br i1 %.not.i94, label %135, label %137
+
+135:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit93.thread
+  %136 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+  br label %.critedge
 
 137:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit93.thread
-  %138 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+  %138 = getelementptr inbounds nuw i8, ptr %134, i64 408
+  %139 = load ptr, ptr %138, align 8
+  %.not6.i95 = icmp eq ptr %139, null
+  br i1 %.not6.i95, label %145, label %140
+
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds nuw i8, ptr %134, i64 1032
+  %142 = load i32, ptr %141, align 8
+  %.not7.i96 = icmp eq i32 %142, 0
+  br i1 %.not7.i96, label %143, label %SDL_GL_GetProcAddress_REAL.exit98
+
+143:                                              ; preds = %140
+  %144 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
   br label %.critedge
 
-139:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit93.thread
-  %140 = getelementptr inbounds nuw i8, ptr %136, i64 408
-  %141 = load ptr, ptr %140, align 8
-  %.not6.i95 = icmp eq ptr %141, null
-  br i1 %.not6.i95, label %147, label %142
-
-142:                                              ; preds = %139
-  %143 = getelementptr inbounds nuw i8, ptr %136, i64 1032
-  %144 = load i32, ptr %143, align 8
-  %.not7.i96 = icmp eq i32 %144, 0
-  br i1 %.not7.i96, label %145, label %SDL_GL_GetProcAddress_REAL.exit98
-
-145:                                              ; preds = %142
-  %146 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
+145:                                              ; preds = %137
+  %146 = load ptr, ptr %134, align 8
+  %147 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %146) #19
   br label %.critedge
 
-147:                                              ; preds = %139
-  %148 = load ptr, ptr %136, align 8
-  %149 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %148) #19
-  br label %.critedge
+SDL_GL_GetProcAddress_REAL.exit98:                ; preds = %140
+  %148 = call ptr %139(ptr noundef nonnull %134, ptr noundef nonnull @.str.76) #19
+  %.not77.not = icmp eq ptr %148, null
+  br i1 %.not77.not, label %.critedge, label %149
 
-SDL_GL_GetProcAddress_REAL.exit98:                ; preds = %142
-  %150 = call ptr %141(ptr noundef nonnull %136, ptr noundef nonnull @.str.76) #19
-  %.not77.not = icmp eq ptr %150, null
-  br i1 %.not77.not, label %.critedge, label %151
+149:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit98
+  %150 = load i32, ptr %7, align 4
+  %151 = icmp ne i32 %150, 0
+  %or.cond4 = select i1 %133, i1 %151, i1 false
+  br i1 %or.cond4, label %152, label %153
 
-151:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit98
-  %152 = load i32, ptr %7, align 4
-  %153 = icmp ne i32 %152, 0
-  %or.cond4 = select i1 %135, i1 %153, i1 false
-  br i1 %or.cond4, label %154, label %155
-
-154:                                              ; preds = %151
+152:                                              ; preds = %149
   call void %.03.i92113(i32 noundef 36009, i32 noundef 0) #19
-  br label %155
+  br label %153
 
-155:                                              ; preds = %154, %151
+153:                                              ; preds = %152, %149
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 33304, ptr %8, align 4
-  %or.cond6 = or i1 %82, %83
-  br i1 %or.cond6, label %156, label %.thread
+  br i1 %or.cond6, label %154, label %.thread
 
-156:                                              ; preds = %155
-  call void %150(i32 noundef 36160, i32 noundef %.061, i32 noundef 36048, ptr noundef nonnull %8) #19
+154:                                              ; preds = %153
+  call void %148(i32 noundef 36160, i32 noundef %.061, i32 noundef 36048, ptr noundef nonnull %8) #19
   %.pr = load i32, ptr %8, align 4
   %.not78 = icmp eq i32 %.pr, 0
-  br i1 %.not78, label %157, label %.thread
+  br i1 %.not78, label %155, label %.thread
 
-.thread:                                          ; preds = %155, %156
-  call void %150(i32 noundef 36160, i32 noundef %.061, i32 noundef %.060, ptr noundef nonnull %1) #19
-  br label %158
+.thread:                                          ; preds = %153, %154
+  call void %148(i32 noundef 36160, i32 noundef %.061, i32 noundef %.060, ptr noundef nonnull %1) #19
+  br label %156
 
-157:                                              ; preds = %156
+155:                                              ; preds = %154
   store i32 0, ptr %1, align 4
-  br label %158
+  br label %156
 
-158:                                              ; preds = %157, %.thread
-  %159 = load i32, ptr %7, align 4
-  %160 = icmp ne i32 %159, 0
-  %or.cond8 = select i1 %135, i1 %160, i1 false
-  br i1 %or.cond8, label %161, label %162
+156:                                              ; preds = %155, %.thread
+  %157 = load i32, ptr %7, align 4
+  %158 = icmp ne i32 %157, 0
+  %or.cond8 = select i1 %133, i1 %158, i1 false
+  br i1 %or.cond8, label %159, label %160
 
-161:                                              ; preds = %158
-  call void %.03.i92113(i32 noundef 36009, i32 noundef %159) #19
-  br label %162
+159:                                              ; preds = %156
+  call void %.03.i92113(i32 noundef 36009, i32 noundef %157) #19
+  br label %160
 
-162:                                              ; preds = %161, %158
+160:                                              ; preds = %159, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %179
+  br label %177
 
-isAtLeastGL3.exit.thread:                         ; preds = %96, %isAtLeastGL3.exit, %95
-  %163 = load ptr, ptr @_this, align 8
-  %.not.i99 = icmp eq ptr %163, null
-  br i1 %.not.i99, label %164, label %166
+isAtLeastGL3.exit.thread:                         ; preds = %94, %isAtLeastGL3.exit, %93
+  %161 = load ptr, ptr @_this, align 8
+  %.not.i99 = icmp eq ptr %161, null
+  br i1 %.not.i99, label %162, label %164
+
+162:                                              ; preds = %isAtLeastGL3.exit.thread
+  %163 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+  br label %.critedge82
 
 164:                                              ; preds = %isAtLeastGL3.exit.thread
-  %165 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 408
+  %166 = load ptr, ptr %165, align 8
+  %.not6.i100 = icmp eq ptr %166, null
+  br i1 %.not6.i100, label %172, label %167
+
+167:                                              ; preds = %164
+  %168 = getelementptr inbounds nuw i8, ptr %161, i64 1032
+  %169 = load i32, ptr %168, align 8
+  %.not7.i101 = icmp eq i32 %169, 0
+  br i1 %.not7.i101, label %170, label %SDL_GL_GetProcAddress_REAL.exit103
+
+170:                                              ; preds = %167
+  %171 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
   br label %.critedge82
 
-166:                                              ; preds = %isAtLeastGL3.exit.thread
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 408
-  %168 = load ptr, ptr %167, align 8
-  %.not6.i100 = icmp eq ptr %168, null
-  br i1 %.not6.i100, label %174, label %169
-
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %163, i64 1032
-  %171 = load i32, ptr %170, align 8
-  %.not7.i101 = icmp eq i32 %171, 0
-  br i1 %.not7.i101, label %172, label %SDL_GL_GetProcAddress_REAL.exit103
-
-172:                                              ; preds = %169
-  %173 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
+172:                                              ; preds = %164
+  %173 = load ptr, ptr %161, align 8
+  %174 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %173) #19
   br label %.critedge82
 
-174:                                              ; preds = %166
-  %175 = load ptr, ptr %163, align 8
-  %176 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %175) #19
+SDL_GL_GetProcAddress_REAL.exit103:               ; preds = %167
+  %175 = tail call ptr %166(ptr noundef nonnull %161, ptr noundef nonnull @.str.67) #19
+  %.not76.not = icmp eq ptr %175, null
+  br i1 %.not76.not, label %.critedge82, label %176
+
+176:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit103
+  tail call void %175(i32 noundef %.057, ptr noundef nonnull %1) #19
+  br label %177
+
+177:                                              ; preds = %160, %176
+  %178 = load ptr, ptr @_this, align 8
+  %.not.i104 = icmp eq ptr %178, null
+  br i1 %.not.i104, label %179, label %181
+
+179:                                              ; preds = %177
+  %180 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
   br label %.critedge82
 
-SDL_GL_GetProcAddress_REAL.exit103:               ; preds = %169
-  %177 = tail call ptr %168(ptr noundef nonnull %163, ptr noundef nonnull @.str.67) #19
-  %.not76.not = icmp eq ptr %177, null
-  br i1 %.not76.not, label %.critedge82, label %178
+181:                                              ; preds = %177
+  %182 = getelementptr inbounds nuw i8, ptr %178, i64 408
+  %183 = load ptr, ptr %182, align 8
+  %.not6.i105 = icmp eq ptr %183, null
+  br i1 %.not6.i105, label %189, label %184
 
-178:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit103
-  tail call void %177(i32 noundef %.057, ptr noundef nonnull %1) #19
-  br label %179
+184:                                              ; preds = %181
+  %185 = getelementptr inbounds nuw i8, ptr %178, i64 1032
+  %186 = load i32, ptr %185, align 8
+  %.not7.i106 = icmp eq i32 %186, 0
+  br i1 %.not7.i106, label %187, label %SDL_GL_GetProcAddress_REAL.exit108
 
-179:                                              ; preds = %162, %178
-  %180 = load ptr, ptr @_this, align 8
-  %.not.i104 = icmp eq ptr %180, null
-  br i1 %.not.i104, label %181, label %183
-
-181:                                              ; preds = %179
-  %182 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.1) #19
+187:                                              ; preds = %184
+  %188 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
   br label %.critedge82
 
-183:                                              ; preds = %179
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 408
-  %185 = load ptr, ptr %184, align 8
-  %.not6.i105 = icmp eq ptr %185, null
-  br i1 %.not6.i105, label %191, label %186
-
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %180, i64 1032
-  %188 = load i32, ptr %187, align 8
-  %.not7.i106 = icmp eq i32 %188, 0
-  br i1 %.not7.i106, label %189, label %SDL_GL_GetProcAddress_REAL.exit108
-
-189:                                              ; preds = %186
-  %190 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.62) #19
+189:                                              ; preds = %181
+  %190 = load ptr, ptr %178, align 8
+  %191 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %190) #19
   br label %.critedge82
 
-191:                                              ; preds = %183
-  %192 = load ptr, ptr %180, align 8
-  %193 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.63, ptr noundef %192) #19
-  br label %.critedge82
+SDL_GL_GetProcAddress_REAL.exit108:               ; preds = %184
+  %192 = call ptr %183(ptr noundef nonnull %178, ptr noundef nonnull @.str.77) #19
+  %.not79 = icmp eq ptr %192, null
+  br i1 %.not79, label %.critedge82, label %193
 
-SDL_GL_GetProcAddress_REAL.exit108:               ; preds = %186
-  %194 = call ptr %185(ptr noundef nonnull %180, ptr noundef nonnull @.str.77) #19
-  %.not79 = icmp eq ptr %194, null
-  br i1 %.not79, label %.critedge82, label %195
-
-195:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit108
-  %196 = call i32 %194() #19
-  switch i32 %196, label %201 [
-    i32 0, label %203
-    i32 1280, label %197
-    i32 1281, label %199
+193:                                              ; preds = %SDL_GL_GetProcAddress_REAL.exit108
+  %194 = call i32 %192() #19
+  switch i32 %194, label %199 [
+    i32 0, label %201
+    i32 1280, label %195
+    i32 1281, label %197
   ]
 
-197:                                              ; preds = %195
-  %198 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.78) #19
+195:                                              ; preds = %193
+  %196 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.78) #19
   br label %.critedge82
 
-199:                                              ; preds = %195
-  %200 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.79) #19
+197:                                              ; preds = %193
+  %198 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.79) #19
   br label %.critedge82
 
-201:                                              ; preds = %195
-  %202 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.80, i32 noundef %196) #19
+199:                                              ; preds = %193
+  %200 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.80, i32 noundef %194) #19
   br label %.critedge82
 
-203:                                              ; preds = %195
-  %204 = icmp eq i32 %0, 23
-  br i1 %204, label %205, label %.critedge82
+201:                                              ; preds = %193
+  %202 = icmp eq i32 %0, 23
+  br i1 %202, label %203, label %.critedge82
 
-205:                                              ; preds = %203
-  %206 = load i32, ptr %1, align 4
-  %207 = icmp eq i32 %206, 33532
-  %208 = zext i1 %207 to i32
-  store i32 %208, ptr %1, align 4
+203:                                              ; preds = %201
+  %204 = load i32, ptr %1, align 4
+  %205 = icmp eq i32 %204, 33532
+  %206 = zext i1 %205 to i32
+  store i32 %206, ptr %1, align 4
   br label %.critedge82
 
-.critedge:                                        ; preds = %147, %145, %137, %SDL_GL_GetProcAddress_REAL.exit98
+.critedge:                                        ; preds = %145, %143, %135, %SDL_GL_GetProcAddress_REAL.exit98
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge82
 
-.critedge82:                                      ; preds = %191, %189, %181, %174, %172, %164, %91, %89, %SDL_GL_GetProcAddress_REAL.exit103, %203, %205, %SDL_GL_GetProcAddress_REAL.exit108, %.critedge, %SDL_GL_GetProcAddress_REAL.exit, %201, %199, %197, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %47, %46, %13, %9
-  %.0 = phi i1 [ %80, %79 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %.1, %46 ], [ true, %47 ], [ true, %52 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %73 ], [ true, %76 ], [ %14, %13 ], [ %10, %9 ], [ false, %SDL_GL_GetProcAddress_REAL.exit ], [ false, %.critedge ], [ false, %SDL_GL_GetProcAddress_REAL.exit108 ], [ true, %205 ], [ true, %203 ], [ false, %SDL_GL_GetProcAddress_REAL.exit103 ], [ false, %89 ], [ false, %91 ], [ false, %164 ], [ false, %172 ], [ false, %174 ], [ false, %181 ], [ false, %189 ], [ false, %191 ]
+.critedge82:                                      ; preds = %189, %187, %179, %172, %170, %162, %89, %87, %SDL_GL_GetProcAddress_REAL.exit103, %201, %203, %SDL_GL_GetProcAddress_REAL.exit108, %.critedge, %SDL_GL_GetProcAddress_REAL.exit, %199, %197, %195, %79, %76, %73, %70, %67, %64, %61, %58, %55, %52, %47, %46, %13, %9
+  %.0 = phi i1 [ %80, %79 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %.1, %46 ], [ true, %47 ], [ true, %52 ], [ true, %55 ], [ true, %58 ], [ true, %61 ], [ true, %64 ], [ true, %67 ], [ true, %70 ], [ true, %73 ], [ true, %76 ], [ %14, %13 ], [ %10, %9 ], [ false, %SDL_GL_GetProcAddress_REAL.exit ], [ false, %.critedge ], [ false, %SDL_GL_GetProcAddress_REAL.exit108 ], [ true, %203 ], [ true, %201 ], [ false, %SDL_GL_GetProcAddress_REAL.exit103 ], [ false, %87 ], [ false, %89 ], [ false, %162 ], [ false, %170 ], [ false, %172 ], [ false, %179 ], [ false, %187 ], [ false, %189 ]
   ret i1 %.0
 }
 

@@ -1318,7 +1318,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__44UsdRiPxrImaging
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %8 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4
   %9 = icmp eq i32 %8, 1
-  br i1 %9, label %10, label %17
+  br i1 %9, label %10, label %18
 
 10:                                               ; preds = %5
   fence syncscope("singlethread") seq_cst
@@ -1328,77 +1328,75 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__44UsdRiPxrImaging
   %14 = zext i32 %13 to i64
   %15 = shl nuw i64 %14, 32
   %16 = zext i32 %12 to i64
-  br label %17
+  %17 = or disjoint i64 %15, %16
+  br label %18
 
-17:                                               ; preds = %10, %5
-  %.sroa.7.0 = phi i64 [ %16, %10 ], [ 0, %5 ]
-  %.sroa.11.0 = phi i64 [ %15, %10 ], [ 0, %5 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 452
-  store i32 8, ptr %19, align 4
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %.not24 = icmp eq ptr %20, %22
+18:                                               ; preds = %10, %5
+  %.sroa.11.0 = phi i64 [ %17, %10 ], [ 0, %5 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 448
+  store i32 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 452
+  store i32 8, ptr %20, align 4
+  %21 = load ptr, ptr %3, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %.not24 = icmp eq ptr %21, %23
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %17, %30
-  %.sroa.09.025 = phi ptr [ %31, %30 ], [ %20, %17 ]
+.lr.ph:                                           ; preds = %18, %31
+  %.sroa.09.025 = phi ptr [ %32, %31 ], [ %21, %18 ]
   %.val = load ptr, ptr %.sroa.09.025, align 8
-  %23 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_HasInputPrefixERKNS_7TfTokenEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, ptr noundef null)
-          to label %24 unwind label %28
+  %24 = invoke fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_HasInputPrefixERKNS_7TfTokenEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.val, ptr noundef null)
+          to label %25 unwind label %29
 
-24:                                               ; preds = %.lr.ph
-  br i1 %23, label %25, label %30
+25:                                               ; preds = %.lr.ph
+  br i1 %24, label %26, label %31
 
-25:                                               ; preds = %24
-  %26 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdIntegratorSchema18GetResourceLocatorEv()
-          to label %27 unwind label %28
+26:                                               ; preds = %25
+  %27 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__18HdIntegratorSchema18GetResourceLocatorEv()
+          to label %28 unwind label %29
 
-27:                                               ; preds = %25
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6insertERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(56) %26)
-          to label %30 unwind label %28
+28:                                               ; preds = %26
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSet6insertERKNS_19HdDataSourceLocatorE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(56) %27)
+          to label %31 unwind label %29
 
-28:                                               ; preds = %.lr.ph, %27, %25
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %.lr.ph, %28, %26
+  %30 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22HdDataSourceLocatorSetD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %0) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br i1 %9, label %34, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8
+  br i1 %9, label %35, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8
 
-30:                                               ; preds = %24, %27
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.09.025, i64 8
-  %.not = icmp eq ptr %31, %22
+31:                                               ; preds = %25, %28
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.09.025, i64 8
+  %.not = icmp eq ptr %32, %23
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %30, %17
+._crit_edge:                                      ; preds = %31, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  br i1 %9, label %32, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
+  br i1 %9, label %33, label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-32:                                               ; preds = %._crit_edge
+33:                                               ; preds = %._crit_edge
   fence syncscope("singlethread") seq_cst
-  %33 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
+  %34 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__44UsdRiPxrImaging_DataSourceRenderTerminalPrimINS_18HdIntegratorSchemaEE10InvalidateERKNS_7UsdPrimERKNS_7TfTokenERKSt6vectorIS6_SaIS6_EENS_34UsdImagingPropertyInvalidationTypeEE16TraceKeyData_179, ptr %7, align 8
-  %.sroa.7.12.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.sroa.7.12.insert.insert, i64 noundef %33) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef %.sroa.11.0, i64 noundef %34) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._crit_edge, %32
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit: ; preds = %._crit_edge, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 
-34:                                               ; preds = %28
+35:                                               ; preds = %29
   fence syncscope("singlethread") seq_cst
-  %35 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
+  %36 = tail call noundef i64 asm sideeffect "rdtscp\0A\09shl $$32, %rdx\0A\09or %rdx, $0\0A\09lfence", "={ax},~{rcx},~{rdx},~{cc},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !10
   store ptr @_ZZN32pxrInternal_v0_24__pxrReserved__44UsdRiPxrImaging_DataSourceRenderTerminalPrimINS_18HdIntegratorSchemaEE10InvalidateERKNS_7UsdPrimERKNS_7TfTokenERKSt6vectorIS6_SaIS6_EENS_34UsdImagingPropertyInvalidationTypeEE16TraceKeyData_179, ptr %6, align 8
-  %.sroa.7.12.insert.insert18 = or disjoint i64 %.sroa.11.0, %.sroa.7.0
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.7.12.insert.insert18, i64 noundef %35) #20
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector5ScopeERKNS_8TraceKeyEmm(ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %.sroa.11.0, i64 noundef %36) #20
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8
 
-_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8: ; preds = %28, %34
+_ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit8: ; preds = %29, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  resume { ptr, i32 } %29
+  resume { ptr, i32 } %30
 }
 
 ; Function Attrs: mustprogress uwtable

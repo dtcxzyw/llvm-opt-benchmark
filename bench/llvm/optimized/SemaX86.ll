@@ -2847,15 +2847,11 @@ _ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit: ; preds = %2, %8, %11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = tail call i64 %21(ptr noundef nonnull align 8 dereferenceable(104) %17) #17
-  %.sroa.4.0.extract.shift = and i64 %22, -4294967296
-  %23 = and i64 %22, 4294967295
   br label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit.thread
 
 _ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit.thread: ; preds = %11, %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit, %18
-  %.sroa.4.1 = phi i64 [ %.sroa.4.0.extract.shift, %18 ], [ 0, %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit ], [ 0, %11 ]
-  %.sroa.0.1 = phi i64 [ %23, %18 ], [ 0, %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit ], [ 0, %11 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.1, %.sroa.4.1
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.4.1 = phi i64 [ %22, %18 ], [ 0, %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit ], [ 0, %11 ]
+  ret i64 %.sroa.4.1
 }
 
 declare noundef zeroext i1 @_ZNK5clang4Type21isUnsignedIntegerTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1

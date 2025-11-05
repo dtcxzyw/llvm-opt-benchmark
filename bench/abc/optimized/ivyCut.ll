@@ -85,11 +85,11 @@ define range(i32 0, 2) i32 @Ivy_ManSeqFindCut_int(ptr noundef readonly captures(
   %34 = inttoptr i64 %33 to ptr
   %.val.i.i = load i32, ptr %34, align 8, !tbaa !23
   %35 = shl i32 %.val.i.i, 8
+  %36 = or disjoint i32 %35, %27
   br label %Ivy_ObjFaninId0.exit.i
 
 Ivy_ObjFaninId0.exit.i:                           ; preds = %31, %29
-  %36 = phi i32 [ %35, %31 ], [ 0, %29 ]
-  %37 = or disjoint i32 %36, %27
+  %37 = phi i32 [ %36, %31 ], [ %27, %29 ]
   %.not26.i = icmp eq i32 %37, 0
   br i1 %.not26.i, label %Vec_IntFind.exit.i, label %38
 
@@ -134,11 +134,11 @@ Vec_IntFind.exit.i:                               ; preds = %46, %42, %38, %Ivy_
   %53 = inttoptr i64 %52 to ptr
   %.val.i38.i = load i32, ptr %53, align 8, !tbaa !23
   %54 = shl i32 %.val.i38.i, 8
+  %55 = or disjoint i32 %54, %27
   br label %Ivy_ObjFaninId1.exit.i
 
 Ivy_ObjFaninId1.exit.i:                           ; preds = %50, %48
-  %55 = phi i32 [ %54, %50 ], [ 0, %48 ]
-  %56 = or disjoint i32 %55, %27
+  %56 = phi i32 [ %55, %50 ], [ %27, %48 ]
   %.not29.i = icmp eq i32 %56, 0
   br i1 %.not29.i, label %Vec_IntFind.exit46.i, label %57
 
@@ -307,11 +307,11 @@ Vec_IntRemove.exit:                               ; preds = %96, %._crit_edge.i,
   %130 = inttoptr i64 %129 to ptr
   %.val.i = load i32, ptr %130, align 8, !tbaa !23
   %131 = shl i32 %.val.i, 8
+  %132 = or i32 %131, %125
   br label %Ivy_ObjFaninId0.exit
 
 Ivy_ObjFaninId0.exit:                             ; preds = %Vec_IntRemove.exit, %127
-  %132 = phi i32 [ %131, %127 ], [ 0, %Vec_IntRemove.exit ]
-  %133 = or i32 %132, %125
+  %133 = phi i32 [ %132, %127 ], [ %125, %Vec_IntRemove.exit ]
   %.not = icmp eq i32 %133, 0
   br i1 %.not, label %Vec_IntFind.exit, label %134
 
@@ -492,11 +492,11 @@ Vec_IntFind.exit:                                 ; preds = %140, %Vec_IntPush.e
   %209 = inttoptr i64 %208 to ptr
   %.val.i86 = load i32, ptr %209, align 8, !tbaa !23
   %210 = shl i32 %.val.i86, 8
+  %211 = or i32 %210, %125
   br label %Ivy_ObjFaninId1.exit
 
 Ivy_ObjFaninId1.exit:                             ; preds = %204, %206
-  %211 = phi i32 [ %210, %206 ], [ 0, %204 ]
-  %212 = or i32 %211, %125
+  %212 = phi i32 [ %211, %206 ], [ %125, %204 ]
   %.not61 = icmp eq i32 %212, 0
   br i1 %.not61, label %Vec_IntFind.exit95, label %213
 

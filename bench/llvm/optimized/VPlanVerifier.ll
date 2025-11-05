@@ -4361,15 +4361,15 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11VPBlockBaseEjNS_12DenseMapInfoIS4_vE
   %.sroa.0.1.i.i.i.i.i = phi ptr [ %683, %.loopexit.i.i.i.i.i ], [ %670, %667 ], [ %679, %675 ]
   %684 = zext i32 %665 to i64
   %685 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %663, i64 %684
-  %.not.i.not.i.i.i = icmp eq ptr %.sroa.0.1.i.i.i.i.i, %685
-  br i1 %.not.i.not.i.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i.i.i
+  %.not.i.i.i98.i = icmp eq ptr %.sroa.0.1.i.i.i.i.i, %685
+  br i1 %.not.i.i.i98.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i.i.i
 
 _ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11VPBlockBaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i.i.i
   %686 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i.i.i, i64 8
   %687 = load i32, ptr %686, align 4, !tbaa !289
   %688 = getelementptr inbounds nuw i8, ptr %661, i64 32
-  %689 = load i32, ptr %688, align 8
-  %690 = icmp ult i32 %687, %689
+  %689 = load i32, ptr %688, align 8, !tbaa !9
+  %690 = icmp ugt i32 %689, %687
   br i1 %690, label %691, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.i.i
 
 691:                                              ; preds = %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i.i.i
@@ -4417,15 +4417,15 @@ _ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit.i.i: ; pr
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11VPBlockBaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i13.i.i: ; preds = %711, %698
   %.sroa.0.1.i.i.i14.i.i = phi ptr [ %706, %698 ], [ %715, %711 ]
-  %.not.i.not.i15.i.i = icmp eq ptr %.sroa.0.1.i.i.i14.i.i, %685
-  br i1 %.not.i.not.i15.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE9dominatesEPKS1_S4_.exit.thread.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i16.i.i
+  %.not.i.i15.i.i = icmp eq ptr %.sroa.0.1.i.i.i14.i.i, %685
+  br i1 %.not.i.i15.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE9dominatesEPKS1_S4_.exit.thread.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i16.i.i
 
 _ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i16.i.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11VPBlockBaseEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4findES4_.exit.i.i13.i.i
   %718 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i.i14.i.i, i64 8
   %719 = load i32, ptr %718, align 4, !tbaa !289
   %720 = getelementptr inbounds nuw i8, ptr %661, i64 32
-  %721 = load i32, ptr %720, align 8
-  %722 = icmp ult i32 %719, %721
+  %721 = load i32, ptr %720, align 8, !tbaa !9
+  %722 = icmp ugt i32 %721, %719
   br i1 %722, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit18.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE9dominatesEPKS1_S4_.exit.thread.i
 
 _ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit18.i.i: ; preds = %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE12getNodeIndexEPKS1_.exit.i16.i.i
@@ -4460,8 +4460,8 @@ _ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit18.i.i: ; 
   %741 = load i32, ptr %740, align 8, !tbaa !320
   %742 = getelementptr inbounds nuw i8, ptr %727, i64 16
   %743 = load i32, ptr %742, align 8, !tbaa !320
-  %.not.i.i99.i = icmp ult i32 %741, %743
-  br i1 %.not.i.i99.i, label %744, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE9dominatesEPKS1_S4_.exit.thread166.i
+  %.not.i.i100.i = icmp ult i32 %741, %743
+  br i1 %.not.i.i100.i, label %744, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE9dominatesEPKS1_S4_.exit.thread166.i
 
 744:                                              ; preds = %739
   %745 = getelementptr inbounds nuw i8, ptr %661, i64 128
@@ -4474,8 +4474,8 @@ _ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE7getNodeEPKS1_.exit18.i.i: ; 
   %750 = load i32, ptr %749, align 8, !tbaa !322
   %751 = getelementptr inbounds nuw i8, ptr %697, i64 72
   %752 = load i32, ptr %751, align 8, !tbaa !322
-  %.not.i.i.i100.i = icmp ult i32 %750, %752
-  br i1 %.not.i.i.i100.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE9dominatesEPKS1_S4_.exit.thread166.i, label %753
+  %.not.i.i19.i.i = icmp ult i32 %750, %752
+  br i1 %.not.i.i19.i.i, label %_ZNK4llvm17DominatorTreeBaseINS_11VPBlockBaseELb0EE9dominatesEPKS1_S4_.exit.thread166.i, label %753
 
 753:                                              ; preds = %748
   %754 = getelementptr inbounds nuw i8, ptr %727, i64 76

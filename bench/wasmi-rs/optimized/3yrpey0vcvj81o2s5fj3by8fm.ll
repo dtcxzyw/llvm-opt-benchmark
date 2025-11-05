@@ -408,11 +408,11 @@ define hidden range(i64 0, -4294901760) i64 @_ZN10wasmi_core6memory6access11load
   br label %_ZN10wasmi_core6memory6access14load_extend_at17h8fb1ac42623150edE.exit
 
 _ZN10wasmi_core6memory6access14load_extend_at17h8fb1ac42623150edE.exit: ; preds = %11, %15
-  %.sroa.0.0.insert.insert.i = phi i64 [ %18, %15 ], [ 257, %11 ]
-  %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 8
+  %.sroa.3.0.insert.insert.i = phi i64 [ %18, %15 ], [ 257, %11 ]
+  %.sroa.4.0.extract.shift = lshr i64 %.sroa.3.0.insert.insert.i, 8
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.sroa.56.0.extract.shift = and i64 %.sroa.0.0.insert.insert.i, -4294967296
-  %19 = and i64 %.sroa.0.0.insert.insert.i, 1
+  %.sroa.56.0.extract.shift = and i64 %.sroa.3.0.insert.insert.i, -4294967296
+  %19 = and i64 %.sroa.3.0.insert.insert.i, 1
   br label %20
 
 20:                                               ; preds = %_ZN10wasmi_core6memory6access14load_extend_at17h8fb1ac42623150edE.exit, %8
@@ -660,11 +660,11 @@ _ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.i: ; preds = %11
   br label %_ZN10wasmi_core6memory6access14load_extend_at17hd9760fac8f6a7ad1E.exit
 
 _ZN10wasmi_core6memory6access14load_extend_at17hd9760fac8f6a7ad1E.exit: ; preds = %11, %_ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.i
-  %.sroa.0.0.insert.insert.i = phi i64 [ %21, %_ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.i ], [ 257, %11 ]
-  %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 8
+  %.sroa.41.0.i = phi i64 [ %21, %_ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.i ], [ 257, %11 ]
+  %.sroa.4.0.extract.shift = lshr i64 %.sroa.41.0.i, 8
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.sroa.56.0.extract.shift = and i64 %.sroa.0.0.insert.insert.i, -65536
-  %22 = and i64 %.sroa.0.0.insert.insert.i, 255
+  %.sroa.56.0.extract.shift = and i64 %.sroa.41.0.i, -65536
+  %22 = and i64 %.sroa.41.0.i, 255
   br label %23
 
 23:                                               ; preds = %_ZN10wasmi_core6memory6access14load_extend_at17hd9760fac8f6a7ad1E.exit, %8
@@ -711,11 +711,11 @@ define hidden range(i64 0, 1095216726016) i64 @_ZN10wasmi_core6memory6access11lo
   br label %_ZN10wasmi_core6memory6access14load_extend_at17h70170e44098d72eaE.exit
 
 _ZN10wasmi_core6memory6access14load_extend_at17h70170e44098d72eaE.exit: ; preds = %11, %15
-  %.sroa.0.0.insert.insert.i = phi i64 [ %18, %15 ], [ 257, %11 ]
-  %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 8
+  %.sroa.3.0.insert.insert.i = phi i64 [ %18, %15 ], [ 257, %11 ]
+  %.sroa.4.0.extract.shift = lshr i64 %.sroa.3.0.insert.insert.i, 8
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.sroa.56.0.extract.shift = and i64 %.sroa.0.0.insert.insert.i, 9223372032559808512
-  %19 = and i64 %.sroa.0.0.insert.insert.i, 1
+  %.sroa.56.0.extract.shift = and i64 %.sroa.3.0.insert.insert.i, 9223372032559808512
+  %19 = and i64 %.sroa.3.0.insert.insert.i, 1
   br label %20
 
 20:                                               ; preds = %_ZN10wasmi_core6memory6access14load_extend_at17h70170e44098d72eaE.exit, %8
@@ -766,11 +766,11 @@ _ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.i: ; preds = %11
   br label %_ZN10wasmi_core6memory6access14load_extend_at17h124f9bd4211d49f1E.exit
 
 _ZN10wasmi_core6memory6access14load_extend_at17h124f9bd4211d49f1E.exit: ; preds = %11, %_ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.i
-  %.sroa.0.0.insert.insert.i = phi i64 [ %21, %_ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.i ], [ 257, %11 ]
-  %.sroa.4.0.extract.shift = lshr i64 %.sroa.0.0.insert.insert.i, 8
+  %.sroa.41.0.i = phi i64 [ %21, %_ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.i ], [ 257, %11 ]
+  %.sroa.4.0.extract.shift = lshr i64 %.sroa.41.0.i, 8
   %.sroa.4.0.extract.trunc = trunc i64 %.sroa.4.0.extract.shift to i8
-  %.sroa.56.0.extract.shift = and i64 %.sroa.0.0.insert.insert.i, -65536
-  %22 = and i64 %.sroa.0.0.insert.insert.i, 255
+  %.sroa.56.0.extract.shift = and i64 %.sroa.41.0.i, -65536
+  %22 = and i64 %.sroa.41.0.i, 255
   br label %23
 
 23:                                               ; preds = %_ZN10wasmi_core6memory6access14load_extend_at17h124f9bd4211d49f1E.exit, %8
@@ -929,8 +929,8 @@ _ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit: ; preds = %3
   br label %_ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.thread
 
 _ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit.thread: ; preds = %3, %_ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit
-  %.sroa.0.0.insert.insert = phi i64 [ %11, %_ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit ], [ 257, %3 ]
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.41.0 = phi i64 [ %11, %_ZN10wasmi_core6memory6access7load_at17h5cac1a7c14d1e0d0E.exit ], [ 257, %3 ]
+  ret i64 %.sroa.41.0
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1029,8 +1029,8 @@ define hidden range(i64 0, 1095216660481) i64 @_ZN10wasmi_core6memory6access14lo
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.0.0.insert.insert = phi i64 [ %8, %5 ], [ 257, %3 ]
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.3.0.insert.insert = phi i64 [ %8, %5 ], [ 257, %3 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1048,8 +1048,8 @@ define hidden range(i64 -549755813888, 545460846593) i64 @_ZN10wasmi_core6memory
   br label %9
 
 9:                                                ; preds = %3, %5
-  %.sroa.0.0.insert.insert = phi i64 [ %8, %5 ], [ 257, %3 ]
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.3.0.insert.insert = phi i64 [ %8, %5 ], [ 257, %3 ]
+  ret i64 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1100,8 +1100,8 @@ _ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit: ; preds = %3
   br label %_ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.thread
 
 _ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit.thread: ; preds = %3, %_ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit
-  %.sroa.0.0.insert.insert = phi i64 [ %11, %_ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit ], [ 257, %3 ]
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.41.0 = phi i64 [ %11, %_ZN10wasmi_core6memory6access7load_at17h6ebef35ab4a96825E.exit ], [ 257, %3 ]
+  ret i64 %.sroa.41.0
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -4863,7 +4863,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 15:                                               ; preds = %5, %3
   store i32 3, ptr %2, align 4, !tbaa !196
-  br label %168
+  br label %169
 
 16:                                               ; preds = %5
   %17 = zext nneg i32 %1 to i64
@@ -4877,7 +4877,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 23:                                               ; preds = %16
   store i32 0, ptr %2, align 4, !tbaa !196
-  br label %168
+  br label %169
 
 24:                                               ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 28
@@ -4889,7 +4889,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 30:                                               ; preds = %24
   store i32 2, ptr %2, align 4, !tbaa !196
-  br label %168
+  br label %169
 
 31:                                               ; preds = %24
   %32 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -4905,7 +4905,7 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
 
 41:                                               ; preds = %31
   store i32 3, ptr %2, align 4, !tbaa !196
-  br label %168
+  br label %169
 
 42:                                               ; preds = %31
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -5101,14 +5101,13 @@ define { i64, i64 } @_ZNK2cv21DetectionBasedTracker31calcTrackedObjectPositionTo
   %165 = zext i32 %160 to i64
   %166 = shl nuw i64 %165, 32
   %167 = zext i32 %158 to i64
-  br label %168
+  %168 = or disjoint i64 %166, %167
+  br label %169
 
-168:                                              ; preds = %41, %150, %30, %23, %15
+169:                                              ; preds = %41, %150, %30, %23, %15
   %.sroa.7.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %23 ], [ 0, %41 ], [ %.sroa.7.12.insert.insert, %150 ]
-  %.sroa.0198.sroa.6.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %23 ], [ 0, %41 ], [ %166, %150 ]
-  %.sroa.0198.sroa.0.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %23 ], [ 0, %41 ], [ %167, %150 ]
-  %.sroa.0198.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0198.sroa.0.0, %.sroa.0198.sroa.6.0
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0198.sroa.0.0.insert.insert, 0
+  %.sroa.0198.sroa.6.0 = phi i64 [ 0, %15 ], [ 0, %30 ], [ 0, %23 ], [ 0, %41 ], [ %168, %150 ]
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0198.sroa.6.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
 }

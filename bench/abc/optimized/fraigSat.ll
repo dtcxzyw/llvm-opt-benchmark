@@ -795,13 +795,13 @@ define range(i32 0, 2) i32 @Fraig_MarkTfi3_rec(ptr noundef readonly captures(non
   %11 = add nsw i32 %8, -1
   %12 = icmp eq i32 %9, %11
   store i32 %8, ptr %10, align 8, !tbaa !56
-  br i1 %12, label %.loopexit.loopexit, label %13
+  br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = getelementptr inbounds nuw i8, ptr %.tr1522, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !58
   %16 = icmp sgt i32 %15, -1
-  br i1 %16, label %.loopexit.loopexit, label %tailrecurse
+  br i1 %16, label %.loopexit, label %tailrecurse
 
 tailrecurse:                                      ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %.tr1522, i64 32
@@ -820,17 +820,11 @@ tailrecurse:                                      ; preds = %13
   %30 = load i32, ptr %29, align 8, !tbaa !56
   %31 = load i32, ptr %3, align 8, !tbaa !57
   %32 = icmp eq i32 %30, %31
-  br i1 %32, label %.loopexit.loopexit, label %.lr.ph
+  br i1 %32, label %.loopexit, label %.lr.ph
 
-.loopexit.loopexit:                               ; preds = %.lr.ph, %13, %tailrecurse
-  %accumulator.tr20.ph = phi i32 [ %28, %tailrecurse ], [ %accumulator.tr21, %13 ], [ %accumulator.tr21, %.lr.ph ]
-  %.0.ph = phi i32 [ 1, %tailrecurse ], [ 0, %13 ], [ 1, %.lr.ph ]
-  %33 = mul nuw nsw i32 %.0.ph, %accumulator.tr20.ph
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %2
-  %accumulator.ret.tr = phi i32 [ 1, %2 ], [ %33, %.loopexit.loopexit ]
-  ret i32 %accumulator.ret.tr
+.loopexit:                                        ; preds = %tailrecurse, %13, %.lr.ph, %2
+  %.0 = phi i32 [ 1, %2 ], [ %28, %tailrecurse ], [ 0, %13 ], [ %accumulator.tr21, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable

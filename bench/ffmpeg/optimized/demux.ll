@@ -9380,24 +9380,24 @@ define internal fastcc void @compute_frame_duration(ptr noundef readonly capture
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 848
   %56 = load ptr, ptr %55, align 8, !tbaa !107
   %.not76 = icmp eq ptr %56, null
-  br i1 %.not76, label %62, label %57
+  br i1 %.not76, label %63, label %57
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %59 = load i32, ptr %58, align 8, !tbaa !196
-  %60 = and i32 %59, 16
-  %.not77 = icmp eq i32 %60, 0
-  %61 = select i1 %.not77, i64 1, i64 2
-  br label %62
+  %60 = lshr i32 %59, 4
+  %.lobit = and i32 %60, 1
+  %61 = zext nneg i32 %.lobit to i64
+  %62 = shl nsw i64 %52, %61
+  br label %63
 
-62:                                               ; preds = %57, %54
-  %63 = phi i64 [ 1, %54 ], [ %61, %57 ]
-  %64 = mul nsw i64 %63, %52
+63:                                               ; preds = %57, %54
+  %64 = phi i64 [ %52, %54 ], [ %62, %57 ]
   %65 = tail call i32 @av_reduce(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %50, i64 noundef %64, i64 noundef 2147483647) #16
   %66 = icmp ne ptr %4, null
   br i1 %66, label %67, label %79
 
-67:                                               ; preds = %62
+67:                                               ; preds = %63
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 44
   %69 = load i32, ptr %68, align 4, !tbaa !246
   %.not78 = icmp eq i32 %69, 0
@@ -9414,7 +9414,7 @@ define internal fastcc void @compute_frame_duration(ptr noundef readonly capture
   %78 = tail call i32 @av_reduce(ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %75, i64 noundef %77, i64 noundef 2147483647) #16
   br label %79
 
-79:                                               ; preds = %70, %67, %62
+79:                                               ; preds = %70, %67, %63
   %80 = load ptr, ptr %55, align 8, !tbaa !107
   %.not79 = icmp eq ptr %80, null
   br i1 %.not79, label %104, label %81

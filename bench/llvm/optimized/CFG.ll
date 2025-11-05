@@ -19055,18 +19055,18 @@ _ZN12_GLOBAL__N_110CFGBuilder11tryEvaluateEPN5clang4ExprERNS2_10EvalResultE.exit
   %80 = load i16, ptr %1, align 8
   %81 = and i16 %80, 2048
   %.not106 = icmp eq i16 %81, 0
-  br i1 %.not106, label %87, label %82
+  br i1 %.not106, label %88, label %82
 
 82:                                               ; preds = %77
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !1029
   %85 = icmp ne ptr %84, null
   %86 = zext i1 %85 to i32
-  br label %87
+  %87 = or i32 %86, %79
+  br label %88
 
-87:                                               ; preds = %82, %77
-  %88 = phi i32 [ 0, %77 ], [ %86, %82 ]
-  %89 = or i32 %88, %79
+88:                                               ; preds = %82, %77
+  %89 = phi i32 [ %79, %77 ], [ %87, %82 ]
   %.not54 = icmp eq i32 %89, 0
   %90 = load ptr, ptr %27, align 8, !tbaa !938
   %91 = load ptr, ptr %29, align 8, !tbaa !974
@@ -19100,7 +19100,7 @@ _ZN12_GLOBAL__N_110CFGBuilder11tryEvaluateEPN5clang4ExprERNS2_10EvalResultE.exit
   %.not55 = icmp eq ptr %109, null
   br i1 %.not55, label %134, label %110
 
-110:                                              ; preds = %87
+110:                                              ; preds = %88
   %111 = call noundef ptr @_ZN5clang7VarDecl7getInitEv(ptr noundef nonnull align 8 dereferenceable(100) %109) #27
   %.not56 = icmp eq ptr %111, null
   br i1 %.not56, label %134, label %112
@@ -19155,8 +19155,8 @@ _ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit: ; preds = %_ZN12_GLO
   call fastcc void @_ZN12_GLOBAL__N_110CFGBuilder28maybeAddScopeBeginForVarDeclEPN5clang8CFGBlockEPKNS1_7VarDeclEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %133, ptr noundef %109, ptr noundef nonnull %111)
   br label %134
 
-134:                                              ; preds = %110, %_ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit, %87
-  %.043 = phi ptr [ %108, %87 ], [ %133, %_ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit ], [ %108, %110 ]
+134:                                              ; preds = %110, %_ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit, %88
+  %.043 = phi ptr [ %108, %88 ], [ %133, %_ZN5clang10SwitchStmt28getConditionVariableDeclStmtEv.exit ], [ %108, %110 ]
   %135 = load i16, ptr %1, align 8
   %136 = and i16 %135, 512
   %.not.i76 = icmp eq i16 %136, 0
@@ -26217,7 +26217,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread.i:              ; preds = %10
   %12 = and i32 %11, 63
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw i64 1, %13
-  br label %20
+  br label %21
 
 _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %10
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %4, i64 noundef 0, i1 noundef zeroext false) #27
@@ -26227,39 +26227,38 @@ _ZN4llvm5APIntC2Ejmbb.exit.i:                     ; preds = %10
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17
   %19 = icmp ult i32 %.pr.i, 65
-  br i1 %19, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, label %25
+  br i1 %19, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, label %24
 
 _ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i:          ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
   %.pre.i = load i64, ptr %4, align 8, !tbaa !51, !alias.scope !1142
-  br label %20
+  %20 = or i64 %.pre.i, %18
+  br label %21
 
-20:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i
-  %21 = phi i32 [ %1, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %.pr.i, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
-  %22 = phi i64 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %.pre.i, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
-  %23 = phi i64 [ %14, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %18, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
-  %24 = or i64 %23, %22
-  store i64 %24, ptr %4, align 8, !tbaa !51, !alias.scope !1142
+21:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i
+  %22 = phi i32 [ %1, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %.pr.i, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
+  %23 = phi i64 [ %14, %_ZN4llvm5APIntC2Ejmbb.exit.thread.i ], [ %20, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge.i ]
+  store i64 %23, ptr %4, align 8, !tbaa !51, !alias.scope !1142
   br label %_ZN4llvm5APIntD2Ev.exit
 
-25:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
-  %26 = load ptr, ptr %4, align 8, !tbaa !51, !alias.scope !1142
-  %27 = lshr i32 %15, 6
-  %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %28
-  %30 = load i64, ptr %29, align 8, !tbaa !388
-  %31 = or i64 %30, %18
-  store i64 %31, ptr %29, align 8, !tbaa !388
+24:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit.i
+  %25 = load ptr, ptr %4, align 8, !tbaa !51, !alias.scope !1142
+  %26 = lshr i32 %15, 6
+  %27 = zext nneg i32 %26 to i64
+  %28 = getelementptr inbounds nuw i64, ptr %25, i64 %27
+  %29 = load i64, ptr %28, align 8, !tbaa !388
+  %30 = or i64 %29, %18
+  store i64 %30, ptr %28, align 8, !tbaa !388
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %8, %9, %20, %25
-  %32 = phi i32 [ %1, %8 ], [ %.pre, %9 ], [ %21, %20 ], [ %.pr.i, %25 ]
-  %33 = zext i1 %2 to i8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %32, ptr %34, align 8, !tbaa !184
-  %35 = load i64, ptr %4, align 8
-  store i64 %35, ptr %0, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %33, ptr %36, align 4, !tbaa !1103
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %8, %9, %21, %24
+  %31 = phi i32 [ %1, %8 ], [ %.pre, %9 ], [ %22, %21 ], [ %.pr.i, %24 ]
+  %32 = zext i1 %2 to i8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %31, ptr %33, align 8, !tbaa !184
+  %34 = load i64, ptr %4, align 8
+  store i64 %34, ptr %0, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 %32, ptr %35, align 4, !tbaa !1103
   ret void
 }
 

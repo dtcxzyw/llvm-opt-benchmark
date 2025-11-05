@@ -1299,21 +1299,24 @@ define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly c
   %.not102 = icmp eq ptr %62, null
   %63 = icmp eq ptr %62, %1
   %or.cond = or i1 %.not102, %63
-  br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !83
+  br i1 %or.cond, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %.lr.ph, %58
-  %.093.lcssa = phi i32 [ 0, %58 ], [ %61, %.lr.ph ]
-  %64 = add nsw i32 %12, %.sroa.0.0.extract.trunc.i105
-  %65 = mul i32 %64, %2
-  %66 = load i32, ptr %7, align 4, !tbaa !20
-  %67 = udiv i32 %65, %66
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %64 = mul i32 %61, %52
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %58
+  %.093.lcssa = phi i32 [ 0, %58 ], [ %64, %._crit_edge.loopexit ]
+  %65 = add nsw i32 %12, %.sroa.0.0.extract.trunc.i105
+  %66 = mul i32 %65, %2
+  %67 = load i32, ptr %7, align 4, !tbaa !20
+  %68 = udiv i32 %66, %67
   %.not103 = icmp eq i32 %43, 0
-  br i1 %.not103, label %78, label %68
+  br i1 %.not103, label %78, label %69
 
-68:                                               ; preds = %._crit_edge
-  %69 = mul i32 %.093.lcssa, %52
-  %70 = udiv i32 %69, %43
-  %71 = add i32 %70, %67
+69:                                               ; preds = %._crit_edge
+  %70 = udiv i32 %.093.lcssa, %43
+  %71 = add i32 %70, %68
   %72 = add i32 %43, -1
   %73 = mul i32 %72, %.sroa.0.0.extract.trunc.i
   %74 = sub i32 %52, %73
@@ -1322,8 +1325,8 @@ define void @lv_chart_get_point_pos_by_id(ptr noundef %0, ptr noundef readonly c
   %77 = add nsw i32 %71, %76
   br label %78
 
-78:                                               ; preds = %11, %68, %._crit_edge, %17, %24, %20
-  %.sink = phi i32 [ %40, %24 ], [ %23, %20 ], [ 0, %17 ], [ %77, %68 ], [ %67, %._crit_edge ], [ 0, %11 ]
+78:                                               ; preds = %11, %69, %._crit_edge, %17, %24, %20
+  %.sink = phi i32 [ %40, %24 ], [ %23, %20 ], [ 0, %17 ], [ %77, %69 ], [ %68, %._crit_edge ], [ 0, %11 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !33
   %79 = tail call ptr @lv_obj_get_style_prop(ptr noundef nonnull %0, i32 noundef 0, i8 noundef zeroext 48) #8
   %80 = ptrtoint ptr %79 to i64

@@ -7185,33 +7185,26 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @port_show(ptr no
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = and i64 %12, -4294967296
-  %14 = getelementptr inbounds nuw i8, ptr %5, i64 352
-  %15 = load i32, ptr %14, align 8
-  %16 = zext i32 %15 to i64
-  %17 = tail call i32 @jiffies_to_msecs(i64 noundef %16) #20
-  %18 = getelementptr inbounds nuw i8, ptr %5, i64 356
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp eq i32 %19, 65535
-  br i1 %20, label %24, label %21
+  %13 = getelementptr inbounds nuw i8, ptr %5, i64 352
+  %14 = load i32, ptr %13, align 8
+  %15 = zext i32 %14 to i64
+  %16 = tail call i32 @jiffies_to_msecs(i64 noundef %15) #20
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 356
+  %18 = load i32, ptr %17, align 4
+  %19 = icmp eq i32 %18, 65535
+  br i1 %19, label %uart_get_info.exit, label %20
 
-21:                                               ; preds = %10
-  %22 = zext i32 %19 to i64
-  %23 = tail call i32 @jiffies_to_msecs(i64 noundef %22) #20
-  br label %24
-
-24:                                               ; preds = %21, %10
-  %25 = and i64 %12, 4294967295
+20:                                               ; preds = %10
+  %21 = zext i32 %18 to i64
+  %22 = tail call i32 @jiffies_to_msecs(i64 noundef %21) #20
   br label %uart_get_info.exit
 
-uart_get_info.exit:                               ; preds = %3, %24
-  %.sroa.6.0 = phi i64 [ 0, %3 ], [ %25, %24 ]
-  %.sroa.193.0 = phi i64 [ 0, %3 ], [ %13, %24 ]
+uart_get_info.exit:                               ; preds = %10, %20, %3
+  %.sroa.193.0 = phi i64 [ 0, %3 ], [ %12, %20 ], [ %12, %10 ]
   tail call void @mutex_unlock(ptr noundef nonnull %6) #20
-  %26 = or disjoint i64 %.sroa.193.0, %.sroa.6.0
-  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.58, i64 noundef %26) #20
-  %28 = sext i32 %27 to i64
-  ret i64 %28
+  %23 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %2, ptr noundef nonnull dereferenceable(1) @.str.58, i64 noundef %.sroa.193.0) #20
+  %24 = sext i32 %23 to i64
+  ret i64 %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

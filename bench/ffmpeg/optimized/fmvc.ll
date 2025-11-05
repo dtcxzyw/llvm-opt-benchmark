@@ -1626,6 +1626,7 @@ bytestream2_init.exit:                            ; preds = %bytestream2_get_byt
   %410 = load i8, ptr %389, align 1, !tbaa !58
   %411 = zext i8 %410 to i32
   %412 = shl nuw nsw i32 %411, 8
+  %413 = or disjoint i32 %412, %.0.i160
   %.pre341 = load ptr, ptr %1, align 8, !tbaa !59
   %.pre342 = load ptr, ptr %13, align 8, !tbaa !60
   %.pre359 = ptrtoint ptr %.pre341 to i64
@@ -1637,10 +1638,9 @@ bytestream2_init.exit:                            ; preds = %bytestream2_get_byt
 bytestream2_get_byte.exit163:                     ; preds = %407, %408
   %.pre-phi366 = phi i32 [ %403, %407 ], [ %.pre365, %408 ]
   %.pre-phi360 = phi i64 [ %401, %407 ], [ %.pre359, %408 ]
-  %413 = phi ptr [ %400, %407 ], [ %.pre341, %408 ]
-  %.0.i162 = phi i32 [ 0, %407 ], [ %412, %408 ]
-  %414 = or disjoint i32 %.0.i162, %.0.i160
-  %415 = sub i32 %403, %414
+  %414 = phi ptr [ %400, %407 ], [ %.pre341, %408 ]
+  %.0.i162 = phi i32 [ %.0.i160, %407 ], [ %413, %408 ]
+  %415 = sub i32 %403, %.0.i162
   %416 = ptrtoint ptr %399 to i64
   %417 = trunc i64 %394 to i32
   %418 = icmp slt i32 %415, 0
@@ -1682,7 +1682,7 @@ bytestream2_get_byte.exit165:                     ; preds = %426, %427
   br i1 %435, label %436, label %439
 
 436:                                              ; preds = %431
-  store i8 %.0.i164, ptr %413, align 1, !tbaa !58
+  store i8 %.0.i164, ptr %414, align 1, !tbaa !58
   %437 = load ptr, ptr %1, align 8, !tbaa !59
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 1
   store ptr %438, ptr %1, align 8, !tbaa !59
@@ -1693,7 +1693,7 @@ bytestream2_get_byte.exit165:                     ; preds = %426, %427
   br label %bytestream2_put_byte.exit197
 
 bytestream2_put_byte.exit197:                     ; preds = %436, %439
-  %440 = phi ptr [ %438, %436 ], [ %413, %439 ]
+  %440 = phi ptr [ %438, %436 ], [ %414, %439 ]
   %441 = ptrtoint ptr %.sroa.0223.6 to i64
   %442 = sub i64 %416, %441
   %443 = icmp slt i64 %442, 1
@@ -1793,7 +1793,7 @@ bytestream2_get_le32.exit180:                     ; preds = %476, %478
   br i1 %486, label %487, label %490
 
 487:                                              ; preds = %482
-  store i32 %.0.i179, ptr %413, align 1, !tbaa !58
+  store i32 %.0.i179, ptr %414, align 1, !tbaa !58
   %488 = load ptr, ptr %1, align 8, !tbaa !59
   %489 = getelementptr inbounds nuw i8, ptr %488, i64 4
   store ptr %489, ptr %1, align 8, !tbaa !59
@@ -1804,7 +1804,7 @@ bytestream2_get_le32.exit180:                     ; preds = %476, %478
   br label %bytestream2_put_le32.exit175
 
 bytestream2_put_le32.exit175:                     ; preds = %487, %490
-  %491 = phi ptr [ %489, %487 ], [ %413, %490 ]
+  %491 = phi ptr [ %489, %487 ], [ %414, %490 ]
   %492 = add i32 %.4101, -1
   br label %bytestream2_put_byte.exit201.preheader
 

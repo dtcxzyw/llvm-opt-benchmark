@@ -8157,11 +8157,9 @@ define linkonce_odr { i64, i64 } @_ZN5folly15tryDecodeVarintIKhEENS_8ExpectedImN
   br label %.critedge56
 
 .critedge56:                                      ; preds = %89, %.preheader, %79, %99
-  %.sroa.062.0 = phi i64 [ 1, %99 ], [ 2, %79 ], [ 2, %.preheader ], [ 2, %89 ]
-  %.sroa.463.0 = phi i64 [ 0, %99 ], [ 0, %79 ], [ 4294967296, %.preheader ], [ 4294967296, %89 ]
+  %.sroa.463.0 = phi i64 [ 1, %99 ], [ 2, %79 ], [ 4294967298, %.preheader ], [ 4294967298, %89 ]
   %.sroa.7.0 = phi i64 [ %.064, %99 ], [ 0, %79 ], [ 0, %.preheader ], [ 0, %89 ]
-  %.sroa.062.0.insert.insert = or disjoint i64 %.sroa.463.0, %.sroa.062.0
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.062.0.insert.insert, 0
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.463.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.7.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
@@ -11816,227 +11814,220 @@ define internal noundef zeroext i1 @_ZNK5folly11compression12_GLOBAL__N_114Autom
 
 _ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i: ; preds = %3
   %18 = load i64, ptr %2, align 8, !tbaa !32
-  %.sroa.17.8.extract.shift.i.i.i.i = and i64 %18, -256
-  %19 = and i64 %18, 255
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i": ; preds = %3, %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i
-  %.sroa.17.sroa.0.0.i.i.i.i = phi i64 [ %.sroa.17.8.extract.shift.i.i.i.i, %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i ], [ 0, %3 ]
-  %.sroa.8.0.i.i.i.i = phi i64 [ %19, %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i ], [ 0, %3 ]
-  %20 = ptrtoint ptr %14 to i64
-  %21 = ptrtoint ptr %12 to i64
-  %22 = sub i64 %20, %21
-  %23 = ashr i64 %22, 5
-  %24 = icmp sgt i64 %23, 0
-  br i1 %24, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
+  %.sroa.17.sroa.0.0.i.i.i.i = phi i64 [ %18, %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i ], [ 0, %3 ]
+  %19 = ptrtoint ptr %14 to i64
+  %20 = ptrtoint ptr %12 to i64
+  %21 = sub i64 %19, %20
+  %22 = ashr i64 %21, 5
+  %23 = icmp sgt i64 %22, 0
+  br i1 %23, label %.lr.ph.i.i.i.i.i, label %._crit_edge.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i"
-  %25 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.sroa.8.8.insert.insert33.i.i.i.i = or disjoint i64 %.sroa.8.0.i.i.i.i, %.sroa.17.sroa.0.0.i.i.i.i
-  br label %29
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  br label %28
 
-29:                                               ; preds = %52, %.lr.ph.i.i.i.i.i
-  %.056.i.i.i.i.i = phi i64 [ %23, %.lr.ph.i.i.i.i.i ], [ %54, %52 ]
-  %.sroa.036.055.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i ], [ %53, %52 ]
+28:                                               ; preds = %51, %.lr.ph.i.i.i.i.i
+  %.056.i.i.i.i.i = phi i64 [ %22, %.lr.ph.i.i.i.i.i ], [ %53, %51 ]
+  %.sroa.036.055.i.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i.i ], [ %52, %51 ]
   %.val.i.i.i.i.i.i = load ptr, ptr %.sroa.036.055.i.i.i.i.i, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 8, !tbaa !23
-  store i8 0, ptr %25, align 8, !tbaa !25
+  store i8 0, ptr %24, align 8, !tbaa !25
   br i1 %17, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i"
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %29
-  store i64 %.sroa.8.8.insert.insert33.i.i.i.i, ptr %10, align 8, !tbaa !32
-  store i8 1, ptr %25, align 8, !tbaa !28
+_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i.i: ; preds = %28
+  store i64 %.sroa.17.sroa.0.0.i.i.i.i, ptr %10, align 8, !tbaa !32
+  store i8 1, ptr %24, align 8, !tbaa !28
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i.i, %29
-  %30 = load ptr, ptr %.val.i.i.i.i.i.i, align 8, !tbaa !7
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %32 = load ptr, ptr %31, align 8
-  %33 = call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(12) %.val.i.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %10)
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i.i.i.i.i.i, %28
+  %29 = load ptr, ptr %.val.i.i.i.i.i.i, align 8, !tbaa !7
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %31 = load ptr, ptr %30, align 8
+  %32 = call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(12) %.val.i.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %33, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit", label %34
+  br i1 %32, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit", label %33
 
-34:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i"
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 8
-  %.val.i16.i.i.i.i.i = load ptr, ptr %35, align 8, !tbaa !305
+33:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i"
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 8
+  %.val.i16.i.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 0, ptr %9, align 8, !tbaa !23
-  store i8 0, ptr %26, align 8, !tbaa !25
+  store i8 0, ptr %25, align 8, !tbaa !25
   br i1 %17, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i17.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit18.i.i.i.i.i"
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i17.i.i.i.i.i: ; preds = %34
-  store i64 %.sroa.8.8.insert.insert33.i.i.i.i, ptr %9, align 8, !tbaa !32
-  store i8 1, ptr %26, align 8, !tbaa !28
+_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i17.i.i.i.i.i: ; preds = %33
+  store i64 %.sroa.17.sroa.0.0.i.i.i.i, ptr %9, align 8, !tbaa !32
+  store i8 1, ptr %25, align 8, !tbaa !28
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit18.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit18.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i17.i.i.i.i.i, %34
-  %36 = load ptr, ptr %.val.i16.i.i.i.i.i, align 8, !tbaa !7
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8
-  %39 = call noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(12) %.val.i16.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %9)
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit18.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i17.i.i.i.i.i, %33
+  %35 = load ptr, ptr %.val.i16.i.i.i.i.i, align 8, !tbaa !7
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %37 = load ptr, ptr %36, align 8
+  %38 = call noundef zeroext i1 %37(ptr noundef nonnull align 8 dereferenceable(12) %.val.i16.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %39, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit", label %40
+  br i1 %38, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit", label %39
 
-40:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit18.i.i.i.i.i"
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 16
-  %.val.i19.i.i.i.i.i = load ptr, ptr %41, align 8, !tbaa !305
+39:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit18.i.i.i.i.i"
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 16
+  %.val.i19.i.i.i.i.i = load ptr, ptr %40, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 8, !tbaa !23
-  store i8 0, ptr %27, align 8, !tbaa !25
+  store i8 0, ptr %26, align 8, !tbaa !25
   br i1 %17, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i20.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit21.i.i.i.i.i"
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i20.i.i.i.i.i: ; preds = %40
-  store i64 %.sroa.8.8.insert.insert33.i.i.i.i, ptr %8, align 8, !tbaa !32
-  store i8 1, ptr %27, align 8, !tbaa !28
+_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i20.i.i.i.i.i: ; preds = %39
+  store i64 %.sroa.17.sroa.0.0.i.i.i.i, ptr %8, align 8, !tbaa !32
+  store i8 1, ptr %26, align 8, !tbaa !28
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit21.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit21.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i20.i.i.i.i.i, %40
-  %42 = load ptr, ptr %.val.i19.i.i.i.i.i, align 8, !tbaa !7
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
-  %44 = load ptr, ptr %43, align 8
-  %45 = call noundef zeroext i1 %44(ptr noundef nonnull align 8 dereferenceable(12) %.val.i19.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %8)
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit21.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i20.i.i.i.i.i, %39
+  %41 = load ptr, ptr %.val.i19.i.i.i.i.i, align 8, !tbaa !7
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
+  %43 = load ptr, ptr %42, align 8
+  %44 = call noundef zeroext i1 %43(ptr noundef nonnull align 8 dereferenceable(12) %.val.i19.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %45, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit22", label %46
+  br i1 %44, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit22", label %45
 
-46:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit21.i.i.i.i.i"
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 24
-  %.val.i22.i.i.i.i.i = load ptr, ptr %47, align 8, !tbaa !305
+45:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit21.i.i.i.i.i"
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 24
+  %.val.i22.i.i.i.i.i = load ptr, ptr %46, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 8, !tbaa !23
-  store i8 0, ptr %28, align 8, !tbaa !25
+  store i8 0, ptr %27, align 8, !tbaa !25
   br i1 %17, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i23.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit24.i.i.i.i.i"
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i23.i.i.i.i.i: ; preds = %46
-  store i64 %.sroa.8.8.insert.insert33.i.i.i.i, ptr %7, align 8, !tbaa !32
-  store i8 1, ptr %28, align 8, !tbaa !28
+_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i23.i.i.i.i.i: ; preds = %45
+  store i64 %.sroa.17.sroa.0.0.i.i.i.i, ptr %7, align 8, !tbaa !32
+  store i8 1, ptr %27, align 8, !tbaa !28
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit24.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit24.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i23.i.i.i.i.i, %46
-  %48 = load ptr, ptr %.val.i22.i.i.i.i.i, align 8, !tbaa !7
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8
-  %51 = call noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(12) %.val.i22.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %7)
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit24.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i23.i.i.i.i.i, %45
+  %47 = load ptr, ptr %.val.i22.i.i.i.i.i, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(12) %.val.i22.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %51, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit24", label %52
+  br i1 %50, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit24", label %51
 
-52:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit24.i.i.i.i.i"
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 32
-  %54 = add nsw i64 %.056.i.i.i.i.i, -1
-  %55 = icmp sgt i64 %.056.i.i.i.i.i, 1
-  br i1 %55, label %29, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !352
+51:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit24.i.i.i.i.i"
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 32
+  %53 = add nsw i64 %.056.i.i.i.i.i, -1
+  %54 = icmp sgt i64 %.056.i.i.i.i.i, 1
+  br i1 %54, label %28, label %._crit_edge.loopexit.i.i.i.i.i, !llvm.loop !352
 
-._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %52
-  %.pre.i.i.i.i.i = ptrtoint ptr %53 to i64
-  %.pre61.i.i.i.i.i = sub i64 %20, %.pre.i.i.i.i.i
+._crit_edge.loopexit.i.i.i.i.i:                   ; preds = %51
+  %.pre.i.i.i.i.i = ptrtoint ptr %52 to i64
+  %.pre61.i.i.i.i.i = sub i64 %19, %.pre.i.i.i.i.i
   br label %._crit_edge.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %._crit_edge.loopexit.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i"
-  %.pre-phi62.i.i.i.i.i = phi i64 [ %.pre61.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %22, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i" ]
-  %.sroa.036.0.lcssa.i.i.i.i.i = phi ptr [ %53, %._crit_edge.loopexit.i.i.i.i.i ], [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i" ]
-  %56 = ashr exact i64 %.pre-phi62.i.i.i.i.i, 3
-  switch i64 %56, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit" [
-    i64 3, label %57
-    i64 2, label %65
-    i64 1, label %73
+  %.pre-phi62.i.i.i.i.i = phi i64 [ %.pre61.i.i.i.i.i, %._crit_edge.loopexit.i.i.i.i.i ], [ %21, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i" ]
+  %.sroa.036.0.lcssa.i.i.i.i.i = phi ptr [ %52, %._crit_edge.loopexit.i.i.i.i.i ], [ %12, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EC2ERKSC_.exit.i.i.i.i" ]
+  %55 = ashr exact i64 %.pre-phi62.i.i.i.i.i, 3
+  switch i64 %55, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit" [
+    i64 3, label %56
+    i64 2, label %64
+    i64 1, label %72
   ]
 
-57:                                               ; preds = %._crit_edge.i.i.i.i.i
+56:                                               ; preds = %._crit_edge.i.i.i.i.i
   %.val.i25.i.i.i.i.i = load ptr, ptr %.sroa.036.0.lcssa.i.i.i.i.i, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 8, !tbaa !23
-  %58 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i8 0, ptr %58, align 8, !tbaa !25
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i8 0, ptr %57, align 8, !tbaa !25
   br i1 %17, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i26.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i"
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i26.i.i.i.i.i: ; preds = %57
-  %.sroa.8.8.insert.insert17.i.i.i.i = or disjoint i64 %.sroa.8.0.i.i.i.i, %.sroa.17.sroa.0.0.i.i.i.i
-  store i64 %.sroa.8.8.insert.insert17.i.i.i.i, ptr %6, align 8, !tbaa !32
-  store i8 1, ptr %58, align 8, !tbaa !28
+_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i26.i.i.i.i.i: ; preds = %56
+  store i64 %.sroa.17.sroa.0.0.i.i.i.i, ptr %6, align 8, !tbaa !32
+  store i8 1, ptr %57, align 8, !tbaa !28
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i26.i.i.i.i.i, %57
-  %59 = load ptr, ptr %.val.i25.i.i.i.i.i, align 8, !tbaa !7
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(12) %.val.i25.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %6)
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i26.i.i.i.i.i, %56
+  %58 = load ptr, ptr %.val.i25.i.i.i.i.i, align 8, !tbaa !7
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(12) %.val.i25.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %62, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit", label %63
+  br i1 %61, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit", label %62
 
-63:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i"
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.036.0.lcssa.i.i.i.i.i, i64 8
-  br label %65
+62:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i"
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.036.0.lcssa.i.i.i.i.i, i64 8
+  br label %64
 
-65:                                               ; preds = %63, %._crit_edge.i.i.i.i.i
-  %.sroa.036.1.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+64:                                               ; preds = %62, %._crit_edge.i.i.i.i.i
+  %.sroa.036.1.i.i.i.i.i = phi ptr [ %63, %62 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i28.i.i.i.i.i = load ptr, ptr %.sroa.036.1.i.i.i.i.i, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 8, !tbaa !23
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i8 0, ptr %66, align 8, !tbaa !25
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i8 0, ptr %65, align 8, !tbaa !25
   br i1 %17, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i29.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i"
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i29.i.i.i.i.i: ; preds = %65
-  %.sroa.8.8.insert.insert13.i.i.i.i = or disjoint i64 %.sroa.8.0.i.i.i.i, %.sroa.17.sroa.0.0.i.i.i.i
-  store i64 %.sroa.8.8.insert.insert13.i.i.i.i, ptr %5, align 8, !tbaa !32
-  store i8 1, ptr %66, align 8, !tbaa !28
+_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i29.i.i.i.i.i: ; preds = %64
+  store i64 %.sroa.17.sroa.0.0.i.i.i.i, ptr %5, align 8, !tbaa !32
+  store i8 1, ptr %65, align 8, !tbaa !28
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i29.i.i.i.i.i, %65
-  %67 = load ptr, ptr %.val.i28.i.i.i.i.i, align 8, !tbaa !7
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %70 = call noundef zeroext i1 %69(ptr noundef nonnull align 8 dereferenceable(12) %.val.i28.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %5)
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i29.i.i.i.i.i, %64
+  %66 = load ptr, ptr %.val.i28.i.i.i.i.i, align 8, !tbaa !7
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %68 = load ptr, ptr %67, align 8
+  %69 = call noundef zeroext i1 %68(ptr noundef nonnull align 8 dereferenceable(12) %.val.i28.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %70, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit", label %71
+  br i1 %69, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit", label %70
 
-71:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i"
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.036.1.i.i.i.i.i, i64 8
-  br label %73
+70:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i"
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.036.1.i.i.i.i.i, i64 8
+  br label %72
 
-73:                                               ; preds = %71, %._crit_edge.i.i.i.i.i
-  %.sroa.036.2.i.i.i.i.i = phi ptr [ %72, %71 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
+72:                                               ; preds = %70, %._crit_edge.i.i.i.i.i
+  %.sroa.036.2.i.i.i.i.i = phi ptr [ %71, %70 ], [ %.sroa.036.0.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %.val.i31.i.i.i.i.i = load ptr, ptr %.sroa.036.2.i.i.i.i.i, align 8, !tbaa !305
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 8, !tbaa !23
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %74, align 8, !tbaa !25
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 0, ptr %73, align 8, !tbaa !25
   br i1 %17, label %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i32.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit33.i.i.i.i.i"
 
-_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i32.i.i.i.i.i: ; preds = %73
-  %.sroa.8.8.insert.insert.i.i.i.i = or disjoint i64 %.sroa.8.0.i.i.i.i, %.sroa.17.sroa.0.0.i.i.i.i
-  store i64 %.sroa.8.8.insert.insert.i.i.i.i, ptr %4, align 8, !tbaa !32
-  store i8 1, ptr %74, align 8, !tbaa !28
+_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i32.i.i.i.i.i: ; preds = %72
+  store i64 %.sroa.17.sroa.0.0.i.i.i.i, ptr %4, align 8, !tbaa !32
+  store i8 1, ptr %73, align 8, !tbaa !28
   br label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit33.i.i.i.i.i"
 
-"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit33.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i32.i.i.i.i.i, %73
-  %75 = load ptr, ptr %.val.i31.i.i.i.i.i, align 8, !tbaa !7
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8
-  %78 = call noundef zeroext i1 %77(ptr noundef nonnull align 8 dereferenceable(12) %.val.i31.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %4)
+"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit33.i.i.i.i.i": ; preds = %_ZNKR5folly8OptionalImE5valueEv.exit.i.i.i32.i.i.i.i.i, %72
+  %74 = load ptr, ptr %.val.i31.i.i.i.i.i, align 8, !tbaa !7
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %76 = load ptr, ptr %75, align 8
+  %77 = call noundef zeroext i1 %76(ptr noundef nonnull align 8 dereferenceable(12) %.val.i31.i.i.i.i.i, ptr noundef %1, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %spec.select.i.i.i.i.i = select i1 %78, ptr %.sroa.036.2.i.i.i.i.i, ptr %14
+  %spec.select.i.i.i.i.i = select i1 %77, ptr %.sroa.036.2.i.i.i.i.i, ptr %14
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit18.i.i.i.i.i"
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 8
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit22": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit21.i.i.i.i.i"
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 16
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit24": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit24.i.i.i.i.i"
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 24
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.036.055.i.i.i.i.i, i64 24
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit"
 
 "_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit22", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit24", %._crit_edge.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit33.i.i.i.i.i"
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i" ], [ %14, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit33.i.i.i.i.i" ], [ %79, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit" ], [ %80, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit22" ], [ %81, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit24" ], [ %.sroa.036.055.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i" ]
-  %82 = icmp ne ptr %14, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
-  ret i1 %82
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.036.0.lcssa.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit27.i.i.i.i.i" ], [ %.sroa.036.1.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit30.i.i.i.i.i" ], [ %14, %._crit_edge.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit33.i.i.i.i.i" ], [ %78, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit" ], [ %79, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit22" ], [ %80, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKSt10unique_ptrIN5folly11compression5CodecESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEZNKS4_12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS3_5IOBufENS3_8OptionalImEEE3$_0EbT_SN_T0_.exit.loopexit.split.loop.exit24" ], [ %.sroa.036.055.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5folly11compression12_GLOBAL__N_114AutomaticCodec13canUncompressEPKNS2_5IOBufENS2_8OptionalImEEE3$_0EclINS_17__normal_iteratorIPKSt10unique_ptrINS3_5CodecESt14default_deleteISG_EESt6vectorISJ_SaISJ_EEEEEEbT_.exit.i.i.i.i.i" ]
+  %81 = icmp ne ptr %14, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
+  ret i1 %81
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

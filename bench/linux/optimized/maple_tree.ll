@@ -10299,7 +10299,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr noundef captu
   %20 = select i1 %19, i64 -253, i64 -249
   %21 = and i64 %17, %20
   %22 = icmp eq i64 %21, 6
-  br i1 %22, label %23, label %31
+  br i1 %22, label %23, label %32
 
 23:                                               ; preds = %16
   %24 = load ptr, ptr %0, align 8
@@ -10309,28 +10309,28 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr noundef captu
   %28 = and i32 %27, 8
   %29 = or disjoint i32 %28, 16
   %30 = zext nneg i32 %29 to i64
-  br label %31
+  %31 = or disjoint i64 %14, %30
+  br label %32
 
-31:                                               ; preds = %23, %16
-  %32 = phi i64 [ %30, %23 ], [ 0, %16 ]
-  %33 = and i64 %8, 252
-  %34 = select i1 %19, i64 2, i64 3, !prof !12
-  %35 = lshr i64 %33, %34
-  %36 = trunc nuw nsw i64 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 61
-  store i8 %36, ptr %37, align 1
-  %38 = or i64 %32, %14
-  %39 = or i64 %38, 4
+32:                                               ; preds = %23, %16
+  %33 = phi i64 [ %31, %23 ], [ %14, %16 ]
+  %34 = and i64 %8, 252
+  %35 = select i1 %19, i64 2, i64 3, !prof !12
+  %36 = lshr i64 %34, %35
+  %37 = trunc nuw nsw i64 %36 to i8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 61
+  store i8 %37, ptr %38, align 1
+  %39 = or i64 %33, 4
   %40 = load ptr, ptr %6, align 256
   %41 = ptrtoint ptr %40 to i64
   %42 = and i64 %41, -256
   %43 = icmp eq i64 %14, %42
   br i1 %43, label %44, label %.loopexit
 
-44:                                               ; preds = %31
+44:                                               ; preds = %32
   %45 = inttoptr i64 %39 to ptr
   store ptr %45, ptr %2, align 8
-  %46 = and i64 %38, -256
+  %46 = and i64 %33, -256
   %47 = inttoptr i64 %46 to ptr
   %48 = load ptr, ptr %47, align 256
   %49 = ptrtoint ptr %48 to i64
@@ -10346,7 +10346,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr noundef captu
   br label %.loopexit
 
 55:                                               ; preds = %44
-  %56 = icmp eq i64 %35, 0
+  %56 = icmp eq i64 %36, 0
   br i1 %56, label %57, label %60
 
 57:                                               ; preds = %55
@@ -10506,8 +10506,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr noundef captu
   store i64 %132, ptr %158, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %144, %116, %157, %52, %31, %13, %11
-  %159 = phi i32 [ 0, %11 ], [ 0, %52 ], [ 0, %157 ], [ 1, %13 ], [ 1, %31 ], [ 1, %116 ], [ 1, %144 ]
+.loopexit:                                        ; preds = %144, %116, %157, %52, %32, %13, %11
+  %159 = phi i32 [ 0, %11 ], [ 0, %52 ], [ 0, %157 ], [ 1, %13 ], [ 1, %32 ], [ 1, %116 ], [ 1, %144 ]
   ret i32 %159
 }
 

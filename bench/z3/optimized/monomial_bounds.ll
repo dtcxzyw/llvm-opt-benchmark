@@ -5905,7 +5905,7 @@ define hidden void @_ZN3nla15monomial_bounds14unit_propagateERNS_5monicE(ptr nou
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !40
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %.thread25, label %_ZNK3nla5monic3endEv.exit.i
+  br i1 %10, label %.thread, label %_ZNK3nla5monic3endEv.exit.i
 
 _ZNK3nla5monic3endEv.exit.i:                      ; preds = %7
   %11 = getelementptr inbounds i8, ptr %9, i64 -4
@@ -5914,7 +5914,7 @@ _ZNK3nla5monic3endEv.exit.i:                      ; preds = %7
   %14 = shl nuw nsw i64 %13, 2
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %.not28.i = icmp eq i32 %12, 0
-  br i1 %.not28.i, label %.thread25, label %.lr.ph.i
+  br i1 %.not28.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK3nla5monic3endEv.exit.i, %25
   %.013 = phi i32 [ %.1, %25 ], [ -1, %_ZNK3nla5monic3endEv.exit.i ]
@@ -5939,9 +5939,9 @@ _ZNK3nla5monic3endEv.exit.i:                      ; preds = %7
   %.1 = phi i32 [ %.013, %20 ], [ %16, %19 ]
   %26 = getelementptr inbounds nuw i8, ptr %.02129.i, i64 4
   %.not.i = icmp eq ptr %26, %15
-  br i1 %.not.i, label %.thread25, label %.lr.ph.i
+  br i1 %.not.i, label %.thread, label %.lr.ph.i
 
-.thread25:                                        ; preds = %25, %_ZNK3nla5monic3endEv.exit.i, %7
+.thread:                                          ; preds = %25, %_ZNK3nla5monic3endEv.exit.i, %7
   %.2.ph.ph = phi i32 [ -1, %7 ], [ -1, %_ZNK3nla5monic3endEv.exit.i ], [ %.1, %25 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !41
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4416
@@ -5959,11 +5959,11 @@ _ZNK3nla5monic3endEv.exit.i:                      ; preds = %7
   tail call void @_ZN3nla15monomial_bounds23propagate_fixed_to_zeroERKNS_5monicEj(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %16)
   br label %45
 
-33:                                               ; preds = %.thread25, %29
-  %.21924 = phi i32 [ %.013, %29 ], [ %.2.ph.ph, %.thread25 ]
+33:                                               ; preds = %.thread, %29
+  %.2.ph22 = phi i32 [ %.2.ph.ph, %.thread ], [ %.013, %29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @_ZN3nla15monomial_bounds17fixed_var_productERKNS_5monicEj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %3, ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %.21924)
-  %34 = icmp eq i32 %.21924, -1
+  call void @_ZN3nla15monomial_bounds17fixed_var_productERKNS_5monicEj(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %3, ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %.2.ph22)
+  %34 = icmp eq i32 %.2.ph22, -1
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %33
@@ -5978,7 +5978,7 @@ _ZNK3nla5monic3endEv.exit.i:                      ; preds = %7
   resume { ptr, i32 } %37
 
 38:                                               ; preds = %33
-  invoke void @_ZN3nla15monomial_bounds18propagate_nonfixedERKNS_5monicERK8rationalj(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %.21924)
+  invoke void @_ZN3nla15monomial_bounds18propagate_nonfixedERKNS_5monicERK8rationalj(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %.2.ph22)
           to label %39 unwind label %36
 
 39:                                               ; preds = %38, %35
@@ -6072,10 +6072,8 @@ _ZNK3nla5monic3endEv.exit:                        ; preds = %4
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %25, %16, %4, %_ZNK3nla5monic3endEv.exit, %24
-  %.not27 = phi i1 [ false, %24 ], [ true, %_ZNK3nla5monic3endEv.exit ], [ true, %4 ], [ true, %25 ], [ false, %16 ]
-  %.1 = phi i1 [ true, %24 ], [ undef, %_ZNK3nla5monic3endEv.exit ], [ undef, %4 ], [ false, %16 ], [ false, %25 ]
-  %spec.select = or i1 %.not27, %.1
-  ret i1 %spec.select
+  %.not27 = phi i1 [ true, %24 ], [ true, %_ZNK3nla5monic3endEv.exit ], [ true, %4 ], [ true, %25 ], [ false, %16 ]
+  ret i1 %.not27
 }
 
 declare void @_ZN3nla7emonics14set_propagatedERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #0

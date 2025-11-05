@@ -428,51 +428,49 @@ define internal ptr @nonstatic_find_mem_region(i64 noundef %0, i64 noundef %1, i
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 336
   br label %37
 
-37:                                               ; preds = %56, %26
-  %38 = phi i1 [ false, %26 ], [ true, %56 ]
-  %39 = phi i1 [ %27, %26 ], [ true, %56 ]
+37:                                               ; preds = %55, %26
+  %38 = phi i1 [ %27, %26 ], [ true, %55 ]
   store ptr %31, ptr %32, align 8
-  %40 = select i1 %39, i64 %34, i64 %35
-  %41 = select i1 %39, i64 1048576, i64 -1
-  br label %42
+  %39 = select i1 %38, i64 %34, i64 %35
+  %40 = select i1 %38, i64 1048576, i64 -1
+  br label %41
 
-42:                                               ; preds = %55, %37
-  %43 = phi i1 [ true, %37 ], [ false, %55 ]
-  %44 = load ptr, ptr %36, align 8
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %50, label %46
+41:                                               ; preds = %54, %37
+  %42 = phi i1 [ true, %37 ], [ false, %54 ]
+  %43 = load ptr, ptr %36, align 8
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %49, label %45
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = call i32 @pci_bus_alloc_resource(ptr noundef %48, ptr noundef nonnull %15, i64 noundef %1, i64 noundef 1, i64 noundef %40, i64 noundef 0, ptr noundef nonnull @pcmcia_align, ptr noundef nonnull %6) #11
-  br label %52
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = call i32 @pci_bus_alloc_resource(ptr noundef %47, ptr noundef nonnull %15, i64 noundef %1, i64 noundef 1, i64 noundef %39, i64 noundef 0, ptr noundef nonnull @pcmcia_align, ptr noundef nonnull %6) #11
+  br label %51
 
-50:                                               ; preds = %42
-  %51 = call i32 @allocate_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull %15, i64 noundef %1, i64 noundef %40, i64 noundef %41, i64 noundef 1, ptr noundef nonnull @pcmcia_align, ptr noundef nonnull %6) #11
-  br label %52
+49:                                               ; preds = %41
+  %50 = call i32 @allocate_resource(ptr noundef nonnull @iomem_resource, ptr noundef nonnull %15, i64 noundef %1, i64 noundef %39, i64 noundef %40, i64 noundef 1, ptr noundef nonnull @pcmcia_align, ptr noundef nonnull %6) #11
+  br label %51
 
-52:                                               ; preds = %50, %46
-  %53 = phi i32 [ %49, %46 ], [ %51, %50 ]
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.thread3, label %55
+51:                                               ; preds = %49, %45
+  %52 = phi i32 [ %48, %45 ], [ %50, %49 ]
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %.thread3, label %54
 
-55:                                               ; preds = %52
+54:                                               ; preds = %51
   store ptr %17, ptr %32, align 8
-  br i1 %43, label %42, label %56, !llvm.loop !11
+  br i1 %42, label %41, label %55, !llvm.loop !11
+
+55:                                               ; preds = %54
+  br i1 %38, label %56, label %37, !llvm.loop !12
 
 56:                                               ; preds = %55
-  %57 = or i1 %38, %39
-  br i1 %57, label %58, label %37, !llvm.loop !12
-
-58:                                               ; preds = %56
   call void @kfree(ptr noundef nonnull %15) #11
   br label %.thread3
 
-.thread3:                                         ; preds = %52, %58, %13
-  %59 = phi ptr [ null, %13 ], [ null, %58 ], [ %15, %52 ]
+.thread3:                                         ; preds = %51, %56, %13
+  %57 = phi ptr [ null, %13 ], [ null, %56 ], [ %15, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %59
+  ret ptr %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

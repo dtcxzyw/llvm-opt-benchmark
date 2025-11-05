@@ -1133,14 +1133,13 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
   %85 = load i32, ptr %84, align 4, !tbaa !127
   %86 = and i32 %85, 7
   %87 = icmp eq i32 %86, 2
-  br label %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit
+  %88 = or i1 %87, %36
+  br i1 %88, label %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread, label %193
 
-_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit:       ; preds = %75, %81
-  %88 = phi i1 [ %87, %81 ], [ false, %75 ]
-  %or.cond83 = or i1 %88, %36
-  br i1 %or.cond83, label %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread, label %193
+_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit:       ; preds = %75
+  br i1 %36, label %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread, label %193
 
-_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread: ; preds = %75, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit
+_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread: ; preds = %81, %75, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit
   %89 = load ptr, ptr %13, align 8, !tbaa !108
   %90 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !118
@@ -1355,7 +1354,7 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94:  ; preds = %187, %183, %.lr.ph1
   store i32 0, ptr %1, align 8, !tbaa !3
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104
 
-193:                                              ; preds = %143, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit, %._crit_edge142, %157, %155, %74, %134, %72, %_ZN10LogMessageD2Ev.exit
+193:                                              ; preds = %81, %143, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit, %._crit_edge142, %157, %155, %74, %134, %72, %_ZN10LogMessageD2Ev.exit
   %194 = load i32, ptr %32, align 8, !tbaa !120
   %195 = add nsw i32 %194, -1
   store i32 %195, ptr %32, align 8, !tbaa !120

@@ -376,7 +376,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   br label %.thread.i
 
 142:                                              ; preds = %99
-  br i1 %121, label %144, label %.thread.i
+  br i1 %121, label %145, label %.thread.i
 
 .thread.i:                                        ; preds = %142, %130, %123
   %.0340403.ph.i = phi ptr [ %139, %130 ], [ %7, %123 ], [ %7, %142 ]
@@ -385,22 +385,21 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   %.0365397.ph.i = phi i64 [ -1, %130 ], [ 1, %123 ], [ 1, %142 ]
   %.ph405.i = phi i1 [ false, %130 ], [ true, %123 ], [ true, %142 ]
   %143 = mul nsw i64 %.0365397.ph.i, %115
-  br label %144
+  %144 = mul nsw i64 %.0365397.ph.i, %118
+  br label %145
 
-144:                                              ; preds = %.thread.i, %142
-  %145 = phi i64 [ %143, %.thread.i ], [ %5, %142 ]
-  %146 = phi i1 [ %.ph405.i, %.thread.i ], [ true, %142 ]
-  %.0365397418.i = phi i64 [ %.0365397.ph.i, %.thread.i ], [ 1, %142 ]
+145:                                              ; preds = %.thread.i, %142
+  %146 = phi i64 [ %143, %.thread.i ], [ %5, %142 ]
+  %147 = phi i1 [ %.ph405.i, %.thread.i ], [ true, %142 ]
   %.0359399416.i = phi i64 [ %.0359399.ph.i, %.thread.i ], [ %4, %142 ]
   %.0345401414.i = phi ptr [ %.0345401.ph.i, %.thread.i ], [ %7, %142 ]
   %.0340403412.i = phi ptr [ %.0340403.ph.i, %.thread.i ], [ %7, %142 ]
-  %147 = phi i64 [ %118, %.thread.i ], [ %5, %142 ]
-  %148 = mul nsw i64 %147, %.0365397418.i
+  %148 = phi i64 [ %144, %.thread.i ], [ %5, %142 ]
   %149 = load ptr, ptr %3, align 8, !tbaa !33
   %.not383.i = icmp eq ptr %149, null
   br i1 %.not383.i, label %157, label %150
 
-150:                                              ; preds = %144
+150:                                              ; preds = %145
   %151 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %115) #11
   %152 = icmp eq ptr %151, null
   br i1 %152, label %153, label %157
@@ -411,8 +410,8 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   %156 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_complex_loop, i32 noundef 199, i64 noundef %154, i64 noundef %155, ptr noundef nonnull @.str.12) #10
   br label %331
 
-157:                                              ; preds = %150, %144
-  %.0357.i = phi ptr [ %151, %150 ], [ null, %144 ]
+157:                                              ; preds = %150, %145
+  %.0357.i = phi ptr [ %151, %150 ], [ null, %145 ]
   %.not472.i = icmp eq i64 %4, 0
   br i1 %.not472.i, label %H5T__conv_complex_loop.exit, label %.lr.ph471.i
 
@@ -438,7 +437,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   %.1341469.i = phi ptr [ %.0340403412.i, %.lr.ph471.i ], [ %328, %327 ]
   %.1346468.i = phi ptr [ %.0345401414.i, %.lr.ph471.i ], [ %329, %327 ]
   %.0356467.i = phi i64 [ 0, %.lr.ph471.i ], [ %330, %327 ]
-  br i1 %146, label %171, label %174
+  br i1 %147, label %171, label %174
 
 171:                                              ; preds = %170
   %172 = icmp ult i64 %.0356467.i, %.0359399416.i
@@ -812,7 +811,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex(ptr noundef %0, ptr noundef reado
   br label %327
 
 327:                                              ; preds = %323, %.loopexit.i
-  %328 = getelementptr inbounds i8, ptr %.1341469.i, i64 %145
+  %328 = getelementptr inbounds i8, ptr %.1341469.i, i64 %146
   %329 = getelementptr inbounds i8, ptr %.1346468.i, i64 %148
   %330 = add nuw i64 %.0356467.i, 1
   %exitcond480.not.i = icmp eq i64 %330, %4
@@ -1285,7 +1284,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   br label %.thread
 
 66:                                               ; preds = %39
-  br i1 %45, label %68, label %.thread
+  br i1 %45, label %69, label %.thread
 
 .thread:                                          ; preds = %66, %54, %47
   %.0327383.ph = phi i64 [ -1, %54 ], [ 1, %47 ], [ 1, %66 ]
@@ -1294,22 +1293,21 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   %.0331379.ph = phi ptr [ %65, %54 ], [ %5, %47 ], [ %5, %66 ]
   %.0335377.ph = phi ptr [ %63, %54 ], [ %5, %47 ], [ %5, %66 ]
   %67 = mul nsw i64 %.0327383.ph, %41
-  br label %68
+  %68 = mul nsw i64 %.0327383.ph, %43
+  br label %69
 
-68:                                               ; preds = %66, %.thread
-  %69 = phi i64 [ %67, %.thread ], [ %4, %66 ]
+69:                                               ; preds = %66, %.thread
+  %70 = phi i64 [ %67, %.thread ], [ %4, %66 ]
   %.0335377398 = phi ptr [ %.0335377.ph, %.thread ], [ %5, %66 ]
   %.0331379396 = phi ptr [ %.0331379.ph, %.thread ], [ %5, %66 ]
   %.0328381394 = phi i64 [ %.0328381.ph, %.thread ], [ %3, %66 ]
-  %70 = phi i1 [ %.ph385, %.thread ], [ true, %66 ]
-  %.0327383392 = phi i64 [ %.0327383.ph, %.thread ], [ 1, %66 ]
-  %71 = phi i64 [ %43, %.thread ], [ %4, %66 ]
-  %72 = mul nsw i64 %71, %.0327383392
+  %71 = phi i1 [ %.ph385, %.thread ], [ true, %66 ]
+  %72 = phi i64 [ %68, %.thread ], [ %4, %66 ]
   %73 = load ptr, ptr %2, align 8, !tbaa !33
   %.not363 = icmp eq ptr %73, null
   br i1 %.not363, label %81, label %74
 
-74:                                               ; preds = %68
+74:                                               ; preds = %69
   %75 = tail call noalias ptr @calloc(i64 noundef 1, i64 noundef %41) #11
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %81
@@ -1320,8 +1318,8 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   %80 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_complex_f_matched, i32 noundef 1005, i64 noundef %78, i64 noundef %79, ptr noundef nonnull @.str.12) #10
   br label %.thread410
 
-81:                                               ; preds = %74, %68
-  %.0329 = phi ptr [ %75, %74 ], [ null, %68 ]
+81:                                               ; preds = %74, %69
+  %.0329 = phi ptr [ %75, %74 ], [ null, %69 ]
   %.not445 = icmp eq i64 %3, 0
   br i1 %.not445, label %.thread410, label %.lr.ph444
 
@@ -1343,7 +1341,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   %.0323442 = phi i64 [ 0, %.lr.ph444 ], [ %303, %300 ]
   %.1332441 = phi ptr [ %.0331379396, %.lr.ph444 ], [ %302, %300 ]
   %.1336439 = phi ptr [ %.0335377398, %.lr.ph444 ], [ %301, %300 ]
-  br i1 %70, label %93, label %96
+  br i1 %71, label %93, label %96
 
 93:                                               ; preds = %92
   %94 = icmp ult i64 %.0323442, %.0328381394
@@ -1758,7 +1756,7 @@ define range(i32 -1, 1) i32 @H5T__conv_complex_f_matched(ptr noundef %0, ptr nou
   br label %300
 
 300:                                              ; preds = %295, %290
-  %301 = getelementptr inbounds i8, ptr %.1336439, i64 %69
+  %301 = getelementptr inbounds i8, ptr %.1336439, i64 %70
   %302 = getelementptr inbounds i8, ptr %.1332441, i64 %72
   %303 = add nuw i64 %.0323442, 1
   %exitcond461.not = icmp eq i64 %303, %3

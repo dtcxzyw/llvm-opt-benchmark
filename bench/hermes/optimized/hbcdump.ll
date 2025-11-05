@@ -4980,17 +4980,17 @@ declare void @_ZN6hermes15ProfileAnalyzer16deserializeTraceESt10unique_ptrIN4llv
 define linkonce_odr hidden void @_ZN6hermes15ProfileAnalyzer22checkAndReportAccuracyEv(ptr noundef nonnull align 8 dereferenceable(392) %this) local_unnamed_addr #3 comdat align 2 {
 entry:
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 216
-  %__begin2.sroa.0.09 = load ptr, ptr %_M_before_begin.i.i.i, align 8
-  %cmp.i.not10 = icmp eq ptr %__begin2.sroa.0.09, null
-  br i1 %cmp.i.not10, label %for.end, label %for.body.lr.ph
+  %__begin2.sroa.0.015 = load ptr, ptr %_M_before_begin.i.i.i, align 8
+  %cmp.i.not16 = icmp eq ptr %__begin2.sroa.0.015, null
+  br i1 %cmp.i.not16, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %_M_before_begin.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin2.sroa.0.011 = phi ptr [ %__begin2.sroa.0.09, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %for.inc ]
-  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.011, i64 8
+  %__begin2.sroa.0.017 = phi ptr [ %__begin2.sroa.0.015, %for.body.lr.ph ], [ %__begin2.sroa.0.0, %for.inc ]
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 8
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #21
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #21
   %__begin2.sroa.0.010.i = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -5007,7 +5007,7 @@ for.body.us.i:                                    ; preds = %for.body.lr.ph.i, %
   %call.i18.us.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %second.us.i) #21
   %call2.i.us.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %second.us.i) #21
   %cmp.i.us.i = icmp eq i64 %call2.i.us.i, 0
-  br i1 %cmp.i.us.i, label %if.then.i, label %for.inc.us.i
+  br i1 %cmp.i.us.i, label %if.then, label %for.inc.us.i
 
 for.inc.us.i:                                     ; preds = %for.body.us.i
   %__begin2.sroa.0.0.us.i = load ptr, ptr %__begin2.sroa.0.012.us.i, align 8
@@ -5025,22 +5025,22 @@ for.body.i:                                       ; preds = %for.body.lr.ph.i, %
 land.rhs.i.i:                                     ; preds = %for.body.i
   %bcmp.i = tail call i32 @bcmp(ptr %call.i18.i, ptr %call.i, i64 %call2.i)
   %0 = icmp eq i32 %bcmp.i, 0
-  br i1 %0, label %if.then.i, label %for.inc.i
-
-if.then.i:                                        ; preds = %land.rhs.i.i, %for.body.us.i
-  %.us-phi.i = phi ptr [ %__begin2.sroa.0.012.us.i, %for.body.us.i ], [ %__begin2.sroa.0.012.i, %land.rhs.i.i ]
-  %add.ptr.i.le.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
-  %1 = load i32, ptr %add.ptr.i.le.i, align 4
-  tail call void @_ZN6hermes15ProfileAnalyzer33checkAndReportAccuracyForFunctionEj(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %1) #21
-  br label %for.inc
+  br i1 %0, label %if.then, label %for.inc.i
 
 for.inc.i:                                        ; preds = %land.rhs.i.i, %for.body.i
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.012.i, align 8
   %cmp.i6.not.i = icmp eq ptr %__begin2.sroa.0.0.i, null
   br i1 %cmp.i6.not.i, label %for.inc, label %for.body.i
 
-for.inc:                                          ; preds = %for.inc.i, %for.inc.us.i, %for.body, %if.then.i
-  %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.011, align 8
+if.then:                                          ; preds = %land.rhs.i.i, %for.body.us.i
+  %.us-phi.i = phi ptr [ %__begin2.sroa.0.012.us.i, %for.body.us.i ], [ %__begin2.sroa.0.012.i, %land.rhs.i.i ]
+  %add.ptr.i.le.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 8
+  %1 = load i32, ptr %add.ptr.i.le.i, align 4
+  tail call void @_ZN6hermes15ProfileAnalyzer33checkAndReportAccuracyForFunctionEj(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %1) #21
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.inc.i, %for.inc.us.i, %for.body, %if.then
+  %__begin2.sroa.0.0 = load ptr, ptr %__begin2.sroa.0.017, align 8
   %cmp.i.not = icmp eq ptr %__begin2.sroa.0.0, null
   br i1 %cmp.i.not, label %for.end, label %for.body
 

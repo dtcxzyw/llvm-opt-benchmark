@@ -1289,15 +1289,15 @@ switch.lookup:                                    ; preds = %if.end11
   %3 = zext nneg i32 %format to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video6CImage4fillERKNS0_6SColorE, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
+  %4 = mul i32 %switch.load, %width
   br label %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
 
 _ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit: ; preds = %switch.lookup, %if.end11
-  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end11 ]
+  %retval.0.i = phi i32 [ %4, %switch.lookup ], [ 0, %if.end11 ]
   %cmp = icmp eq i32 %pitch, 0
-  %mul = mul i32 %retval.0.i, %width
-  %spec.select = select i1 %cmp, i32 %mul, i32 %pitch
-  %4 = load i32, ptr %Format, align 8, !tbaa !6
-  %cmp16 = icmp eq i32 %4, %format
+  %spec.select = select i1 %cmp, i32 %retval.0.i, i32 %pitch
+  %5 = load i32, ptr %Format, align 8, !tbaa !6
+  %cmp16 = icmp eq i32 %5, %format
   %cmp19 = icmp eq i32 %0, %width
   %or.cond63 = and i1 %cmp19, %cmp16
   %cmp23 = icmp eq i32 %1, %height
@@ -1306,49 +1306,49 @@ _ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit: ; pre
 
 if.end25:                                         ; preds = %_ZN3irr5video6IImage25getBitsPerPixelFromFormatENS0_13ECOLOR_FORMATE.exit
   %Pitch = getelementptr inbounds nuw i8, ptr %this, i64 44
-  %5 = load i32, ptr %Pitch, align 4, !tbaa !19
-  %cmp26 = icmp eq i32 %spec.select, %5
+  %6 = load i32, ptr %Pitch, align 4, !tbaa !19
+  %cmp26 = icmp eq i32 %spec.select, %6
   %Data = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %6 = load ptr, ptr %Data, align 8, !tbaa !20
+  %7 = load ptr, ptr %Data, align 8, !tbaa !20
   br i1 %cmp26, label %if.then27, label %if.else
 
 if.then27:                                        ; preds = %if.end25
   %conv = zext i32 %height to i64
   %conv28 = zext i32 %spec.select to i64
   %mul29 = mul nuw i64 %conv28, %conv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %target, ptr align 1 %6, i64 %mul29, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %target, ptr align 1 %7, i64 %mul29, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.end25
-  %sub = sub i32 %spec.select, %mul
-  %conv33 = zext i32 %mul to i64
+  %sub = sub i32 %spec.select, %retval.0.i
+  %conv33 = zext i32 %retval.0.i to i64
   %conv34 = zext i32 %sub to i64
   %idx.ext35 = zext i32 %spec.select to i64
   %xtraiter = and i32 %height, 1
-  %7 = icmp eq i32 %height, 1
-  br i1 %7, label %for.body.epil, label %if.else.new
+  %8 = icmp eq i32 %height, 1
+  br i1 %8, label %for.body.epil, label %if.else.new
 
 if.else.new:                                      ; preds = %if.else
   %unroll_iter = and i32 %height, -2
   br label %for.body
 
 for.body:                                         ; preds = %for.body, %if.else.new
-  %srcpos.066 = phi ptr [ %6, %if.else.new ], [ %add.ptr39.1, %for.body ]
+  %srcpos.066 = phi ptr [ %7, %if.else.new ], [ %add.ptr39.1, %for.body ]
   %tgtpos.065 = phi ptr [ %target, %if.else.new ], [ %add.ptr36.1, %for.body ]
   %niter = phi i32 [ 0, %if.else.new ], [ %niter.next.1, %for.body ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tgtpos.065, ptr align 1 %srcpos.066, i64 %conv33, i1 false)
   %add.ptr = getelementptr inbounds nuw i8, ptr %tgtpos.065, i64 %conv33
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr, i8 0, i64 %conv34, i1 false)
   %add.ptr36 = getelementptr inbounds nuw i8, ptr %tgtpos.065, i64 %idx.ext35
-  %8 = load i32, ptr %Pitch, align 4, !tbaa !19
-  %idx.ext38 = zext i32 %8 to i64
+  %9 = load i32, ptr %Pitch, align 4, !tbaa !19
+  %idx.ext38 = zext i32 %9 to i64
   %add.ptr39 = getelementptr inbounds nuw i8, ptr %srcpos.066, i64 %idx.ext38
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr36, ptr align 1 %add.ptr39, i64 %conv33, i1 false)
   %add.ptr.1 = getelementptr inbounds nuw i8, ptr %add.ptr36, i64 %conv33
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.1, i8 0, i64 %conv34, i1 false)
   %add.ptr36.1 = getelementptr inbounds nuw i8, ptr %add.ptr36, i64 %idx.ext35
-  %9 = load i32, ptr %Pitch, align 4, !tbaa !19
-  %idx.ext38.1 = zext i32 %9 to i64
+  %10 = load i32, ptr %Pitch, align 4, !tbaa !19
+  %idx.ext38.1 = zext i32 %10 to i64
   %add.ptr39.1 = getelementptr inbounds nuw i8, ptr %add.ptr39, i64 %idx.ext38.1
   %niter.next.1 = add i32 %niter, 2
   %niter.ncmp.1 = icmp eq i32 %niter.next.1, %unroll_iter
@@ -1360,7 +1360,7 @@ return.loopexit.unr-lcssa:                        ; preds = %for.body
 
 for.body.epil:                                    ; preds = %if.else, %return.loopexit.unr-lcssa
   %tgtpos.065.unr6 = phi ptr [ %add.ptr36.1, %return.loopexit.unr-lcssa ], [ %target, %if.else ]
-  %srcpos.066.unr5 = phi ptr [ %add.ptr39.1, %return.loopexit.unr-lcssa ], [ %6, %if.else ]
+  %srcpos.066.unr5 = phi ptr [ %add.ptr39.1, %return.loopexit.unr-lcssa ], [ %7, %if.else ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tgtpos.065.unr6, ptr align 1 %srcpos.066.unr5, i64 %conv33, i1 false)
   %add.ptr.epil = getelementptr inbounds nuw i8, ptr %tgtpos.065.unr6, i64 %conv33
   tail call void @llvm.memset.p0.i64(ptr align 1 %add.ptr.epil, i8 0, i64 %conv34, i1 false)

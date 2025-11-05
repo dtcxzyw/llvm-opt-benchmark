@@ -793,8 +793,7 @@ $_ZTVN4llvm8outliner16OutlinedFunctionE = comdat any
 @switch.table._ZN4llvm3X8618getSwappedVPCOMImmEj = private unnamed_addr constant [8 x i32] [i32 2, i32 3, i32 0, i32 1, i32 4, i32 5, i32 6, i32 7], align 4
 @switch.table._ZN4llvm3X8626GetOppositeBranchConditionENS0_8CondCodeE = private unnamed_addr constant [18 x i32] [i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6, i32 9, i32 8, i32 11, i32 10, i32 13, i32 12, i32 15, i32 14, i32 17, i32 16], align 4
 @switch.table._ZN4llvm3X8628getCCMPCondFlagsFromCondCodeENS0_8CondCodeE = private unnamed_addr constant [16 x i32] [i32 8, i32 0, i32 1, i32 0, i32 2, i32 0, i32 1, i32 0, i32 4, i32 0, i32 1, i32 0, i32 4, i32 0, i32 2, i32 0], align 4
-@switch.table._ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE = private unnamed_addr constant [40 x i64] [i64 7, i64 3, i64 7, i64 3, i64 5, i64 11, i64 10, i64 4, i64 2, i64 6, i64 2, i64 6, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 4, i64 5, i64 7, i64 3, i64 2, i64 6, i64 15, i64 13, i64 12, i64 14], align 8
-@switch.table._ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE.38 = private unnamed_addr constant [40 x i64] [i64 0, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 4294967296, i64 4294967296, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0, i64 0], align 8
+@switch.table._ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE = private unnamed_addr constant [40 x i64] [i64 7, i64 3, i64 4294967303, i64 4294967299, i64 5, i64 11, i64 10, i64 4, i64 4294967298, i64 4294967302, i64 2, i64 6, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 18, i64 4, i64 5, i64 7, i64 3, i64 2, i64 6, i64 15, i64 13, i64 12, i64 14], align 8
 @switch.table._ZN4llvm3X8618getVPCMPImmForCondENS_3ISD8CondCodeE = private unnamed_addr constant [13 x i32] [i32 6, i32 5, i32 1, i32 2, i32 poison, i32 poison, i32 poison, i32 0, i32 6, i32 5, i32 1, i32 2, i32 4], align 4
 @switch.table._ZN4llvm3X8622getVectorRegisterWidthERKNS_13MCOperandInfoE = private unnamed_addr constant [4 x i32] [i32 128, i32 128, i32 256, i32 256], align 4
 @switch.table._ZL19getSwappedConditionN4llvm3X868CondCodeE = private unnamed_addr constant [14 x i32] [i32 7, i32 6, i32 4, i32 5, i32 3, i32 2, i32 18, i32 18, i32 18, i32 18, i32 15, i32 14, i32 13, i32 12], align 4
@@ -11550,24 +11549,20 @@ _ZL18getNewOpcFromTableN4llvm8ArrayRefI13X86TableEntryEEj.exit: ; preds = %_ZN4l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local range(i64 2, 4294967328) i64 @_ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #4 {
+define dso_local range(i64 2, 4294967304) i64 @_ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE(i32 noundef %0) local_unnamed_addr #4 {
   %switch.tableidx = add i32 %0, -2
   %2 = icmp ult i32 %switch.tableidx, 40
-  br i1 %2, label %switch.lookup, label %6
+  br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm3X8619getX86ConditionCodeENS_7CmpInst9PredicateE.38, i64 %4
-  %switch.load4 = load i64, ptr %switch.gep3, align 8
-  %5 = or disjoint i64 %switch.load4, %switch.load
-  br label %6
+  br label %4
 
-6:                                                ; preds = %switch.lookup, %1
-  %.sroa.0.0.insert.insert.i = phi i64 [ 18, %1 ], [ %5, %switch.lookup ]
-  ret i64 %.sroa.0.0.insert.insert.i
+4:                                                ; preds = %switch.lookup, %1
+  %.4 = phi i64 [ 18, %1 ], [ %switch.load, %switch.lookup ]
+  ret i64 %.4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -18828,7 +18823,7 @@ _ZN4llvm5APIntC2Ejmbb.exit.thread:                ; preds = %2
   %6 = and i32 %5, 63
   %7 = zext nneg i32 %6 to i64
   %8 = shl nuw i64 1, %7
-  br label %14
+  br label %15
 
 _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %2
   tail call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %0, i64 noundef 0, i1 noundef zeroext false) #33
@@ -18838,30 +18833,29 @@ _ZN4llvm5APIntC2Ejmbb.exit:                       ; preds = %2
   %11 = zext nneg i32 %10 to i64
   %12 = shl nuw i64 1, %11
   %13 = icmp ult i32 %.pr, 65
-  br i1 %13, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, label %18
+  br i1 %13, label %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, label %17
 
 _ZN4llvm5APIntC2Ejmbb.exit._crit_edge:            ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
   %.pre = load i64, ptr %0, align 8, !tbaa !240
-  br label %14
+  %14 = or i64 %.pre, %12
+  br label %15
 
-14:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, %_ZN4llvm5APIntC2Ejmbb.exit.thread
-  %15 = phi i64 [ 0, %_ZN4llvm5APIntC2Ejmbb.exit.thread ], [ %.pre, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge ]
-  %16 = phi i64 [ %8, %_ZN4llvm5APIntC2Ejmbb.exit.thread ], [ %12, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge ]
-  %17 = or i64 %15, %16
-  store i64 %17, ptr %0, align 8, !tbaa !240
+15:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge, %_ZN4llvm5APIntC2Ejmbb.exit.thread
+  %16 = phi i64 [ %8, %_ZN4llvm5APIntC2Ejmbb.exit.thread ], [ %14, %_ZN4llvm5APIntC2Ejmbb.exit._crit_edge ]
+  store i64 %16, ptr %0, align 8, !tbaa !240
   br label %_ZN4llvm5APInt6setBitEj.exit
 
-18:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
-  %19 = load ptr, ptr %0, align 8, !tbaa !240
-  %20 = lshr i32 %9, 6
-  %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
-  %23 = load i64, ptr %22, align 8, !tbaa !65
-  %24 = or i64 %23, %12
-  store i64 %24, ptr %22, align 8, !tbaa !65
+17:                                               ; preds = %_ZN4llvm5APIntC2Ejmbb.exit
+  %18 = load ptr, ptr %0, align 8, !tbaa !240
+  %19 = lshr i32 %9, 6
+  %20 = zext nneg i32 %19 to i64
+  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !65
+  %23 = or i64 %22, %12
+  store i64 %23, ptr %21, align 8, !tbaa !65
   br label %_ZN4llvm5APInt6setBitEj.exit
 
-_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %14, %18
+_ZN4llvm5APInt6setBitEj.exit:                     ; preds = %15, %17
   ret void
 }
 

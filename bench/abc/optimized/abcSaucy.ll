@@ -9876,26 +9876,29 @@ generateProperInputVector.exit:                   ; preds = %._crit_edge.i, %5
   %spec.select = add nuw nsw i32 %.091113, %47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !299
+  br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !299
 
-._crit_edge:                                      ; preds = %.lr.ph, %42
-  %.091.lcssa = phi i32 [ 0, %42 ], [ %spec.select, %.lr.ph ]
-  %48 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
-  %49 = mul nsw i32 %.091.lcssa, %.val104.val
+._crit_edge.loopexit:                             ; preds = %.lr.ph
+  %48 = mul nsw i32 %spec.select, %.val104.val
+  br label %._crit_edge
+
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %42
+  %.091.lcssa = phi i32 [ 0, %42 ], [ %48, %._crit_edge.loopexit ]
+  %49 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #27
   %50 = add nsw i32 %10, 1
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 2
   %53 = tail call noalias noundef ptr @malloc(i64 noundef %52) #27
-  %54 = shl nsw i32 %49, 1
+  %54 = shl nsw i32 %.091.lcssa, 1
   %55 = sext i32 %54 to i64
   %56 = shl nsw i64 %55, 2
   %57 = tail call noalias noundef ptr @malloc(i64 noundef %56) #27
-  store i32 %10, ptr %48, align 8, !tbaa !300
-  %58 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 %49, ptr %58, align 4, !tbaa !301
-  %59 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 %10, ptr %49, align 8, !tbaa !300
+  %58 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 %.091.lcssa, ptr %58, align 4, !tbaa !301
+  %59 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %53, ptr %59, align 8, !tbaa !187
-  %60 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %57, ptr %60, align 8, !tbaa !189
   store i32 0, ptr %53, align 4, !tbaa !41
   br i1 %44, label %.lr.ph121.preheader, label %.preheader
@@ -10025,12 +10028,12 @@ generateProperInputVector.exit:                   ; preds = %._crit_edge.i, %5
 
 generateProperInputVector.exit.thread.sink.split: ; preds = %._crit_edge130, %40
   %.sink = phi ptr [ %13, %40 ], [ %43, %._crit_edge130 ]
-  %.0.ph = phi ptr [ null, %40 ], [ %48, %._crit_edge130 ]
+  %.0.ph = phi ptr [ null, %40 ], [ %49, %._crit_edge130 ]
   tail call void @free(ptr noundef nonnull %.sink) #25
   br label %generateProperInputVector.exit.thread
 
 generateProperInputVector.exit.thread:            ; preds = %generateProperInputVector.exit.thread.sink.split, %40, %._crit_edge130, %generateProperInputVector.exit
-  %.0 = phi ptr [ null, %generateProperInputVector.exit ], [ %48, %._crit_edge130 ], [ null, %40 ], [ %.0.ph, %generateProperInputVector.exit.thread.sink.split ]
+  %.0 = phi ptr [ null, %generateProperInputVector.exit ], [ %49, %._crit_edge130 ], [ null, %40 ], [ %.0.ph, %generateProperInputVector.exit.thread.sink.split ]
   ret ptr %.0
 }
 

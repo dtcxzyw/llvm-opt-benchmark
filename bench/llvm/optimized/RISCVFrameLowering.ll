@@ -11203,24 +11203,26 @@ _ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoE
   br label %_ZL24getPushPopEncodingAndNumN4llvm8RegisterE.exit
 
 _ZL24getPushPopEncodingAndNumN4llvm8RegisterE.exit: ; preds = %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit, %46, %47, %48, %49, %50, %51, %52, %53, %54, %55, %56
-  %.sroa.091.0.i = phi i32 [ 14, %46 ], [ 13, %47 ], [ 12, %48 ], [ 11, %49 ], [ 10, %50 ], [ 9, %51 ], [ 8, %52 ], [ 7, %53 ], [ 6, %54 ], [ 5, %55 ], [ 4, %56 ], [ 15, %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ]
-  %.sroa.13.0.i = phi i32 [ 11, %46 ], [ 10, %47 ], [ 9, %48 ], [ 8, %49 ], [ 7, %50 ], [ 6, %51 ], [ 5, %52 ], [ 4, %53 ], [ 3, %54 ], [ 2, %55 ], [ 1, %56 ], [ 13, %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ]
+  %.sroa.13.0.i = phi i64 [ 47244640270, %46 ], [ 42949672973, %47 ], [ 38654705676, %48 ], [ 34359738379, %49 ], [ 30064771082, %50 ], [ 25769803785, %51 ], [ 21474836488, %52 ], [ 17179869191, %53 ], [ 12884901894, %54 ], [ 8589934597, %55 ], [ 4294967300, %56 ], [ 55834574863, %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit ]
+  %.sroa.0104.0.extract.trunc = trunc i64 %.sroa.13.0.i to i32
+  %.sroa.4.0.extract.shift = lshr i64 %.sroa.13.0.i, 32
+  %.sroa.4.0.extract.trunc = trunc nuw nsw i64 %.sroa.4.0.extract.shift to i32
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 116
-  store i32 %.sroa.13.0.i, ptr %57, align 4, !tbaa !803
+  store i32 %.sroa.4.0.extract.trunc, ptr %57, align 4, !tbaa !803
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !280
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 519
   %61 = load i8, ptr %60, align 1, !tbaa !344, !range !277, !noundef !278
   %62 = trunc nuw i8 %61 to i1
   %63 = select i1 %62, i32 3, i32 2
-  %64 = shl nuw nsw i32 %.sroa.13.0.i, %63
+  %64 = shl nuw nsw i32 %.sroa.4.0.extract.trunc, %63
   %.lhs.trunc = add nuw nsw i32 %64, 255
   %.zext = and i32 %.lhs.trunc, 240
   %65 = add nuw nsw i32 %.zext, 16
   %66 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store i32 %65, ptr %66, align 8, !tbaa !552
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  store i32 %.sroa.091.0.i, ptr %67, align 8, !tbaa !804
+  store i32 %.sroa.0104.0.extract.trunc, ptr %67, align 8, !tbaa !804
   br label %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread
 
 _ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit.thread: ; preds = %_ZL16getMaxPushPopRegRKN4llvm15MachineFunctionERKSt6vectorINS_15CalleeSavedInfoESaIS4_EE.exit, %27, %11, %19, %_ZL24getPushPopEncodingAndNumN4llvm8RegisterE.exit, %_ZNK4llvm24RISCVMachineFunctionInfo10isPushableERKNS_15MachineFunctionE.exit

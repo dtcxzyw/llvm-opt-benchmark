@@ -15149,11 +15149,11 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %236 = getelementptr inbounds nuw i32, ptr %213, i64 %235
   %237 = load i32, ptr %236, align 4, !tbaa !70
   %238 = zext i32 %237 to i64
+  %239 = or disjoint i64 %.03556.i, %238
   br label %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
 
 _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i: ; preds = %233, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
-  %239 = phi i64 [ %238, %233 ], [ 0, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
-  %240 = or disjoint i64 %239, %.03556.i
+  %240 = phi i64 [ %239, %233 ], [ %.03556.i, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
   %241 = icmp samesign ugt i64 %231, %240
   br i1 %241, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit, label %242
 
@@ -15553,11 +15553,11 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %414 = getelementptr inbounds nuw i32, ptr %391, i64 %413
   %415 = load i32, ptr %414, align 4, !tbaa !70
   %416 = zext i32 %415 to i64
+  %417 = or disjoint i64 %.03556.i240, %416
   br label %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i250
 
 _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i250: ; preds = %411, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i247
-  %417 = phi i64 [ %416, %411 ], [ 0, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i247 ]
-  %418 = or disjoint i64 %417, %.03556.i240
+  %418 = phi i64 [ %417, %411 ], [ %.03556.i240, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i247 ]
   %419 = icmp samesign ugt i64 %409, %418
   br i1 %419, label %.thread675, label %420
 
@@ -15676,11 +15676,11 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %469 = getelementptr inbounds nuw i32, ptr %454, i64 %468
   %470 = load i32, ptr %469, align 4, !tbaa !70
   %471 = zext i32 %470 to i64
+  %472 = or disjoint i64 %.03556.i258, %471
   br label %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268
 
 _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i268: ; preds = %466, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i265
-  %472 = phi i64 [ %471, %466 ], [ 0, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i265 ]
-  %473 = or disjoint i64 %472, %.03556.i258
+  %473 = phi i64 [ %472, %466 ], [ %.03556.i258, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i265 ]
   %474 = icmp samesign ugt i64 %464, %473
   br i1 %474, label %.thread.sink.split, label %475
 
@@ -16034,17 +16034,17 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %617 = getelementptr inbounds nuw i32, ptr %602, i64 %616
   %618 = load i32, ptr %617, align 4, !tbaa !70
   %619 = zext i32 %618 to i64
+  %620 = or disjoint i64 %.03556.i334, %619
   br label %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
 
 _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344: ; preds = %614, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341
-  %620 = phi i64 [ %619, %614 ], [ 0, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341 ]
-  %621 = or disjoint i64 %620, %.03556.i334
+  %621 = phi i64 [ %620, %614 ], [ %.03556.i334, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i341 ]
   %622 = icmp samesign ugt i64 %612, %621
   br i1 %622, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit347, label %623
 
 623:                                              ; preds = %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i344
   %624 = sub nuw nsw i64 %621, %612
-  %625 = icmp samesign ult i64 %624, 2
+  %625 = icmp ult i64 %624, 2
   %626 = shl nuw nsw i64 %624, 32
   %.not.not.not.i345 = icmp sgt i32 %.03458.i335, %600
   %or.cond464 = select i1 %625, i1 %.not.not.not.i345, i1 false
@@ -16251,11 +16251,11 @@ _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %713 = getelementptr inbounds nuw i32, ptr %698, i64 %712
   %714 = load i32, ptr %713, align 4, !tbaa !70
   %715 = zext i32 %714 to i64
+  %716 = or disjoint i64 %.03556.i372, %715
   br label %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382
 
 _ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i382: ; preds = %710, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379
-  %716 = phi i64 [ %715, %710 ], [ 0, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379 ]
-  %717 = or disjoint i64 %716, %.03556.i372
+  %717 = phi i64 [ %716, %710 ], [ %.03556.i372, %_ZZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i379 ]
   %718 = icmp samesign ugt i64 %708, %717
   br i1 %718, label %_ZN3fmt3v116detail11add_compareERKNS1_6bigintES4_S4_.exit385, label %719
 

@@ -514,7 +514,7 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   br label %149
 
 149:                                              ; preds = %guc_mmio_reg_add.exit15, %.loopexit
-  %150 = phi ptr [ %.pre33, %.loopexit ], [ %207, %guc_mmio_reg_add.exit15 ]
+  %150 = phi ptr [ %.pre33, %.loopexit ], [ %208, %guc_mmio_reg_add.exit15 ]
   %151 = phi i32 [ 0, %.loopexit ], [ %210, %guc_mmio_reg_add.exit15 ]
   %152 = phi i32 [ %147, %.loopexit ], [ %209, %guc_mmio_reg_add.exit15 ]
   %153 = shl nuw nsw i32 %151, 2
@@ -602,35 +602,35 @@ guc_mmio_reg_add.exit:                            ; preds = %.preheader.i, %.pre
   %196 = phi ptr [ %186, %._crit_edge38 ], [ inttoptr (i64 -12 to ptr), %176 ], [ inttoptr (i64 -12 to ptr), %178 ]
   %197 = ptrtoint ptr %196 to i64
   %198 = trunc i64 %197 to i32
+  %199 = or i32 %152, %198
   br label %guc_mmio_reg_add.exit15
 
 .preheader.i13:                                   ; preds = %.lr.ph97
-  %199 = getelementptr i8, ptr %203, i64 -16
-  %200 = load i32, ptr %203, align 1
-  %201 = load i32, ptr %199, align 1
-  %202 = icmp ugt i32 %200, %201
-  br i1 %202, label %guc_mmio_reg_add.exit15, label %.lr.ph97, !llvm.loop !22
+  %200 = getelementptr i8, ptr %204, i64 -16
+  %201 = load i32, ptr %204, align 1
+  %202 = load i32, ptr %200, align 1
+  %203 = icmp ugt i32 %201, %202
+  br i1 %203, label %guc_mmio_reg_add.exit15, label %.lr.ph97, !llvm.loop !22
 
 .lr.ph97:                                         ; preds = %.preheader.i13.preheader, %.preheader.i13
-  %203 = phi ptr [ %199, %.preheader.i13 ], [ %191, %.preheader.i13.preheader ]
-  %204 = phi ptr [ %203, %.preheader.i13 ], [ %186, %.preheader.i13.preheader ]
+  %204 = phi ptr [ %200, %.preheader.i13 ], [ %191, %.preheader.i13.preheader ]
+  %205 = phi ptr [ %204, %.preheader.i13 ], [ %186, %.preheader.i13.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %204, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %204, ptr noundef align 1 dereferenceable(16) %203, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %203, ptr noundef nonnull align 1 dereferenceable(16) %7, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(16) %205, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %205, ptr noundef align 1 dereferenceable(16) %204, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(16) %204, ptr noundef nonnull align 1 dereferenceable(16) %7, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %205 = load ptr, ptr %12, align 8
-  %206 = icmp ugt ptr %203, %205
-  br i1 %206, label %.preheader.i13, label %.guc_mmio_reg_add.exit15.loopexit_crit_edge, !llvm.loop !22
+  %206 = load ptr, ptr %12, align 8
+  %207 = icmp ugt ptr %204, %206
+  br i1 %207, label %.preheader.i13, label %.guc_mmio_reg_add.exit15.loopexit_crit_edge, !llvm.loop !22
 
 .guc_mmio_reg_add.exit15.loopexit_crit_edge:      ; preds = %.lr.ph97
   br label %guc_mmio_reg_add.exit15, !llvm.loop !22
 
 guc_mmio_reg_add.exit15:                          ; preds = %.preheader.i13, %.preheader.i13.preheader, %.guc_mmio_reg_add.exit15.loopexit_crit_edge, %149, %188, %.thread4.i14
-  %207 = phi ptr [ %195, %.thread4.i14 ], [ %150, %149 ], [ %189, %188 ], [ %205, %.guc_mmio_reg_add.exit15.loopexit_crit_edge ], [ %189, %.preheader.i13.preheader ], [ %205, %.preheader.i13 ]
-  %208 = phi i32 [ %198, %.thread4.i14 ], [ 0, %149 ], [ 0, %188 ], [ 0, %.guc_mmio_reg_add.exit15.loopexit_crit_edge ], [ 0, %.preheader.i13.preheader ], [ 0, %.preheader.i13 ]
+  %208 = phi ptr [ %195, %.thread4.i14 ], [ %150, %149 ], [ %189, %188 ], [ %206, %.guc_mmio_reg_add.exit15.loopexit_crit_edge ], [ %189, %.preheader.i13.preheader ], [ %206, %.preheader.i13 ]
+  %209 = phi i32 [ %199, %.thread4.i14 ], [ %152, %149 ], [ %152, %188 ], [ %152, %.guc_mmio_reg_add.exit15.loopexit_crit_edge ], [ %152, %.preheader.i13.preheader ], [ %152, %.preheader.i13 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %209 = or i32 %208, %152
   %210 = add nuw nsw i32 %151, 1
   %211 = icmp eq i32 %210, 12
   br i1 %211, label %.preheader, label %149, !llvm.loop !26

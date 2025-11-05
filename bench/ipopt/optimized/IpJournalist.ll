@@ -212,13 +212,14 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   br i1 %10, label %.preheader63.us.preheader, label %.preheader63.lr.ph.split
 
 .preheader63.us.preheader:                        ; preds = %.preheader63.lr.ph
-  %12 = zext i32 %3 to i64
+  %smax = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
+  %12 = zext nneg i32 %smax to i64
   br label %.preheader63.us
 
 .preheader63.us:                                  ; preds = %.preheader63.us.preheader, %.loopexit.us
   %13 = phi i64 [ %37, %.loopexit.us ], [ %9, %.preheader63.us.preheader ]
   %.04875.us = phi i32 [ %3, %.loopexit.us ], [ 0, %.preheader63.us.preheader ]
-  %.04974.us.not = phi i1 [ true, %.loopexit.us ], [ false, %.preheader63.us.preheader ]
+  %.04974.us.not = phi i1 [ true, %.loopexit.us ], [ %11, %.preheader63.us.preheader ]
   %.05573.us = phi i64 [ %.4.us, %.loopexit.us ], [ 0, %.preheader63.us.preheader ]
   %14 = load ptr, ptr %5, align 8, !tbaa !26
   %15 = sext i32 %.04875.us to i64
@@ -264,11 +265,10 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   call void (ptr, i32, i32, ptr, ...) %36(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %7)
-  %brmerge = or i1 %.04974.us.not, %11
-  br i1 %brmerge, label %.loopexit.us, label %.lr.ph72.us.preheader
+  br i1 %.04974.us.not, label %.loopexit.us, label %.lr.ph72.us.preheader
 
 .lr.ph72.us.preheader:                            ; preds = %33
-  call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %12, i1 false), !tbaa !27
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %7, i8 32, i64 %12, i1 false), !tbaa !27
   br label %.loopexit.us
 
 .loopexit.us:                                     ; preds = %.lr.ph72.us.preheader, %33
@@ -2013,6 +2013,9 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #20
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

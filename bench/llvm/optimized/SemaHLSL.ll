@@ -32690,14 +32690,13 @@ _ZN12_GLOBAL__N_124DiagnoseHLSLAvailability28HasMatchingEnvironmentOrNoneEPKN5cl
   %169 = icmp samesign ult i32 %155, %146
   %170 = icmp samesign uge i32 %149, %158
   %spec.select.i.not.i.i = select i1 %169, i1 true, i1 %170
-  br label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
+  %171 = and i1 %.0.i.i, %spec.select.i.not.i.i
+  br i1 %171, label %886, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread.i
 
-_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i:        ; preds = %168, %164, %160
-  %171 = phi i1 [ true, %160 ], [ true, %164 ], [ %spec.select.i.not.i.i, %168 ]
-  %or.cond.i = and i1 %.0.i.i, %171
-  br i1 %or.cond.i, label %886, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread.i
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i:        ; preds = %164, %160
+  br i1 %.0.i.i, label %886, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread.i
 
-_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread.i: ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, %166, %162, %_ZN12_GLOBAL__N_124DiagnoseHLSLAvailability28HasMatchingEnvironmentOrNoneEPKN5clang16AvailabilityAttrE.exit.i11
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread.i: ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, %168, %166, %162, %_ZN12_GLOBAL__N_124DiagnoseHLSLAvailability28HasMatchingEnvironmentOrNoneEPKN5clang16AvailabilityAttrE.exit.i11
   %172 = getelementptr inbounds nuw i8, ptr %139, i64 352
   %.sroa.0.0.copyload.i26.i = load ptr, ptr %172, align 8, !tbaa !1241
   %.sroa.2.0..sroa_idx.i27.i = getelementptr inbounds nuw i8, ptr %139, i64 360
@@ -34096,7 +34095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115.i: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %886
 
-886:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115.i, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
+886:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115.i, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN12_GLOBAL__N_124DiagnoseHLSLAvailability21CheckDeclAvailabilityEPN5clang9NamedDeclEPKNS1_16AvailabilityAttrENS1_11SourceRangeE.exit
 

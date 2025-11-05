@@ -152,7 +152,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %96 = getelementptr inbounds double, ptr %54, i64 %95
   store double 0.000000e+00, ptr %96, align 8, !tbaa !7
   %.not759824 = icmp slt i32 %70, 1
-  br i1 %.not759824, label %121, label %.lr.ph.preheader
+  br i1 %.not759824, label %122, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %93
   %97 = add nuw i32 %70, 1
@@ -202,31 +202,31 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store double %107, ptr %44, align 8, !tbaa !7
   store double %115, ptr %33, align 8, !tbaa !7
   store double %120, ptr %36, align 8, !tbaa !7
-  br label %121
+  %121 = fmul double %.1742, %.1742
+  br label %122
 
-121:                                              ; preds = %._crit_edge, %93
-  %122 = phi double [ %115, %._crit_edge ], [ %94, %93 ]
-  %123 = phi double [ %120, %._crit_edge ], [ %94, %93 ]
-  %.0741.lcssa = phi double [ %.1742, %._crit_edge ], [ 0.000000e+00, %93 ]
-  %124 = fmul double %.0741.lcssa, %.0741.lcssa
-  %125 = fcmp ole double %124, 1.000000e+00
-  %126 = select i1 %125, double 1.000000e+00, double %124
+122:                                              ; preds = %._crit_edge, %93
+  %123 = phi double [ %115, %._crit_edge ], [ %94, %93 ]
+  %124 = phi double [ %120, %._crit_edge ], [ %94, %93 ]
+  %.0741.lcssa = phi double [ %121, %._crit_edge ], [ 0.000000e+00, %93 ]
+  %125 = fcmp ole double %.0741.lcssa, 1.000000e+00
+  %126 = select i1 %125, double 1.000000e+00, double %.0741.lcssa
   %127 = fmul double %67, %126
   store double %127, ptr %21, align 8, !tbaa !7
-  %128 = fsub double %123, %122
+  %128 = fsub double %124, %123
   store double %128, ptr %37, align 8, !tbaa !7
   call void @dlarra_(ptr noundef nonnull %1, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef %11, ptr noundef nonnull %37, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %30) #5
   %129 = zext i1 %.not to i32
   br i1 %.not, label %130, label %133
 
-130:                                              ; preds = %121
+130:                                              ; preds = %122
   %131 = load double, ptr %33, align 8, !tbaa !7
   store double %131, ptr %2, align 8, !tbaa !7
   %132 = load double, ptr %36, align 8, !tbaa !7
   store double %132, ptr %3, align 8, !tbaa !7
   br label %.loopexit821
 
-133:                                              ; preds = %121
+133:                                              ; preds = %122
   call void @dlarrd_(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %20, ptr noundef nonnull %38, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef %8, ptr noundef nonnull %21, ptr noundef %12, ptr noundef %13, ptr noundef nonnull %35, ptr noundef %15, ptr noundef %16, ptr noundef %2, ptr noundef %3, ptr noundef %18, ptr noundef %19, ptr noundef %22, ptr noundef %23, ptr noundef nonnull %30) #5
   %134 = load i32, ptr %30, align 4, !tbaa !3
   %.not761 = icmp eq i32 %134, 0

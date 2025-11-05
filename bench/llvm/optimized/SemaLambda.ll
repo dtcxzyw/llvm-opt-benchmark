@@ -769,15 +769,14 @@ _ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.i: ; preds = %_ZNK5clan
   br i1 %136, label %.critedge.split.i, label %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit, !llvm.loop !156
 
 _ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit: ; preds = %.loopexit.i, %111, %113, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i, %129, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.i, %37, %44, %46, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.us.i, %62, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.us.i, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.us.i
-  %.pre-phi.i = phi i64 [ %29, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.us.i ], [ %29, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.us.i ], [ %29, %62 ], [ %29, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.us.i ], [ %29, %46 ], [ %29, %44 ], [ %29, %37 ], [ %70, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.i ], [ %70, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ %70, %129 ], [ %70, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i ], [ %70, %113 ], [ %70, %111 ], [ %70, %.loopexit.i ]
+  %.pre-phi.i = phi i32 [ %.1.us.i, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.us.i ], [ %.1.us.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.us.i ], [ %.1.us.i, %62 ], [ %.1.us.i, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.us.i ], [ %.1.us.i, %46 ], [ %.1.us.i, %44 ], [ %.1.us.i, %37 ], [ %.1.i, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.i ], [ %.1.i, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ %.1.i, %129 ], [ %.1.i, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i ], [ %.1.i, %113 ], [ %.1.i, %111 ], [ %.1.i, %.loopexit.i ]
   %.us-phi.i = phi ptr [ %38, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.us.i ], [ %38, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.us.i ], [ %38, %62 ], [ %38, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.us.i ], [ %38, %46 ], [ %38, %44 ], [ %38, %37 ], [ %105, %_ZN5clang20isLambdaCallOperatorEPKNS_11DeclContextE.exit.i ], [ %105, %_ZNK5clang13CXXRecordDecl8isLambdaEv.exit.i.i.i ], [ %105, %129 ], [ %105, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.i.i.i ], [ %105, %113 ], [ %105, %111 ], [ %105, %.loopexit.i ]
   %137 = tail call noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi.i) #18
   br i1 %137, label %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit.thread, label %138
 
 138:                                              ; preds = %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit
-  %.sroa.017.0.extract.trunc = trunc nuw i64 %.pre-phi.i to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 %.sroa.017.0.extract.trunc, ptr %5, align 4, !tbaa !165
+  store i32 %.pre-phi.i, ptr %5, align 4, !tbaa !165
   br i1 %.not30.i, label %141, label %139
 
 139:                                              ; preds = %138
@@ -788,31 +787,31 @@ _ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4
   %140 = call noundef zeroext i1 @_ZN5clang4Sema18tryCaptureVariableEPNS_9ValueDeclENS_14SourceLocationENS0_14TryCaptureKindES3_bRNS_8QualTypeES6_PKj(ptr noundef nonnull align 8 dereferenceable(17504) %3, ptr noundef nonnull %2, i32 0, i32 noundef 0, i32 0, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %5) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %140, label %148, label %.critedge15
+  br i1 %140, label %150, label %.critedge15
 
 141:                                              ; preds = %138
-  %142 = getelementptr inbounds nuw ptr, ptr %0, i64 %.pre-phi.i
-  %143 = load ptr, ptr %142, align 8, !tbaa !3
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 1904
-  %.sroa.0.0.copyload = load i32, ptr %144, align 8, !tbaa !165
-  %145 = call noundef zeroext i1 @_ZN5clang4Sema19CheckCXXThisCaptureENS_14SourceLocationEbbPKjb(ptr noundef nonnull align 8 dereferenceable(17504) %3, i32 %.sroa.0.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %5, i1 noundef zeroext false) #18
-  br i1 %145, label %148, label %.critedge15
+  %142 = zext i32 %.pre-phi.i to i64
+  %143 = getelementptr inbounds nuw ptr, ptr %0, i64 %142
+  %144 = load ptr, ptr %143, align 8, !tbaa !3
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 1904
+  %.sroa.0.0.copyload = load i32, ptr %145, align 8, !tbaa !165
+  %146 = call noundef zeroext i1 @_ZN5clang4Sema19CheckCXXThisCaptureENS_14SourceLocationEbbPKjb(ptr noundef nonnull align 8 dereferenceable(17504) %3, i32 %.sroa.0.0.copyload, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %5, i1 noundef zeroext false) #18
+  br i1 %146, label %150, label %.critedge15
 
 .critedge15:                                      ; preds = %139, %141
-  %146 = load i32, ptr %5, align 4, !tbaa !165
-  %147 = zext i32 %146 to i64
-  br label %148
+  %147 = load i32, ptr %5, align 4, !tbaa !165
+  %148 = zext i32 %147 to i64
+  %149 = or disjoint i64 %148, 4294967296
+  br label %150
 
-148:                                              ; preds = %139, %141, %.critedge15
-  %.sroa.050.1 = phi i64 [ %147, %.critedge15 ], [ 0, %141 ], [ 0, %139 ]
-  %.sroa.553.1 = phi i64 [ 4294967296, %.critedge15 ], [ 0, %141 ], [ 0, %139 ]
+150:                                              ; preds = %139, %141, %.critedge15
+  %.sroa.553.1 = phi i64 [ %149, %.critedge15 ], [ 0, %141 ], [ 0, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %149 = or disjoint i64 %.sroa.553.1, %.sroa.050.1
   br label %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit.thread
 
-_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit.thread: ; preds = %_ZNK5clang11DeclContext6EqualsEPKS0_.exit.i, %85, %.lr.ph.i.i.i.i.i.i, %.critedge32.us.i, %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit, %148
-  %.sroa.050.0.insert.insert = phi i64 [ %149, %148 ], [ 0, %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit ], [ 0, %.critedge32.us.i ], [ 0, %.lr.ph.i.i.i.i.i.i ], [ 0, %85 ], [ 0, %_ZNK5clang11DeclContext6EqualsEPKS0_.exit.i ]
-  ret i64 %.sroa.050.0.insert.insert
+_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit.thread: ; preds = %_ZNK5clang11DeclContext6EqualsEPKS0_.exit.i, %85, %.lr.ph.i.i.i.i.i.i, %.critedge32.us.i, %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit, %150
+  %.sroa.553.0 = phi i64 [ %.sroa.553.1, %150 ], [ 0, %_ZL49getStackIndexOfNearestEnclosingCaptureReadyLambdaN4llvm8ArrayRefIPKN5clang4sema17FunctionScopeInfoEEEPNS1_9ValueDeclE.exit ], [ 0, %.critedge32.us.i ], [ 0, %.lr.ph.i.i.i.i.i.i ], [ 0, %85 ], [ 0, %_ZNK5clang11DeclContext6EqualsEPKS0_.exit.i ]
+  ret i64 %.sroa.553.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -8888,27 +8887,27 @@ _ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i: ; preds = %_ZNK5cl
   %84 = load i16, ptr %83, align 8
   %85 = and i16 %84, 1024
   %.not.i4 = icmp eq i16 %85, 0
-  br i1 %.not.i4, label %91, label %86
+  br i1 %.not.i4, label %92, label %86
 
 86:                                               ; preds = %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %88 = load i16, ptr %87, align 8
   %89 = shl i16 %88, 2
   %90 = and i16 %89, 2044
-  br label %91
+  %91 = or disjoint i16 %90, %29
+  br label %92
 
 _ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit: ; preds = %_ZNK5clang17FunctionProtoType26getExtParameterInfosOrNullEv.exit
   store i16 %29, ptr %3, align 2
   br label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit
 
-91:                                               ; preds = %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i, %86
-  %.0.i5.ph = phi i16 [ 0, %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i ], [ %90, %86 ]
-  %92 = or disjoint i16 %.0.i5.ph, %29
-  store i16 %92, ptr %3, align 2
+92:                                               ; preds = %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i, %86
+  %.0.i5.ph = phi i16 [ %29, %_ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i ], [ %91, %86 ]
+  store i16 %.0.i5.ph, ptr %3, align 2
   %.not.i6 = icmp ugt i16 %84, 4095
   br i1 %.not.i6, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i, label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit
 
-_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i: ; preds = %91
+_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i: ; preds = %92
   %93 = lshr i16 %84, 12
   %94 = and i16 %84, 2048
   %.not10.i = icmp eq i16 %94, 0
@@ -8964,11 +8963,11 @@ switch.lookup:                                    ; preds = %_ZN4llvm25trailing_
   %132 = inttoptr i64 %131 to ptr
   br label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit
 
-_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit: ; preds = %91, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i, %switch.lookup
-  %.sroa.0.0 = phi ptr [ %120, %switch.lookup ], [ %120, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ null, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ null, %91 ]
-  %.sroa.5.0 = phi i64 [ %95, %switch.lookup ], [ %95, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ 0, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ 0, %91 ]
-  %.sroa.6.0 = phi ptr [ %132, %switch.lookup ], [ null, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ null, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ null, %91 ]
-  %.sroa.7.0 = phi i64 [ %95, %switch.lookup ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ 0, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ 0, %91 ]
+_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit: ; preds = %92, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i, %switch.lookup
+  %.sroa.0.0 = phi ptr [ %120, %switch.lookup ], [ %120, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ null, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ null, %92 ]
+  %.sroa.5.0 = phi i64 [ %95, %switch.lookup ], [ %95, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ 0, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ 0, %92 ]
+  %.sroa.6.0 = phi ptr [ %132, %switch.lookup ], [ null, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ null, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ null, %92 ]
+  %.sroa.7.0 = phi i64 [ %95, %switch.lookup ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i ], [ 0, %_ZNK5clang17FunctionProtoType23getAArch64SMEAttributesEv.exit ], [ 0, %92 ]
   store ptr %.sroa.0.0, ptr %10, align 8, !tbaa !1617
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !1003

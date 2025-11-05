@@ -20514,20 +20514,19 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then: ; preds = %_ZNK6vectorIPN3
   %58 = getelementptr inbounds nuw ptr, ptr %51, i64 %57
   %.pre.i.then.val = load ptr, ptr %58, align 8, !tbaa !12
   %59 = icmp ne ptr %.pre.i.then.val, null
-  br label %_ZNK3smt7context14e_internalizedEPK4expr.exit
+  %60 = or i1 %2, %59
+  br i1 %60, label %64, label %61
 
-_ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i, %48
-  %60 = phi i1 [ false, %48 ], [ %59, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then ], [ false, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i ]
-  %or.cond = or i1 %2, %60
-  br i1 %or.cond, label %64, label %61
+_ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i, %48
+  br i1 %2, label %64, label %61
 
-61:                                               ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit
+61:                                               ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then, %_ZNK3smt7context14e_internalizedEPK4expr.exit
   %62 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(10544) %49, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true)
   %63 = load ptr, ptr %4, align 8, !tbaa !31
   tail call void @_ZN3smt7context14set_enode_flagEjb(ptr noundef nonnull align 8 dereferenceable(10544) %63, i32 noundef %.055, i1 noundef zeroext %.not)
   br label %64
 
-64:                                               ; preds = %61, %_ZNK3smt7context14e_internalizedEPK4expr.exit
+64:                                               ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then, %61, %_ZNK3smt7context14e_internalizedEPK4expr.exit
   ret i1 true
 }
 
@@ -20629,20 +20628,19 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then: ; preds = %_ZNK6vectorIPN3
   %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %59
   %.pre.i.then.val = load ptr, ptr %60, align 8, !tbaa !12
   %61 = icmp ne ptr %.pre.i.then.val, null
-  br label %_ZNK3smt7context14e_internalizedEPK4expr.exit
+  %62 = or i1 %2, %61
+  br i1 %62, label %66, label %63
 
-_ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i, %50
-  %62 = phi i1 [ false, %50 ], [ %61, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then ], [ false, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i ]
-  %or.cond = or i1 %2, %62
-  br i1 %or.cond, label %66, label %63
+_ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i, %50
+  br i1 %2, label %66, label %63
 
-63:                                               ; preds = %_ZNK3smt7context14e_internalizedEPK4expr.exit
+63:                                               ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then, %_ZNK3smt7context14e_internalizedEPK4expr.exit
   %64 = tail call noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(10544) %51, ptr noundef nonnull %1, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true)
   %65 = load ptr, ptr %4, align 8, !tbaa !31
   tail call void @_ZN3smt7context14set_enode_flagEjb(ptr noundef nonnull align 8 dereferenceable(10544) %65, i32 noundef %.088, i1 noundef zeroext %.not)
   br label %66
 
-66:                                               ; preds = %63, %_ZNK3smt7context14e_internalizedEPK4expr.exit
+66:                                               ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.then, %63, %_ZNK3smt7context14e_internalizedEPK4expr.exit
   ret i1 true
 }
 

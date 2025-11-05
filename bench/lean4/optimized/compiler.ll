@@ -500,13 +500,12 @@ define hidden noundef zeroext i1 @_ZN4lean10is_main_fnERKNS_16elab_environmentER
   unreachable
 
 _ZN4lean8optionalINS_4nameEED2Ev.exit:            ; preds = %5, %13, %15, %23, %25, %26
-  %.19 = phi i1 [ %10, %13 ], [ %10, %15 ], [ %10, %23 ], [ %10, %25 ], [ %10, %26 ], [ undef, %5 ]
+  %.19 = phi i1 [ %10, %13 ], [ %10, %15 ], [ %10, %23 ], [ %10, %25 ], [ %10, %26 ], [ false, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %spec.select = and i1 %.19, %7
   br label %30
 
 30:                                               ; preds = %_ZN4lean8optionalINS_4nameEED2Ev.exit, %2
-  %.06 = phi i1 [ true, %2 ], [ %spec.select, %_ZN4lean8optionalINS_4nameEED2Ev.exit ]
+  %.06 = phi i1 [ true, %2 ], [ %.19, %_ZN4lean8optionalINS_4nameEED2Ev.exit ]
   ret i1 %.06
 }
 

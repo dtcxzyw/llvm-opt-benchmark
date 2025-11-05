@@ -111687,30 +111687,22 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !16, !noundef !3
   %6 = load i64, ptr %.val, align 8, !range !125, !noundef !3
   %7 = trunc nuw i64 %6 to i1
-  br i1 %7, label %8, label %11
+  %8 = icmp ne i64 %1, 0
+  %or.cond.not = and i1 %8, %7
+  br i1 %or.cond.not, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit"
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %10 = load double, ptr %9, align 8, !alias.scope !8815, !noundef !3
-  br label %11
-
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i64 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi double [ %10, %8 ], [ undef, %3 ]
-  %12 = and i64 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i64 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit", label %13
-
-13:                                               ; preds = %11
-  %14 = tail call noundef double @atan2(double noundef %.sroa.5.0.i, double noundef %2) #38
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %11 = load double, ptr %10, align 8, !alias.scope !8815, !noundef !3
+  %12 = tail call noundef double @atan2(double noundef %11, double noundef %2) #38
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit": ; preds = %11, %13
-  %.sroa.03.1.i.i = phi i64 [ 1, %13 ], [ 0, %11 ]
-  %.sroa.4.0.i.i = phi double [ %14, %13 ], [ undef, %11 ]
-  %15 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
-  %16 = insertvalue { i64, double } %15, double %.sroa.4.0.i.i, 1
-  ret { i64, double } %16
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hb0a36ecb5c4be7c4E.exit": ; preds = %3, %9
+  %.sroa.03.1.i.i = phi i64 [ 1, %9 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi double [ %12, %9 ], [ undef, %3 ]
+  %13 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
+  %14 = insertvalue { i64, double } %13, double %.sroa.4.0.i.i, 1
+  ret { i64, double } %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
@@ -111720,49 +111712,45 @@ define hidden { i32, i32 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
   %7 = trunc nuw i32 %6 to i1
-  br i1 %7, label %8, label %11
+  %.not = xor i1 %7, true
+  %8 = icmp eq i32 %1, 0
+  %or.cond = or i1 %.not, %8
+  br i1 %or.cond, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit", label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !8818, !noundef !3
-  br label %11
+9:                                                ; preds = %3
+  %10 = icmp eq i32 %2, 0
+  br i1 %10, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit", label %.preheader22.i.i.i.i.preheader
 
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi i32 [ %10, %8 ], [ undef, %3 ]
-  %12 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i32 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit", label %13
-
-13:                                               ; preds = %11
-  %14 = icmp eq i32 %2, 0
-  br i1 %14, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit", label %.preheader22.i.i.i.i
-
-.preheader22.i.i.i.i:                             ; preds = %13, %19
-  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %19 ], [ 1, %13 ]
-  %.sroa.09.0.i.i.i.i = phi i32 [ %21, %19 ], [ %.sroa.5.0.i, %13 ]
-  %.sroa.0.0.i.i.i.i = phi i32 [ %20, %19 ], [ %2, %13 ]
-  %15 = and i32 %.sroa.0.0.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i.i.i.i, label %19, label %16
-
-16:                                               ; preds = %.preheader22.i.i.i.i
-  %17 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
-  %18 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
-  br i1 %18, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit", label %19
-
-19:                                               ; preds = %16, %.preheader22.i.i.i.i
-  %.sroa.016.2.i.i.i.i = phi i32 [ %17, %16 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
-  %20 = lshr i32 %.sroa.0.0.i.i.i.i, 1
-  %21 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
+.preheader22.i.i.i.i.preheader:                   ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %12 = load i32, ptr %11, align 4, !alias.scope !8818, !noundef !3
   br label %.preheader22.i.i.i.i
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit": ; preds = %16, %11, %13
-  %.sroa.03.1.i.i = phi i32 [ 0, %11 ], [ 1, %13 ], [ 1, %16 ]
-  %.sroa.4.0.i.i = phi i32 [ undef, %11 ], [ 1, %13 ], [ %17, %16 ]
-  %22 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
-  %23 = insertvalue { i32, i32 } %22, i32 %.sroa.4.0.i.i, 1
-  ret { i32, i32 } %23
+.preheader22.i.i.i.i:                             ; preds = %.preheader22.i.i.i.i.preheader, %17
+  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %17 ], [ 1, %.preheader22.i.i.i.i.preheader ]
+  %.sroa.09.0.i.i.i.i = phi i32 [ %19, %17 ], [ %12, %.preheader22.i.i.i.i.preheader ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ %18, %17 ], [ %2, %.preheader22.i.i.i.i.preheader ]
+  %13 = and i32 %.sroa.0.0.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i.i.i, label %17, label %14
+
+14:                                               ; preds = %.preheader22.i.i.i.i
+  %15 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
+  %16 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
+  br i1 %16, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit", label %17
+
+17:                                               ; preds = %14, %.preheader22.i.i.i.i
+  %.sroa.016.2.i.i.i.i = phi i32 [ %15, %14 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
+  %18 = lshr i32 %.sroa.0.0.i.i.i.i, 1
+  %19 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
+  br label %.preheader22.i.i.i.i
+
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h6c118a340836054fE.exit": ; preds = %14, %3, %9
+  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ], [ 1, %14 ]
+  %.sroa.4.0.i.i = phi i32 [ 1, %9 ], [ undef, %3 ], [ %15, %14 ]
+  %20 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
+  %21 = insertvalue { i32, i32 } %20, i32 %.sroa.4.0.i.i, 1
+  ret { i32, i32 } %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: none) uwtable
@@ -111772,49 +111760,42 @@ define hidden { i32, i32 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
   %7 = trunc nuw i32 %6 to i1
-  br i1 %7, label %8, label %11
+  %.not = xor i1 %7, true
+  %8 = icmp eq i32 %1, 0
+  %or.cond = or i1 %.not, %8
+  br i1 %or.cond, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit", label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !8821, !noundef !3
-  br label %11
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %11 = load i32, ptr %10, align 4, !alias.scope !8821, !noundef !3
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit", label %.preheader22.i.i.i.i
 
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi i32 [ %10, %8 ], [ undef, %3 ]
-  %12 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i32 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit", label %13
+.preheader22.i.i.i.i:                             ; preds = %9, %17
+  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %17 ], [ 1, %9 ]
+  %.sroa.09.0.i.i.i.i = phi i32 [ %19, %17 ], [ %2, %9 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ %18, %17 ], [ %11, %9 ]
+  %13 = and i32 %.sroa.0.0.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i.i.i, label %17, label %14
 
-13:                                               ; preds = %11
-  %14 = icmp eq i32 %.sroa.5.0.i, 0
-  br i1 %14, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit", label %.preheader22.i.i.i.i
+14:                                               ; preds = %.preheader22.i.i.i.i
+  %15 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
+  %16 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
+  br i1 %16, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit", label %17
 
-.preheader22.i.i.i.i:                             ; preds = %13, %19
-  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %19 ], [ 1, %13 ]
-  %.sroa.09.0.i.i.i.i = phi i32 [ %21, %19 ], [ %2, %13 ]
-  %.sroa.0.0.i.i.i.i = phi i32 [ %20, %19 ], [ %.sroa.5.0.i, %13 ]
-  %15 = and i32 %.sroa.0.0.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i.i.i.i, label %19, label %16
-
-16:                                               ; preds = %.preheader22.i.i.i.i
-  %17 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
-  %18 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
-  br i1 %18, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit", label %19
-
-19:                                               ; preds = %16, %.preheader22.i.i.i.i
-  %.sroa.016.2.i.i.i.i = phi i32 [ %17, %16 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
-  %20 = lshr i32 %.sroa.0.0.i.i.i.i, 1
-  %21 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
+17:                                               ; preds = %14, %.preheader22.i.i.i.i
+  %.sroa.016.2.i.i.i.i = phi i32 [ %15, %14 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
+  %18 = lshr i32 %.sroa.0.0.i.i.i.i, 1
+  %19 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
   br label %.preheader22.i.i.i.i
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit": ; preds = %16, %11, %13
-  %.sroa.03.1.i.i = phi i32 [ 0, %11 ], [ 1, %13 ], [ 1, %16 ]
-  %.sroa.4.0.i.i = phi i32 [ undef, %11 ], [ 1, %13 ], [ %17, %16 ]
-  %22 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
-  %23 = insertvalue { i32, i32 } %22, i32 %.sroa.4.0.i.i, 1
-  ret { i32, i32 } %23
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h652527e6a78d078cE.exit": ; preds = %14, %3, %9
+  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ], [ 1, %14 ]
+  %.sroa.4.0.i.i = phi i32 [ 1, %9 ], [ undef, %3 ], [ %15, %14 ]
+  %20 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
+  %21 = insertvalue { i32, i32 } %20, i32 %.sroa.4.0.i.i, 1
+  ret { i32, i32 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -111863,49 +111844,42 @@ define hidden { i32, i32 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
   %7 = trunc nuw i32 %6 to i1
-  br i1 %7, label %8, label %11
+  %.not = xor i1 %7, true
+  %8 = icmp eq i32 %1, 0
+  %or.cond = or i1 %.not, %8
+  br i1 %or.cond, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit", label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !8837, !noundef !3
-  br label %11
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %11 = load i32, ptr %10, align 4, !alias.scope !8837, !noundef !3
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit", label %.preheader22.i.i.i.i
 
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi i32 [ %10, %8 ], [ undef, %3 ]
-  %12 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i32 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit", label %13
+.preheader22.i.i.i.i:                             ; preds = %9, %17
+  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %17 ], [ 1, %9 ]
+  %.sroa.09.0.i.i.i.i = phi i32 [ %19, %17 ], [ %2, %9 ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ %18, %17 ], [ %11, %9 ]
+  %13 = and i32 %.sroa.0.0.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i.i.i, label %17, label %14
 
-13:                                               ; preds = %11
-  %14 = icmp eq i32 %.sroa.5.0.i, 0
-  br i1 %14, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit", label %.preheader22.i.i.i.i
+14:                                               ; preds = %.preheader22.i.i.i.i
+  %15 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
+  %16 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
+  br i1 %16, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit", label %17
 
-.preheader22.i.i.i.i:                             ; preds = %13, %19
-  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %19 ], [ 1, %13 ]
-  %.sroa.09.0.i.i.i.i = phi i32 [ %21, %19 ], [ %2, %13 ]
-  %.sroa.0.0.i.i.i.i = phi i32 [ %20, %19 ], [ %.sroa.5.0.i, %13 ]
-  %15 = and i32 %.sroa.0.0.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i.i.i.i, label %19, label %16
-
-16:                                               ; preds = %.preheader22.i.i.i.i
-  %17 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
-  %18 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
-  br i1 %18, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit", label %19
-
-19:                                               ; preds = %16, %.preheader22.i.i.i.i
-  %.sroa.016.2.i.i.i.i = phi i32 [ %17, %16 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
-  %20 = lshr i32 %.sroa.0.0.i.i.i.i, 1
-  %21 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
+17:                                               ; preds = %14, %.preheader22.i.i.i.i
+  %.sroa.016.2.i.i.i.i = phi i32 [ %15, %14 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
+  %18 = lshr i32 %.sroa.0.0.i.i.i.i, 1
+  %19 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
   br label %.preheader22.i.i.i.i
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit": ; preds = %16, %11, %13
-  %.sroa.03.1.i.i = phi i32 [ 0, %11 ], [ 1, %13 ], [ 1, %16 ]
-  %.sroa.4.0.i.i = phi i32 [ undef, %11 ], [ 1, %13 ], [ %17, %16 ]
-  %22 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
-  %23 = insertvalue { i32, i32 } %22, i32 %.sroa.4.0.i.i, 1
-  ret { i32, i32 } %23
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hacecce90f8e4aa8cE.exit": ; preds = %14, %3, %9
+  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ], [ 1, %14 ]
+  %.sroa.4.0.i.i = phi i32 [ 1, %9 ], [ undef, %3 ], [ %15, %14 ]
+  %20 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
+  %21 = insertvalue { i32, i32 } %20, i32 %.sroa.4.0.i.i, 1
+  ret { i32, i32 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
@@ -111915,30 +111889,22 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !16, !noundef !3
   %6 = load i64, ptr %.val, align 8, !range !125, !noundef !3
   %7 = trunc nuw i64 %6 to i1
-  br i1 %7, label %8, label %11
+  %8 = icmp ne i64 %1, 0
+  %or.cond.not.i = and i1 %8, %7
+  br i1 %or.cond.not.i, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit"
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %10 = load double, ptr %9, align 8, !alias.scope !8840, !noundef !3
-  br label %11
-
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i64 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi double [ %10, %8 ], [ undef, %3 ]
-  %12 = and i64 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i64 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit", label %13
-
-13:                                               ; preds = %11
-  %14 = tail call noundef double @atan2(double noundef %2, double noundef %.sroa.5.0.i) #38
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %11 = load double, ptr %10, align 8, !alias.scope !8840, !noundef !3
+  %12 = tail call noundef double @atan2(double noundef %2, double noundef %11) #38
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit": ; preds = %11, %13
-  %.sroa.03.1.i.i = phi i64 [ 1, %13 ], [ 0, %11 ]
-  %.sroa.4.0.i.i = phi double [ %14, %13 ], [ undef, %11 ]
-  %15 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
-  %16 = insertvalue { i64, double } %15, double %.sroa.4.0.i.i, 1
-  ret { i64, double } %16
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h1a5de1f1e1fe9688E.exit": ; preds = %3, %9
+  %.sroa.03.1.i.i = phi i64 [ 1, %9 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi double [ %12, %9 ], [ undef, %3 ]
+  %13 = insertvalue { i64, double } poison, i64 %.sroa.03.1.i.i, 0
+  %14 = insertvalue { i64, double } %13, double %.sroa.4.0.i.i, 1
+  ret { i64, double } %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112095,17 +112061,14 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %10 = load float, ptr %9, align 4, !alias.scope !8867, !noundef !3
+  %11 = tail call float @llvm.pow.f32(float %10, float %2)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hfb7a31ce9d4bcba5E.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hfb7a31ce9d4bcba5E.exit": ; preds = %3, %8
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi float [ %10, %8 ], [ undef, %3 ]
-  %11 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.not.i.i = icmp eq i32 %11, 0
-  %12 = tail call float @llvm.pow.f32(float %.sroa.5.0.i, float %2)
-  %.sroa.4.0.i.i = select i1 %or.cond.not.not.i.i, float undef, float %12
-  %13 = insertvalue { i32, float } poison, i32 %11, 0
-  %14 = insertvalue { i32, float } %13, float %.sroa.4.0.i.i, 1
+  %.sroa.01.04.i = phi i32 [ %1, %8 ], [ 0, %3 ]
+  %12 = phi float [ %11, %8 ], [ undef, %3 ]
+  %13 = insertvalue { i32, float } poison, i32 %.sroa.01.04.i, 0
+  %14 = insertvalue { i32, float } %13, float %12, 1
   ret { i32, float } %14
 }
 
@@ -112121,17 +112084,14 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %10 = load double, ptr %9, align 8, !alias.scope !8870, !noundef !3
+  %11 = tail call double @llvm.pow.f64(double %10, double %2)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hdc051d816bda4901E.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hdc051d816bda4901E.exit": ; preds = %3, %8
-  %.sroa.01.0.i = phi i64 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi double [ %10, %8 ], [ undef, %3 ]
-  %11 = and i64 %.sroa.01.0.i, %1
-  %or.cond.not.not.i.i = icmp eq i64 %11, 0
-  %12 = tail call double @llvm.pow.f64(double %.sroa.5.0.i, double %2)
-  %.sroa.4.0.i.i = select i1 %or.cond.not.not.i.i, double undef, double %12
-  %13 = insertvalue { i64, double } poison, i64 %11, 0
-  %14 = insertvalue { i64, double } %13, double %.sroa.4.0.i.i, 1
+  %.sroa.01.04.i = phi i64 [ %1, %8 ], [ 0, %3 ]
+  %12 = phi double [ %11, %8 ], [ undef, %3 ]
+  %13 = insertvalue { i64, double } poison, i64 %.sroa.01.04.i, 0
+  %14 = insertvalue { i64, double } %13, double %12, 1
   ret { i64, double } %14
 }
 
@@ -112199,17 +112159,14 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %10 = load float, ptr %9, align 4, !alias.scope !8882, !noundef !3
+  %11 = tail call float @llvm.pow.f32(float %2, float %10)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h4f237e6cc32326bdE.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h4f237e6cc32326bdE.exit": ; preds = %3, %8
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi float [ %10, %8 ], [ undef, %3 ]
-  %11 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.not.i.i = icmp eq i32 %11, 0
-  %12 = tail call float @llvm.pow.f32(float %2, float %.sroa.5.0.i)
-  %.sroa.4.0.i.i = select i1 %or.cond.not.not.i.i, float undef, float %12
-  %13 = insertvalue { i32, float } poison, i32 %11, 0
-  %14 = insertvalue { i32, float } %13, float %.sroa.4.0.i.i, 1
+  %.sroa.01.04.i = phi i32 [ %1, %8 ], [ 0, %3 ]
+  %12 = phi float [ %11, %8 ], [ undef, %3 ]
+  %13 = insertvalue { i32, float } poison, i32 %.sroa.01.04.i, 0
+  %14 = insertvalue { i32, float } %13, float %12, 1
   ret { i32, float } %14
 }
 
@@ -112426,17 +112383,14 @@ define hidden { i64, double } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core.
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %10 = load double, ptr %9, align 8, !alias.scope !8931, !noundef !3
+  %11 = tail call double @llvm.pow.f64(double %2, double %10)
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h59b29d09ca163be5E.exit"
 
 "_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h59b29d09ca163be5E.exit": ; preds = %3, %8
-  %.sroa.01.0.i = phi i64 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi double [ %10, %8 ], [ undef, %3 ]
-  %11 = and i64 %.sroa.01.0.i, %1
-  %or.cond.not.not.i.i = icmp eq i64 %11, 0
-  %12 = tail call double @llvm.pow.f64(double %2, double %.sroa.5.0.i)
-  %.sroa.4.0.i.i = select i1 %or.cond.not.not.i.i, double undef, double %12
-  %13 = insertvalue { i64, double } poison, i64 %11, 0
-  %14 = insertvalue { i64, double } %13, double %.sroa.4.0.i.i, 1
+  %.sroa.01.04.i = phi i64 [ %1, %8 ], [ 0, %3 ]
+  %12 = phi double [ %11, %8 ], [ undef, %3 ]
+  %13 = insertvalue { i64, double } poison, i64 %.sroa.01.04.i, 0
+  %14 = insertvalue { i64, double } %13, double %12, 1
   ret { i64, double } %14
 }
 
@@ -112741,49 +112695,45 @@ define hidden { i32, i32 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
   %7 = trunc nuw i32 %6 to i1
-  br i1 %7, label %8, label %11
+  %.not = xor i1 %7, true
+  %8 = icmp eq i32 %1, 0
+  %or.cond = or i1 %.not, %8
+  br i1 %or.cond, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit", label %9
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !9029, !noundef !3
-  br label %11
+9:                                                ; preds = %3
+  %10 = icmp eq i32 %2, 0
+  br i1 %10, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit", label %.preheader22.i.i.i.i.preheader
 
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi i32 [ %10, %8 ], [ undef, %3 ]
-  %12 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i32 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit", label %13
-
-13:                                               ; preds = %11
-  %14 = icmp eq i32 %2, 0
-  br i1 %14, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit", label %.preheader22.i.i.i.i
-
-.preheader22.i.i.i.i:                             ; preds = %13, %19
-  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %19 ], [ 1, %13 ]
-  %.sroa.09.0.i.i.i.i = phi i32 [ %21, %19 ], [ %.sroa.5.0.i, %13 ]
-  %.sroa.0.0.i.i.i.i = phi i32 [ %20, %19 ], [ %2, %13 ]
-  %15 = and i32 %.sroa.0.0.i.i.i.i, 1
-  %.not.i.i.i.i = icmp eq i32 %15, 0
-  br i1 %.not.i.i.i.i, label %19, label %16
-
-16:                                               ; preds = %.preheader22.i.i.i.i
-  %17 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
-  %18 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
-  br i1 %18, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit", label %19
-
-19:                                               ; preds = %16, %.preheader22.i.i.i.i
-  %.sroa.016.2.i.i.i.i = phi i32 [ %17, %16 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
-  %20 = lshr i32 %.sroa.0.0.i.i.i.i, 1
-  %21 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
+.preheader22.i.i.i.i.preheader:                   ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %12 = load i32, ptr %11, align 4, !alias.scope !9029, !noundef !3
   br label %.preheader22.i.i.i.i
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit": ; preds = %16, %11, %13
-  %.sroa.03.1.i.i = phi i32 [ 0, %11 ], [ 1, %13 ], [ 1, %16 ]
-  %.sroa.4.0.i.i = phi i32 [ undef, %11 ], [ 1, %13 ], [ %17, %16 ]
-  %22 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
-  %23 = insertvalue { i32, i32 } %22, i32 %.sroa.4.0.i.i, 1
-  ret { i32, i32 } %23
+.preheader22.i.i.i.i:                             ; preds = %.preheader22.i.i.i.i.preheader, %17
+  %.sroa.016.0.i.i.i.i = phi i32 [ %.sroa.016.2.i.i.i.i, %17 ], [ 1, %.preheader22.i.i.i.i.preheader ]
+  %.sroa.09.0.i.i.i.i = phi i32 [ %19, %17 ], [ %12, %.preheader22.i.i.i.i.preheader ]
+  %.sroa.0.0.i.i.i.i = phi i32 [ %18, %17 ], [ %2, %.preheader22.i.i.i.i.preheader ]
+  %13 = and i32 %.sroa.0.0.i.i.i.i, 1
+  %.not.i.i.i.i = icmp eq i32 %13, 0
+  br i1 %.not.i.i.i.i, label %17, label %14
+
+14:                                               ; preds = %.preheader22.i.i.i.i
+  %15 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.016.0.i.i.i.i
+  %16 = icmp eq i32 %.sroa.0.0.i.i.i.i, 1
+  br i1 %16, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit", label %17
+
+17:                                               ; preds = %14, %.preheader22.i.i.i.i
+  %.sroa.016.2.i.i.i.i = phi i32 [ %15, %14 ], [ %.sroa.016.0.i.i.i.i, %.preheader22.i.i.i.i ]
+  %18 = lshr i32 %.sroa.0.0.i.i.i.i, 1
+  %19 = mul i32 %.sroa.09.0.i.i.i.i, %.sroa.09.0.i.i.i.i
+  br label %.preheader22.i.i.i.i
+
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h2e30bde4ba24d2d8E.exit": ; preds = %14, %3, %9
+  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ], [ 1, %14 ]
+  %.sroa.4.0.i.i = phi i32 [ 1, %9 ], [ undef, %3 ], [ %15, %14 ]
+  %20 = insertvalue { i32, i32 } poison, i32 %.sroa.03.1.i.i, 0
+  %21 = insertvalue { i32, i32 } %20, i32 %.sroa.4.0.i.i, 1
+  ret { i32, i32 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
@@ -112793,30 +112743,22 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
   %7 = trunc nuw i32 %6 to i1
-  br i1 %7, label %8, label %11
+  %8 = icmp ne i32 %1, 0
+  %or.cond.not.i = and i1 %8, %7
+  br i1 %or.cond.not.i, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit"
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %10 = load float, ptr %9, align 4, !alias.scope !9032, !noundef !3
-  br label %11
-
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi float [ %10, %8 ], [ undef, %3 ]
-  %12 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i32 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit", label %13
-
-13:                                               ; preds = %11
-  %14 = tail call noundef float @atan2f(float noundef %2, float noundef %.sroa.5.0.i) #38
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %11 = load float, ptr %10, align 4, !alias.scope !9032, !noundef !3
+  %12 = tail call noundef float @atan2f(float noundef %2, float noundef %11) #38
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit": ; preds = %11, %13
-  %.sroa.03.1.i.i = phi i32 [ 1, %13 ], [ 0, %11 ]
-  %.sroa.4.0.i.i = phi float [ %14, %13 ], [ undef, %11 ]
-  %15 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
-  %16 = insertvalue { i32, float } %15, float %.sroa.4.0.i.i, 1
-  ret { i32, float } %16
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17hce0017b0632fba5bE.exit": ; preds = %3, %9
+  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi float [ %12, %9 ], [ undef, %3 ]
+  %13 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
+  %14 = insertvalue { i32, float } %13, float %.sroa.4.0.i.i, 1
+  ret { i32, float } %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -112947,30 +112889,22 @@ define hidden { i32, float } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..
   %.val = load ptr, ptr %5, align 8, !nonnull !3, !align !899, !noundef !3
   %6 = load i32, ptr %.val, align 4, !range !6261, !noundef !3
   %7 = trunc nuw i32 %6 to i1
-  br i1 %7, label %8, label %11
+  %8 = icmp ne i32 %1, 0
+  %or.cond.not = and i1 %8, %7
+  br i1 %or.cond.not, label %9, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit"
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 4
-  %10 = load float, ptr %9, align 4, !alias.scope !9075, !noundef !3
-  br label %11
-
-11:                                               ; preds = %8, %3
-  %.sroa.01.0.i = phi i32 [ 1, %8 ], [ 0, %3 ]
-  %.sroa.5.0.i = phi float [ %10, %8 ], [ undef, %3 ]
-  %12 = and i32 %.sroa.01.0.i, %1
-  %or.cond.not.i.i = icmp eq i32 %12, 0
-  br i1 %or.cond.not.i.i, label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit", label %13
-
-13:                                               ; preds = %11
-  %14 = tail call noundef float @atan2f(float noundef %.sroa.5.0.i, float noundef %2) #38
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4
+  %11 = load float, ptr %10, align 4, !alias.scope !9075, !noundef !3
+  %12 = tail call noundef float @atan2f(float noundef %11, float noundef %2) #38
   br label %"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit"
 
-"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit": ; preds = %11, %13
-  %.sroa.03.1.i.i = phi i32 [ 1, %13 ], [ 0, %11 ]
-  %.sroa.4.0.i.i = phi float [ %14, %13 ], [ undef, %11 ]
-  %15 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
-  %16 = insertvalue { i32, float } %15, float %.sroa.4.0.i.i, 1
-  ret { i32, float } %16
+"_ZN11polars_core13chunked_array3ops5arity28broadcast_binary_elementwise28_$u7b$$u7b$closure$u7d$$u7d$17h62ff8100c25f526bE.exit": ; preds = %3, %9
+  %.sroa.03.1.i.i = phi i32 [ 1, %9 ], [ 0, %3 ]
+  %.sroa.4.0.i.i = phi float [ %12, %9 ], [ undef, %3 ]
+  %13 = insertvalue { i32, float } poison, i32 %.sroa.03.1.i.i, 0
+  %14 = insertvalue { i32, float } %13, float %.sroa.4.0.i.i, 1
+  ret { i32, float } %14
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

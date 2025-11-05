@@ -63,7 +63,7 @@ $_ZN4llvm15SmallVectorImplIN5clang22ComparisonCategoryInfo9ValueInfoEEaSEOS4_ = 
 @switch.table._ZN5clang20ComparisonCategories17getCategoryStringENS_22ComparisonCategoryTypeE.11 = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 260) i16 @_ZN5clang34getComparisonCategoryForBuiltinCmpENS_8QualTypeE(i64 %0) local_unnamed_addr #0 {
+define dso_local range(i16 0, 259) i16 @_ZN5clang34getComparisonCategoryForBuiltinCmpENS_8QualTypeE(i64 %0) local_unnamed_addr #0 {
   %2 = and i64 %0, -16
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 16, !tbaa !3
@@ -162,10 +162,8 @@ _ZNK5clang4Type19isObjectPointerTypeEv.exit.thread: ; preds = %35, %_ZNK5clang4T
   br label %55
 
 55:                                               ; preds = %_ZNK5clang4Type19isObjectPointerTypeEv.exit, %28, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit, %22, %14, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread
-  %.sroa.07.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 2, %14 ], [ 2, %22 ], [ 2, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 0, %28 ], [ 2, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
-  %.sroa.4.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 256, %14 ], [ 256, %22 ], [ 256, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 256, %28 ], [ 256, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
-  %.sroa.07.0.insert.insert = or disjoint i16 %.sroa.4.0, %.sroa.07.0
-  ret i16 %.sroa.07.0.insert.insert
+  %.sroa.4.0 = phi i16 [ 0, %_ZNK5clang4Type19isObjectPointerTypeEv.exit.thread ], [ 258, %14 ], [ 258, %22 ], [ 258, %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit ], [ 256, %28 ], [ 258, %_ZNK5clang4Type19isObjectPointerTypeEv.exit ]
+  ret i16 %.sroa.4.0
 }
 
 declare noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1

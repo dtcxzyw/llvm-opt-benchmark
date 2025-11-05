@@ -3579,20 +3579,19 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang24OMPDeclareTargetDeclAt
   %2 = tail call { ptr, i8 } @_ZN5clang24OMPDeclareTargetDeclAttr13getActiveAttrEPKNS_9ValueDeclE(ptr noundef %0)
   %3 = extractvalue { ptr, i8 } %2, 1
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
   %6 = extractvalue { ptr, i8 } %2, 0
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
   %8 = load i32, ptr %7, align 4, !tbaa !75
   %9 = zext i32 %8 to i64
-  br label %10
+  %10 = or disjoint i64 %9, 4294967296
+  br label %11
 
-10:                                               ; preds = %1, %5
-  %.sroa.01.0 = phi i64 [ %9, %5 ], [ 0, %1 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %5 ], [ 0, %1 ]
-  %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.01.0
-  ret i64 %.sroa.01.0.insert.insert
+11:                                               ; preds = %1, %5
+  %.sroa.2.0 = phi i64 [ %10, %5 ], [ 0, %1 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3600,20 +3599,19 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang24OMPDeclareTargetDeclAt
   %2 = tail call { ptr, i8 } @_ZN5clang24OMPDeclareTargetDeclAttr13getActiveAttrEPKNS_9ValueDeclE(ptr noundef %0)
   %3 = extractvalue { ptr, i8 } %2, 1
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %10
+  br i1 %4, label %5, label %11
 
 5:                                                ; preds = %1
   %6 = extractvalue { ptr, i8 } %2, 0
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %7, align 8, !tbaa !70
   %9 = zext i32 %8 to i64
-  br label %10
+  %10 = or disjoint i64 %9, 4294967296
+  br label %11
 
-10:                                               ; preds = %1, %5
-  %.sroa.01.0 = phi i64 [ %9, %5 ], [ 0, %1 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %5 ], [ 0, %1 ]
-  %.sroa.01.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.01.0
-  ret i64 %.sroa.01.0.insert.insert
+11:                                               ; preds = %1, %5
+  %.sroa.2.0 = phi i64 [ %10, %5 ], [ 0, %1 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3621,20 +3619,19 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang24OMPDeclareTargetDeclAt
   %2 = tail call { ptr, i8 } @_ZN5clang24OMPDeclareTargetDeclAttr13getActiveAttrEPKNS_9ValueDeclE(ptr noundef %0)
   %3 = extractvalue { ptr, i8 } %2, 1
   %4 = trunc nuw i8 %3 to i1
-  br i1 %4, label %5, label %9
+  br i1 %4, label %5, label %10
 
 5:                                                ; preds = %1
   %6 = extractvalue { ptr, i8 } %2, 0
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 8
   %8 = and i64 %.sroa.0.0.copyload.i, 4294967295
-  br label %9
+  %9 = or disjoint i64 %8, 4294967296
+  br label %10
 
-9:                                                ; preds = %1, %5
-  %.sroa.05.0 = phi i64 [ %8, %5 ], [ 0, %1 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %5 ], [ 0, %1 ]
-  %.sroa.05.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.05.0
-  ret i64 %.sroa.05.0.insert.insert
+10:                                               ; preds = %1, %5
+  %.sroa.2.0 = phi i64 [ %9, %5 ], [ 0, %1 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

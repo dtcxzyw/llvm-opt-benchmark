@@ -22419,11 +22419,11 @@ _ZNK9func_decl14is_associativeEv.exit:            ; preds = %_ZNK4decl13get_fami
   %38 = and i16 %37, 3
   %39 = icmp ne i16 %38, 3
   %40 = zext i1 %39 to i32
+  %41 = or i32 %27, %40
   br label %_ZNK4decl13get_family_idEv.exit.thread
 
 _ZNK4decl13get_family_idEv.exit.thread:           ; preds = %30, %_ZNK9func_decl14is_associativeEv.exit, %_ZNK4decl13get_family_idEv.exit, %_ZNK9func_decl12is_chainableEv.exit
-  %41 = phi i32 [ 0, %_ZNK4decl13get_family_idEv.exit ], [ 0, %_ZNK9func_decl12is_chainableEv.exit ], [ %40, %_ZNK9func_decl14is_associativeEv.exit ], [ 0, %30 ]
-  %42 = or i32 %41, %27
+  %42 = phi i32 [ %27, %_ZNK4decl13get_family_idEv.exit ], [ %27, %_ZNK9func_decl12is_chainableEv.exit ], [ %41, %_ZNK9func_decl14is_associativeEv.exit ], [ %27, %30 ]
   %.not85 = icmp eq i32 %42, 0
   br i1 %.not85, label %101, label %43
 

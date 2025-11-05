@@ -2526,15 +2526,15 @@ cab_checksum_cfdata_4.exit.i.i:                   ; preds = %.lr.ph.i.i.i, %112
   %137 = load i8, ptr %.116.i.i, align 1, !tbaa !4
   %138 = zext i8 %137 to i32
   %139 = or i32 %.1.i.i, %138
+  %140 = xor i32 %139, %.0.lcssa.i.i.i
   br label %cab_checksum_cfdata.exit.i
 
 default.unreachable:                              ; preds = %cab_checksum_cfdata_4.exit.i36.i, %cab_checksum_cfdata_4.exit.i.i
   unreachable
 
 cab_checksum_cfdata.exit.i:                       ; preds = %136, %cab_checksum_cfdata_4.exit.i.i
-  %.2.i.i = phi i32 [ %139, %136 ], [ 0, %cab_checksum_cfdata_4.exit.i.i ]
-  %140 = xor i32 %.2.i.i, %.0.lcssa.i.i.i
-  store i32 %140, ptr %115, align 8, !tbaa !134
+  %.2.i.i = phi i32 [ %140, %136 ], [ %.0.lcssa.i.i.i, %cab_checksum_cfdata_4.exit.i.i ]
+  store i32 %.2.i.i, ptr %115, align 8, !tbaa !134
   store i32 0, ptr %110, align 8, !tbaa !135
   br label %141
 
@@ -2608,13 +2608,13 @@ cab_checksum_cfdata_4.exit.i36.i:                 ; preds = %.lr.ph.i.i31.i
   %177 = load i8, ptr %.116.i39.i, align 1, !tbaa !4
   %178 = zext i8 %177 to i32
   %179 = or i32 %.1.i40.i, %178
+  %180 = xor i32 %179, %159
   br label %cab_checksum_cfdata.exit44.i
 
 cab_checksum_cfdata.exit44.i:                     ; preds = %176, %cab_checksum_cfdata_4.exit.i36.i
-  %.2.i38.i = phi i32 [ %179, %176 ], [ 0, %cab_checksum_cfdata_4.exit.i36.i ]
-  %180 = xor i32 %.2.i38.i, %159
-  store i32 %180, ptr %154, align 8, !tbaa !134
-  %.not28.i = icmp eq i32 %180, %107
+  %.2.i38.i = phi i32 [ %180, %176 ], [ %159, %cab_checksum_cfdata_4.exit.i36.i ]
+  store i32 %.2.i38.i, ptr %154, align 8, !tbaa !134
+  %.not28.i = icmp eq i32 %.2.i38.i, %107
   br i1 %.not28.i, label %.thread, label %181
 
 181:                                              ; preds = %cab_checksum_cfdata.exit44.i
@@ -2626,7 +2626,7 @@ cab_checksum_cfdata.exit44.i:                     ; preds = %176, %cab_checksum_
   %187 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %188 = load i16, ptr %187, align 4, !tbaa !140
   %189 = zext i16 %188 to i32
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %186, i32 noundef %107, i32 noundef %180, i32 noundef %189) #18
+  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 84, ptr noundef nonnull @.str.25, i32 noundef %186, i32 noundef %107, i32 noundef %.2.i38.i, i32 noundef %189) #18
   br label %.thread
 
 .thread:                                          ; preds = %cab_checksum_cfdata.exit44.i, %102, %29, %181, %32, %cab_checksum_update.exit

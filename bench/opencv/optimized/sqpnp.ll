@@ -655,7 +655,7 @@ _ZNK2cv11_InputArray6getMatEi.exit136:            ; preds = %177, %180
           to label %217 unwind label %271
 
 217:                                              ; preds = %212
-  br i1 %216, label %218, label %223
+  br i1 %216, label %218, label %224
 
 218:                                              ; preds = %217
   %219 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -664,22 +664,22 @@ _ZNK2cv11_InputArray6getMatEi.exit136:            ; preds = %177, %180
 220:                                              ; preds = %218
   %221 = icmp eq i32 %219, 196608
   %222 = select i1 %221, i32 16, i32 0
-  br label %223
+  %223 = or disjoint i32 %222, %215
+  br label %224
 
-223:                                              ; preds = %220, %217
-  %224 = phi i32 [ 0, %217 ], [ %222, %220 ]
-  %225 = or disjoint i32 %224, %215
+224:                                              ; preds = %220, %217
+  %225 = phi i32 [ %215, %217 ], [ %223, %220 ]
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %214, i32 noundef 1, i32 noundef %225, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %226 unwind label %271
 
-226:                                              ; preds = %223
+226:                                              ; preds = %224
   %227 = load i32, ptr %190, align 8, !tbaa !50
   %228 = and i32 %213, 7
   %229 = invoke noundef zeroext i1 @_ZNK2cv12_OutputArray9fixedTypeEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %230 unwind label %271
 
 230:                                              ; preds = %226
-  br i1 %229, label %231, label %236
+  br i1 %229, label %231, label %237
 
 231:                                              ; preds = %230
   %232 = invoke noundef i32 @_ZNK2cv11_InputArray4kindEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -688,15 +688,15 @@ _ZNK2cv11_InputArray6getMatEi.exit136:            ; preds = %177, %180
 233:                                              ; preds = %231
   %234 = icmp eq i32 %232, 196608
   %235 = select i1 %234, i32 16, i32 0
-  br label %236
+  %236 = or disjoint i32 %235, %228
+  br label %237
 
-236:                                              ; preds = %233, %230
-  %237 = phi i32 [ 0, %230 ], [ %235, %233 ]
-  %238 = or disjoint i32 %237, %228
+237:                                              ; preds = %233, %230
+  %238 = phi i32 [ %228, %230 ], [ %236, %233 ]
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %227, i32 noundef 1, i32 noundef %238, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %.preheader unwind label %271
 
-.preheader:                                       ; preds = %236
+.preheader:                                       ; preds = %237
   %239 = load i32, ptr %190, align 8, !tbaa !50
   %240 = icmp sgt i32 %239, 0
   br i1 %240, label %.lr.ph, label %._crit_edge
@@ -753,7 +753,7 @@ _ZNK2cv11_InputArray6getMatEi.exit136:            ; preds = %177, %180
           cleanup
   br label %312
 
-271:                                              ; preds = %236, %231, %226, %223, %218, %212, %210, %206
+271:                                              ; preds = %237, %231, %226, %224, %218, %212, %210, %206
   %272 = landingpad { ptr, i32 }
           cleanup
   br label %312

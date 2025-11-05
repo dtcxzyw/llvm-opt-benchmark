@@ -12223,12 +12223,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %73 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN4llvm11ms_demangle9Demangler20demangleFunctionTypeERSt17basic_string_viewIcSt11char_traitsIcEEb, i64 %73
   %switch.load = load i8, ptr %switch.gep, align 1
+  %74 = or i8 %switch.load, %61
   br label %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit
 
 _ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %switch.lookup, %63, %71
-  %.sroa.0.0.i = phi i8 [ 0, %63 ], [ 0, %71 ], [ %switch.load, %switch.lookup ]
-  %74 = or i8 %.sroa.0.0.i, %61
-  store i8 %74, ptr %25, align 4, !tbaa !98
+  %.sroa.0.0.i = phi i8 [ %61, %63 ], [ %61, %71 ], [ %74, %switch.lookup ]
+  store i8 %.sroa.0.0.i, ptr %25, align 4, !tbaa !98
   br label %75
 
 75:                                               ; preds = %_ZN4llvm11ms_demangle9Demangler18demangleQualifiersERSt17basic_string_viewIcSt11char_traitsIcEE.exit, %_ZN4llvm11ms_demangle14ArenaAllocator5allocINS0_21FunctionSignatureNodeEJEEEPT_DpOT0_.exit

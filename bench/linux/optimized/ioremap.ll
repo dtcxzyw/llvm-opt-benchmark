@@ -650,7 +650,7 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr noundef rea
   %3 = load i32, ptr %1, align 4
   %4 = and i32 %3, 1
   %5 = icmp eq i32 %4, 0
-  br i1 %5, label %6, label %100
+  br i1 %5, label %6, label %99
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -807,21 +807,20 @@ define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr noundef rea
 .loopexit.loopexit:                               ; preds = %88, %.thread
   %.ph = phi i32 [ 0, %.thread ], [ 1, %88 ]
   %.pre = load i32, ptr %1, align 4
+  %97 = or i32 %.pre, %.ph
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %11, %6
-  %97 = phi i32 [ %3, %6 ], [ %3, %11 ], [ %.pre, %.loopexit.loopexit ]
-  %98 = phi i32 [ 0, %6 ], [ 0, %11 ], [ %.ph, %.loopexit.loopexit ]
-  %99 = or i32 %97, %98
-  store i32 %99, ptr %1, align 4
-  br label %100
+  %98 = phi i32 [ %3, %6 ], [ %3, %11 ], [ %97, %.loopexit.loopexit ]
+  store i32 %98, ptr %1, align 4
+  br label %99
 
-100:                                              ; preds = %.loopexit, %2
-  %101 = phi i32 [ %99, %.loopexit ], [ %3, %2 ]
-  %102 = and i32 %101, 3
-  %103 = icmp eq i32 %102, 3
-  %104 = zext i1 %103 to i32
-  ret i32 %104
+99:                                               ; preds = %.loopexit, %2
+  %100 = phi i32 [ %98, %.loopexit ], [ %3, %2 ]
+  %101 = and i32 %100, 3
+  %102 = icmp eq i32 %101, 3
+  %103 = zext i1 %102 to i32
+  ret i32 %103
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)

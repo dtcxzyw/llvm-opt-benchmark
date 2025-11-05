@@ -1664,13 +1664,12 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread10:       ; preds = %25, %_ZN4llvmneENS_
   %28 = sub i64 %27, ptrtoint (ptr @_ZL11OptionTable to i64)
   %29 = sdiv exact i64 %28, 24
   %30 = and i64 %29, 4294967295
+  %31 = or disjoint i64 %30, 4294967296
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %21, %"_ZN4llvm15partition_pointIRA1073_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit", %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvmneENS_9StringRefES0_.exit.thread10
-  %.sroa.0.0 = phi i64 [ %30, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %"_ZN4llvm15partition_pointIRA1073_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit" ], [ 0, %21 ]
-  %.sroa.2.0 = phi i64 [ 4294967296, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %"_ZN4llvm15partition_pointIRA1073_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit" ], [ 0, %21 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+  %.sroa.2.0 = phi i64 [ %31, %_ZN4llvmneENS_9StringRefES0_.exit.thread10 ], [ 0, %_ZN4llvmneENS_9StringRefES0_.exit ], [ 0, %"_ZN4llvm15partition_pointIRA1073_KN12_GLOBAL__N_113WarningOptionEZN5clang13DiagnosticIDs24getGroupForWarningOptionENS_9StringRefEE3$_0RS3_EEDaOT_T0_.exit" ], [ 0, %21 ]
+  ret i64 %.sroa.2.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

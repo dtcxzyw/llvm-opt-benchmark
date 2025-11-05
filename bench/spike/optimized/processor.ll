@@ -94656,7 +94656,7 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %6 = load i64, ptr %5, align 8, !tbaa !292
   %7 = icmp ult i64 %6, 3
-  br i1 %7, label %17, label %8
+  br i1 %7, label %18, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1120
@@ -94667,25 +94667,24 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %14 = and i64 %12, 8
   %15 = icmp ne i64 %14, 0
   %16 = and i1 %13, %15
-  %.neg = sext i1 %16 to i64
-  br label %17
+  %17 = select i1 %16, i64 %1, i64 0
+  br label %18
 
-17:                                               ; preds = %8, %3
-  %.neg43 = phi i64 [ -1, %3 ], [ %.neg, %8 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 1296
-  %19 = load ptr, ptr %18, align 8, !tbaa !253
-  %20 = load ptr, ptr %19, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(37) %19) #39
-  %24 = xor i64 %23, -1
-  %25 = and i64 %.neg43, %24
-  %26 = and i64 %25, %1
+18:                                               ; preds = %8, %3
+  %.neg43 = phi i64 [ %1, %3 ], [ %17, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1296
+  %20 = load ptr, ptr %19, align 8, !tbaa !253
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call noundef i64 %23(ptr noundef nonnull align 8 dereferenceable(37) %20) #39
+  %25 = xor i64 %24, -1
+  %26 = and i64 %.neg43, %25
   %27 = icmp eq i64 %26, 0
   br i1 %27, label %28, label %76
 
-28:                                               ; preds = %17
-  %29 = load ptr, ptr %18, align 8, !tbaa !253
+28:                                               ; preds = %18
+  %29 = load ptr, ptr %19, align 8, !tbaa !253
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
@@ -94743,8 +94742,8 @@ define void @_ZN11processor_t14take_interruptEm(ptr noundef nonnull align 8 dere
   %75 = and i64 %74, %1
   br label %76
 
-76:                                               ; preds = %.thread, %60, %63, %17
-  %.0 = phi i64 [ %26, %17 ], [ %75, %63 ], [ %61, %60 ], [ %59, %.thread ]
+76:                                               ; preds = %.thread, %60, %63, %18
+  %.0 = phi i64 [ %26, %18 ], [ %75, %63 ], [ %61, %60 ], [ %59, %.thread ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 1808
   %78 = load ptr, ptr %77, align 8, !tbaa !253
   %.not63 = icmp eq ptr %78, null

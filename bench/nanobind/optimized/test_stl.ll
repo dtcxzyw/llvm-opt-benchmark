@@ -13144,9 +13144,9 @@ _ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhP
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL26nanobind_init_test_stl_extRNS_7module_EE4$_47St8optionalIiEJRS6_EJLm0EEJNS_5scopeENS_4nameENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
 _ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread: ; preds = %5, %_ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread12
-  %.sroa.06.0.insert.insert = phi i64 [ %15, %_ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread12 ], [ 0, %5 ]
+  %.sroa.4.111 = phi i64 [ %15, %_ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread12 ], [ 0, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 %.sroa.06.0.insert.insert, ptr %7, align 8
+  store i64 %.sroa.4.111, ptr %7, align 8
   %16 = call ptr @_ZN8nanobind6detail15optional_casterISt8optionalIiEiE8from_cppIS3_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef %3, ptr noundef %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL26nanobind_init_test_stl_extRNS_7module_EE4$_47St8optionalIiEJRS6_EJLm0EEJNS_5scopeENS_4nameENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
@@ -13218,9 +13218,9 @@ _ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhP
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL26nanobind_init_test_stl_extRNS_7module_EE4$_48St8optionalIiEJRS6_EJLm0EEJNS_5scopeENS_4nameENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"
 
 _ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread: ; preds = %5, %_ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread12
-  %.sroa.06.0.insert.insert = phi i64 [ %15, %_ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread12 ], [ 0, %5 ]
+  %.sroa.4.111 = phi i64 [ %15, %_ZN8nanobind6detail15optional_casterISt8optionalIiEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE.exit.thread12 ], [ 0, %5 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i64 %.sroa.06.0.insert.insert, ptr %7, align 8
+  store i64 %.sroa.4.111, ptr %7, align 8
   %16 = call ptr @_ZN8nanobind6detail15optional_casterISt8optionalIiEiE8from_cppIS3_EENS_6handleEOT_NS_9rv_policyEPNS0_12cleanup_listE(ptr noundef nonnull align 4 dereferenceable(8) %7, i32 noundef %3, ptr noundef %4) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %"_ZZN8nanobind6detail11func_createILb0ELb1EZL26nanobind_init_test_stl_extRNS_7module_EE4$_48St8optionalIiEJRS6_EJLm0EEJNS_5scopeENS_4nameENS_5arg_vEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENKUlPvPSC_PhNS_9rv_policyEPNS0_12cleanup_listEE_clESQ_SR_SS_ST_SV_.exit"

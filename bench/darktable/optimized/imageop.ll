@@ -3162,25 +3162,25 @@ dt_iop_connect_accels_multi.exit58:               ; preds = %65, %73, %77, %80
 
 114:                                              ; preds = %109, %110
   %115 = phi i32 [ %113, %110 ], [ 0, %109 ]
-  br i1 %.not49, label %120, label %116
+  br i1 %.not49, label %121, label %116
 
 116:                                              ; preds = %114
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %118 = load ptr, ptr %117, align 16, !tbaa !192
   %119 = call i32 %118() #25
-  br label %120
+  %120 = or i32 %119, %115
+  br label %121
 
-120:                                              ; preds = %114, %116
-  %121 = phi i32 [ %119, %116 ], [ 0, %114 ]
-  %122 = or i32 %121, %115
+121:                                              ; preds = %114, %116
+  %122 = phi i32 [ %120, %116 ], [ %115, %114 ]
   %.not53 = icmp eq i32 %122, 0
   br i1 %.not53, label %124, label %123
 
-123:                                              ; preds = %120
+123:                                              ; preds = %121
   call void @dt_dev_pixelpipe_rebuild(ptr noundef nonnull %3) #25
   br label %124
 
-124:                                              ; preds = %123, %120
+124:                                              ; preds = %123, %121
   call void (...) @dt_guides_update_button_state() #25
   call void @dt_control_change_cursor(i32 noundef 68) #25
   call void (...) @dt_control_queue_redraw_center() #25

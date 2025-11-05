@@ -29860,11 +29860,11 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %354, %357
   %367 = getelementptr i64, ptr %365, i64 %366
   %368 = getelementptr i8, ptr %367, i64 -8
   %369 = load i64, ptr %368, align 8, !tbaa !201
+  %370 = mul i64 %369, %358
   br label %_ZNK2cv3Mat8elemSizeEv.exit
 
 _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %359, %363
-  %370 = phi i64 [ %369, %363 ], [ 0, %359 ]
-  %371 = mul i64 %370, %358
+  %371 = phi i64 [ %370, %363 ], [ 0, %359 ]
   %372 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %373 = load double, ptr %372, align 8, !tbaa !722
   %374 = fdiv double 1.000000e+00, %373

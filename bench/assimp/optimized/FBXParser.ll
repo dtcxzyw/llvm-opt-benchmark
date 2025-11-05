@@ -3422,25 +3422,25 @@ define internal fastcc void @_ZN6Assimp3FBX12_GLOBAL__N_119ReadBinaryDataArrayEc
   store ptr %9, ptr %2, align 8
   %switch.tableidx = add i8 %0, -100
   %10 = icmp ult i8 %switch.tableidx, 9
-  br i1 %10, label %switch.lookup, label %12
+  br i1 %10, label %switch.lookup, label %14
 
 switch.lookup:                                    ; preds = %5
   %11 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp3FBX12_GLOBAL__N_119ReadBinaryDataArrayEcjRPKcS3_RSt6vectorIcSaIcEERKNS0_7ElementE, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %12
+  %12 = mul i32 %switch.load, %1
+  %13 = zext i32 %12 to i64
+  br label %14
 
-12:                                               ; preds = %switch.lookup, %5
-  %.0 = phi i32 [ 0, %5 ], [ %switch.load, %switch.lookup ]
-  %13 = mul i32 %.0, %1
-  %14 = zext i32 %13 to i64
-  tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %14)
+14:                                               ; preds = %switch.lookup, %5
+  %.0 = phi i64 [ 0, %5 ], [ %13, %switch.lookup ]
+  tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %.0)
   switch i32 %.val, label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit [
     i32 0, label %15
     i32 1, label %22
   ]
 
-15:                                               ; preds = %12
+15:                                               ; preds = %14
   %16 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, %16
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit, label %17
@@ -3453,7 +3453,7 @@ switch.lookup:                                    ; preds = %5
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %21, ptr align 1 %16, i64 %20, i1 false)
   br label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
-22:                                               ; preds = %12
+22:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN6Assimp11CompressionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %23 = invoke noundef zeroext i1 @_ZN6Assimp11Compression4openENS0_6FormatENS0_9FlushModeEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef 0, i32 noundef 4, i32 noundef 0)
@@ -3484,7 +3484,7 @@ switch.lookup:                                    ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit
 
-_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit: ; preds = %17, %15, %12, %33
+_ZSt4copyIPKcN9__gnu_cxx17__normal_iteratorIPcSt6vectorIcSaIcEEEEET0_T_SA_S9_.exit: ; preds = %17, %15, %14, %33
   %34 = load ptr, ptr %2, align 8
   %35 = zext i32 %.val24 to i64
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35

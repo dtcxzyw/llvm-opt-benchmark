@@ -3832,11 +3832,11 @@ _ZNK8datatype4util14is_constructorEPK3app.exit24: ; preds = %43
 54:                                               ; preds = %_ZNK8datatype4util14is_constructorEPK3app.exit24
   %55 = tail call noundef zeroext i1 @_ZN3mbp23datatype_project_plugin3imp16contains_foreignER8obj_markI4expr10bit_vector14default_t2uintIS3_EES8_PS3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %.045)
   %56 = zext i1 %55 to i32
+  %57 = or i32 %.021, %56
   br label %_ZNK8datatype4util14is_constructorEPK3app.exit24.thread
 
 _ZNK8datatype4util14is_constructorEPK3app.exit24.thread: ; preds = %43, %_ZNK8datatype4util14is_constructorEPK3app.exit.thread, %54, %_ZNK8datatype4util14is_constructorEPK3app.exit24
-  %57 = phi i32 [ 0, %_ZNK8datatype4util14is_constructorEPK3app.exit24 ], [ %56, %54 ], [ 0, %_ZNK8datatype4util14is_constructorEPK3app.exit.thread ], [ 0, %43 ]
-  %58 = or i32 %57, %.021
+  %58 = phi i32 [ %.021, %_ZNK8datatype4util14is_constructorEPK3app.exit24 ], [ %57, %54 ], [ %.021, %_ZNK8datatype4util14is_constructorEPK3app.exit.thread ], [ %.021, %43 ]
   %.not.not = icmp eq i32 %58, 0
   br i1 %.not.not, label %.critedge, label %59
 

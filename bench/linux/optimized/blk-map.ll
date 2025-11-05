@@ -489,16 +489,16 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %209 = load i8, ptr %196, align 8
   %210 = and i8 %209, -4
   %211 = or disjoint i8 %210, %171
-  br i1 %20, label %215, label %212
+  br i1 %20, label %216, label %212
 
 212:                                              ; preds = %208
   %213 = load i8, ptr %177, align 4, !range !10, !noundef !11
   %214 = shl nuw nsw i8 %213, 1
-  br label %215
+  %215 = or disjoint i8 %214, %211
+  br label %216
 
-215:                                              ; preds = %212, %208
-  %216 = phi i8 [ 0, %208 ], [ %214, %212 ]
-  %217 = or i8 %216, %211
+216:                                              ; preds = %212, %208
+  %217 = phi i8 [ %211, %208 ], [ %215, %212 ]
   store i8 %217, ptr %196, align 8
   %218 = add i32 %190, %184
   %219 = zext i32 %218 to i64
@@ -511,7 +511,7 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   %226 = icmp eq ptr %225, null
   br i1 %226, label %.loopexit83, label %227
 
-227:                                              ; preds = %215
+227:                                              ; preds = %216
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 120
   %229 = load i32, ptr %174, align 8
   %230 = and i32 %229, 255
@@ -817,8 +817,8 @@ define dso_local i32 @blk_rq_map_user_iov(ptr noundef readonly captures(address_
   call void @kfree(ptr noundef nonnull %225) #8
   br label %.loopexit83
 
-.loopexit83:                                      ; preds = %215, %.thread61.thread81
-  %415 = phi i32 [ %414, %.thread61.thread81 ], [ -12, %215 ]
+.loopexit83:                                      ; preds = %216, %.thread61.thread81
+  %415 = phi i32 [ %414, %.thread61.thread81 ], [ -12, %216 ]
   call void @kfree(ptr noundef nonnull %196) #8
   br label %.thread78
 

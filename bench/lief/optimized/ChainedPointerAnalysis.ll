@@ -2642,8 +2642,8 @@ _ZN4LIEF5MachO22ChainedPointerAnalysis6strideENS0_23DYLD_CHAINED_PTR_FORMATE.exi
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %20
 
-20:                                               ; preds = %146, %_ZN4LIEF5MachO22ChainedPointerAnalysis6strideENS0_23DYLD_CHAINED_PTR_FORMATE.exit
-  %21 = phi i64 [ %148, %146 ], [ %14, %_ZN4LIEF5MachO22ChainedPointerAnalysis6strideENS0_23DYLD_CHAINED_PTR_FORMATE.exit ]
+20:                                               ; preds = %144, %_ZN4LIEF5MachO22ChainedPointerAnalysis6strideENS0_23DYLD_CHAINED_PTR_FORMATE.exit
+  %21 = phi i64 [ %146, %144 ], [ %14, %_ZN4LIEF5MachO22ChainedPointerAnalysis6strideENS0_23DYLD_CHAINED_PTR_FORMATE.exit ]
   br i1 %10, label %22, label %32
 
 22:                                               ; preds = %20
@@ -2669,7 +2669,7 @@ _ZN4LIEF5MachO22ChainedPointerAnalysis6strideENS0_23DYLD_CHAINED_PTR_FORMATE.exi
 
 .thread:                                          ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread48
+  br label %.thread47
 
 32:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2681,266 +2681,266 @@ _ZN4LIEF5MachO22ChainedPointerAnalysis6strideENS0_23DYLD_CHAINED_PTR_FORMATE.exi
   %37 = and i64 %36, 4294967296
   %.not.i32 = icmp eq i64 %37, 0
   store i64 %21, ptr %13, align 8, !tbaa !193
-  br i1 %.not.i32, label %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit, label %38
+  br i1 %.not.i32, label %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, label %38
+
+_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread: ; preds = %32
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %.thread47
 
 38:                                               ; preds = %32
   %39 = load i8, ptr %15, align 8, !tbaa !197, !range !198, !noundef !199
   %40 = trunc nuw i8 %39 to i1
-  br i1 %40, label %41, label %42
+  br i1 %40, label %41, label %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit
 
 41:                                               ; preds = %38
   call void @_ZN4LIEF11swap_endianIjEEvPT_(ptr noundef nonnull %5) #25
-  br label %42
-
-42:                                               ; preds = %41, %38
-  %43 = load i32, ptr %5, align 4, !tbaa !200
-  %44 = zext i32 %43 to i64
   br label %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit
 
-_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds = %32, %42
-  %45 = phi i64 [ %44, %42 ], [ 0, %32 ]
+_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds = %38, %41
+  %42 = load i32, ptr %5, align 4, !tbaa !200
+  %43 = zext i32 %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %47
+  br label %45
 
 select.unfold:                                    ; preds = %28, %31
-  %46 = load i64, ptr %6, align 8, !tbaa !29
+  %44 = load i64, ptr %6, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %47
+  br label %45
 
-47:                                               ; preds = %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit, %select.unfold
-  %48 = phi i64 [ %45, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit ], [ %46, %select.unfold ]
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %.thread48, label %50
+45:                                               ; preds = %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit, %select.unfold
+  %46 = phi i64 [ %43, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit ], [ %44, %select.unfold ]
+  %47 = icmp eq i64 %46, 0
+  br i1 %47, label %.thread47, label %48
 
-50:                                               ; preds = %47
+48:                                               ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   switch i32 %1, label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit [
-    i32 1, label %51
-    i32 7, label %51
-    i32 9, label %51
-    i32 12, label %51
-    i32 2, label %55
-    i32 6, label %55
-    i32 3, label %56
-    i32 4, label %58
-    i32 5, label %59
-    i32 8, label %60
+    i32 1, label %49
+    i32 7, label %49
+    i32 9, label %49
+    i32 12, label %49
+    i32 2, label %53
+    i32 6, label %53
+    i32 3, label %54
+    i32 4, label %56
+    i32 5, label %57
+    i32 8, label %58
   ]
 
-51:                                               ; preds = %50, %50, %50, %50
-  %.not30.i = icmp sgt i64 %48, -1
-  br i1 %.not30.i, label %54, label %52
+49:                                               ; preds = %48, %48, %48, %48
+  %.not30.i = icmp sgt i64 %46, -1
+  br i1 %.not30.i, label %52, label %50
 
-52:                                               ; preds = %51
-  %53 = and i64 %48, 4611686018427387904
-  %.not31.i = icmp eq i64 %53, 0
+50:                                               ; preds = %49
+  %51 = and i64 %46, 4611686018427387904
+  %.not31.i = icmp eq i64 %51, 0
   %spec.select = select i1 %.not31.i, i32 3, i32 %..i
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
 
-54:                                               ; preds = %51
-  %.not35.i = icmp samesign ult i64 %48, 4611686018427387904
-  %spec.select65 = select i1 %.not35.i, i32 1, i32 %.85.i
+52:                                               ; preds = %49
+  %.not35.i = icmp samesign ult i64 %46, 4611686018427387904
+  %spec.select64 = select i1 %.not35.i, i32 1, i32 %.85.i
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
 
-55:                                               ; preds = %50, %50
-  %.not29.i = icmp sgt i64 %48, -1
+53:                                               ; preds = %48, %48
+  %.not29.i = icmp sgt i64 %46, -1
   %.86.i = select i1 %.not29.i, i32 5, i32 8
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
 
-56:                                               ; preds = %50
-  %57 = and i64 %48, 2147483648
-  %.not.i36 = icmp eq i64 %57, 0
-  %.sroa.2.8.insert.ext.i64.i = and i64 %48, 4294967295
-  %.87.i = select i1 %.not.i36, i32 10, i32 11
+54:                                               ; preds = %48
+  %55 = and i64 %46, 2147483648
+  %.not.i35 = icmp eq i64 %55, 0
+  %.sroa.2.8.insert.ext.i64.i = and i64 %46, 4294967295
+  %.87.i = select i1 %.not.i35, i32 10, i32 11
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
 
-58:                                               ; preds = %50
-  %.sroa.2.8.insert.ext.i67.i = and i64 %48, 4294967295
+56:                                               ; preds = %48
+  %.sroa.2.8.insert.ext.i67.i = and i64 %46, 4294967295
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
 
-59:                                               ; preds = %50
-  %.sroa.2.8.insert.ext.i70.i = and i64 %48, 4294967295
+57:                                               ; preds = %48
+  %.sroa.2.8.insert.ext.i70.i = and i64 %46, 4294967295
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
 
-60:                                               ; preds = %50
+58:                                               ; preds = %48
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
 
-_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit: ; preds = %54, %52, %50, %55, %56, %58, %59, %60
-  %.sroa.018.0.i = phi i32 [ 12, %58 ], [ 13, %59 ], [ 9, %60 ], [ 0, %50 ], [ %.86.i, %55 ], [ %.87.i, %56 ], [ %spec.select, %52 ], [ %spec.select65, %54 ]
-  %.sroa.16.0.i = phi i64 [ %.sroa.2.8.insert.ext.i67.i, %58 ], [ %.sroa.2.8.insert.ext.i70.i, %59 ], [ %48, %60 ], [ 0, %50 ], [ %48, %55 ], [ %.sroa.2.8.insert.ext.i64.i, %56 ], [ %48, %52 ], [ %48, %54 ]
+_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit: ; preds = %52, %50, %48, %53, %54, %56, %57, %58
+  %.sroa.018.0.i = phi i32 [ 12, %56 ], [ 13, %57 ], [ 9, %58 ], [ 0, %48 ], [ %.86.i, %53 ], [ %.87.i, %54 ], [ %spec.select, %50 ], [ %spec.select64, %52 ]
+  %.sroa.16.0.i = phi i64 [ %.sroa.2.8.insert.ext.i67.i, %56 ], [ %.sroa.2.8.insert.ext.i70.i, %57 ], [ %46, %58 ], [ 0, %48 ], [ %46, %53 ], [ %.sroa.2.8.insert.ext.i64.i, %54 ], [ %46, %50 ], [ %46, %52 ]
   store i32 %.sroa.018.0.i, ptr %7, align 8
   store i64 %.sroa.16.0.i, ptr %17, align 8
-  %61 = load i64, ptr %13, align 8, !tbaa !193
+  %59 = load i64, ptr %13, align 8, !tbaa !193
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %61, ptr %4, align 8, !tbaa !29
-  %62 = load ptr, ptr %18, align 8, !tbaa !202
-  %.not.i.i = icmp eq ptr %62, null
-  br i1 %.not.i.i, label %63, label %_ZNKSt8functionIFimRKN4LIEF5MachO22ChainedPointerAnalysis15union_pointer_tEEEclEmS5_.exit
+  store i64 %59, ptr %4, align 8, !tbaa !29
+  %60 = load ptr, ptr %18, align 8, !tbaa !202
+  %.not.i.i = icmp eq ptr %60, null
+  br i1 %.not.i.i, label %61, label %_ZNKSt8functionIFimRKN4LIEF5MachO22ChainedPointerAnalysis15union_pointer_tEEEclEmS5_.exit
 
-63:                                               ; preds = %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
+61:                                               ; preds = %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
   call void @_ZSt25__throw_bad_function_callv() #24
   unreachable
 
 _ZNKSt8functionIFimRKN4LIEF5MachO22ChainedPointerAnalysis15union_pointer_tEEEclEmS5_.exit: ; preds = %_ZNK4LIEF5MachO22ChainedPointerAnalysis6get_asENS0_23DYLD_CHAINED_PTR_FORMATE.exit
-  %64 = load ptr, ptr %19, align 8, !tbaa !204
-  %65 = call noundef i32 %64(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %7) #25
+  %62 = load ptr, ptr %19, align 8, !tbaa !204
+  %63 = call noundef i32 %62(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(16) %7) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %68, label %.thread55
+  %.not = icmp eq i32 %63, 0
+  br i1 %.not, label %66, label %.thread54
 
-.thread55:                                        ; preds = %_ZNKSt8functionIFimRKN4LIEF5MachO22ChainedPointerAnalysis15union_pointer_tEEEclEmS5_.exit
-  %66 = load i64, ptr %13, align 8, !tbaa !193
-  %67 = sub i64 %14, %66
+.thread54:                                        ; preds = %_ZNKSt8functionIFimRKN4LIEF5MachO22ChainedPointerAnalysis15union_pointer_tEEEclEmS5_.exit
+  %64 = load i64, ptr %13, align 8, !tbaa !193
+  %65 = sub i64 %14, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %151
+  br label %149
 
-68:                                               ; preds = %_ZNKSt8functionIFimRKN4LIEF5MachO22ChainedPointerAnalysis15union_pointer_tEEEclEmS5_.exit
-  %69 = load i32, ptr %7, align 8, !tbaa !190
-  switch i32 %69, label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit [
-    i32 1, label %70
-    i32 2, label %75
-    i32 3, label %80
-    i32 4, label %85
-    i32 5, label %90
-    i32 6, label %95
-    i32 7, label %100
-    i32 8, label %105
-    i32 9, label %110
-    i32 10, label %115
-    i32 11, label %119
-    i32 12, label %123
-    i32 13, label %126
+66:                                               ; preds = %_ZNKSt8functionIFimRKN4LIEF5MachO22ChainedPointerAnalysis15union_pointer_tEEEclEmS5_.exit
+  %67 = load i32, ptr %7, align 8, !tbaa !190
+  switch i32 %67, label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit [
+    i32 1, label %68
+    i32 2, label %73
+    i32 3, label %78
+    i32 4, label %83
+    i32 5, label %88
+    i32 6, label %93
+    i32 7, label %98
+    i32 8, label %103
+    i32 9, label %108
+    i32 10, label %113
+    i32 11, label %117
+    i32 12, label %121
+    i32 13, label %124
   ]
 
-70:                                               ; preds = %68
-  %71 = load i64, ptr %17, align 8
-  %72 = lshr i64 %71, 51
-  %73 = trunc nuw nsw i64 %72 to i32
-  %74 = and i32 %73, 2047
+68:                                               ; preds = %66
+  %69 = load i64, ptr %17, align 8
+  %70 = lshr i64 %69, 51
+  %71 = trunc nuw nsw i64 %70 to i32
+  %72 = and i32 %71, 2047
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-75:                                               ; preds = %68
-  %76 = load i64, ptr %17, align 8
-  %77 = lshr i64 %76, 51
-  %78 = trunc nuw nsw i64 %77 to i32
-  %79 = and i32 %78, 2047
+73:                                               ; preds = %66
+  %74 = load i64, ptr %17, align 8
+  %75 = lshr i64 %74, 51
+  %76 = trunc nuw nsw i64 %75 to i32
+  %77 = and i32 %76, 2047
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-80:                                               ; preds = %68
-  %81 = load i64, ptr %17, align 8
-  %82 = lshr i64 %81, 51
-  %83 = trunc nuw nsw i64 %82 to i32
-  %84 = and i32 %83, 2047
+78:                                               ; preds = %66
+  %79 = load i64, ptr %17, align 8
+  %80 = lshr i64 %79, 51
+  %81 = trunc nuw nsw i64 %80 to i32
+  %82 = and i32 %81, 2047
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-85:                                               ; preds = %68
-  %86 = load i64, ptr %17, align 8
-  %87 = lshr i64 %86, 51
-  %88 = trunc nuw nsw i64 %87 to i32
-  %89 = and i32 %88, 2047
+83:                                               ; preds = %66
+  %84 = load i64, ptr %17, align 8
+  %85 = lshr i64 %84, 51
+  %86 = trunc nuw nsw i64 %85 to i32
+  %87 = and i32 %86, 2047
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-90:                                               ; preds = %68
-  %91 = load i64, ptr %17, align 8
-  %92 = lshr i64 %91, 51
-  %93 = trunc nuw nsw i64 %92 to i32
-  %94 = and i32 %93, 4095
+88:                                               ; preds = %66
+  %89 = load i64, ptr %17, align 8
+  %90 = lshr i64 %89, 51
+  %91 = trunc nuw nsw i64 %90 to i32
+  %92 = and i32 %91, 4095
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-95:                                               ; preds = %68
-  %96 = load i64, ptr %17, align 8
-  %97 = lshr i64 %96, 51
-  %98 = trunc nuw nsw i64 %97 to i32
-  %99 = and i32 %98, 2047
+93:                                               ; preds = %66
+  %94 = load i64, ptr %17, align 8
+  %95 = lshr i64 %94, 51
+  %96 = trunc nuw nsw i64 %95 to i32
+  %97 = and i32 %96, 2047
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-100:                                              ; preds = %68
-  %101 = load i64, ptr %17, align 8
-  %102 = lshr i64 %101, 51
-  %103 = trunc nuw nsw i64 %102 to i32
-  %104 = and i32 %103, 2047
+98:                                               ; preds = %66
+  %99 = load i64, ptr %17, align 8
+  %100 = lshr i64 %99, 51
+  %101 = trunc nuw nsw i64 %100 to i32
+  %102 = and i32 %101, 2047
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-105:                                              ; preds = %68
-  %106 = load i64, ptr %17, align 8
-  %107 = lshr i64 %106, 51
-  %108 = trunc nuw nsw i64 %107 to i32
-  %109 = and i32 %108, 4095
+103:                                              ; preds = %66
+  %104 = load i64, ptr %17, align 8
+  %105 = lshr i64 %104, 51
+  %106 = trunc nuw nsw i64 %105 to i32
+  %107 = and i32 %106, 4095
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-110:                                              ; preds = %68
-  %111 = load i64, ptr %17, align 8
-  %112 = lshr i64 %111, 51
-  %113 = trunc nuw nsw i64 %112 to i32
-  %114 = and i32 %113, 4095
+108:                                              ; preds = %66
+  %109 = load i64, ptr %17, align 8
+  %110 = lshr i64 %109, 51
+  %111 = trunc nuw nsw i64 %110 to i32
+  %112 = and i32 %111, 4095
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-115:                                              ; preds = %68
-  %116 = load i32, ptr %17, align 8
-  %117 = lshr i32 %116, 26
-  %118 = and i32 %117, 31
+113:                                              ; preds = %66
+  %114 = load i32, ptr %17, align 8
+  %115 = lshr i32 %114, 26
+  %116 = and i32 %115, 31
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-119:                                              ; preds = %68
-  %120 = load i32, ptr %17, align 8
-  %121 = lshr i32 %120, 26
-  %122 = and i32 %121, 31
+117:                                              ; preds = %66
+  %118 = load i32, ptr %17, align 8
+  %119 = lshr i32 %118, 26
+  %120 = and i32 %119, 31
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-123:                                              ; preds = %68
-  %124 = load i32, ptr %17, align 8
-  %125 = lshr i32 %124, 30
+121:                                              ; preds = %66
+  %122 = load i32, ptr %17, align 8
+  %123 = lshr i32 %122, 30
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-126:                                              ; preds = %68
-  %127 = load i32, ptr %17, align 8
-  %128 = lshr i32 %127, 26
+124:                                              ; preds = %66
+  %125 = load i32, ptr %17, align 8
+  %126 = lshr i32 %125, 26
   br label %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
 
-_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit: ; preds = %68, %70, %75, %80, %85, %90, %95, %100, %105, %110, %115, %119, %123, %126
-  %.0.i37 = phi i32 [ %74, %70 ], [ %79, %75 ], [ %84, %80 ], [ %89, %85 ], [ %94, %90 ], [ %99, %95 ], [ %104, %100 ], [ %109, %105 ], [ %114, %110 ], [ %118, %115 ], [ %122, %119 ], [ %125, %123 ], [ %128, %126 ], [ 0, %68 ]
-  %129 = mul nuw nsw i32 %.0.i37, %.0.i31
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %.thread52, label %131
+_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit: ; preds = %66, %68, %73, %78, %83, %88, %93, %98, %103, %108, %113, %117, %121, %124
+  %.0.i36 = phi i32 [ %72, %68 ], [ %77, %73 ], [ %82, %78 ], [ %87, %83 ], [ %92, %88 ], [ %97, %93 ], [ %102, %98 ], [ %107, %103 ], [ %112, %108 ], [ %116, %113 ], [ %120, %117 ], [ %123, %121 ], [ %126, %124 ], [ 0, %66 ]
+  %127 = mul nuw nsw i32 %.0.i36, %.0.i31
+  %128 = icmp eq i32 %127, 0
+  br i1 %128, label %.thread51, label %129
 
-131:                                              ; preds = %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
-  %132 = load i64, ptr %13, align 8, !tbaa !193
-  %133 = zext nneg i32 %129 to i64
-  %134 = add i64 %132, %133
-  %135 = load ptr, ptr %0, align 8, !tbaa !12
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %137 = load ptr, ptr %136, align 8
-  %138 = call noundef i64 %137(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
-  %139 = icmp slt i64 %134, %138
-  br i1 %139, label %_ZNK4LIEF12BinaryStream8can_readEll.exit, label %.thread52
+129:                                              ; preds = %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit
+  %130 = load i64, ptr %13, align 8, !tbaa !193
+  %131 = zext nneg i32 %127 to i64
+  %132 = add i64 %130, %131
+  %133 = load ptr, ptr %0, align 8, !tbaa !12
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
+  %135 = load ptr, ptr %134, align 8
+  %136 = call noundef i64 %135(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
+  %137 = icmp slt i64 %132, %136
+  br i1 %137, label %_ZNK4LIEF12BinaryStream8can_readEll.exit, label %.thread51
 
-_ZNK4LIEF12BinaryStream8can_readEll.exit:         ; preds = %131
-  %140 = add nsw i64 %134, %.0.i
-  %141 = load ptr, ptr %0, align 8, !tbaa !12
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 16
-  %143 = load ptr, ptr %142, align 8
-  %144 = call noundef i64 %143(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
-  %145 = icmp slt i64 %140, %144
-  br i1 %145, label %146, label %.thread52
+_ZNK4LIEF12BinaryStream8can_readEll.exit:         ; preds = %129
+  %138 = add nsw i64 %132, %.0.i
+  %139 = load ptr, ptr %0, align 8, !tbaa !12
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  %141 = load ptr, ptr %140, align 8
+  %142 = call noundef i64 %141(ptr noundef nonnull align 8 dereferenceable(24) %0) #25
+  %143 = icmp slt i64 %138, %142
+  br i1 %143, label %144, label %.thread51
 
-.thread52:                                        ; preds = %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit, %_ZNK4LIEF12BinaryStream8can_readEll.exit, %131
+.thread51:                                        ; preds = %_ZNK4LIEF5MachO22ChainedPointerAnalysis15union_pointer_t4nextEv.exit, %_ZNK4LIEF12BinaryStream8can_readEll.exit, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread48
+  br label %.thread47
 
-146:                                              ; preds = %_ZNK4LIEF12BinaryStream8can_readEll.exit
-  %147 = load i64, ptr %13, align 8, !tbaa !193
-  %148 = add i64 %147, %133
-  store i64 %148, ptr %13, align 8, !tbaa !193
+144:                                              ; preds = %_ZNK4LIEF12BinaryStream8can_readEll.exit
+  %145 = load i64, ptr %13, align 8, !tbaa !193
+  %146 = add i64 %145, %131
+  store i64 %146, ptr %13, align 8, !tbaa !193
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %20
 
-.thread48:                                        ; preds = %47, %.thread, %.thread52
-  %149 = load i64, ptr %13, align 8, !tbaa !193
-  %150 = sub i64 %149, %14
-  br label %151
+.thread47:                                        ; preds = %45, %_ZNK4LIEF12BinaryStream4peekIjEEN2tl8expectedIT_11lief_errorsEEv.exit.thread, %.thread, %.thread51
+  %147 = load i64, ptr %13, align 8, !tbaa !193
+  %148 = sub i64 %147, %14
+  br label %149
 
-151:                                              ; preds = %.thread55, %.thread48
-  %.3 = phi i64 [ %150, %.thread48 ], [ %67, %.thread55 ]
+149:                                              ; preds = %.thread54, %.thread47
+  %.3 = phi i64 [ %148, %.thread47 ], [ %65, %.thread54 ]
   ret i64 %.3
 }
 
@@ -17202,11 +17202,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %231 = getelementptr inbounds nuw i32, ptr %208, i64 %230
   %232 = load i32, ptr %231, align 4, !tbaa !200
   %233 = zext i32 %232 to i64
+  %234 = or disjoint i64 %.03556.i, %233
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i: ; preds = %228, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
-  %234 = phi i64 [ %233, %228 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
-  %235 = or disjoint i64 %234, %.03556.i
+  %235 = phi i64 [ %234, %228 ], [ %.03556.i, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i ]
   %236 = icmp samesign ugt i64 %226, %235
   br i1 %236, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit, label %237
 
@@ -17584,11 +17584,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %408 = getelementptr inbounds nuw i32, ptr %385, i64 %407
   %409 = load i32, ptr %408, align 4, !tbaa !200
   %410 = zext i32 %409 to i64
+  %411 = or disjoint i64 %.03556.i201, %410
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i211: ; preds = %405, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208
-  %411 = phi i64 [ %410, %405 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208 ]
-  %412 = or disjoint i64 %411, %.03556.i201
+  %412 = phi i64 [ %411, %405 ], [ %.03556.i201, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i208 ]
   %413 = icmp samesign ugt i64 %403, %412
   br i1 %413, label %.thread617, label %414
 
@@ -17692,11 +17692,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %461 = getelementptr inbounds nuw i32, ptr %446, i64 %460
   %462 = load i32, ptr %461, align 4, !tbaa !200
   %463 = zext i32 %462 to i64
+  %464 = or disjoint i64 %.03556.i219, %463
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i229: ; preds = %458, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226
-  %464 = phi i64 [ %463, %458 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226 ]
-  %465 = or disjoint i64 %464, %.03556.i219
+  %465 = phi i64 [ %464, %458 ], [ %.03556.i219, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i226 ]
   %466 = icmp samesign ugt i64 %456, %465
   br i1 %466, label %.thread.sink.split, label %467
 
@@ -18039,17 +18039,17 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %611 = getelementptr inbounds nuw i32, ptr %596, i64 %610
   %612 = load i32, ptr %611, align 4, !tbaa !200
   %613 = zext i32 %612 to i64
+  %614 = or disjoint i64 %.03556.i290, %613
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300: ; preds = %608, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297
-  %614 = phi i64 [ %613, %608 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297 ]
-  %615 = or disjoint i64 %614, %.03556.i290
+  %615 = phi i64 [ %614, %608 ], [ %.03556.i290, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i297 ]
   %616 = icmp samesign ugt i64 %606, %615
   br i1 %616, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit303, label %617
 
 617:                                              ; preds = %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i300
   %618 = sub nuw nsw i64 %615, %606
-  %619 = icmp samesign ult i64 %618, 2
+  %619 = icmp ult i64 %618, 2
   %620 = shl nuw nsw i64 %618, 32
   %.not.not.not.i301 = icmp sgt i32 %.03458.i291, %594
   %or.cond412 = select i1 %619, i1 %.not.not.not.i301, i1 false
@@ -18169,11 +18169,11 @@ _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i
   %677 = getelementptr inbounds nuw i32, ptr %662, i64 %676
   %678 = load i32, ptr %677, align 4, !tbaa !200
   %679 = zext i32 %678 to i64
+  %680 = or disjoint i64 %.03556.i312, %679
   br label %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322
 
 _ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit46.i322: ; preds = %674, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319
-  %680 = phi i64 [ %679, %674 ], [ 0, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319 ]
-  %681 = or disjoint i64 %680, %.03556.i312
+  %681 = phi i64 [ %680, %674 ], [ %.03556.i312, %_ZZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_ENKUlS4_iE_clES4_i.exit44.i319 ]
   %682 = icmp samesign ugt i64 %672, %681
   br i1 %682, label %_ZN3fmt3v106detail11add_compareERKNS1_6bigintES4_S4_.exit325, label %683
 

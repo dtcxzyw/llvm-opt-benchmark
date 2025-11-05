@@ -423,61 +423,57 @@ define dso_local { i64, i64 } @_ZNK4llvm3pdb15NativeExeSymbol7getGuidEv(ptr noun
   %14 = load ptr, ptr %5, align 8, !tbaa !36
   %15 = call { i64, i64 } @_ZNK4llvm3pdb10InfoStream7getGuidEv(ptr noundef nonnull align 8 dereferenceable(224) %14) #12
   %16 = extractvalue { i64, i64 } %15, 0
-  %.sroa.0.sroa.3.0.extract.shift = and i64 %16, -256
   %17 = extractvalue { i64, i64 } %15, 1
-  %18 = and i64 %16, 255
   br label %.loopexit
 
 _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %1
-  %19 = load i64, ptr %5, align 8, !tbaa !13, !noalias !51
-  %20 = inttoptr i64 %19 to ptr
+  %18 = load i64, ptr %5, align 8, !tbaa !13, !noalias !51
+  %19 = inttoptr i64 %18 to ptr
   store ptr null, ptr %5, align 8, !tbaa !13, !noalias !51
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store ptr %20, ptr %3, align 8, !tbaa !18
+  store ptr %19, ptr %3, align 8, !tbaa !18
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %2, ptr noundef nonnull %3, ptr noundef nonnull align 1 dereferenceable(1) %4)
-  %21 = load ptr, ptr %3, align 8, !tbaa !18
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %_ZN4llvm5ErrorD2Ev.exit, label %23
+  %20 = load ptr, ptr %3, align 8, !tbaa !18
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %_ZN4llvm5ErrorD2Ev.exit, label %22
 
-23:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
-  %24 = load ptr, ptr %21, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(8) %21) #12
+22:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+  %23 = load ptr, ptr %20, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %25 = load ptr, ptr %24, align 8
+  call void %25(ptr noundef nonnull align 8 dereferenceable(8) %20) #12
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %23, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %22, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN4llvm5ErrorD2Ev.exit, %13
-  %.sroa.0.sroa.3.sroa.0.0 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %.sroa.0.sroa.3.0.extract.shift, %13 ]
-  %.sroa.0.sroa.0.0 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %18, %13 ]
+  %.sroa.0.sroa.3.sroa.0.0 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %16, %13 ]
   %.sroa.4.0 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit ], [ %17, %13 ]
-  %27 = load i8, ptr %10, align 8
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %29, label %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit
+  %26 = load i8, ptr %10, align 8
+  %27 = trunc i8 %26 to i1
+  br i1 %27, label %28, label %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit
 
-29:                                               ; preds = %.loopexit
-  %30 = load ptr, ptr %5, align 8, !tbaa !13
-  %.not.i.i = icmp eq ptr %30, null
+28:                                               ; preds = %.loopexit
+  %29 = load ptr, ptr %5, align 8, !tbaa !13
+  %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %29
-  %31 = load ptr, ptr %30, align 8, !tbaa !3
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %33 = load ptr, ptr %32, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(8) %30) #12
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %28
+  %30 = load ptr, ptr %29, align 8, !tbaa !3
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %32 = load ptr, ptr %31, align 8
+  call void %32(ptr noundef nonnull align 8 dereferenceable(8) %29) #12
   br label %_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit
 
-_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %.loopexit
+_ZN4llvm8ExpectedIRNS_3pdb10InfoStreamEED2Ev.exit: ; preds = %28, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.3.sroa.0.0, %.sroa.0.sroa.0.0
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.0.0.insert.insert, 0
+  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.3.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert
 }

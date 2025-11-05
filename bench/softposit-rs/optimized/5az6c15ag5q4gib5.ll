@@ -51,8 +51,8 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   %7 = icmp samesign ugt i32 %4, 2139095039
   br i1 %7, label %8, label %9
 
-8:                                                ; preds = %49, %14, %13, %6, %1, %17
-  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %., %13 ], [ %.34, %14 ], [ %.35, %49 ]
+8:                                                ; preds = %50, %14, %13, %6, %1, %17
+  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %., %13 ], [ %.34, %14 ], [ %.35, %50 ]
   ret i16 %.0
 
 9:                                                ; preds = %6
@@ -73,7 +73,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
 
 15:                                               ; preds = %11
   %16 = icmp samesign ult i32 %4, 830472193
-  br i1 %16, label %49, label %17
+  br i1 %16, label %50, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i32 %2, 23
@@ -105,18 +105,18 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   %43 = trunc nuw i32 %42 to i16
   %44 = icmp slt i32 %23, 0
   %45 = icmp ugt i32 %20, 1
-  %.36.neg = sext i1 %45 to i16
-  %.028.neg = select i1 %44, i16 1, i16 %.36.neg
+  %.36 = sext i1 %45 to i16
+  %.028.neg = select i1 %44, i16 1, i16 %.36
   %.024 = tail call i32 @llvm.abs.i32(i32 %23, i1 true)
   %46 = add nsw i32 %.024, -16
-  %narrow = icmp ult i32 %46, 48
-  %.neg33 = select i1 %narrow, i16 %.028.neg, i16 0
-  %47 = add i16 %.neg33, %43
-  %48 = sub i16 0, %47
-  %.023 = select i1 %.not, i16 %47, i16 %48
+  %47 = icmp ult i32 %46, 48
+  %.026.neg = select i1 %47, i16 %.028.neg, i16 0
+  %48 = add i16 %.026.neg, %43
+  %49 = sub i16 0, %48
+  %.023 = select i1 %.not, i16 %48, i16 %49
   br label %8
 
-49:                                               ; preds = %15
+50:                                               ; preds = %15
   %.35 = select i1 %.not, i16 1, i16 -1
   br label %8
 }
@@ -134,8 +134,8 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   %7 = icmp samesign ugt i64 %4, 9218868437227405311
   br i1 %7, label %8, label %9
 
-8:                                                ; preds = %49, %14, %13, %6, %1, %17
-  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %., %13 ], [ %.34, %14 ], [ %.35, %49 ]
+8:                                                ; preds = %50, %14, %13, %6, %1, %17
+  %.0 = phi i16 [ %.023, %17 ], [ 0, %1 ], [ -32768, %6 ], [ %., %13 ], [ %.34, %14 ], [ %.35, %50 ]
   ret i16 %.0
 
 9:                                                ; preds = %6
@@ -156,7 +156,7 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
 
 15:                                               ; preds = %11
   %16 = icmp samesign ult i64 %4, 4481081629233643521
-  br i1 %16, label %49, label %17
+  br i1 %16, label %50, label %17
 
 17:                                               ; preds = %15
   %18 = lshr i64 %2, 52
@@ -188,18 +188,18 @@ define noundef i16 @"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1
   %43 = trunc nuw i64 %42 to i16
   %44 = icmp slt i64 %23, 0
   %45 = icmp ugt i64 %20, 1
-  %.36.neg = sext i1 %45 to i16
-  %.028.neg = select i1 %44, i16 1, i16 %.36.neg
+  %.36 = sext i1 %45 to i16
+  %.028.neg = select i1 %44, i16 1, i16 %.36
   %.024 = tail call i64 @llvm.abs.i64(i64 %23, i1 true)
   %46 = add nsw i64 %.024, -16
-  %narrow = icmp ult i64 %46, 496
-  %.neg33 = select i1 %narrow, i16 %.028.neg, i16 0
-  %47 = add i16 %.neg33, %43
-  %48 = sub i16 0, %47
-  %.023 = select i1 %.not, i16 %47, i16 %48
+  %47 = icmp ult i64 %46, 496
+  %.026.neg = select i1 %47, i16 %.028.neg, i16 0
+  %48 = add i16 %.026.neg, %43
+  %49 = sub i16 0, %48
+  %.023 = select i1 %.not, i16 %48, i16 %49
   br label %8
 
-49:                                               ; preds = %15
+50:                                               ; preds = %15
   %.35 = select i1 %.not, i16 1, i16 -1
   br label %8
 }
@@ -4643,13 +4643,13 @@ define noundef zeroext i1 @"_ZN72_$LT$softposit..p16e1..P16E1$u20$as$u20$num_tra
 }
 
 ; Function Attrs: nonlazybind uwtable
-define range(i32 0, -65534) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..Num$GT$14from_str_radix17h4280cb1270eb223fE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 {
+define range(i32 0, -65535) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$num_traits..Num$GT$14from_str_radix17h4280cb1270eb223fE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2) unnamed_addr #2 {
   %4 = alloca { i8, [15 x i8] }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN39_$LT$f64$u20$as$u20$num_traits..Num$GT$14from_str_radix17h0a4767a2e72cb71bE"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, i32 noundef %2)
   %5 = load i8, ptr %4, align 8, !range !12, !noundef !5
   %trunc = trunc nuw i8 %5 to i1
-  br i1 %trunc, label %58, label %6
+  br i1 %trunc, label %59, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4684,7 +4684,7 @@ define range(i32 0, -65534) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$n
 
 21:                                               ; preds = %17
   %22 = icmp samesign ult i64 %11, 4481081629233643521
-  br i1 %22, label %55, label %23
+  br i1 %22, label %56, label %23
 
 23:                                               ; preds = %21
   %24 = lshr i64 %9, 52
@@ -4716,40 +4716,39 @@ define range(i32 0, -65534) i32 @"_ZN59_$LT$softposit..p16e1..P16E1$u20$as$u20$n
   %49 = trunc nuw i64 %48 to i16
   %50 = icmp slt i64 %29, 0
   %51 = icmp ugt i64 %26, 1
-  %.36.neg.i = sext i1 %51 to i16
-  %.028.neg.i = select i1 %50, i16 1, i16 %.36.neg.i
+  %.36.i = sext i1 %51 to i16
+  %.028.neg.i = select i1 %50, i16 1, i16 %.36.i
   %.024.i = tail call i64 @llvm.abs.i64(i64 %29, i1 true)
   %52 = add nsw i64 %.024.i, -16
-  %narrow.i = icmp ult i64 %52, 496
-  %.neg33.i = select i1 %narrow.i, i16 %.028.neg.i, i16 0
-  %53 = add i16 %.neg33.i, %49
-  %54 = sub i16 0, %53
-  %.023.i = select i1 %.not.i, i16 %53, i16 %54
+  %53 = icmp ult i64 %52, 496
+  %.026.neg.i = select i1 %53, i16 %.028.neg.i, i16 0
+  %54 = add i16 %.026.neg.i, %49
+  %55 = sub i16 0, %54
+  %.023.i = select i1 %.not.i, i16 %54, i16 %55
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
 
-55:                                               ; preds = %21
+56:                                               ; preds = %21
   %.35.i = select i1 %.not.i, i16 1, i16 -1
   br label %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
 
-"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit": ; preds = %6, %13, %19, %20, %23, %55
-  %.0.i = phi i16 [ %.023.i, %23 ], [ 0, %6 ], [ -32768, %13 ], [ %..i, %19 ], [ %.34.i, %20 ], [ %.35.i, %55 ]
-  %56 = zext i16 %.0.i to i32
-  %57 = shl nuw i32 %56, 16
-  br label %63
+"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit": ; preds = %6, %13, %19, %20, %23, %56
+  %.0.i = phi i16 [ %.023.i, %23 ], [ 0, %6 ], [ -32768, %13 ], [ %..i, %19 ], [ %.34.i, %20 ], [ %.35.i, %56 ]
+  %57 = zext i16 %.0.i to i32
+  %58 = shl nuw i32 %57, 16
+  br label %65
 
-58:                                               ; preds = %3
-  %59 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %60 = load i8, ptr %59, align 1, !range !12, !noundef !5
+59:                                               ; preds = %3
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %61 = load i8, ptr %60, align 1, !range !12, !noundef !5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %61 = zext nneg i8 %60 to i32
-  %62 = shl nuw nsw i32 %61, 8
-  br label %63
+  %62 = zext nneg i8 %61 to i32
+  %63 = shl nuw nsw i32 %62, 8
+  %64 = or disjoint i32 %63, 1
+  br label %65
 
-63:                                               ; preds = %58, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
-  %.sroa.0.0 = phi i32 [ 0, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit" ], [ 1, %58 ]
-  %.sroa.3.0.insert.insert = phi i32 [ %57, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit" ], [ %62, %58 ]
-  %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.3.0.insert.insert, %.sroa.0.0
-  ret i32 %.sroa.0.0.insert.insert
+65:                                               ; preds = %59, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit"
+  %.sroa.3.0.insert.insert = phi i32 [ %58, %"_ZN9softposit5p16e17convert41_$LT$impl$u20$softposit..p16e1..P16E1$GT$8from_f6417h13faf94e193caccaE.exit" ], [ %64, %59 ]
+  ret i32 %.sroa.3.0.insert.insert
 }
 
 ; Function Attrs: nonlazybind uwtable

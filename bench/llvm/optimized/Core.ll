@@ -19782,8 +19782,8 @@ define dso_local range(i32 0, 256) i32 @LLVMGetAtomicSyncScopeID(ptr noundef non
   br label %_ZN4llvm20getAtomicSyncScopeIDEPKNS_11InstructionE.exit
 
 _ZN4llvm20getAtomicSyncScopeIDEPKNS_11InstructionE.exit: ; preds = %1, %3, %.sink.split.i
-  %.sroa.0.0.i = phi i32 [ 0, %1 ], [ 0, %3 ], [ %7, %.sink.split.i ]
-  ret i32 %.sroa.0.0.i
+  %.sroa.6.0.i = phi i32 [ 0, %1 ], [ 0, %3 ], [ %7, %.sink.split.i ]
+  ret i32 %.sroa.6.0.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable

@@ -464,29 +464,29 @@ declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @intel_uc_fw_init(ptr noundef %0) #7
   %3 = icmp eq i32 %2, 0
-  br i1 %3, label %4, label %233
+  br i1 %3, label %4, label %232
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %6 = tail call i32 @intel_guc_log_create(ptr noundef nonnull %5) #7
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %231
+  br i1 %7, label %8, label %230
 
 8:                                                ; preds = %4
   %9 = tail call i32 @intel_guc_capture_init(ptr noundef %0) #7
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %229
+  br i1 %10, label %11, label %228
 
 11:                                               ; preds = %8
   %12 = tail call i32 @intel_guc_ads_create(ptr noundef %0) #7
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %227
+  br i1 %13, label %14, label %226
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %16 = tail call i32 @intel_guc_ct_init(ptr noundef nonnull %15) #7
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %225
+  br i1 %17, label %18, label %224
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -503,7 +503,7 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
 26:                                               ; preds = %22
   %27 = tail call i32 @intel_guc_submission_init(ptr noundef %0) #7
   %28 = icmp eq i32 %27, 0
-  br i1 %28, label %29, label %223
+  br i1 %28, label %29, label %222
 
 29:                                               ; preds = %26
   %.pr.pre = load i32, ptr %19, align 4
@@ -525,7 +525,7 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %39 = tail call i32 @intel_guc_slpc_init(ptr noundef nonnull %38) #7
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %..thread_crit_edge, label %222
+  br i1 %40, label %..thread_crit_edge, label %221
 
 ..thread_crit_edge:                               ; preds = %37
   %.pre = load i32, ptr %19, align 4
@@ -691,149 +691,148 @@ define dso_local i32 @intel_guc_init(ptr noundef %0) local_unnamed_addr #0 align
   %151 = load i32, ptr %150, align 4
   %152 = and i32 %151, 2048
   %153 = icmp eq i32 %152, 0
-  br i1 %153, label %156, label %154
+  br i1 %153, label %157, label %154
 
 154:                                              ; preds = %._crit_edge19, %148
   %.pre21.pre-phi = phi i32 [ %.pre22, %._crit_edge19 ], [ %152, %148 ]
   %155 = or disjoint i32 %112, 131072
-  br label %156
+  %156 = or disjoint i32 %.pre21.pre-phi, %155
+  br label %157
 
-156:                                              ; preds = %154, %148
-  %.pre-phi = phi i32 [ %.pre21.pre-phi, %154 ], [ 0, %148 ]
-  %157 = phi i32 [ %155, %154 ], [ %112, %148 ]
-  %158 = or i32 %.pre-phi, %157
-  %159 = tail call zeroext i1 @intel_engine_reset_needs_wa_22011802037(ptr noundef %97) #7
-  %160 = or i32 %158, 16384
-  %161 = select i1 %159, i32 %160, i32 %158
-  %162 = load ptr, ptr %97, align 8
-  %163 = getelementptr i8, ptr %162, i64 7188
-  %164 = load i32, ptr %163, align 4
-  %165 = shl i32 %164, 20
-  %166 = shl i32 %164, 30
-  %167 = and i32 %165, %166
-  %168 = lshr exact i32 %167, 16
-  %169 = and i32 %168, 32768
-  %170 = or i32 %169, %161
-  %171 = getelementptr i8, ptr %0, i64 4324
-  %172 = load i32, ptr %171, align 4
-  %173 = shl i32 %172, 21
-  %174 = and i32 %173, 2097152
-  %175 = xor i32 %174, 2097152
-  %176 = or i32 %170, %175
-  %177 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %178 = load i32, ptr %177, align 8
-  %179 = shl i32 %178, 16
-  %180 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %181 = load i32, ptr %180, align 4
-  %182 = shl i32 %181, 8
-  %183 = or i32 %182, %179
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %185 = load i32, ptr %184, align 8
-  %186 = or i32 %183, %185
-  %187 = icmp ugt i32 %186, 4589311
-  %188 = and i32 %164, 14336
-  %189 = icmp eq i32 %188, 0
-  %190 = or i32 %176, 4194304
-  %191 = select i1 %189, i32 %176, i32 %190
-  %192 = select i1 %187, i32 %191, i32 %176
-  %193 = getelementptr i8, ptr %0, i64 1484
-  store i32 %192, ptr %193, align 4
-  %194 = getelementptr inbounds nuw i8, ptr %162, i64 7192
-  %195 = load i16, ptr %194, align 8
-  %196 = zext i16 %195 to i32
-  %197 = shl nuw i32 %196, 16
-  %198 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %199 = load ptr, ptr %198, align 8
-  %200 = getelementptr i8, ptr %199, i64 -112
-  %201 = load i8, ptr %200, align 8
-  %202 = zext i8 %201 to i32
-  %203 = or disjoint i32 %197, %202
-  %204 = getelementptr i8, ptr %0, i64 1500
-  store i32 %203, ptr %204, align 4
-  %205 = getelementptr i8, ptr %0, i64 4320
-  br label %206
+157:                                              ; preds = %154, %148
+  %.pre-phi = phi i32 [ %156, %154 ], [ %112, %148 ]
+  %158 = tail call zeroext i1 @intel_engine_reset_needs_wa_22011802037(ptr noundef %97) #7
+  %159 = or i32 %.pre-phi, 16384
+  %160 = select i1 %158, i32 %159, i32 %.pre-phi
+  %161 = load ptr, ptr %97, align 8
+  %162 = getelementptr i8, ptr %161, i64 7188
+  %163 = load i32, ptr %162, align 4
+  %164 = shl i32 %163, 20
+  %165 = shl i32 %163, 30
+  %166 = and i32 %164, %165
+  %167 = lshr exact i32 %166, 16
+  %168 = and i32 %167, 32768
+  %169 = or i32 %168, %160
+  %170 = getelementptr i8, ptr %0, i64 4324
+  %171 = load i32, ptr %170, align 4
+  %172 = shl i32 %171, 21
+  %173 = and i32 %172, 2097152
+  %174 = xor i32 %173, 2097152
+  %175 = or i32 %169, %174
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %177 = load i32, ptr %176, align 8
+  %178 = shl i32 %177, 16
+  %179 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %180 = load i32, ptr %179, align 4
+  %181 = shl i32 %180, 8
+  %182 = or i32 %181, %178
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %184 = load i32, ptr %183, align 8
+  %185 = or i32 %182, %184
+  %186 = icmp ugt i32 %185, 4589311
+  %187 = and i32 %163, 14336
+  %188 = icmp eq i32 %187, 0
+  %189 = or i32 %175, 4194304
+  %190 = select i1 %188, i32 %175, i32 %189
+  %191 = select i1 %186, i32 %190, i32 %175
+  %192 = getelementptr i8, ptr %0, i64 1484
+  store i32 %191, ptr %192, align 4
+  %193 = getelementptr inbounds nuw i8, ptr %161, i64 7192
+  %194 = load i16, ptr %193, align 8
+  %195 = zext i16 %194 to i32
+  %196 = shl nuw i32 %195, 16
+  %197 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr i8, ptr %198, i64 -112
+  %200 = load i8, ptr %199, align 8
+  %201 = zext i8 %200 to i32
+  %202 = or disjoint i32 %196, %201
+  %203 = getelementptr i8, ptr %0, i64 1500
+  store i32 %202, ptr %203, align 4
+  %204 = getelementptr i8, ptr %0, i64 4320
+  br label %205
 
-206:                                              ; preds = %213, %156
-  %207 = phi i64 [ 0, %156 ], [ %219, %213 ]
-  %208 = load ptr, ptr %97, align 8
-  %209 = icmp eq ptr %208, null
-  br i1 %209, label %213, label %210
+205:                                              ; preds = %212, %157
+  %206 = phi i64 [ 0, %157 ], [ %218, %212 ]
+  %207 = load ptr, ptr %97, align 8
+  %208 = icmp eq ptr %207, null
+  br i1 %208, label %212, label %209
 
-210:                                              ; preds = %206
-  %211 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  %212 = load ptr, ptr %211, align 8
-  br label %213
+209:                                              ; preds = %205
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %211 = load ptr, ptr %210, align 8
+  br label %212
 
-213:                                              ; preds = %210, %206
-  %214 = phi ptr [ %212, %210 ], [ null, %206 ]
-  %215 = load i32, ptr %205, align 8
-  %216 = getelementptr i32, ptr %42, i64 %207
-  %217 = load i32, ptr %216, align 4
-  %218 = trunc i64 %207 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %214, i32 noundef 1, ptr noundef nonnull @.str.33, i32 noundef %215, i32 noundef %218, i32 noundef %217) #7
-  %219 = add nuw nsw i64 %207, 1
-  %220 = icmp eq i64 %219, 14
-  br i1 %220, label %221, label %206, !llvm.loop !23
+212:                                              ; preds = %209, %205
+  %213 = phi ptr [ %211, %209 ], [ null, %205 ]
+  %214 = load i32, ptr %204, align 8
+  %215 = getelementptr i32, ptr %42, i64 %206
+  %216 = load i32, ptr %215, align 4
+  %217 = trunc i64 %206 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %213, i32 noundef 1, ptr noundef nonnull @.str.33, i32 noundef %214, i32 noundef %217, i32 noundef %216) #7
+  %218 = add nuw nsw i64 %206, 1
+  %219 = icmp eq i64 %218, 14
+  br i1 %219, label %220, label %205, !llvm.loop !23
 
-221:                                              ; preds = %213
+220:                                              ; preds = %212
   store i32 7, ptr %19, align 4
-  br label %248
+  br label %247
 
-222:                                              ; preds = %37
+221:                                              ; preds = %37
   tail call void @intel_guc_submission_fini(ptr noundef %0) #7
-  br label %223
+  br label %222
 
-223:                                              ; preds = %222, %26
-  %224 = phi i32 [ %27, %26 ], [ %39, %222 ]
+222:                                              ; preds = %221, %26
+  %223 = phi i32 [ %27, %26 ], [ %39, %221 ]
   tail call void @intel_guc_ct_fini(ptr noundef nonnull %15) #7
-  br label %225
+  br label %224
 
-225:                                              ; preds = %223, %14
-  %226 = phi i32 [ %16, %14 ], [ %224, %223 ]
+224:                                              ; preds = %222, %14
+  %225 = phi i32 [ %16, %14 ], [ %223, %222 ]
   tail call void @intel_guc_ads_destroy(ptr noundef %0) #7
-  br label %227
+  br label %226
 
-227:                                              ; preds = %225, %11
-  %228 = phi i32 [ %12, %11 ], [ %226, %225 ]
+226:                                              ; preds = %224, %11
+  %227 = phi i32 [ %12, %11 ], [ %225, %224 ]
   tail call void @intel_guc_capture_destroy(ptr noundef %0) #7
-  br label %229
+  br label %228
 
-229:                                              ; preds = %227, %8
-  %230 = phi i32 [ %9, %8 ], [ %228, %227 ]
+228:                                              ; preds = %226, %8
+  %229 = phi i32 [ %9, %8 ], [ %227, %226 ]
   tail call void @intel_guc_log_destroy(ptr noundef nonnull %5) #7
-  br label %231
+  br label %230
 
-231:                                              ; preds = %229, %4
-  %232 = phi i32 [ %6, %4 ], [ %230, %229 ]
+230:                                              ; preds = %228, %4
+  %231 = phi i32 [ %6, %4 ], [ %229, %228 ]
   tail call void @intel_uc_fw_fini(ptr noundef %0) #7
-  br label %233
+  br label %232
 
-233:                                              ; preds = %231, %1
-  %234 = phi i32 [ %2, %1 ], [ %232, %231 ]
-  %235 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 6, ptr %235, align 4
-  %236 = getelementptr i8, ptr %0, i64 -632
-  %237 = load ptr, ptr %236, align 8
-  %238 = icmp eq ptr %237, null
-  br i1 %238, label %242, label %239
+232:                                              ; preds = %230, %1
+  %233 = phi i32 [ %2, %1 ], [ %231, %230 ]
+  %234 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 6, ptr %234, align 4
+  %235 = getelementptr i8, ptr %0, i64 -632
+  %236 = load ptr, ptr %235, align 8
+  %237 = icmp eq ptr %236, null
+  br i1 %237, label %241, label %238
 
-239:                                              ; preds = %233
-  %240 = getelementptr inbounds nuw i8, ptr %237, i64 8
-  %241 = load ptr, ptr %240, align 8
-  br label %242
+238:                                              ; preds = %232
+  %239 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %240 = load ptr, ptr %239, align 8
+  br label %241
 
-242:                                              ; preds = %239, %233
-  %243 = phi ptr [ %241, %239 ], [ null, %233 ]
-  %244 = getelementptr i8, ptr %0, i64 4320
-  %245 = load i32, ptr %244, align 8
-  %246 = sext i32 %234 to i64
-  %247 = inttoptr i64 %246 to ptr
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %243, ptr noundef nonnull @.str.5, i32 noundef %245, ptr noundef %247) #8
-  br label %248
+241:                                              ; preds = %238, %232
+  %242 = phi ptr [ %240, %238 ], [ null, %232 ]
+  %243 = getelementptr i8, ptr %0, i64 4320
+  %244 = load i32, ptr %243, align 8
+  %245 = sext i32 %233 to i64
+  %246 = inttoptr i64 %245 to ptr
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %242, ptr noundef nonnull @.str.5, i32 noundef %244, ptr noundef %246) #8
+  br label %247
 
-248:                                              ; preds = %242, %221
-  %249 = phi i32 [ %234, %242 ], [ 0, %221 ]
-  ret i32 %249
+247:                                              ; preds = %241, %220
+  %248 = phi i32 [ %233, %241 ], [ 0, %220 ]
+  ret i32 %248
 }
 
 ; Function Attrs: null_pointer_is_valid

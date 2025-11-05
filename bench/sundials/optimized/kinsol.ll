@@ -4336,13 +4336,16 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %192 = add nuw nsw i64 %.2303356, 1
   %193 = load i64, ptr %29, align 8, !tbaa !71
   %194 = icmp slt i64 %192, %193
-  br i1 %194, label %181, label %._crit_edge358
+  br i1 %194, label %181, label %._crit_edge358.loopexit
 
-._crit_edge358:                                   ; preds = %181, %.preheader335
-  %.2303.lcssa = phi i64 [ 2, %.preheader335 ], [ %192, %181 ]
-  %.lcssa = phi i64 [ 2, %.preheader335 ], [ %193, %181 ]
-  %195 = mul nsw i64 %.lcssa, %.lcssa
+._crit_edge358.loopexit:                          ; preds = %181
+  %195 = mul nsw i64 %193, %193
   %196 = trunc i64 %195 to i32
+  br label %._crit_edge358
+
+._crit_edge358:                                   ; preds = %._crit_edge358.loopexit, %.preheader335
+  %.2303.lcssa = phi i64 [ 2, %.preheader335 ], [ %192, %._crit_edge358.loopexit ]
+  %.lcssa = phi i32 [ 4, %.preheader335 ], [ %196, %._crit_edge358.loopexit ]
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %198 = load ptr, ptr %197, align 8, !tbaa !81
   %199 = getelementptr ptr, ptr %198, i64 %.2303.lcssa
@@ -4350,7 +4353,7 @@ define internal fastcc void @AndersonAcc(ptr noundef nonnull readonly captures(n
   %201 = load ptr, ptr %200, align 8, !tbaa !143
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %203 = load ptr, ptr %202, align 8, !tbaa !85
-  %204 = tail call i32 @N_VDotProdMultiAllReduce(i32 noundef %196, ptr noundef %201, ptr noundef %203) #15
+  %204 = tail call i32 @N_VDotProdMultiAllReduce(i32 noundef %.lcssa, ptr noundef %201, ptr noundef %203) #15
   %.pre = load i64, ptr %29, align 8, !tbaa !71
   br label %205
 

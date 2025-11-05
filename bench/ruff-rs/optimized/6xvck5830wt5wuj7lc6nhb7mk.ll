@@ -291,9 +291,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h5c407d9a1944cd33E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -461,9 +461,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17hcdd8be0337e086baE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -544,9 +544,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17hd5e87b6ee6114c1fE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -627,9 +627,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17hc15285e4b281f482E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 256
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 257
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -797,9 +797,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h8a4a5f99ca31422dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -880,9 +880,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h4cac944bdf15a91bE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 256
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 257
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -1137,9 +1137,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h4423d0bd1dcbfdf5E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -1307,9 +1307,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h75969c5857eef012E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -1390,9 +1390,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h195cd81a52477c86E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -1647,9 +1647,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h22e19815a3bba978E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 256
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 257
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -1730,9 +1730,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h8b2cc6710665f25aE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -1987,9 +1987,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h7f1dfff941b305a5E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -2070,9 +2070,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h6a69017f928372d2E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -2153,9 +2153,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h24a048c78877a597E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -2236,9 +2236,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h2aa43d00fdca5e90E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -2319,9 +2319,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h3759029f7faa8ec5E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -2402,9 +2402,9 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..MapDes
   %22 = call i64 @"_ZN103_$LT$serde..__private..de..content..ContentDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$22deserialize_identifier17h8d3b8a9ffc062044E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %23 = trunc i64 %22 to i1
+  %.v = select i1 %23, i64 -4294967295, i64 65280
+  %24 = and i64 %.v, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.sroa.0.124 = select i1 %23, i64 -4294967295, i64 65281
-  %24 = and i64 %.sroa.0.124, %22
   br label %"_ZN5serde2de5value28MapDeserializer$LT$I$C$E$GT$9next_pair17hed823a9278b36f5aE.exit.thread"
 
 25:                                               ; preds = %21
@@ -5196,20 +5196,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17hdbf9450451a182ccE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -5314,20 +5312,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN11ruff_linter5rules6pylint8settings1_103_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..pylint..settings..ConstantType$GT$11deserialize17h071452a6c2e40dbaE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 1280, %1 ], [ 1280, %4 ], [ 1280, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 1280, %1 ], [ 1280, %4 ], [ 1280, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -5481,20 +5477,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   store i64 %10, ptr %8, align 8
   %11 = tail call i64 @"_ZN11ruff_linter5rules6pylint8settings1_103_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ruff_linter..rules..pylint..settings..ConstantType$GT$11deserialize17h1e7242d17e605408E"(i32 noundef %7)
   %12 = trunc i64 %11 to i1
-  br i1 %12, label %13, label %14
+  br i1 %12, label %13, label %15
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit.thread": ; preds = %1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit", %14, %13
-  %.sroa.0.0 = phi i64 [ 1, %13 ], [ 0, %14 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit" ], [ 0, %1 ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.616.0.extract.shift, %13 ], [ %15, %14 ], [ 1280, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit" ], [ 1280, %1 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit.thread": ; preds = %1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit", %15, %13
+  %.sroa.4.0.insert.insert = phi i64 [ %14, %13 ], [ %16, %15 ], [ 1280, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit" ], [ 1280, %1 ]
+  ret i64 %.sroa.4.0.insert.insert
 
 13:                                               ; preds = %6
-  %.sroa.616.0.extract.shift = and i64 %11, -4294967296
+  %14 = and i64 %11, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit.thread"
 
-14:                                               ; preds = %6
-  %15 = and i64 %11, 65280
+15:                                               ; preds = %6
+  %16 = and i64 %11, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h794738907f0ca2a1E.exit.thread"
 }
 
@@ -6142,20 +6136,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h6bb41ab6a400b071E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -6196,20 +6188,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h0a4c57494a45c973E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 1024, %1 ], [ 1024, %4 ], [ 1024, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 1024, %1 ], [ 1024, %4 ], [ 1024, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -6594,20 +6584,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h218cbdfc5dd9dd3bE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -6808,20 +6796,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h4d9790c41f28f255E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -6862,20 +6848,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h66ce8915f321af6bE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -6963,20 +6947,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h95f6c5d5930797c0E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 768, %1 ], [ 768, %4 ], [ 768, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 
@@ -7081,20 +7063,18 @@ define hidden range(i64 0, -4294967294) i64 @"_ZN87_$LT$serde..de..value..SeqDes
   %15 = call i64 @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$core..option..Option$LT$T$GT$$GT$11deserialize17h3e2b9227b9604ca8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %16 = trunc i64 %15 to i1
-  br i1 %16, label %17, label %18
+  br i1 %16, label %17, label %19
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %18, %17
-  %.sroa.0.0 = phi i64 [ 1, %17 ], [ 0, %18 ], [ 0, %1 ], [ 0, %4 ], [ 0, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.4.0.insert.insert = phi i64 [ %.sroa.614.0.extract.shift, %17 ], [ %19, %18 ], [ 1024, %1 ], [ 1024, %4 ], [ 1024, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.0.0
-  ret i64 %.sroa.0.0.insert.insert
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit", %4, %1, %19, %17
+  %.sroa.4.0.insert.insert = phi i64 [ %18, %17 ], [ %20, %19 ], [ 1024, %1 ], [ 1024, %4 ], [ 1024, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit" ]
+  ret i64 %.sroa.4.0.insert.insert
 
 17:                                               ; preds = %11
-  %.sroa.614.0.extract.shift = and i64 %15, -4294967296
+  %18 = and i64 %15, -4294967295
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 
-18:                                               ; preds = %11
-  %19 = and i64 %15, 65280
+19:                                               ; preds = %11
+  %20 = and i64 %15, 65280
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h6ed066451b42bce7E.exit.thread"
 }
 

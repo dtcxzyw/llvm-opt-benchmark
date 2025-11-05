@@ -2934,11 +2934,11 @@ define internal i32 @aes_wrap_cipher(ptr noundef %0, ptr noundef %1, ptr noundef
   %6 = tail call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef %0) #8
   %7 = icmp eq i32 %6, 4
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %45, label %8
+  br i1 %.not, label %46, label %8
 
 8:                                                ; preds = %4
   %.not48 = icmp eq i64 %3, 0
-  br i1 %.not48, label %45, label %9
+  br i1 %.not48, label %46, label %9
 
 9:                                                ; preds = %8
   %10 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
@@ -2950,83 +2950,83 @@ define internal i32 @aes_wrap_cipher(ptr noundef %0, ptr noundef %1, ptr noundef
   %13 = and i64 %3, 7
   %.not50 = icmp eq i64 %13, 0
   %or.cond = and i1 %12, %.not50
-  br i1 %or.cond, label %.thread, label %45
+  br i1 %or.cond, label %.thread, label %46
 
 14:                                               ; preds = %9
   %.pre = and i64 %3, 7
   %15 = icmp eq i64 %.pre, 0
-  %or.cond58 = or i1 %15, %7
-  br i1 %or.cond58, label %.thread, label %45
+  %16 = or i1 %15, %7
+  br i1 %16, label %.thread, label %46
 
 .thread:                                          ; preds = %11, %14
-  %16 = trunc i64 %3 to i32
-  %17 = tail call i32 @ossl_is_partially_overlapping(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %16) #8
-  %.not52 = icmp eq i32 %17, 0
-  br i1 %.not52, label %19, label %18
+  %17 = trunc i64 %3 to i32
+  %18 = tail call i32 @ossl_is_partially_overlapping(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %17) #8
+  %.not52 = icmp eq i32 %18, 0
+  br i1 %.not52, label %20, label %19
 
-18:                                               ; preds = %.thread
+19:                                               ; preds = %.thread
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 3719, ptr noundef nonnull @__func__.aes_wrap_cipher) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 162, ptr noundef null) #8
-  br label %45
+  br label %46
 
-19:                                               ; preds = %.thread
+20:                                               ; preds = %.thread
   %.not53 = icmp eq ptr %1, null
-  %20 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
-  %.not54 = icmp eq i32 %20, 0
-  br i1 %.not53, label %21, label %29
+  %21 = tail call i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef %0) #8
+  %.not54 = icmp eq i32 %21, 0
+  br i1 %.not53, label %22, label %30
 
-21:                                               ; preds = %19
-  br i1 %.not54, label %27, label %22
+22:                                               ; preds = %20
+  br i1 %.not54, label %28, label %23
 
-22:                                               ; preds = %21
-  %23 = add i64 %3, 7
-  %24 = and i64 %23, 4294967288
-  %.044 = select i1 %7, i64 %24, i64 %3
-  %25 = trunc i64 %.044 to i32
-  %26 = add i32 %25, 8
-  br label %45
+23:                                               ; preds = %22
+  %24 = add i64 %3, 7
+  %25 = and i64 %24, 4294967288
+  %.044 = select i1 %7, i64 %25, i64 %3
+  %26 = trunc i64 %.044 to i32
+  %27 = add i32 %26, 8
+  br label %46
 
-27:                                               ; preds = %21
-  %28 = add i32 %16, -8
-  br label %45
+28:                                               ; preds = %22
+  %29 = add i32 %17, -8
+  br label %46
 
-29:                                               ; preds = %19
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %31 = load ptr, ptr %30, align 8, !tbaa !56
-  br i1 %7, label %32, label %37
+30:                                               ; preds = %20
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %32 = load ptr, ptr %31, align 8, !tbaa !56
+  br i1 %7, label %33, label %38
 
-32:                                               ; preds = %29
-  br i1 %.not54, label %35, label %33
+33:                                               ; preds = %30
+  br i1 %.not54, label %36, label %34
 
-33:                                               ; preds = %32
-  %34 = tail call i64 @CRYPTO_128_wrap_pad(ptr noundef %5, ptr noundef %31, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_encrypt) #8
-  br label %42
+34:                                               ; preds = %33
+  %35 = tail call i64 @CRYPTO_128_wrap_pad(ptr noundef %5, ptr noundef %32, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_encrypt) #8
+  br label %43
 
-35:                                               ; preds = %32
-  %36 = tail call i64 @CRYPTO_128_unwrap_pad(ptr noundef %5, ptr noundef %31, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_decrypt) #8
-  br label %42
+36:                                               ; preds = %33
+  %37 = tail call i64 @CRYPTO_128_unwrap_pad(ptr noundef %5, ptr noundef %32, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_decrypt) #8
+  br label %43
 
-37:                                               ; preds = %29
-  br i1 %.not54, label %40, label %38
+38:                                               ; preds = %30
+  br i1 %.not54, label %41, label %39
 
-38:                                               ; preds = %37
-  %39 = tail call i64 @CRYPTO_128_wrap(ptr noundef %5, ptr noundef %31, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_encrypt) #8
-  br label %42
+39:                                               ; preds = %38
+  %40 = tail call i64 @CRYPTO_128_wrap(ptr noundef %5, ptr noundef %32, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_encrypt) #8
+  br label %43
 
-40:                                               ; preds = %37
-  %41 = tail call i64 @CRYPTO_128_unwrap(ptr noundef %5, ptr noundef %31, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_decrypt) #8
-  br label %42
+41:                                               ; preds = %38
+  %42 = tail call i64 @CRYPTO_128_unwrap(ptr noundef %5, ptr noundef %32, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3, ptr noundef nonnull @AES_decrypt) #8
+  br label %43
 
-42:                                               ; preds = %38, %40, %33, %35
-  %.043 = phi i64 [ %34, %33 ], [ %36, %35 ], [ %39, %38 ], [ %41, %40 ]
+43:                                               ; preds = %39, %41, %34, %36
+  %.043 = phi i64 [ %35, %34 ], [ %37, %36 ], [ %40, %39 ], [ %42, %41 ]
   %.not57 = icmp eq i64 %.043, 0
-  %43 = trunc i64 %.043 to i32
-  %44 = select i1 %.not57, i32 -1, i32 %43
-  br label %45
+  %44 = trunc i64 %.043 to i32
+  %45 = select i1 %.not57, i32 -1, i32 %44
+  br label %46
 
-45:                                               ; preds = %14, %11, %8, %4, %42, %27, %22, %18
-  %.0 = phi i32 [ 0, %18 ], [ %44, %42 ], [ %26, %22 ], [ %28, %27 ], [ 0, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %14 ]
+46:                                               ; preds = %14, %11, %8, %4, %43, %28, %23, %19
+  %.0 = phi i32 [ 0, %19 ], [ %45, %43 ], [ %27, %23 ], [ %29, %28 ], [ 0, %4 ], [ -1, %8 ], [ -1, %11 ], [ -1, %14 ]
   ret i32 %.0
 }
 

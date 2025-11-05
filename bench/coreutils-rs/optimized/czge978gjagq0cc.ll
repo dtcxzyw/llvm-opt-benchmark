@@ -964,7 +964,7 @@ define hidden void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$
   %8 = icmp eq i32 %7, 1114116
   %9 = load ptr, ptr %1, align 8, !alias.scope !375, !noalias !372, !noundef !9
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %18, label %11
+  br i1 %10, label %19, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -974,27 +974,27 @@ define hidden void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$
   %reass.sub = sub i64 %13, %14
   %15 = add i64 %reass.sub, 3
   %16 = icmp ult i64 %15, 4
-  %17 = icmp eq ptr %.val45.i, %9
-  br label %18
+  %17 = and i1 %5, %16
+  %18 = icmp eq ptr %.val45.i, %9
+  br label %19
 
-18:                                               ; preds = %11, %2
-  %.sroa.055.0.i = phi i1 [ %16, %11 ], [ true, %2 ]
-  %.sroa.8.0.i = phi i1 [ %17, %11 ], [ true, %2 ]
-  %or.cond3.i = and i1 %5, %.sroa.055.0.i
-  %or.cond5.i = and i1 %8, %or.cond3.i
-  %or.cond8.i = and i1 %.sroa.8.0.i, %or.cond5.i
-  br i1 %or.cond8.i, label %19, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb9997e804f19bd21E.llvm.16954148956069160696.exit"
+19:                                               ; preds = %11, %2
+  %.sroa.055.0.i = phi i1 [ %17, %11 ], [ %5, %2 ]
+  %.sroa.8.0.i = phi i1 [ %18, %11 ], [ true, %2 ]
+  %or.cond5.i = and i1 %8, %.sroa.055.0.i
+  %or.cond8.i = and i1 %or.cond5.i, %.sroa.8.0.i
+  br i1 %or.cond8.i, label %20, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb9997e804f19bd21E.llvm.16954148956069160696.exit"
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %20, align 8, !alias.scope !372, !noalias !375
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %21, align 8, !alias.scope !372, !noalias !375
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb9997e804f19bd21E.llvm.16954148956069160696.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb9997e804f19bd21E.llvm.16954148956069160696.exit": ; preds = %18, %19
-  %.sink.i = phi i64 [ 1, %19 ], [ 0, %18 ]
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb9997e804f19bd21E.llvm.16954148956069160696.exit": ; preds = %19, %20
+  %.sink.i = phi i64 [ 1, %20 ], [ 0, %19 ]
   store i64 0, ptr %0, align 8, !alias.scope !372, !noalias !375
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i, ptr %21, align 8, !alias.scope !372, !noalias !375
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i, ptr %22, align 8, !alias.scope !372, !noalias !375
   ret void
 }
 
@@ -1010,7 +1010,7 @@ define hidden void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$
   %8 = icmp eq i32 %7, 1114116
   %9 = load ptr, ptr %1, align 8, !alias.scope !388, !noalias !385, !noundef !9
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %18, label %11
+  br i1 %10, label %19, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1020,27 +1020,27 @@ define hidden void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$
   %reass.sub = sub i64 %13, %14
   %15 = add i64 %reass.sub, 3
   %16 = icmp ult i64 %15, 4
-  %17 = icmp eq ptr %.val45.i, %9
-  br label %18
+  %17 = and i1 %5, %16
+  %18 = icmp eq ptr %.val45.i, %9
+  br label %19
 
-18:                                               ; preds = %11, %2
-  %.sroa.055.0.i = phi i1 [ %16, %11 ], [ true, %2 ]
-  %.sroa.8.0.i = phi i1 [ %17, %11 ], [ true, %2 ]
-  %or.cond3.i = and i1 %5, %.sroa.055.0.i
-  %or.cond5.i = and i1 %8, %or.cond3.i
-  %or.cond8.i = and i1 %.sroa.8.0.i, %or.cond5.i
-  br i1 %or.cond8.i, label %19, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h579628b8adbc38bcE.llvm.16954148956069160696.exit"
+19:                                               ; preds = %11, %2
+  %.sroa.055.0.i = phi i1 [ %17, %11 ], [ %5, %2 ]
+  %.sroa.8.0.i = phi i1 [ %18, %11 ], [ true, %2 ]
+  %or.cond5.i = and i1 %8, %.sroa.055.0.i
+  %or.cond8.i = and i1 %or.cond5.i, %.sroa.8.0.i
+  br i1 %or.cond8.i, label %20, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h579628b8adbc38bcE.llvm.16954148956069160696.exit"
 
-19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %20, align 8, !alias.scope !385, !noalias !388
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %21, align 8, !alias.scope !385, !noalias !388
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h579628b8adbc38bcE.llvm.16954148956069160696.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h579628b8adbc38bcE.llvm.16954148956069160696.exit": ; preds = %18, %19
-  %.sink.i = phi i64 [ 1, %19 ], [ 0, %18 ]
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h579628b8adbc38bcE.llvm.16954148956069160696.exit": ; preds = %19, %20
+  %.sink.i = phi i64 [ 1, %20 ], [ 0, %19 ]
   store i64 0, ptr %0, align 8, !alias.scope !385, !noalias !388
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink.i, ptr %21, align 8, !alias.scope !385, !noalias !388
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink.i, ptr %22, align 8, !alias.scope !385, !noalias !388
   ret void
 }
 
@@ -1266,7 +1266,7 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %7 = icmp eq i32 %6, 1114116
   %8 = load ptr, ptr %1, align 8, !noundef !9
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %17, label %10
+  br i1 %9, label %18, label %10
 
 10:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit"
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1276,27 +1276,27 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %reass.sub = sub i64 %12, %13
   %14 = add i64 %reass.sub, 3
   %15 = icmp ult i64 %14, 4
-  %16 = icmp eq ptr %.val45, %8
-  br label %17
+  %16 = and i1 %4, %15
+  %17 = icmp eq ptr %.val45, %8
+  br label %18
 
-17:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit", %10
-  %.sroa.055.0 = phi i1 [ %15, %10 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
-  %.sroa.8.0 = phi i1 [ %16, %10 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
-  %or.cond3 = and i1 %4, %.sroa.055.0
-  %or.cond5 = and i1 %7, %or.cond3
-  %or.cond8 = and i1 %.sroa.8.0, %or.cond5
-  br i1 %or.cond8, label %18, label %20
+18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit", %10
+  %.sroa.055.0 = phi i1 [ %16, %10 ], [ %4, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
+  %.sroa.8.0 = phi i1 [ %17, %10 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
+  %or.cond5 = and i1 %7, %.sroa.055.0
+  %or.cond8 = and i1 %or.cond5, %.sroa.8.0
+  br i1 %or.cond8, label %19, label %21
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %19, align 8
-  br label %20
+19:                                               ; preds = %18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %20, align 8
+  br label %21
 
-20:                                               ; preds = %17, %18
-  %.sink = phi i64 [ 1, %18 ], [ 0, %17 ]
+21:                                               ; preds = %18, %19
+  %.sink = phi i64 [ 1, %19 ], [ 0, %18 ]
   store i64 0, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %22, align 8
   ret void
 }
 
@@ -1311,7 +1311,7 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %7 = icmp eq i32 %6, 1114116
   %8 = load ptr, ptr %1, align 8, !noundef !9
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %17, label %10
+  br i1 %9, label %18, label %10
 
 10:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit"
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1321,27 +1321,27 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %reass.sub = sub i64 %12, %13
   %14 = add i64 %reass.sub, 3
   %15 = icmp ult i64 %14, 4
-  %16 = icmp eq ptr %.val45, %8
-  br label %17
+  %16 = and i1 %4, %15
+  %17 = icmp eq ptr %.val45, %8
+  br label %18
 
-17:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit", %10
-  %.sroa.055.0 = phi i1 [ %15, %10 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
-  %.sroa.8.0 = phi i1 [ %16, %10 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
-  %or.cond3 = and i1 %4, %.sroa.055.0
-  %or.cond5 = and i1 %7, %or.cond3
-  %or.cond8 = and i1 %.sroa.8.0, %or.cond5
-  br i1 %or.cond8, label %18, label %20
+18:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit", %10
+  %.sroa.055.0 = phi i1 [ %16, %10 ], [ %4, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
+  %.sroa.8.0 = phi i1 [ %17, %10 ], [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17h18afd095b0636d82E.exit" ]
+  %or.cond5 = and i1 %7, %.sroa.055.0
+  %or.cond8 = and i1 %or.cond5, %.sroa.8.0
+  br i1 %or.cond8, label %19, label %21
 
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %19, align 8
-  br label %20
+19:                                               ; preds = %18
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %20, align 8
+  br label %21
 
-20:                                               ; preds = %17, %18
-  %.sink = phi i64 [ 1, %18 ], [ 0, %17 ]
+21:                                               ; preds = %18, %19
+  %.sink = phi i64 [ 1, %19 ], [ 0, %18 ]
   store i64 0, ptr %0, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sink, ptr %22, align 8
   ret void
 }
 

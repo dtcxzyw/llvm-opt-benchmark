@@ -777,7 +777,7 @@ define dso_local noundef zeroext i1 @_ZN5clang21OMPLoopBasedDirective13doForAllL
   %23 = getelementptr inbounds nuw i8, ptr %.128, i64 36
   %24 = load i32, ptr %23, align 4, !tbaa !31
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %.select.unfold_crit_edge, label %.thread49.loopexit
+  br i1 %25, label %.select.unfold_crit_edge, label %.thread49
 
 .select.unfold_crit_edge:                         ; preds = %22
   %.pre = load i16, ptr %.128, align 8
@@ -797,7 +797,7 @@ select.unfold:                                    ; preds = %10, %.select.unfold
 31:                                               ; preds = %28, %select.unfold
   %.431 = phi ptr [ %30, %28 ], [ %.128, %select.unfold ]
   %32 = tail call noundef zeroext i1 %3(i64 noundef %4, i32 noundef %.03358, ptr noundef %.431) #14
-  br i1 %32, label %.thread49.loopexit, label %33
+  br i1 %32, label %.thread49, label %33
 
 33:                                               ; preds = %31
   %34 = load i16, ptr %.431, align 8
@@ -809,17 +809,11 @@ select.unfold:                                    ; preds = %10, %.select.unfold
   %36 = tail call noundef ptr @_ZN5clang21OMPLoopBasedDirective22tryToFindNextInnerLoopEPNS_4StmtEb(ptr noundef %.532, i1 noundef zeroext %1)
   %37 = add nuw i32 %.03358, 1
   %exitcond.not = icmp eq i32 %37, %2
-  br i1 %exitcond.not, label %.thread49.loopexit, label %.preheader, !llvm.loop !33
+  br i1 %exitcond.not, label %.thread49, label %.preheader, !llvm.loop !33
 
-.thread49.loopexit:                               ; preds = %22, %31, %33
-  %.lcssa.ph = phi i1 [ true, %33 ], [ false, %31 ], [ false, %22 ]
-  %.1.ph = phi i1 [ true, %33 ], [ false, %31 ], [ true, %22 ]
-  %38 = or i1 %.lcssa.ph, %.1.ph
-  br label %.thread49
-
-.thread49:                                        ; preds = %.thread49.loopexit, %6
-  %spec.select = phi i1 [ true, %6 ], [ %38, %.thread49.loopexit ]
-  ret i1 %spec.select
+.thread49:                                        ; preds = %33, %31, %22, %6
+  %.lcssa = phi i1 [ true, %6 ], [ true, %22 ], [ false, %31 ], [ true, %33 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

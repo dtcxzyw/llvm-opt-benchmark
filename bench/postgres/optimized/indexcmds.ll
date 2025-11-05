@@ -4057,7 +4057,7 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
 
 .critedge:                                        ; preds = %44
   %22 = zext nneg i8 %.134 to i32
-  br i1 %.1, label %48, label %49
+  br i1 %.1, label %48, label %50
 
 23:                                               ; preds = %.lr.ph74
   %24 = tail call zeroext i1 @defGetBoolean(ptr noundef nonnull %17) #10
@@ -4106,16 +4106,16 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
 
 48:                                               ; preds = %.critedge
   tail call void @PreventInTransactionBlock(i1 noundef zeroext %2, ptr noundef nonnull @.str.55) #10
-  br label %49
+  %49 = or disjoint i32 %22, 8
+  br label %50
 
-49:                                               ; preds = %48, %.critedge
-  %50 = phi i32 [ 8, %48 ], [ 0, %.critedge ]
-  %51 = or disjoint i32 %50, %22
+50:                                               ; preds = %48, %.critedge
+  %51 = phi i32 [ %49, %48 ], [ %22, %.critedge ]
   store i32 %51, ptr %8, align 8
   %.not42 = icmp eq ptr %.136, null
   br i1 %.not42, label %61, label %52
 
-52:                                               ; preds = %49
+52:                                               ; preds = %50
   %53 = tail call i32 @get_tablespace_oid(ptr noundef nonnull %.136, i1 noundef zeroext false) #10
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %53, ptr %54, align 4
@@ -4136,8 +4136,8 @@ define dso_local void @ExecReindex(ptr noundef %0, ptr noundef %1, i1 noundef ze
   tail call void @aclcheck_error(i32 noundef %58, i32 noundef 42, ptr noundef %60) #10
   br label %64
 
-61:                                               ; preds = %.thread, %49
-  %62 = phi i32 [ 0, %.thread ], [ %51, %49 ]
+61:                                               ; preds = %.thread, %50
+  %62 = phi i32 [ 0, %.thread ], [ %51, %50 ]
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 0, ptr %63, align 4
   br label %64

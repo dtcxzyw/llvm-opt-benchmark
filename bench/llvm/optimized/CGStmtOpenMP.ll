@@ -26914,8 +26914,7 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit: ; preds = %501, %
   br label %505
 
 505:                                              ; preds = %67, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit
-  %cond = phi i1 [ true, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit ], [ false, %67 ]
-  %.0122 = phi i1 [ %243, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit ], [ undef, %67 ]
+  %cond = phi i1 [ %243, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit ], [ false, %67 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %506 = getelementptr inbounds nuw i8, ptr %6, i64 49
   %507 = load i8, ptr %506, align 1, !tbaa !712, !range !682, !noundef !683
@@ -26957,8 +26956,7 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit: ; preds = %501, %
 
 _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit175: ; preds = %523, %527
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %spec.select142 = and i1 %cond, %.0122
-  ret i1 %spec.select142
+  ret i1 %cond
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

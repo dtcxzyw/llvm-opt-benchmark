@@ -860,112 +860,112 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
   %194 = xor i32 %191, %192
   %195 = xor i32 %192, %193
   %196 = xor i32 %194, %183
-  %197 = icmp samesign ugt i32 %1, 128
-  br i1 %197, label %198, label %273
+  %197 = xor i32 %194, %193
+  %198 = xor i32 %196, %195
+  %199 = icmp samesign ugt i32 %1, 128
+  br i1 %199, label %200, label %277
 
-198:                                              ; preds = %9
-  %199 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %200 = load i8, ptr %199, align 1, !tbaa !8
-  %201 = zext i8 %200 to i32
-  %202 = shl nuw i32 %201, 24
-  %203 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %204 = load i8, ptr %203, align 1, !tbaa !8
-  %205 = zext i8 %204 to i32
-  %206 = shl nuw nsw i32 %205, 16
-  %207 = or disjoint i32 %206, %202
-  %208 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  %209 = load i8, ptr %208, align 1, !tbaa !8
-  %210 = zext i8 %209 to i32
-  %211 = shl nuw nsw i32 %210, 8
-  %212 = or disjoint i32 %207, %211
-  %213 = getelementptr inbounds nuw i8, ptr %0, i64 19
-  %214 = load i8, ptr %213, align 1, !tbaa !8
-  %215 = zext i8 %214 to i32
-  %216 = or disjoint i32 %212, %215
-  %217 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %218 = load i8, ptr %217, align 1, !tbaa !8
-  %219 = zext i8 %218 to i32
-  %220 = shl nuw i32 %219, 24
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 21
-  %222 = load i8, ptr %221, align 1, !tbaa !8
-  %223 = zext i8 %222 to i32
-  %224 = shl nuw nsw i32 %223, 16
-  %225 = or disjoint i32 %224, %220
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 22
-  %227 = load i8, ptr %226, align 1, !tbaa !8
-  %228 = zext i8 %227 to i32
-  %229 = shl nuw nsw i32 %228, 8
-  %230 = or disjoint i32 %225, %229
-  %231 = getelementptr inbounds nuw i8, ptr %0, i64 23
-  %232 = load i8, ptr %231, align 1, !tbaa !8
-  %233 = zext i8 %232 to i32
-  %234 = or disjoint i32 %230, %233
-  %235 = icmp samesign ugt i32 %1, 192
-  br i1 %235, label %236, label %273
+200:                                              ; preds = %9
+  %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %202 = load i8, ptr %201, align 1, !tbaa !8
+  %203 = zext i8 %202 to i32
+  %204 = shl nuw i32 %203, 24
+  %205 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %206 = load i8, ptr %205, align 1, !tbaa !8
+  %207 = zext i8 %206 to i32
+  %208 = shl nuw nsw i32 %207, 16
+  %209 = or disjoint i32 %208, %204
+  %210 = getelementptr inbounds nuw i8, ptr %0, i64 18
+  %211 = load i8, ptr %210, align 1, !tbaa !8
+  %212 = zext i8 %211 to i32
+  %213 = shl nuw nsw i32 %212, 8
+  %214 = or disjoint i32 %209, %213
+  %215 = getelementptr inbounds nuw i8, ptr %0, i64 19
+  %216 = load i8, ptr %215, align 1, !tbaa !8
+  %217 = zext i8 %216 to i32
+  %218 = or disjoint i32 %214, %217
+  %219 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %220 = load i8, ptr %219, align 1, !tbaa !8
+  %221 = zext i8 %220 to i32
+  %222 = shl nuw i32 %221, 24
+  %223 = getelementptr inbounds nuw i8, ptr %0, i64 21
+  %224 = load i8, ptr %223, align 1, !tbaa !8
+  %225 = zext i8 %224 to i32
+  %226 = shl nuw nsw i32 %225, 16
+  %227 = or disjoint i32 %226, %222
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 22
+  %229 = load i8, ptr %228, align 1, !tbaa !8
+  %230 = zext i8 %229 to i32
+  %231 = shl nuw nsw i32 %230, 8
+  %232 = or disjoint i32 %227, %231
+  %233 = getelementptr inbounds nuw i8, ptr %0, i64 23
+  %234 = load i8, ptr %233, align 1, !tbaa !8
+  %235 = zext i8 %234 to i32
+  %236 = or disjoint i32 %232, %235
+  %237 = icmp samesign ugt i32 %1, 192
+  br i1 %237, label %238, label %277
 
-236:                                              ; preds = %198
-  %237 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %238 = load i8, ptr %237, align 1, !tbaa !8
-  %239 = zext i8 %238 to i32
-  %240 = shl nuw i32 %239, 24
-  %241 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %242 = load i8, ptr %241, align 1, !tbaa !8
-  %243 = zext i8 %242 to i32
-  %244 = shl nuw nsw i32 %243, 16
-  %245 = or disjoint i32 %244, %240
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 26
-  %247 = load i8, ptr %246, align 1, !tbaa !8
-  %248 = zext i8 %247 to i32
-  %249 = shl nuw nsw i32 %248, 8
-  %250 = or disjoint i32 %245, %249
-  %251 = getelementptr inbounds nuw i8, ptr %0, i64 27
-  %252 = load i8, ptr %251, align 1, !tbaa !8
-  %253 = zext i8 %252 to i32
-  %254 = or disjoint i32 %250, %253
-  %255 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %256 = load i8, ptr %255, align 1, !tbaa !8
-  %257 = zext i8 %256 to i32
-  %258 = shl nuw i32 %257, 24
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 29
-  %260 = load i8, ptr %259, align 1, !tbaa !8
-  %261 = zext i8 %260 to i32
-  %262 = shl nuw nsw i32 %261, 16
-  %263 = or disjoint i32 %262, %258
-  %264 = getelementptr inbounds nuw i8, ptr %0, i64 30
-  %265 = load i8, ptr %264, align 1, !tbaa !8
-  %266 = zext i8 %265 to i32
-  %267 = shl nuw nsw i32 %266, 8
-  %268 = or disjoint i32 %263, %267
-  %269 = getelementptr inbounds nuw i8, ptr %0, i64 31
-  %270 = load i8, ptr %269, align 1, !tbaa !8
-  %271 = zext i8 %270 to i32
-  %272 = or disjoint i32 %268, %271
-  br label %273
+238:                                              ; preds = %200
+  %239 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %240 = load i8, ptr %239, align 1, !tbaa !8
+  %241 = zext i8 %240 to i32
+  %242 = shl nuw i32 %241, 24
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %244 = load i8, ptr %243, align 1, !tbaa !8
+  %245 = zext i8 %244 to i32
+  %246 = shl nuw nsw i32 %245, 16
+  %247 = or disjoint i32 %246, %242
+  %248 = getelementptr inbounds nuw i8, ptr %0, i64 26
+  %249 = load i8, ptr %248, align 1, !tbaa !8
+  %250 = zext i8 %249 to i32
+  %251 = shl nuw nsw i32 %250, 8
+  %252 = or disjoint i32 %247, %251
+  %253 = getelementptr inbounds nuw i8, ptr %0, i64 27
+  %254 = load i8, ptr %253, align 1, !tbaa !8
+  %255 = zext i8 %254 to i32
+  %256 = or disjoint i32 %252, %255
+  %257 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %258 = load i8, ptr %257, align 1, !tbaa !8
+  %259 = zext i8 %258 to i32
+  %260 = shl nuw i32 %259, 24
+  %261 = getelementptr inbounds nuw i8, ptr %0, i64 29
+  %262 = load i8, ptr %261, align 1, !tbaa !8
+  %263 = zext i8 %262 to i32
+  %264 = shl nuw nsw i32 %263, 16
+  %265 = or disjoint i32 %264, %260
+  %266 = getelementptr inbounds nuw i8, ptr %0, i64 30
+  %267 = load i8, ptr %266, align 1, !tbaa !8
+  %268 = zext i8 %267 to i32
+  %269 = shl nuw nsw i32 %268, 8
+  %270 = or disjoint i32 %265, %269
+  %271 = getelementptr inbounds nuw i8, ptr %0, i64 31
+  %272 = load i8, ptr %271, align 1, !tbaa !8
+  %273 = zext i8 %272 to i32
+  %274 = or disjoint i32 %270, %273
+  %275 = xor i32 %256, %198
+  %276 = xor i32 %274, %197
+  br label %277
 
-273:                                              ; preds = %9, %198, %236
-  %.sroa.0193.0 = phi i32 [ %216, %236 ], [ %216, %198 ], [ 0, %9 ]
-  %.sroa.22.0 = phi i32 [ %234, %236 ], [ %234, %198 ], [ 0, %9 ]
-  %.sroa.42.0 = phi i32 [ %254, %236 ], [ 0, %198 ], [ 0, %9 ]
-  %.sroa.63.0 = phi i32 [ %272, %236 ], [ 0, %198 ], [ 0, %9 ]
-  %274 = xor i32 %.sroa.0193.0, %196
-  %275 = xor i32 %183, %.sroa.22.0
-  %276 = xor i32 %275, %195
-  %277 = xor i32 %195, %.sroa.42.0
-  %278 = xor i32 %277, %196
-  %279 = xor i32 %193, %.sroa.63.0
-  %280 = xor i32 %279, %194
+277:                                              ; preds = %9, %200, %238
+  %.sroa.0193.0 = phi i32 [ %218, %238 ], [ %218, %200 ], [ 0, %9 ]
+  %.sroa.22.0 = phi i32 [ %236, %238 ], [ %236, %200 ], [ 0, %9 ]
+  %.sroa.42.0 = phi i32 [ %275, %238 ], [ %198, %200 ], [ %198, %9 ]
+  %.sroa.63.0 = phi i32 [ %276, %238 ], [ %197, %200 ], [ %197, %9 ]
+  %278 = xor i32 %.sroa.0193.0, %196
+  %279 = xor i32 %183, %.sroa.22.0
+  %280 = xor i32 %279, %195
   %281 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %282 = load i32, ptr %281, align 16, !tbaa !9
-  %283 = xor i32 %282, %274
+  %283 = xor i32 %282, %278
   %284 = getelementptr inbounds nuw i8, ptr %14, i64 20
   %285 = load i32, ptr %284, align 4, !tbaa !9
-  %286 = xor i32 %285, %276
+  %286 = xor i32 %285, %280
   %287 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %288 = load i32, ptr %287, align 8, !tbaa !9
-  %289 = xor i32 %288, %278
+  %289 = xor i32 %288, %.sroa.42.0
   %290 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %291 = load i32, ptr %290, align 4, !tbaa !9
-  %292 = xor i32 %291, %280
+  %292 = xor i32 %291, %.sroa.63.0
   %293 = lshr i32 %283, 24
   %294 = zext nneg i32 %293 to i64
   %295 = getelementptr inbounds nuw i32, ptr @X1, i64 %294
@@ -1185,42 +1185,42 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
   %509 = xor i32 %506, %507
   %510 = xor i32 %507, %508
   %511 = xor i32 %509, %498
-  %512 = xor i32 %511, %274
-  %513 = xor i32 %498, %276
+  %512 = xor i32 %511, %278
+  %513 = xor i32 %498, %280
   %514 = xor i32 %513, %510
-  %515 = xor i32 %510, %278
+  %515 = xor i32 %510, %.sroa.42.0
   %516 = xor i32 %515, %511
-  %517 = xor i32 %508, %280
+  %517 = xor i32 %508, %.sroa.63.0
   %518 = xor i32 %517, %509
-  %519 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %274, i32 13)
+  %519 = tail call i32 @llvm.fshl.i32(i32 %.sroa.63.0, i32 %278, i32 13)
   %520 = xor i32 %519, %31
   store i32 %520, ptr %2, align 4, !tbaa !8
-  %521 = tail call i32 @llvm.fshl.i32(i32 %274, i32 %276, i32 13)
+  %521 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 13)
   %522 = xor i32 %521, %49
   %523 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %522, ptr %523, align 4, !tbaa !8
-  %524 = tail call i32 @llvm.fshl.i32(i32 %276, i32 %278, i32 13)
+  %524 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %.sroa.42.0, i32 13)
   %525 = xor i32 %524, %67
   %526 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %525, ptr %526, align 4, !tbaa !8
-  %527 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 13)
+  %527 = tail call i32 @llvm.fshl.i32(i32 %.sroa.42.0, i32 %.sroa.63.0, i32 13)
   %528 = xor i32 %527, %85
   %529 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %528, ptr %529, align 4, !tbaa !8
   %530 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %531 = tail call i32 @llvm.fshl.i32(i32 %399, i32 %393, i32 13)
-  %532 = xor i32 %531, %274
+  %532 = xor i32 %531, %278
   store i32 %532, ptr %530, align 4, !tbaa !8
   %533 = tail call i32 @llvm.fshl.i32(i32 %393, i32 %395, i32 13)
-  %534 = xor i32 %533, %276
+  %534 = xor i32 %533, %280
   %535 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %534, ptr %535, align 4, !tbaa !8
   %536 = tail call i32 @llvm.fshl.i32(i32 %395, i32 %397, i32 13)
-  %537 = xor i32 %536, %278
+  %537 = xor i32 %536, %.sroa.42.0
   %538 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 %537, ptr %538, align 4, !tbaa !8
   %539 = tail call i32 @llvm.fshl.i32(i32 %397, i32 %399, i32 13)
-  %540 = xor i32 %539, %280
+  %540 = xor i32 %539, %.sroa.63.0
   %541 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 %540, ptr %541, align 4, !tbaa !8
   %542 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1256,35 +1256,35 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
   %565 = getelementptr inbounds nuw i8, ptr %2, i64 60
   store i32 %564, ptr %565, align 4, !tbaa !8
   %566 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %567 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %274, i32 1)
+  %567 = tail call i32 @llvm.fshl.i32(i32 %.sroa.63.0, i32 %278, i32 1)
   %568 = xor i32 %567, %31
   store i32 %568, ptr %566, align 4, !tbaa !8
-  %569 = tail call i32 @llvm.fshl.i32(i32 %274, i32 %276, i32 1)
+  %569 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 1)
   %570 = xor i32 %569, %49
   %571 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 %570, ptr %571, align 4, !tbaa !8
-  %572 = tail call i32 @llvm.fshl.i32(i32 %276, i32 %278, i32 1)
+  %572 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %.sroa.42.0, i32 1)
   %573 = xor i32 %572, %67
   %574 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i32 %573, ptr %574, align 4, !tbaa !8
-  %575 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 1)
+  %575 = tail call i32 @llvm.fshl.i32(i32 %.sroa.42.0, i32 %.sroa.63.0, i32 1)
   %576 = xor i32 %575, %85
   %577 = getelementptr inbounds nuw i8, ptr %2, i64 76
   store i32 %576, ptr %577, align 4, !tbaa !8
   %578 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %579 = tail call i32 @llvm.fshl.i32(i32 %399, i32 %393, i32 1)
-  %580 = xor i32 %579, %274
+  %580 = xor i32 %579, %278
   store i32 %580, ptr %578, align 4, !tbaa !8
   %581 = tail call i32 @llvm.fshl.i32(i32 %393, i32 %395, i32 1)
-  %582 = xor i32 %581, %276
+  %582 = xor i32 %581, %280
   %583 = getelementptr inbounds nuw i8, ptr %2, i64 84
   store i32 %582, ptr %583, align 4, !tbaa !8
   %584 = tail call i32 @llvm.fshl.i32(i32 %395, i32 %397, i32 1)
-  %585 = xor i32 %584, %278
+  %585 = xor i32 %584, %.sroa.42.0
   %586 = getelementptr inbounds nuw i8, ptr %2, i64 88
   store i32 %585, ptr %586, align 4, !tbaa !8
   %587 = tail call i32 @llvm.fshl.i32(i32 %397, i32 %399, i32 1)
-  %588 = xor i32 %587, %280
+  %588 = xor i32 %587, %.sroa.63.0
   %589 = getelementptr inbounds nuw i8, ptr %2, i64 92
   store i32 %588, ptr %589, align 4, !tbaa !8
   %590 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -1328,35 +1328,35 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
   %621 = getelementptr inbounds nuw i8, ptr %2, i64 124
   store i32 %620, ptr %621, align 4, !tbaa !8
   %622 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %623 = tail call i32 @llvm.fshl.i32(i32 %276, i32 %278, i32 29)
+  %623 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %.sroa.42.0, i32 29)
   %624 = xor i32 %623, %31
   store i32 %624, ptr %622, align 4, !tbaa !8
-  %625 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 29)
+  %625 = tail call i32 @llvm.fshl.i32(i32 %.sroa.42.0, i32 %.sroa.63.0, i32 29)
   %626 = xor i32 %625, %49
   %627 = getelementptr inbounds nuw i8, ptr %2, i64 132
   store i32 %626, ptr %627, align 4, !tbaa !8
-  %628 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %274, i32 29)
+  %628 = tail call i32 @llvm.fshl.i32(i32 %.sroa.63.0, i32 %278, i32 29)
   %629 = xor i32 %628, %67
   %630 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 %629, ptr %630, align 4, !tbaa !8
-  %631 = tail call i32 @llvm.fshl.i32(i32 %274, i32 %276, i32 29)
+  %631 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 29)
   %632 = xor i32 %631, %85
   %633 = getelementptr inbounds nuw i8, ptr %2, i64 140
   store i32 %632, ptr %633, align 4, !tbaa !8
   %634 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %635 = tail call i32 @llvm.fshl.i32(i32 %395, i32 %397, i32 29)
-  %636 = xor i32 %635, %274
+  %636 = xor i32 %635, %278
   store i32 %636, ptr %634, align 4, !tbaa !8
   %637 = tail call i32 @llvm.fshl.i32(i32 %397, i32 %399, i32 29)
-  %638 = xor i32 %637, %276
+  %638 = xor i32 %637, %280
   %639 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %638, ptr %639, align 4, !tbaa !8
   %640 = tail call i32 @llvm.fshl.i32(i32 %399, i32 %393, i32 29)
-  %641 = xor i32 %640, %278
+  %641 = xor i32 %640, %.sroa.42.0
   %642 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store i32 %641, ptr %642, align 4, !tbaa !8
   %643 = tail call i32 @llvm.fshl.i32(i32 %393, i32 %395, i32 29)
-  %644 = xor i32 %643, %280
+  %644 = xor i32 %643, %.sroa.63.0
   %645 = getelementptr inbounds nuw i8, ptr %2, i64 156
   store i32 %644, ptr %645, align 4, !tbaa !8
   %646 = getelementptr inbounds nuw i8, ptr %2, i64 160
@@ -1392,38 +1392,38 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
   %669 = getelementptr inbounds nuw i8, ptr %2, i64 188
   store i32 %668, ptr %669, align 4, !tbaa !8
   %670 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  %671 = tail call i32 @llvm.fshl.i32(i32 %274, i32 %276, i32 31)
+  %671 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 31)
   %672 = xor i32 %671, %31
   store i32 %672, ptr %670, align 4, !tbaa !8
-  %673 = tail call i32 @llvm.fshl.i32(i32 %276, i32 %278, i32 31)
+  %673 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %.sroa.42.0, i32 31)
   %674 = xor i32 %673, %49
   %675 = getelementptr inbounds nuw i8, ptr %2, i64 196
   store i32 %674, ptr %675, align 4, !tbaa !8
-  %676 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 31)
+  %676 = tail call i32 @llvm.fshl.i32(i32 %.sroa.42.0, i32 %.sroa.63.0, i32 31)
   %677 = xor i32 %676, %67
   %678 = getelementptr inbounds nuw i8, ptr %2, i64 200
   store i32 %677, ptr %678, align 4, !tbaa !8
-  %679 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %274, i32 31)
+  %679 = tail call i32 @llvm.fshl.i32(i32 %.sroa.63.0, i32 %278, i32 31)
   %680 = xor i32 %679, %85
   %681 = getelementptr inbounds nuw i8, ptr %2, i64 204
   store i32 %680, ptr %681, align 4, !tbaa !8
-  br i1 %197, label %682, label %.thread
+  br i1 %199, label %682, label %.thread
 
-682:                                              ; preds = %273
+682:                                              ; preds = %277
   %683 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %684 = tail call i32 @llvm.fshl.i32(i32 %393, i32 %395, i32 31)
-  %685 = xor i32 %684, %274
+  %685 = xor i32 %684, %278
   store i32 %685, ptr %683, align 4, !tbaa !8
   %686 = tail call i32 @llvm.fshl.i32(i32 %395, i32 %397, i32 31)
-  %687 = xor i32 %686, %276
+  %687 = xor i32 %686, %280
   %688 = getelementptr inbounds nuw i8, ptr %2, i64 212
   store i32 %687, ptr %688, align 4, !tbaa !8
   %689 = tail call i32 @llvm.fshl.i32(i32 %397, i32 %399, i32 31)
-  %690 = xor i32 %689, %278
+  %690 = xor i32 %689, %.sroa.42.0
   %691 = getelementptr inbounds nuw i8, ptr %2, i64 216
   store i32 %690, ptr %691, align 4, !tbaa !8
   %692 = tail call i32 @llvm.fshl.i32(i32 %399, i32 %393, i32 31)
-  %693 = xor i32 %692, %280
+  %693 = xor i32 %692, %.sroa.63.0
   %694 = getelementptr inbounds nuw i8, ptr %2, i64 220
   store i32 %693, ptr %694, align 4, !tbaa !8
   %695 = getelementptr inbounds nuw i8, ptr %2, i64 224
@@ -1463,25 +1463,25 @@ define range(i32 -2, 1) i32 @ossl_aria_set_encrypt_key(ptr noundef readonly capt
   %720 = getelementptr inbounds nuw i8, ptr %2, i64 252
   store i32 %719, ptr %720, align 4, !tbaa !8
   %721 = getelementptr inbounds nuw i8, ptr %2, i64 256
-  %722 = tail call i32 @llvm.fshl.i32(i32 %274, i32 %276, i32 19)
+  %722 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 19)
   %723 = xor i32 %722, %31
   store i32 %723, ptr %721, align 4, !tbaa !8
-  %724 = tail call i32 @llvm.fshl.i32(i32 %276, i32 %278, i32 19)
+  %724 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %.sroa.42.0, i32 19)
   %725 = xor i32 %724, %49
   %726 = getelementptr inbounds nuw i8, ptr %2, i64 260
   store i32 %725, ptr %726, align 4, !tbaa !8
-  %727 = tail call i32 @llvm.fshl.i32(i32 %278, i32 %280, i32 19)
+  %727 = tail call i32 @llvm.fshl.i32(i32 %.sroa.42.0, i32 %.sroa.63.0, i32 19)
   %728 = xor i32 %727, %67
   %729 = getelementptr inbounds nuw i8, ptr %2, i64 264
   store i32 %728, ptr %729, align 4, !tbaa !8
-  %730 = tail call i32 @llvm.fshl.i32(i32 %280, i32 %274, i32 19)
+  %730 = tail call i32 @llvm.fshl.i32(i32 %.sroa.63.0, i32 %278, i32 19)
   %731 = xor i32 %730, %85
   %732 = getelementptr inbounds nuw i8, ptr %2, i64 268
   store i32 %731, ptr %732, align 4, !tbaa !8
   br label %.thread
 
-.thread:                                          ; preds = %273, %682, %708, %8, %3
-  %.0 = phi i32 [ -1, %3 ], [ -2, %8 ], [ 0, %708 ], [ 0, %682 ], [ 0, %273 ]
+.thread:                                          ; preds = %277, %682, %708, %8, %3
+  %.0 = phi i32 [ -1, %3 ], [ -2, %8 ], [ 0, %708 ], [ 0, %682 ], [ 0, %277 ]
   ret i32 %.0
 }
 

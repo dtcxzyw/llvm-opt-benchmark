@@ -9012,18 +9012,18 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %76 = ptrtoint ptr %71 to i64
   %77 = sub nuw i64 %75, %76
   %78 = udiv exact i64 %77, 360
+  %79 = or i64 %78, %.sroa.7.0.i.i.i.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit45.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit45.i.i.i.i": ; preds = %73, %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit.i.i.i.i"
-  %.sroa.8.0.i.i.i.i = phi i64 [ %78, %73 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit.i.i.i.i" ]
+  %.sroa.8.0.i.i.i.i = phi i64 [ %79, %73 ], [ %.sroa.7.0.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit.i.i.i.i" ]
   %trunc.i.i.i.i = trunc nuw i64 %58 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val.i.i.i.i = load ptr, ptr %79, align 8, !alias.scope !2407, !noalias !2416
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val.i.i.i.i = load ptr, ptr %80, align 8, !alias.scope !2407, !noalias !2416
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   %not.trunc.i.i.i.i = xor i1 %trunc.i.i.i.i, true
   %.sroa.054.0.not.i.i.i.i = select i1 %not.trunc.i.i.i.i, i1 true, i1 %.not.i.i.i.i
-  %80 = or i64 %.sroa.8.0.i.i.i.i, %.sroa.7.0.i.i.i.i
-  %81 = icmp eq i64 %80, 0
+  %81 = icmp eq i64 %.sroa.8.0.i.i.i.i, 0
   %or.cond = select i1 %.sroa.054.0.not.i.i.i.i, i1 %81, i1 false
   br i1 %or.cond, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1fd591c41a37c9faE.exit.thread75", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1fd591c41a37c9faE.exit.thread"
 
@@ -9572,18 +9572,18 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %76 = ptrtoint ptr %71 to i64
   %77 = sub nuw i64 %75, %76
   %78 = udiv exact i64 %77, 360
+  %79 = or i64 %78, %.sroa.7.0.i.i.i.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit45.i.i.i.i"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit45.i.i.i.i": ; preds = %73, %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit.i.i.i.i"
-  %.sroa.8.0.i.i.i.i = phi i64 [ %78, %73 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit.i.i.i.i" ]
+  %.sroa.8.0.i.i.i.i = phi i64 [ %79, %73 ], [ %.sroa.7.0.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hcd8bc20fa8a6111aE.exit.i.i.i.i" ]
   %trunc.i.i.i.i = trunc nuw i64 %58 to i1
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val.i.i.i.i = load ptr, ptr %79, align 8, !alias.scope !2601, !noalias !2610
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val.i.i.i.i = load ptr, ptr %80, align 8, !alias.scope !2601, !noalias !2610
   %.not.i.i.i.i = icmp eq ptr %.val.i.i.i.i, null
   %not.trunc.i.i.i.i = xor i1 %trunc.i.i.i.i, true
   %.sroa.054.0.not.i.i.i.i = select i1 %not.trunc.i.i.i.i, i1 true, i1 %.not.i.i.i.i
-  %80 = or i64 %.sroa.8.0.i.i.i.i, %.sroa.7.0.i.i.i.i
-  %81 = icmp eq i64 %80, 0
+  %81 = icmp eq i64 %.sroa.8.0.i.i.i.i, 0
   %or.cond = select i1 %.sroa.054.0.not.i.i.i.i, i1 %81, i1 false
   br i1 %or.cond, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h57b500241e966f88E.exit.thread75", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h57b500241e966f88E.exit.thread"
 

@@ -12019,7 +12019,7 @@ define { double, double } @densmatr_calcExpecDiagonalOpLocal(ptr noundef readonl
 ._crit_edge:                                      ; preds = %2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !8
-  br label %27
+  br label %28
 
 20:                                               ; preds = %2
   %21 = zext nneg i32 %18 to i64
@@ -12028,17 +12028,17 @@ define { double, double } @densmatr_calcExpecDiagonalOpLocal(ptr noundef readonl
   %24 = mul nsw i64 %23, %21
   %25 = sdiv i64 %24, %16
   %26 = add nsw i64 %25, 1
-  br label %27
+  %27 = mul nsw i64 %26, %16
+  br label %28
 
-27:                                               ; preds = %._crit_edge, %20
-  %28 = phi i64 [ %23, %20 ], [ %.pre, %._crit_edge ]
-  %29 = phi i64 [ %26, %20 ], [ 0, %._crit_edge ]
-  %30 = mul nsw i64 %29, %16
+28:                                               ; preds = %._crit_edge, %20
+  %29 = phi i64 [ %23, %20 ], [ %.pre, %._crit_edge ]
+  %30 = phi i64 [ %27, %20 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %31 = srem i64 %30, %28
+  %31 = srem i64 %30, %29
   store i64 %31, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %28, ptr %5, align 8, !tbaa !16
+  store i64 %29, ptr %5, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !22

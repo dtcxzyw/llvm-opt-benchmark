@@ -6830,23 +6830,23 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_p
   %78 = load volatile i64, ptr %40, align 8
   %79 = and i64 %78, 64
   %80 = icmp eq i64 %79, 0
-  br i1 %80, label %86, label %81
+  br i1 %80, label %87, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %40, i64 100
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, -1
   %85 = sext i32 %84 to i64
-  br label %86
+  %86 = and i64 %74, %85
+  br label %87
 
-86:                                               ; preds = %81, %77
-  %87 = phi i64 [ %85, %81 ], [ 0, %77 ]
-  %88 = and i64 %87, %74
+87:                                               ; preds = %81, %77
+  %88 = phi i64 [ %86, %81 ], [ 0, %77 ]
   %89 = getelementptr %struct.page, ptr %40, i64 %88
   br label %90
 
-90:                                               ; preds = %86, %73
-  %91 = phi ptr [ %89, %86 ], [ %40, %73 ]
+90:                                               ; preds = %87, %73
+  %91 = phi ptr [ %89, %87 ], [ %40, %73 ]
   %92 = add i32 %41, 1
   %93 = zext i32 %41 to i64
   %94 = getelementptr ptr, ptr %37, i64 %93
@@ -7349,23 +7349,23 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr
   %75 = load volatile i64, ptr %38, align 8
   %76 = and i64 %75, 64
   %77 = icmp eq i64 %76, 0
-  br i1 %77, label %83, label %78
+  br i1 %77, label %84, label %78
 
 78:                                               ; preds = %74
   %79 = getelementptr inbounds nuw i8, ptr %38, i64 100
   %80 = load i32, ptr %79, align 4
   %81 = add i32 %80, -1
   %82 = sext i32 %81 to i64
-  br label %83
+  %83 = and i64 %71, %82
+  br label %84
 
-83:                                               ; preds = %78, %74
-  %84 = phi i64 [ %82, %78 ], [ 0, %74 ]
-  %85 = and i64 %84, %71
+84:                                               ; preds = %78, %74
+  %85 = phi i64 [ %83, %78 ], [ 0, %74 ]
   %86 = getelementptr %struct.page, ptr %38, i64 %85
   br label %87
 
-87:                                               ; preds = %83, %70
-  %88 = phi ptr [ %86, %83 ], [ %38, %70 ]
+87:                                               ; preds = %84, %70
+  %88 = phi ptr [ %86, %84 ], [ %38, %70 ]
   %89 = zext i32 %37 to i64
   %90 = getelementptr ptr, ptr %26, i64 %89
   store ptr %88, ptr %90, align 8

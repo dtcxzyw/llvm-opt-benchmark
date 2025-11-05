@@ -274,7 +274,7 @@ addbyter.exit50:                                  ; preds = %32, %28
   %.2346.i183.ph = phi i32 [ %.0344.i, %291 ], [ %.1345.i, %113 ], [ %.1345.i, %109 ]
   %.0368.i181.ph = phi i64 [ 16, %291 ], [ 16, %113 ], [ 8, %109 ]
   %.ph = phi i1 [ true, %291 ], [ true, %113 ], [ false, %109 ]
-  %.ph368 = phi i1 [ false, %291 ], [ false, %113 ], [ true, %109 ]
+  %.ph368 = phi i1 [ false, %291 ], [ false, %113 ], [ %72, %109 ]
   %.0397.i176.ph = phi i1 [ true, %291 ], [ %72, %113 ], [ %72, %109 ]
   %.2367.i.ph = phi i64 [ %294, %291 ], [ %82, %113 ], [ %82, %109 ]
   %116 = icmp eq i32 %.0370.i, -1
@@ -339,9 +339,8 @@ addbyter.exit50:                                  ; preds = %32, %28
   %135 = sub i32 324, %134
   %136 = sub nsw i32 %.1376.i, %135
   %137 = sub nsw i32 %spec.store.select5.i, %135
-  %or.cond.i = and i1 %.ph368, %.0397.i176.ph
   %138 = icmp slt i32 %137, 1
-  %or.cond8.i = select i1 %or.cond.i, i1 %138, i1 false
+  %or.cond8.i = select i1 %.ph368, i1 %138, i1 false
   br i1 %or.cond8.i, label %.thread, label %140
 
 .thread:                                          ; preds = %.loopexit366
@@ -2611,7 +2610,7 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
   %.234610.ph = phi i32 [ %.0344, %271 ], [ %.1345, %111 ], [ %.1345, %107 ]
   %.03688.ph = phi i64 [ 16, %271 ], [ 16, %111 ], [ 8, %107 ]
   %.ph = phi i1 [ true, %271 ], [ true, %111 ], [ false, %107 ]
-  %.ph38 = phi i1 [ false, %271 ], [ false, %111 ], [ true, %107 ]
+  %.ph38 = phi i1 [ false, %271 ], [ false, %111 ], [ %70, %107 ]
   %.03973.ph = phi i1 [ true, %271 ], [ %70, %111 ], [ %70, %107 ]
   %.2367.ph = phi i64 [ %274, %271 ], [ %80, %111 ], [ %80, %107 ]
   %114 = icmp eq i32 %.0370, -1
@@ -2676,9 +2675,8 @@ define internal fastcc i32 @formatf.specialized.2(ptr noundef captures(none) %0,
   %133 = sub i32 324, %132
   %134 = sub nsw i32 %.1376, %133
   %135 = sub nsw i32 %spec.store.select5, %133
-  %or.cond = and i1 %.ph38, %.03973.ph
   %136 = icmp slt i32 %135, 1
-  %or.cond8 = select i1 %or.cond, i1 %136, i1 false
+  %or.cond8 = select i1 %.ph38, i1 %136, i1 false
   br i1 %or.cond8, label %.thread, label %138
 
 .thread:                                          ; preds = %.loopexit36
@@ -3625,7 +3623,7 @@ define internal fastcc i32 @formatf.specialized.3(ptr noundef captures(none) %0,
   %.234613.ph = phi i32 [ %.0344, %286 ], [ %.1345, %109 ], [ %.1345, %105 ]
   %.036811.ph = phi i64 [ 16, %286 ], [ 16, %109 ], [ 8, %105 ]
   %.ph = phi i1 [ true, %286 ], [ true, %109 ], [ false, %105 ]
-  %.ph107 = phi i1 [ false, %286 ], [ false, %109 ], [ true, %105 ]
+  %.ph107 = phi i1 [ false, %286 ], [ false, %109 ], [ %70, %105 ]
   %.03976.ph = phi i1 [ true, %286 ], [ %70, %109 ], [ %70, %105 ]
   %.2367.ph = phi i64 [ %289, %286 ], [ %80, %109 ], [ %80, %105 ]
   %112 = icmp eq i32 %.0370, -1
@@ -3690,9 +3688,8 @@ define internal fastcc i32 @formatf.specialized.3(ptr noundef captures(none) %0,
   %131 = sub i32 324, %130
   %132 = sub nsw i32 %.1376, %131
   %133 = sub nsw i32 %spec.store.select5, %131
-  %or.cond = and i1 %.ph107, %.03976.ph
   %134 = icmp slt i32 %133, 1
-  %or.cond8 = select i1 %or.cond, i1 %134, i1 false
+  %or.cond8 = select i1 %.ph107, i1 %134, i1 false
   br i1 %or.cond8, label %.thread23, label %136
 
 .thread23:                                        ; preds = %.loopexit105
@@ -4733,7 +4730,7 @@ alloc_addbyter.exit97:                            ; preds = %.lr.ph279
   %.234626.ph = phi i32 [ %.0344, %373 ], [ %.1345, %144 ], [ %.1345, %140 ]
   %.036824.ph = phi i64 [ 16, %373 ], [ 16, %144 ], [ 8, %140 ]
   %.ph = phi i1 [ true, %373 ], [ true, %144 ], [ false, %140 ]
-  %.ph114 = phi i1 [ false, %373 ], [ false, %144 ], [ true, %140 ]
+  %.ph114 = phi i1 [ false, %373 ], [ false, %144 ], [ %96, %140 ]
   %.039719.ph = phi i1 [ true, %373 ], [ %96, %144 ], [ %96, %140 ]
   %.2367.ph = phi i64 [ %376, %373 ], [ %106, %144 ], [ %106, %140 ]
   %147 = icmp eq i32 %.0370, -1
@@ -4798,9 +4795,8 @@ alloc_addbyter.exit97:                            ; preds = %.lr.ph279
   %166 = sub i32 324, %165
   %167 = sub nsw i32 %.1376, %166
   %168 = sub nsw i32 %spec.store.select5, %166
-  %or.cond = and i1 %.ph114, %.039719.ph
   %169 = icmp slt i32 %168, 1
-  %or.cond8 = select i1 %or.cond, i1 %169, i1 false
+  %or.cond8 = select i1 %.ph114, i1 %169, i1 false
   br i1 %or.cond8, label %.thread36, label %171
 
 .thread36:                                        ; preds = %.loopexit112

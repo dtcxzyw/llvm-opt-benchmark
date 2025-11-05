@@ -6977,7 +6977,7 @@ define internal fastcc { i64, i64 } @_ZNSt3__16chronoL10__parse_onB8ne210000ERNS
 
 _ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit: ; preds = %3
   %7 = trunc i64 %4 to i8
-  br label %27
+  br label %28
 
 8:                                                ; preds = %1
   %9 = tail call noundef i32 @_ZNSt3__113basic_istreamIcNS_11char_traitsIcEEE4peekEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -6997,7 +6997,7 @@ tolower.exit:                                     ; preds = %8
 17:                                               ; preds = %tolower.exit
   tail call fastcc void @_ZNSt3__16chronoL9__matchesB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEENS_17basic_string_viewIcS3_EE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull @.str.33, i64 4)
   %18 = tail call fastcc i8 @_ZNSt3__16chronoL15__parse_weekdayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br label %27
+  br label %28
 
 tolower.exit.thread:                              ; preds = %8, %tolower.exit
   %19 = tail call fastcc i8 @_ZNSt3__16chronoL15__parse_weekdayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -7028,18 +7028,17 @@ _ZNSt3__16chronoL18__parse_comparisonB8ne210000ERNS_13basic_istreamIcNS_11char_t
 
 _ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9: ; preds = %_ZNSt3__16chronoL18__parse_comparisonB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit
   %26 = and i64 %23, 31
-  br label %27
+  %27 = or disjoint i64 %26, 8589934592
+  br label %28
 
-27:                                               ; preds = %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9, %17, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit
+28:                                               ; preds = %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9, %17, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit
   %.sroa.015.0 = phi i8 [ %7, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit ], [ %18, %17 ], [ %19, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9 ]
   %.sroa.517.0 = phi i64 [ 0, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit ], [ 0, %17 ], [ %.0.i, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9 ]
-  %.sroa.618.0 = phi i64 [ 0, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit ], [ 0, %17 ], [ %26, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9 ]
-  %.sroa.9.0 = phi i64 [ 0, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit ], [ 4294967296, %17 ], [ 8589934592, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9 ]
+  %.sroa.9.0 = phi i64 [ 0, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit ], [ 4294967296, %17 ], [ %27, %_ZNSt3__16chronoL11__parse_dayB8ne210000ERNS_13basic_istreamIcNS_11char_traitsIcEEEE.exit9 ]
   %.sroa.015.0.insert.ext = zext i8 %.sroa.015.0 to i64
   %.sroa.015.0.insert.insert = or i64 %.sroa.517.0, %.sroa.015.0.insert.ext
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.015.0.insert.insert, 0
-  %.sroa.618.8.insert.insert = or disjoint i64 %.sroa.9.0, %.sroa.618.0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.618.8.insert.insert, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.9.0, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

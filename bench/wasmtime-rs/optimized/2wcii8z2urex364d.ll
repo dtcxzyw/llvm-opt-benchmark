@@ -1714,42 +1714,41 @@ define noundef zeroext i1 @"_ZN87_$LT$cranelift_codegen_meta..cdsl..typevar..Typ
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %accumulator.tr.lcssa = phi i1 [ true, %2 ], [ %spec.select1, %tailrecurse ]
-  %.lcssa4 = phi ptr [ %3, %2 ], [ %19, %tailrecurse ]
-  %.lcssa = phi ptr [ %4, %2 ], [ %20, %tailrecurse ]
+  %.lcssa4 = phi ptr [ %3, %2 ], [ %20, %tailrecurse ]
+  %.lcssa = phi ptr [ %4, %2 ], [ %21, %tailrecurse ]
   %8 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 80
   %9 = load i8, ptr %8, align 8, !range !4, !noundef !3
   %10 = icmp eq i8 %9, 9
   %11 = icmp eq ptr %.lcssa4, %.lcssa
   %spec.select = and i1 %11, %10
+  %12 = and i1 %accumulator.tr.lcssa, %spec.select
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %12 = phi i8 [ %22, %tailrecurse ], [ %6, %2 ]
-  %13 = phi ptr [ %20, %tailrecurse ], [ %4, %2 ]
-  %.pn = phi ptr [ %19, %tailrecurse ], [ %3, %2 ]
+  %13 = phi i8 [ %23, %tailrecurse ], [ %6, %2 ]
+  %14 = phi ptr [ %21, %tailrecurse ], [ %4, %2 ]
+  %.pn = phi ptr [ %20, %tailrecurse ], [ %3, %2 ]
   %accumulator.tr8 = phi i1 [ %spec.select1, %tailrecurse ], [ true, %2 ]
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
-  %15 = load i8, ptr %14, align 8, !range !4, !noundef !3
-  %.not = icmp eq i8 %15, 9
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  %16 = load i8, ptr %15, align 8, !range !4, !noundef !3
+  %.not = icmp eq i8 %16, 9
   br i1 %.not, label %.loopexit, label %tailrecurse
 
 .loopexit:                                        ; preds = %.lr.ph, %tailrecurse._crit_edge
-  %accumulator.tr7 = phi i1 [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ], [ %accumulator.tr8, %.lr.ph ]
-  %.0.shrunk = phi i1 [ %spec.select, %tailrecurse._crit_edge ], [ false, %.lr.ph ]
-  %accumulator.ret.tr = and i1 %accumulator.tr7, %.0.shrunk
-  ret i1 %accumulator.ret.tr
+  %accumulator.tr7 = phi i1 [ %12, %tailrecurse._crit_edge ], [ false, %.lr.ph ]
+  ret i1 %accumulator.tr7
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.pn, i64 72
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %18 = icmp eq i8 %12, %15
-  %spec.select1 = and i1 %accumulator.tr8, %18
-  %19 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
+  %17 = getelementptr inbounds nuw i8, ptr %.pn, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  %19 = icmp eq i8 %13, %16
+  %spec.select1 = and i1 %accumulator.tr8, %19
   %20 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 80
-  %22 = load i8, ptr %21, align 8, !range !4, !noundef !3
-  %23 = icmp eq i8 %22, 9
-  br i1 %23, label %tailrecurse._crit_edge, label %.lr.ph
+  %21 = load ptr, ptr %18, align 8, !nonnull !3, !noundef !3
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  %23 = load i8, ptr %22, align 8, !range !4, !noundef !3
+  %24 = icmp eq i8 %23, 9
+  br i1 %24, label %tailrecurse._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

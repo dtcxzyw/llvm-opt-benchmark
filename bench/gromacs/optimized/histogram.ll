@@ -3260,19 +3260,19 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
           to label %121 unwind label %.split80
 
 121:                                              ; preds = %112
-  %122 = mul nsw i32 %120, %.04683
-  %123 = add nsw i32 %122, %.045
-  %124 = sext i32 %123 to i64
-  %125 = load ptr, ptr %42, align 8, !tbaa !54
-  %126 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %125, i64 %124
-  %127 = fadd float %93, %101
-  %128 = fmul float %119, %119
-  %129 = call float @llvm.fmuladd.f32(float %110, float %110, float %128)
+  %122 = fmul float %119, %119
+  %123 = mul nsw i32 %120, %.04683
+  %124 = add nsw i32 %123, %.045
+  %125 = sext i32 %124 to i64
+  %126 = load ptr, ptr %42, align 8, !tbaa !54
+  %127 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %126, i64 %125
+  %128 = fadd float %93, %101
+  %129 = call float @llvm.fmuladd.f32(float %110, float %110, float %122)
   %sqrt = call float @llvm.sqrt.f32(float %129)
-  store float %127, ptr %126, align 8, !tbaa !61
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 4
+  store float %128, ptr %127, align 8, !tbaa !61
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 4
   store float %sqrt, ptr %130, align 4, !tbaa !65
-  %131 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %132 = load i64, ptr %131, align 8, !tbaa !66
   %133 = or i64 %132, 7
   store i64 %133, ptr %131, align 8, !tbaa !66

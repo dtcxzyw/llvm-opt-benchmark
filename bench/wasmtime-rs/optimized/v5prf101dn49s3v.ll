@@ -19001,7 +19001,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
 
 31:                                               ; preds = %2, %2, %2, %2, %2
   %32 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef 9), !noalias !3459
-  br label %61
+  br label %63
 
 .noexc:                                           ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !3460
@@ -19018,7 +19018,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   %37 = zext i32 %36 to i64
   store i64 %37, ptr %8, align 8, !noalias !3460
   %38 = icmp eq i32 %36, 4
-  br i1 %38, label %47, label %.noexc38
+  br i1 %38, label %48, label %.noexc38
 
 .noexc38:                                         ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !3460
@@ -19036,27 +19036,28 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   %39 = ptrtoint ptr %34 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3460
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3460
-  %.tr.i = trunc i64 %39 to i16
+  %.tr.i = trunc i64 %39 to i32
+  %40 = shl i32 %.tr.i, 16
   br label %.noexc41
 
 .noexc39:                                         ; preds = %25
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !3465
   store i32 4, ptr %6, align 4, !noalias !3465
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !3465
-  %40 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr nonnull inttoptr (i64 41 to ptr), ptr nonnull inttoptr (i64 16 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #38, !srcloc !3376
-  %41 = extractvalue { ptr, i32, i32 } %40, 0
-  %.not.i.i.i.not = icmp eq ptr %41, null
-  br i1 %.not.i.i.i.not, label %42, label %.noexc43
+  %41 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr nonnull inttoptr (i64 41 to ptr), ptr nonnull inttoptr (i64 16 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #38, !srcloc !3376
+  %42 = extractvalue { ptr, i32, i32 } %41, 0
+  %.not.i.i.i.not = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.not, label %43, label %.noexc43
 
-42:                                               ; preds = %.noexc39
+43:                                               ; preds = %.noexc39
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3465
-  %43 = load i32, ptr %6, align 4, !noalias !3465, !noundef !5
-  %44 = zext i32 %43 to i64
-  store i64 %44, ptr %4, align 8, !noalias !3465
-  %45 = icmp eq i32 %43, 4
-  br i1 %45, label %.thread62, label %.noexc40
+  %44 = load i32, ptr %6, align 4, !noalias !3465, !noundef !5
+  %45 = zext i32 %44 to i64
+  store i64 %45, ptr %4, align 8, !noalias !3465
+  %46 = icmp eq i32 %44, 4
+  br i1 %46, label %.thread63, label %.noexc40
 
-.noexc40:                                         ; preds = %42
+.noexc40:                                         ; preds = %43
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !3465
   store ptr @anon.e0d190dfcd430a6cce254ddb52ad54a9.95, ptr %3, align 8, !noalias !3465
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19068,59 +19069,63 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   call void @_ZN4core9panicking13assert_failed17h4328bdaa3a812737E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef readonly align 8 dereferenceable(8) @anon.e0d190dfcd430a6cce254ddb52ad54a9.93, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.96) #35
   unreachable
 
-.thread62:                                        ; preds = %42
+.thread63:                                        ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3465
-  %46 = load i32, ptr %5, align 4, !noalias !3465
+  %47 = load i32, ptr %5, align 4, !noalias !3465
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3465
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3465
-  br label %55
+  br label %57
 
-47:                                               ; preds = %35
+48:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3460
-  %48 = load i32, ptr %9, align 4, !noalias !3460
+  %49 = load i32, ptr %9, align 4, !noalias !3460
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !3460
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !3460
-  %tr.sh.diff.i = shl i32 %48, 8
-  %49 = icmp ugt i32 %48, 255
-  %50 = and i32 %tr.sh.diff.i, 65280
-  %.sroa.01.0.insert.insert.i.i = select i1 %49, i32 -6225919, i32 %50
-  %51 = trunc i32 %.sroa.01.0.insert.insert.i.i to i1
-  %52 = lshr i32 %.sroa.01.0.insert.insert.i.i, 8
-  br i1 %51, label %.noexc41, label %55
+  %tr.sh.diff.i = shl i32 %49, 8
+  %50 = icmp ugt i32 %49, 255
+  %51 = and i32 %tr.sh.diff.i, 65280
+  %52 = or disjoint i32 %51, -6225920
+  %.sroa.01.0.insert.insert.i.i = select i1 %50, i32 -6225919, i32 %52
+  %53 = and i32 %.sroa.01.0.insert.insert.i.i, -6160640
+  %54 = trunc i32 %.sroa.01.0.insert.insert.i.i to i1
+  %.sroa.420.0.extract.shift = lshr i32 %.sroa.01.0.insert.insert.i.i, 8
+  br i1 %54, label %.noexc41, label %57
 
-.noexc41:                                         ; preds = %.thread, %47
-  %.sroa.31.0.i61 = phi i16 [ %.tr.i, %.thread ], [ -95, %47 ]
-  %53 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.31.0.i61)
-  %54 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %53)
-  br label %61
+.noexc41:                                         ; preds = %.thread, %48
+  %.sroa.31.0.i62 = phi i32 [ %40, %.thread ], [ %53, %48 ]
+  %.sroa.521.0.extract.shift = lshr i32 %.sroa.31.0.i62, 16
+  %.sroa.521.0.extract.trunc = trunc nuw i32 %.sroa.521.0.extract.shift to i16
+  %55 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.521.0.extract.trunc)
+  %56 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %55)
+  br label %63
 
-55:                                               ; preds = %.thread62, %47
-  %.0.in = phi i32 [ %52, %47 ], [ %46, %.thread62 ]
+57:                                               ; preds = %.thread63, %48
+  %.0.in = phi i32 [ %.sroa.420.0.extract.shift, %48 ], [ %47, %.thread63 ]
   %.0 = trunc i32 %.0.in to i8
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %.0, ptr %56, align 1
-  br label %60
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %.0, ptr %58, align 1
+  br label %62
 
 .noexc43:                                         ; preds = %.noexc39
-  %57 = ptrtoint ptr %41 to i64
+  %59 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !3465
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !3465
-  %.sroa.524.0.extract.trunc = trunc i64 %57 to i16
-  %58 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.524.0.extract.trunc)
-  %59 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %58)
-  br label %61
+  %.sroa.524.0.extract.trunc = trunc i64 %59 to i16
+  %60 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.524.0.extract.trunc)
+  %61 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %60)
+  br label %63
 
-60:                                               ; preds = %61, %55
-  %.sink = phi i8 [ 1, %61 ], [ 0, %55 ]
+62:                                               ; preds = %63, %57
+  %.sink = phi i8 [ 1, %63 ], [ 0, %57 ]
   store i8 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
-61:                                               ; preds = %.noexc41, %.noexc43, %31
-  %.sink66 = phi ptr [ %54, %.noexc41 ], [ %59, %.noexc43 ], [ %32, %31 ]
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink66, ptr %62, align 8
-  br label %60
+63:                                               ; preds = %.noexc41, %.noexc43, %31
+  %.sink67 = phi ptr [ %56, %.noexc41 ], [ %61, %.noexc43 ], [ %32, %31 ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink67, ptr %64, align 8
+  br label %62
 }
 
 ; Function Attrs: nonlazybind uwtable

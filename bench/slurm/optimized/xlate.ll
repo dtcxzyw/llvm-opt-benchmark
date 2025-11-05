@@ -1389,7 +1389,7 @@ _get_next_pbs_node_part.exit.i.i:                 ; preds = %371, %_get_next_pbs
 
 ._crit_edge.i.i:                                  ; preds = %_get_next_pbs_node_part.exit.i.i
   %.not25.i.i = icmp eq i32 %.124.i.i, 0
-  br i1 %.not25.i.i, label %403, label %401
+  br i1 %.not25.i.i, label %404, label %401
 
 401:                                              ; preds = %._crit_edge.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1398,20 +1398,20 @@ _get_next_pbs_node_part.exit.i.i:                 ; preds = %371, %_get_next_pbs
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef 78, ptr noundef %402, i1 noundef zeroext false, i1 noundef zeroext false) #11
   call void @slurm_xfree(ptr noundef nonnull %5) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %403
+  %403 = mul nsw i32 %.1.i.i, %.124.i.i
+  br label %404
 
-403:                                              ; preds = %401, %._crit_edge.i.i
-  %.2.i.i = phi i32 [ %.124.i.i, %401 ], [ 1, %._crit_edge.i.i ]
+404:                                              ; preds = %401, %._crit_edge.i.i
+  %.2.i.i = phi i32 [ %403, %401 ], [ %.1.i.i, %._crit_edge.i.i ]
   %.not26.i.i = icmp eq i32 %.1.i.i, 0
-  br i1 %.not26.i.i, label %.thread.i.i, label %404
+  br i1 %.not26.i.i, label %.thread.i.i, label %405
 
-404:                                              ; preds = %403
-  %405 = mul nsw i32 %.2.i.i, %.1.i.i
-  %406 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.81, i32 noundef %405) #11
+405:                                              ; preds = %404
+  %406 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.81, i32 noundef %.2.i.i) #11
   call void @slurm_process_option_or_exit(ptr noundef nonnull @opt, i32 noundef 110, ptr noundef %406, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %404, %403, %320
+.thread.i.i:                                      ; preds = %405, %404, %320
   %407 = call i32 @hostlist_count(ptr noundef %321) #11
   %408 = icmp sgt i32 %407, 0
   br i1 %408, label %409, label %_parse_pbs_nodes_opts.exit.i

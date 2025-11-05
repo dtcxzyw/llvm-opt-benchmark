@@ -438,65 +438,65 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread: ; preds = %_ZN5a
 .lr.ph:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %41 = sub nsw i64 64, %29
   %42 = xor i64 %34, -1
+  %43 = and i64 %.sroa.22.2, %34
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us
-  %.0106.us = phi i64 [ %43, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %spec.select.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %.sroa.23.0105.us = phi i64 [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %.sroa.6.0104.us = phi ptr [ %46, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %.sroa.673.0102.us = phi ptr [ %44, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %43 = add nsw i64 %.0106.us, -1
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.673.0102.us, i64 8
-  %.0.copyload.i.i.i40.us = load i64, ptr %44, align 1
-  %45 = freeze i64 %.0.copyload.i.i.i40.us
-  %.0.i.us = tail call noundef i64 @llvm.fshr.i64(i64 %45, i64 %.sroa.23.0105.us, i64 %9)
+  %.0106.us = phi i64 [ %44, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %spec.select.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %.sroa.23.0105.us = phi i64 [ %46, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %.sroa.6.0104.us = phi ptr [ %47, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %.sroa.673.0102.us = phi ptr [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %44 = add nsw i64 %.0106.us, -1
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.673.0102.us, i64 8
+  %.0.copyload.i.i.i40.us = load i64, ptr %45, align 1
+  %46 = freeze i64 %.0.copyload.i.i.i40.us
+  %.0.i.us = tail call noundef i64 @llvm.fshr.i64(i64 %46, i64 %.sroa.23.0105.us, i64 %9)
   store i64 %.0.i.us, ptr %.sroa.6.0104.us, align 1
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.6.0104.us, i64 8
-  %.not37.us = icmp eq i64 %43, 0
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.6.0104.us, i64 8
+  %.not37.us = icmp eq i64 %44, 0
   br i1 %.not37.us, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us, !llvm.loop !25
 
 .preheader:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
-  %.sroa.673.0.lcssa = phi ptr [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %44, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %53, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
+  %.sroa.673.0.lcssa = phi ptr [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %54, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
   %.sroa.22.0.lcssa = phi i64 [ %.sroa.22.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
-  %.sroa.6.0.lcssa = phi ptr [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %46, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %58, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
-  %.sroa.23.0.lcssa = phi i64 [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %54, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
+  %.sroa.6.0.lcssa = phi ptr [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %47, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %59, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
+  %.sroa.23.0.lcssa = phi i64 [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %46, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %55, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
   %.not38113 = icmp eq i64 %22, 0
   br i1 %.not38113, label %.loopexit, label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %.preheader
   %.not.i44 = icmp eq i64 %9, 0
-  %47 = trunc nsw i64 %9 to i32
-  %48 = sub nsw i32 8, %47
-  %49 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %29
-  %50 = sub nsw i32 8, %32
-  %51 = xor i64 %34, -1
+  %48 = trunc nsw i64 %9 to i32
+  %49 = sub nsw i32 8, %48
+  %50 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %29
+  %51 = sub nsw i32 8, %32
+  %52 = xor i64 %34, -1
   br label %65
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit: ; preds = %.lr.ph, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit
-  %.0106 = phi i64 [ %52, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %spec.select.i, %.lr.ph ]
-  %.sroa.23.0105 = phi i64 [ %54, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %.sroa.23.2, %.lr.ph ]
-  %.sroa.6.0104 = phi ptr [ %58, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %31, %.lr.ph ]
-  %.sroa.22.0103 = phi i64 [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %.sroa.22.2, %.lr.ph ]
-  %.sroa.673.0102 = phi ptr [ %53, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %11, %.lr.ph ]
-  %52 = add nsw i64 %.0106, -1
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.673.0102, i64 8
-  %.0.copyload.i.i.i40 = load i64, ptr %53, align 1
-  %54 = freeze i64 %.0.copyload.i.i.i40
-  %.0.i = tail call noundef i64 @llvm.fshr.i64(i64 %54, i64 %.sroa.23.0105, i64 %9)
-  %55 = shl i64 %.0.i, %29
-  %56 = lshr i64 %.0.i, %41
-  %57 = or disjoint i64 %56, %55
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.6.0104, i64 8
-  %.0.copyload.i.i.i42 = load i64, ptr %58, align 1
-  %59 = and i64 %.sroa.22.0103, %34
-  %60 = and i64 %57, %42
-  %61 = or disjoint i64 %60, %59
+  %.0106 = phi i64 [ %53, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %spec.select.i, %.lr.ph ]
+  %.sroa.23.0105 = phi i64 [ %55, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %.sroa.23.2, %.lr.ph ]
+  %.sroa.6.0104 = phi ptr [ %59, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %31, %.lr.ph ]
+  %.sroa.22.0103 = phi i64 [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %43, %.lr.ph ]
+  %.sroa.673.0102 = phi ptr [ %54, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %11, %.lr.ph ]
+  %53 = add nsw i64 %.0106, -1
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.673.0102, i64 8
+  %.0.copyload.i.i.i40 = load i64, ptr %54, align 1
+  %55 = freeze i64 %.0.copyload.i.i.i40
+  %.0.i = tail call noundef i64 @llvm.fshr.i64(i64 %55, i64 %.sroa.23.0105, i64 %9)
+  %56 = shl i64 %.0.i, %29
+  %57 = lshr i64 %.0.i, %41
+  %58 = or disjoint i64 %57, %56
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.6.0104, i64 8
+  %.0.copyload.i.i.i42 = load i64, ptr %59, align 1
+  %60 = and i64 %58, %42
+  %61 = or disjoint i64 %60, %.sroa.22.0103
   %62 = and i64 %.0.copyload.i.i.i42, %42
-  %63 = and i64 %57, %34
+  %63 = and i64 %58, %34
   %64 = or disjoint i64 %62, %63
   store i64 %61, ptr %.sroa.6.0104, align 1
-  store i64 %64, ptr %58, align 1
-  %.not37 = icmp eq i64 %52, 0
+  store i64 %64, ptr %59, align 1
+  %.not37 = icmp eq i64 %53, 0
   br i1 %.not37, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit, !llvm.loop !25
 
 65:                                               ; preds = %.lr.ph121, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
@@ -562,9 +562,9 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; 
   %.sroa.23.40.extract.trunc = trunc i64 %.sroa.23.1119 to i8
   %88 = trunc i64 %.sroa.23.1119 to i32
   %89 = and i32 %88, 255
-  %90 = lshr i32 %89, %47
+  %90 = lshr i32 %89, %48
   %91 = zext i8 %.0.copyload.i.i.i43 to i32
-  %92 = shl nuw nsw i32 %91, %48
+  %92 = shl nuw nsw i32 %91, %49
   %93 = or i32 %92, %90
   %94 = trunc i32 %93 to i8
   %.3.i = select i1 %.not.i44, i8 %.sroa.23.40.extract.trunc, i8 %94
@@ -590,17 +590,17 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit: ; preds =
 102:                                              ; preds = %101
   %103 = zext i8 %.2.i98 to i32
   %104 = shl nuw nsw i32 %103, %32
-  %105 = lshr i32 %103, %50
+  %105 = lshr i32 %103, %51
   %106 = getelementptr inbounds nuw i8, ptr %.sroa.6.1118, i64 1
   %.0.copyload.i.i.i52 = load i8, ptr %106, align 1
   %107 = and i64 %.sroa.22.1115, %34
   %108 = or i32 %104, %105
   %109 = zext nneg i32 %108 to i64
-  %110 = and i64 %109, %51
+  %110 = and i64 %109, %52
   %111 = or disjoint i64 %110, %107
   %112 = trunc i64 %111 to i8
   %113 = zext i8 %.0.copyload.i.i.i52 to i64
-  %114 = and i64 %113, %51
+  %114 = and i64 %113, %52
   %115 = and i64 %109, %34
   %116 = or disjoint i64 %114, %115
   %117 = trunc i64 %116 to i8
@@ -615,7 +615,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit: ; preds =
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
 
 .lr.ph.preheader.i46:                             ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit
-  %120 = load i8, ptr %49, align 1, !tbaa !3
+  %120 = load i8, ptr %50, align 1, !tbaa !3
   %121 = load i8, ptr %.sroa.6.1118, align 1, !tbaa !3
   br label %.lr.ph.i48
 
@@ -799,67 +799,67 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread: ; preds = %_ZN5a
 .lr.ph:                                           ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
   %41 = sub nsw i64 64, %29
   %42 = xor i64 %34, -1
+  %43 = and i64 %.sroa.22.2, %34
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us
-  %.039111.us = phi i64 [ %43, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %spec.select.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %.sroa.23.0110.us = phi i64 [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %.sroa.6.0109.us = phi ptr [ %47, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %.sroa.679.0107.us = phi ptr [ %44, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
-  %43 = add nsw i64 %.039111.us, -1
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.679.0107.us, i64 8
-  %.0.copyload.i.i.i46.us = load i64, ptr %44, align 1
-  %45 = freeze i64 %.0.copyload.i.i.i46.us
-  %.0.i.us = tail call noundef i64 @llvm.fshr.i64(i64 %45, i64 %.sroa.23.0110.us, i64 %9)
-  %46 = xor i64 %.0.i.us, -1
-  store i64 %46, ptr %.sroa.6.0109.us, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.6.0109.us, i64 8
-  %.not43.us = icmp eq i64 %43, 0
+  %.039111.us = phi i64 [ %44, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %spec.select.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %.sroa.23.0110.us = phi i64 [ %46, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %.sroa.6.0109.us = phi ptr [ %48, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %.sroa.679.0107.us = phi ptr [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ]
+  %44 = add nsw i64 %.039111.us, -1
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.679.0107.us, i64 8
+  %.0.copyload.i.i.i46.us = load i64, ptr %45, align 1
+  %46 = freeze i64 %.0.copyload.i.i.i46.us
+  %.0.i.us = tail call noundef i64 @llvm.fshr.i64(i64 %46, i64 %.sroa.23.0110.us, i64 %9)
+  %47 = xor i64 %.0.i.us, -1
+  store i64 %47, ptr %.sroa.6.0109.us, align 1
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.6.0109.us, i64 8
+  %.not43.us = icmp eq i64 %44, 0
   br i1 %.not43.us, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us, !llvm.loop !30
 
 .preheader:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit
-  %.sroa.679.0.lcssa = phi ptr [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %44, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %54, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
+  %.sroa.679.0.lcssa = phi ptr [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %11, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %55, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
   %.sroa.22.0.lcssa = phi i64 [ %.sroa.22.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %66, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
-  %.sroa.6.0.lcssa = phi ptr [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %47, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %60, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
-  %.sroa.23.0.lcssa = phi i64 [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %45, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %55, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
+  %.sroa.6.0.lcssa = phi ptr [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %31, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %48, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %61, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
+  %.sroa.23.0.lcssa = phi i64 [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit ], [ %.sroa.23.2, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread ], [ %46, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us ], [ %56, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ]
   %.not44118 = icmp eq i64 %22, 0
   br i1 %.not44118, label %.loopexit, label %.lr.ph126
 
 .lr.ph126:                                        ; preds = %.preheader
   %.not.i50 = icmp eq i64 %9, 0
-  %48 = trunc nsw i64 %9 to i32
-  %49 = sub nsw i32 8, %48
-  %50 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %29
-  %51 = sub nsw i32 8, %32
-  %52 = xor i64 %34, -1
+  %49 = trunc nsw i64 %9 to i32
+  %50 = sub nsw i32 8, %49
+  %51 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %29
+  %52 = sub nsw i32 8, %32
+  %53 = xor i64 %34, -1
   br label %67
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit: ; preds = %.lr.ph, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit
-  %.039111 = phi i64 [ %53, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %spec.select.i, %.lr.ph ]
-  %.sroa.23.0110 = phi i64 [ %55, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %.sroa.23.2, %.lr.ph ]
-  %.sroa.6.0109 = phi ptr [ %60, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %31, %.lr.ph ]
-  %.sroa.22.0108 = phi i64 [ %66, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %.sroa.22.2, %.lr.ph ]
-  %.sroa.679.0107 = phi ptr [ %54, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %11, %.lr.ph ]
-  %53 = add nsw i64 %.039111, -1
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.679.0107, i64 8
-  %.0.copyload.i.i.i46 = load i64, ptr %54, align 1
-  %55 = freeze i64 %.0.copyload.i.i.i46
-  %.0.i = tail call noundef i64 @llvm.fshr.i64(i64 %55, i64 %.sroa.23.0110, i64 %9)
-  %56 = xor i64 %.0.i, -1
-  %57 = shl i64 %56, %29
-  %58 = lshr i64 %56, %41
-  %59 = or disjoint i64 %58, %57
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.6.0109, i64 8
-  %.0.copyload.i.i.i48 = load i64, ptr %60, align 1
-  %61 = and i64 %.sroa.22.0108, %34
-  %62 = and i64 %59, %42
-  %63 = or disjoint i64 %62, %61
+  %.039111 = phi i64 [ %54, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %spec.select.i, %.lr.ph ]
+  %.sroa.23.0110 = phi i64 [ %56, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %.sroa.23.2, %.lr.ph ]
+  %.sroa.6.0109 = phi ptr [ %61, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %31, %.lr.ph ]
+  %.sroa.22.0108 = phi i64 [ %65, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %43, %.lr.ph ]
+  %.sroa.679.0107 = phi ptr [ %55, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit ], [ %11, %.lr.ph ]
+  %54 = add nsw i64 %.039111, -1
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.679.0107, i64 8
+  %.0.copyload.i.i.i46 = load i64, ptr %55, align 1
+  %56 = freeze i64 %.0.copyload.i.i.i46
+  %.0.i = tail call noundef i64 @llvm.fshr.i64(i64 %56, i64 %.sroa.23.0110, i64 %9)
+  %57 = xor i64 %.0.i, -1
+  %58 = shl i64 %57, %29
+  %59 = lshr i64 %57, %41
+  %60 = or disjoint i64 %59, %58
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.6.0109, i64 8
+  %.0.copyload.i.i.i48 = load i64, ptr %61, align 1
+  %62 = and i64 %60, %42
+  %63 = or disjoint i64 %62, %.sroa.22.0108
   %64 = and i64 %.0.copyload.i.i.i48, %42
-  %65 = and i64 %59, %34
+  %65 = and i64 %60, %34
   %66 = or disjoint i64 %64, %65
   store i64 %63, ptr %.sroa.6.0109, align 1
-  store i64 %66, ptr %60, align 1
-  %.not43 = icmp eq i64 %53, 0
+  store i64 %66, ptr %61, align 1
+  %.not43 = icmp eq i64 %54, 0
   br i1 %.not43, label %.preheader, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit, !llvm.loop !30
 
 67:                                               ; preds = %.lr.ph126, %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
@@ -925,9 +925,9 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit.thread: ; 
   %.sroa.23.40.extract.trunc = trunc i64 %.sroa.23.1124 to i8
   %90 = trunc i64 %.sroa.23.1124 to i32
   %91 = and i32 %90, 255
-  %92 = lshr i32 %91, %48
+  %92 = lshr i32 %91, %49
   %93 = zext i8 %.0.copyload.i.i.i49 to i32
-  %94 = shl nuw nsw i32 %93, %49
+  %94 = shl nuw nsw i32 %93, %50
   %95 = or i32 %94, %92
   %96 = trunc i32 %95 to i8
   %.3.i = select i1 %.not.i50, i8 %.sroa.23.40.extract.trunc, i8 %96
@@ -955,17 +955,17 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit: ; preds =
 107:                                              ; preds = %105
   %108 = zext i8 %106 to i32
   %109 = shl nuw nsw i32 %108, %32
-  %110 = lshr i32 %108, %51
+  %110 = lshr i32 %108, %52
   %111 = getelementptr inbounds nuw i8, ptr %.sroa.6.1123, i64 1
   %.0.copyload.i.i.i58 = load i8, ptr %111, align 1
   %112 = and i64 %.sroa.22.1120, %34
   %113 = or i32 %109, %110
   %114 = zext nneg i32 %113 to i64
-  %115 = and i64 %114, %52
+  %115 = and i64 %114, %53
   %116 = or disjoint i64 %115, %112
   %117 = trunc i64 %116 to i8
   %118 = zext i8 %.0.copyload.i.i.i58 to i64
-  %119 = and i64 %118, %52
+  %119 = and i64 %118, %53
   %120 = and i64 %114, %34
   %121 = or disjoint i64 %119, %120
   %122 = trunc i64 %121 to i8
@@ -980,7 +980,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit: ; preds =
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit
 
 .lr.ph.preheader.i52:                             ; preds = %_ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit
-  %125 = load i8, ptr %50, align 1, !tbaa !3
+  %125 = load i8, ptr %51, align 1, !tbaa !3
   %126 = load i8, ptr %.sroa.6.1123, align 1, !tbaa !3
   br label %.lr.ph.i54
 
@@ -2621,84 +2621,84 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %73 = sub nsw i64 64, %8
   %74 = xor i64 %66, -1
+  %75 = and i64 %.sroa.22.2.i, %66
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
-  %.010115.us.i = phi i64 [ %75, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.693.0113.us.i = phi ptr [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.21.0112.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.6.0111.us.i = phi ptr [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.681.0109.us.i = phi ptr [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %75 = add nsw i64 %.010115.us.i, -1
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
-  %.0.copyload.i.i.i18.us.i = load i64, ptr %76, align 1
-  %77 = freeze i64 %.0.copyload.i.i.i18.us.i
-  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %77, i64 %.sroa.23.0114.us.i, i64 %10)
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
-  %.0.copyload.i.i.i19.us.i = load i64, ptr %78, align 1
-  %79 = freeze i64 %.0.copyload.i.i.i19.us.i
-  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %79, i64 %.sroa.21.0112.us.i, i64 %13)
-  %80 = and i64 %.0.i20.us.i, %.0.i.us.i
-  store i64 %80, ptr %.sroa.6.0111.us.i, align 1
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
-  %.not.us.i = icmp eq i64 %75, 0
+  %.010115.us.i = phi i64 [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.693.0113.us.i = phi ptr [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.21.0112.us.i = phi i64 [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.6.0111.us.i = phi ptr [ %82, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.681.0109.us.i = phi ptr [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %76 = add nsw i64 %.010115.us.i, -1
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
+  %.0.copyload.i.i.i18.us.i = load i64, ptr %77, align 1
+  %78 = freeze i64 %.0.copyload.i.i.i18.us.i
+  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %78, i64 %.sroa.23.0114.us.i, i64 %10)
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
+  %.0.copyload.i.i.i19.us.i = load i64, ptr %79, align 1
+  %80 = freeze i64 %.0.copyload.i.i.i19.us.i
+  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %80, i64 %.sroa.21.0112.us.i, i64 %13)
+  %81 = and i64 %.0.i20.us.i, %.0.i.us.i
+  store i64 %81, ptr %.sroa.6.0111.us.i, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
+  %.not.us.i = icmp eq i64 %76, 0
   br i1 %.not.us.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, !llvm.loop !102
 
 .preheader.i:                                     ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
-  %.sroa.681.0.lcssa.i = phi ptr [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.681.0.lcssa.i = phi ptr [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.22.0.lcssa.i = phi i64 [ %.sroa.22.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %104, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %82, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %99, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %49, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpISt7bit_andEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
 .lr.ph138.i:                                      ; preds = %.preheader.i
   %.not.i24.i = icmp eq i64 %10, 0
-  %82 = trunc nsw i64 %10 to i32
-  %83 = sub nsw i32 8, %82
+  %83 = trunc nsw i64 %10 to i32
+  %84 = sub nsw i32 8, %83
   %.not.i27.i = icmp eq i64 %13, 0
-  %84 = trunc nsw i64 %13 to i32
-  %85 = sub nsw i32 8, %84
-  %86 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
-  %87 = sub nsw i32 8, %64
-  %88 = xor i64 %66, -1
+  %85 = trunc nsw i64 %13 to i32
+  %86 = sub nsw i32 8, %85
+  %87 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
+  %88 = sub nsw i32 8, %64
+  %89 = xor i64 %66, -1
   br label %105
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
-  %.010115.i = phi i64 [ %89, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
-  %.sroa.693.0113.i = phi ptr [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
-  %.sroa.21.0112.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
-  %.sroa.6.0111.i = phi ptr [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
-  %.sroa.22.0110.i = phi i64 [ %104, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.22.2.i, %.lr.ph.i18 ]
-  %.sroa.681.0109.i = phi ptr [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %62, %.lr.ph.i18 ]
-  %89 = add nsw i64 %.010115.i, -1
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
-  %.0.copyload.i.i.i18.i = load i64, ptr %90, align 1
-  %91 = freeze i64 %.0.copyload.i.i.i18.i
-  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %91, i64 %.sroa.23.0114.i, i64 %10)
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
-  %.0.copyload.i.i.i19.i = load i64, ptr %92, align 1
-  %93 = freeze i64 %.0.copyload.i.i.i19.i
-  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %93, i64 %.sroa.21.0112.i, i64 %13)
-  %94 = and i64 %.0.i20.i, %.0.i.i
-  %95 = shl i64 %94, %8
-  %96 = lshr i64 %94, %73
-  %97 = or disjoint i64 %96, %95
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
-  %.0.copyload.i.i.i22.i = load i64, ptr %98, align 1
-  %99 = and i64 %.sroa.22.0110.i, %66
-  %100 = and i64 %97, %74
-  %101 = or disjoint i64 %100, %99
+  %.010115.i = phi i64 [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
+  %.sroa.693.0113.i = phi ptr [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
+  %.sroa.21.0112.i = phi i64 [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
+  %.sroa.6.0111.i = phi ptr [ %99, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
+  %.sroa.22.0110.i = phi i64 [ %103, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %75, %.lr.ph.i18 ]
+  %.sroa.681.0109.i = phi ptr [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %62, %.lr.ph.i18 ]
+  %90 = add nsw i64 %.010115.i, -1
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
+  %.0.copyload.i.i.i18.i = load i64, ptr %91, align 1
+  %92 = freeze i64 %.0.copyload.i.i.i18.i
+  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %92, i64 %.sroa.23.0114.i, i64 %10)
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
+  %.0.copyload.i.i.i19.i = load i64, ptr %93, align 1
+  %94 = freeze i64 %.0.copyload.i.i.i19.i
+  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %94, i64 %.sroa.21.0112.i, i64 %13)
+  %95 = and i64 %.0.i20.i, %.0.i.i
+  %96 = shl i64 %95, %8
+  %97 = lshr i64 %95, %73
+  %98 = or disjoint i64 %97, %96
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
+  %.0.copyload.i.i.i22.i = load i64, ptr %99, align 1
+  %100 = and i64 %98, %74
+  %101 = or disjoint i64 %100, %.sroa.22.0110.i
   %102 = and i64 %.0.copyload.i.i.i22.i, %74
-  %103 = and i64 %97, %66
+  %103 = and i64 %98, %66
   %104 = or disjoint i64 %103, %102
   store i64 %101, ptr %.sroa.6.0111.i, align 1
-  store i64 %104, ptr %98, align 1
-  %.not.i = icmp eq i64 %89, 0
+  store i64 %104, ptr %99, align 1
+  %.not.i = icmp eq i64 %90, 0
   br i1 %.not.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, !llvm.loop !102
 
 105:                                              ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %.lr.ph138.i
@@ -2778,9 +2778,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %128, %125, %.lr.ph.
   %.sroa.23.40.extract.trunc.i = trunc i64 %.sroa.23.1136.i to i8
   %133 = trunc i64 %.sroa.23.1136.i to i32
   %134 = and i32 %133, 255
-  %135 = lshr i32 %134, %82
+  %135 = lshr i32 %134, %83
   %136 = zext i8 %.0.copyload.i.i.i23.i to i32
-  %137 = shl nuw nsw i32 %136, %83
+  %137 = shl nuw nsw i32 %136, %84
   %138 = or i32 %137, %135
   %139 = trunc i32 %138 to i8
   %.3.i.i = select i1 %.not.i24.i, i8 %.sroa.23.40.extract.trunc.i, i8 %139
@@ -2860,9 +2860,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i: ; preds = %162, %159, %.lr.p
   %.sroa.21.40.extract.trunc.i = trunc i64 %.sroa.21.1132.i to i8
   %167 = trunc i64 %.sroa.21.1132.i to i32
   %168 = and i32 %167, 255
-  %169 = lshr i32 %168, %84
+  %169 = lshr i32 %168, %85
   %170 = zext i8 %.0.copyload.i.i.i26.i to i32
-  %171 = shl nuw nsw i32 %170, %85
+  %171 = shl nuw nsw i32 %170, %86
   %172 = or i32 %171, %169
   %173 = trunc i32 %172 to i8
   %.3.i28.i = select i1 %.not.i27.i, i8 %.sroa.21.40.extract.trunc.i, i8 %173
@@ -2885,17 +2885,17 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
 178:                                              ; preds = %177
   %179 = zext i8 %175 to i32
   %180 = shl nuw nsw i32 %179, %64
-  %181 = lshr i32 %179, %87
+  %181 = lshr i32 %179, %88
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.6.1131.i, i64 1
   %.0.copyload.i.i.i55.i = load i8, ptr %182, align 1
   %183 = and i64 %.sroa.22.1128.i, %66
   %184 = or i32 %180, %181
   %185 = zext nneg i32 %184 to i64
-  %186 = and i64 %185, %88
+  %186 = and i64 %185, %89
   %187 = or disjoint i64 %186, %183
   %188 = trunc i64 %187 to i8
   %189 = zext i8 %.0.copyload.i.i.i55.i to i64
-  %190 = and i64 %189, %88
+  %190 = and i64 %189, %89
   %191 = and i64 %185, %66
   %192 = or disjoint i64 %190, %191
   %193 = trunc i64 %192 to i8
@@ -2915,7 +2915,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
   br i1 %198, label %.lr.ph.preheader.i49.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 .lr.ph.preheader.i49.i:                           ; preds = %196
-  %199 = load i8, ptr %86, align 1, !tbaa !3
+  %199 = load i8, ptr %87, align 1, !tbaa !3
   %200 = load i8, ptr %.sroa.6.1131.i, align 1, !tbaa !3
   %wide.trip.count.i50.i = zext nneg i32 %.0107.i to i64
   br label %.lr.ph.i51.i
@@ -3223,84 +3223,84 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %73 = sub nsw i64 64, %8
   %74 = xor i64 %66, -1
+  %75 = and i64 %.sroa.22.2.i, %66
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
-  %.010115.us.i = phi i64 [ %75, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.693.0113.us.i = phi ptr [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.21.0112.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.6.0111.us.i = phi ptr [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.681.0109.us.i = phi ptr [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %75 = add nsw i64 %.010115.us.i, -1
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
-  %.0.copyload.i.i.i18.us.i = load i64, ptr %76, align 1
-  %77 = freeze i64 %.0.copyload.i.i.i18.us.i
-  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %77, i64 %.sroa.23.0114.us.i, i64 %10)
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
-  %.0.copyload.i.i.i19.us.i = load i64, ptr %78, align 1
-  %79 = freeze i64 %.0.copyload.i.i.i19.us.i
-  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %79, i64 %.sroa.21.0112.us.i, i64 %13)
-  %80 = or i64 %.0.i20.us.i, %.0.i.us.i
-  store i64 %80, ptr %.sroa.6.0111.us.i, align 1
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
-  %.not.us.i = icmp eq i64 %75, 0
+  %.010115.us.i = phi i64 [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.693.0113.us.i = phi ptr [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.21.0112.us.i = phi i64 [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.6.0111.us.i = phi ptr [ %82, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.681.0109.us.i = phi ptr [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %76 = add nsw i64 %.010115.us.i, -1
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
+  %.0.copyload.i.i.i18.us.i = load i64, ptr %77, align 1
+  %78 = freeze i64 %.0.copyload.i.i.i18.us.i
+  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %78, i64 %.sroa.23.0114.us.i, i64 %10)
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
+  %.0.copyload.i.i.i19.us.i = load i64, ptr %79, align 1
+  %80 = freeze i64 %.0.copyload.i.i.i19.us.i
+  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %80, i64 %.sroa.21.0112.us.i, i64 %13)
+  %81 = or i64 %.0.i20.us.i, %.0.i.us.i
+  store i64 %81, ptr %.sroa.6.0111.us.i, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
+  %.not.us.i = icmp eq i64 %76, 0
   br i1 %.not.us.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, !llvm.loop !113
 
 .preheader.i:                                     ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
-  %.sroa.681.0.lcssa.i = phi ptr [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.681.0.lcssa.i = phi ptr [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.22.0.lcssa.i = phi i64 [ %.sroa.22.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %104, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %82, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %99, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %49, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpISt6bit_orEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
 .lr.ph138.i:                                      ; preds = %.preheader.i
   %.not.i24.i = icmp eq i64 %10, 0
-  %82 = trunc nsw i64 %10 to i32
-  %83 = sub nsw i32 8, %82
+  %83 = trunc nsw i64 %10 to i32
+  %84 = sub nsw i32 8, %83
   %.not.i27.i = icmp eq i64 %13, 0
-  %84 = trunc nsw i64 %13 to i32
-  %85 = sub nsw i32 8, %84
-  %86 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
-  %87 = sub nsw i32 8, %64
-  %88 = xor i64 %66, -1
+  %85 = trunc nsw i64 %13 to i32
+  %86 = sub nsw i32 8, %85
+  %87 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
+  %88 = sub nsw i32 8, %64
+  %89 = xor i64 %66, -1
   br label %105
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
-  %.010115.i = phi i64 [ %89, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
-  %.sroa.693.0113.i = phi ptr [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
-  %.sroa.21.0112.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
-  %.sroa.6.0111.i = phi ptr [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
-  %.sroa.22.0110.i = phi i64 [ %104, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.22.2.i, %.lr.ph.i18 ]
-  %.sroa.681.0109.i = phi ptr [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %62, %.lr.ph.i18 ]
-  %89 = add nsw i64 %.010115.i, -1
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
-  %.0.copyload.i.i.i18.i = load i64, ptr %90, align 1
-  %91 = freeze i64 %.0.copyload.i.i.i18.i
-  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %91, i64 %.sroa.23.0114.i, i64 %10)
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
-  %.0.copyload.i.i.i19.i = load i64, ptr %92, align 1
-  %93 = freeze i64 %.0.copyload.i.i.i19.i
-  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %93, i64 %.sroa.21.0112.i, i64 %13)
-  %94 = or i64 %.0.i20.i, %.0.i.i
-  %95 = shl i64 %94, %8
-  %96 = lshr i64 %94, %73
-  %97 = or disjoint i64 %96, %95
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
-  %.0.copyload.i.i.i22.i = load i64, ptr %98, align 1
-  %99 = and i64 %.sroa.22.0110.i, %66
-  %100 = and i64 %97, %74
-  %101 = or disjoint i64 %100, %99
+  %.010115.i = phi i64 [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
+  %.sroa.693.0113.i = phi ptr [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
+  %.sroa.21.0112.i = phi i64 [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
+  %.sroa.6.0111.i = phi ptr [ %99, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
+  %.sroa.22.0110.i = phi i64 [ %103, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %75, %.lr.ph.i18 ]
+  %.sroa.681.0109.i = phi ptr [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %62, %.lr.ph.i18 ]
+  %90 = add nsw i64 %.010115.i, -1
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
+  %.0.copyload.i.i.i18.i = load i64, ptr %91, align 1
+  %92 = freeze i64 %.0.copyload.i.i.i18.i
+  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %92, i64 %.sroa.23.0114.i, i64 %10)
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
+  %.0.copyload.i.i.i19.i = load i64, ptr %93, align 1
+  %94 = freeze i64 %.0.copyload.i.i.i19.i
+  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %94, i64 %.sroa.21.0112.i, i64 %13)
+  %95 = or i64 %.0.i20.i, %.0.i.i
+  %96 = shl i64 %95, %8
+  %97 = lshr i64 %95, %73
+  %98 = or disjoint i64 %97, %96
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
+  %.0.copyload.i.i.i22.i = load i64, ptr %99, align 1
+  %100 = and i64 %98, %74
+  %101 = or disjoint i64 %100, %.sroa.22.0110.i
   %102 = and i64 %.0.copyload.i.i.i22.i, %74
-  %103 = and i64 %97, %66
+  %103 = and i64 %98, %66
   %104 = or disjoint i64 %103, %102
   store i64 %101, ptr %.sroa.6.0111.i, align 1
-  store i64 %104, ptr %98, align 1
-  %.not.i = icmp eq i64 %89, 0
+  store i64 %104, ptr %99, align 1
+  %.not.i = icmp eq i64 %90, 0
   br i1 %.not.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, !llvm.loop !113
 
 105:                                              ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %.lr.ph138.i
@@ -3380,9 +3380,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %128, %125, %.lr.ph.
   %.sroa.23.40.extract.trunc.i = trunc i64 %.sroa.23.1136.i to i8
   %133 = trunc i64 %.sroa.23.1136.i to i32
   %134 = and i32 %133, 255
-  %135 = lshr i32 %134, %82
+  %135 = lshr i32 %134, %83
   %136 = zext i8 %.0.copyload.i.i.i23.i to i32
-  %137 = shl nuw nsw i32 %136, %83
+  %137 = shl nuw nsw i32 %136, %84
   %138 = or i32 %137, %135
   %139 = trunc i32 %138 to i8
   %.3.i.i = select i1 %.not.i24.i, i8 %.sroa.23.40.extract.trunc.i, i8 %139
@@ -3462,9 +3462,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i: ; preds = %162, %159, %.lr.p
   %.sroa.21.40.extract.trunc.i = trunc i64 %.sroa.21.1132.i to i8
   %167 = trunc i64 %.sroa.21.1132.i to i32
   %168 = and i32 %167, 255
-  %169 = lshr i32 %168, %84
+  %169 = lshr i32 %168, %85
   %170 = zext i8 %.0.copyload.i.i.i26.i to i32
-  %171 = shl nuw nsw i32 %170, %85
+  %171 = shl nuw nsw i32 %170, %86
   %172 = or i32 %171, %169
   %173 = trunc i32 %172 to i8
   %.3.i28.i = select i1 %.not.i27.i, i8 %.sroa.21.40.extract.trunc.i, i8 %173
@@ -3487,17 +3487,17 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
 178:                                              ; preds = %177
   %179 = zext i8 %175 to i32
   %180 = shl nuw nsw i32 %179, %64
-  %181 = lshr i32 %179, %87
+  %181 = lshr i32 %179, %88
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.6.1131.i, i64 1
   %.0.copyload.i.i.i55.i = load i8, ptr %182, align 1
   %183 = and i64 %.sroa.22.1128.i, %66
   %184 = or i32 %180, %181
   %185 = zext nneg i32 %184 to i64
-  %186 = and i64 %185, %88
+  %186 = and i64 %185, %89
   %187 = or disjoint i64 %186, %183
   %188 = trunc i64 %187 to i8
   %189 = zext i8 %.0.copyload.i.i.i55.i to i64
-  %190 = and i64 %189, %88
+  %190 = and i64 %189, %89
   %191 = and i64 %185, %66
   %192 = or disjoint i64 %190, %191
   %193 = trunc i64 %192 to i8
@@ -3517,7 +3517,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
   br i1 %198, label %.lr.ph.preheader.i49.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 .lr.ph.preheader.i49.i:                           ; preds = %196
-  %199 = load i8, ptr %86, align 1, !tbaa !3
+  %199 = load i8, ptr %87, align 1, !tbaa !3
   %200 = load i8, ptr %.sroa.6.1131.i, align 1, !tbaa !3
   %wide.trip.count.i50.i = zext nneg i32 %.0107.i to i64
   br label %.lr.ph.i51.i
@@ -3825,84 +3825,84 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %73 = sub nsw i64 64, %8
   %74 = xor i64 %66, -1
+  %75 = and i64 %.sroa.22.2.i, %66
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
-  %.010115.us.i = phi i64 [ %75, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.693.0113.us.i = phi ptr [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.21.0112.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.6.0111.us.i = phi ptr [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.681.0109.us.i = phi ptr [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %75 = add nsw i64 %.010115.us.i, -1
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
-  %.0.copyload.i.i.i18.us.i = load i64, ptr %76, align 1
-  %77 = freeze i64 %.0.copyload.i.i.i18.us.i
-  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %77, i64 %.sroa.23.0114.us.i, i64 %10)
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
-  %.0.copyload.i.i.i19.us.i = load i64, ptr %78, align 1
-  %79 = freeze i64 %.0.copyload.i.i.i19.us.i
-  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %79, i64 %.sroa.21.0112.us.i, i64 %13)
-  %80 = xor i64 %.0.i20.us.i, %.0.i.us.i
-  store i64 %80, ptr %.sroa.6.0111.us.i, align 1
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
-  %.not.us.i = icmp eq i64 %75, 0
+  %.010115.us.i = phi i64 [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.693.0113.us.i = phi ptr [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.21.0112.us.i = phi i64 [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.6.0111.us.i = phi ptr [ %82, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.681.0109.us.i = phi ptr [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %76 = add nsw i64 %.010115.us.i, -1
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
+  %.0.copyload.i.i.i18.us.i = load i64, ptr %77, align 1
+  %78 = freeze i64 %.0.copyload.i.i.i18.us.i
+  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %78, i64 %.sroa.23.0114.us.i, i64 %10)
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
+  %.0.copyload.i.i.i19.us.i = load i64, ptr %79, align 1
+  %80 = freeze i64 %.0.copyload.i.i.i19.us.i
+  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %80, i64 %.sroa.21.0112.us.i, i64 %13)
+  %81 = xor i64 %.0.i20.us.i, %.0.i.us.i
+  store i64 %81, ptr %.sroa.6.0111.us.i, align 1
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
+  %.not.us.i = icmp eq i64 %76, 0
   br i1 %.not.us.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, !llvm.loop !124
 
 .preheader.i:                                     ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
-  %.sroa.681.0.lcssa.i = phi ptr [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.681.0.lcssa.i = phi ptr [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %62, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.22.0.lcssa.i = phi i64 [ %.sroa.22.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %104, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.6.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %82, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %99, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.693.0.lcssa.i = phi ptr [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %38, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %49, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpISt7bit_xorEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
 .lr.ph138.i:                                      ; preds = %.preheader.i
   %.not.i24.i = icmp eq i64 %10, 0
-  %82 = trunc nsw i64 %10 to i32
-  %83 = sub nsw i32 8, %82
+  %83 = trunc nsw i64 %10 to i32
+  %84 = sub nsw i32 8, %83
   %.not.i27.i = icmp eq i64 %13, 0
-  %84 = trunc nsw i64 %13 to i32
-  %85 = sub nsw i32 8, %84
-  %86 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
-  %87 = sub nsw i32 8, %64
-  %88 = xor i64 %66, -1
+  %85 = trunc nsw i64 %13 to i32
+  %86 = sub nsw i32 8, %85
+  %87 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
+  %88 = sub nsw i32 8, %64
+  %89 = xor i64 %66, -1
   br label %105
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
-  %.010115.i = phi i64 [ %89, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
-  %.sroa.693.0113.i = phi ptr [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
-  %.sroa.21.0112.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
-  %.sroa.6.0111.i = phi ptr [ %98, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
-  %.sroa.22.0110.i = phi i64 [ %104, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.22.2.i, %.lr.ph.i18 ]
-  %.sroa.681.0109.i = phi ptr [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %62, %.lr.ph.i18 ]
-  %89 = add nsw i64 %.010115.i, -1
-  %90 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
-  %.0.copyload.i.i.i18.i = load i64, ptr %90, align 1
-  %91 = freeze i64 %.0.copyload.i.i.i18.i
-  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %91, i64 %.sroa.23.0114.i, i64 %10)
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
-  %.0.copyload.i.i.i19.i = load i64, ptr %92, align 1
-  %93 = freeze i64 %.0.copyload.i.i.i19.i
-  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %93, i64 %.sroa.21.0112.i, i64 %13)
-  %94 = xor i64 %.0.i20.i, %.0.i.i
-  %95 = shl i64 %94, %8
-  %96 = lshr i64 %94, %73
-  %97 = or disjoint i64 %96, %95
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
-  %.0.copyload.i.i.i22.i = load i64, ptr %98, align 1
-  %99 = and i64 %.sroa.22.0110.i, %66
-  %100 = and i64 %97, %74
-  %101 = or disjoint i64 %100, %99
+  %.010115.i = phi i64 [ %90, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
+  %.sroa.693.0113.i = phi ptr [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %38, %.lr.ph.i18 ]
+  %.sroa.21.0112.i = phi i64 [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
+  %.sroa.6.0111.i = phi ptr [ %99, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
+  %.sroa.22.0110.i = phi i64 [ %103, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %75, %.lr.ph.i18 ]
+  %.sroa.681.0109.i = phi ptr [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %62, %.lr.ph.i18 ]
+  %90 = add nsw i64 %.010115.i, -1
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
+  %.0.copyload.i.i.i18.i = load i64, ptr %91, align 1
+  %92 = freeze i64 %.0.copyload.i.i.i18.i
+  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %92, i64 %.sroa.23.0114.i, i64 %10)
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
+  %.0.copyload.i.i.i19.i = load i64, ptr %93, align 1
+  %94 = freeze i64 %.0.copyload.i.i.i19.i
+  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %94, i64 %.sroa.21.0112.i, i64 %13)
+  %95 = xor i64 %.0.i20.i, %.0.i.i
+  %96 = shl i64 %95, %8
+  %97 = lshr i64 %95, %73
+  %98 = or disjoint i64 %97, %96
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
+  %.0.copyload.i.i.i22.i = load i64, ptr %99, align 1
+  %100 = and i64 %98, %74
+  %101 = or disjoint i64 %100, %.sroa.22.0110.i
   %102 = and i64 %.0.copyload.i.i.i22.i, %74
-  %103 = and i64 %97, %66
+  %103 = and i64 %98, %66
   %104 = or disjoint i64 %103, %102
   store i64 %101, ptr %.sroa.6.0111.i, align 1
-  store i64 %104, ptr %98, align 1
-  %.not.i = icmp eq i64 %89, 0
+  store i64 %104, ptr %99, align 1
+  %.not.i = icmp eq i64 %90, 0
   br i1 %.not.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, !llvm.loop !124
 
 105:                                              ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %.lr.ph138.i
@@ -3982,9 +3982,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %128, %125, %.lr.ph.
   %.sroa.23.40.extract.trunc.i = trunc i64 %.sroa.23.1136.i to i8
   %133 = trunc i64 %.sroa.23.1136.i to i32
   %134 = and i32 %133, 255
-  %135 = lshr i32 %134, %82
+  %135 = lshr i32 %134, %83
   %136 = zext i8 %.0.copyload.i.i.i23.i to i32
-  %137 = shl nuw nsw i32 %136, %83
+  %137 = shl nuw nsw i32 %136, %84
   %138 = or i32 %137, %135
   %139 = trunc i32 %138 to i8
   %.3.i.i = select i1 %.not.i24.i, i8 %.sroa.23.40.extract.trunc.i, i8 %139
@@ -4064,9 +4064,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i: ; preds = %162, %159, %.lr.p
   %.sroa.21.40.extract.trunc.i = trunc i64 %.sroa.21.1132.i to i8
   %167 = trunc i64 %.sroa.21.1132.i to i32
   %168 = and i32 %167, 255
-  %169 = lshr i32 %168, %84
+  %169 = lshr i32 %168, %85
   %170 = zext i8 %.0.copyload.i.i.i26.i to i32
-  %171 = shl nuw nsw i32 %170, %85
+  %171 = shl nuw nsw i32 %170, %86
   %172 = or i32 %171, %169
   %173 = trunc i32 %172 to i8
   %.3.i28.i = select i1 %.not.i27.i, i8 %.sroa.21.40.extract.trunc.i, i8 %173
@@ -4089,17 +4089,17 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
 178:                                              ; preds = %177
   %179 = zext i8 %175 to i32
   %180 = shl nuw nsw i32 %179, %64
-  %181 = lshr i32 %179, %87
+  %181 = lshr i32 %179, %88
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.6.1131.i, i64 1
   %.0.copyload.i.i.i55.i = load i8, ptr %182, align 1
   %183 = and i64 %.sroa.22.1128.i, %66
   %184 = or i32 %180, %181
   %185 = zext nneg i32 %184 to i64
-  %186 = and i64 %185, %88
+  %186 = and i64 %185, %89
   %187 = or disjoint i64 %186, %183
   %188 = trunc i64 %187 to i8
   %189 = zext i8 %.0.copyload.i.i.i55.i to i64
-  %190 = and i64 %189, %88
+  %190 = and i64 %189, %89
   %191 = and i64 %185, %66
   %192 = or disjoint i64 %190, %191
   %193 = trunc i64 %192 to i8
@@ -4119,7 +4119,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
   br i1 %198, label %.lr.ph.preheader.i49.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 .lr.ph.preheader.i49.i:                           ; preds = %196
-  %199 = load i8, ptr %86, align 1, !tbaa !3
+  %199 = load i8, ptr %87, align 1, !tbaa !3
   %200 = load i8, ptr %.sroa.6.1131.i, align 1, !tbaa !3
   %wide.trip.count.i50.i = zext nneg i32 %.0107.i to i64
   br label %.lr.ph.i51.i
@@ -4428,86 +4428,86 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %74 = sub nsw i64 64, %8
   %75 = xor i64 %67, -1
+  %76 = and i64 %.sroa.22.2.i, %67
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
-  %.010115.us.i = phi i64 [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.693.0113.us.i = phi ptr [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.21.0112.us.i = phi i64 [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.6.0111.us.i = phi ptr [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.681.0109.us.i = phi ptr [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %76 = add nsw i64 %.010115.us.i, -1
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
-  %.0.copyload.i.i.i18.us.i = load i64, ptr %77, align 1
-  %78 = freeze i64 %.0.copyload.i.i.i18.us.i
-  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %78, i64 %.sroa.23.0114.us.i, i64 %10)
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
-  %.0.copyload.i.i.i19.us.i = load i64, ptr %79, align 1
-  %80 = freeze i64 %.0.copyload.i.i.i19.us.i
-  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %80, i64 %.sroa.21.0112.us.i, i64 %13)
-  %81 = xor i64 %.0.i20.us.i, -1
-  %82 = and i64 %.0.i.us.i, %81
-  store i64 %82, ptr %.sroa.6.0111.us.i, align 1
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
-  %.not.us.i = icmp eq i64 %76, 0
+  %.010115.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.693.0113.us.i = phi ptr [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.21.0112.us.i = phi i64 [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.6.0111.us.i = phi ptr [ %84, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.681.0109.us.i = phi ptr [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %77 = add nsw i64 %.010115.us.i, -1
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
+  %.0.copyload.i.i.i18.us.i = load i64, ptr %78, align 1
+  %79 = freeze i64 %.0.copyload.i.i.i18.us.i
+  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %79, i64 %.sroa.23.0114.us.i, i64 %10)
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
+  %.0.copyload.i.i.i19.us.i = load i64, ptr %80, align 1
+  %81 = freeze i64 %.0.copyload.i.i.i19.us.i
+  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %81, i64 %.sroa.21.0112.us.i, i64 %13)
+  %82 = xor i64 %.0.i20.us.i, -1
+  %83 = and i64 %.0.i.us.i, %82
+  store i64 %83, ptr %.sroa.6.0111.us.i, align 1
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
+  %.not.us.i = icmp eq i64 %77, 0
   br i1 %.not.us.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, !llvm.loop !135
 
 .preheader.i:                                     ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
-  %.sroa.681.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.681.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.22.0.lcssa.i = phi i64 [ %.sroa.22.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %107, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.6.0.lcssa.i = phi ptr [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.693.0.lcssa.i = phi ptr [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.6.0.lcssa.i = phi ptr [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %84, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %102, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %96, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.693.0.lcssa.i = phi ptr [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %50, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpINS0_8AndNotOpEEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
 .lr.ph138.i:                                      ; preds = %.preheader.i
   %.not.i24.i = icmp eq i64 %10, 0
-  %84 = trunc nsw i64 %10 to i32
-  %85 = sub nsw i32 8, %84
+  %85 = trunc nsw i64 %10 to i32
+  %86 = sub nsw i32 8, %85
   %.not.i27.i = icmp eq i64 %13, 0
-  %86 = trunc nsw i64 %13 to i32
-  %87 = sub nsw i32 8, %86
-  %88 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
-  %89 = sub nsw i32 8, %65
-  %90 = xor i64 %67, -1
+  %87 = trunc nsw i64 %13 to i32
+  %88 = sub nsw i32 8, %87
+  %89 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
+  %90 = sub nsw i32 8, %65
+  %91 = xor i64 %67, -1
   br label %108
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
-  %.010115.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
-  %.sroa.693.0113.i = phi ptr [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %39, %.lr.ph.i18 ]
-  %.sroa.21.0112.i = phi i64 [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
-  %.sroa.6.0111.i = phi ptr [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %64, %.lr.ph.i18 ]
-  %.sroa.22.0110.i = phi i64 [ %107, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.22.2.i, %.lr.ph.i18 ]
-  %.sroa.681.0109.i = phi ptr [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
-  %91 = add nsw i64 %.010115.i, -1
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
-  %.0.copyload.i.i.i18.i = load i64, ptr %92, align 1
-  %93 = freeze i64 %.0.copyload.i.i.i18.i
-  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %93, i64 %.sroa.23.0114.i, i64 %10)
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
-  %.0.copyload.i.i.i19.i = load i64, ptr %94, align 1
-  %95 = freeze i64 %.0.copyload.i.i.i19.i
-  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %95, i64 %.sroa.21.0112.i, i64 %13)
-  %96 = xor i64 %.0.i20.i, -1
-  %97 = and i64 %.0.i.i, %96
-  %98 = shl i64 %97, %8
-  %99 = lshr i64 %97, %74
-  %100 = or disjoint i64 %99, %98
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
-  %.0.copyload.i.i.i22.i = load i64, ptr %101, align 1
-  %102 = and i64 %.sroa.22.0110.i, %67
-  %103 = and i64 %100, %75
-  %104 = or disjoint i64 %103, %102
+  %.010115.i = phi i64 [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
+  %.sroa.693.0113.i = phi ptr [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %39, %.lr.ph.i18 ]
+  %.sroa.21.0112.i = phi i64 [ %96, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
+  %.sroa.6.0111.i = phi ptr [ %102, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %64, %.lr.ph.i18 ]
+  %.sroa.22.0110.i = phi i64 [ %106, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %76, %.lr.ph.i18 ]
+  %.sroa.681.0109.i = phi ptr [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
+  %92 = add nsw i64 %.010115.i, -1
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
+  %.0.copyload.i.i.i18.i = load i64, ptr %93, align 1
+  %94 = freeze i64 %.0.copyload.i.i.i18.i
+  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %94, i64 %.sroa.23.0114.i, i64 %10)
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
+  %.0.copyload.i.i.i19.i = load i64, ptr %95, align 1
+  %96 = freeze i64 %.0.copyload.i.i.i19.i
+  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %96, i64 %.sroa.21.0112.i, i64 %13)
+  %97 = xor i64 %.0.i20.i, -1
+  %98 = and i64 %.0.i.i, %97
+  %99 = shl i64 %98, %8
+  %100 = lshr i64 %98, %74
+  %101 = or disjoint i64 %100, %99
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
+  %.0.copyload.i.i.i22.i = load i64, ptr %102, align 1
+  %103 = and i64 %101, %75
+  %104 = or disjoint i64 %103, %.sroa.22.0110.i
   %105 = and i64 %.0.copyload.i.i.i22.i, %75
-  %106 = and i64 %100, %67
+  %106 = and i64 %101, %67
   %107 = or disjoint i64 %106, %105
   store i64 %104, ptr %.sroa.6.0111.i, align 1
-  store i64 %107, ptr %101, align 1
-  %.not.i = icmp eq i64 %91, 0
+  store i64 %107, ptr %102, align 1
+  %.not.i = icmp eq i64 %92, 0
   br i1 %.not.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, !llvm.loop !135
 
 108:                                              ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %.lr.ph138.i
@@ -4587,9 +4587,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %131, %128, %.lr.ph.
   %.sroa.23.40.extract.trunc.i = trunc i64 %.sroa.23.1136.i to i8
   %136 = trunc i64 %.sroa.23.1136.i to i32
   %137 = and i32 %136, 255
-  %138 = lshr i32 %137, %84
+  %138 = lshr i32 %137, %85
   %139 = zext i8 %.0.copyload.i.i.i23.i to i32
-  %140 = shl nuw nsw i32 %139, %85
+  %140 = shl nuw nsw i32 %139, %86
   %141 = or i32 %140, %138
   %142 = trunc i32 %141 to i8
   %.3.i.i = select i1 %.not.i24.i, i8 %.sroa.23.40.extract.trunc.i, i8 %142
@@ -4669,9 +4669,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i: ; preds = %165, %162, %.lr.p
   %.sroa.21.40.extract.trunc.i = trunc i64 %.sroa.21.1132.i to i8
   %170 = trunc i64 %.sroa.21.1132.i to i32
   %171 = and i32 %170, 255
-  %172 = lshr i32 %171, %86
+  %172 = lshr i32 %171, %87
   %173 = zext i8 %.0.copyload.i.i.i26.i to i32
-  %174 = shl nuw nsw i32 %173, %87
+  %174 = shl nuw nsw i32 %173, %88
   %175 = or i32 %174, %172
   %176 = trunc i32 %175 to i8
   %.3.i28.i = select i1 %.not.i27.i, i8 %.sroa.21.40.extract.trunc.i, i8 %176
@@ -4695,17 +4695,17 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
 182:                                              ; preds = %181
   %183 = zext i8 %179 to i32
   %184 = shl nuw nsw i32 %183, %65
-  %185 = lshr i32 %183, %89
+  %185 = lshr i32 %183, %90
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.6.1131.i, i64 1
   %.0.copyload.i.i.i55.i = load i8, ptr %186, align 1
   %187 = and i64 %.sroa.22.1128.i, %67
   %188 = or i32 %184, %185
   %189 = zext nneg i32 %188 to i64
-  %190 = and i64 %189, %90
+  %190 = and i64 %189, %91
   %191 = or disjoint i64 %190, %187
   %192 = trunc i64 %191 to i8
   %193 = zext i8 %.0.copyload.i.i.i55.i to i64
-  %194 = and i64 %193, %90
+  %194 = and i64 %193, %91
   %195 = and i64 %189, %67
   %196 = or disjoint i64 %194, %195
   %197 = trunc i64 %196 to i8
@@ -4725,7 +4725,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
   br i1 %202, label %.lr.ph.preheader.i49.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 .lr.ph.preheader.i49.i:                           ; preds = %200
-  %203 = load i8, ptr %88, align 1, !tbaa !3
+  %203 = load i8, ptr %89, align 1, !tbaa !3
   %204 = load i8, ptr %.sroa.6.1131.i, align 1, !tbaa !3
   %wide.trip.count.i50.i = zext nneg i32 %.0107.i to i64
   br label %.lr.ph.i51.i
@@ -5034,86 +5034,86 @@ _ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i: ; preds = %_ZN
 .lr.ph.i18:                                       ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
   %74 = sub nsw i64 64, %8
   %75 = xor i64 %67, -1
+  %76 = and i64 %.sroa.22.2.i, %67
   br label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i
-  %.010115.us.i = phi i64 [ %76, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.23.0114.us.i = phi i64 [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.693.0113.us.i = phi ptr [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.21.0112.us.i = phi i64 [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.6.0111.us.i = phi ptr [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %.sroa.681.0109.us.i = phi ptr [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
-  %76 = add nsw i64 %.010115.us.i, -1
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
-  %.0.copyload.i.i.i18.us.i = load i64, ptr %77, align 1
-  %78 = freeze i64 %.0.copyload.i.i.i18.us.i
-  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %78, i64 %.sroa.23.0114.us.i, i64 %10)
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
-  %.0.copyload.i.i.i19.us.i = load i64, ptr %79, align 1
-  %80 = freeze i64 %.0.copyload.i.i.i19.us.i
-  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %80, i64 %.sroa.21.0112.us.i, i64 %13)
-  %81 = xor i64 %.0.i20.us.i, -1
-  %82 = or i64 %.0.i.us.i, %81
-  store i64 %82, ptr %.sroa.6.0111.us.i, align 1
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
-  %.not.us.i = icmp eq i64 %76, 0
+  %.010115.us.i = phi i64 [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %spec.select.i.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.23.0114.us.i = phi i64 [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.693.0113.us.i = phi ptr [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.21.0112.us.i = phi i64 [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.6.0111.us.i = phi ptr [ %84, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %.sroa.681.0109.us.i = phi ptr [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ]
+  %77 = add nsw i64 %.010115.us.i, -1
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.us.i, i64 8
+  %.0.copyload.i.i.i18.us.i = load i64, ptr %78, align 1
+  %79 = freeze i64 %.0.copyload.i.i.i18.us.i
+  %.0.i.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %79, i64 %.sroa.23.0114.us.i, i64 %10)
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.us.i, i64 8
+  %.0.copyload.i.i.i19.us.i = load i64, ptr %80, align 1
+  %81 = freeze i64 %.0.copyload.i.i.i19.us.i
+  %.0.i20.us.i = tail call noundef i64 @llvm.fshr.i64(i64 %81, i64 %.sroa.21.0112.us.i, i64 %13)
+  %82 = xor i64 %.0.i20.us.i, -1
+  %83 = or i64 %.0.i.us.i, %82
+  store i64 %83, ptr %.sroa.6.0111.us.i, align 1
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.us.i, i64 8
+  %.not.us.i = icmp eq i64 %77, 0
   br i1 %.not.us.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, !llvm.loop !146
 
 .preheader.i:                                     ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i
-  %.sroa.681.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.681.0.lcssa.i = phi ptr [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %63, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.sroa.22.0.lcssa.i = phi i64 [ %.sroa.22.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ undef, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %107, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.6.0.lcssa.i = phi ptr [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %83, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %80, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.693.0.lcssa.i = phi ptr [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %77, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
-  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.6.0.lcssa.i = phi ptr [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %64, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %84, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %102, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.21.0.lcssa.i = phi i64 [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.21.2.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %81, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %96, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.693.0.lcssa.i = phi ptr [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %39, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %78, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
+  %.sroa.23.0.lcssa.i = phi i64 [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.i ], [ %.sroa.23.2159.i, %_ZN5arrow8internal16BitmapWordWriterImLb1EEC2EPhll.exit.thread.i ], [ %79, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.us.i ], [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ]
   %.not11126.i = icmp eq i64 %50, 0
   br i1 %.not11126.i, label %_ZN5arrow8internal12_GLOBAL__N_115AlignedBitmapOpINS0_7OrNotOpEEEvPKhlS5_lPhll.exit, label %.lr.ph138.i
 
 .lr.ph138.i:                                      ; preds = %.preheader.i
   %.not.i24.i = icmp eq i64 %10, 0
-  %84 = trunc nsw i64 %10 to i32
-  %85 = sub nsw i32 8, %84
+  %85 = trunc nsw i64 %10 to i32
+  %86 = sub nsw i32 8, %85
   %.not.i27.i = icmp eq i64 %13, 0
-  %86 = trunc nsw i64 %13 to i32
-  %87 = sub nsw i32 8, %86
-  %88 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
-  %89 = sub nsw i32 8, %65
-  %90 = xor i64 %67, -1
+  %87 = trunc nsw i64 %13 to i32
+  %88 = sub nsw i32 8, %87
+  %89 = getelementptr inbounds i8, ptr @_ZN5arrow8bit_utilL8kBitmaskE, i64 %8
+  %90 = sub nsw i32 8, %65
+  %91 = xor i64 %67, -1
   br label %108
 
 _ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i: ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, %.lr.ph.i18
-  %.010115.i = phi i64 [ %91, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
-  %.sroa.23.0114.i = phi i64 [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
-  %.sroa.693.0113.i = phi ptr [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %39, %.lr.ph.i18 ]
-  %.sroa.21.0112.i = phi i64 [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
-  %.sroa.6.0111.i = phi ptr [ %101, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %64, %.lr.ph.i18 ]
-  %.sroa.22.0110.i = phi i64 [ %107, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.22.2.i, %.lr.ph.i18 ]
-  %.sroa.681.0109.i = phi ptr [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
-  %91 = add nsw i64 %.010115.i, -1
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
-  %.0.copyload.i.i.i18.i = load i64, ptr %92, align 1
-  %93 = freeze i64 %.0.copyload.i.i.i18.i
-  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %93, i64 %.sroa.23.0114.i, i64 %10)
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
-  %.0.copyload.i.i.i19.i = load i64, ptr %94, align 1
-  %95 = freeze i64 %.0.copyload.i.i.i19.i
-  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %95, i64 %.sroa.21.0112.i, i64 %13)
-  %96 = xor i64 %.0.i20.i, -1
-  %97 = or i64 %.0.i.i, %96
-  %98 = shl i64 %97, %8
-  %99 = lshr i64 %97, %74
-  %100 = or disjoint i64 %99, %98
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
-  %.0.copyload.i.i.i22.i = load i64, ptr %101, align 1
-  %102 = and i64 %.sroa.22.0110.i, %67
-  %103 = and i64 %100, %75
-  %104 = or disjoint i64 %103, %102
+  %.010115.i = phi i64 [ %92, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %spec.select.i.i, %.lr.ph.i18 ]
+  %.sroa.23.0114.i = phi i64 [ %94, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.23.2159.i, %.lr.ph.i18 ]
+  %.sroa.693.0113.i = phi ptr [ %93, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %39, %.lr.ph.i18 ]
+  %.sroa.21.0112.i = phi i64 [ %96, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %.sroa.21.2.i, %.lr.ph.i18 ]
+  %.sroa.6.0111.i = phi ptr [ %102, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %64, %.lr.ph.i18 ]
+  %.sroa.22.0110.i = phi i64 [ %106, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %76, %.lr.ph.i18 ]
+  %.sroa.681.0109.i = phi ptr [ %95, %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i ], [ %63, %.lr.ph.i18 ]
+  %92 = add nsw i64 %.010115.i, -1
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.693.0113.i, i64 8
+  %.0.copyload.i.i.i18.i = load i64, ptr %93, align 1
+  %94 = freeze i64 %.0.copyload.i.i.i18.i
+  %.0.i.i = tail call noundef i64 @llvm.fshr.i64(i64 %94, i64 %.sroa.23.0114.i, i64 %10)
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.681.0109.i, i64 8
+  %.0.copyload.i.i.i19.i = load i64, ptr %95, align 1
+  %96 = freeze i64 %.0.copyload.i.i.i19.i
+  %.0.i20.i = tail call noundef i64 @llvm.fshr.i64(i64 %96, i64 %.sroa.21.0112.i, i64 %13)
+  %97 = xor i64 %.0.i20.i, -1
+  %98 = or i64 %.0.i.i, %97
+  %99 = shl i64 %98, %8
+  %100 = lshr i64 %98, %74
+  %101 = or disjoint i64 %100, %99
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.6.0111.i, i64 8
+  %.0.copyload.i.i.i22.i = load i64, ptr %102, align 1
+  %103 = and i64 %101, %75
+  %104 = or disjoint i64 %103, %.sroa.22.0110.i
   %105 = and i64 %.0.copyload.i.i.i22.i, %75
-  %106 = and i64 %100, %67
+  %106 = and i64 %101, %67
   %107 = or disjoint i64 %106, %105
   store i64 %104, ptr %.sroa.6.0111.i, align 1
-  store i64 %107, ptr %101, align 1
-  %.not.i = icmp eq i64 %91, 0
+  store i64 %107, ptr %102, align 1
+  %.not.i = icmp eq i64 %92, 0
   br i1 %.not.i, label %.preheader.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE11PutNextWordEm.exit.i, !llvm.loop !146
 
 108:                                              ; preds = %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i, %.lr.ph138.i
@@ -5193,9 +5193,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i.i: ; preds = %131, %128, %.lr.ph.
   %.sroa.23.40.extract.trunc.i = trunc i64 %.sroa.23.1136.i to i8
   %136 = trunc i64 %.sroa.23.1136.i to i32
   %137 = and i32 %136, 255
-  %138 = lshr i32 %137, %84
+  %138 = lshr i32 %137, %85
   %139 = zext i8 %.0.copyload.i.i.i23.i to i32
-  %140 = shl nuw nsw i32 %139, %85
+  %140 = shl nuw nsw i32 %139, %86
   %141 = or i32 %140, %138
   %142 = trunc i32 %141 to i8
   %.3.i.i = select i1 %.not.i24.i, i8 %.sroa.23.40.extract.trunc.i, i8 %142
@@ -5275,9 +5275,9 @@ _ZN5arrow8internal12BitmapReader4NextEv.exit.i42.i: ; preds = %165, %162, %.lr.p
   %.sroa.21.40.extract.trunc.i = trunc i64 %.sroa.21.1132.i to i8
   %170 = trunc i64 %.sroa.21.1132.i to i32
   %171 = and i32 %170, 255
-  %172 = lshr i32 %171, %86
+  %172 = lshr i32 %171, %87
   %173 = zext i8 %.0.copyload.i.i.i26.i to i32
-  %174 = shl nuw nsw i32 %173, %87
+  %174 = shl nuw nsw i32 %173, %88
   %175 = or i32 %174, %172
   %176 = trunc i32 %175 to i8
   %.3.i28.i = select i1 %.not.i27.i, i8 %.sroa.21.40.extract.trunc.i, i8 %176
@@ -5301,17 +5301,17 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
 182:                                              ; preds = %181
   %183 = zext i8 %179 to i32
   %184 = shl nuw nsw i32 %183, %65
-  %185 = lshr i32 %183, %89
+  %185 = lshr i32 %183, %90
   %186 = getelementptr inbounds nuw i8, ptr %.sroa.6.1131.i, i64 1
   %.0.copyload.i.i.i55.i = load i8, ptr %186, align 1
   %187 = and i64 %.sroa.22.1128.i, %67
   %188 = or i32 %184, %185
   %189 = zext nneg i32 %188 to i64
-  %190 = and i64 %189, %90
+  %190 = and i64 %189, %91
   %191 = or disjoint i64 %190, %187
   %192 = trunc i64 %191 to i8
   %193 = zext i8 %.0.copyload.i.i.i55.i to i64
-  %194 = and i64 %193, %90
+  %194 = and i64 %193, %91
   %195 = and i64 %189, %67
   %196 = or disjoint i64 %194, %195
   %197 = trunc i64 %196 to i8
@@ -5331,7 +5331,7 @@ _ZN5arrow8internal16BitmapWordReaderImLb1EE16NextTrailingByteERi.exit48.i: ; pre
   br i1 %202, label %.lr.ph.preheader.i49.i, label %_ZN5arrow8internal16BitmapWordWriterImLb1EE19PutNextTrailingByteEhi.exit.i
 
 .lr.ph.preheader.i49.i:                           ; preds = %200
-  %203 = load i8, ptr %88, align 1, !tbaa !3
+  %203 = load i8, ptr %89, align 1, !tbaa !3
   %204 = load i8, ptr %.sroa.6.1131.i, align 1, !tbaa !3
   %wide.trip.count.i50.i = zext nneg i32 %.0107.i to i64
   br label %.lr.ph.i51.i

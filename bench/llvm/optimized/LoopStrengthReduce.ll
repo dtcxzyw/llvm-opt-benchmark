@@ -51971,8 +51971,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit.i: 
   br i1 %41, label %45, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit32.i
 
 _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit32.i: ; preds = %36
-  %.pre163.i = zext nneg i32 %32 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %23, i64 %.pre163.i
+  %.pre161.i = zext nneg i32 %32 to i64
+  %42 = getelementptr inbounds nuw ptr, ptr %23, i64 %.pre161.i
   %43 = ptrtoint ptr %39 to i64
   store i64 %43, ptr %42, align 8
   %44 = add nuw nsw i32 %32, 1

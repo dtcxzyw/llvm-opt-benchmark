@@ -1436,7 +1436,7 @@ sub_1163.i:                                       ; preds = %sub_0157.i
 492:                                              ; preds = %.thread.i
   %493 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 47) #16
   %.not138.i = icmp eq ptr %493, null
-  br i1 %.not138.i, label %530, label %494
+  br i1 %.not138.i, label %531, label %494
 
 494:                                              ; preds = %492
   %495 = getelementptr inbounds nuw i8, ptr %493, i64 1
@@ -1504,70 +1504,70 @@ getAffixFlagSet.exit.i:                           ; preds = %527, %498, %494
   %.1.i150.i = phi ptr [ %.0.i.i, %527 ], [ %495, %498 ], [ %495, %494 ]
   %528 = call fastcc i32 @getCompoundAffixFlagValue(ptr noundef nonnull %0, ptr noundef %.1.i150.i)
   %529 = trunc i32 %528 to i8
+  %530 = or i8 %.0116185.i, %529
   %.pre.i = load ptr, ptr @CurrentMemoryContext, align 8
-  br label %530
+  br label %531
 
-530:                                              ; preds = %getAffixFlagSet.exit.i, %492
-  %531 = phi ptr [ %.pre.i, %getAffixFlagSet.exit.i ], [ %410, %492 ]
-  %.0.i95 = phi i8 [ %529, %getAffixFlagSet.exit.i ], [ 0, %492 ]
+531:                                              ; preds = %getAffixFlagSet.exit.i, %492
+  %532 = phi ptr [ %.pre.i, %getAffixFlagSet.exit.i ], [ %410, %492 ]
+  %.0.i95 = phi i8 [ %530, %getAffixFlagSet.exit.i ], [ %.0116185.i, %492 ]
   %.val148.i = load ptr, ptr %369, align 8
   store ptr %.val148.i, ptr @CurrentMemoryContext, align 8
-  %532 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
-  %533 = call ptr @str_tolower(ptr noundef nonnull %9, i64 noundef %532, i32 noundef 100) #13
-  store ptr %531, ptr @CurrentMemoryContext, align 8
-  %534 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %533, i32 noundef 47) #16
-  %.not139.i = icmp eq ptr %534, null
-  br i1 %.not139.i, label %536, label %535
+  %533 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
+  %534 = call ptr @str_tolower(ptr noundef nonnull %9, i64 noundef %533, i32 noundef 100) #13
+  store ptr %532, ptr @CurrentMemoryContext, align 8
+  %535 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %534, i32 noundef 47) #16
+  %.not139.i = icmp eq ptr %535, null
+  br i1 %.not139.i, label %537, label %536
 
-535:                                              ; preds = %530
-  store i8 0, ptr %534, align 1
+536:                                              ; preds = %531
+  store i8 0, ptr %535, align 1
   %.pre202.i = load ptr, ptr @CurrentMemoryContext, align 8
-  br label %536
+  br label %537
 
-536:                                              ; preds = %535, %530
-  %537 = phi ptr [ %.pre202.i, %535 ], [ %531, %530 ]
+537:                                              ; preds = %536, %531
+  %538 = phi ptr [ %.pre202.i, %536 ], [ %532, %531 ]
   %.val147.i = load ptr, ptr %369, align 8
   store ptr %.val147.i, ptr @CurrentMemoryContext, align 8
-  %538 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
-  %539 = call ptr @str_tolower(ptr noundef nonnull %8, i64 noundef %538, i32 noundef 100) #13
-  store ptr %537, ptr @CurrentMemoryContext, align 8
+  %539 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
+  %540 = call ptr @str_tolower(ptr noundef nonnull %8, i64 noundef %539, i32 noundef 100) #13
+  store ptr %538, ptr @CurrentMemoryContext, align 8
   %.val.i = load ptr, ptr %369, align 8
   store ptr %.val.i, ptr @CurrentMemoryContext, align 8
-  %540 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
-  %541 = call ptr @str_tolower(ptr noundef nonnull %7, i64 noundef %540, i32 noundef 100) #13
-  store ptr %537, ptr @CurrentMemoryContext, align 8
-  %542 = load i8, ptr %8, align 16
-  %543 = icmp eq i8 %542, 48
-  br i1 %543, label %544, label %545
+  %541 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #16
+  %542 = call ptr @str_tolower(ptr noundef nonnull %7, i64 noundef %541, i32 noundef 100) #13
+  store ptr %538, ptr @CurrentMemoryContext, align 8
+  %543 = load i8, ptr %8, align 16
+  %544 = icmp eq i8 %543, 48
+  br i1 %544, label %545, label %546
 
-544:                                              ; preds = %536
-  store i8 0, ptr %539, align 1
-  br label %545
+545:                                              ; preds = %537
+  store i8 0, ptr %540, align 1
+  br label %546
 
-545:                                              ; preds = %544, %536
-  %546 = load i8, ptr %9, align 16
-  %547 = icmp eq i8 %546, 48
-  br i1 %547, label %548, label %549
+546:                                              ; preds = %545, %537
+  %547 = load i8, ptr %9, align 16
+  %548 = icmp eq i8 %547, 48
+  br i1 %548, label %549, label %550
 
-548:                                              ; preds = %545
-  store i8 0, ptr %533, align 1
-  br label %549
+549:                                              ; preds = %546
+  store i8 0, ptr %534, align 1
+  br label %550
 
-549:                                              ; preds = %548, %545
-  %550 = or i8 %.0.i95, %.0116185.i
+550:                                              ; preds = %549, %546
   %551 = zext nneg i8 %.0122182.i to i32
-  call fastcc void @NIAddAffix(ptr noundef nonnull %0, ptr noundef %6, i8 noundef signext %550, ptr noundef %541, ptr noundef %539, ptr noundef nonnull %533, i32 noundef %551)
-  call void @pfree(ptr noundef nonnull %533) #13
-  call void @pfree(ptr noundef %539) #13
-  call void @pfree(ptr noundef %541) #13
+  call fastcc void @NIAddAffix(ptr noundef nonnull %0, ptr noundef %6, i8 noundef signext %.0.i95, ptr noundef %542, ptr noundef %540, ptr noundef nonnull %534, i32 noundef %551)
+  call void @pfree(ptr noundef nonnull %534) #13
+  call void @pfree(ptr noundef %540) #13
+  call void @pfree(ptr noundef %542) #13
   br label %.tail161.thread.i
 
-.tail161.thread.i:                                ; preds = %549, %489, %486, %483, %477, %.tail161.i, %sub_1163.i, %.tail156.i, %sub_1158.i, %sub_0157.i, %.tail152.thread.i, %cpstrdup.exit.i, %428, %.tail152.i, %382, %378
-  %.1123.i = phi i8 [ %.0122182.i, %378 ], [ %.0122182.i, %382 ], [ %.0122182.i, %cpstrdup.exit.i ], [ %.0122182.i, %428 ], [ %.0122182.i, %.tail152.thread.i ], [ %.0122182.i, %.tail161.i ], [ %.0122182.i, %477 ], [ %.0122182.i, %483 ], [ %.0122182.i, %549 ], [ %.not136224.i, %489 ], [ %.0122182.i, %sub_1163.i ], [ %.0122182.i, %.tail156.i ], [ %.0122182.i, %sub_1158.i ], [ %.0122182.i, %.tail152.i ], [ %.0122182.i, %sub_0157.i ], [ %.0122182.i, %486 ]
-  %.1121.i = phi i32 [ %.0120183.i, %378 ], [ %.0120183.i, %382 ], [ %.0120183.i, %cpstrdup.exit.i ], [ %429, %428 ], [ %.0120183.i, %.tail152.thread.i ], [ %.0120183.i, %.tail161.i ], [ %.0120183.i, %477 ], [ %.0120183.i, %483 ], [ %.0120183.i, %549 ], [ %.0120183.i, %489 ], [ %.0120183.i, %sub_1163.i ], [ %.0120183.i, %.tail156.i ], [ %.0120183.i, %sub_1158.i ], [ %.0120183.i, %.tail152.i ], [ %.0120183.i, %sub_0157.i ], [ %.0120183.i, %486 ]
-  %.1119.i = phi i32 [ %.0118184.i, %378 ], [ %.0118184.i, %382 ], [ %460, %cpstrdup.exit.i ], [ %435, %428 ], [ %.0118184.i, %.tail152.thread.i ], [ %.0118184.i, %.tail161.i ], [ %.0118184.i, %477 ], [ %.0118184.i, %483 ], [ %.0118184.i, %549 ], [ %.0118184.i, %489 ], [ %.0118184.i, %sub_1163.i ], [ %.0118184.i, %.tail156.i ], [ %.0118184.i, %sub_1158.i ], [ %.0118184.i, %.tail152.i ], [ %.0118184.i, %sub_0157.i ], [ %.0118184.i, %486 ]
-  %.1117.i = phi i8 [ %.0116185.i, %378 ], [ %.0116185.i, %382 ], [ %.0116185.i, %cpstrdup.exit.i ], [ %.0116185.i, %428 ], [ %.0116185.i, %.tail152.thread.i ], [ %.0116185.i, %.tail161.i ], [ %.0116185.i, %477 ], [ %.0116185.i, %483 ], [ %.0116185.i, %549 ], [ %..i, %489 ], [ %.0116185.i, %sub_1163.i ], [ %.0116185.i, %.tail156.i ], [ %.0116185.i, %sub_1158.i ], [ %.0116185.i, %.tail152.i ], [ %.0116185.i, %sub_0157.i ], [ %.0116185.i, %486 ]
-  %.1.i = phi ptr [ %.0114186.i, %378 ], [ %.0114186.i, %382 ], [ %412, %cpstrdup.exit.i ], [ %412, %428 ], [ %412, %.tail152.thread.i ], [ %412, %.tail161.i ], [ %412, %477 ], [ %412, %483 ], [ %412, %549 ], [ %412, %489 ], [ %412, %sub_1163.i ], [ %412, %.tail156.i ], [ %412, %sub_1158.i ], [ %412, %.tail152.i ], [ %412, %sub_0157.i ], [ %412, %486 ]
+.tail161.thread.i:                                ; preds = %550, %489, %486, %483, %477, %.tail161.i, %sub_1163.i, %.tail156.i, %sub_1158.i, %sub_0157.i, %.tail152.thread.i, %cpstrdup.exit.i, %428, %.tail152.i, %382, %378
+  %.1123.i = phi i8 [ %.0122182.i, %378 ], [ %.0122182.i, %382 ], [ %.0122182.i, %cpstrdup.exit.i ], [ %.0122182.i, %428 ], [ %.0122182.i, %.tail152.thread.i ], [ %.0122182.i, %.tail161.i ], [ %.0122182.i, %477 ], [ %.0122182.i, %483 ], [ %.0122182.i, %550 ], [ %.not136224.i, %489 ], [ %.0122182.i, %sub_1163.i ], [ %.0122182.i, %.tail156.i ], [ %.0122182.i, %sub_1158.i ], [ %.0122182.i, %.tail152.i ], [ %.0122182.i, %sub_0157.i ], [ %.0122182.i, %486 ]
+  %.1121.i = phi i32 [ %.0120183.i, %378 ], [ %.0120183.i, %382 ], [ %.0120183.i, %cpstrdup.exit.i ], [ %429, %428 ], [ %.0120183.i, %.tail152.thread.i ], [ %.0120183.i, %.tail161.i ], [ %.0120183.i, %477 ], [ %.0120183.i, %483 ], [ %.0120183.i, %550 ], [ %.0120183.i, %489 ], [ %.0120183.i, %sub_1163.i ], [ %.0120183.i, %.tail156.i ], [ %.0120183.i, %sub_1158.i ], [ %.0120183.i, %.tail152.i ], [ %.0120183.i, %sub_0157.i ], [ %.0120183.i, %486 ]
+  %.1119.i = phi i32 [ %.0118184.i, %378 ], [ %.0118184.i, %382 ], [ %460, %cpstrdup.exit.i ], [ %435, %428 ], [ %.0118184.i, %.tail152.thread.i ], [ %.0118184.i, %.tail161.i ], [ %.0118184.i, %477 ], [ %.0118184.i, %483 ], [ %.0118184.i, %550 ], [ %.0118184.i, %489 ], [ %.0118184.i, %sub_1163.i ], [ %.0118184.i, %.tail156.i ], [ %.0118184.i, %sub_1158.i ], [ %.0118184.i, %.tail152.i ], [ %.0118184.i, %sub_0157.i ], [ %.0118184.i, %486 ]
+  %.1117.i = phi i8 [ %.0116185.i, %378 ], [ %.0116185.i, %382 ], [ %.0116185.i, %cpstrdup.exit.i ], [ %.0116185.i, %428 ], [ %.0116185.i, %.tail152.thread.i ], [ %.0116185.i, %.tail161.i ], [ %.0116185.i, %477 ], [ %.0116185.i, %483 ], [ %.0116185.i, %550 ], [ %..i, %489 ], [ %.0116185.i, %sub_1163.i ], [ %.0116185.i, %.tail156.i ], [ %.0116185.i, %sub_1158.i ], [ %.0116185.i, %.tail152.i ], [ %.0116185.i, %sub_0157.i ], [ %.0116185.i, %486 ]
+  %.1.i = phi ptr [ %.0114186.i, %378 ], [ %.0114186.i, %382 ], [ %412, %cpstrdup.exit.i ], [ %412, %428 ], [ %412, %.tail152.thread.i ], [ %412, %.tail161.i ], [ %412, %477 ], [ %412, %483 ], [ %412, %550 ], [ %412, %489 ], [ %412, %sub_1163.i ], [ %412, %.tail156.i ], [ %412, %sub_1158.i ], [ %412, %.tail152.i ], [ %412, %sub_0157.i ], [ %412, %486 ]
   call void @pfree(ptr noundef nonnull %379) #13
   %552 = call ptr @tsearch_readline(ptr noundef nonnull %10) #13
   %.not132.i = icmp eq ptr %552, null

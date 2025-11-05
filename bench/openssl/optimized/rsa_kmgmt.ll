@@ -466,7 +466,7 @@ define internal range(i32 0, 2) i32 @rsa_has(ptr noundef %0, i32 noundef %1) #0 
 define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #6
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %32, label %5
+  br i1 %.not, label %30, label %5
 
 5:                                                ; preds = %3
   %6 = tail call ptr @RSA_get0_e(ptr noundef %0) #6
@@ -475,7 +475,7 @@ define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i
   %9 = icmp eq i32 %8, 0
   %10 = and i32 %2, 3
   %.not38 = icmp eq i32 %10, 0
-  br i1 %.not38, label %32, label %11
+  br i1 %.not38, label %30, label %11
 
 11:                                               ; preds = %5
   %12 = and i32 %2, 2
@@ -497,38 +497,32 @@ define internal range(i32 0, 2) i32 @rsa_match(ptr noundef %0, ptr noundef %1, i
   br label %30
 
 20:                                               ; preds = %13
-  br i1 %or.cond.not.not54, label %30, label %.thread
-
-.thread:                                          ; preds = %11, %20
   %21 = and i32 %2, 1
   %.not43 = icmp eq i32 %21, 0
-  br i1 %.not43, label %30, label %22
+  %or.cond = or i1 %or.cond.not.not54, %.not43
+  br i1 %or.cond, label %30, label %22
 
-22:                                               ; preds = %.thread
+.thread:                                          ; preds = %11
+  %.old = and i32 %2, 1
+  %.not43.old = icmp eq i32 %.old, 0
+  br i1 %.not43.old, label %30, label %22
+
+22:                                               ; preds = %20, %.thread
   %23 = tail call ptr @RSA_get0_d(ptr noundef %0) #6
   %24 = tail call ptr @RSA_get0_d(ptr noundef %1) #6
-  %25 = icmp eq ptr %23, null
-  %26 = icmp eq ptr %24, null
-  %or.cond3.not63 = select i1 %25, i1 true, i1 %26
-  %.not59 = xor i1 %9, true
-  %brmerge = select i1 %or.cond3.not63, i1 true, i1 %.not59
-  %not.or.cond3.not63 = xor i1 %or.cond3.not63, true
-  %.mux60 = select i1 %or.cond3.not63, i1 %9, i1 false
-  br i1 %brmerge, label %30, label %27
+  %25 = icmp ne ptr %23, null
+  %26 = icmp ne ptr %24, null
+  %or.cond3.not62.not66 = select i1 %25, i1 %26, i1 false
+  %brmerge.not63 = select i1 %or.cond3.not62.not66, i1 %9, i1 false
+  br i1 %brmerge.not63, label %27, label %30
 
 27:                                               ; preds = %22
   %28 = tail call i32 @BN_cmp(ptr noundef nonnull %23, ptr noundef nonnull %24) #6
   %29 = icmp eq i32 %28, 0
   br label %30
 
-30:                                               ; preds = %22, %.thread49, %27, %.thread, %20
-  %.232 = phi i1 [ true, %20 ], [ false, %.thread ], [ true, %27 ], [ %not.or.cond3.not63, %22 ], [ true, %.thread49 ]
-  %.3 = phi i1 [ false, %20 ], [ %9, %.thread ], [ %29, %27 ], [ %.mux60, %22 ], [ %19, %.thread49 ]
-  %31 = and i1 %.232, %.3
-  br label %32
-
-32:                                               ; preds = %5, %30, %3
-  %.0.shrunk = phi i1 [ false, %3 ], [ %31, %30 ], [ %9, %5 ]
+30:                                               ; preds = %20, %.thread, %27, %.thread49, %22, %5, %3
+  %.0.shrunk = phi i1 [ false, %3 ], [ %9, %5 ], [ false, %20 ], [ false, %.thread ], [ %29, %27 ], [ false, %22 ], [ %19, %.thread49 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }

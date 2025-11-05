@@ -78831,7 +78831,7 @@ switch.lookup137:                                 ; preds = %1
   %.idx = mul nsw i64 %41, 40
   %42 = getelementptr inbounds i8, ptr %39, i64 %.idx
   %43 = icmp eq i64 %41, 0
-  br i1 %43, label %._crit_edge, label %.lr.ph
+  br i1 %43, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit", label %.lr.ph
 
 44:                                               ; preds = %1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -78983,8 +78983,8 @@ switch.lookup143:                                 ; preds = %"_ZN91_$LT$core..sl
   %112 = icmp eq ptr %92, %90
   br i1 %112, label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6215431440da80d0E.llvm.6150282900714191917.exit.i76"
 
-"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit": ; preds = %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i", %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i81", %81, %48, %1, %1, %1, %1, %1, %._crit_edge, %113, %5, %80, %44, %31, %30, %switch.lookup
-  %.0 = phi i16 [ %20, %5 ], [ %116, %113 ], [ %29, %switch.lookup ], [ 1024, %30 ], [ 8, %31 ], [ %117, %._crit_edge ], [ %47, %44 ], [ 1, %80 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %48 ], [ 0, %81 ], [ %111, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i81" ], [ %78, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i" ]
+"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit": ; preds = %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i", %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i81", %switch.lookup137, %._crit_edge.loopexit, %81, %48, %1, %1, %1, %1, %1, %113, %5, %80, %44, %31, %30, %switch.lookup
+  %.0 = phi i16 [ %20, %5 ], [ %116, %113 ], [ %29, %switch.lookup ], [ 1024, %30 ], [ 8, %31 ], [ %47, %44 ], [ 1, %80 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %48 ], [ 0, %81 ], [ %switch.load139, %switch.lookup137 ], [ %117, %._crit_edge.loopexit ], [ %111, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i81" ], [ %78, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i" ]
   ret i16 %.0
 
 113:                                              ; preds = %1, %1
@@ -78994,9 +78994,8 @@ switch.lookup143:                                 ; preds = %"_ZN91_$LT$core..sl
   %116 = load i16, ptr %115, align 8, !noundef !14
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
 
-._crit_edge:                                      ; preds = %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit99", %switch.lookup137
-  %.057.lcssa = phi i16 [ 0, %switch.lookup137 ], [ %.1, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit99" ]
-  %117 = or i16 %.057.lcssa, %switch.load139
+._crit_edge.loopexit:                             ; preds = %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit99"
+  %117 = or i16 %.1, %switch.load139
   br label %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit"
 
 .lr.ph:                                           ; preds = %switch.lookup137, %"_ZN8chalk_ir21Substitution$LT$I$GT$13compute_flags17h7c0f12d73eef8b4cE.exit99"
@@ -79125,7 +79124,7 @@ switch.lookup152:                                 ; preds = %.lr.ph
   %.0.lcssa.i97.pn = phi i16 [ %161, %155 ], [ %169, %switch.lookup149 ], [ %176, %switch.lookup152 ], [ 0, %124 ], [ %153, %"_ZN8chalk_ir19GenericArg$LT$I$GT$13compute_flags17h54b86af3805c83abE.exit.i95" ]
   %.1 = or i16 %.0.lcssa.i97.pn, %.057118
   %177 = icmp eq ptr %118, %42
-  br i1 %177, label %._crit_edge, label %.lr.ph
+  br i1 %177, label %._crit_edge.loopexit, label %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable

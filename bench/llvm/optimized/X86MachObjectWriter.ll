@@ -2176,28 +2176,27 @@ _ZN4llvmplERKNS_5TwineES2_.exit144:               ; preds = %175, %180
   %192 = load ptr, ptr %191, align 8, !tbaa !92
   call void @_ZN4llvm16MachObjectWriter13addRelocationEPKNS_8MCSymbolEPKNS_9MCSectionERNS_5MachO19any_relocation_infoE(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef null, ptr noundef %192, ptr noundef nonnull align 4 dereferenceable(8) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %195
+  %193 = or disjoint i32 %128, %186
+  br label %196
 
 .thread25:                                        ; preds = %_ZNK4llvm16MachObjectWriter17getSectionAddressEPKNS_9MCSectionE.exit
-  %193 = icmp ugt i32 %21, 16777215
-  br i1 %193, label %194, label %.thread25._crit_edge
+  %194 = icmp ugt i32 %21, 16777215
+  br i1 %194, label %195, label %.thread25._crit_edge
 
 .thread25._crit_edge:                             ; preds = %.thread25
   %.pre59 = shl nuw nsw i32 %4, 28
   %.pre60 = select i1 %24, i32 1073741824, i32 0
-  br label %195
+  br label %196
 
-194:                                              ; preds = %.thread25
+195:                                              ; preds = %.thread25
   store i64 %16, ptr %5, align 8, !tbaa !18
   br label %.critedge
 
-195:                                              ; preds = %.thread25._crit_edge, %185
+196:                                              ; preds = %.thread25._crit_edge, %185
   %.pre-phi61 = phi i32 [ %.pre60, %.thread25._crit_edge ], [ %187, %185 ]
-  %.pre-phi = phi i32 [ %.pre59, %.thread25._crit_edge ], [ %186, %185 ]
-  %.25628 = phi i32 [ 0, %.thread25._crit_edge ], [ %128, %185 ]
+  %.25628 = phi i32 [ %.pre59, %.thread25._crit_edge ], [ %193, %185 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %196 = or disjoint i32 %.25628, %.pre-phi
-  %197 = or disjoint i32 %196, %.pre-phi61
+  %197 = or disjoint i32 %.25628, %.pre-phi61
   %198 = or i32 %21, %197
   %199 = or i32 %198, -2147483648
   store i32 %199, ptr %15, align 4, !tbaa !109
@@ -2209,8 +2208,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit144:               ; preds = %175, %180
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %_ZN4llvmplERKNS_5TwineES2_.exit144, %194, %195, %_ZN4llvmplERKNS_5TwineES2_.exit
-  %.0 = phi i1 [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit144 ], [ true, %195 ], [ false, %194 ], [ false, %.thread ]
+.critedge:                                        ; preds = %.thread, %_ZN4llvmplERKNS_5TwineES2_.exit144, %195, %196, %_ZN4llvmplERKNS_5TwineES2_.exit
+  %.0 = phi i1 [ false, %_ZN4llvmplERKNS_5TwineES2_.exit ], [ false, %_ZN4llvmplERKNS_5TwineES2_.exit144 ], [ true, %196 ], [ false, %195 ], [ false, %.thread ]
   ret i1 %.0
 }
 

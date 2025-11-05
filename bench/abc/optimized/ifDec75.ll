@@ -969,7 +969,7 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
   %52 = xor i64 %51, %50
   %53 = and i64 %52, %46
   %.not39.i.i = icmp eq i64 %53, 0
-  br i1 %.not39.i.i, label %47, label %.loopexit.i
+  br i1 %.not39.i.i, label %47, label %Abc_TtHasVar.exit.i
 
 .preheader.lr.ph.i.i:                             ; preds = %.lr.ph.split.split.i
   %54 = add nsw i64 %indvars.iv.i, -6
@@ -1013,13 +1013,17 @@ Abc_TtHasVar.exit.us.i:                           ; preds = %Abc_TtHasVar.exit.u
 Abc_TtHasVar.exit.i.loopexit:                     ; preds = %62
   %.pre43 = trunc nuw nsw i64 %indvars.iv.i to i32
   %.pre44 = shl nuw i32 1, %.pre43
+  br label %Abc_TtHasVar.exit.i
+
+Abc_TtHasVar.exit.i:                              ; preds = %48, %Abc_TtHasVar.exit.i.loopexit
+  %.pre-phi45 = phi i32 [ %.pre44, %Abc_TtHasVar.exit.i.loopexit ], [ %43, %48 ]
+  %68 = or i32 %.pre-phi45, %.08.i
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %._crit_edge.us.i.i, %47, %48, %Abc_TtHasVar.exit.i.loopexit, %.preheader.lr.ph.i.i
-  %.sink.i = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ 1, %Abc_TtHasVar.exit.i.loopexit ], [ 0, %47 ], [ 1, %48 ], [ 0, %._crit_edge.us.i.i ]
-  %68 = phi i32 [ 0, %.preheader.lr.ph.i.i ], [ %.pre44, %Abc_TtHasVar.exit.i.loopexit ], [ 0, %47 ], [ %43, %48 ], [ 0, %._crit_edge.us.i.i ]
+.loopexit.i:                                      ; preds = %._crit_edge.us.i.i, %47, %Abc_TtHasVar.exit.i, %.preheader.lr.ph.i.i
+  %.sink.i = phi i32 [ 1, %Abc_TtHasVar.exit.i ], [ 0, %.preheader.lr.ph.i.i ], [ 0, %47 ], [ 0, %._crit_edge.us.i.i ]
+  %.1.i = phi i32 [ %68, %Abc_TtHasVar.exit.i ], [ %.08.i, %.preheader.lr.ph.i.i ], [ %.08.i, %47 ], [ %.08.i, %._crit_edge.us.i.i ]
   %.124.i = add nuw nsw i32 %.sink.i, %.0237.i
-  %.1.i = or i32 %68, %.08.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.split.i, !llvm.loop !49

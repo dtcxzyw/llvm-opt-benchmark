@@ -6141,21 +6141,19 @@ select.unfold:                                    ; preds = %17, %24, %14, %13
   br label %acct_policy_set_qos_order.exit
 
 acct_policy_set_qos_order.exit:                   ; preds = %24, %23, %89
-  %.not80122 = phi i1 [ false, %89 ], [ true, %23 ], [ true, %24 ]
+  %.not80122 = phi i1 [ %90, %89 ], [ true, %23 ], [ true, %24 ]
   %.065 = phi i64 [ %spec.select90, %89 ], [ -1, %23 ], [ -1, %24 ]
   %.064 = phi i1 [ %91, %89 ], [ true, %23 ], [ true, %24 ]
-  %.061 = phi i1 [ %90, %89 ], [ true, %23 ], [ true, %24 ]
   %.053 = phi double [ %92, %89 ], [ -1.000000e+00, %23 ], [ -1.000000e+00, %24 ]
   %.not83149 = icmp eq ptr %5, null
   br i1 %.not83149, label %.thread141, label %.lr.ph
 
 .lr.ph:                                           ; preds = %acct_policy_set_qos_order.exit
   %93 = fcmp ugt double %.053, 0.000000e+00
-  %or.cond = or i1 %.not80122, %.061
   br i1 %93, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %or.cond, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us.split
+  br i1 %.not80122, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us.split
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us
   br i1 %.064, label %_apply_limit_factor.exit.us.us, label %_apply_limit_factor.exit.us.us.us
@@ -6302,7 +6300,7 @@ _apply_limit_factor.exit96.thread.us:             ; preds = %131, %_apply_limit_
 _apply_limit_factor.exit:                         ; preds = %150, %151, %.lr.ph.split
   %.0111 = phi i64 [ %140, %.lr.ph.split ], [ %144, %151 ], [ %144, %150 ]
   %152 = icmp ne i64 %.0111, -1
-  %or.cond3 = select i1 %or.cond, i1 %152, i1 false
+  %or.cond3 = select i1 %.not80122, i1 %152, i1 false
   %153 = icmp ult i64 %.0111, %.5150
   %or.cond91 = select i1 %or.cond3, i1 %153, i1 false
   br i1 %or.cond91, label %154, label %.thread

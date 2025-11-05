@@ -4892,21 +4892,22 @@ define hidden noundef ptr @_ZNK7MemNode20can_see_stored_valueEP4NodeP11PhaseValu
   %38 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not15.i = icmp eq ptr %39, null
-  br i1 %.not15.i, label %42, label %40
+  br i1 %.not15.i, label %43, label %40
 
 40:                                               ; preds = %37
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %39, align 8
   %41 = and i64 %.sroa.0.0.copyload.i.i.i, 64
   %.not18.i = icmp eq i64 %41, 0
-  br label %42
+  %42 = and i1 %.not18.i, %33
+  br label %43
 
-42:                                               ; preds = %40, %37
-  %43 = phi i1 [ false, %37 ], [ %.not18.i, %40 ]
+43:                                               ; preds = %40, %37
+  %or.cond3.i = phi i1 [ false, %37 ], [ %42, %40 ]
   %44 = load i8, ptr @FoldStableValues, align 1
   %45 = trunc i8 %44 to i1
   br i1 %45, label %46, label %_ZL20skip_through_membarsPN7Compile9AliasTypeEPK11TypeInstPtrb.exit
 
-46:                                               ; preds = %42
+46:                                               ; preds = %43
   %47 = load i32, ptr %22, align 8
   %.not20.i = icmp eq i32 %47, 22
   br i1 %.not20.i, label %48, label %_ZL20skip_through_membarsPN7Compile9AliasTypeEPK11TypeInstPtrb.exit
@@ -4919,9 +4920,8 @@ define hidden noundef ptr @_ZNK7MemNode20can_see_stored_valueEP4NodeP11PhaseValu
   %53 = trunc i8 %52 to i1
   br label %_ZL20skip_through_membarsPN7Compile9AliasTypeEPK11TypeInstPtrb.exit
 
-_ZL20skip_through_membarsPN7Compile9AliasTypeEPK11TypeInstPtrb.exit: ; preds = %42, %46, %48
-  %54 = phi i1 [ false, %46 ], [ false, %42 ], [ %53, %48 ]
-  %or.cond3.i = and i1 %43, %33
+_ZL20skip_through_membarsPN7Compile9AliasTypeEPK11TypeInstPtrb.exit: ; preds = %43, %46, %48
+  %54 = phi i1 [ false, %46 ], [ false, %43 ], [ %53, %48 ]
   %spec.select.i = select i1 %or.cond3.i, i1 true, i1 %54
   br i1 %spec.select.i, label %55, label %_ZL20skip_through_membarsPN7Compile9AliasTypeEPK11TypeInstPtrb.exit.thread.preheader
 

@@ -5116,7 +5116,7 @@ define internal i32 @map_auto_subtitle(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !358
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
-  %.03450 = phi ptr [ %82, %.thread ], [ %15, %.lr.ph ]
+  %.03450 = phi ptr [ %80, %.thread ], [ %15, %.lr.ph ]
   %39 = getelementptr inbounds nuw i8, ptr %.03450, i64 24
   %40 = load ptr, ptr %39, align 8, !tbaa !127
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5150,59 +5150,54 @@ define internal i32 @map_auto_subtitle(ptr noundef %0, ptr noundef %1) #0 {
 
 61:                                               ; preds = %57, %56
   %.033 = phi ptr [ %60, %57 ], [ null, %56 ]
-  %62 = icmp ne ptr %48, null
-  br i1 %62, label %63, label %67
+  %.not71 = icmp eq ptr %48, null
+  br i1 %.not71, label %66, label %62
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %65 = load i32, ptr %64, align 8, !tbaa !359
-  %66 = and i32 %65, 196608
-  br label %67
+62:                                               ; preds = %61
+  %63 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %64 = load i32, ptr %63, align 8, !tbaa !359
+  %65 = and i32 %64, 196608
+  br label %66
 
-67:                                               ; preds = %63, %61
-  %.031 = phi i32 [ %66, %63 ], [ 0, %61 ]
-  %68 = icmp ne ptr %.033, null
-  br i1 %68, label %69, label %72
+66:                                               ; preds = %62, %61
+  %.031 = phi i32 [ %65, %62 ], [ 0, %61 ]
+  %.not70 = icmp eq ptr %.033, null
+  br i1 %.not70, label %.thread, label %67
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %.033, i64 24
-  %71 = load i32, ptr %70, align 8, !tbaa !359
-  br label %72
+67:                                               ; preds = %66
+  %68 = getelementptr inbounds nuw i8, ptr %.033, i64 24
+  %69 = load i32, ptr %68, align 8, !tbaa !359
+  %70 = and i32 %69, %.031
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %.split
 
-72:                                               ; preds = %69, %67
-  %.0 = phi i32 [ %71, %69 ], [ 0, %67 ]
-  %73 = and i32 %.0, %.031
-  %.not41.not = icmp eq i32 %73, 0
-  br i1 %.not41.not, label %74, label %.split
+72:                                               ; preds = %67
+  br i1 %.not71, label %.thread, label %73
 
-74:                                               ; preds = %72
-  %or.cond3 = and i1 %62, %68
-  br i1 %or.cond3, label %75, label %.thread
+73:                                               ; preds = %72
+  %74 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  %75 = load i32, ptr %74, align 8, !tbaa !359
+  %.not42 = icmp eq i32 %75, 0
+  br i1 %.not42, label %.split, label %76
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %77 = load i32, ptr %76, align 8, !tbaa !359
-  %.not42 = icmp eq i32 %77, 0
-  br i1 %.not42, label %.split, label %78
-
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i8, ptr %.033, i64 24
-  %80 = load i32, ptr %79, align 8, !tbaa !359
-  %.not43 = icmp eq i32 %80, 0
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds nuw i8, ptr %.033, i64 24
+  %78 = load i32, ptr %77, align 8, !tbaa !359
+  %.not43 = icmp eq i32 %78, 0
   br i1 %.not43, label %.split, label %.thread
 
-.split:                                           ; preds = %78, %75, %72, %33, %34
-  %.us-phi = phi ptr [ %.03450.us, %34 ], [ %.03450.us, %33 ], [ %.03450, %72 ], [ %.03450, %75 ], [ %.03450, %78 ]
-  %81 = tail call fastcc i32 @ost_add(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %.us-phi, ptr noundef null, ptr noundef null, ptr noundef null)
+.split:                                           ; preds = %76, %73, %67, %33, %34
+  %.us-phi = phi ptr [ %.03450.us, %34 ], [ %.03450.us, %33 ], [ %.03450, %67 ], [ %.03450, %73 ], [ %.03450, %76 ]
+  %79 = tail call fastcc i32 @ost_add(ptr noundef %0, ptr noundef %1, i32 noundef 3, ptr noundef nonnull %.us-phi, ptr noundef null, ptr noundef null, ptr noundef null)
   br label %.loopexit
 
-.thread:                                          ; preds = %74, %78, %45, %.lr.ph.split
-  %82 = tail call ptr @ist_iter(ptr noundef nonnull %.03450) #16
-  %.not = icmp eq ptr %82, null
+.thread:                                          ; preds = %66, %72, %76, %45, %.lr.ph.split
+  %80 = tail call ptr @ist_iter(ptr noundef nonnull %.03450) #16
+  %.not = icmp eq ptr %80, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !358
 
 .loopexit:                                        ; preds = %.thread, %.thread.us, %14, %.split, %2
-  %.032 = phi i32 [ 0, %2 ], [ %81, %.split ], [ 0, %14 ], [ 0, %.thread.us ], [ 0, %.thread ]
+  %.032 = phi i32 [ 0, %2 ], [ %79, %.split ], [ 0, %14 ], [ 0, %.thread.us ], [ 0, %.thread ]
   ret i32 %.032
 }
 

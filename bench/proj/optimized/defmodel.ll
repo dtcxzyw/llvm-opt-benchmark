@@ -14531,7 +14531,7 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
 22:                                               ; preds = %29
   %23 = add nuw nsw i32 %.02940.i, 1
   %exitcond.not.i = icmp eq i32 %23, 10
-  br i1 %exitcond.not.i, label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit.thread, label %24, !llvm.loop !296
+  br i1 %exitcond.not.i, label %.loopexit, label %24, !llvm.loop !296
 
 24:                                               ; preds = %22, %13
   %25 = phi double [ %19, %13 ], [ %39, %22 ]
@@ -14548,7 +14548,7 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit.thread
+  br label %.loopexit
 
 29:                                               ; preds = %24
   %30 = load double, ptr %3, align 8, !tbaa !67
@@ -14579,14 +14579,14 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr noundef nonnull al
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br i1 %.not34.not.i, label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit, label %22
 
-_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit.thread: ; preds = %22, %.thread.i
+.loopexit:                                        ; preds = %22, %.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_Z16proj_coord_errorv(ptr dead_on_unwind nonnull writable sret(%union.PJ_COORD) align 8 %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %7, i64 32, i1 false), !tbaa.struct !295
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit
 
-_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit: ; preds = %29, %_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit.thread, %11
+_ZN16DeformationModel9EvaluatorIN12_GLOBAL__N_14GridENS1_7GridSetENS1_14EvaluatorIfaceEE7inverseERS4_ddddRdS7_S7_.exit: ; preds = %29, %.loopexit, %11
   ret void
 }
 

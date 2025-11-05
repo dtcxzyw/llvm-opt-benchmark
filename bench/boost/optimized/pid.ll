@@ -5105,114 +5105,128 @@ define linkonce_odr hidden noundef i32 @_ZN5boost7process2v213basic_processINS_4
   %5 = alloca %"class.boost::system::error_code", align 8
   %6 = load i32, ptr %0, align 8, !tbaa !158
   %7 = icmp slt i32 %6, 1
-  br i1 %7, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i, label %8
+  br i1 %7, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread, label %8
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !42
   %9 = invoke i32 @waitpid(i32 noundef %6, ptr noundef nonnull %4, i32 noundef 1)
-          to label %.noexc.i unwind label %24
+          to label %.noexc.i unwind label %31
 
 .noexc.i:                                         ; preds = %8
   switch i32 %9, label %11 [
     i32 -1, label %10
-    i32 0, label %13
+    i32 0, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread19
   ]
 
 10:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5boost7process2v26detail14get_last_errorEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::error_code") align 8 %5)
-          to label %.noexc5.i unwind label %24
+          to label %.noexc5.i unwind label %31
 
 .noexc5.i:                                        ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !175
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %13
+  br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i
 
 11:                                               ; preds = %.noexc.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %12 = load i32, ptr %4, align 4, !tbaa !42
-  br label %13
-
-13:                                               ; preds = %11, %.noexc5.i, %.noexc.i
-  %.0.i = phi i32 [ %12, %11 ], [ 0, %.noexc5.i ], [ %9, %.noexc.i ]
-  %.1.i.i = phi i1 [ false, %11 ], [ false, %.noexc5.i ], [ true, %.noexc.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i
 
-_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i: ; preds = %13, %2
-  %.1.i = phi i32 [ 0, %2 ], [ %.0.i, %13 ]
-  %.0.i.i = phi i1 [ false, %2 ], [ %.1.i.i, %13 ]
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !177
-  %16 = and i64 %15, 1
-  %.not.i.i.i = icmp eq i64 %16, 0
-  br i1 %.not.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.i, label %17
+_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i: ; preds = %.noexc5.i, %11
+  %.0.i = phi i32 [ %12, %11 ], [ 0, %.noexc5.i ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %14 = load i64, ptr %13, align 8, !tbaa !177
+  %15 = and i64 %14, 1
+  %.not.i.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i.i, label %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread, label %22
 
-17:                                               ; preds = %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i
-  %18 = icmp eq i64 %15, 1
-  br i1 %18, label %19, label %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit
+_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread19: ; preds = %.noexc.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %17 = load i64, ptr %16, align 8, !tbaa !177
+  %18 = and i64 %17, 1
+  %.not.i.i.i22 = icmp eq i64 %18, 0
+  br i1 %.not.i.i.i22, label %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread, label %22
 
-19:                                               ; preds = %17
-  %20 = load i32, ptr %1, align 8, !tbaa !262
-  %21 = icmp ne i32 %20, 0
-  br label %_ZNK5boost6system10error_codecvbEv.exit.i
+_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread: ; preds = %2
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load i64, ptr %19, align 8, !tbaa !177
+  %21 = and i64 %20, 1
+  %.not.i.i.i6 = icmp eq i64 %21, 0
+  br i1 %.not.i.i.i6, label %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread, label %22
 
-_ZNK5boost6system10error_codecvbEv.exit.i:        ; preds = %19, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i
-  %.0.i.i.i = phi i1 [ %21, %19 ], [ false, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i ]
-  %or.cond.i = or i1 %.0.i.i, %.0.i.i.i
-  br i1 %or.cond.i, label %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit, label %22
+22:                                               ; preds = %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread19, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i
+  %23 = phi i64 [ %20, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread ], [ %14, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i ], [ %17, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread19 ]
+  %.0.i.i10 = phi i1 [ false, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread ], [ false, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i ], [ true, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread19 ]
+  %.1.i8 = phi i32 [ 0, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread ], [ %.0.i, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i ], [ 0, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread19 ]
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit
 
-22:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.i
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 %.1.i, ptr %23, align 8, !tbaa !250
-  br label %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit
+25:                                               ; preds = %22
+  %26 = load i32, ptr %1, align 8, !tbaa !262
+  %27 = icmp ne i32 %26, 0
+  %28 = or i1 %.0.i.i10, %27
+  br i1 %28, label %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit, label %_ZNK5boost6system10error_codecvbEv.exit.i.thread
 
-24:                                               ; preds = %10, %8
-  %25 = landingpad { ptr, i32 }
+_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread: ; preds = %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread
+  %.1.i7.ph = phi i32 [ 0, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread ], [ %.0.i, %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %.1.i7.ph, ptr %29, align 8, !tbaa !250
+  br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
+
+_ZNK5boost6system10error_codecvbEv.exit.i.thread: ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 %.1.i8, ptr %30, align 8, !tbaa !250
+  br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
+
+31:                                               ; preds = %10, %8
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #37
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #37
   unreachable
 
-_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit: ; preds = %17, %_ZNK5boost6system10error_codecvbEv.exit.i, %22
-  br i1 %.0.i.i, label %27, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
+_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit: ; preds = %22, %25
+  br i1 %.0.i.i10, label %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
 
-27:                                               ; preds = %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %29 = load i32, ptr %0, align 8, !tbaa !158
-  %30 = icmp slt i32 %29, 1
-  br i1 %30, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit, label %.preheader.i
+_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread: ; preds = %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE7runningERiRNS_6system10error_codeE.exit.i.thread19, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %35 = load i32, ptr %0, align 8, !tbaa !158
+  %36 = icmp slt i32 %35, 1
+  br i1 %36, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %27, %34
-  %31 = load i32, ptr %0, align 8, !tbaa !158
-  %32 = call i32 @waitpid(i32 noundef %31, ptr noundef nonnull align 4 dereferenceable(4) %28, i32 noundef 0)
-  %33 = icmp slt i32 %32, 0
-  br i1 %33, label %34, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
+.preheader.i:                                     ; preds = %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread, %40
+  %37 = load i32, ptr %0, align 8, !tbaa !158
+  %38 = call i32 @waitpid(i32 noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %34, i32 noundef 0)
+  %39 = icmp slt i32 %38, 0
+  br i1 %39, label %40, label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
 
-34:                                               ; preds = %.preheader.i
-  %35 = tail call ptr @__errno_location() #40
-  %36 = load i32, ptr %35, align 4, !tbaa !42
-  %.not.i = icmp eq i32 %36, 4
-  br i1 %.not.i, label %.preheader.i, label %37, !llvm.loop !176
+40:                                               ; preds = %.preheader.i
+  %41 = tail call ptr @__errno_location() #40
+  %42 = load i32, ptr %41, align 4, !tbaa !42
+  %.not.i = icmp eq i32 %42, 4
+  br i1 %.not.i, label %.preheader.i, label %43, !llvm.loop !176
 
-37:                                               ; preds = %34
+43:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN5boost7process2v26detail14get_last_errorEv(ptr dead_on_unwind nonnull writable sret(%"class.boost::system::error_code") align 8 %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !175
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit
 
-_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit: ; preds = %.preheader.i, %37, %27, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %39 = load i32, ptr %38, align 8, !tbaa !250
-  %40 = and i32 %39, 127
-  %41 = icmp eq i32 %40, 0
-  %42 = lshr i32 %39, 8
-  %43 = and i32 %42, 255
-  %.not.i.i = icmp eq i32 %40, 127
-  %..i.i = select i1 %.not.i.i, i32 %39, i32 %40
-  %.0.i.i3 = select i1 %41, i32 %43, i32 %..i.i
+_ZN5boost7process2v26detail23basic_process_handle_fdINS_4asio15any_io_executorEE4waitERiRNS_6system10error_codeE.exit: ; preds = %.preheader.i, %_ZNK5boost6system10error_codecvbEv.exit.i.thread, %_ZNK5boost6system10error_codecvbEv.exit.i.thread.thread, %43, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit.thread, %_ZN5boost7process2v213basic_processINS_4asio15any_io_executorEE7runningERNS_6system10error_codeE.exit
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %45 = load i32, ptr %44, align 8, !tbaa !250
+  %46 = and i32 %45, 127
+  %47 = icmp eq i32 %46, 0
+  %48 = lshr i32 %45, 8
+  %49 = and i32 %48, 255
+  %.not.i.i = icmp eq i32 %46, 127
+  %..i.i = select i1 %.not.i.i, i32 %45, i32 %46
+  %.0.i.i3 = select i1 %47, i32 %49, i32 %..i.i
   ret i32 %.0.i.i3
 }
 

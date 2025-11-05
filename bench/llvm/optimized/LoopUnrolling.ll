@@ -2600,21 +2600,21 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit44: ; preds =
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread51.sink.split
 
 589:                                              ; preds = %_ZN5clang4entoL22shouldCompletelyUnrollEPKNS_4StmtERNS_10ASTContextEPNS0_12ExplodedNodeERj.exit
-  br i1 %.not.i56, label %592, label %590
+  br i1 %.not.i56, label %593, label %590
 
 590:                                              ; preds = %589
   %591 = getelementptr i8, ptr %.sroa.0.0.i.i55, i64 32
   %.val35 = load i32, ptr %591, align 8, !tbaa !124
-  br label %592
+  %592 = mul i32 %.val35, %.1
+  br label %593
 
-592:                                              ; preds = %589, %590
-  %593 = phi i32 [ %.val35, %590 ], [ 1, %589 ]
-  %594 = mul i32 %593, %.1
+593:                                              ; preds = %589, %590
+  %594 = phi i32 [ %592, %590 ], [ %.1, %589 ]
   %595 = icmp ugt i32 %594, 128
   %596 = load ptr, ptr %0, align 8, !tbaa !89
   br i1 %595, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47: ; preds = %592
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47: ; preds = %593
   store i32 0, ptr %41, align 8, !tbaa !120, !alias.scope !308
   %597 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store ptr %1, ptr %597, align 8, !tbaa !92, !alias.scope !308
@@ -2627,7 +2627,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit47: ; preds =
   store ptr %596, ptr %40, align 8, !tbaa !89
   br label %_ZN5clang4entoL10isLoopStmtEPKNS_4StmtE.exit.thread51.sink.split
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49: ; preds = %592
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49: ; preds = %593
   store i32 1, ptr %43, align 8, !tbaa !120, !alias.scope !311
   %601 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %1, ptr %601, align 8, !tbaa !92, !alias.scope !311

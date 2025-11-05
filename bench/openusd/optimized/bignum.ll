@@ -1685,272 +1685,275 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %.lr.ph, label %._crit_edge
 
+.preheader.loopexit:                              ; preds = %.lr.ph
+  %13 = mul nsw i32 %15, %2
+  br label %._crit_edge
+
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.078 = phi i16 [ %13, %.lr.ph ], [ %1, %8 ]
-  %.03977 = phi i32 [ %14, %.lr.ph ], [ 0, %8 ]
-  %13 = lshr exact i16 %.078, 1
-  %14 = add nuw nsw i32 %.03977, 1
-  %15 = zext nneg i16 %13 to i32
-  %16 = and i32 %15, 1
-  %17 = icmp eq i32 %16, 0
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !29
+  %.078 = phi i16 [ %14, %.lr.ph ], [ %1, %8 ]
+  %.03977 = phi i32 [ %15, %.lr.ph ], [ 0, %8 ]
+  %14 = lshr exact i16 %.078, 1
+  %15 = add nuw nsw i32 %.03977, 1
+  %16 = zext nneg i16 %14 to i32
+  %17 = and i32 %16, 1
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %.lr.ph, label %.preheader.loopexit, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %.lr.ph, %8
-  %.039.lcssa = phi i32 [ 0, %8 ], [ %14, %.lr.ph ]
-  %.0.lcssa = phi i16 [ %1, %8 ], [ %13, %.lr.ph ]
-  %.lcssa76 = phi i32 [ %10, %8 ], [ %15, %.lr.ph ]
-  %18 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %.lcssa76, i1 true)
-  %19 = sub nuw nsw i32 32, %18
-  %20 = mul nsw i32 %19, %2
-  %21 = icmp sgt i32 %20, 3555
-  br i1 %21, label %22, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
+._crit_edge:                                      ; preds = %.preheader.loopexit, %8
+  %.039.lcssa = phi i32 [ 0, %8 ], [ %13, %.preheader.loopexit ]
+  %.0.lcssa = phi i16 [ %1, %8 ], [ %14, %.preheader.loopexit ]
+  %.lcssa76 = phi i32 [ %10, %8 ], [ %16, %.preheader.loopexit ]
+  %19 = tail call range(i32 16, 33) i32 @llvm.ctlz.i32(i32 %.lcssa76, i1 true)
+  %20 = sub nuw nsw i32 32, %19
+  %21 = mul nsw i32 %20, %2
+  %22 = icmp sgt i32 %21, 3555
+  br i1 %22, label %23, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
 
-22:                                               ; preds = %._crit_edge
+23:                                               ; preds = %._crit_edge
   tail call void @abort() #12
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit: ; preds = %._crit_edge, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
-  %.044 = phi i32 [ %23, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit ], [ 1, %._crit_edge ]
+  %.044 = phi i32 [ %24, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit ], [ 1, %._crit_edge ]
   %.not48 = icmp slt i32 %2, %.044
-  %23 = shl i32 %.044, 1
-  br i1 %.not48, label %24, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit, !llvm.loop !30
+  %24 = shl i32 %.044, 1
+  br i1 %.not48, label %25, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit, !llvm.loop !30
 
-24:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
-  %25 = ashr i32 %.044, 2
-  %26 = zext i16 %.0.lcssa to i64
+25:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit
+  %26 = ashr i32 %.044, 2
+  %27 = zext i16 %.0.lcssa to i64
   %.not99 = icmp ult i32 %.044, 4
   br i1 %.not99, label %._crit_edge91, label %.lr.ph90
 
-.lr.ph90:                                         ; preds = %24
-  %27 = or disjoint i32 %18, 32
-  %28 = zext nneg i32 %27 to i64
-  br label %29
+.lr.ph90:                                         ; preds = %25
+  %28 = or disjoint i32 %19, 32
+  %29 = zext nneg i32 %28 to i64
+  br label %30
 
-29:                                               ; preds = %.lr.ph90, %36
-  %.04188 = phi i1 [ false, %.lr.ph90 ], [ %.1, %36 ]
-  %.04287 = phi i64 [ %26, %.lr.ph90 ], [ %.143, %36 ]
-  %.14586 = phi i32 [ %25, %.lr.ph90 ], [ %37, %36 ]
-  %30 = mul nuw i64 %.04287, %.04287
-  %31 = and i32 %.14586, %2
-  %.not51 = icmp eq i32 %31, 0
-  br i1 %.not51, label %36, label %32
+30:                                               ; preds = %.lr.ph90, %37
+  %.04188 = phi i1 [ false, %.lr.ph90 ], [ %.1, %37 ]
+  %.04287 = phi i64 [ %27, %.lr.ph90 ], [ %.143, %37 ]
+  %.14586 = phi i32 [ %26, %.lr.ph90 ], [ %38, %37 ]
+  %31 = mul nuw i64 %.04287, %.04287
+  %32 = and i32 %.14586, %2
+  %.not51 = icmp eq i32 %32, 0
+  br i1 %.not51, label %37, label %33
 
-32:                                               ; preds = %29
-  %33 = lshr i64 %30, %28
-  %34 = icmp ne i64 %33, 0
-  %35 = select i1 %34, i64 1, i64 %26
-  %spec.select = mul i64 %35, %30
-  %spec.select52 = select i1 %34, i1 true, i1 %.04188
-  br label %36
+33:                                               ; preds = %30
+  %34 = lshr i64 %31, %29
+  %35 = icmp ne i64 %34, 0
+  %36 = select i1 %35, i64 1, i64 %27
+  %spec.select = mul i64 %36, %31
+  %spec.select52 = select i1 %35, i1 true, i1 %.04188
+  br label %37
 
-36:                                               ; preds = %32, %29
-  %.143 = phi i64 [ %30, %29 ], [ %spec.select, %32 ]
-  %.1 = phi i1 [ %.04188, %29 ], [ %spec.select52, %32 ]
-  %37 = ashr i32 %.14586, 1
-  %38 = icmp ugt i32 %.14586, 1
-  %39 = icmp ult i64 %.143, 4294967296
-  %40 = select i1 %38, i1 %39, i1 false
-  br i1 %40, label %29, label %._crit_edge91, !llvm.loop !31
+37:                                               ; preds = %33, %30
+  %.143 = phi i64 [ %31, %30 ], [ %spec.select, %33 ]
+  %.1 = phi i1 [ %.04188, %30 ], [ %spec.select52, %33 ]
+  %38 = ashr i32 %.14586, 1
+  %39 = icmp ugt i32 %.14586, 1
+  %40 = icmp ult i64 %.143, 4294967296
+  %41 = select i1 %39, i1 %40, i1 false
+  br i1 %41, label %30, label %._crit_edge91, !llvm.loop !31
 
-._crit_edge91:                                    ; preds = %36, %24
-  %.145.lcssa = phi i32 [ %25, %24 ], [ %37, %36 ]
-  %.042.lcssa = phi i64 [ %26, %24 ], [ %.143, %36 ]
-  %.041.lcssa = phi i1 [ false, %24 ], [ %.1, %36 ]
+._crit_edge91:                                    ; preds = %37, %25
+  %.145.lcssa = phi i32 [ %26, %25 ], [ %38, %37 ]
+  %.042.lcssa = phi i64 [ %27, %25 ], [ %.143, %37 ]
+  %.041.lcssa = phi i1 [ false, %25 ], [ %.1, %37 ]
   %.not6.i = icmp eq i64 %.042.lcssa, 0
   br i1 %.not6.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge91
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %42
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br label %43
 
-42:                                               ; preds = %42, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
-  %.057.i = phi i64 [ %.042.lcssa, %.lr.ph.i ], [ %46, %42 ]
-  %43 = trunc i64 %.057.i to i32
-  %44 = and i32 %43, 268435455
-  %45 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.i
-  store i32 %44, ptr %45, align 4
-  %46 = lshr i64 %.057.i, 28
+43:                                               ; preds = %43, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
+  %.057.i = phi i64 [ %.042.lcssa, %.lr.ph.i ], [ %47, %43 ]
+  %44 = trunc i64 %.057.i to i32
+  %45 = and i32 %44, 268435455
+  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i
+  store i32 %45, ptr %46, align 4
+  %47 = lshr i64 %.057.i, 28
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp ult i64 %.057.i, 268435456
-  br i1 %.not.i, label %._crit_edge.i, label %42, !llvm.loop !4
+  br i1 %.not.i, label %._crit_edge.i, label %43, !llvm.loop !4
 
-._crit_edge.i:                                    ; preds = %42
+._crit_edge.i:                                    ; preds = %43
   %indvars = trunc i64 %indvars.iv.next.i to i16
   store i16 %indvars, ptr %0, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit: ; preds = %._crit_edge91, %._crit_edge.i
-  %47 = phi i16 [ 0, %._crit_edge91 ], [ %indvars, %._crit_edge.i ]
-  br i1 %.041.lcssa, label %48, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
+  %48 = phi i16 [ 0, %._crit_edge91 ], [ %indvars, %._crit_edge.i ]
+  br i1 %.041.lcssa, label %49, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
 
-48:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit
-  switch i16 %.0.lcssa, label %50 [
+49:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit
+  switch i16 %.0.lcssa, label %51 [
     i16 1, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
-    i16 0, label %49
+    i16 0, label %50
   ]
 
-49:                                               ; preds = %48
+50:                                               ; preds = %49
   store i16 0, ptr %0, align 4
   store i16 0, ptr %9, align 2
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
 
-50:                                               ; preds = %48
-  %51 = icmp sgt i16 %47, 0
-  br i1 %51, label %.lr.ph.i53, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
+51:                                               ; preds = %49
+  %52 = icmp sgt i16 %48, 0
+  br i1 %52, label %.lr.ph.i53, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
 
-.lr.ph.i53:                                       ; preds = %50
-  %wide.trip.count.i = zext nneg i16 %47 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %53
+.lr.ph.i53:                                       ; preds = %51
+  %wide.trip.count.i = zext nneg i16 %48 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br label %54
 
-.preheader.i:                                     ; preds = %53
-  %.not18.i = icmp samesign ult i64 %58, 268435456
+.preheader.i:                                     ; preds = %54
+  %.not18.i = icmp samesign ult i64 %59, 268435456
   br i1 %.not18.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit, label %.lr.ph20.i
 
-53:                                               ; preds = %53, %.lr.ph.i53
-  %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i55, %53 ]
-  %.017.i = phi i64 [ 0, %.lr.ph.i53 ], [ %61, %53 ]
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv.i54
-  %55 = load i32, ptr %54, align 4
-  %56 = zext i32 %55 to i64
-  %57 = mul nuw nsw i64 %56, %26
-  %58 = add nuw nsw i64 %57, %.017.i
-  %59 = trunc i64 %58 to i32
-  %60 = and i32 %59, 268435455
-  store i32 %60, ptr %54, align 4
-  %61 = lshr i64 %58, 28
+54:                                               ; preds = %54, %.lr.ph.i53
+  %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.i53 ], [ %indvars.iv.next.i55, %54 ]
+  %.017.i = phi i64 [ 0, %.lr.ph.i53 ], [ %62, %54 ]
+  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i54
+  %56 = load i32, ptr %55, align 4
+  %57 = zext i32 %56 to i64
+  %58 = mul nuw nsw i64 %57, %27
+  %59 = add nuw nsw i64 %58, %.017.i
+  %60 = trunc i64 %59 to i32
+  %61 = and i32 %60, 268435455
+  store i32 %61, ptr %55, align 4
+  %62 = lshr i64 %59, 28
   %indvars.iv.next.i55 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i55, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader.i, label %53, !llvm.loop !14
+  br i1 %exitcond.not.i, label %.preheader.i, label %54, !llvm.loop !14
 
 .lr.ph20.i:                                       ; preds = %.preheader.i
-  %62 = icmp samesign ugt i16 %47, 127
-  br i1 %62, label %63, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit
+  %63 = icmp samesign ugt i16 %48, 127
+  br i1 %63, label %64, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit
 
-63:                                               ; preds = %.lr.ph20.i
+64:                                               ; preds = %.lr.ph20.i
   tail call void @abort() #12
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit: ; preds = %.lr.ph20.i
-  %64 = trunc nuw nsw i64 %61 to i32
-  %65 = zext nneg i16 %47 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %52, i64 %65
-  store i32 %64, ptr %66, align 4
-  %67 = load i16, ptr %0, align 4
-  %68 = add i16 %67, 1
-  store i16 %68, ptr %0, align 4
+  %65 = trunc nuw nsw i64 %62 to i32
+  %66 = zext nneg i16 %48 to i64
+  %67 = getelementptr inbounds nuw i32, ptr %53, i64 %66
+  store i32 %65, ptr %67, align 4
+  %68 = load i16, ptr %0, align 4
+  %69 = add i16 %68, 1
+  store i16 %69, ptr %0, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit, %.preheader.i, %50, %49, %48, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit
-  %69 = phi i16 [ %68, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit ], [ %47, %.preheader.i ], [ %47, %50 ], [ 0, %49 ], [ %47, %48 ], [ %47, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit ]
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit, %.preheader.i, %51, %50, %49, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit
+  %70 = phi i16 [ %69, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit.loopexit ], [ %48, %.preheader.i ], [ %48, %51 ], [ 0, %50 ], [ %48, %49 ], [ %48, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em.exit ]
   %.not4995 = icmp eq i32 %.145.lcssa, 0
   br i1 %.not4995, label %._crit_edge98, label %.lr.ph97
 
 .lr.ph97:                                         ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %71
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  br label %72
 
-71:                                               ; preds = %.lr.ph97, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
-  %.296 = phi i32 [ %.145.lcssa, %.lr.ph97 ], [ %94, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69 ]
+72:                                               ; preds = %.lr.ph97, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
+  %.296 = phi i32 [ %.145.lcssa, %.lr.ph97 ], [ %95, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69 ]
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum6SquareEv(ptr noundef nonnull align 4 dereferenceable(516) %0)
-  %72 = and i32 %.296, %2
-  %.not50 = icmp eq i32 %72, 0
-  br i1 %.not50, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69, label %73
+  %73 = and i32 %.296, %2
+  %.not50 = icmp eq i32 %73, 0
+  br i1 %.not50, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69, label %74
 
-73:                                               ; preds = %71
-  switch i16 %.0.lcssa, label %75 [
+74:                                               ; preds = %72
+  switch i16 %.0.lcssa, label %76 [
     i16 1, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
-    i16 0, label %74
+    i16 0, label %75
   ]
 
-74:                                               ; preds = %73
+75:                                               ; preds = %74
   store i16 0, ptr %0, align 4
   store i16 0, ptr %9, align 2
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
 
-75:                                               ; preds = %73
-  %76 = load i16, ptr %0, align 4
-  %77 = icmp sgt i16 %76, 0
-  br i1 %77, label %.lr.ph.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
+76:                                               ; preds = %74
+  %77 = load i16, ptr %0, align 4
+  %78 = icmp sgt i16 %77, 0
+  br i1 %78, label %.lr.ph.i57, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
 
-.lr.ph.i57:                                       ; preds = %75
-  %wide.trip.count.i58 = zext nneg i16 %76 to i64
-  br label %78
+.lr.ph.i57:                                       ; preds = %76
+  %wide.trip.count.i58 = zext nneg i16 %77 to i64
+  br label %79
 
-.preheader.i63:                                   ; preds = %78
-  %.not18.i64 = icmp samesign ult i64 %83, 268435456
+.preheader.i63:                                   ; preds = %79
+  %.not18.i64 = icmp samesign ult i64 %84, 268435456
   br i1 %.not18.i64, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69, label %.lr.ph20.i65
 
-78:                                               ; preds = %78, %.lr.ph.i57
-  %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.i57 ], [ %indvars.iv.next.i61, %78 ]
-  %.017.i60 = phi i64 [ 0, %.lr.ph.i57 ], [ %86, %78 ]
-  %79 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.i59
-  %80 = load i32, ptr %79, align 4
-  %81 = zext i32 %80 to i64
-  %82 = mul nuw nsw i64 %81, %26
-  %83 = add nuw nsw i64 %82, %.017.i60
-  %84 = trunc i64 %83 to i32
-  %85 = and i32 %84, 268435455
-  store i32 %85, ptr %79, align 4
-  %86 = lshr i64 %83, 28
+79:                                               ; preds = %79, %.lr.ph.i57
+  %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.i57 ], [ %indvars.iv.next.i61, %79 ]
+  %.017.i60 = phi i64 [ 0, %.lr.ph.i57 ], [ %87, %79 ]
+  %80 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i59
+  %81 = load i32, ptr %80, align 4
+  %82 = zext i32 %81 to i64
+  %83 = mul nuw nsw i64 %82, %27
+  %84 = add nuw nsw i64 %83, %.017.i60
+  %85 = trunc i64 %84 to i32
+  %86 = and i32 %85, 268435455
+  store i32 %86, ptr %80, align 4
+  %87 = lshr i64 %84, 28
   %indvars.iv.next.i61 = add nuw nsw i64 %indvars.iv.i59, 1
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i58
-  br i1 %exitcond.not.i62, label %.preheader.i63, label %78, !llvm.loop !14
+  br i1 %exitcond.not.i62, label %.preheader.i63, label %79, !llvm.loop !14
 
 .lr.ph20.i65:                                     ; preds = %.preheader.i63
-  %87 = icmp samesign ugt i16 %76, 127
-  br i1 %87, label %88, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69.loopexit
+  %88 = icmp samesign ugt i16 %77, 127
+  br i1 %88, label %89, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69.loopexit
 
-88:                                               ; preds = %.lr.ph20.i65
+89:                                               ; preds = %.lr.ph20.i65
   tail call void @abort() #12
   unreachable
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69.loopexit: ; preds = %.lr.ph20.i65
-  %89 = trunc nuw nsw i64 %86 to i32
-  %90 = zext nneg i16 %76 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %70, i64 %90
-  store i32 %89, ptr %91, align 4
-  %92 = load i16, ptr %0, align 4
-  %93 = add i16 %92, 1
-  store i16 %93, ptr %0, align 4
+  %90 = trunc nuw nsw i64 %87 to i32
+  %91 = zext nneg i16 %77 to i64
+  %92 = getelementptr inbounds nuw i32, ptr %71, i64 %91
+  store i32 %90, ptr %92, align 4
+  %93 = load i16, ptr %0, align 4
+  %94 = add i16 %93, 1
+  store i16 %94, ptr %0, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69.loopexit, %.preheader.i63, %75, %74, %73, %71
-  %94 = ashr i32 %.296, 1
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69.loopexit, %.preheader.i63, %76, %75, %74, %72
+  %95 = ashr i32 %.296, 1
   %.not49 = icmp ult i32 %.296, 2
-  br i1 %.not49, label %._crit_edge98.loopexit, label %71, !llvm.loop !32
+  br i1 %.not49, label %._crit_edge98.loopexit, label %72, !llvm.loop !32
 
 ._crit_edge98.loopexit:                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit69
   %.pre = load i16, ptr %0, align 4
   br label %._crit_edge98
 
 ._crit_edge98:                                    ; preds = %._crit_edge98.loopexit, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit
-  %95 = phi i16 [ %.pre, %._crit_edge98.loopexit ], [ %69, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit ]
-  %96 = icmp eq i16 %95, 0
-  br i1 %96, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %97
+  %96 = phi i16 [ %.pre, %._crit_edge98.loopexit ], [ %70, %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum16MultiplyByUInt32Ej.exit ]
+  %97 = icmp eq i16 %96, 0
+  br i1 %97, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit, label %98
 
-97:                                               ; preds = %._crit_edge98
-  %98 = mul nsw i32 %.039.lcssa, %2
-  %99 = sdiv i32 %98, 28
+98:                                               ; preds = %._crit_edge98
+  %99 = sdiv i32 %.039.lcssa, 28
   %100 = load i16, ptr %9, align 2
   %101 = trunc i32 %99 to i16
   %102 = add i16 %100, %101
   store i16 %102, ptr %9, align 2
-  %103 = srem i32 %98, 28
-  %104 = icmp sgt i16 %95, 127
+  %103 = srem i32 %.039.lcssa, 28
+  %104 = icmp sgt i16 %96, 127
   br i1 %104, label %105, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i70
 
-105:                                              ; preds = %97
+105:                                              ; preds = %98
   tail call void @abort() #12
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i70: ; preds = %97
-  %106 = icmp sgt i16 %95, 0
+_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i70: ; preds = %98
+  %106 = icmp sgt i16 %96, 0
   br i1 %106, label %.lr.ph.i.i, label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit
 
 .lr.ph.i.i:                                       ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapacityEi.exit.i70
-  %wide.trip.count.i.i = zext nneg i16 %95 to i64
+  %wide.trip.count.i.i = zext nneg i16 %96 to i64
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %108 = sub nsw i32 28, %103
   br label %109
@@ -1976,7 +1979,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum14EnsureCapac
 116:                                              ; preds = %._crit_edge.i.i
   %117 = getelementptr inbounds nuw i32, ptr %107, i64 %wide.trip.count.i.i
   store i32 %112, ptr %117, align 4
-  %118 = add nuw nsw i16 %95, 1
+  %118 = add nuw nsw i16 %96, 1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit.sink.split
 
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum9ShiftLeftEi.exit.sink.split: ; preds = %5, %116

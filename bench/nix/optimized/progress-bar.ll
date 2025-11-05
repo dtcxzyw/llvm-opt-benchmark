@@ -4160,7 +4160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16: ; preds = %44,
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
   %.pre = load ptr, ptr %10, align 8
-  br label %69
+  br label %70
 
 50:                                               ; preds = %22
   %51 = landingpad { ptr, i32 }
@@ -4201,46 +4201,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge: ; p
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16
   %62 = invoke i64 @_ZN3nix11ProgressBar4drawERNS0_5StateE(ptr noundef nonnull align 8 dereferenceable(314) %0, ptr noundef nonnull align 8 dereferenceable(155) %16)
-          to label %63 unwind label %67
+          to label %63 unwind label %68
 
 63:                                               ; preds = %61
   %64 = load ptr, ptr %10, align 8
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i16
-  br label %69
+  %67 = or disjoint i16 %66, 256
+  br label %70
 
-67:                                               ; preds = %61
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %61
+  %69 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   br label %_ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4LockD2Ev.exit21
 
-69:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge, %63
-  %70 = phi ptr [ %64, %63 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge ]
-  %.sroa.026.1 = phi i16 [ %66, %63 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge ]
-  %.sroa.227.1 = phi i16 [ 256, %63 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge ]
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %72 = icmp eq ptr %70, %71
-  br i1 %72, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
+70:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge, %63
+  %71 = phi ptr [ %64, %63 ], [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge ]
+  %.sroa.227.1 = phi i16 [ %67, %63 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16._crit_edge ]
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %73 = icmp eq ptr %71, %72
+  br i1 %73, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17: ; preds = %69
-  call void @_ZdlPv(ptr noundef %70) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17: ; preds = %70
+  call void @_ZdlPv(ptr noundef %71) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #24
   br label %_ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4LockD2Ev.exit
 
 _ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4LockD2Ev.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, %20, %_ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4lockEv.exit
-  %.sroa.026.0 = phi i16 [ %.sroa.026.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ], [ 0, %20 ], [ 0, %_ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4lockEv.exit ]
   %.sroa.227.0 = phi i16 [ %.sroa.227.1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ], [ 0, %20 ], [ 0, %_ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4lockEv.exit ]
-  %73 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #24
-  %.sroa.026.0.insert.insert = or i16 %.sroa.227.0, %.sroa.026.0
-  ret i16 %.sroa.026.0.insert.insert
-
-_ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4LockD2Ev.exit21: ; preds = %56, %57, %59, %67
-  %.pn9 = phi { ptr, i32 } [ %68, %67 ], [ %60, %59 ], [ %58, %57 ], [ %.pn.pn, %56 ]
   %74 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #24
+  ret i16 %.sroa.227.0
+
+_ZN3nix4SyncINS_11ProgressBar5StateESt5mutexE4LockD2Ev.exit21: ; preds = %56, %57, %59, %68
+  %.pn9 = phi { ptr, i32 } [ %69, %68 ], [ %60, %59 ], [ %58, %57 ], [ %.pn.pn, %56 ]
+  %75 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %13) #24
   resume { ptr, i32 } %.pn9
 }
 

@@ -3404,20 +3404,23 @@ statecmp.exit.thread:                             ; preds = %.lr.ph.split, %.cri
   %85 = getelementptr inbounds nuw i8, ptr %.057.i72, i64 64
   %86 = load ptr, ptr %85, align 8
   %.not.i73 = icmp eq ptr %86, null
-  br i1 %.not.i73, label %statehash.exit75, label %.lr.ph.i70, !llvm.loop !47
+  br i1 %.not.i73, label %statehash.exit75.loopexit, label %.lr.ph.i70, !llvm.loop !47
 
-statehash.exit75:                                 ; preds = %.lr.ph.i70, %70
-  %.0.lcssa.i74 = phi i32 [ 0, %70 ], [ %84, %.lr.ph.i70 ]
-  %87 = and i32 %.0.lcssa.i74, %69
-  %88 = getelementptr %struct.s_x3node, ptr %65, i64 %indvars.iv
-  %89 = zext i32 %87 to i64
-  %90 = getelementptr ptr, ptr %66, i64 %89
+statehash.exit75.loopexit:                        ; preds = %.lr.ph.i70
+  %87 = and i32 %84, %69
+  %88 = zext i32 %87 to i64
+  br label %statehash.exit75
+
+statehash.exit75:                                 ; preds = %statehash.exit75.loopexit, %70
+  %.0.lcssa.i74 = phi i64 [ 0, %70 ], [ %88, %statehash.exit75.loopexit ]
+  %89 = getelementptr %struct.s_x3node, ptr %65, i64 %indvars.iv
+  %90 = getelementptr ptr, ptr %66, i64 %.0.lcssa.i74
   %91 = load ptr, ptr %90, align 8
   %.not65 = icmp eq ptr %91, null
   br i1 %.not65, label %95, label %92
 
 92:                                               ; preds = %statehash.exit75
-  %93 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
   store ptr %93, ptr %94, align 8
   %.pre = load ptr, ptr %90, align 8
@@ -3427,16 +3430,16 @@ statehash.exit75:                                 ; preds = %.lr.ph.i70, %70
 95:                                               ; preds = %92, %statehash.exit75
   %96 = phi i32 [ %.pre100, %92 ], [ %71, %statehash.exit75 ]
   %97 = phi ptr [ %.pre, %92 ], [ null, %statehash.exit75 ]
-  %98 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store ptr %97, ptr %98, align 8
   %99 = load ptr, ptr %74, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %99, ptr %100, align 8
   %101 = load ptr, ptr %73, align 8
-  store ptr %101, ptr %88, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %88, i64 24
+  store ptr %101, ptr %89, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store ptr %90, ptr %102, align 8
-  store ptr %88, ptr %90, align 8
+  store ptr %89, ptr %90, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %103 = sext i32 %96 to i64
   %104 = icmp slt i64 %indvars.iv.next, %103
@@ -18027,20 +18030,23 @@ strhash.exit:                                     ; preds = %.lr.ph.i, %4
   %44 = add i32 %41, %43
   %45 = load i8, ptr %42, align 1
   %.not.i68 = icmp eq i8 %45, 0
-  br i1 %.not.i68, label %strhash.exit70, label %.lr.ph.i65, !llvm.loop !33
+  br i1 %.not.i68, label %strhash.exit70.loopexit, label %.lr.ph.i65, !llvm.loop !33
 
-strhash.exit70:                                   ; preds = %.lr.ph.i65, %34
-  %.0.lcssa.i69 = phi i32 [ 0, %34 ], [ %44, %.lr.ph.i65 ]
-  %46 = and i32 %.0.lcssa.i69, %33
-  %47 = getelementptr %struct.s_x1node, ptr %29, i64 %indvars.iv
-  %48 = zext i32 %46 to i64
-  %49 = getelementptr ptr, ptr %30, i64 %48
+strhash.exit70.loopexit:                          ; preds = %.lr.ph.i65
+  %46 = and i32 %44, %33
+  %47 = zext i32 %46 to i64
+  br label %strhash.exit70
+
+strhash.exit70:                                   ; preds = %strhash.exit70.loopexit, %34
+  %.0.lcssa.i69 = phi i64 [ 0, %34 ], [ %47, %strhash.exit70.loopexit ]
+  %48 = getelementptr %struct.s_x1node, ptr %29, i64 %indvars.iv
+  %49 = getelementptr ptr, ptr %30, i64 %.0.lcssa.i69
   %50 = load ptr, ptr %49, align 8
   %.not61 = icmp eq ptr %50, null
   br i1 %.not61, label %54, label %51
 
 51:                                               ; preds = %strhash.exit70
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 16
   store ptr %52, ptr %53, align 8
   %.pre = load ptr, ptr %49, align 8
@@ -18050,13 +18056,13 @@ strhash.exit70:                                   ; preds = %.lr.ph.i65, %34
 54:                                               ; preds = %51, %strhash.exit70
   %55 = phi i32 [ %.pre84, %51 ], [ %35, %strhash.exit70 ]
   %56 = phi ptr [ %.pre, %51 ], [ null, %strhash.exit70 ]
-  %57 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %56, ptr %57, align 8
   %58 = load ptr, ptr %37, align 8
-  store ptr %58, ptr %47, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store ptr %58, ptr %48, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 16
   store ptr %49, ptr %59, align 8
-  store ptr %47, ptr %49, align 8
+  store ptr %48, ptr %49, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %60 = sext i32 %55 to i64
   %61 = icmp slt i64 %indvars.iv.next, %60
@@ -18216,20 +18222,23 @@ strhash.exit:                                     ; preds = %.lr.ph.i, %5
   %47 = add i32 %44, %46
   %48 = load i8, ptr %45, align 1
   %.not.i72 = icmp eq i8 %48, 0
-  br i1 %.not.i72, label %strhash.exit74, label %.lr.ph.i69, !llvm.loop !33
+  br i1 %.not.i72, label %strhash.exit74.loopexit, label %.lr.ph.i69, !llvm.loop !33
 
-strhash.exit74:                                   ; preds = %.lr.ph.i69, %36
-  %.0.lcssa.i73 = phi i32 [ 0, %36 ], [ %47, %.lr.ph.i69 ]
-  %49 = and i32 %.0.lcssa.i73, %35
-  %50 = getelementptr %struct.s_x2node, ptr %31, i64 %indvars.iv
-  %51 = zext i32 %49 to i64
-  %52 = getelementptr ptr, ptr %32, i64 %51
+strhash.exit74.loopexit:                          ; preds = %.lr.ph.i69
+  %49 = and i32 %47, %35
+  %50 = zext i32 %49 to i64
+  br label %strhash.exit74
+
+strhash.exit74:                                   ; preds = %strhash.exit74.loopexit, %36
+  %.0.lcssa.i73 = phi i64 [ 0, %36 ], [ %50, %strhash.exit74.loopexit ]
+  %51 = getelementptr %struct.s_x2node, ptr %31, i64 %indvars.iv
+  %52 = getelementptr ptr, ptr %32, i64 %.0.lcssa.i73
   %53 = load ptr, ptr %52, align 8
   %.not65 = icmp eq ptr %53, null
   br i1 %.not65, label %57, label %54
 
 54:                                               ; preds = %strhash.exit74
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr %55, ptr %56, align 8
   %.pre = load ptr, ptr %52, align 8
@@ -18239,16 +18248,16 @@ strhash.exit74:                                   ; preds = %.lr.ph.i69, %36
 57:                                               ; preds = %54, %strhash.exit74
   %58 = phi i32 [ %.pre88, %54 ], [ %37, %strhash.exit74 ]
   %59 = phi ptr [ %.pre, %54 ], [ null, %strhash.exit74 ]
-  %60 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %59, ptr %60, align 8
   %61 = load ptr, ptr %40, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store ptr %61, ptr %62, align 8
   %63 = load ptr, ptr %39, align 8
-  store ptr %63, ptr %50, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  store ptr %63, ptr %51, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %52, ptr %64, align 8
-  store ptr %50, ptr %52, align 8
+  store ptr %51, ptr %52, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = sext i32 %58 to i64
   %66 = icmp slt i64 %indvars.iv.next, %65

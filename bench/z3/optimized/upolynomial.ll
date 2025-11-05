@@ -665,14 +665,14 @@ _ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit:     ; preds = %_ZNK6vectorI3mpzLb0
   %57 = getelementptr inbounds i8, ptr %54, i64 -4
   %58 = load i32, ptr %57, align 4, !tbaa !27
   %59 = tail call i32 @llvm.usub.sat.i32(i32 %58, i32 1)
+  %60 = mul i32 %59, %2
   br label %_ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit
 
 _ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit: ; preds = %_ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit, %56
-  %.0.i.i8 = phi i32 [ %59, %56 ], [ 0, %_ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit ]
-  %60 = mul i32 %.0.i.i8, %2
+  %.0.i.i8 = phi i32 [ %60, %56 ], [ 0, %_ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %62 = load i32, ptr %61, align 4, !tbaa !35
-  %63 = add i32 %62, %60
+  %63 = add i32 %62, %.0.i.i8
   store i32 %63, ptr %61, align 4, !tbaa !35
   ret void
 
@@ -995,14 +995,14 @@ _ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit:     ; preds = %23, %_ZN6vectorIjLb
   %47 = getelementptr inbounds i8, ptr %44, i64 -4
   %48 = load i32, ptr %47, align 4, !tbaa !27
   %49 = tail call i32 @llvm.usub.sat.i32(i32 %48, i32 1)
+  %50 = mul i32 %49, %2
   br label %_ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit
 
 _ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit: ; preds = %_ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit, %46
-  %.0.i.i7 = phi i32 [ %49, %46 ], [ 0, %_ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit ]
-  %50 = mul i32 %.0.i.i7, %2
+  %.0.i.i7 = phi i32 [ %50, %46 ], [ 0, %_ZN6vectorI7svectorI3mpzjELb1EjE4backEv.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %52 = load i32, ptr %51, align 4, !tbaa !35
-  %53 = add i32 %52, %50
+  %53 = add i32 %52, %.0.i.i7
   store i32 %53, ptr %51, align 4, !tbaa !35
   ret void
 
@@ -1705,13 +1705,13 @@ _ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit: ; preds = %3, %9
   %28 = getelementptr inbounds i8, ptr %7, i64 -4
   %29 = load i32, ptr %28, align 4, !tbaa !27
   %30 = tail call i32 @llvm.usub.sat.i32(i32 %29, i32 1)
+  %31 = mul i32 %30, %2
   br label %_ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit9
 
 _ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit9: ; preds = %_ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit, %27
-  %.0.i.i8 = phi i32 [ %30, %27 ], [ 0, %_ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit ]
-  %31 = mul i32 %.0.i.i8, %2
+  %.0.i.i8 = phi i32 [ %31, %27 ], [ 0, %_ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit ]
   %32 = load i32, ptr %18, align 4, !tbaa !35
-  %33 = add i32 %32, %31
+  %33 = add i32 %32, %.0.i.i8
   store i32 %33, ptr %18, align 4, !tbaa !35
   ret void
 }

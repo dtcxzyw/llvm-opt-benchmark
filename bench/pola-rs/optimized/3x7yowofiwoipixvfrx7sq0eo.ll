@@ -18532,15 +18532,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i
   %103 = shl i64 %102, 8
   %104 = or disjoint i64 %103, 1
   %extract.i.i.i.i.i.i.i = lshr i64 %102, 56
+  %105 = xor i64 %extract.i.i.i.i.i.i.i, %100
   br label %_ZN9hashbrown3map9make_hash17he84c09d983e5b19fE.exit.i.i.i.i.i.i
 
 _ZN9hashbrown3map9make_hash17he84c09d983e5b19fE.exit.i.i.i.i.i.i: ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i, %98
   %.sroa.0.1.off0.i.i.i.i.i.i.i = phi i64 [ %104, %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i ], [ %extract.t14.i.i.i.i.i.i.i, %98 ]
-  %.sroa.0.1.off64.i.i.i.i.i.i.i = phi i64 [ %extract.i.i.i.i.i.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i ], [ 0, %98 ]
-  %105 = xor i64 %.sroa.0.1.off0.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i
-  %106 = xor i64 %.sroa.0.1.off64.i.i.i.i.i.i.i, %100
-  %107 = zext i64 %105 to i128
-  %108 = zext i64 %106 to i128
+  %.sroa.0.1.off64.i.i.i.i.i.i.i = phi i64 [ %105, %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i ], [ %100, %98 ]
+  %106 = xor i64 %.sroa.0.1.off0.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i
+  %107 = zext i64 %106 to i128
+  %108 = zext i64 %.sroa.0.1.off64.i.i.i.i.i.i.i to i128
   %109 = mul nuw i128 %108, %107
   %110 = lshr i128 %109, 64
   %.masked.i.i.i.i.i.i.i = and i128 %109, 18446744073709551615
@@ -20102,15 +20102,15 @@ _ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i
   %106 = shl i64 %105, 8
   %107 = or disjoint i64 %106, 1
   %extract17.i.i.i.i.i.i.i = lshr i64 %105, 56
+  %108 = xor i64 %extract17.i.i.i.i.i.i.i, %100
   br label %_ZN9hashbrown3map9make_hash17ha18b6473f8575c09E.exit.i.i.i.i.i.i
 
 _ZN9hashbrown3map9make_hash17ha18b6473f8575c09E.exit.i.i.i.i.i.i: ; preds = %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i, %98
   %.sroa.0.0.off0.i.i.i.i.i.i.i = phi i64 [ %extract.t.i.i.i.i.i.i.i, %98 ], [ %107, %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i ]
-  %.sroa.0.0.off64.i.i.i.i.i.i.i = phi i64 [ 0, %98 ], [ %extract17.i.i.i.i.i.i.i, %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i ]
-  %108 = xor i64 %.sroa.0.0.off0.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i
-  %109 = xor i64 %.sroa.0.0.off64.i.i.i.i.i.i.i, %100
-  %110 = zext i64 %108 to i128
-  %111 = zext i64 %109 to i128
+  %.sroa.0.0.off64.i.i.i.i.i.i.i = phi i64 [ %100, %98 ], [ %108, %_ZN8foldhash4fast10FoldHasher9write_num17hf8b73880fc9979fcE.exit.i.i.i.i.i.i.i.i ]
+  %109 = xor i64 %.sroa.0.0.off0.i.i.i.i.i.i.i, %.val.i.i.i.i.i.i
+  %110 = zext i64 %109 to i128
+  %111 = zext i64 %.sroa.0.0.off64.i.i.i.i.i.i.i to i128
   %112 = mul nuw i128 %111, %110
   %113 = lshr i128 %112, 64
   %.masked.i.i.i.i.i.i.i = and i128 %112, 18446744073709551615

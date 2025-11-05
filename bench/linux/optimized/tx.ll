@@ -8936,7 +8936,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
 32:                                               ; preds = %29, %6
   %33 = phi ptr [ null, %6 ], [ %31, %29 ]
   %34 = load i32, ptr %25, align 8
-  switch i32 %34, label %346 [
+  switch i32 %34, label %348 [
     i32 4, label %35
     i32 3, label %65
     i32 2, label %113
@@ -9028,7 +9028,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   tail call void asm sideeffect "3253: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3253b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3253) #20, !srcloc !153
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2665, i32 2305, i64 12) #20, !srcloc !154
   tail call void asm sideeffect "3254: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3254b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3254) #20, !srcloc !155
-  br label %346
+  br label %348
 
 91:                                               ; preds = %74, %65
   %92 = icmp eq i32 %11, 15
@@ -9055,7 +9055,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   %104 = getelementptr ptr, ptr %102, i64 %103
   %105 = load volatile ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
-  br i1 %106, label %346, label %.thread17, !prof !8
+  br i1 %106, label %348, label %.thread17, !prof !8
 
 .thread17:                                        ; preds = %101
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 10
@@ -9113,7 +9113,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   tail call void asm sideeffect "3259: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 3259b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3259) #20, !srcloc !156
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2777, i32 2307, i64 12) #20, !srcloc !157
   tail call void asm sideeffect "3260: nop\0A\09.pushsection .discard.instr_end\0A\09.long 3260b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 3260) #20, !srcloc !158
-  br label %346
+  br label %348
 
 139:                                              ; preds = %113
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 2160
@@ -9186,7 +9186,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
 
 180:                                              ; preds = %172
   %181 = icmp eq i16 %27, 0
-  br i1 %181, label %346, label %186
+  br i1 %181, label %348, label %186
 
 182:                                              ; preds = %172
   %183 = load ptr, ptr %174, align 8
@@ -9232,12 +9232,12 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 1580
   %214 = load i16, ptr %213, align 4
   %215 = icmp eq i16 %212, %214
-  br i1 %215, label %216, label %346
+  br i1 %215, label %216, label %348
 
 216:                                              ; preds = %211
   %217 = getelementptr i8, ptr %16, i64 6
   %218 = tail call zeroext i1 @ieee80211_is_our_addr(ptr noundef %0, ptr noundef %217, ptr noundef null) #20
-  br i1 %218, label %.thread19, label %346, !prof !9
+  br i1 %218, label %.thread19, label %348, !prof !9
 
 219:                                              ; preds = %198
   br i1 %189, label %.thread19, label %242
@@ -9291,11 +9291,11 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
 
 .thread20:                                        ; preds = %247
   tail call void @kfree_skb_reason(ptr noundef %1, i32 noundef 2) #20
-  br label %346
+  br label %348
 
 250:                                              ; preds = %242
   %251 = icmp eq ptr %1, null
-  br i1 %251, label %346, label %252, !prof !77
+  br i1 %251, label %348, label %252, !prof !77
 
 252:                                              ; preds = %.thread21, %250
   %253 = phi ptr [ %248, %.thread21 ], [ %1, %250 ]
@@ -9366,7 +9366,7 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
 
 299:                                              ; preds = %291
   tail call void @ieee80211_free_txskb(ptr noundef %10, ptr noundef nonnull %253) #20
-  br label %350
+  br label %352
 
 300:                                              ; preds = %291, %282, %277
   br i1 %262, label %304, label %301
@@ -9412,46 +9412,52 @@ define internal fastcc ptr @ieee80211_build_hdr(ptr noundef %0, ptr noundef %1, 
   %325 = load i32, ptr %7, align 4
   store i32 %325, ptr %323, align 8
   %326 = icmp eq i16 %243, 0
-  %327 = and i16 %243, 8191
-  %328 = zext nneg i16 %327 to i32
-  %329 = shl nuw nsw i32 %328, 4
-  %330 = or disjoint i32 %329, 8
-  %331 = select i1 %326, i32 0, i32 %330
-  %332 = getelementptr inbounds nuw i8, ptr %253, i64 44
-  %333 = or disjoint i32 %331, %187
-  store i32 %333, ptr %332, align 4
-  %334 = icmp eq ptr %5, null
-  %335 = zext i8 %173 to i32
-  br i1 %334, label %336, label %339, !prof !9
+  br i1 %326, label %333, label %327
 
-336:                                              ; preds = %315
-  %337 = shl i32 %335, 28
-  %338 = or i32 %337, %4
-  br label %343
+327:                                              ; preds = %315
+  %328 = and i16 %243, 8191
+  %329 = zext nneg i16 %328 to i32
+  %330 = shl nuw nsw i32 %329, 4
+  %331 = or disjoint i32 %330, %187
+  %332 = or disjoint i32 %331, 8
+  br label %333
 
-339:                                              ; preds = %315
-  %340 = icmp ne i32 %11, %335
-  %341 = icmp ne i8 %173, 15
-  %342 = and i1 %341, %340
-  br i1 %342, label %346, label %343
+333:                                              ; preds = %327, %315
+  %334 = phi i32 [ %332, %327 ], [ %187, %315 ]
+  %335 = getelementptr inbounds nuw i8, ptr %253, i64 44
+  store i32 %334, ptr %335, align 4
+  %336 = icmp eq ptr %5, null
+  %337 = zext i8 %173 to i32
+  br i1 %336, label %338, label %341, !prof !9
 
-343:                                              ; preds = %339, %336
-  %344 = phi i32 [ %338, %336 ], [ %4, %339 ]
-  %345 = getelementptr inbounds nuw i8, ptr %253, i64 80
-  store i32 %344, ptr %345, align 8
-  br label %350
+338:                                              ; preds = %333
+  %339 = shl i32 %337, 28
+  %340 = or i32 %339, %4
+  br label %345
 
-346:                                              ; preds = %.thread20, %138, %101, %90, %339, %250, %216, %211, %180, %32
-  %347 = phi i64 [ -22, %339 ], [ -22, %138 ], [ -67, %90 ], [ -22, %32 ], [ -107, %180 ], [ -1, %216 ], [ -12, %250 ], [ -1, %211 ], [ -67, %101 ], [ -12, %.thread20 ]
-  %348 = phi ptr [ %253, %339 ], [ %1, %138 ], [ %1, %90 ], [ %1, %32 ], [ %1, %180 ], [ %1, %216 ], [ null, %250 ], [ %1, %211 ], [ %1, %101 ], [ null, %.thread20 ]
-  tail call void @kfree_skb_reason(ptr noundef %348, i32 noundef 2) #20
-  %349 = inttoptr i64 %347 to ptr
-  br label %350
+341:                                              ; preds = %333
+  %342 = icmp ne i32 %11, %337
+  %343 = icmp ne i8 %173, 15
+  %344 = and i1 %343, %342
+  br i1 %344, label %348, label %345
 
-350:                                              ; preds = %346, %343, %299
-  %351 = phi ptr [ %349, %346 ], [ inttoptr (i64 -12 to ptr), %299 ], [ %253, %343 ]
+345:                                              ; preds = %341, %338
+  %346 = phi i32 [ %340, %338 ], [ %4, %341 ]
+  %347 = getelementptr inbounds nuw i8, ptr %253, i64 80
+  store i32 %346, ptr %347, align 8
+  br label %352
+
+348:                                              ; preds = %.thread20, %138, %101, %90, %341, %250, %216, %211, %180, %32
+  %349 = phi i64 [ -22, %341 ], [ -22, %138 ], [ -67, %90 ], [ -22, %32 ], [ -107, %180 ], [ -1, %216 ], [ -12, %250 ], [ -1, %211 ], [ -67, %101 ], [ -12, %.thread20 ]
+  %350 = phi ptr [ %253, %341 ], [ %1, %138 ], [ %1, %90 ], [ %1, %32 ], [ %1, %180 ], [ %1, %216 ], [ null, %250 ], [ %1, %211 ], [ %1, %101 ], [ null, %.thread20 ]
+  tail call void @kfree_skb_reason(ptr noundef %350, i32 noundef 2) #20
+  %351 = inttoptr i64 %349 to ptr
+  br label %352
+
+352:                                              ; preds = %348, %345, %299
+  %353 = phi ptr [ %351, %348 ], [ inttoptr (i64 -12 to ptr), %299 ], [ %253, %345 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  ret ptr %351
+  ret ptr %353
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
