@@ -3020,7 +3020,7 @@ LZ4_wildCopy8.exit397.i:                          ; preds = %445
 579:                                              ; preds = %570
   %580 = ptrtoint ptr %575 to i64
   %581 = ptrtoint ptr %578 to i64
-  %582 = sub i64 %580, %581
+  %582 = sub nuw i64 %580, %581
   %583 = mul i64 %582, 255
   %584 = add i64 %583, 18
   %585 = zext i32 %.12.lcssa.i to i64
@@ -3722,7 +3722,7 @@ LZ4_count.exit485.i:                              ; preds = %.thread1139, %861, 
   br i1 %918, label %.lr.ph47.preheader.i, label %LZ4HC_countPattern.exit
 
 .lr.ph47.preheader.i:                             ; preds = %.preheader.i
-  %919 = sub i64 %658, %.037.lcssa53.i.pre-phi
+  %919 = sub nuw i64 %658, %.037.lcssa53.i.pre-phi
   %scevgep.i686 = getelementptr i8, ptr %.037.lcssa.i, i64 %919
   br label %.lr.ph47.i
 
@@ -3811,7 +3811,7 @@ LZ4HC_countPattern.exit:                          ; preds = %.preheader.i, %.thr
   br i1 %957, label %.lr.ph47.preheader.i697, label %LZ4HC_countPattern.exit711
 
 .lr.ph47.preheader.i697:                          ; preds = %.preheader.i691
-  %958 = sub i64 %954, %.037.lcssa53.i693
+  %958 = sub nuw i64 %954, %.037.lcssa53.i693
   %scevgep.i698 = getelementptr i8, ptr %.037.lcssa.i692, i64 %958
   br label %.lr.ph47.i699
 
@@ -3888,7 +3888,7 @@ LZ4HC_countPattern.exit711:                       ; preds = %.preheader.i691, %.
   br i1 %987, label %.lr.ph47.preheader.i720, label %LZ4HC_countPattern.exit734
 
 .lr.ph47.preheader.i720:                          ; preds = %.preheader.i714
-  %988 = sub i64 %658, %.037.lcssa53.i716.pre-phi
+  %988 = sub nuw i64 %658, %.037.lcssa53.i716.pre-phi
   %scevgep.i721 = getelementptr i8, ptr %.037.lcssa.i715, i64 %988
   br label %.lr.ph47.i722
 
@@ -5027,7 +5027,7 @@ LZ4HC_countBack.exit541.i530:                     ; preds = %1480, %LZ4HC_countB
   br i1 %1503, label %.lr.ph47.preheader.i760, label %LZ4HC_countPattern.exit774
 
 .lr.ph47.preheader.i760:                          ; preds = %.preheader.i754
-  %1504 = sub i64 %658, %.037.lcssa53.i756.pre-phi
+  %1504 = sub nuw i64 %658, %.037.lcssa53.i756.pre-phi
   %scevgep.i761 = getelementptr i8, ptr %.037.lcssa.i755, i64 %1504
   br label %.lr.ph47.i762
 
@@ -5116,7 +5116,7 @@ LZ4HC_countPattern.exit774:                       ; preds = %.preheader.i754, %.
   br i1 %1542, label %.lr.ph47.preheader.i781, label %LZ4HC_countPattern.exit795
 
 .lr.ph47.preheader.i781:                          ; preds = %.preheader.i775
-  %1543 = sub i64 %1539, %.037.lcssa53.i777
+  %1543 = sub nuw i64 %1539, %.037.lcssa53.i777
   %scevgep.i782 = getelementptr i8, ptr %.037.lcssa.i776, i64 %1543
   br label %.lr.ph47.i783
 
@@ -5193,7 +5193,7 @@ LZ4HC_countPattern.exit795:                       ; preds = %.preheader.i775, %.
   br i1 %1572, label %.lr.ph47.preheader.i804, label %LZ4HC_countPattern.exit818
 
 .lr.ph47.preheader.i804:                          ; preds = %.preheader.i798
-  %1573 = sub i64 %658, %.037.lcssa53.i800.pre-phi
+  %1573 = sub nuw i64 %658, %.037.lcssa53.i800.pre-phi
   %scevgep.i805 = getelementptr i8, ptr %.037.lcssa.i799, i64 %1573
   br label %.lr.ph47.i806
 
@@ -6589,7 +6589,7 @@ LZ4HC_countBack.exit541.i:                        ; preds = %2180, %LZ4HC_countB
   br i1 %2203, label %.lr.ph47.preheader.i853, label %LZ4HC_countPattern.exit867
 
 .lr.ph47.preheader.i853:                          ; preds = %.preheader.i847
-  %2204 = sub i64 %658, %.037.lcssa53.i849.pre-phi
+  %2204 = sub nuw i64 %658, %.037.lcssa53.i849.pre-phi
   %scevgep.i854 = getelementptr i8, ptr %.037.lcssa.i848, i64 %2204
   br label %.lr.ph47.i855
 
@@ -6678,7 +6678,7 @@ LZ4HC_countPattern.exit867:                       ; preds = %.preheader.i847, %.
   br i1 %2242, label %.lr.ph47.preheader.i874, label %LZ4HC_countPattern.exit888
 
 .lr.ph47.preheader.i874:                          ; preds = %.preheader.i868
-  %2243 = sub i64 %2239, %.037.lcssa53.i870
+  %2243 = sub nuw i64 %2239, %.037.lcssa53.i870
   %scevgep.i875 = getelementptr i8, ptr %.037.lcssa.i869, i64 %2243
   br label %.lr.ph47.i876
 
@@ -6755,7 +6755,7 @@ LZ4HC_countPattern.exit888:                       ; preds = %.preheader.i868, %.
   br i1 %2272, label %.lr.ph47.preheader.i897, label %LZ4HC_countPattern.exit911
 
 .lr.ph47.preheader.i897:                          ; preds = %.preheader.i891
-  %2273 = sub i64 %658, %.037.lcssa53.i893.pre-phi
+  %2273 = sub nuw i64 %658, %.037.lcssa53.i893.pre-phi
   %scevgep.i898 = getelementptr i8, ptr %.037.lcssa.i892, i64 %2273
   br label %.lr.ph47.i899
 
@@ -7575,7 +7575,7 @@ LZ4_wildCopy8.exit113:                            ; preds = %2595
 2637:                                             ; preds = %2635
   %2638 = ptrtoint ptr %2793 to i64
   %2639 = ptrtoint ptr %.4.i to i64
-  %2640 = sub i64 %2638, %2639
+  %2640 = sub nuw i64 %2638, %2639
   %2641 = trunc i64 %2640 to i32
   %sext.i = shl i64 %2640, 32
   %2642 = ashr exact i64 %sext.i, 32
@@ -8061,7 +8061,7 @@ LZ4HC_encodeSequence.exit:                        ; preds = %2507, %LZ4_wildCopy
 2855:                                             ; preds = %2845
   %2856 = ptrtoint ptr %2851 to i64
   %2857 = ptrtoint ptr %2854 to i64
-  %2858 = sub i64 %2856, %2857
+  %2858 = sub nuw i64 %2856, %2857
   %2859 = mul i64 %2858, 255
   %2860 = add i64 %2859, 18
   %2861 = sext i32 %.sroa.0162.sroa.14.1.i to i64
@@ -8811,7 +8811,7 @@ LZ4_count.exit485.i.i.i:                          ; preds = %3183, %.thread1369.
   br i1 %3220, label %.lr.ph47.preheader.i.i, label %LZ4HC_countPattern.exit.i
 
 .lr.ph47.preheader.i.i:                           ; preds = %.preheader.i.i
-  %3221 = sub i64 %2941, %.037.lcssa53.i.pre-phi.i
+  %3221 = sub nuw i64 %2941, %.037.lcssa53.i.pre-phi.i
   %scevgep.i.i = getelementptr i8, ptr %.037.lcssa.i.i, i64 %3221
   br label %.lr.ph47.i.i
 
@@ -8900,7 +8900,7 @@ LZ4HC_countPattern.exit.i:                        ; preds = %.critedge.loopexit.
   br i1 %3259, label %.lr.ph47.preheader.i1029.i, label %LZ4HC_countPattern.exit1043.i
 
 .lr.ph47.preheader.i1029.i:                       ; preds = %.preheader.i1023.i
-  %3260 = sub i64 %3256, %.037.lcssa53.i1025.i
+  %3260 = sub nuw i64 %3256, %.037.lcssa53.i1025.i
   %scevgep.i1030.i = getelementptr i8, ptr %.037.lcssa.i1024.i, i64 %3260
   br label %.lr.ph47.i1031.i
 
@@ -8977,7 +8977,7 @@ LZ4HC_countPattern.exit1043.i:                    ; preds = %.critedge.loopexit.
   br i1 %3289, label %.lr.ph47.preheader.i1052.i, label %LZ4HC_countPattern.exit1066.i
 
 .lr.ph47.preheader.i1052.i:                       ; preds = %.preheader.i1046.i
-  %3290 = sub i64 %2941, %.037.lcssa53.i1048.pre-phi.i
+  %3290 = sub nuw i64 %2941, %.037.lcssa53.i1048.pre-phi.i
   %scevgep.i1053.i = getelementptr i8, ptr %.037.lcssa.i1047.i, i64 %3290
   br label %.lr.ph47.i1054.i
 
@@ -10259,7 +10259,7 @@ LZ4_count.exit485.i.i671.i:                       ; preds = %3829, %.thread1457.
   br i1 %3866, label %.lr.ph47.preheader.i1090.i, label %LZ4HC_countPattern.exit1104.i
 
 .lr.ph47.preheader.i1090.i:                       ; preds = %.preheader.i1084.i
-  %3867 = sub i64 %2941, %.037.lcssa53.i1086.pre-phi.i
+  %3867 = sub nuw i64 %2941, %.037.lcssa53.i1086.pre-phi.i
   %scevgep.i1091.i = getelementptr i8, ptr %.037.lcssa.i1085.i, i64 %3867
   br label %.lr.ph47.i1092.i
 
@@ -10348,7 +10348,7 @@ LZ4HC_countPattern.exit1104.i:                    ; preds = %.critedge.loopexit.
   br i1 %3905, label %.lr.ph47.preheader.i1111.i, label %LZ4HC_countPattern.exit1125.i
 
 .lr.ph47.preheader.i1111.i:                       ; preds = %.preheader.i1105.i
-  %3906 = sub i64 %3902, %.037.lcssa53.i1107.i
+  %3906 = sub nuw i64 %3902, %.037.lcssa53.i1107.i
   %scevgep.i1112.i = getelementptr i8, ptr %.037.lcssa.i1106.i, i64 %3906
   br label %.lr.ph47.i1113.i
 
@@ -10425,7 +10425,7 @@ LZ4HC_countPattern.exit1125.i:                    ; preds = %.critedge.loopexit.
   br i1 %3935, label %.lr.ph47.preheader.i1134.i, label %LZ4HC_countPattern.exit1148.i
 
 .lr.ph47.preheader.i1134.i:                       ; preds = %.preheader.i1128.i
-  %3936 = sub i64 %2941, %.037.lcssa53.i1130.pre-phi.i
+  %3936 = sub nuw i64 %2941, %.037.lcssa53.i1130.pre-phi.i
   %scevgep.i1135.i = getelementptr i8, ptr %.037.lcssa.i1129.i, i64 %3936
   br label %.lr.ph47.i1136.i
 
@@ -11437,7 +11437,7 @@ LZ4_count.exit485.i.i904.i:                       ; preds = %4356, %.thread1539.
   br i1 %4393, label %.lr.ph47.preheader.i1181.i, label %LZ4HC_countPattern.exit1195.i
 
 .lr.ph47.preheader.i1181.i:                       ; preds = %.preheader.i1175.i
-  %4394 = sub i64 %2941, %.037.lcssa53.i1177.pre-phi.i
+  %4394 = sub nuw i64 %2941, %.037.lcssa53.i1177.pre-phi.i
   %scevgep.i1182.i = getelementptr i8, ptr %.037.lcssa.i1176.i, i64 %4394
   br label %.lr.ph47.i1183.i
 
@@ -11526,7 +11526,7 @@ LZ4HC_countPattern.exit1195.i:                    ; preds = %.critedge.loopexit.
   br i1 %4432, label %.lr.ph47.preheader.i1202.i, label %LZ4HC_countPattern.exit1216.i
 
 .lr.ph47.preheader.i1202.i:                       ; preds = %.preheader.i1196.i
-  %4433 = sub i64 %4429, %.037.lcssa53.i1198.i
+  %4433 = sub nuw i64 %4429, %.037.lcssa53.i1198.i
   %scevgep.i1203.i = getelementptr i8, ptr %.037.lcssa.i1197.i, i64 %4433
   br label %.lr.ph47.i1204.i
 
@@ -11603,7 +11603,7 @@ LZ4HC_countPattern.exit1216.i:                    ; preds = %.critedge.loopexit.
   br i1 %4462, label %.lr.ph47.preheader.i1225.i, label %LZ4HC_countPattern.exit1239.i
 
 .lr.ph47.preheader.i1225.i:                       ; preds = %.preheader.i1219.i
-  %4463 = sub i64 %2941, %.037.lcssa53.i1221.pre-phi.i
+  %4463 = sub nuw i64 %2941, %.037.lcssa53.i1221.pre-phi.i
   %scevgep.i1226.i = getelementptr i8, ptr %.037.lcssa.i1220.i, i64 %4463
   br label %.lr.ph47.i1227.i
 
@@ -12599,7 +12599,7 @@ select.unfold1625.i:                              ; preds = %3555, %3552
 4911:                                             ; preds = %4901
   %4912 = ptrtoint ptr %4907 to i64
   %4913 = ptrtoint ptr %4910 to i64
-  %4914 = sub i64 %4912, %4913
+  %4914 = sub nuw i64 %4912, %4913
   %4915 = mul i64 %4914, 255
   %4916 = add i64 %4915, 18
   %4917 = sext i32 %.1342.ph.i to i64

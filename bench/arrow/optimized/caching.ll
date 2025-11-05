@@ -3013,10 +3013,8 @@ _ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4
   br label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
 
 75:                                               ; preds = %_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPN5arrow2io9ReadRangeESt6vectorIS4_SaIS4_EEEEZNS3_8internal14ReadRangeCache4Impl7WaitForES8_EUlRKS4_E_ET_SG_SG_T0_.exit
-  %76 = icmp uge i64 %70, %71
-  %.not.i.i29 = icmp eq ptr %66, %.sroa.012.0.i.i
-  %or.cond = or i1 %.not.i.i29, %76
-  br i1 %or.cond, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit, label %77
+  %76 = icmp ult i64 %70, %71
+  br i1 %76, label %77, label %_ZNSt6vectorIN5arrow2io9ReadRangeESaIS2_EE6resizeEm.exit
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %67, i64 %69

@@ -16723,32 +16723,29 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %16, %12
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
 
 _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %18
-  %25 = ptrtoint ptr %20 to i64
-  %26 = sub i64 %25, %9
-  %gepdiff = sub nsw i64 4, %26
-  %27 = getelementptr i8, ptr %0, i64 %26
-  %.sink.i.i25.i.ptr = getelementptr i8, ptr %27, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %20, ptr nonnull align 4 %.sink.i.i25.i.ptr, i64 %gepdiff, i1 false)
-  %28 = getelementptr inbounds i8, ptr %20, i64 %gepdiff
-  store ptr %28, ptr %19, align 8, !tbaa !976
+  %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %25 = load i32, ptr %.sink.i.i25.i.ptr, align 8
+  store i32 %25, ptr %20, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store ptr %26, ptr %19, align 8, !tbaa !976
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %21, %24, %_ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load i64, ptr %29, align 8, !tbaa !19
-  %31 = trunc i64 %30 to i32
-  %32 = load i32, ptr %.ptr, align 8, !tbaa !102
-  %33 = icmp ugt i32 %32, %31
-  br i1 %33, label %.preheader, label %35
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %28 = load i64, ptr %27, align 8, !tbaa !19
+  %29 = trunc i64 %28 to i32
+  %30 = load i32, ptr %.ptr, align 8, !tbaa !102
+  %31 = icmp ugt i32 %30, %29
+  br i1 %31, label %.preheader, label %33
 
 .preheader:                                       ; preds = %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
-  %34 = load ptr, ptr %3, align 8, !tbaa !668
-  %.promoted = load i32, ptr %34, align 4, !tbaa !102
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.promoted, i32 %31)
-  store i32 %.sroa.speculated, ptr %34, align 4, !tbaa !102
-  br label %35
+  %32 = load ptr, ptr %3, align 8, !tbaa !668
+  %.promoted = load i32, ptr %32, align 4, !tbaa !102
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.promoted, i32 %29)
+  store i32 %.sroa.speculated, ptr %32, align 4, !tbaa !102
+  br label %33
 
-35:                                               ; preds = %.preheader, %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
+33:                                               ; preds = %.preheader, %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
   ret void
 }
 
@@ -20455,7 +20452,7 @@ _ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS
 65:                                               ; preds = %57
   %66 = ptrtoint ptr %54 to i64
   %67 = ptrtoint ptr %58 to i64
-  %68 = sub i64 %66, %67
+  %68 = sub nuw i64 %66, %67
   store ptr %58, ptr %4, align 8, !tbaa !50
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %68, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129

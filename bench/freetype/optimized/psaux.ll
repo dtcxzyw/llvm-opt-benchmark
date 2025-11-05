@@ -465,7 +465,7 @@ define internal void @ps_parser_skip_spaces(ptr noundef captures(none) %0) #3 {
 
 .lr.ph.preheader.i.i:                             ; preds = %7
   %9 = ptrtoint ptr %storemerge8.i to i64
-  %10 = sub i64 %6, %9
+  %10 = sub nuw i64 %6, %9
   %scevgep.i.i = getelementptr i8, ptr %storemerge8.i, i64 %10
   br label %.lr.ph.i.i
 
@@ -525,7 +525,7 @@ define internal void @ps_parser_skip_PS_token(ptr noundef captures(none) %0) #4 
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i
   %9 = ptrtoint ptr %storemerge8.i to i64
-  %10 = sub i64 %6, %9
+  %10 = sub nuw i64 %6, %9
   %scevgep.i.i = getelementptr i8, ptr %storemerge8.i, i64 %10
   br label %.lr.ph.i.i
 
@@ -613,7 +613,7 @@ skip_spaces.exit:                                 ; preds = %.lr.ph.i, %skip_com
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph.i.i28
   %33 = ptrtoint ptr %storemerge8.i.i to i64
-  %34 = sub i64 %6, %33
+  %34 = sub nuw i64 %6, %33
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %34
   br label %.lr.ph.i.i.i
 
@@ -725,7 +725,7 @@ skip_string.exit:                                 ; preds = %46, %48
 
 .lr.ph.preheader:                                 ; preds = %58
   %.promoted61 = ptrtoint ptr %.promoted to i64
-  %60 = sub i64 %6, %.promoted61
+  %60 = sub nuw i64 %6, %.promoted61
   %scevgep = getelementptr i8, ptr %.promoted, i64 %60
   br label %.lr.ph
 
@@ -811,7 +811,7 @@ define internal i64 @ps_parser_to_int(ptr noundef captures(none) %0) #4 {
 
 .lr.ph.preheader.i.i.i:                           ; preds = %7
   %9 = ptrtoint ptr %storemerge8.i.i to i64
-  %10 = sub i64 %6, %9
+  %10 = sub nuw i64 %6, %9
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %10
   br label %.lr.ph.i.i.i
 
@@ -872,7 +872,7 @@ define internal i64 @ps_parser_to_fixed(ptr noundef captures(none) %0, i32 nound
 
 .lr.ph.preheader.i.i.i:                           ; preds = %8
   %10 = ptrtoint ptr %storemerge8.i.i to i64
-  %11 = sub i64 %7, %10
+  %11 = sub nuw i64 %7, %10
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %11
   br label %.lr.ph.i.i.i
 
@@ -934,7 +934,7 @@ define internal range(i32 0, 4) i32 @ps_parser_to_bytes(ptr noundef captures(non
 
 .lr.ph.preheader.i.i.i:                           ; preds = %11
   %13 = ptrtoint ptr %storemerge8.i.i to i64
-  %14 = sub i64 %10, %13
+  %14 = sub nuw i64 %10, %13
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %14
   br label %.lr.ph.i.i.i
 
@@ -989,7 +989,7 @@ ps_parser_skip_spaces.exit:                       ; preds = %11, %skip_comment.e
   %26 = shl i64 %2, 1
   %27 = ptrtoint ptr %7 to i64
   %28 = ptrtoint ptr %24 to i64
-  %29 = sub i64 %27, %28
+  %29 = sub nuw i64 %27, %28
   %30 = and i64 %29, 4294967295
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %30)
   %.not82.i = icmp eq i64 %spec.select.i, 0
@@ -1085,7 +1085,7 @@ ps_parser_skip_spaces.exit:                       ; preds = %11, %skip_comment.e
   %64 = shl i64 %2, 1
   %65 = ptrtoint ptr %7 to i64
   %66 = ptrtoint ptr %storemerge.lcssa.i.i to i64
-  %67 = sub i64 %65, %66
+  %67 = sub nuw i64 %65, %66
   %68 = and i64 %67, 4294967295
   %spec.select.i19 = tail call i64 @llvm.umin.i64(i64 %64, i64 %68)
   %.not82.i20 = icmp eq i64 %spec.select.i19, 0
@@ -1202,7 +1202,7 @@ define internal i32 @ps_parser_to_coord_array(ptr noundef captures(none) %0, i32
 
 .lr.ph.preheader.i.i.i:                           ; preds = %10
   %12 = ptrtoint ptr %storemerge8.i.i to i64
-  %13 = sub i64 %9, %12
+  %13 = sub nuw i64 %9, %12
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %13
   br label %.lr.ph.i.i.i
 
@@ -1280,7 +1280,7 @@ ps_parser_skip_spaces.exit:                       ; preds = %10, %skip_comment.e
 
 .lr.ph.preheader.i.i.us.us.i:                     ; preds = %.lr.ph.i.us.us.i
   %28 = ptrtoint ptr %storemerge8.i.us.us.i to i64
-  %29 = sub i64 %23, %28
+  %29 = sub nuw i64 %23, %28
   %scevgep.i.i.us.us.i = getelementptr i8, ptr %storemerge8.i.us.us.i, i64 %29
   br label %.lr.ph.i.i.us.us.i
 
@@ -1348,7 +1348,7 @@ skip_spaces.exit.us.us.i:                         ; preds = %skip_comment.exit.i
 
 .lr.ph.preheader.i.i.us.i:                        ; preds = %42
   %44 = ptrtoint ptr %storemerge8.i.us.i to i64
-  %45 = sub i64 %25, %44
+  %45 = sub nuw i64 %25, %44
   %scevgep.i.i.us.i = getelementptr i8, ptr %storemerge8.i.us.i, i64 %45
   br label %.lr.ph.i.i.us.i
 
@@ -1417,7 +1417,7 @@ skip_spaces.exit.us.i:                            ; preds = %skip_comment.exit.i
 
 .lr.ph.preheader.i.i.us52.i:                      ; preds = %.lr.ph.i.us50.i
   %62 = ptrtoint ptr %storemerge8.i.us51.i to i64
-  %63 = sub i64 %23, %62
+  %63 = sub nuw i64 %23, %62
   %scevgep.i.i.us53.i = getelementptr i8, ptr %storemerge8.i.us51.i, i64 %63
   br label %.lr.ph.i.i.us54.i
 
@@ -1497,7 +1497,7 @@ skip_spaces.exit.us61.i:                          ; preds = %skip_comment.exit.i
 
 .lr.ph.preheader.i.i.i6:                          ; preds = %79
   %81 = ptrtoint ptr %storemerge8.i.i5 to i64
-  %82 = sub i64 %25, %81
+  %82 = sub nuw i64 %25, %81
   %scevgep.i.i.i7 = getelementptr i8, ptr %storemerge8.i.i5, i64 %82
   br label %.lr.ph.i.i.i8
 
@@ -1608,7 +1608,7 @@ define internal i32 @ps_parser_to_fixed_array(ptr noundef captures(none) %0, i32
 
 .lr.ph.preheader.i.i.i:                           ; preds = %10
   %12 = ptrtoint ptr %storemerge8.i.i to i64
-  %13 = sub i64 %9, %12
+  %13 = sub nuw i64 %9, %12
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %13
   br label %.lr.ph.i.i.i
 
@@ -1674,7 +1674,7 @@ define internal void @ps_parser_to_token(ptr noundef captures(none) %0, ptr noun
 
 .lr.ph.preheader.i.i.i:                           ; preds = %11
   %13 = ptrtoint ptr %storemerge8.i.i to i64
-  %14 = sub i64 %10, %13
+  %14 = sub nuw i64 %10, %13
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %14
   br label %.lr.ph.i.i.i
 
@@ -1768,7 +1768,7 @@ ps_parser_skip_spaces.exit:                       ; preds = %11, %skip_comment.e
 
 .lr.ph.preheader.i.i.i50:                         ; preds = %36
   %38 = ptrtoint ptr %storemerge8.i.i49 to i64
-  %39 = sub i64 %35, %38
+  %39 = sub nuw i64 %35, %38
   %scevgep.i.i.i51 = getelementptr i8, ptr %storemerge8.i.i49, i64 %39
   br label %.lr.ph.i.i.i52
 
@@ -1862,7 +1862,7 @@ ps_parser_skip_spaces.exit59:                     ; preds = %36, %skip_comment.e
 
 .lr.ph.preheader.i.i.i63:                         ; preds = %62
   %64 = ptrtoint ptr %storemerge8.i.i62 to i64
-  %65 = sub i64 %61, %64
+  %65 = sub nuw i64 %61, %64
   %scevgep.i.i.i64 = getelementptr i8, ptr %storemerge8.i.i62, i64 %65
   br label %.lr.ph.i.i.i65
 
@@ -2144,7 +2144,7 @@ define internal i32 @ps_parser_load_field(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph.preheader.i.i:                             ; preds = %.lr.ph.i
   %56 = ptrtoint ptr %storemerge8.i to i64
-  %57 = sub i64 %37, %56
+  %57 = sub nuw i64 %37, %56
   %scevgep.i.i = getelementptr i8, ptr %storemerge8.i, i64 %57
   br label %.lr.ph.i.i
 
@@ -2427,7 +2427,7 @@ ps_tobool.exit:                                   ; preds = %80, %82, %85, %88, 
 
 .lr.ph.preheader.i.i136:                          ; preds = %.lr.ph.i134
   %172 = ptrtoint ptr %storemerge8.i135 to i64
-  %173 = sub i64 %37, %172
+  %173 = sub nuw i64 %37, %172
   %scevgep.i.i137 = getelementptr i8, ptr %storemerge8.i135, i64 %173
   br label %.lr.ph.i.i138
 
@@ -7930,7 +7930,7 @@ define internal fastcc i64 @PS_Conv_ToInt(ptr noundef captures(none) %0, ptr nou
 
 .lr.ph.preheader.i:                               ; preds = %13
   %.047117.i = ptrtoint ptr %.047.i to i64
-  %15 = sub i64 %4, %.047117.i
+  %15 = sub nuw i64 %4, %.047117.i
   %scevgep.i = getelementptr i8, ptr %.047.i, i64 %15
   br label %.lr.ph.i
 
@@ -8053,7 +8053,7 @@ PS_Conv_Strtol.exit:                              ; preds = %13, %.thread.loopex
 
 .lr.ph.preheader.i20:                             ; preds = %58
   %.047117.i21 = ptrtoint ptr %.047.i15 to i64
-  %62 = sub i64 %4, %.047117.i21
+  %62 = sub nuw i64 %4, %.047117.i21
   %scevgep.i22 = getelementptr i8, ptr %.047.i15, i64 %62
   br label %.lr.ph.i23
 
@@ -8175,7 +8175,7 @@ define internal void @t1_decrypt(ptr noundef %0, i64 noundef %1, i16 noundef zer
 6:                                                ; preds = %3
   %7 = ptrtoint ptr %5 to i64
   %8 = ptrtoint ptr %0 to i64
-  %9 = sub i64 %7, %8
+  %9 = sub nuw i64 %7, %8
   %10 = and i64 %9, 4294967295
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %10)
   %.not38.i = icmp eq i64 %spec.select.i, 0
@@ -8738,7 +8738,7 @@ define internal fastcc range(i32 0, 4) i32 @skip_procedure(ptr noundef nonnull c
 
 .lr.ph.preheader.i.i.i:                           ; preds = %.lr.ph.i.i
   %21 = ptrtoint ptr %storemerge8.i.i to i64
-  %22 = sub i64 %6, %21
+  %22 = sub nuw i64 %6, %21
   %scevgep.i.i.i = getelementptr i8, ptr %storemerge8.i.i, i64 %22
   br label %.lr.ph.i.i.i
 
@@ -8818,7 +8818,7 @@ switch.early.test._crit_edge.i:                   ; preds = %switch.early.test.i
 
 .lr.ph.preheader.i:                               ; preds = %7
   %38 = ptrtoint ptr %storemerge25 to i64
-  %39 = sub i64 %6, %38
+  %39 = sub nuw i64 %6, %38
   %scevgep.i = getelementptr i8, ptr %storemerge25, i64 %39
   br label %.lr.ph.i
 
@@ -8997,7 +8997,7 @@ define internal fastcc i32 @ps_tofixedarray(ptr noundef captures(none) %0, ptr n
 
 .lr.ph.preheader.i.i.us.us:                       ; preds = %.lr.ph.i.us.us
   %20 = ptrtoint ptr %storemerge8.i.us.us to i64
-  %21 = sub i64 %12, %20
+  %21 = sub nuw i64 %12, %20
   %scevgep.i.i.us.us = getelementptr i8, ptr %storemerge8.i.us.us, i64 %21
   br label %.lr.ph.i.i.us.us
 
@@ -9065,7 +9065,7 @@ skip_spaces.exit.us.us:                           ; preds = %skip_comment.exit.i
 
 .lr.ph.preheader.i.i.us:                          ; preds = %34
   %36 = ptrtoint ptr %storemerge8.i.us to i64
-  %37 = sub i64 %16, %36
+  %37 = sub nuw i64 %16, %36
   %scevgep.i.i.us = getelementptr i8, ptr %storemerge8.i.us, i64 %37
   br label %.lr.ph.i.i.us
 
@@ -9133,7 +9133,7 @@ skip_spaces.exit.us:                              ; preds = %skip_comment.exit.i
 
 .lr.ph.preheader.i.i.us53:                        ; preds = %.lr.ph.i.us51
   %54 = ptrtoint ptr %storemerge8.i.us52 to i64
-  %55 = sub i64 %12, %54
+  %55 = sub nuw i64 %12, %54
   %scevgep.i.i.us54 = getelementptr i8, ptr %storemerge8.i.us52, i64 %55
   br label %.lr.ph.i.i.us55
 
@@ -9211,7 +9211,7 @@ skip_spaces.exit.us62:                            ; preds = %skip_comment.exit.i
 
 .lr.ph.preheader.i.i:                             ; preds = %69
   %71 = ptrtoint ptr %storemerge8.i to i64
-  %72 = sub i64 %16, %71
+  %72 = sub nuw i64 %16, %71
   %scevgep.i.i = getelementptr i8, ptr %storemerge8.i, i64 %72
   br label %.lr.ph.i.i
 

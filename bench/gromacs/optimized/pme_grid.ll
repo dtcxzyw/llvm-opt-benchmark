@@ -1828,65 +1828,60 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %48, %
   %60 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !199
   %62 = icmp eq ptr %59, %61
-  br i1 %62, label %63, label %71
+  br i1 %62, label %63, label %72
 
 63:                                               ; preds = %54
-  %.not76 = icmp eq i32 %58, 0
-  br i1 %.not76, label %66, label %64
+  %.not62 = icmp eq i32 %58, 0
+  br i1 %.not62, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, label %64
 
 64:                                               ; preds = %63
   %65 = sext i32 %58 to i64
   tail call void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %12, i64 noundef %65)
   %.pre = load ptr, ptr %12, align 8, !tbaa !200
-  %.pre64 = load ptr, ptr %60, align 8, !tbaa !202
-  %.pre65 = ptrtoint ptr %.pre64 to i64
-  %.pre66 = ptrtoint ptr %.pre to i64
+  %.pre65 = load ptr, ptr %60, align 8, !tbaa !202
   br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-66:                                               ; preds = %63
-  %67 = ptrtoint ptr %59 to i64
-  br label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %63, %64
+  %66 = phi ptr [ %59, %63 ], [ %.pre65, %64 ]
+  %67 = phi ptr [ %59, %63 ], [ %.pre, %64 ]
+  %68 = ptrtoint ptr %66 to i64
+  %69 = ptrtoint ptr %67 to i64
+  %70 = sub i64 %68, %69
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
+  br label %85
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %66, %64
-  %.pre-phi67 = phi i64 [ %.pre66, %64 ], [ %67, %66 ]
-  %.pre-phi = phi i64 [ %.pre65, %64 ], [ %67, %66 ]
-  %68 = phi ptr [ %.pre, %64 ], [ %59, %66 ]
-  %69 = sub i64 %.pre-phi, %.pre-phi67
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %69
-  br label %84
+72:                                               ; preds = %54
+  %73 = ptrtoint ptr %61 to i64
+  %74 = ptrtoint ptr %59 to i64
+  %75 = sub i64 %73, %74
+  %76 = ashr exact i64 %75, 2
+  %77 = sext i32 %58 to i64
+  %.not53 = icmp slt i64 %76, %77
+  br i1 %.not53, label %78, label %79
 
-71:                                               ; preds = %54
-  %72 = ptrtoint ptr %61 to i64
-  %73 = ptrtoint ptr %59 to i64
-  %74 = sub i64 %72, %73
-  %75 = ashr exact i64 %74, 2
-  %76 = sext i32 %58 to i64
-  %.not53 = icmp slt i64 %75, %76
-  br i1 %.not53, label %77, label %78
-
-77:                                               ; preds = %71
+78:                                               ; preds = %72
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEEENK3$_0clEv", ptr noundef nonnull @.str.6, i32 noundef 619) #23
   unreachable
 
-78:                                               ; preds = %71
-  %79 = and i64 %73, 15
-  %80 = icmp eq i64 %79, 0
-  %or.cond = or i1 %36, %80
-  br i1 %or.cond, label %82, label %81
+79:                                               ; preds = %72
+  %80 = and i64 %74, 15
+  %81 = icmp eq i64 %80, 0
+  %or.cond = or i1 %36, %81
+  br i1 %or.cond, label %83, label %82
 
-81:                                               ; preds = %78
+82:                                               ; preds = %79
   tail call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL12pmegrid_initP9pmegrid_tiiiiiiiiibiPSt6vectorIfN3gmx9AllocatorIfNS2_23AlignedAllocationPolicyEEEEENK3$_0clEv", ptr noundef nonnull @.str.6, i32 noundef 631) #23
   unreachable
 
-82:                                               ; preds = %78
-  %83 = getelementptr inbounds float, ptr %59, i64 %76
-  br label %84
+83:                                               ; preds = %79
+  %84 = getelementptr inbounds float, ptr %59, i64 %77
+  br label %85
 
-84:                                               ; preds = %82, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %.sink77 = phi ptr [ %59, %82 ], [ %68, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
-  %.sink = phi ptr [ %83, %82 ], [ %70, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %.sink77, ptr %85, align 8
+85:                                               ; preds = %83, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
+  %.sink73 = phi ptr [ %59, %83 ], [ %67, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
+  %.sink = phi ptr [ %84, %83 ], [ %71, %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit ]
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %.sink73, ptr %86, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %.sink, ptr %.sroa.4.0..sroa_idx, align 8
   ret void
@@ -1954,15 +1949,15 @@ define internal void @_Z13pmegrids_initP10pmegrids_tiiiiibiiiN3gmx8ArrayRefISt6v
 
 46:                                               ; preds = %27
   %47 = load i32, ptr %5, align 4, !tbaa !11
-  %.not45 = icmp eq i32 %47, 0
-  br i1 %.not45, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, label %48
+  %.not35 = icmp eq i32 %47, 0
+  br i1 %.not35, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, label %48
 
 48:                                               ; preds = %46
   %49 = sext i32 %47 to i64
   invoke void @_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %41, i64 noundef %49)
-          to label %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge36 unwind label %.loopexit
+          to label %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge unwind label %.loopexit
 
-._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge36: ; preds = %48
+._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge: ; preds = %48
   %.pre = load ptr, ptr %3, align 8, !tbaa !178
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %.pre37 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
@@ -1987,10 +1982,10 @@ define internal void @_Z13pmegrids_initP10pmegrids_tiiiiibiiiN3gmx8ArrayRefISt6v
 .noexc34:                                         ; preds = %57
   unreachable
 
-_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %46, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge36, %50
-  %58 = phi i32 [ %.pre39, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge36 ], [ %32, %50 ], [ %32, %46 ]
-  %59 = phi i32 [ %.pre37, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge36 ], [ %30, %50 ], [ %30, %46 ]
-  %60 = phi ptr [ %.pre, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge36 ], [ %28, %50 ], [ %28, %46 ]
+_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge, %50, %46
+  %58 = phi i32 [ %.pre39, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge ], [ %32, %50 ], [ %32, %46 ]
+  %59 = phi i32 [ %.pre37, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge ], [ %30, %50 ], [ %30, %46 ]
+  %60 = phi ptr [ %.pre, %._ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit_crit_edge ], [ %28, %50 ], [ %28, %46 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 88
   %62 = load ptr, ptr %61, align 8, !tbaa !185
   %63 = getelementptr inbounds nuw %struct.pmegrid_t, ptr %62, i64 %indvars.iv

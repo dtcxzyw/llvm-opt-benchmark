@@ -2113,10 +2113,8 @@ if.then.i.invoke.cont103_crit_edge:               ; preds = %if.then.i
   br label %invoke.cont103
 
 if.else.i:                                        ; preds = %invoke.cont101
-  %cmp4.i = icmp uge i64 %sub.ptr.div.i.i.i339, %sub.ptr.div.i.i
-  %tobool.not.i.i = icmp eq ptr %30, %retval.sroa.0.0.i.i
-  %or.cond = or i1 %tobool.not.i.i, %cmp4.i
-  br i1 %or.cond, label %invoke.cont103, label %invoke.cont.i.i
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i.i.i339, %sub.ptr.div.i.i
+  br i1 %cmp4.i, label %invoke.cont.i.i, label %invoke.cont103
 
 invoke.cont.i.i:                                  ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %29, i64 %sub.ptr.sub.i.i.i338
@@ -2399,8 +2397,8 @@ invoke.cont235:                                   ; preds = %.noexc480, %invoke.
   %not.considerProbabilities = xor i1 %considerProbabilities, true
   %or.cond.not = select i1 %not.considerProbabilities, i1 true, i1 %cmp245.not
   %cmp2473833.not = icmp eq i64 %sub242, -1
-  %or.cond5613 = select i1 %or.cond.not, i1 true, i1 %cmp2473833.not
-  br i1 %or.cond5613, label %if.end, label %for.body.lr.ph
+  %or.cond = select i1 %or.cond.not, i1 true, i1 %cmp2473833.not
+  br i1 %or.cond, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont235
   %n_.i489 = getelementptr inbounds nuw i8, ptr %npvTmp0, i64 8

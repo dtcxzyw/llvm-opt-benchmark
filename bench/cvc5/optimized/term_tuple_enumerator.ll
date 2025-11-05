@@ -1028,27 +1028,28 @@ _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationI
 
 77:                                               ; preds = %75
   %78 = load ptr, ptr %4, align 8, !tbaa !71
-  %79 = ptrtoint ptr %78 to i64
-  %80 = load ptr, ptr %5, align 8, !tbaa !71
-  %81 = ptrtoint ptr %80 to i64
-  %.not5.i.i.i.i.i.i = icmp eq ptr %78, %80
-  %.pre4.i = sub i64 %81, %79
+  %79 = load ptr, ptr %5, align 8, !tbaa !71
+  %.not5.i.i.i.i.i.i = icmp eq ptr %78, %79
   br i1 %.not5.i.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i, label %.lr.ph.i.i.i.i.preheader.i.i
 
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %77
-  %82 = and i64 %.pre4.i, -8
+  %80 = ptrtoint ptr %78 to i64
+  %81 = ptrtoint ptr %79 to i64
+  %reass.sub.i = sub i64 %81, %80
+  %82 = and i64 %reass.sub.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %78, i8 0, i64 %82, i1 false), !tbaa !54
   %.pre.i = load i64, ptr %9, align 8
+  %83 = ashr exact i64 %reass.sub.i, 3
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %77
-  %83 = phi i64 [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i.i ], [ %54, %77 ]
-  %84 = ashr exact i64 %.pre4.i, 3
+  %.pre-phi.i = phi i64 [ %83, %.lr.ph.i.i.i.i.preheader.i.i ], [ 0, %77 ]
+  %84 = phi i64 [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i.i ], [ %54, %77 ]
   %85 = load ptr, ptr %6, align 8
   br label %.critedge40.i.i
 
 .critedge40.i.i:                                  ; preds = %86, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i
-  %.038.i.i = phi i64 [ %84, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i ], [ %87, %86 ]
+  %.038.i.i = phi i64 [ %.pre-phi.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i ], [ %87, %86 ]
   %.not11.i.i = icmp eq i64 %.038.i.i, 0
   br i1 %.not11.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit.thread, label %86
 
@@ -1056,12 +1057,12 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit
   %87 = add i64 %.038.i.i, -1
   %88 = getelementptr inbounds nuw i64, ptr %85, i64 %87
   %89 = load i64, ptr %88, align 8, !tbaa !54
-  %90 = icmp ugt i64 %89, %83
+  %90 = icmp ugt i64 %89, %84
   br i1 %90, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit.thread29, label %.critedge40.i.i
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit.thread29: ; preds = %86
   %91 = getelementptr inbounds nuw i64, ptr %78, i64 %87
-  store i64 %83, ptr %91, align 8, !tbaa !54
+  store i64 %84, ptr %91, align 8, !tbaa !54
   br label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationInternalEv.exit.thread
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit: ; preds = %65, %55
@@ -1884,29 +1885,30 @@ _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase16increaseStageSum
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !71
-  %42 = ptrtoint ptr %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %44 = load ptr, ptr %43, align 8, !tbaa !71
-  %45 = ptrtoint ptr %44 to i64
-  %.not5.i.i.i.i.i = icmp eq ptr %41, %44
-  %.pre4 = sub i64 %45, %42
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %43 = load ptr, ptr %42, align 8, !tbaa !71
+  %.not5.i.i.i.i.i = icmp eq ptr %41, %43
   br i1 %.not5.i.i.i.i.i, label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i, label %.lr.ph.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.preheader.i:                       ; preds = %39
-  %46 = and i64 %.pre4, -8
+  %44 = ptrtoint ptr %41 to i64
+  %45 = ptrtoint ptr %43 to i64
+  %reass.sub = sub i64 %45, %44
+  %46 = and i64 %reass.sub, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %41, i8 0, i64 %46, i1 false), !tbaa !54
   %.pre = load i64, ptr %10, align 8
+  %47 = ashr exact i64 %reass.sub, 3
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i: ; preds = %39, %.lr.ph.i.i.i.i.preheader.i
-  %47 = phi i64 [ %.pre, %.lr.ph.i.i.i.i.preheader.i ], [ %12, %39 ]
-  %48 = ashr exact i64 %.pre4, 3
+  %.pre-phi = phi i64 [ %47, %.lr.ph.i.i.i.i.preheader.i ], [ 0, %39 ]
+  %48 = phi i64 [ %.pre, %.lr.ph.i.i.i.i.preheader.i ], [ %12, %39 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load ptr, ptr %49, align 8
   br label %.critedge40.i
 
 .critedge40.i:                                    ; preds = %51, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i
-  %.038.i = phi i64 [ %48, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i ], [ %52, %51 ]
+  %.038.i = phi i64 [ %.pre-phi, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i ], [ %52, %51 ]
   %.not11.i = icmp eq i64 %.038.i, 0
   br i1 %.not11.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase16increaseStageMaxEv.exit, label %51
 
@@ -1914,12 +1916,12 @@ _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit
   %52 = add i64 %.038.i, -1
   %53 = getelementptr inbounds nuw i64, ptr %50, i64 %52
   %54 = load i64, ptr %53, align 8, !tbaa !54
-  %55 = icmp ugt i64 %54, %47
+  %55 = icmp ugt i64 %54, %48
   br i1 %55, label %56, label %.critedge40.i
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i64, ptr %41, i64 %52
-  store i64 %47, ptr %57, align 8, !tbaa !54
+  store i64 %48, ptr %57, align 8, !tbaa !54
   br label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase16increaseStageMaxEv.exit, !llvm.loop !91
 
 _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase16increaseStageMaxEv.exit: ; preds = %.critedge40.i, %56, %36, %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase16increaseStageSumEv.exit

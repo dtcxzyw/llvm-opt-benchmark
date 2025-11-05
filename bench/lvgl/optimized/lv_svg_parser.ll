@@ -820,7 +820,7 @@ _get_svg_attr_type.exit:                          ; preds = %164, %161
   %171 = ptrtoint ptr %166 to i64
   %172 = tail call ptr @__ctype_b_loc() #17
   %173 = load ptr, ptr %172, align 8, !tbaa !51
-  %174 = sub i64 %170, %171
+  %174 = sub nuw i64 %170, %171
   %scevgep.i = getelementptr i8, ptr %166, i64 %174
   br label %175
 
@@ -1047,7 +1047,7 @@ _process_string.exit:                             ; preds = %207
   br i1 %244, label %.lr.ph.preheader.i.i, label %.critedge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %245 = sub i64 %170, %243
+  %245 = sub nuw i64 %170, %243
   %scevgep.i.i = getelementptr i8, ptr %.03140.i, i64 %245
   br label %.lr.ph.i.i
 
@@ -1392,7 +1392,7 @@ _parse_number.exit.i127:                          ; preds = %.critedge.i.i125
 
 .lr.ph.preheader.i.i142:                          ; preds = %381
   %385 = ptrtoint ptr %.039.i to i64
-  %386 = sub i64 %170, %385
+  %386 = sub nuw i64 %170, %385
   %scevgep.i.i143 = getelementptr i8, ptr %.039.i, i64 %386
   br label %.lr.ph.i.i144
 
@@ -1441,7 +1441,7 @@ _parse_number.exit.i155:                          ; preds = %.critedge.i.i153
   br i1 %396, label %.lr.ph.preheader.i53.i, label %.critedge.i50.i
 
 .lr.ph.preheader.i53.i:                           ; preds = %.preheader.i49.i
-  %397 = sub i64 %170, %395
+  %397 = sub nuw i64 %170, %395
   %scevgep.i54.i = getelementptr i8, ptr %394, i64 %397
   br label %.lr.ph.i55.i
 
@@ -1548,7 +1548,7 @@ _process_points_value.exit:                       ; preds = %.preheader75.i, %_p
   %.0239613.i = phi ptr [ %.0.lcssa.i, %.lr.ph.i.lr.ph.i ], [ %.3242579.i, %.thread570.i ]
   %428 = ptrtoint ptr %.0239613.i to i64
   %429 = load ptr, ptr %427, align 8, !tbaa !51
-  %430 = sub i64 %170, %428
+  %430 = sub nuw i64 %170, %428
   %scevgep.i.i160 = getelementptr i8, ptr %.0239613.i, i64 %430
   br label %431
 
@@ -1711,7 +1711,7 @@ _is_relative_cmd.exit.i:                          ; preds = %459, %_get_path_poi
 
 .lr.ph.preheader.i.i171:                          ; preds = %.preheader.i.i167
   %471 = ptrtoint ptr %.2241543.i to i64
-  %472 = sub i64 %170, %471
+  %472 = sub nuw i64 %170, %471
   %scevgep.i256.i = getelementptr i8, ptr %.2241543.i, i64 %472
   br label %.lr.ph.i257.i
 
@@ -1755,7 +1755,7 @@ _parse_number.exit.i170:                          ; preds = %.critedge.i.i168
   br i1 %482, label %.lr.ph.preheader.i264.i, label %.critedge.i261.i
 
 .lr.ph.preheader.i264.i:                          ; preds = %.preheader.i260.i
-  %483 = sub i64 %170, %481
+  %483 = sub nuw i64 %170, %481
   %scevgep.i265.i = getelementptr i8, ptr %480, i64 %483
   br label %.lr.ph.i266.i
 
@@ -1813,7 +1813,7 @@ _parse_number.exit275.i:                          ; preds = %490, %.critedge.i26
 
 .lr.ph.preheader.i281.i:                          ; preds = %.preheader.i277.i
   %498 = ptrtoint ptr %.2241543.i to i64
-  %499 = sub i64 %170, %498
+  %499 = sub nuw i64 %170, %498
   %scevgep.i282.i = getelementptr i8, ptr %.2241543.i, i64 %499
   br label %.lr.ph.i283.i
 
@@ -1857,7 +1857,7 @@ _parse_number.exit292.i:                          ; preds = %.critedge.i278.i
   br i1 %509, label %.lr.ph.preheader.i298.i, label %.critedge.i295.i
 
 .lr.ph.preheader.i298.i:                          ; preds = %.preheader.i294.i
-  %510 = sub i64 %170, %508
+  %510 = sub nuw i64 %170, %508
   %scevgep.i299.i = getelementptr i8, ptr %507, i64 %510
   br label %.lr.ph.i300.i
 
@@ -1915,7 +1915,7 @@ _parse_number.exit309.i:                          ; preds = %517, %.critedge.i29
 
 .lr.ph.preheader.i315.i:                          ; preds = %.preheader.i311.i
   %525 = ptrtoint ptr %.2241543.i to i64
-  %526 = sub i64 %170, %525
+  %526 = sub nuw i64 %170, %525
   %scevgep.i316.i = getelementptr i8, ptr %.2241543.i, i64 %526
   br label %.lr.ph.i317.i
 
@@ -1970,7 +1970,7 @@ _parse_number.exit326.i:                          ; preds = %533, %.critedge.i31
 
 .lr.ph.preheader.i332.i:                          ; preds = %.preheader.i328.i
   %540 = ptrtoint ptr %.2241543.i to i64
-  %541 = sub i64 %170, %540
+  %541 = sub nuw i64 %170, %540
   %scevgep.i333.i = getelementptr i8, ptr %.2241543.i, i64 %541
   br label %.lr.ph.i334.i
 
@@ -2045,7 +2045,7 @@ _parse_number.exit343.i:                          ; preds = %548, %.critedge.i32
   br i1 %566, label %.lr.ph.preheader.i349.i, label %.critedge.i346.i
 
 .lr.ph.preheader.i349.i:                          ; preds = %.preheader.i345.i
-  %567 = sub i64 %170, %565
+  %567 = sub nuw i64 %170, %565
   %scevgep.i350.i = getelementptr i8, ptr %.4611.i, i64 %567
   br label %.lr.ph.i351.i
 
@@ -2089,7 +2089,7 @@ _parse_number.exit360.i:                          ; preds = %.critedge.i346.i
   br i1 %577, label %.lr.ph.preheader.i366.i, label %.critedge.i363.i
 
 .lr.ph.preheader.i366.i:                          ; preds = %.preheader.i362.i
-  %578 = sub i64 %170, %576
+  %578 = sub nuw i64 %170, %576
   %scevgep.i367.i = getelementptr i8, ptr %575, i64 %578
   br label %.lr.ph.i368.i
 
@@ -2189,7 +2189,7 @@ _parse_number.exit377.i:                          ; preds = %585, %.critedge.i36
   br i1 %614, label %.lr.ph.preheader.i383.i, label %.critedge.i380.i
 
 .lr.ph.preheader.i383.i:                          ; preds = %.preheader.i379.i
-  %615 = sub i64 %170, %613
+  %615 = sub nuw i64 %170, %613
   %scevgep.i384.i = getelementptr i8, ptr %.5609.i, i64 %615
   br label %.lr.ph.i385.i
 
@@ -2233,7 +2233,7 @@ _parse_number.exit394.i:                          ; preds = %.critedge.i380.i
   br i1 %625, label %.lr.ph.preheader.i400.i, label %.critedge.i397.i
 
 .lr.ph.preheader.i400.i:                          ; preds = %.preheader.i396.i
-  %626 = sub i64 %170, %624
+  %626 = sub nuw i64 %170, %624
   %scevgep.i401.i = getelementptr i8, ptr %623, i64 %626
   br label %.lr.ph.i402.i
 
@@ -2312,7 +2312,7 @@ _parse_number.exit411.i:                          ; preds = %633, %.critedge.i39
   br i1 %653, label %.lr.ph.preheader.i417.i, label %.critedge.i414.i
 
 .lr.ph.preheader.i417.i:                          ; preds = %.preheader.i413.i
-  %654 = sub i64 %170, %652
+  %654 = sub nuw i64 %170, %652
   %scevgep.i418.i = getelementptr i8, ptr %.6607.i, i64 %654
   br label %.lr.ph.i419.i
 
@@ -2356,7 +2356,7 @@ _parse_number.exit428.i:                          ; preds = %.critedge.i414.i
   br i1 %664, label %.lr.ph.preheader.i434.i, label %.critedge.i431.i
 
 .lr.ph.preheader.i434.i:                          ; preds = %.preheader.i430.i
-  %665 = sub i64 %170, %663
+  %665 = sub nuw i64 %170, %663
   %scevgep.i435.i = getelementptr i8, ptr %662, i64 %665
   br label %.lr.ph.i436.i
 
@@ -2440,7 +2440,7 @@ _parse_number.exit445.i:                          ; preds = %672, %.critedge.i43
 
 .lr.ph.preheader.i451.i:                          ; preds = %.preheader.i447.i
   %691 = ptrtoint ptr %.2241543.i to i64
-  %692 = sub i64 %170, %691
+  %692 = sub nuw i64 %170, %691
   %scevgep.i452.i = getelementptr i8, ptr %.2241543.i, i64 %692
   br label %.lr.ph.i453.i
 
@@ -2484,7 +2484,7 @@ _parse_number.exit462.i:                          ; preds = %.critedge.i448.i
   br i1 %702, label %.lr.ph.preheader.i468.i, label %.critedge.i465.i
 
 .lr.ph.preheader.i468.i:                          ; preds = %.preheader.i464.i
-  %703 = sub i64 %170, %701
+  %703 = sub nuw i64 %170, %701
   %scevgep.i469.i = getelementptr i8, ptr %700, i64 %703
   br label %.lr.ph.i470.i
 
@@ -2633,7 +2633,7 @@ _process_path_value.exit:                         ; preds = %_skip_space_and_sep
   %.069.i = phi ptr [ %.0.lcssa.i, %.lr.ph.i.lr.ph.i181 ], [ %1164, %.critedge68.i ]
   %749 = ptrtoint ptr %.069.i to i64
   %750 = load ptr, ptr %748, align 8, !tbaa !51
-  %751 = sub i64 %170, %749
+  %751 = sub nuw i64 %170, %749
   %scevgep.i.i183 = getelementptr i8, ptr %.069.i, i64 %751
   br label %752
 
@@ -2781,7 +2781,7 @@ _skip_space.exit.i187:                            ; preds = %758, %752
   br i1 %799, label %.lr.ph.preheader.i.i340, label %.critedge.i.i334
 
 .lr.ph.preheader.i.i340:                          ; preds = %.preheader.i.i333
-  %800 = sub i64 %170, %798
+  %800 = sub nuw i64 %170, %798
   %scevgep.i.i341 = getelementptr i8, ptr %.2101460.i, i64 %800
   br label %.lr.ph.i.i342
 
@@ -2889,7 +2889,7 @@ _multiply_matrix.exit.i:                          ; preds = %822
   br i1 %.not.i353, label %.lr.ph.preheader.i153.i, label %.critedge.i150.i
 
 .lr.ph.preheader.i153.i:                          ; preds = %.preheader.i149.i
-  %837 = sub i64 %170, %836
+  %837 = sub nuw i64 %170, %836
   %scevgep.i154.i = getelementptr i8, ptr %.099.lcssa.i.ph, i64 %837
   br label %.lr.ph.i155.i
 
@@ -2935,7 +2935,7 @@ _parse_number.exit164.i:                          ; preds = %.critedge.i150.i
 .lr.ph.i166.i:                                    ; preds = %846
   %848 = ptrtoint ptr %845 to i64
   %849 = load ptr, ptr %748, align 8, !tbaa !51
-  %850 = sub i64 %170, %848
+  %850 = sub nuw i64 %170, %848
   %scevgep.i167.i = getelementptr i8, ptr %845, i64 %850
   br label %851
 
@@ -2966,7 +2966,7 @@ _skip_space.exit.i327:                            ; preds = %857, %851, %846
 
 .lr.ph.preheader.i175.i:                          ; preds = %.preheader.i171.i
   %861 = ptrtoint ptr %.0.lcssa.i.i328 to i64
-  %862 = sub i64 %170, %861
+  %862 = sub nuw i64 %170, %861
   %scevgep.i176.i = getelementptr i8, ptr %.0.lcssa.i.i328, i64 %862
   br label %.lr.ph.i177.i
 
@@ -3074,7 +3074,7 @@ _parse_number.exit186.i:                          ; preds = %869, %.critedge.i17
   br i1 %.not.i353, label %.lr.ph.preheader.i200.i, label %.critedge.i197.i
 
 .lr.ph.preheader.i200.i:                          ; preds = %.preheader.i196.i
-  %896 = sub i64 %170, %895
+  %896 = sub nuw i64 %170, %895
   %scevgep.i201.i = getelementptr i8, ptr %.099.lcssa.i.ph, i64 %896
   br label %.lr.ph.i202.i
 
@@ -3120,7 +3120,7 @@ _parse_number.exit211.i:                          ; preds = %.critedge.i197.i
 .lr.ph.i214.i:                                    ; preds = %905
   %907 = ptrtoint ptr %904 to i64
   %908 = load ptr, ptr %748, align 8, !tbaa !51
-  %909 = sub i64 %170, %907
+  %909 = sub nuw i64 %170, %907
   %scevgep.i215.i = getelementptr i8, ptr %904, i64 %909
   br label %910
 
@@ -3151,7 +3151,7 @@ _skip_space.exit219.i:                            ; preds = %916, %910, %905
 
 .lr.ph.preheader.i225.i:                          ; preds = %.preheader.i221.i
   %920 = ptrtoint ptr %.0.lcssa.i213.i to i64
-  %921 = sub i64 %170, %920
+  %921 = sub nuw i64 %170, %920
   %scevgep.i226.i = getelementptr i8, ptr %.0.lcssa.i213.i, i64 %921
   br label %.lr.ph.i227.i
 
@@ -3195,7 +3195,7 @@ _parse_number.exit236.i:                          ; preds = %.critedge.i222.i
   br i1 %931, label %.lr.ph.preheader.i242.i, label %.critedge.i239.i
 
 .lr.ph.preheader.i242.i:                          ; preds = %.preheader.i238.i
-  %932 = sub i64 %170, %930
+  %932 = sub nuw i64 %170, %930
   %scevgep.i243.i = getelementptr i8, ptr %929, i64 %932
   br label %.lr.ph.i244.i
 
@@ -3452,7 +3452,7 @@ _multiply_matrix.exit285.i:                       ; preds = %1019
   br i1 %.not.i353, label %.lr.ph.preheader.i291.i, label %.critedge.i288.i
 
 .lr.ph.preheader.i291.i:                          ; preds = %.preheader.i287.i
-  %1035 = sub i64 %170, %1034
+  %1035 = sub nuw i64 %170, %1034
   %scevgep.i292.i = getelementptr i8, ptr %.099.lcssa.i.ph, i64 %1035
   br label %.lr.ph.i293.i
 
@@ -3498,7 +3498,7 @@ _parse_number.exit302.i:                          ; preds = %.critedge.i288.i
 .lr.ph.i305.i:                                    ; preds = %1044
   %1046 = ptrtoint ptr %1043 to i64
   %1047 = load ptr, ptr %748, align 8, !tbaa !51
-  %1048 = sub i64 %170, %1046
+  %1048 = sub nuw i64 %170, %1046
   %scevgep.i306.i = getelementptr i8, ptr %1043, i64 %1048
   br label %1049
 
@@ -3529,7 +3529,7 @@ _skip_space.exit310.i:                            ; preds = %1055, %1049, %1044
 
 .lr.ph.preheader.i316.i:                          ; preds = %.preheader.i312.i
   %1059 = ptrtoint ptr %.0.lcssa.i304.i to i64
-  %1060 = sub i64 %170, %1059
+  %1060 = sub nuw i64 %170, %1059
   %scevgep.i317.i = getelementptr i8, ptr %.0.lcssa.i304.i, i64 %1060
   br label %.lr.ph.i318.i
 
@@ -3637,7 +3637,7 @@ _parse_number.exit327.i:                          ; preds = %1067, %.critedge.i3
   br i1 %.not.i353, label %.lr.ph.preheader.i341.i, label %.critedge.i338.i
 
 .lr.ph.preheader.i341.i:                          ; preds = %.preheader.i337.i
-  %1094 = sub i64 %170, %1093
+  %1094 = sub nuw i64 %170, %1093
   %scevgep.i342.i = getelementptr i8, ptr %.099.lcssa.i.ph, i64 %1094
   br label %.lr.ph.i343.i
 
@@ -3741,7 +3741,7 @@ _parse_number.exit352.i:                          ; preds = %.critedge.i338.i
   br i1 %.not.i353, label %.lr.ph.preheader.i366.i312, label %.critedge.i363.i307
 
 .lr.ph.preheader.i366.i312:                       ; preds = %.preheader.i362.i306
-  %1130 = sub i64 %170, %1129
+  %1130 = sub nuw i64 %170, %1129
   %scevgep.i367.i313 = getelementptr i8, ptr %.099.lcssa.i.ph, i64 %1130
   br label %.lr.ph.i368.i314
 
@@ -3921,7 +3921,7 @@ _skip_space.exit._crit_edge.i:                    ; preds = %.critedge68.i, %_sk
   %1200 = ptrtoint ptr %1198 to i64
   %1201 = tail call ptr @__ctype_b_loc() #17
   %1202 = load ptr, ptr %1201, align 8, !tbaa !51
-  %1203 = sub i64 %170, %1200
+  %1203 = sub nuw i64 %170, %1200
   %scevgep.i.i202 = getelementptr i8, ptr %1198, i64 %1203
   br label %1204
 
@@ -3960,7 +3960,7 @@ _skip_space.exit.i193:                            ; preds = %1210, %1204, %1197
 .lr.ph.i197:                                      ; preds = %1214
   %1218 = tail call ptr @__ctype_b_loc() #17
   %1219 = load ptr, ptr %1218, align 8, !tbaa !51
-  %1220 = sub i64 %170, %.0.lcssa.i72.i
+  %1220 = sub nuw i64 %170, %.0.lcssa.i72.i
   %scevgep.i198 = getelementptr i8, ptr %.0.lcssa.i.i194, i64 %1220
   br label %1221
 
@@ -4433,7 +4433,7 @@ _parse_number.exit100.i:                          ; preds = %1341, %.critedge.i8
 
 .lr.ph.preheader.i.i228:                          ; preds = %1381
   %1385 = ptrtoint ptr %.042.i to i64
-  %1386 = sub i64 %170, %1385
+  %1386 = sub nuw i64 %170, %1385
   %scevgep.i.i229 = getelementptr i8, ptr %.042.i, i64 %1386
   br label %.lr.ph.i.i230
 
@@ -4906,7 +4906,7 @@ _skip_space.exit.i.i:                             ; preds = %1588, %1582, %1578
   %1595 = ptrtoint ptr %1593 to i64
   %1596 = tail call ptr @__ctype_b_loc() #17
   %1597 = load ptr, ptr %1596, align 8, !tbaa !51
-  %1598 = sub i64 %170, %1595
+  %1598 = sub nuw i64 %170, %1595
   %scevgep.i36.i.i = getelementptr i8, ptr %1593, i64 %1598
   br label %1599
 
@@ -5055,7 +5055,7 @@ _skip_space.exit.i54.i:                           ; preds = %1625, %1619, %1615
   br i1 %1650, label %.lr.ph.preheader.i.i174.i, label %.critedge.i.i168.i
 
 .lr.ph.preheader.i.i174.i:                        ; preds = %.preheader.i.i167.i
-  %1651 = sub i64 %1649, %1648
+  %1651 = sub nuw i64 %1649, %1648
   %scevgep.i.i175.i = getelementptr i8, ptr %.03042.i60.i, i64 %1651
   br label %.lr.ph.i.i176.i
 
@@ -5102,7 +5102,7 @@ _anim_keys_cb.exit191.i:                          ; preds = %1658, %.critedge.i.
   %1662 = ptrtoint ptr %1660 to i64
   %1663 = tail call ptr @__ctype_b_loc() #17
   %1664 = load ptr, ptr %1663, align 8, !tbaa !51
-  %1665 = sub i64 %170, %1662
+  %1665 = sub nuw i64 %170, %1662
   %scevgep.i36.i73.i = getelementptr i8, ptr %1660, i64 %1665
   br label %1666
 
@@ -5188,7 +5188,7 @@ _skip_space.exit40.i70.i:                         ; preds = %1672, %1666, %1674,
 
 .lr.ph.preheader.i.i151.i:                        ; preds = %1695
   %1696 = ptrtoint ptr %.131.i61.i to i64
-  %1697 = sub i64 %170, %1696
+  %1697 = sub nuw i64 %170, %1696
   %scevgep.i.i152.i = getelementptr i8, ptr %.131.i61.i, i64 %1697
   br label %.lr.ph.i.i153.i
 
@@ -5289,7 +5289,7 @@ _skip_space.exit.i83.i:                           ; preds = %1719, %1713, %1709
   %1726 = ptrtoint ptr %1724 to i64
   %1727 = tail call ptr @__ctype_b_loc() #17
   %1728 = load ptr, ptr %1727, align 8, !tbaa !51
-  %1729 = sub i64 %170, %1726
+  %1729 = sub nuw i64 %170, %1726
   %scevgep.i36.i102.i = getelementptr i8, ptr %1724, i64 %1729
   br label %1730
 
@@ -5390,7 +5390,7 @@ _skip_space.exit.i112.i:                          ; preds = %1756, %1750, %1746
   %1763 = ptrtoint ptr %1761 to i64
   %1764 = tail call ptr @__ctype_b_loc() #17
   %1765 = load ptr, ptr %1764, align 8, !tbaa !51
-  %1766 = sub i64 %170, %1763
+  %1766 = sub nuw i64 %170, %1763
   %scevgep.i36.i131.i = getelementptr i8, ptr %1761, i64 %1766
   br label %1767
 
@@ -5494,7 +5494,7 @@ _parse_anim_value_list.exit140.i:                 ; preds = %1778, %._crit_edge.
 
 .lr.ph.preheader.i.i.i260:                        ; preds = %1795
   %1797 = ptrtoint ptr %.042.i.i to i64
-  %1798 = sub i64 %170, %1797
+  %1798 = sub nuw i64 %170, %1797
   %scevgep.i.i143.i = getelementptr i8, ptr %.042.i.i, i64 %1798
   br label %.lr.ph.i.i144.i
 
@@ -5612,7 +5612,7 @@ _parse_number.exit65.i.i:                         ; preds = %.critedge.i51.i.i
   br i1 %1823, label %.lr.ph.preheader.i71.i.i, label %.critedge.i68.i.i
 
 .lr.ph.preheader.i71.i.i:                         ; preds = %.preheader.i67.i.i
-  %1824 = sub i64 %170, %1822
+  %1824 = sub nuw i64 %170, %1822
   %scevgep.i72.i.i = getelementptr i8, ptr %1821, i64 %1824
   br label %.lr.ph.i73.i.i
 
@@ -6040,7 +6040,7 @@ define internal fastcc void @_parse_length(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %8, label %.lr.ph.preheader.i, label %.critedge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %9 = sub i64 %7, %6
+  %9 = sub nuw i64 %7, %6
   %scevgep.i = getelementptr i8, ptr %0, i64 %9
   br label %.lr.ph.i
 
@@ -6224,7 +6224,7 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone c
   br i1 %13, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %14 = sub i64 %5, %4
+  %14 = sub nuw i64 %5, %4
   %scevgep = getelementptr i8, ptr %0, i64 %14
   br label %.lr.ph
 
@@ -6434,7 +6434,7 @@ define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone c
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %130 = ptrtoint ptr %151 to i64
-  %131 = sub i64 %.pre-phi, %130
+  %131 = sub nuw i64 %.pre-phi, %130
   %scevgep.i = getelementptr i8, ptr %151, i64 %131
   br label %.lr.ph.i
 
@@ -6482,7 +6482,7 @@ _parse_number.exit:                               ; preds = %.critedge.i
 
 .lr.ph.preheader.i124:                            ; preds = %.preheader.i120
   %142 = ptrtoint ptr %.097166 to i64
-  %143 = sub i64 %.pre-phi, %142
+  %143 = sub nuw i64 %.pre-phi, %142
   %scevgep.i125 = getelementptr i8, ptr %.097166, i64 %143
   br label %.lr.ph.i126
 
@@ -6617,7 +6617,7 @@ _parse_number.exit.thread:                        ; preds = %.critedge.i, %167, 
 
 .lr.ph.preheader.i141:                            ; preds = %.preheader.i137
   %198 = ptrtoint ptr %.198163 to i64
-  %199 = sub i64 %.pre-phi, %198
+  %199 = sub nuw i64 %.pre-phi, %198
   %scevgep.i142 = getelementptr i8, ptr %.198163, i64 %199
   br label %.lr.ph.i143
 
@@ -6950,7 +6950,7 @@ define internal fastcc void @_anim_values_cb(ptr noundef readonly captures(none)
 
 .lr.ph.preheader.i:                               ; preds = %101
   %103 = ptrtoint ptr %.0117 to i64
-  %104 = sub i64 %96, %103
+  %104 = sub nuw i64 %96, %103
   %scevgep.i = getelementptr i8, ptr %.0117, i64 %104
   br label %.lr.ph.i
 
@@ -7065,7 +7065,7 @@ _parse_number.exit.thread:                        ; preds = %.critedge.i, %101, 
   br i1 %144, label %.lr.ph.preheader.i143, label %.critedge.i140
 
 .lr.ph.preheader.i143:                            ; preds = %.preheader.i139
-  %145 = sub i64 %143, %142
+  %145 = sub nuw i64 %143, %142
   %scevgep.i144 = getelementptr i8, ptr %1, i64 %145
   br label %.lr.ph.i145
 
@@ -7111,7 +7111,7 @@ _parse_number.exit154:                            ; preds = %.critedge.i140
   br i1 %156, label %.lr.ph.preheader.i160, label %.critedge.i157
 
 .lr.ph.preheader.i160:                            ; preds = %.preheader.i156
-  %157 = sub i64 %143, %155
+  %157 = sub nuw i64 %143, %155
   %scevgep.i161 = getelementptr i8, ptr %153, i64 %157
   br label %.lr.ph.i162
 
@@ -7232,7 +7232,7 @@ define internal fastcc void @_anim_key_splines_cb(ptr noundef %0, ptr noundef %1
   br i1 %37, label %.lr.ph.preheader.i, label %.critedge.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %38 = sub i64 %36, %35
+  %38 = sub nuw i64 %36, %35
   %scevgep.i = getelementptr i8, ptr %0, i64 %38
   br label %.lr.ph.i
 
@@ -7278,7 +7278,7 @@ _parse_number.exit:                               ; preds = %.critedge.i
   br i1 %49, label %.lr.ph.preheader.i66, label %.critedge.i63
 
 .lr.ph.preheader.i66:                             ; preds = %.preheader.i62
-  %50 = sub i64 %36, %48
+  %50 = sub nuw i64 %36, %48
   %scevgep.i67 = getelementptr i8, ptr %46, i64 %50
   br label %.lr.ph.i68
 
@@ -7385,7 +7385,7 @@ _parse_number.exit77:                             ; preds = %.critedge.i, %34, %
   br i1 %87, label %.lr.ph.preheader.i83, label %.critedge.i80
 
 .lr.ph.preheader.i83:                             ; preds = %.preheader.i79
-  %88 = sub i64 %36, %86
+  %88 = sub nuw i64 %36, %86
   %scevgep.i84 = getelementptr i8, ptr %.0.i65, i64 %88
   br label %.lr.ph.i85
 
@@ -7431,7 +7431,7 @@ _parse_number.exit94:                             ; preds = %.critedge.i80
   br i1 %99, label %.lr.ph.preheader.i100, label %.critedge.i97
 
 .lr.ph.preheader.i100:                            ; preds = %.preheader.i96
-  %100 = sub i64 %36, %98
+  %100 = sub nuw i64 %36, %98
   %scevgep.i101 = getelementptr i8, ptr %96, i64 %100
   br label %.lr.ph.i102
 
@@ -7548,7 +7548,7 @@ define internal fastcc void @_anim_begin_end_cb(ptr noundef %0, ptr noundef %1, 
   br i1 %34, label %.lr.ph.preheader.i.i, label %.critedge.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %.preheader.i.i
-  %35 = sub i64 %33, %32
+  %35 = sub nuw i64 %33, %32
   %scevgep.i.i = getelementptr i8, ptr %0, i64 %35
   br label %.lr.ph.i.i
 

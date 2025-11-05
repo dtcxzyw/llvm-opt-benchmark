@@ -23003,7 +23003,7 @@ define internal fastcc void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt1
 16:                                               ; preds = %5
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %14 to i64
-  %19 = sub i64 %17, %18
+  %19 = sub nuw i64 %17, %18
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %19, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %20 = load ptr, ptr %9, align 8, !tbaa !115
@@ -23024,7 +23024,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val = load i64, ptr %2, align 8
   %26 = ptrtoint ptr %23 to i64
   %27 = ptrtoint ptr %22 to i64
-  %28 = sub i64 %26, %27
+  %28 = sub nuw i64 %26, %27
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %28, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr readonly align 1 %.val4, i64 %spec.select.i.i, i1 false)
   %29 = load ptr, ptr %9, align 8, !tbaa !115
@@ -23046,7 +23046,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val5 = load i64, ptr %4, align 8
   %35 = ptrtoint ptr %31 to i64
   %36 = ptrtoint ptr %32 to i64
-  %37 = sub i64 %35, %36
+  %37 = sub nuw i64 %35, %36
   %spec.select.i.i9 = call i64 @llvm.umin.i64(i64 %37, i64 %.val5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %.val6, i64 %spec.select.i.i9, i1 false)
   %38 = load ptr, ptr %9, align 8, !tbaa !115
@@ -23136,7 +23136,7 @@ _ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS
   %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i, %12 ], [ %20, %17 ], [ 6, %15 ]
   %21 = ptrtoint ptr %5 to i64
   %22 = ptrtoint ptr %6 to i64
-  %23 = sub i64 %21, %22
+  %23 = sub nuw i64 %21, %22
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %23, i64 %.sroa.0.0.i.i)
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr readonly align 1 %.sroa.4.0.i.i, i64 %spec.select.i.i, i1 false)
   %24 = load ptr, ptr %3, align 8, !tbaa !115
@@ -23159,7 +23159,7 @@ _ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS
 _ZN12_GLOBAL__N_111concatenateISt17basic_string_viewIcSt11char_traitsIcEEEEvRPcS5_RKT_.exit30.i: ; preds = %36
   %31 = ptrtoint ptr %5 to i64
   %32 = ptrtoint ptr %6 to i64
-  %33 = sub i64 %31, %32
+  %33 = sub nuw i64 %31, %32
   %spec.select.i29.i = tail call i64 @llvm.umin.i64(i64 %33, i64 %30)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %6, ptr nonnull readonly align 1 %2, i64 %spec.select.i29.i, i1 false)
   %34 = load ptr, ptr %3, align 8, !tbaa !115
@@ -30109,7 +30109,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 14:                                               ; preds = %3
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %12 to i64
-  %17 = sub i64 %15, %16
+  %17 = sub nuw i64 %15, %16
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %17, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %12, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %18 = load ptr, ptr %7, align 8, !tbaa !115
@@ -30130,7 +30130,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val = load i64, ptr %2, align 8
   %24 = ptrtoint ptr %21 to i64
   %25 = ptrtoint ptr %20 to i64
-  %26 = sub i64 %24, %25
+  %26 = sub nuw i64 %24, %25
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %26, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %20, ptr readonly align 1 %.val2, i64 %spec.select.i.i, i1 false)
   %27 = load ptr, ptr %7, align 8, !tbaa !115
@@ -30176,7 +30176,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 16:                                               ; preds = %5
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %14 to i64
-  %19 = sub i64 %17, %18
+  %19 = sub nuw i64 %17, %18
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %19, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %20 = load ptr, ptr %9, align 8, !tbaa !115
@@ -30197,7 +30197,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val5 = load i64, ptr %2, align 8
   %26 = ptrtoint ptr %23 to i64
   %27 = ptrtoint ptr %22 to i64
-  %28 = sub i64 %26, %27
+  %28 = sub nuw i64 %26, %27
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %28, i64 %.val5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr readonly align 1 %.val6, i64 %spec.select.i.i, i1 false)
   %29 = load ptr, ptr %9, align 8, !tbaa !115
@@ -30219,7 +30219,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val = load i64, ptr %4, align 8
   %35 = ptrtoint ptr %31 to i64
   %36 = ptrtoint ptr %32 to i64
-  %37 = sub i64 %35, %36
+  %37 = sub nuw i64 %35, %36
   %spec.select.i.i9 = call i64 @llvm.umin.i64(i64 %37, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %.val4, i64 %spec.select.i.i9, i1 false)
   %38 = load ptr, ptr %9, align 8, !tbaa !115
@@ -33586,7 +33586,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 18:                                               ; preds = %7
   %19 = ptrtoint ptr %17 to i64
   %20 = ptrtoint ptr %16 to i64
-  %21 = sub i64 %19, %20
+  %21 = sub nuw i64 %19, %20
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %21, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %16, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %22 = load ptr, ptr %11, align 8, !tbaa !115
@@ -33607,7 +33607,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val13 = load i64, ptr %2, align 8
   %28 = ptrtoint ptr %25 to i64
   %29 = ptrtoint ptr %24 to i64
-  %30 = sub i64 %28, %29
+  %30 = sub nuw i64 %28, %29
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %30, i64 %.val13)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr readonly align 1 %.val14, i64 %spec.select.i.i, i1 false)
   %31 = load ptr, ptr %11, align 8, !tbaa !115
@@ -33628,7 +33628,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val11 = load i64, ptr %3, align 8
   %37 = ptrtoint ptr %34 to i64
   %38 = ptrtoint ptr %33 to i64
-  %39 = sub i64 %37, %38
+  %39 = sub nuw i64 %37, %38
   %spec.select.i.i16 = call i64 @llvm.umin.i64(i64 %39, i64 %.val11)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %.val12, i64 %spec.select.i.i16, i1 false)
   %40 = load ptr, ptr %11, align 8, !tbaa !115
@@ -33649,7 +33649,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val9 = load i64, ptr %4, align 8
   %46 = ptrtoint ptr %43 to i64
   %47 = ptrtoint ptr %42 to i64
-  %48 = sub i64 %46, %47
+  %48 = sub nuw i64 %46, %47
   %spec.select.i.i19 = call i64 @llvm.umin.i64(i64 %48, i64 %.val9)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr readonly align 1 %.val10, i64 %spec.select.i.i19, i1 false)
   %49 = load ptr, ptr %11, align 8, !tbaa !115
@@ -33670,7 +33670,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val7 = load i64, ptr %5, align 8
   %55 = ptrtoint ptr %52 to i64
   %56 = ptrtoint ptr %51 to i64
-  %57 = sub i64 %55, %56
+  %57 = sub nuw i64 %55, %56
   %spec.select.i.i22 = call i64 @llvm.umin.i64(i64 %57, i64 %.val7)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr readonly align 1 %.val8, i64 %spec.select.i.i22, i1 false)
   %58 = load ptr, ptr %11, align 8, !tbaa !115
@@ -33691,7 +33691,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val = load i64, ptr %6, align 8
   %64 = ptrtoint ptr %61 to i64
   %65 = ptrtoint ptr %60 to i64
-  %66 = sub i64 %64, %65
+  %66 = sub nuw i64 %64, %65
   %spec.select.i.i25 = call i64 @llvm.umin.i64(i64 %66, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %60, ptr readonly align 1 %.val6, i64 %spec.select.i.i25, i1 false)
   %67 = load ptr, ptr %11, align 8, !tbaa !115
@@ -34505,7 +34505,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 17:                                               ; preds = %6
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %15 to i64
-  %20 = sub i64 %18, %19
+  %20 = sub nuw i64 %18, %19
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %20, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %21 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34526,7 +34526,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val10 = load i64, ptr %2, align 8
   %27 = ptrtoint ptr %24 to i64
   %28 = ptrtoint ptr %23 to i64
-  %29 = sub i64 %27, %28
+  %29 = sub nuw i64 %27, %28
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %29, i64 %.val10)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %.val11, i64 %spec.select.i.i, i1 false)
   %30 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34547,7 +34547,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val8 = load i64, ptr %3, align 8
   %36 = ptrtoint ptr %33 to i64
   %37 = ptrtoint ptr %32 to i64
-  %38 = sub i64 %36, %37
+  %38 = sub nuw i64 %36, %37
   %spec.select.i.i13 = call i64 @llvm.umin.i64(i64 %38, i64 %.val8)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr readonly align 1 %.val9, i64 %spec.select.i.i13, i1 false)
   %39 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34568,7 +34568,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val6 = load i64, ptr %4, align 8
   %45 = ptrtoint ptr %42 to i64
   %46 = ptrtoint ptr %41 to i64
-  %47 = sub i64 %45, %46
+  %47 = sub nuw i64 %45, %46
   %spec.select.i.i16 = call i64 @llvm.umin.i64(i64 %47, i64 %.val6)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr readonly align 1 %.val7, i64 %spec.select.i.i16, i1 false)
   %48 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34589,7 +34589,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val = load i64, ptr %5, align 8
   %54 = ptrtoint ptr %51 to i64
   %55 = ptrtoint ptr %50 to i64
-  %56 = sub i64 %54, %55
+  %56 = sub nuw i64 %54, %55
   %spec.select.i.i19 = call i64 @llvm.umin.i64(i64 %56, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr readonly align 1 %.val5, i64 %spec.select.i.i19, i1 false)
   %57 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34655,7 +34655,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 17:                                               ; preds = %6
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %15 to i64
-  %20 = sub i64 %18, %19
+  %20 = sub nuw i64 %18, %19
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %20, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %21 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34676,7 +34676,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val8 = load i64, ptr %2, align 8
   %27 = ptrtoint ptr %24 to i64
   %28 = ptrtoint ptr %23 to i64
-  %29 = sub i64 %27, %28
+  %29 = sub nuw i64 %27, %28
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %29, i64 %.val8)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %.val9, i64 %spec.select.i.i, i1 false)
   %30 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34698,7 +34698,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val6 = load i64, ptr %4, align 8
   %36 = ptrtoint ptr %32 to i64
   %37 = ptrtoint ptr %33 to i64
-  %38 = sub i64 %36, %37
+  %38 = sub nuw i64 %36, %37
   %spec.select.i.i12 = call i64 @llvm.umin.i64(i64 %38, i64 %.val6)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %.val7, i64 %spec.select.i.i12, i1 false)
   %39 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34719,7 +34719,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val = load i64, ptr %5, align 8
   %45 = ptrtoint ptr %42 to i64
   %46 = ptrtoint ptr %41 to i64
-  %47 = sub i64 %45, %46
+  %47 = sub nuw i64 %45, %46
   %spec.select.i.i15 = call i64 @llvm.umin.i64(i64 %47, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr readonly align 1 %.val5, i64 %spec.select.i.i15, i1 false)
   %48 = load ptr, ptr %10, align 8, !tbaa !115
@@ -34784,7 +34784,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 15:                                               ; preds = %4
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %13 to i64
-  %18 = sub i64 %16, %17
+  %18 = sub nuw i64 %16, %17
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %18, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %19 = load ptr, ptr %8, align 8, !tbaa !115
@@ -34805,7 +34805,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val = load i64, ptr %2, align 8
   %25 = ptrtoint ptr %22 to i64
   %26 = ptrtoint ptr %21 to i64
-  %27 = sub i64 %25, %26
+  %27 = sub nuw i64 %25, %26
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %27, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %.val3, i64 %spec.select.i.i, i1 false)
   %28 = load ptr, ptr %8, align 8, !tbaa !115
@@ -34977,7 +34977,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 15:                                               ; preds = %4
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %13 to i64
-  %18 = sub i64 %16, %17
+  %18 = sub nuw i64 %16, %17
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %18, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %19 = load ptr, ptr %8, align 8, !tbaa !115
@@ -34998,7 +34998,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val = load i64, ptr %2, align 8
   %25 = ptrtoint ptr %22 to i64
   %26 = ptrtoint ptr %21 to i64
-  %27 = sub i64 %25, %26
+  %27 = sub nuw i64 %25, %26
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %27, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %.val3, i64 %spec.select.i.i, i1 false)
   %28 = load ptr, ptr %8, align 8, !tbaa !115
@@ -35300,7 +35300,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 17:                                               ; preds = %6
   %18 = ptrtoint ptr %16 to i64
   %19 = ptrtoint ptr %15 to i64
-  %20 = sub i64 %18, %19
+  %20 = sub nuw i64 %18, %19
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %20, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %15, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %21 = load ptr, ptr %10, align 8, !tbaa !115
@@ -35321,7 +35321,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val6 = load i64, ptr %2, align 8
   %27 = ptrtoint ptr %24 to i64
   %28 = ptrtoint ptr %23 to i64
-  %29 = sub i64 %27, %28
+  %29 = sub nuw i64 %27, %28
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %29, i64 %.val6)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr readonly align 1 %.val7, i64 %spec.select.i.i, i1 false)
   %30 = load ptr, ptr %10, align 8, !tbaa !115
@@ -35343,7 +35343,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val = load i64, ptr %4, align 8
   %36 = ptrtoint ptr %32 to i64
   %37 = ptrtoint ptr %33 to i64
-  %38 = sub i64 %36, %37
+  %38 = sub nuw i64 %36, %37
   %spec.select.i.i11 = call i64 @llvm.umin.i64(i64 %38, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %33, ptr readonly align 1 %.val5, i64 %spec.select.i.i11, i1 false)
   %39 = load ptr, ptr %10, align 8, !tbaa !115
@@ -35654,7 +35654,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 15:                                               ; preds = %4
   %16 = ptrtoint ptr %14 to i64
   %17 = ptrtoint ptr %13 to i64
-  %18 = sub i64 %16, %17
+  %18 = sub nuw i64 %16, %17
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %18, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %13, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %19 = load ptr, ptr %8, align 8, !tbaa !115
@@ -35675,7 +35675,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val = load i64, ptr %2, align 8
   %25 = ptrtoint ptr %22 to i64
   %26 = ptrtoint ptr %21 to i64
-  %27 = sub i64 %25, %26
+  %27 = sub nuw i64 %25, %26
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %27, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr readonly align 1 %.val3, i64 %spec.select.i.i, i1 false)
   %28 = load ptr, ptr %8, align 8, !tbaa !115
@@ -37152,7 +37152,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 16:                                               ; preds = %5
   %17 = ptrtoint ptr %15 to i64
   %18 = ptrtoint ptr %14 to i64
-  %19 = sub i64 %17, %18
+  %19 = sub nuw i64 %17, %18
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %19, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %14, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %20 = load ptr, ptr %9, align 8, !tbaa !115
@@ -37173,7 +37173,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val7 = load i64, ptr %2, align 8
   %26 = ptrtoint ptr %23 to i64
   %27 = ptrtoint ptr %22 to i64
-  %28 = sub i64 %26, %27
+  %28 = sub nuw i64 %26, %27
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %28, i64 %.val7)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr readonly align 1 %.val8, i64 %spec.select.i.i, i1 false)
   %29 = load ptr, ptr %9, align 8, !tbaa !115
@@ -37194,7 +37194,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val5 = load i64, ptr %3, align 8
   %35 = ptrtoint ptr %32 to i64
   %36 = ptrtoint ptr %31 to i64
-  %37 = sub i64 %35, %36
+  %37 = sub nuw i64 %35, %36
   %spec.select.i.i10 = call i64 @llvm.umin.i64(i64 %37, i64 %.val5)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr readonly align 1 %.val6, i64 %spec.select.i.i10, i1 false)
   %38 = load ptr, ptr %9, align 8, !tbaa !115
@@ -37215,7 +37215,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val = load i64, ptr %4, align 8
   %44 = ptrtoint ptr %41 to i64
   %45 = ptrtoint ptr %40 to i64
-  %46 = sub i64 %44, %45
+  %46 = sub nuw i64 %44, %45
   %spec.select.i.i13 = call i64 @llvm.umin.i64(i64 %46, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %40, ptr readonly align 1 %.val4, i64 %spec.select.i.i13, i1 false)
   %47 = load ptr, ptr %9, align 8, !tbaa !115
@@ -40536,7 +40536,7 @@ define linkonce_odr void @_ZNK4toml2v34impl7impl_ex6parser12set_error_atIJSt17ba
 19:                                               ; preds = %8
   %20 = ptrtoint ptr %18 to i64
   %21 = ptrtoint ptr %17 to i64
-  %22 = sub i64 %20, %21
+  %22 = sub nuw i64 %20, %21
   %spec.select.i10.i = call i64 @llvm.umin.i64(i64 %22, i64 2)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %17, ptr nonnull readonly align 1 @.str.54, i64 %spec.select.i10.i, i1 false)
   %23 = load ptr, ptr %12, align 8, !tbaa !115
@@ -40557,7 +40557,7 @@ _ZN12_GLOBAL__N_113error_builderC2ESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %.val16 = load i64, ptr %2, align 8
   %29 = ptrtoint ptr %26 to i64
   %30 = ptrtoint ptr %25 to i64
-  %31 = sub i64 %29, %30
+  %31 = sub nuw i64 %29, %30
   %spec.select.i.i = call i64 @llvm.umin.i64(i64 %31, i64 %.val16)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr readonly align 1 %.val17, i64 %spec.select.i.i, i1 false)
   %32 = load ptr, ptr %12, align 8, !tbaa !115
@@ -40578,7 +40578,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val14 = load i64, ptr %3, align 8
   %38 = ptrtoint ptr %35 to i64
   %39 = ptrtoint ptr %34 to i64
-  %40 = sub i64 %38, %39
+  %40 = sub nuw i64 %38, %39
   %spec.select.i.i19 = call i64 @llvm.umin.i64(i64 %40, i64 %.val14)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr readonly align 1 %.val15, i64 %spec.select.i.i19, i1 false)
   %41 = load ptr, ptr %12, align 8, !tbaa !115
@@ -40599,7 +40599,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val12 = load i64, ptr %4, align 8
   %47 = ptrtoint ptr %44 to i64
   %48 = ptrtoint ptr %43 to i64
-  %49 = sub i64 %47, %48
+  %49 = sub nuw i64 %47, %48
   %spec.select.i.i22 = call i64 @llvm.umin.i64(i64 %49, i64 %.val12)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %43, ptr readonly align 1 %.val13, i64 %spec.select.i.i22, i1 false)
   %50 = load ptr, ptr %12, align 8, !tbaa !115
@@ -40620,7 +40620,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val10 = load i64, ptr %5, align 8
   %56 = ptrtoint ptr %53 to i64
   %57 = ptrtoint ptr %52 to i64
-  %58 = sub i64 %56, %57
+  %58 = sub nuw i64 %56, %57
   %spec.select.i.i25 = call i64 @llvm.umin.i64(i64 %58, i64 %.val10)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %52, ptr readonly align 1 %.val11, i64 %spec.select.i.i25, i1 false)
   %59 = load ptr, ptr %12, align 8, !tbaa !115
@@ -40641,7 +40641,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val8 = load i64, ptr %6, align 8
   %65 = ptrtoint ptr %62 to i64
   %66 = ptrtoint ptr %61 to i64
-  %67 = sub i64 %65, %66
+  %67 = sub nuw i64 %65, %66
   %spec.select.i.i28 = call i64 @llvm.umin.i64(i64 %67, i64 %.val8)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr readonly align 1 %.val9, i64 %spec.select.i.i28, i1 false)
   %68 = load ptr, ptr %12, align 8, !tbaa !115
@@ -40662,7 +40662,7 @@ _ZN12_GLOBAL__N_113error_builder6appendISt17basic_string_viewIcSt11char_traitsIc
   %.val = load i64, ptr %7, align 8
   %74 = ptrtoint ptr %71 to i64
   %75 = ptrtoint ptr %70 to i64
-  %76 = sub i64 %74, %75
+  %76 = sub nuw i64 %74, %75
   %spec.select.i.i31 = call i64 @llvm.umin.i64(i64 %76, i64 %.val)
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr readonly align 1 %.val7, i64 %spec.select.i.i31, i1 false)
   %77 = load ptr, ptr %12, align 8, !tbaa !115

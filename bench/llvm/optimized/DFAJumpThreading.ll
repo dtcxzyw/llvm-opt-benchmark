@@ -5496,7 +5496,7 @@ _ZN12_GLOBAL__N_114AllSwitchPaths3runEv.exit:     ; preds = %_ZNK4llvm25Optimiza
 
 2079:                                             ; preds = %2075
   %2080 = ptrtoint ptr %.val.pre5.i to i64
-  %2081 = sub i64 %247, %2080
+  %2081 = sub nuw i64 %247, %2080
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_114AllSwitchPathsELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %44, i64 noundef %2073)
   %.val19.i.i.i = load ptr, ptr %44, align 8, !tbaa !25
   %2082 = getelementptr inbounds i8, ptr %.val19.i.i.i, i64 %2081
@@ -10474,7 +10474,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEjNS_12DenseMapInfoIS3_vEEN
 
 1794:                                             ; preds = %1790
   %1795 = ptrtoint ptr %.pre3.i.i.i.i to i64
-  %1796 = sub i64 %915, %1795
+  %1796 = sub nuw i64 %915, %1795
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_11InstructionESt6vectorIS3_SaIS3_EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %852, i64 noundef %1788)
   %1797 = load ptr, ptr %852, align 8, !tbaa !25
   %1798 = getelementptr inbounds i8, ptr %1797, i64 %1796
@@ -19503,10 +19503,6 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm10BasicBlock
   %27 = load ptr, ptr %26, align 8, !tbaa !337, !noalias !1137
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 512
   %29 = tail call i64 @llvm.umin.i64(i64 %.01617.i, i64 64)
-  %.pre104 = ptrtoint ptr %.sroa.088.0 to i64
-  %.pre105 = ptrtoint ptr %25 to i64
-  %.pre106 = sub i64 %.pre104, %.pre105
-  %.pre107 = ashr exact i64 %.pre106, 3
   br label %35
 
 30:                                               ; preds = %.lr.ph.i
@@ -19518,7 +19514,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm10BasicBlock
   br label %35
 
 35:                                               ; preds = %30, %.thread.i
-  %.pre28.i.pre-phi = phi i64 [ %34, %30 ], [ %.pre107, %.thread.i ]
+  %.pre28.i.pre-phi = phi i64 [ %34, %30 ], [ 0, %.thread.i ]
   %.sroa.speculated39.i = phi i64 [ %.sroa.speculated.i, %30 ], [ %29, %.thread.i ]
   %.0938.i = phi ptr [ %.sroa.088.0, %30 ], [ %28, %.thread.i ]
   %36 = sub nsw i64 0, %.sroa.speculated39.i
@@ -19613,10 +19609,6 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm10BasicBlockES2_EN9__gnu_cxx11__enable
   %79 = load ptr, ptr %78, align 8, !tbaa !337, !noalias !1141
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 512
   %81 = tail call i64 @llvm.umin.i64(i64 %.01617.i11, i64 64)
-  %.pre108 = ptrtoint ptr %.sroa.076.0 to i64
-  %.pre109 = ptrtoint ptr %77 to i64
-  %.pre110 = sub i64 %.pre108, %.pre109
-  %.pre111 = ashr exact i64 %.pre110, 3
   br label %87
 
 82:                                               ; preds = %.lr.ph.i8
@@ -19628,7 +19620,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm10BasicBlockES2_EN9__gnu_cxx11__enable
   br label %87
 
 87:                                               ; preds = %82, %.thread.i26
-  %.pre28.i23.pre-phi = phi i64 [ %86, %82 ], [ %.pre111, %.thread.i26 ]
+  %.pre28.i23.pre-phi = phi i64 [ %86, %82 ], [ 0, %.thread.i26 ]
   %.sroa.speculated39.i14 = phi i64 [ %.sroa.speculated.i13, %82 ], [ %81, %.thread.i26 ]
   %.0938.i15 = phi ptr [ %.sroa.076.0, %82 ], [ %80, %.thread.i26 ]
   %88 = sub nsw i64 0, %.sroa.speculated39.i14
@@ -19703,10 +19695,6 @@ _ZNSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_EmIEl.exit.i24: ; preds = %10
   %122 = load ptr, ptr %121, align 8, !tbaa !337, !noalias !1144
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 512
   %124 = tail call i64 @llvm.umin.i64(i64 %.01617.i34, i64 64)
-  %.pre112 = ptrtoint ptr %.sroa.082.0 to i64
-  %.pre113 = ptrtoint ptr %120 to i64
-  %.pre114 = sub i64 %.pre112, %.pre113
-  %.pre115 = ashr exact i64 %.pre114, 3
   br label %130
 
 125:                                              ; preds = %119
@@ -19718,7 +19706,7 @@ _ZNSt15_Deque_iteratorIPN4llvm10BasicBlockERS2_PS2_EmIEl.exit.i24: ; preds = %10
   br label %130
 
 130:                                              ; preds = %125, %.thread.i49
-  %.pre28.i46.pre-phi = phi i64 [ %129, %125 ], [ %.pre115, %.thread.i49 ]
+  %.pre28.i46.pre-phi = phi i64 [ %129, %125 ], [ 0, %.thread.i49 ]
   %.sroa.speculated39.i37 = phi i64 [ %.sroa.speculated.i36, %125 ], [ %124, %.thread.i49 ]
   %.0938.i38 = phi ptr [ %.sroa.082.0, %125 ], [ %123, %.thread.i49 ]
   %131 = sub nsw i64 0, %.sroa.speculated39.i37
@@ -19810,10 +19798,6 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm10BasicBlockES2_EN9__gnu_cxx11__enable
   %174 = load ptr, ptr %173, align 8, !tbaa !337, !noalias !1148
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 512
   %176 = tail call i64 @llvm.umin.i64(i64 %.01617.i57, i64 64)
-  %.pre = ptrtoint ptr %.sroa.0.0 to i64
-  %.pre101 = ptrtoint ptr %172 to i64
-  %.pre102 = sub i64 %.pre, %.pre101
-  %.pre103 = ashr exact i64 %.pre102, 3
   br label %182
 
 177:                                              ; preds = %.lr.ph.i54
@@ -19825,7 +19809,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm10BasicBlockES2_EN9__gnu_cxx11__enable
   br label %182
 
 182:                                              ; preds = %177, %.thread.i72
-  %.pre28.i69.pre-phi = phi i64 [ %181, %177 ], [ %.pre103, %.thread.i72 ]
+  %.pre28.i69.pre-phi = phi i64 [ %181, %177 ], [ 0, %.thread.i72 ]
   %.sroa.speculated39.i60 = phi i64 [ %.sroa.speculated.i59, %177 ], [ %176, %.thread.i72 ]
   %.0938.i61 = phi ptr [ %.sroa.0.0, %177 ], [ %175, %.thread.i72 ]
   %183 = sub nsw i64 0, %.sroa.speculated39.i60

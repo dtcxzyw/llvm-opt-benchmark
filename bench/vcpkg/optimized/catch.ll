@@ -53594,12 +53594,9 @@ _ZN5Catch7seedRngERKNS_7IConfigE.exit:            ; preds = %48, %_ZN5Catch3rngE
 
 "._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge": ; preds = %83, %._crit_edge
   %.sroa.067.0.lcssa157 = phi ptr [ %.sroa.067.3, %._crit_edge ], [ null, %83 ]
-  %.sroa.13.0.lcssa154 = phi ptr [ %.sroa.13.2, %._crit_edge ], [ null, %83 ]
+  %.sroa.13.0.lcssa155 = phi ptr [ %.sroa.13.2, %._crit_edge ], [ null, %83 ]
   %.sroa.21.0.lcssa152 = phi ptr [ %.sroa.21.3, %._crit_edge ], [ null, %83 ]
-  %.pre = ptrtoint ptr %.sroa.13.0.lcssa154 to i64
   %.pre121 = ptrtoint ptr %.sroa.067.0.lcssa157 to i64
-  %.pre123 = sub i64 %.pre, %.pre121
-  %.pre125 = ashr exact i64 %.pre123, 4
   br label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit"
 
 87:                                               ; preds = %._crit_edge
@@ -53807,9 +53804,9 @@ _ZNSt6vectorISt4pairImPKN5Catch8TestCaseEESaIS5_EE12emplace_backIJjS4_EEERS5_DpO
 "_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit": ; preds = %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i", %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge", %117, %96
   %.not.i.i38159 = phi i1 [ true, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ false, %117 ], [ false, %96 ], [ false, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
   %.sroa.067.0.lcssa156 = phi ptr [ %.sroa.067.0.lcssa157, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ %.sroa.067.3, %117 ], [ %.sroa.067.3, %96 ], [ %.sroa.067.3, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
-  %.sroa.13.0.lcssa155 = phi ptr [ %.sroa.13.0.lcssa154, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ %.sroa.13.2, %117 ], [ %.sroa.13.2, %96 ], [ %.sroa.13.2, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
+  %.sroa.13.0.lcssa154 = phi ptr [ %.sroa.13.0.lcssa155, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ %.sroa.13.2, %117 ], [ %.sroa.13.2, %96 ], [ %.sroa.13.2, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
   %.sroa.21.0.lcssa151 = phi ptr [ %.sroa.21.0.lcssa152, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ %.sroa.21.3, %117 ], [ %.sroa.21.3, %96 ], [ %.sroa.21.3, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
-  %.pre-phi126 = phi i64 [ %.pre125, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ %91, %117 ], [ %91, %96 ], [ %91, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
+  %.pre-phi126 = phi i64 [ 0, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ %91, %117 ], [ %91, %96 ], [ %91, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
   %.pre-phi122 = phi i64 [ %.pre121, %"._crit_edge._ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEEZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EvT_SL_T0_.exit_crit_edge" ], [ %89, %117 ], [ %89, %96 ], [ %89, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairImPKN5Catch8TestCaseEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_comp_iterIZNS3_9sortTestsERKNS3_7IConfigERKS9_IS4_SaIS4_EEE3$_0EEEvT_T0_.exit.i.i.i.i" ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIN5Catch8TestCaseESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %.pre-phi126)
@@ -53891,7 +53888,7 @@ _ZNSt16allocator_traitsISaIN5Catch8TestCaseEEE9constructIS1_JRKS1_EEEvRS2_PT_DpO
 
 _ZNSt6vectorIN5Catch8TestCaseESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit: ; preds = %184, %_ZNSt16allocator_traitsISaIN5Catch8TestCaseEEE9constructIS1_JRKS1_EEEvRS2_PT_DpOT0_.exit.i
   %185 = getelementptr inbounds nuw i8, ptr %.sroa.058.0113, i64 16
-  %.not88 = icmp eq ptr %185, %.sroa.13.0.lcssa155
+  %.not88 = icmp eq ptr %185, %.sroa.13.0.lcssa154
   br i1 %.not88, label %._crit_edge115, label %162
 
 186:                                              ; preds = %184, %167

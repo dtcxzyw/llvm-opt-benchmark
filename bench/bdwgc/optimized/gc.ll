@@ -15523,7 +15523,7 @@ define noundef ptr @GC_custom_push_range(ptr noundef %0, ptr noundef %1, ptr nou
 9:                                                ; preds = %4
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %6 to i64
-  %12 = sub i64 %10, %11
+  %12 = sub nuw i64 %10, %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = icmp ult ptr %13, %3
   br i1 %14, label %GC_custom_push_proc.exit, label %15
@@ -21876,7 +21876,7 @@ define internal fastcc void @GC_read_dirty(i8 noundef signext range(i8 0, 2) %0)
 62:                                               ; preds = %.thread77.i
   %63 = ptrtoint ptr %.052.i to i64
   %64 = ptrtoint ptr %.052.i.ph to i64
-  %65 = sub i64 %63, %64
+  %65 = sub nuw i64 %63, %64
   %66 = load i8, ptr @GC_pages_executable, align 1, !tbaa !41
   %.not68.i = icmp eq i8 %66, 0
   %67 = select i1 %.not68.i, i32 1, i32 5
@@ -35611,7 +35611,7 @@ GC_steal_mark_stack.exit:                         ; preds = %103, %GC_release_ma
 
 114:                                              ; preds = %111
   %115 = ptrtoint ptr %112 to i64
-  %116 = sub i64 %115, %13
+  %116 = sub nuw i64 %115, %13
   %117 = icmp ugt i64 %116, 32752
   br i1 %117, label %118, label %.outer.backedge
 
@@ -35715,7 +35715,7 @@ define internal fastcc void @GC_return_mark_stack(ptr noundef %0, ptr noundef %1
 4:                                                ; preds = %2
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
-  %7 = sub i64 %5, %6
+  %7 = sub nuw i64 %5, %6
   %8 = ashr exact i64 %7, 4
   %9 = add nsw i64 %8, 1
   %10 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull @mark_mutex) #47

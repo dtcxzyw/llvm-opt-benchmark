@@ -231,7 +231,7 @@ define void @_ZN4YAML12DecodeBase64ERKNSt7__cxx1112basic_stringIcSt11char_traits
   %23 = getelementptr inbounds nuw i8, ptr @_ZN4YAMLL8decodingE, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !12
   %.not45 = icmp eq i8 %24, -1
-  br i1 %.not45, label %95, label %25
+  br i1 %.not45, label %94, label %25
 
 25:                                               ; preds = %21
   %26 = zext i8 %24 to i32
@@ -373,37 +373,33 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i: ; preds = %85, %_ZSt2
 
 88:                                               ; preds = %._crit_edge
   %89 = icmp ult i64 %57, %59
-  br i1 %89, label %90, label %.thread68
-
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds nuw i8, ptr %10, i64 %57
-  %.not.i4.i = icmp eq ptr %.0.i.i.i.i.i, %.239
-  %spec.select = select i1 %.not.i4.i, ptr %.0.i.i.i.i.i, ptr %91
+  %90 = getelementptr inbounds nuw i8, ptr %10, i64 %57
+  %spec.select = select i1 %89, ptr %90, ptr %.0.i.i.i.i.i
   br label %.thread68
 
-.thread68:                                        ; preds = %90, %68, %72, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i, %88
-  %.sroa.13.0 = phi ptr [ %86, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %.0.i.i.i.i.i, %88 ], [ %69, %68 ], [ %73, %72 ], [ %spec.select, %90 ]
-  %.sroa.19.0 = phi ptr [ %87, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %11, %88 ], [ %11, %68 ], [ %11, %72 ], [ %11, %90 ]
-  %.sroa.053.1 = phi ptr [ %79, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %10, %88 ], [ %10, %68 ], [ %10, %72 ], [ %10, %90 ]
+.thread68:                                        ; preds = %88, %68, %72, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i
+  %.sroa.13.0 = phi ptr [ %86, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %69, %68 ], [ %73, %72 ], [ %spec.select, %88 ]
+  %.sroa.19.0 = phi ptr [ %87, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %11, %68 ], [ %11, %72 ], [ %11, %88 ]
+  %.sroa.053.1 = phi ptr [ %79, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i.i ], [ %10, %68 ], [ %10, %72 ], [ %10, %88 ]
   store ptr %.sroa.053.1, ptr %0, align 8, !tbaa !17
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.13.0, ptr %92, align 8, !tbaa !19
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.19.0, ptr %93, align 8, !tbaa !20
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.13.0, ptr %91, align 8, !tbaa !19
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.19.0, ptr %92, align 8, !tbaa !20
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit52
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i.i, %76
-  %94 = landingpad { ptr, i32 }
+  %93 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %10) #10
-  resume { ptr, i32 } %94
+  resume { ptr, i32 } %93
 
-95:                                               ; preds = %21
+94:                                               ; preds = %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @_ZdlPv(ptr noundef nonnull %10) #10
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit52
 
-_ZNSt6vectorIhSaIhEED2Ev.exit52:                  ; preds = %95, %.thread68, %6
+_ZNSt6vectorIhSaIhEED2Ev.exit52:                  ; preds = %94, %.thread68, %6
   ret void
 }
 

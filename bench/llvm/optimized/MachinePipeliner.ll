@@ -10349,7 +10349,7 @@ _ZSt9make_pairIRKPKN4llvm5ValueENS0_11SmallVectorIPNS0_5SUnitELj4EEEESt4pairINSt
 
 335:                                              ; preds = %331
   %336 = ptrtoint ptr %.pre3.i.i to i64
-  %337 = sub i64 %51, %336
+  %337 = sub nuw i64 %51, %336
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKNS_5ValueENS_11SmallVectorIPNS_5SUnitELj4EEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %23, i64 noundef %329)
   %338 = load ptr, ptr %23, align 8, !tbaa !25
   %339 = getelementptr inbounds i8, ptr %338, i64 %337
@@ -27323,7 +27323,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_7NodeSetEL
 13:                                               ; preds = %9
   %14 = ptrtoint ptr %1 to i64
   %15 = ptrtoint ptr %.pre3 to i64
-  %16 = sub i64 %14, %15
+  %16 = sub nuw i64 %14, %15
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_7NodeSetELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %17 = load ptr, ptr %0, align 8, !tbaa !25
   %18 = getelementptr inbounds i8, ptr %17, i64 %16
@@ -30415,7 +30415,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINS_7NodeSetEL
 13:                                               ; preds = %9
   %14 = ptrtoint ptr %1 to i64
   %15 = ptrtoint ptr %.pre3 to i64
-  %16 = sub i64 %14, %15
+  %16 = sub nuw i64 %14, %15
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_7NodeSetELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %17 = load ptr, ptr %0, align 8, !tbaa !25
   %18 = getelementptr inbounds i8, ptr %17, i64 %16
@@ -35333,7 +35333,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 91:                                               ; preds = %87
   %92 = ptrtoint ptr %.051 to i64
   %93 = ptrtoint ptr %.pre3.i20 to i64
-  %94 = sub i64 %92, %93
+  %94 = sub nuw i64 %92, %93
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %10, i64 noundef %85, i64 noundef 32) #30
   %95 = load ptr, ptr %4, align 8, !tbaa !25
   %96 = getelementptr inbounds i8, ptr %95, i64 %94
@@ -35594,7 +35594,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 92:                                               ; preds = %88
   %93 = ptrtoint ptr %.050 to i64
   %94 = ptrtoint ptr %.pre3.i19 to i64
-  %95 = sub i64 %93, %94
+  %95 = sub nuw i64 %93, %94
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %10, i64 noundef %86, i64 noundef 32) #30
   %96 = load ptr, ptr %4, align 8, !tbaa !25
   %97 = getelementptr inbounds i8, ptr %96, i64 %95
@@ -39809,7 +39809,7 @@ _ZN12_GLOBAL__N_114FuncUnitSorter21calcCriticalResourcesERN4llvm12MachineInstrE.
 303:                                              ; preds = %299
   %304 = ptrtoint ptr %7 to i64
   %305 = ptrtoint ptr %.pre3.i to i64
-  %306 = sub i64 %304, %305
+  %306 = sub nuw i64 %304, %305
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_13DFAPacketizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %297)
   %307 = load ptr, ptr %6, align 8, !tbaa !25
   %308 = getelementptr inbounds i8, ptr %307, i64 %306
@@ -40155,7 +40155,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrEPNS_5SUnitENS_12DenseMap
 
 445:                                              ; preds = %441
   %446 = ptrtoint ptr %.pre3.i51 to i64
-  %447 = sub i64 %323, %446
+  %447 = sub nuw i64 %323, %446
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_13DFAPacketizerESt14default_deleteIS2_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %439)
   %448 = load ptr, ptr %6, align 8, !tbaa !25
   %449 = getelementptr inbounds i8, ptr %448, i64 %447
@@ -40852,7 +40852,7 @@ _ZN4llvm17SwingSchedulerDDG8getEdgesEPKNS_5SUnitE.exit: ; preds = %6, %12, %14
 37:                                               ; preds = %33
   %38 = ptrtoint ptr %2 to i64
   %39 = ptrtoint ptr %.pre3.i to i64
-  %40 = sub i64 %38, %39
+  %40 = sub nuw i64 %38, %39
   %41 = getelementptr inbounds nuw i8, ptr %.0.i, i64 160
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %26, ptr noundef nonnull %41, i64 noundef %30, i64 noundef 32) #30
   %42 = load ptr, ptr %26, align 8, !tbaa !25
@@ -40898,7 +40898,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_21SwingSchedulerDDGEdgeELb1EE9push_backERKS
 62:                                               ; preds = %58
   %63 = ptrtoint ptr %2 to i64
   %64 = ptrtoint ptr %.pre3.i9 to i64
-  %65 = sub i64 %63, %64
+  %65 = sub nuw i64 %63, %64
   %66 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %.0.i, ptr noundef nonnull %66, i64 noundef %55, i64 noundef 32) #30
   %67 = load ptr, ptr %.0.i, align 8, !tbaa !25
@@ -47886,7 +47886,7 @@ define linkonce_odr hidden void @_ZNK4llvm2cl11ValuesClass5applyINS0_3optINS_20W
 
 30:                                               ; preds = %26
   %31 = ptrtoint ptr %.pre3.i.i to i64
-  %32 = sub i64 %16, %31
+  %32 = sub nuw i64 %16, %31
   call void @_ZN4llvm23SmallVectorTemplateBaseINS_2cl6parserINS_20WindowSchedulingFlagEE10OptionInfoELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %24)
   %33 = load ptr, ptr %13, align 8, !tbaa !25
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
@@ -54922,10 +54922,6 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm5SUnitERS2_P
   %27 = load ptr, ptr %26, align 8, !tbaa !756, !noalias !1906
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 512
   %29 = tail call i64 @llvm.umin.i64(i64 %.01617.i, i64 64)
-  %.pre104 = ptrtoint ptr %.sroa.088.0 to i64
-  %.pre105 = ptrtoint ptr %25 to i64
-  %.pre106 = sub i64 %.pre104, %.pre105
-  %.pre107 = ashr exact i64 %.pre106, 3
   br label %35
 
 30:                                               ; preds = %.lr.ph.i
@@ -54937,7 +54933,7 @@ define linkonce_odr void @_ZSt24__copy_move_backward_ditILb1EPN4llvm5SUnitERS2_P
   br label %35
 
 35:                                               ; preds = %30, %.thread.i
-  %.pre28.i.pre-phi = phi i64 [ %34, %30 ], [ %.pre107, %.thread.i ]
+  %.pre28.i.pre-phi = phi i64 [ %34, %30 ], [ 0, %.thread.i ]
   %.sroa.speculated39.i = phi i64 [ %.sroa.speculated.i, %30 ], [ %29, %.thread.i ]
   %.0938.i = phi ptr [ %.sroa.088.0, %30 ], [ %28, %.thread.i ]
   %36 = sub nsw i64 0, %.sroa.speculated39.i
@@ -55032,10 +55028,6 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm5SUnitES2_EN9__gnu_cxx11__enable_ifIXs
   %79 = load ptr, ptr %78, align 8, !tbaa !756, !noalias !1910
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 512
   %81 = tail call i64 @llvm.umin.i64(i64 %.01617.i11, i64 64)
-  %.pre108 = ptrtoint ptr %.sroa.076.0 to i64
-  %.pre109 = ptrtoint ptr %77 to i64
-  %.pre110 = sub i64 %.pre108, %.pre109
-  %.pre111 = ashr exact i64 %.pre110, 3
   br label %87
 
 82:                                               ; preds = %.lr.ph.i8
@@ -55047,7 +55039,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm5SUnitES2_EN9__gnu_cxx11__enable_ifIXs
   br label %87
 
 87:                                               ; preds = %82, %.thread.i26
-  %.pre28.i23.pre-phi = phi i64 [ %86, %82 ], [ %.pre111, %.thread.i26 ]
+  %.pre28.i23.pre-phi = phi i64 [ %86, %82 ], [ 0, %.thread.i26 ]
   %.sroa.speculated39.i14 = phi i64 [ %.sroa.speculated.i13, %82 ], [ %81, %.thread.i26 ]
   %.0938.i15 = phi ptr [ %.sroa.076.0, %82 ], [ %80, %.thread.i26 ]
   %88 = sub nsw i64 0, %.sroa.speculated39.i14
@@ -55122,10 +55114,6 @@ _ZNSt15_Deque_iteratorIPN4llvm5SUnitERS2_PS2_EmIEl.exit.i24: ; preds = %103, %97
   %122 = load ptr, ptr %121, align 8, !tbaa !756, !noalias !1913
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 512
   %124 = tail call i64 @llvm.umin.i64(i64 %.01617.i34, i64 64)
-  %.pre112 = ptrtoint ptr %.sroa.082.0 to i64
-  %.pre113 = ptrtoint ptr %120 to i64
-  %.pre114 = sub i64 %.pre112, %.pre113
-  %.pre115 = ashr exact i64 %.pre114, 3
   br label %130
 
 125:                                              ; preds = %119
@@ -55137,7 +55125,7 @@ _ZNSt15_Deque_iteratorIPN4llvm5SUnitERS2_PS2_EmIEl.exit.i24: ; preds = %103, %97
   br label %130
 
 130:                                              ; preds = %125, %.thread.i49
-  %.pre28.i46.pre-phi = phi i64 [ %129, %125 ], [ %.pre115, %.thread.i49 ]
+  %.pre28.i46.pre-phi = phi i64 [ %129, %125 ], [ 0, %.thread.i49 ]
   %.sroa.speculated39.i37 = phi i64 [ %.sroa.speculated.i36, %125 ], [ %124, %.thread.i49 ]
   %.0938.i38 = phi ptr [ %.sroa.082.0, %125 ], [ %123, %.thread.i49 ]
   %131 = sub nsw i64 0, %.sroa.speculated39.i37
@@ -55229,10 +55217,6 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm5SUnitES2_EN9__gnu_cxx11__enable_ifIXs
   %174 = load ptr, ptr %173, align 8, !tbaa !756, !noalias !1917
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 512
   %176 = tail call i64 @llvm.umin.i64(i64 %.01617.i57, i64 64)
-  %.pre = ptrtoint ptr %.sroa.0.0 to i64
-  %.pre101 = ptrtoint ptr %172 to i64
-  %.pre102 = sub i64 %.pre, %.pre101
-  %.pre103 = ashr exact i64 %.pre102, 3
   br label %182
 
 177:                                              ; preds = %.lr.ph.i54
@@ -55244,7 +55228,7 @@ _ZSt23__copy_move_backward_a1ILb1EPPN4llvm5SUnitES2_EN9__gnu_cxx11__enable_ifIXs
   br label %182
 
 182:                                              ; preds = %177, %.thread.i72
-  %.pre28.i69.pre-phi = phi i64 [ %181, %177 ], [ %.pre103, %.thread.i72 ]
+  %.pre28.i69.pre-phi = phi i64 [ %181, %177 ], [ 0, %.thread.i72 ]
   %.sroa.speculated39.i60 = phi i64 [ %.sroa.speculated.i59, %177 ], [ %176, %.thread.i72 ]
   %.0938.i61 = phi ptr [ %.sroa.0.0, %177 ], [ %175, %.thread.i72 ]
   %183 = sub nsw i64 0, %.sroa.speculated39.i60
@@ -59567,7 +59551,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallVectorImplINS_11SmallVectorImLj1
 16:                                               ; preds = %11
   %17 = ptrtoint ptr %2 to i64
   %18 = ptrtoint ptr %12 to i64
-  %19 = sub i64 %17, %18
+  %19 = sub nuw i64 %17, %18
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_11SmallVectorImLj16EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %7)
   %20 = load ptr, ptr %0, align 8, !tbaa !25
   %21 = getelementptr inbounds i8, ptr %20, i64 %19

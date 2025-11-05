@@ -2086,7 +2086,7 @@ if.then82:                                        ; preds = %if.then75, %sw.bb73
   br i1 %cmp20.i, label %while.body.preheader.i, label %if.end.i.i677
 
 while.body.preheader.i:                           ; preds = %if.then82
-  %159 = sub i64 %bufEnd29.i, %inBuf30.i
+  %159 = sub nuw i64 %bufEnd29.i, %inBuf30.i
   %scevgep.i = getelementptr i8, ptr %bufPtr.01298, i64 %159
   br label %while.body.i686
 
@@ -5299,7 +5299,7 @@ while.cond.preheader:                             ; preds = %entry
   br i1 %cmp20, label %while.body.preheader, label %if.end.i
 
 while.body.preheader:                             ; preds = %while.cond.preheader
-  %0 = sub i64 %bufEnd29, %inBuf30
+  %0 = sub nuw i64 %bufEnd29, %inBuf30
   %scevgep = getelementptr i8, ptr %inBuf, i64 %0
   br label %while.body
 

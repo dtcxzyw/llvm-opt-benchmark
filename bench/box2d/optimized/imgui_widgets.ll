@@ -385,7 +385,7 @@ define dso_local void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, 
   %.090156.us = phi i32 [ %76, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %68 = phi float [ %74, %.lr.ph.split.us ], [ 0.000000e+00, %.lr.ph ]
   %69 = ptrtoint ptr %.2157.us to i64
-  %70 = sub i64 %33, %69
+  %70 = sub nuw i64 %33, %69
   %71 = tail call noundef ptr @memchr(ptr noundef %.2157.us, i32 noundef 10, i64 noundef %70) #43
   %.not.us = icmp eq ptr %71, null
   %spec.select102.us = select i1 %.not.us, ptr %.1, ptr %71
@@ -404,7 +404,7 @@ define dso_local void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, 
   %.2157 = phi ptr [ %83, %.lr.ph.split ], [ %spec.select101, %.lr.ph ]
   %.090156 = phi i32 [ %84, %.lr.ph.split ], [ 0, %.lr.ph ]
   %80 = ptrtoint ptr %.2157 to i64
-  %81 = sub i64 %33, %80
+  %81 = sub nuw i64 %33, %80
   %82 = tail call noundef ptr @memchr(ptr noundef %.2157, i32 noundef 10, i64 noundef %81) #43
   %.not = icmp eq ptr %82, null
   %spec.select102 = select i1 %.not, ptr %.1, ptr %82
@@ -500,7 +500,7 @@ define dso_local void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, 
   %.085165.us = phi i32 [ %128, %.lr.ph167.split.us ], [ 0, %.lr.ph167.split.us.preheader ]
   %.4164.us = phi ptr [ %127, %.lr.ph167.split.us ], [ %.3.lcssa, %.lr.ph167.split.us.preheader ]
   %121 = ptrtoint ptr %.4164.us to i64
-  %122 = sub i64 %33, %121
+  %122 = sub nuw i64 %33, %121
   %123 = call noundef ptr @memchr(ptr noundef %.4164.us, i32 noundef 10, i64 noundef %122) #43
   %.not100.us = icmp eq ptr %123, null
   %spec.select104.us = select i1 %.not100.us, ptr %.1, ptr %123
@@ -518,7 +518,7 @@ define dso_local void @_ZN5ImGui6TextExEPKcS1_i(ptr noundef %0, ptr noundef %1, 
   %.085165 = phi i32 [ %134, %.lr.ph167.split ], [ 0, %.lr.ph167 ]
   %.4164 = phi ptr [ %133, %.lr.ph167.split ], [ %.3.lcssa, %.lr.ph167 ]
   %130 = ptrtoint ptr %.4164 to i64
-  %131 = sub i64 %33, %130
+  %131 = sub nuw i64 %33, %130
   %132 = call noundef ptr @memchr(ptr noundef %.4164, i32 noundef 10, i64 noundef %131) #43
   %.not100 = icmp eq ptr %132, null
   %spec.select104 = select i1 %.not100, ptr %.1, ptr %132
@@ -39519,7 +39519,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui13BeginTabBarExEP11ImGuiTabBarRK6I
 29:                                               ; preds = %18
   %30 = ptrtoint ptr %0 to i64
   %31 = ptrtoint ptr %23 to i64
-  %32 = sub i64 %30, %31
+  %32 = sub nuw i64 %30, %31
   %33 = sdiv exact i64 %32, 168
   %34 = trunc i64 %33 to i32
   br label %_ZL22GetTabBarRefFromTabBarP11ImGuiTabBar.exit

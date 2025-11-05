@@ -2930,14 +2930,14 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values.i.i, i8 0, i64 24, i1 false), !noalias !25
   %conv.i.i = zext nneg i32 %39 to i64
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %values.i.i, i64 16
-  %_M_finish.i1221.i.i = getelementptr inbounds nuw i8, ptr %values.i.i, i64 8
+  %_M_finish.i1219.i.i = getelementptr inbounds nuw i8, ptr %values.i.i, i64 8
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i, 5
   %call5.i.i.i.i7.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #40
           to label %for.body.lr.ph.i.i unwind label %lpad.loopexit.split-lp.i.i, !noalias !25
 
 for.body.lr.ph.i.i:                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i
   store ptr %call5.i.i.i.i7.i.i, ptr %values.i.i, align 8, !noalias !25
-  store ptr %call5.i.i.i.i7.i.i, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  store ptr %call5.i.i.i.i7.i.i, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   %add.ptr21.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i7.i.i, i64 %conv.i.i
   store ptr %add.ptr21.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !25
   %add.i.i = add nsw i32 %39, %37
@@ -2984,7 +2984,7 @@ invoke.cont6.i.i:                                 ; preds = %if.else.i.i
   store i64 %67, ptr %ref.tmp.i.i, align 8, !noalias !25
   %68 = extractvalue { i64, ptr } %call7.i.i, 1
   store ptr %68, ptr %64, align 8, !noalias !25
-  %69 = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  %69 = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   %70 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !25
   %cmp.not.i.i.i225 = icmp eq ptr %69, %70
   br i1 %cmp.not.i.i.i225, label %if.else.i.i.i, label %if.then.i8.i.i
@@ -3008,9 +3008,9 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i8.i.i
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JKN8facebook5velox10StringViewEEEEvRS6_PT_DpOT0_.exit.i.i.i: ; preds = %if.then.i8.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #38, !noalias !25
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !25
-  %73 = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  %73 = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   br label %for.inc.i.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont6.i.i
@@ -3025,7 +3025,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i.i, %_ZN
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %.pre.i.i = load ptr, ptr %values.i.i, align 8, !noalias !25
-  %.pre8.i.i = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  %.pre8.i.i = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   %cmp.i.not.i.i.i.i = icmp eq ptr %.pre.i.i, %.pre8.i.i
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont16.i.i, label %if.then.i.i13.i.i
 
@@ -3046,7 +3046,7 @@ if.then.i.i13.i.i:                                ; preds = %for.end.i.i
 
 .noexc14.invoke.cont16_crit_edge.i.i:             ; preds = %.noexc14.i.i
   %.pre9.i.i = load ptr, ptr %values.i.i, align 8, !noalias !25
-  %.pre11.i.i = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  %.pre11.i.i = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   br label %invoke.cont16.i.i
 
 invoke.cont16.i.i:                                ; preds = %.noexc14.invoke.cont16_crit_edge.i.i, %for.end.i.i
@@ -3061,7 +3061,7 @@ invoke.cont34.i.i:                                ; preds = %invoke.cont16.i.i
   %sub.ptr.rhs.cast.i.i.i19.i.i = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i.i.i20.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i18.i.i, %sub.ptr.rhs.cast.i.i.i19.i.i
   %sub.ptr.div.i.i.i21.i.i = ashr exact i64 %sub.ptr.sub.i.i.i20.i.i, 5
-  %78 = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  %78 = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   %sub.ptr.lhs.cast.i.i23.i.i = ptrtoint ptr %78 to i64
   %sub.ptr.sub.i.i25.i.i = sub i64 %sub.ptr.lhs.cast.i.i23.i.i, %sub.ptr.rhs.cast.i.i.i19.i.i
   %sub.ptr.div.i.i26.i.i = ashr exact i64 %sub.ptr.sub.i.i25.i.i, 5
@@ -3074,7 +3074,7 @@ if.then.i31.i.i:                                  ; preds = %invoke.cont34.i.i
           to label %if.then.i31.invoke.cont36_crit_edge.i.i unwind label %lpad.loopexit.split-lp.i.i, !noalias !25
 
 if.then.i31.invoke.cont36_crit_edge.i.i:          ; preds = %if.then.i31.i.i
-  %.pre10.i.i = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  %.pre10.i.i = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i
 
 if.else.i28.i.i:                                  ; preds = %invoke.cont34.i.i
@@ -3083,10 +3083,9 @@ if.else.i28.i.i:                                  ; preds = %invoke.cont34.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.else.i28.i.i
   %add.ptr.i29.i.i = getelementptr inbounds i8, ptr %77, i64 %sub.ptr.sub.i.i.i20.i.i
-  %tobool.not.i.i30.i.i = icmp eq ptr %78, %call.i17.i.i
-  br i1 %tobool.not.i.i30.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i, label %for.body.i.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i.i.i
 
-for.body.i.i.i.i.i.i.i:                           ; preds = %if.then5.i.i.i, %for.body.i.i.i.i.i.i.i
+for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.then5.i.i.i
   %__first.addr.04.i.i.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %add.ptr.i29.i.i, %if.then5.i.i.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %__first.addr.04.i.i.i.i.i.i.i) #38, !noalias !25
   %incdec.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i.i.i.i, i64 32
@@ -3094,11 +3093,11 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.then5.i.i.i, %fo
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !30
 
 invoke.cont.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i.i
-  store ptr %add.ptr.i29.i.i, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
+  store ptr %add.ptr.i29.i.i, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i: ; preds = %invoke.cont.i.i.i.i, %if.then5.i.i.i, %if.else.i28.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i
-  %79 = phi ptr [ %.pre10.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i ], [ %add.ptr.i29.i.i, %invoke.cont.i.i.i.i ], [ %78, %if.then5.i.i.i ], [ %78, %if.else.i28.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i: ; preds = %invoke.cont.i.i.i.i, %if.else.i28.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i
+  %79 = phi ptr [ %.pre10.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i ], [ %add.ptr.i29.i.i, %invoke.cont.i.i.i.i ], [ %78, %if.else.i28.i.i ]
   %80 = load ptr, ptr %values.i.i, align 8, !noalias !25
   store ptr %80, ptr %valuesPair.i, align 8, !alias.scope !19, !noalias !22
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair.i, i64 8
@@ -6906,18 +6905,14 @@ _ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %values.sroa.29.5.i = phi ptr [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ], [ %add.ptr40.i.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesInnEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
+  %values.sroa.29.5.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseInSaInEE13_M_deallocateEPnm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ]
   store ptr %values.sroa.0.6.i, ptr %valuesPair, align 8, !alias.scope !83
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 8
   store ptr %values.sroa.15.5.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !83
@@ -7290,18 +7285,14 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %values.sroa.29.5.i = phi ptr [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ], [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIllEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
+  %values.sroa.29.5.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ]
   store ptr %values.sroa.0.6.i, ptr %valuesPair, align 8, !alias.scope !92
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 8
   store ptr %values.sroa.15.5.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !92
@@ -7694,18 +7685,14 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %values.sroa.29.5.i = phi ptr [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ], [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIliEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
+  %values.sroa.29.5.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ]
   store ptr %values.sroa.0.6.i, ptr %valuesPair, align 8, !alias.scope !101
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 8
   store ptr %values.sroa.15.5.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !101
@@ -8098,18 +8085,14 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %values.sroa.29.5.i = phi ptr [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ], [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlsEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
+  %values.sroa.29.5.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ]
   store ptr %values.sroa.0.6.i, ptr %valuesPair, align 8, !alias.scope !108
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 8
   store ptr %values.sroa.15.5.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !108
@@ -8502,18 +8485,14 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %values.sroa.29.5.i = phi ptr [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ], [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlaEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
+  %values.sroa.29.5.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ]
   store ptr %values.sroa.0.6.i, ptr %valuesPair, align 8, !alias.scope !115
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 8
   store ptr %values.sroa.15.5.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !115
@@ -8906,17 +8885,13 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIffEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
   %cmp.i.i16 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i16, i1 %tobool1, i1 false
@@ -9379,17 +9354,13 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIddEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
   %cmp.i.i16 = icmp eq ptr %values.sroa.0.6.i, %values.sroa.15.5.i
   %tobool1 = trunc nuw i8 %nullAllowed.0.lcssa.i to i1
   %or.cond = select i1 %cmp.i.i16, i1 %tobool1, i1 false
@@ -9850,18 +9821,14 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i23.i:                                    ; preds = %invoke.cont34.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i21.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i23.i
   %add.ptr.i24.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i25.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i25.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i24.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i24.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i, %if.then5.i.i
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ], [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i23.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %values.sroa.29.5.i = phi ptr [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ], [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlbEESt4pairISt6vectorIT_SaIS6_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i23.i
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i50.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i23.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i41.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i23.i ]
+  %values.sroa.29.5.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.else.i23.i ]
   store ptr %values.sroa.0.6.i, ptr %valuesPair, align 8, !alias.scope !142
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 8
   store ptr %values.sroa.15.5.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !142
@@ -10269,18 +10236,14 @@ _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i: ; preds = %if.then.i3
 
 if.else.i25.i:                                    ; preds = %invoke.cont36.i
   %cmp4.i.i = icmp ult i64 %sub.ptr.div.i.i.i.i, %sub.ptr.div.i.i23.i
-  br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
-
-if.then5.i.i:                                     ; preds = %if.else.i25.i
   %add.ptr.i26.i = getelementptr inbounds i8, ptr %values.sroa.0.1.lcssa.i, i64 %sub.ptr.sub.i.i.i.i
-  %tobool.not.i.i27.i = icmp eq ptr %values.sroa.15.1.lcssa.i, %retval.sroa.0.0.in.sroa.speculated.i.i.i
-  %spec.select.i = select i1 %tobool.not.i.i27.i, ptr %values.sroa.15.1.lcssa.i, ptr %add.ptr.i26.i
+  %spec.select.i = select i1 %cmp4.i.i, ptr %add.ptr.i26.i, ptr %values.sroa.15.1.lcssa.i
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit
 
-_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i25.i, %if.then5.i.i
-  %values.sroa.29.5.i = phi ptr [ %values.sroa.29.1.lcssa.i, %if.else.i25.i ], [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then5.i.i ]
-  %values.sroa.15.5.i = phi ptr [ %values.sroa.15.1.lcssa.i, %if.else.i25.i ], [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i43.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.then5.i.i ]
-  %values.sroa.0.6.i = phi ptr [ %values.sroa.0.1.lcssa.i, %if.else.i25.i ], [ %call5.i.i.i.i52.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then5.i.i ]
+_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesIlNS0_9TimestampEEESt4pairISt6vectorIT_SaIS7_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit: ; preds = %if.then.i.i.i.i.i, %if.end.i.i.i.i.i.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i, %if.else.i25.i
+  %values.sroa.29.5.i = phi ptr [ %add.ptr40.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.29.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.29.1.lcssa.i, %if.else.i25.i ]
+  %values.sroa.15.5.i = phi ptr [ %add.ptr37.i.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ %incdec.ptr.i.i.i.i43.i, %if.then.i.i.i.i.i ], [ %spec.select.i, %if.else.i25.i ]
+  %values.sroa.0.6.i = phi ptr [ %call5.i.i.i.i52.i, %_ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit35.i.i ], [ %values.sroa.0.1.lcssa.i, %if.end.i.i.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.then.i.i.i.i.i ], [ %values.sroa.0.1.lcssa.i, %if.else.i25.i ]
   store ptr %values.sroa.0.6.i, ptr %valuesPair, align 8, !alias.scope !149
   %_M_finish.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %valuesPair, i64 8
   store ptr %values.sroa.15.5.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !149

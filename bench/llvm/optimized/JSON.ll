@@ -3216,7 +3216,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit.i: ; preds = %.lr.ph.i.
   br label %._crit_edge.i.i4
 
 ._crit_edge.loopexit.i.i14:                       ; preds = %.lr.ph.i2.i
-  %46 = sub i64 %44, %43
+  %46 = sub nuw i64 %44, %43
   %.pre.i.i15 = ptrtoint ptr %.1.i.i12 to i64
   %.pre20.i.i16 = sub i64 %44, %.pre.i.i15
   br label %._crit_edge.i.i4
@@ -3478,7 +3478,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser13eatWhitespaceEv.exit: ; preds = %.lr.ph.i, %
   br label %._crit_edge.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i22
-  %36 = sub i64 %34, %33
+  %36 = sub nuw i64 %34, %33
   %.pre.i = ptrtoint ptr %.1.i to i64
   %.pre20.i = sub i64 %34, %.pre.i
   br label %._crit_edge.i
@@ -3603,7 +3603,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit23.thread: ; preds = %71, %66, %_Z
   br label %._crit_edge.i28
 
 ._crit_edge.loopexit.i39:                         ; preds = %.lr.ph.i32
-  %82 = sub i64 %80, %79
+  %82 = sub nuw i64 %80, %79
   %.pre.i40 = ptrtoint ptr %.1.i37 to i64
   %.pre20.i41 = sub i64 %80, %.pre.i40
   br label %._crit_edge.i28
@@ -3719,7 +3719,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit43.thread: ; preds = %117, %112, %
   br label %._crit_edge.i48
 
 ._crit_edge.loopexit.i59:                         ; preds = %.lr.ph.i52
-  %128 = sub i64 %126, %125
+  %128 = sub nuw i64 %126, %125
   %.pre.i60 = ptrtoint ptr %.1.i57 to i64
   %.pre20.i61 = sub i64 %126, %.pre.i60
   br label %._crit_edge.i48
@@ -3846,7 +3846,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit63.thread: ; preds = %168, %163, %
   br label %._crit_edge.i69
 
 ._crit_edge.loopexit.i80:                         ; preds = %.lr.ph.i73
-  %179 = sub i64 %177, %176
+  %179 = sub nuw i64 %177, %176
   %.pre.i81 = ptrtoint ptr %.1.i78 to i64
   %.pre20.i82 = sub i64 %177, %.pre.i81
   br label %._crit_edge.i69
@@ -4327,7 +4327,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit114.thread: ; preds = %.critedge25
   br label %._crit_edge.i117
 
 ._crit_edge.loopexit.i128:                        ; preds = %.lr.ph.i121
-  %343 = sub i64 %341, %340
+  %343 = sub nuw i64 %341, %340
   %.pre.i129 = ptrtoint ptr %.1.i126 to i64
   %.pre20.i130 = sub i64 %341, %.pre.i129
   br label %._crit_edge.i117
@@ -4438,7 +4438,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit138.thread: ; preds = %_ZN4llvm4js
   br label %._crit_edge.i141
 
 ._crit_edge.loopexit.i152:                        ; preds = %.lr.ph.i145
-  %380 = sub i64 %378, %377
+  %380 = sub nuw i64 %378, %377
   %.pre.i153 = ptrtoint ptr %.1.i150 to i64
   %.pre20.i154 = sub i64 %378, %.pre.i153
   br label %._crit_edge.i141
@@ -4668,7 +4668,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit174.thread: ; preds = %_ZN4llvm4js
   br label %._crit_edge.i183
 
 ._crit_edge.loopexit.i194:                        ; preds = %.lr.ph.i187
-  %448 = sub i64 %446, %445
+  %448 = sub nuw i64 %446, %445
   %.pre.i195 = ptrtoint ptr %.1.i192 to i64
   %.pre20.i196 = sub i64 %446, %.pre.i195
   br label %._crit_edge.i183
@@ -4964,7 +4964,7 @@ _ZN4llvm4json5Value8moveFromEOKS1_.exit28.i:      ; preds = %539, %534
   br label %._crit_edge.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %559 = sub i64 %557, %555
+  %559 = sub nuw i64 %557, %555
   %.pre.i22.i = ptrtoint ptr %.1.i.i to i64
   %.pre20.i.i = sub i64 %557, %.pre.i22.i
   br label %._crit_edge.i.i
@@ -5049,7 +5049,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser8isNumberEc.exit: ; preds = %switch.early.test
   br label %._crit_edge.i205
 
 ._crit_edge.loopexit.i216:                        ; preds = %.lr.ph.i209
-  %590 = sub i64 %588, %587
+  %590 = sub nuw i64 %588, %587
   %.pre.i217 = ptrtoint ptr %.1.i214 to i64
   %.pre20.i218 = sub i64 %588, %.pre.i217
   br label %._crit_edge.i205
@@ -5291,54 +5291,50 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %56, %_ZNSt6vec
 
 60:                                               ; preds = %_ZNSt6vectorIjSaIjEEC2EmRKS0_.exit
   %61 = icmp ult i64 %28, %22
-  br i1 %61, label %62, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.02.0, i64 %27
-  %.not.i.i = icmp eq ptr %.0.i.i.i.i.i, %25
-  %spec.select = select i1 %.not.i.i, ptr %.0.i.i.i.i.i, ptr %63
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.02.0, i64 %27
+  %spec.select = select i1 %61, ptr %62, ptr %.0.i.i.i.i.i
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %62, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %38, %60
-  %.pre-phi = phi i64 [ %20, %62 ], [ %.pre, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %20, %38 ], [ %20, %60 ]
-  %.sroa.24.1 = phi ptr [ %.sroa.24.0, %62 ], [ %59, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %.sroa.24.0, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.24.0, %38 ], [ %.sroa.24.0, %60 ]
-  %.sroa.14.0 = phi ptr [ %spec.select, %62 ], [ %58, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %42, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %39, %38 ], [ %.0.i.i.i.i.i, %60 ]
-  %.sroa.02.1 = phi ptr [ %.sroa.02.0, %62 ], [ %49, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %.sroa.02.0, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.02.0, %38 ], [ %.sroa.02.0, %60 ]
-  %64 = ptrtoint ptr %.sroa.14.0 to i64
-  %65 = sub i64 %64, %.pre-phi
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %66, ptr %0, align 8, !tbaa !69
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %65, i8 noundef signext 0) #27
+_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %60, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i, %38
+  %.pre-phi = phi i64 [ %20, %60 ], [ %.pre, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %20, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %20, %38 ]
+  %.sroa.24.1 = phi ptr [ %.sroa.24.0, %60 ], [ %59, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %.sroa.24.0, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.24.0, %38 ]
+  %.sroa.14.0 = phi ptr [ %spec.select, %60 ], [ %58, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %42, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %39, %38 ]
+  %.sroa.02.1 = phi ptr [ %.sroa.02.0, %60 ], [ %49, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %.sroa.02.0, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.02.0, %38 ]
+  %63 = ptrtoint ptr %.sroa.14.0 to i64
+  %64 = sub i64 %63, %.pre-phi
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %65, ptr %0, align 8, !tbaa !69
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %64, i8 noundef signext 0) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.02.1, ptr %6, align 8, !tbaa !243
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %67 = load ptr, ptr %0, align 8, !tbaa !50
-  store ptr %67, ptr %7, align 8, !tbaa !20
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.02.1, i64 %65
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %70 = load i64, ptr %69, align 8, !tbaa !53
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
-  %72 = call noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %6, ptr noundef %68, ptr noundef nonnull %7, ptr noundef %71, i32 noundef 0) #27
-  %73 = load ptr, ptr %7, align 8, !tbaa !20
-  %74 = load ptr, ptr %0, align 8, !tbaa !50
+  %66 = load ptr, ptr %0, align 8, !tbaa !50
+  store ptr %66, ptr %7, align 8, !tbaa !20
+  %67 = getelementptr inbounds nuw i8, ptr %.sroa.02.1, i64 %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !53
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %69
+  %71 = call noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %6, ptr noundef %67, ptr noundef nonnull %7, ptr noundef %70, i32 noundef 0) #27
+  %72 = load ptr, ptr %7, align 8, !tbaa !20
+  %73 = load ptr, ptr %0, align 8, !tbaa !50
+  %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
-  %76 = ptrtoint ptr %74 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %77, i8 noundef signext 0) #27
+  %76 = sub i64 %74, %75
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %76, i8 noundef signext 0) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i.i.i = icmp eq ptr %.sroa.02.1, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %78
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %77
 
-78:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %79 = ptrtoint ptr %.sroa.24.1 to i64
-  %80 = sub i64 %79, %.pre-phi
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.02.1, i64 noundef %80) #30
+77:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+  %78 = ptrtoint ptr %.sroa.24.1 to i64
+  %79 = sub i64 %78, %.pre-phi
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.02.1, i64 noundef %79) #30
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %78
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %77
   ret void
 }
 
@@ -8234,7 +8230,7 @@ define internal fastcc void @_ZN4llvm4json12_GLOBAL__N_16Parser10parseErrorEPKc(
   br label %._crit_edge
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %10 = sub i64 %8, %5
+  %10 = sub nuw i64 %8, %5
   %.pre = ptrtoint ptr %.1 to i64
   %.pre20 = sub i64 %8, %.pre
   br label %._crit_edge
@@ -9033,7 +9029,7 @@ _ZN4llvm4json12_GLOBAL__N_16Parser4nextEv.exit25: ; preds = %_ZN4llvm4json12_GLO
   br label %._crit_edge.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %45 = sub i64 %43, %42
+  %45 = sub nuw i64 %43, %42
   %.pre.i = ptrtoint ptr %.1.i to i64
   %.pre20.i = sub i64 %43, %.pre.i
   br label %._crit_edge.i

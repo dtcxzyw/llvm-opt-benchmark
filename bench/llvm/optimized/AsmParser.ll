@@ -3568,7 +3568,7 @@ _ZN4llvm23SmallVectorTemplateBaseIbLb1EE9push_backEb.exit: ; preds = %_ZN4llvm23
 
 330:                                              ; preds = %326
   %331 = ptrtoint ptr %.pre3.i to i64
-  %332 = sub i64 %91, %331
+  %332 = sub nuw i64 %91, %331
   call void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %21, i64 noundef %324)
   %333 = load ptr, ptr %21, align 8, !tbaa !162
   %334 = getelementptr inbounds i8, ptr %333, i64 %332
@@ -3805,7 +3805,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %409, %_ZNSt7__cxx11
 
 430:                                              ; preds = %426
   %431 = ptrtoint ptr %.pre3.i215 to i64
-  %432 = sub i64 %95, %431
+  %432 = sub nuw i64 %95, %431
   call void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %20, i64 noundef %424)
   %433 = load ptr, ptr %20, align 8, !tbaa !162
   %434 = getelementptr inbounds i8, ptr %433, i64 %432
@@ -14469,10 +14469,6 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   %.pre33 = load ptr, ptr %8, align 8, !tbaa !777
   %.phi.trans.insert34 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.pre35 = load ptr, ptr %.phi.trans.insert34, align 8, !tbaa !780
-  %.pre36 = ptrtoint ptr %102 to i64
-  %.pre37 = ptrtoint ptr %103 to i64
-  %.pre39 = sub i64 %.pre36, %.pre37
-  %.pre41 = sdiv exact i64 %.pre39, 48
   %.pre43 = ptrtoint ptr %.pre35 to i64
   %.pre45 = ptrtoint ptr %.pre33 to i64
   %.pre47 = sub i64 %.pre43, %.pre45
@@ -14511,7 +14507,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 
 124:                                              ; preds = %._crit_edge32, %104
   %.pre-phi50 = phi i64 [ %.pre49, %._crit_edge32 ], [ %117, %104 ]
-  %.pre-phi42 = phi i64 [ %.pre41, %._crit_edge32 ], [ %110, %104 ]
+  %.pre-phi42 = phi i64 [ 0, %._crit_edge32 ], [ %110, %104 ]
   %125 = phi ptr [ %.pre33, %._crit_edge32 ], [ %113, %104 ]
   %126 = phi ptr [ %103, %._crit_edge32 ], [ %105, %104 ]
   store ptr %125, ptr %12, align 8, !tbaa !781
@@ -25501,7 +25497,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser25parseDir
 
 112:                                              ; preds = %108
   %113 = ptrtoint ptr %.pre3.i to i64
-  %114 = sub i64 %60, %113
+  %114 = sub nuw i64 %60, %113
   call void @_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %106)
   %115 = load ptr, ptr %12, align 8, !tbaa !162
   %116 = getelementptr inbounds i8, ptr %115, i64 %114
@@ -27278,7 +27274,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
 28:                                               ; preds = %24
   %29 = ptrtoint ptr %6 to i64
   %30 = ptrtoint ptr %.pre3.i to i64
-  %31 = sub i64 %29, %30
+  %31 = sub nuw i64 %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %32, i64 noundef %21, i64 noundef 128) #29
   %33 = load ptr, ptr %0, align 8, !tbaa !162
@@ -27337,7 +27333,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_8AsmTokenEE
 17:                                               ; preds = %14
   %18 = ptrtoint ptr %2 to i64
   %19 = ptrtoint ptr %4 to i64
-  %20 = sub i64 %18, %19
+  %20 = sub nuw i64 %18, %19
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %11)
   %21 = load ptr, ptr %0, align 8, !tbaa !162
   %22 = getelementptr inbounds i8, ptr %21, i64 %20
@@ -27401,7 +27397,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit: ; pre
 
 52:                                               ; preds = %49
   %53 = ptrtoint ptr %2 to i64
-  %54 = sub i64 %53, %44
+  %54 = sub nuw i64 %53, %44
   tail call void @_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %46)
   %55 = load ptr, ptr %0, align 8, !tbaa !162
   %56 = getelementptr inbounds i8, ptr %55, i64 %54
@@ -35214,7 +35210,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %5 to i64
   %28 = ptrtoint ptr %.pre3.i to i64
-  %29 = sub i64 %27, %28
+  %29 = sub nuw i64 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %19, i64 noundef 128) #29
   %31 = load ptr, ptr %0, align 8, !tbaa !162
@@ -35291,7 +35287,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
 29:                                               ; preds = %25
   %30 = ptrtoint ptr %6 to i64
   %31 = ptrtoint ptr %.pre3.i to i64
-  %32 = sub i64 %30, %31
+  %32 = sub nuw i64 %30, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %33, i64 noundef %22, i64 noundef 128) #29
   %34 = load ptr, ptr %0, align 8, !tbaa !162
@@ -35364,7 +35360,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
 25:                                               ; preds = %21
   %26 = ptrtoint ptr %5 to i64
   %27 = ptrtoint ptr %.pre3.i to i64
-  %28 = sub i64 %26, %27
+  %28 = sub nuw i64 %26, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %29, i64 noundef %18, i64 noundef 128) #29
   %30 = load ptr, ptr %0, align 8, !tbaa !162
@@ -36174,7 +36170,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
 26:                                               ; preds = %22
   %27 = ptrtoint ptr %5 to i64
   %28 = ptrtoint ptr %.pre3.i to i64
-  %29 = sub i64 %27, %28
+  %29 = sub nuw i64 %27, %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %30, i64 noundef %19, i64 noundef 128) #29
   %31 = load ptr, ptr %0, align 8, !tbaa !162
@@ -36361,7 +36357,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(121) ptr @_ZN
 32:                                               ; preds = %28
   %33 = ptrtoint ptr %7 to i64
   %34 = ptrtoint ptr %.pre3.i to i64
-  %35 = sub i64 %33, %34
+  %35 = sub nuw i64 %33, %34
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %36, i64 noundef %25, i64 noundef 128) #29
   %37 = load ptr, ptr %0, align 8, !tbaa !162
@@ -37740,7 +37736,7 @@ define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_5SML
 13:                                               ; preds = %9
   %14 = ptrtoint ptr %1 to i64
   %15 = ptrtoint ptr %.val.pre4 to i64
-  %16 = sub i64 %14, %15
+  %16 = sub nuw i64 %14, %15
   tail call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt5tupleIJNS_5SMLocEN12_GLOBAL__N_19AsmParser13CppHashInfoTyEPNS_8MCSymbolEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %6)
   %.val19.i.i = load ptr, ptr %0, align 8, !tbaa !162
   %17 = getelementptr inbounds i8, ptr %.val19.i.i, i64 %16

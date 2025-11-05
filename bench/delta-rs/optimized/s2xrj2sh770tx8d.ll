@@ -15034,11 +15034,6 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   store i64 128, ptr %6, align 8, !alias.scope !4014
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 0, ptr %11, align 8, !alias.scope !4014
-  %.pre33 = ptrtoint ptr %.sroa.7.0.copyload16 to i64
-  %.pre34 = ptrtoint ptr %.sroa.0.0.copyload14 to i64
-  %.pre36 = sub nuw i64 %.pre33, %.pre34
-  %.pre38 = udiv exact i64 %.pre36, 296
-  %.pre40 = shl nuw nsw i64 %.pre38, 3
   br label %39
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i": ; preds = %2
@@ -15083,7 +15078,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
 
 39:                                               ; preds = %8, %80
   %.sroa.0.052 = phi ptr [ %.sroa.0.0.copyload14, %8 ], [ %12, %80 ]
-  %.pre-phi41 = phi i64 [ %.pre40, %8 ], [ %32, %80 ]
+  %.pre-phi41 = phi i64 [ 0, %8 ], [ %32, %80 ]
   %40 = phi i64 [ 0, %8 ], [ %34, %80 ]
   %41 = phi i64 [ 0, %8 ], [ 8, %80 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4039)

@@ -134869,14 +134869,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i16 0, ptr %11, align 2
   %.not13.i.i = icmp eq ptr %343, %342
-  br i1 %.not13.i.i, label %.loopexit354..loopexit350_crit_edge, label %.lr.ph.i.i
-
-.loopexit354..loopexit350_crit_edge:              ; preds = %.loopexit354
-  %.pre390 = ptrtoint ptr %343 to i64
-  %.pre391 = ptrtoint ptr %342 to i64
-  %.pre393 = sub i64 %.pre390, %.pre391
-  %.pre395 = sdiv exact i64 %.pre393, 112
-  br label %.loopexit350
+  br i1 %.not13.i.i, label %.loopexit350, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.loopexit354, %359
   %344 = phi ptr [ %360, %359 ], [ %342, %.loopexit354 ]
@@ -134923,10 +134916,10 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5boost8geometry6detail7overlay12sort_
   %367 = icmp ult i64 %362, %366
   br i1 %367, label %.lr.ph.i.i, label %.loopexit350, !llvm.loop !2367
 
-.loopexit350:                                     ; preds = %359, %.loopexit354..loopexit350_crit_edge
-  %.pre-phi396 = phi i64 [ %.pre395, %.loopexit354..loopexit350_crit_edge ], [ %366, %359 ]
-  %368 = phi ptr [ %342, %.loopexit354..loopexit350_crit_edge ], [ %360, %359 ]
-  %369 = phi ptr [ %343, %.loopexit354..loopexit350_crit_edge ], [ %361, %359 ]
+.loopexit350:                                     ; preds = %359, %.loopexit354
+  %.pre-phi396 = phi i64 [ 0, %.loopexit354 ], [ %366, %359 ]
+  %368 = phi ptr [ %342, %.loopexit354 ], [ %360, %359 ]
+  %369 = phi ptr [ %343, %.loopexit354 ], [ %361, %359 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.not77.i.i = icmp eq ptr %369, %368
   br i1 %.not77.i.i, label %_ZN5boost8geometry6detail7overlay12sort_by_side11side_sorterILb0ELb0ELNS0_12overlay_typeE0ENS0_5model5pointIdLm2ENS0_2cs9cartesianEEENS0_10strategies6relate9cartesianIvEESt4lessIiEE12assign_zonesENS2_14operation_typeE.exit.thread, label %.lr.ph.preheader.i.i

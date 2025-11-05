@@ -327,7 +327,7 @@ define hidden noundef i32 @_Z9opt_givenP7OPTARGSPKc(ptr noundef %0, ptr noundef 
 14:                                               ; preds = %5
   %15 = ptrtoint ptr %9 to i64
   %16 = ptrtoint ptr %10 to i64
-  %17 = sub i64 %15, %16
+  %17 = sub nuw i64 %15, %16
   %18 = trunc i64 %17 to i32
   br label %25
 
@@ -1205,7 +1205,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_ad
 49:                                               ; preds = %40
   %50 = ptrtoint ptr %44 to i64
   %51 = ptrtoint ptr %45 to i64
-  %52 = sub i64 %50, %51
+  %52 = sub nuw i64 %50, %51
   %53 = and i64 %52, 4294967295
   %54 = icmp ne i64 %53, 0
   br label %_Z9opt_givenP7OPTARGSPKc.exit
@@ -1250,7 +1250,7 @@ _Z9opt_givenP7OPTARGSPKc.exit:                    ; preds = %37, %49, %55
 77:                                               ; preds = %68
   %78 = ptrtoint ptr %72 to i64
   %79 = ptrtoint ptr %73 to i64
-  %80 = sub i64 %78, %79
+  %80 = sub nuw i64 %78, %79
   %81 = and i64 %80, 4294967295
   %82 = icmp eq i64 %81, 0
   br i1 %82, label %_Z9opt_givenP7OPTARGSPKc.exit58.thread, label %86
@@ -1295,7 +1295,7 @@ _Z9opt_givenP7OPTARGSPKc.exit61.thread:           ; preds = %_Z9opt_givenP7OPTAR
 103:                                              ; preds = %94
   %104 = ptrtoint ptr %98 to i64
   %105 = ptrtoint ptr %99 to i64
-  %106 = sub i64 %104, %105
+  %106 = sub nuw i64 %104, %105
   %107 = and i64 %106, 4294967295
   %108 = icmp ne i64 %107, 0
   %spec.store.select284 = sext i1 %108 to i32
@@ -1331,7 +1331,7 @@ _Z9opt_givenP7OPTARGSPKc.exit61:                  ; preds = %94
 125:                                              ; preds = %116
   %126 = ptrtoint ptr %120 to i64
   %127 = ptrtoint ptr %121 to i64
-  %128 = sub i64 %126, %127
+  %128 = sub nuw i64 %126, %127
   %129 = trunc i64 %128 to i32
   br label %_Z9opt_givenP7OPTARGSPKc.exit64
 
@@ -1371,7 +1371,7 @@ _Z9opt_givenP7OPTARGSPKc.exit64:                  ; preds = %113, %125, %130
 150:                                              ; preds = %141
   %151 = ptrtoint ptr %145 to i64
   %152 = ptrtoint ptr %146 to i64
-  %153 = sub i64 %151, %152
+  %153 = sub nuw i64 %151, %152
   %154 = and i64 %153, 4294967295
   %155 = icmp eq i64 %154, 0
   br i1 %155, label %_Z9opt_givenP7OPTARGSPKc.exit67.thread, label %159
@@ -1446,7 +1446,7 @@ _Z7opt_argP7OPTARGSPKc.exit70:                    ; preds = %169, %175
 193:                                              ; preds = %184
   %194 = ptrtoint ptr %188 to i64
   %195 = ptrtoint ptr %189 to i64
-  %196 = sub i64 %194, %195
+  %196 = sub nuw i64 %194, %195
   %197 = and i64 %196, 4294967295
   %198 = icmp eq i64 %197, 0
   br i1 %198, label %_Z9opt_givenP7OPTARGSPKc.exit73.thread, label %202

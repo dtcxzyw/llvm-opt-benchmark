@@ -22631,8 +22631,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %.idx = shl nsw i64 %12, 3
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -22653,7 +22653,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   %20 = lshr exact i64 %6, 2
   %.idx33 = and i64 %20, 4611686018427387896
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
-  %22 = icmp eq i64 %.idx33, %.idx
+  %22 = icmp samesign eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -22673,7 +22673,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
 
 27:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit
   %28 = ptrtoint ptr %.sroa.06.0.i32 to i64
-  %29 = sub i64 %4, %28
+  %29 = sub nuw i64 %4, %28
   %30 = ashr exact i64 %29, 3
   %31 = sdiv i64 %30, 2
   %32 = getelementptr inbounds i64, ptr %.sroa.06.0.i32, i64 %31
@@ -22717,8 +22717,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %.idx = shl nsw i64 %12, 3
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb0EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -22739,7 +22739,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   %20 = lshr exact i64 %6, 2
   %.idx33 = and i64 %20, 4611686018427387896
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
-  %22 = icmp eq i64 %.idx33, %.idx
+  %22 = icmp samesign eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -22759,7 +22759,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
 
 27:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb0EEEEET_SQ_SQ_T0_.exit
   %28 = ptrtoint ptr %.sroa.06.0.i32 to i64
-  %29 = sub i64 %4, %28
+  %29 = sub nuw i64 %4, %28
   %30 = ashr exact i64 %29, 3
   %31 = sdiv i64 %30, 2
   %32 = getelementptr inbounds i64, ptr %.sroa.06.0.i32, i64 %31
@@ -22803,8 +22803,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %.idx = shl nsw i64 %12, 3
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -22825,7 +22825,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   %20 = lshr exact i64 %6, 2
   %.idx33 = and i64 %20, 4611686018427387896
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
-  %22 = icmp eq i64 %.idx33, %.idx
+  %22 = icmp samesign eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -22845,7 +22845,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
 
 27:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit
   %28 = ptrtoint ptr %.sroa.06.0.i32 to i64
-  %29 = sub i64 %4, %28
+  %29 = sub nuw i64 %4, %28
   %30 = ashr exact i64 %29, 3
   %31 = sdiv i64 %30, 2
   %32 = getelementptr inbounds i64, ptr %.sroa.06.0.i32, i64 %31
@@ -24668,8 +24668,8 @@ define linkonce_odr dso_local void @_ZNK4CGAL21Hilbert_sort_median_2INS_29Spatia
 
 11:                                               ; preds = %10
   %12 = sdiv i64 %7, 2
-  %.idx = shl nsw i64 %12, 3
-  %13 = getelementptr inbounds i8, ptr %1, i64 %.idx
+  %.idx = shl nuw nsw i64 %12, 3
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx
   %14 = icmp eq ptr %13, %2
   br i1 %14, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi0ELb1EEEEET_SQ_SQ_T0_.exit, label %15
 
@@ -24690,7 +24690,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
   %20 = lshr exact i64 %6, 2
   %.idx33 = and i64 %20, 4611686018427387896
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.idx33
-  %22 = icmp eq i64 %.idx33, %.idx
+  %22 = icmp samesign eq i64 %.idx33, %.idx
   br i1 %22, label %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit, label %23
 
 23:                                               ; preds = %19
@@ -24710,7 +24710,7 @@ _ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaI
 
 27:                                               ; preds = %_ZN4CGAL8internal13hilbert_splitIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEENS_21Hilbert_sort_median_2INS_29Spatial_sort_traits_adapter_2INS_5EpickEN5boost21iterator_property_mapIPNS_7Point_2ISB_EENSC_27typed_identity_property_mapImEESF_RSF_EEEENS_14Sequential_tagEE3CmpILi1ELb1EEEEET_SQ_SQ_T0_.exit
   %28 = ptrtoint ptr %.sroa.06.0.i32 to i64
-  %29 = sub i64 %4, %28
+  %29 = sub nuw i64 %4, %28
   %30 = ashr exact i64 %29, 3
   %31 = sdiv i64 %30, 2
   %32 = getelementptr inbounds i64, ptr %.sroa.06.0.i32, i64 %31

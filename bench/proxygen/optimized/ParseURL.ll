@@ -1051,27 +1051,28 @@ _ZN8proxygen8ParseURL13stripBracketsEv.exit:      ; preds = %if.end, %invoke.con
   %retval.sroa.2.0.copyload.i.i = phi ptr [ %2, %if.end ], [ %add.ptr.i.i.i, %invoke.cont18.i ], [ %retval.sroa.2.0.copyload.i.i.pre, %if.else.i ]
   %retval.sroa.0.0.copyload.i.i = phi ptr [ %1, %if.end ], [ %add.ptr.i.i, %invoke.cont18.i ], [ %retval.sroa.0.0.copyload.i.i.pre, %if.else.i ]
   %cmp.i.i.i = icmp eq ptr %retval.sroa.0.0.copyload.i.i, %retval.sroa.2.0.copyload.i.i
-  %.pre = ptrtoint ptr %retval.sroa.2.0.copyload.i.i to i64
-  %.pre7 = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
-  %.pre8 = sub i64 %.pre, %.pre7
   br i1 %cmp.i.i.i, label %_ZNK5folly5RangeIPKcE4findEc.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %_ZN8proxygen8ParseURL13stripBracketsEv.exit
-  %call3.i.i = tail call noundef ptr @memchr(ptr noundef %retval.sroa.0.0.copyload.i.i, i32 noundef 58, i64 noundef %.pre8) #19
+  %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %retval.sroa.2.0.copyload.i.i to i64
+  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %retval.sroa.0.0.copyload.i.i to i64
+  %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
+  %call3.i.i = tail call noundef ptr @memchr(ptr noundef %retval.sroa.0.0.copyload.i.i, i32 noundef 58, i64 noundef %sub.ptr.sub.i.i.i) #19
   %cmp.i.i2 = icmp eq ptr %call3.i.i, null
   br i1 %cmp.i.i2, label %_ZNK5folly5RangeIPKcE4findEc.exit, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.end.i.i
   %sub.ptr.lhs.cast.i.i3 = ptrtoint ptr %call3.i.i to i64
-  %sub.ptr.sub.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i3, %.pre7
+  %sub.ptr.sub.i.i4 = sub i64 %sub.ptr.lhs.cast.i.i3, %sub.ptr.rhs.cast.i.i.i
   %7 = icmp eq i64 %sub.ptr.sub.i.i4, -1
   br label %_ZNK5folly5RangeIPKcE4findEc.exit
 
 _ZNK5folly5RangeIPKcE4findEc.exit:                ; preds = %_ZN8proxygen8ParseURL13stripBracketsEv.exit, %if.end.i.i, %cond.false.i.i
+  %sub.ptr.sub.i.i.i.i.i.pre-phi = phi i64 [ %sub.ptr.sub.i.i.i, %if.end.i.i ], [ %sub.ptr.sub.i.i.i, %cond.false.i.i ], [ 0, %_ZN8proxygen8ParseURL13stripBracketsEv.exit ]
   %retval.0.i.i = phi i1 [ true, %if.end.i.i ], [ %7, %cond.false.i.i ], [ true, %_ZN8proxygen8ParseURL13stripBracketsEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i), !noalias !37
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i) #20, !noalias !40
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %retval.sroa.0.0.copyload.i.i, i64 noundef %.pre8, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef %retval.sroa.0.0.copyload.i.i, i64 noundef %sub.ptr.sub.i.i.i.i.i.pre-phi, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i)
           to label %_ZNK5folly5RangeIPKcE3strB5cxx11Ev.exit unwind label %lpad.i.i
 
 lpad.i.i:                                         ; preds = %_ZNK5folly5RangeIPKcE4findEc.exit

@@ -567,14 +567,14 @@ invoke.cont:                                      ; preds = %for.inc.i21.i.i.i, 
   %cmp.i.i.i.i = icmp eq ptr %22, %23
   %incdec.ptr.i.i.i.i30 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %cmp.i3.not.i.i.i31 = icmp eq ptr %incdec.ptr.i.i.i.i30, %23
-  %or.cond34 = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i3.not.i.i.i31
-  br i1 %or.cond34, label %invoke.cont21, label %while.body.i.i.i.preheader
+  %or.cond = select i1 %cmp.i.i.i.i, i1 true, i1 %cmp.i3.not.i.i.i31
+  br i1 %or.cond, label %invoke.cont21, label %while.body.i.i.i.preheader
 
 while.body.i.i.i.preheader:                       ; preds = %invoke.cont
   %.pre = load double, ptr %22, align 8, !tbaa !7
   %24 = load double, ptr %incdec.ptr.i.i.i.i30, align 8, !tbaa !7
-  %cmp.i1156 = fcmp oeq double %.pre, %24
-  br i1 %cmp.i1156, label %if.end.i.i, label %if.end.i12
+  %cmp.i1155 = fcmp oeq double %.pre, %24
+  br i1 %cmp.i1155, label %if.end.i.i, label %if.end.i12
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i.backedge
   %25 = load double, ptr %incdec.ptr.i.i.i.i, align 8, !tbaa !7
@@ -583,8 +583,8 @@ while.body.i.i.i:                                 ; preds = %while.cond.i.i.i.ba
 
 if.end.i12:                                       ; preds = %while.body.i.i.i.preheader, %while.body.i.i.i
   %26 = phi double [ %25, %while.body.i.i.i ], [ %24, %while.body.i.i.i.preheader ]
-  %__first.sroa.0.0.i.i.i3258 = phi ptr [ %incdec.ptr.i.i.i.i3357, %while.body.i.i.i ], [ %22, %while.body.i.i.i.preheader ]
-  %incdec.ptr.i.i.i.i3357 = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i ], [ %incdec.ptr.i.i.i.i30, %while.body.i.i.i.preheader ]
+  %__first.sroa.0.0.i.i.i3257 = phi ptr [ %incdec.ptr.i.i.i.i3356, %while.body.i.i.i ], [ %22, %while.body.i.i.i.preheader ]
+  %incdec.ptr.i.i.i.i3356 = phi ptr [ %incdec.ptr.i.i.i.i, %while.body.i.i.i ], [ %incdec.ptr.i.i.i.i30, %while.body.i.i.i.preheader ]
   %27 = phi double [ %26, %while.body.i.i.i ], [ %.pre, %while.body.i.i.i.preheader ]
   %sub.i13 = fsub double %27, %26
   %28 = tail call double @llvm.fabs.f64(double %sub.i13)
@@ -608,22 +608,22 @@ _ZN8QuantLib12close_enoughEdd.exit25:             ; preds = %if.end.i12
   br i1 %31, label %if.end.i.i, label %while.cond.i.i.i.backedge
 
 while.cond.i.i.i.backedge:                        ; preds = %_ZN8QuantLib12close_enoughEdd.exit25, %if.then3.i23
-  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i3357, i64 8
+  %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i.i.i.i3356, i64 8
   %cmp.i3.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %23
   br i1 %cmp.i3.not.i.i.i, label %invoke.cont21, label %while.body.i.i.i, !llvm.loop !33
 
 if.end.i.i:                                       ; preds = %_ZN8QuantLib12close_enoughEdd.exit25, %if.then3.i23, %while.body.i.i.i, %while.body.i.i.i.preheader
-  %__first.sroa.0.0.i.i.i32.lcssa = phi ptr [ %22, %while.body.i.i.i.preheader ], [ %__first.sroa.0.0.i.i.i3258, %_ZN8QuantLib12close_enoughEdd.exit25 ], [ %__first.sroa.0.0.i.i.i3258, %if.then3.i23 ], [ %incdec.ptr.i.i.i.i3357, %while.body.i.i.i ]
+  %__first.sroa.0.0.i.i.i32.lcssa = phi ptr [ %22, %while.body.i.i.i.preheader ], [ %__first.sroa.0.0.i.i.i3257, %_ZN8QuantLib12close_enoughEdd.exit25 ], [ %__first.sroa.0.0.i.i.i3257, %if.then3.i23 ], [ %incdec.ptr.i.i.i.i3356, %while.body.i.i.i ]
   %incdec.ptr.i216.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.0.i.i.i32.lcssa, i64 16
   %cmp.i3.not17.i.i = icmp eq ptr %incdec.ptr.i216.i.i, %23
   br i1 %cmp.i3.not17.i.i, label %while.end.i.i, label %while.body.i.i.preheader
 
 while.body.i.i.preheader:                         ; preds = %if.end.i.i
-  %.pre37 = load double, ptr %__first.sroa.0.0.i.i.i32.lcssa, align 8, !tbaa !7
+  %.pre36 = load double, ptr %__first.sroa.0.0.i.i.i32.lcssa, align 8, !tbaa !7
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end22.i.i
-  %32 = phi double [ %38, %if.end22.i.i ], [ %.pre37, %while.body.i.i.preheader ]
+  %32 = phi double [ %38, %if.end22.i.i ], [ %.pre36, %while.body.i.i.preheader ]
   %incdec.ptr.i219.i.i = phi ptr [ %incdec.ptr.i2.i.i, %if.end22.i.i ], [ %incdec.ptr.i216.i.i, %while.body.i.i.preheader ]
   %__dest.sroa.0.018.i.i = phi ptr [ %__dest.sroa.0.1.i.i, %if.end22.i.i ], [ %__first.sroa.0.0.i.i.i32.lcssa, %while.body.i.i.preheader ]
   %33 = load double, ptr %incdec.ptr.i219.i.i, align 8, !tbaa !7
@@ -687,10 +687,8 @@ if.then.i:                                        ; preds = %invoke.cont21
           to label %invoke.cont30 unwind label %lpad29
 
 if.else.i:                                        ; preds = %invoke.cont21
-  %cmp4.i = icmp uge i64 %sub.ptr.div.i, %sub.ptr.div.i.i
-  %tobool.not.i.i = icmp eq ptr %23, %retval.sroa.0.0.i.i
-  %or.cond = or i1 %tobool.not.i.i, %cmp4.i
-  br i1 %or.cond, label %invoke.cont30, label %invoke.cont.i.i
+  %cmp4.i = icmp ult i64 %sub.ptr.div.i, %sub.ptr.div.i.i
+  br i1 %cmp4.i, label %invoke.cont.i.i, label %invoke.cont30
 
 invoke.cont.i.i:                                  ; preds = %if.else.i
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %22, i64 %sub.ptr.sub.i

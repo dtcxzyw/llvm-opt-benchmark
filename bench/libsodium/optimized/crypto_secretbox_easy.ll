@@ -17,16 +17,16 @@ define dso_local noundef i32 @crypto_secretbox_detached(ptr noundef nonnull %0, 
   %11 = ptrtoint ptr %0 to i64
   %12 = ptrtoint ptr %2 to i64
   %13 = icmp ugt ptr %0, %2
-  %14 = sub i64 %11, %12
+  %14 = sub nuw i64 %11, %12
   %15 = icmp ult i64 %14, %3
-  %or.cond = and i1 %13, %15
+  %or.cond = select i1 %13, i1 %15, i1 false
   br i1 %or.cond, label %.thread, label %16
 
 16:                                               ; preds = %6
   %17 = icmp ugt ptr %2, %0
-  %18 = sub i64 %12, %11
+  %18 = sub nuw i64 %12, %11
   %19 = icmp ult i64 %18, %3
-  %or.cond50 = and i1 %17, %19
+  %or.cond50 = select i1 %17, i1 %19, i1 false
   br i1 %or.cond50, label %.thread, label %20
 
 .thread:                                          ; preds = %6, %16
@@ -150,16 +150,16 @@ define dso_local range(i32 -1, 1) i32 @crypto_secretbox_open_detached(ptr nounde
   %17 = ptrtoint ptr %1 to i64
   %18 = ptrtoint ptr %0 to i64
   %19 = icmp ugt ptr %1, %0
-  %20 = sub i64 %17, %18
+  %20 = sub nuw i64 %17, %18
   %21 = icmp ult i64 %20, %3
-  %or.cond = and i1 %19, %21
+  %or.cond = select i1 %19, i1 %21, i1 false
   br i1 %or.cond, label %.thread, label %22
 
 22:                                               ; preds = %16
   %23 = icmp ugt ptr %0, %1
-  %24 = sub i64 %18, %17
+  %24 = sub nuw i64 %18, %17
   %25 = icmp ult i64 %24, %3
-  %or.cond54 = and i1 %23, %25
+  %or.cond54 = select i1 %23, i1 %25, i1 false
   br i1 %or.cond54, label %.thread, label %26
 
 .thread:                                          ; preds = %16, %22

@@ -822,7 +822,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -1678,7 +1678,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -2534,7 +2534,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -3390,7 +3390,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -4246,7 +4246,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -5102,7 +5102,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -5958,7 +5958,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -6814,7 +6814,7 @@ EmitCopyLen.exit:                                 ; preds = %273, %278, %295, %3
 356:                                              ; preds = %.thread124
   %357 = ptrtoint ptr %14 to i64
   %358 = ptrtoint ptr %.3.i to i64
-  %359 = sub i64 %357, %358
+  %359 = sub nuw i64 %357, %358
   %360 = trunc i64 %359 to i32
   %361 = icmp ult i32 %360, 6
   br i1 %361, label %EmitInsertLen.exit35, label %362
@@ -7786,7 +7786,7 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
 427:                                              ; preds = %.thread124
   %428 = ptrtoint ptr %14 to i64
   %429 = ptrtoint ptr %.3.i to i64
-  %430 = sub i64 %428, %429
+  %430 = sub nuw i64 %428, %429
   %431 = trunc i64 %430 to i32
   %432 = icmp ult i32 %431, 6
   br i1 %432, label %EmitInsertLen.exit35, label %433
@@ -8758,7 +8758,7 @@ EmitCopyLen.exit:                                 ; preds = %336, %341, %357, %3
 427:                                              ; preds = %.thread124
   %428 = ptrtoint ptr %14 to i64
   %429 = ptrtoint ptr %.3.i to i64
-  %430 = sub i64 %428, %429
+  %430 = sub nuw i64 %428, %429
   %431 = trunc i64 %430 to i32
   %432 = icmp ult i32 %431, 6
   br i1 %432, label %EmitInsertLen.exit35, label %433

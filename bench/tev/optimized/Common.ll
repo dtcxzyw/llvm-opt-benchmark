@@ -18113,7 +18113,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: 
 
 70:                                               ; preds = %67
   %71 = ptrtoint ptr %.sroa.24.1101 to i64
-  %72 = sub i64 %69, %71
+  %72 = sub nuw i64 %69, %71
   %73 = ashr exact i64 %72, 3
   %74 = add nsw i64 %73, 1
   %75 = sdiv i64 %74, 2
@@ -18256,7 +18256,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_7__stateIcEENS_9a
 
 14:                                               ; preds = %8
   %15 = ptrtoint ptr %10 to i64
-  %16 = sub i64 %15, %13
+  %16 = sub nuw i64 %15, %13
   %17 = ashr exact i64 %16, 3
   %18 = add nsw i64 %17, 1
   %.neg = sdiv i64 %18, -2
@@ -18357,7 +18357,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_7__stateIcEENS_9a
 
 14:                                               ; preds = %8
   %15 = ptrtoint ptr %10 to i64
-  %16 = sub i64 %15, %13
+  %16 = sub nuw i64 %15, %13
   %17 = ashr exact i64 %16, 3
   %18 = add nsw i64 %17, 1
   %.neg = sdiv i64 %18, -2
@@ -18458,7 +18458,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_7__stateIcEENS_9a
 
 14:                                               ; preds = %7
   %15 = ptrtoint ptr %9 to i64
-  %16 = sub i64 %13, %15
+  %16 = sub nuw i64 %13, %15
   %17 = ashr exact i64 %16, 3
   %18 = add nsw i64 %17, 1
   %19 = sdiv i64 %18, 2
@@ -18684,7 +18684,7 @@ _ZNSt3__114__split_bufferIPNS_7__stateIcEERNS_9allocatorIS3_EEEC2EmmS6_.exit.i: 
 
 74:                                               ; preds = %71
   %75 = ptrtoint ptr %.sroa.958.1106 to i64
-  %76 = sub i64 %75, %73
+  %76 = sub nuw i64 %75, %73
   %77 = ashr exact i64 %76, 3
   %78 = add nsw i64 %77, 1
   %.neg.i26 = sdiv i64 %78, -2
@@ -18836,7 +18836,7 @@ define linkonce_odr hidden void @_ZNSt3__114__split_bufferIPNS_7__stateIcEENS_9a
 
 14:                                               ; preds = %7
   %15 = ptrtoint ptr %9 to i64
-  %16 = sub i64 %13, %15
+  %16 = sub nuw i64 %13, %15
   %17 = ashr exact i64 %16, 3
   %18 = add nsw i64 %17, 1
   %19 = sdiv i64 %18, 2

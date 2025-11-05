@@ -5633,14 +5633,7 @@ entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %1 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3
   %cmp.i.not84 = icmp eq ptr %0, %1
-  br i1 %cmp.i.not84, label %for.cond.cleanup, label %for.body
-
-for.cond.cleanup:                                 ; preds = %entry
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
-  %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp.i.i = icmp ugt i64 %sub.ptr.sub.i, 9223372036854775800
-  br i1 %cmp.i.i, label %if.then.i.i, label %invoke.cont
+  br i1 %cmp.i.not84, label %invoke.cont, label %for.body
 
 for.cond.cleanup.thread:                          ; preds = %for.body
   %sub.ptr.lhs.cast.i108 = ptrtoint ptr %1 to i64
@@ -5650,7 +5643,7 @@ for.cond.cleanup.thread:                          ; preds = %for.body
   %cmp.i.i112 = icmp ugt i64 %sub.ptr.div.i111, 1152921504606846975
   br i1 %cmp.i.i112, label %if.then.i.i, label %if.then.i.i.i.i.i
 
-if.then.i.i:                                      ; preds = %for.cond.cleanup.thread, %for.cond.cleanup
+if.then.i.i:                                      ; preds = %for.cond.cleanup.thread
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.33) #29
   unreachable
 
@@ -5678,11 +5671,11 @@ for.body:                                         ; preds = %entry, %for.body
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %1
   br i1 %cmp.i.not, label %for.cond.cleanup.thread, label %for.body
 
-invoke.cont:                                      ; preds = %for.cond.cleanup, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
-  %sum_v.0.lcssa113122 = phi double [ %add, %if.then.i.i.i.i.i ], [ %add, %if.end.i.i.i.i.i.i.i ], [ 0.000000e+00, %for.cond.cleanup ]
-  %volBase.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i26, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i26, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ]
-  %volBase.sroa.18.0 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ]
-  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %for.cond.cleanup ]
+invoke.cont:                                      ; preds = %entry, %if.end.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
+  %sum_v.0.lcssa113122 = phi double [ %add, %if.then.i.i.i.i.i ], [ %add, %if.end.i.i.i.i.i.i.i ], [ 0.000000e+00, %entry ]
+  %volBase.sroa.0.0 = phi ptr [ %call5.i.i.i.i2.i.i26, %if.then.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i26, %if.end.i.i.i.i.i.i.i ], [ null, %entry ]
+  %volBase.sroa.18.0 = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %entry ]
+  %__first.addr.0.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %add.ptr.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i ], [ null, %entry ]
   %fraRateBase_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %_M_finish.i27 = getelementptr inbounds nuw i8, ptr %this, i64 144
   %3 = load ptr, ptr %_M_finish.i27, align 8, !tbaa !109
