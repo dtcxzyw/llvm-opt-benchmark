@@ -5300,23 +5300,23 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %60, %_ZNSt12_Vector
   %.sroa.24.1 = phi ptr [ %.sroa.24.0, %60 ], [ %59, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %.sroa.24.0, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.24.0, %38 ]
   %.sroa.14.0 = phi ptr [ %spec.select, %60 ], [ %58, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %42, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %39, %38 ]
   %.sroa.02.1 = phi ptr [ %.sroa.02.0, %60 ], [ %49, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i ], [ %.sroa.02.0, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.02.0, %38 ]
-  %63 = ptrtoint ptr %.sroa.14.0 to i64
-  %64 = sub i64 %63, %.pre-phi
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %65, ptr %0, align 8, !tbaa !69
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %64, i8 noundef signext 0) #27
+  %64 = ptrtoint ptr %.sroa.14.0 to i64
+  %65 = sub i64 %64, %.pre-phi
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %66, ptr %0, align 8, !tbaa !69
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %65, i8 noundef signext 0) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %.sroa.02.1, ptr %6, align 8, !tbaa !243
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %66 = load ptr, ptr %0, align 8, !tbaa !50
-  store ptr %66, ptr %7, align 8, !tbaa !20
-  %67 = getelementptr inbounds nuw i8, ptr %.sroa.02.1, i64 %64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %69 = load i64, ptr %68, align 8, !tbaa !53
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %69
-  %71 = call noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %6, ptr noundef %67, ptr noundef nonnull %7, ptr noundef %70, i32 noundef 0) #27
-  %72 = load ptr, ptr %7, align 8, !tbaa !20
-  %73 = load ptr, ptr %0, align 8, !tbaa !50
+  %67 = load ptr, ptr %0, align 8, !tbaa !50
+  store ptr %67, ptr %7, align 8, !tbaa !20
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.02.1, i64 %65
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = load i64, ptr %69, align 8, !tbaa !53
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %70
+  %72 = call noundef i32 @_ZN4llvm18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef nonnull %6, ptr noundef %68, ptr noundef nonnull %7, ptr noundef %71, i32 noundef 0) #27
+  %73 = load ptr, ptr %7, align 8, !tbaa !20
+  %74 = load ptr, ptr %0, align 8, !tbaa !50
   %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
   %76 = sub i64 %74, %75
@@ -5326,15 +5326,15 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %60, %_ZNSt12_Vector
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i.i.i = icmp eq ptr %.sroa.02.1, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %77
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %78
 
-77:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
-  %78 = ptrtoint ptr %.sroa.24.1 to i64
-  %79 = sub i64 %78, %.pre-phi
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.02.1, i64 noundef %79) #30
+78:                                               ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+  %79 = ptrtoint ptr %.sroa.24.1 to i64
+  %80 = sub i64 %79, %.pre-phi
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.02.1, i64 noundef %80) #30
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %77
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %78
   ret void
 }
 

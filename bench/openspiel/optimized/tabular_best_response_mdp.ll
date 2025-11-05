@@ -6321,9 +6321,9 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %84
 
 103:                                              ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.35) #27
-          to label %.noexc34 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread72
+          to label %.noexc34 unwind label %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread75
 
-_ZNSt6vectorIlSaIlEED2Ev.exit43.thread72:         ; preds = %103
+_ZNSt6vectorIlSaIlEED2Ev.exit43.thread75:         ; preds = %103
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit45.thread
@@ -6416,8 +6416,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit: ; preds
   br label %_ZNSt6vectorIPN10open_spiel10algorithms7MDPNodeESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN10open_spiel10algorithms7MDPNodeESaIS3_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit, %141
-  %.idx77 = shl nuw nsw i64 %93, 3
-  call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %.idx77) #26
+  %.idx80 = shl nuw nsw i64 %93, 3
+  call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %.idx80) #26
   %144 = ptrtoint ptr %67 to i64
   %145 = sub i64 %66, %144
   call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %145) #26
@@ -6473,7 +6473,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit43:                  ; preds = %108
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread
 
 _ZNSt6vectorIlSaIlEED2Ev.exit43.thread:           ; preds = %159, %158, %_ZNSt6vectorIlSaIlEED2Ev.exit43
-  %.pn.pn71 = phi { ptr, i32 } [ %162, %_ZNSt6vectorIlSaIlEED2Ev.exit43 ], [ %.pn, %158 ], [ %.pn, %159 ]
+  %.pn.pn74 = phi { ptr, i32 } [ %162, %_ZNSt6vectorIlSaIlEED2Ev.exit43 ], [ %.pn, %158 ], [ %.pn, %159 ]
   %.idx = shl nuw nsw i64 %93, 3
   call void @_ZdlPvm(ptr noundef nonnull %98, i64 noundef %.idx) #26
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit45.thread
@@ -6484,15 +6484,15 @@ _ZNSt6vectorIdSaIdEED2Ev.exit45:                  ; preds = %.loopexit52, %75
   %.not.i.i.i46 = icmp eq ptr %67, null
   br i1 %.not.i.i.i46, label %.body, label %_ZNSt6vectorIdSaIdEED2Ev.exit45.thread
 
-_ZNSt6vectorIdSaIdEED2Ev.exit45.thread:           ; preds = %148, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread72, %_ZNSt6vectorIdSaIdEED2Ev.exit45
-  %.pn.pn.pn76 = phi { ptr, i32 } [ %163, %_ZNSt6vectorIdSaIdEED2Ev.exit45 ], [ %104, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread72 ], [ %.pn.pn71, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread ], [ %149, %148 ]
+_ZNSt6vectorIdSaIdEED2Ev.exit45.thread:           ; preds = %148, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread75, %_ZNSt6vectorIdSaIdEED2Ev.exit45
+  %.pn.pn.pn79 = phi { ptr, i32 } [ %163, %_ZNSt6vectorIdSaIdEED2Ev.exit45 ], [ %104, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread72 ], [ %.pn.pn74, %_ZNSt6vectorIlSaIlEED2Ev.exit43.thread ], [ %149, %148 ]
   %164 = ptrtoint ptr %67 to i64
   %165 = sub i64 %66, %164
   call void @_ZdlPvm(ptr noundef nonnull %67, i64 noundef %165) #26
   br label %.body
 
 .body:                                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit45.thread, %_ZNSt6vectorIdSaIdEED2Ev.exit45, %51, %21, %146
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %52, %51 ], [ %22, %21 ], [ %163, %_ZNSt6vectorIdSaIdEED2Ev.exit45 ], [ %.pn.pn.pn76, %_ZNSt6vectorIdSaIdEED2Ev.exit45.thread ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %147, %146 ], [ %52, %51 ], [ %22, %21 ], [ %163, %_ZNSt6vectorIdSaIdEED2Ev.exit45 ], [ %.pn.pn.pn79, %_ZNSt6vectorIdSaIdEED2Ev.exit45.thread ]
   call void @_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #25
   resume { ptr, i32 } %.pn.pn.pn.pn
 }

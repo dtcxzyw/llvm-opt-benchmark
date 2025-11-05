@@ -1600,7 +1600,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %61
   %74 = load ptr, ptr %38, align 8, !tbaa !34
   %75 = load ptr, ptr %37, align 8, !tbaa !7
   %.not181 = icmp eq ptr %74, %75
-  br i1 %.not181, label %.thread, label %.lr.ph
+  br i1 %.not181, label %._crit_edge._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit
   %76 = ptrtoint ptr %74 to i64
@@ -1612,9 +1612,9 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %61
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
   %.not.i.i78 = icmp eq ptr %.sroa.097.5, %.sroa.12.3
-  br i1 %.not.i.i78, label %.thread, label %81
+  br i1 %.not.i.i78, label %._crit_edge._crit_edge, label %81
 
-.thread:                                          ; preds = %._crit_edge, %_ZNSt6vectorIdSaIdEE5clearEv.exit
+._crit_edge._crit_edge:                           ; preds = %._crit_edge, %_ZNSt6vectorIdSaIdEE5clearEv.exit
   %.sroa.097.4.lcssa255 = phi ptr [ %.sroa.097.5, %._crit_edge ], [ %.sroa.097.0175, %_ZNSt6vectorIdSaIdEE5clearEv.exit ]
   %.sroa.12.2.lcssa253 = phi ptr [ %.sroa.12.3, %._crit_edge ], [ %spec.select130, %_ZNSt6vectorIdSaIdEE5clearEv.exit ]
   %.sroa.19.4.lcssa251 = phi ptr [ %.sroa.19.5, %._crit_edge ], [ %.sroa.19.0173, %_ZNSt6vectorIdSaIdEE5clearEv.exit ]
@@ -1658,8 +1658,8 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %61
   %102 = getelementptr inbounds nuw double, ptr %101, i64 %.051
   %103 = load double, ptr %102, align 8, !tbaa !66
   %104 = fcmp ult double %103, %99
-  %or.cond283 = select i1 %100, i1 true, i1 %104
-  br i1 %or.cond283, label %._crit_edge202, label %107
+  %or.cond274 = select i1 %100, i1 true, i1 %104
+  br i1 %or.cond274, label %._crit_edge202, label %107
 
 ._crit_edge202:                                   ; preds = %89
   %105 = fcmp uge double %103, %99
@@ -1794,7 +1794,7 @@ _ZSt9__advanceIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEElEvRT_T0_St26
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread, %.loopexit.loopexit, %146
-  %.pre-phi216264 = phi i64 [ %83, %.loopexit.loopexit ], [ %83, %146 ], [ %.pre215, %.thread ]
+  %.pre-phi = phi i64 [ %83, %.loopexit.loopexit ], [ %83, %146 ], [ %.pre215, %.thread ]
   %.sroa.19.4.lcssa250263 = phi ptr [ %.sroa.19.5, %.loopexit.loopexit ], [ %.sroa.19.5, %146 ], [ %.sroa.19.4.lcssa251, %.thread ]
   %.sroa.12.2.lcssa252262 = phi ptr [ %.sroa.12.3, %.loopexit.loopexit ], [ %.sroa.12.3, %146 ], [ %.sroa.12.2.lcssa253, %.thread ]
   %.sroa.097.4.lcssa254261 = phi ptr [ %.sroa.097.5, %.loopexit.loopexit ], [ %.sroa.097.5, %146 ], [ %.sroa.097.4.lcssa255, %.thread ]

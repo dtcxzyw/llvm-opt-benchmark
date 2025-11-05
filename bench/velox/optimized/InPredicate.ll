@@ -2930,14 +2930,14 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values.i.i, i8 0, i64 24, i1 false), !noalias !25
   %conv.i.i = zext nneg i32 %39 to i64
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %values.i.i, i64 16
-  %_M_finish.i1219.i.i = getelementptr inbounds nuw i8, ptr %values.i.i, i64 8
+  %_M_finish.i1221.i.i = getelementptr inbounds nuw i8, ptr %values.i.i, i64 8
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %conv.i.i, 5
   %call5.i.i.i.i7.i.i = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #40
           to label %for.body.lr.ph.i.i unwind label %lpad.loopexit.split-lp.i.i, !noalias !25
 
 for.body.lr.ph.i.i:                               ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i.i
   store ptr %call5.i.i.i.i7.i.i, ptr %values.i.i, align 8, !noalias !25
-  store ptr %call5.i.i.i.i7.i.i, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  store ptr %call5.i.i.i.i7.i.i, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   %add.ptr21.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i.i7.i.i, i64 %conv.i.i
   store ptr %add.ptr21.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !25
   %add.i.i = add nsw i32 %39, %37
@@ -2984,7 +2984,7 @@ invoke.cont6.i.i:                                 ; preds = %if.else.i.i
   store i64 %67, ptr %ref.tmp.i.i, align 8, !noalias !25
   %68 = extractvalue { i64, ptr } %call7.i.i, 1
   store ptr %68, ptr %64, align 8, !noalias !25
-  %69 = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  %69 = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   %70 = load ptr, ptr %_M_end_of_storage.i.i.i.i, align 8, !noalias !25
   %cmp.not.i.i.i225 = icmp eq ptr %69, %70
   br i1 %cmp.not.i.i.i225, label %if.else.i.i.i, label %if.then.i8.i.i
@@ -3008,9 +3008,9 @@ lpad.i.i.i.i.i.i:                                 ; preds = %if.then.i8.i.i
 _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JKN8facebook5velox10StringViewEEEEvRS6_PT_DpOT0_.exit.i.i.i: ; preds = %if.then.i8.i.i
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i.i.i.i.i.i) #38, !noalias !25
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i), !noalias !25
-  %73 = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  %73 = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %73, i64 32
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   br label %for.inc.i.i
 
 if.else.i.i.i:                                    ; preds = %invoke.cont6.i.i
@@ -3025,7 +3025,7 @@ for.inc.i.i:                                      ; preds = %if.else.i.i.i, %_ZN
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
   %.pre.i.i = load ptr, ptr %values.i.i, align 8, !noalias !25
-  %.pre8.i.i = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  %.pre8.i.i = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   %cmp.i.not.i.i.i.i = icmp eq ptr %.pre.i.i, %.pre8.i.i
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont16.i.i, label %if.then.i.i13.i.i
 
@@ -3046,7 +3046,7 @@ if.then.i.i13.i.i:                                ; preds = %for.end.i.i
 
 .noexc14.invoke.cont16_crit_edge.i.i:             ; preds = %.noexc14.i.i
   %.pre9.i.i = load ptr, ptr %values.i.i, align 8, !noalias !25
-  %.pre11.i.i = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  %.pre11.i.i = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   br label %invoke.cont16.i.i
 
 invoke.cont16.i.i:                                ; preds = %.noexc14.invoke.cont16_crit_edge.i.i, %for.end.i.i
@@ -3061,7 +3061,7 @@ invoke.cont34.i.i:                                ; preds = %invoke.cont16.i.i
   %sub.ptr.rhs.cast.i.i.i19.i.i = ptrtoint ptr %77 to i64
   %sub.ptr.sub.i.i.i20.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i18.i.i, %sub.ptr.rhs.cast.i.i.i19.i.i
   %sub.ptr.div.i.i.i21.i.i = ashr exact i64 %sub.ptr.sub.i.i.i20.i.i, 5
-  %78 = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  %78 = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   %sub.ptr.lhs.cast.i.i23.i.i = ptrtoint ptr %78 to i64
   %sub.ptr.sub.i.i25.i.i = sub i64 %sub.ptr.lhs.cast.i.i23.i.i, %sub.ptr.rhs.cast.i.i.i19.i.i
   %sub.ptr.div.i.i26.i.i = ashr exact i64 %sub.ptr.sub.i.i25.i.i, 5
@@ -3074,7 +3074,7 @@ if.then.i31.i.i:                                  ; preds = %invoke.cont34.i.i
           to label %if.then.i31.invoke.cont36_crit_edge.i.i unwind label %lpad.loopexit.split-lp.i.i, !noalias !25
 
 if.then.i31.invoke.cont36_crit_edge.i.i:          ; preds = %if.then.i31.i.i
-  %.pre10.i.i = load ptr, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  %.pre10.i.i = load ptr, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i
 
 if.else.i28.i.i:                                  ; preds = %invoke.cont34.i.i
@@ -3093,7 +3093,7 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i, label %for.body.i.i.i.i.i.i.i, !llvm.loop !30
 
 invoke.cont.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i.i
-  store ptr %add.ptr.i29.i.i, ptr %_M_finish.i1219.i.i, align 8, !noalias !25
+  store ptr %add.ptr.i29.i.i, ptr %_M_finish.i1221.i.i, align 8, !noalias !25
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_18toValuesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_10StringViewEEESt4pairISt6vectorIT_SaISD_EEbERKSt10shared_ptrINS0_10BaseVectorEEii.exit.i: ; preds = %invoke.cont.i.i.i.i, %if.else.i28.i.i, %if.then.i31.invoke.cont36_crit_edge.i.i

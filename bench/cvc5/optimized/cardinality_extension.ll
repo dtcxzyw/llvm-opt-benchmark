@@ -7026,9 +7026,9 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2uf20CardinalityExtens
   %7 = load ptr, ptr %6, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %.not163180 = icmp eq ptr %7, %8
-  br i1 %.not163180, label %_ZNSt6vectorIiSaIiEED2Ev.exit.thread, label %.lr.ph
+  br i1 %.not163180, label %.critedge51.thread, label %.lr.ph
 
-_ZNSt6vectorIiSaIiEED2Ev.exit.thread:             ; preds = %5
+.critedge51.thread:                               ; preds = %5
   %9 = load i32, ptr @_ZN4cvc58internal6theory2uf8gmcCountE, align 4, !tbaa !158
   %10 = add nsw i32 %9, 1
   store i32 %10, ptr @_ZN4cvc58internal6theory2uf8gmcCountE, align 4, !tbaa !158
@@ -7326,17 +7326,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   br i1 %.not.i.i.i105, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %.critedge49..critedge49.thread_crit_edge
 
 .critedge49..critedge49.thread_crit_edge:         ; preds = %102, %.critedge49
-  %.333240 = phi i32 [ %.333, %.critedge49 ], [ 0, %102 ]
-  %.sroa.0133.4239 = phi ptr [ %.sroa.0133.4, %.critedge49 ], [ %.sroa.0133.3, %102 ]
-  %.sroa.22.4238 = phi ptr [ %.sroa.22.4, %.critedge49 ], [ %.sroa.22.3, %102 ]
-  %.pre203 = ptrtoint ptr %.sroa.0133.4239 to i64
+  %.333236 = phi i32 [ %.333, %.critedge49 ], [ 0, %102 ]
+  %.sroa.0133.4235 = phi ptr [ %.sroa.0133.4, %.critedge49 ], [ %.sroa.0133.3, %102 ]
+  %.sroa.22.4234 = phi ptr [ %.sroa.22.4, %.critedge49 ], [ %.sroa.22.3, %102 ]
+  %.pre203 = ptrtoint ptr %.sroa.0133.4235 to i64
   br label %.critedge49.thread
 
 .critedge49.thread:                               ; preds = %105, %.critedge49..critedge49.thread_crit_edge
   %.pre-phi204 = phi i64 [ %.pre203, %.critedge49..critedge49.thread_crit_edge ], [ %59, %105 ]
-  %.333161 = phi i32 [ %.333240, %.critedge49..critedge49.thread_crit_edge ], [ 1, %105 ]
-  %.sroa.0133.4160 = phi ptr [ %.sroa.0133.4239, %.critedge49..critedge49.thread_crit_edge ], [ %.sroa.0133.3, %105 ]
-  %.sroa.22.4159 = phi ptr [ %.sroa.22.4238, %.critedge49..critedge49.thread_crit_edge ], [ %.sroa.22.3, %105 ]
+  %.333161 = phi i32 [ %.333236, %.critedge49..critedge49.thread_crit_edge ], [ 1, %105 ]
+  %.sroa.0133.4160 = phi ptr [ %.sroa.0133.4235, %.critedge49..critedge49.thread_crit_edge ], [ %.sroa.0133.3, %105 ]
+  %.sroa.22.4159 = phi ptr [ %.sroa.22.4234, %.critedge49..critedge49.thread_crit_edge ], [ %.sroa.22.3, %105 ]
   %110 = ptrtoint ptr %.sroa.22.4159 to i64
   %111 = sub i64 %110, %.pre-phi204
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0133.4160, i64 noundef %111) #29
@@ -7364,7 +7364,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge49, %.crit
 _ZNSt6vectorIiSaIiEED2Ev.exit107:                 ; preds = %113, %114
   resume { ptr, i32 } %.pn44
 
-118:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit, %2
+118:                                              ; preds = %.critedge51.thread, %_ZNSt6vectorIiSaIiEED2Ev.exit, %2
   br label %119
 
 119:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %118

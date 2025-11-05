@@ -1953,22 +1953,22 @@ _ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread: ; preds = %_ZNK6o
 _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit: ; preds = %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread, %56
   %.pre-phi299 = phi i64 [ 0, %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread ], [ %77, %56 ]
   %.sink = phi i8 [ 0, %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread ], [ %68, %56 ]
-  %78 = phi i1 [ false, %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread ], [ %67, %56 ]
-  %79 = phi i1 [ false, %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread ], [ %76, %56 ]
+  %77 = phi i1 [ false, %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread ], [ %67, %56 ]
+  %78 = phi i1 [ false, %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit.thread ], [ %76, %56 ]
   store i8 %.sink, ptr %16, align 1, !tbaa !42
-  %80 = zext i1 %79 to i8
-  store i8 %80, ptr %17, align 1, !tbaa !42
+  %79 = zext i1 %78 to i8
+  store i8 %79, ptr %17, align 1, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %81 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store ptr %81, ptr %18, align 8, !tbaa !121
-  %82 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i64 1, ptr %82, align 8, !tbaa !123
-  %83 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %84 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  store float 1.000000e+00, ptr %84, align 8, !tbaa !57
-  %85 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, i8 0, i64 16, i1 false)
+  %80 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store ptr %80, ptr %18, align 8, !tbaa !121
+  %81 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i64 1, ptr %81, align 8, !tbaa !123
+  %82 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
+  store float 1.000000e+00, ptr %83, align 8, !tbaa !57
+  %84 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %86 = icmp ugt i64 %.pre-phi299, 164703072086692425
   br i1 %86, label %87, label %_ZNSt6vectorISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEESaIS6_EE17_S_check_init_lenEmRKS7_.exit.i
@@ -2440,7 +2440,7 @@ _ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit: ; preds = %._crit
           to label %308 unwind label %313
 
 308:                                              ; preds = %297
-  br i1 %78, label %309, label %315
+  br i1 %77, label %309, label %315
 
 309:                                              ; preds = %308
   %310 = getelementptr inbounds nuw i8, ptr %296, i64 88
@@ -2458,7 +2458,7 @@ _ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit: ; preds = %._crit
   br label %765
 
 315:                                              ; preds = %309, %308
-  br i1 %79, label %316, label %318
+  br i1 %78, label %316, label %318
 
 316:                                              ; preds = %315
   %317 = getelementptr inbounds nuw i8, ptr %296, i64 112
@@ -2608,7 +2608,7 @@ _ZNSt12_Vector_baseISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEESaIS6_EEC2E
   br i1 %.not.not.i.i.i.i, label %.preheader99.i, label %.preheader.i.i.i.i
 
 .preheader99.i:                                   ; preds = %.lr.ph.i, %361
-  %.sroa.06.0.in.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %361 ], [ %83, %.lr.ph.i ]
+  %.sroa.06.0.in.i.i.i.i = phi ptr [ %.sroa.06.0.i.i.i.i, %361 ], [ %82, %.lr.ph.i ]
   %.sroa.06.0.i.i.i.i = load ptr, ptr %.sroa.06.0.in.i.i.i.i, align 8, !tbaa !67
   %.not.i.i.i.i186 = icmp eq ptr %.sroa.06.0.i.i.i.i, null
   br i1 %.not.i.i.i.i186, label %.loopexit.i.i.i, label %361
@@ -2637,7 +2637,7 @@ _ZNSt12_Vector_baseISt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEESaIS6_EEC2E
   br i1 %369, label %.preheader.i.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS3_St13unordered_setIiSt4hashIiESt8equal_toIiESaIiEEENS_10_Select1stEN6open3d7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i.i.i.i, !llvm.loop !86
 
 _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt4pairIKS3_St13unordered_setIiSt4hashIiESt8equal_toIiESaIiEEENS_10_Select1stEN6open3d7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i.i.i.i: ; preds = %.preheader.i.i.i.i
-  %377 = load i64, ptr %82, align 8, !tbaa !123
+  %377 = load i64, ptr %81, align 8, !tbaa !123
   %378 = urem i64 %376, %377
   %379 = load ptr, ptr %18, align 8, !tbaa !121
   %380 = getelementptr inbounds nuw ptr, ptr %379, i64 %378
@@ -2909,7 +2909,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
   %487 = load double, ptr %486, align 8, !tbaa !74
   %488 = fmul double %.0.i, %487
   store double %488, ptr %485, align 8, !tbaa !74
-  br i1 %78, label %489, label %500
+  br i1 %77, label %489, label %500
 
 489:                                              ; preds = %476
   %490 = load ptr, ptr %336, align 8, !tbaa !10
@@ -2927,7 +2927,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
   br label %500
 
 500:                                              ; preds = %489, %476
-  br i1 %79, label %501, label %512
+  br i1 %78, label %501, label %512
 
 501:                                              ; preds = %500
   %502 = load ptr, ptr %338, align 8, !tbaa !10
@@ -2990,7 +2990,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
   %535 = load double, ptr %531, align 8, !tbaa !74
   %536 = fadd double %534, %535
   store double %536, ptr %531, align 8, !tbaa !74
-  br i1 %78, label %537, label %552
+  br i1 %77, label %537, label %552
 
 537:                                              ; preds = %519
   %538 = load ptr, ptr %348, align 8, !tbaa !10
@@ -3012,7 +3012,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
   br label %552
 
 552:                                              ; preds = %537, %519
-  br i1 %79, label %553, label %"_ZZZNK6open3d8geometry12TriangleMesh13SubdivideLoopEiENK3$_0clEiRKSt10shared_ptrIS1_ERS4_RKSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEERKSt13unordered_mapIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESE_NS_7utility10hash_eigenISK_EESB_ISK_ESaISt4pairIKSK_SE_EEEENKUliE_clEi.exit.i"
+  br i1 %78, label %553, label %"_ZZZNK6open3d8geometry12TriangleMesh13SubdivideLoopEiENK3$_0clEiRKSt10shared_ptrIS1_ERS4_RKSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEERKSt13unordered_mapIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESE_NS_7utility10hash_eigenISK_EESB_ISK_ESaISt4pairIKSK_SE_EEEENKUliE_clEi.exit.i"
 
 553:                                              ; preds = %552
   %554 = load ptr, ptr %350, align 8, !tbaa !10
@@ -3059,7 +3059,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
   %585 = load double, ptr %581, align 8, !tbaa !74
   %586 = fadd double %584, %585
   store double %586, ptr %581, align 8, !tbaa !74
-  br i1 %78, label %587, label %602
+  br i1 %77, label %587, label %602
 
 587:                                              ; preds = %569
   %588 = load ptr, ptr %342, align 8, !tbaa !10
@@ -3081,7 +3081,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
   br label %602
 
 602:                                              ; preds = %587, %569
-  br i1 %79, label %603, label %"_ZZZNK6open3d8geometry12TriangleMesh13SubdivideLoopEiENK3$_0clEiRKSt10shared_ptrIS1_ERS4_RKSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEERKSt13unordered_mapIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESE_NS_7utility10hash_eigenISK_EESB_ISK_ESaISt4pairIKSK_SE_EEEENKUliE_clEi.exit38.i"
+  br i1 %78, label %603, label %"_ZZZNK6open3d8geometry12TriangleMesh13SubdivideLoopEiENK3$_0clEiRKSt10shared_ptrIS1_ERS4_RKSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEERKSt13unordered_mapIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESE_NS_7utility10hash_eigenISK_EESB_ISK_ESaISt4pairIKSK_SE_EEEENKUliE_clEi.exit38.i"
 
 603:                                              ; preds = %602
   %604 = load ptr, ptr %344, align 8, !tbaa !10

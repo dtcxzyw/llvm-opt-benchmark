@@ -340,14 +340,14 @@ define hidden void @_ZN2cv10ExifReader9parseExifEv(ptr noundef nonnull align 8 d
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = load ptr, ptr %0, align 8, !tbaa !46
   %8 = icmp eq ptr %6, %7
-  br i1 %8, label %_ZNK2cv10ExifReader9getFormatEv.exit.thread60, label %10
+  br i1 %8, label %._ZNK2cv10ExifReader9getFormatEv.exit_crit_edge, label %10
 
-_ZNK2cv10ExifReader9getFormatEv.exit.thread60:    ; preds = %1
+._ZNK2cv10ExifReader9getFormatEv.exit_crit_edge:  ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %9, align 8, !tbaa !34
   br label %24
 
-10:                                               ; preds = %1
+15:                                               ; preds = %1
   %11 = ptrtoint ptr %7 to i64
   %12 = ptrtoint ptr %6 to i64
   %13 = sub i64 %12, %11
@@ -362,22 +362,22 @@ _ZNK2cv10ExifReader9getFormatEv.exit.thread60:    ; preds = %1
   br i1 %.not.i, label %thread-pre-split.i, label %_ZNK2cv10ExifReader9getFormatEv.exit
 
 thread-pre-split.i:                               ; preds = %16, %10
-  %19 = icmp eq i8 %15, 73
-  br i1 %19, label %_ZNK2cv10ExifReader9getFormatEv.exit.thread, label %20
+  %18 = icmp eq i8 %15, 73
+  br i1 %18, label %_ZNK2cv10ExifReader9getFormatEv.exit.thread, label %19
 
-20:                                               ; preds = %thread-pre-split.i
-  %21 = icmp eq i8 %15, 77
-  %..i = select i1 %21, i32 77, i32 0
+19:                                               ; preds = %thread-pre-split.i
+  %20 = icmp eq i8 %15, 77
+  %..i = select i1 %20, i32 77, i32 0
   br label %_ZNK2cv10ExifReader9getFormatEv.exit
 
-_ZNK2cv10ExifReader9getFormatEv.exit:             ; preds = %16, %20
-  %.0.i = phi i32 [ 0, %16 ], [ %..i, %20 ]
+_ZNK2cv10ExifReader9getFormatEv.exit:             ; preds = %16, %19
+  %.pre-phi42 = phi i32 [ 0, %16 ], [ %..i, %20 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %.0.i, ptr %22, align 8, !tbaa !34
-  %.not.i.i = icmp ugt i64 %13, 3
-  br i1 %.not.i.i, label %29, label %24
+  %.not.i.i22 = icmp ugt i64 %13, 3
+  br i1 %.not.i.i22, label %29, label %24
 
-_ZNK2cv10ExifReader9getFormatEv.exit.thread:      ; preds = %thread-pre-split.i
+_ZNK2cv10ExifReader9getFormatEv.exit.thread:; preds = %thread-pre-split.i
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 73, ptr %23, align 8, !tbaa !34
   %.not.i.i22 = icmp ugt i64 %13, 3
@@ -388,25 +388,25 @@ _ZNK2cv10ExifReader9getFormatEv.exit.thread:      ; preds = %thread-pre-split.i
   tail call void @__cxa_throw(ptr %25, ptr nonnull @_ZTIN12_GLOBAL__N_116ExifParsingErrorE, ptr null) #26
   unreachable
 
-26:                                               ; preds = %_ZNK2cv10ExifReader9getFormatEv.exit.thread
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %28 = load i16, ptr %27, align 1
+25:                                               ; preds = %_ZNK2cv10ExifReader9getFormatEv.exit.thread
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %27 = load i16, ptr %26, align 1
   br label %_ZNK2cv10ExifReader12checkTagMarkEv.exit
 
-29:                                               ; preds = %_ZNK2cv10ExifReader9getFormatEv.exit
-  %30 = getelementptr inbounds nuw i8, ptr %7, i64 2
-  %31 = load i8, ptr %30, align 1, !tbaa !12
-  %32 = zext i8 %31 to i16
-  %33 = shl nuw i16 %32, 8
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 3
-  %35 = load i8, ptr %34, align 1, !tbaa !12
-  %36 = zext i8 %35 to i16
-  %37 = or disjoint i16 %33, %36
+28:                                               ; preds = %_ZNK2cv10ExifReader9getFormatEv.exit
+  %29 = getelementptr inbounds nuw i8, ptr %7, i64 2
+  %30 = load i8, ptr %29, align 1, !tbaa !12
+  %31 = zext i8 %30 to i16
+  %32 = shl nuw i16 %31, 8
+  %33 = getelementptr inbounds nuw i8, ptr %7, i64 3
+  %34 = load i8, ptr %33, align 1, !tbaa !12
+  %35 = zext i8 %34 to i16
+  %36 = or disjoint i16 %32, %35
   br label %_ZNK2cv10ExifReader12checkTagMarkEv.exit
 
-_ZNK2cv10ExifReader12checkTagMarkEv.exit:         ; preds = %26, %29
-  %38 = phi i1 [ true, %26 ], [ false, %29 ]
-  %.0.i.i = phi i16 [ %28, %26 ], [ %37, %29 ]
+_ZNK2cv10ExifReader12checkTagMarkEv.exit:         ; preds = %25, %28
+  %37 = phi i1 [ true, %26 ], [ false, %29 ]
+  %38 = phi i16 [ %28, %26 ], [ %37, %29 ]
   %.not.i13 = icmp eq i16 %.0.i.i, 42
   br i1 %.not.i13, label %39, label %.loopexit
 
@@ -423,7 +423,7 @@ _ZNK2cv10ExifReader12checkTagMarkEv.exit:         ; preds = %26, %29
   %43 = getelementptr i8, ptr %7, i64 4
   %44 = load i8, ptr %43, align 1, !tbaa !12
   %45 = zext i8 %44 to i32
-  br i1 %38, label %_ZNK2cv10ExifReader14getStartOffsetEv.exit, label %_ZNK2cv10ExifReader14getStartOffsetEv.exit.thread
+  br i1 %37, label %_ZNK2cv10ExifReader14getStartOffsetEv.exit, label %_ZNK2cv10ExifReader14getStartOffsetEv.exit.thread
 
 _ZNK2cv10ExifReader14getStartOffsetEv.exit:       ; preds = %42
   %46 = getelementptr i8, ptr %7, i64 5

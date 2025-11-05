@@ -325,7 +325,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 21:                                               ; preds = %19
   store i32 0, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 22:                                               ; preds = %19
   %23 = load i8, ptr %12, align 1, !tbaa !14
@@ -343,7 +343,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 30:                                               ; preds = %28
   store i32 1, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 31:                                               ; preds = %28
   %32 = load i8, ptr %.084, align 1, !tbaa !14
@@ -363,7 +363,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 41:                                               ; preds = %39
   store i32 2, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 42:                                               ; preds = %39
   %43 = load i8, ptr %.1, align 1, !tbaa !14
@@ -383,7 +383,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 52:                                               ; preds = %50
   store i32 3, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 53:                                               ; preds = %50
   %54 = load i8, ptr %.2, align 1, !tbaa !14
@@ -402,7 +402,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 62:                                               ; preds = %60
   store i32 4, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 63:                                               ; preds = %60
   %64 = load i8, ptr %.3, align 1, !tbaa !14
@@ -420,7 +420,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 71:                                               ; preds = %69
   store i32 5, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 72:                                               ; preds = %69
   %73 = load i8, ptr %.4, align 1, !tbaa !14
@@ -440,7 +440,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 82:                                               ; preds = %80
   store i32 6, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 83:                                               ; preds = %80
   %84 = load i8, ptr %.5, align 1, !tbaa !14
@@ -460,7 +460,7 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
 
 93:                                               ; preds = %91
   store i32 7, ptr %1, align 8, !tbaa !33
-  br label %131
+  br label %132
 
 94:                                               ; preds = %91
   %95 = load i8, ptr %.6, align 1, !tbaa !14
@@ -488,52 +488,52 @@ define void @_Z31grpc_chttp2_goaway_parser_parsePvP21grpc_chttp2_transportP18grp
   %110 = ptrtoint ptr %.7 to i64
   %111 = sub i64 %109, %110
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %108, ptr align 1 %.7, i64 %111, i1 false)
-  br label %._crit_edge
+  br label %112
 
-._crit_edge:                                      ; preds = %101, %102
+112:                                              ; preds = %101, %102
   %.pre-phi98 = phi i64 [ %111, %102 ], [ 0, %101 ]
-  %112 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %113 = load i32, ptr %112, align 4, !tbaa !32
-  %114 = xor i32 %113, -1
-  %115 = zext i32 %114 to i64
-  %.not90.not = icmp ult i64 %.pre-phi98, %115
-  br i1 %.not90.not, label %.critedge, label %116, !prof !42
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %114 = load i32, ptr %113, align 4, !tbaa !32
+  %115 = xor i32 %114, -1
+  %116 = zext i32 %115 to i64
+  %.not90.not = icmp ult i64 %.pre-phi98, %116
+  br i1 %.not90.not, label %.critedge, label %117, !prof !42
 
-116:                                              ; preds = %._crit_edge
+117:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalC1EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 137, i64 47, ptr nonnull @.str.2) #24
   call void @_ZN4absl12lts_2024072212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #21
   unreachable
 
-.critedge:                                        ; preds = %._crit_edge
-  %117 = trunc nuw i64 %.pre-phi98 to i32
-  %118 = add i32 %113, %117
-  store i32 %118, ptr %112, align 4, !tbaa !32
+.critedge:                                        ; preds = %112
+  %118 = trunc nuw i64 %.pre-phi98 to i32
+  %119 = add i32 %114, %118
+  store i32 %119, ptr %113, align 4, !tbaa !32
   store i32 8, ptr %1, align 8, !tbaa !33
   %.not91 = icmp eq i32 %5, 0
-  br i1 %.not91, label %131, label %119
+  br i1 %.not91, label %132, label %120
 
-119:                                              ; preds = %.critedge
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %121 = load i32, ptr %120, align 8, !tbaa !41
-  %122 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %123 = load i32, ptr %122, align 4, !tbaa !40
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %127 = load i32, ptr %126, align 8, !tbaa !31
-  %128 = zext i32 %127 to i64
-  tail call void @_Z31grpc_chttp2_add_incoming_goawayP21grpc_chttp2_transportjjSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %2, i32 noundef %121, i32 noundef %123, i64 %128, ptr %125)
-  %129 = load ptr, ptr %124, align 8, !tbaa !3
-  tail call void @gpr_free(ptr noundef %129)
-  store ptr null, ptr %124, align 8, !tbaa !3
-  br label %131
+120:                                              ; preds = %.critedge
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %122 = load i32, ptr %121, align 8, !tbaa !41
+  %123 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %124 = load i32, ptr %123, align 4, !tbaa !40
+  %125 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %126 = load ptr, ptr %125, align 8, !tbaa !3
+  %127 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %128 = load i32, ptr %127, align 8, !tbaa !31
+  %129 = zext i32 %128 to i64
+  tail call void @_Z31grpc_chttp2_add_incoming_goawayP21grpc_chttp2_transportjjSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef %2, i32 noundef %122, i32 noundef %124, i64 %129, ptr %126)
+  %130 = load ptr, ptr %125, align 8, !tbaa !3
+  tail call void @gpr_free(ptr noundef %130)
+  store ptr null, ptr %125, align 8, !tbaa !3
+  br label %132
 
-130:                                              ; preds = %6
+131:                                              ; preds = %6
   tail call void @gpr_unreachable_code(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.1, i32 noundef 149) #25
   unreachable
 
-131:                                              ; preds = %.critedge, %119, %93, %82, %71, %62, %52, %41, %30, %21
+132:                                              ; preds = %.critedge, %120, %93, %82, %71, %62, %52, %41, %30, %21
   store i64 1, ptr %0, align 8, !tbaa !26
   ret void
 }

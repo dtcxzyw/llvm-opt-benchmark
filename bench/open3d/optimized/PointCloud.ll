@@ -900,7 +900,7 @@ define dso_local void @_Z15PrintPointCloudRKN6open3d8geometry10PointCloudE(ptr n
   %.not.i = icmp eq ptr %7, %8
   br i1 %.not.i, label %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit, label %9
 
-9:                                                ; preds = %1
+9: ; preds = %1
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %8 to i64
   %12 = sub i64 %10, %11
@@ -924,13 +924,13 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit: ; preds = %1, %9
   call void @_ZN6open3d7utility6Logger8LogInfo_IJiEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 19, ptr noundef nonnull @__PRETTY_FUNCTION__._Z15PrintPointCloudRKN6open3d8geometry10PointCloudE, ptr noundef nonnull @.str.6, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = load ptr, ptr %0, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %3, ptr noundef nonnull align 8 dereferenceable(144) %0)
+  %17 = load ptr, ptr %0, align 8, !tbaa !27
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %19 = load ptr, ptr %18, align 8
+  call void %19(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %3, ptr noundef nonnull align 8 dereferenceable(144) %0)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load ptr, ptr %0, align 8, !tbaa !27
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %29 = load ptr, ptr %28, align 8
   call void %29(ptr dead_on_unwind nonnull writable sret(%"class.Eigen::Matrix") align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %0)
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -948,25 +948,25 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit: ; preds = %1, %9
   br i1 %23, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %37 = phi ptr [ %47, %.lr.ph.split.us ], [ %35, %.lr.ph ]
-  %.022.us = phi i64 [ %45, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %38 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %37, i64 %.022.us
-  %39 = load ptr, ptr %36, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %39, i64 %.022.us
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  call void @_ZN6open3d7utility6Logger8LogInfo_IJRKdS4_S4_S4_S4_S4_EEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 35, ptr noundef nonnull @__PRETTY_FUNCTION__._Z15PrintPointCloudRKN6open3d8geometry10PointCloudE, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %44)
-  %45 = add nuw i64 %.022.us, 1
-  %46 = load ptr, ptr %6, align 8, !tbaa !21
-  %47 = load ptr, ptr %5, align 8, !tbaa !24
-  %48 = ptrtoint ptr %46 to i64
-  %49 = ptrtoint ptr %47 to i64
-  %50 = sub i64 %48, %49
-  %51 = sdiv exact i64 %50, 24
-  %52 = icmp ult i64 %45, %51
-  br i1 %52, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !29
+  %32 = phi ptr [ %42, %.lr.ph.split.us ], [ %35, %.lr.ph ]
+  %.022.us = phi i64 [ %40, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %33 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %32, i64 %.022.us
+  %34 = load ptr, ptr %36, align 8, !tbaa !24
+  %35 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %34, i64 %.022.us
+  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  call void @_ZN6open3d7utility6Logger8LogInfo_IJRKdS4_S4_S4_S4_S4_EEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 35, ptr noundef nonnull @__PRETTY_FUNCTION__._Z15PrintPointCloudRKN6open3d8geometry10PointCloudE, ptr noundef nonnull @.str.8, ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %39)
+  %40 = add nuw i64 %.022.us, 1
+  %41 = load ptr, ptr %6, align 8, !tbaa !21
+  %42 = load ptr, ptr %5, align 8, !tbaa !24
+  %43 = ptrtoint ptr %41 to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = sdiv exact i64 %45, 24
+  %47 = icmp ult i64 %40, %46
+  br i1 %47, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !29
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %_ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit
   call void @_ZN6open3d7utility6Logger8LogInfo_IJEEEvPKciS4_S4_DpOT_(ptr noundef nonnull @.str, i32 noundef 42, ptr noundef nonnull @__PRETTY_FUNCTION__._Z15PrintPointCloudRKN6open3d8geometry10PointCloudE, ptr noundef nonnull @.str.10)
@@ -975,21 +975,21 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit: ; preds = %1, %9
   ret void
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %53 = phi ptr [ %59, %.lr.ph.split ], [ %35, %.lr.ph ]
-  %.022 = phi i64 [ %57, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %54 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %53, i64 %.022
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  call void @_ZN6open3d7utility6Logger8LogInfo_IJRKdS4_S4_EEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 39, ptr noundef nonnull @__PRETTY_FUNCTION__._Z15PrintPointCloudRKN6open3d8geometry10PointCloudE, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(8) %54, ptr noundef nonnull align 8 dereferenceable(8) %55, ptr noundef nonnull align 8 dereferenceable(8) %56)
-  %57 = add nuw i64 %.022, 1
-  %58 = load ptr, ptr %6, align 8, !tbaa !21
-  %59 = load ptr, ptr %5, align 8, !tbaa !24
-  %60 = ptrtoint ptr %58 to i64
-  %61 = ptrtoint ptr %59 to i64
-  %62 = sub i64 %60, %61
-  %63 = sdiv exact i64 %62, 24
-  %64 = icmp ult i64 %57, %63
-  br i1 %64, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
+  %48 = phi ptr [ %54, %.lr.ph.split ], [ %35, %.lr.ph ]
+  %.022 = phi i64 [ %52, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %49 = getelementptr inbounds nuw %"class.Eigen::Matrix", ptr %48, i64 %.022
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  call void @_ZN6open3d7utility6Logger8LogInfo_IJRKdS4_S4_EEEvPKciS6_S6_DpOT_(ptr noundef nonnull @.str, i32 noundef 39, ptr noundef nonnull @__PRETTY_FUNCTION__._Z15PrintPointCloudRKN6open3d8geometry10PointCloudE, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(8) %49, ptr noundef nonnull align 8 dereferenceable(8) %50, ptr noundef nonnull align 8 dereferenceable(8) %51)
+  %52 = add nuw i64 %.022, 1
+  %53 = load ptr, ptr %6, align 8, !tbaa !21
+  %54 = load ptr, ptr %5, align 8, !tbaa !24
+  %55 = ptrtoint ptr %53 to i64
+  %56 = ptrtoint ptr %54 to i64
+  %57 = sub i64 %55, %56
+  %58 = sdiv exact i64 %57, 24
+  %59 = icmp ult i64 %52, %58
+  br i1 %59, label %.lr.ph.split, label %._crit_edge, !llvm.loop !29
 }
 
 ; Function Attrs: mustprogress ssp uwtable

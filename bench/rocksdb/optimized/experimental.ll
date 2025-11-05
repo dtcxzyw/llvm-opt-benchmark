@@ -16726,26 +16726,26 @@ _ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i: ; preds = %18
   %.sink.i.i25.i.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i32, ptr %.sink.i.i25.i.ptr, align 8
   store i32 %25, ptr %20, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store ptr %26, ptr %19, align 8, !tbaa !976
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store ptr %27, ptr %19, align 8, !tbaa !976
   br label %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
 
 _ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit: ; preds = %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i, %21, %24, %_ZSt22__uninitialized_copy_aIPKjPjjET0_T_S4_S3_RSaIT1_E.exit.i
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i64, ptr %27, align 8, !tbaa !19
-  %29 = trunc i64 %28 to i32
-  %30 = load i32, ptr %.ptr, align 8, !tbaa !102
-  %31 = icmp ugt i32 %30, %29
-  br i1 %31, label %.preheader, label %33
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !19
+  %31 = trunc i64 %30 to i32
+  %32 = load i32, ptr %.ptr, align 8, !tbaa !102
+  %33 = icmp ugt i32 %32, %31
+  br i1 %33, label %.preheader, label %35
 
 .preheader:                                       ; preds = %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
-  %32 = load ptr, ptr %3, align 8, !tbaa !668
-  %.promoted = load i32, ptr %32, align 4, !tbaa !102
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.promoted, i32 %29)
-  store i32 %.sroa.speculated, ptr %32, align 4, !tbaa !102
-  br label %33
+  %34 = load ptr, ptr %3, align 8, !tbaa !668
+  %.promoted = load i32, ptr %34, align 4, !tbaa !102
+  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %.promoted, i32 %31)
+  store i32 %.sroa.speculated, ptr %34, align 4, !tbaa !102
+  br label %35
 
-33:                                               ; preds = %.preheader, %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
+35:                                               ; preds = %.preheader, %_ZNSt6vectorIjSaIjEE13_M_assign_auxIPKjEEvT_S5_St20forward_iterator_tag.exit
   ret void
 }
 

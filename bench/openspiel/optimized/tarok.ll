@@ -5780,7 +5780,7 @@ _ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit:       ; preds = %35
   %38 = sub i64 %36, %37
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %39 = icmp ugt i64 %38, 9223372036854775800
-  br i1 %39, label %.noexc.i.i, label %41
+  br i1 %39, label %.noexc.i.i, label %45
 
 .noexc.i.i:                                       ; preds = %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #32
@@ -5792,39 +5792,39 @@ _ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit:       ; preds = %35
   store ptr null, ptr %40, align 8
   br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
 
-41:                                               ; preds = %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit
-  %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #34
-  store ptr %42, ptr %0, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %38
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %43, ptr %44, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %42, ptr align 8 %22, i64 %38, i1 false)
+45:                                               ; preds = %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit
+  %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %38) #34
+  store ptr %46, ptr %0, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %38
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %47, ptr %48, align 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr align 8 %22, i64 %38, i1 false)
   br label %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
 
-_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %.thread26, %41
-  %45 = phi ptr [ null, %.thread26 ], [ %43, %41 ]
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %45, ptr %46, align 8
-  br label %54
+_ZNSt6vectorIlSaIlEEC2ERKS1_.exit:                ; preds = %.thread26, %45
+  %49 = phi ptr [ null, %.thread26 ], [ %47, %41 ]
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %49, ptr %50, align 8
+  br label %58
 
 _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit: ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7.i, %35
   %.0 = phi i32 [ 4, %35 ], [ %29, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7.i ]
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 14
-  %50 = load i8, ptr %49, align 2
-  %51 = trunc i8 %50 to i1
-  br i1 %51, label %52, label %53
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 14
+  %54 = load i8, ptr %53, align 2
+  %55 = trunc i8 %54 to i1
+  br i1 %55, label %56, label %57
 
-52:                                               ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit
+56:                                               ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit
   tail call void @_ZNK10open_spiel5tarok10TarokState42TakeSuitFromPlayerCardsInNegativeContractsENS0_8CardSuitE(ptr dead_on_unwind writable sret(%"class.std::vector.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %.0)
-  br label %54
+  br label %58
 
-53:                                               ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit
+57:                                               ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit
   tail call void @_ZNK10open_spiel5tarok10TarokState42TakeSuitFromPlayerCardsInPositiveContractsENS0_8CardSuitE(ptr dead_on_unwind writable sret(%"class.std::vector.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %.0)
-  br label %54
+  br label %58
 
-54:                                               ; preds = %53, %52, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
+58:                                               ; preds = %57, %56, %_ZNSt6vectorIlSaIlEEC2ERKS1_.exit
   ret void
 }
 

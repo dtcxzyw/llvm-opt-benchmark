@@ -7920,11 +7920,11 @@ _ZNK3vcg3tri5CleanI8SeamMeshE10SortedPaireqERKS4_.exit: ; preds = %70, %.lr.ph64
   %.not.i.i.i22 = icmp eq ptr %.sroa.036.1, null
   br i1 %.not.i.i.i22, label %_ZNSt6vectorIN3vcg3tri5CleanI8SeamMeshE10SortedPairESaIS5_EED2Ev.exit23, label %85
 
-85:                                               ; preds = %._crit_edge65
+._crit_edge65.thread:                             ; preds = %._crit_edge65
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.036.1) #29
   br label %_ZNSt6vectorIN3vcg3tri5CleanI8SeamMeshE10SortedPairESaIS5_EED2Ev.exit23
 
-_ZNSt6vectorIN3vcg3tri5CleanI8SeamMeshE10SortedPairESaIS5_EED2Ev.exit23: ; preds = %5, %85, %._crit_edge65, %1
+_ZNSt6vectorIN3vcg3tri5CleanI8SeamMeshE10SortedPairESaIS5_EED2Ev.exit23: ; preds = %5, %._crit_edge65.thread, %._crit_edge65, %1
   %.017 = phi i32 [ 0, %1 ], [ %.016.lcssa, %._crit_edge65 ], [ %.016.lcssa, %85 ], [ 0, %5 ]
   ret i32 %.017
 }

@@ -1043,13 +1043,13 @@ _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase23nextCombinationI
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.preheader.i.i, %77
-  %.pre-phi.i = phi i64 [ %83, %.lr.ph.i.i.i.i.preheader.i.i ], [ 0, %77 ]
+  %83 = phi i64 [ %83, %.lr.ph.i.i.i.i.preheader.i.i ], [ 0, %77 ]
   %84 = phi i64 [ %.pre.i, %.lr.ph.i.i.i.i.preheader.i.i ], [ %54, %77 ]
   %85 = load ptr, ptr %6, align 8
   br label %.critedge40.i.i
 
 .critedge40.i.i:                                  ; preds = %86, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i
-  %.038.i.i = phi i64 [ %.pre-phi.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i ], [ %87, %86 ]
+  %.038.i.i = phi i64 [ %83, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i.i ], [ %87, %86 ]
   %.not11.i.i = icmp eq i64 %.038.i.i, 0
   br i1 %.not11.i.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase13increaseStageEv.exit.thread, label %86
 
@@ -1901,14 +1901,14 @@ _ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase16increaseStageSum
   br label %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i
 
 _ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i: ; preds = %39, %.lr.ph.i.i.i.i.preheader.i
-  %.pre-phi = phi i64 [ %47, %.lr.ph.i.i.i.i.preheader.i ], [ 0, %39 ]
+  %47 = phi i64 [ %47, %.lr.ph.i.i.i.i.preheader.i ], [ 0, %39 ]
   %48 = phi i64 [ %.pre, %.lr.ph.i.i.i.i.preheader.i ], [ %12, %39 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load ptr, ptr %49, align 8
   br label %.critedge40.i
 
 .critedge40.i:                                    ; preds = %51, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i
-  %.038.i = phi i64 [ %.pre-phi, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i ], [ %52, %51 ]
+  %.038.i = phi i64 [ %47, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEiEvT_S7_RKT0_.exit.i ], [ %52, %51 ]
   %.not11.i = icmp eq i64 %.038.i, 0
   br i1 %.not11.i, label %_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBase16increaseStageMaxEv.exit, label %51
 

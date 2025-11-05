@@ -2670,19 +2670,19 @@ _ZNSt6vectorI19DMatchForEvaluationSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNS
   br label %134
 
 _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP19DMatchForEvaluationSt6vectorIS2_SaIS2_EEEEEvT_S8_.exit: ; preds = %.preheader75, %._crit_edge104, %.noexc
-  %.not.i.i144 = phi i1 [ false, %.noexc ], [ true, %._crit_edge104 ], [ true, %.preheader75 ]
-  %.040.lcssa142 = phi i32 [ %.141.lcssa, %.noexc ], [ %.141.lcssa, %._crit_edge104 ], [ 0, %.preheader75 ]
-  %.sroa.063.0.lcssa140 = phi ptr [ %.sroa.063.1.lcssa, %.noexc ], [ %.sroa.063.1.lcssa, %._crit_edge104 ], [ null, %.preheader75 ]
+  %.not.i.i145 = phi i1 [ false, %.noexc ], [ true, %._crit_edge104 ], [ true, %.preheader75 ]
+  %.040.lcssa143 = phi i32 [ %.141.lcssa, %.noexc ], [ %.141.lcssa, %._crit_edge104 ], [ 0, %.preheader75 ]
+  %.sroa.063.0.lcssa141 = phi ptr [ %.sroa.063.1.lcssa, %.noexc ], [ %.sroa.063.1.lcssa, %._crit_edge104 ], [ null, %.preheader75 ]
   %.pre-phi129 = phi i64 [ %40, %.noexc ], [ 0, %._crit_edge104 ], [ 0, %.preheader75 ]
   invoke void @_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %.pre-phi129)
           to label %.preheader unwind label %116
 
 .preheader:                                       ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIP19DMatchForEvaluationSt6vectorIS2_SaIS2_EEEEEvT_S8_.exit
-  br i1 %.not.i.i144, label %._crit_edge112, label %.lr.ph111
+  br i1 %.not.i.i145, label %._crit_edge112, label %.lr.ph111
 
 .lr.ph111:                                        ; preds = %.preheader
-  %.not.i54 = icmp eq i32 %.040.lcssa142, 0
-  %92 = sitofp i32 %.040.lcssa142 to float
+  %.not.i54 = icmp eq i32 %.040.lcssa143, 0
+  %92 = sitofp i32 %.040.lcssa143 to float
   %umax121 = call i64 @llvm.umax.i64(i64 %.pre-phi129, i64 1)
   br i1 %.not.i54, label %.lr.ph111.split.us, label %.lr.ph111.split
 
@@ -2690,7 +2690,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP19DMatchForEvaluationSt6vectorIS2_SaIS
   %.035110.us = phi i64 [ %107, %.lr.ph111.split.us ], [ 0, %.lr.ph111 ]
   %.036109.us = phi i32 [ %.137.us, %.lr.ph111.split.us ], [ 0, %.lr.ph111 ]
   %.038108.us = phi i32 [ %.139.us, %.lr.ph111.split.us ], [ 0, %.lr.ph111 ]
-  %93 = getelementptr inbounds nuw %struct.DMatchForEvaluation, ptr %.sroa.063.0.lcssa140, i64 %.035110.us
+  %93 = getelementptr inbounds nuw %struct.DMatchForEvaluation, ptr %.sroa.063.0.lcssa141, i64 %.035110.us
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i8, ptr %94, align 4, !tbaa !139
   %.not.us = icmp ne i8 %95, 0
@@ -2717,11 +2717,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIP19DMatchForEvaluationSt6vectorIS2_SaIS
   br i1 %exitcond122.not, label %._crit_edge112.thread, label %.lr.ph111.split.us, !llvm.loop !145
 
 ._crit_edge112:                                   ; preds = %.preheader
-  %.not.i.i.i52 = icmp eq ptr %.sroa.063.0.lcssa140, null
+  %.not.i.i.i52 = icmp eq ptr %.sroa.063.0.lcssa141, null
   br i1 %.not.i.i.i52, label %_ZNSt6vectorI19DMatchForEvaluationSaIS0_EED2Ev.exit, label %._crit_edge112.thread
 
 ._crit_edge112.thread:                            ; preds = %.lr.ph111.split, %.lr.ph111.split.us, %._crit_edge112
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.0.lcssa140) #28
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.063.0.lcssa141) #28
   br label %_ZNSt6vectorI19DMatchForEvaluationSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI19DMatchForEvaluationSaIS0_EED2Ev.exit: ; preds = %._crit_edge112, %._crit_edge112.thread
@@ -2759,7 +2759,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorI19DMat
   %.035110 = phi i64 [ %133, %.lr.ph111.split ], [ 0, %.lr.ph111 ]
   %.036109 = phi i32 [ %.137, %.lr.ph111.split ], [ 0, %.lr.ph111 ]
   %.038108 = phi i32 [ %.139, %.lr.ph111.split ], [ 0, %.lr.ph111 ]
-  %118 = getelementptr inbounds nuw %struct.DMatchForEvaluation, ptr %.sroa.063.0.lcssa140, i64 %.035110
+  %118 = getelementptr inbounds nuw %struct.DMatchForEvaluation, ptr %.sroa.063.0.lcssa141, i64 %.035110
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load i8, ptr %119, align 4, !tbaa !139
   %.not = icmp ne i8 %120, 0
@@ -2787,7 +2787,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZNSt6vectorI19DMat
   br i1 %exitcond.not, label %._crit_edge112.thread, label %.lr.ph111.split, !llvm.loop !145
 
 134:                                              ; preds = %116, %114, %91
-  %.sroa.063.2 = phi ptr [ %.sroa.063.193, %91 ], [ %.sroa.063.0.lcssa140, %116 ], [ %.sroa.063.1.lcssa, %114 ]
+  %.sroa.063.2 = phi ptr [ %.sroa.063.193, %91 ], [ %.sroa.063.0.lcssa141, %116 ], [ %.sroa.063.1.lcssa, %114 ]
   %.pn45 = phi { ptr, i32 } [ %lpad.phi, %91 ], [ %117, %116 ], [ %115, %114 ]
   %.not.i.i.i56 = icmp eq ptr %.sroa.063.2, null
   br i1 %.not.i.i.i56, label %_ZNSt6vectorI19DMatchForEvaluationSaIS0_EED2Ev.exit57, label %135

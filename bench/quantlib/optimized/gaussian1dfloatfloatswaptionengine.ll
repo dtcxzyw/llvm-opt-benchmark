@@ -2397,8 +2397,8 @@ invoke.cont235:                                   ; preds = %.noexc480, %invoke.
   %not.considerProbabilities = xor i1 %considerProbabilities, true
   %or.cond.not = select i1 %not.considerProbabilities, i1 true, i1 %cmp245.not
   %cmp2473833.not = icmp eq i64 %sub242, -1
-  %or.cond = select i1 %or.cond.not, i1 true, i1 %cmp2473833.not
-  br i1 %or.cond, label %if.end, label %for.body.lr.ph
+  %or.cond5613 = select i1 %or.cond.not, i1 true, i1 %cmp2473833.not
+  br i1 %or.cond5613, label %if.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont235
   %n_.i489 = getelementptr inbounds nuw i8, ptr %npvTmp0, i64 8

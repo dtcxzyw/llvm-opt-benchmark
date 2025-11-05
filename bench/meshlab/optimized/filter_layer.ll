@@ -30977,11 +30977,11 @@ _ZNK3vcg3tri5CleanI6CMeshOE10SortedPaireqERKS4_.exit: ; preds = %70, %.lr.ph64, 
   %.not.i.i.i22 = icmp eq ptr %.sroa.036.1, null
   br i1 %.not.i.i.i22, label %_ZNSt6vectorIN3vcg3tri5CleanI6CMeshOE10SortedPairESaIS5_EED2Ev.exit23, label %84
 
-84:                                               ; preds = %._crit_edge65
+._crit_edge65.thread:                             ; preds = %._crit_edge65
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.036.1) #28
   br label %_ZNSt6vectorIN3vcg3tri5CleanI6CMeshOE10SortedPairESaIS5_EED2Ev.exit23
 
-_ZNSt6vectorIN3vcg3tri5CleanI6CMeshOE10SortedPairESaIS5_EED2Ev.exit23: ; preds = %5, %84, %._crit_edge65, %1
+_ZNSt6vectorIN3vcg3tri5CleanI6CMeshOE10SortedPairESaIS5_EED2Ev.exit23: ; preds = %5, %._crit_edge65.thread, %._crit_edge65, %1
   %.017 = phi i32 [ 0, %1 ], [ %.016.lcssa, %._crit_edge65 ], [ %.016.lcssa, %84 ], [ 0, %5 ]
   ret i32 %.017
 }

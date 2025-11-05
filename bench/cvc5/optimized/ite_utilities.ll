@@ -18218,9 +18218,9 @@ _ZNSt6vectorIPS_IN4cvc58internal12NodeTemplateILb1EEESaIS3_EESaIS6_EE17_M_reallo
           to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i unwind label %270
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %182, %176, %173
-  %.val228 = load ptr, ptr %5, align 8
-  %.val229 = load ptr, ptr %4, align 8
-  %183 = select i1 %169, ptr %.val228, ptr %.val229
+  %.val229 = load ptr, ptr %5, align 8
+  %.val230 = load ptr, ptr %4, align 8
+  %183 = select i1 %169, ptr %.val229, ptr %.val230
   store ptr %183, ptr %171, align 8, !tbaa !69
   %184 = load i64, ptr %183, align 8
   %185 = lshr i64 %184, 40
@@ -18283,9 +18283,9 @@ _ZN4cvc58internal12NodeTemplateILb1EEaSERKNS1_ILb0EEE.exit: ; preds = %195, %189
           to label %_ZN4cvc58internal4expr9NodeValue3decEv.exit.i77 unwind label %270
 
 _ZN4cvc58internal4expr9NodeValue3decEv.exit.i77:  ; preds = %219, %213, %210
-  %.val230 = load ptr, ptr %5, align 8
-  %.val231 = load ptr, ptr %4, align 8
-  %220 = select i1 %205, ptr %.val230, ptr %.val231
+  %.val231 = load ptr, ptr %5, align 8
+  %.val232 = load ptr, ptr %4, align 8
+  %220 = select i1 %205, ptr %.val231, ptr %.val232
   store ptr %220, ptr %208, align 8, !tbaa !69
   %221 = load i64, ptr %220, align 8
   %222 = lshr i64 %221, 40
