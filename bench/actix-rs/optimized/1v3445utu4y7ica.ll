@@ -5620,7 +5620,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit: ; 
   %148 = getelementptr inbounds nuw i8, ptr %136, i64 1032
   store float %147, ptr %148, align 8, !alias.scope !754
   %149 = icmp ugt i64 %3, %128
-  br i1 %149, label %150, label %152
+  br i1 %149, label %150, label %152, !prof !648
 
 150:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17he2daf9c3b1ba1a2cE.exit
   %151 = icmp ugt i64 %3, %127
@@ -6237,7 +6237,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit: ; 
   %148 = getelementptr inbounds nuw i8, ptr %136, i64 2184
   store float %147, ptr %148, align 8, !alias.scope !771
   %149 = icmp ugt i64 %3, %128
-  br i1 %149, label %150, label %152
+  br i1 %149, label %150, label %152, !prof !648
 
 150:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hf57f8eb112c0e7d6E.exit
   %151 = icmp ugt i64 %3, %127
@@ -6854,7 +6854,7 @@ _ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit: ; 
   %148 = getelementptr inbounds nuw i8, ptr %136, i64 2824
   store float %147, ptr %148, align 8, !alias.scope !787
   %149 = icmp ugt i64 %3, %128
-  br i1 %149, label %150, label %152
+  br i1 %149, label %150, label %152, !prof !648
 
 150:                                              ; preds = %_ZN6brotli3enc9histogram25HistogramSelfAddHistogram17hcf1b49c50393b0ceE.exit
   %151 = icmp ugt i64 %3, %127
@@ -7318,7 +7318,7 @@ define hidden void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h30f25034c3
 .check368:                                        ; preds = %.lr.ph362.split.us.split.preheader
   store float %88, ptr %.sroa.5.0..sroa_idx.us, align 8, !alias.scope !801
   %exitcond442.not = icmp eq i64 %.176361.us, %10
-  br i1 %exitcond442.not, label %.invoke558, label %89
+  br i1 %exitcond442.not, label %.invoke558, label %89, !prof !5
 
 89:                                               ; preds = %.check368
   %90 = getelementptr inbounds i32, ptr %9, i64 %.176361.us
@@ -7567,7 +7567,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17he41084488f0e98eeE.exit73.us.i:
 
 .check.i:                                         ; preds = %.lr.ph125.split.preheader.i
   %exitcond195.not.i = icmp eq i64 %.241124.i, %2
-  br i1 %exitcond195.not.i, label %.split113.us.i.invoke, label %160
+  br i1 %exitcond195.not.i, label %.split113.us.i.invoke, label %160, !prof !5
 
 160:                                              ; preds = %.check.i
   %161 = getelementptr inbounds nuw { [544 x i32], i64, float, [1 x i32] }, ptr %6, i64 %158
@@ -7978,7 +7978,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h229f336966b94628E.exit: ; preds =
 
 .check.i155:                                      ; preds = %.lr.ph103.split.i
   %exitcond136.not.i = icmp eq i64 %.3102.i, %7
-  br i1 %exitcond136.not.i, label %300, label %303
+  br i1 %exitcond136.not.i, label %300, label %303, !prof !5
 
 300:                                              ; preds = %.check.i155
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %7, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3dfc7285fed8fa297aed43441a3d1c46.95) #27
@@ -8246,7 +8246,7 @@ _ZN6brotli3enc7cluster22BrotliHistogramReindex17he58a8fc9ce9e90e3E.exit: ; preds
 .check:                                           ; preds = %.lr.ph362, %410
   %.176361 = phi i64 [ %413, %410 ], [ 0, %.lr.ph362 ]
   %exitcond444.not = icmp eq i64 %.176361, %7
-  br i1 %exitcond444.not, label %398, label %401
+  br i1 %exitcond444.not, label %398, label %401, !prof !5
 
 398:                                              ; preds = %.check
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %7, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3dfc7285fed8fa297aed43441a3d1c46.116) #27
@@ -8558,7 +8558,7 @@ define hidden void @_ZN6brotli3enc7cluster23BrotliClusterHistograms17h6183d16ff4
 .check368:                                        ; preds = %.lr.ph362.split.us.split.preheader
   store float %88, ptr %.sroa.5.0..sroa_idx.us, align 8, !alias.scope !1015
   %exitcond442.not = icmp eq i64 %.176361.us, %10
-  br i1 %exitcond442.not, label %.invoke558, label %89
+  br i1 %exitcond442.not, label %.invoke558, label %89, !prof !5
 
 89:                                               ; preds = %.check368
   %90 = getelementptr inbounds i32, ptr %9, i64 %.176361.us
@@ -8807,7 +8807,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit73.us.i:
 
 .check.i:                                         ; preds = %.lr.ph125.split.preheader.i
   %exitcond195.not.i = icmp eq i64 %.241124.i, %2
-  br i1 %exitcond195.not.i, label %.split113.us.i.invoke, label %160
+  br i1 %exitcond195.not.i, label %.split113.us.i.invoke, label %160, !prof !5
 
 160:                                              ; preds = %.check.i
   %161 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %6, i64 %158
@@ -9218,7 +9218,7 @@ _ZN6brotli3enc7cluster20BrotliHistogramRemap17h3f935c72a8f22aa8E.exit: ; preds =
 
 .check.i155:                                      ; preds = %.lr.ph103.split.i
   %exitcond136.not.i = icmp eq i64 %.3102.i, %7
-  br i1 %exitcond136.not.i, label %300, label %303
+  br i1 %exitcond136.not.i, label %300, label %303, !prof !5
 
 300:                                              ; preds = %.check.i155
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %7, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3dfc7285fed8fa297aed43441a3d1c46.95) #27
@@ -9486,7 +9486,7 @@ _ZN6brotli3enc7cluster22BrotliHistogramReindex17h6fa0f962a14fe26dE.exit: ; preds
 .check:                                           ; preds = %.lr.ph362, %410
   %.176361 = phi i64 [ %413, %410 ], [ 0, %.lr.ph362 ]
   %exitcond444.not = icmp eq i64 %.176361, %7
-  br i1 %exitcond444.not, label %398, label %401
+  br i1 %exitcond444.not, label %398, label %401, !prof !5
 
 398:                                              ; preds = %.check
   invoke void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %7, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3dfc7285fed8fa297aed43441a3d1c46.116) #27

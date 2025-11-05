@@ -1869,7 +1869,7 @@ _ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i: ; preds = %.lr
   %107 = getelementptr inbounds nuw i64, ptr %5, i64 %105
   %108 = load i64, ptr %107, align 8, !tbaa !59, !noalias !126
   %109 = icmp ugt i64 %.fr141, %105
-  br i1 %109, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit4.i.i, label %110
+  br i1 %109, label %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit4.i.i, label %110, !prof !58
 
 110:                                              ; preds = %_ZNK7xgboost6common4SpanIKlLm18446744073709551615EEixEm.exit.i.i
   call void @_ZSt9terminatev() #30, !noalias !126

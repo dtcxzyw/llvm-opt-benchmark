@@ -4418,7 +4418,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %1144 = getelementptr inbounds float, ptr %339, i64 %.0116386.i.i
   %1145 = load float, ptr %1144, align 4, !alias.scope !747, !noalias !755, !noundef !4
   %exitcond491.not.i.i = icmp eq i64 %.0116386.i.i, %236
-  br i1 %exitcond491.not.i.i, label %.invoke1425.i, label %1146
+  br i1 %exitcond491.not.i.i, label %.invoke1425.i, label %1146, !prof !553
 
 1146:                                             ; preds = %.check388.i.i
   %gep.i.i = getelementptr { [256 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.i.i, i64 %.0116386.i.i
@@ -4457,7 +4457,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 .check.i.i:                                       ; preds = %1164, %1161
   %.0112.i.i = phi float [ %1166, %1164 ], [ %1163, %1161 ]
   %exitcond485.not.i.i = icmp eq i64 %.1114384.i.i, %341
-  br i1 %exitcond485.not.i.i, label %.invoke1425.i, label %1167
+  br i1 %exitcond485.not.i.i, label %.invoke1425.i, label %1167, !prof !553
 
 1164:                                             ; preds = %.preheader345.split.preheader.i.i
   %1165 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %1159
@@ -4586,7 +4586,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.split.prehead
 
 .check.i213.i:                                    ; preds = %_ZN6brotli3enc9histogram15ClearHistograms17h48799de36060ce1eE.exit.split.preheader.i.i
   %exitcond35.not.i.i = icmp eq i64 %.016.i.i, %204
-  br i1 %exitcond35.not.i.i, label %.invoke1425.i, label %1211
+  br i1 %exitcond35.not.i.i, label %.invoke1425.i, label %1211, !prof !553
 
 1211:                                             ; preds = %.check.i213.i
   %1212 = getelementptr inbounds nuw { [256 x i32], i64, float, [1 x i32] }, ptr %234, i64 %1209
@@ -7665,7 +7665,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %2246 = getelementptr inbounds float, ptr %1432, i64 %.0116386.i.i402
   %2247 = load float, ptr %2246, align 4, !alias.scope !1479, !noalias !1487, !noundef !4
   %exitcond492.not.i.i = icmp eq i64 %.0116386.i.i402, %1322
-  br i1 %exitcond492.not.i.i, label %.invoke1524.i, label %2248
+  br i1 %exitcond492.not.i.i, label %.invoke1524.i, label %2248, !prof !553
 
 2248:                                             ; preds = %.check388.i.i401
   %gep.i.i403 = getelementptr { [704 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.i.i400, i64 %.0116386.i.i402
@@ -7704,7 +7704,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 .check.i.i409:                                    ; preds = %2266, %2263
   %.0112.i.i410 = phi float [ %2268, %2266 ], [ %2265, %2263 ]
   %exitcond486.not.i.i = icmp eq i64 %.1114384.i.i408, %1434
-  br i1 %exitcond486.not.i.i, label %.invoke1524.i, label %2269
+  br i1 %exitcond486.not.i.i, label %.invoke1524.i, label %2269, !prof !553
 
 2266:                                             ; preds = %.preheader345.split.preheader.i.i407
   %2267 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %2261
@@ -7837,7 +7837,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.split.prehead
 
 .check.i215.i:                                    ; preds = %_ZN6brotli3enc9histogram15ClearHistograms17h18f74c1506e2979aE.exit.split.preheader.i.i
   %exitcond50.not.i.i = icmp eq i64 %.019.i.i, %1292
-  br i1 %exitcond50.not.i.i, label %.invoke1524.i, label %2314
+  br i1 %exitcond50.not.i.i, label %.invoke1524.i, label %2314, !prof !553
 
 2314:                                             ; preds = %.check.i215.i
   %2315 = getelementptr inbounds i16, ptr %1290, i64 %.019.i.i
@@ -10926,7 +10926,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
   %3351 = getelementptr inbounds float, ptr %2537, i64 %.0116386.i.i1026
   %3352 = load float, ptr %3351, align 4, !alias.scope !2210, !noalias !2218, !noundef !4
   %exitcond492.not.i.i1027 = icmp eq i64 %.0116386.i.i1026, %2427
-  br i1 %exitcond492.not.i.i1027, label %.invoke1524.i552, label %3353
+  br i1 %exitcond492.not.i.i1027, label %.invoke1524.i552, label %3353, !prof !553
 
 3353:                                             ; preds = %.check388.i.i1025
   %gep.i.i1028 = getelementptr { [544 x i32], i64, float, [1 x i32] }, ptr %invariant.gep.i.i1024, i64 %.0116386.i.i1026
@@ -10965,7 +10965,7 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 .check.i.i1036:                                   ; preds = %3371, %3368
   %.0112.i.i1037 = phi float [ %3373, %3371 ], [ %3370, %3368 ]
   %exitcond486.not.i.i1038 = icmp eq i64 %.1114384.i.i1035, %2539
-  br i1 %exitcond486.not.i.i1038, label %.invoke1524.i552, label %3374
+  br i1 %exitcond486.not.i.i1038, label %.invoke1524.i552, label %3374, !prof !553
 
 3371:                                             ; preds = %.preheader345.split.preheader.i.i1034
   %3372 = getelementptr inbounds nuw float, ptr @_ZN6brotli3enc4util10kLog2Table17h3d7a587af6dc9265E, i64 %3366
@@ -11098,7 +11098,7 @@ _ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.split.prehead
 
 .check.i215.i1009:                                ; preds = %_ZN6brotli3enc9histogram15ClearHistograms17ha69f88845c5332a9E.exit.split.preheader.i.i
   %exitcond50.not.i.i1010 = icmp eq i64 %.019.i.i1008, %2398
-  br i1 %exitcond50.not.i.i1010, label %.invoke1524.i552, label %3419
+  br i1 %exitcond50.not.i.i1010, label %.invoke1524.i552, label %3419, !prof !553
 
 3419:                                             ; preds = %.check.i215.i1009
   %3420 = getelementptr inbounds i16, ptr %2396, i64 %.019.i.i1008

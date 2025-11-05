@@ -607,7 +607,7 @@ _ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit: ; preds = %.lr.ph, 
   %40 = getelementptr inbounds nuw i32, ptr %3, i64 %.028
   store i32 %.025, ptr %40, align 4, !tbaa !33
   %exitcond32.not = icmp eq i64 %.028, %.fr29
-  br i1 %exitcond32.not, label %41, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14
+  br i1 %exitcond32.not, label %41, label %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit14, !prof !44
 
 41:                                               ; preds = %_ZNK7xgboost6common4SpanIiLm18446744073709551615EEixEm.exit
   tail call void @_ZSt9terminatev() #29

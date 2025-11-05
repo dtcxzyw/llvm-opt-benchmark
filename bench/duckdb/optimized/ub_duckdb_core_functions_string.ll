@@ -62994,7 +62994,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i68.i.i.i: ; 
 
 .check.i.i.i:                                     ; preds = %128
   %exitcond177.not.i.i.i = icmp eq i64 %.0133.i.i.i, %70
-  br i1 %exitcond177.not.i.i.i, label %.noexc.i113.i.i.i, label %157
+  br i1 %exitcond177.not.i.i.i, label %.noexc.i113.i.i.i, label %157, !prof !67
 
 .noexc.i113.i.i.i:                                ; preds = %.check.i.i.i
   %143 = call ptr @__cxa_allocate_exception(i64 16) #30

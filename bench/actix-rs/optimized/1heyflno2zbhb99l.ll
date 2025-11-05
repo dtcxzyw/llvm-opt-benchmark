@@ -5907,7 +5907,7 @@ _ZN6brotli3enc9histogram14HistogramClear17h695bc8ec3a0f6f4dE.llvm.10144161557925
   %.0 = select i1 %93, float %92, float %90
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %exitcond294.not = icmp eq i64 %.0102136, 26
-  br i1 %exitcond294.not, label %98, label %94
+  br i1 %exitcond294.not, label %98, label %94, !prof !34
 
 .split143.us:                                     ; preds = %.lr.ph138.split.us
   call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %3, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3805415b65ff0bcf60b60eb7923a431b.127) #25
@@ -6176,7 +6176,7 @@ common.resume:                                    ; preds = %.loopexit, %"_ZN63_
   %.sroa.532.0..sroa_idx = getelementptr inbounds nuw i8, ptr %205, i64 1032
   store float %202, ptr %.sroa.532.0..sroa_idx, align 8
   %exitcond281.not = icmp eq i64 %.194, 26
-  br i1 %exitcond281.not, label %.split104.us.invoke, label %209
+  br i1 %exitcond281.not, label %.split104.us.invoke, label %209, !prof !34
 
 .split104.us.invoke:                              ; preds = %421, %384, %218, %213, %.check99, %.lr.ph96.split.preheader, %176, %171, %158, %296, %.check119, %288, %285, %261, %254, %251
   %206 = phi i64 [ %252, %251 ], [ 26, %254 ], [ %267, %261 ], [ %286, %285 ], [ 26, %288 ], [ %283, %.check119 ], [ %302, %296 ], [ %159, %158 ], [ %172, %171 ], [ %177, %176 ], [ %198, %.lr.ph96.split.preheader ], [ 26, %.check99 ], [ %214, %213 ], [ %219, %218 ], [ %381, %384 ], [ %418, %421 ]
@@ -6367,7 +6367,7 @@ common.resume:                                    ; preds = %.loopexit, %"_ZN63_
 
 .check119:                                        ; preds = %288
   %295 = icmp ult i64 %283, 26
-  br i1 %295, label %296, label %.split104.us.invoke
+  br i1 %295, label %296, label %.split104.us.invoke, !prof !228
 
 296:                                              ; preds = %.check119
   %297 = getelementptr inbounds nuw float, ptr %244, i64 %.2114
@@ -6665,7 +6665,7 @@ _ZN6brotli3enc9histogram21HistogramAddHistogram17h2fef2fafbac5f753E.exit: ; pred
   %438 = load i64, ptr %11, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %439 = icmp ult i64 %415, 26
-  br i1 %439, label %440, label %.invoke
+  br i1 %439, label %440, label %.invoke, !prof !228
 
 440:                                              ; preds = %.check
   %441 = uitofp i64 %438 to float

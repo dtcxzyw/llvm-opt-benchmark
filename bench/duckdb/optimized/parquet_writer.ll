@@ -7461,7 +7461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i353: ; preds
   %811 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.sroa.0702.1.lcssa2235, i64 %.0751259
   %812 = load ptr, ptr %811, align 8, !tbaa !313
   %exitcond2059.not = icmp eq i64 %.0751259, %318
-  br i1 %exitcond2059.not, label %.noexc.i636, label %827
+  br i1 %exitcond2059.not, label %.noexc.i636, label %827, !prof !43
 
 .noexc.i636:                                      ; preds = %.check
   %813 = call ptr @__cxa_allocate_exception(i64 16) #27
@@ -7962,7 +7962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i428: ; preds
   %959 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.sroa.0702.1.lcssa2235, i64 %.0741282
   %960 = load ptr, ptr %959, align 8, !tbaa !313
   %exitcond2067.not = icmp eq i64 %.0741282, %318
-  br i1 %exitcond2067.not, label %.noexc.i652, label %975
+  br i1 %exitcond2067.not, label %.noexc.i652, label %975, !prof !43
 
 .noexc.i652:                                      ; preds = %.check1286
   %961 = call ptr @__cxa_allocate_exception(i64 16) #27
@@ -8506,7 +8506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i496: ; preds
   %1131 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %.sroa.0702.1.lcssa2235, i64 %.0711304
   %1132 = load ptr, ptr %1131, align 8, !tbaa !313
   %exitcond2075.not = icmp eq i64 %.0711304, %318
-  br i1 %exitcond2075.not, label %.noexc.i664, label %1147
+  br i1 %exitcond2075.not, label %.noexc.i664, label %1147, !prof !43
 
 .noexc.i664:                                      ; preds = %.check1308
   %1133 = call ptr @__cxa_allocate_exception(i64 16) #27

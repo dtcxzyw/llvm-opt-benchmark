@@ -19201,7 +19201,7 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit.i.us: ; preds = %"_ZN91_$LT$
 
 .check:                                           ; preds = %343, %318
   %321 = icmp ugt i64 %.fr, %313
-  br i1 %321, label %322, label %.split482.us.invoke
+  br i1 %321, label %322, label %.split482.us.invoke, !prof !97
 
 322:                                              ; preds = %.check
   %323 = getelementptr inbounds nuw { i32, i32 }, ptr %147, i64 %313

@@ -223,7 +223,7 @@ define range(i8 -1, 2) i8 @"_ZN48_$LT$A$u20$as$u20$core..slice..cmp..SliceOrd$GT
 
 .check:                                           ; preds = %20
   %26 = icmp ult i64 %.sroa.0.0, %11
-  br i1 %26, label %27, label %32
+  br i1 %26, label %27, label %32, !prof !5
 
 .split22.us:                                      ; preds = %12, %20
   %.us-phi = phi i64 [ %.sroa.0.0, %20 ], [ %.sroa.0.0.us, %12 ]
