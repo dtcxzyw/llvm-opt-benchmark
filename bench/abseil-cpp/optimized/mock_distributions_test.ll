@@ -71780,8 +71780,8 @@ _ZN4absl13MockingBitGenD2Ev.exit:                 ; preds = %673, %_ZNKSt14defau
   br label %common.resume
 }
 
-; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4absl15random_internal18MockSingleOverloadINS0_26UniformDistributionWrapperIdEENS0_28UniformDistributionValidatorIdEEFdNS_19IntervalOpenOpenTagERNS_13MockingBitGenEddEE10gmock_CallIS7_EEDTcldtclsr11MockHelpersE7MockForIFdS3_St5tupleIJS6_ddEEEEfp0_cvS5__EE10gmock_Callfp_fp1_fp2_EERKN7testing7MatcherIS6_EERT_RKNSH_IdEESP_(ptr dead_on_unwind noalias writable sret(%"class.testing::internal::MockSpec.626") align 8 %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(320) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

@@ -12860,8 +12860,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %100
   resume { ptr, i32 } %.pn23.pn
 }
 
-; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116TestHalfwayValueIdEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiT_S9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef range(i32 -324, 309) %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -14040,8 +14040,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %100
   resume { ptr, i32 } %.pn23.pn
 }
 
-; Function Attrs: nounwind
-declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116TestHalfwayValueIfEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiT_S9_S9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef range(i32 -46, 39) %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #3 personality ptr @__gxx_personality_v0 {

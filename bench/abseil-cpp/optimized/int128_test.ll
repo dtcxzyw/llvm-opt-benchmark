@@ -115543,8 +115543,8 @@ _ZN7testing8internal7PrintToEfPSo.exit:           ; preds = %34, %51, %58
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #16
 
-; Function Attrs: nounwind
-declare float @nexttowardf(float noundef, x86_fp80 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare float @nexttowardf(float noundef, x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_151Int128FloatConversionTest_ConstructAndCastTest_TestIdEEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #11 align 2 {
@@ -118569,8 +118569,8 @@ _ZN7testing15AssertionResultD2Ev.exit650:         ; preds = %979, %_ZNKSt14defau
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #21
 
-; Function Attrs: nounwind
-declare double @nexttoward(double noundef, x86_fp80 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nexttoward(double noundef, x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIddEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -122108,8 +122108,8 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIeEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), x86_fp80 noundef) local_unnamed_addr #0
 
-; Function Attrs: nounwind
-declare x86_fp80 @nexttowardl(x86_fp80 noundef, x86_fp80 noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare x86_fp80 @nexttowardl(x86_fp80 noundef, x86_fp80 noundef) local_unnamed_addr #21
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_int128_test.cc() #22 section ".text.startup" personality ptr @__gxx_personality_v0 {

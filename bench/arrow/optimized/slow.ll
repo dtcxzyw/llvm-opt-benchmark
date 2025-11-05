@@ -1998,7 +1998,6 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
 
 31:                                               ; preds = %select.unfold.i.i21
   %32 = tail call double @llvm.fmuladd.f64(double %.016.i.i, double 2.000000e+00, double -1.000000e+00)
-  store i64 %37, ptr %1, align 8, !tbaa !21
   %33 = fdiv double %40, %43
   %34 = fcmp ult double %33, 1.000000e+00
   br i1 %34, label %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27, label %45, !prof !87
@@ -2035,6 +2034,7 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
   br i1 %52, label %select.unfold.i.i.backedge, label %53
 
 53:                                               ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
+  store i64 %37, ptr %1, align 8, !tbaa !21
   %54 = tail call double @llvm.log.f64(double %49), !tbaa !11
   %55 = fmul double %54, -2.000000e+00
   %56 = fdiv double %55, %49
@@ -2061,8 +2061,8 @@ declare double @llvm.fmuladd.f64(double, double, double) #19
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #20
 
-; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #7
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7

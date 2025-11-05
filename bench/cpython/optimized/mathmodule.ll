@@ -9212,8 +9212,8 @@ _Py_NewRef.exit:                                  ; preds = %69, %66, %64, %63, 
 
 declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #9
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @math_exec(ptr noundef %0) #0 {

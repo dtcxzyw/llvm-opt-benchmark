@@ -29,7 +29,7 @@ define double @missing_nextafter(double noundef %0, double noundef %1) local_unn
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %8
-  %11 = tail call double @ldexp(double noundef 5.000000e-01, i32 noundef -1073) #8, !tbaa !6
+  %11 = tail call double @ldexp(double noundef 5.000000e-01, i32 noundef -1073) #7, !tbaa !6
   %12 = fcmp oeq double %11, 0.000000e+00
   %.041 = select i1 %12, double 0x10000000000000, double %11
   %13 = fcmp ogt double %1, 0.000000e+00
@@ -44,7 +44,7 @@ define double @missing_nextafter(double noundef %0, double noundef %1) local_unn
   br i1 %17, label %18, label %24
 
 18:                                               ; preds = %16
-  %19 = tail call double @llvm.fabs.f64(double %0) #9
+  %19 = tail call double @llvm.fabs.f64(double %0) #8
   %20 = fcmp oeq double %19, 0x7FF0000000000000
   br i1 %20, label %55, label %21
 
@@ -65,7 +65,7 @@ define double @missing_nextafter(double noundef %0, double noundef %1) local_unn
   br i1 %or.cond53, label %55, label %29
 
 29:                                               ; preds = %26, %21
-  %30 = call double @frexp(double noundef %0, ptr noundef nonnull %3) #8
+  %30 = call double @frexp(double noundef %0, ptr noundef nonnull %3) #7
   %31 = fcmp olt double %0, %1
   br i1 %31, label %32, label %37
 
@@ -101,7 +101,7 @@ thread-pre-split:                                 ; preds = %32, %37
 
 45:                                               ; preds = %42
   %46 = sub nuw nsw i32 -1021, %43
-  %47 = tail call double @ldexp(double noundef %.0, i32 noundef %46) #8, !tbaa !6
+  %47 = tail call double @ldexp(double noundef %.0, i32 noundef %46) #7, !tbaa !6
   br label %48
 
 48:                                               ; preds = %45, %42
@@ -116,7 +116,7 @@ thread-pre-split:                                 ; preds = %32, %37
   br label %55
 
 53:                                               ; preds = %48
-  %54 = tail call double @ldexp(double noundef %49, i32 noundef %43) #8, !tbaa !6
+  %54 = tail call double @ldexp(double noundef %49, i32 noundef %43) #7, !tbaa !6
   br label %55
 
 55:                                               ; preds = %51, %26, %24, %21, %18, %10, %5, %2, %53, %14
@@ -136,8 +136,8 @@ declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @Init_nextafter(i64 noundef %0) local_unnamed_addr #0 {
-  tail call void @rb_define_singleton_method(i64 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @system_nextafter_m, i32 noundef 2) #8
-  tail call void @rb_define_singleton_method(i64 noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @missing_nextafter_m, i32 noundef 2) #8
+  tail call void @rb_define_singleton_method(i64 noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @system_nextafter_m, i32 noundef 2) #7
+  tail call void @rb_define_singleton_method(i64 noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull @missing_nextafter_m, i32 noundef 2) #7
   ret void
 }
 
@@ -145,34 +145,34 @@ declare extern_weak void @rb_define_singleton_method(i64 noundef, ptr noundef, p
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @system_nextafter_m(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = tail call double @rb_num2dbl(i64 noundef %1) #8
-  %5 = tail call double @rb_num2dbl(i64 noundef %2) #8
-  %6 = tail call double @nextafter(double noundef %4, double noundef %5) #8, !tbaa !6
-  %7 = tail call i64 @rb_float_new(double noundef %6) #8
+  %4 = tail call double @rb_num2dbl(i64 noundef %1) #7
+  %5 = tail call double @rb_num2dbl(i64 noundef %2) #7
+  %6 = tail call double @nextafter(double noundef %4, double noundef %5) #7, !tbaa !6
+  %7 = tail call i64 @rb_float_new(double noundef %6) #7
   ret i64 %7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i64 @missing_nextafter_m(i64 %0, i64 noundef %1, i64 noundef %2) #0 {
-  %4 = tail call double @rb_num2dbl(i64 noundef %1) #8
-  %5 = tail call double @rb_num2dbl(i64 noundef %2) #8
+  %4 = tail call double @rb_num2dbl(i64 noundef %1) #7
+  %5 = tail call double @rb_num2dbl(i64 noundef %2) #7
   %6 = tail call double @missing_nextafter(double noundef %4, double noundef %5)
-  %7 = tail call i64 @rb_float_new(double noundef %6) #8
+  %7 = tail call i64 @rb_float_new(double noundef %6) #7
   ret i64 %7
 }
 
 declare double @rb_num2dbl(i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #6
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #2
 
 declare i64 @rb_float_new(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nounwind sspstrong willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -180,10 +180,9 @@ attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(errn
 attributes #3 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind }
-attributes #9 = { memory(none) }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind }
+attributes #8 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

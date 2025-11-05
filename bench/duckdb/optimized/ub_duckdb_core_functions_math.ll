@@ -33733,8 +33733,8 @@ declare void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonn
 
 declare void @_ZN6duckdb14ConstantVector7SetNullERNS_6VectorEb(ptr noundef nonnull align 8 dereferenceable(104), i1 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb21TemplatedValidityMaskImE4CopyERKS1_m(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -34004,7 +34004,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   %22 = tail call noundef double @nextafter(double noundef %21, double noundef %17) #25, !tbaa !37
   %23 = getelementptr inbounds nuw double, ptr %2, i64 %.168
   store double %22, ptr %23, align 8, !tbaa !375
-  %24 = add i64 %.168, 1
+  %24 = add nuw i64 %.168, 1
   %exitcond.not = icmp eq i64 %24, %15
   br i1 %exitcond.not, label %.loopexit64, label %19, !llvm.loop !451
 
@@ -34026,7 +34026,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   br label %34
 
 34:                                               ; preds = %.lr.ph70, %28
-  %35 = add i64 %.469, 1
+  %35 = add nuw i64 %.469, 1
   %exitcond81.not = icmp eq i64 %35, %15
   br i1 %exitcond81.not, label %.loopexit64, label %.lr.ph70, !llvm.loop !452
 
@@ -34255,7 +34255,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIdddNS_29BinaryStandardOperatorWrapperENS_17NextAfterOperatorEbLb1ELb0EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 {
@@ -34308,7 +34308,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   %22 = tail call noundef double @nextafter(double noundef %17, double noundef %21) #25, !tbaa !37
   %23 = getelementptr inbounds nuw double, ptr %2, i64 %.168
   store double %22, ptr %23, align 8, !tbaa !375
-  %24 = add i64 %.168, 1
+  %24 = add nuw i64 %.168, 1
   %exitcond.not = icmp eq i64 %24, %15
   br i1 %exitcond.not, label %.loopexit64, label %19, !llvm.loop !457
 
@@ -34330,7 +34330,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   br label %34
 
 34:                                               ; preds = %.lr.ph70, %28
-  %35 = add i64 %.469, 1
+  %35 = add nuw i64 %.469, 1
   %exitcond81.not = icmp eq i64 %35, %15
   br i1 %exitcond81.not, label %.loopexit64, label %.lr.ph70, !llvm.loop !458
 
@@ -34402,7 +34402,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.
   %21 = tail call noundef double @nextafter(double noundef %18, double noundef %20) #25, !tbaa !37
   %22 = getelementptr inbounds nuw double, ptr %2, i64 %.177
   store double %21, ptr %22, align 8, !tbaa !375
-  %23 = add i64 %.177, 1
+  %23 = add nuw i64 %.177, 1
   %exitcond.not = icmp eq i64 %23, %14
   br i1 %exitcond.not, label %.loopexit73, label %.lr.ph, !llvm.loop !461
 
@@ -34425,7 +34425,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.
   br label %34
 
 34:                                               ; preds = %.lr.ph79, %27
-  %35 = add i64 %.478, 1
+  %35 = add nuw i64 %.478, 1
   %exitcond90.not = icmp eq i64 %35, %14
   br i1 %exitcond90.not, label %.loopexit73, label %.lr.ph79, !llvm.loop !462
 
@@ -35722,8 +35722,8 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit24:       ; preds = %_ZN6duckdb15Selecti
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: nounwind
-declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #2
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfffNS_29BinaryStandardOperatorWrapperENS_17NextAfterOperatorEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 {
@@ -35776,7 +35776,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   %22 = tail call noundef float @nextafterf(float noundef %21, float noundef %17) #25, !tbaa !37
   %23 = getelementptr inbounds nuw float, ptr %2, i64 %.168
   store float %22, ptr %23, align 4, !tbaa !473
-  %24 = add i64 %.168, 1
+  %24 = add nuw i64 %.168, 1
   %exitcond.not = icmp eq i64 %24, %15
   br i1 %exitcond.not, label %.loopexit64, label %19, !llvm.loop !475
 
@@ -35798,7 +35798,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   br label %34
 
 34:                                               ; preds = %.lr.ph70, %28
-  %35 = add i64 %.469, 1
+  %35 = add nuw i64 %.469, 1
   %exitcond81.not = icmp eq i64 %35, %15
   br i1 %exitcond81.not, label %.loopexit64, label %.lr.ph70, !llvm.loop !476
 
@@ -35874,7 +35874,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   %22 = tail call noundef float @nextafterf(float noundef %17, float noundef %21) #25, !tbaa !37
   %23 = getelementptr inbounds nuw float, ptr %2, i64 %.168
   store float %22, ptr %23, align 4, !tbaa !473
-  %24 = add i64 %.168, 1
+  %24 = add nuw i64 %.168, 1
   %exitcond.not = icmp eq i64 %24, %15
   br i1 %exitcond.not, label %.loopexit64, label %19, !llvm.loop !479
 
@@ -35896,7 +35896,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %9, %.
   br label %34
 
 34:                                               ; preds = %.lr.ph70, %28
-  %35 = add i64 %.469, 1
+  %35 = add nuw i64 %.469, 1
   %exitcond81.not = icmp eq i64 %35, %15
   br i1 %exitcond81.not, label %.loopexit64, label %.lr.ph70, !llvm.loop !480
 
@@ -35966,7 +35966,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.
   %21 = tail call noundef float @nextafterf(float noundef %18, float noundef %20) #25, !tbaa !37
   %22 = getelementptr inbounds nuw float, ptr %2, i64 %.177
   store float %21, ptr %22, align 4, !tbaa !473
-  %23 = add i64 %.177, 1
+  %23 = add nuw i64 %.177, 1
   %exitcond.not = icmp eq i64 %23, %14
   br i1 %exitcond.not, label %.loopexit73, label %.lr.ph, !llvm.loop !483
 
@@ -35989,7 +35989,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %8, %.
   br label %34
 
 34:                                               ; preds = %.lr.ph79, %27
-  %35 = add i64 %.478, 1
+  %35 = add nuw i64 %.478, 1
   %exitcond90.not = icmp eq i64 %35, %14
   br i1 %exitcond90.not, label %.loopexit73, label %.lr.ph79, !llvm.loop !484
 
@@ -43734,7 +43734,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #16
+declare float @llvm.fabs.f32(float) #17
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_11AbsOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -44372,7 +44372,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #16
+declare double @llvm.fabs.f64(double) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14ScalarFunction13UnaryFunctionIaaNS_14TryAbsOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) #0 comdat align 2 {
@@ -67944,7 +67944,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #16
+declare float @llvm.ceil.f32(float) #17
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_12CeilOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -68566,7 +68566,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #16
+declare double @llvm.ceil.f64(double) #17
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_19CeilDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) #0 {
@@ -72379,7 +72379,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.floor.f32(float) #16
+declare float @llvm.floor.f32(float) #17
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_13FloorOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -73001,7 +73001,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.floor.f64(double) #16
+declare double @llvm.floor.f64(double) #17
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20FloorDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) #0 {
@@ -76656,7 +76656,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.trunc.f32(float) #16
+declare float @llvm.trunc.f32(float) #17
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_13TruncOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -77278,7 +77278,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.trunc.f64(double) #16
+declare double @llvm.trunc.f64(double) #17
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN6duckdbL27GenericRoundFunctionDecimalIsNS_13NumericHelperENS_20TruncDecimalOperatorEEEvRNS_9DataChunkERNS_15ExpressionStateERNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) #0 {
@@ -81272,7 +81272,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %57
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.round.f64(double) #16
+declare double @llvm.round.f64(double) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchIfifNS_29BinaryStandardOperatorWrapperENS_22RoundOperatorPrecisionEbEEvRNS_6VectorES5_S5_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
@@ -82036,7 +82036,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit24:       ; preds = %_ZN6duckdb15Selecti
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #17
+declare double @pow(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor15ExecuteFlatLoopIfifNS_29BinaryStandardOperatorWrapperENS_22RoundOperatorPrecisionEbLb0ELb1EEEvPKT_PKT0_PT1_mRNS_12ValidityMaskET4_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i1 noundef zeroext %5) local_unnamed_addr #0 comdat align 2 {
@@ -88570,7 +88570,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @exp(double noundef) local_unnamed_addr #17
+declare double @exp(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchIdddNS_29BinaryStandardOperatorWrapperENS_11PowOperatorEbEEvRNS_6VectorES5_S5_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
@@ -90745,7 +90745,7 @@ _ZN6duckdb20UnaryOperatorWrapper9OperationINS_12SqrtOperatorEddEET1_T0_RNS_12Val
 declare void @_ZN6duckdb19OutOfRangeExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sqrt(double noundef) local_unnamed_addr #17
+declare double @sqrt(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_12CbRtOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -107036,7 +107036,7 @@ _ZN6duckdb20ExceptionFormatValueD2Ev.exit7:       ; preds = %31, %_ZNKSt7__cxx11
 declare void @_ZN6duckdb20ExceptionFormatValue17CreateFormatValueIdEES0_T_(ptr dead_on_unwind writable sret(%"struct.duckdb::ExceptionFormatValue") align 8, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sin(double noundef) local_unnamed_addr #17
+declare double @sin(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_23NoInfiniteDoubleWrapperINS_11CosOperatorEEEEEvRNS_6VectorES7_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -107857,7 +107857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cos(double noundef) local_unnamed_addr #17
+declare double @cos(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_23NoInfiniteDoubleWrapperINS_11TanOperatorEEEEEvRNS_6VectorES7_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -108678,7 +108678,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tan(double noundef) local_unnamed_addr #17
+declare double @tan(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_23NoInfiniteDoubleWrapperINS_12ASinOperatorEEEEEvRNS_6VectorES7_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -109429,7 +109429,7 @@ declare void @_ZN6duckdb21InvalidInputExceptionC1ERKNSt7__cxx1112basic_stringIcS
 declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @asin(double noundef) local_unnamed_addr #17
+declare double @asin(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_12ATanOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -110067,7 +110067,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan(double noundef) local_unnamed_addr #17
+declare double @atan(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor13ExecuteSwitchIdddNS_29BinaryStandardOperatorWrapperENS_5ATan2EbEEvRNS_6VectorES5_S5_mT4_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 comdat align 2 {
@@ -111064,7 +111064,7 @@ _ZN6duckdb19UnifiedVectorFormatD2Ev.exit24:       ; preds = %_ZN6duckdb15Selecti
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #17
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb14BinaryExecutor18ExecuteGenericLoopIdddNS_29BinaryStandardOperatorWrapperENS_5ATan2EbEEvPKT_PKT0_PT1_PKNS_15SelectionVectorESE_mRNS_12ValidityMaskESG_SG_T4_(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, ptr noalias noundef %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, i1 noundef zeroext %9) local_unnamed_addr #0 comdat align 2 {
@@ -112004,7 +112004,7 @@ _ZN6duckdb4ACos9OperationIddEET0_T_.exit:         ; preds = %19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acos(double noundef) local_unnamed_addr #17
+declare double @acos(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_12CoshOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -112642,7 +112642,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @cosh(double noundef) local_unnamed_addr #17
+declare double @cosh(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_13AcoshOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -113280,7 +113280,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @acosh(double noundef) local_unnamed_addr #17
+declare double @acosh(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_12SinhOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -113918,7 +113918,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @sinh(double noundef) local_unnamed_addr #17
+declare double @sinh(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_13AsinhOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -114556,7 +114556,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @asinh(double noundef) local_unnamed_addr #17
+declare double @asinh(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_12TanhOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -115194,7 +115194,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %.lr.ph37, %_ZNK6duc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tanh(double noundef) local_unnamed_addr #17
+declare double @tanh(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_13AtanhOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -116247,7 +116247,7 @@ _ZN6duckdb20UnaryOperatorWrapper9OperationINS_13AtanhOperatorEddEET1_T0_RNS_12Va
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @atanh(double noundef) local_unnamed_addr #17
+declare double @atanh(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_29NoInfiniteNoZeroDoubleWrapperINS_11CotOperatorEEEEEvRNS_6VectorES7_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -117972,7 +117972,7 @@ _ZN6duckdb20UnaryOperatorWrapper9OperationINS_13GammaOperatorEddEET1_T0_RNS_12Va
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
-declare double @tgamma(double noundef) local_unnamed_addr #17
+declare double @tgamma(double noundef) local_unnamed_addr #15
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_16LogGammaOperatorEEEvRNS_6VectorES5_mPvbNS_14FunctionErrorsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -126419,9 +126419,9 @@ attributes #11 = { cold nofree noreturn }
 attributes #12 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { mustprogress nocallback nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }

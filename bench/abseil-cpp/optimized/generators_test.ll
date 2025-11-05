@@ -116,12 +116,6 @@ $_ZN7testing8internal16SuiteApiResolverINS_4TestEE22GetTearDownCaseOrSuiteEPKci 
 
 $_ZN7testing4Test5SetupEv = comdat any
 
-$_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_ = comdat any
-
-$_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_ = comdat any
-
-$_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_ = comdat any
-
 $_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_ = comdat any
 
 $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv = comdat any
@@ -654,11 +648,11 @@ define internal void @_ZN12_GLOBAL__N_133std_mt19937_64_Compatibility_Test8TestB
   br label %49
 
 49:                                               ; preds = %49, %1
-  %store_forwarded68 = phi i64 [ 5489, %1 ], [ %54, %49 ]
+  %store_forwarded94 = phi i64 [ 5489, %1 ], [ %54, %49 ]
   %.011.i.i.i.i = phi i64 [ 1, %1 ], [ %55, %49 ]
   %50 = getelementptr i64, ptr %48, i64 %.011.i.i.i.i
-  %51 = lshr i64 %store_forwarded68, 62
-  %52 = xor i64 %51, %store_forwarded68
+  %51 = lshr i64 %store_forwarded94, 62
+  %52 = xor i64 %51, %store_forwarded94
   %53 = mul i64 %52, 6364136223846793005
   %54 = add i64 %53, %.011.i.i.i.i
   store i64 %54, ptr %50, align 8, !tbaa !20
@@ -720,8 +714,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %81 = lshr i64 %80, 11
   %82 = and i64 %81, 4503599627370495
   %83 = shl nuw nsw i64 %79, 52
-  %reass.sub19 = sub nsw i64 %82, %83
-  %84 = add nsw i64 %reass.sub19, 4602678819172646912
+  %reass.sub26 = sub nsw i64 %82, %83
+  %84 = add nsw i64 %reass.sub26, 4602678819172646912
   %85 = bitcast i64 %84 to double
   %86 = fcmp uge double %85, 1.000000e+00
   br i1 %86, label %.split.i.i.i43.i.i, label %.split.i.i.i46.i.i.preheader
@@ -740,8 +734,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %91 = lshr i64 %90, 11
   %92 = and i64 %91, 4503599627370495
   %93 = shl nuw nsw i64 %89, 52
-  %reass.sub20 = sub nsw i64 %92, %93
-  %94 = add nsw i64 %reass.sub20, 4602678819172646912
+  %reass.sub27 = sub nsw i64 %92, %93
+  %94 = add nsw i64 %reass.sub27, 4602678819172646912
   %95 = bitcast i64 %94 to double
   %96 = fcmp uge double %95, 1.000000e+00
   br i1 %96, label %.split.i.i.i46.i.i, label %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
@@ -766,1041 +760,1299 @@ _ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109
   br i1 %107, label %.lr.ph.i.i.i.i.i.i52.i.i, label %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i, !llvm.loop !26
 
 _ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i52.i.i, %102, %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
-  %108 = call noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  %109 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i = mul i64 %109, 5
-  %110 = icmp ult i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, 5
-  br i1 %110, label %111, label %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i, !prof !25
+  %108 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
+  %109 = fcmp ole double %108, 1.000000e+00
+  %110 = fsub double 1.000000e+00, %108
+  %111 = call double @llvm.fabs.f64(double %110)
+  %112 = fcmp one double %111, 0x7FF0000000000000
+  %113 = and i1 %109, %112
+  br i1 %113, label %114, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
 
-111:                                              ; preds = %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
-  %112 = icmp eq i64 %109, 0
-  br i1 %112, label %.lr.ph.i.i.i.i.i.i54.i.i, label %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i
+114:                                              ; preds = %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+  %115 = call i1 @llvm.is.fpclass.f64(double %110, i32 384)
+  br i1 %115, label %.split.i.i.i53.i.i, label %.split.us.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i54.i.i:                         ; preds = %111, %.lr.ph.i.i.i.i.i.i54.i.i
-  %113 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %114 = icmp eq i64 %113, 0
-  br i1 %114, label %.lr.ph.i.i.i.i.i.i54.i.i, label %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i, !llvm.loop !27
+.split.us.i.i.i.i.i:                              ; preds = %114
+  %116 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
 
-_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i54.i.i, %111, %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
-  %115 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i58.i.i = mul i64 %115, 5
-  %116 = icmp ult i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i58.i.i, 5
-  br i1 %116, label %117, label %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !prof !25
+.split.i.i.i53.i.i:                               ; preds = %114, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i55.i.i
+  %117 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i55.i.i, label %119
 
-117:                                              ; preds = %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i
-  %118 = icmp eq i64 %115, 0
-  br i1 %118, label %.lr.ph.i.i.i.i.i.i62.i.i, label %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
+119:                                              ; preds = %.split.i.i.i53.i.i
+  %120 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %117, i1 true)
+  %121 = shl i64 %117, %120
+  %122 = lshr i64 %121, 11
+  %123 = and i64 %122, 4503599627370495
+  %124 = shl nuw nsw i64 %120, 52
+  %reass.sub28 = sub nsw i64 %123, %124
+  %125 = add nsw i64 %reass.sub28, 4602678819172646912
+  %126 = bitcast i64 %125 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i55.i.i
 
-.lr.ph.i.i.i.i.i.i62.i.i:                         ; preds = %117, %.lr.ph.i.i.i.i.i.i62.i.i
-  %119 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %.lr.ph.i.i.i.i.i.i62.i.i, label %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !llvm.loop !27
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i55.i.i: ; preds = %119, %.split.i.i.i53.i.i
+  %.0.i.i.i.i.i.i56.i.i = phi double [ %126, %119 ], [ 0.000000e+00, %.split.i.i.i53.i.i ]
+  %127 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i56.i.i, double %110, double %108)
+  %128 = fcmp uge double %127, 1.000000e+00
+  br i1 %128, label %.split.i.i.i53.i.i, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
 
-_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i62.i.i, %117, %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i
-  %121 = call noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef -1.000000e+00, double noundef 1.000000e+00)
-  %122 = call noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_(ptr noundef nonnull align 8 dereferenceable(2504) %48, i32 noundef 0, double noundef 1.000000e+00)
-  %123 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %124 = trunc i64 %123 to i32
-  %125 = mul i32 %124, 100
-  %126 = icmp ult i32 %125, 100
-  br i1 %126, label %127, label %.noexc79.i.i, !prof !25
-
-127:                                              ; preds = %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
-  %128 = icmp samesign ult i32 %125, 96
-  br i1 %128, label %.lr.ph.i.i.i.i.i.i72.i.i, label %.noexc79.i.i
-
-.lr.ph.i.i.i.i.i.i72.i.i:                         ; preds = %127, %.lr.ph.i.i.i.i.i.i72.i.i
+_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i55.i.i, %.split.us.i.i.i.i.i, %_ZN4absl7UniformIiNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
   %129 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %130 = trunc i64 %129 to i32
-  %131 = mul i32 %130, 100
-  %132 = icmp ult i32 %131, 96
-  br i1 %132, label %.lr.ph.i.i.i.i.i.i72.i.i, label %.noexc79.i.i, !llvm.loop !26
+  %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i = mul i64 %129, 5
+  %130 = icmp ult i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i.i, 5
+  br i1 %130, label %131, label %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i, !prof !25
 
-.noexc79.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i72.i.i, %127, %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
+131:                                              ; preds = %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+  %132 = icmp eq i64 %129, 0
+  br i1 %132, label %.lr.ph.i.i.i.i.i.i59.i.i, label %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i
+
+.lr.ph.i.i.i.i.i.i59.i.i:                         ; preds = %131, %.lr.ph.i.i.i.i.i.i59.i.i
   %133 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %134 = trunc i64 %133 to i16
-  %135 = mul i16 %134, 100
-  %136 = trunc i16 %135 to i8
-  %137 = icmp ult i8 %136, 100
-  br i1 %137, label %138, label %.noexc84.i.i, !prof !25
+  %134 = icmp eq i64 %133, 0
+  br i1 %134, label %.lr.ph.i.i.i.i.i.i59.i.i, label %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i, !llvm.loop !28
 
-138:                                              ; preds = %.noexc79.i.i
-  %139 = and i16 %135, 120
-  %140 = icmp samesign ult i16 %139, 56
-  br i1 %140, label %.lr.ph.i.i.i.i.i.i78.i.i, label %.noexc84.i.i
+_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i59.i.i, %131, %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+  %135 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i63.i.i = mul i64 %135, 5
+  %136 = icmp ult i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i63.i.i, 5
+  br i1 %136, label %137, label %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !prof !25
 
-.lr.ph.i.i.i.i.i.i78.i.i:                         ; preds = %138, %.lr.ph.i.i.i.i.i.i78.i.i
-  %141 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %142 = trunc i64 %141 to i16
-  %143 = mul i16 %142, 100
-  %144 = and i16 %143, 248
-  %145 = icmp samesign ult i16 %144, 56
-  br i1 %145, label %.lr.ph.i.i.i.i.i.i78.i.i, label %.noexc84.i.i, !llvm.loop !28
+137:                                              ; preds = %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i
+  %138 = icmp eq i64 %135, 0
+  br i1 %138, label %.lr.ph.i.i.i.i.i.i68.i.i, label %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
 
-.noexc84.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i78.i.i, %138, %.noexc79.i.i
-  %146 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %147 = trunc i64 %146 to i32
-  %148 = mul i32 %147, 100
-  %149 = trunc i32 %148 to i16
-  %150 = icmp ult i16 %149, 100
-  br i1 %150, label %151, label %.noexc89.i.i, !prof !25
+.lr.ph.i.i.i.i.i.i68.i.i:                         ; preds = %137, %.lr.ph.i.i.i.i.i.i68.i.i
+  %139 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %140 = icmp eq i64 %139, 0
+  br i1 %140, label %.lr.ph.i.i.i.i.i.i68.i.i, label %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !llvm.loop !28
 
-151:                                              ; preds = %.noexc84.i.i
-  %152 = and i32 %148, 124
-  %153 = icmp samesign ult i32 %152, 36
-  br i1 %153, label %.lr.ph.i.i.i.i.i.i83.i.i, label %.noexc89.i.i
+_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i68.i.i, %137, %_ZN4absl7UniformIvRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEjmEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS4_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT1_T2_EENS7_IS9_S8_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS8_S9_EE5valueES9_S8_E4typeEE4typeEE4typeEOT0_S8_S9_.exit.i.i
+  %141 = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
+  %142 = fcmp ole double %141, 1.000000e+00
+  %143 = fsub double 1.000000e+00, %141
+  %144 = call double @llvm.fabs.f64(double %143)
+  %145 = fcmp one double %144, 0x7FF0000000000000
+  %146 = and i1 %142, %145
+  br i1 %146, label %147, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit87.i.i
 
-.lr.ph.i.i.i.i.i.i83.i.i:                         ; preds = %151, %.lr.ph.i.i.i.i.i.i83.i.i
-  %154 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %155 = trunc i64 %154 to i32
-  %156 = mul i32 %155, 100
-  %157 = and i32 %156, 65532
-  %158 = icmp samesign ult i32 %157, 36
-  br i1 %158, label %.lr.ph.i.i.i.i.i.i83.i.i, label %.noexc89.i.i, !llvm.loop !29
+147:                                              ; preds = %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
+  %148 = call i1 @llvm.is.fpclass.f64(double %143, i32 384)
+  br i1 %148, label %.split.i.i.i81.i.i, label %.split.us.i.i.i77.i.i
 
-.noexc89.i.i:                                     ; preds = %.lr.ph.i.i.i.i.i.i83.i.i, %151, %.noexc84.i.i
-  %159 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %160 = trunc i64 %159 to i32
-  %161 = mul i32 %160, 100
-  %162 = trunc i32 %161 to i16
-  %163 = icmp ult i16 %162, 100
-  br i1 %163, label %164, label %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !prof !25
+.split.us.i.i.i77.i.i:                            ; preds = %147
+  %149 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit87.i.i
 
-164:                                              ; preds = %.noexc89.i.i
-  %165 = and i32 %161, 124
-  %166 = icmp samesign ult i32 %165, 36
-  br i1 %166, label %.lr.ph.i.i.i.i.i.i88.i.i, label %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
+.split.i.i.i81.i.i:                               ; preds = %147, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i83.i.i
+  %150 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %151 = icmp eq i64 %150, 0
+  br i1 %151, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i83.i.i, label %152
 
-.lr.ph.i.i.i.i.i.i88.i.i:                         ; preds = %164, %.lr.ph.i.i.i.i.i.i88.i.i
-  %167 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %168 = trunc i64 %167 to i32
-  %169 = mul i32 %168, 100
-  %170 = and i32 %169, 65532
-  %171 = icmp samesign ult i32 %170, 36
-  br i1 %171, label %.lr.ph.i.i.i.i.i.i88.i.i, label %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !llvm.loop !30
+152:                                              ; preds = %.split.i.i.i81.i.i
+  %153 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %150, i1 true)
+  %154 = shl i64 %150, %153
+  %155 = lshr i64 %154, 11
+  %156 = and i64 %155, 4503599627370495
+  %157 = shl nuw nsw i64 %153, 52
+  %reass.sub29 = sub nsw i64 %156, %157
+  %158 = add nsw i64 %reass.sub29, 4602678819172646912
+  %159 = bitcast i64 %158 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i83.i.i
 
-_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i88.i.i, %164, %.noexc89.i.i
-  %172 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %173 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %174 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %175 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  br label %.split.i.i.i101.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i83.i.i: ; preds = %152, %.split.i.i.i81.i.i
+  %.0.i.i.i.i.i.i84.i.i = phi double [ %159, %152 ], [ 0.000000e+00, %.split.i.i.i81.i.i ]
+  %160 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i84.i.i, double %143, double %141)
+  %161 = fcmp uge double %160, 1.000000e+00
+  br i1 %161, label %.split.i.i.i81.i.i, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit87.i.i
 
-.split.i.i.i101.i.i:                              ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i, %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
-  %176 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %177 = icmp eq i64 %176, 0
-  br i1 %177, label %.split.i.i.i105.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i
+_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit87.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i83.i.i, %.split.us.i.i.i77.i.i, %_ZN4absl7UniformImRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
+  %162 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
+  %163 = fcmp ole double %162, 1.000000e+00
+  %164 = fsub double 1.000000e+00, %162
+  %165 = call double @llvm.fabs.f64(double %164)
+  %166 = fcmp one double %165, 0x7FF0000000000000
+  %167 = and i1 %163, %166
+  br i1 %167, label %168, label %_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_.exit.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i: ; preds = %.split.i.i.i101.i.i
-  %178 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %176, i1 true)
-  %179 = trunc nuw nsw i64 %178 to i32
-  %180 = shl i64 %176, %178
-  %181 = lshr i64 %180, 40
-  %182 = trunc nuw nsw i64 %181 to i32
-  %183 = and i32 %182, 8388607
-  %184 = shl nuw nsw i32 %179, 23
-  %reass.sub21 = sub nsw i32 %183, %184
-  %185 = add nsw i32 %reass.sub21, 1056964608
-  %186 = bitcast i32 %185 to float
-  %187 = fcmp uge float %186, 1.000000e+00
-  br i1 %187, label %.split.i.i.i101.i.i, label %.split.i.i.i105.i.i.preheader
+168:                                              ; preds = %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit87.i.i
+  %169 = call i1 @llvm.is.fpclass.f64(double %164, i32 384)
+  br i1 %169, label %.split.i.i.i93.i.i, label %.split.us.i.i.i89.i.i
 
-.split.i.i.i105.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i, %.split.i.i.i101.i.i
-  br label %.split.i.i.i105.i.i
+.split.us.i.i.i89.i.i:                            ; preds = %168
+  %170 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_.exit.i.i
 
-.split.i.i.i105.i.i:                              ; preds = %.split.i.i.i105.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i107.i.i
-  %188 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %189 = icmp eq i64 %188, 0
-  br i1 %189, label %.split.i.i.i111.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i107.i.i
+.split.i.i.i93.i.i:                               ; preds = %168, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i95.i.i
+  %171 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %172 = icmp eq i64 %171, 0
+  br i1 %172, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i95.i.i, label %173
 
-_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i107.i.i: ; preds = %.split.i.i.i105.i.i
-  %190 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %188, i1 true)
-  %191 = trunc nuw nsw i64 %190 to i32
-  %192 = shl i64 %188, %190
-  %193 = lshr i64 %192, 40
-  %194 = trunc nuw nsw i64 %193 to i32
-  %195 = and i32 %194, 8388607
-  %196 = shl nuw nsw i32 %191, 23
-  %reass.sub22 = sub nsw i32 %195, %196
-  %197 = add nsw i32 %reass.sub22, 1056964608
-  %198 = bitcast i32 %197 to float
-  %199 = fcmp uge float %198, 1.000000e+00
-  br i1 %199, label %.split.i.i.i105.i.i, label %.split.i.i.i111.i.i.preheader
+173:                                              ; preds = %.split.i.i.i93.i.i
+  %174 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %171, i1 true)
+  %175 = shl i64 %171, %174
+  %176 = lshr i64 %175, 11
+  %177 = and i64 %176, 4503599627370495
+  %178 = shl nuw nsw i64 %174, 52
+  %reass.sub30 = sub nsw i64 %177, %178
+  %179 = add nsw i64 %reass.sub30, 4602678819172646912
+  %180 = bitcast i64 %179 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i95.i.i
 
-.split.i.i.i111.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i107.i.i, %.split.i.i.i105.i.i
-  br label %.split.i.i.i111.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i95.i.i: ; preds = %173, %.split.i.i.i93.i.i
+  %.0.i.i.i.i.i.i96.i.i = phi double [ %180, %173 ], [ 0.000000e+00, %.split.i.i.i93.i.i ]
+  %181 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i96.i.i, double %164, double %162)
+  %182 = fcmp uge double %181, 1.000000e+00
+  br i1 %182, label %.split.i.i.i93.i.i, label %_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_.exit.i.i
 
-.split.i.i.i111.i.i:                              ; preds = %.split.i.i.i111.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i113.i.i
-  %200 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %201 = icmp eq i64 %200, 0
-  br i1 %201, label %.split.i.i.i117.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i113.i.i
+_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_.exit.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i95.i.i, %.split.us.i.i.i89.i.i, %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit87.i.i
+  %183 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %184 = trunc i64 %183 to i32
+  %185 = mul i32 %184, 100
+  %186 = icmp ult i32 %185, 100
+  br i1 %186, label %187, label %.noexc110.i.i, !prof !25
 
-_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i113.i.i: ; preds = %.split.i.i.i111.i.i
-  %202 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %200, i1 true)
-  %203 = trunc nuw nsw i64 %202 to i32
-  %204 = shl i64 %200, %202
-  %205 = lshr i64 %204, 40
-  %206 = trunc nuw nsw i64 %205 to i32
-  %207 = and i32 %206, 8388607
-  %208 = shl nuw nsw i32 %203, 23
-  %reass.sub23 = sub nsw i32 %207, %208
-  %209 = add nsw i32 %reass.sub23, 1056964608
-  %210 = bitcast i32 %209 to float
-  %211 = call float @llvm.fmuladd.f32(float %210, float 2.000000e+00, float -1.000000e+00)
-  %212 = fcmp uge float %211, 1.000000e+00
-  br i1 %212, label %.split.i.i.i111.i.i, label %.split.i.i.i117.i.i.preheader
+187:                                              ; preds = %_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_.exit.i.i
+  %188 = icmp samesign ult i32 %185, 96
+  br i1 %188, label %.lr.ph.i.i.i.i.i.i102.i.i, label %.noexc110.i.i
 
-.split.i.i.i117.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i113.i.i, %.split.i.i.i111.i.i
-  br label %.split.i.i.i117.i.i
+.lr.ph.i.i.i.i.i.i102.i.i:                        ; preds = %187, %.lr.ph.i.i.i.i.i.i102.i.i
+  %189 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %190 = trunc i64 %189 to i32
+  %191 = mul i32 %190, 100
+  %192 = icmp ult i32 %191, 96
+  br i1 %192, label %.lr.ph.i.i.i.i.i.i102.i.i, label %.noexc110.i.i, !llvm.loop !26
 
-.split.i.i.i117.i.i:                              ; preds = %.split.i.i.i117.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i119.i.i
-  %213 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %214 = icmp eq i64 %213, 0
-  br i1 %214, label %.split.i.i.i123.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i119.i.i
+.noexc110.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i102.i.i, %187, %_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_.exit.i.i
+  %193 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %194 = trunc i64 %193 to i16
+  %195 = mul i16 %194, 100
+  %196 = trunc i16 %195 to i8
+  %197 = icmp ult i8 %196, 100
+  br i1 %197, label %198, label %.noexc116.i.i, !prof !25
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i119.i.i: ; preds = %.split.i.i.i117.i.i
-  %215 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %213, i1 true)
-  %216 = shl i64 %213, %215
-  %217 = lshr i64 %216, 11
-  %218 = and i64 %217, 4503599627370495
-  %219 = shl nuw nsw i64 %215, 52
-  %reass.sub24 = sub nsw i64 %218, %219
-  %220 = add nsw i64 %reass.sub24, 4602678819172646912
-  %221 = bitcast i64 %220 to double
-  %222 = fcmp uge double %221, 1.000000e+00
-  br i1 %222, label %.split.i.i.i117.i.i, label %.split.i.i.i123.i.i.preheader
+198:                                              ; preds = %.noexc110.i.i
+  %199 = and i16 %195, 120
+  %200 = icmp samesign ult i16 %199, 56
+  br i1 %200, label %.lr.ph.i.i.i.i.i.i109.i.i, label %.noexc116.i.i
 
-.split.i.i.i123.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i119.i.i, %.split.i.i.i117.i.i
-  br label %.split.i.i.i123.i.i
+.lr.ph.i.i.i.i.i.i109.i.i:                        ; preds = %198, %.lr.ph.i.i.i.i.i.i109.i.i
+  %201 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %202 = trunc i64 %201 to i16
+  %203 = mul i16 %202, 100
+  %204 = and i16 %203, 248
+  %205 = icmp samesign ult i16 %204, 56
+  br i1 %205, label %.lr.ph.i.i.i.i.i.i109.i.i, label %.noexc116.i.i, !llvm.loop !29
 
-.split.i.i.i123.i.i:                              ; preds = %.split.i.i.i123.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i125.i.i
-  %223 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %224 = icmp eq i64 %223, 0
-  br i1 %224, label %.split.i.i.i129.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i125.i.i
+.noexc116.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i109.i.i, %198, %.noexc110.i.i
+  %206 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %207 = trunc i64 %206 to i32
+  %208 = mul i32 %207, 100
+  %209 = trunc i32 %208 to i16
+  %210 = icmp ult i16 %209, 100
+  br i1 %210, label %211, label %.noexc122.i.i, !prof !25
 
-_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i125.i.i: ; preds = %.split.i.i.i123.i.i
-  %225 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %223, i1 true)
-  %226 = trunc nuw nsw i64 %225 to i32
-  %227 = shl i64 %223, %225
-  %228 = lshr i64 %227, 40
-  %229 = trunc nuw nsw i64 %228 to i32
-  %230 = and i32 %229, 8388607
-  %231 = shl nuw nsw i32 %226, 23
-  %reass.sub25 = sub nsw i32 %230, %231
-  %232 = add nsw i32 %reass.sub25, 1056964608
-  %233 = bitcast i32 %232 to float
-  %234 = fadd float %233, -1.000000e+00
-  %235 = fcmp uge float %234, 0.000000e+00
-  br i1 %235, label %.split.i.i.i123.i.i, label %.split.i.i.i129.i.i.preheader
+211:                                              ; preds = %.noexc116.i.i
+  %212 = and i32 %208, 124
+  %213 = icmp samesign ult i32 %212, 36
+  br i1 %213, label %.lr.ph.i.i.i.i.i.i115.i.i, label %.noexc122.i.i
 
-.split.i.i.i129.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i125.i.i, %.split.i.i.i123.i.i
-  br label %.split.i.i.i129.i.i
+.lr.ph.i.i.i.i.i.i115.i.i:                        ; preds = %211, %.lr.ph.i.i.i.i.i.i115.i.i
+  %214 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %215 = trunc i64 %214 to i32
+  %216 = mul i32 %215, 100
+  %217 = and i32 %216, 65532
+  %218 = icmp samesign ult i32 %217, 36
+  br i1 %218, label %.lr.ph.i.i.i.i.i.i115.i.i, label %.noexc122.i.i, !llvm.loop !30
 
-.split.i.i.i129.i.i:                              ; preds = %.split.i.i.i129.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i131.i.i
+.noexc122.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i115.i.i, %211, %.noexc116.i.i
+  %219 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %220 = trunc i64 %219 to i32
+  %221 = mul i32 %220, 100
+  %222 = trunc i32 %221 to i16
+  %223 = icmp ult i16 %222, 100
+  br i1 %223, label %224, label %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !prof !25
+
+224:                                              ; preds = %.noexc122.i.i
+  %225 = and i32 %221, 124
+  %226 = icmp samesign ult i32 %225, 36
+  br i1 %226, label %.lr.ph.i.i.i.i.i.i121.i.i, label %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
+
+.lr.ph.i.i.i.i.i.i121.i.i:                        ; preds = %224, %.lr.ph.i.i.i.i.i.i121.i.i
+  %227 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %228 = trunc i64 %227 to i32
+  %229 = mul i32 %228, 100
+  %230 = and i32 %229, 65532
+  %231 = icmp samesign ult i32 %230, 36
+  br i1 %231, label %.lr.ph.i.i.i.i.i.i121.i.i, label %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i, !llvm.loop !31
+
+_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i121.i.i, %224, %.noexc122.i.i
+  %232 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %233 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %234 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %235 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %.split.i.i.i138.i.i
+
+.split.i.i.i138.i.i:                              ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i, %_ZN4absl7UniformIlRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit.i.i
   %236 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
   %237 = icmp eq i64 %236, 0
-  br i1 %237, label %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit134.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i131.i.i
+  br i1 %237, label %.split.i.i.i143.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i131.i.i: ; preds = %.split.i.i.i129.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i: ; preds = %.split.i.i.i138.i.i
   %238 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %236, i1 true)
-  %239 = shl i64 %236, %238
-  %240 = lshr i64 %239, 11
-  %241 = and i64 %240, 4503599627370495
-  %242 = shl nuw nsw i64 %238, 52
-  %reass.sub26 = sub nsw i64 %241, %242
-  %243 = add nsw i64 %reass.sub26, 4602678819172646912
-  %244 = bitcast i64 %243 to double
-  %245 = fadd double %244, -1.000000e+00
-  %246 = fcmp uge double %245, 0.000000e+00
-  br i1 %246, label %.split.i.i.i129.i.i, label %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit134.i.i
+  %239 = trunc nuw nsw i64 %238 to i32
+  %240 = shl i64 %236, %238
+  %241 = lshr i64 %240, 40
+  %242 = trunc nuw nsw i64 %241 to i32
+  %243 = and i32 %242, 8388607
+  %244 = shl nuw nsw i32 %239, 23
+  %reass.sub31 = sub nsw i32 %243, %244
+  %245 = add nsw i32 %reass.sub31, 1056964608
+  %246 = bitcast i32 %245 to float
+  %247 = fcmp uge float %246, 1.000000e+00
+  br i1 %247, label %.split.i.i.i138.i.i, label %.split.i.i.i143.i.i.preheader
 
-_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit134.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i131.i.i, %.split.i.i.i129.i.i
-  %247 = call noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  br label %.split.i.i.i135.i.i
+.split.i.i.i143.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i.i.i, %.split.i.i.i138.i.i
+  br label %.split.i.i.i143.i.i
 
-.split.i.i.i135.i.i:                              ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i137.i.i, %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit134.i.i
+.split.i.i.i143.i.i:                              ; preds = %.split.i.i.i143.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i145.i.i
   %248 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
   %249 = icmp eq i64 %248, 0
-  br i1 %249, label %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i137.i.i
+  br i1 %249, label %.split.i.i.i150.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i145.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i137.i.i: ; preds = %.split.i.i.i135.i.i
+_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i145.i.i: ; preds = %.split.i.i.i143.i.i
   %250 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %248, i1 true)
-  %251 = shl i64 %248, %250
-  %252 = lshr i64 %251, 11
-  %253 = and i64 %252, 4503599627370495
-  %254 = shl nuw nsw i64 %250, 52
-  %reass.sub27 = sub nsw i64 %253, %254
-  %255 = add nsw i64 %reass.sub27, 4602678819172646912
-  %256 = bitcast i64 %255 to double
-  %257 = fcmp uge double %256, 1.000000e+00
-  br i1 %257, label %.split.i.i.i135.i.i, label %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+  %251 = trunc nuw nsw i64 %250 to i32
+  %252 = shl i64 %248, %250
+  %253 = lshr i64 %252, 40
+  %254 = trunc nuw nsw i64 %253 to i32
+  %255 = and i32 %254, 8388607
+  %256 = shl nuw nsw i32 %251, 23
+  %reass.sub32 = sub nsw i32 %255, %256
+  %257 = add nsw i32 %reass.sub32, 1056964608
+  %258 = bitcast i32 %257 to float
+  %259 = fcmp uge float %258, 1.000000e+00
+  br i1 %259, label %.split.i.i.i143.i.i, label %.split.i.i.i150.i.i.preheader
 
-_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i137.i.i, %.split.i.i.i135.i.i
-  %258 = call noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  %259 = call noundef double @_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  %260 = call noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  %261 = call noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef 0.000000e+00, double noundef 1.000000e+00)
-  %262 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %263 = trunc i64 %262 to i32
-  %264 = mul i32 %263, 101
-  %265 = icmp ult i32 %264, 101
-  br i1 %265, label %266, label %.noexc149.i.i, !prof !25
+.split.i.i.i150.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i145.i.i, %.split.i.i.i143.i.i
+  br label %.split.i.i.i150.i.i
 
-266:                                              ; preds = %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
-  %267 = icmp samesign ult i32 %264, 68
-  br i1 %267, label %.lr.ph.i.i.i.i.i.i142.i.i, label %.noexc149.i.i
+.split.i.i.i150.i.i:                              ; preds = %.split.i.i.i150.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i152.i.i
+  %260 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %261 = icmp eq i64 %260, 0
+  br i1 %261, label %.split.i.i.i157.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i152.i.i
 
-.lr.ph.i.i.i.i.i.i142.i.i:                        ; preds = %266, %.lr.ph.i.i.i.i.i.i142.i.i
-  %268 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %269 = trunc i64 %268 to i32
-  %270 = mul i32 %269, 101
-  %271 = icmp ult i32 %270, 68
-  br i1 %271, label %.lr.ph.i.i.i.i.i.i142.i.i, label %.noexc149.i.i, !llvm.loop !26
+_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i152.i.i: ; preds = %.split.i.i.i150.i.i
+  %262 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %260, i1 true)
+  %263 = trunc nuw nsw i64 %262 to i32
+  %264 = shl i64 %260, %262
+  %265 = lshr i64 %264, 40
+  %266 = trunc nuw nsw i64 %265 to i32
+  %267 = and i32 %266, 8388607
+  %268 = shl nuw nsw i32 %263, 23
+  %reass.sub33 = sub nsw i32 %267, %268
+  %269 = add nsw i32 %reass.sub33, 1056964608
+  %270 = bitcast i32 %269 to float
+  %271 = call float @llvm.fmuladd.f32(float %270, float 2.000000e+00, float -1.000000e+00)
+  %272 = fcmp uge float %271, 1.000000e+00
+  br i1 %272, label %.split.i.i.i150.i.i, label %.split.i.i.i157.i.i.preheader
 
-.noexc149.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i142.i.i, %266, %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
-  %272 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %273 = trunc i64 %272 to i32
-  %274 = mul i32 %273, 100
-  %275 = icmp ult i32 %274, 100
-  br i1 %275, label %276, label %.noexc154.i.i, !prof !25
+.split.i.i.i157.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i152.i.i, %.split.i.i.i150.i.i
+  br label %.split.i.i.i157.i.i
 
-276:                                              ; preds = %.noexc149.i.i
-  %277 = icmp samesign ult i32 %274, 96
-  br i1 %277, label %.lr.ph.i.i.i.i.i.i148.i.i, label %.noexc154.i.i
+.split.i.i.i157.i.i:                              ; preds = %.split.i.i.i157.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i159.i.i
+  %273 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %274 = icmp eq i64 %273, 0
+  br i1 %274, label %.split.i.i.i164.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i159.i.i
 
-.lr.ph.i.i.i.i.i.i148.i.i:                        ; preds = %276, %.lr.ph.i.i.i.i.i.i148.i.i
-  %278 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %279 = trunc i64 %278 to i32
-  %280 = mul i32 %279, 100
-  %281 = icmp ult i32 %280, 96
-  br i1 %281, label %.lr.ph.i.i.i.i.i.i148.i.i, label %.noexc154.i.i, !llvm.loop !26
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i159.i.i: ; preds = %.split.i.i.i157.i.i
+  %275 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %273, i1 true)
+  %276 = shl i64 %273, %275
+  %277 = lshr i64 %276, 11
+  %278 = and i64 %277, 4503599627370495
+  %279 = shl nuw nsw i64 %275, 52
+  %reass.sub34 = sub nsw i64 %278, %279
+  %280 = add nsw i64 %reass.sub34, 4602678819172646912
+  %281 = bitcast i64 %280 to double
+  %282 = fcmp uge double %281, 1.000000e+00
+  br i1 %282, label %.split.i.i.i157.i.i, label %.split.i.i.i164.i.i.preheader
 
-.noexc154.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i148.i.i, %276, %.noexc149.i.i
-  %282 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %283 = trunc i64 %282 to i32
-  %284 = mul i32 %283, 99
-  %285 = icmp ult i32 %284, 99
-  br i1 %285, label %286, label %.noexc159.i.i, !prof !25
+.split.i.i.i164.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i159.i.i, %.split.i.i.i157.i.i
+  br label %.split.i.i.i164.i.i
 
-286:                                              ; preds = %.noexc154.i.i
-  %287 = icmp samesign ult i32 %284, 4
-  br i1 %287, label %.lr.ph.i.i.i.i.i.i153.i.i, label %.noexc159.i.i
+.split.i.i.i164.i.i:                              ; preds = %.split.i.i.i164.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i166.i.i
+  %283 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %284 = icmp eq i64 %283, 0
+  br i1 %284, label %.split.i.i.i171.i.i.preheader, label %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i166.i.i
 
-.lr.ph.i.i.i.i.i.i153.i.i:                        ; preds = %286, %.lr.ph.i.i.i.i.i.i153.i.i
-  %288 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %289 = trunc i64 %288 to i32
-  %290 = mul i32 %289, 99
-  %291 = icmp ult i32 %290, 4
-  br i1 %291, label %.lr.ph.i.i.i.i.i.i153.i.i, label %.noexc159.i.i, !llvm.loop !26
+_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i166.i.i: ; preds = %.split.i.i.i164.i.i
+  %285 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %283, i1 true)
+  %286 = trunc nuw nsw i64 %285 to i32
+  %287 = shl i64 %283, %285
+  %288 = lshr i64 %287, 40
+  %289 = trunc nuw nsw i64 %288 to i32
+  %290 = and i32 %289, 8388607
+  %291 = shl nuw nsw i32 %286, 23
+  %reass.sub35 = sub nsw i32 %290, %291
+  %292 = add nsw i32 %reass.sub35, 1056964608
+  %293 = bitcast i32 %292 to float
+  %294 = fadd float %293, -1.000000e+00
+  %295 = fcmp uge float %294, 0.000000e+00
+  br i1 %295, label %.split.i.i.i164.i.i, label %.split.i.i.i171.i.i.preheader
 
-.noexc159.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i153.i.i, %286, %.noexc154.i.i
-  %292 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %293 = trunc i64 %292 to i32
-  %294 = mul i32 %293, 100
-  %295 = icmp ult i32 %294, 100
-  br i1 %295, label %296, label %.noexc164.i.i, !prof !25
+.split.i.i.i171.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i166.i.i, %.split.i.i.i164.i.i
+  br label %.split.i.i.i171.i.i
 
-296:                                              ; preds = %.noexc159.i.i
-  %297 = icmp samesign ult i32 %294, 96
-  br i1 %297, label %.lr.ph.i.i.i.i.i.i158.i.i, label %.noexc164.i.i
+.split.i.i.i171.i.i:                              ; preds = %.split.i.i.i171.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i173.i.i
+  %296 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %297 = icmp eq i64 %296, 0
+  br i1 %297, label %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit177.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i173.i.i
 
-.lr.ph.i.i.i.i.i.i158.i.i:                        ; preds = %296, %.lr.ph.i.i.i.i.i.i158.i.i
-  %298 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %299 = trunc i64 %298 to i32
-  %300 = mul i32 %299, 100
-  %301 = icmp ult i32 %300, 96
-  br i1 %301, label %.lr.ph.i.i.i.i.i.i158.i.i, label %.noexc164.i.i, !llvm.loop !26
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i173.i.i: ; preds = %.split.i.i.i171.i.i
+  %298 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %296, i1 true)
+  %299 = shl i64 %296, %298
+  %300 = lshr i64 %299, 11
+  %301 = and i64 %300, 4503599627370495
+  %302 = shl nuw nsw i64 %298, 52
+  %reass.sub36 = sub nsw i64 %301, %302
+  %303 = add nsw i64 %reass.sub36, 4602678819172646912
+  %304 = bitcast i64 %303 to double
+  %305 = fadd double %304, -1.000000e+00
+  %306 = fcmp uge double %305, 0.000000e+00
+  br i1 %306, label %.split.i.i.i171.i.i, label %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit177.i.i
 
-.noexc164.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i158.i.i, %296, %.noexc159.i.i
-  %302 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %303 = trunc i64 %302 to i32
-  %304 = mul i32 %303, 101
-  %305 = icmp ult i32 %304, 101
-  br i1 %305, label %306, label %.noexc170.i.i, !prof !25
+_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit177.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i173.i.i, %.split.i.i.i171.i.i
+  %307 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
+  %308 = call i1 @llvm.is.fpclass.f64(double %307, i32 480)
+  br i1 %308, label %309, label %.split.i.i.i189.i.i.preheader
 
-306:                                              ; preds = %.noexc164.i.i
-  %307 = icmp samesign ult i32 %304, 68
-  br i1 %307, label %.lr.ph.i.i.i.i.i.i163.i.i, label %.noexc170.i.i
+309:                                              ; preds = %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit177.i.i
+  %310 = call i1 @llvm.is.fpclass.f64(double %307, i32 384)
+  br i1 %310, label %.split.i.i.i183.i.i, label %.split.us.i.i.i179.i.i
 
-.lr.ph.i.i.i.i.i.i163.i.i:                        ; preds = %306, %.lr.ph.i.i.i.i.i.i163.i.i
-  %308 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %309 = trunc i64 %308 to i32
-  %310 = mul i32 %309, 101
-  %311 = icmp ult i32 %310, 68
-  br i1 %311, label %.lr.ph.i.i.i.i.i.i163.i.i, label %.noexc170.i.i, !llvm.loop !26
+.split.us.i.i.i179.i.i:                           ; preds = %309
+  %311 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %.split.i.i.i189.i.i.preheader
 
-.noexc170.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i163.i.i, %306, %.noexc164.i.i
+.split.i.i.i183.i.i:                              ; preds = %309, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i185.i.i
   %312 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %313 = trunc i64 %312 to i32
-  %314 = mul i32 %313, 99
-  %315 = icmp ult i32 %314, 99
-  br i1 %315, label %316, label %.loopexit206.i.i, !prof !25
+  %313 = icmp eq i64 %312, 0
+  br i1 %313, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i185.i.i, label %314
 
-316:                                              ; preds = %.noexc170.i.i
-  %317 = icmp samesign ult i32 %314, 4
-  br i1 %317, label %.lr.ph.i.i.i.i.i.i169.i.i, label %.loopexit206.i.i
+314:                                              ; preds = %.split.i.i.i183.i.i
+  %315 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %312, i1 true)
+  %316 = shl i64 %312, %315
+  %317 = lshr i64 %316, 11
+  %318 = and i64 %317, 4503599627370495
+  %319 = shl nuw nsw i64 %315, 52
+  %reass.sub37 = sub nsw i64 %318, %319
+  %320 = add nsw i64 %reass.sub37, 4602678819172646912
+  %321 = bitcast i64 %320 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i185.i.i
 
-.lr.ph.i.i.i.i.i.i169.i.i:                        ; preds = %316, %.lr.ph.i.i.i.i.i.i169.i.i
-  %318 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %319 = trunc i64 %318 to i32
-  %320 = mul i32 %319, 99
-  %321 = icmp ult i32 %320, 4
-  br i1 %321, label %.lr.ph.i.i.i.i.i.i169.i.i, label %.loopexit206.i.i, !llvm.loop !26
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i185.i.i: ; preds = %314, %.split.i.i.i183.i.i
+  %.0.i.i.i.i.i.i186.i.i = phi double [ %321, %314 ], [ 0.000000e+00, %.split.i.i.i183.i.i ]
+  %322 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i186.i.i, double %307, double 0.000000e+00)
+  %323 = fcmp uge double %322, %307
+  br i1 %323, label %.split.i.i.i183.i.i, label %.split.i.i.i189.i.i.preheader
 
-.loopexit206.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i169.i.i, %316, %.noexc170.i.i
+.split.i.i.i189.i.i.preheader:                    ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i185.i.i, %.split.us.i.i.i179.i.i, %_ZN4absl7UniformIdRSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES5_E4typeEOT0_S5_S5_.exit177.i.i
+  br label %.split.i.i.i189.i.i
+
+.split.i.i.i189.i.i:                              ; preds = %.split.i.i.i189.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i191.i.i
+  %324 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %325 = icmp eq i64 %324, 0
+  br i1 %325, label %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i191.i.i
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i191.i.i: ; preds = %.split.i.i.i189.i.i
+  %326 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %324, i1 true)
+  %327 = shl i64 %324, %326
+  %328 = lshr i64 %327, 11
+  %329 = and i64 %328, 4503599627370495
+  %330 = shl nuw nsw i64 %326, 52
+  %reass.sub38 = sub nsw i64 %329, %330
+  %331 = add nsw i64 %reass.sub38, 4602678819172646912
+  %332 = bitcast i64 %331 to double
+  %333 = fcmp uge double %332, 1.000000e+00
+  br i1 %333, label %.split.i.i.i189.i.i, label %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+
+_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i191.i.i, %.split.i.i.i189.i.i
+  %334 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
+  %335 = fcmp ole double %334, 1.000000e+00
+  %336 = fsub double 1.000000e+00, %334
+  %337 = call double @llvm.fabs.f64(double %336)
+  %338 = fcmp one double %337, 0x7FF0000000000000
+  %339 = and i1 %335, %338
+  br i1 %339, label %340, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit206.i.i
+
+340:                                              ; preds = %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+  %341 = call i1 @llvm.is.fpclass.f64(double %336, i32 384)
+  br i1 %341, label %.split.i.i.i200.i.i, label %.split.us.i.i.i196.i.i
+
+.split.us.i.i.i196.i.i:                           ; preds = %340
+  %342 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit206.i.i
+
+.split.i.i.i200.i.i:                              ; preds = %340, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i202.i.i
+  %343 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %344 = icmp eq i64 %343, 0
+  br i1 %344, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i202.i.i, label %345
+
+345:                                              ; preds = %.split.i.i.i200.i.i
+  %346 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %343, i1 true)
+  %347 = shl i64 %343, %346
+  %348 = lshr i64 %347, 11
+  %349 = and i64 %348, 4503599627370495
+  %350 = shl nuw nsw i64 %346, 52
+  %reass.sub39 = sub nsw i64 %349, %350
+  %351 = add nsw i64 %reass.sub39, 4602678819172646912
+  %352 = bitcast i64 %351 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i202.i.i
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i202.i.i: ; preds = %345, %.split.i.i.i200.i.i
+  %.0.i.i.i.i.i.i203.i.i = phi double [ %352, %345 ], [ 0.000000e+00, %.split.i.i.i200.i.i ]
+  %353 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i203.i.i, double %336, double %334)
+  %354 = fcmp uge double %353, 1.000000e+00
+  br i1 %354, label %.split.i.i.i200.i.i, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit206.i.i
+
+_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit206.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i202.i.i, %.split.us.i.i.i196.i.i, %_ZN4absl7UniformIdNS_21IntervalClosedOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit.i.i
+  %355 = call noundef double @_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %48, double noundef 0.000000e+00, double noundef 1.000000e+00)
+  %356 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
+  %357 = call i1 @llvm.is.fpclass.f64(double %356, i32 480)
+  br i1 %357, label %358, label %_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit218.i.i
+
+358:                                              ; preds = %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit206.i.i
+  %359 = call i1 @llvm.is.fpclass.f64(double %356, i32 384)
+  br i1 %359, label %.split.i.i.i212.i.i, label %.split.us.i.i.i208.i.i
+
+.split.us.i.i.i208.i.i:                           ; preds = %358
+  %360 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit218.i.i
+
+.split.i.i.i212.i.i:                              ; preds = %358, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i214.i.i
+  %361 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %362 = icmp eq i64 %361, 0
+  br i1 %362, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i214.i.i, label %363
+
+363:                                              ; preds = %.split.i.i.i212.i.i
+  %364 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %361, i1 true)
+  %365 = shl i64 %361, %364
+  %366 = lshr i64 %365, 11
+  %367 = and i64 %366, 4503599627370495
+  %368 = shl nuw nsw i64 %364, 52
+  %reass.sub40 = sub nsw i64 %367, %368
+  %369 = add nsw i64 %reass.sub40, 4602678819172646912
+  %370 = bitcast i64 %369 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i214.i.i
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i214.i.i: ; preds = %363, %.split.i.i.i212.i.i
+  %.0.i.i.i.i.i.i215.i.i = phi double [ %370, %363 ], [ 0.000000e+00, %.split.i.i.i212.i.i ]
+  %371 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i215.i.i, double %356, double 0.000000e+00)
+  %372 = fcmp uge double %371, %356
+  br i1 %372, label %.split.i.i.i212.i.i, label %_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit218.i.i
+
+_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit218.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i214.i.i, %.split.us.i.i.i208.i.i, %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit206.i.i
+  %373 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
+  %374 = fcmp ole double %373, 1.000000e+00
+  %375 = fsub double 1.000000e+00, %373
+  %376 = call double @llvm.fabs.f64(double %375)
+  %377 = fcmp one double %376, 0x7FF0000000000000
+  %378 = and i1 %374, %377
+  br i1 %378, label %379, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit230.i.i
+
+379:                                              ; preds = %_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit218.i.i
+  %380 = call i1 @llvm.is.fpclass.f64(double %375, i32 384)
+  br i1 %380, label %.split.i.i.i224.i.i, label %.split.us.i.i.i220.i.i
+
+.split.us.i.i.i220.i.i:                           ; preds = %379
+  %381 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  br label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit230.i.i
+
+.split.i.i.i224.i.i:                              ; preds = %379, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i226.i.i
+  %382 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %383 = icmp eq i64 %382, 0
+  br i1 %383, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i226.i.i, label %384
+
+384:                                              ; preds = %.split.i.i.i224.i.i
+  %385 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %382, i1 true)
+  %386 = shl i64 %382, %385
+  %387 = lshr i64 %386, 11
+  %388 = and i64 %387, 4503599627370495
+  %389 = shl nuw nsw i64 %385, 52
+  %reass.sub41 = sub nsw i64 %388, %389
+  %390 = add nsw i64 %reass.sub41, 4602678819172646912
+  %391 = bitcast i64 %390 to double
+  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i226.i.i
+
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i226.i.i: ; preds = %384, %.split.i.i.i224.i.i
+  %.0.i.i.i.i.i.i227.i.i = phi double [ %391, %384 ], [ 0.000000e+00, %.split.i.i.i224.i.i ]
+  %392 = call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i.i227.i.i, double %375, double %373)
+  %393 = fcmp uge double %392, 1.000000e+00
+  br i1 %393, label %.split.i.i.i224.i.i, label %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit230.i.i
+
+_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit230.i.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i226.i.i, %.split.us.i.i.i220.i.i, %_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit218.i.i
+  %394 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %395 = trunc i64 %394 to i32
+  %396 = mul i32 %395, 101
+  %397 = icmp ult i32 %396, 101
+  br i1 %397, label %398, label %.noexc242.i.i, !prof !25
+
+398:                                              ; preds = %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit230.i.i
+  %399 = icmp samesign ult i32 %396, 68
+  br i1 %399, label %.lr.ph.i.i.i.i.i.i234.i.i, label %.noexc242.i.i
+
+.lr.ph.i.i.i.i.i.i234.i.i:                        ; preds = %398, %.lr.ph.i.i.i.i.i.i234.i.i
+  %400 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %401 = trunc i64 %400 to i32
+  %402 = mul i32 %401, 101
+  %403 = icmp ult i32 %402, 68
+  br i1 %403, label %.lr.ph.i.i.i.i.i.i234.i.i, label %.noexc242.i.i, !llvm.loop !26
+
+.noexc242.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i234.i.i, %398, %_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_.exit230.i.i
+  %404 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %405 = trunc i64 %404 to i32
+  %406 = mul i32 %405, 100
+  %407 = icmp ult i32 %406, 100
+  br i1 %407, label %408, label %.noexc248.i.i, !prof !25
+
+408:                                              ; preds = %.noexc242.i.i
+  %409 = icmp samesign ult i32 %406, 96
+  br i1 %409, label %.lr.ph.i.i.i.i.i.i241.i.i, label %.noexc248.i.i
+
+.lr.ph.i.i.i.i.i.i241.i.i:                        ; preds = %408, %.lr.ph.i.i.i.i.i.i241.i.i
+  %410 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %411 = trunc i64 %410 to i32
+  %412 = mul i32 %411, 100
+  %413 = icmp ult i32 %412, 96
+  br i1 %413, label %.lr.ph.i.i.i.i.i.i241.i.i, label %.noexc248.i.i, !llvm.loop !26
+
+.noexc248.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i241.i.i, %408, %.noexc242.i.i
+  %414 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %415 = trunc i64 %414 to i32
+  %416 = mul i32 %415, 99
+  %417 = icmp ult i32 %416, 99
+  br i1 %417, label %418, label %.noexc254.i.i, !prof !25
+
+418:                                              ; preds = %.noexc248.i.i
+  %419 = icmp samesign ult i32 %416, 4
+  br i1 %419, label %.lr.ph.i.i.i.i.i.i247.i.i, label %.noexc254.i.i
+
+.lr.ph.i.i.i.i.i.i247.i.i:                        ; preds = %418, %.lr.ph.i.i.i.i.i.i247.i.i
+  %420 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %421 = trunc i64 %420 to i32
+  %422 = mul i32 %421, 99
+  %423 = icmp ult i32 %422, 4
+  br i1 %423, label %.lr.ph.i.i.i.i.i.i247.i.i, label %.noexc254.i.i, !llvm.loop !26
+
+.noexc254.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i247.i.i, %418, %.noexc248.i.i
+  %424 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %425 = trunc i64 %424 to i32
+  %426 = mul i32 %425, 100
+  %427 = icmp ult i32 %426, 100
+  br i1 %427, label %428, label %.noexc260.i.i, !prof !25
+
+428:                                              ; preds = %.noexc254.i.i
+  %429 = icmp samesign ult i32 %426, 96
+  br i1 %429, label %.lr.ph.i.i.i.i.i.i253.i.i, label %.noexc260.i.i
+
+.lr.ph.i.i.i.i.i.i253.i.i:                        ; preds = %428, %.lr.ph.i.i.i.i.i.i253.i.i
+  %430 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %431 = trunc i64 %430 to i32
+  %432 = mul i32 %431, 100
+  %433 = icmp ult i32 %432, 96
+  br i1 %433, label %.lr.ph.i.i.i.i.i.i253.i.i, label %.noexc260.i.i, !llvm.loop !26
+
+.noexc260.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i253.i.i, %428, %.noexc254.i.i
+  %434 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %435 = trunc i64 %434 to i32
+  %436 = mul i32 %435, 101
+  %437 = icmp ult i32 %436, 101
+  br i1 %437, label %438, label %.noexc267.i.i, !prof !25
+
+438:                                              ; preds = %.noexc260.i.i
+  %439 = icmp samesign ult i32 %436, 68
+  br i1 %439, label %.lr.ph.i.i.i.i.i.i259.i.i, label %.noexc267.i.i
+
+.lr.ph.i.i.i.i.i.i259.i.i:                        ; preds = %438, %.lr.ph.i.i.i.i.i.i259.i.i
+  %440 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %441 = trunc i64 %440 to i32
+  %442 = mul i32 %441, 101
+  %443 = icmp ult i32 %442, 68
+  br i1 %443, label %.lr.ph.i.i.i.i.i.i259.i.i, label %.noexc267.i.i, !llvm.loop !26
+
+.noexc267.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i259.i.i, %438, %.noexc260.i.i
+  %444 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %445 = trunc i64 %444 to i32
+  %446 = mul i32 %445, 99
+  %447 = icmp ult i32 %446, 99
+  br i1 %447, label %448, label %.loopexit312.i.i, !prof !25
+
+448:                                              ; preds = %.noexc267.i.i
+  %449 = icmp samesign ult i32 %446, 4
+  br i1 %449, label %.lr.ph.i.i.i.i.i.i266.i.i, label %.loopexit312.i.i
+
+.lr.ph.i.i.i.i.i.i266.i.i:                        ; preds = %448, %.lr.ph.i.i.i.i.i.i266.i.i
+  %450 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %451 = trunc i64 %450 to i32
+  %452 = mul i32 %451, 99
+  %453 = icmp ult i32 %452, 4
+  br i1 %453, label %.lr.ph.i.i.i.i.i.i266.i.i, label %.loopexit312.i.i, !llvm.loop !26
+
+.loopexit312.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i266.i.i, %448, %.noexc267.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   store i64 5489, ptr %46, align 8, !tbaa !20
-  br label %322
+  br label %454
 
-322:                                              ; preds = %322, %.loopexit206.i.i
-  %store_forwarded66 = phi i64 [ 5489, %.loopexit206.i.i ], [ %327, %322 ]
-  %.011.i.i.i.i.i = phi i64 [ 1, %.loopexit206.i.i ], [ %328, %322 ]
-  %323 = getelementptr i64, ptr %46, i64 %.011.i.i.i.i.i
-  %324 = lshr i64 %store_forwarded66, 62
-  %325 = xor i64 %324, %store_forwarded66
-  %326 = mul i64 %325, 6364136223846793005
-  %327 = add i64 %326, %.011.i.i.i.i.i
-  store i64 %327, ptr %323, align 8, !tbaa !20
-  %328 = add nuw nsw i64 %.011.i.i.i.i.i, 1
-  %exitcond.not.i.i.i.i.i = icmp eq i64 %328, 312
-  br i1 %exitcond.not.i.i.i.i.i, label %.noexc176.i.i, label %322, !llvm.loop !21
+454:                                              ; preds = %454, %.loopexit312.i.i
+  %store_forwarded92 = phi i64 [ 5489, %.loopexit312.i.i ], [ %459, %454 ]
+  %.011.i.i.i.i.i = phi i64 [ 1, %.loopexit312.i.i ], [ %460, %454 ]
+  %455 = getelementptr i64, ptr %46, i64 %.011.i.i.i.i.i
+  %456 = lshr i64 %store_forwarded92, 62
+  %457 = xor i64 %456, %store_forwarded92
+  %458 = mul i64 %457, 6364136223846793005
+  %459 = add i64 %458, %.011.i.i.i.i.i
+  store i64 %459, ptr %455, align 8, !tbaa !20
+  %460 = add nuw nsw i64 %.011.i.i.i.i.i, 1
+  %exitcond.not.i.i.i.i.i = icmp eq i64 %460, 312
+  br i1 %exitcond.not.i.i.i.i.i, label %.noexc274.i.i, label %454, !llvm.loop !21
 
-.noexc176.i.i:                                    ; preds = %322
-  %329 = getelementptr inbounds nuw i8, ptr %46, i64 2496
-  store i64 312, ptr %329, align 8, !tbaa !23
-  %330 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %46)
-  %331 = trunc i64 %330 to i32
-  %332 = mul i32 %331, 100
-  %333 = icmp ult i32 %332, 100
-  br i1 %333, label %334, label %.loopexit.i.i, !prof !25
+.noexc274.i.i:                                    ; preds = %454
+  %461 = getelementptr inbounds nuw i8, ptr %46, i64 2496
+  store i64 312, ptr %461, align 8, !tbaa !23
+  %462 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %46)
+  %463 = trunc i64 %462 to i32
+  %464 = mul i32 %463, 100
+  %465 = icmp ult i32 %464, 100
+  br i1 %465, label %466, label %.loopexit.i.i, !prof !25
 
-334:                                              ; preds = %.noexc176.i.i
-  %335 = icmp samesign ult i32 %332, 96
-  br i1 %335, label %.lr.ph.i.i.i.i.i.i175.i.i, label %.loopexit.i.i
+466:                                              ; preds = %.noexc274.i.i
+  %467 = icmp samesign ult i32 %464, 96
+  br i1 %467, label %.lr.ph.i.i.i.i.i.i273.i.i, label %.loopexit.i.i
 
-.lr.ph.i.i.i.i.i.i175.i.i:                        ; preds = %334, %.lr.ph.i.i.i.i.i.i175.i.i
-  %336 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %46)
-  %337 = trunc i64 %336 to i32
-  %338 = mul i32 %337, 100
-  %339 = icmp ult i32 %338, 96
-  br i1 %339, label %.lr.ph.i.i.i.i.i.i175.i.i, label %.loopexit.i.i, !llvm.loop !26
+.lr.ph.i.i.i.i.i.i273.i.i:                        ; preds = %466, %.lr.ph.i.i.i.i.i.i273.i.i
+  %468 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %46)
+  %469 = trunc i64 %468 to i32
+  %470 = mul i32 %469, 100
+  %471 = icmp ult i32 %470, 96
+  br i1 %471, label %.lr.ph.i.i.i.i.i.i273.i.i, label %.loopexit.i.i, !llvm.loop !26
 
-.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i175.i.i, %334, %.noexc176.i.i
+.loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i.i.i273.i.i, %466, %.noexc274.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
   store i64 5489, ptr %47, align 8, !tbaa !20
-  br label %340
+  br label %472
 
-340:                                              ; preds = %340, %.loopexit.i.i
-  %store_forwarded64 = phi i64 [ 5489, %.loopexit.i.i ], [ %345, %340 ]
-  %.011.i.i.i178.i.i = phi i64 [ 1, %.loopexit.i.i ], [ %346, %340 ]
-  %341 = getelementptr i64, ptr %47, i64 %.011.i.i.i178.i.i
-  %342 = lshr i64 %store_forwarded64, 62
-  %343 = xor i64 %342, %store_forwarded64
-  %344 = mul i64 %343, 6364136223846793005
-  %345 = add i64 %344, %.011.i.i.i178.i.i
-  store i64 %345, ptr %341, align 8, !tbaa !20
-  %346 = add nuw nsw i64 %.011.i.i.i178.i.i, 1
-  %exitcond.not.i.i.i179.i.i = icmp eq i64 %346, 312
-  br i1 %exitcond.not.i.i.i179.i.i, label %347, label %340, !llvm.loop !21
+472:                                              ; preds = %472, %.loopexit.i.i
+  %store_forwarded90 = phi i64 [ 5489, %.loopexit.i.i ], [ %477, %472 ]
+  %.011.i.i.i276.i.i = phi i64 [ 1, %.loopexit.i.i ], [ %478, %472 ]
+  %473 = getelementptr i64, ptr %47, i64 %.011.i.i.i276.i.i
+  %474 = lshr i64 %store_forwarded90, 62
+  %475 = xor i64 %474, %store_forwarded90
+  %476 = mul i64 %475, 6364136223846793005
+  %477 = add i64 %476, %.011.i.i.i276.i.i
+  store i64 %477, ptr %473, align 8, !tbaa !20
+  %478 = add nuw nsw i64 %.011.i.i.i276.i.i, 1
+  %exitcond.not.i.i.i277.i.i = icmp eq i64 %478, 312
+  br i1 %exitcond.not.i.i.i277.i.i, label %479, label %472, !llvm.loop !21
 
-347:                                              ; preds = %340
-  %348 = getelementptr inbounds nuw i8, ptr %47, i64 2496
-  store i64 312, ptr %348, align 8, !tbaa !23
-  br label %.split.i.i.i181.i.i
+479:                                              ; preds = %472
+  %480 = getelementptr inbounds nuw i8, ptr %47, i64 2496
+  store i64 312, ptr %480, align 8, !tbaa !23
+  br label %.split.i.i.i279.i.i
 
-.split.i.i.i181.i.i:                              ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i183.i.i, %347
-  %349 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %47)
-  %350 = icmp eq i64 %349, 0
-  br i1 %350, label %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i183.i.i
+.split.i.i.i279.i.i:                              ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i281.i.i, %479
+  %481 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %47)
+  %482 = icmp eq i64 %481, 0
+  br i1 %482, label %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i281.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i183.i.i: ; preds = %.split.i.i.i181.i.i
-  %351 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %349, i1 true)
-  %352 = shl i64 %349, %351
-  %353 = lshr i64 %352, 11
-  %354 = and i64 %353, 4503599627370495
-  %355 = shl nuw nsw i64 %351, 52
-  %reass.sub28 = sub nsw i64 %354, %355
-  %356 = add nsw i64 %reass.sub28, 4602678819172646912
-  %357 = bitcast i64 %356 to double
-  %358 = fcmp uge double %357, 1.000000e+00
-  br i1 %358, label %.split.i.i.i181.i.i, label %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i281.i.i: ; preds = %.split.i.i.i279.i.i
+  %483 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %481, i1 true)
+  %484 = shl i64 %481, %483
+  %485 = lshr i64 %484, 11
+  %486 = and i64 %485, 4503599627370495
+  %487 = shl nuw nsw i64 %483, 52
+  %reass.sub42 = sub nsw i64 %486, %487
+  %488 = add nsw i64 %reass.sub42, 4602678819172646912
+  %489 = bitcast i64 %488 to double
+  %490 = fcmp uge double %489, 1.000000e+00
+  br i1 %490, label %.split.i.i.i279.i.i, label %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
 
-_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i183.i.i, %.split.i.i.i181.i.i
+_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i281.i.i, %.split.i.i.i279.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
-  %359 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %360 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %359, i1 false)
-  %361 = trunc nuw nsw i64 %360 to i32
-  %362 = and i64 %360, 63
-  %363 = shl i64 %359, %362
-  %364 = lshr i64 %363, 40
-  %365 = trunc nuw nsw i64 %364 to i32
-  %366 = and i32 %365, 8388607
-  %367 = shl nuw nsw i32 %361, 23
-  %reass.sub29 = sub nsw i32 %366, %367
-  %368 = add nsw i32 %reass.sub29, 1056964608
-  %369 = or i32 %368, -2147483648
-  %370 = bitcast i32 %369 to float
-  %371 = fcmp ugt float %370, -1.000000e+00
-  br i1 %371, label %cdce.end.i.i, label %cdce.call, !prof !31
+  %491 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %492 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %491, i1 false)
+  %493 = trunc nuw nsw i64 %492 to i32
+  %494 = and i64 %492, 63
+  %495 = shl i64 %491, %494
+  %496 = lshr i64 %495, 40
+  %497 = trunc nuw nsw i64 %496 to i32
+  %498 = and i32 %497, 8388607
+  %499 = shl nuw nsw i32 %493, 23
+  %reass.sub43 = sub nsw i32 %498, %499
+  %500 = add nsw i32 %reass.sub43, 1056964608
+  %501 = or i32 %500, -2147483648
+  %502 = bitcast i32 %501 to float
+  %503 = fcmp ugt float %502, -1.000000e+00
+  br i1 %503, label %cdce.end.i.i, label %cdce.call, !prof !32
 
 cdce.call:                                        ; preds = %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %372 = call noundef float @log1pf(float noundef %370) #19, !tbaa !32
+  %504 = call noundef float @log1pf(float noundef %502) #19, !tbaa !27
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %_ZN12_GLOBAL__N_111TestUniformISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %373 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %374 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %373, i1 false)
-  %375 = and i64 %374, 63
-  %376 = shl i64 %373, %375
-  %377 = lshr i64 %376, 11
-  %378 = and i64 %377, 4503599627370495
-  %379 = shl nuw nsw i64 %374, 52
-  %reass.sub30 = sub nsw i64 %378, %379
-  %380 = add nsw i64 %reass.sub30, -4620693217682128896
-  %381 = bitcast i64 %380 to double
-  %382 = fcmp ugt double %381, -1.000000e+00
-  br i1 %382, label %cdce.end5.i.i, label %cdce.call1, !prof !31
+  %505 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %506 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %505, i1 false)
+  %507 = and i64 %506, 63
+  %508 = shl i64 %505, %507
+  %509 = lshr i64 %508, 11
+  %510 = and i64 %509, 4503599627370495
+  %511 = shl nuw nsw i64 %506, 52
+  %reass.sub44 = sub nsw i64 %510, %511
+  %512 = add nsw i64 %reass.sub44, -4620693217682128896
+  %513 = bitcast i64 %512 to double
+  %514 = fcmp ugt double %513, -1.000000e+00
+  br i1 %514, label %cdce.end5.i.i, label %cdce.call1, !prof !32
 
 cdce.call1:                                       ; preds = %cdce.end.i.i
-  %383 = call double @log1p(double noundef %381) #19, !tbaa !32
+  %515 = call double @log1p(double noundef %513) #19, !tbaa !27
   br label %cdce.end5.i.i
 
 cdce.end5.i.i:                                    ; preds = %cdce.call1, %cdce.end.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   store i64 5489, ptr %45, align 8, !tbaa !20
-  br label %384
+  br label %516
 
-384:                                              ; preds = %384, %cdce.end5.i.i
-  %store_forwarded62 = phi i64 [ 5489, %cdce.end5.i.i ], [ %389, %384 ]
-  %.011.i.i.i.i2.i = phi i64 [ 1, %cdce.end5.i.i ], [ %390, %384 ]
-  %385 = getelementptr i64, ptr %45, i64 %.011.i.i.i.i2.i
-  %386 = lshr i64 %store_forwarded62, 62
-  %387 = xor i64 %386, %store_forwarded62
-  %388 = mul i64 %387, 6364136223846793005
-  %389 = add i64 %388, %.011.i.i.i.i2.i
-  store i64 %389, ptr %385, align 8, !tbaa !20
-  %390 = add nuw nsw i64 %.011.i.i.i.i2.i, 1
-  %exitcond.not.i.i.i.i3.i = icmp eq i64 %390, 312
-  br i1 %exitcond.not.i.i.i.i3.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i, label %384, !llvm.loop !21
+516:                                              ; preds = %516, %cdce.end5.i.i
+  %store_forwarded88 = phi i64 [ 5489, %cdce.end5.i.i ], [ %521, %516 ]
+  %.011.i.i.i.i2.i = phi i64 [ 1, %cdce.end5.i.i ], [ %522, %516 ]
+  %517 = getelementptr i64, ptr %45, i64 %.011.i.i.i.i2.i
+  %518 = lshr i64 %store_forwarded88, 62
+  %519 = xor i64 %518, %store_forwarded88
+  %520 = mul i64 %519, 6364136223846793005
+  %521 = add i64 %520, %.011.i.i.i.i2.i
+  store i64 %521, ptr %517, align 8, !tbaa !20
+  %522 = add nuw nsw i64 %.011.i.i.i.i2.i, 1
+  %exitcond.not.i.i.i.i3.i = icmp eq i64 %522, 312
+  br i1 %exitcond.not.i.i.i.i3.i, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i, label %516, !llvm.loop !21
 
-_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i: ; preds = %384
-  %391 = getelementptr inbounds nuw i8, ptr %45, i64 2496
-  store i64 312, ptr %391, align 8, !tbaa !23
-  %392 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %45)
-  %393 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %392, i1 false)
-  %394 = and i64 %393, 63
-  %395 = shl i64 %392, %394
-  %396 = lshr i64 %395, 11
-  %397 = and i64 %396, 4503599627370495
-  %398 = shl nuw nsw i64 %393, 52
-  %reass.sub31 = sub nsw i64 %397, %398
-  %399 = add nsw i64 %reass.sub31, -4620693217682128896
-  %400 = bitcast i64 %399 to double
-  %401 = fcmp ugt double %400, -1.000000e+00
-  br i1 %401, label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %cdce.call3, !prof !31
+_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i: ; preds = %516
+  %523 = getelementptr inbounds nuw i8, ptr %45, i64 2496
+  store i64 312, ptr %523, align 8, !tbaa !23
+  %524 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %45)
+  %525 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %524, i1 false)
+  %526 = and i64 %525, 63
+  %527 = shl i64 %524, %526
+  %528 = lshr i64 %527, 11
+  %529 = and i64 %528, 4503599627370495
+  %530 = shl nuw nsw i64 %525, 52
+  %reass.sub45 = sub nsw i64 %529, %530
+  %531 = add nsw i64 %reass.sub45, -4620693217682128896
+  %532 = bitcast i64 %531 to double
+  %533 = fcmp ugt double %532, -1.000000e+00
+  br i1 %533, label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %cdce.call3, !prof !32
 
 cdce.call3:                                       ; preds = %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
-  %402 = call double @log1p(double noundef %400) #19, !tbaa !32
+  %534 = call double @log1p(double noundef %532) #19, !tbaa !27
   br label %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEC2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store double 1.000000e+00, ptr %43, align 8, !tbaa !33
-  %403 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  store i32 1, ptr %403, align 8, !tbaa !36
-  %404 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store double 0x3FD78B56362CEF38, ptr %404, align 8, !tbaa !37
-  %405 = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %43, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %43)
+  %535 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  store i32 1, ptr %535, align 8, !tbaa !36
+  %536 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store double 0x3FD78B56362CEF38, ptr %536, align 8, !tbaa !37
+  %537 = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %43, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   store double 1.000000e+00, ptr %42, align 8, !tbaa !38
-  %406 = getelementptr inbounds nuw i8, ptr %42, i64 40
-  store i32 1, ptr %406, align 8, !tbaa !40
-  %407 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store double 0x3FD78B56362CEF38, ptr %407, align 8, !tbaa !37
-  %408 = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %42, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %42)
+  %538 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  store i32 1, ptr %538, align 8, !tbaa !40
+  %539 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store double 0x3FD78B56362CEF38, ptr %539, align 8, !tbaa !37
+  %540 = call noundef signext i16 @_ZN4absl20poisson_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %42, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   store double 1.000000e+00, ptr %41, align 8, !tbaa !41
-  %409 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  store i32 1, ptr %409, align 8, !tbaa !43
-  %410 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store double 0x3FD78B56362CEF38, ptr %410, align 8, !tbaa !37
-  %411 = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %41, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %41)
+  %541 = getelementptr inbounds nuw i8, ptr %41, i64 40
+  store i32 1, ptr %541, align 8, !tbaa !43
+  %542 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store double 0x3FD78B56362CEF38, ptr %542, align 8, !tbaa !37
+  %543 = call noundef zeroext i16 @_ZN4absl20poisson_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %41, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store double 1.000000e+00, ptr %40, align 8, !tbaa !33
-  %412 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  store i32 1, ptr %412, align 8, !tbaa !36
-  %413 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store double 0x3FD78B56362CEF38, ptr %413, align 8, !tbaa !37
-  %414 = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %40, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %40)
+  %544 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  store i32 1, ptr %544, align 8, !tbaa !36
+  %545 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store double 0x3FD78B56362CEF38, ptr %545, align 8, !tbaa !37
+  %546 = call noundef i32 @_ZN4absl20poisson_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %40, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   store double 1.000000e+00, ptr %39, align 8, !tbaa !44
-  %415 = getelementptr inbounds nuw i8, ptr %39, i64 40
-  store i32 1, ptr %415, align 8, !tbaa !46
-  %416 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store double 0x3FD78B56362CEF38, ptr %416, align 8, !tbaa !37
-  %417 = call noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %39, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %39)
+  %547 = getelementptr inbounds nuw i8, ptr %39, i64 40
+  store i32 1, ptr %547, align 8, !tbaa !46
+  %548 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store double 0x3FD78B56362CEF38, ptr %548, align 8, !tbaa !37
+  %549 = call noundef i32 @_ZN4absl20poisson_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %39, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   store double 1.000000e+00, ptr %38, align 8, !tbaa !47
-  %418 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  store i32 1, ptr %418, align 8, !tbaa !49
-  %419 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store double 0x3FD78B56362CEF38, ptr %419, align 8, !tbaa !37
-  %420 = call noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %38, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %38)
+  %550 = getelementptr inbounds nuw i8, ptr %38, i64 40
+  store i32 1, ptr %550, align 8, !tbaa !49
+  %551 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store double 0x3FD78B56362CEF38, ptr %551, align 8, !tbaa !37
+  %552 = call noundef i64 @_ZN4absl20poisson_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %38, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store double 1.000000e+00, ptr %37, align 8, !tbaa !50
-  %421 = getelementptr inbounds nuw i8, ptr %37, i64 40
-  store i32 1, ptr %421, align 8, !tbaa !52
-  %422 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store double 0x3FD78B56362CEF38, ptr %422, align 8, !tbaa !37
-  %423 = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %37, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %37)
+  %553 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  store i32 1, ptr %553, align 8, !tbaa !52
+  %554 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store double 0x3FD78B56362CEF38, ptr %554, align 8, !tbaa !37
+  %555 = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %37, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i64 5489, ptr %44, align 8, !tbaa !20
-  br label %424
+  br label %556
 
-424:                                              ; preds = %424, %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %store_forwarded60 = phi i64 [ 5489, %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %429, %424 ]
-  %.011.i.i.i.i4.i = phi i64 [ 1, %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %430, %424 ]
-  %425 = getelementptr i64, ptr %44, i64 %.011.i.i.i.i4.i
-  %426 = lshr i64 %store_forwarded60, 62
-  %427 = xor i64 %426, %store_forwarded60
-  %428 = mul i64 %427, 6364136223846793005
-  %429 = add i64 %428, %.011.i.i.i.i4.i
-  store i64 %429, ptr %425, align 8, !tbaa !20
-  %430 = add nuw nsw i64 %.011.i.i.i.i4.i, 1
-  %exitcond.not.i.i.i.i5.i = icmp eq i64 %430, 312
-  br i1 %exitcond.not.i.i.i.i5.i, label %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %424, !llvm.loop !21
+556:                                              ; preds = %556, %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+  %store_forwarded86 = phi i64 [ 5489, %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %561, %556 ]
+  %.011.i.i.i.i4.i = phi i64 [ 1, %_ZN12_GLOBAL__N_115TestExponentialISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %562, %556 ]
+  %557 = getelementptr i64, ptr %44, i64 %.011.i.i.i.i4.i
+  %558 = lshr i64 %store_forwarded86, 62
+  %559 = xor i64 %558, %store_forwarded86
+  %560 = mul i64 %559, 6364136223846793005
+  %561 = add i64 %560, %.011.i.i.i.i4.i
+  store i64 %561, ptr %557, align 8, !tbaa !20
+  %562 = add nuw nsw i64 %.011.i.i.i.i4.i, 1
+  %exitcond.not.i.i.i.i5.i = icmp eq i64 %562, 312
+  br i1 %exitcond.not.i.i.i.i5.i, label %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %556, !llvm.loop !21
 
-_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %424
-  %431 = getelementptr inbounds nuw i8, ptr %44, i64 2496
-  store i64 312, ptr %431, align 8, !tbaa !23
+_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %556
+  %563 = getelementptr inbounds nuw i8, ptr %44, i64 2496
+  store i64 312, ptr %563, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store double 1.000000e+00, ptr %36, align 8, !tbaa !50
-  %432 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i32 1, ptr %432, align 8, !tbaa !52
-  %433 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store double 0x3FD78B56362CEF38, ptr %433, align 8, !tbaa !37
-  %434 = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %36, ptr noundef nonnull align 8 dereferenceable(2504) %44, ptr noundef nonnull align 8 dereferenceable(49) %36)
+  %564 = getelementptr inbounds nuw i8, ptr %36, i64 40
+  store i32 1, ptr %564, align 8, !tbaa !52
+  %565 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store double 0x3FD78B56362CEF38, ptr %565, align 8, !tbaa !37
+  %566 = call noundef i64 @_ZN4absl20poisson_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %36, ptr noundef nonnull align 8 dereferenceable(2504) %44, ptr noundef nonnull align 8 dereferenceable(49) %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store double 1.000000e+00, ptr %35, align 8, !tbaa !53
-  %435 = getelementptr inbounds nuw i8, ptr %35, i64 40
-  store i32 1, ptr %435, align 8, !tbaa !55
-  %436 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store double 0x3FD78B56362CEF38, ptr %436, align 8, !tbaa !37
-  %437 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %35, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %35)
+  %567 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  store i32 1, ptr %567, align 8, !tbaa !55
+  %568 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store double 0x3FD78B56362CEF38, ptr %568, align 8, !tbaa !37
+  %569 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %35, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store double 1.000000e+00, ptr %34, align 8, !tbaa !56
-  %438 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  store i32 1, ptr %438, align 8, !tbaa !58
-  %439 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store double 0x3FD78B56362CEF38, ptr %439, align 8, !tbaa !37
-  %440 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %34, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %34)
+  %570 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store i32 1, ptr %570, align 8, !tbaa !58
+  %571 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store double 0x3FD78B56362CEF38, ptr %571, align 8, !tbaa !37
+  %572 = call { i64, i64 } @_ZN4absl20poisson_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 8 dereferenceable(49) %34, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(49) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  %441 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
-  %442 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %573 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %574 = call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 100, ptr %32, align 8, !tbaa !59
-  %443 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store double 2.000000e+00, ptr %443, align 8, !tbaa !61
-  %444 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store double 1.000000e+00, ptr %444, align 8, !tbaa !62
-  %445 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store double -1.000000e+00, ptr %445, align 8, !tbaa !63
-  %446 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store double -1.000000e+00, ptr %446, align 8, !tbaa !64
-  %447 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  store double 0xBF842D6625D51F87, ptr %447, align 8, !tbaa !65
-  %448 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  store double 0xBFFA824FDE5F006B, ptr %448, align 8, !tbaa !66
-  %449 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store double 0x3FDD89D89D89D898, ptr %449, align 8, !tbaa !67
-  %450 = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %32)
+  %575 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store double 2.000000e+00, ptr %575, align 8, !tbaa !61
+  %576 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store double 1.000000e+00, ptr %576, align 8, !tbaa !62
+  %577 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  store double -1.000000e+00, ptr %577, align 8, !tbaa !63
+  %578 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  store double -1.000000e+00, ptr %578, align 8, !tbaa !64
+  %579 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  store double 0xBF842D6625D51F87, ptr %579, align 8, !tbaa !65
+  %580 = getelementptr inbounds nuw i8, ptr %32, i64 56
+  store double 0xBFFA824FDE5F006B, ptr %580, align 8, !tbaa !66
+  %581 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  store double 0x3FDD89D89D89D898, ptr %581, align 8, !tbaa !67
+  %582 = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %32, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   store i8 100, ptr %31, align 8, !tbaa !68
-  %451 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store double 2.000000e+00, ptr %451, align 8, !tbaa !70
-  %452 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store double 1.000000e+00, ptr %452, align 8, !tbaa !71
-  %453 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  store double -1.000000e+00, ptr %453, align 8, !tbaa !72
-  %454 = getelementptr inbounds nuw i8, ptr %31, i64 40
-  store double -1.000000e+00, ptr %454, align 8, !tbaa !73
-  %455 = getelementptr inbounds nuw i8, ptr %31, i64 48
-  store double 0xBF842D6625D51F87, ptr %455, align 8, !tbaa !74
-  %456 = getelementptr inbounds nuw i8, ptr %31, i64 56
-  store double 0xBFFA824FDE5F006B, ptr %456, align 8, !tbaa !75
-  %457 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store double 0x3FDD89D89D89D898, ptr %457, align 8, !tbaa !76
-  %458 = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %31)
+  %583 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store double 2.000000e+00, ptr %583, align 8, !tbaa !70
+  %584 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store double 1.000000e+00, ptr %584, align 8, !tbaa !71
+  %585 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  store double -1.000000e+00, ptr %585, align 8, !tbaa !72
+  %586 = getelementptr inbounds nuw i8, ptr %31, i64 40
+  store double -1.000000e+00, ptr %586, align 8, !tbaa !73
+  %587 = getelementptr inbounds nuw i8, ptr %31, i64 48
+  store double 0xBF842D6625D51F87, ptr %587, align 8, !tbaa !74
+  %588 = getelementptr inbounds nuw i8, ptr %31, i64 56
+  store double 0xBFFA824FDE5F006B, ptr %588, align 8, !tbaa !75
+  %589 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  store double 0x3FDD89D89D89D898, ptr %589, align 8, !tbaa !76
+  %590 = call noundef signext i8 @_ZN4absl17zipf_distributionIaEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEaRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i16 100, ptr %30, align 8, !tbaa !77
-  %459 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store double 2.000000e+00, ptr %459, align 8, !tbaa !80
-  %460 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store double 1.000000e+00, ptr %460, align 8, !tbaa !81
-  %461 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  store double -1.000000e+00, ptr %461, align 8, !tbaa !82
-  %462 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store double -1.000000e+00, ptr %462, align 8, !tbaa !83
-  %463 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store double 0xBF842D6625D51F87, ptr %463, align 8, !tbaa !84
-  %464 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  store double 0xBFFA824FDE5F006B, ptr %464, align 8, !tbaa !85
-  %465 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store double 0x3FDD89D89D89D898, ptr %465, align 8, !tbaa !86
-  %466 = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %30)
+  %591 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store double 2.000000e+00, ptr %591, align 8, !tbaa !80
+  %592 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store double 1.000000e+00, ptr %592, align 8, !tbaa !81
+  %593 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  store double -1.000000e+00, ptr %593, align 8, !tbaa !82
+  %594 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store double -1.000000e+00, ptr %594, align 8, !tbaa !83
+  %595 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store double 0xBF842D6625D51F87, ptr %595, align 8, !tbaa !84
+  %596 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  store double 0xBFFA824FDE5F006B, ptr %596, align 8, !tbaa !85
+  %597 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store double 0x3FDD89D89D89D898, ptr %597, align 8, !tbaa !86
+  %598 = call noundef signext i16 @_ZN4absl17zipf_distributionIsEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEsRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i16 100, ptr %29, align 8, !tbaa !87
-  %467 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store double 2.000000e+00, ptr %467, align 8, !tbaa !89
-  %468 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store double 1.000000e+00, ptr %468, align 8, !tbaa !90
-  %469 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  store double -1.000000e+00, ptr %469, align 8, !tbaa !91
-  %470 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  store double -1.000000e+00, ptr %470, align 8, !tbaa !92
-  %471 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  store double 0xBF842D6625D51F87, ptr %471, align 8, !tbaa !93
-  %472 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  store double 0xBFFA824FDE5F006B, ptr %472, align 8, !tbaa !94
-  %473 = getelementptr inbounds nuw i8, ptr %29, i64 32
-  store double 0x3FDD89D89D89D898, ptr %473, align 8, !tbaa !95
-  %474 = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %29)
+  %599 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store double 2.000000e+00, ptr %599, align 8, !tbaa !89
+  %600 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store double 1.000000e+00, ptr %600, align 8, !tbaa !90
+  %601 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  store double -1.000000e+00, ptr %601, align 8, !tbaa !91
+  %602 = getelementptr inbounds nuw i8, ptr %29, i64 40
+  store double -1.000000e+00, ptr %602, align 8, !tbaa !92
+  %603 = getelementptr inbounds nuw i8, ptr %29, i64 48
+  store double 0xBF842D6625D51F87, ptr %603, align 8, !tbaa !93
+  %604 = getelementptr inbounds nuw i8, ptr %29, i64 56
+  store double 0xBFFA824FDE5F006B, ptr %604, align 8, !tbaa !94
+  %605 = getelementptr inbounds nuw i8, ptr %29, i64 32
+  store double 0x3FDD89D89D89D898, ptr %605, align 8, !tbaa !95
+  %606 = call noundef zeroext i16 @_ZN4absl17zipf_distributionItEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 1024, ptr %28, align 8, !tbaa !59
-  %475 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store double 2.000000e+00, ptr %475, align 8, !tbaa !61
-  %476 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store double 1.000000e+00, ptr %476, align 8, !tbaa !62
-  %477 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store double -1.000000e+00, ptr %477, align 8, !tbaa !63
-  %478 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store double -1.000000e+00, ptr %478, align 8, !tbaa !64
-  %479 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store double 0xBF4FF4047E50A1C3, ptr %479, align 8, !tbaa !65
-  %480 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  store double 0xBFFAA6AC2A1AE096, ptr %480, align 8, !tbaa !66
-  %481 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store double 0x3FDD89D89D89D898, ptr %481, align 8, !tbaa !67
-  %482 = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %28)
+  %607 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store double 2.000000e+00, ptr %607, align 8, !tbaa !61
+  %608 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store double 1.000000e+00, ptr %608, align 8, !tbaa !62
+  %609 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  store double -1.000000e+00, ptr %609, align 8, !tbaa !63
+  %610 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store double -1.000000e+00, ptr %610, align 8, !tbaa !64
+  %611 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %611, align 8, !tbaa !65
+  %612 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  store double 0xBFFAA6AC2A1AE096, ptr %612, align 8, !tbaa !66
+  %613 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store double 0x3FDD89D89D89D898, ptr %613, align 8, !tbaa !67
+  %614 = call noundef i32 @_ZN4absl17zipf_distributionIiEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEiRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %28, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   store i32 1024, ptr %27, align 8, !tbaa !96
-  %483 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store double 2.000000e+00, ptr %483, align 8, !tbaa !98
-  %484 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store double 1.000000e+00, ptr %484, align 8, !tbaa !99
-  %485 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  store double -1.000000e+00, ptr %485, align 8, !tbaa !100
-  %486 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  store double -1.000000e+00, ptr %486, align 8, !tbaa !101
-  %487 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  store double 0xBF4FF4047E50A1C3, ptr %487, align 8, !tbaa !102
-  %488 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  store double 0xBFFAA6AC2A1AE096, ptr %488, align 8, !tbaa !103
-  %489 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  store double 0x3FDD89D89D89D898, ptr %489, align 8, !tbaa !104
-  %490 = call noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %27)
+  %615 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store double 2.000000e+00, ptr %615, align 8, !tbaa !98
+  %616 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store double 1.000000e+00, ptr %616, align 8, !tbaa !99
+  %617 = getelementptr inbounds nuw i8, ptr %27, i64 24
+  store double -1.000000e+00, ptr %617, align 8, !tbaa !100
+  %618 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  store double -1.000000e+00, ptr %618, align 8, !tbaa !101
+  %619 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %619, align 8, !tbaa !102
+  %620 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  store double 0xBFFAA6AC2A1AE096, ptr %620, align 8, !tbaa !103
+  %621 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  store double 0x3FDD89D89D89D898, ptr %621, align 8, !tbaa !104
+  %622 = call noundef i32 @_ZN4absl17zipf_distributionIjEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i64 1024, ptr %26, align 8, !tbaa !105
-  %491 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store double 2.000000e+00, ptr %491, align 8, !tbaa !107
-  %492 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store double 1.000000e+00, ptr %492, align 8, !tbaa !108
-  %493 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store double -1.000000e+00, ptr %493, align 8, !tbaa !109
-  %494 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store double -1.000000e+00, ptr %494, align 8, !tbaa !110
-  %495 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  store double 0xBF4FF4047E50A1C3, ptr %495, align 8, !tbaa !111
-  %496 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  store double 0xBFFAA6AC2A1AE096, ptr %496, align 8, !tbaa !112
-  %497 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store double 0x3FDD89D89D89D898, ptr %497, align 8, !tbaa !113
-  %498 = call noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %26)
+  %623 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store double 2.000000e+00, ptr %623, align 8, !tbaa !107
+  %624 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store double 1.000000e+00, ptr %624, align 8, !tbaa !108
+  %625 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  store double -1.000000e+00, ptr %625, align 8, !tbaa !109
+  %626 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  store double -1.000000e+00, ptr %626, align 8, !tbaa !110
+  %627 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %627, align 8, !tbaa !111
+  %628 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  store double 0xBFFAA6AC2A1AE096, ptr %628, align 8, !tbaa !112
+  %629 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store double 0x3FDD89D89D89D898, ptr %629, align 8, !tbaa !113
+  %630 = call noundef i64 @_ZN4absl17zipf_distributionIlEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEElRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i64 1024, ptr %25, align 8, !tbaa !114
-  %499 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store double 2.000000e+00, ptr %499, align 8, !tbaa !116
-  %500 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store double 1.000000e+00, ptr %500, align 8, !tbaa !117
-  %501 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  store double -1.000000e+00, ptr %501, align 8, !tbaa !118
-  %502 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  store double -1.000000e+00, ptr %502, align 8, !tbaa !119
-  %503 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  store double 0xBF4FF4047E50A1C3, ptr %503, align 8, !tbaa !120
-  %504 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  store double 0xBFFAA6AC2A1AE096, ptr %504, align 8, !tbaa !121
-  %505 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store double 0x3FDD89D89D89D898, ptr %505, align 8, !tbaa !122
-  %506 = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %25)
+  %631 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store double 2.000000e+00, ptr %631, align 8, !tbaa !116
+  %632 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store double 1.000000e+00, ptr %632, align 8, !tbaa !117
+  %633 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  store double -1.000000e+00, ptr %633, align 8, !tbaa !118
+  %634 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store double -1.000000e+00, ptr %634, align 8, !tbaa !119
+  %635 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %635, align 8, !tbaa !120
+  %636 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  store double 0xBFFAA6AC2A1AE096, ptr %636, align 8, !tbaa !121
+  %637 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  store double 0x3FDD89D89D89D898, ptr %637, align 8, !tbaa !122
+  %638 = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(64) %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   store i64 5489, ptr %33, align 8, !tbaa !20
-  br label %507
+  br label %639
 
-507:                                              ; preds = %507, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %store_forwarded58 = phi i64 [ 5489, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %512, %507 ]
-  %.011.i.i.i.i7.i = phi i64 [ 1, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %513, %507 ]
-  %508 = getelementptr i64, ptr %33, i64 %.011.i.i.i.i7.i
-  %509 = lshr i64 %store_forwarded58, 62
-  %510 = xor i64 %509, %store_forwarded58
-  %511 = mul i64 %510, 6364136223846793005
-  %512 = add i64 %511, %.011.i.i.i.i7.i
-  store i64 %512, ptr %508, align 8, !tbaa !20
-  %513 = add nuw nsw i64 %.011.i.i.i.i7.i, 1
-  %exitcond.not.i.i.i.i8.i = icmp eq i64 %513, 312
-  br i1 %exitcond.not.i.i.i.i8.i, label %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %507, !llvm.loop !21
+639:                                              ; preds = %639, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+  %store_forwarded84 = phi i64 [ 5489, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %644, %639 ]
+  %.011.i.i.i.i7.i = phi i64 [ 1, %_ZN12_GLOBAL__N_111TestPoissonISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %645, %639 ]
+  %640 = getelementptr i64, ptr %33, i64 %.011.i.i.i.i7.i
+  %641 = lshr i64 %store_forwarded84, 62
+  %642 = xor i64 %641, %store_forwarded84
+  %643 = mul i64 %642, 6364136223846793005
+  %644 = add i64 %643, %.011.i.i.i.i7.i
+  store i64 %644, ptr %640, align 8, !tbaa !20
+  %645 = add nuw nsw i64 %.011.i.i.i.i7.i, 1
+  %exitcond.not.i.i.i.i8.i = icmp eq i64 %645, 312
+  br i1 %exitcond.not.i.i.i.i8.i, label %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %639, !llvm.loop !21
 
-_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %507
-  %514 = getelementptr inbounds nuw i8, ptr %33, i64 2496
-  store i64 312, ptr %514, align 8, !tbaa !23
+_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %639
+  %646 = getelementptr inbounds nuw i8, ptr %33, i64 2496
+  store i64 312, ptr %646, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i64 1024, ptr %24, align 8, !tbaa !114
-  %515 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store double 2.000000e+00, ptr %515, align 8, !tbaa !116
-  %516 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store double 1.000000e+00, ptr %516, align 8, !tbaa !117
-  %517 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store double -1.000000e+00, ptr %517, align 8, !tbaa !118
-  %518 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store double -1.000000e+00, ptr %518, align 8, !tbaa !119
-  %519 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store double 0xBF4FF4047E50A1C3, ptr %519, align 8, !tbaa !120
-  %520 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  store double 0xBFFAA6AC2A1AE096, ptr %520, align 8, !tbaa !121
-  %521 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store double 0x3FDD89D89D89D898, ptr %521, align 8, !tbaa !122
-  %522 = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(2504) %33, ptr noundef nonnull align 8 dereferenceable(64) %24)
+  %647 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store double 2.000000e+00, ptr %647, align 8, !tbaa !116
+  %648 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store double 1.000000e+00, ptr %648, align 8, !tbaa !117
+  %649 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store double -1.000000e+00, ptr %649, align 8, !tbaa !118
+  %650 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store double -1.000000e+00, ptr %650, align 8, !tbaa !119
+  %651 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  store double 0xBF4FF4047E50A1C3, ptr %651, align 8, !tbaa !120
+  %652 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  store double 0xBFFAA6AC2A1AE096, ptr %652, align 8, !tbaa !121
+  %653 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store double 0x3FDD89D89D89D898, ptr %653, align 8, !tbaa !122
+  %654 = call noundef i64 @_ZN4absl17zipf_distributionImEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(2504) %33, ptr noundef nonnull align 8 dereferenceable(64) %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i64 1024, ptr %23, align 16
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i.i.i, align 8, !tbaa !123
-  %523 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store double 2.000000e+00, ptr %523, align 16, !tbaa !125
-  %524 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  store double 1.000000e+00, ptr %524, align 8, !tbaa !128
-  %525 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store double -1.000000e+00, ptr %525, align 16, !tbaa !129
-  %526 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store double -1.000000e+00, ptr %526, align 16, !tbaa !130
-  %527 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  store double 0xBF4FF4047E50A1C3, ptr %527, align 8, !tbaa !131
-  %528 = getelementptr inbounds nuw i8, ptr %23, i64 64
-  store double 0xBFFAA6AC2A1AE096, ptr %528, align 16, !tbaa !132
-  %529 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  store double 0x3FDD89D89D89D898, ptr %529, align 8, !tbaa !133
-  %530 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(80) %23)
+  %655 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store double 2.000000e+00, ptr %655, align 16, !tbaa !125
+  %656 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  store double 1.000000e+00, ptr %656, align 8, !tbaa !128
+  %657 = getelementptr inbounds nuw i8, ptr %23, i64 32
+  store double -1.000000e+00, ptr %657, align 16, !tbaa !129
+  %658 = getelementptr inbounds nuw i8, ptr %23, i64 48
+  store double -1.000000e+00, ptr %658, align 16, !tbaa !130
+  %659 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  store double 0xBF4FF4047E50A1C3, ptr %659, align 8, !tbaa !131
+  %660 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  store double 0xBFFAA6AC2A1AE096, ptr %660, align 16, !tbaa !132
+  %661 = getelementptr inbounds nuw i8, ptr %23, i64 40
+  store double 0x3FDD89D89D89D898, ptr %661, align 8, !tbaa !133
+  %662 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_6int128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %23, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(80) %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   store i64 1024, ptr %22, align 16, !tbaa !20
   %.sroa.3.0..sroa_idx.i12.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 0, ptr %.sroa.3.0..sroa_idx.i12.i.i, align 8, !tbaa !20
-  %531 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store double 2.000000e+00, ptr %531, align 16, !tbaa !134
-  %532 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store double 1.000000e+00, ptr %532, align 8, !tbaa !137
-  %533 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store double -1.000000e+00, ptr %533, align 16, !tbaa !138
-  %534 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store double -1.000000e+00, ptr %534, align 16, !tbaa !139
-  %535 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  store double 0xBF4FF4047E50A1C3, ptr %535, align 8, !tbaa !140
-  %536 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store double 0xBFFAA6AC2A1AE096, ptr %536, align 16, !tbaa !141
-  %537 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store double 0x3FDD89D89D89D898, ptr %537, align 8, !tbaa !142
-  %538 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(80) %22)
+  %663 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store double 2.000000e+00, ptr %663, align 16, !tbaa !134
+  %664 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store double 1.000000e+00, ptr %664, align 8, !tbaa !137
+  %665 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store double -1.000000e+00, ptr %665, align 16, !tbaa !138
+  %666 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  store double -1.000000e+00, ptr %666, align 16, !tbaa !139
+  %667 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  store double 0xBF4FF4047E50A1C3, ptr %667, align 8, !tbaa !140
+  %668 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store double 0xBFFAA6AC2A1AE096, ptr %668, align 16, !tbaa !141
+  %669 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store double 0x3FDD89D89D89D898, ptr %669, align 8, !tbaa !142
+  %670 = call { i64, i64 } @_ZN4absl17zipf_distributionINS_7uint128EEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEES1_RT_RKNS2_10param_typeE(ptr noundef nonnull align 16 dereferenceable(80) %22, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(80) %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %539 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store float 1.000000e+00, ptr %539, align 4, !tbaa !143
-  %540 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store float 1.000000e+00, ptr %540, align 4, !tbaa !146
-  %541 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %671 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store float 1.000000e+00, ptr %671, align 4, !tbaa !143
+  %672 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store float 1.000000e+00, ptr %672, align 4, !tbaa !146
+  %673 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 4 dereferenceable(12) %20, ptr noundef nonnull align 8 dereferenceable(2504) %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %542 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store double 1.000000e+00, ptr %542, align 8, !tbaa !147
-  %543 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store double 1.000000e+00, ptr %543, align 8, !tbaa !149
-  %544 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(2504) %48)
+  %674 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store double 1.000000e+00, ptr %674, align 8, !tbaa !147
+  %675 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store double 1.000000e+00, ptr %675, align 8, !tbaa !149
+  %676 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(2504) %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i64 5489, ptr %21, align 8, !tbaa !20
-  br label %545
+  br label %677
 
-545:                                              ; preds = %545, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %store_forwarded56 = phi i64 [ 5489, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %550, %545 ]
-  %.011.i.i.i.i10.i = phi i64 [ 1, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %551, %545 ]
-  %546 = getelementptr i64, ptr %21, i64 %.011.i.i.i.i10.i
-  %547 = lshr i64 %store_forwarded56, 62
-  %548 = xor i64 %547, %store_forwarded56
-  %549 = mul i64 %548, 6364136223846793005
-  %550 = add i64 %549, %.011.i.i.i.i10.i
-  store i64 %550, ptr %546, align 8, !tbaa !20
-  %551 = add nuw nsw i64 %.011.i.i.i.i10.i, 1
-  %exitcond.not.i.i.i.i11.i = icmp eq i64 %551, 312
-  br i1 %exitcond.not.i.i.i.i11.i, label %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %545, !llvm.loop !21
+677:                                              ; preds = %677, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+  %store_forwarded82 = phi i64 [ 5489, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %682, %677 ]
+  %.011.i.i.i.i10.i = phi i64 [ 1, %_ZN12_GLOBAL__N_18TestZipfISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %683, %677 ]
+  %678 = getelementptr i64, ptr %21, i64 %.011.i.i.i.i10.i
+  %679 = lshr i64 %store_forwarded82, 62
+  %680 = xor i64 %679, %store_forwarded82
+  %681 = mul i64 %680, 6364136223846793005
+  %682 = add i64 %681, %.011.i.i.i.i10.i
+  store i64 %682, ptr %678, align 8, !tbaa !20
+  %683 = add nuw nsw i64 %.011.i.i.i.i10.i, 1
+  %exitcond.not.i.i.i.i11.i = icmp eq i64 %683, 312
+  br i1 %exitcond.not.i.i.i.i11.i, label %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i, label %677, !llvm.loop !21
 
-_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %545
-  %552 = getelementptr inbounds nuw i8, ptr %21, i64 2496
-  store i64 312, ptr %552, align 8, !tbaa !23
+_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i: ; preds = %677
+  %684 = getelementptr inbounds nuw i8, ptr %21, i64 2496
+  store i64 312, ptr %684, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %553 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store double 1.000000e+00, ptr %553, align 8, !tbaa !147
-  %554 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store double 1.000000e+00, ptr %554, align 8, !tbaa !149
-  %555 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(2504) %21)
+  %685 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store double 1.000000e+00, ptr %685, align 8, !tbaa !147
+  %686 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store double 1.000000e+00, ptr %686, align 8, !tbaa !149
+  %687 = call noundef double @_ZN4absl15random_internal26gaussian_distribution_base6zignorISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(2504) %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 0, ptr %16, align 4, !tbaa !150
-  %556 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 100, ptr %556, align 4, !tbaa !152
-  %557 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 2, ptr %557, align 4, !tbaa !153
-  %558 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 100, ptr %558, align 4, !tbaa !154
-  %559 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 7, ptr %559, align 4, !tbaa !155
-  %560 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %16)
+  %688 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 100, ptr %688, align 4, !tbaa !152
+  %689 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i32 2, ptr %689, align 4, !tbaa !153
+  %690 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 100, ptr %690, align 4, !tbaa !154
+  %691 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 7, ptr %691, align 4, !tbaa !155
+  %692 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i8 0, ptr %15, align 4, !tbaa !156
-  %561 = getelementptr inbounds nuw i8, ptr %15, i64 1
-  store i8 100, ptr %561, align 1, !tbaa !158
-  %562 = getelementptr inbounds nuw i8, ptr %15, i64 2
-  store i8 2, ptr %562, align 2, !tbaa !159
-  %563 = getelementptr inbounds nuw i8, ptr %15, i64 3
-  store i8 100, ptr %563, align 1, !tbaa !160
-  %564 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 7, ptr %564, align 4, !tbaa !161
-  %565 = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(8) %15)
+  %693 = getelementptr inbounds nuw i8, ptr %15, i64 1
+  store i8 100, ptr %693, align 1, !tbaa !158
+  %694 = getelementptr inbounds nuw i8, ptr %15, i64 2
+  store i8 2, ptr %694, align 2, !tbaa !159
+  %695 = getelementptr inbounds nuw i8, ptr %15, i64 3
+  store i8 100, ptr %695, align 1, !tbaa !160
+  %696 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 7, ptr %696, align 4, !tbaa !161
+  %697 = call noundef zeroext i8 @_ZN4absl28log_uniform_int_distributionIaE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEhRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(8) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i16 0, ptr %14, align 4, !tbaa !162
-  %566 = getelementptr inbounds nuw i8, ptr %14, i64 2
-  store i16 100, ptr %566, align 2, !tbaa !164
-  %567 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i16 2, ptr %567, align 4, !tbaa !165
-  %568 = getelementptr inbounds nuw i8, ptr %14, i64 6
-  store i16 100, ptr %568, align 2, !tbaa !166
-  %569 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 7, ptr %569, align 4, !tbaa !167
-  %570 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(12) %14)
+  %698 = getelementptr inbounds nuw i8, ptr %14, i64 2
+  store i16 100, ptr %698, align 2, !tbaa !164
+  %699 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i16 2, ptr %699, align 4, !tbaa !165
+  %700 = getelementptr inbounds nuw i8, ptr %14, i64 6
+  store i16 100, ptr %700, align 2, !tbaa !166
+  %701 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 7, ptr %701, align 4, !tbaa !167
+  %702 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionIsE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(12) %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i16 0, ptr %13, align 4, !tbaa !168
-  %571 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i16 100, ptr %571, align 2, !tbaa !170
-  %572 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i16 2, ptr %572, align 4, !tbaa !171
-  %573 = getelementptr inbounds nuw i8, ptr %13, i64 6
-  store i16 100, ptr %573, align 2, !tbaa !172
-  %574 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 7, ptr %574, align 4, !tbaa !173
-  %575 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(12) %13)
+  %703 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  store i16 100, ptr %703, align 2, !tbaa !170
+  %704 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i16 2, ptr %704, align 4, !tbaa !171
+  %705 = getelementptr inbounds nuw i8, ptr %13, i64 6
+  store i16 100, ptr %705, align 2, !tbaa !172
+  %706 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 7, ptr %706, align 4, !tbaa !173
+  %707 = call noundef zeroext i16 @_ZN4absl28log_uniform_int_distributionItE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEtRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(12) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !150
-  %576 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 1024, ptr %576, align 4, !tbaa !152
-  %577 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 2, ptr %577, align 4, !tbaa !153
-  %578 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 1024, ptr %578, align 4, !tbaa !154
-  %579 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 11, ptr %579, align 4, !tbaa !155
-  %580 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %12)
+  %708 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 1024, ptr %708, align 4, !tbaa !152
+  %709 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 2, ptr %709, align 4, !tbaa !153
+  %710 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 1024, ptr %710, align 4, !tbaa !154
+  %711 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 11, ptr %711, align 4, !tbaa !155
+  %712 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIiE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %12, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !174
-  %581 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 1024, ptr %581, align 4, !tbaa !176
-  %582 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 2, ptr %582, align 4, !tbaa !177
-  %583 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 1024, ptr %583, align 4, !tbaa !178
-  %584 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 11, ptr %584, align 4, !tbaa !179
-  %585 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %11)
+  %713 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 1024, ptr %713, align 4, !tbaa !176
+  %714 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 2, ptr %714, align 4, !tbaa !177
+  %715 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 1024, ptr %715, align 4, !tbaa !178
+  %716 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i32 11, ptr %716, align 4, !tbaa !179
+  %717 = call noundef i32 @_ZN4absl28log_uniform_int_distributionIjE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEjRT_RKNS1_10param_typeE(ptr noundef nonnull align 4 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 4 dereferenceable(20) %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !180
-  %586 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 1024, ptr %586, align 8, !tbaa !182
-  %587 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i64 2, ptr %587, align 8, !tbaa !183
-  %588 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store i64 1024, ptr %588, align 8, !tbaa !184
-  %589 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store i32 11, ptr %589, align 8, !tbaa !185
-  %590 = call noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(40) %10)
+  %718 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 1024, ptr %718, align 8, !tbaa !182
+  %719 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i64 2, ptr %719, align 8, !tbaa !183
+  %720 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store i64 1024, ptr %720, align 8, !tbaa !184
+  %721 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store i32 11, ptr %721, align 8, !tbaa !185
+  %722 = call noundef i64 @_ZN4absl28log_uniform_int_distributionIlE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(40) %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !186
-  %591 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 1024, ptr %591, align 8, !tbaa !188
-  %592 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 2, ptr %592, align 8, !tbaa !189
-  %593 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  store i64 1024, ptr %593, align 8, !tbaa !190
-  %594 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i32 11, ptr %594, align 8, !tbaa !191
-  %595 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(40) %9)
+  %723 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 1024, ptr %723, align 8, !tbaa !188
+  %724 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i64 2, ptr %724, align 8, !tbaa !189
+  %725 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  store i64 1024, ptr %725, align 8, !tbaa !190
+  %726 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i32 11, ptr %726, align 8, !tbaa !191
+  %727 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 8 dereferenceable(40) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i64 5489, ptr %17, align 8, !tbaa !20
-  br label %596
+  br label %728
 
-596:                                              ; preds = %596, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
-  %store_forwarded = phi i64 [ 5489, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %601, %596 ]
-  %.011.i.i.i.i13.i = phi i64 [ 1, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %602, %596 ]
-  %597 = getelementptr i64, ptr %17, i64 %.011.i.i.i.i13.i
-  %598 = lshr i64 %store_forwarded, 62
-  %599 = xor i64 %598, %store_forwarded
-  %600 = mul i64 %599, 6364136223846793005
-  %601 = add i64 %600, %.011.i.i.i.i13.i
-  store i64 %601, ptr %597, align 8, !tbaa !20
-  %602 = add nuw nsw i64 %.011.i.i.i.i13.i, 1
-  %exitcond.not.i.i.i.i14.i = icmp eq i64 %602, 312
-  br i1 %exitcond.not.i.i.i.i14.i, label %_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit, label %596, !llvm.loop !21
+728:                                              ; preds = %728, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i
+  %store_forwarded = phi i64 [ 5489, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %733, %728 ]
+  %.011.i.i.i.i13.i = phi i64 [ 1, %_ZN12_GLOBAL__N_112TestGaussianISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvPT_.exit.i ], [ %734, %728 ]
+  %729 = getelementptr i64, ptr %17, i64 %.011.i.i.i.i13.i
+  %730 = lshr i64 %store_forwarded, 62
+  %731 = xor i64 %730, %store_forwarded
+  %732 = mul i64 %731, 6364136223846793005
+  %733 = add i64 %732, %.011.i.i.i.i13.i
+  store i64 %733, ptr %729, align 8, !tbaa !20
+  %734 = add nuw nsw i64 %.011.i.i.i.i13.i, 1
+  %exitcond.not.i.i.i.i14.i = icmp eq i64 %734, 312
+  br i1 %exitcond.not.i.i.i.i14.i, label %_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit, label %728, !llvm.loop !21
 
-_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit: ; preds = %596
-  %603 = getelementptr inbounds nuw i8, ptr %17, i64 2496
-  store i64 312, ptr %603, align 8, !tbaa !23
+_ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEvv.exit: ; preds = %728
+  %735 = getelementptr inbounds nuw i8, ptr %17, i64 2496
+  store i64 312, ptr %735, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 0, ptr %8, align 8, !tbaa !186
-  %604 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 1024, ptr %604, align 8, !tbaa !188
-  %605 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 2, ptr %605, align 8, !tbaa !189
-  %606 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store i64 1024, ptr %606, align 8, !tbaa !190
-  %607 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 11, ptr %607, align 8, !tbaa !191
-  %608 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(2504) %17, ptr noundef nonnull align 8 dereferenceable(40) %8)
+  %736 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 1024, ptr %736, align 8, !tbaa !188
+  %737 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i64 2, ptr %737, align 8, !tbaa !189
+  %738 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store i64 1024, ptr %738, align 8, !tbaa !190
+  %739 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 11, ptr %739, align 8, !tbaa !191
+  %740 = call noundef i64 @_ZN4absl28log_uniform_int_distributionImE8GenerateISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEmRT_RKNS1_10param_typeE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(2504) %17, ptr noundef nonnull align 8 dereferenceable(40) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1809,9 +2061,9 @@ _ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm1
   store i128 2, ptr %7, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 1024, ptr %6, align 16
-  %609 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 0, ptr %609, align 8
-  %610 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
+  %741 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 0, ptr %741, align 8
+  %742 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_6int128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 16 dereferenceable(16) %6, ptr noundef nonnull align 16 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1823,9 +2075,9 @@ _ZN12_GLOBAL__N_117CompatibilityTestISt23mersenne_twister_engineImLm64ELm312ELm1
   store i64 0, ptr %.sroa.2.0..sroa_idx.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i64 1024, ptr %3, align 16
-  %611 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %611, align 8
-  %612 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4)
+  %743 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %743, align 8
+  %744 = call { i64, i64 } @_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4ImplINS_28log_uniform_int_distributionINS_7uint128EEEJRS7_S9_S9_EEENT_11result_typeESt17integral_constantIbLb0EEPS3_DpOT0_(ptr noundef nonnull align 8 dereferenceable(2504) %48, ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef nonnull align 16 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1839,202 +2091,9 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
-  %5 = fcmp ole double %4, %2
-  %6 = fsub double %2, %4
-  %7 = tail call double @llvm.fabs.f64(double %6)
-  %8 = fcmp one double %7, 0x7FF0000000000000
-  %9 = and i1 %5, %8
-  br i1 %9, label %10, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
-
-10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
-  %12 = fsub double %2, %11
-  %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
-  br i1 %13, label %.split.i.i, label %.split.us.i.i
-
-.split.us.i.i:                                    ; preds = %10
-  %14 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0)
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i, label %16
-
-16:                                               ; preds = %.split.us.i.i
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
-  %18 = shl i64 %14, %17
-  %19 = lshr i64 %18, 11
-  %20 = and i64 %19, 4503599627370495
-  %21 = shl nuw nsw i64 %17, 52
-  %reass.sub = sub nsw i64 %20, %21
-  %22 = add nsw i64 %reass.sub, 4602678819172646912
-  %23 = bitcast i64 %22 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i: ; preds = %16, %.split.us.i.i
-  %.0.i.i.i.us.i.i = phi double [ %23, %16 ], [ 0.000000e+00, %.split.us.i.i ]
-  %24 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us.i.i, double %12, double %11)
-  br label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
-
-.split.i.i:                                       ; preds = %10, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-  %25 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0)
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, label %27
-
-27:                                               ; preds = %.split.i.i
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
-  %29 = shl i64 %25, %28
-  %30 = lshr i64 %29, 11
-  %31 = and i64 %30, 4503599627370495
-  %32 = shl nuw nsw i64 %28, 52
-  %reass.sub10 = sub nsw i64 %31, %32
-  %33 = add nsw i64 %reass.sub10, 4602678819172646912
-  %34 = bitcast i64 %33 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %27, %.split.i.i
-  %.0.i.i.i.i.i = phi double [ %34, %27 ], [ 0.000000e+00, %.split.i.i ]
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i, double %12, double %11)
-  %36 = fcmp uge double %35, %2
-  br i1 %36, label %.split.i.i, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
-
-_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i, %3
-  %.0 = phi double [ %1, %3 ], [ %24, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i ], [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i ]
-  ret double %.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENS5_IXsr4absl11disjunctionINS_15random_internal23is_widening_convertibleIT2_T3_EENS8_ISA_S9_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleIS9_SA_EE5valueESA_S9_E4typeEE4typeEE4typeET0_OT1_S9_SA_(ptr noundef nonnull align 8 dereferenceable(2504) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = sitofp i32 %1 to double
-  %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
-  %6 = fcmp ole double %5, %2
-  %7 = fsub double %2, %5
-  %8 = tail call double @llvm.fabs.f64(double %7)
-  %9 = fcmp one double %8, 0x7FF0000000000000
-  %10 = and i1 %6, %9
-  br i1 %10, label %11, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeEPS3_DpOT0_.exit
-
-11:                                               ; preds = %3
-  %12 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
-  %13 = fsub double %2, %12
-  %14 = tail call i1 @llvm.is.fpclass.f64(double %13, i32 384)
-  br i1 %14, label %.split.i.i, label %.split.us.i.i
-
-.split.us.i.i:                                    ; preds = %11
-  %15 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0)
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i, label %17
-
-17:                                               ; preds = %.split.us.i.i
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 true)
-  %19 = shl i64 %15, %18
-  %20 = lshr i64 %19, 11
-  %21 = and i64 %20, 4503599627370495
-  %22 = shl nuw nsw i64 %18, 52
-  %reass.sub = sub nsw i64 %21, %22
-  %23 = add nsw i64 %reass.sub, 4602678819172646912
-  %24 = bitcast i64 %23 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i: ; preds = %17, %.split.us.i.i
-  %.0.i.i.i.us.i.i = phi double [ %24, %17 ], [ 0.000000e+00, %.split.us.i.i ]
-  %25 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us.i.i, double %13, double %12)
-  br label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeEPS3_DpOT0_.exit
-
-.split.i.i:                                       ; preds = %11, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-  %26 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0)
-  %27 = icmp eq i64 %26, 0
-  br i1 %27, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, label %28
-
-28:                                               ; preds = %.split.i.i
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 true)
-  %30 = shl i64 %26, %29
-  %31 = lshr i64 %30, 11
-  %32 = and i64 %31, 4503599627370495
-  %33 = shl nuw nsw i64 %29, 52
-  %reass.sub13 = sub nsw i64 %32, %33
-  %34 = add nsw i64 %reass.sub13, 4602678819172646912
-  %35 = bitcast i64 %34 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %28, %.split.i.i
-  %.0.i.i.i.i.i = phi double [ %35, %28 ], [ 0.000000e+00, %.split.i.i ]
-  %36 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i, double %13, double %12)
-  %37 = fcmp uge double %36, %2
-  br i1 %37, label %.split.i.i, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeEPS3_DpOT0_.exit
-
-_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeEPS3_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i, %3
-  %.0 = phi double [ %4, %3 ], [ %25, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i ], [ %36, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i ]
-  ret double %.0
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
-  %5 = fcmp ole double %1, %4
-  %6 = fsub double %4, %1
-  %7 = tail call double @llvm.fabs.f64(double %6)
-  %8 = fcmp one double %7, 0x7FF0000000000000
-  %9 = and i1 %5, %8
-  br i1 %9, label %10, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
-
-10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
-  %12 = fsub double %11, %1
-  %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
-  br i1 %13, label %.split.i.i, label %.split.us.i.i
-
-.split.us.i.i:                                    ; preds = %10
-  %14 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0)
-  %15 = icmp eq i64 %14, 0
-  br i1 %15, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i, label %16
-
-16:                                               ; preds = %.split.us.i.i
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 true)
-  %18 = shl i64 %14, %17
-  %19 = lshr i64 %18, 11
-  %20 = and i64 %19, 4503599627370495
-  %21 = shl nuw nsw i64 %17, 52
-  %reass.sub = sub nsw i64 %20, %21
-  %22 = add nsw i64 %reass.sub, 4602678819172646912
-  %23 = bitcast i64 %22 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i: ; preds = %16, %.split.us.i.i
-  %.0.i.i.i.us.i.i = phi double [ %23, %16 ], [ 0.000000e+00, %.split.us.i.i ]
-  %24 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.us.i.i, double %12, double %1)
-  br label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
-
-.split.i.i:                                       ; preds = %10, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-  %25 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv(ptr noundef nonnull align 8 dereferenceable(2504) %0)
-  %26 = icmp eq i64 %25, 0
-  br i1 %26, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, label %27
-
-27:                                               ; preds = %.split.i.i
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
-  %29 = shl i64 %25, %28
-  %30 = lshr i64 %29, 11
-  %31 = and i64 %30, 4503599627370495
-  %32 = shl nuw nsw i64 %28, 52
-  %reass.sub10 = sub nsw i64 %31, %32
-  %33 = add nsw i64 %reass.sub10, 4602678819172646912
-  %34 = bitcast i64 %33 to double
-  br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i
-
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i: ; preds = %27, %.split.i.i
-  %.0.i.i.i.i.i = phi double [ %34, %27 ], [ 0.000000e+00, %.split.i.i ]
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i.i, double %12, double %1)
-  %36 = fcmp uge double %35, %11
-  br i1 %36, label %.split.i.i, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
-
-_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i, %3
-  %.0 = phi double [ %1, %3 ], [ %24, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us.i.i ], [ %35, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i ]
-  ret double %.0
-}
-
-; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_21IntervalOpenClosedTagERSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueES6_E4typeET0_OT1_S6_S6_(ptr noundef nonnull align 8 dereferenceable(2504) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
-  %5 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !27
+  %5 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %6 = fcmp ole double %4, %5
   %7 = fsub double %5, %4
   %8 = tail call double @llvm.fabs.f64(double %7)
@@ -2043,8 +2102,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_21IntervalOpe
   br i1 %10, label %11, label %_ZN4absl15random_internal18DistributionCallerISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEE4CallINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSA_EEENT_11result_typeEPS3_DpOT0_.exit
 
 11:                                               ; preds = %3
-  %12 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
-  %13 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %12 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !27
+  %13 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %14 = fsub double %13, %12
   %15 = tail call i1 @llvm.is.fpclass.f64(double %14, i32 384)
   br i1 %15, label %.split.i.i, label %.split.us.i.i
@@ -2204,8 +2263,8 @@ declare double @llvm.fmuladd.f64(double, double, double) #10
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
-; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(errnomem: write)
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #10
@@ -2424,7 +2483,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %128, label %141, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call double @llvm.log.f64(double %121), !tbaa !32
+  %130 = tail call double @llvm.log.f64(double %121), !tbaa !27
   %131 = fdiv double 1.000000e+00, %121
   %132 = fneg double %121
   %133 = tail call double @llvm.fmuladd.f64(double %121, double %130, double %132)
@@ -2439,7 +2498,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 141:                                              ; preds = %129, %127, %123
   %142 = phi double [ 0.000000e+00, %123 ], [ %140, %129 ], [ 0x3FE62E42FEFA39EC, %127 ]
-  %143 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %143 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %144 = load double, ptr %93, align 8, !tbaa !199
   %145 = tail call double @llvm.fmuladd.f64(double %143, double 2.000000e+00, double %144)
   %146 = fadd double %142, %145
@@ -2661,7 +2720,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %128, label %141, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call double @llvm.log.f64(double %121), !tbaa !32
+  %130 = tail call double @llvm.log.f64(double %121), !tbaa !27
   %131 = fdiv double 1.000000e+00, %121
   %132 = fneg double %121
   %133 = tail call double @llvm.fmuladd.f64(double %121, double %130, double %132)
@@ -2676,7 +2735,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 141:                                              ; preds = %129, %127, %123
   %142 = phi double [ 0.000000e+00, %123 ], [ %140, %129 ], [ 0x3FE62E42FEFA39EC, %127 ]
-  %143 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %143 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %144 = load double, ptr %93, align 8, !tbaa !206
   %145 = tail call double @llvm.fmuladd.f64(double %143, double 2.000000e+00, double %144)
   %146 = fadd double %142, %145
@@ -2895,7 +2954,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %128, label %141, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call double @llvm.log.f64(double %121), !tbaa !32
+  %130 = tail call double @llvm.log.f64(double %121), !tbaa !27
   %131 = fdiv double 1.000000e+00, %121
   %132 = fneg double %121
   %133 = tail call double @llvm.fmuladd.f64(double %121, double %130, double %132)
@@ -2910,7 +2969,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 141:                                              ; preds = %129, %127, %123
   %142 = phi double [ 0.000000e+00, %123 ], [ %140, %129 ], [ 0x3FE62E42FEFA39EC, %127 ]
-  %143 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %143 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %144 = load double, ptr %93, align 8, !tbaa !213
   %145 = tail call double @llvm.fmuladd.f64(double %143, double 2.000000e+00, double %144)
   %146 = fadd double %142, %145
@@ -3129,7 +3188,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %128, label %141, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call double @llvm.log.f64(double %121), !tbaa !32
+  %130 = tail call double @llvm.log.f64(double %121), !tbaa !27
   %131 = fdiv double 1.000000e+00, %121
   %132 = fneg double %121
   %133 = tail call double @llvm.fmuladd.f64(double %121, double %130, double %132)
@@ -3144,7 +3203,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 141:                                              ; preds = %129, %127, %123
   %142 = phi double [ 0.000000e+00, %123 ], [ %140, %129 ], [ 0x3FE62E42FEFA39EC, %127 ]
-  %143 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %143 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %144 = load double, ptr %93, align 8, !tbaa !220
   %145 = tail call double @llvm.fmuladd.f64(double %143, double 2.000000e+00, double %144)
   %146 = fadd double %142, %145
@@ -3363,7 +3422,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %128, label %141, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call double @llvm.log.f64(double %121), !tbaa !32
+  %130 = tail call double @llvm.log.f64(double %121), !tbaa !27
   %131 = fdiv double 1.000000e+00, %121
   %132 = fneg double %121
   %133 = tail call double @llvm.fmuladd.f64(double %121, double %130, double %132)
@@ -3378,7 +3437,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 141:                                              ; preds = %129, %127, %123
   %142 = phi double [ 0.000000e+00, %123 ], [ %140, %129 ], [ 0x3FE62E42FEFA39EC, %127 ]
-  %143 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %143 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %144 = load double, ptr %93, align 8, !tbaa !227
   %145 = tail call double @llvm.fmuladd.f64(double %143, double 2.000000e+00, double %144)
   %146 = fadd double %142, %145
@@ -3597,7 +3656,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %128, label %141, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call double @llvm.log.f64(double %121), !tbaa !32
+  %130 = tail call double @llvm.log.f64(double %121), !tbaa !27
   %131 = fdiv double 1.000000e+00, %121
   %132 = fneg double %121
   %133 = tail call double @llvm.fmuladd.f64(double %121, double %130, double %132)
@@ -3612,7 +3671,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 141:                                              ; preds = %129, %127, %123
   %142 = phi double [ 0.000000e+00, %123 ], [ %140, %129 ], [ 0x3FE62E42FEFA39EC, %127 ]
-  %143 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %143 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %144 = load double, ptr %93, align 8, !tbaa !234
   %145 = tail call double @llvm.fmuladd.f64(double %143, double 2.000000e+00, double %144)
   %146 = fadd double %142, %145
@@ -3838,7 +3897,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %128, label %141, label %129
 
 129:                                              ; preds = %127
-  %130 = tail call double @llvm.log.f64(double %121), !tbaa !32
+  %130 = tail call double @llvm.log.f64(double %121), !tbaa !27
   %131 = fdiv double 1.000000e+00, %121
   %132 = fneg double %121
   %133 = tail call double @llvm.fmuladd.f64(double %121, double %130, double %132)
@@ -3853,7 +3912,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 141:                                              ; preds = %129, %127, %123
   %142 = phi double [ 0.000000e+00, %123 ], [ %140, %129 ], [ 0x3FE62E42FEFA39EC, %127 ]
-  %143 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %143 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %144 = load double, ptr %93, align 8, !tbaa !241
   %145 = tail call double @llvm.fmuladd.f64(double %143, double 2.000000e+00, double %144)
   %146 = fadd double %142, %145
@@ -4091,7 +4150,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %130, label %143, label %131
 
 131:                                              ; preds = %129
-  %132 = tail call double @llvm.log.f64(double %123), !tbaa !32
+  %132 = tail call double @llvm.log.f64(double %123), !tbaa !27
   %133 = fdiv double 1.000000e+00, %123
   %134 = fneg double %123
   %135 = tail call double @llvm.fmuladd.f64(double %123, double %132, double %134)
@@ -4106,7 +4165,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 143:                                              ; preds = %131, %129, %125
   %144 = phi double [ 0.000000e+00, %125 ], [ %142, %131 ], [ 0x3FE62E42FEFA39EC, %129 ]
-  %145 = tail call double @llvm.log.f64(double %105), !tbaa !32
+  %145 = tail call double @llvm.log.f64(double %105), !tbaa !27
   %146 = load double, ptr %95, align 8, !tbaa !248
   %147 = tail call double @llvm.fmuladd.f64(double %145, double 2.000000e+00, double %146)
   %148 = fadd double %144, %147
@@ -4283,9 +4342,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !27
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -4312,9 +4371,9 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !27
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !27
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
@@ -4329,9 +4388,9 @@ _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !27
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -4496,9 +4555,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %100 = fmul double %96, %14
-  %101 = tail call double @log(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @log(double noundef %100) #19, !tbaa !27
   %102 = fmul double %19, %101
-  %103 = tail call double @exp(double noundef %102) #19, !tbaa !32
+  %103 = tail call double @exp(double noundef %102) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %97, %99
@@ -4523,9 +4582,9 @@ _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %97, %99
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !27
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !27
   %120 = fmul double %119, %19
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
@@ -4540,9 +4599,9 @@ _ZNK4absl17zipf_distributionIaE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !27
   %128 = fmul double %127, %25
-  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -4704,9 +4763,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %100 = fmul double %96, %14
-  %101 = tail call double @log(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @log(double noundef %100) #19, !tbaa !27
   %102 = fmul double %19, %101
-  %103 = tail call double @exp(double noundef %102) #19, !tbaa !32
+  %103 = tail call double @exp(double noundef %102) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %97, %99
@@ -4731,9 +4790,9 @@ _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %97, %99
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !27
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !27
   %120 = fmul double %119, %19
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
@@ -4748,9 +4807,9 @@ _ZNK4absl17zipf_distributionIsE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !27
   %128 = fmul double %127, %25
-  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -4912,9 +4971,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 99:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %100 = fmul double %96, %14
-  %101 = tail call double @log(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @log(double noundef %100) #19, !tbaa !27
   %102 = fmul double %19, %101
-  %103 = tail call double @exp(double noundef %102) #19, !tbaa !32
+  %103 = tail call double @exp(double noundef %102) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %97, %99
@@ -4939,9 +4998,9 @@ _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %97, %99
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !27
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !27
   %120 = fmul double %119, %19
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
@@ -4956,9 +5015,9 @@ _ZNK4absl17zipf_distributionItE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !27
   %128 = fmul double %127, %25
-  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5118,9 +5177,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !27
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5147,9 +5206,9 @@ _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !27
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !27
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
@@ -5164,9 +5223,9 @@ _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !27
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5326,9 +5385,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !27
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5355,9 +5414,9 @@ _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !27
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !27
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
@@ -5372,9 +5431,9 @@ _ZNK4absl17zipf_distributionIlE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !27
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5534,9 +5593,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !27
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5563,9 +5622,9 @@ _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %95, %97
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 116:                                              ; preds = %111
-  %117 = tail call double @log(double noundef %113) #19, !tbaa !32
+  %117 = tail call double @log(double noundef %113) #19, !tbaa !27
   %118 = fmul double %14, %117
-  %119 = tail call double @exp(double noundef %118) #19, !tbaa !32
+  %119 = tail call double @exp(double noundef %118) #19, !tbaa !27
   %120 = fmul double %119, %17
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
@@ -5580,9 +5639,9 @@ _ZNK4absl17zipf_distributionImE10param_type1hEd.exit: ; preds = %114, %116
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 126:                                              ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %127 = tail call double @log(double noundef %122) #19, !tbaa !32
+  %127 = tail call double @log(double noundef %122) #19, !tbaa !27
   %128 = fmul double %127, %23
-  %129 = tail call double @exp(double noundef %128) #19, !tbaa !32
+  %129 = tail call double @exp(double noundef %128) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %123, %126
@@ -5746,9 +5805,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 97:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %98 = fmul double %94, %14
-  %99 = tail call double @log(double noundef %98) #19, !tbaa !32
+  %99 = tail call double @log(double noundef %98) #19, !tbaa !27
   %100 = fmul double %17, %99
-  %101 = tail call double @exp(double noundef %100) #19, !tbaa !32
+  %101 = tail call double @exp(double noundef %100) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %95, %97
@@ -5777,9 +5836,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %95
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 115:                                              ; preds = %110
-  %116 = tail call double @log(double noundef %112) #19, !tbaa !32
+  %116 = tail call double @log(double noundef %112) #19, !tbaa !27
   %117 = fmul double %14, %116
-  %118 = tail call double @exp(double noundef %117) #19, !tbaa !32
+  %118 = tail call double @exp(double noundef %117) #19, !tbaa !27
   %119 = fmul double %118, %17
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
@@ -5794,9 +5853,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit: ; preds = %113, 
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 125:                                              ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %126 = tail call double @log(double noundef %121) #19, !tbaa !32
+  %126 = tail call double @log(double noundef %121) #19, !tbaa !27
   %127 = fmul double %126, %23
-  %128 = tail call double @exp(double noundef %127) #19, !tbaa !32
+  %128 = tail call double @exp(double noundef %127) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %122, %125
@@ -5963,9 +6022,9 @@ _ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312
 
 98:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclISt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEEEdRT_.exit
   %99 = fmul double %95, %15
-  %100 = tail call double @log(double noundef %99) #19, !tbaa !32
+  %100 = tail call double @log(double noundef %99) #19, !tbaa !27
   %101 = fmul double %18, %100
-  %102 = tail call double @exp(double noundef %101) #19, !tbaa !32
+  %102 = tail call double @exp(double noundef %101) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %96, %98
@@ -5995,9 +6054,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %9
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 118:                                              ; preds = %113
-  %119 = tail call double @log(double noundef %115) #19, !tbaa !32
+  %119 = tail call double @log(double noundef %115) #19, !tbaa !27
   %120 = fmul double %15, %119
-  %121 = tail call double @exp(double noundef %120) #19, !tbaa !32
+  %121 = tail call double @exp(double noundef %120) #19, !tbaa !27
   %122 = fmul double %121, %18
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
@@ -6012,9 +6071,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit: ; preds = %116,
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 128:                                              ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %129 = tail call double @log(double noundef %124) #19, !tbaa !32
+  %129 = tail call double @log(double noundef %124) #19, !tbaa !27
   %130 = fmul double %129, %24
-  %131 = tail call double @exp(double noundef %130) #19, !tbaa !32
+  %131 = tail call double @exp(double noundef %130) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %125, %128
@@ -6176,7 +6235,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %reass.sub46 = sub nsw i64 %100, %101
   %102 = add nsw i64 %reass.sub46, 4602678819172646912
   %103 = bitcast i64 %102 to double
-  %104 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %104 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %105 = fmul double %104, 0x3FD2972A8AFC6175
   %106 = icmp samesign ugt i64 %81, 310
   br i1 %106, label %107, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit
@@ -6275,7 +6334,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %reass.sub47 = sub nsw i64 %169, %170
   %171 = add nsw i64 %reass.sub47, 4602678819172646912
   %172 = bitcast i64 %171 to double
-  %173 = tail call double @llvm.log.f64(double %172), !tbaa !32
+  %173 = tail call double @llvm.log.f64(double %172), !tbaa !27
   %174 = fneg double %173
   %175 = fsub double %174, %173
   %176 = fmul double %105, %105
@@ -6308,7 +6367,7 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackISt23merse
   %197 = tail call double @llvm.fmuladd.f64(double %191, double %196, double %193)
   %198 = fmul double %22, -5.000000e-01
   %199 = fmul double %22, %198
-  %200 = tail call double @exp(double noundef %199) #19, !tbaa !32
+  %200 = tail call double @exp(double noundef %199) #19, !tbaa !27
   %201 = fcmp olt double %197, %200
   br i1 %201, label %select.unfold, label %3
 
@@ -6388,7 +6447,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 39:                                               ; preds = %29
   %40 = sitofp i32 %32 to double
   %41 = sitofp i32 %30 to double
-  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #19, !tbaa !32
+  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #19, !tbaa !27
   %43 = load i32, ptr %31, align 4, !tbaa !153
   %44 = sitofp i32 %43 to double
   %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double -1.000000e+00)
@@ -6532,7 +6591,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 41:                                               ; preds = %29
   %42 = sitofp i8 %32 to double
   %43 = sitofp i32 %30 to double
-  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !32
+  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !27
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %42, double -1.000000e+00)
   %.inv = fcmp oge double %44, 2.550000e+02
   %46 = select i1 %.inv, double 2.550000e+02, double %44
@@ -6587,7 +6646,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %78 = mul nuw i16 %77, %66
   %79 = and i16 %78, 255
   %80 = icmp samesign ult i16 %79, %72
-  br i1 %80, label %.lr.ph.i.i.i40, label %.loopexit.i.i.i36, !llvm.loop !28
+  br i1 %80, label %.lr.ph.i.i.i40, label %.loopexit.i.i.i36, !llvm.loop !29
 
 .loopexit.i.i.i36:                                ; preds = %.lr.ph.i.i.i40, %70, %63
   %.018.i.i.i37 = phi i16 [ %67, %63 ], [ %67, %70 ], [ %78, %.lr.ph.i.i.i40 ]
@@ -6675,7 +6734,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 41:                                               ; preds = %29
   %42 = sitofp i16 %32 to double
   %43 = sitofp i32 %30 to double
-  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !32
+  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !27
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %42, double -1.000000e+00)
   %.inv = fcmp oge double %44, 6.553500e+04
   %46 = select i1 %.inv, double 6.553500e+04, double %44
@@ -6730,7 +6789,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %77 = mul nuw i32 %76, %58
   %78 = and i32 %77, 65535
   %79 = icmp samesign ult i32 %78, %.zext.i.i.i
-  br i1 %79, label %.lr.ph.i.i.i40, label %.loopexit.i.i.i36, !llvm.loop !29
+  br i1 %79, label %.lr.ph.i.i.i40, label %.loopexit.i.i.i36, !llvm.loop !30
 
 .loopexit.i.i.i36:                                ; preds = %.lr.ph.i.i.i40, %70, %64
   %.018.i.i.i37 = phi i32 [ %67, %64 ], [ %67, %70 ], [ %77, %.lr.ph.i.i.i40 ]
@@ -6818,7 +6877,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 41:                                               ; preds = %29
   %42 = uitofp i16 %32 to double
   %43 = sitofp i32 %30 to double
-  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !32
+  %44 = tail call noundef double @pow(double noundef %42, double noundef %43) #19, !tbaa !27
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %42, double -1.000000e+00)
   %.inv = fcmp oge double %44, 6.553500e+04
   %46 = select i1 %.inv, double 6.553500e+04, double %44
@@ -6873,7 +6932,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %77 = mul nuw i32 %76, %58
   %78 = and i32 %77, 65535
   %79 = icmp samesign ult i32 %78, %.zext.i.i.i
-  br i1 %79, label %.lr.ph.i.i.i40, label %.loopexit.i.i.i36, !llvm.loop !30
+  br i1 %79, label %.lr.ph.i.i.i40, label %.loopexit.i.i.i36, !llvm.loop !31
 
 .loopexit.i.i.i36:                                ; preds = %.lr.ph.i.i.i40, %70, %64
   %.018.i.i.i37 = phi i32 [ %67, %64 ], [ %67, %70 ], [ %77, %.lr.ph.i.i.i40 ]
@@ -6959,7 +7018,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 39:                                               ; preds = %29
   %40 = uitofp i32 %32 to double
   %41 = sitofp i32 %30 to double
-  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #19, !tbaa !32
+  %42 = tail call noundef double @pow(double noundef %40, double noundef %41) #19, !tbaa !27
   %43 = load i32, ptr %31, align 4, !tbaa !177
   %44 = uitofp i32 %43 to double
   %45 = tail call double @llvm.fmuladd.f64(double %42, double %44, double -1.000000e+00)
@@ -7099,7 +7158,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 40:                                               ; preds = %29
   %41 = sitofp i64 %32 to double
   %42 = sitofp i32 %30 to double
-  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #19, !tbaa !32
+  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #19, !tbaa !27
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %41, double -1.000000e+00)
   %45 = fcmp ogt double %43, 0x43F0000000000000
   %46 = fptoui double %43 to i64
@@ -7237,7 +7296,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 40:                                               ; preds = %29
   %41 = uitofp i64 %32 to double
   %42 = sitofp i32 %30 to double
-  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #19, !tbaa !32
+  %43 = tail call noundef double @pow(double noundef %41, double noundef %42) #19, !tbaa !27
   %44 = tail call double @llvm.fmuladd.f64(double %43, double %41, double -1.000000e+00)
   %45 = fcmp ogt double %43, 0x43F0000000000000
   %46 = fptoui double %43 to i64
@@ -7289,7 +7348,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %70 = mul nuw i128 %.sroa.03.0.insert.ext.i.i26.i.i.i, %.sroa.01.0.insert.ext.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i28.i.i.i = trunc i128 %70 to i64
   %71 = icmp ugt i64 %67, %.sroa.0.0.extract.trunc.i.i28.i.i.i
-  br i1 %71, label %.lr.ph.i.i.i35, label %..loopexit_crit_edge.i.i.i, !llvm.loop !27
+  br i1 %71, label %.lr.ph.i.i.i35, label %..loopexit_crit_edge.i.i.i, !llvm.loop !28
 
 ..loopexit_crit_edge.i.i.i:                       ; preds = %.lr.ph.i.i.i35
   %.sroa.2.0.extract.shift.i.i29.le.i.i.i = lshr i128 %70, 64
@@ -7362,13 +7421,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
 
 19:                                               ; preds = %4
   %20 = sitofp i128 %.sroa.0.0.copyload11 to double
-  %21 = tail call double @log(double noundef %20) #19, !tbaa !32
+  %21 = tail call double @log(double noundef %20) #19, !tbaa !27
   %22 = fdiv double 1.000000e+00, %21
   %23 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %24 = uitofp i64 %.narrow.i.i.i to double
   %25 = tail call noundef double @llvm.fmuladd.f64(double %24, double 0x43F0000000000000, double %23)
   %26 = fadd double %25, 5.000000e-01
-  %27 = tail call double @log(double noundef %26) #19, !tbaa !32
+  %27 = tail call double @log(double noundef %26) #19, !tbaa !27
   %28 = fmul double %22, %27
   %29 = tail call double @llvm.ceil.f64(double %28)
   %30 = fptosi double %29 to i32
@@ -7489,7 +7548,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
 44:                                               ; preds = %32
   %45 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %46 = sitofp i32 %33 to double
-  %47 = tail call noundef double @pow(double noundef %45, double noundef %46) #19, !tbaa !32
+  %47 = tail call noundef double @pow(double noundef %45, double noundef %46) #19, !tbaa !27
   %48 = tail call double @llvm.fmuladd.f64(double %47, double %45, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %49 = fcmp ogt double %47, 0x47F0000000000000
@@ -7800,13 +7859,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %20 = uitofp i64 %.sroa.02.0.copyload.i.i to double
   %21 = uitofp i64 %.sroa.23.0.copyload.i.i to double
   %22 = tail call noundef double @llvm.fmuladd.f64(double %21, double 0x43F0000000000000, double %20)
-  %23 = tail call double @log(double noundef %22) #19, !tbaa !32
+  %23 = tail call double @log(double noundef %22) #19, !tbaa !27
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
   %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
   %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @log(double noundef %28) #19, !tbaa !32
+  %29 = tail call double @log(double noundef %28) #19, !tbaa !27
   %30 = fmul double %24, %29
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -7929,7 +7988,7 @@ _ZN4absl24uniform_int_distributionIiEclISt23mersenne_twister_engineImLm64ELm312E
   %46 = uitofp i64 %.sroa.2.0.copyload.i to double
   %47 = tail call noundef double @llvm.fmuladd.f64(double %46, double 0x43F0000000000000, double %45)
   %48 = sitofp i32 %33 to double
-  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !32
+  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !27
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %51 = fcmp ogt double %49, 0x47F0000000000000
@@ -8305,8 +8364,8 @@ define internal void @_ZN12_GLOBAL__N_125BitGen_Compatibility_Test8TestBodyEv(pt
   call void @llvm.lifetime.end.p0(ptr nonnull %131), !noalias !271
   call void @llvm.lifetime.start.p0(ptr nonnull %127)
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
-  store i32 0, ptr %127, align 4, !tbaa !32
-  store i32 100, ptr %128, align 4, !tbaa !32
+  store i32 0, ptr %127, align 4, !tbaa !27
+  store i32 100, ptr %128, align 4, !tbaa !27
   %133 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 4 dereferenceable(4) %127, ptr noundef nonnull align 4 dereferenceable(4) %128)
   call void @llvm.lifetime.end.p0(ptr nonnull %127)
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
@@ -8391,7 +8450,7 @@ _ZN4absl7UniformIiNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureU
   call void @llvm.lifetime.start.p0(ptr nonnull %118)
   store double 0.000000e+00, ptr %117, align 8, !tbaa !37
   store double 1.000000e+00, ptr %118, align 8, !tbaa !37
-  %165 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
+  %165 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
   %166 = fcmp ole double %165, 1.000000e+00
   %167 = fsub double 1.000000e+00, %165
   %168 = call double @llvm.fabs.f64(double %167)
@@ -8424,7 +8483,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
   store double -1.000000e+00, ptr %112, align 8, !tbaa !37
   store double 1.000000e+00, ptr %113, align 8, !tbaa !37
-  %177 = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
+  %177 = call noundef double @nextafter(double noundef -1.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
   %178 = fcmp ole double %177, 1.000000e+00
   %179 = fsub double 1.000000e+00, %177
   %180 = call double @llvm.fabs.f64(double %179)
@@ -8441,7 +8500,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   call void @llvm.lifetime.end.p0(ptr nonnull %113)
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
-  %186 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
+  %186 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
   %187 = fcmp ole double %186, 1.000000e+00
   %188 = fsub double 1.000000e+00, %186
   %189 = call double @llvm.fabs.f64(double %188)
@@ -8463,8 +8522,8 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   call void @llvm.lifetime.start.p0(ptr nonnull %106)
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
-  store i32 0, ptr %106, align 4, !tbaa !32
-  store i32 100, ptr %107, align 4, !tbaa !32
+  store i32 0, ptr %106, align 4, !tbaa !27
+  store i32 100, ptr %107, align 4, !tbaa !27
   %194 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 4 dereferenceable(4) %106, ptr noundef nonnull align 4 dereferenceable(4) %107)
   call void @llvm.lifetime.end.p0(ptr nonnull %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -8497,15 +8556,15 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   call void @llvm.lifetime.start.p0(ptr nonnull %102)
-  store i32 0, ptr %101, align 4, !tbaa !32
-  store i32 1024, ptr %102, align 4, !tbaa !32
+  store i32 0, ptr %101, align 4, !tbaa !27
+  store i32 1024, ptr %102, align 4, !tbaa !27
   %201 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 4 dereferenceable(4) %101, ptr noundef nonnull align 4 dereferenceable(4) %102)
   call void @llvm.lifetime.end.p0(ptr nonnull %101)
   call void @llvm.lifetime.end.p0(ptr nonnull %102)
   call void @llvm.lifetime.start.p0(ptr nonnull %99)
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
-  store i32 0, ptr %99, align 4, !tbaa !32
-  store i32 1024, ptr %100, align 4, !tbaa !32
+  store i32 0, ptr %99, align 4, !tbaa !27
+  store i32 1024, ptr %100, align 4, !tbaa !27
   %202 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIjEEJRjSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 4 dereferenceable(4) %99, ptr noundef nonnull align 4 dereferenceable(4) %100)
   call void @llvm.lifetime.end.p0(ptr nonnull %99)
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
@@ -8568,7 +8627,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store double 0.000000e+00, ptr %83, align 8, !tbaa !37
   store double 1.000000e+00, ptr %84, align 8, !tbaa !37
-  %213 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %213 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %214 = call i1 @llvm.is.fpclass.f64(double %213, i32 480)
   br i1 %214, label %215, label %217
 
@@ -8594,7 +8653,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   store double 0.000000e+00, ptr %77, align 8, !tbaa !37
   store double 1.000000e+00, ptr %78, align 8, !tbaa !37
-  %219 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
+  %219 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
   %220 = fcmp ole double %219, 1.000000e+00
   %221 = fsub double 1.000000e+00, %219
   %222 = call double @llvm.fabs.f64(double %221)
@@ -8615,8 +8674,8 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   store double 0.000000e+00, ptr %74, align 8, !tbaa !37
   store double 1.000000e+00, ptr %75, align 8, !tbaa !37
-  %228 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
-  %229 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %228 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
+  %229 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %230 = fcmp ole double %228, %229
   %231 = fsub double %229, %228
   %232 = call double @llvm.fabs.f64(double %231)
@@ -8637,7 +8696,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store double 0.000000e+00, ptr %71, align 8, !tbaa !37
   store double 1.000000e+00, ptr %72, align 8, !tbaa !37
-  %238 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %238 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %239 = call i1 @llvm.is.fpclass.f64(double %238, i32 480)
   br i1 %239, label %240, label %242
 
@@ -8654,7 +8713,7 @@ _ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGB
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
   store double 0.000000e+00, ptr %68, align 8, !tbaa !37
   store double 1.000000e+00, ptr %69, align 8, !tbaa !37
-  %243 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
+  %243 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
   %244 = fcmp ole double %243, 1.000000e+00
   %245 = fsub double 1.000000e+00, %243
   %246 = call double @llvm.fabs.f64(double %245)
@@ -8767,8 +8826,8 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  store i32 0, ptr %63, align 4, !tbaa !32
-  store i32 100, ptr %64, align 4, !tbaa !32
+  store i32 0, ptr %63, align 4, !tbaa !27
+  store i32 100, ptr %64, align 4, !tbaa !27
   %296 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRNS_19IntervalOpenOpenTagERiSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 1 dereferenceable(1) %62, ptr noundef nonnull align 4 dereferenceable(4) %63, ptr noundef nonnull align 4 dereferenceable(4) %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
@@ -8870,8 +8929,8 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  store i32 0, ptr %58, align 4, !tbaa !32
-  store i32 100, ptr %59, align 4, !tbaa !32
+  store i32 0, ptr %58, align 4, !tbaa !27
+  store i32 100, ptr %59, align 4, !tbaa !27
   %341 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRNS_19IntervalOpenOpenTagERiSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %132, ptr noundef nonnull align 1 dereferenceable(1) %57, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 4 dereferenceable(4) %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
@@ -8882,8 +8941,8 @@ _ZN12_GLOBAL__N_111TestUniformIN4absl15random_internal17NonsecureURBGBaseINS2_13
   call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !299
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  store i32 0, ptr %54, align 4, !tbaa !32
-  store i32 100, ptr %55, align 4, !tbaa !32
+  store i32 0, ptr %54, align 4, !tbaa !27
+  store i32 100, ptr %55, align 4, !tbaa !27
   %342 = call noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef nonnull align 8 dereferenceable(288) %129, ptr noundef nonnull align 4 dereferenceable(4) %54, ptr noundef nonnull align 4 dereferenceable(4) %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
@@ -8940,10 +8999,10 @@ _ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_eng
   %367 = or i32 %366, -2147483648
   %368 = bitcast i32 %367 to float
   %369 = fcmp ugt float %368, -1.000000e+00
-  br i1 %369, label %cdce.end.i.i, label %cdce.call, !prof !31
+  br i1 %369, label %cdce.end.i.i, label %cdce.call, !prof !32
 
 cdce.call:                                        ; preds = %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %370 = call noundef float @log1pf(float noundef %368) #19, !tbaa !32
+  %370 = call noundef float @log1pf(float noundef %368) #19, !tbaa !27
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %_ZN4absl11ExponentialIfRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
@@ -8983,10 +9042,10 @@ _ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_eng
   %390 = add nsw i64 %reass.sub8, -4620693217682128896
   %391 = bitcast i64 %390 to double
   %392 = fcmp ugt double %391, -1.000000e+00
-  br i1 %392, label %cdce.end5.i.i, label %cdce.call1, !prof !31
+  br i1 %392, label %cdce.end5.i.i, label %cdce.call1, !prof !32
 
 cdce.call1:                                       ; preds = %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
-  %393 = call double @log1p(double noundef %391) #19, !tbaa !32
+  %393 = call double @log1p(double noundef %391) #19, !tbaa !27
   br label %cdce.end5.i.i
 
 cdce.end5.i.i:                                    ; preds = %cdce.call1, %_ZN4absl11ExponentialIdRNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S8_.exit.i.i
@@ -9035,10 +9094,10 @@ _ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engi
   %418 = add nsw i64 %reass.sub9, -4620693217682128896
   %419 = bitcast i64 %418 to double
   %420 = fcmp ugt double %419, -1.000000e+00
-  br i1 %420, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !31
+  br i1 %420, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !32
 
 cdce.call3:                                       ; preds = %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
-  %421 = call double @log1p(double noundef %419) #19, !tbaa !32
+  %421 = call double @log1p(double noundef %419) #19, !tbaa !27
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_13randen_engineImEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl11ExponentialIdNS_15random_internal17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEET_OT0_S7_.exit.i.i
@@ -9564,7 +9623,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %8, i8 0, i64 256, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %scevgep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %scevgep.i.i, i8 0, i64 208, i1 false), !tbaa !32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(208) %scevgep.i.i, i8 0, i64 208, i1 false), !tbaa !27
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %3, i64 32)
   br label %9
 
@@ -9576,29 +9635,29 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %13 = getelementptr i8, ptr %12, i64 -20
   %14 = getelementptr i32, ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
-  %16 = load i32, ptr %13, align 4, !tbaa !32
-  %17 = load i32, ptr %15, align 4, !tbaa !32
-  store i32 %17, ptr %13, align 4, !tbaa !32
-  store i32 %16, ptr %15, align 4, !tbaa !32
+  %16 = load i32, ptr %13, align 4, !tbaa !27
+  %17 = load i32, ptr %15, align 4, !tbaa !27
+  store i32 %17, ptr %13, align 4, !tbaa !27
+  store i32 %16, ptr %15, align 4, !tbaa !27
   %18 = getelementptr i8, ptr %12, i64 -24
   %19 = getelementptr i8, ptr %14, i64 -8
-  %20 = load i32, ptr %18, align 8, !tbaa !32
-  %21 = load i32, ptr %19, align 8, !tbaa !32
-  store i32 %21, ptr %18, align 8, !tbaa !32
-  store i32 %20, ptr %19, align 8, !tbaa !32
+  %20 = load i32, ptr %18, align 8, !tbaa !27
+  %21 = load i32, ptr %19, align 8, !tbaa !27
+  store i32 %21, ptr %18, align 8, !tbaa !27
+  store i32 %20, ptr %19, align 8, !tbaa !27
   %22 = getelementptr i8, ptr %12, i64 -28
   %23 = getelementptr i8, ptr %14, i64 -12
-  %24 = load i32, ptr %22, align 4, !tbaa !32
-  %25 = load i32, ptr %23, align 4, !tbaa !32
-  store i32 %25, ptr %22, align 4, !tbaa !32
-  store i32 %24, ptr %23, align 4, !tbaa !32
+  %24 = load i32, ptr %22, align 4, !tbaa !27
+  %25 = load i32, ptr %23, align 4, !tbaa !27
+  store i32 %25, ptr %22, align 4, !tbaa !27
+  store i32 %24, ptr %23, align 4, !tbaa !27
   %26 = add nsw i64 %.022.i.i, -8
   %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
-  %29 = load i32, ptr %27, align 16, !tbaa !32
-  %30 = load i32, ptr %28, align 8, !tbaa !32
-  store i32 %30, ptr %27, align 16, !tbaa !32
-  store i32 %29, ptr %28, align 8, !tbaa !32
+  %29 = load i32, ptr %27, align 16, !tbaa !27
+  %30 = load i32, ptr %28, align 8, !tbaa !27
+  store i32 %30, ptr %27, align 16, !tbaa !27
+  store i32 %29, ptr %28, align 8, !tbaa !27
   %31 = icmp ugt i64 %26, 7
   br i1 %31, label %9, label %32, !llvm.loop !320
 
@@ -9633,8 +9692,8 @@ declare void @_ZN4absl15random_internal10RandenSlow6AbsorbEPKvPv(ptr noundef, pt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRiSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
-  %5 = load i32, ptr %1, align 4, !tbaa !32
-  %6 = load i32, ptr %2, align 4, !tbaa !32
+  %5 = load i32, ptr %1, align 4, !tbaa !27
+  %6 = load i32, ptr %2, align 4, !tbaa !27
   %7 = icmp ne i32 %6, -2147483648
   %8 = sext i1 %7 to i32
   %9 = sub i32 %6, %5
@@ -10104,7 +10163,7 @@ _ZN4absl24uniform_int_distributionIlEclINS_15random_internal17NonsecureURBGBaseI
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !27
   %8 = fsub double %6, %7
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 8
@@ -10298,7 +10357,7 @@ _ZN4absl24uniform_int_distributionImEclINS_15random_internal17NonsecureURBGBaseI
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !27
   %8 = fsub double %6, %7
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 8
@@ -10728,8 +10787,8 @@ _ZN4absl15random_internal15FastUniformBitsItEclINS0_17NonsecureURBGBaseINS0_13ra
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIjEEJRjSB_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #3 comdat align 2 {
   %4 = alloca %"class.absl::random_internal::FastUniformBits", align 1
-  %5 = load i32, ptr %1, align 4, !tbaa !32
-  %6 = load i32, ptr %2, align 4, !tbaa !32
+  %5 = load i32, ptr %1, align 4, !tbaa !27
+  %6 = load i32, ptr %2, align 4, !tbaa !27
   %7 = icmp ne i32 %6, 0
   %8 = sext i1 %7 to i32
   %9 = sub i32 %6, %5
@@ -10932,7 +10991,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
   %5 = load double, ptr %2, align 8, !tbaa !37
   %.fr3 = freeze double %5
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %8 = fsub double %7, %.fr3
   %9 = ptrtoint ptr %0 to i64
   %10 = and i64 %9, 8
@@ -11155,8 +11214,8 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
-  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !27
+  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %9 = fsub double %8, %7
   %10 = ptrtoint ptr %0 to i64
   %11 = and i64 %10, 8
@@ -11266,8 +11325,8 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIiEEJRNS_19IntervalOpenOpenTagERiSD_EEENT_11result_typeESt17integral_constantIbLb0EEPS6_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 comdat align 2 {
   %5 = alloca %"class.absl::random_internal::FastUniformBits", align 1
-  %6 = load i32, ptr %2, align 4, !tbaa !32
-  %7 = load i32, ptr %3, align 4, !tbaa !32
+  %6 = load i32, ptr %2, align 4, !tbaa !27
+  %7 = load i32, ptr %3, align 4, !tbaa !27
   %8 = icmp ne i32 %6, 2147483647
   %9 = zext i1 %8 to i32
   %10 = add nsw i32 %6, %9
@@ -11540,7 +11599,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %112 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %113 = fdiv double 1.000000e+00, %103
   %114 = fneg double %103
   %115 = tail call double @llvm.fmuladd.f64(double %103, double %112, double %114)
@@ -11555,7 +11614,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 123:                                              ; preds = %111, %109, %105
   %124 = phi double [ 0.000000e+00, %105 ], [ %122, %111 ], [ 0x3FE62E42FEFA39EC, %109 ]
-  %125 = tail call double @llvm.log.f64(double %75), !tbaa !32
+  %125 = tail call double @llvm.log.f64(double %75), !tbaa !27
   %126 = load double, ptr %54, align 8, !tbaa !199
   %127 = tail call double @llvm.fmuladd.f64(double %125, double 2.000000e+00, double %126)
   %128 = fadd double %124, %127
@@ -11766,7 +11825,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %112 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %113 = fdiv double 1.000000e+00, %103
   %114 = fneg double %103
   %115 = tail call double @llvm.fmuladd.f64(double %103, double %112, double %114)
@@ -11781,7 +11840,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 123:                                              ; preds = %111, %109, %105
   %124 = phi double [ 0.000000e+00, %105 ], [ %122, %111 ], [ 0x3FE62E42FEFA39EC, %109 ]
-  %125 = tail call double @llvm.log.f64(double %75), !tbaa !32
+  %125 = tail call double @llvm.log.f64(double %75), !tbaa !27
   %126 = load double, ptr %54, align 8, !tbaa !206
   %127 = tail call double @llvm.fmuladd.f64(double %125, double 2.000000e+00, double %126)
   %128 = fadd double %124, %127
@@ -11992,7 +12051,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %112 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %113 = fdiv double 1.000000e+00, %103
   %114 = fneg double %103
   %115 = tail call double @llvm.fmuladd.f64(double %103, double %112, double %114)
@@ -12007,7 +12066,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 123:                                              ; preds = %111, %109, %105
   %124 = phi double [ 0.000000e+00, %105 ], [ %122, %111 ], [ 0x3FE62E42FEFA39EC, %109 ]
-  %125 = tail call double @llvm.log.f64(double %75), !tbaa !32
+  %125 = tail call double @llvm.log.f64(double %75), !tbaa !27
   %126 = load double, ptr %54, align 8, !tbaa !213
   %127 = tail call double @llvm.fmuladd.f64(double %125, double 2.000000e+00, double %126)
   %128 = fadd double %124, %127
@@ -12218,7 +12277,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %112 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %113 = fdiv double 1.000000e+00, %103
   %114 = fneg double %103
   %115 = tail call double @llvm.fmuladd.f64(double %103, double %112, double %114)
@@ -12233,7 +12292,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 123:                                              ; preds = %111, %109, %105
   %124 = phi double [ 0.000000e+00, %105 ], [ %122, %111 ], [ 0x3FE62E42FEFA39EC, %109 ]
-  %125 = tail call double @llvm.log.f64(double %75), !tbaa !32
+  %125 = tail call double @llvm.log.f64(double %75), !tbaa !27
   %126 = load double, ptr %54, align 8, !tbaa !220
   %127 = tail call double @llvm.fmuladd.f64(double %125, double 2.000000e+00, double %126)
   %128 = fadd double %124, %127
@@ -12444,7 +12503,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %112 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %113 = fdiv double 1.000000e+00, %103
   %114 = fneg double %103
   %115 = tail call double @llvm.fmuladd.f64(double %103, double %112, double %114)
@@ -12459,7 +12518,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 123:                                              ; preds = %111, %109, %105
   %124 = phi double [ 0.000000e+00, %105 ], [ %122, %111 ], [ 0x3FE62E42FEFA39EC, %109 ]
-  %125 = tail call double @llvm.log.f64(double %75), !tbaa !32
+  %125 = tail call double @llvm.log.f64(double %75), !tbaa !27
   %126 = load double, ptr %54, align 8, !tbaa !227
   %127 = tail call double @llvm.fmuladd.f64(double %125, double 2.000000e+00, double %126)
   %128 = fadd double %124, %127
@@ -12670,7 +12729,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %112 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %113 = fdiv double 1.000000e+00, %103
   %114 = fneg double %103
   %115 = tail call double @llvm.fmuladd.f64(double %103, double %112, double %114)
@@ -12685,7 +12744,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 123:                                              ; preds = %111, %109, %105
   %124 = phi double [ 0.000000e+00, %105 ], [ %122, %111 ], [ 0x3FE62E42FEFA39EC, %109 ]
-  %125 = tail call double @llvm.log.f64(double %75), !tbaa !32
+  %125 = tail call double @llvm.log.f64(double %75), !tbaa !27
   %126 = load double, ptr %54, align 8, !tbaa !234
   %127 = tail call double @llvm.fmuladd.f64(double %125, double 2.000000e+00, double %126)
   %128 = fadd double %124, %127
@@ -12903,7 +12962,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %110, label %123, label %111
 
 111:                                              ; preds = %109
-  %112 = tail call double @llvm.log.f64(double %103), !tbaa !32
+  %112 = tail call double @llvm.log.f64(double %103), !tbaa !27
   %113 = fdiv double 1.000000e+00, %103
   %114 = fneg double %103
   %115 = tail call double @llvm.fmuladd.f64(double %103, double %112, double %114)
@@ -12918,7 +12977,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 123:                                              ; preds = %111, %109, %105
   %124 = phi double [ 0.000000e+00, %105 ], [ %122, %111 ], [ 0x3FE62E42FEFA39EC, %109 ]
-  %125 = tail call double @llvm.log.f64(double %75), !tbaa !32
+  %125 = tail call double @llvm.log.f64(double %75), !tbaa !27
   %126 = load double, ptr %54, align 8, !tbaa !241
   %127 = tail call double @llvm.fmuladd.f64(double %125, double 2.000000e+00, double %126)
   %128 = fadd double %124, %127
@@ -13145,7 +13204,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   br i1 %112, label %125, label %113
 
 113:                                              ; preds = %111
-  %114 = tail call double @llvm.log.f64(double %105), !tbaa !32
+  %114 = tail call double @llvm.log.f64(double %105), !tbaa !27
   %115 = fdiv double 1.000000e+00, %105
   %116 = fneg double %105
   %117 = tail call double @llvm.fmuladd.f64(double %105, double %114, double %116)
@@ -13160,7 +13219,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
 
 125:                                              ; preds = %113, %111, %107
   %126 = phi double [ 0.000000e+00, %107 ], [ %124, %113 ], [ 0x3FE62E42FEFA39EC, %111 ]
-  %127 = tail call double @llvm.log.f64(double %77), !tbaa !32
+  %127 = tail call double @llvm.log.f64(double %77), !tbaa !27
   %128 = load double, ptr %56, align 8, !tbaa !248
   %129 = tail call double @llvm.fmuladd.f64(double %127, double 2.000000e+00, double %128)
   %130 = fadd double %126, %129
@@ -13269,9 +13328,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !64
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13299,9 +13358,9 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !27
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !27
   %72 = load double, ptr %14, align 8, !tbaa !64
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
@@ -13319,10 +13378,10 @@ _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !27
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13416,9 +13475,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !73
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13446,9 +13505,9 @@ _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !27
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !27
   %72 = load double, ptr %14, align 8, !tbaa !73
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
@@ -13466,10 +13525,10 @@ _ZNK4absl17zipf_distributionIaE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !27
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13563,9 +13622,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !83
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13593,9 +13652,9 @@ _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !27
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !27
   %72 = load double, ptr %14, align 8, !tbaa !83
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
@@ -13613,10 +13672,10 @@ _ZNK4absl17zipf_distributionIsE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !27
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13710,9 +13769,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !92
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13740,9 +13799,9 @@ _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !27
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !27
   %72 = load double, ptr %14, align 8, !tbaa !92
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
@@ -13760,10 +13819,10 @@ _ZNK4absl17zipf_distributionItE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !27
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -13857,9 +13916,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !101
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -13887,9 +13946,9 @@ _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !27
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !27
   %72 = load double, ptr %14, align 8, !tbaa !101
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
@@ -13907,10 +13966,10 @@ _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !27
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -14004,9 +14063,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !110
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -14034,9 +14093,9 @@ _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !27
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !27
   %72 = load double, ptr %14, align 8, !tbaa !110
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
@@ -14054,10 +14113,10 @@ _ZNK4absl17zipf_distributionIlE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !27
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -14151,9 +14210,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 8, !tbaa !119
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -14181,9 +14240,9 @@ _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %45, %47
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 68:                                               ; preds = %63
-  %69 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %69 = tail call double @log(double noundef %65) #19, !tbaa !27
   %70 = fmul double %43, %69
-  %71 = tail call double @exp(double noundef %70) #19, !tbaa !32
+  %71 = tail call double @exp(double noundef %70) #19, !tbaa !27
   %72 = load double, ptr %14, align 8, !tbaa !119
   %73 = fmul double %71, %72
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
@@ -14201,10 +14260,10 @@ _ZNK4absl17zipf_distributionImE10param_type1hEd.exit: ; preds = %66, %68
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 81:                                               ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %82 = tail call double @log(double noundef %75) #19, !tbaa !32
+  %82 = tail call double @log(double noundef %75) #19, !tbaa !27
   %83 = fneg double %76
   %84 = fmul double %82, %83
-  %85 = tail call double @exp(double noundef %84) #19, !tbaa !32
+  %85 = tail call double @exp(double noundef %84) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %78, %81
@@ -14299,9 +14358,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 47:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %48 = load double, ptr %14, align 16, !tbaa !130
   %49 = fmul double %41, %43
-  %50 = tail call double @log(double noundef %49) #19, !tbaa !32
+  %50 = tail call double @log(double noundef %49) #19, !tbaa !27
   %51 = fmul double %48, %50
-  %52 = tail call double @exp(double noundef %51) #19, !tbaa !32
+  %52 = tail call double @exp(double noundef %51) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %45, %47
@@ -14334,9 +14393,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %45
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 67:                                               ; preds = %62
-  %68 = tail call double @log(double noundef %64) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %64) #19, !tbaa !27
   %69 = fmul double %43, %68
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   %71 = load double, ptr %14, align 16, !tbaa !130
   %72 = fmul double %70, %71
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
@@ -14354,10 +14413,10 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit: ; preds = %65, %
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 80:                                               ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %81 = tail call double @log(double noundef %74) #19, !tbaa !32
+  %81 = tail call double @log(double noundef %74) #19, !tbaa !27
   %82 = fneg double %75
   %83 = fmul double %81, %82
-  %84 = tail call double @exp(double noundef %83) #19, !tbaa !32
+  %84 = tail call double @exp(double noundef %83) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %77, %80
@@ -14458,9 +14517,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 48:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_13randen_engineImEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %49 = load double, ptr %15, align 16, !tbaa !139
   %50 = fmul double %42, %44
-  %51 = tail call double @log(double noundef %50) #19, !tbaa !32
+  %51 = tail call double @log(double noundef %50) #19, !tbaa !27
   %52 = fmul double %49, %51
-  %53 = tail call double @exp(double noundef %52) #19, !tbaa !32
+  %53 = tail call double @exp(double noundef %52) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %46, %48
@@ -14491,9 +14550,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %4
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 70:                                               ; preds = %65
-  %71 = tail call double @log(double noundef %67) #19, !tbaa !32
+  %71 = tail call double @log(double noundef %67) #19, !tbaa !27
   %72 = fmul double %44, %71
-  %73 = tail call double @exp(double noundef %72) #19, !tbaa !32
+  %73 = tail call double @exp(double noundef %72) #19, !tbaa !27
   %74 = load double, ptr %15, align 16, !tbaa !139
   %75 = fmul double %73, %74
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
@@ -14511,10 +14570,10 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit: ; preds = %68, 
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 83:                                               ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %84 = tail call double @log(double noundef %77) #19, !tbaa !32
+  %84 = tail call double @log(double noundef %77) #19, !tbaa !27
   %85 = fneg double %78
   %86 = fmul double %84, %85
-  %87 = tail call double @exp(double noundef %86) #19, !tbaa !32
+  %87 = tail call double @exp(double noundef %86) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %80, %83
@@ -14647,7 +14706,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %76 = tail call double @llvm.fmuladd.f64(double %70, double %75, double %72)
   %77 = fmul double %39, -5.000000e-01
   %78 = fmul double %39, %77
-  %79 = tail call double @exp(double noundef %78) #19, !tbaa !32
+  %79 = tail call double @exp(double noundef %78) #19, !tbaa !27
   %80 = fcmp olt double %76, %79
   br i1 %80, label %select.unfold, label %9
 
@@ -14702,7 +14761,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %reass.sub = sub nsw i64 %28, %27
   %29 = add nsw i64 %reass.sub, 4602678819172646912
   %30 = bitcast i64 %29 to double
-  %31 = tail call double @llvm.log.f64(double %30), !tbaa !32
+  %31 = tail call double @llvm.log.f64(double %30), !tbaa !27
   %32 = fmul double %31, 0x3FD2972A8AFC6175
   %33 = icmp ugt i64 %20, 31
   br i1 %33, label %34, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit9
@@ -14737,7 +14796,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %reass.sub10 = sub nsw i64 %49, %48
   %50 = add nsw i64 %reass.sub10, 4602678819172646912
   %51 = bitcast i64 %50 to double
-  %52 = tail call double @llvm.log.f64(double %51), !tbaa !32
+  %52 = tail call double @llvm.log.f64(double %51), !tbaa !27
   %53 = fneg double %52
   %54 = fsub double %53, %52
   %55 = fmul double %32, %32
@@ -14853,7 +14912,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 58:                                               ; preds = %48
   %59 = sitofp i32 %51 to double
   %60 = sitofp i32 %49 to double
-  %61 = call noundef double @pow(double noundef %59, double noundef %60) #19, !tbaa !32
+  %61 = call noundef double @pow(double noundef %59, double noundef %60) #19, !tbaa !27
   %62 = load i32, ptr %50, align 4, !tbaa !153
   %63 = sitofp i32 %62 to double
   %64 = call double @llvm.fmuladd.f64(double %61, double %63, double -1.000000e+00)
@@ -15056,7 +15115,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 60:                                               ; preds = %48
   %61 = sitofp i8 %51 to double
   %62 = sitofp i32 %49 to double
-  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !32
+  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !27
   %64 = call double @llvm.fmuladd.f64(double %63, double %61, double -1.000000e+00)
   %.inv = fcmp oge double %63, 2.550000e+02
   %65 = select i1 %.inv, double 2.550000e+02, double %63
@@ -15198,7 +15257,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 60:                                               ; preds = %48
   %61 = sitofp i16 %51 to double
   %62 = sitofp i32 %49 to double
-  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !32
+  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !27
   %64 = call double @llvm.fmuladd.f64(double %63, double %61, double -1.000000e+00)
   %.inv = fcmp oge double %63, 6.553500e+04
   %65 = select i1 %.inv, double 6.553500e+04, double %63
@@ -15340,7 +15399,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 60:                                               ; preds = %48
   %61 = uitofp i16 %51 to double
   %62 = sitofp i32 %49 to double
-  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !32
+  %63 = call noundef double @pow(double noundef %61, double noundef %62) #19, !tbaa !27
   %64 = call double @llvm.fmuladd.f64(double %63, double %61, double -1.000000e+00)
   %.inv = fcmp oge double %63, 6.553500e+04
   %65 = select i1 %.inv, double 6.553500e+04, double %63
@@ -15480,7 +15539,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 58:                                               ; preds = %48
   %59 = uitofp i32 %51 to double
   %60 = sitofp i32 %49 to double
-  %61 = call noundef double @pow(double noundef %59, double noundef %60) #19, !tbaa !32
+  %61 = call noundef double @pow(double noundef %59, double noundef %60) #19, !tbaa !27
   %62 = load i32, ptr %50, align 4, !tbaa !177
   %63 = uitofp i32 %62 to double
   %64 = call double @llvm.fmuladd.f64(double %61, double %63, double -1.000000e+00)
@@ -15682,7 +15741,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 59:                                               ; preds = %48
   %60 = sitofp i64 %51 to double
   %61 = sitofp i32 %49 to double
-  %62 = call noundef double @pow(double noundef %60, double noundef %61) #19, !tbaa !32
+  %62 = call noundef double @pow(double noundef %60, double noundef %61) #19, !tbaa !27
   %63 = call double @llvm.fmuladd.f64(double %62, double %60, double -1.000000e+00)
   %64 = fcmp ogt double %62, 0x43F0000000000000
   %65 = fptoui double %62 to i64
@@ -15818,7 +15877,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 59:                                               ; preds = %48
   %60 = uitofp i64 %51 to double
   %61 = sitofp i32 %49 to double
-  %62 = call noundef double @pow(double noundef %60, double noundef %61) #19, !tbaa !32
+  %62 = call noundef double @pow(double noundef %60, double noundef %61) #19, !tbaa !27
   %63 = call double @llvm.fmuladd.f64(double %62, double %60, double -1.000000e+00)
   %64 = fcmp ogt double %62, 0x43F0000000000000
   %65 = fptoui double %62 to i64
@@ -15907,13 +15966,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
 
 19:                                               ; preds = %4
   %20 = sitofp i128 %.sroa.0.0.copyload11 to double
-  %21 = tail call double @log(double noundef %20) #19, !tbaa !32
+  %21 = tail call double @log(double noundef %20) #19, !tbaa !27
   %22 = fdiv double 1.000000e+00, %21
   %23 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %24 = uitofp i64 %.narrow.i.i.i to double
   %25 = tail call noundef double @llvm.fmuladd.f64(double %24, double 0x43F0000000000000, double %23)
   %26 = fadd double %25, 5.000000e-01
-  %27 = tail call double @log(double noundef %26) #19, !tbaa !32
+  %27 = tail call double @log(double noundef %26) #19, !tbaa !27
   %28 = fmul double %22, %27
   %29 = tail call double @llvm.ceil.f64(double %28)
   %30 = fptosi double %29 to i32
@@ -16067,7 +16126,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 62:                                               ; preds = %50
   %63 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %64 = sitofp i32 %51 to double
-  %65 = call noundef double @pow(double noundef %63, double noundef %64) #19, !tbaa !32
+  %65 = call noundef double @pow(double noundef %63, double noundef %64) #19, !tbaa !27
   %66 = call double @llvm.fmuladd.f64(double %65, double %63, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %67 = fcmp ogt double %65, 0x47F0000000000000
@@ -16461,13 +16520,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %20 = uitofp i64 %.sroa.02.0.copyload.i.i to double
   %21 = uitofp i64 %.sroa.23.0.copyload.i.i to double
   %22 = tail call noundef double @llvm.fmuladd.f64(double %21, double 0x43F0000000000000, double %20)
-  %23 = tail call double @log(double noundef %22) #19, !tbaa !32
+  %23 = tail call double @log(double noundef %22) #19, !tbaa !27
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
   %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
   %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @log(double noundef %28) #19, !tbaa !32
+  %29 = tail call double @log(double noundef %28) #19, !tbaa !27
   %30 = fmul double %24, %29
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -16623,7 +16682,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %64 = uitofp i64 %.sroa.2.0.copyload.i to double
   %65 = call noundef double @llvm.fmuladd.f64(double %64, double 0x43F0000000000000, double %63)
   %66 = sitofp i32 %51 to double
-  %67 = call noundef double @pow(double noundef %65, double noundef %66) #19, !tbaa !32
+  %67 = call noundef double @pow(double noundef %65, double noundef %66) #19, !tbaa !27
   %68 = call double @llvm.fmuladd.f64(double %67, double %65, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %69 = fcmp ogt double %67, 0x47F0000000000000
@@ -16987,7 +17046,7 @@ define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test8TestB
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %55, i64 16)
-  %57 = load i32, ptr %55, align 16, !tbaa !32
+  %57 = load i32, ptr %55, align 16, !tbaa !27
   %58 = zext i32 %57 to i64
   br label %59
 
@@ -17004,7 +17063,7 @@ define internal void @_ZN12_GLOBAL__N_133InsecureBitGen_Compatibility_Test8TestB
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i = lshr i128 %62, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i to i64
   %63 = getelementptr inbounds nuw i32, ptr %55, i64 %.016.i.i.i.i.i.i
-  %64 = load i32, ptr %63, align 4, !tbaa !32
+  %64 = load i32, ptr %63, align 4, !tbaa !27
   %65 = zext i32 %64 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i, %65
   %66 = add nuw nsw i64 %.016.i.i.i.i.i.i, 1
@@ -17824,8 +17883,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   store double 0.000000e+00, ptr %53, align 8, !tbaa !37
   store double 1.000000e+00, ptr %54, align 8, !tbaa !37
-  %352 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !32
-  %353 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %352 = call noundef double @nextafter(double noundef 0.000000e+00, double noundef 1.000000e+00) #19, !tbaa !27
+  %353 = call noundef double @nextafter(double noundef 1.000000e+00, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %354 = fcmp ole double %352, %353
   %355 = fsub double %353, %352
   %356 = call double @llvm.fabs.f64(double %355)
@@ -18160,10 +18219,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %473 = or i32 %472, -2147483648
   %474 = bitcast i32 %473 to float
   %475 = fcmp ugt float %474, -1.000000e+00
-  br i1 %475, label %cdce.end.i.i, label %cdce.call, !prof !31
+  br i1 %475, label %cdce.end.i.i, label %cdce.call, !prof !32
 
 cdce.call:                                        ; preds = %.noexc629.i.i
-  %476 = call noundef float @log1pf(float noundef %474) #19, !tbaa !32
+  %476 = call noundef float @log1pf(float noundef %474) #19, !tbaa !27
   br label %cdce.end.i.i
 
 cdce.end.i.i:                                     ; preds = %cdce.call, %.noexc629.i.i
@@ -18192,16 +18251,16 @@ cdce.end.i.i:                                     ; preds = %cdce.call, %.noexc6
   %487 = add nsw i64 %reass.sub33, -4620693217682128896
   %488 = bitcast i64 %487 to double
   %489 = fcmp ugt double %488, -1.000000e+00
-  br i1 %489, label %cdce.end29.i.i, label %cdce.call1, !prof !31
+  br i1 %489, label %cdce.end29.i.i, label %cdce.call1, !prof !32
 
 cdce.call1:                                       ; preds = %cdce.end.i.i
-  %490 = call double @log1p(double noundef %488) #19, !tbaa !32
+  %490 = call double @log1p(double noundef %488) #19, !tbaa !27
   br label %cdce.end29.i.i
 
 cdce.end29.i.i:                                   ; preds = %cdce.call1, %cdce.end.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %49, i64 16)
-  %491 = load i32, ptr %49, align 16, !tbaa !32
+  %491 = load i32, ptr %49, align 16, !tbaa !27
   %492 = zext i32 %491 to i64
   br label %493
 
@@ -18218,7 +18277,7 @@ cdce.end29.i.i:                                   ; preds = %cdce.call1, %cdce.e
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i.i = lshr i128 %496, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i.i to i64
   %497 = getelementptr inbounds nuw i32, ptr %49, i64 %.016.i.i.i.i.i.i11.i
-  %498 = load i32, ptr %497, align 4, !tbaa !32
+  %498 = load i32, ptr %497, align 4, !tbaa !27
   %499 = zext i32 %498 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i, %499
   %500 = add nuw nsw i64 %.016.i.i.i.i.i.i11.i, 1
@@ -18266,10 +18325,10 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   %514 = add nsw i64 %reass.sub34, -4620693217682128896
   %515 = bitcast i64 %514 to double
   %516 = fcmp ugt double %515, -1.000000e+00
-  br i1 %516, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !31
+  br i1 %516, label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i, label %cdce.call3, !prof !32
 
 cdce.call3:                                       ; preds = %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
-  %517 = call double @log1p(double noundef %515) #19, !tbaa !32
+  %517 = call double @log1p(double noundef %515) #19, !tbaa !27
   br label %_ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i
 
 _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEEvPT_.exit.i: ; preds = %cdce.call3, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit.i.i
@@ -18332,7 +18391,7 @@ _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %40, i64 16)
-  %539 = load i32, ptr %40, align 16, !tbaa !32
+  %539 = load i32, ptr %40, align 16, !tbaa !27
   %540 = zext i32 %539 to i64
   br label %541
 
@@ -18349,7 +18408,7 @@ _ZN12_GLOBAL__N_115TestExponentialIN4absl15random_internal17NonsecureURBGBaseINS
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i24.i = lshr i128 %544, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i25.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i24.i to i64
   %545 = getelementptr inbounds nuw i32, ptr %40, i64 %.016.i.i.i.i.i.i18.i
-  %546 = load i32, ptr %545, align 4, !tbaa !32
+  %546 = load i32, ptr %545, align 4, !tbaa !27
   %547 = zext i32 %546 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i.i26.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i23.i, %547
   %548 = add nuw nsw i64 %.016.i.i.i.i.i.i18.i, 1
@@ -18573,7 +18632,7 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %27, i64 16)
-  %630 = load i32, ptr %27, align 16, !tbaa !32
+  %630 = load i32, ptr %27, align 16, !tbaa !27
   %631 = zext i32 %630 to i64
   br label %632
 
@@ -18590,7 +18649,7 @@ _ZN12_GLOBAL__N_111TestPoissonIN4absl15random_internal17NonsecureURBGBaseINS2_10
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i58.i = lshr i128 %635, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i59.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i58.i to i64
   %636 = getelementptr inbounds nuw i32, ptr %27, i64 %.016.i.i.i.i.i.i52.i
-  %637 = load i32, ptr %636, align 4, !tbaa !32
+  %637 = load i32, ptr %636, align 4, !tbaa !27
   %638 = zext i32 %637 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i.i60.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i57.i, %638
   %639 = add nuw nsw i64 %.016.i.i.i.i.i.i52.i, 1
@@ -18695,7 +18754,7 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %20, i64 16)
-  %674 = load i32, ptr %20, align 16, !tbaa !32
+  %674 = load i32, ptr %20, align 16, !tbaa !27
   %675 = zext i32 %674 to i64
   br label %676
 
@@ -18712,7 +18771,7 @@ _ZN12_GLOBAL__N_18TestZipfIN4absl15random_internal17NonsecureURBGBaseINS2_10pcg_
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i83.i = lshr i128 %679, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i84.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i83.i to i64
   %680 = getelementptr inbounds nuw i32, ptr %20, i64 %.016.i.i.i.i.i.i77.i
-  %681 = load i32, ptr %680, align 4, !tbaa !32
+  %681 = load i32, ptr %680, align 4, !tbaa !27
   %682 = zext i32 %681 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i.i85.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i82.i, %682
   %683 = add nuw nsw i64 %.016.i.i.i.i.i.i77.i, 1
@@ -18848,7 +18907,7 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN4absl15random_internal10RandenPoolIhE4FillENS_4SpanIhEE(ptr nonnull %9, i64 16)
-  %731 = load i32, ptr %9, align 16, !tbaa !32
+  %731 = load i32, ptr %9, align 16, !tbaa !27
   %732 = zext i32 %731 to i64
   br label %733
 
@@ -18865,7 +18924,7 @@ _ZN12_GLOBAL__N_112TestGaussianIN4absl15random_internal17NonsecureURBGBaseINS2_1
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i108.i = lshr i128 %736, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i.i109.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i.i108.i to i64
   %737 = getelementptr inbounds nuw i32, ptr %9, i64 %.016.i.i.i.i.i.i102.i
-  %738 = load i32, ptr %737, align 4, !tbaa !32
+  %738 = load i32, ptr %737, align 4, !tbaa !27
   %739 = zext i32 %738 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i.i110.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i107.i, %739
   %740 = add nuw nsw i64 %.016.i.i.i.i.i.i102.i, 1
@@ -18939,54 +18998,52 @@ _ZN12_GLOBAL__N_117CompatibilityTestIN4absl15random_internal17NonsecureURBGBaseI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !27
   %5 = fcmp ole double %4, %2
   %6 = fsub double %2, %4
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp one double %7, 0x7FF0000000000000
   %9 = and i1 %5, %8
-  br i1 %9, label %10, label %43
+  br i1 %9, label %10, label %41
 
 10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %1, double noundef %2) #19, !tbaa !32
-  %12 = fsub double %2, %11
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
+  %11 = tail call i1 @llvm.is.fpclass.f64(double %6, i32 384)
   %.promoted.i.i.i = load i64, ptr %0, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !20
-  br i1 %13, label %.split.i.i.i, label %.split.us.i.i.i
+  br i1 %11, label %.split.i.i.i, label %.split.us.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %10
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.us.i.i.i = zext i64 %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.us.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.us.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.us.i.i.i = zext i64 %.promoted.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.us.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.us.i.i.i
-  %14 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i = add i128 %14, 1442695040888963407
+  %12 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i = add i128 %12, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i to i64
-  %15 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i, 64
-  %.tr.i.i.i.i.i.i.us.i.i.i = trunc nuw i128 %15 to i64
+  %13 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i, 64
+  %.tr.i.i.i.i.i.i.us.i.i.i = trunc nuw i128 %13 to i64
   %.narrow.i.i.i.i.i.i.us.i.i.i = add i64 %.tr.i.i.i.i.i.i.us.i.i.i, 6364136223846793005
-  %16 = icmp eq i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
-  br i1 %16, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i, label %17
+  %14 = icmp eq i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
+  br i1 %14, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i, label %15
 
-17:                                               ; preds = %.split.us.i.i.i
-  %18 = xor i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
+15:                                               ; preds = %.split.us.i.i.i
+  %16 = xor i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.us.i.i.i, 58
-  %19 = tail call noundef i64 @llvm.fshr.i64(i64 %18, i64 %18, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i)
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
-  %21 = shl i64 %19, %20
-  %22 = lshr i64 %21, 11
-  %23 = and i64 %22, 4503599627370495
-  %24 = shl nuw nsw i64 %20, 52
-  %reass.sub = sub nsw i64 %23, %24
-  %25 = add nsw i64 %reass.sub, 4602678819172646912
-  %26 = bitcast i64 %25 to double
+  %17 = tail call noundef i64 @llvm.fshr.i64(i64 %16, i64 %16, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i)
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
+  %19 = shl i64 %17, %18
+  %20 = lshr i64 %19, 11
+  %21 = and i64 %20, 4503599627370495
+  %22 = shl nuw nsw i64 %18, 52
+  %reass.sub = sub nsw i64 %21, %22
+  %23 = add nsw i64 %reass.sub, 4602678819172646912
+  %24 = bitcast i64 %23 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i: ; preds = %17, %.split.us.i.i.i
-  %.0.i.us.i.i.i = phi double [ %26, %17 ], [ 0.000000e+00, %.split.us.i.i.i ]
-  %27 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i.i, double %12, double %11)
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i: ; preds = %15, %.split.us.i.i.i
+  %.0.i.us.i.i.i = phi double [ %24, %15 ], [ 0.000000e+00, %.split.us.i.i.i ]
+  %25 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i.i, double %6, double %4)
   br label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 .split.i.i.i:                                     ; preds = %10, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
@@ -18996,44 +19053,44 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
-  %28 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %28, 1442695040888963407
+  %26 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %26, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i to i64
-  %29 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %29 to i64
+  %27 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %27 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %30 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
-  br i1 %30, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, label %31
+  %28 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+  br i1 %28, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, label %29
 
-31:                                               ; preds = %.split.i.i.i
-  %32 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+29:                                               ; preds = %.split.i.i.i
+  %30 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
-  %33 = tail call noundef i64 @llvm.fshr.i64(i64 %32, i64 %32, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
-  %35 = shl i64 %33, %34
-  %36 = lshr i64 %35, 11
-  %37 = and i64 %36, 4503599627370495
-  %38 = shl nuw nsw i64 %34, 52
-  %reass.sub10 = sub nsw i64 %37, %38
-  %39 = add nsw i64 %reass.sub10, 4602678819172646912
-  %40 = bitcast i64 %39 to double
+  %31 = tail call noundef i64 @llvm.fshr.i64(i64 %30, i64 %30, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
+  %33 = shl i64 %31, %32
+  %34 = lshr i64 %33, 11
+  %35 = and i64 %34, 4503599627370495
+  %36 = shl nuw nsw i64 %32, 52
+  %reass.sub10 = sub nsw i64 %35, %36
+  %37 = add nsw i64 %reass.sub10, 4602678819172646912
+  %38 = bitcast i64 %37 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %31, %.split.i.i.i
-  %.0.i.i.i.i = phi double [ %40, %31 ], [ 0.000000e+00, %.split.i.i.i ]
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i, double %12, double %11)
-  %42 = fcmp uge double %41, %2
-  br i1 %42, label %.split.i.i.i, label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %29, %.split.i.i.i
+  %.0.i.i.i.i = phi double [ %38, %29 ], [ 0.000000e+00, %.split.i.i.i ]
+  %39 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i, double %6, double %4)
+  %40 = fcmp uge double %39, %2
+  br i1 %40, label %.split.i.i.i, label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
   %.us-phi22.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi23.i.i.i = phi double [ %27, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %41, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  %.us-phi23.i.i.i = phi double [ %25, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %39, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
   store i64 %.us-phi22.i.i.i, ptr %0, align 16, !tbaa !20
   store i64 %.us-phi.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !20
-  br label %43
+  br label %41
 
-43:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
+41:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
   %.0 = phi double [ %.us-phi23.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %1, %3 ]
   ret double %.0
 }
@@ -19041,54 +19098,52 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIvNS_19IntervalOpenOpenTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEidEENSt9enable_ifIXsr3std7is_sameIT_vEE5valueENSC_IXsr4absl11disjunctionINS2_23is_widening_convertibleIT2_T3_EENSE_ISG_SF_EEEE5valueENSt11conditionalIXsr23is_widening_convertibleISF_SG_EE5valueESG_SF_E4typeEE4typeEE4typeET0_OT1_SF_SG_(ptr noundef nonnull align 16 dereferenceable(16) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = sitofp i32 %1 to double
-  %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
+  %5 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !27
   %6 = fcmp ole double %5, %2
   %7 = fsub double %2, %5
   %8 = tail call double @llvm.fabs.f64(double %7)
   %9 = fcmp one double %8, 0x7FF0000000000000
   %10 = and i1 %6, %9
-  br i1 %10, label %11, label %44
+  br i1 %10, label %11, label %42
 
 11:                                               ; preds = %3
-  %12 = tail call noundef double @nextafter(double noundef %4, double noundef %2) #19, !tbaa !32
-  %13 = fsub double %2, %12
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = tail call i1 @llvm.is.fpclass.f64(double %13, i32 384)
+  %12 = tail call i1 @llvm.is.fpclass.f64(double %7, i32 384)
   %.promoted.i.i.i = load i64, ptr %0, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !20
-  br i1 %14, label %.split.i.i.i, label %.split.us.i.i.i
+  br i1 %12, label %.split.i.i.i, label %.split.us.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %11
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.us.i.i.i = zext i64 %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.us.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.us.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.us.i.i.i = zext i64 %.promoted.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.us.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.us.i.i.i
-  %15 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i = add i128 %15, 1442695040888963407
+  %13 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i = add i128 %13, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i to i64
-  %16 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i, 64
-  %.tr.i.i.i.i.i.i.us.i.i.i = trunc nuw i128 %16 to i64
+  %14 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i, 64
+  %.tr.i.i.i.i.i.i.us.i.i.i = trunc nuw i128 %14 to i64
   %.narrow.i.i.i.i.i.i.us.i.i.i = add i64 %.tr.i.i.i.i.i.i.us.i.i.i, 6364136223846793005
-  %17 = icmp eq i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
-  br i1 %17, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i, label %18
+  %15 = icmp eq i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
+  br i1 %15, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i, label %16
 
-18:                                               ; preds = %.split.us.i.i.i
-  %19 = xor i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
+16:                                               ; preds = %.split.us.i.i.i
+  %17 = xor i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.us.i.i.i, 58
-  %20 = tail call noundef i64 @llvm.fshr.i64(i64 %19, i64 %19, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i)
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %20, i1 true)
-  %22 = shl i64 %20, %21
-  %23 = lshr i64 %22, 11
-  %24 = and i64 %23, 4503599627370495
-  %25 = shl nuw nsw i64 %21, 52
-  %reass.sub = sub nsw i64 %24, %25
-  %26 = add nsw i64 %reass.sub, 4602678819172646912
-  %27 = bitcast i64 %26 to double
+  %18 = tail call noundef i64 @llvm.fshr.i64(i64 %17, i64 %17, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i)
+  %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %18, i1 true)
+  %20 = shl i64 %18, %19
+  %21 = lshr i64 %20, 11
+  %22 = and i64 %21, 4503599627370495
+  %23 = shl nuw nsw i64 %19, 52
+  %reass.sub = sub nsw i64 %22, %23
+  %24 = add nsw i64 %reass.sub, 4602678819172646912
+  %25 = bitcast i64 %24 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i: ; preds = %18, %.split.us.i.i.i
-  %.0.i.us.i.i.i = phi double [ %27, %18 ], [ 0.000000e+00, %.split.us.i.i.i ]
-  %28 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i.i, double %13, double %12)
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i: ; preds = %16, %.split.us.i.i.i
+  %.0.i.us.i.i.i = phi double [ %25, %16 ], [ 0.000000e+00, %.split.us.i.i.i ]
+  %26 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i.i, double %7, double %5)
   br label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 .split.i.i.i:                                     ; preds = %11, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
@@ -19098,98 +19153,96 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
-  %29 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %29, 1442695040888963407
+  %27 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %27, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i to i64
-  %30 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %30 to i64
+  %28 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %28 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %31 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
-  br i1 %31, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, label %32
+  %29 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+  br i1 %29, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, label %30
 
-32:                                               ; preds = %.split.i.i.i
-  %33 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+30:                                               ; preds = %.split.i.i.i
+  %31 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
-  %34 = tail call noundef i64 @llvm.fshr.i64(i64 %33, i64 %33, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
-  %35 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %34, i1 true)
-  %36 = shl i64 %34, %35
-  %37 = lshr i64 %36, 11
-  %38 = and i64 %37, 4503599627370495
-  %39 = shl nuw nsw i64 %35, 52
-  %reass.sub13 = sub nsw i64 %38, %39
-  %40 = add nsw i64 %reass.sub13, 4602678819172646912
-  %41 = bitcast i64 %40 to double
+  %32 = tail call noundef i64 @llvm.fshr.i64(i64 %31, i64 %31, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
+  %34 = shl i64 %32, %33
+  %35 = lshr i64 %34, 11
+  %36 = and i64 %35, 4503599627370495
+  %37 = shl nuw nsw i64 %33, 52
+  %reass.sub13 = sub nsw i64 %36, %37
+  %38 = add nsw i64 %reass.sub13, 4602678819172646912
+  %39 = bitcast i64 %38 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %32, %.split.i.i.i
-  %.0.i.i.i.i = phi double [ %41, %32 ], [ 0.000000e+00, %.split.i.i.i ]
-  %42 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i, double %13, double %12)
-  %43 = fcmp uge double %42, %2
-  br i1 %43, label %.split.i.i.i, label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %30, %.split.i.i.i
+  %.0.i.i.i.i = phi double [ %39, %30 ], [ 0.000000e+00, %.split.i.i.i ]
+  %40 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i, double %7, double %5)
+  %41 = fcmp uge double %40, %2
+  br i1 %41, label %.split.i.i.i, label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
   %.us-phi22.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi23.i.i.i = phi double [ %28, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %42, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  %.us-phi23.i.i.i = phi double [ %26, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %40, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
   store i64 %.us-phi22.i.i.i, ptr %0, align 16, !tbaa !20
   store i64 %.us-phi.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !20
-  br label %44
+  br label %42
 
-44:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
+42:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
   %.0 = phi double [ %.us-phi23.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %4, %3 ]
   ret double %.0
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef double @_ZN4absl7UniformIdNS_23IntervalClosedClosedTagERNS_15random_internal17NonsecureURBGBaseINS2_10pcg_engineINS2_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS2_17pcg_xsl_rr_128_64EEENS2_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESD_E4typeET0_OT1_SD_SD_(ptr noundef nonnull align 16 dereferenceable(16) %0, double noundef %1, double noundef %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
-  %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %4 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %5 = fcmp ole double %1, %4
   %6 = fsub double %4, %1
   %7 = tail call double @llvm.fabs.f64(double %6)
   %8 = fcmp one double %7, 0x7FF0000000000000
   %9 = and i1 %5, %8
-  br i1 %9, label %10, label %43
+  br i1 %9, label %10, label %41
 
 10:                                               ; preds = %3
-  %11 = tail call noundef double @nextafter(double noundef %2, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
-  %12 = fsub double %11, %1
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = tail call i1 @llvm.is.fpclass.f64(double %12, i32 384)
+  %11 = tail call i1 @llvm.is.fpclass.f64(double %6, i32 384)
   %.promoted.i.i.i = load i64, ptr %0, align 16, !tbaa !20
   %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !20
-  br i1 %13, label %.split.i.i.i, label %.split.us.i.i.i
+  br i1 %11, label %.split.i.i.i, label %.split.us.i.i.i
 
 .split.us.i.i.i:                                  ; preds = %10
   %.sroa.24.0.insert.ext.i.i.i.i.i.i.us.i.i.i = zext i64 %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.us.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.us.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.us.i.i.i = zext i64 %.promoted.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.us.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.us.i.i.i
-  %14 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i = add i128 %14, 1442695040888963407
+  %12 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.us.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i = add i128 %12, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i to i64
-  %15 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i, 64
-  %.tr.i.i.i.i.i.i.us.i.i.i = trunc nuw i128 %15 to i64
+  %13 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.us.i.i.i, 64
+  %.tr.i.i.i.i.i.i.us.i.i.i = trunc nuw i128 %13 to i64
   %.narrow.i.i.i.i.i.i.us.i.i.i = add i64 %.tr.i.i.i.i.i.i.us.i.i.i, 6364136223846793005
-  %16 = icmp eq i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
-  br i1 %16, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i, label %17
+  %14 = icmp eq i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
+  br i1 %14, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i, label %15
 
-17:                                               ; preds = %.split.us.i.i.i
-  %18 = xor i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
+15:                                               ; preds = %.split.us.i.i.i
+  %16 = xor i64 %.narrow.i.i.i.i.i.i.us.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.us.i.i.i, 58
-  %19 = tail call noundef i64 @llvm.fshr.i64(i64 %18, i64 %18, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i)
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
-  %21 = shl i64 %19, %20
-  %22 = lshr i64 %21, 11
-  %23 = and i64 %22, 4503599627370495
-  %24 = shl nuw nsw i64 %20, 52
-  %reass.sub = sub nsw i64 %23, %24
-  %25 = add nsw i64 %reass.sub, 4602678819172646912
-  %26 = bitcast i64 %25 to double
+  %17 = tail call noundef i64 @llvm.fshr.i64(i64 %16, i64 %16, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.us.i.i.i)
+  %18 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %17, i1 true)
+  %19 = shl i64 %17, %18
+  %20 = lshr i64 %19, 11
+  %21 = and i64 %20, 4503599627370495
+  %22 = shl nuw nsw i64 %18, 52
+  %reass.sub = sub nsw i64 %21, %22
+  %23 = add nsw i64 %reass.sub, 4602678819172646912
+  %24 = bitcast i64 %23 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i: ; preds = %17, %.split.us.i.i.i
-  %.0.i.us.i.i.i = phi double [ %26, %17 ], [ 0.000000e+00, %.split.us.i.i.i ]
-  %27 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i.i, double %12, double %1)
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i: ; preds = %15, %.split.us.i.i.i
+  %.0.i.us.i.i.i = phi double [ %24, %15 ], [ 0.000000e+00, %.split.us.i.i.i ]
+  %25 = tail call double @llvm.fmuladd.f64(double %.0.i.us.i.i.i, double %6, double %1)
   br label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 .split.i.i.i:                                     ; preds = %10, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
@@ -19199,44 +19252,44 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
-  %28 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
-  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %28, 1442695040888963407
+  %26 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
+  %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %26, 1442695040888963407
   %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i = trunc i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i to i64
-  %29 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
-  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %29 to i64
+  %27 = lshr i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i, 64
+  %.tr.i.i.i.i.i.i.i.i.i = trunc nuw i128 %27 to i64
   %.narrow.i.i.i.i.i.i.i.i.i = add i64 %.tr.i.i.i.i.i.i.i.i.i, 6364136223846793005
-  %30 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
-  br i1 %30, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, label %31
+  %28 = icmp eq i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+  br i1 %28, label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, label %29
 
-31:                                               ; preds = %.split.i.i.i
-  %32 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
+29:                                               ; preds = %.split.i.i.i
+  %30 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i, %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i, 58
-  %33 = tail call noundef i64 @llvm.fshr.i64(i64 %32, i64 %32, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
-  %35 = shl i64 %33, %34
-  %36 = lshr i64 %35, 11
-  %37 = and i64 %36, 4503599627370495
-  %38 = shl nuw nsw i64 %34, 52
-  %reass.sub10 = sub nsw i64 %37, %38
-  %39 = add nsw i64 %reass.sub10, 4602678819172646912
-  %40 = bitcast i64 %39 to double
+  %31 = tail call noundef i64 @llvm.fshr.i64(i64 %30, i64 %30, i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i.i.i)
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
+  %33 = shl i64 %31, %32
+  %34 = lshr i64 %33, 11
+  %35 = and i64 %34, 4503599627370495
+  %36 = shl nuw nsw i64 %32, 52
+  %reass.sub10 = sub nsw i64 %35, %36
+  %37 = add nsw i64 %reass.sub10, 4602678819172646912
+  %38 = bitcast i64 %37 to double
   br label %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
 
-_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %31, %.split.i.i.i
-  %.0.i.i.i.i = phi double [ %40, %31 ], [ 0.000000e+00, %.split.i.i.i ]
-  %41 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i, double %12, double %1)
-  %42 = fcmp uge double %41, %11
-  br i1 %42, label %.split.i.i.i, label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
+_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i: ; preds = %29, %.split.i.i.i
+  %.0.i.i.i.i = phi double [ %38, %29 ], [ 0.000000e+00, %.split.i.i.i ]
+  %39 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i.i, double %6, double %1)
+  %40 = fcmp uge double %39, %4
+  br i1 %40, label %.split.i.i.i, label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
   %.us-phi22.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi23.i.i.i = phi double [ %27, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %41, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  %.us-phi23.i.i.i = phi double [ %25, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %39, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
   store i64 %.us-phi22.i.i.i, ptr %0, align 16, !tbaa !20
   store i64 %.us-phi.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !20
-  br label %43
+  br label %41
 
-43:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
+41:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
   %.0 = phi double [ %.us-phi23.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_23IntervalClosedClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %1, %3 ]
   ret double %.0
 }
@@ -19245,8 +19298,8 @@ _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_
 define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_21IntervalOpenClosedTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_(ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load double, ptr %2, align 8, !tbaa !37
   %6 = load double, ptr %3, align 8, !tbaa !37
-  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !32
-  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !32
+  %7 = tail call noundef double @nextafter(double noundef %5, double noundef %6) #19, !tbaa !27
+  %8 = tail call noundef double @nextafter(double noundef %6, double noundef 0x7FEFFFFFFFFFFFFF) #19, !tbaa !27
   %9 = fsub double %8, %7
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = tail call i1 @llvm.is.fpclass.f64(double %9, i32 384)
@@ -19483,7 +19536,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call double @llvm.log.f64(double %70), !tbaa !32
+  %78 = tail call double @llvm.log.f64(double %70), !tbaa !27
   %79 = fdiv double 1.000000e+00, %70
   %80 = fneg double %70
   %81 = tail call double @llvm.fmuladd.f64(double %70, double %78, double %80)
@@ -19498,7 +19551,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 89:                                               ; preds = %77, %75, %72
   %90 = phi double [ 0.000000e+00, %72 ], [ %88, %77 ], [ 0x3FE62E42FEFA39EC, %75 ]
-  %91 = tail call double @llvm.log.f64(double %50), !tbaa !32
+  %91 = tail call double @llvm.log.f64(double %50), !tbaa !27
   %92 = tail call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %37)
   %93 = fadd double %90, %92
   %94 = fcmp olt double %93, %73
@@ -19678,7 +19731,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call double @llvm.log.f64(double %70), !tbaa !32
+  %78 = tail call double @llvm.log.f64(double %70), !tbaa !27
   %79 = fdiv double 1.000000e+00, %70
   %80 = fneg double %70
   %81 = tail call double @llvm.fmuladd.f64(double %70, double %78, double %80)
@@ -19693,7 +19746,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 89:                                               ; preds = %77, %75, %72
   %90 = phi double [ 0.000000e+00, %72 ], [ %88, %77 ], [ 0x3FE62E42FEFA39EC, %75 ]
-  %91 = tail call double @llvm.log.f64(double %50), !tbaa !32
+  %91 = tail call double @llvm.log.f64(double %50), !tbaa !27
   %92 = tail call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %37)
   %93 = fadd double %90, %92
   %94 = fcmp olt double %93, %73
@@ -19873,7 +19926,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call double @llvm.log.f64(double %70), !tbaa !32
+  %78 = tail call double @llvm.log.f64(double %70), !tbaa !27
   %79 = fdiv double 1.000000e+00, %70
   %80 = fneg double %70
   %81 = tail call double @llvm.fmuladd.f64(double %70, double %78, double %80)
@@ -19888,7 +19941,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 89:                                               ; preds = %77, %75, %72
   %90 = phi double [ 0.000000e+00, %72 ], [ %88, %77 ], [ 0x3FE62E42FEFA39EC, %75 ]
-  %91 = tail call double @llvm.log.f64(double %50), !tbaa !32
+  %91 = tail call double @llvm.log.f64(double %50), !tbaa !27
   %92 = tail call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %37)
   %93 = fadd double %90, %92
   %94 = fcmp olt double %93, %73
@@ -20068,7 +20121,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call double @llvm.log.f64(double %70), !tbaa !32
+  %78 = tail call double @llvm.log.f64(double %70), !tbaa !27
   %79 = fdiv double 1.000000e+00, %70
   %80 = fneg double %70
   %81 = tail call double @llvm.fmuladd.f64(double %70, double %78, double %80)
@@ -20083,7 +20136,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 89:                                               ; preds = %77, %75, %72
   %90 = phi double [ 0.000000e+00, %72 ], [ %88, %77 ], [ 0x3FE62E42FEFA39EC, %75 ]
-  %91 = tail call double @llvm.log.f64(double %50), !tbaa !32
+  %91 = tail call double @llvm.log.f64(double %50), !tbaa !27
   %92 = tail call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %37)
   %93 = fadd double %90, %92
   %94 = fcmp olt double %93, %73
@@ -20263,7 +20316,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call double @llvm.log.f64(double %70), !tbaa !32
+  %78 = tail call double @llvm.log.f64(double %70), !tbaa !27
   %79 = fdiv double 1.000000e+00, %70
   %80 = fneg double %70
   %81 = tail call double @llvm.fmuladd.f64(double %70, double %78, double %80)
@@ -20278,7 +20331,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 89:                                               ; preds = %77, %75, %72
   %90 = phi double [ 0.000000e+00, %72 ], [ %88, %77 ], [ 0x3FE62E42FEFA39EC, %75 ]
-  %91 = tail call double @llvm.log.f64(double %50), !tbaa !32
+  %91 = tail call double @llvm.log.f64(double %50), !tbaa !27
   %92 = tail call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %37)
   %93 = fadd double %90, %92
   %94 = fcmp olt double %93, %73
@@ -20458,7 +20511,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call double @llvm.log.f64(double %70), !tbaa !32
+  %78 = tail call double @llvm.log.f64(double %70), !tbaa !27
   %79 = fdiv double 1.000000e+00, %70
   %80 = fneg double %70
   %81 = tail call double @llvm.fmuladd.f64(double %70, double %78, double %80)
@@ -20473,7 +20526,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 89:                                               ; preds = %77, %75, %72
   %90 = phi double [ 0.000000e+00, %72 ], [ %88, %77 ], [ 0x3FE62E42FEFA39EC, %75 ]
-  %91 = tail call double @llvm.log.f64(double %50), !tbaa !32
+  %91 = tail call double @llvm.log.f64(double %50), !tbaa !27
   %92 = tail call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %37)
   %93 = fadd double %90, %92
   %94 = fcmp olt double %93, %73
@@ -20660,7 +20713,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %76, label %89, label %77
 
 77:                                               ; preds = %75
-  %78 = tail call double @llvm.log.f64(double %70), !tbaa !32
+  %78 = tail call double @llvm.log.f64(double %70), !tbaa !27
   %79 = fdiv double 1.000000e+00, %70
   %80 = fneg double %70
   %81 = tail call double @llvm.fmuladd.f64(double %70, double %78, double %80)
@@ -20675,7 +20728,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 89:                                               ; preds = %77, %75, %72
   %90 = phi double [ 0.000000e+00, %72 ], [ %88, %77 ], [ 0x3FE62E42FEFA39EC, %75 ]
-  %91 = tail call double @llvm.log.f64(double %50), !tbaa !32
+  %91 = tail call double @llvm.log.f64(double %50), !tbaa !27
   %92 = tail call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %37)
   %93 = fadd double %90, %92
   %94 = fcmp olt double %93, %73
@@ -20871,7 +20924,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br i1 %78, label %91, label %79
 
 79:                                               ; preds = %77
-  %80 = tail call double @llvm.log.f64(double %72), !tbaa !32
+  %80 = tail call double @llvm.log.f64(double %72), !tbaa !27
   %81 = fdiv double 1.000000e+00, %72
   %82 = fneg double %72
   %83 = tail call double @llvm.fmuladd.f64(double %72, double %80, double %82)
@@ -20886,7 +20939,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 91:                                               ; preds = %79, %77, %74
   %92 = phi double [ 0.000000e+00, %74 ], [ %90, %79 ], [ 0x3FE62E42FEFA39EC, %77 ]
-  %93 = tail call double @llvm.log.f64(double %52), !tbaa !32
+  %93 = tail call double @llvm.log.f64(double %52), !tbaa !27
   %94 = tail call double @llvm.fmuladd.f64(double %93, double 2.000000e+00, double %39)
   %95 = fadd double %92, %94
   %96 = fcmp olt double %95, %75
@@ -20991,9 +21044,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !27
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21020,9 +21073,9 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !27
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !27
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
 
@@ -21037,9 +21090,9 @@ _ZNK4absl17zipf_distributionIiE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !27
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21127,9 +21180,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 40:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %41 = fmul double %37, %11
-  %42 = tail call double @log(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @log(double noundef %41) #19, !tbaa !27
   %43 = fmul double %16, %42
-  %44 = tail call double @exp(double noundef %43) #19, !tbaa !32
+  %44 = tail call double @exp(double noundef %43) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %38, %40
@@ -21154,9 +21207,9 @@ _ZNK4absl17zipf_distributionIaE10param_type4hinvEd.exit: ; preds = %38, %40
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !27
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !27
   %61 = fmul double %60, %16
   br label %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
 
@@ -21171,9 +21224,9 @@ _ZNK4absl17zipf_distributionIaE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIaE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !27
   %69 = fmul double %68, %22
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIaE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21261,9 +21314,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 40:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %41 = fmul double %37, %11
-  %42 = tail call double @log(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @log(double noundef %41) #19, !tbaa !27
   %43 = fmul double %16, %42
-  %44 = tail call double @exp(double noundef %43) #19, !tbaa !32
+  %44 = tail call double @exp(double noundef %43) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %38, %40
@@ -21288,9 +21341,9 @@ _ZNK4absl17zipf_distributionIsE10param_type4hinvEd.exit: ; preds = %38, %40
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !27
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !27
   %61 = fmul double %60, %16
   br label %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
 
@@ -21305,9 +21358,9 @@ _ZNK4absl17zipf_distributionIsE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIsE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !27
   %69 = fmul double %68, %22
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIsE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21395,9 +21448,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 40:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %41 = fmul double %37, %11
-  %42 = tail call double @log(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @log(double noundef %41) #19, !tbaa !27
   %43 = fmul double %16, %42
-  %44 = tail call double @exp(double noundef %43) #19, !tbaa !32
+  %44 = tail call double @exp(double noundef %43) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %38, %40
@@ -21422,9 +21475,9 @@ _ZNK4absl17zipf_distributionItE10param_type4hinvEd.exit: ; preds = %38, %40
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !27
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !27
   %61 = fmul double %60, %16
   br label %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
 
@@ -21439,9 +21492,9 @@ _ZNK4absl17zipf_distributionItE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionItE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !27
   %69 = fmul double %68, %22
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionItE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21527,9 +21580,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !27
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21556,9 +21609,9 @@ _ZNK4absl17zipf_distributionIjE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !27
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !27
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
 
@@ -21573,9 +21626,9 @@ _ZNK4absl17zipf_distributionIjE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIjE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !27
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIjE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21663,9 +21716,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !27
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21692,9 +21745,9 @@ _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !27
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !27
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
 
@@ -21709,9 +21762,9 @@ _ZNK4absl17zipf_distributionIlE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionIlE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !27
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21797,9 +21850,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !27
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21826,9 +21879,9 @@ _ZNK4absl17zipf_distributionImE10param_type4hinvEd.exit: ; preds = %36, %38
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
 57:                                               ; preds = %52
-  %58 = tail call double @log(double noundef %54) #19, !tbaa !32
+  %58 = tail call double @log(double noundef %54) #19, !tbaa !27
   %59 = fmul double %11, %58
-  %60 = tail call double @exp(double noundef %59) #19, !tbaa !32
+  %60 = tail call double @exp(double noundef %59) #19, !tbaa !27
   %61 = fmul double %60, %14
   br label %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
 
@@ -21843,9 +21896,9 @@ _ZNK4absl17zipf_distributionImE10param_type1hEd.exit: ; preds = %55, %57
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 67:                                               ; preds = %_ZNK4absl17zipf_distributionImE10param_type1hEd.exit
-  %68 = tail call double @log(double noundef %63) #19, !tbaa !32
+  %68 = tail call double @log(double noundef %63) #19, !tbaa !27
   %69 = fmul double %68, %20
-  %70 = tail call double @exp(double noundef %69) #19, !tbaa !32
+  %70 = tail call double @exp(double noundef %69) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionImE10param_type14pow_negative_qEd.exit: ; preds = %64, %67
@@ -21935,9 +21988,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 38:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %39 = fmul double %35, %11
-  %40 = tail call double @log(double noundef %39) #19, !tbaa !32
+  %40 = tail call double @log(double noundef %39) #19, !tbaa !27
   %41 = fmul double %14, %40
-  %42 = tail call double @exp(double noundef %41) #19, !tbaa !32
+  %42 = tail call double @exp(double noundef %41) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %36, %38
@@ -21966,9 +22019,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type4hinvEd.exit: ; preds = %36
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
 56:                                               ; preds = %51
-  %57 = tail call double @log(double noundef %53) #19, !tbaa !32
+  %57 = tail call double @log(double noundef %53) #19, !tbaa !27
   %58 = fmul double %11, %57
-  %59 = tail call double @exp(double noundef %58) #19, !tbaa !32
+  %59 = tail call double @exp(double noundef %58) #19, !tbaa !27
   %60 = fmul double %59, %14
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
 
@@ -21983,9 +22036,9 @@ _ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit: ; preds = %54, %
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 66:                                               ; preds = %_ZNK4absl17zipf_distributionINS_6int128EE10param_type1hEd.exit
-  %67 = tail call double @log(double noundef %62) #19, !tbaa !32
+  %67 = tail call double @log(double noundef %62) #19, !tbaa !27
   %68 = fmul double %67, %20
-  %69 = tail call double @exp(double noundef %68) #19, !tbaa !32
+  %69 = tail call double @exp(double noundef %68) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_6int128EE10param_type14pow_negative_qEd.exit: ; preds = %63, %66
@@ -22078,9 +22131,9 @@ _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBase
 
 39:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
   %40 = fmul double %36, %12
-  %41 = tail call double @log(double noundef %40) #19, !tbaa !32
+  %41 = tail call double @log(double noundef %40) #19, !tbaa !27
   %42 = fmul double %15, %41
-  %43 = tail call double @exp(double noundef %42) #19, !tbaa !32
+  %43 = tail call double @exp(double noundef %42) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %37, %39
@@ -22110,9 +22163,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type4hinvEd.exit: ; preds = %3
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
 59:                                               ; preds = %54
-  %60 = tail call double @log(double noundef %56) #19, !tbaa !32
+  %60 = tail call double @log(double noundef %56) #19, !tbaa !27
   %61 = fmul double %12, %60
-  %62 = tail call double @exp(double noundef %61) #19, !tbaa !32
+  %62 = tail call double @exp(double noundef %61) #19, !tbaa !27
   %63 = fmul double %62, %15
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
 
@@ -22127,9 +22180,9 @@ _ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit: ; preds = %57, 
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 69:                                               ; preds = %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type1hEd.exit
-  %70 = tail call double @log(double noundef %65) #19, !tbaa !32
+  %70 = tail call double @log(double noundef %65) #19, !tbaa !27
   %71 = fmul double %70, %21
-  %72 = tail call double @exp(double noundef %71) #19, !tbaa !32
+  %72 = tail call double @exp(double noundef %71) #19, !tbaa !27
   br label %_ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit
 
 _ZNK4absl17zipf_distributionINS_7uint128EE10param_type14pow_negative_qEd.exit: ; preds = %66, %69
@@ -22226,7 +22279,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %reass.sub51 = sub nsw i64 %42, %43
   %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
-  %46 = tail call double @llvm.log.f64(double %45), !tbaa !32
+  %46 = tail call double @llvm.log.f64(double %45), !tbaa !27
   %47 = fmul double %46, 0x3FD2972A8AFC6175
   %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i = zext i64 %.narrow.i.i.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i13.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i, 64
@@ -22250,7 +22303,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %reass.sub52 = sub nsw i64 %56, %57
   %58 = add nsw i64 %reass.sub52, 4602678819172646912
   %59 = bitcast i64 %58 to double
-  %60 = tail call double @llvm.log.f64(double %59), !tbaa !32
+  %60 = tail call double @llvm.log.f64(double %59), !tbaa !27
   %61 = fneg double %60
   %62 = fsub double %61, %60
   %63 = fmul double %47, %47
@@ -22297,7 +22350,7 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17Non
   %87 = tail call double @llvm.fmuladd.f64(double %81, double %86, double %83)
   %88 = fmul double %25, -5.000000e-01
   %89 = fmul double %25, %88
-  %90 = tail call double @exp(double noundef %89) #19, !tbaa !32
+  %90 = tail call double @exp(double noundef %89) #19, !tbaa !27
   %91 = fcmp olt double %87, %90
   br i1 %91, label %select.unfold.loopexit, label %3
 
@@ -22421,7 +22474,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 45:                                               ; preds = %35
   %46 = sitofp i32 %38 to double
   %47 = sitofp i32 %36 to double
-  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #19, !tbaa !32
+  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #19, !tbaa !27
   %49 = load i32, ptr %37, align 4, !tbaa !153
   %50 = sitofp i32 %49 to double
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %50, double -1.000000e+00)
@@ -22635,7 +22688,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 47:                                               ; preds = %35
   %48 = sitofp i8 %38 to double
   %49 = sitofp i32 %36 to double
-  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !32
+  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !27
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %48, double -1.000000e+00)
   %.inv = fcmp oge double %50, 2.550000e+02
   %52 = select i1 %.inv, double 2.550000e+02, double %50
@@ -22851,7 +22904,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 47:                                               ; preds = %35
   %48 = sitofp i16 %38 to double
   %49 = sitofp i32 %36 to double
-  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !32
+  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !27
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %48, double -1.000000e+00)
   %.inv = fcmp oge double %50, 6.553500e+04
   %52 = select i1 %.inv, double 6.553500e+04, double %50
@@ -23067,7 +23120,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 47:                                               ; preds = %35
   %48 = uitofp i16 %38 to double
   %49 = sitofp i32 %36 to double
-  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !32
+  %50 = tail call noundef double @pow(double noundef %48, double noundef %49) #19, !tbaa !27
   %51 = tail call double @llvm.fmuladd.f64(double %50, double %48, double -1.000000e+00)
   %.inv = fcmp oge double %50, 6.553500e+04
   %52 = select i1 %.inv, double 6.553500e+04, double %50
@@ -23281,7 +23334,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 45:                                               ; preds = %35
   %46 = uitofp i32 %38 to double
   %47 = sitofp i32 %36 to double
-  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #19, !tbaa !32
+  %48 = tail call noundef double @pow(double noundef %46, double noundef %47) #19, !tbaa !27
   %49 = load i32, ptr %37, align 4, !tbaa !177
   %50 = uitofp i32 %49 to double
   %51 = tail call double @llvm.fmuladd.f64(double %48, double %50, double -1.000000e+00)
@@ -23494,7 +23547,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 46:                                               ; preds = %35
   %47 = sitofp i64 %38 to double
   %48 = sitofp i32 %36 to double
-  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !32
+  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !27
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double -1.000000e+00)
   %51 = fcmp ogt double %49, 0x43F0000000000000
   %52 = fptoui double %49 to i64
@@ -23702,7 +23755,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 46:                                               ; preds = %35
   %47 = uitofp i64 %38 to double
   %48 = sitofp i32 %36 to double
-  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !32
+  %49 = tail call noundef double @pow(double noundef %47, double noundef %48) #19, !tbaa !27
   %50 = tail call double @llvm.fmuladd.f64(double %49, double %47, double -1.000000e+00)
   %51 = fcmp ogt double %49, 0x43F0000000000000
   %52 = fptoui double %49 to i64
@@ -23857,13 +23910,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
 
 19:                                               ; preds = %4
   %20 = sitofp i128 %.sroa.0.0.copyload11 to double
-  %21 = tail call double @log(double noundef %20) #19, !tbaa !32
+  %21 = tail call double @log(double noundef %20) #19, !tbaa !27
   %22 = fdiv double 1.000000e+00, %21
   %23 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %24 = uitofp i64 %.narrow.i.i.i to double
   %25 = tail call noundef double @llvm.fmuladd.f64(double %24, double 0x43F0000000000000, double %23)
   %26 = fadd double %25, 5.000000e-01
-  %27 = tail call double @log(double noundef %26) #19, !tbaa !32
+  %27 = tail call double @log(double noundef %26) #19, !tbaa !27
   %28 = fmul double %22, %27
   %29 = tail call double @llvm.ceil.f64(double %28)
   %30 = fptosi double %29 to i32
@@ -24020,7 +24073,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
 50:                                               ; preds = %38
   %51 = sitofp i128 %.sroa.01.0.insert.insert.i to double
   %52 = sitofp i32 %39 to double
-  %53 = tail call noundef double @pow(double noundef %51, double noundef %52) #19, !tbaa !32
+  %53 = tail call noundef double @pow(double noundef %51, double noundef %52) #19, !tbaa !27
   %54 = tail call double @llvm.fmuladd.f64(double %53, double %51, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = fcmp ogt double %53, 0x47F0000000000000
@@ -24362,13 +24415,13 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %20 = uitofp i64 %.sroa.02.0.copyload.i.i to double
   %21 = uitofp i64 %.sroa.23.0.copyload.i.i to double
   %22 = tail call noundef double @llvm.fmuladd.f64(double %21, double 0x43F0000000000000, double %20)
-  %23 = tail call double @log(double noundef %22) #19, !tbaa !32
+  %23 = tail call double @log(double noundef %22) #19, !tbaa !27
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
   %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
   %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @log(double noundef %28) #19, !tbaa !32
+  %29 = tail call double @log(double noundef %28) #19, !tbaa !27
   %30 = fmul double %24, %29
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -24527,7 +24580,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal17NonsecureURBGBaseI
   %52 = uitofp i64 %.sroa.2.0.copyload.i to double
   %53 = tail call noundef double @llvm.fmuladd.f64(double %52, double 0x43F0000000000000, double %51)
   %54 = sitofp i32 %39 to double
-  %55 = tail call noundef double @pow(double noundef %53, double noundef %54) #19, !tbaa !32
+  %55 = tail call noundef double @pow(double noundef %53, double noundef %54) #19, !tbaa !27
   %56 = tail call double @llvm.fmuladd.f64(double %55, double %53, double -1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %57 = fcmp ogt double %55, 0x47F0000000000000
@@ -25360,12 +25413,12 @@ attributes #21 = { builtin allocsize(0) }
 !24 = !{!"_ZTSSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE", !10, i64 0, !9, i64 2496}
 !25 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !26 = distinct !{!26, !22}
-!27 = distinct !{!27, !22}
+!27 = !{!16, !16, i64 0}
 !28 = distinct !{!28, !22}
 !29 = distinct !{!29, !22}
 !30 = distinct !{!30, !22}
-!31 = !{!"branch_weights", i32 1048575, i32 1}
-!32 = !{!16, !16, i64 0}
+!31 = distinct !{!31, !22}
+!32 = !{!"branch_weights", i32 1048575, i32 1}
 !33 = !{!34, !35, i64 0}
 !34 = !{!"_ZTSN4absl20poisson_distributionIiE10param_typeE", !35, i64 0, !35, i64 8, !35, i64 16, !35, i64 24, !35, i64 32, !16, i64 40}
 !35 = !{!"double", !10, i64 0}

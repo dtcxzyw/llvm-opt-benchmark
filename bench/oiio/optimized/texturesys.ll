@@ -48918,8 +48918,8 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare x86_fp80 @llvm.log.f80(x86_fp80) #27
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #36
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
+declare float @nextafterf(float noundef, float noundef) local_unnamed_addr #31
 
 declare noundef ptr @_ZN11OpenImageIO6v3_1_07ustring11make_uniqueENS0_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef) local_unnamed_addr #3
 
