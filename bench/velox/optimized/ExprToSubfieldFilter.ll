@@ -15442,11 +15442,11 @@ entry:
   %agg.tmp7.i.i1.i = alloca %"class.std::unique_ptr.77", align 8
   %agg.tmp6.i.i.i = alloca %"class.std::unique_ptr.77", align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i13 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i15 = ashr exact i64 %sub.ptr.sub.i14, 3
-  %cmp16 = icmp sgt i64 %sub.ptr.div.i15, 16
-  br i1 %cmp16, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i16 = ashr exact i64 %sub.ptr.sub.i15, 3
+  %cmp17 = icmp sgt i64 %sub.ptr.div.i16, 16
+  br i1 %cmp17, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8

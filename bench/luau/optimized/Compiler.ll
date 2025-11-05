@@ -7911,7 +7911,7 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler9pushLocalEPNS_8AstLocalEhj
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1192
   %20 = load ptr, ptr %19, align 8, !tbaa !199
   %.not.i = icmp eq ptr %8, %20
-  br i1 %.not.i, label %_ZNKSt6vectorIPN4Luau8AstLocalESaIS2_EE12_M_check_lenEmPKc.exit.i.i, label %21
+  br i1 %.not.i, label %23, label %21
 
 21:                                               ; preds = %18
   store ptr %1, ptr %8, align 8, !tbaa !245
@@ -7919,50 +7919,50 @@ define linkonce_odr dso_local void @_ZN4Luau8Compiler9pushLocalEPNS_8AstLocalEhj
   store ptr %22, ptr %7, align 8, !tbaa !198
   br label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE9push_backERKS2_.exit
 
-_ZNKSt6vectorIPN4Luau8AstLocalESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %18
+23:                                               ; preds = %18
   %.sroa.speculated.i.i.i = tail call i64 @llvm.umax.i64(i64 %13, i64 1)
-  %23 = add nuw nsw i64 %.sroa.speculated.i.i.i, %13
-  %24 = shl nuw nsw i64 %23, 3
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #30
-  %26 = getelementptr inbounds i8, ptr %25, i64 %12
-  store ptr %1, ptr %26, align 8, !tbaa !245
-  %27 = icmp sgt i64 %12, 0
-  br i1 %27, label %28, label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  %26 = add nuw nsw i64 %.sroa.speculated.i.i.i, %13
+  %27 = shl nuw nsw i64 %26, 3
+  %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #30
+  %29 = getelementptr inbounds i8, ptr %28, i64 %12
+  store ptr %1, ptr %29, align 8, !tbaa !245
+  %30 = icmp sgt i64 %12, 0
+  br i1 %30, label %31, label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-28:                                               ; preds = %_ZNKSt6vectorIPN4Luau8AstLocalESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %25, ptr align 8 %9, i64 %12, i1 false)
+31:                                               ; preds = %_ZNKSt6vectorIPN4Luau8AstLocalESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %28, ptr align 8 %9, i64 %12, i1 false)
   br label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 
-_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %28, %_ZNKSt6vectorIPN4Luau8AstLocalESaIS2_EE12_M_check_lenEmPKc.exit.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
+_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %31, %_ZNKSt6vectorIPN4Luau8AstLocalESaIS2_EE12_M_check_lenEmPKc.exit.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.not.i17.i.i = icmp eq ptr %9, null
-  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %30
+  br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, label %33
 
-30:                                               ; preds = %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+33:                                               ; preds = %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   tail call void @_ZdlPvm(ptr noundef nonnull %9, i64 noundef %12) #28
   br label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
-_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  store ptr %25, ptr %6, align 8, !tbaa !197
-  store ptr %29, ptr %7, align 8, !tbaa !198
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
-  store ptr %31, ptr %19, align 8, !tbaa !199
+_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
+  store ptr %28, ptr %6, align 8, !tbaa !197
+  store ptr %32, ptr %7, align 8, !tbaa !198
+  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  store ptr %34, ptr %19, align 8, !tbaa !199
   br label %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE9push_backERKS2_.exit: ; preds = %21, %_ZNSt6vectorIPN4Luau8AstLocalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %33 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_8Compiler5LocalENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store i8 %2, ptr %33, align 4, !tbaa !433
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  store i8 1, ptr %34, align 1, !tbaa !434
-  %35 = load ptr, ptr %0, align 8, !tbaa !232
-  %36 = call noundef i32 @_ZNK4Luau15BytecodeBuilder10getDebugPCEv(ptr noundef nonnull align 8 dereferenceable(840) %35)
-  %37 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  store i32 %36, ptr %37, align 4, !tbaa !435
-  %38 = icmp eq i32 %3, -1
-  %. = select i1 %38, i32 %36, i32 %3
-  %39 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 %., ptr %39, align 4, !tbaa !436
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %36 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4Luau12DenseHashMapIPNS_8AstLocalENS_8Compiler5LocalENS_16DenseHashPointerESt8equal_toIS2_EEixERKS2_(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(8) %5)
+  store i8 %2, ptr %36, align 4, !tbaa !433
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
+  store i8 1, ptr %37, align 1, !tbaa !434
+  %38 = load ptr, ptr %0, align 8, !tbaa !232
+  %39 = call noundef i32 @_ZNK4Luau15BytecodeBuilder10getDebugPCEv(ptr noundef nonnull align 8 dereferenceable(840) %38)
+  %40 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 %39, ptr %40, align 4, !tbaa !435
+  %41 = icmp eq i32 %3, -1
+  %. = select i1 %41, i32 %39, i32 %3
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i32 %., ptr %42, align 4, !tbaa !436
   ret void
 }
 

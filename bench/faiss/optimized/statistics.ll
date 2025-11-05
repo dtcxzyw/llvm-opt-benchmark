@@ -367,9 +367,9 @@ define noundef double @_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE(ptr nound
   %12 = fadd double %.07.i.i.i.i, %11
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %3
-  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i, label %14, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i
+14:                                               ; preds = %.lr.ph.i.i.i.i, %14
   %.010.i.i.i = phi double [ %15, %.lr.ph.i.i.i ], [ 0.000000e+00, %.lr.ph.i.i.i.i ]
   %.sroa.0.09.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %4, %.lr.ph.i.i.i.i ]
   %14 = load double, ptr %.sroa.0.09.i.i.i, align 8, !tbaa !8
@@ -382,7 +382,7 @@ define noundef double @_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE(ptr nound
   %17 = uitofp i64 %8 to double
   %18 = fdiv double 1.000000e+00, %17
   %19 = fmul double %18, %12
-  %20 = fmul double %18, %15
+  %25 = fmul double %18, %15
   %21 = fadd double %17, -1.000000e+00
   %22 = fdiv double %17, %21
   %23 = fmul double %19, %19
@@ -400,25 +400,25 @@ _ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit: ; preds = %"_ZNK9bench
   br label %.lr.ph.i.i.i7
 
 .lr.ph.i.i.i7:                                    ; preds = %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, %.lr.ph.i.i.i7
-  %.07.i.i.i = phi double [ %30, %.lr.ph.i.i.i7 ], [ 0.000000e+00, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
-  %.sroa.02.06.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i7 ], [ %4, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
-  %29 = load double, ptr %.sroa.02.06.i.i.i, align 8, !tbaa !8
-  %30 = fadd double %.07.i.i.i, %29
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
-  %.not.i.i.i8 = icmp eq ptr %31, %3
+  %.07.i.i.i = phi double [ %32, %.lr.ph.i.i.i7 ], [ 0.000000e+00, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
+  %.sroa.02.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i7 ], [ %4, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
+  %31 = load double, ptr %.sroa.02.06.i.i.i, align 8, !tbaa !8
+  %32 = fadd double %.07.i.i.i, %31
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
+  %.not.i.i.i8 = icmp eq ptr %33, %3
   br i1 %.not.i.i.i8, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i7, !llvm.loop !10
 
 _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i.i.i7
-  %32 = fmul double %18, %30
-  %33 = fcmp oeq double %32, 0.000000e+00
-  br i1 %33, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread, label %_ZSt10fpclassifyd.exit.thread
+  %34 = fmul double %18, %32
+  %35 = fcmp oeq double %34, 0.000000e+00
+  br i1 %35, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread, label %_ZSt10fpclassifyd.exit.thread
 
 _ZSt10fpclassifyd.exit.thread:                    ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit
-  %34 = fdiv double %.0.i, %32
+  %36 = fdiv double %.0.i, %34
   br label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread
 
 _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread: ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, %_ZSt10fpclassifyd.exit.thread, %1
-  %.0 = phi double [ 0.000000e+00, %1 ], [ %34, %_ZSt10fpclassifyd.exit.thread ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
+  %.0 = phi double [ 0.000000e+00, %1 ], [ %36, %_ZSt10fpclassifyd.exit.thread ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
   ret double %.0
 }
 

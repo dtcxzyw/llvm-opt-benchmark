@@ -31175,22 +31175,22 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %12
+  br label %13
 
-12:                                               ; preds = %.lr.ph, %57
+13:                                               ; preds = %.lr.ph, %57
   %13 = phi i64 [ %9, %.lr.ph ], [ %65, %57 ]
   %.018 = phi i64 [ %2, %.lr.ph ], [ %58, %57 ]
   %storemerge17 = phi ptr [ %1, %.lr.ph ], [ %62, %57 ]
   %14 = icmp eq i64 %.018, 0
   br i1 %14, label %15, label %57
 
-15:                                               ; preds = %12
+._crit_edge:                                      ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %16 = add nsw i64 %13, -2
-  %17 = lshr i64 %16, 1
+  %15 = add nsw i64 %13, -2
+  %16 = lshr i64 %15, 1
   br label %18
 
-18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i, %15
+20:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i, %15
   %.08.i.i = phi i64 [ %17, %15 ], [ %29, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i ]
   %19 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.08.i.i
   %20 = load i64, ptr %19, align 8
@@ -31206,36 +31206,36 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.not.i.i.i.i10 = icmp eq i64 %24, 0
   br i1 %.not.i.i.i.i10, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i, label %25
 
-25:                                               ; preds = %21
-  %26 = and i64 %23, -8
-  %27 = inttoptr i64 %26 to ptr
-  %28 = atomicrmw sub ptr %27, i32 2 release, align 4
+24:                                               ; preds = %21
+  %25 = and i64 %23, -8
+  %26 = inttoptr i64 %25 to ptr
+  %27 = atomicrmw sub ptr %26, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i: ; preds = %25, %21
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i: ; preds = %24, %21
   %.not.i.i = icmp eq i64 %.08.i.i, 0
-  %29 = add nsw i64 %.08.i.i, -1
+  %28 = add nsw i64 %.08.i.i, -1
   br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, label %18
 
-30:                                               ; preds = %18
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %18
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %32 = load ptr, ptr %4, align 8
-  %33 = ptrtoint ptr %32 to i64
-  %34 = and i64 %33, 7
-  %.not.i.i11.i.i = icmp eq i64 %34, 0
+  %31 = load ptr, ptr %4, align 8
+  %32 = ptrtoint ptr %31 to i64
+  %33 = and i64 %32, 7
+  %.not.i.i11.i.i = icmp eq i64 %33, 0
   br i1 %.not.i.i11.i.i, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %30, %51
-  %.sink = phi i64 [ %54, %51 ], [ %33, %30 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %52, %51 ], [ %31, %30 ]
-  %35 = and i64 %.sink, -8
-  %36 = inttoptr i64 %35 to ptr
-  %37 = atomicrmw sub ptr %36, i32 2 release, align 4
+common.resume.sink.split:                         ; preds = %29, %51
+  %.sink = phi i64 [ %54, %51 ], [ %32, %30 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %52, %51 ], [ %30, %30 ]
+  %34 = and i64 %.sink, -8
+  %35 = inttoptr i64 %34 to ptr
+  %36 = atomicrmw sub ptr %35, i32 2 release, align 4
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %51, %30
-  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %52, %51 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %51, %29
+  %common.resume.op = phi { ptr, i32 } [ %30, %30 ], [ %52, %51 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit10.i.i
@@ -31292,7 +31292,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserv
   %56 = icmp sgt i64 %41, 8
   br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !175
 
-57:                                               ; preds = %12
+.lr.ph42:                                         ; preds = %13
   %58 = add nsw i64 %.018, -1
   %59 = lshr i64 %13, 1
   %60 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %59
@@ -31304,9 +31304,9 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserv
   %64 = sub i64 %63, %6
   %65 = ashr exact i64 %64, 3
   %66 = icmp sgt i64 %65, 16
-  br i1 %66, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !176
+  br i1 %66, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !176
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %57, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, %3
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %.lr.ph42, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, %3
   ret void
 }
 

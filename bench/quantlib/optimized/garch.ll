@@ -883,8 +883,8 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN8QuantLib5ArrayC
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store double 0.000000e+00, ptr %call5.i.i.i.i2.i.i125, align 8, !tbaa !21
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i125, i64 8
-  %sub.i.i.i.i.i = add nsw i64 %sub.ptr.div.i, -1
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %sub.i.i.i.i.i, 0
+  %add.ptr.idx.i.i.i.i.i.i.i = add nsw i64 %sub.ptr.div.i, -1
+  %cmp.i.i.i.i.i.i.i = icmp eq i64 %add.ptr.idx.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont71, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
