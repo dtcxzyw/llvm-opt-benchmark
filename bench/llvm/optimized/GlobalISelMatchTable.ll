@@ -44987,53 +44987,51 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph68
+  br label %12
 
-13:                                               ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit"
-  %14 = icmp eq i64 %42, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph68, !llvm.loop !2689
+12:                                               ; preds = %.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit"
+  %13 = phi i64 [ %9, %.lr.ph ], [ %146, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit" ]
+  %.023 = phi i64 [ %2, %.lr.ph ], [ %42, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit" ]
+  %storemerge22 = phi ptr [ %1, %.lr.ph ], [ %.sroa.014.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit" ]
+  %14 = icmp eq i64 %.023, 0
+  br i1 %14, label %15, label %41
 
-._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa64 = phi i64 [ %9, %.lr.ph ], [ %146, %13 ]
-  %.lcssa = phi i64 [ %8, %.lr.ph ], [ %145, %13 ]
-  %storemerge24.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.014.1.i.i, %13 ]
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %15 = add nsw i64 %.lcssa64, -2
-  %16 = lshr i64 %15, 1
-  br label %17
+  %16 = add nsw i64 %13, -2
+  %17 = lshr i64 %16, 1
+  br label %18
 
-17:                                               ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i, %._crit_edge
-  %.08.i.i.i = phi i64 [ %16, %._crit_edge ], [ %24, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i ]
-  %18 = getelementptr inbounds %"class.std::unique_ptr.16", ptr %0, i64 %.08.i.i.i
-  %19 = load i64, ptr %18, align 8, !tbaa !293
-  store ptr null, ptr %18, align 8, !tbaa !293
-  store i64 %19, ptr %5, align 8, !tbaa !293
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %.lcssa64, ptr noundef %5)
-  %20 = load ptr, ptr %5, align 8, !tbaa !293
-  %.not.i.i.i.i = icmp eq ptr %20, null
+18:                                               ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i, %15
+  %.08.i.i.i = phi i64 [ %17, %15 ], [ %25, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i ]
+  %19 = getelementptr inbounds %"class.std::unique_ptr.16", ptr %0, i64 %.08.i.i.i
+  %20 = load i64, ptr %19, align 8, !tbaa !293
+  store ptr null, ptr %19, align 8, !tbaa !293
+  store i64 %20, ptr %5, align 8, !tbaa !293
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_T0_SK_T1_T2_"(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %13, ptr noundef %5)
+  %21 = load ptr, ptr %5, align 8, !tbaa !293
+  %.not.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i, label %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i
 
-_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i: ; preds = %17
-  %21 = load ptr, ptr %20, align 8, !tbaa !6
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(20) %20) #36
+_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i: ; preds = %18
+  %22 = load ptr, ptr %21, align 8, !tbaa !6
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(20) %21) #36
   br label %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i
 
-_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i, %17
+_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i.i, %18
   store ptr null, ptr %5, align 8, !tbaa !293
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
-  %24 = add nsw i64 %.08.i.i.i, -1
-  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_RT0_.exit.i.i", label %17, !llvm.loop !2690
+  %25 = add nsw i64 %.08.i.i.i, -1
+  br i1 %.not.i.i.i, label %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_RT0_.exit.i.i", label %18, !llvm.loop !2689
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_RT0_.exit.i.i": ; preds = %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EED2Ev.exit11.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %25 = icmp sgt i64 %.lcssa, 8
-  br i1 %25, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_T0_.exit"
+  br label %.lr.ph.i9.i
 
 .lr.ph.i9.i:                                      ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_RT0_.exit.i15.i"
-  %.sroa.0.03.i.i = phi ptr [ %26, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_RT0_.exit.i15.i" ], [ %storemerge24.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_RT0_.exit.i.i" ]
+  %.sroa.0.03.i.i = phi ptr [ %26, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_RT0_.exit.i15.i" ], [ %storemerge22, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_RT0_.exit.i.i" ]
   %26 = getelementptr inbounds i8, ptr %.sroa.0.03.i.i, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = load i64, ptr %26, align 8, !tbaa !293
@@ -45072,16 +45070,13 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_RT0_.exit.i15.i": ; preds = %_ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i, %_ZNSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS2_EEaSEOS5_.exit.i.i12.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %40 = icmp sgt i64 %34, 8
-  br i1 %40, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !2691
+  br i1 %40, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !2690
 
-.lr.ph68:                                         ; preds = %.lr.ph, %13
-  %storemerge2467 = phi ptr [ %.sroa.014.1.i.i, %13 ], [ %1, %.lr.ph ]
-  %.02566 = phi i64 [ %42, %13 ], [ %2, %.lr.ph ]
-  %41 = phi i64 [ %146, %13 ], [ %9, %.lr.ph ]
-  %42 = add nsw i64 %.02566, -1
-  %43 = lshr i64 %41, 1
+41:                                               ; preds = %12
+  %42 = add nsw i64 %.023, -1
+  %43 = lshr i64 %13, 1
   %44 = getelementptr inbounds nuw %"class.std::unique_ptr.16", ptr %0, i64 %43
-  %45 = getelementptr inbounds i8, ptr %storemerge2467, i64 -8
+  %45 = getelementptr inbounds i8, ptr %storemerge22, i64 -8
   %.val.i.i.i = load ptr, ptr %11, align 8, !tbaa !293
   %.val1.i.i.i = load ptr, ptr %44, align 8, !tbaa !293
   %46 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 8
@@ -45099,7 +45094,7 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
   %58 = icmp slt i32 %47, %53
   br i1 %58, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread.i.i", label %59
 
-59:                                               ; preds = %.lr.ph68
+59:                                               ; preds = %41
   %60 = icmp slt i32 %53, %47
   br i1 %60, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread42.i.i", label %61
 
@@ -45113,7 +45108,7 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
   %spec.select.i.i.i.i = select i1 %63, i1 %64, i1 false
   br i1 %spec.select.i.i.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread.i.i", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread42.i.i"
 
-"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.i.i", %61, %.lr.ph68
+"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.i.i", %61, %41
   %.val1.i27.i.i = load ptr, ptr %45, align 8, !tbaa !293
   %65 = getelementptr inbounds nuw i8, ptr %.val1.i27.i.i, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !313
@@ -45215,7 +45210,7 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
 
 106:                                              ; preds = %142, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i"
   %.sroa.014.0.i.i = phi ptr [ %11, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i" ], [ %143, %142 ]
-  %.sroa.0.0.i.i = phi ptr [ %storemerge2467, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i" ], [ %.sroa.0.1.i.i, %142 ]
+  %.sroa.0.0.i.i = phi ptr [ %storemerge22, %"_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_SJ_T0_.exit.i" ], [ %.sroa.0.1.i.i, %142 ]
   %.val1.i.i13.i = load ptr, ptr %0, align 8, !tbaa !293
   %107 = getelementptr inbounds nuw i8, ptr %.val1.i.i13.i, i64 8
   %108 = load i32, ptr %107, align 8, !tbaa !313
@@ -45256,7 +45251,7 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread.i17.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.i15.i", %123, %113
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 8
-  br label %113, !llvm.loop !2692
+  br label %113, !llvm.loop !2691
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i.backedge", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i.preheader"
   %.sroa.0.0.pn.i.i = phi ptr [ %.sroa.0.0.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i.preheader" ], [ %.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i.backedge" ]
@@ -45286,7 +45281,7 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
   br i1 %spec.select.i.i10.i.i, label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i.backedge", label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit11.thread18.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i.backedge": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit11.i.i", %137, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i"
-  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i", !llvm.loop !2693
+  br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit.thread17.i.i", !llvm.loop !2692
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit11.thread18.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit11.i.i", %135
   %141 = icmp ult ptr %.sroa.014.1.i.i, %.sroa.0.1.i.i
@@ -45296,17 +45291,17 @@ _ZNKSt14default_deleteIN4llvm2gi16PredicateMatcherEEclEPS2_.exit.i.i.i14.i: ; pr
   store ptr %.val1.i9.i.i, ptr %.sroa.014.1.i.i, align 8, !tbaa !293
   store ptr %.val.i.i14.i, ptr %.sroa.0.1.i.i, align 8, !tbaa !293
   %143 = getelementptr inbounds nuw i8, ptr %.sroa.014.1.i.i, i64 8
-  br label %106, !llvm.loop !2694
+  br label %106, !llvm.loop !2693
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm2gi11RuleMatcher8optimizeEvE3$_0EclINS_17__normal_iteratorIPSt10unique_ptrINS3_16PredicateMatcherESt14default_deleteISA_EESt6vectorISD_SaISD_EEEESI_EEbT_T0_.exit11.thread18.i.i"
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_T0_T1_"(ptr nonnull %.sroa.014.1.i.i, ptr %storemerge2467, i64 noundef %42)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_T0_T1_"(ptr nonnull %.sroa.014.1.i.i, ptr %storemerge22, i64 noundef %42)
   %144 = ptrtoint ptr %.sroa.014.1.i.i to i64
   %145 = sub i64 %144, %6
   %146 = ashr exact i64 %145, 3
   %147 = icmp sgt i64 %146, 16
-  br i1 %147, label %13, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !2689
+  br i1 %147, label %12, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_T0_.exit", !llvm.loop !2694
 
-"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_RT0_.exit.i15.i", %3, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_RT0_.exit.i.i"
+"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_T0_.exit": ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEET_SJ_SJ_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4llvm2gi16PredicateMatcherESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEENS0_5__ops15_Iter_comp_iterIZNS4_11RuleMatcher8optimizeEvE3$_0EEEvT_SJ_SJ_RT0_.exit.i15.i", %3
   ret void
 }
 

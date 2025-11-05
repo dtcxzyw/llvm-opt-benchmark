@@ -7115,21 +7115,10 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %cond.true.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i6.i, ptr align 8 %1, i64 %sub.ptr.sub.i, i1 false)
   store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %yScale)
-  %cmp.i.i = icmp ugt i64 %sub.ptr.div.i, 1152921504606846975
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
-
-if.then.i.i:                                      ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.22) #26
-          to label %.noexc unwind label %lpad
-
-.noexc:                                           ; preds = %if.then.i.i
-  unreachable
-
-_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
   %call5.i.i.i.i2.i.i41 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i) #28
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad
 
-call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i
+call5.i.i.i.i2.i.i.noexc:                         ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
   store ptr %call5.i.i.i.i2.i.i41, ptr %yScale, align 8, !tbaa !17
   %add.ptr.i.i.i38 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i41, i64 %sub.ptr.sub.i
   %_M_end_of_storage.i.i.i39 = getelementptr inbounds nuw i8, ptr %yScale, i64 16
@@ -7183,7 +7172,7 @@ for.cond:                                         ; preds = %_ZNSt6vectorIdSaIdE
   %cmp3 = fcmp ult double %5, %conv2
   br i1 %cmp3, label %do.body84, label %for.body, !llvm.loop !132
 
-lpad:                                             ; preds = %_ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i, %if.then.i.i
+lpad:                                             ; preds = %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit
   %6 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup140

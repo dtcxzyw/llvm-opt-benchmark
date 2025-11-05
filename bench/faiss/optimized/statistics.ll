@@ -367,62 +367,58 @@ define noundef double @_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE(ptr nound
   %12 = fadd double %.07.i.i.i.i, %11
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %13, %3
-  br i1 %.not.i.i.i.i, label %14, label %.lr.ph.i.i.i.i, !llvm.loop !10
+  br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !10
 
-14:                                               ; preds = %.lr.ph.i.i.i.i
-  %15 = uitofp i64 %8 to double
-  %16 = fdiv double 1.000000e+00, %15
-  %17 = fmul double %16, %12
-  %18 = icmp eq i64 %7, 8
-  br i1 %18, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i
-
-.lr.ph.i.i.i:                                     ; preds = %14, %.lr.ph.i.i.i
-  %.010.i.i.i = phi double [ %20, %.lr.ph.i.i.i ], [ 0.000000e+00, %14 ]
-  %.sroa.0.09.i.i.i = phi ptr [ %21, %.lr.ph.i.i.i ], [ %4, %14 ]
-  %19 = load double, ptr %.sroa.0.09.i.i.i, align 8, !tbaa !8
-  %20 = tail call double @llvm.fmuladd.f64(double %19, double %19, double %.010.i.i.i)
-  %21 = getelementptr i8, ptr %.sroa.0.09.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %21, %3
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i
+  %.010.i.i.i = phi double [ %15, %.lr.ph.i.i.i ], [ 0.000000e+00, %.lr.ph.i.i.i.i ]
+  %.sroa.0.09.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i ], [ %4, %.lr.ph.i.i.i.i ]
+  %14 = load double, ptr %.sroa.0.09.i.i.i, align 8, !tbaa !8
+  %15 = tail call double @llvm.fmuladd.f64(double %14, double %14, double %.010.i.i.i)
+  %16 = getelementptr i8, ptr %.sroa.0.09.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %16, %3
   br i1 %.not.i.i.i, label %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i", label %.lr.ph.i.i.i, !llvm.loop !17
 
 "_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i": ; preds = %.lr.ph.i.i.i
-  %22 = fmul double %16, %20
-  %23 = fadd double %15, -1.000000e+00
-  %24 = fdiv double %15, %23
-  %25 = fmul double %17, %17
-  %26 = fsub double %22, %25
-  %27 = fmul double %24, %26
-  %28 = fcmp olt double %27, 0.000000e+00
-  br i1 %28, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %29
+  %17 = uitofp i64 %8 to double
+  %18 = fdiv double 1.000000e+00, %17
+  %19 = fmul double %18, %12
+  %20 = fmul double %18, %15
+  %21 = fadd double %17, -1.000000e+00
+  %22 = fdiv double %17, %21
+  %23 = fmul double %19, %19
+  %24 = fsub double %20, %23
+  %25 = fmul double %22, %24
+  %26 = fcmp olt double %25, 0.000000e+00
+  br i1 %26, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %27
 
-29:                                               ; preds = %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i"
-  %30 = tail call double @sqrt(double noundef %27) #30, !tbaa !18
+27:                                               ; preds = %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i"
+  %28 = tail call double @sqrt(double noundef %25) #30, !tbaa !18
   br label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit
 
-_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit: ; preds = %14, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i", %29
-  %.0.i = phi double [ 0.000000e+00, %14 ], [ %30, %29 ], [ 0.000000e+00, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i" ]
+_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit: ; preds = %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i", %27
+  %.0.i = phi double [ %28, %27 ], [ 0.000000e+00, %"_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i" ]
   br label %.lr.ph.i.i.i7
 
 .lr.ph.i.i.i7:                                    ; preds = %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, %.lr.ph.i.i.i7
-  %.07.i.i.i = phi double [ %32, %.lr.ph.i.i.i7 ], [ 0.000000e+00, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
-  %.sroa.02.06.i.i.i = phi ptr [ %33, %.lr.ph.i.i.i7 ], [ %4, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
-  %31 = load double, ptr %.sroa.02.06.i.i.i, align 8, !tbaa !8
-  %32 = fadd double %.07.i.i.i, %31
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
-  %.not.i.i.i8 = icmp eq ptr %33, %3
+  %.07.i.i.i = phi double [ %30, %.lr.ph.i.i.i7 ], [ 0.000000e+00, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
+  %.sroa.02.06.i.i.i = phi ptr [ %31, %.lr.ph.i.i.i7 ], [ %4, %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit ]
+  %29 = load double, ptr %.sroa.02.06.i.i.i, align 8, !tbaa !8
+  %30 = fadd double %.07.i.i.i, %29
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i.i, i64 8
+  %.not.i.i.i8 = icmp eq ptr %31, %3
   br i1 %.not.i.i.i8, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i7, !llvm.loop !10
 
 _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit: ; preds = %.lr.ph.i.i.i7
-  %34 = fmul double %16, %32
-  %35 = fcmp oeq double %34, 0.000000e+00
-  br i1 %35, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread, label %_ZSt10fpclassifyd.exit.thread
+  %32 = fmul double %18, %30
+  %33 = fcmp oeq double %32, 0.000000e+00
+  br i1 %33, label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread, label %_ZSt10fpclassifyd.exit.thread
 
 _ZSt10fpclassifyd.exit.thread:                    ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit
-  %36 = fdiv double %.0.i, %34
+  %34 = fdiv double %.0.i, %32
   br label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread
 
 _ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit.thread: ; preds = %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit, %_ZSt10fpclassifyd.exit.thread, %1
-  %.0 = phi double [ 0.000000e+00, %1 ], [ %36, %_ZSt10fpclassifyd.exit.thread ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
+  %.0 = phi double [ 0.000000e+00, %1 ], [ %34, %_ZSt10fpclassifyd.exit.thread ], [ 0.000000e+00, %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit ]
   ret double %.0
 }
 

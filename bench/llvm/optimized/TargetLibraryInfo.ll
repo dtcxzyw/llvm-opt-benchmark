@@ -9072,12 +9072,12 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   br i1 %22, label %._crit_edge, label %.lr.ph49
 
 23:                                               ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
-  %24 = icmp eq i64 %92, 0
+  %24 = icmp eq i64 %91, 0
   br i1 %24, label %._crit_edge, label %.lr.ph49, !llvm.loop !353
 
 ._crit_edge:                                      ; preds = %23, %.lr.ph
-  %.lcssa45 = phi i64 [ %19, %.lr.ph ], [ %120, %23 ]
-  %.lcssa43 = phi i64 [ %18, %.lr.ph ], [ %119, %23 ]
+  %.lcssa45 = phi i64 [ %19, %.lr.ph ], [ %119, %23 ]
+  %.lcssa43 = phi i64 [ %18, %.lr.ph ], [ %118, %23 ]
   %storemerge25.lcssa = phi ptr [ %1, %.lr.ph ], [ %.sroa.012.1.i.i, %23 ]
   %25 = add nsw i64 %.lcssa45, -2
   %26 = lshr i64 %25, 1
@@ -9152,132 +9152,128 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i.i = icmp eq i64 %.08.i.i, 0
   %56 = add nsw i64 %.08.i.i, -1
-  br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, label %34, !llvm.loop !356
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %34, !llvm.loop !356
 
-_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit: ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i
-  %57 = icmp sgt i64 %.lcssa43, 64
-  br i1 %57, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit
-
-.lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %58, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i ], [ %storemerge25.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -64
+.lr.ph.i.i:                                       ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i
+  %.sroa.0.05.i.i = phi ptr [ %57, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i ], [ %storemerge25.lcssa, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_T0_SH_T1_T2_.exit.i.i ]
+  %57 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -64
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %58, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %58, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  %59 = ptrtoint ptr %58 to i64
-  %60 = sub i64 %59, %16
-  %61 = ashr exact i64 %60, 6
-  %62 = add nsw i64 %61, -1
-  %63 = sdiv i64 %62, 2
-  %64 = icmp sgt i64 %61, 2
-  br i1 %64, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %57, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
+  %58 = ptrtoint ptr %57 to i64
+  %59 = sub i64 %58, %16
+  %60 = ashr exact i64 %59, 6
+  %61 = add nsw i64 %60, -1
+  %62 = sdiv i64 %61, 2
+  %63 = icmp sgt i64 %60, 2
+  br i1 %63, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i, %.lr.ph.i.i.i.i
   %.036.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
-  %65 = shl i64 %.036.i.i.i.i, 1
-  %66 = add i64 %65, 2
-  %67 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %66
-  %68 = or disjoint i64 %65, 1
-  %69 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %68
-  %70 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef nonnull align 8 dereferenceable(64) %69) #24
-  %spec.select.i.i.i.i = select i1 %70, i64 %68, i64 %66
-  %71 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %spec.select.i.i.i.i
-  %72 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.036.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %72, ptr noundef nonnull align 8 dereferenceable(64) %71, i64 64, i1 false)
-  %73 = icmp slt i64 %spec.select.i.i.i.i, %63
-  br i1 %73, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !354
+  %64 = shl i64 %.036.i.i.i.i, 1
+  %65 = add i64 %64, 2
+  %66 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %65
+  %67 = or disjoint i64 %64, 1
+  %68 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %67
+  %69 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %66, ptr noundef nonnull align 8 dereferenceable(64) %68) #24
+  %spec.select.i.i.i.i = select i1 %69, i64 %67, i64 %65
+  %70 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %spec.select.i.i.i.i
+  %71 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.036.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %71, ptr noundef nonnull align 8 dereferenceable(64) %70, i64 64, i1 false)
+  %72 = icmp slt i64 %spec.select.i.i.i.i, %62
+  br i1 %72, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !354
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i
   %.0.lcssa.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ]
-  %74 = and i64 %60, 64
-  %75 = icmp eq i64 %74, 0
-  br i1 %75, label %76, label %84
+  %73 = and i64 %59, 64
+  %74 = icmp eq i64 %73, 0
+  br i1 %74, label %75, label %83
 
-76:                                               ; preds = %._crit_edge.i.i.i.i
-  %77 = add nsw i64 %61, -2
-  %78 = ashr exact i64 %77, 1
-  %79 = icmp eq i64 %.0.lcssa.i.i.i.i, %78
-  br i1 %79, label %.thread.i.i.i, label %84
+75:                                               ; preds = %._crit_edge.i.i.i.i
+  %76 = add nsw i64 %60, -2
+  %77 = ashr exact i64 %76, 1
+  %78 = icmp eq i64 %.0.lcssa.i.i.i.i, %77
+  br i1 %78, label %.thread.i.i.i, label %83
 
-.thread.i.i.i:                                    ; preds = %76
-  %80 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
-  %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds nuw %"class.llvm::VecDesc", ptr %0, i64 %81
-  %83 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.0.lcssa.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %83, ptr noundef nonnull align 8 dereferenceable(64) %82, i64 64, i1 false)
+.thread.i.i.i:                                    ; preds = %75
+  %79 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
+  %80 = or disjoint i64 %79, 1
+  %81 = getelementptr inbounds nuw %"class.llvm::VecDesc", ptr %0, i64 %80
+  %82 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.0.lcssa.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %82, ptr noundef nonnull align 8 dereferenceable(64) %81, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
   br label %.lr.ph.i.i.i.i.i.preheader
 
-84:                                               ; preds = %76, %._crit_edge.i.i.i.i
+83:                                               ; preds = %75, %._crit_edge.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 64, i1 false)
   %.not.i.i.i = icmp eq i64 %.0.lcssa.i.i.i.i, 0
   br i1 %.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.i.preheader:                       ; preds = %84, %.thread.i.i.i
-  %.018.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %84 ], [ %81, %.thread.i.i.i ]
+.lr.ph.i.i.i.i.i.preheader:                       ; preds = %83, %.thread.i.i.i
+  %.018.i.i.i.i.i.ph = phi i64 [ %.0.lcssa.i.i.i.i, %83 ], [ %80, %.thread.i.i.i ]
   br label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %87
-  %.018.i.i.i.i.i = phi i64 [ %.0919.i.i67.i.i.i, %87 ], [ %.018.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %86
+  %.018.i.i.i.i.i = phi i64 [ %.0919.i.i67.i.i.i, %86 ], [ %.018.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0919.in.i.i.i.i.i = add nsw i64 %.018.i.i.i.i.i, -1
   %.0919.i.i67.i.i.i = lshr i64 %.0919.in.i.i.i.i.i, 1
-  %85 = getelementptr inbounds nuw %"class.llvm::VecDesc", ptr %0, i64 %.0919.i.i67.i.i.i
-  %86 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %85, ptr noundef nonnull align 8 dereferenceable(64) %14) #24
-  br i1 %86, label %87, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i
+  %84 = getelementptr inbounds nuw %"class.llvm::VecDesc", ptr %0, i64 %.0919.i.i67.i.i.i
+  %85 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef nonnull align 8 dereferenceable(64) %14) #24
+  br i1 %85, label %86, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i
 
-87:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %88 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.018.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %85, i64 64, i1 false)
+86:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %87 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.018.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %87, ptr noundef nonnull align 8 dereferenceable(64) %84, i64 64, i1 false)
   %.not8.i.i.i = icmp ult i64 %.0919.in.i.i.i.i.i, 2
   br i1 %.not8.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !355
 
-_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i: ; preds = %87, %.lr.ph.i.i.i.i.i, %84
-  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %84 ], [ %.018.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %87 ]
-  %89 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.0.lcssa.i.i.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %89, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
+_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i: ; preds = %86, %.lr.ph.i.i.i.i.i, %83
+  %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %83 ], [ %.018.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %86 ]
+  %88 = getelementptr inbounds %"class.llvm::VecDesc", ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %88, ptr noundef nonnull align 8 dereferenceable(64) %14, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %90 = icmp sgt i64 %60, 64
-  br i1 %90, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !357
+  %89 = icmp sgt i64 %59, 64
+  br i1 %89, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !357
 
 .lr.ph49:                                         ; preds = %.lr.ph, %23
   %storemerge2548 = phi ptr [ %.sroa.012.1.i.i, %23 ], [ %1, %.lr.ph ]
-  %.02647 = phi i64 [ %92, %23 ], [ %2, %.lr.ph ]
-  %91 = phi i64 [ %120, %23 ], [ %19, %.lr.ph ]
-  %92 = add nsw i64 %.02647, -1
-  %93 = lshr i64 %91, 1
-  %94 = getelementptr inbounds nuw %"class.llvm::VecDesc", ptr %0, i64 %93
-  %95 = getelementptr inbounds i8, ptr %storemerge2548, i64 -64
-  %96 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %94) #24
-  br i1 %96, label %97, label %104
+  %.02647 = phi i64 [ %91, %23 ], [ %2, %.lr.ph ]
+  %90 = phi i64 [ %119, %23 ], [ %19, %.lr.ph ]
+  %91 = add nsw i64 %.02647, -1
+  %92 = lshr i64 %90, 1
+  %93 = getelementptr inbounds nuw %"class.llvm::VecDesc", ptr %0, i64 %92
+  %94 = getelementptr inbounds i8, ptr %storemerge2548, i64 -64
+  %95 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %93) #24
+  br i1 %95, label %96, label %103
 
-97:                                               ; preds = %.lr.ph49
-  %98 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %95) #24
-  br i1 %98, label %99, label %100
+96:                                               ; preds = %.lr.ph49
+  %97 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %94) #24
+  br i1 %97, label %98, label %99
 
-99:                                               ; preds = %97
+98:                                               ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %93, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %13, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-100:                                              ; preds = %97
-  %101 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %95) #24
-  br i1 %101, label %102, label %103
+99:                                               ; preds = %96
+  %100 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %94) #24
+  br i1 %100, label %101, label %102
 
-102:                                              ; preds = %100
+101:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %12, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %95, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-103:                                              ; preds = %100
+102:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
@@ -9285,11 +9281,11 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaI
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-104:                                              ; preds = %.lr.ph49
-  %105 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %95) #24
-  br i1 %105, label %106, label %107
+103:                                              ; preds = %.lr.ph49
+  %104 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef nonnull align 8 dereferenceable(64) %94) #24
+  br i1 %104, label %105, label %106
 
-106:                                              ; preds = %104
+105:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %21, i64 64, i1 false)
@@ -9297,51 +9293,51 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaI
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-107:                                              ; preds = %104
-  %108 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %95) #24
-  br i1 %108, label %109, label %110
+106:                                              ; preds = %103
+  %107 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %94) #24
+  br i1 %107, label %108, label %109
 
-109:                                              ; preds = %107
+108:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %95, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %95, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-110:                                              ; preds = %107
+109:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %0, i64 64, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %94, i64 64, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %94, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %93, i64 64, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader: ; preds = %110, %109, %106, %103, %102, %99
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader: ; preds = %109, %108, %105, %102, %101, %98
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i
 
-_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader, %117
-  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %117 ], [ %storemerge2548, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
-  %.sroa.012.0.i.i = phi ptr [ %113, %117 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
-  br label %111
+_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i: ; preds = %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader, %116
+  %.sroa.09.0.i.i = phi ptr [ %.sroa.09.1.i.i, %116 ], [ %storemerge2548, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
+  %.sroa.012.0.i.i = phi ptr [ %112, %116 ], [ %21, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i.preheader ]
+  br label %110
 
-111:                                              ; preds = %111, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i
-  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i ], [ %113, %111 ]
-  %112 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.012.1.i.i, ptr noundef nonnull align 8 dereferenceable(64) %0) #24
-  %113 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 64
-  br i1 %112, label %111, label %.preheader.i.i, !llvm.loop !358
+110:                                              ; preds = %110, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i
+  %.sroa.012.1.i.i = phi ptr [ %.sroa.012.0.i.i, %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i ], [ %112, %110 ]
+  %111 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.012.1.i.i, ptr noundef nonnull align 8 dereferenceable(64) %0) #24
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.012.1.i.i, i64 64
+  br i1 %111, label %110, label %.preheader.i.i, !llvm.loop !358
 
-.preheader.i.i:                                   ; preds = %111, %.preheader.i.i
-  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %111 ]
+.preheader.i.i:                                   ; preds = %110, %.preheader.i.i
+  %.sroa.09.0.pn.i.i = phi ptr [ %.sroa.09.1.i.i, %.preheader.i.i ], [ %.sroa.09.0.i.i, %110 ]
   %.sroa.09.1.i.i = getelementptr inbounds i8, ptr %.sroa.09.0.pn.i.i, i64 -64
-  %114 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.09.1.i.i) #24
-  br i1 %114, label %.preheader.i.i, label %115, !llvm.loop !359
+  %113 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.09.1.i.i) #24
+  br i1 %113, label %.preheader.i.i, label %114, !llvm.loop !359
 
-115:                                              ; preds = %.preheader.i.i
-  %116 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
-  br i1 %116, label %117, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
+114:                                              ; preds = %.preheader.i.i
+  %115 = icmp ult ptr %.sroa.012.1.i.i, %.sroa.09.1.i.i
+  br i1 %115, label %116, label %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit
 
-117:                                              ; preds = %115
+116:                                              ; preds = %114
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.012.1.i.i, i64 64, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.012.1.i.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.09.1.i.i, i64 64, i1 false)
@@ -9349,15 +9345,15 @@ _ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6v
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_SG_T0_.exit.i, !llvm.loop !360
 
-_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %115
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge2548, i64 noundef %92, ptr %3)
-  %118 = ptrtoint ptr %.sroa.012.1.i.i to i64
-  %119 = sub i64 %118, %16
-  %120 = ashr exact i64 %119, 6
-  %121 = icmp sgt i64 %120, 16
-  br i1 %121, label %23, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !353
+_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit: ; preds = %114
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_T0_T1_(ptr nonnull %.sroa.012.1.i.i, ptr %storemerge2548, i64 noundef %91, ptr %3)
+  %117 = ptrtoint ptr %.sroa.012.1.i.i to i64
+  %118 = sub i64 %117, %16
+  %119 = ashr exact i64 %118, 6
+  %120 = icmp sgt i64 %119, 16
+  br i1 %120, label %23, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit, !llvm.loop !353
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i, %4, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_T0_.exit: ; preds = %_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEET_SG_SG_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN4llvm7VecDescESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS3_SC_EEEEvT_SG_SG_RT0_.exit.i.i, %4
   ret void
 }
 

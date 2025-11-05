@@ -20320,10 +20320,10 @@ define internal fastcc void @_ZN7rocksdb12experimental12_GLOBAL__N_114GetFilterI
   %.sroa.019.0.extract.trunc = trunc i32 %0 to i16
   %.sroa.2.0.extract.shift = lshr i32 %0, 16
   %.sroa.2.0.extract.trunc = trunc i32 %.sroa.2.0.extract.shift to i8
-  switch i8 %.sroa.2.0.extract.trunc, label %53 [
+  switch i8 %.sroa.2.0.extract.trunc, label %54 [
     i8 0, label %6
     i8 1, label %8
-    i8 2, label %30
+    i8 2, label %31
     i8 3, label %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
     i8 4, label %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
     i8 5, label %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
@@ -20364,104 +20364,106 @@ define internal fastcc void @_ZN7rocksdb12experimental12_GLOBAL__N_114GetFilterI
 
 22:                                               ; preds = %16, %15
   %23 = phi i64 [ %21, %16 ], [ 0, %15 ]
-  %24 = getelementptr inbounds nuw i32, ptr %.val17.val.i.i, i64 %14
-  %25 = load i32, ptr %24, align 4, !tbaa !102
-  %26 = zext i32 %25 to i64
-  %27 = load ptr, ptr %1, align 8, !tbaa !17
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %23
-  %29 = sub nsw i64 %26, %23
+  %24 = add nsw i64 %13, -1
+  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %24, i64 %14)
+  %25 = getelementptr inbounds nuw i32, ptr %.val17.val.i.i, i64 %.sroa.speculated.i.i.i.i.i.i
+  %26 = load i32, ptr %25, align 4, !tbaa !102
+  %27 = zext i32 %26 to i64
+  %28 = load ptr, ptr %1, align 8, !tbaa !17
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %23
+  %30 = sub nsw i64 %27, %23
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_SQ_.exit.i.i
 
 _ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_SQ_.exit.i.i: ; preds = %22, %8
-  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %28, %22 ], [ @.str, %8 ]
-  %.sroa.3.0.i.i.i.i.i.i = phi i64 [ %29, %22 ], [ 0, %8 ]
+  %.sroa.0.0.i.i.i.i.i.i = phi ptr [ %29, %22 ], [ @.str, %8 ]
+  %.sroa.3.0.i.i.i.i.i.i = phi i64 [ %30, %22 ], [ 0, %8 ]
   %.fca.0.insert.i.i.i.i24.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i.i.i.i.i, 0
   %.fca.1.insert.i.i.i.i25.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i.i24.i.i, i64 %.sroa.3.0.i.i.i.i.i.i, 1
   br label %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
 
-30:                                               ; preds = %5
+31:                                               ; preds = %5
   %.val21.val.i.i = load ptr, ptr %2, align 8, !tbaa !668
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val21.val23.i.i = load ptr, ptr %31, align 8, !tbaa !976
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val21.val23.i.i = load ptr, ptr %32, align 8, !tbaa !976
   %.sroa.4.0.extract.shift.i.i.i.i.i.i = lshr i16 %.sroa.019.0.extract.trunc, 8
   %.sroa.4.0.extract.trunc.i.i.i.i.i.i = zext nneg i16 %.sroa.4.0.extract.shift.i.i.i.i.i.i to i64
-  %32 = ptrtoint ptr %.val21.val23.i.i to i64
-  %33 = ptrtoint ptr %.val21.val.i.i to i64
-  %34 = sub i64 %32, %33
-  %35 = ashr exact i64 %34, 2
+  %33 = ptrtoint ptr %.val21.val23.i.i to i64
+  %34 = ptrtoint ptr %.val21.val.i.i to i64
+  %35 = sub i64 %33, %34
+  %36 = ashr exact i64 %35, 2
   %.sroa.0.0.extract.trunc.mask.i.i.i.i.i.i = and i16 %.sroa.019.0.extract.trunc, 255
-  %36 = zext nneg i16 %.sroa.0.0.extract.trunc.mask.i.i.i.i.i.i to i64
-  %.not.i.i.i.i26.i.i = icmp ugt i64 %35, %36
-  br i1 %.not.i.i.i.i26.i.i, label %37, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_SQ_.exit.i.i
+  %37 = zext nneg i16 %.sroa.0.0.extract.trunc.mask.i.i.i.i.i.i to i64
+  %.not.i.i.i.i26.i.i = icmp ugt i64 %36, %37
+  br i1 %.not.i.i.i.i26.i.i, label %38, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_SQ_.exit.i.i
 
-37:                                               ; preds = %30
+38:                                               ; preds = %31
   %.not8.i.i.i.i.i.i = icmp eq i16 %.sroa.0.0.extract.trunc.mask.i.i.i.i.i.i, 0
-  br i1 %.not8.i.i.i.i.i.i, label %44, label %38
+  br i1 %.not8.i.i.i.i.i.i, label %45, label %39
 
-38:                                               ; preds = %37
-  %39 = add nuw nsw i64 %36, 4294967295
-  %40 = and i64 %39, 4294967295
-  %41 = getelementptr inbounds nuw i32, ptr %.val21.val.i.i, i64 %40
-  %42 = load i32, ptr %41, align 4, !tbaa !102
-  %43 = zext i32 %42 to i64
-  br label %44
+39:                                               ; preds = %38
+  %40 = add nuw nsw i64 %37, 4294967295
+  %41 = and i64 %40, 4294967295
+  %42 = getelementptr inbounds nuw i32, ptr %.val21.val.i.i, i64 %41
+  %43 = load i32, ptr %42, align 4, !tbaa !102
+  %44 = zext i32 %43 to i64
+  br label %45
 
-44:                                               ; preds = %38, %37
-  %45 = phi i64 [ %43, %38 ], [ 0, %37 ]
-  %46 = add nsw i64 %35, -1
-  %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %46, i64 %.sroa.4.0.extract.trunc.i.i.i.i.i.i)
-  %47 = getelementptr inbounds nuw i32, ptr %.val21.val.i.i, i64 %.sroa.speculated.i.i.i.i.i.i
-  %48 = load i32, ptr %47, align 4, !tbaa !102
-  %49 = zext i32 %48 to i64
-  %50 = load ptr, ptr %1, align 8, !tbaa !17
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %45
-  %52 = sub nsw i64 %49, %45
+45:                                               ; preds = %39, %38
+  %46 = phi i64 [ %44, %39 ], [ 0, %38 ]
+  %47 = add nsw i64 %36, -1
+  %.sroa.speculated.i.i.i.i31.i.i = tail call i64 @llvm.umin.i64(i64 %47, i64 %.sroa.4.0.extract.trunc.i.i.i.i.i.i)
+  %48 = getelementptr inbounds nuw i32, ptr %.val21.val.i.i, i64 %.sroa.speculated.i.i.i.i31.i.i
+  %49 = load i32, ptr %48, align 4, !tbaa !102
+  %50 = zext i32 %49 to i64
+  %51 = load ptr, ptr %1, align 8, !tbaa !17
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %46
+  %53 = sub nsw i64 %50, %46
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_SQ_.exit.i.i
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_SQ_.exit.i.i: ; preds = %44, %30
-  %.sroa.0.0.i.i.i.i27.i.i = phi ptr [ %51, %44 ], [ @.str, %30 ]
-  %.sroa.3.0.i.i.i.i28.i.i = phi i64 [ %52, %44 ], [ 0, %30 ]
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_SQ_.exit.i.i: ; preds = %45, %31
+  %.sroa.0.0.i.i.i.i27.i.i = phi ptr [ %52, %45 ], [ @.str, %31 ]
+  %.sroa.3.0.i.i.i.i28.i.i = phi i64 [ %53, %45 ], [ 0, %31 ]
   %.fca.0.insert.i.i.i.i29.i.i = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i.i.i27.i.i, 0
   %.fca.1.insert.i.i.i.i30.i.i = insertvalue { ptr, i64 } %.fca.0.insert.i.i.i.i29.i.i, i64 %.sroa.3.0.i.i.i.i28.i.i, 1
   br label %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
 
-53:                                               ; preds = %5
+54:                                               ; preds = %5
   unreachable
 
 _ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit: ; preds = %5, %5, %5, %6, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_SQ_.exit.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_SQ_.exit.i.i
   %.pn.i.i = phi { ptr, i64 } [ %.fca.1.insert.i.i.i.i.i.i, %6 ], [ %.fca.1.insert.i.i.i.i25.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESP_SQ_.exit.i.i ], [ %.fca.1.insert.i.i.i.i30.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIN7rocksdb5SliceEEEOZNS4_12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS7_14SelectWholeKeyENS7_16SelectKeySegmentENS7_21SelectKeySegmentRangeENS7_21SelectLegacyKeyPrefixENS7_19SelectUserTimestampENS7_16SelectColumnNameEEERKS5_RKNS7_20KeySegmentsExtractor6ResultEPS5_SN_E17FilterInputGetterRSG_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESP_SQ_.exit.i.i ], [ { ptr @.str, i64 0 }, %5 ], [ { ptr @.str, i64 0 }, %5 ], [ { ptr @.str, i64 0 }, %5 ]
-  %54 = extractvalue { ptr, i64 } %.pn.i.i, 0
-  %55 = extractvalue { ptr, i64 } %.pn.i.i, 1
-  store ptr %54, ptr %3, align 8, !tbaa !50
+  %55 = extractvalue { ptr, i64 } %.pn.i.i, 0
+  %56 = extractvalue { ptr, i64 } %.pn.i.i, 1
+  store ptr %55, ptr %3, align 8, !tbaa !50
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %55, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !129
-  %56 = icmp eq i64 %55, 0
-  br i1 %56, label %64, label %57
+  store i64 %56, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !129
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %65, label %58
 
-57:                                               ; preds = %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
-  %58 = load ptr, ptr %1, align 8, !tbaa !17
-  %59 = icmp ult ptr %54, %58
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %61 = load i64, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %58, i64 %61
-  %63 = icmp ugt ptr %54, %62
-  %or.cond = select i1 %59, i1 true, i1 %63
-  br i1 %or.cond, label %64, label %65
+58:                                               ; preds = %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
+  %59 = load ptr, ptr %1, align 8, !tbaa !17
+  %60 = icmp ult ptr %55, %59
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %62 = load i64, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 %62
+  %64 = icmp ugt ptr %55, %63
+  %or.cond = select i1 %60, i1 true, i1 %64
+  br i1 %or.cond, label %65, label %66
 
-64:                                               ; preds = %57, %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
+65:                                               ; preds = %58, %_ZSt5visitIZN7rocksdb12experimental12_GLOBAL__N_114GetFilterInputESt7variantIJNS1_14SelectWholeKeyENS1_16SelectKeySegmentENS1_21SelectKeySegmentRangeENS1_21SelectLegacyKeyPrefixENS1_19SelectUserTimestampENS1_16SelectColumnNameEEERKNS0_5SliceERKNS1_20KeySegmentsExtractor6ResultEPSB_SI_E17FilterInputGetterJRSA_EENSt13invoke_resultIT_JDpNSt13__conditionalIX21is_lvalue_reference_vIT0_EEE4typeIRNSt19variant_alternativeILm0ENSt16remove_referenceIDTclsr9__variantE4__asclsr3stdE7declvalISO_EEEEE4typeEE4typeEOSX_EEEE4typeEOSM_DpOSO_.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !1022
-  br label %69
+  br label %70
 
-65:                                               ; preds = %57
-  %66 = ptrtoint ptr %54 to i64
-  %67 = ptrtoint ptr %58 to i64
-  %68 = sub i64 %66, %67
-  store ptr %58, ptr %4, align 8, !tbaa !50
+66:                                               ; preds = %58
+  %67 = ptrtoint ptr %55 to i64
+  %68 = ptrtoint ptr %59 to i64
+  %69 = sub i64 %67, %68
+  store ptr %59, ptr %4, align 8, !tbaa !50
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %68, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
-  br label %69
+  store i64 %69, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !129
+  br label %70
 
-69:                                               ; preds = %65, %64
+70:                                               ; preds = %66, %65
   ret void
 }
 

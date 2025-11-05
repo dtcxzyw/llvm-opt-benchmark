@@ -15442,27 +15442,26 @@ entry:
   %agg.tmp7.i.i1.i = alloca %"class.std::unique_ptr.77", align 8
   %agg.tmp6.i.i.i = alloca %"class.std::unique_ptr.77", align 8
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i14 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i14, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i16 = ashr exact i64 %sub.ptr.sub.i15, 3
-  %cmp17 = icmp sgt i64 %sub.ptr.div.i16, 16
-  br i1 %cmp17, label %while.body.lr.ph, label %while.end
+  %sub.ptr.lhs.cast.i13 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i15 = ashr exact i64 %sub.ptr.sub.i14, 3
+  %cmp16 = icmp sgt i64 %sub.ptr.div.i15, 16
+  br i1 %cmp16, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i2.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 8
-  %cmp236 = icmp eq i64 %__depth_limit, 0
-  br i1 %cmp236, label %if.end.i.i.i, label %if.end
+  br label %while.body
 
-while.body:                                       ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit"
-  %cmp2 = icmp eq i64 %dec, 0
-  br i1 %cmp2, label %if.end.i.i.i, label %if.end, !llvm.loop !478
+while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit"
+  %sub.ptr.div.i19 = phi i64 [ %sub.ptr.div.i15, %while.body.lr.ph ], [ %sub.ptr.div.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit" ]
+  %__depth_limit.addr.018 = phi i64 [ %__depth_limit, %while.body.lr.ph ], [ %dec, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit" ]
+  %storemerge17 = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit" ]
+  %cmp2 = icmp eq i64 %__depth_limit.addr.018, 0
+  br i1 %cmp2, label %if.end.i.i.i, label %if.end
 
-if.end.i.i.i:                                     ; preds = %while.body, %while.body.lr.ph
-  %sub.ptr.div.i21.lcssa = phi i64 [ %sub.ptr.div.i16, %while.body.lr.ph ], [ %sub.ptr.div.i, %while.body ]
-  %sub.ptr.sub.i20.lcssa = phi i64 [ %sub.ptr.sub.i15, %while.body.lr.ph ], [ %sub.ptr.sub.i, %while.body ]
-  %storemerge18.lcssa = phi ptr [ %__last.coerce, %while.body.lr.ph ], [ %__first.sroa.0.1.i.i, %while.body ]
+if.end.i.i.i:                                     ; preds = %while.body
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp6.i.i.i)
-  %sub.i.i.i = add nsw i64 %sub.ptr.div.i21.lcssa, -2
+  %sub.i.i.i = add nsw i64 %sub.ptr.div.i19, -2
   %div56.i.i.i = lshr i64 %sub.i.i.i, 1
   br label %while.body.i.i.i
 
@@ -15472,7 +15471,7 @@ while.body.i.i.i:                                 ; preds = %_ZNSt10unique_ptrIN
   %0 = load i64, ptr %add.ptr.i.i.i.i, align 8
   store ptr null, ptr %add.ptr.i.i.i.i, align 8
   store i64 %0, ptr %agg.tmp6.i.i.i, align 8
-  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i21.lcssa, ptr noundef %agg.tmp6.i.i.i)
+  call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nonnull %__first.coerce, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i19, ptr noundef %agg.tmp6.i.i.i)
   %1 = load ptr, ptr %agg.tmp6.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
   br i1 %cmp.not.i.i.i.i, label %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED2Ev.exit11.i.i.i, label %_ZNKSt14default_deleteIN8facebook5velox6common11BigintRangeEEclEPS3_.exit.i.i.i.i
@@ -15489,11 +15488,10 @@ _ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED
 
 "_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_RT0_.exit.i.i": ; preds = %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EED2Ev.exit11.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6.i.i.i)
-  %cmp4.i.i = icmp sgt i64 %sub.ptr.sub.i20.lcssa, 8
-  br i1 %cmp4.i.i, label %while.body.i.i, label %while.end
+  br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_RT0_.exit.i.i", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_SO_RT0_.exit.i11.i"
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_SO_RT0_.exit.i11.i" ], [ %storemerge18.lcssa, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_RT0_.exit.i.i" ]
+  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i2.i, %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_SO_RT0_.exit.i11.i" ], [ %storemerge17, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_RT0_.exit.i.i" ]
   %incdec.ptr.i.i2.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp7.i.i1.i)
   %2 = load i64, ptr %incdec.ptr.i.i2.i, align 8
@@ -15526,16 +15524,13 @@ _ZNKSt14default_deleteIN8facebook5velox6common11BigintRangeEEclEPS3_.exit.i.i.i1
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_SO_RT0_.exit.i11.i": ; preds = %_ZNKSt14default_deleteIN8facebook5velox6common11BigintRangeEEclEPS3_.exit.i.i.i10.i, %_ZNSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS3_EEaSEOS6_.exit.i.i5.i
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp7.i.i1.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i7.i, 8
-  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !479
+  br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !478
 
-if.end:                                           ; preds = %while.body.lr.ph, %while.body
-  %storemerge1839 = phi ptr [ %__first.sroa.0.1.i.i, %while.body ], [ %__last.coerce, %while.body.lr.ph ]
-  %__depth_limit.addr.01938 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.lr.ph ]
-  %sub.ptr.div.i2137 = phi i64 [ %sub.ptr.div.i, %while.body ], [ %sub.ptr.div.i16, %while.body.lr.ph ]
-  %dec = add nsw i64 %__depth_limit.addr.01938, -1
-  %div.i78 = lshr i64 %sub.ptr.div.i2137, 1
+if.end:                                           ; preds = %while.body
+  %dec = add nsw i64 %__depth_limit.addr.018, -1
+  %div.i78 = lshr i64 %sub.ptr.div.i19, 1
   %add.ptr.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.77", ptr %__first.coerce, i64 %div.i78
-  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge1839, i64 -8
+  %add.ptr.i3.i = getelementptr inbounds i8, ptr %storemerge17, i64 -8
   %call.val.i.i.i = load ptr, ptr %add.ptr.i2.i, align 8
   %call3.val.i.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %6 = getelementptr i8, ptr %call.val.i.i.i, i64 16
@@ -15603,7 +15598,7 @@ while.body.i.i5.preheader:                        ; preds = %if.else55.i.i, %if.
 
 while.body.i.i5:                                  ; preds = %while.body.i.i5.preheader, %if.end.i.i
   %__first.sroa.0.0.i.i = phi ptr [ %incdec.ptr.i.i.i, %if.end.i.i ], [ %add.ptr.i2.i, %while.body.i.i5.preheader ]
-  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge1839, %while.body.i.i5.preheader ]
+  %__last.sroa.0.0.i.i = phi ptr [ %__last.sroa.0.1.i.i, %if.end.i.i ], [ %storemerge17, %while.body.i.i5.preheader ]
   %call3.val.i.i5.i = load ptr, ptr %__first.coerce, align 8
   %13 = getelementptr i8, ptr %call3.val.i.i5.i, i64 16
   %call3.val.val.i.i6.i = load i64, ptr %13, align 8
@@ -15616,7 +15611,7 @@ while.cond3.i.i:                                  ; preds = %while.cond3.i.i, %w
   %call.val.val.i.i8.i = load i64, ptr %14, align 8
   %cmp.i.i.i9.i = icmp slt i64 %call.val.val.i.i8.i, %call3.val.val.i.i6.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.1.i.i, i64 8
-  br i1 %cmp.i.i.i9.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !480
+  br i1 %cmp.i.i.i9.i, label %while.cond3.i.i, label %while.cond10.i.i, !llvm.loop !479
 
 while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %while.cond10.i.i
   %__last.sroa.0.0.pn.i.i = phi ptr [ %__last.sroa.0.1.i.i, %while.cond10.i.i ], [ %__last.sroa.0.0.i.i, %while.cond3.i.i ]
@@ -15625,7 +15620,7 @@ while.cond10.i.i:                                 ; preds = %while.cond3.i.i, %w
   %15 = getelementptr i8, ptr %call3.val.i3.i.i, i64 16
   %call3.val.val.i5.i.i = load i64, ptr %15, align 8
   %cmp.i.i6.i.i = icmp slt i64 %call3.val.val.i.i6.i, %call3.val.val.i5.i.i
-  br i1 %cmp.i.i6.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !481
+  br i1 %cmp.i.i6.i.i, label %while.cond10.i.i, label %while.end18.i.i, !llvm.loop !480
 
 while.end18.i.i:                                  ; preds = %while.cond10.i.i
   %cmp.i.i.i6 = icmp ult ptr %__first.sroa.0.1.i.i, %__last.sroa.0.1.i.i
@@ -15634,17 +15629,17 @@ while.end18.i.i:                                  ; preds = %while.cond10.i.i
 if.end.i.i:                                       ; preds = %while.end18.i.i
   store ptr %call3.val.i3.i.i, ptr %__first.sroa.0.1.i.i, align 8
   store ptr %call.val.i.i7.i, ptr %__last.sroa.0.1.i.i, align 8
-  br label %while.body.i.i5, !llvm.loop !482
+  br label %while.body.i.i5, !llvm.loop !481
 
 "_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit": ; preds = %while.end18.i.i
-  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge1839, i64 noundef %dec)
+  tail call fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElNS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_T0_T1_"(ptr nonnull %__first.sroa.0.1.i.i, ptr %storemerge17, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__first.sroa.0.1.i.i to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
-  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !478
+  br i1 %cmp, label %while.body, label %while.end, !llvm.loop !482
 
-while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_SO_RT0_.exit.i11.i", %entry, %"_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_RT0_.exit.i.i"
+while.end:                                        ; preds = %"_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEET_SO_SO_T0_.exit", %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEENS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_SO_SO_RT0_.exit.i11.i", %entry
   ret void
 }
 

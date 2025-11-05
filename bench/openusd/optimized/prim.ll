@@ -29928,77 +29928,75 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %12 = icmp eq i64 %2, 0
-  br i1 %12, label %._crit_edge, label %.lr.ph48
+  br label %12
 
-13:                                               ; preds = %.lr.ph48
-  %14 = icmp eq i64 %58, 0
-  br i1 %14, label %._crit_edge, label %.lr.ph48, !llvm.loop !313
+12:                                               ; preds = %.lr.ph, %57
+  %13 = phi i64 [ %9, %.lr.ph ], [ %65, %57 ]
+  %.024 = phi i64 [ %2, %.lr.ph ], [ %58, %57 ]
+  %storemerge23 = phi ptr [ %1, %.lr.ph ], [ %62, %57 ]
+  %14 = icmp eq i64 %.024, 0
+  br i1 %14, label %15, label %57
 
-._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.lcssa44 = phi i64 [ %9, %.lr.ph ], [ %65, %13 ]
-  %.lcssa = phi i64 [ %8, %.lr.ph ], [ %64, %13 ]
-  %storemerge25.lcssa = phi ptr [ %1, %.lr.ph ], [ %62, %13 ]
+15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %15 = add nsw i64 %.lcssa44, -2
-  %16 = lshr i64 %15, 1
-  br label %17
+  %16 = add nsw i64 %13, -2
+  %17 = lshr i64 %16, 1
+  br label %18
 
-17:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, %._crit_edge
-  %.010.i.i = phi i64 [ %16, %._crit_edge ], [ %28, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i ]
-  %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.010.i.i
-  %19 = load i64, ptr %18, align 8
-  store i64 0, ptr %18, align 8
-  store i64 %19, ptr %4, align 8
-  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_T0_SE_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i, i64 noundef %.lcssa44, ptr noundef nonnull %4)
-          to label %20 unwind label %29
+18:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, %15
+  %.010.i.i = phi i64 [ %17, %15 ], [ %29, %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i ]
+  %19 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %.010.i.i
+  %20 = load i64, ptr %19, align 8
+  store i64 0, ptr %19, align 8
+  store i64 %20, ptr %4, align 8
+  invoke void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_T0_SE_T1_T2_(ptr nonnull %0, i64 noundef %.010.i.i, i64 noundef %13, ptr noundef nonnull %4)
+          to label %21 unwind label %30
 
-20:                                               ; preds = %17
-  %21 = load ptr, ptr %4, align 8
-  %22 = ptrtoint ptr %21 to i64
-  %23 = and i64 %22, 7
-  %.not.i.i.i.i16 = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, label %24
+21:                                               ; preds = %18
+  %22 = load ptr, ptr %4, align 8
+  %23 = ptrtoint ptr %22 to i64
+  %24 = and i64 %23, 7
+  %.not.i.i.i.i16 = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i.i16, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i, label %25
 
-24:                                               ; preds = %20
-  %25 = and i64 %22, -8
-  %26 = inttoptr i64 %25 to ptr
-  %27 = atomicrmw sub ptr %26, i32 2 release, align 4
+25:                                               ; preds = %21
+  %26 = and i64 %23, -8
+  %27 = inttoptr i64 %26 to ptr
+  %28 = atomicrmw sub ptr %27, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i
 
-_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i: ; preds = %24, %20
+_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i: ; preds = %25, %21
   %.not.i.i = icmp eq i64 %.010.i.i, 0
-  %28 = add nsw i64 %.010.i.i, -1
-  br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit, label %17
+  %29 = add nsw i64 %.010.i.i, -1
+  br i1 %.not.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit, label %18
 
-29:                                               ; preds = %17
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %18
+  %31 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %4, align 8
-  %32 = ptrtoint ptr %31 to i64
-  %33 = and i64 %32, 7
-  %.not.i.i13.i.i = icmp eq i64 %33, 0
+  %32 = load ptr, ptr %4, align 8
+  %33 = ptrtoint ptr %32 to i64
+  %34 = and i64 %33, 7
+  %.not.i.i13.i.i = icmp eq i64 %34, 0
   br i1 %.not.i.i13.i.i, label %common.resume, label %common.resume.sink.split
 
-common.resume.sink.split:                         ; preds = %29, %51
-  %.sink = phi i64 [ %54, %51 ], [ %32, %29 ]
-  %common.resume.op.ph = phi { ptr, i32 } [ %52, %51 ], [ %30, %29 ]
-  %34 = and i64 %.sink, -8
-  %35 = inttoptr i64 %34 to ptr
-  %36 = atomicrmw sub ptr %35, i32 2 release, align 4
+common.resume.sink.split:                         ; preds = %30, %51
+  %.sink = phi i64 [ %54, %51 ], [ %33, %30 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %52, %51 ], [ %31, %30 ]
+  %35 = and i64 %.sink, -8
+  %36 = inttoptr i64 %35 to ptr
+  %37 = atomicrmw sub ptr %36, i32 2 release, align 4
   br label %common.resume
 
-common.resume:                                    ; preds = %common.resume.sink.split, %51, %29
-  %common.resume.op = phi { ptr, i32 } [ %30, %29 ], [ %52, %51 ], [ %common.resume.op.ph, %common.resume.sink.split ]
+common.resume:                                    ; preds = %common.resume.sink.split, %51, %30
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %52, %51 ], [ %common.resume.op.ph, %common.resume.sink.split ]
   resume { ptr, i32 } %common.resume.op
 
 _ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit12.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %37 = icmp sgt i64 %.lcssa, 8
-  br i1 %37, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit
+  br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_RT0_.exit.i.i
-  %.sroa.0.05.i.i = phi ptr [ %38, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_RT0_.exit.i.i ], [ %storemerge25.lcssa, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit ]
+  %.sroa.0.05.i.i = phi ptr [ %38, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_RT0_.exit.i.i ], [ %storemerge23, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit ]
   %38 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load i64, ptr %38, align 8
@@ -30045,26 +30043,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit.i.i.i: ; preds = %_ZNK
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_RT0_.exit.i.i: ; preds = %47, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = icmp sgt i64 %41, 8
-  br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !314
+  br i1 %56, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !313
 
-.lr.ph48:                                         ; preds = %.lr.ph, %13
-  %storemerge2547 = phi ptr [ %62, %13 ], [ %1, %.lr.ph ]
-  %.02646 = phi i64 [ %58, %13 ], [ %2, %.lr.ph ]
-  %57 = phi i64 [ %65, %13 ], [ %9, %.lr.ph ]
-  %58 = add nsw i64 %.02646, -1
-  %59 = lshr i64 %57, 1
+57:                                               ; preds = %12
+  %58 = add nsw i64 %.024, -1
+  %59 = lshr i64 %13, 1
   %60 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %0, i64 %59
-  %61 = getelementptr inbounds i8, ptr %storemerge2547, i64 -8
+  %61 = getelementptr inbounds i8, ptr %storemerge23, i64 -8
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_SD_T0_(ptr %0, ptr nonnull %11, ptr %60, ptr nonnull %61)
-  %62 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEET_SD_SD_SD_T0_(ptr nonnull %11, ptr %storemerge2547, ptr %0)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_T0_T1_(ptr %62, ptr %storemerge2547, i64 noundef %58)
+  %62 = tail call ptr @_ZSt21__unguarded_partitionIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEET_SD_SD_SD_T0_(ptr nonnull %11, ptr %storemerge23, ptr %0)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_T0_T1_(ptr %62, ptr %storemerge23, i64 noundef %58)
   %63 = ptrtoint ptr %62 to i64
   %64 = sub i64 %63, %6
   %65 = ashr exact i64 %64, 3
   %66 = icmp sgt i64 %65, 16
-  br i1 %66, label %13, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !313
+  br i1 %66, label %12, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit, !llvm.loop !314
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit: ; preds = %.lr.ph48, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_RT0_.exit.i.i, %3, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_T0_.exit: ; preds = %57, %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7TfTokenESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterINS2_20TfDictionaryLessThanEEEEvT_SD_SD_RT0_.exit.i.i, %3
   ret void
 }
 
