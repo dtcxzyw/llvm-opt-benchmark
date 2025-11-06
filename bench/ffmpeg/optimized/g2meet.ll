@@ -2177,7 +2177,7 @@ define internal fastcc void @g2m_paint_cursor(ptr noundef readonly captures(none
   %67 = mul nuw nsw i32 %66, %61
   %68 = add nuw nsw i32 %67, %63
   %69 = lshr i32 %68, 8
-  %70 = trunc i32 %69 to i8
+  %70 = trunc nuw i32 %69 to i8
   store i8 %70, ptr %58, align 1, !tbaa !45
   %71 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %72 = load i8, ptr %71, align 1, !tbaa !45
@@ -2189,7 +2189,7 @@ define internal fastcc void @g2m_paint_cursor(ptr noundef readonly captures(none
   %78 = mul nuw nsw i32 %77, %61
   %79 = add nuw nsw i32 %78, %74
   %80 = lshr i32 %79, 8
-  %81 = trunc i32 %80 to i8
+  %81 = trunc nuw i32 %80 to i8
   store i8 %81, ptr %71, align 1, !tbaa !45
   %82 = getelementptr inbounds nuw i8, ptr %58, i64 2
   %83 = load i8, ptr %82, align 1, !tbaa !45
@@ -2201,7 +2201,7 @@ define internal fastcc void @g2m_paint_cursor(ptr noundef readonly captures(none
   %89 = mul nuw nsw i32 %88, %61
   %90 = add nuw nsw i32 %89, %85
   %91 = lshr i32 %90, 8
-  %92 = trunc i32 %91 to i8
+  %92 = trunc nuw i32 %91 to i8
   store i8 %92, ptr %82, align 1, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %93 = icmp samesign ult i64 %indvars.iv.next, %52

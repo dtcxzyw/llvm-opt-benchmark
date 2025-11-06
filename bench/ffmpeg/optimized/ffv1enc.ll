@@ -3052,7 +3052,7 @@ define internal fastcc void @find_best_state(ptr noundef writeonly captures(none
   %44 = mul nuw nsw i64 %22, %43
   %45 = add nuw nsw i64 %44, %39
   %46 = lshr i64 %45, 8
-  %47 = mul i64 %46, %35
+  %47 = mul nuw i64 %46, %35
   %48 = lshr i64 %47, 8
   %49 = add i64 %48, %.162
   br label %50

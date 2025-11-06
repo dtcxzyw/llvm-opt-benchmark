@@ -841,18 +841,18 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %118 = mul nuw nsw i32 %75, %117
   %119 = add nuw nsw i32 %118, %115
   %120 = lshr i32 %98, 7
-  %121 = trunc i32 %120 to i8
+  %121 = trunc nuw i32 %120 to i8
   store i8 %121, ptr %.171.i, align 1
   %122 = lshr i32 %105, 7
-  %123 = trunc i32 %122 to i8
+  %123 = trunc nuw i32 %122 to i8
   %124 = getelementptr inbounds nuw i8, ptr %.171.i, i64 1
   store i8 %123, ptr %124, align 1
   %125 = lshr i32 %112, 7
-  %126 = trunc i32 %125 to i8
+  %126 = trunc nuw i32 %125 to i8
   %127 = getelementptr inbounds nuw i8, ptr %.171.i, i64 2
   store i8 %126, ptr %127, align 1
   %128 = lshr i32 %119, 7
-  %129 = trunc i32 %128 to i8
+  %129 = trunc nuw i32 %128 to i8
   %130 = getelementptr inbounds nuw i8, ptr %.171.i, i64 3
   store i8 %129, ptr %130, align 1
   %131 = getelementptr inbounds nuw i8, ptr %.171.i, i64 4
@@ -984,7 +984,7 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %239 = mul nuw nsw i32 %238, %151
   %240 = add nuw nsw i32 %239, %237
   %241 = lshr i32 %240, 7
-  %242 = trunc i32 %241 to i8
+  %242 = trunc nuw i32 %241 to i8
   store i8 %242, ptr %.274.i, align 1
   %243 = and i32 %175, 255
   %244 = mul nuw nsw i32 %243, %157
@@ -992,7 +992,7 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %246 = mul nuw nsw i32 %245, %151
   %247 = add nuw nsw i32 %246, %244
   %248 = lshr i32 %247, 7
-  %249 = trunc i32 %248 to i8
+  %249 = trunc nuw i32 %248 to i8
   %250 = getelementptr inbounds nuw i8, ptr %.274.i, i64 1
   store i8 %249, ptr %250, align 1
   %251 = and i32 %185, 255
@@ -1001,7 +1001,7 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %254 = mul nuw nsw i32 %253, %151
   %255 = add nuw nsw i32 %254, %252
   %256 = lshr i32 %255, 7
-  %257 = trunc i32 %256 to i8
+  %257 = trunc nuw i32 %256 to i8
   %258 = getelementptr inbounds nuw i8, ptr %.274.i, i64 2
   store i8 %257, ptr %258, align 1
   %259 = and i32 %195, 255
@@ -1010,7 +1010,7 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %262 = mul nuw nsw i32 %261, %151
   %263 = add nuw nsw i32 %262, %260
   %264 = lshr i32 %263, 7
-  %265 = trunc i32 %264 to i8
+  %265 = trunc nuw i32 %264 to i8
   %266 = getelementptr inbounds nuw i8, ptr %.274.i, i64 3
   store i8 %265, ptr %266, align 1
   %267 = getelementptr inbounds nuw i8, ptr %.274.i, i64 4
@@ -1048,18 +1048,18 @@ define internal fastcc void @SDL_StretchSurfaceUncheckedLinear(i32 %.16.val, ptr
   %295 = mul nuw nsw i32 %75, %294
   %296 = add nuw nsw i32 %295, %292
   %297 = lshr i32 %275, 7
-  %298 = trunc i32 %297 to i8
+  %298 = trunc nuw i32 %297 to i8
   store i8 %298, ptr %.378.i, align 1
   %299 = lshr i32 %282, 7
-  %300 = trunc i32 %299 to i8
+  %300 = trunc nuw i32 %299 to i8
   %301 = getelementptr inbounds nuw i8, ptr %.378.i, i64 1
   store i8 %300, ptr %301, align 1
   %302 = lshr i32 %289, 7
-  %303 = trunc i32 %302 to i8
+  %303 = trunc nuw i32 %302 to i8
   %304 = getelementptr inbounds nuw i8, ptr %.378.i, i64 2
   store i8 %303, ptr %304, align 1
   %305 = lshr i32 %296, 7
-  %306 = trunc i32 %305 to i8
+  %306 = trunc nuw i32 %305 to i8
   %307 = getelementptr inbounds nuw i8, ptr %.378.i, i64 3
   store i8 %306, ptr %307, align 1
   %308 = getelementptr inbounds nuw i8, ptr %.378.i, i64 4
