@@ -1173,8 +1173,8 @@ data_new.exit:                                    ; preds = %2, %7, %10
   br i1 %1, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %data_list_for_each_const.exit.us
-  %15 = phi ptr [ %45, %data_list_for_each_const.exit.us ], [ %12, %.lr.ph ]
-  %.020.us = phi i64 [ %43, %data_list_for_each_const.exit.us ], [ 0, %.lr.ph ]
+  %15 = phi ptr [ %43, %data_list_for_each_const.exit.us ], [ %12, %.lr.ph ]
+  %.020.us = phi i64 [ %41, %data_list_for_each_const.exit.us ], [ 0, %.lr.ph ]
   %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %.020.us
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %18 = and i64 %17, 256
@@ -1184,103 +1184,87 @@ data_new.exit:                                    ; preds = %2, %7, %10
 19:                                               ; preds = %.lr.ph.split.us
   %20 = tail call i32 @get_log_level() #15
   %21 = icmp sgt i32 %20, 3
-  %.pre26 = load ptr, ptr %16, align 8
+  %.pre24 = load ptr, ptr %16, align 8
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %19
   %23 = load ptr, ptr %14, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.data_list_join, ptr noundef nonnull %13, ptr noundef %.pre26, ptr noundef nonnull %3, i64 noundef %25) #15
-  %.pre25 = load ptr, ptr %16, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.data_list_join, ptr noundef nonnull %13, ptr noundef %.pre24, ptr noundef nonnull %3, i64 noundef %25) #15
+  %.pre23 = load ptr, ptr %16, align 8
   br label %26
 
 26:                                               ; preds = %22, %19, %.lr.ph.split.us
-  %27 = phi ptr [ %.pre25, %22 ], [ %.pre26, %19 ], [ %15, %.lr.ph.split.us ]
+  %27 = phi ptr [ %.pre23, %22 ], [ %.pre24, %19 ], [ %15, %.lr.ph.split.us ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 65282
-  br i1 %30, label %33, label %31
+  br i1 %30, label %32, label %31
 
 31:                                               ; preds = %26
-  %32 = tail call fastcc i32 @_data_list_join(ptr noundef nonnull %27, ptr noundef nonnull %3)
+  tail call fastcc void @_data_list_join(ptr noundef nonnull %27, ptr noundef nonnull %3)
   br label %data_list_for_each_const.exit.us
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %.not2331.i.us = icmp eq ptr %37, null
+32:                                               ; preds = %26
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %.not2331.i.us = icmp eq ptr %36, null
   br i1 %.not2331.i.us, label %data_list_for_each_const.exit.us, label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %33, %.thread.i.us
-  %.01733.i.us = phi ptr [ %42, %.thread.i.us ], [ %37, %33 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.01733.i.us, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = tail call fastcc i32 @_data_list_join(ptr noundef %39, ptr noundef nonnull %3) #15
-  switch i32 %40, label %.split.us [
-    i32 1, label %.thread.i.us
-    i32 2, label %.split22.us
-    i32 4, label %data_list_for_each_const.exit.us
-    i32 3, label %data_list_for_each_const.exit.us
-  ]
-
-.thread.i.us:                                     ; preds = %.lr.ph.i.us
-  %41 = getelementptr inbounds nuw i8, ptr %.01733.i.us, i64 8
-  %42 = load ptr, ptr %41, align 8
-  %.not23.i.us = icmp eq ptr %42, null
+.lr.ph.i.us:                                      ; preds = %32, %.lr.ph.i.us
+  %.01733.i.us = phi ptr [ %40, %.lr.ph.i.us ], [ %36, %32 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.01733.i.us, i64 16
+  %38 = load ptr, ptr %37, align 8
+  tail call fastcc void @_data_list_join(ptr noundef %38, ptr noundef nonnull %3) #15
+  %39 = getelementptr inbounds nuw i8, ptr %.01733.i.us, i64 8
+  %40 = load ptr, ptr %39, align 8
+  %.not23.i.us = icmp eq ptr %40, null
   br i1 %.not23.i.us, label %data_list_for_each_const.exit.us, label %.lr.ph.i.us, !llvm.loop !13
 
-data_list_for_each_const.exit.us:                 ; preds = %.lr.ph.i.us, %.lr.ph.i.us, %.thread.i.us, %33, %31
-  %43 = add i64 %.020.us, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
-  %45 = load ptr, ptr %44, align 8
-  %.not.us = icmp eq ptr %45, null
+data_list_for_each_const.exit.us:                 ; preds = %.lr.ph.i.us, %32, %31
+  %41 = add i64 %.020.us, 1
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %41
+  %43 = load ptr, ptr %42, align 8
+  %.not.us = icmp eq ptr %43, null
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %data_list_for_each_const.exit, %data_list_for_each_const.exit.us, %data_new.exit
   ret ptr %3
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %data_list_for_each_const.exit
-  %46 = phi ptr [ %61, %data_list_for_each_const.exit ], [ %12, %.lr.ph ]
-  %.020 = phi i64 [ %59, %data_list_for_each_const.exit ], [ 0, %.lr.ph ]
-  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.020
-  %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %49 = and i64 %48, 256
-  %.not17 = icmp eq i64 %49, 0
-  br i1 %.not17, label %data_list_for_each_const.exit, label %50
+  %44 = phi ptr [ %58, %data_list_for_each_const.exit ], [ %12, %.lr.ph ]
+  %.020 = phi i64 [ %56, %data_list_for_each_const.exit ], [ 0, %.lr.ph ]
+  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.020
+  %46 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %47 = and i64 %46, 256
+  %.not17 = icmp eq i64 %47, 0
+  br i1 %.not17, label %data_list_for_each_const.exit, label %48
 
-50:                                               ; preds = %.lr.ph.split
-  %51 = tail call i32 @get_log_level() #15
-  %52 = icmp sgt i32 %51, 3
-  %.pre24 = load ptr, ptr %47, align 8
-  br i1 %52, label %53, label %data_list_for_each_const.exit
+48:                                               ; preds = %.lr.ph.split
+  %49 = tail call i32 @get_log_level() #15
+  %50 = icmp sgt i32 %49, 3
+  %.pre22 = load ptr, ptr %45, align 8
+  br i1 %50, label %51, label %data_list_for_each_const.exit
 
-53:                                               ; preds = %50
-  %54 = load ptr, ptr %14, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load i64, ptr %55, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.data_list_join, ptr noundef nonnull %13, ptr noundef %.pre24, ptr noundef nonnull %3, i64 noundef %56) #15
-  %.pre = load ptr, ptr %47, align 8
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %14, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load i64, ptr %53, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.14, ptr noundef nonnull @__func__.data_list_join, ptr noundef nonnull %13, ptr noundef %.pre22, ptr noundef nonnull %3, i64 noundef %54) #15
+  %.pre = load ptr, ptr %45, align 8
   br label %data_list_for_each_const.exit
 
-data_list_for_each_const.exit:                    ; preds = %50, %53, %.lr.ph.split
-  %57 = phi ptr [ %.pre24, %50 ], [ %.pre, %53 ], [ %46, %.lr.ph.split ]
-  %58 = tail call fastcc i32 @_data_list_join(ptr noundef %57, ptr noundef nonnull %3)
-  %59 = add i64 %.020, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  %.not = icmp eq ptr %61, null
+data_list_for_each_const.exit:                    ; preds = %48, %51, %.lr.ph.split
+  %55 = phi ptr [ %.pre22, %48 ], [ %.pre, %51 ], [ %44, %.lr.ph.split ]
+  tail call fastcc void @_data_list_join(ptr noundef %55, ptr noundef nonnull %3)
+  %56 = add i64 %.020, 1
+  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %56
+  %58 = load ptr, ptr %57, align 8
+  %.not = icmp eq ptr %58, null
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !14
-
-.split22.us:                                      ; preds = %.lr.ph.i.us
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.33, ptr noundef nonnull @__func__.data_list_for_each_const) #17
-  unreachable
-
-.split.us:                                        ; preds = %.lr.ph.i.us
-  tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.data_list_for_each_const) #17
-  unreachable
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1345,7 +1329,7 @@ define dso_local i32 @data_list_for_each_const(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @_data_list_join(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_data_list_join(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %4 = and i64 %3, 256
   %.not = icmp eq i64 %4, 0
@@ -1382,7 +1366,7 @@ define internal fastcc noundef i32 @_data_list_join(ptr noundef %0, ptr noundef 
   br label %22
 
 22:                                               ; preds = %14, %17, %9
-  ret i32 1
+  ret void
 }
 
 ; Function Attrs: nounwind uwtable

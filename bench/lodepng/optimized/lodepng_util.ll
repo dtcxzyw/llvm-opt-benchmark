@@ -4414,7 +4414,7 @@ define noundef i32 @_ZN7lodepng14convertFromXYZEPhPKfjjPK12LodePNGStateS2_j(ptr 
   %26 = zext i32 %25 to i64
   %27 = call fastcc noundef i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef %8, ptr noundef %23, i64 noundef %26)
   %.not107 = icmp eq i32 %27, 0
-  br i1 %.not107, label %28, label %87
+  br i1 %.not107, label %28, label %85
 
 28:                                               ; preds = %21
   %29 = load i32, ptr %8, align 8, !tbaa !73
@@ -4452,120 +4452,116 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %36, %35, %30, %28,
   %40 = zext i32 %3 to i64
   %mul.i133 = mul nuw i64 %40, %39
   %mul.ov.i124 = icmp ult i64 %mul.i133, 1152921504606846976
-  br i1 %mul.ov.i124, label %41, label %87
+  br i1 %mul.ov.i124, label %41, label %85
 
 41:                                               ; preds = %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit
   %mul.val.i123 = shl nuw i64 %mul.i133, 4
-  %42 = select i1 %15, i64 3, i64 2
-  %mul.i125 = shl nuw nsw i64 %mul.i133, %42
-  %43 = tail call noalias noundef ptr @malloc(i64 noundef %mul.val.i123) #32
-  %44 = call fastcc noundef i32 @_ZN7lodepngL19convertFromXYZ_chrmEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCES2_j(ptr noundef %43, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %12, i32 noundef %.092, ptr noundef %8, ptr noundef %5, i32 noundef %6)
-  %.not114 = icmp eq i32 %44, 0
-  br i1 %.not114, label %45, label %87
+  %42 = tail call noalias noundef ptr @malloc(i64 noundef %mul.val.i123) #32
+  %43 = call fastcc noundef i32 @_ZN7lodepngL19convertFromXYZ_chrmEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCES2_j(ptr noundef %42, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %12, i32 noundef %.092, ptr noundef %8, ptr noundef %5, i32 noundef %6)
+  %.not114 = icmp eq i32 %43, 0
+  br i1 %.not114, label %44, label %85
 
-45:                                               ; preds = %41
-  %46 = call fastcc noundef i32 @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %43, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %12, i32 noundef %.092, ptr noundef %8)
-  %.not115 = icmp eq i32 %46, 0
-  br i1 %.not115, label %47, label %87
-
-47:                                               ; preds = %45
-  %48 = tail call noalias noundef ptr @malloc(i64 noundef %mul.i125) #32
+44:                                               ; preds = %41
+  %45 = select i1 %15, i64 3, i64 2
+  %mul.i125 = shl nuw nsw i64 %mul.i133, %45
+  call fastcc void @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %42, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %12, i32 noundef %.092, ptr noundef %8)
+  %46 = tail call noalias noundef ptr @malloc(i64 noundef %mul.i125) #32
   %.not146 = icmp eq i64 %mul.i133, 0
-  br i1 %15, label %49, label %71
+  br i1 %15, label %47, label %69
 
-49:                                               ; preds = %47
+47:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr dead_on_unwind nonnull writable sret(%struct.LodePNGColorMode) align 8 %9, i32 noundef 6, i32 noundef 16)
   br i1 %.not146, label %._crit_edge144, label %.preheader
 
-.preheader:                                       ; preds = %49, %68
-  %.095143 = phi i64 [ %69, %68 ], [ 0, %49 ]
-  %50 = shl i64 %.095143, 3
+.preheader:                                       ; preds = %47, %66
+  %.095143 = phi i64 [ %67, %66 ], [ 0, %47 ]
+  %48 = shl i64 %.095143, 3
   %.idx = shl i64 %.095143, 4
-  %51 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 %50
-  br label %53
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 %48
+  br label %51
 
-53:                                               ; preds = %.preheader, %53
-  %.097142 = phi i64 [ 0, %.preheader ], [ %67, %53 ]
-  %54 = shl nuw nsw i64 %.097142, 1
-  %55 = getelementptr inbounds nuw float, ptr %51, i64 %.097142
-  %56 = load float, ptr %55, align 4, !tbaa !78
-  %57 = fcmp olt float %56, 0.000000e+00
-  %58 = fcmp uge float %56, 1.000000e+00
-  %59 = call float @llvm.fmuladd.f32(float %56, float 6.553500e+04, float 5.000000e-01)
-  %60 = fptosi float %59 to i32
-  %.mux = select i1 %57, i32 0, i32 %60
-  %61 = select i1 %58, i32 65535, i32 %.mux
-  %62 = lshr i32 %61, 8
-  %63 = trunc i32 %62 to i8
-  %64 = getelementptr inbounds nuw i8, ptr %52, i64 %54
+51:                                               ; preds = %.preheader, %51
+  %.097142 = phi i64 [ 0, %.preheader ], [ %65, %51 ]
+  %52 = shl nuw nsw i64 %.097142, 1
+  %53 = getelementptr inbounds nuw float, ptr %49, i64 %.097142
+  %54 = load float, ptr %53, align 4, !tbaa !78
+  %55 = fcmp olt float %54, 0.000000e+00
+  %56 = fcmp uge float %54, 1.000000e+00
+  %57 = call float @llvm.fmuladd.f32(float %54, float 6.553500e+04, float 5.000000e-01)
+  %58 = fptosi float %57 to i32
+  %.mux = select i1 %55, i32 0, i32 %58
+  %59 = select i1 %56, i32 65535, i32 %.mux
+  %60 = lshr i32 %59, 8
+  %61 = trunc i32 %60 to i8
+  %62 = getelementptr inbounds nuw i8, ptr %50, i64 %52
+  store i8 %61, ptr %62, align 1, !tbaa !18
+  %63 = trunc i32 %59 to i8
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 1
   store i8 %63, ptr %64, align 1, !tbaa !18
-  %65 = trunc i32 %61 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 1
-  store i8 %65, ptr %66, align 1, !tbaa !18
-  %67 = add nuw nsw i64 %.097142, 1
-  %exitcond148.not = icmp eq i64 %67, 4
-  br i1 %exitcond148.not, label %68, label %53, !llvm.loop !112
+  %65 = add nuw nsw i64 %.097142, 1
+  %exitcond148.not = icmp eq i64 %65, 4
+  br i1 %exitcond148.not, label %66, label %51, !llvm.loop !112
 
-68:                                               ; preds = %53
-  %69 = add nuw i64 %.095143, 1
-  %exitcond149.not = icmp eq i64 %69, %mul.i133
+66:                                               ; preds = %51
+  %67 = add nuw i64 %.095143, 1
+  %exitcond149.not = icmp eq i64 %67, %mul.i133
   br i1 %exitcond149.not, label %._crit_edge144, label %.preheader, !llvm.loop !113
 
-._crit_edge144:                                   ; preds = %68, %49
-  %70 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %48, ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef %2, i32 noundef %3)
+._crit_edge144:                                   ; preds = %66, %47
+  %68 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef %2, i32 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %87
+  br label %85
 
-71:                                               ; preds = %47
+69:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_Z23lodepng_color_mode_make16LodePNGColorTypej(ptr dead_on_unwind nonnull writable sret(%struct.LodePNGColorMode) align 8 %10, i32 noundef 6, i32 noundef 8)
   br i1 %.not146, label %._crit_edge, label %.preheader139
 
-.preheader139:                                    ; preds = %71, %84
-  %.196141 = phi i64 [ %85, %84 ], [ 0, %71 ]
-  %72 = shl i64 %.196141, 2
-  br label %73
+.preheader139:                                    ; preds = %69, %82
+  %.196141 = phi i64 [ %83, %82 ], [ 0, %69 ]
+  %70 = shl i64 %.196141, 2
+  br label %71
 
-73:                                               ; preds = %.preheader139, %73
-  %.198140 = phi i64 [ 0, %.preheader139 ], [ %83, %73 ]
-  %74 = add nuw nsw i64 %.198140, %72
-  %75 = getelementptr inbounds nuw float, ptr %43, i64 %74
-  %76 = load float, ptr %75, align 4, !tbaa !78
-  %77 = fcmp olt float %76, 0.000000e+00
-  %78 = fcmp uge float %76, 1.000000e+00
-  %brmerge137 = or i1 %78, %77
-  %.mux138 = sext i1 %78 to i8
-  %79 = call float @llvm.fmuladd.f32(float %76, float 2.550000e+02, float 5.000000e-01)
-  %80 = fptoui float %79 to i8
-  %81 = select i1 %brmerge137, i8 %.mux138, i8 %80
-  %82 = getelementptr inbounds nuw i8, ptr %48, i64 %74
-  store i8 %81, ptr %82, align 1, !tbaa !18
-  %83 = add nuw nsw i64 %.198140, 1
-  %exitcond.not = icmp eq i64 %83, 4
-  br i1 %exitcond.not, label %84, label %73, !llvm.loop !114
+71:                                               ; preds = %.preheader139, %71
+  %.198140 = phi i64 [ 0, %.preheader139 ], [ %81, %71 ]
+  %72 = add nuw nsw i64 %.198140, %70
+  %73 = getelementptr inbounds nuw float, ptr %42, i64 %72
+  %74 = load float, ptr %73, align 4, !tbaa !78
+  %75 = fcmp olt float %74, 0.000000e+00
+  %76 = fcmp uge float %74, 1.000000e+00
+  %brmerge137 = or i1 %76, %75
+  %.mux138 = sext i1 %76 to i8
+  %77 = call float @llvm.fmuladd.f32(float %74, float 2.550000e+02, float 5.000000e-01)
+  %78 = fptoui float %77 to i8
+  %79 = select i1 %brmerge137, i8 %.mux138, i8 %78
+  %80 = getelementptr inbounds nuw i8, ptr %46, i64 %72
+  store i8 %79, ptr %80, align 1, !tbaa !18
+  %81 = add nuw nsw i64 %.198140, 1
+  %exitcond.not = icmp eq i64 %81, 4
+  br i1 %exitcond.not, label %82, label %71, !llvm.loop !114
 
-84:                                               ; preds = %73
-  %85 = add nuw i64 %.196141, 1
-  %exitcond147.not = icmp eq i64 %85, %mul.i133
+82:                                               ; preds = %71
+  %83 = add nuw i64 %.196141, 1
+  %exitcond147.not = icmp eq i64 %83, %mul.i133
   br i1 %exitcond147.not, label %._crit_edge, label %.preheader139, !llvm.loop !115
 
-._crit_edge:                                      ; preds = %84, %71
-  %86 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %48, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %2, i32 noundef %3)
+._crit_edge:                                      ; preds = %82, %69
+  %84 = call noundef i32 @_Z15lodepng_convertPhPKhPK16LodePNGColorModeS4_jj(ptr noundef %0, ptr noundef %46, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef %2, i32 noundef %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %87
+  br label %85
 
-87:                                               ; preds = %._crit_edge, %._crit_edge144, %45, %41, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %21
-  %.094 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %43, %41 ], [ %43, %45 ], [ %43, %._crit_edge144 ], [ %43, %._crit_edge ]
-  %.093 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ null, %41 ], [ null, %45 ], [ %48, %._crit_edge144 ], [ %48, %._crit_edge ]
-  %.191 = phi i32 [ 1, %21 ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ 1, %41 ], [ %46, %45 ], [ %70, %._crit_edge144 ], [ %86, %._crit_edge ]
-  %88 = load ptr, ptr %16, align 8, !tbaa !65
+85:                                               ; preds = %._crit_edge, %._crit_edge144, %41, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %21
+  %.094 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %42, %41 ], [ %42, %._crit_edge144 ], [ %42, %._crit_edge ]
+  %.093 = phi ptr [ null, %21 ], [ null, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ null, %41 ], [ %46, %._crit_edge144 ], [ %46, %._crit_edge ]
+  %.191 = phi i32 [ 1, %21 ], [ 92, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ 1, %41 ], [ %68, %._crit_edge144 ], [ %84, %._crit_edge ]
+  %86 = load ptr, ptr %16, align 8, !tbaa !65
+  call void @free(ptr noundef %86) #28
+  %87 = load ptr, ptr %17, align 8, !tbaa !65
+  call void @free(ptr noundef %87) #28
+  %88 = load ptr, ptr %18, align 8, !tbaa !65
   call void @free(ptr noundef %88) #28
-  %89 = load ptr, ptr %17, align 8, !tbaa !65
-  call void @free(ptr noundef %89) #28
-  %90 = load ptr, ptr %18, align 8, !tbaa !65
-  call void @free(ptr noundef %90) #28
   call void @free(ptr noundef %.094) #28
   call void @free(ptr noundef %.093) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -4819,7 +4815,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN7lodepngL19convertFromXYZ
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 93) i32 @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #9 {
+define internal fastcc void @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #9 {
   %7 = zext i32 %1 to i64
   %8 = zext i32 %2 to i64
   %mul.i60 = mul nuw i64 %8, %7
@@ -5153,14 +5149,14 @@ _ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit: ; preds = %11, %16, 
   br i1 %exitcond84.not, label %.loopexit, label %.preheader, !llvm.loop !124
 
 .loopexit:                                        ; preds = %150, %173, %189, %.preheader64, %161, %175, %158
-  ret i32 0
+  ret void
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 93) i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK12LodePNGStateS2_j(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK12LodePNGStateS2_j(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca %"struct.lodepng::LodePNGICC", align 8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 208
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -5183,7 +5179,7 @@ define noundef range(i32 0, 93) i32 @_ZN7lodepng19convertFromXYZFloatEPfPKfjjPK1
   %20 = zext i32 %19 to i64
   %21 = call fastcc noundef i32 @_ZN7lodepngL8parseICCEPNS_10LodePNGICCEPKhm(ptr noundef %8, ptr noundef %17, i64 noundef %20)
   %.not22 = icmp eq i32 %21, 0
-  br i1 %.not22, label %22, label %36
+  br i1 %.not22, label %22, label %35
 
 22:                                               ; preds = %15
   %23 = load i32, ptr %8, align 8, !tbaa !73
@@ -5219,20 +5215,20 @@ _ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit: ; preds = %30, %29, %24, %22,
   %.0 = phi i32 [ 0, %7 ], [ %23, %22 ], [ 0, %24 ], [ 0, %29 ], [ %..i, %30 ]
   %33 = call fastcc noundef i32 @_ZN7lodepngL19convertFromXYZ_chrmEPfPKfjjPK11LodePNGInfojPKNS_10LodePNGICCES2_j(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, i32 noundef %.0, ptr noundef %8, ptr noundef %5, i32 noundef %6)
   %.not23 = icmp eq i32 %33, 0
-  br i1 %.not23, label %34, label %36
+  br i1 %.not23, label %34, label %35
 
 34:                                               ; preds = %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit
-  %35 = call fastcc noundef i32 @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, i32 noundef %.0, ptr noundef %8)
-  br label %36
+  call fastcc void @_ZN7lodepngL20convertFromXYZ_gammaEPfjjPK11LodePNGInfojPKNS_10LodePNGICCE(ptr noundef %0, i32 noundef %2, i32 noundef %3, ptr noundef nonnull %9, i32 noundef %.0, ptr noundef %8)
+  br label %35
 
-36:                                               ; preds = %34, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %15
-  %.019 = phi i32 [ 1, %15 ], [ 1, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ %35, %34 ]
-  %37 = load ptr, ptr %10, align 8, !tbaa !65
+35:                                               ; preds = %34, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit, %15
+  %.019 = phi i32 [ 1, %15 ], [ 1, %_ZN7lodepngL11validateICCEPKNS_10LodePNGICCE.exit ], [ 0, %34 ]
+  %36 = load ptr, ptr %10, align 8, !tbaa !65
+  tail call void @free(ptr noundef %36) #28
+  %37 = load ptr, ptr %11, align 8, !tbaa !65
   tail call void @free(ptr noundef %37) #28
-  %38 = load ptr, ptr %11, align 8, !tbaa !65
+  %38 = load ptr, ptr %12, align 8, !tbaa !65
   tail call void @free(ptr noundef %38) #28
-  %39 = load ptr, ptr %12, align 8, !tbaa !65
-  tail call void @free(ptr noundef %39) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i32 %.019
 }

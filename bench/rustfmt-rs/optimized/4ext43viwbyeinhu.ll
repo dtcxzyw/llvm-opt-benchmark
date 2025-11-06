@@ -8807,7 +8807,7 @@ _ZN5alloc3fmt6format17h35125637d547cb53E.exit108: ; preds = %switch.lookup143
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17hfb7e722a243a34f3E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 {
+define internal noundef range(i128 -106355411369418660168064328943368459870, -106355411369418660168064328943368459869) i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17hfb7e722a243a34f3E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret i128 -106355411369418660168064328943368459870
 }
 
@@ -8893,7 +8893,7 @@ _ZN4core3fmt8builders9DebugList7entries17h551b0af4821bc87aE.exit: ; preds = %.lr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h69f185b7d7f36108E.llvm.3200710723383270248"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #4 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h69f185b7d7f36108E.llvm.3200710723383270248"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #4 {
   ret i1 true
 }
 
@@ -14592,132 +14592,132 @@ define void @"_ZN121_$LT$rustfmt_nightly..config..macro_names..MacroSelectors$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h00b7b4974a6e7947E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h00b7b4974a6e7947E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h0b389320d3d91044E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h0b389320d3d91044E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h10d3ef035176681dE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h10d3ef035176681dE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h14455e090de83addE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h14455e090de83addE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h2265c5a415630121E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h2265c5a415630121E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h2fe3410a20d56e58E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h2fe3410a20d56e58E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h52b82206ac507fccE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h52b82206ac507fccE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h5f718c7f933c93f2E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h5f718c7f933c93f2E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h6246322b12cccfb7E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h6246322b12cccfb7E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h6aa5d1293def2bdeE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h6aa5d1293def2bdeE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h7179ab370d92309aE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h7179ab370d92309aE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h756be38ea6338779E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h757df5fcacacee35E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h757df5fcacacee35E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h823611530876d198E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h832a08f35c9a5c1bE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h832a08f35c9a5c1bE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h894c9410eb3f0255E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h894c9410eb3f0255E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h8b71f17edcac7a90E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h8b71f17edcac7a90E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h940541d636e252ceE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17h940541d636e252ceE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17ha24dce843d16f34cE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17ha24dce843d16f34cE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hac2a6c5ec18f7f39E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hac2a6c5ec18f7f39E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hc619ffc51dc9f058E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hc619ffc51dc9f058E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hd545342d9aa20c1eE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hd545342d9aa20c1eE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hd8a4198e17c6fc82E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hd8a4198e17c6fc82E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hdb6254689927d751E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hdb6254689927d751E(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hde5e03e4ba5a7c0dE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hde5e03e4ba5a7c0dE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hfc9e3b8132e538aaE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN15rustfmt_nightly6config11config_type26is_stable_option_and_value17hfc9e3b8132e538aaE(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(72) %3) unnamed_addr #3 personality ptr @rust_eh_personality {
   ret i1 true
 }
 
@@ -32782,7 +32782,7 @@ define void @"_ZN156_$LT$rustfmt_nightly..config..options..__define_config_type_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN156_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_TypeDensity..TypeDensity$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17hcb32e3c45278fe99E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 {
+define noundef zeroext range(i1 -1, 0) i1 @"_ZN156_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_TypeDensity..TypeDensity$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17hcb32e3c45278fe99E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 {
   ret i1 true
 }
 
@@ -33443,7 +33443,7 @@ define void @"_ZN148_$LT$rustfmt_nightly..config..options..__define_config_type_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN148_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Version..Version$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17h0e40af8e32141353E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 {
+define noundef zeroext range(i1 -1, 0) i1 @"_ZN148_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Version..Version$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17h0e40af8e32141353E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 {
   ret i1 true
 }
 
@@ -33608,7 +33608,7 @@ define void @"_ZN152_$LT$rustfmt_nightly..config..options..__define_config_type_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN152_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Verbosity..Verbosity$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17h5d5787b7c12b5421E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 {
+define noundef zeroext range(i1 -1, 0) i1 @"_ZN152_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_Verbosity..Verbosity$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17h5d5787b7c12b5421E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #3 {
   ret i1 true
 }
 

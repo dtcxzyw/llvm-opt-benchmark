@@ -44,41 +44,41 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [3 x i8] c"<=\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onig_set_match_stack_limit_size_of_match_param(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_match_stack_limit_size_of_match_param(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8, !tbaa !4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onig_set_retry_limit_in_match_of_match_param(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_retry_limit_in_match_of_match_param(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8, !tbaa !11
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onig_set_retry_limit_in_search_of_match_param(ptr noundef writeonly captures(none) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_retry_limit_in_search_of_match_param(ptr noundef writeonly captures(none) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8, !tbaa !12
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onig_set_progress_callout_of_match_param(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_progress_callout_of_match_param(ptr noundef writeonly captures(none) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8, !tbaa !13
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onig_set_retraction_callout_of_match_param(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_retraction_callout_of_match_param(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8, !tbaa !14
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @onig_set_callout_user_data_of_match_param(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_callout_user_data_of_match_param(ptr noundef writeonly captures(none) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8, !tbaa !15
   ret i32 0
@@ -98,7 +98,7 @@ define dso_local ptr @onig_get_callback_each_match() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_callback_each_match(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_callback_each_match(ptr noundef %0) local_unnamed_addr #3 {
   store ptr %0, ptr @CallbackEachMatch, align 8, !tbaa !20
   ret i32 0
 }
@@ -602,7 +602,7 @@ define dso_local i32 @onig_get_match_stack_limit_size() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_match_stack_limit_size(i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_match_stack_limit_size(i32 noundef %0) local_unnamed_addr #3 {
   store i32 %0, ptr @MatchStackLimit, align 4, !tbaa !24
   ret i32 0
 }
@@ -614,7 +614,7 @@ define dso_local i64 @onig_get_retry_limit_in_match() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_retry_limit_in_match(i64 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_retry_limit_in_match(i64 noundef %0) local_unnamed_addr #3 {
   store i64 %0, ptr @RetryLimitInMatch, align 8, !tbaa !39
   ret i32 0
 }
@@ -626,7 +626,7 @@ define dso_local i64 @onig_get_retry_limit_in_search() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_retry_limit_in_search(i64 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_retry_limit_in_search(i64 noundef %0) local_unnamed_addr #3 {
   store i64 %0, ptr @RetryLimitInSearch, align 8, !tbaa !39
   ret i32 0
 }
@@ -638,7 +638,7 @@ define dso_local i64 @onig_get_subexp_call_limit_in_search() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_subexp_call_limit_in_search(i64 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_subexp_call_limit_in_search(i64 noundef %0) local_unnamed_addr #3 {
   store i64 %0, ptr @SubexpCallLimitInSearch, align 8, !tbaa !39
   ret i32 0
 }
@@ -679,7 +679,7 @@ define dso_local noalias noundef ptr @onig_new_match_param() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_initialize_match_param(ptr noundef writeonly captures(none) initializes((0, 4), (8, 52), (56, 68)) %0) local_unnamed_addr #11 {
+define dso_local noundef range(i32 0, 1) i32 @onig_initialize_match_param(ptr noundef writeonly captures(none) initializes((0, 4), (8, 52), (56, 68)) %0) local_unnamed_addr #11 {
   %2 = load i32, ptr @MatchStackLimit, align 4, !tbaa !24
   store i32 %2, ptr %0, align 8, !tbaa !4
   %3 = load i64, ptr @RetryLimitInMatch, align 8, !tbaa !39
@@ -9350,7 +9350,7 @@ define dso_local i32 @onig_get_subexp_call_max_nest_level() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_subexp_call_max_nest_level(i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_subexp_call_max_nest_level(i32 noundef %0) local_unnamed_addr #3 {
   store i32 %0, ptr @SubexpCallMaxNestLevel, align 4, !tbaa !24
   ret i32 0
 }
@@ -10070,7 +10070,7 @@ define dso_local ptr @onig_regset_get_region(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_init_for_match_at(ptr noundef readonly captures(none) %0) local_unnamed_addr #20 {
+define dso_local noundef range(i32 0, 1) i32 @onig_init_for_match_at(ptr noundef readonly captures(none) %0) local_unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !99
   %.not2304.i = icmp eq i32 %3, 0
@@ -10108,7 +10108,7 @@ define dso_local ptr @onig_get_progress_callout() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_progress_callout(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_progress_callout(ptr noundef %0) local_unnamed_addr #3 {
   store ptr %0, ptr @DefaultProgressCallout, align 8, !tbaa !20
   ret i32 0
 }
@@ -10120,7 +10120,7 @@ define dso_local ptr @onig_get_retraction_callout() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_retraction_callout(ptr noundef %0) local_unnamed_addr #3 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_retraction_callout(ptr noundef %0) local_unnamed_addr #3 {
   store ptr %0, ptr @DefaultRetractionCallout, align 8, !tbaa !20
   ret i32 0
 }
@@ -10425,7 +10425,7 @@ define dso_local range(i32 -30, 1) i32 @onig_get_capture_range_in_callout(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @onig_get_used_stack_size_in_callout(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #18 {
+define dso_local noundef range(i32 0, 1) i32 @onig_get_used_stack_size_in_callout(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !164
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -10457,12 +10457,12 @@ define dso_local noundef i32 @onig_get_used_stack_size_in_callout(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @onig_builtin_fail(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #22 {
+define dso_local noundef range(i32 1, 2) i32 @onig_builtin_fail(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #22 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @onig_builtin_mismatch(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #22 {
+define dso_local noundef range(i32 -1, 0) i32 @onig_builtin_mismatch(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #22 {
   ret i32 -1
 }
 

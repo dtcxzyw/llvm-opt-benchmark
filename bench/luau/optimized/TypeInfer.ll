@@ -7876,7 +7876,7 @@ _ZN4Luau13WithPredicateIPKNS_4TypeEED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_12AstStatWhileE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_12AstStatWhileE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.131", align 8
   %5 = alloca %"struct.Luau::WithPredicate.445", align 8
   %6 = alloca %"class.std::shared_ptr.131", align 8
@@ -8115,7 +8115,7 @@ _ZN4Luau13WithPredicateIPKNS_4TypeEED2Ev.exit:    ; preds = %_ZSt8_DestroyIPN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_13AstStatRepeatE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_13AstStatRepeatE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.131", align 8
   %5 = alloca %"struct.Luau::WithPredicate.445", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -8243,7 +8243,7 @@ _ZNSt12__shared_ptrIN4Luau5ScopeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_13AstStatReturnE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 2, 3) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_13AstStatReturnE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.498", align 8
   %5 = alloca %"struct.Luau::TypePackIterator", align 8
   %6 = alloca %"struct.Luau::TypePackIterator", align 8
@@ -9205,7 +9205,7 @@ _ZNSt6vectorIN4Luau7VariantIJNS0_15TruthyPredicateENS0_12IsAPredicateENS0_18Type
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_12AstStatLocalE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(84) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_12AstStatLocalE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(84) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.std::vector.528", align 8
@@ -10945,7 +10945,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit260:  ; preds = %.thread582, %722, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_10AstStatForE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(92) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_10AstStatForE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(92) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.131", align 8
   %5 = alloca %"struct.Luau::UnifierOptions", align 1
   %6 = alloca %"struct.Luau::UnifierOptions", align 1
@@ -14092,7 +14092,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit409:  ; preds = %.body270.thread, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_13AstStatAssignE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_13AstStatAssignE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(64) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::UnifierOptions", align 1
   %5 = alloca %"struct.Luau::UnifierOptions", align 1
   %6 = alloca %"class.std::vector.498", align 8
@@ -15288,7 +15288,7 @@ _ZNSt6vectorISt8optionalIPKN4Luau4TypeEESaIS5_EED2Ev.exit234: ; preds = %439, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_21AstStatCompoundAssignE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_21AstStatCompoundAssignE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::UnifierOptions", align 1
   %5 = alloca %"class.Luau::AstExprBinary", align 8
   %6 = alloca %"struct.Luau::WithPredicate.445", align 8
@@ -15496,7 +15496,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_16AstStatTypeAliasE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(97) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_16AstStatTypeAliasE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(97) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::UnifierOptions", align 1
   %5 = alloca %"struct.Luau::UnifierOptions", align 1
   %6 = alloca i64, align 8
@@ -17325,7 +17325,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %71
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_19AstStatTypeFunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2024) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_19AstStatTypeFunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2024) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 .noexc.i:
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17747,7 +17747,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_22AstStatDeclareFunctionE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_22AstStatDeclareFunctionE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -19074,7 +19074,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit155:  ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_19AstStatDeclareClassE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEERKNS_19AstStatDeclareClassE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -37700,7 +37700,7 @@ _ZNSt16allocator_traitsISaIPKN4Luau4TypeEEE8allocateERS4_m.exit.i.i.i: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEEPKNS_4TypeES5_RKNS_15AstStatFunctionE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEEPKNS_4TypeES5_RKNS_15AstStatFunctionE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -41788,7 +41788,7 @@ _ZN4Luau12DenseHashSetIPvNS_16DenseHashPointerESt8equal_toIS1_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEEPKNS_4TypeES5_RKNS_20AstStatLocalFunctionE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 1, 2) i32 @_ZN4Luau11TypeChecker5checkERKSt10shared_ptrINS_5ScopeEEPKNS_4TypeES5_RKNS_20AstStatLocalFunctionE(ptr noundef nonnull align 8 dereferenceable(2024) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"struct.Luau::Binding", align 8
@@ -97905,47 +97905,42 @@ define internal fastcc void @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPre
   %19 = load ptr, ptr %18, align 8, !tbaa !1589
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
-  %21 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40
-          to label %24 unwind label %22
+  %21 = invoke noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 2)
+          to label %30 unwind label %22
 
 22:                                               ; preds = %4
   %23 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
+  %24 = load ptr, ptr %20, align 8, !tbaa !236
+  %.not.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i, label %.body, label %25
 
-24:                                               ; preds = %4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %21, ptr noundef nonnull readonly align 8 dereferenceable(32) %13, i64 32, i1 false)
-  store ptr %21, ptr %6, align 8, !tbaa !14
-  %25 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %25, align 8, !tbaa !1269
-  store ptr @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation", ptr %20, align 8, !tbaa !236
-  invoke void @_ZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EE(ptr noundef nonnull align 8 dereferenceable(2024) %7, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %6)
-          to label %26 unwind label %39
+25:                                               ; preds = %22
+  %26 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
+          to label %.body unwind label %27
 
-26:                                               ; preds = %24
-  %27 = load ptr, ptr %20, align 8, !tbaa !236
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %28
-
-28:                                               ; preds = %26
-  %29 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %30
-
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+27:                                               ; preds = %25
+  %28 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #37
+  %29 = extractvalue { ptr, i32 } %28, 0
+  call void @__clang_call_terminate(ptr %29) #37
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %26, %28
-  %33 = load ptr, ptr %10, align 8, !tbaa !236
-  %.not.i5 = icmp eq ptr %33, null
-  br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit6, label %34
+30:                                               ; preds = %4
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %31, align 8, !tbaa !1269
+  store ptr @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation", ptr %20, align 8, !tbaa !236
+  invoke void @_ZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EE(ptr noundef nonnull align 8 dereferenceable(2024) %7, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %6)
+          to label %32 unwind label %45
 
-34:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit6 unwind label %36
+32:                                               ; preds = %30
+  %33 = load ptr, ptr %20, align 8, !tbaa !236
+  %.not.i = icmp eq ptr %33, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %34
+
+34:                                               ; preds = %32
+  %35 = invoke noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %36
 
 36:                                               ; preds = %34
   %37 = landingpad { ptr, i32 }
@@ -97954,37 +97949,36 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %26, %28
   call void @__clang_call_terminate(ptr %38) #37
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %34
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %34
+  %39 = load ptr, ptr %10, align 8, !tbaa !236
+  %.not.i5 = icmp eq ptr %39, null
+  br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit6, label %40
+
+40:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit6 unwind label %42
+
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
+          catch ptr null
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #37
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-39:                                               ; preds = %24
-  %40 = landingpad { ptr, i32 }
+45:                                               ; preds = %30
+  %46 = landingpad { ptr, i32 }
           cleanup
-  %41 = load ptr, ptr %20, align 8, !tbaa !236
-  %.not.i7 = icmp eq ptr %41, null
-  br i1 %.not.i7, label %.body, label %42
+  %47 = load ptr, ptr %20, align 8, !tbaa !236
+  %.not.i7 = icmp eq ptr %47, null
+  br i1 %.not.i7, label %.body, label %48
 
-42:                                               ; preds = %39
-  %43 = invoke noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %.body unwind label %44
-
-44:                                               ; preds = %42
-  %45 = landingpad { ptr, i32 }
-          catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #37
-  unreachable
-
-.body:                                            ; preds = %22, %42, %39
-  %.pn = phi { ptr, i32 } [ %23, %22 ], [ %40, %39 ], [ %40, %42 ]
-  %47 = load ptr, ptr %10, align 8, !tbaa !236
-  %.not.i9 = icmp eq ptr %47, null
-  br i1 %.not.i9, label %_ZNSt14_Function_baseD2Ev.exit10, label %48
-
-48:                                               ; preds = %.body
-  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %50
+48:                                               ; preds = %45
+  %49 = invoke noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
+          to label %.body unwind label %50
 
 50:                                               ; preds = %48
   %51 = landingpad { ptr, i32 }
@@ -97993,7 +97987,24 @@ _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %_ZNSt14_Function_ba
   call void @__clang_call_terminate(ptr %52) #37
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %.body, %48
+.body:                                            ; preds = %48, %45, %25, %22
+  %.pn = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %46, %45 ], [ %46, %48 ]
+  %53 = load ptr, ptr %10, align 8, !tbaa !236
+  %.not.i9 = icmp eq ptr %53, null
+  br i1 %.not.i9, label %_ZNSt14_Function_baseD2Ev.exit10, label %54
+
+54:                                               ; preds = %.body
+  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit10 unwind label %56
+
+56:                                               ; preds = %54
+  %57 = landingpad { ptr, i32 }
+          catch ptr null
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #37
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %.body, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 }
@@ -106560,7 +106571,7 @@ _ZN4Luau3getINS_11UnknownTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZZN4Luau11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbSD_ESt8optionalISD_EEUlSD_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -126031,7 +126042,7 @@ _ZNSt10_HashtableIPKN4Luau4TypeES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFPKN4Luau4TypeES3_S3_EZNS0_11TypeChecker5mergeERSt13unordered_mapINS0_7VariantIJNS0_6SymbolENS0_5FieldEEEES3_NS0_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_S3_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #22 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker5mergeERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toIS7_ESaISt4pairIKS7_SA_EEERKSI_E3$_0E10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -126479,7 +126490,7 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.thread.i.i.i: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker17mkTruthyPredicateEbS4_E3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker17mkTruthyPredicateEbPKNS1_4TypeEE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -127754,7 +127765,7 @@ _ZN4LuauL13isUndecidableEPKNS_4TypeE.exit.i.i.i:  ; preds = %110, %107, %107, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_12IsAPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -128167,7 +128178,7 @@ _ZN4Luau3getINS_13SingletonTypeEEEPKT_PKNS_4TypeE.exit.i.i.i: ; preds = %121
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZNS1_11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSW_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #8 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN4Luau11TypeChecker7resolveERKNS1_11EqPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEEPKNS1_4TypeENS1_12LValueHasherESt8equal_toISA_ESaISt4pairIKSA_SD_EEERKSt10shared_ptrINS1_5ScopeEEbE3$_0E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5

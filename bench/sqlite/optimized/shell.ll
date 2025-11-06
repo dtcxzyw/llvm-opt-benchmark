@@ -7393,7 +7393,7 @@ define internal void @sqlarUncompressFunc(ptr noundef %0, i32 %1, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @dummyCompare(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #5 {
+define noundef range(i32 0, 1) i32 @dummyCompare(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3, ptr readnone captures(none) %4) #5 {
   ret i32 0
 }
 
@@ -18223,7 +18223,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare i32 @sqlite3_initialize() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @vfstraceOut(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
+define internal noundef range(i32 1, 2) i32 @vfstraceOut(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !461
   %5 = tail call i32 @fputs(ptr noundef %0, ptr noundef %4)
@@ -35044,7 +35044,7 @@ define internal range(i32 0, 20) i32 @seriesBestIndex(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesDisconnect(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @seriesDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #44
   ret i32 0
 }
@@ -35066,13 +35066,13 @@ define internal range(i32 0, 8) i32 @seriesOpen(ptr readnone captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesClose(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @seriesClose(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #44
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesFilter(ptr noundef captures(none) initializes((8, 48)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 {
+define internal noundef range(i32 0, 1) i32 @seriesFilter(ptr noundef captures(none) initializes((8, 48)) %0, i32 noundef %1, ptr readnone captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = and i32 %1, 1
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %10, label %7
@@ -35543,7 +35543,7 @@ setupSequence.exit:                               ; preds = %genSeqMember.exit.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @seriesNext(ptr noundef captures(none) %0) #12 {
+define internal noundef range(i32 0, 1) i32 @seriesNext(ptr noundef captures(none) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8, !tbaa !757
   %.not.i = icmp eq i8 %3, 0
@@ -35611,7 +35611,7 @@ define internal range(i32 0, 2) i32 @seriesEof(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal noundef range(i32 0, 1) i32 @seriesColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %switch.tableidx = add i32 %2, -1
   %4 = icmp ult i32 %switch.tableidx, 3
   br i1 %4, label %switch.lookup, label %6
@@ -35631,7 +35631,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @seriesRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @seriesRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !765
   %5 = add i64 %4, 1
@@ -38547,7 +38547,7 @@ define internal range(i32 0, 20) i32 @fsdirBestIndex(ptr readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fsdirDisconnect(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @fsdirDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #44
   ret i32 0
 }
@@ -38571,7 +38571,7 @@ define internal range(i32 0, 8) i32 @fsdirOpen(ptr readnone captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @fsdirClose(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @fsdirClose(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !778
   %.not18.i = icmp slt i32 %3, 0
@@ -39022,7 +39022,7 @@ define internal range(i32 0, 8) i32 @fsdirColumn(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fsdirRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @fsdirRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load i64, ptr %3, align 8, !tbaa !789
   store i64 %4, ptr %1, align 8, !tbaa !23
@@ -39082,7 +39082,7 @@ define internal i32 @completionConnect(ptr noundef %0, ptr readnone captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @completionBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #31 {
+define internal noundef range(i32 0, 1) i32 @completionBestIndex(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #31 {
   %3 = load i32, ptr %1, align 8, !tbaa !715
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph.preheader, label %.thread
@@ -39182,7 +39182,7 @@ define internal noundef i32 @completionBestIndex(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @completionDisconnect(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @completionDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #44
   ret i32 0
 }
@@ -39208,7 +39208,7 @@ define internal range(i32 0, 8) i32 @completionOpen(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @completionClose(ptr noundef initializes((16, 24), (76, 80)) %0) #1 {
+define internal noundef range(i32 0, 1) i32 @completionClose(ptr noundef initializes((16, 24), (76, 80)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !801
   tail call void @sqlite3_free(ptr noundef %3) #44
@@ -39573,7 +39573,7 @@ define internal range(i32 0, 2) i32 @completionEof(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @completionColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal noundef range(i32 0, 1) i32 @completionColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   switch i32 %2, label %18 [
     i32 0, label %4
     i32 1, label %9
@@ -39612,7 +39612,7 @@ define internal noundef i32 @completionColumn(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @completionRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @completionRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !tbaa !808
   store i64 %4, ptr %1, align 8, !tbaa !23
@@ -40188,7 +40188,7 @@ define internal i32 @apndSync(ptr noundef %0, i32 noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @apndFileSize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @apndFileSize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !815
   %5 = icmp sgt i64 %4, -1
@@ -40583,7 +40583,7 @@ define internal range(i32 0, 20) i32 @zipfileBestIndex(ptr readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zipfileDisconnect(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @zipfileDisconnect(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !827
   %.not.i = icmp eq ptr %3, null
@@ -40647,7 +40647,7 @@ define internal range(i32 0, 8) i32 @zipfileOpen(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zipfileClose(ptr noundef initializes((16, 17)) %0) #1 {
+define internal noundef range(i32 0, 1) i32 @zipfileClose(ptr noundef initializes((16, 17)) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !840
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8, !tbaa !841
@@ -44489,7 +44489,7 @@ idxMalloc.exit.thread:                            ; preds = %2, %._crit_edge94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @expertDisconnect(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @expertDisconnect(ptr noundef %0) #1 {
   tail call void @sqlite3_free(ptr noundef %0) #44
   ret i32 0
 }
@@ -44511,7 +44511,7 @@ idxMalloc.exit:                                   ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @expertClose(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @expertClose(ptr noundef %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !937
   %4 = tail call i32 @sqlite3_finalize(ptr noundef %3) #44
@@ -44589,7 +44589,7 @@ define internal range(i32 0, 2) i32 @expertEof(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @expertColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal noundef range(i32 0, 1) i32 @expertColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !937
   %6 = tail call ptr @sqlite3_column_value(ptr noundef %5, i32 noundef %2) #44
@@ -44605,13 +44605,13 @@ define internal noundef i32 @expertColumn(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @expertRowid(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #33 {
+define internal noundef range(i32 0, 1) i32 @expertRowid(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #33 {
   store i64 0, ptr %1, align 8, !tbaa !23
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @expertUpdate(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 {
+define internal noundef range(i32 0, 1) i32 @expertUpdate(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #5 {
   ret i32 0
 }
 
@@ -45106,7 +45106,7 @@ define internal fastcc ptr @idxAppendColDefn(ptr noundef nonnull captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @countNonzeros(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #29 {
+define internal noundef range(i32 0, 1) i32 @countNonzeros(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #29 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %6, label %15
 
@@ -47404,7 +47404,7 @@ define internal range(i32 0, 20) i32 @dbdataBestIndex(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbdataDisconnect(ptr noundef %0) #1 {
+define internal noundef range(i32 0, 1) i32 @dbdataDisconnect(ptr noundef %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -47438,7 +47438,7 @@ define internal range(i32 0, 8) i32 @dbdataOpen(ptr noundef %0, ptr noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbdataClose(ptr noundef initializes((16, 20), (40, 48), (72, 88), (96, 100)) %0) #1 {
+define internal noundef range(i32 0, 1) i32 @dbdataClose(ptr noundef initializes((16, 20), (40, 48), (72, 88), (96, 100)) %0) #1 {
   %2 = load ptr, ptr %0, align 8, !tbaa !969
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !968
@@ -48455,7 +48455,7 @@ define internal range(i32 0, 2) i32 @dbdataEof(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dbdataColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal noundef range(i32 0, 1) i32 @dbdataColumn(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !848
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load i32, ptr %5, align 8, !tbaa !966
@@ -48833,7 +48833,7 @@ dbdataValueBytes.exit.i:                          ; preds = %switch.lookup, %117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @dbdataRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
+define internal noundef range(i32 0, 1) i32 @dbdataRowid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8, !tbaa !982
   store i64 %4, ptr %1, align 8, !tbaa !23
@@ -49711,13 +49711,13 @@ define internal i32 @recoverVfsShmUnmap(ptr noundef %0, i32 noundef %1) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @recoverVfsFetch(ptr readnone captures(none) %0, i64 %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #33 {
+define internal noundef range(i32 0, 1) i32 @recoverVfsFetch(ptr readnone captures(none) %0, i64 %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #33 {
   store ptr null, ptr %3, align 8, !tbaa !387
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @recoverVfsUnfetch(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #5 {
+define internal noundef range(i32 0, 1) i32 @recoverVfsUnfetch(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #5 {
   ret i32 0
 }
 
@@ -51319,7 +51319,7 @@ define internal fastcc ptr @readFile(ptr noundef %0, ptr noundef writeonly captu
 declare i32 @sqlite3_deserialize(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @safeModeAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
+define internal noundef range(i32 0, 1) i32 @safeModeAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #1 {
   switch i32 %1, label %.loopexit [
     i32 24, label %7
     i32 31, label %.preheader
@@ -52213,7 +52213,7 @@ hexDigitValue.exit.thread:                        ; preds = %switch.early.test, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @shellAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
+define internal noundef range(i32 0, 1) i32 @shellAuth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #1 {
   %7 = alloca [4 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %2, ptr %7, align 16, !tbaa !29
@@ -53739,7 +53739,7 @@ define internal fastcc void @expertDotCommand(ptr noundef nonnull captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #1 {
+define internal noundef range(i32 0, 1) i32 @callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #1 {
   tail call fastcc void @shell_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 0
 }
@@ -55763,7 +55763,7 @@ define internal fastcc void @createSelftestTable(ptr noundef nonnull readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @captureOutputCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #1 {
+define internal noundef range(i32 0, 1) i32 @captureOutputCallback(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.loopexit, label %6
 
@@ -56612,7 +56612,7 @@ declare i32 @sqlite3_busy_timeout(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @sqlite3_trace_v2(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sql_trace_callback(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal noundef range(i32 0, 1) i32 @sql_trace_callback(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8, !tbaa !604
   %7 = icmp eq ptr %6, null
@@ -57218,7 +57218,7 @@ declare i32 @sqlite3_bind_double(ptr noundef, i32 noundef, double noundef) local
 declare i32 @sqlite3_bind_blob(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @recoverSqlCb(ptr noundef readonly captures(none) %0, ptr noundef %1) #16 {
+define internal noundef range(i32 0, 1) i32 @recoverSqlCb(ptr noundef readonly captures(none) %0, ptr noundef %1) #16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !461
   %5 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.311, ptr noundef %1) #44
@@ -57277,7 +57277,7 @@ shellPrepare.exit:                                ; preds = %12, %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #1 {
+define internal noundef range(i32 0, 1) i32 @dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.ShellText, align 8
   %7 = alloca %struct.ShellText, align 8

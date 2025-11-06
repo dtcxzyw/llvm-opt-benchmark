@@ -3106,69 +3106,70 @@ define void @_ZN5folly14AsyncBaseQueue6submitEPNS_11AsyncBaseOpE(ptr noundef non
   %11 = load ptr, ptr %10, align 8, !tbaa !131
   %12 = getelementptr inbounds i8, ptr %11, i64 -32
   %.not.i.i = icmp eq ptr %9, %12
-  br i1 %.not.i.i, label %18, label %_ZNSt16allocator_traitsISaISt8functionIFPN5folly11AsyncBaseOpEvEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
+  br i1 %.not.i.i, label %20, label %_ZNSt16allocator_traitsISaISt8functionIFPN5folly11AsyncBaseOpEvEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
 
 _ZNSt16allocator_traitsISaISt8functionIFPN5folly11AsyncBaseOpEvEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i: ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 0, ptr %15, align 8
-  store i64 %4, ptr %9, align 8, !tbaa !93
-  store ptr @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E9_M_invokeERKSt9_Any_data", ptr %14, align 8, !tbaa !129
-  store ptr @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation", ptr %13, align 8, !tbaa !125
-  %16 = load ptr, ptr %8, align 8, !tbaa !115
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr %17, ptr %8, align 8, !tbaa !115
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
+  %15 = call noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
+  %16 = load ptr, ptr %6, align 8, !tbaa !129
+  store ptr %16, ptr %14, align 8, !tbaa !129
+  %17 = load ptr, ptr %5, align 8, !tbaa !125
+  store ptr %17, ptr %13, align 8, !tbaa !125
+  %18 = load ptr, ptr %8, align 8, !tbaa !115
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr %19, ptr %8, align 8, !tbaa !115
   br label %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  invoke void @_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE16_M_push_back_auxIJRKS5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(32) %3)
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  invoke void @_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE16_M_push_back_auxIJRKS5_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %21, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i unwind label %.body
 
-_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i: ; preds = %18, %_ZNSt16allocator_traitsISaISt8functionIFPN5folly11AsyncBaseOpEvEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
+_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i: ; preds = %20, %_ZNSt16allocator_traitsISaISt8functionIFPN5folly11AsyncBaseOpEvEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i.i
   invoke void @_ZN5folly14AsyncBaseQueue12maybeDequeueEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
           to label %_ZN5folly14AsyncBaseQueue6submitESt8functionIFPNS_11AsyncBaseOpEvEE.exit unwind label %.body
 
 _ZN5folly14AsyncBaseQueue6submitESt8functionIFPNS_11AsyncBaseOpEvEE.exit: ; preds = %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i
-  %20 = load ptr, ptr %5, align 8, !tbaa !125
-  %.not.i = icmp eq ptr %20, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %21
+  %22 = load ptr, ptr %5, align 8, !tbaa !125
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %23
 
-21:                                               ; preds = %_ZN5folly14AsyncBaseQueue6submitESt8functionIFPNS_11AsyncBaseOpEvEE.exit
-  %22 = invoke noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %23
+23:                                               ; preds = %_ZN5folly14AsyncBaseQueue6submitESt8functionIFPNS_11AsyncBaseOpEvEE.exit
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %25
 
-23:                                               ; preds = %21
-  %24 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #29
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN5folly14AsyncBaseQueue6submitESt8functionIFPNS_11AsyncBaseOpEvEE.exit, %21
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN5folly14AsyncBaseQueue6submitESt8functionIFPNS_11AsyncBaseOpEvEE.exit, %23
   ret void
 
-.body:                                            ; preds = %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i, %18
-  %26 = landingpad { ptr, i32 }
+.body:                                            ; preds = %_ZNSt5dequeISt8functionIFPN5folly11AsyncBaseOpEvEESaIS5_EE9push_backERKS5_.exit.i, %20
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %27 = load ptr, ptr %5, align 8, !tbaa !125
-  %.not.i4 = icmp eq ptr %27, null
-  br i1 %.not.i4, label %_ZNSt14_Function_baseD2Ev.exit5, label %28
+  %29 = load ptr, ptr %5, align 8, !tbaa !125
+  %.not.i4 = icmp eq ptr %29, null
+  br i1 %.not.i4, label %_ZNSt14_Function_baseD2Ev.exit5, label %30
 
-28:                                               ; preds = %.body
-  %29 = invoke noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit5 unwind label %30
+30:                                               ; preds = %.body
+  %31 = invoke noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit5 unwind label %32
 
-30:                                               ; preds = %28
-  %31 = landingpad { ptr, i32 }
+32:                                               ; preds = %30
+  %33 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #29
+  %34 = extractvalue { ptr, i32 } %33, 0
+  call void @__clang_call_terminate(ptr %34) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %28
-  resume { ptr, i32 } %26
+_ZNSt14_Function_baseD2Ev.exit5:                  ; preds = %.body, %30
+  resume { ptr, i32 } %28
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3246,7 +3247,7 @@ define internal noundef ptr @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFPN5folly11AsyncBaseOpEvEZNS0_14AsyncBaseQueue6submitES2_E3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5folly14AsyncBaseQueue6submitEPNS1_11AsyncBaseOpEE3$_0E10_M_managerERSt9_Any_dataRKS7_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -3835,7 +3836,7 @@ define internal void @"_ZN5folly6detail8function5call_IZNS_14AsyncBaseQueue12may
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @"_ZN5folly6detail8function11DispatchBig4execIZNS_14AsyncBaseQueue12maybeDequeueEvE3$_0EEmNS1_2OpEPNS1_4DataES8_"(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #2 align 2 {
+define internal noundef range(i64 80, 81) i64 @"_ZN5folly6detail8function11DispatchBig4execIZNS_14AsyncBaseQueue12maybeDequeueEvE3$_0EEmNS1_2OpEPNS1_4DataES8_"(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #2 align 2 {
   switch i32 %0, label %15 [
     i32 0, label %4
     i32 1, label %6

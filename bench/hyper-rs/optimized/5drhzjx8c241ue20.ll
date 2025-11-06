@@ -184,17 +184,17 @@ define noundef zeroext i1 @_ZN5hyper5error5Error11is_canceled17h3a95d1757eae4a46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN5hyper5error5Error9is_closed17he5a5f77943b20da0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
+define noundef zeroext range(i1 0, -1) i1 @_ZN5hyper5error5Error9is_closed17he5a5f77943b20da0E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN5hyper5error5Error21is_incomplete_message17h8099e92179246fd2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
+define noundef zeroext range(i1 0, -1) i1 @_ZN5hyper5error5Error21is_incomplete_message17h8099e92179246fd2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN5hyper5error5Error21is_body_write_aborted17h1f0b3ca02fc6815fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
+define noundef zeroext range(i1 0, -1) i1 @_ZN5hyper5error5Error21is_body_write_aborted17h1f0b3ca02fc6815fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #5 {
   ret i1 false
 }
 
@@ -517,22 +517,22 @@ _ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN94_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..method..InvalidMethod$GT$$GT$4from17h559b5139aab37632E"() unnamed_addr #5 {
+define noundef range(i8 0, 1) i8 @"_ZN94_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..method..InvalidMethod$GT$$GT$4from17h559b5139aab37632E"() unnamed_addr #5 {
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN98_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..status..InvalidStatusCode$GT$$GT$4from17h9f21264987c50c1cE"() unnamed_addr #5 {
+define noundef range(i8 2, 3) i8 @"_ZN98_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..status..InvalidStatusCode$GT$$GT$4from17h9f21264987c50c1cE"() unnamed_addr #5 {
   ret i8 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN88_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..uri..InvalidUri$GT$$GT$4from17h2b9f097108d0c931E"(i8 noundef %0) unnamed_addr #5 {
+define noundef range(i8 1, 2) i8 @"_ZN88_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..uri..InvalidUri$GT$$GT$4from17h2b9f097108d0c931E"(i8 noundef %0) unnamed_addr #5 {
   ret i8 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef i8 @"_ZN93_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..uri..InvalidUriParts$GT$$GT$4from17h87aa20c0d1c11b47E"(i8 noundef %0) unnamed_addr #5 {
+define noundef range(i8 1, 2) i8 @"_ZN93_$LT$hyper..error..Parse$u20$as$u20$core..convert..From$LT$http..uri..InvalidUriParts$GT$$GT$4from17h87aa20c0d1c11b47E"(i8 noundef %0) unnamed_addr #5 {
   ret i8 1
 }
 

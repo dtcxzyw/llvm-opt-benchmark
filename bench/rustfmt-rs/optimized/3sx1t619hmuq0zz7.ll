@@ -7586,7 +7586,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17hfb7e722a243a34f3E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 {
+define internal noundef range(i128 -106355411369418660168064328943368459870, -106355411369418660168064328943368459869) i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17hfb7e722a243a34f3E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 {
   ret i128 -106355411369418660168064328943368459870
 }
 
@@ -7602,7 +7602,7 @@ define internal { ptr, i64 } @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17he696bfb04ee80346E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #8 {
+define hidden noundef range(i128 -3011075744290844973410273712836543551, -3011075744290844973410273712836543550) i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17he696bfb04ee80346E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #8 {
   ret i128 -3011075744290844973410273712836543551
 }
 
@@ -9370,7 +9370,7 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h69f185b7d7f36108E.llvm.9097680112167513710"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #6 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @"_ZN4core3cmp5impls59_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$$LP$$RP$$GT$2eq17h69f185b7d7f36108E.llvm.9097680112167513710"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1) unnamed_addr #6 {
   ret i1 true
 }
 
@@ -14612,22 +14612,22 @@ define internal void @_ZN4core5error5Error7provide17ha681f76d74a66d79E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN4core5error5Error7type_id17h12e13aa68c32275aE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
+define internal noundef range(i128 -160801153614971999520238044150150024292, -160801153614971999520238044150150024291) i128 @_ZN4core5error5Error7type_id17h12e13aa68c32275aE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
   ret i128 -160801153614971999520238044150150024292
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN4core5error5Error7type_id17h3a837f5942766d31E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
+define internal noundef range(i128 -75830239777244272428078731102167420456, -75830239777244272428078731102167420455) i128 @_ZN4core5error5Error7type_id17h3a837f5942766d31E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
   ret i128 -75830239777244272428078731102167420456
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN4core5error5Error7type_id17h73c9dc803536f25cE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
+define internal noundef range(i128 162891727346842291855137646579817399037, 162891727346842291855137646579817399038) i128 @_ZN4core5error5Error7type_id17h73c9dc803536f25cE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
   ret i128 162891727346842291855137646579817399037
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN4core5error5Error7type_id17hee1851edba76d695E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
+define internal noundef range(i128 -49484255590571497175163467436125946506, -49484255590571497175163467436125946505) i128 @_ZN4core5error5Error7type_id17hee1851edba76d695E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #8 {
   ret i128 -49484255590571497175163467436125946506
 }
 
@@ -41124,7 +41124,7 @@ define void @"_ZN154_$LT$rustfmt_nightly..config..options..__define_config_type_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN154_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_BraceStyle..BraceStyle$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17h75ffd15f579737f7E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
+define noundef zeroext range(i1 -1, 0) i1 @"_ZN154_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_BraceStyle..BraceStyle$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17h75ffd15f579737f7E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
   ret i1 true
 }
 
@@ -41301,7 +41301,7 @@ define void @"_ZN156_$LT$rustfmt_nightly..config..options..__define_config_type_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef zeroext i1 @"_ZN156_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_IndentStyle..IndentStyle$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17heccdf059f9c7d9feE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
+define noundef zeroext range(i1 -1, 0) i1 @"_ZN156_$LT$rustfmt_nightly..config..options..__define_config_type_on_enum_IndentStyle..IndentStyle$u20$as$u20$rustfmt_nightly..config..config_type..ConfigType$GT$14stable_variant17heccdf059f9c7d9feE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
   ret i1 true
 }
 

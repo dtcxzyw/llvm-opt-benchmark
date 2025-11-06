@@ -2699,6 +2699,7 @@ entry:
   %agg.tmp.i = alloca %"class.std::function.233", align 8
   %main_script_source_utf8 = alloca %"class.std::basic_string_view", align 8
   %env.addr = alloca ptr, align 8
+  %agg.tmp = alloca %"class.std::function.233", align 8
   store i64 %main_script_source_utf8.coerce0, ptr %main_script_source_utf8, align 8
   %0 = getelementptr inbounds nuw i8, ptr %main_script_source_utf8, i64 8
   store ptr %main_script_source_utf8.coerce1, ptr %0, align 8
@@ -2712,27 +2713,45 @@ do.body3:                                         ; preds = %entry
   unreachable
 
 _ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEEC2ERKS9_.exit.i: ; preds = %entry
+  %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 16
+  %_M_invoker.i = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 24
+  store ptr %env.addr, ptr %agg.tmp, align 8
+  %ref.tmp.sroa.2.0.agg.tmp.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp, i64 8
+  store ptr %main_script_source_utf8, ptr %ref.tmp.sroa.2.0.agg.tmp.sroa_idx, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEZNS4_15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %_M_invoker.i, align 8
+  store ptr @"_ZNSt17_Function_handlerIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEZNS4_15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp.i)
-  tail call void @_ZN4node11Environment15InitializeLibuvEv(ptr noundef nonnull align 8 dereferenceable(2872) %env) #12
-  tail call void @_ZN4node11Environment21InitializeDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(2872) %env) #12
+  call void @_ZN4node11Environment15InitializeLibuvEv(ptr noundef nonnull align 8 dereferenceable(2872) %env) #12
+  call void @_ZN4node11Environment21InitializeDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(2872) %env) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i8 0, i64 16, i1 false)
   %_M_invoker.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 24
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 16
-  store ptr %env.addr, ptr %agg.tmp.i, align 8
-  %agg.tmp.sroa.2.0.agg.tmp.i.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 8
-  store ptr %main_script_source_utf8, ptr %agg.tmp.sroa.2.0.agg.tmp.i.sroa_idx, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEZNS4_15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E9_M_invokeERKSt9_Any_dataS7_", ptr %_M_invoker.i.i, align 8
-  store ptr @"_ZNSt17_Function_handlerIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEZNS4_15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", ptr %_M_manager.i.i.i, align 8
+  %call3.i.i = call noundef zeroext i1 @"_ZNSt17_Function_handlerIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEZNS4_15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 2) #12
+  %1 = load ptr, ptr %_M_invoker.i, align 8
+  store ptr %1, ptr %_M_invoker.i.i, align 8
+  %2 = load ptr, ptr %_M_manager.i.i, align 8
+  store ptr %2, ptr %_M_manager.i.i.i, align 8
   %call.i = call ptr @_ZN4node14StartExecutionEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS3_5ValueEEERKNS_26StartExecutionCallbackInfoEEE(ptr noundef nonnull %env, ptr noundef nonnull %agg.tmp.i) #12
-  %1 = load ptr, ptr %_M_manager.i.i.i, align 8
-  %tobool.not.i.i.i = icmp eq ptr %1, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEED2Ev.exit, label %if.then.i.i.i
+  %_M_manager.i.i3.i = getelementptr inbounds nuw i8, ptr %agg.tmp.i, i64 16
+  %3 = load ptr, ptr %_M_manager.i.i3.i, align 8
+  %tobool.not.i.i.i = icmp eq ptr %3, null
+  br i1 %tobool.not.i.i.i, label %_ZN4node15LoadEnvironmentEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS3_5ValueEEERKNS_26StartExecutionCallbackInfoEEE.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEEC2ERKS9_.exit.i
-  %call.i.i.i = call noundef zeroext i1 %1(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3) #12
+  %call.i.i.i = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, i32 noundef 3) #12
+  br label %_ZN4node15LoadEnvironmentEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS3_5ValueEEERKNS_26StartExecutionCallbackInfoEEE.exit
+
+_ZN4node15LoadEnvironmentEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS3_5ValueEEERKNS_26StartExecutionCallbackInfoEEE.exit: ; preds = %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEEC2ERKS9_.exit.i, %if.then.i.i.i
+  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+  %4 = load ptr, ptr %_M_manager.i.i, align 8
+  %tobool.not.i.i = icmp eq ptr %4, null
+  br i1 %tobool.not.i.i, label %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEED2Ev.exit, label %if.then.i.i2
+
+if.then.i.i2:                                     ; preds = %_ZN4node15LoadEnvironmentEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS3_5ValueEEERKNS_26StartExecutionCallbackInfoEEE.exit
+  %call.i.i = call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i32 noundef 3) #12
   br label %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEED2Ev.exit
 
-_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEED2Ev.exit: ; preds = %_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEEC2ERKS9_.exit.i, %if.then.i.i.i
-  call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp.i)
+_ZNSt8functionIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEED2Ev.exit: ; preds = %_ZN4node15LoadEnvironmentEPNS_11EnvironmentESt8functionIFN2v810MaybeLocalINS3_5ValueEEERKNS_26StartExecutionCallbackInfoEEE.exit, %if.then.i.i2
   ret ptr %call.i
 }
 
@@ -4486,7 +4505,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZN4node9ToV8ValueE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEZNS4_15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFN2v810MaybeLocalINS0_5ValueEEERKN4node26StartExecutionCallbackInfoEEZNS4_15LoadEnvironmentEPNS4_11EnvironmentESt17basic_string_viewIcSt11char_traitsIcEEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #19 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -4555,7 +4574,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvPN4node11EnvironmentENS0_8ExitCodeEEZNS0_21SetProcessExitHandlerES2_OSt8functionIFvS2_iEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFvPN4node11EnvironmentENS0_8ExitCodeEEZNS0_21SetProcessExitHandlerES2_OSt8functionIFvS2_iEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
 entry:
   %__source.val = load ptr, ptr %__source, align 8
   switch i32 %__op, label %sw.epilog [

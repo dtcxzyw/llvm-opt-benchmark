@@ -2581,7 +2581,7 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   %51 = icmp ne i64 %50, 0
   %52 = icmp ne ptr %.011.i, null
   %or.cond = and i1 %51, %52
-  br i1 %or.cond, label %56, label %62
+  br i1 %or.cond, label %56, label %61
 
 .thread48:                                        ; preds = %26
   %53 = zext nneg i32 %1 to i64
@@ -2597,55 +2597,53 @@ _ZN4abslL13GetSynchEventEPKv.exit:                ; preds = %.critedge9.i, %24
   br i1 %.not39, label %.thread50, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
-  %61 = load ptr, ptr %60, align 8, !tbaa !55
-  call void %58(ptr noundef %61)
+  %60 = call fastcc noundef zeroext i1 @_ZZN4abslL14PostSynchEventEPviEN5local4predEPNS_10SynchEventE(ptr noundef nonnull %.011.i)
   br label %.thread50
 
-62:                                               ; preds = %._crit_edge
+61:                                               ; preds = %._crit_edge
   br i1 %25, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit, label %.thread50
 
-.thread50:                                        ; preds = %56, %59, %.thread48, %62
-  %63 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
-  %64 = and i32 %63, 1
-  %.not.i.i.i.i42 = icmp eq i32 %64, 0
+.thread50:                                        ; preds = %56, %59, %.thread48, %61
+  %62 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
+  %63 = and i32 %62, 1
+  %.not.i.i.i.i42 = icmp eq i32 %63, 0
   br i1 %.not.i.i.i.i42, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46: ; preds = %.thread50
-  %65 = or disjoint i32 %63, 1
-  %66 = cmpxchg ptr @_ZN4abslL14synch_event_muE, i32 %63, i32 %65 acquire monotonic, align 4
-  %67 = extractvalue { i32, i1 } %66, 0
-  %.pre.i.i.i47 = and i32 %67, 1
-  %68 = icmp eq i32 %.pre.i.i.i47, 0
-  br i1 %68, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
+  %64 = or disjoint i32 %62, 1
+  %65 = cmpxchg ptr @_ZN4abslL14synch_event_muE, i32 %62, i32 %64 acquire monotonic, align 4
+  %66 = extractvalue { i32, i1 } %65, 0
+  %.pre.i.i.i47 = and i32 %66, 1
+  %67 = icmp eq i32 %.pre.i.i.i47, 0
+  br i1 %67, label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44, label %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43
 
 _ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46, %.thread50
   call void @_ZN4absl13base_internal8SpinLock8SlowLockEv(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE) #29
   br label %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
 
 _ZN4absl13base_internal8SpinLock4LockEv.exit.i44: ; preds = %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.thread.i.i43, %_ZN4absl13base_internal8SpinLock11TryLockImplEv.exit.i.i46
-  %69 = load i32, ptr %.011.i, align 8, !tbaa !44
-  %70 = add nsw i32 %69, -1
-  store i32 %70, ptr %.011.i, align 8, !tbaa !44
-  %71 = icmp eq i32 %70, 0
-  %72 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
-  %73 = and i32 %72, 2
-  %74 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %73 release, align 4
-  %.not4.i.i45 = icmp ult i32 %74, 8
-  br i1 %.not4.i.i45, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %75
+  %68 = load i32, ptr %.011.i, align 8, !tbaa !44
+  %69 = add nsw i32 %68, -1
+  store i32 %69, ptr %.011.i, align 8, !tbaa !44
+  %70 = icmp eq i32 %69, 0
+  %71 = load atomic i32, ptr @_ZN4abslL14synch_event_muE monotonic, align 4
+  %72 = and i32 %71, 2
+  %73 = atomicrmw xchg ptr @_ZN4abslL14synch_event_muE, i32 %72 release, align 4
+  %.not4.i.i45 = icmp ult i32 %73, 8
+  br i1 %.not4.i.i45, label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, label %74
 
-75:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
-  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %74) #29
+74:                                               ; preds = %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
+  call void @_ZN4absl13base_internal8SpinLock10SlowUnlockEj(ptr noundef nonnull align 4 dereferenceable(4) @_ZN4abslL14synch_event_muE, i32 noundef %73) #29
   br label %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
 
-_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %75, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
-  br i1 %71, label %76, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
+_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i: ; preds = %74, %_ZN4absl13base_internal8SpinLock4LockEv.exit.i44
+  br i1 %70, label %75, label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
 
-76:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
+75:                                               ; preds = %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i
   call void @_ZN4absl13base_internal13LowLevelAlloc4FreeEPv(ptr noundef nonnull %.011.i)
   br label %_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit
 
-_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %62, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %76
+_ZN4abslL15UnrefSynchEventEPNS_10SynchEventE.exit: ; preds = %61, %_ZN4absl13base_internal8SpinLock6UnlockEv.exit.i, %75
   ret void
 }
 
@@ -4636,6 +4634,16 @@ declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #22
+
+; Function Attrs: mustprogress uwtable
+define internal fastcc noundef zeroext range(i1 0, -1) i1 @_ZZN4abslL14PostSynchEventEPviEN5local4predEPNS_10SynchEventE(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %3 = load ptr, ptr %2, align 8, !tbaa !54
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %5 = load ptr, ptr %4, align 8, !tbaa !55
+  tail call void %3(ptr noundef %5)
+  ret i1 false
+}
 
 ; Function Attrs: nounwind
 declare i32 @pthread_getschedparam(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #18

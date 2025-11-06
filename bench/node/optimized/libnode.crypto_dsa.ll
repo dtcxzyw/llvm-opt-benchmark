@@ -604,7 +604,7 @@ declare ptr @EVP_PKEY_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @EVP_PKEY_keygen_init(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i16 @_ZN4node6crypto15DsaKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE(i32 %mode, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args, ptr noundef captures(none) %offset, ptr noundef writeonly captures(none) %params) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i16 257, 258) i16 @_ZN4node6crypto15DsaKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE(i32 %mode, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %args, ptr noundef captures(none) %offset, ptr noundef writeonly captures(none) %params) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %offset, align 4
   %cmp.i107 = icmp sgt i32 %0, -1
@@ -762,7 +762,7 @@ declare noundef i32 @_ZNK2v86Uint325ValueEv(ptr noundef nonnull align 1 derefere
 declare noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i16 @_ZN4node6crypto18DSAKeyExportTraits16AdditionalConfigERKN2v820FunctionCallbackInfoINS2_5ValueEEEjPNS0_18DSAKeyExportConfigE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(20) %args, i32 noundef %offset, ptr noundef readnone captures(none) %params) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i16 257, 258) i16 @_ZN4node6crypto18DSAKeyExportTraits16AdditionalConfigERKN2v820FunctionCallbackInfoINS2_5ValueEEEjPNS0_18DSAKeyExportConfigE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(20) %args, i32 noundef %offset, ptr noundef readnone captures(none) %params) local_unnamed_addr #5 align 2 {
 entry:
   ret i16 257
 }
@@ -1161,12 +1161,6 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %call12 = tail call noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr %retval.i.sroa.0.0) #18
   store i32 1, ptr %offset, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE, i64 16), ptr %params, align 8
-  %public_key_encoding.i = getelementptr inbounds nuw i8, ptr %params, i64 8
-  store i8 0, ptr %public_key_encoding.i, align 8
-  %format_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 12
-  store i32 0, ptr %format_.i.i, align 4
-  %type_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 16
-  store i64 0, ptr %type_.i.i, align 8
   %private_key_encoding.i = getelementptr inbounds nuw i8, ptr %params, i64 24
   store i8 0, ptr %private_key_encoding.i, align 8
   %format_.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 28
@@ -1199,6 +1193,8 @@ do.body5.i.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZNK2v820FunctionCa
   unreachable
 
 _ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit: ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+  %type_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 16
+  %public_key_encoding.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   %mutex_.i.i = getelementptr inbounds nuw i8, ptr %params, i64 96
   %_M_refcount.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 104
   store ptr %call5.i.i.i.i.i.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8, !alias.scope !5
@@ -1207,10 +1203,6 @@ _ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit: ; preds = %
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16DsaKeyPairParamsE, i64 16), ptr %params.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %private_key_encoding.i12)
   %call.i = call i16 @_ZN4node6crypto15DsaKeyGenTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEPjPNS0_16KeyPairGenConfigINS0_16DsaKeyPairParamsEEE(i32 poison, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, ptr noundef nonnull %params)
-  %tobool.i.i = trunc i16 %call.i to i1
-  br i1 %tobool.i.i, label %if.end.i13, label %cleanup
-
-if.end.i13:                                       ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit
   %call5.i = call { i64, i64 } @_ZN4node6crypto14ManagedEVPPKey26GetPublicKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextE(ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, i32 noundef 2) #18
   %25 = extractvalue { i64, i64 } %call5.i, 0
   %26 = extractvalue { i64, i64 } %call5.i, 1
@@ -1219,9 +1211,9 @@ if.end.i13:                                       ; preds = %_ZN4node6crypto16Ke
   call void @_ZN4node6crypto14ManagedEVPPKey27GetPrivateKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextE(ptr nonnull sret(%"class.node::NonCopyableMaybe.429") align 8 %private_key_encoding.i12, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, i32 noundef 2) #18
   %27 = load i8, ptr %private_key_encoding.i12, align 8
   %tobool.i7.i = trunc i8 %27 to i1
-  br i1 %tobool.i7.i, label %if.end11.i, label %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
+  br i1 %tobool.i7.i, label %cleanup, label %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
 
-_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i: ; preds = %if.end.i13
+_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i: ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit
   store i8 1, ptr %private_key_encoding.i12, align 8
   %value_.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %private_key_encoding.i, ptr noundef nonnull align 8 dereferenceable(56) %value_.i.i, i64 16, i1 false)
@@ -1235,14 +1227,11 @@ _ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit
   store i8 %frombool.i.i8.i, ptr %passphrase_.i.i, align 8
   %value_3.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i12, i64 40
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value_3.i.i.i) #18
-  br label %if.end11.i
-
-if.end11.i:                                       ; preds = %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i, %if.end.i13
-  %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i12, i64 40
-  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i.i) #18
   br label %cleanup
 
-cleanup:                                          ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit, %if.end11.i
+cleanup:                                          ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit, %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
+  %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i12, i64 40
+  call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i.i) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %private_key_encoding.i12)
   %call17 = call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #20
   %values_.i73 = getelementptr inbounds nuw i8, ptr %args, i64 8

@@ -2871,7 +2871,7 @@ _ZNK4pkpy12NameDictImplIiE7try_getENS_7StrNameE.exit: ; preds = %16, %.lr.ph.i._
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8NameExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZN4pkpy8NameExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3006,7 +3006,7 @@ define noundef zeroext i1 @_ZN4pkpy8NameExpr8emit_delEPNS_15CodeEmitContextE(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy8NameExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZN4pkpy8NameExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -5235,7 +5235,7 @@ define void @_ZN4pkpy10SubscrExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10SubscrExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZN4pkpy10SubscrExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5297,7 +5297,7 @@ define noundef zeroext i1 @_ZN4pkpy10SubscrExpr10emit_storeEPNS_15CodeEmitContex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10SubscrExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZN4pkpy10SubscrExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5333,7 +5333,7 @@ define void @_ZN4pkpy10AttribExpr5emit_EPNS_15CodeEmitContextE(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10AttribExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZN4pkpy10AttribExpr8emit_delEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -5349,7 +5349,7 @@ define noundef zeroext i1 @_ZN4pkpy10AttribExpr8emit_delEPNS_15CodeEmitContextE(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pkpy10AttribExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext range(i1 -1, 0) i1 @_ZN4pkpy10AttribExpr10emit_storeEPNS_15CodeEmitContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

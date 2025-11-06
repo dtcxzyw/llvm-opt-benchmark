@@ -58905,32 +58905,32 @@ define dso_local void @_ZNSt3__17codecvtIcc11__mbstate_tED0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE6do_outERS1_PKcS5_RS5_PcS7_RS7_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %7) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE6do_outERS1_PKcS5_RS5_PcS7_RS7_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %7) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   store ptr %5, ptr %7, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE5do_inERS1_PKcS5_RS5_PcS7_RS7_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %7) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE5do_inERS1_PKcS5_RS5_PcS7_RS7_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5, ptr readnone captures(none) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %7) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   store ptr %5, ptr %7, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE10do_unshiftERS1_PcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE10do_unshiftERS1_PcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 1, 2) i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__17codecvtIcc11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 -1, 0) i1 @_ZNKSt3__17codecvtIcc11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 true
 }
 
@@ -58945,7 +58945,7 @@ define dso_local noundef i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE9do_lengthERS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 1, 2) i32 @_ZNKSt3__17codecvtIcc11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 1
 }
 
@@ -59619,7 +59619,7 @@ _ZNSt3__18__locale12__mb_len_maxB8ne210000EP15__locale_struct.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__17codecvtIwc11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__17codecvtIwc11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -60296,18 +60296,18 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZNSt3__1L13utf8_to_utf16EPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDsc11__mbstate_tE10do_unshiftERS1_PcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__17codecvtIDsc11__mbstate_tE10do_unshiftERS1_PcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDsc11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__17codecvtIDsc11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__17codecvtIDsc11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__17codecvtIDsc11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -60555,7 +60555,7 @@ define internal fastcc noundef i32 @_ZNSt3__1L20utf8_to_utf16_lengthEPKhS1_mmNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDsc11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 4, 5) i32 @_ZNKSt3__17codecvtIDsc11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 4
 }
 
@@ -60615,18 +60615,18 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__17codecvtIDsDu11__mbstate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE10do_unshiftERS1_PDuS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE10do_unshiftERS1_PDuS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !425
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -60637,7 +60637,7 @@ define dso_local noundef i32 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE9do_lengthERS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 4, 5) i32 @_ZNKSt3__17codecvtIDsDu11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 4
 }
 
@@ -61224,18 +61224,18 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZNSt3__1L12utf8_to_ucs4EPKh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDic11__mbstate_tE10do_unshiftERS1_PcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__17codecvtIDic11__mbstate_tE10do_unshiftERS1_PcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDic11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__17codecvtIDic11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__17codecvtIDic11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__17codecvtIDic11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -61467,7 +61467,7 @@ define internal fastcc noundef i32 @_ZNSt3__1L19utf8_to_ucs4_lengthEPKhS1_mmNS_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDic11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 4, 5) i32 @_ZNKSt3__17codecvtIDic11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 4
 }
 
@@ -61642,18 +61642,18 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__17codecvtIDiDu11__mbstate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE10do_unshiftERS1_PDuS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE10do_unshiftERS1_PDuS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !425
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -61664,7 +61664,7 @@ define dso_local noundef i32 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE9do_lengthERS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 4, 5) i32 @_ZNKSt3__17codecvtIDiDu11__mbstate_tE13do_max_lengthEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 4
 }
 
@@ -61725,18 +61725,18 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__114__codecvt_utf8IwE5do_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__114__codecvt_utf8IwE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__114__codecvt_utf8IwE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__114__codecvt_utf8IwE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__114__codecvt_utf8IwE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__114__codecvt_utf8IwE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__114__codecvt_utf8IwE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -62079,18 +62079,18 @@ _ZNSt3__1L12utf8_to_ucs2EPKhS1_RS1_PtS3_RS3_mNS_12codecvt_modeE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__114__codecvt_utf8IDsE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__114__codecvt_utf8IDsE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__114__codecvt_utf8IDsE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__114__codecvt_utf8IDsE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__114__codecvt_utf8IDsE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__114__codecvt_utf8IDsE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -62328,18 +62328,18 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__114__codecvt_utf8IDiE5do_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__114__codecvt_utf8IDiE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__114__codecvt_utf8IDiE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__114__codecvt_utf8IDiE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__114__codecvt_utf8IDiE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__114__codecvt_utf8IDiE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__114__codecvt_utf8IDiE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -62600,18 +62600,18 @@ _ZNSt3__1L15utf16be_to_ucs4EPKhS1_RS1_PjS3_RS3_mNS_12codecvt_modeE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IwLb0EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__115__codecvt_utf16IwLb0EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IwLb0EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__115__codecvt_utf16IwLb0EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__115__codecvt_utf16IwLb0EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__115__codecvt_utf16IwLb0EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -62972,18 +62972,18 @@ _ZNSt3__1L15utf16le_to_ucs4EPKhS1_RS1_PjS3_RS3_mNS_12codecvt_modeE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IwLb1EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__115__codecvt_utf16IwLb1EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IwLb1EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__115__codecvt_utf16IwLb1EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__115__codecvt_utf16IwLb1EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__115__codecvt_utf16IwLb1EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -63270,18 +63270,18 @@ _ZNSt3__1L15utf16be_to_ucs2EPKhS1_RS1_PtS3_RS3_mNS_12codecvt_modeE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDsLb0EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__115__codecvt_utf16IDsLb0EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDsLb0EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__115__codecvt_utf16IDsLb0EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__115__codecvt_utf16IDsLb0EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__115__codecvt_utf16IDsLb0EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -63527,18 +63527,18 @@ _ZNSt3__1L15utf16le_to_ucs2EPKhS1_RS1_PtS3_RS3_mNS_12codecvt_modeE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDsLb1EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__115__codecvt_utf16IDsLb1EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDsLb1EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__115__codecvt_utf16IDsLb1EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__115__codecvt_utf16IDsLb1EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__115__codecvt_utf16IDsLb1EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -63861,18 +63861,18 @@ _ZNSt3__1L15utf16be_to_ucs4EPKhS1_RS1_PjS3_RS3_mNS_12codecvt_modeE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDiLb0EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__115__codecvt_utf16IDiLb0EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDiLb0EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__115__codecvt_utf16IDiLb0EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__115__codecvt_utf16IDiLb0EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__115__codecvt_utf16IDiLb0EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -64233,18 +64233,18 @@ _ZNSt3__1L15utf16le_to_ucs4EPKhS1_RS1_PjS3_RS3_mNS_12codecvt_modeE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDiLb1EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__115__codecvt_utf16IDiLb1EE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__115__codecvt_utf16IDiLb1EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__115__codecvt_utf16IDiLb1EE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__115__codecvt_utf16IDiLb1EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__115__codecvt_utf16IDiLb1EE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -64955,18 +64955,18 @@ define internal fastcc noundef range(i32 0, 3) i32 @_ZNSt3__1L13utf8_to_utf16EPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__120__codecvt_utf8_utf16IwE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__120__codecvt_utf8_utf16IwE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__120__codecvt_utf8_utf16IwE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__120__codecvt_utf8_utf16IwE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__120__codecvt_utf8_utf16IwE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__120__codecvt_utf8_utf16IwE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -65047,18 +65047,18 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__120__codecvt_utf8_utf16ID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__120__codecvt_utf8_utf16IDsE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__120__codecvt_utf8_utf16IDsE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__120__codecvt_utf8_utf16IDsE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__120__codecvt_utf8_utf16IDsE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__120__codecvt_utf8_utf16IDsE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__120__codecvt_utf8_utf16IDsE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 
@@ -65139,18 +65139,18 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNKSt3__120__codecvt_utf8_utf16ID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZNKSt3__120__codecvt_utf8_utf16IDiE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 3, 4) i32 @_ZNKSt3__120__codecvt_utf8_utf16IDiE10do_unshiftER11__mbstate_tPcS4_RS4_(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #25 align 2 {
   store ptr %2, ptr %4, align 8, !tbaa !72
   ret i32 3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNKSt3__120__codecvt_utf8_utf16IDiE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef range(i32 0, 1) i32 @_ZNKSt3__120__codecvt_utf8_utf16IDiE11do_encodingEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNKSt3__120__codecvt_utf8_utf16IDiE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNKSt3__120__codecvt_utf8_utf16IDiE16do_always_noconvEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   ret i1 false
 }
 

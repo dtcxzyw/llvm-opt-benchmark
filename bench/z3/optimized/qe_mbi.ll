@@ -5406,87 +5406,88 @@ define hidden void @_ZN2qe9uflia_mbi11order_avarsER10ref_vectorI3app11ast_manage
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
-  store ptr @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9uflia_mbi11order_avarsER10ref_vectorIS0_11ast_managerEE3$_0E9_M_invokeERKSt9_Any_dataOS1_SE_", ptr %16, align 8, !tbaa !246
-  store ptr @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9uflia_mbi11order_avarsER10ref_vectorIS0_11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %15, align 8, !tbaa !84
-  %17 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0.i.i
-  invoke void @_ZSt4sortIPP3appSt8functionIFbS1_S1_EEEvT_S6_T0_(ptr noundef %8, ptr noundef %17, ptr noundef nonnull %4)
-          to label %18 unwind label %30
+  %17 = call noundef zeroext i1 @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9uflia_mbi11order_avarsER10ref_vectorIS0_11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 2)
+  %18 = load ptr, ptr %6, align 8, !tbaa !246
+  store ptr %18, ptr %16, align 8, !tbaa !246
+  %19 = load ptr, ptr %5, align 8, !tbaa !84
+  store ptr %19, ptr %15, align 8, !tbaa !84
+  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0.i.i
+  invoke void @_ZSt4sortIPP3appSt8functionIFbS1_S1_EEEvT_S6_T0_(ptr noundef %8, ptr noundef %20, ptr noundef nonnull %4)
+          to label %21 unwind label %34
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %15, align 8, !tbaa !84
-  %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit.thread, label %20
+21:                                               ; preds = %14
+  %22 = load ptr, ptr %15, align 8, !tbaa !84
+  %.not.i = icmp eq ptr %22, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %23
 
-20:                                               ; preds = %18
-  %21 = invoke noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %22
+23:                                               ; preds = %21
+  %24 = invoke noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %25
 
-22:                                               ; preds = %20
-  %23 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #25
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #25
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %20
-  %.pre16 = load ptr, ptr %5, align 8, !tbaa !84
-  %.not.i6 = icmp eq ptr %.pre16, null
-  br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %_ZNSt14_Function_baseD2Ev.exit.thread
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %21, %23
+  %28 = load ptr, ptr %5, align 8, !tbaa !84
+  %.not.i6 = icmp eq ptr %28, null
+  br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %29
 
-_ZNSt14_Function_baseD2Ev.exit.thread:            ; preds = %18, %_ZNSt14_Function_baseD2Ev.exit
-  %25 = phi ptr [ %.pre16, %_ZNSt14_Function_baseD2Ev.exit ], [ @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9uflia_mbi11order_avarsER10ref_vectorIS0_11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", %18 ]
-  %26 = invoke noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit7 unwind label %27
+29:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
+  %30 = invoke noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit7 unwind label %31
 
-27:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit.thread
-  %28 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #25
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #25
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit7:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %_ZNSt14_Function_baseD2Ev.exit.thread
+_ZNSt14_Function_baseD2Ev.exit7:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-30:                                               ; preds = %14
-  %31 = landingpad { ptr, i32 }
+34:                                               ; preds = %14
+  %35 = landingpad { ptr, i32 }
           cleanup
-  %32 = load ptr, ptr %15, align 8, !tbaa !84
-  %.not.i8 = icmp eq ptr %32, null
-  br i1 %.not.i8, label %.body.thread, label %33
+  %36 = load ptr, ptr %15, align 8, !tbaa !84
+  %.not.i8 = icmp eq ptr %36, null
+  br i1 %.not.i8, label %.body, label %37
 
-33:                                               ; preds = %30
-  %34 = invoke noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %.body unwind label %35
+37:                                               ; preds = %34
+  %38 = invoke noundef zeroext i1 %36(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
+          to label %.body unwind label %39
 
-35:                                               ; preds = %33
-  %36 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %37 = extractvalue { ptr, i32 } %36, 0
-  call void @__clang_call_terminate(ptr %37) #25
+  %41 = extractvalue { ptr, i32 } %40, 0
+  call void @__clang_call_terminate(ptr %41) #25
   unreachable
 
-.body:                                            ; preds = %33
-  %.pre = load ptr, ptr %5, align 8, !tbaa !84
-  %.not.i10 = icmp eq ptr %.pre, null
-  br i1 %.not.i10, label %_ZNSt14_Function_baseD2Ev.exit11, label %.body.thread
+.body:                                            ; preds = %37, %34
+  %42 = load ptr, ptr %5, align 8, !tbaa !84
+  %.not.i10 = icmp eq ptr %42, null
+  br i1 %.not.i10, label %_ZNSt14_Function_baseD2Ev.exit11, label %43
 
-.body.thread:                                     ; preds = %30, %.body
-  %38 = phi ptr [ %.pre, %.body ], [ @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9uflia_mbi11order_avarsER10ref_vectorIS0_11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", %30 ]
-  %39 = invoke noundef zeroext i1 %38(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit11 unwind label %40
+43:                                               ; preds = %.body
+  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit11 unwind label %45
 
-40:                                               ; preds = %.body.thread
-  %41 = landingpad { ptr, i32 }
+45:                                               ; preds = %43
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %42 = extractvalue { ptr, i32 } %41, 0
-  call void @__clang_call_terminate(ptr %42) #25
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #25
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit11:                 ; preds = %.body, %.body.thread
+_ZNSt14_Function_baseD2Ev.exit11:                 ; preds = %.body, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17583,7 +17584,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9uflia_mbi11order_avarsER10ref_vectorIS0_11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZNSt17_Function_handlerIFbP3appS1_EZN2qe9uflia_mbi11order_avarsER10ref_vectorIS0_11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #19 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN2qe9uflia_mbi11order_avarsER10ref_vectorI3app11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit" [
     i32 0, label %"_ZNSt14_Function_base13_Base_managerIZN2qe9uflia_mbi11order_avarsER10ref_vectorI3app11ast_managerEE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation.exit.sink.split"
     i32 1, label %4

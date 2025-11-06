@@ -29833,7 +29833,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZNK5Catch5Clara6Detail10ParserBase11cardinalityEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 1, 2) i64 @_ZNK5Catch5Clara6Detail10ParserBase11cardinalityEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i64 1
 }
 
@@ -29910,17 +29910,17 @@ define dso_local void @_ZN5Catch5Clara6Detail10ResultBaseD0Ev(ptr nonnull readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch5Clara6Detail8BoundRef11isContainerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNK5Catch5Clara6Detail8BoundRef11isContainerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch5Clara6Detail8BoundRef6isFlagEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNK5Catch5Clara6Detail8BoundRef6isFlagEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch5Clara6Detail16BoundFlagRefBase6isFlagEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext range(i1 -1, 0) i1 @_ZNK5Catch5Clara6Detail16BoundFlagRefBase6isFlagEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
@@ -48260,12 +48260,12 @@ _ZNK5Catch9StringRefeqES0_.exit.i.i.i72.i.i.i:    ; preds = %152
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch16TestCaseTracking8ITracker16isSectionTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNK5Catch16TestCaseTracking8ITracker16isSectionTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch16TestCaseTracking8ITracker18isGeneratorTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext range(i1 0, -1) i1 @_ZNK5Catch16TestCaseTracking8ITracker18isGeneratorTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 false
 }
 
@@ -48884,7 +48884,7 @@ define dso_local noundef zeroext i1 @_ZNK5Catch16TestCaseTracking14SectionTracke
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5Catch16TestCaseTracking14SectionTracker16isSectionTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext range(i1 -1, 0) i1 @_ZNK5Catch16TestCaseTracking14SectionTracker16isSectionTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
@@ -95393,7 +95393,7 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommand
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNK5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0E11isContainerEv"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNK5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0E11isContainerEv"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
@@ -96157,7 +96157,7 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommand
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZNK5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3E11isContainerEv"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZNK5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3E11isContainerEv"(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
@@ -99983,7 +99983,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5Catch6Detail12_GLOBAL__N_110CoutStream9isConsoleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZNK5Catch6Detail12_GLOBAL__N_110CoutStream9isConsoleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
@@ -100131,7 +100131,7 @@ declare { i64, i64 } @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekoffElSt12_
 declare { i64, i64 } @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekposESt4fposI11__mbstate_tESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(64), i64, i64, i32 noundef) unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EE4syncEv(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 1) i32 @_ZN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EE4syncEv(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.1", align 1
   %4 = tail call noundef ptr @_ZNKSt15basic_streambufIcSt11char_traitsIcEE5pbaseEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
@@ -100199,7 +100199,7 @@ declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE9pbackfailEi(ptr
 declare noundef i64 @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EE8overflowEi(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 1) i32 @_ZN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EE8overflowEi(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.1", align 1
   %5 = tail call noundef i32 @_ZN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EE4syncEv(ptr noundef nonnull align 8 dereferenceable(328) %0)
@@ -100301,7 +100301,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch6Detail
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5Catch6Detail12_GLOBAL__N_110CerrStream9isConsoleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZNK5Catch6Detail12_GLOBAL__N_110CerrStream9isConsoleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
@@ -103168,7 +103168,7 @@ _ZN5Catch10Generators20GeneratorUntypedBase11countedNextEv.exit: ; preds = %74, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5Catch10Generators12_GLOBAL__N_116GeneratorTracker18isGeneratorTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZNK5Catch10Generators12_GLOBAL__N_116GeneratorTracker18isGeneratorTrackerEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 

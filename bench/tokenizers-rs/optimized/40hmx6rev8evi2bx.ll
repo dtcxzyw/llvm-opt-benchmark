@@ -1234,7 +1234,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN107_$LT$std..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN113_$LT$rayon..iter..collect..consumer..CollectResult$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$4full17h751cd95f1f3a85beE.llvm.13080012565599917794"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #10 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN113_$LT$rayon..iter..collect..consumer..CollectResult$LT$T$GT$$u20$as$u20$rayon..iter..plumbing..Folder$LT$T$GT$$GT$4full17h751cd95f1f3a85beE.llvm.13080012565599917794"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #10 {
   ret i1 false
 }
 
@@ -3574,12 +3574,12 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17h06d5ed3fe8bb4955E.llv
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h030261aee282fc87E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h030261aee282fc87E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h03f36c04b9dcfff5E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h03f36c04b9dcfff5E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3596,7 +3596,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h10ea92706dd9020eE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h150229b00099e6d9E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h150229b00099e6d9E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3611,7 +3611,7 @@ define hidden noundef i8 @_ZN4core3ops8function6FnOnce9call_once17h1b00117189915
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h2cc29045c121a38bE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h2cc29045c121a38bE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3628,7 +3628,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h3be7de127e5b1176E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h407dce9e4f8680a6E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h407dce9e4f8680a6E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3639,12 +3639,12 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h4ba2c37f6d96a36eE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h4def80f6fb863fcaE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h4def80f6fb863fcaE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h501742fcd4d9320cE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h501742fcd4d9320cE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3666,7 +3666,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h579fe65a28df0785E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h6eed13258877abebE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h6eed13258877abebE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3711,7 +3711,7 @@ define hidden noundef range(i32 0, 1114112) i32 @_ZN4core3ops8function6FnOnce9ca
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h863e33bac8b6eee4E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h863e33bac8b6eee4E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3722,12 +3722,12 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h92b5f36046723d0fE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17h9b1f466431fe3fbdE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17h9b1f466431fe3fbdE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hac92f46eaedb3ef6E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17hac92f46eaedb3ef6E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3767,7 +3767,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hccbeca6752beb21eE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hec168320ce9be249E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17hec168320ce9be249E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3778,12 +3778,12 @@ define hidden noundef nonnull align 8 ptr @_ZN4core3ops8function6FnOnce9call_onc
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hf5f1d008da627596E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17hf5f1d008da627596E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hf63f67671ffce6b7E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17hf63f67671ffce6b7E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -3800,7 +3800,7 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17hfd9f5326827c9c99E.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core3ops8function6FnOnce9call_once17hfdbfa8fb4259f61dE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core3ops8function6FnOnce9call_once17hfdbfa8fb4259f61dE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5398,27 +5398,27 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hae5b1eff44656
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h178399c4d609a97cE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h178399c4d609a97cE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h184b372ba44fb9bbE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h184b372ba44fb9bbE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h1eb2dafe96709f3eE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h1eb2dafe96709f3eE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h1f5d0c447f4dfe6cE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h1f5d0c447f4dfe6cE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h32f92cd1877394e7E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h32f92cd1877394e7E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5429,12 +5429,12 @@ define hidden void @_ZN4core6option6Option4Some17h492d8d5597918b2aE.llvm.1308001
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h58f97a99fddee30bE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h58f97a99fddee30bE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h5cd14b8f7928c61cE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h5cd14b8f7928c61cE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5451,12 +5451,12 @@ define hidden void @_ZN4core6option6Option4Some17h676adb900ddfff95E.llvm.1308001
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h6a4e32dba326561eE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h6a4e32dba326561eE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h6d703b799a205e05E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h6d703b799a205e05E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5466,7 +5466,7 @@ define hidden noundef i8 @_ZN4core6option6Option4Some17h7bcd91a1ce631ca5E.llvm.1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h8153ff24d548793fE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h8153ff24d548793fE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5481,7 +5481,7 @@ define hidden noundef i32 @_ZN4core6option6Option4Some17h8b561882c7aff5c2E.llvm.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17h8c15a97dcc6bcaeaE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17h8c15a97dcc6bcaeaE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5528,7 +5528,7 @@ define hidden void @_ZN4core6option6Option4Some17hbfe969667e9330d1E.llvm.1308001
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17hc6c9a0ec1601342fE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17hc6c9a0ec1601342fE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5551,17 +5551,17 @@ define hidden void @_ZN4core6option6Option4Some17hcbf39c7c5c7cf1e4E.llvm.1308001
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17hd13d9dad8cad57d1E.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17hd13d9dad8cad57d1E.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17hd4b59d500867c6beE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17hd4b59d500867c6beE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN4core6option6Option4Some17hd7e5b9dbff13701fE.llvm.13080012565599917794() unnamed_addr #16 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @_ZN4core6option6Option4Some17hd7e5b9dbff13701fE.llvm.13080012565599917794() unnamed_addr #16 {
   ret i1 true
 }
 
@@ -5871,13 +5871,13 @@ define hidden { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..borrow..Borrow$LT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17had516be32923aa30E"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #9 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17had516be32923aa30E"(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #9 {
   tail call fastcc void @_ZN5alloc6string6String4push17h552cb35310221f05E(ptr noalias noundef align 8 dereferenceable(24) %0, i32 noundef %1)
   ret i1 false
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h7eba1e183ff7be93E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #9 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h7eba1e183ff7be93E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !1344, !noalias !1353, !noundef !7
   %6 = load i64, ptr %0, align 8, !alias.scope !1344, !noalias !1353, !noundef !7

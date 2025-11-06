@@ -5448,12 +5448,12 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN45_$LT$slog..Discard$u20$as$u20$slog..Drain$GT$10is_enabled17h3d6e927b5cce66edE"(ptr noalias nonnull readonly align 1 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZN45_$LT$slog..Discard$u20$as$u20$slog..Drain$GT$10is_enabled17h3d6e927b5cce66edE"(ptr noalias nonnull readonly align 1 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN45_$LT$slog..Discard$u20$as$u20$slog..Drain$GT$3log17hf6303d6f06540715E"(ptr noalias nonnull readonly align 1 captures(none) %0, ptr noalias readonly align 8 captures(none) %1, ptr noalias readonly align 8 captures(none) %2) unnamed_addr #1 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZN45_$LT$slog..Discard$u20$as$u20$slog..Drain$GT$3log17hf6303d6f06540715E"(ptr noalias nonnull readonly align 1 captures(none) %0, ptr noalias readonly align 8 captures(none) %1, ptr noalias readonly align 8 captures(none) %2) unnamed_addr #1 {
   ret i1 false
 }
 
@@ -7423,227 +7423,227 @@ _ZN5alloc5alloc15exchange_malloc17h9bf821feab712ccbE.exit.i: ; preds = %"_ZN5all
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain10is_enabled17h281d56358ebea944E(ptr noalias readonly align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain10is_enabled17h281d56358ebea944E(ptr noalias readonly align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain10is_enabled17hb45d6a0b67c65283E(ptr nonnull readnone align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain10is_enabled17hb45d6a0b67c65283E(ptr nonnull readnone align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain10is_enabled17hfffb0c996b34b1acE(ptr nonnull readnone align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain10is_enabled17hfffb0c996b34b1acE(ptr nonnull readnone align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain15is_info_enabled17h1389085d08b234f2E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain15is_info_enabled17h1389085d08b234f2E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain15is_info_enabled17h5bbeb8fae8b71e73E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain15is_info_enabled17h5bbeb8fae8b71e73E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain15is_info_enabled17h62dd5328655dcb78E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain15is_info_enabled17h62dd5328655dcb78E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain15is_info_enabled17hc718058dc2dd240aE(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain15is_info_enabled17hc718058dc2dd240aE(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain15is_info_enabled17hd214b5db16f319daE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain15is_info_enabled17hd214b5db16f319daE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain15is_info_enabled17hfbd1a7f0451012e0E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain15is_info_enabled17hfbd1a7f0451012e0E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain15is_info_enabled17hfe8378e428748ee5E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain15is_info_enabled17hfe8378e428748ee5E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_debug_enabled17h07bc5ba4df407492E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_debug_enabled17h07bc5ba4df407492E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_debug_enabled17h3d43c4d7102b8bbeE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_debug_enabled17h3d43c4d7102b8bbeE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_debug_enabled17h543562c919eca1dfE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_debug_enabled17h543562c919eca1dfE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_debug_enabled17h5b285343bad16eb8E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain16is_debug_enabled17h5b285343bad16eb8E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_debug_enabled17h9a4a585859393eb3E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_debug_enabled17h9a4a585859393eb3E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_debug_enabled17hc9aeadf8ed9fdfdbE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_debug_enabled17hc9aeadf8ed9fdfdbE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_debug_enabled17he6ad4b7f3d34d7bcE(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain16is_debug_enabled17he6ad4b7f3d34d7bcE(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_error_enabled17h6ebe7fa1e1f8a09bE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_error_enabled17h6ebe7fa1e1f8a09bE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_error_enabled17h71b7a33032e98042E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_error_enabled17h71b7a33032e98042E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_error_enabled17h7ac06f29278191b2E(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain16is_error_enabled17h7ac06f29278191b2E(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_error_enabled17h98fce1894a5c2107E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_error_enabled17h98fce1894a5c2107E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_error_enabled17ha08bc38e57001c76E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_error_enabled17ha08bc38e57001c76E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_error_enabled17ha956e71ae5d3bb4fE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain16is_error_enabled17ha956e71ae5d3bb4fE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_error_enabled17hc67e07b0b2481911E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_error_enabled17hc67e07b0b2481911E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_trace_enabled17h11c8eada3017db32E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_trace_enabled17h11c8eada3017db32E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_trace_enabled17h48d885e5e43eea06E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_trace_enabled17h48d885e5e43eea06E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_trace_enabled17h643b067416eb35bcE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_trace_enabled17h643b067416eb35bcE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_trace_enabled17h733db7426c9ed5ecE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_trace_enabled17h733db7426c9ed5ecE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_trace_enabled17h98602f8b5eaeba88E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain16is_trace_enabled17h98602f8b5eaeba88E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_trace_enabled17hb8f61e1b3cd91513E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain16is_trace_enabled17hb8f61e1b3cd91513E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain16is_trace_enabled17hbaa42905d2c54adeE(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain16is_trace_enabled17hbaa42905d2c54adeE(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain18is_warning_enabled17h23aab5a1d4d70dd9E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain18is_warning_enabled17h23aab5a1d4d70dd9E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain18is_warning_enabled17h2966e1e9eacc90b3E(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain18is_warning_enabled17h2966e1e9eacc90b3E(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain18is_warning_enabled17h55bc589cd7b6ed4aE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain18is_warning_enabled17h55bc589cd7b6ed4aE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain18is_warning_enabled17h90ff477de6865163E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain18is_warning_enabled17h90ff477de6865163E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain18is_warning_enabled17ha158adacea30926aE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain18is_warning_enabled17ha158adacea30926aE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain18is_warning_enabled17haaeef6d0c3df2080E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain18is_warning_enabled17haaeef6d0c3df2080E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain18is_warning_enabled17hd9d60ccb0ad7c560E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain18is_warning_enabled17hd9d60ccb0ad7c560E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain19is_critical_enabled17h05c8c7bf14b4d68aE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain19is_critical_enabled17h05c8c7bf14b4d68aE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain19is_critical_enabled17h0d72c52143d757c7E(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN4slog5Drain19is_critical_enabled17h0d72c52143d757c7E(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain19is_critical_enabled17h2ed38fdfd21504dcE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain19is_critical_enabled17h2ed38fdfd21504dcE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain19is_critical_enabled17h79caf391378f54e4E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain19is_critical_enabled17h79caf391378f54e4E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain19is_critical_enabled17h8325f43fae64e2fdE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain19is_critical_enabled17h8325f43fae64e2fdE(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain19is_critical_enabled17hb3dfd2d7a91ffa00E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain19is_critical_enabled17hb3dfd2d7a91ffa00E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN4slog5Drain19is_critical_enabled17hd1ec31ed1a3d63d6E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @_ZN4slog5Drain19is_critical_enabled17hd1ec31ed1a3d63d6E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
@@ -7808,12 +7808,12 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$erased_serde..ser..Serialize$GT$16er
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17hf5bb6905917aecf1E"(ptr nonnull readnone align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17hf5bb6905917aecf1E"(ptr nonnull readnone align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
   ret i1 true
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17h00c4b209a6d52742E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17h00c4b209a6d52742E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @"_ZN62_$LT$slog_term..FullFormat$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hf8c2725ccf971544E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -7827,7 +7827,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17h0f806f86562e06a7E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17h0f806f86562e06a7E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @"_ZN56_$LT$slog_json..Json$LT$W$GT$$u20$as$u20$slog..Drain$GT$3log17h6bd8eb75011e7385E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -7841,7 +7841,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17h7df701557b716effE"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17h7df701557b716effE"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @"_ZN62_$LT$slog_term..FullFormat$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17h3c7b1d07b6d0ff86E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -7855,7 +7855,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hb2547dafea2b7941E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define hidden noundef zeroext range(i1 0, -1) i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hb2547dafea2b7941E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @"_ZN56_$LT$slog_json..Json$LT$W$GT$$u20$as$u20$slog..Drain$GT$3log17h9300e0a8b43f1619E"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -7869,7 +7869,7 @@ define hidden noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hd60354cc3e944bb3E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hd60354cc3e944bb3E"(ptr noundef nonnull align 8 %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @"_ZN49_$LT$slog_async..Async$u20$as$u20$slog..Drain$GT$3log17h21fb7305439a51c9E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
@@ -8144,12 +8144,12 @@ define internal fastcc void @"_ZN51_$LT$slog..Fuse$LT$D$GT$$u20$as$u20$slog..Dra
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h5848d5ed79f6b566E"(ptr noalias readonly align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h5848d5ed79f6b566E"(ptr noalias readonly align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
   ret i1 false
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h72aedfdf12917577E"(ptr noalias readonly align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$u20$slog..Drain$GT$10is_enabled17h72aedfdf12917577E"(ptr noalias readonly align 8 captures(none) %0, i8 range(i8 0, 6) %1) unnamed_addr #5 {
   ret i1 true
 }
 
@@ -8179,7 +8179,7 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hc76c9a8b10ce10ceE"(ptr noalias readonly align 8 captures(none) %0, ptr noalias readonly align 8 captures(none) %1, ptr noalias readonly align 8 captures(none) %2) unnamed_addr #1 {
+define internal noundef zeroext range(i1 0, -1) i1 @"_ZN57_$LT$alloc..sync..Arc$LT$D$GT$$u20$as$u20$slog..Drain$GT$3log17hc76c9a8b10ce10ceE"(ptr noalias readonly align 8 captures(none) %0, ptr noalias readonly align 8 captures(none) %1, ptr noalias readonly align 8 captures(none) %2) unnamed_addr #1 {
   ret i1 false
 }
 
@@ -8969,7 +8969,7 @@ define internal noundef zeroext i1 @"_ZN59_$LT$slog_async..AsyncError$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN5alloc4sync11data_offset17h5277ecceddaf0e55E(ptr noundef readnone captures(none) %0) unnamed_addr #1 {
+define hidden noundef range(i64 16, 17) i64 @_ZN5alloc4sync11data_offset17h5277ecceddaf0e55E(ptr noundef readnone captures(none) %0) unnamed_addr #1 {
   ret i64 16
 }
 
@@ -11730,7 +11730,7 @@ define hidden void @_ZN5prost8encoding6uint326encode17hd0c85e73106bc75aE(i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZN5tokio2io11async_write10AsyncWrite17is_write_vectored17h76245174aa589b2eE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 {
+define internal noundef zeroext range(i1 0, -1) i1 @_ZN5tokio2io11async_write10AsyncWrite17is_write_vectored17h76245174aa589b2eE(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret i1 false
 }
 
@@ -15067,7 +15067,7 @@ define internal { i64, ptr } @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17hb426757b6e14bb61E"(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #1 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZN89_$LT$tokio..net..tcp..stream..TcpStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17hb426757b6e14bb61E"(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -17561,7 +17561,7 @@ define hidden { i64, ptr } @"_ZN97_$LT$hyper..common..io..rewind..Rewind$LT$T$GT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @"_ZN97_$LT$hyper..common..io..rewind..Rewind$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17h4ed76fa2700392dfE"(ptr noundef nonnull readnone align 8 captures(none) %0) unnamed_addr #1 {
+define hidden noundef zeroext range(i1 -1, 0) i1 @"_ZN97_$LT$hyper..common..io..rewind..Rewind$LT$T$GT$$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17h4ed76fa2700392dfE"(ptr noundef nonnull readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret i1 true
 }
 
@@ -17589,7 +17589,7 @@ define internal { i64, ptr } @"_ZN98_$LT$hyper..server..tcp..addr_stream..AddrSt
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @"_ZN98_$LT$hyper..server..tcp..addr_stream..AddrStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17hd1843cf77610e7e4E"(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
+define internal noundef zeroext range(i1 -1, 0) i1 @"_ZN98_$LT$hyper..server..tcp..addr_stream..AddrStream$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$17is_write_vectored17hd1843cf77610e7e4E"(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #5 {
   ret i1 true
 }
 
@@ -17792,7 +17792,7 @@ common.resume:                                    ; preds = %39, %47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN82_$LT$foundations..telemetry..log..testing..TestLogDrain$u20$as$u20$slog..Drain$GT$3log17h9704b5f8ac44202eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef zeroext range(i1 0, -1) i1 @"_ZN82_$LT$foundations..telemetry..log..testing..TestLogDrain$u20$as$u20$slog..Drain$GT$3log17h9704b5f8ac44202eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [16 x i8], align 8
   %6 = alloca [16 x i8], align 8

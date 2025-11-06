@@ -126,7 +126,7 @@ define dso_local range(i32 1, 0) i32 @onig_get_parse_depth_limit() local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @onig_set_parse_depth_limit(i32 noundef %0) local_unnamed_addr #1 {
+define dso_local noundef range(i32 0, 1) i32 @onig_set_parse_depth_limit(i32 noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq i32 %0, 0
   %. = select i1 %2, i32 4096, i32 %0
   store i32 %., ptr @ParseDepthLimit, align 4, !tbaa !8
@@ -432,7 +432,7 @@ define dso_local i32 @onig_st_lookup_callout_name_table(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onig_names_free(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 1) i32 @onig_names_free(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %2, align 8, !tbaa !27
   %.not.i = icmp eq ptr %.val, null
@@ -534,7 +534,7 @@ define internal range(i32 0, 2) i32 @i_names(i64 %0, i64 noundef %1, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onig_renumber_name_table(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 1) i32 @onig_renumber_name_table(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %.not = icmp eq ptr %4, null
@@ -550,7 +550,7 @@ define dso_local noundef i32 @onig_renumber_name_table(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @i_renumber_name(i64 %0, i64 noundef %1, i64 noundef %2) #11 {
+define internal noundef range(i32 0, 1) i32 @i_renumber_name(i64 %0, i64 noundef %1, i64 noundef %2) #11 {
   %4 = inttoptr i64 %1 to ptr
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 12
@@ -1507,7 +1507,7 @@ define dso_local ptr @onig_get_callout_name_by_name_id(i32 noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onig_global_callout_names_free() local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 1) i32 @onig_global_callout_names_free() local_unnamed_addr #2 {
   %1 = load ptr, ptr @GlobalCalloutNameList, align 8, !tbaa !4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %free_callout_func_list.exit, label %2
@@ -1642,7 +1642,7 @@ define dso_local range(i32 0, 2) i32 @onig_callout_tag_is_exist_at_callout_num(p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onig_callout_tag_table_free(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 1) i32 @onig_callout_tag_table_free(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -2087,7 +2087,7 @@ node_new_bag.exit:                                ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @onig_node_reset_fail(ptr noundef captures(address) %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 1) i32 @onig_node_reset_fail(ptr noundef captures(address) %0) local_unnamed_addr #2 {
   tail call fastcc void @node_free_body(ptr noundef %0)
   store i32 10, ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2334,7 +2334,7 @@ define dso_local void @onig_node_str_clear(ptr noundef %0, i32 noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef range(i32 -5, 1) i32 @onig_node_reset_empty(ptr noundef %0) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 1) i32 @onig_node_reset_empty(ptr noundef %0) local_unnamed_addr #2 {
   tail call fastcc void @node_free_body(ptr noundef %0)
   store i32 0, ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3254,7 +3254,7 @@ define dso_local void @onig_scan_env_set_error_string(ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @i_free_name_entry(i64 noundef %0, i64 noundef %1, i64 %2) #14 {
+define internal noundef range(i32 2, 3) i32 @i_free_name_entry(i64 noundef %0, i64 noundef %1, i64 %2) #14 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load ptr, ptr %4, align 8, !tbaa !37
   tail call void @free(ptr noundef %5) #25
@@ -3281,7 +3281,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @i_free_callout_name_entry(i64 noundef %0, i64 noundef %1, i64 %2) #14 {
+define internal noundef range(i32 2, 3) i32 @i_free_callout_name_entry(i64 noundef %0, i64 noundef %1, i64 %2) #14 {
   %4 = inttoptr i64 %1 to ptr
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %7, label %5
@@ -3299,7 +3299,7 @@ define internal noundef i32 @i_free_callout_name_entry(i64 noundef %0, i64 nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @i_free_callout_tag_entry(i64 noundef %0, i64 %1, i64 %2) #14 {
+define internal noundef range(i32 2, 3) i32 @i_free_callout_tag_entry(i64 noundef %0, i64 %1, i64 %2) #14 {
   %4 = inttoptr i64 %0 to ptr
   tail call void @free(ptr noundef %4) #25
   ret i32 2
@@ -18169,7 +18169,7 @@ declare i32 @onig_is_code_in_cc(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare i32 @onigenc_unicode_fold1_key(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @i_callout_callout_list_set(i64 %0, i64 noundef %1, i64 noundef %2) #20 {
+define internal noundef range(i32 0, 1) i32 @i_callout_callout_list_set(i64 %0, i64 noundef %1, i64 noundef %2) #20 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !92

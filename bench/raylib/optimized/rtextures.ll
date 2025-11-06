@@ -1796,12 +1796,12 @@ stbi__start_file.exit:                            ; preds = %26, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @stbi_is_hdr_from_memory(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden noundef range(i32 0, 1) i32 @stbi_is_hdr_from_memory(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @stbi_is_hdr(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define hidden noundef range(i32 0, 1) i32 @stbi_is_hdr(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = tail call noalias noundef ptr @fopen(ptr noundef readonly %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %3
@@ -1815,12 +1815,12 @@ define hidden noundef i32 @stbi_is_hdr(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @stbi_is_hdr_from_file(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
+define hidden noundef range(i32 0, 1) i32 @stbi_is_hdr_from_file(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @stbi_is_hdr_from_callbacks(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
+define hidden noundef range(i32 0, 1) i32 @stbi_is_hdr_from_callbacks(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 {
   ret i32 0
 }
 
@@ -9961,7 +9961,7 @@ define hidden void @stbir_set_buffer_ptrs(ptr noundef captures(none) initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @stbir_set_edgemodes(ptr noundef writeonly captures(none) initializes((120, 124), (152, 160)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
+define hidden noundef range(i32 1, 2) i32 @stbir_set_edgemodes(ptr noundef writeonly captures(none) initializes((120, 124), (152, 160)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -9972,7 +9972,7 @@ define hidden noundef i32 @stbir_set_edgemodes(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @stbir_set_filters(ptr noundef writeonly captures(none) initializes((120, 124), (144, 152)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
+define hidden noundef range(i32 1, 2) i32 @stbir_set_filters(ptr noundef writeonly captures(none) initializes((120, 124), (144, 152)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -9983,7 +9983,7 @@ define hidden noundef i32 @stbir_set_filters(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @stbir_set_filter_callbacks(ptr noundef writeonly captures(none) initializes((120, 124), (160, 192)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #17 {
+define hidden noundef range(i32 1, 2) i32 @stbir_set_filter_callbacks(ptr noundef writeonly captures(none) initializes((120, 124), (160, 192)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #17 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -9998,7 +9998,7 @@ define hidden noundef i32 @stbir_set_filter_callbacks(ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @stbir_set_pixel_layouts(ptr noundef writeonly captures(none) initializes((120, 124), (128, 136)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
+define hidden noundef range(i32 1, 2) i32 @stbir_set_pixel_layouts(ptr noundef writeonly captures(none) initializes((120, 124), (128, 136)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -10009,7 +10009,7 @@ define hidden noundef i32 @stbir_set_pixel_layouts(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @stbir_set_non_pm_alpha_speed_over_quality(ptr noundef writeonly captures(none) initializes((116, 124)) %0, i32 noundef %1) local_unnamed_addr #17 {
+define hidden noundef range(i32 1, 2) i32 @stbir_set_non_pm_alpha_speed_over_quality(ptr noundef writeonly captures(none) initializes((116, 124)) %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -42915,7 +42915,7 @@ stbi__zhuffman_decode_slowpath.exit:              ; preds = %72, %66, %52, %49, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @stbiw__outfile(ptr noundef nonnull %0, i32 %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef readonly captures(none) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 4) %9, ptr noundef readonly captures(none) %10, ...) unnamed_addr #4 {
+define internal range(i32 0, 2) i32 @stbiw__outfile(ptr noundef nonnull %0, i32 range(i32 -1, 0) %1, i32 range(i32 -1, 0) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef range(i32 0, 2) %6, ptr noundef readonly captures(none) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 4) %9, ptr noundef readonly captures(none) %10, ...) unnamed_addr #4 {
   %12 = alloca [3 x i8], align 1
   %13 = alloca i32, align 4
   %14 = alloca [1 x %struct.__va_list_tag], align 16
@@ -59080,7 +59080,7 @@ define internal i32 @stbir__edge_wrap_full(i32 noundef %0, i32 noundef %1) #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @stbir__edge_zero_full(i32 %0, i32 %1) #6 {
+define internal noundef range(i32 0, 1) i32 @stbir__edge_zero_full(i32 %0, i32 %1) #6 {
   ret i32 0
 }
 
