@@ -467,12 +467,12 @@ _ZN4llvm7APFloat6getInfERKNS_12fltSemanticsEb.exit15: ; preds = %24, %25
 
 _ZN4llvm7APFloatD2Ev.exit19:                      ; preds = %29, %32, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i8, ptr %33, align 8
-  %35 = and i8 %34, -4
-  %36 = select i1 %2, i8 3, i8 0
-  %37 = or disjoint i8 %36, %35
-  store i8 %37, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %35 = load i8, ptr %34, align 8
+  %36 = and i8 %35, -4
+  %37 = select i1 %2, i8 3, i8 0
+  %38 = or disjoint i8 %37, %35
+  store i8 %38, ptr %33, align 8
   ret void
 }
 
