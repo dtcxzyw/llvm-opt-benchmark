@@ -22623,34 +22623,34 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor20visit_program
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %11 = tail call noundef zeroext i1 @"_ZN118_$LT$chalk_solve..clauses..env_elaborator..EnvElaborator$LT$I$GT$$u20$as$u20$chalk_ir..visit..TypeVisitor$LT$I$GT$$GT$17visit_domain_goal17h8d28d31bfee662a3E.llvm.15095859440380444305"(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %10, i32 noundef %9), !noalias !5895
   tail call void %8(ptr noundef nonnull align 1 %4), !noalias !5898
-  %12 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$10goals_data17ha93cba72b34a8460E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !5904
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = extractvalue { ptr, i64 } %12, 1
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
-  %16 = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
-  br i1 %17, label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit", label %18
+  %13 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$10goals_data17ha93cba72b34a8460E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !5904
+  %14 = extractvalue { ptr, i64 } %13, 0
+  %15 = extractvalue { ptr, i64 } %13, 1
+  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %17 = icmp ne ptr %14, null
+  tail call void @llvm.assume(i1 %17)
+  %18 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
+  br i1 %18, label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit", label %19
 
-18:                                               ; preds = %3
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
+19:                                               ; preds = %3
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5905)
-  %20 = load ptr, ptr %0, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !748, !noundef !9
-  %21 = load ptr, ptr %5, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !30, !noundef !9
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 176
-  %23 = load ptr, ptr %22, align 8, !invariant.load !9, !noalias !5912, !nonnull !9
-  tail call void %23(ptr noundef nonnull align 1 %20), !noalias !5912
-  %24 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16constraints_data17h0931322a62f4ad89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19), !noalias !5913
-  %25 = extractvalue { ptr, i64 } %24, 0
-  %26 = extractvalue { ptr, i64 } %24, 1
-  %27 = getelementptr inbounds { { i64, [2 x i64] }, ptr }, ptr %25, i64 %26
-  %28 = icmp ne ptr %25, null
-  tail call void @llvm.assume(i1 %28)
-  %29 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917(ptr noundef nonnull %25, ptr noundef nonnull %27, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
+  %21 = load ptr, ptr %0, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !748, !noundef !9
+  %22 = load ptr, ptr %5, align 8, !alias.scope !5905, !noalias !5908, !nonnull !9, !align !30, !noundef !9
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 176
+  %24 = load ptr, ptr %23, align 8, !invariant.load !9, !noalias !5912, !nonnull !9
+  tail call void %23(ptr noundef nonnull align 1 %21), !noalias !5912
+  %25 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16constraints_data17h0931322a62f4ad89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %20), !noalias !5913
+  %26 = extractvalue { ptr, i64 } %25, 0
+  %27 = extractvalue { ptr, i64 } %25, 1
+  %28 = getelementptr inbounds { { i64, [2 x i64] }, ptr }, ptr %26, i64 %27
+  %29 = icmp ne ptr %26, null
+  tail call void @llvm.assume(i1 %29)
+  %30 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917(ptr noundef nonnull %26, ptr noundef nonnull %28, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4c1c81faaf4119674ab18ffb6752df2c.9.llvm.15095859440380444305, i32 noundef %9)
   br label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit"
 
-"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit": ; preds = %3, %18
-  %.0.i.i = phi i1 [ %29, %18 ], [ true, %3 ]
+"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit": ; preds = %3, %19
+  %.0.i.i = phi i1 [ %30, %18 ], [ true, %3 ]
   ret i1 %.0.i.i
 }
 

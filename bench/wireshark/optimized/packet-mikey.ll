@@ -657,32 +657,32 @@ define internal range(i32 9, 0) i32 @dissect_payload_hdr(ptr noundef captures(no
 
 29:                                               ; preds = %8, %4
   %30 = zext i8 %6 to i32
-  %.not61 = icmp eq i8 %6, 0
-  br i1 %.not61, label %._crit_edge, label %.lr.ph
+  %.not66 = icmp eq i8 %6, 0
+  br i1 %.not66, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
-  %.fr62 = freeze i8 %7
-  %31 = icmp eq i8 %.fr62, 0
-  br i1 %31, label %mikey_dissector_lookup.exit.i.us, label %.lr.ph.split
+  %.fr67 = freeze i8 %7
+  %31 = icmp eq i8 %.fr67, 0
+  br i1 %31, label %dissect_payload_cs_id.exit.us, label %.lr.ph.split
 
-mikey_dissector_lookup.exit.i.us:                 ; preds = %.lr.ph, %mikey_dissector_lookup.exit.i.us
-  %.05460.us = phi i32 [ %34, %mikey_dissector_lookup.exit.i.us ], [ 10, %.lr.ph ]
-  %.05659.us = phi i32 [ %35, %mikey_dissector_lookup.exit.i.us ], [ 0, %.lr.ph ]
-  %32 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %.05460.us)
+dissect_payload_cs_id.exit.us:                    ; preds = %.lr.ph, %dissect_payload_cs_id.exit.us
+  %.05463.us = phi i32 [ %34, %mikey_dissector_lookup.exit.i.us ], [ 10, %.lr.ph ]
+  %.05662.us = phi i32 [ %35, %mikey_dissector_lookup.exit.i.us ], [ 0, %.lr.ph ]
+  %32 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %.05463.us)
   %33 = tail call fastcc i32 @dissect_payload_cs_id_srtp(ptr readnone poison, ptr noundef %32, ptr readnone poison, ptr noundef %3)
-  %34 = add nuw nsw i32 %.05460.us, 9
+  %34 = add nuw nsw i32 %.05463.us, 9
   %35 = add nuw nsw i32 %.05659.us, 1
   %exitcond64.not = icmp eq i32 %35, %30
-  br i1 %exitcond64.not, label %._crit_edge, label %mikey_dissector_lookup.exit.i.us, !llvm.loop !8
+  br i1 %exitcond64.not, label %._crit_edge, label %dissect_payload_cs_id.exit.us, !llvm.loop !8
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
+.lr.ph.split:; preds = %.lr.ph, %.lr.ph.split
   %.05659 = phi i32 [ %37, %.lr.ph.split ], [ 0, %.lr.ph ]
   %36 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef 10)
   %37 = add nuw nsw i32 %.05659, 1
   %exitcond.not = icmp eq i32 %37, %30
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %.lr.ph.split, %mikey_dissector_lookup.exit.i.us, %29
+._crit_edge:; preds = %.lr.ph.split, %dissect_payload_cs_id.exit.us, %29
   %.054.lcssa = phi i32 [ 10, %29 ], [ %34, %mikey_dissector_lookup.exit.i.us ], [ 10, %.lr.ph.split ]
   ret i32 %.054.lcssa
 }

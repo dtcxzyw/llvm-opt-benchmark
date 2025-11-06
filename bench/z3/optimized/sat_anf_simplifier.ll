@@ -4060,7 +4060,7 @@ define hidden void @_ZN3sat14anf_simplifier12compile_xorsER10ptr_vectorINS_6clau
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8, !tbaa !313, !range !86, !noundef !87
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %10, label %37
+  br i1 %9, label %10, label %34
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4101,77 +4101,77 @@ _ZNSt8functionIFvRK7svectorIN3sat7literalEjEEEC2ERKS7_.exit.i.i: ; preds = %10
   %.not.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i, label %29, label %24
 
-24:                                               ; preds = %_ZNSt8functionIFvRK7svectorIN3sat7literalEjEEEC2ERKS7_.exit.i.i
+24:; preds = %_ZNSt8functionIFvRK7svectorIN3sat7literalEjEEEC2ERKS7_.exit.i.i
   %25 = invoke noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
           to label %29 unwind label %26
 
-26:                                               ; preds = %24
+26:; preds = %24
   %27 = landingpad { ptr, i32 }
           catch ptr null
-  %28 = extractvalue { ptr, i32 } %27, 0
-  call void @__clang_call_terminate(ptr %28) #28
+  %25 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %25) #28
   unreachable
 
-29:                                               ; preds = %24, %_ZNSt8functionIFvRK7svectorIN3sat7literalEjEEEC2ERKS7_.exit.i.i
+26:                                               ; preds = %24, %_ZNSt8functionIFvRK7svectorIN3sat7literalEjEEEC2ERKS7_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   invoke void @_ZN3sat10xor_finderclER10ptr_vectorINS_6clauseEE(ptr noundef nonnull align 8 dereferenceable(112) %6, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %30 unwind label %39
+          to label %30 unwind label %36
 
-30:                                               ; preds = %29
+27:                                               ; preds = %26
   call void @_ZN3sat10xor_finderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %31 = load ptr, ptr %11, align 8, !tbaa !318
-  %.not.i = icmp eq ptr %31, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %32
+  %28 = load ptr, ptr %11, align 8, !tbaa !318
+  %.not.i = icmp eq ptr %28, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %29
 
-32:                                               ; preds = %30
-  %33 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %34
+29:                                               ; preds = %27
+  %30 = invoke noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %31
 
-34:                                               ; preds = %32
-  %35 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           catch ptr null
-  %36 = extractvalue { ptr, i32 } %35, 0
-  call void @__clang_call_terminate(ptr %36) #28
+  %33 = extractvalue { ptr, i32 } %32, 0
+  call void @__clang_call_terminate(ptr %33) #28
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %30, %32
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %27, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %37
+  br label %34
 
-37:                                               ; preds = %3, %_ZNSt14_Function_baseD2Ev.exit
+34:                                               ; preds = %3, %_ZNSt14_Function_baseD2Ev.exit
   ret void
 
 .thread:                                          ; preds = %10
-  %38 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %41
+  br label %38
 
-39:                                               ; preds = %29
-  %40 = landingpad { ptr, i32 }
+36:                                               ; preds = %26
+  %37 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3sat10xor_finderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6) #27
   %.pre = load ptr, ptr %11, align 8, !tbaa !318
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not.i6 = icmp eq ptr %.pre, null
-  br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %41
+  br i1 %.not.i6, label %_ZNSt14_Function_baseD2Ev.exit7, label %38
 
-41:                                               ; preds = %.thread, %39
-  %.pn13 = phi { ptr, i32 } [ %38, %.thread ], [ %40, %39 ]
-  %42 = phi ptr [ @"_ZNSt17_Function_handlerIFvRK7svectorIN3sat7literalEjEEZNS1_14anf_simplifier12compile_xorsER10ptr_vectorINS1_6clauseEERN2dd6solverEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", %.thread ], [ %.pre, %39 ]
-  %43 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit7 unwind label %44
+38:                                               ; preds = %.thread, %36
+  %.pn13 = phi { ptr, i32 } [ %35, %.thread ], [ %37, %39 ]
+  %39 = phi ptr [ @"_ZNSt17_Function_handlerIFvRK7svectorIN3sat7literalEjEEZNS1_14anf_simplifier12compile_xorsER10ptr_vectorINS1_6clauseEERN2dd6solverEE3$_0E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation", %.thread ], [ %.pre, %39 ]
+  %40 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit7 unwind label %41
 
-44:                                               ; preds = %41
-  %45 = landingpad { ptr, i32 }
+41:                                               ; preds = %38
+  %42 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  call void @__clang_call_terminate(ptr %46) #28
+  %43 = extractvalue { ptr, i32 } %42, 0
+  call void @__clang_call_terminate(ptr %43) #28
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit7:                  ; preds = %39, %41
-  %.pn14 = phi { ptr, i32 } [ %40, %39 ], [ %.pn13, %41 ]
+_ZNSt14_Function_baseD2Ev.exit7:                  ; preds = %36, %38
+  %.pn14 = phi { ptr, i32 } [ %37, %39 ], [ %.pn13, %41 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn14
 }

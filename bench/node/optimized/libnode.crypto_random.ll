@@ -2926,14 +2926,14 @@ if.then.i:                                        ; preds = %_ZN4node11Environme
   %15 = ptrtoint ptr %14 to i64
   %add1.i = add i64 %15, 608
   %16 = inttoptr i64 %add1.i to ptr
-  br label %if.end
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %17 = load ptr, ptr %values_.i, align 8
-  br label %if.end
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
-if.end:                                           ; preds = %if.then.i, %if.end.i
+_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.then.i, %if.end.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
   %call7 = tail call noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr %retval.i.sroa.0.0) #18
   %call8 = call i16 @_ZN4node6crypto17RandomBytesTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17RandomBytesConfigE(i32 poison, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef 1, ptr noundef nonnull %params)
@@ -2971,13 +2971,13 @@ _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %if.end
   %buffer2.i.i.i = getelementptr inbounds nuw i8, ptr %params, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %buffer2.i.i.i, i64 16, i1 false)
   %cmp.i.i = icmp eq i32 %call7, 1
-  br i1 %cmp.i.i, label %if.then.i.i, label %cleanup
+  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_13CryptoJobModeEONS0_17RandomBytesConfigE.exit
 
 if.then.i.i:                                      ; preds = %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(304) %call10) #18
-  br label %cleanup
+  br label %_ZN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_13CryptoJobModeEONS0_17RandomBytesConfigE.exit
 
-cleanup:                                          ; preds = %if.then.i.i, %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
+_ZN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEENS0_13CryptoJobModeEONS0_17RandomBytesConfigE.exit: ; preds = %if.then.i.i, %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEE, i64 16), ptr %call10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_17RandomBytesTraitsEEE, i64 200), ptr %19, align 8
   %out_.i = getelementptr inbounds nuw i8, ptr %call10, i64 272
@@ -6869,14 +6869,14 @@ if.then.i:                                        ; preds = %_ZN4node11Environme
   %15 = ptrtoint ptr %14 to i64
   %add1.i = add i64 %15, 608
   %16 = inttoptr i64 %add1.i to ptr
-  br label %if.end
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
 if.end.i:                                         ; preds = %_ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exit
   %values_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %17 = load ptr, ptr %values_.i, align 8
-  br label %if.end
+  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
 
-if.end:                                           ; preds = %if.then.i, %if.end.i
+_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.then.i, %if.end.i
   %retval.i.sroa.0.0 = phi ptr [ %16, %if.then.i ], [ %17, %if.end.i ]
   %call7 = tail call noundef i32 @_ZN4node6crypto16GetCryptoJobModeEN2v85LocalINS1_5ValueEEE(ptr %retval.i.sroa.0.0) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto16CheckPrimeConfigE, i64 16), ptr %params, align 8
@@ -6922,13 +6922,13 @@ _ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i: ; preds = %if.end
   %21 = load i32, ptr %checks.i, align 8
   store i32 %21, ptr %checks.i.i.i, align 8
   %cmp.i.i = icmp eq i32 %call7, 1
-  br i1 %cmp.i.i, label %cleanup, label %_ZN4node6crypto16CheckPrimeConfigD2Ev.exit
+  br i1 %cmp.i.i, label %if.then.i.i, label %cleanup.thread
 
-cleanup:                                          ; preds = %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
+if.then.i.i:                                      ; preds = %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(304) %call10) #18
-  br label %_ZN4node6crypto16CheckPrimeConfigD2Ev.exit
+  br label %cleanup.thread
 
-_ZN4node6crypto16CheckPrimeConfigD2Ev.exit:       ; preds = %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i, %cleanup
+cleanup.thread:                                   ; preds = %_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc.exit.i.i, %cleanup
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_16CheckPrimeTraitsEEE, i64 16), ptr %call10, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node6crypto13DeriveBitsJobINS0_16CheckPrimeTraitsEEE, i64 200), ptr %19, align 8
   %out_.i = getelementptr inbounds nuw i8, ptr %call10, i64 272

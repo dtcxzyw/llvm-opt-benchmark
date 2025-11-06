@@ -97915,25 +97915,25 @@ define internal fastcc void @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPre
   %.not.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i, label %.body, label %25
 
-25:                                               ; preds = %22
-  %26 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
-          to label %.body unwind label %27
+28:                                               ; preds = %22
+  %29 = invoke noundef zeroext i1 %24(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 3)
+          to label %.body unwind label %_ZNSt14_Function_baseD2Ev.exit
 
-27:                                               ; preds = %25
-  %28 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #37
+  %32 = extractvalue { ptr, i32 } %31, 0
+  call void @__clang_call_terminate(ptr %32) #37
   unreachable
 
-30:                                               ; preds = %4
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %4
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_", ptr %31, align 8, !tbaa !1269
   store ptr @"_ZNSt17_Function_handlerIFSt8optionalIPKN4Luau4TypeEES4_EZZNS1_11TypeChecker7resolveERKNS1_18TypeGuardPredicateERSt13unordered_mapINS1_7VariantIJNS1_6SymbolENS1_5FieldEEEES4_NS1_12LValueHasherESt8equal_toISF_ESaISt4pairIKSF_S4_EEERKSt10shared_ptrINS1_5ScopeEEbENK3$_0clEPFbS4_ES5_EUlS4_E_E10_M_managerERSt9_Any_dataRKSZ_St18_Manager_operation", ptr %20, align 8, !tbaa !236
   invoke void @_ZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EE(ptr noundef nonnull align 8 dereferenceable(2024) %7, ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %17, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %6)
           to label %32 unwind label %45
 
-32:                                               ; preds = %30
+34:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %33 = load ptr, ptr %20, align 8, !tbaa !236
   %.not.i = icmp eq ptr %33, null
   br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %34
@@ -97949,27 +97949,27 @@ define internal fastcc void @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPre
   call void @__clang_call_terminate(ptr %38) #37
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %32, %34
+_ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %32, %34
   %39 = load ptr, ptr %10, align 8, !tbaa !236
   %.not.i5 = icmp eq ptr %39, null
   br i1 %.not.i5, label %_ZNSt14_Function_baseD2Ev.exit6, label %40
 
-40:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
+39:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %41 = invoke noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit6 unwind label %42
 
-42:                                               ; preds = %40
-  %43 = landingpad { ptr, i32 }
+44:                                               ; preds = %40
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %44 = extractvalue { ptr, i32 } %43, 0
-  call void @__clang_call_terminate(ptr %44) #37
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #37
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %_ZNSt14_Function_baseD2Ev.exit, %40
+.body:                                            ; preds = %_ZNSt14_Function_baseD2Ev.exit, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-45:                                               ; preds = %30
+48:                                               ; preds = %30
   %46 = landingpad { ptr, i32 }
           cleanup
   %47 = load ptr, ptr %20, align 8, !tbaa !236
@@ -97987,7 +97987,7 @@ _ZNSt14_Function_baseD2Ev.exit6:                  ; preds = %_ZNSt14_Function_ba
   call void @__clang_call_terminate(ptr %52) #37
   unreachable
 
-.body:                                            ; preds = %48, %45, %25, %22
+_ZNSt14_Function_baseD2Ev.exit10:                 ; preds = %48, %45, %28, %22
   %.pn = phi { ptr, i32 } [ %23, %25 ], [ %23, %22 ], [ %46, %45 ], [ %46, %48 ]
   %53 = load ptr, ptr %10, align 8, !tbaa !236
   %.not.i9 = icmp eq ptr %53, null

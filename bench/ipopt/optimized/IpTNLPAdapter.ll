@@ -7822,7 +7822,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005: ; preds = %119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1003, %106
   %.pn.pn.pn = phi { ptr, i32 } [ %107, %106 ], [ %.pn.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1003 ], [ %.pn.pn, %119 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %3638
+  br label %3639
 
 125:                                              ; preds = %96
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -16447,11 +16447,11 @@ _ZN5Ipopt8SmartPtrIKNS_14SymMatrixSpaceEEaSERKS3_.exit: ; preds = %3605, %3607, 
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   ret i1 true
 
-3638:                                             ; preds = %3636, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005
+3639:                                             ; preds = %3636, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005
   %.pn963.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn963.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %3636 ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005 ]
   resume { ptr, i32 } %.pn963.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
 
-3639:                                             ; preds = %3104, %2706, %739, %647, %523, %385, %341, %310, %279, %248, %217, %105
+3640:                                             ; preds = %3104, %2706, %739, %647, %523, %385, %341, %310, %279, %248, %217, %105
   unreachable
 }
 

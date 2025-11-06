@@ -7269,24 +7269,24 @@ entry:
   %message_type_count_.i = getelementptr inbounds nuw i8, ptr %file, i64 60
   %0 = load i32, ptr %message_type_count_.i, align 4
   %cmp4 = icmp sgt i32 %0, 0
-  br i1 %cmp4, label %for.inc.lr.ph, label %return
+  br i1 %cmp4, label %for.body.lr.ph, label %return
 
-for.inc.lr.ph:                                    ; preds = %entry
+for.body.lr.ph:                                   ; preds = %entry
   %message_types_.i = getelementptr inbounds nuw i8, ptr %file, i64 96
-  br label %for.inc
+  br label %for.cond
 
-for.inc:                                          ; preds = %for.inc.lr.ph, %for.inc
+for.cond:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.inc.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %1 = load ptr, ptr %message_types_.i, align 8
   %add.ptr.i = getelementptr inbounds nuw %"class.google::protobuf::Descriptor", ptr %1, i64 %indvars.iv
   tail call fastcc void @_ZN6google8protobuf8compiler3cppL20HasStringPieceFieldsEPKNS0_10DescriptorERKNS2_7OptionsE(ptr noundef %add.ptr.i)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %2 = load i32, ptr %message_type_count_.i, align 4
-  %3 = sext i32 %2 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %3
-  br i1 %cmp, label %for.inc, label %return, !llvm.loop !186
+  %1 = load i32, ptr %message_type_count_.i, align 4
+  %2 = sext i32 %1 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %2
+  br i1 %cmp, label %for.cond, label %return, !llvm.loop !186
 
-return:                                           ; preds = %for.inc, %entry
+return:                                           ; preds = %for.cond, %entry
   ret i1 false
 }
 

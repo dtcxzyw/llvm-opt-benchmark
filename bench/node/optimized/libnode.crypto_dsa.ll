@@ -1211,7 +1211,7 @@ _ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit: ; preds = %
   call void @_ZN4node6crypto14ManagedEVPPKey27GetPrivateKeyEncodingFromJsERKN2v820FunctionCallbackInfoINS2_5ValueEEEPjNS0_18KeyEncodingContextE(ptr nonnull sret(%"class.node::NonCopyableMaybe.429") align 8 %private_key_encoding.i12, ptr noundef nonnull align 8 dereferenceable(20) %args, ptr noundef nonnull %offset, i32 noundef 2) #18
   %27 = load i8, ptr %private_key_encoding.i12, align 8
   %tobool.i7.i = trunc i8 %27 to i1
-  br i1 %tobool.i7.i, label %cleanup, label %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
+  br i1 %tobool.i7.i, label %if.end11.i, label %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
 
 _ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i: ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit
   store i8 1, ptr %private_key_encoding.i12, align 8
@@ -1227,9 +1227,9 @@ _ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit
   store i8 %frombool.i.i8.i, ptr %passphrase_.i.i, align 8
   %value_3.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i12, i64 40
   %call.i.i.i = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSourceaSEOS1_(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %value_3.i.i.i) #18
-  br label %cleanup
+  br label %if.end11.i
 
-cleanup:                                          ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit, %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
+if.end11.i:                                       ; preds = %_ZN4node6crypto16KeyPairGenConfigINS0_16DsaKeyPairParamsEEC2Ev.exit, %_ZN4node16NonCopyableMaybeINS_6crypto24PrivateKeyEncodingConfigEE7ReleaseEv.exit.i
   %value_.i.i.i.i = getelementptr inbounds nuw i8, ptr %private_key_encoding.i12, i64 40
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_.i.i.i.i) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %private_key_encoding.i12)
