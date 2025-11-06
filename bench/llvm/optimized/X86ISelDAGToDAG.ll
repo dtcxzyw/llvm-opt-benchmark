@@ -22541,8 +22541,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115X86DAGToDAGISel15m
   %38 = load i8, ptr %37, align 2, !tbaa !708, !range !48, !noundef !49
   %39 = trunc nuw i8 %38 to i1
   %.sroa.0191.0.insert.ext = zext nneg i8 %38 to i64
-  %.sroa.0191.1.insert.shift = select i1 %39, i64 256, i64 0
-  %.sroa.0191.1.insert.insert = or disjoint i64 %.sroa.0191.1.insert.shift, %.sroa.0191.0.insert.ext
+  %.sroa.0191.1.insert.insert = select i1 %39, i64 257, i64 0
   %.sroa.0176.1.insert.shift = shl nuw nsw i64 %.sroa.0191.0.insert.ext, 8
   %.sroa.0176.1.insert.insert = or disjoint i64 %.sroa.0176.1.insert.shift, %.sroa.0191.0.insert.ext
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

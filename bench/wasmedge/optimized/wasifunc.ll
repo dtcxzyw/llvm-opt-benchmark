@@ -13695,100 +13695,105 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
 
 29:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
   %30 = and i32 %6, 65535
-  %.not64 = icmp ne i32 %30, 0
-  %.sroa.258.0.extract.trunc = select i1 %.not64, i16 28, i16 0
-  %31 = icmp ugt i32 %5, 1024
-  %or.cond = or i1 %.not64, %31
-  br i1 %or.cond, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
+  %31 = icmp eq i32 %30, 0
+  %.sroa.02.0.insert.insert.i = select i1 %31, i32 1, i32 1835008
+  %.sroa.258.0.extract.shift = lshr i32 %.sroa.02.0.insert.insert.i, 16
+  %.sroa.258.0.extract.trunc = trunc nuw nsw i32 %.sroa.258.0.extract.shift to i16
+  %32 = trunc i32 %.sroa.02.0.insert.insert.i to i1
+  br i1 %32, label %33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-32:                                               ; preds = %29
-  %33 = shl nuw nsw i32 %5, 3
-  %34 = zext i32 %4 to i64
-  %35 = zext nneg i32 %33 to i64
-  %36 = add nuw nsw i64 %35, %34
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = zext i32 %38 to i64
-  %40 = shl nuw nsw i64 %39, 16
-  %.not.i = icmp samesign ule i64 %36, %40
-  %41 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %34
-  %.sroa.0.0.i = select i1 %.not.i, ptr %43, ptr null
-  %.not6579 = icmp eq i32 %5, 0
-  %.not65 = or i1 %.not.i, %.not6579
-  br i1 %.not65, label %44, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+33:                                               ; preds = %29
+  %34 = icmp ugt i32 %5, 1024
+  br i1 %34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %35
 
-44:                                               ; preds = %32
-  %45 = zext i32 %7 to i64
-  %46 = add nuw nsw i64 %45, 4
-  %.not.i36 = icmp samesign ugt i64 %46, %40
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 %45
-  %48 = icmp eq ptr %42, null
-  %49 = select i1 %.not.i36, i1 true, i1 %48
-  br i1 %49, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %50
+35:                                               ; preds = %33
+  %36 = shl nuw nsw i32 %5, 3
+  %37 = zext i32 %4 to i64
+  %38 = zext nneg i32 %36 to i64
+  %39 = add nuw nsw i64 %38, %37
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = zext i32 %41 to i64
+  %43 = shl nuw nsw i64 %42, 16
+  %.not.i = icmp samesign ule i64 %39, %43
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %37
+  %.sroa.0.0.i = select i1 %.not.i, ptr %46, ptr null
+  %.not6478 = icmp eq i32 %5, 0
+  %.not64 = or i1 %.not.i, %.not6478
+  br i1 %.not64, label %47, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-50:                                               ; preds = %44
+47:                                               ; preds = %35
+  %48 = zext i32 %7 to i64
+  %49 = add nuw nsw i64 %48, 4
+  %.not.i36 = icmp samesign ugt i64 %49, %43
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 %48
+  %51 = icmp eq ptr %45, null
+  %52 = select i1 %.not.i36, i1 true, i1 %51
+  br i1 %52, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %53
+
+53:                                               ; preds = %47
   store i64 0, ptr %9, align 8
-  %51 = shl nuw nsw i32 %5, 3
-  %.idx = zext nneg i32 %51 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx
-  %.not67 = icmp eq i32 %5, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %54 = shl nuw nsw i32 %5, 3
+  %.idx = zext nneg i32 %54 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx
+  %.not66 = icmp eq i32 %5, 0
+  br i1 %.not66, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br label %54
+.lr.ph:                                           ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  br label %57
 
-54:                                               ; preds = %.lr.ph, %63
-  %55 = phi i64 [ 0, %.lr.ph ], [ %69, %63 ]
-  %.069 = phi i32 [ 0, %.lr.ph ], [ %65, %63 ]
-  %.03368 = phi ptr [ %.sroa.0.0.i, %.lr.ph ], [ %70, %63 ]
-  %56 = xor i32 %.069, -1
-  %57 = getelementptr inbounds nuw i8, ptr %.03368, i64 4
-  %58 = load i32, ptr %57, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %58, i32 %56)
-  %59 = load i32, ptr %.03368, align 4
-  %60 = zext i32 %59 to i64
-  %61 = zext i32 %spec.select to i64
-  %62 = add nuw nsw i64 %61, %60
-  %.not.i38 = icmp samesign ule i64 %62, %40
-  %.not6680 = icmp eq i32 %spec.select, 0
-  %.not66 = or i1 %.not.i38, %.not6680
-  br i1 %.not66, label %63, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+57:                                               ; preds = %.lr.ph, %66
+  %58 = phi i64 [ 0, %.lr.ph ], [ %72, %66 ]
+  %.068 = phi i32 [ 0, %.lr.ph ], [ %68, %66 ]
+  %.03367 = phi ptr [ %.sroa.0.0.i, %.lr.ph ], [ %73, %66 ]
+  %59 = xor i32 %.068, -1
+  %60 = getelementptr inbounds nuw i8, ptr %.03367, i64 4
+  %61 = load i32, ptr %60, align 4
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %61, i32 %59)
+  %62 = load i32, ptr %.03367, align 4
+  %63 = zext i32 %62 to i64
+  %64 = zext i32 %spec.select to i64
+  %65 = add nuw nsw i64 %64, %63
+  %.not.i38 = icmp samesign ule i64 %65, %43
+  %.not6579 = icmp eq i32 %spec.select, 0
+  %.not65 = or i1 %.not.i38, %.not6579
+  br i1 %.not65, label %66, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-63:                                               ; preds = %54
-  %64 = getelementptr inbounds nuw i8, ptr %42, i64 %60
-  %.sroa.0.0.i39 = select i1 %.not.i38, ptr %64, ptr null
-  %65 = tail call i32 @llvm.uadd.sat.i32(i32 %58, i32 %.069)
-  %66 = icmp samesign ult i64 %55, 1024
-  tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %53, i64 %55
-  store ptr %.sroa.0.0.i39, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i64 %61, ptr %68, align 8
-  %69 = add nuw nsw i64 %55, 1
-  store i64 %69, ptr %9, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.03368, i64 8
-  %.not = icmp eq ptr %70, %52
-  br i1 %.not, label %._crit_edge, label %54
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds nuw i8, ptr %45, i64 %63
+  %.sroa.0.0.i39 = select i1 %.not.i38, ptr %67, ptr null
+  %68 = tail call i32 @llvm.uadd.sat.i32(i32 %61, i32 %.068)
+  %69 = icmp samesign ult i64 %58, 1024
+  tail call void @llvm.assume(i1 %69)
+  %70 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %56, i64 %58
+  store ptr %.sroa.0.0.i39, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i64 %64, ptr %71, align 8
+  %72 = add nuw nsw i64 %58, 1
+  store i64 %72, ptr %9, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %.03367, i64 8
+  %.not = icmp eq ptr %73, %55
+  br i1 %.not, label %._crit_edge, label %57
 
-._crit_edge:                                      ; preds = %63, %50
-  %.val.i = phi i64 [ 0, %50 ], [ %69, %63 ]
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %74 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockSendEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEtRj(ptr noundef nonnull align 8 dereferenceable(344) %72, i32 noundef %3, ptr nonnull %73, i64 %.val.i, i16 noundef zeroext %.sroa.258.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %47) #19
-  %75 = trunc i32 %74 to i1
-  %.sroa.245.0.extract.shift = lshr i32 %74, 16
-  %spec.select82 = select i1 %75, i32 0, i32 %.sroa.245.0.extract.shift
+._crit_edge:                                      ; preds = %66, %53
+  %.val.i = phi i64 [ 0, %53 ], [ %72, %66 ]
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %77 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockSendEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEtRj(ptr noundef nonnull align 8 dereferenceable(344) %75, i32 noundef %3, ptr nonnull %76, i64 %.val.i, i16 noundef zeroext %.sroa.258.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %50) #19
+  %78 = trunc i32 %77 to i1
+  %.sroa.245.0.extract.shift = lshr i32 %77, 16
+  %spec.select81 = select i1 %78, i32 0, i32 %.sroa.245.0.extract.shift
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %54, %._crit_edge, %44, %32, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %29 ], [ 21, %32 ], [ 21, %44 ], [ %spec.select82, %._crit_edge ], [ 21, %54 ]
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %57, %._crit_edge, %47, %35, %33, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, %8
+  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %.sroa.258.0.extract.shift, %29 ], [ 28, %33 ], [ 21, %35 ], [ 21, %47 ], [ %spec.select81, %._crit_edge ], [ 21, %57 ]
   store i8 1, ptr %0, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %76, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %79, align 4
   ret void
 }
 
@@ -13971,8 +13976,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %.not.i49 = icmp samesign ule i64 %50, %38
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 %48
   %.sroa.0.0.i = select i1 %.not.i49, ptr %51, ptr null
-  %.not107 = icmp eq i32 %47, 0
-  %.not = or i1 %.not.i49, %.not107
+  %.not106 = icmp eq i32 %47, 0
+  %.not = or i1 %.not.i49, %.not106
   br i1 %.not, label %52, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 52:                                               ; preds = %43
@@ -13987,96 +13992,101 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
 54:                                               ; preds = %52, %53
   %.0 = phi i8 [ 2, %53 ], [ 1, %52 ]
   %55 = and i32 %8, 65535
-  %.not90 = icmp ne i32 %55, 0
-  %.sroa.277.0.extract.trunc = select i1 %.not90, i16 28, i16 0
-  %56 = icmp ugt i32 %5, 1024
-  %or.cond = or i1 %.not90, %56
-  br i1 %or.cond, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %57
+  %56 = icmp eq i32 %55, 0
+  %.sroa.02.0.insert.insert.i = select i1 %56, i32 1, i32 1835008
+  %.sroa.277.0.extract.shift = lshr i32 %.sroa.02.0.insert.insert.i, 16
+  %.sroa.277.0.extract.trunc = trunc nuw nsw i32 %.sroa.277.0.extract.shift to i16
+  %57 = trunc i32 %.sroa.02.0.insert.insert.i to i1
+  br i1 %57, label %58, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-57:                                               ; preds = %54
-  %58 = shl nuw nsw i32 %5, 3
-  %59 = zext i32 %4 to i64
-  %60 = zext nneg i32 %58 to i64
-  %61 = add nuw nsw i64 %60, %59
-  %.not.i50 = icmp samesign ule i64 %61, %38
-  %62 = getelementptr inbounds nuw i8, ptr %40, i64 %59
-  %.sroa.0.0.i51 = select i1 %.not.i50, ptr %62, ptr null
-  %.not91108 = icmp eq i32 %5, 0
-  %.not91 = or i1 %.not.i50, %.not91108
-  br i1 %.not91, label %63, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+58:                                               ; preds = %54
+  %59 = icmp ugt i32 %5, 1024
+  br i1 %59, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %60
 
-63:                                               ; preds = %57
-  %64 = zext i32 %9 to i64
-  %65 = add nuw nsw i64 %64, 4
-  %.not.i55 = icmp samesign ugt i64 %65, %38
-  %66 = getelementptr inbounds nuw i8, ptr %40, i64 %64
-  br i1 %.not.i55, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %67
+60:                                               ; preds = %58
+  %61 = shl nuw nsw i32 %5, 3
+  %62 = zext i32 %4 to i64
+  %63 = zext nneg i32 %61 to i64
+  %64 = add nuw nsw i64 %63, %62
+  %.not.i50 = icmp samesign ule i64 %64, %38
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 %62
+  %.sroa.0.0.i51 = select i1 %.not.i50, ptr %65, ptr null
+  %.not90107 = icmp eq i32 %5, 0
+  %.not90 = or i1 %.not.i50, %.not90107
+  br i1 %.not90, label %66, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-67:                                               ; preds = %63
+66:                                               ; preds = %60
+  %67 = zext i32 %9 to i64
+  %68 = add nuw nsw i64 %67, 4
+  %.not.i55 = icmp samesign ugt i64 %68, %38
+  %69 = getelementptr inbounds nuw i8, ptr %40, i64 %67
+  br i1 %.not.i55, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %70
+
+70:                                               ; preds = %66
   store i64 0, ptr %11, align 8
-  %68 = shl nuw nsw i32 %5, 3
-  %.idx = zext nneg i32 %68 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i51, i64 %.idx
-  %.not4693 = icmp eq i32 %5, 0
-  br i1 %.not4693, label %._crit_edge, label %.lr.ph
+  %71 = shl nuw nsw i32 %5, 3
+  %.idx = zext nneg i32 %71 to i64
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i51, i64 %.idx
+  %.not4692 = icmp eq i32 %5, 0
+  br i1 %.not4692, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %71
+.lr.ph:                                           ; preds = %70
+  %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br label %74
 
-71:                                               ; preds = %.lr.ph, %80
-  %72 = phi i64 [ 0, %.lr.ph ], [ %86, %80 ]
-  %.04295 = phi i32 [ 0, %.lr.ph ], [ %82, %80 ]
-  %.04394 = phi ptr [ %.sroa.0.0.i51, %.lr.ph ], [ %87, %80 ]
-  %73 = xor i32 %.04295, -1
-  %74 = getelementptr inbounds nuw i8, ptr %.04394, i64 4
-  %75 = load i32, ptr %74, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %75, i32 %73)
-  %76 = load i32, ptr %.04394, align 4
-  %77 = zext i32 %76 to i64
-  %78 = zext i32 %spec.select to i64
-  %79 = add nuw nsw i64 %78, %77
-  %.not.i57 = icmp samesign ule i64 %79, %38
-  %.not92109 = icmp eq i32 %spec.select, 0
-  %.not92 = or i1 %.not.i57, %.not92109
-  br i1 %.not92, label %80, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+74:                                               ; preds = %.lr.ph, %83
+  %75 = phi i64 [ 0, %.lr.ph ], [ %89, %83 ]
+  %.04294 = phi i32 [ 0, %.lr.ph ], [ %85, %83 ]
+  %.04393 = phi ptr [ %.sroa.0.0.i51, %.lr.ph ], [ %90, %83 ]
+  %76 = xor i32 %.04294, -1
+  %77 = getelementptr inbounds nuw i8, ptr %.04393, i64 4
+  %78 = load i32, ptr %77, align 4
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %78, i32 %76)
+  %79 = load i32, ptr %.04393, align 4
+  %80 = zext i32 %79 to i64
+  %81 = zext i32 %spec.select to i64
+  %82 = add nuw nsw i64 %81, %80
+  %.not.i57 = icmp samesign ule i64 %82, %38
+  %.not91108 = icmp eq i32 %spec.select, 0
+  %.not91 = or i1 %.not.i57, %.not91108
+  br i1 %.not91, label %83, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-80:                                               ; preds = %71
-  %81 = getelementptr inbounds nuw i8, ptr %40, i64 %77
-  %.sroa.0.0.i58 = select i1 %.not.i57, ptr %81, ptr null
-  %82 = tail call i32 @llvm.uadd.sat.i32(i32 %75, i32 %.04295)
-  %83 = icmp samesign ult i64 %72, 1024
-  tail call void @llvm.assume(i1 %83)
-  %84 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %70, i64 %72
-  store ptr %.sroa.0.0.i58, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store i64 %78, ptr %85, align 8
-  %86 = add nuw nsw i64 %72, 1
-  store i64 %86, ptr %11, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.04394, i64 8
-  %.not46 = icmp eq ptr %87, %69
-  br i1 %.not46, label %._crit_edge, label %71
+83:                                               ; preds = %74
+  %84 = getelementptr inbounds nuw i8, ptr %40, i64 %80
+  %.sroa.0.0.i58 = select i1 %.not.i57, ptr %84, ptr null
+  %85 = tail call i32 @llvm.uadd.sat.i32(i32 %78, i32 %.04294)
+  %86 = icmp samesign ult i64 %75, 1024
+  tail call void @llvm.assume(i1 %86)
+  %87 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %73, i64 %75
+  store ptr %.sroa.0.0.i58, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
+  store i64 %81, ptr %88, align 8
+  %89 = add nuw nsw i64 %75, 1
+  store i64 %89, ptr %11, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.04393, i64 8
+  %.not46 = icmp eq ptr %90, %72
+  br i1 %.not46, label %._crit_edge, label %74
 
-._crit_edge:                                      ; preds = %80, %67
-  %.val.i = phi i64 [ 0, %67 ], [ %86, %80 ]
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %11, i64 8
+._crit_edge:                                      ; preds = %83, %70
+  %.val.i = phi i64 [ 0, %70 ], [ %89, %83 ]
+  %91 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %92 = load ptr, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.0.0.i, ptr %12, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %49, ptr %91, align 8
-  %92 = trunc i32 %7 to i16
-  %93 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSendToEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(344) %89, i32 noundef %3, ptr nonnull %90, i64 %.val.i, i16 noundef zeroext %.sroa.277.0.extract.trunc, i8 noundef zeroext %.0, ptr noundef nonnull byval(%"struct.cxx20::span.251") align 8 %12, i16 noundef zeroext %92, ptr noundef nonnull align 4 dereferenceable(4) %66) #19
-  %94 = trunc i32 %93 to i1
-  %.sroa.264.0.extract.shift = lshr i32 %93, 16
-  %spec.select111 = select i1 %94, i32 0, i32 %.sroa.264.0.extract.shift
+  %94 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %49, ptr %94, align 8
+  %95 = trunc i32 %7 to i16
+  %96 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSendToEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(344) %92, i32 noundef %3, ptr nonnull %93, i64 %.val.i, i16 noundef zeroext %.sroa.277.0.extract.trunc, i8 noundef zeroext %.0, ptr noundef nonnull byval(%"struct.cxx20::span.251") align 8 %12, i16 noundef zeroext %95, ptr noundef nonnull align 4 dereferenceable(4) %69) #19
+  %97 = trunc i32 %96 to i1
+  %.sroa.264.0.extract.shift = lshr i32 %96, 16
+  %spec.select110 = select i1 %97, i32 0, i32 %.sroa.264.0.extract.shift
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %71, %._crit_edge, %63, %57, %54, %52, %43, %32, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88, %10
-  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %32 ], [ 21, %43 ], [ 28, %52 ], [ 28, %54 ], [ 21, %57 ], [ 21, %63 ], [ %spec.select111, %._crit_edge ], [ 21, %71 ]
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %74, %._crit_edge, %66, %60, %58, %54, %52, %43, %32, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88, %10
+  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread88 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %32 ], [ 21, %43 ], [ 28, %52 ], [ %.sroa.277.0.extract.shift, %54 ], [ 28, %58 ], [ 21, %60 ], [ 21, %66 ], [ %spec.select110, %._crit_edge ], [ 21, %74 ]
   store i8 1, ptr %0, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %95, align 4
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %98, align 4
   ret void
 }
 
@@ -14348,9 +14358,9 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %14
   %19 = load ptr, ptr %18, align 8, !noalias !142
   %20 = load ptr, ptr %17, align 8, !noalias !142
   %.not.i.i.not = icmp eq ptr %19, %20
-  br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
+  br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %21 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %13) #19, !noalias !142
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
@@ -14368,42 +14378,48 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br i1 %27, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %28
 
 28:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
-  %cond.i.not = icmp ne i32 %4, 0
+  %cond.i = icmp eq i32 %4, 0
+  %.sroa.02.0.insert.insert.i = select i1 %cond.i, i64 1, i64 120259084288
+  %.sroa.226.0.extract.shift = lshr i64 %.sroa.02.0.insert.insert.i, 32
+  %29 = trunc i64 %.sroa.02.0.insert.insert.i to i1
+  %30 = trunc nuw nsw i64 %.sroa.226.0.extract.shift to i32
+  br i1 %29, label %31, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+
+31:                                               ; preds = %28
   %switch.i = icmp ugt i32 %5, 14
-  %or.cond = or i1 %cond.i.not, %switch.i
-  br i1 %or.cond, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
+  br i1 %switch.i, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
 
-29:                                               ; preds = %28
-  %30 = zext i32 %6 to i64
-  %31 = zext i32 %7 to i64
-  %32 = add nuw nsw i64 %31, %30
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  %36 = shl nuw nsw i64 %35, 16
-  %.not.i = icmp samesign ule i64 %32, %36
-  %.not36 = icmp eq i32 %7, 0
-  %.not = or i1 %.not.i, %.not36
-  br i1 %.not, label %37, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+32:                                               ; preds = %31
+  %33 = zext i32 %6 to i64
+  %34 = zext i32 %7 to i64
+  %35 = add nuw nsw i64 %34, %33
+  %36 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = zext i32 %37 to i64
+  %39 = shl nuw nsw i64 %38, 16
+  %.not.i = icmp samesign ule i64 %35, %39
+  %.not35 = icmp eq i32 %7, 0
+  %.not = or i1 %.not.i, %.not35
+  br i1 %.not, label %40, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-37:                                               ; preds = %29
-  %38 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %30
-  %.sroa.0.0.i = select i1 %.not.i, ptr %40, ptr null
-  %41 = getelementptr inbounds nuw i8, ptr %1, i64 160
+40:                                               ; preds = %32
+  %41 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %42, i32 noundef %3, i32 noundef 0, i32 noundef %5, ptr %.sroa.0.0.i, i64 %31) #19
-  %44 = trunc i32 %43 to i1
-  %.sroa.216.0.extract.shift = lshr i32 %43, 16
-  %spec.select = select i1 %44, i32 0, i32 %.sroa.216.0.extract.shift
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %33
+  %.sroa.0.0.i = select i1 %.not.i, ptr %43, ptr null
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %45 = load ptr, ptr %44, align 8
+  %46 = tail call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tN5cxx204spanIKhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %45, i32 noundef %3, i32 noundef %30, i32 noundef %5, ptr %.sroa.0.0.i, i64 %34) #19
+  %47 = trunc i32 %46 to i1
+  %.sroa.215.0.extract.shift = lshr i32 %46, 16
+  %spec.select = select i1 %47, i32 0, i32 %.sroa.215.0.extract.shift
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %37, %29, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread31 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %28 ], [ 21, %29 ], [ %spec.select, %37 ]
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %40, %32, %31, %28, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30, %8
+  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread30 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %30, %28 ], [ 28, %31 ], [ 21, %32 ], [ %spec.select, %40 ]
   store i8 1, ptr %0, align 4
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %45, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %48, align 4
   ret void
 }
 
@@ -16522,100 +16538,105 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
 
 29:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
   %30 = and i32 %6, 65535
-  %.not64 = icmp ne i32 %30, 0
-  %.sroa.258.0.extract.trunc = select i1 %.not64, i16 28, i16 0
-  %31 = icmp ugt i32 %5, 1024
-  %or.cond = or i1 %.not64, %31
-  br i1 %or.cond, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %32
+  %31 = icmp eq i32 %30, 0
+  %.sroa.02.0.insert.insert.i = select i1 %31, i32 1, i32 1835008
+  %.sroa.258.0.extract.shift = lshr i32 %.sroa.02.0.insert.insert.i, 16
+  %.sroa.258.0.extract.trunc = trunc nuw nsw i32 %.sroa.258.0.extract.shift to i16
+  %32 = trunc i32 %.sroa.02.0.insert.insert.i to i1
+  br i1 %32, label %33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-32:                                               ; preds = %29
-  %33 = shl nuw nsw i32 %5, 3
-  %34 = zext i32 %4 to i64
-  %35 = zext nneg i32 %33 to i64
-  %36 = add nuw nsw i64 %35, %34
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %38 = load i32, ptr %37, align 4
-  %39 = zext i32 %38 to i64
-  %40 = shl nuw nsw i64 %39, 16
-  %.not.i = icmp samesign ule i64 %36, %40
-  %41 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %34
-  %.sroa.0.0.i = select i1 %.not.i, ptr %43, ptr null
-  %.not6579 = icmp eq i32 %5, 0
-  %.not65 = or i1 %.not.i, %.not6579
-  br i1 %.not65, label %44, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+33:                                               ; preds = %29
+  %34 = icmp ugt i32 %5, 1024
+  br i1 %34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %35
 
-44:                                               ; preds = %32
-  %45 = zext i32 %7 to i64
-  %46 = add nuw nsw i64 %45, 4
-  %.not.i36 = icmp samesign ugt i64 %46, %40
-  %47 = getelementptr inbounds nuw i8, ptr %42, i64 %45
-  %48 = icmp eq ptr %42, null
-  %49 = select i1 %.not.i36, i1 true, i1 %48
-  br i1 %49, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %50
+35:                                               ; preds = %33
+  %36 = shl nuw nsw i32 %5, 3
+  %37 = zext i32 %4 to i64
+  %38 = zext nneg i32 %36 to i64
+  %39 = add nuw nsw i64 %38, %37
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = zext i32 %41 to i64
+  %43 = shl nuw nsw i64 %42, 16
+  %.not.i = icmp samesign ule i64 %39, %43
+  %44 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %37
+  %.sroa.0.0.i = select i1 %.not.i, ptr %46, ptr null
+  %.not6478 = icmp eq i32 %5, 0
+  %.not64 = or i1 %.not.i, %.not6478
+  br i1 %.not64, label %47, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-50:                                               ; preds = %44
+47:                                               ; preds = %35
+  %48 = zext i32 %7 to i64
+  %49 = add nuw nsw i64 %48, 4
+  %.not.i36 = icmp samesign ugt i64 %49, %43
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 %48
+  %51 = icmp eq ptr %45, null
+  %52 = select i1 %.not.i36, i1 true, i1 %51
+  br i1 %52, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %53
+
+53:                                               ; preds = %47
   store i64 0, ptr %9, align 8
-  %51 = shl nuw nsw i32 %5, 3
-  %.idx = zext nneg i32 %51 to i64
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx
-  %.not67 = icmp eq i32 %5, 0
-  br i1 %.not67, label %._crit_edge, label %.lr.ph
+  %54 = shl nuw nsw i32 %5, 3
+  %.idx = zext nneg i32 %54 to i64
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %.idx
+  %.not66 = icmp eq i32 %5, 0
+  br i1 %.not66, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  br label %54
+.lr.ph:                                           ; preds = %53
+  %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  br label %57
 
-54:                                               ; preds = %.lr.ph, %63
-  %55 = phi i64 [ 0, %.lr.ph ], [ %69, %63 ]
-  %.069 = phi i32 [ 0, %.lr.ph ], [ %65, %63 ]
-  %.03368 = phi ptr [ %.sroa.0.0.i, %.lr.ph ], [ %70, %63 ]
-  %56 = xor i32 %.069, -1
-  %57 = getelementptr inbounds nuw i8, ptr %.03368, i64 4
-  %58 = load i32, ptr %57, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %58, i32 %56)
-  %59 = load i32, ptr %.03368, align 4
-  %60 = zext i32 %59 to i64
-  %61 = zext i32 %spec.select to i64
-  %62 = add nuw nsw i64 %61, %60
-  %.not.i38 = icmp samesign ule i64 %62, %40
-  %.not6680 = icmp eq i32 %spec.select, 0
-  %.not66 = or i1 %.not.i38, %.not6680
-  br i1 %.not66, label %63, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+57:                                               ; preds = %.lr.ph, %66
+  %58 = phi i64 [ 0, %.lr.ph ], [ %72, %66 ]
+  %.068 = phi i32 [ 0, %.lr.ph ], [ %68, %66 ]
+  %.03367 = phi ptr [ %.sroa.0.0.i, %.lr.ph ], [ %73, %66 ]
+  %59 = xor i32 %.068, -1
+  %60 = getelementptr inbounds nuw i8, ptr %.03367, i64 4
+  %61 = load i32, ptr %60, align 4
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %61, i32 %59)
+  %62 = load i32, ptr %.03367, align 4
+  %63 = zext i32 %62 to i64
+  %64 = zext i32 %spec.select to i64
+  %65 = add nuw nsw i64 %64, %63
+  %.not.i38 = icmp samesign ule i64 %65, %43
+  %.not6579 = icmp eq i32 %spec.select, 0
+  %.not65 = or i1 %.not.i38, %.not6579
+  br i1 %.not65, label %66, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-63:                                               ; preds = %54
-  %64 = getelementptr inbounds nuw i8, ptr %42, i64 %60
-  %.sroa.0.0.i39 = select i1 %.not.i38, ptr %64, ptr null
-  %65 = tail call i32 @llvm.uadd.sat.i32(i32 %58, i32 %.069)
-  %66 = icmp samesign ult i64 %55, 1024
-  tail call void @llvm.assume(i1 %66)
-  %67 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %53, i64 %55
-  store ptr %.sroa.0.0.i39, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i64 %61, ptr %68, align 8
-  %69 = add nuw nsw i64 %55, 1
-  store i64 %69, ptr %9, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %.03368, i64 8
-  %.not = icmp eq ptr %70, %52
-  br i1 %.not, label %._crit_edge, label %54
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds nuw i8, ptr %45, i64 %63
+  %.sroa.0.0.i39 = select i1 %.not.i38, ptr %67, ptr null
+  %68 = tail call i32 @llvm.uadd.sat.i32(i32 %61, i32 %.068)
+  %69 = icmp samesign ult i64 %58, 1024
+  tail call void @llvm.assume(i1 %69)
+  %70 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %56, i64 %58
+  store ptr %.sroa.0.0.i39, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i64 %64, ptr %71, align 8
+  %72 = add nuw nsw i64 %58, 1
+  store i64 %72, ptr %9, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %.03367, i64 8
+  %.not = icmp eq ptr %73, %55
+  br i1 %.not, label %._crit_edge, label %57
 
-._crit_edge:                                      ; preds = %63, %50
-  %.val.i = phi i64 [ 0, %50 ], [ %69, %63 ]
-  %71 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %74 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockSendEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEtRj(ptr noundef nonnull align 8 dereferenceable(344) %72, i32 noundef %3, ptr nonnull %73, i64 %.val.i, i16 noundef zeroext %.sroa.258.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %47) #19
-  %75 = trunc i32 %74 to i1
-  %.sroa.245.0.extract.shift = lshr i32 %74, 16
-  %spec.select82 = select i1 %75, i32 0, i32 %.sroa.245.0.extract.shift
+._crit_edge:                                      ; preds = %66, %53
+  %.val.i = phi i64 [ 0, %53 ], [ %72, %66 ]
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %77 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ8sockSendEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEtRj(ptr noundef nonnull align 8 dereferenceable(344) %75, i32 noundef %3, ptr nonnull %76, i64 %.val.i, i16 noundef zeroext %.sroa.258.0.extract.trunc, ptr noundef nonnull align 4 dereferenceable(4) %50) #19
+  %78 = trunc i32 %77 to i1
+  %.sroa.245.0.extract.shift = lshr i32 %77, 16
+  %spec.select81 = select i1 %78, i32 0, i32 %.sroa.245.0.extract.shift
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %54, %._crit_edge, %44, %32, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, %8
-  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %29 ], [ 21, %32 ], [ 21, %44 ], [ %spec.select82, %._crit_edge ], [ 21, %54 ]
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %57, %._crit_edge, %47, %35, %33, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62, %8
+  %.sink = phi i32 [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread62 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %.sroa.258.0.extract.shift, %29 ], [ 28, %33 ], [ 21, %35 ], [ 21, %47 ], [ %spec.select81, %._crit_edge ], [ 21, %57 ]
   store i8 1, ptr %0, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %76, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %79, align 4
   ret void
 }
 
@@ -16696,8 +16717,8 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %.not.i51 = icmp samesign ule i64 %50, %38
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 %48
   %.sroa.0.0.i = select i1 %.not.i51, ptr %51, ptr null
-  %.not110 = icmp eq i32 %47, 0
-  %.not = or i1 %.not.i51, %.not110
+  %.not109 = icmp eq i32 %47, 0
+  %.not = or i1 %.not.i51, %.not109
   br i1 %.not, label %52, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
 52:                                               ; preds = %43
@@ -16721,96 +16742,101 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   %.sroa.4.0 = phi i64 [ 4, %52 ], [ 16, %53 ], [ 126, %54 ]
   %.0 = phi i8 [ 1, %52 ], [ 2, %53 ], [ %56, %54 ]
   %59 = and i32 %8, 65535
-  %.not94 = icmp ne i32 %59, 0
-  %.sroa.281.0.extract.trunc = select i1 %.not94, i16 28, i16 0
-  %60 = icmp ugt i32 %5, 1024
-  %or.cond = or i1 %.not94, %60
-  br i1 %or.cond, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %61
+  %60 = icmp eq i32 %59, 0
+  %.sroa.02.0.insert.insert.i = select i1 %60, i32 1, i32 1835008
+  %.sroa.281.0.extract.shift = lshr i32 %.sroa.02.0.insert.insert.i, 16
+  %.sroa.281.0.extract.trunc = trunc nuw nsw i32 %.sroa.281.0.extract.shift to i16
+  %61 = trunc i32 %.sroa.02.0.insert.insert.i to i1
+  br i1 %61, label %62, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-61:                                               ; preds = %58
-  %62 = shl nuw nsw i32 %5, 3
-  %63 = zext i32 %4 to i64
-  %64 = zext nneg i32 %62 to i64
-  %65 = add nuw nsw i64 %64, %63
-  %.not.i54 = icmp samesign ule i64 %65, %38
-  %66 = getelementptr inbounds nuw i8, ptr %40, i64 %63
-  %.sroa.0.0.i55 = select i1 %.not.i54, ptr %66, ptr null
-  %.not95111 = icmp eq i32 %5, 0
-  %.not95 = or i1 %.not.i54, %.not95111
-  br i1 %.not95, label %67, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+62:                                               ; preds = %58
+  %63 = icmp ugt i32 %5, 1024
+  br i1 %63, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %64
 
-67:                                               ; preds = %61
-  %68 = zext i32 %9 to i64
-  %69 = add nuw nsw i64 %68, 4
-  %.not.i59 = icmp samesign ugt i64 %69, %38
-  %70 = getelementptr inbounds nuw i8, ptr %40, i64 %68
-  br i1 %.not.i59, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %71
+64:                                               ; preds = %62
+  %65 = shl nuw nsw i32 %5, 3
+  %66 = zext i32 %4 to i64
+  %67 = zext nneg i32 %65 to i64
+  %68 = add nuw nsw i64 %67, %66
+  %.not.i54 = icmp samesign ule i64 %68, %38
+  %69 = getelementptr inbounds nuw i8, ptr %40, i64 %66
+  %.sroa.0.0.i55 = select i1 %.not.i54, ptr %69, ptr null
+  %.not94110 = icmp eq i32 %5, 0
+  %.not94 = or i1 %.not.i54, %.not94110
+  br i1 %.not94, label %70, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-71:                                               ; preds = %67
+70:                                               ; preds = %64
+  %71 = zext i32 %9 to i64
+  %72 = add nuw nsw i64 %71, 4
+  %.not.i59 = icmp samesign ugt i64 %72, %38
+  %73 = getelementptr inbounds nuw i8, ptr %40, i64 %71
+  br i1 %.not.i59, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %74
+
+74:                                               ; preds = %70
   store i64 0, ptr %11, align 8
-  %72 = shl nuw nsw i32 %5, 3
-  %.idx = zext nneg i32 %72 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i55, i64 %.idx
-  %.not4897 = icmp eq i32 %5, 0
-  br i1 %.not4897, label %._crit_edge, label %.lr.ph
+  %75 = shl nuw nsw i32 %5, 3
+  %.idx = zext nneg i32 %75 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i55, i64 %.idx
+  %.not4896 = icmp eq i32 %5, 0
+  br i1 %.not4896, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %71
-  %74 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  br label %75
+.lr.ph:                                           ; preds = %74
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  br label %78
 
-75:                                               ; preds = %.lr.ph, %84
-  %76 = phi i64 [ 0, %.lr.ph ], [ %90, %84 ]
-  %.04499 = phi i32 [ 0, %.lr.ph ], [ %86, %84 ]
-  %.04598 = phi ptr [ %.sroa.0.0.i55, %.lr.ph ], [ %91, %84 ]
-  %77 = xor i32 %.04499, -1
-  %78 = getelementptr inbounds nuw i8, ptr %.04598, i64 4
-  %79 = load i32, ptr %78, align 4
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %79, i32 %77)
-  %80 = load i32, ptr %.04598, align 4
-  %81 = zext i32 %80 to i64
-  %82 = zext i32 %spec.select to i64
-  %83 = add nuw nsw i64 %82, %81
-  %.not.i61 = icmp samesign ule i64 %83, %38
-  %.not96112 = icmp eq i32 %spec.select, 0
-  %.not96 = or i1 %.not.i61, %.not96112
-  br i1 %.not96, label %84, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+78:                                               ; preds = %.lr.ph, %87
+  %79 = phi i64 [ 0, %.lr.ph ], [ %93, %87 ]
+  %.04498 = phi i32 [ 0, %.lr.ph ], [ %89, %87 ]
+  %.04597 = phi ptr [ %.sroa.0.0.i55, %.lr.ph ], [ %94, %87 ]
+  %80 = xor i32 %.04498, -1
+  %81 = getelementptr inbounds nuw i8, ptr %.04597, i64 4
+  %82 = load i32, ptr %81, align 4
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %82, i32 %80)
+  %83 = load i32, ptr %.04597, align 4
+  %84 = zext i32 %83 to i64
+  %85 = zext i32 %spec.select to i64
+  %86 = add nuw nsw i64 %85, %84
+  %.not.i61 = icmp samesign ule i64 %86, %38
+  %.not95111 = icmp eq i32 %spec.select, 0
+  %.not95 = or i1 %.not.i61, %.not95111
+  br i1 %.not95, label %87, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-84:                                               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %40, i64 %81
-  %.sroa.0.0.i62 = select i1 %.not.i61, ptr %85, ptr null
-  %86 = tail call i32 @llvm.uadd.sat.i32(i32 %79, i32 %.04499)
-  %87 = icmp samesign ult i64 %76, 1024
-  tail call void @llvm.assume(i1 %87)
-  %88 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %74, i64 %76
-  store ptr %.sroa.0.0.i62, ptr %88, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  store i64 %82, ptr %89, align 8
-  %90 = add nuw nsw i64 %76, 1
-  store i64 %90, ptr %11, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %.04598, i64 8
-  %.not48 = icmp eq ptr %91, %73
-  br i1 %.not48, label %._crit_edge, label %75
+87:                                               ; preds = %78
+  %88 = getelementptr inbounds nuw i8, ptr %40, i64 %84
+  %.sroa.0.0.i62 = select i1 %.not.i61, ptr %88, ptr null
+  %89 = tail call i32 @llvm.uadd.sat.i32(i32 %82, i32 %.04498)
+  %90 = icmp samesign ult i64 %79, 1024
+  tail call void @llvm.assume(i1 %90)
+  %91 = getelementptr inbounds nuw %"struct.cxx20::span.251", ptr %77, i64 %79
+  store ptr %.sroa.0.0.i62, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store i64 %85, ptr %92, align 8
+  %93 = add nuw nsw i64 %79, 1
+  store i64 %93, ptr %11, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %.04597, i64 8
+  %.not48 = icmp eq ptr %94, %76
+  br i1 %.not48, label %._crit_edge, label %78
 
-._crit_edge:                                      ; preds = %84, %71
-  %.val.i = phi i64 [ 0, %71 ], [ %90, %84 ]
-  %92 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
+._crit_edge:                                      ; preds = %87, %74
+  %.val.i = phi i64 [ 0, %74 ], [ %93, %87 ]
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.085.0, ptr %12, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i64 %.sroa.4.0, ptr %95, align 8
-  %96 = trunc i32 %7 to i16
-  %97 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSendToEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(344) %93, i32 noundef %3, ptr nonnull %94, i64 %.val.i, i16 noundef zeroext %.sroa.281.0.extract.trunc, i8 noundef zeroext %.0, ptr noundef nonnull byval(%"struct.cxx20::span.251") align 8 %12, i16 noundef zeroext %96, ptr noundef nonnull align 4 dereferenceable(4) %70) #19
-  %98 = trunc i32 %97 to i1
-  %.sroa.268.0.extract.shift = lshr i32 %97, 16
-  %spec.select114 = select i1 %98, i32 0, i32 %.sroa.268.0.extract.shift
+  %98 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i64 %.sroa.4.0, ptr %98, align 8
+  %99 = trunc i32 %7 to i16
+  %100 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockSendToEiN5cxx204spanINS4_IKhLm18446744073709551615EEELm18446744073709551615EEEt23__wasi_address_family_tS6_tRj(ptr noundef nonnull align 8 dereferenceable(344) %96, i32 noundef %3, ptr nonnull %97, i64 %.val.i, i16 noundef zeroext %.sroa.281.0.extract.trunc, i8 noundef zeroext %.0, ptr noundef nonnull byval(%"struct.cxx20::span.251") align 8 %12, i16 noundef zeroext %99, ptr noundef nonnull align 4 dereferenceable(4) %73) #19
+  %101 = trunc i32 %100 to i1
+  %.sroa.268.0.extract.shift = lshr i32 %100, 16
+  %spec.select113 = select i1 %101, i32 0, i32 %.sroa.268.0.extract.shift
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %75, %._crit_edge, %67, %61, %58, %52, %43, %32, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92, %10
-  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %32 ], [ 21, %43 ], [ 28, %52 ], [ 28, %58 ], [ 21, %61 ], [ 21, %67 ], [ %spec.select114, %._crit_edge ], [ 21, %75 ]
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %78, %._crit_edge, %70, %64, %62, %58, %52, %43, %32, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92, %10
+  %.sink = phi i32 [ 21, %10 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread92 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 21, %32 ], [ 21, %43 ], [ 28, %52 ], [ %.sroa.281.0.extract.shift, %58 ], [ 28, %62 ], [ 21, %64 ], [ 21, %70 ], [ %spec.select113, %._crit_edge ], [ 21, %78 ]
   store i8 1, ptr %0, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %99, align 4
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %102, align 4
   ret void
 }
 
@@ -16846,9 +16872,9 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i: ; preds = %15
   %20 = load ptr, ptr %19, align 8, !noalias !182
   %21 = load ptr, ptr %18, align 8, !noalias !182
   %.not.i.i.not = icmp eq ptr %20, %21
-  br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
+  br i1 %.not.i.i.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33: ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i.i
   %22 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %14) #19, !noalias !182
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
@@ -16866,63 +16892,69 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %_ZNSt11
   br i1 %28, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %29
 
 29:                                               ; preds = %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit
-  %cond.i.not = icmp ne i32 %4, 0
+  %cond.i = icmp eq i32 %4, 0
+  %.sroa.02.0.insert.insert.i = select i1 %cond.i, i64 1, i64 120259084288
+  %.sroa.229.0.extract.shift = lshr i64 %.sroa.02.0.insert.insert.i, 32
+  %30 = trunc i64 %.sroa.02.0.insert.insert.i to i1
+  %31 = trunc nuw nsw i64 %.sroa.229.0.extract.shift to i32
+  br i1 %30, label %32, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+
+32:                                               ; preds = %29
   %switch.i = icmp ugt i32 %5, 14
-  %or.cond = or i1 %cond.i.not, %switch.i
-  br i1 %or.cond, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %30
+  br i1 %switch.i, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %33
 
-30:                                               ; preds = %29
-  %31 = zext i32 %7 to i64
-  %32 = add nuw nsw i64 %31, 4
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  %34 = load i32, ptr %33, align 4
-  %35 = zext i32 %34 to i64
-  %36 = shl nuw nsw i64 %35, 16
-  %.not.i = icmp samesign ugt i64 %32, %36
-  %37 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 %31
-  %40 = icmp eq ptr %38, null
-  %41 = select i1 %.not.i, i1 true, i1 %40
-  br i1 %41, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %42
+33:                                               ; preds = %32
+  %34 = zext i32 %7 to i64
+  %35 = add nuw nsw i64 %34, 4
+  %36 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %37 = load i32, ptr %36, align 4
+  %38 = zext i32 %37 to i64
+  %39 = shl nuw nsw i64 %38, 16
+  %.not.i = icmp samesign ugt i64 %35, %39
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %34
+  %43 = icmp eq ptr %41, null
+  %44 = select i1 %.not.i, i1 true, i1 %43
+  br i1 %44, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread, label %45
 
-42:                                               ; preds = %30
-  %43 = load i32, ptr %39, align 4
-  %44 = zext i32 %6 to i64
-  %45 = zext i32 %43 to i64
-  %46 = add nuw nsw i64 %45, %44
-  %.not.i20 = icmp samesign ugt i64 %46, %36
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 %44
-  %.sroa.0.0.i = select i1 %.not.i20, ptr null, ptr %47
-  %.sroa.4.0.i = select i1 %.not.i20, i64 0, i64 %45
+45:                                               ; preds = %33
+  %46 = load i32, ptr %42, align 4
+  %47 = zext i32 %6 to i64
+  %48 = zext i32 %46 to i64
+  %49 = add nuw nsw i64 %48, %47
+  %.not.i19 = icmp samesign ugt i64 %49, %39
+  %50 = getelementptr inbounds nuw i8, ptr %41, i64 %47
+  %.sroa.0.0.i = select i1 %.not.i19, ptr null, ptr %50
+  %.sroa.4.0.i = select i1 %.not.i19, i64 0, i64 %48
   store ptr %.sroa.0.0.i, ptr %9, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i64 %.sroa.4.0.i, ptr %48, align 8
-  %.not = icmp eq i64 %.sroa.4.0.i, %45
-  br i1 %.not, label %49, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
+  %51 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i64 %.sroa.4.0.i, ptr %51, align 8
+  %.not = icmp eq i64 %.sroa.4.0.i, %48
+  br i1 %.not, label %52, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 160
-  %51 = load ptr, ptr %50, align 8
-  %52 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockGetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %51, i32 noundef %3, i32 noundef 0, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %9) #19
-  %53 = trunc i32 %52 to i1
-  br i1 %53, label %55, label %54
+52:                                               ; preds = %45
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 160
+  %54 = load ptr, ptr %53, align 8
+  %55 = call i32 @_ZNK8WasmEdge4Host4WASI7Environ10sockGetOptEi23__wasi_sock_opt_level_t20__wasi_sock_opt_so_tRN5cxx204spanIhLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(344) %54, i32 noundef %3, i32 noundef %31, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(16) %9) #19
+  %56 = trunc i32 %55 to i1
+  br i1 %56, label %58, label %57
 
-54:                                               ; preds = %49
-  %.sroa.221.0.extract.shift = lshr i32 %52, 16
+57:                                               ; preds = %52
+  %.sroa.220.0.extract.shift = lshr i32 %55, 16
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-55:                                               ; preds = %49
-  %56 = load i64, ptr %48, align 8
-  %57 = trunc i64 %56 to i32
-  store i32 %57, ptr %39, align 4
+58:                                               ; preds = %52
+  %59 = load i64, ptr %51, align 8
+  %60 = trunc i64 %59 to i32
+  store i32 %60, ptr %42, align 4
   br label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread
 
-_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %42, %30, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34, %8, %55, %54
-  %.sink = phi i32 [ 0, %55 ], [ %.sroa.221.0.extract.shift, %54 ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread34 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ 28, %29 ], [ 21, %30 ], [ 21, %42 ]
+_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread: ; preds = %45, %33, %32, %29, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33, %8, %58, %57
+  %.sink = phi i32 [ 0, %58 ], [ %.sroa.220.0.extract.shift, %57 ], [ 21, %8 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit.thread33 ], [ 21, %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit ], [ %31, %29 ], [ 28, %32 ], [ 21, %33 ], [ 21, %45 ]
   store i8 1, ptr %0, align 4
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink, ptr %58, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink, ptr %61, align 4
   ret void
 }
 

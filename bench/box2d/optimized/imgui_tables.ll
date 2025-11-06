@@ -4182,80 +4182,79 @@ define internal fastcc void @_ZL21TableSetupColumnFlagsP10ImGuiTableP16ImGuiTabl
   %45 = and i32 %.474, 34816
   %or.cond82 = icmp eq i32 %45, 32768
   %46 = or disjoint i32 %.061, 4
-  %47 = select i1 %or.cond80, i32 8, i32 2
+  %47 = select i1 %or.cond80, i32 9, i32 2
   %48 = select i1 %or.cond80, i32 2, i32 1
   %.166 = select i1 %or.cond82, i32 %48, i32 %.0
   %.162 = select i1 %or.cond82, i32 %46, i32 %.061
-  %49 = select i1 %or.cond82, i32 %47, i32 0
-  %.1 = or disjoint i32 %49, %.0
+  %.1 = select i1 %or.cond82, i32 %47, i32 %.0
   %or.cond84 = icmp eq i32 %44, 0
-  br i1 %or.cond84, label %50, label %56
+  br i1 %or.cond84, label %49, label %55
 
-50:                                               ; preds = %43
-  %51 = or i32 %.162, 2
-  %52 = shl nuw nsw i32 %.166, 1
-  %53 = shl nuw nsw i32 1, %52
-  %54 = or i32 %53, %.1
-  %55 = add nuw nsw i32 %.166, 1
-  br label %56
+49:                                               ; preds = %43
+  %50 = or i32 %.162, 2
+  %51 = shl nuw nsw i32 %.166, 1
+  %52 = shl nuw nsw i32 1, %51
+  %53 = or i32 %52, %.1
+  %54 = add nuw nsw i32 %.166, 1
+  br label %55
 
-56:                                               ; preds = %50, %43
-  %.267 = phi i32 [ %55, %50 ], [ %.166, %43 ]
-  %.263 = phi i32 [ %51, %50 ], [ %.162, %43 ]
-  %.2 = phi i32 [ %54, %50 ], [ %.1, %43 ]
+55:                                               ; preds = %49, %43
+  %.267 = phi i32 [ %54, %49 ], [ %.166, %43 ]
+  %.263 = phi i32 [ %50, %49 ], [ %.162, %43 ]
+  %.2 = phi i32 [ %53, %49 ], [ %.1, %43 ]
   %or.cond86 = icmp eq i32 %45, 0
-  br i1 %or.cond86, label %57, label %63
+  br i1 %or.cond86, label %56, label %62
 
-57:                                               ; preds = %56
-  %58 = or i32 %.263, 4
-  %59 = shl nuw nsw i32 %.267, 1
-  %60 = shl nuw nsw i32 2, %59
-  %61 = or i32 %.2, %60
-  %62 = add nuw nsw i32 %.267, 1
-  br label %63
+56:                                               ; preds = %55
+  %57 = or i32 %.263, 4
+  %58 = shl nuw nsw i32 %.267, 1
+  %59 = shl nuw nsw i32 2, %58
+  %60 = or i32 %.2, %59
+  %61 = add nuw nsw i32 %.267, 1
+  br label %62
 
-63:                                               ; preds = %57, %56
-  %.368 = phi i32 [ %62, %57 ], [ %.267, %56 ]
-  %.364 = phi i32 [ %58, %57 ], [ %.263, %56 ]
-  %.3 = phi i32 [ %61, %57 ], [ %.2, %56 ]
-  %64 = and i32 %41, 134217728
-  %65 = icmp ne i32 %64, 0
-  %66 = icmp eq i32 %.368, 0
-  %or.cond3 = select i1 %65, i1 true, i1 %66
-  %67 = zext i1 %or.cond3 to i32
-  %.469 = add nuw nsw i32 %.368, %67
-  %.4 = or i32 %.364, %67
-  %68 = trunc nuw i32 %.3 to i8
-  store i8 %68, ptr %37, align 2, !tbaa !430
-  %69 = trunc nuw nsw i32 %.4 to i8
-  %70 = shl nuw nsw i8 %69, 4
-  %71 = trunc nuw nsw i32 %.469 to i8
-  %72 = shl nuw nsw i8 %71, 2
-  %73 = and i8 %72, 12
-  %74 = or disjoint i8 %73, %70
-  %75 = or disjoint i8 %74, %40
-  store i8 %75, ptr %38, align 1
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 94
-  %77 = load i16, ptr %76, align 2, !tbaa !338
-  %78 = icmp eq i16 %77, -1
-  br i1 %78, label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit, label %79
+62:                                               ; preds = %56, %55
+  %.368 = phi i32 [ %61, %56 ], [ %.267, %55 ]
+  %.364 = phi i32 [ %57, %56 ], [ %.263, %55 ]
+  %.3 = phi i32 [ %60, %56 ], [ %.2, %55 ]
+  %63 = and i32 %41, 134217728
+  %64 = icmp ne i32 %63, 0
+  %65 = icmp eq i32 %.368, 0
+  %or.cond3 = select i1 %64, i1 true, i1 %65
+  %66 = zext i1 %or.cond3 to i32
+  %.469 = add nuw nsw i32 %.368, %66
+  %.4 = or i32 %.364, %66
+  %67 = trunc nuw i32 %.3 to i8
+  store i8 %67, ptr %37, align 2, !tbaa !430
+  %68 = trunc nuw nsw i32 %.4 to i8
+  %69 = shl nuw nsw i8 %68, 4
+  %70 = trunc nuw nsw i32 %.469 to i8
+  %71 = shl nuw nsw i8 %70, 2
+  %72 = and i8 %71, 12
+  %73 = or disjoint i8 %72, %69
+  %74 = or disjoint i8 %73, %40
+  store i8 %74, ptr %38, align 1
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 94
+  %76 = load i16, ptr %75, align 2, !tbaa !338
+  %77 = icmp eq i16 %76, -1
+  br i1 %77, label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit, label %78
 
-79:                                               ; preds = %63
-  %80 = zext nneg i8 %40 to i32
-  %81 = shl nuw nsw i32 1, %80
-  %82 = and i32 %81, %.4
-  %.not.i = icmp eq i32 %82, 0
-  br i1 %.not.i, label %83, label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit
+78:                                               ; preds = %62
+  %79 = zext nneg i8 %40 to i32
+  %80 = shl nuw nsw i32 1, %79
+  %81 = and i32 %80, %.4
+  %.not.i = icmp eq i32 %81, 0
+  br i1 %.not.i, label %82, label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit
 
-83:                                               ; preds = %79
-  %84 = and i8 %68, 3
-  %85 = or disjoint i8 %74, %84
-  store i8 %85, ptr %38, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 569
-  store i8 1, ptr %86, align 1, !tbaa !288
+82:                                               ; preds = %78
+  %83 = and i8 %67, 3
+  %84 = or disjoint i8 %73, %83
+  store i8 %84, ptr %38, align 1
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 569
+  store i8 1, ptr %85, align 1, !tbaa !288
   br label %_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit
 
-_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit: ; preds = %83, %79, %63, %33
+_ZN5ImGui27TableFixColumnSortDirectionEP10ImGuiTableP16ImGuiTableColumn.exit: ; preds = %82, %78, %62, %33
   ret void
 }
 
