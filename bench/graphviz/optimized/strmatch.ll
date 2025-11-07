@@ -811,32 +811,31 @@ gobble.exit:                                      ; preds = %38, %66
 166:                                              ; preds = %163
   %167 = add i8 %164, -48
   %or.cond9 = icmp ult i8 %167, 10
-  br i1 %or.cond9, label %168, label %177
+  br i1 %or.cond9, label %168, label %.critedge7.thread
 
 168:                                              ; preds = %166
   %169 = add nsw i32 %165, -48
   %.not377 = icmp sgt i32 %169, %1
-  br i1 %.not377, label %177, label %170
+  br i1 %.not377, label %.critedge7.thread, label %170
 
 170:                                              ; preds = %168
   %171 = zext nneg i32 %169 to i64
   %172 = getelementptr inbounds nuw ptr, ptr %0, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !13
   %.not378 = icmp eq ptr %173, null
-  br i1 %.not378, label %177, label %174
+  br i1 %.not378, label %.critedge7.thread, label %174
 
 174:                                              ; preds = %170
   %175 = load i8, ptr %173, align 1, !tbaa !15
   %176 = sext i8 %175 to i32
-  br label %177
-
-177:                                              ; preds = %166, %174, %170, %168, %.critedge7
-  %.1297 = phi i32 [ %149, %.critedge7 ], [ %176, %174 ], [ %165, %170 ], [ %165, %168 ], [ %165, %166 ]
   br label %.critedge7.thread
 
-.critedge7.thread:                                ; preds = %147, %.critedge7, %.critedge7, %177, %150
-  %.0316 = phi i1 [ false, %177 ], [ %152, %150 ], [ true, %.critedge7 ], [ true, %.critedge7 ], [ true, %147 ]
-  %.2298 = phi i32 [ %.1297, %177 ], [ %149, %150 ], [ %149, %.critedge7 ], [ %149, %.critedge7 ], [ 42, %147 ]
+177:                                              ; preds = %.critedge7
+  br label %.critedge7.thread
+
+.critedge7.thread:                                ; preds = %147, %168, %170, %174, %166, %.critedge7, %.critedge7, %177, %150
+  %.0316 = phi i1 [ %152, %150 ], [ true, %.critedge7 ], [ true, %.critedge7 ], [ false, %166 ], [ false, %174 ], [ false, %170 ], [ false, %168 ], [ false, %177 ], [ true, %147 ]
+  %.2298 = phi i32 [ %149, %150 ], [ %149, %.critedge7 ], [ %149, %.critedge7 ], [ %165, %166 ], [ %176, %174 ], [ %165, %170 ], [ %165, %168 ], [ %149, %177 ], [ 42, %147 ]
   br label %.outer
 
 .outer:                                           ; preds = %184, %.critedge7.thread

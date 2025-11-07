@@ -2096,8 +2096,8 @@ _ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36: ;
   %64 = xor i1 %.sroa.0.0.i.i, true
   %65 = zext i1 %64 to i64
   %66 = getelementptr inbounds nuw { { ptr, [3 x i64] }, ptr }, ptr %0, i64 %65
-  %spec.select = select i1 %61, ptr %30, ptr %31
-  %spec.select52 = select i1 %61, i64 2, i64 3
+  %spec.select55 = select i1 %61, ptr %30, ptr %31
+  %spec.select56 = select i1 %61, i64 2, i64 3
   br label %.thread40
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41": ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h73d802428353b9bcE.exit.i.i.i.i31"
@@ -2107,15 +2107,15 @@ _ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36: ;
   %70 = xor i1 %.sroa.0.0.i.i, true
   %71 = zext i1 %70 to i64
   %72 = getelementptr inbounds nuw { { ptr, [3 x i64] }, ptr }, ptr %0, i64 %71
-  %spec.select53 = select i1 %67, ptr %30, ptr %31
-  %spec.select54 = select i1 %67, i64 2, i64 3
+  %spec.select57 = select i1 %67, ptr %30, ptr %31
+  %spec.select58 = select i1 %67, i64 2, i64 3
   br label %.thread40
 
 .thread40:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41", %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41.thread"
-  %73 = phi ptr [ %31, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41.thread" ], [ %spec.select, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36 ], [ %spec.select53, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41" ]
+  %73 = phi ptr [ %31, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41.thread" ], [ %spec.select55, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36 ], [ %spec.select57, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41" ]
   %74 = phi ptr [ %40, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41.thread" ], [ %63, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36 ], [ %69, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41" ]
   %75 = phi ptr [ %43, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41.thread" ], [ %66, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36 ], [ %72, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41" ]
-  %76 = phi i64 [ 3, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41.thread" ], [ %spec.select52, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36 ], [ %spec.select54, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41" ]
+  %76 = phi i64 [ 3, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41.thread" ], [ %spec.select56, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i36 ], [ %spec.select58, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit41" ]
   %77 = getelementptr inbounds nuw { { ptr, [3 x i64] }, ptr }, ptr %0, i64 %76
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !512)
@@ -2299,11 +2299,11 @@ _ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i94: ;
   %140 = select i1 %.sroa.0.0.i.i64, ptr %75, ptr %73, !unpredictable !3
   br label %141
 
-141:                                              ; preds = %.thread46, %136, %138, %.thread25
-  %142 = phi ptr [ %139, %138 ], [ %134, %.thread25 ], [ %137, %136 ], [ %131, %.thread46 ]
-  %143 = phi ptr [ %133, %138 ], [ %.ph18, %.thread25 ], [ %133, %136 ], [ %130, %.thread46 ]
-  %144 = phi ptr [ %77, %138 ], [ %77, %.thread25 ], [ %75, %136 ], [ %75, %.thread46 ]
-  %145 = phi ptr [ %140, %138 ], [ %135, %.thread25 ], [ %77, %136 ], [ %77, %.thread46 ]
+141:                                              ; preds = %138, %.thread46, %.thread25, %136
+  %142 = phi ptr [ %139, %138 ], [ %134, %.thread25 ], [ %131, %.thread46 ], [ %137, %136 ]
+  %143 = phi ptr [ %133, %138 ], [ %.ph18, %.thread25 ], [ %130, %.thread46 ], [ %133, %136 ]
+  %144 = phi ptr [ %77, %138 ], [ %77, %.thread25 ], [ %75, %.thread46 ], [ %75, %136 ]
+  %145 = phi ptr [ %140, %138 ], [ %135, %.thread25 ], [ %77, %.thread46 ], [ %77, %136 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !608)
@@ -2376,18 +2376,19 @@ _ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i94: ;
 _ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123: ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h73d802428353b9bcE.exit.i.i.i.i118"
   %169 = xor i1 %148, true
   %170 = and i1 %151, %169
-  br i1 %170, label %.thread49, label %.thread36
+  %spec.select = select i1 %170, ptr %145, ptr %142
+  %spec.select52 = select i1 %170, ptr %142, ptr %145
+  br label %.thread36
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128": ; preds = %"_ZN71_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h73d802428353b9bcE.exit.i.i.i.i118"
   %171 = icmp slt i8 %.sroa.0.0.i.i.i.i.i119, 0
-  br i1 %171, label %.thread49, label %.thread36
-
-.thread49:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128", %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123
+  %spec.select53 = select i1 %171, ptr %145, ptr %142
+  %spec.select54 = select i1 %171, ptr %142, ptr %145
   br label %.thread36
 
-.thread36:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128", %152, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123, %.thread49
-  %172 = phi ptr [ %145, %.thread49 ], [ %142, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123 ], [ %142, %152 ], [ %142, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128" ]
-  %173 = phi ptr [ %142, %.thread49 ], [ %145, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123 ], [ %145, %152 ], [ %145, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128" ]
+.thread36:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128", %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123, %152
+  %172 = phi ptr [ %142, %152 ], [ %spec.select, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123 ], [ %spec.select53, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128" ]
+  %173 = phi ptr [ %145, %152 ], [ %spec.select52, %_ZN4core3cmp10PartialOrd13__chaining_lt17h34c087d1b24c63e4E.exit.thread.i.i123 ], [ %spec.select54, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11sort_by_key28_$u7b$$u7b$closure$u7d$$u7d$17h7b512a6200334494E.exit128" ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %143, i64 40, i1 false)
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %174, ptr noundef nonnull align 8 dereferenceable(40) %172, i64 40, i1 false)

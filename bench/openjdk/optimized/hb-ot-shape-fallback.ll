@@ -108,14 +108,14 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
   %wide.trip.count = zext i32 %5 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %38
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %38 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %39
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
   %8 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %7, i64 %indvars.iv
   %9 = getelementptr i8, ptr %8, i64 16
   %.val = load i16, ptr %9, align 4
   %10 = and i16 %.val, 31
   %11 = icmp eq i16 %10, 12
-  br i1 %11, label %12, label %38
+  br i1 %11, label %12, label %39
 
 12:                                               ; preds = %.lr.ph
   %13 = lshr i16 %.val, 8
@@ -134,7 +134,7 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
   br i1 %21, label %22, label %26
 
 22:                                               ; preds = %20
-  switch i32 %15, label %.thread.i [
+  switch i32 %15, label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit [
     i32 3633, label %23
     i32 3636, label %23
     i32 3637, label %23
@@ -156,13 +156,13 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
   ]
 
 23:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22, %22
-  br label %.thread.i
+  br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
 24:                                               ; preds = %22, %22, %22, %22, %22, %22, %22, %22
-  br label %.thread.i
+  br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
 25:                                               ; preds = %22
-  br label %.thread.i
+  br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
 26:                                               ; preds = %20
   %27 = icmp eq i32 %15, 3642
@@ -172,7 +172,7 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
 28:                                               ; preds = %26, %17
   %.0.i = phi i32 [ %14, %17 ], [ %spec.select.i, %26 ]
   %trunc.i = trunc nuw i32 %.0.i to i8
-  switch i8 %trunc.i, label %.thread.i [
+  switch i8 %trunc.i, label %34 [
     i8 22, label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
     i8 15, label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
     i8 16, label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
@@ -223,25 +223,24 @@ define hidden void @_Z54_hb_ot_shape_fallback_mark_position_recategorize_marksPK
 33:                                               ; preds = %28
   br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
-.thread.i:                                        ; preds = %28, %25, %24, %23, %22
-  %.013.i = phi i32 [ %.0.i, %28 ], [ 220, %25 ], [ 230, %24 ], [ 232, %23 ], [ 0, %22 ]
-  %34 = trunc nuw nsw i32 %.013.i to i16
+34:                                               ; preds = %28
+  %35 = trunc nuw nsw i32 %.0.i to i16
   br label %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
 
-_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit: ; preds = %12, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %29, %30, %31, %32, %33, %.thread.i
-  %.09.i = phi i16 [ %34, %.thread.i ], [ 214, %29 ], [ 232, %30 ], [ 228, %31 ], [ 230, %32 ], [ 222, %33 ], [ %13, %12 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ]
-  %35 = and i16 %.val, 236
-  %36 = shl nuw i16 %.09.i, 8
-  %37 = or disjoint i16 %36, %35
-  store i16 %37, ptr %9, align 4
-  br label %38
+_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit: ; preds = %12, %22, %23, %24, %25, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %29, %30, %31, %32, %33, %34
+  %.09.i = phi i16 [ 214, %29 ], [ 232, %30 ], [ 228, %31 ], [ 230, %32 ], [ 222, %33 ], [ %13, %12 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ 220, %28 ], [ %35, %34 ], [ 220, %25 ], [ 230, %24 ], [ 232, %23 ], [ 0, %22 ]
+  %36 = and i16 %.val, 236
+  %37 = shl nuw i16 %.09.i, 8
+  %38 = or disjoint i16 %37, %36
+  store i16 %38, ptr %9, align 4
+  br label %39
 
-38:                                               ; preds = %.lr.ph, %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
+39:                                               ; preds = %.lr.ph, %_ZL43_hb_glyph_info_set_modified_combining_classP15hb_glyph_info_tj.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %38, %3
+._crit_edge:                                      ; preds = %39, %3
   ret void
 }
 

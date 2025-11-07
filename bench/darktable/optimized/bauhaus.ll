@@ -2067,24 +2067,22 @@ _popup_reject.exit:                               ; preds = %59, %61
   br label %122
 
 64:                                               ; preds = %3, %3
-  br label %65
-
-65:                                               ; preds = %64, %3, %3
-  %.062 = phi i32 [ 1000000, %64 ], [ -1000000, %3 ], [ -1000000, %3 ]
   br label %66
 
-66:                                               ; preds = %65, %3, %3
-  %.163 = phi i32 [ %.062, %65 ], [ -1, %3 ], [ -1, %3 ]
+65:                                               ; preds = %3, %3
+  br label %66
+
+66:                                               ; preds = %64, %65, %3, %3
+  %.163 = phi i32 [ -1, %3 ], [ -1, %3 ], [ 1000000, %64 ], [ -1000000, %65 ]
   %67 = sub nsw i32 0, %.163
   %68 = select i1 %8, i32 %.163, i32 %67
-  br label %69
-
-69:                                               ; preds = %66, %3, %3, %3, %3
-  %.2.neg = phi i32 [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ %68, %66 ]
   br label %70
 
-70:                                               ; preds = %69, %3, %3, %3, %3
-  %.3 = phi i32 [ %.2.neg, %69 ], [ -1, %3 ], [ -1, %3 ], [ -1, %3 ], [ -1, %3 ]
+69:                                               ; preds = %3, %3, %3, %3
+  br label %70
+
+70:                                               ; preds = %66, %69, %3, %3, %3, %3
+  %.3 = phi i32 [ -1, %3 ], [ -1, %3 ], [ -1, %3 ], [ -1, %3 ], [ %68, %66 ], [ 1, %69 ]
   %71 = sub nsw i32 0, %.3
   %spec.select75 = select i1 %8, i32 %71, i32 %.3
   br label %72
@@ -8516,14 +8514,13 @@ define internal range(i32 0, 2) i32 @_widget_key_press(ptr noundef %0, ptr nound
   %7 = load i32, ptr %6, align 8, !tbaa !105
   %8 = icmp eq i32 %7, 2
   %spec.select = select i1 %8, i32 -1, i32 1
-  br label %9
-
-9:                                                ; preds = %5, %2, %2
-  %.0.neg = phi i32 [ 1, %2 ], [ 1, %2 ], [ %spec.select, %5 ]
   br label %10
 
-10:                                               ; preds = %9, %2, %2
-  %.1 = phi i32 [ %.0.neg, %9 ], [ -1, %2 ], [ -1, %2 ]
+9:                                                ; preds = %2, %2
+  br label %10
+
+10:                                               ; preds = %5, %9, %2, %2
+  %.1 = phi i32 [ -1, %2 ], [ -1, %2 ], [ %spec.select, %5 ], [ 1, %9 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load i32, ptr %11, align 8, !tbaa !105
   %13 = icmp eq i32 %12, 2

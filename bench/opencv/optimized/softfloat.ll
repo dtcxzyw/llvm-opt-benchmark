@@ -4607,7 +4607,7 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %16 = or i1 %.not1.i, %14
   %17 = or i32 %3, 4194304
   %18 = select i1 %16, i32 %17, i32 4194304
-  br label %128
+  br label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit
 
 19:                                               ; preds = %9
   br i1 %.not.i, label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit, label %128
@@ -4770,12 +4770,11 @@ _ZN2cvL24softfloat_roundPackToF32Eblm.exit.i:     ; preds = %_ZN2cvL25softfloat_
   %127 = trunc nuw nsw i64 %126 to i32
   br label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit
 
-128:                                              ; preds = %21, %19, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i
-  %.037.i = phi i32 [ %18, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ -4194304, %21 ], [ -4194304, %19 ]
+128:                                              ; preds = %21, %19
   br label %_ZN2cvL8f32_sqrtENS_9softfloatE.exit
 
-_ZN2cvL8f32_sqrtENS_9softfloatE.exit:             ; preds = %19, %21, %24, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %128
-  %.037.sink.i = phi i32 [ %.037.i, %128 ], [ %127, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %3, %19 ], [ %3, %21 ], [ %3, %24 ]
+_ZN2cvL8f32_sqrtENS_9softfloatE.exit:             ; preds = %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i, %19, %21, %24, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i, %128
+  %.037.sink.i = phi i32 [ %127, %_ZN2cvL24softfloat_roundPackToF32Eblm.exit.i ], [ %3, %19 ], [ %3, %21 ], [ %3, %24 ], [ %18, %_ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i ], [ -4194304, %128 ]
   store i32 %.037.sink.i, ptr %0, align 4, !tbaa !12, !alias.scope !100
   ret void
 }
@@ -4806,7 +4805,7 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %15 = or i1 %.not1.i, %13
   %16 = or i64 %3, 2251799813685248
   %.0.i.i = select i1 %15, i64 %16, i64 2251799813685248
-  br label %126
+  br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit
 
 17:                                               ; preds = %8
   br i1 %.not.i, label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit, label %126
@@ -4965,12 +4964,11 @@ _ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i:   ; preds = %113, %111, %42
   %125 = add nuw i64 %124, %119
   br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit
 
-126:                                              ; preds = %19, %17, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i
-  %.048.i = phi i64 [ %.0.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ -2251799813685248, %19 ], [ -2251799813685248, %17 ]
+126:                                              ; preds = %19, %17
   br label %_ZN2cvL8f64_sqrtENS_10softdoubleE.exit
 
-_ZN2cvL8f64_sqrtENS_10softdoubleE.exit:           ; preds = %17, %19, %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %126
-  %.048.sink.i = phi i64 [ %.048.i, %126 ], [ %125, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %3, %17 ], [ %3, %19 ], [ %3, %22 ]
+_ZN2cvL8f64_sqrtENS_10softdoubleE.exit:           ; preds = %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i, %17, %19, %22, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i, %126
+  %.048.sink.i = phi i64 [ %125, %_ZN2cvL25softfloat_shiftRightJam64Emm.exit.i.i ], [ %3, %17 ], [ %3, %19 ], [ %3, %22 ], [ %.0.i.i, %_ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i ], [ -2251799813685248, %126 ]
   store i64 %.048.sink.i, ptr %0, align 8, !tbaa !27, !alias.scope !105
   ret void
 }

@@ -10466,13 +10466,15 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit344: ; preds 
   ]
 
 .invoke1166.loopexit1377:                         ; preds = %436, %460
-  %.ph1378 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.198, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.196, %436 ]
+  %.ph = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.195, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.195, %436 ]
+  %.ph1378 = phi i64 [ 19, %460 ], [ 19, %436 ]
+  %.ph1379 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.198, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.196, %436 ]
   br label %.invoke1166
 
 .invoke1166:                                      ; preds = %.noexc363, %.noexc352, %460, %460, %436, %436, %.invoke1166.loopexit1377
-  %516 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.195, %.invoke1166.loopexit1377 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc363 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc352 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %436 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %436 ]
-  %517 = phi i64 [ 19, %.invoke1166.loopexit1377 ], [ 17, %.noexc363 ], [ 17, %.noexc352 ], [ 40, %460 ], [ 40, %460 ], [ 40, %436 ], [ 40, %436 ]
-  %518 = phi ptr [ %.ph1378, %.invoke1166.loopexit1377 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc363 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc352 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.199, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.199, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.197, %436 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.197, %436 ]
+  %516 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %436 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %436 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.50.llvm.17911367524062806024, %460 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc352 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.10.llvm.10170168316197365569, %.noexc363 ], [ %.ph, %.invoke1166.loopexit1377 ]
+  %517 = phi i64 [ 40, %436 ], [ 40, %436 ], [ 40, %460 ], [ 40, %460 ], [ 17, %.noexc352 ], [ 17, %.noexc363 ], [ %.ph1378, %.invoke1166.loopexit1377 ]
+  %518 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.199, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.199, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.197, %436 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.197, %436 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc352 ], [ @anon.e713a1c699c612c28f2e18fd122fdddd.11.llvm.10170168316197365569, %.noexc363 ], [ %.ph1379, %.invoke1166.loopexit1377 ]
   invoke void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 %516, i64 noundef %517, ptr noalias noundef readonly align 8 dereferenceable(24) %518) #38
           to label %.cont1167 unwind label %.loopexit.split-lp
 

@@ -29818,7 +29818,7 @@ _ZNK5cmake16GetHomeDirectoryB5cxx11Ev.exit252:    ; preds = %_ZNK5cmake22GetHome
 
 456:                                              ; preds = %_ZNK5cmake16GetHomeDirectoryB5cxx11Ev.exit252
   %457 = icmp eq i64 %452, 0
-  br i1 %457, label %.thread432, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
+  br i1 %457, label %.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %456
   %458 = load ptr, ptr %451, align 8, !tbaa !12
@@ -29841,7 +29841,7 @@ _ZNK5cmake22GetHomeOutputDirectoryB5cxx11Ev.exit255: ; preds = %_ZSteqIcEN9__gnu
 
 467:                                              ; preds = %_ZNK5cmake22GetHomeOutputDirectoryB5cxx11Ev.exit255
   %468 = icmp eq i64 %463, 0
-  br i1 %468, label %.thread432, label %469
+  br i1 %468, label %.thread, label %469
 
 469:                                              ; preds = %467
   %470 = load ptr, ptr %462, align 8, !tbaa !12
@@ -29850,26 +29850,24 @@ _ZNK5cmake22GetHomeOutputDirectoryB5cxx11Ev.exit255: ; preds = %_ZSteqIcEN9__gnu
   %bcmp.i256.fr = freeze i32 %bcmp.i256
   %472 = icmp eq i32 %bcmp.i256.fr, 0
   %473 = or i1 %.154, %472
-  br i1 %473, label %.thread434, label %.thread
+  %spec.select = select i1 %473, i1 true, i1 %449
+  br label %.thread434
 
 .thread309:                                       ; preds = %_ZNK5cmake22GetHomeOutputDirectoryB5cxx11Ev.exit255
-  %spec.select = select i1 %.154, i1 true, i1 %449
+  %spec.select436 = select i1 %.154, i1 true, i1 %449
   %474 = icmp eq i64 %463, 0
-  br i1 %474, label %.thread432, label %.thread
+  br i1 %474, label %.thread, label %.thread434
 
-.thread434:                                       ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %469
-  br label %.thread
-
-.thread:                                          ; preds = %.thread434, %469, %.thread309
-  %475 = phi i1 [ %spec.select, %.thread309 ], [ %449, %469 ], [ true, %.thread434 ]
+.thread434:                                       ; preds = %469, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, %.thread309
+  %475 = phi i1 [ %spec.select436, %.thread309 ], [ true, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit ], [ %spec.select, %469 ]
   br i1 %.154, label %476, label %486
 
-476:                                              ; preds = %.thread
+476:                                              ; preds = %.thread434
   invoke void @_ZN5cmake30SetHomeDirectoryViaCommandLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %477 unwind label %484
 
 477:                                              ; preds = %476
-  br i1 %449, label %.invoke435, label %584
+  br i1 %449, label %.invoke437, label %584
 
 478:                                              ; preds = %.critedge112
   %479 = landingpad { ptr, i32 }
@@ -29886,37 +29884,37 @@ _ZNK5cmake22GetHomeOutputDirectoryB5cxx11Ev.exit255: ; preds = %_ZSteqIcEN9__gnu
           cleanup
   br label %.body
 
-484:                                              ; preds = %.invoke435, %.invoke, %583, %581, %488, %476
+484:                                              ; preds = %.invoke437, %.invoke, %583, %581, %488, %476
   %485 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-486:                                              ; preds = %.thread
+486:                                              ; preds = %.thread434
   %487 = or i64 %448, %443
   %or.cond3 = icmp eq i64 %487, 0
   br i1 %or.cond3, label %488, label %490
 
 488:                                              ; preds = %486
   invoke void @_ZN5cmake16SetHomeDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(32) %10)
-          to label %.invoke435 unwind label %484
+          to label %.invoke437 unwind label %484
 
-.invoke435:                                       ; preds = %477, %488
+.invoke437:                                       ; preds = %477, %488
   %489 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN13cmSystemTools26GetLogicalWorkingDirectoryB5cxx11Ev()
           to label %.invoke unwind label %484
 
 490:                                              ; preds = %486
   br i1 %449, label %.invoke, label %584
 
-.invoke:                                          ; preds = %.invoke435, %490
-  %491 = phi ptr [ %10, %490 ], [ %489, %.invoke435 ]
+.invoke:                                          ; preds = %.invoke437, %490
+  %491 = phi ptr [ %10, %490 ], [ %489, %.invoke437 ]
   invoke void @_ZN5cmake22SetHomeOutputDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2312) %0, ptr noundef nonnull align 8 dereferenceable(32) %491)
           to label %584 unwind label %484
 
-.thread432:                                       ; preds = %467, %456, %.thread309
-  %492 = phi i1 [ %spec.select, %.thread309 ], [ true, %456 ], [ true, %467 ]
+.thread:                                          ; preds = %467, %456, %.thread309
+  %492 = phi i1 [ %spec.select436, %.thread309 ], [ true, %456 ], [ true, %467 ]
   br i1 %444, label %493, label %536
 
-493:                                              ; preds = %.thread432
+493:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %494 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %494, ptr %28, align 8, !tbaa !4
@@ -30037,7 +30035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %.body
 
-536:                                              ; preds = %.thread432
+536:                                              ; preds = %.thread
   %or.cond7 = and i1 %.2, %449
   br i1 %or.cond7, label %537, label %580
 

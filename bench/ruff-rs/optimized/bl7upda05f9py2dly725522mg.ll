@@ -26656,8 +26656,6 @@ define hidden noundef range(i8 0, 3) i8 @_ZN18ty_python_semantic5types4Type4bool
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
-  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.57.0.copyload = load i8, ptr %.sroa.57.0..sroa_idx, align 8
   %7 = add nsw i8 %5, -29
   %8 = icmp ult i8 %7, 5
   %narrow.i = select i1 %8, i8 %7, i8 2
@@ -26675,10 +26673,11 @@ define hidden noundef range(i8 0, 3) i8 @_ZN18ty_python_semantic5types4Type4bool
 10:                                               ; preds = %6
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 8
-  br label %11
+  br label %_ZN18ty_python_semantic5types9BoolError19fallback_truthiness17h5a19c09a0a00869cE.exit
 
-11:                                               ; preds = %10, %6
-  %.sink.i.sroa.phi.sroa.speculated = phi i8 [ %.sroa.3.0.copyload, %10 ], [ %.sroa.57.0.copyload, %6 ]
+11:                                               ; preds = %6
+  %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %.sroa.57.0.copyload = load i8, ptr %.sroa.57.0..sroa_idx, align 8
   br label %_ZN18ty_python_semantic5types9BoolError19fallback_truthiness17h5a19c09a0a00869cE.exit
 
 12:                                               ; preds = %3
@@ -26686,8 +26685,8 @@ define hidden noundef range(i8 0, 3) i8 @_ZN18ty_python_semantic5types4Type4bool
   %14 = load i8, ptr %13, align 1, !range !119, !noundef !3
   br label %_ZN18ty_python_semantic5types9BoolError19fallback_truthiness17h5a19c09a0a00869cE.exit
 
-_ZN18ty_python_semantic5types9BoolError19fallback_truthiness17h5a19c09a0a00869cE.exit: ; preds = %11, %6, %6, %6, %12
-  %.sroa.0.0 = phi i8 [ %14, %12 ], [ %.sink.i.sroa.phi.sroa.speculated, %11 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ]
+_ZN18ty_python_semantic5types9BoolError19fallback_truthiness17h5a19c09a0a00869cE.exit: ; preds = %11, %6, %6, %6, %10, %12
+  %.sroa.0.0 = phi i8 [ %14, %12 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ], [ %.sroa.3.0.copyload, %10 ], [ %.sroa.57.0.copyload, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i8 %.sroa.0.0
 }
@@ -26854,8 +26853,8 @@ default.unreachable273:                           ; preds = %5
   br i1 %77, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %69
-  %.sroa.6195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %.sroa.5194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sroa.6195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 1
   br label %79
 
@@ -26877,7 +26876,6 @@ default.unreachable273:                           ; preds = %5
   br i1 %.sroa.03.1.i, label %102, label %101
 
 84:                                               ; preds = %79
-  %.sroa.6195.0.copyload = load i8, ptr %.sroa.6195.0..sroa_idx, align 8, !noalias !2721
   %85 = icmp eq i8 %83, 29
   %86 = trunc nuw i8 %.sroa.04.0.i257 to i1
   %87 = and i1 %85, %86
@@ -26898,20 +26896,20 @@ default.unreachable273:                           ; preds = %5
 
 92:                                               ; preds = %84
   %.sroa.5194.0.copyload = load i8, ptr %.sroa.5194.0..sroa_idx, align 8, !noalias !2721
-  br label %93
+  br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit"
 
-93:                                               ; preds = %92, %84
-  %.sink.i.sroa.phi.sroa.speculated = phi i8 [ %.sroa.5194.0.copyload, %92 ], [ %.sroa.6195.0.copyload, %84 ]
+93:                                               ; preds = %84
+  %.sroa.6195.0.copyload = load i8, ptr %.sroa.6195.0..sroa_idx, align 8, !noalias !2721
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit"
 
 94:                                               ; preds = %79
   %95 = load i8, ptr %78, align 1, !range !119, !noalias !2721, !noundef !3
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit": ; preds = %93, %84, %84, %84, %94
-  %.sroa.04.1.i = phi i8 [ %.sroa.04.0.i257, %94 ], [ %88, %84 ], [ %88, %84 ], [ %88, %84 ], [ %88, %93 ]
-  %.sroa.03.1.i = phi i1 [ %.sroa.03.0.i258, %94 ], [ true, %84 ], [ true, %84 ], [ true, %84 ], [ true, %93 ]
-  %.sroa.01.0.i = phi i8 [ %95, %94 ], [ 2, %84 ], [ 2, %84 ], [ 2, %84 ], [ %.sink.i.sroa.phi.sroa.speculated, %93 ]
+"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit": ; preds = %93, %84, %84, %84, %92, %94
+  %.sroa.04.1.i = phi i8 [ %.sroa.04.0.i257, %94 ], [ %88, %92 ], [ %88, %84 ], [ %88, %84 ], [ %88, %84 ], [ %88, %93 ]
+  %.sroa.03.1.i = phi i1 [ %.sroa.03.0.i258, %94 ], [ true, %92 ], [ true, %84 ], [ true, %84 ], [ true, %84 ], [ true, %93 ]
+  %.sroa.01.0.i = phi i8 [ %95, %94 ], [ %.sroa.5194.0.copyload, %92 ], [ 2, %84 ], [ 2, %84 ], [ 2, %84 ], [ %.sroa.6195.0.copyload, %93 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2721
   %.not.i185 = icmp eq i8 %.sroa.0186.0256, 3
   %.not19.i274 = icmp eq i8 %.sroa.0186.0256, %.sroa.01.0.i
@@ -27515,8 +27513,8 @@ define internal fastcc void @"_ZN18ty_python_semantic5types4Type13try_bool_impl2
 .lr.ph:                                           ; preds = %3
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !4, !noundef !3
-  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.529.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %.sroa.630.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
   br label %17
 
@@ -27538,7 +27536,6 @@ define internal fastcc void @"_ZN18ty_python_semantic5types4Type13try_bool_impl2
   br i1 %.sroa.03.1, label %45, label %41
 
 22:                                               ; preds = %17
-  %.sroa.630.0.copyload = load i8, ptr %.sroa.630.0..sroa_idx, align 8
   %23 = icmp eq i8 %21, 29
   %24 = trunc nuw i8 %.sroa.04.039 to i1
   %25 = and i1 %23, %24
@@ -27559,20 +27556,20 @@ define internal fastcc void @"_ZN18ty_python_semantic5types4Type13try_bool_impl2
 
 30:                                               ; preds = %22
   %.sroa.529.0.copyload = load i8, ptr %.sroa.529.0..sroa_idx, align 8
-  br label %31
+  br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit"
 
-31:                                               ; preds = %30, %22
-  %.sink.i.sroa.phi.sroa.speculated = phi i8 [ %.sroa.529.0.copyload, %30 ], [ %.sroa.630.0.copyload, %22 ]
+31:                                               ; preds = %22
+  %.sroa.630.0.copyload = load i8, ptr %.sroa.630.0..sroa_idx, align 8
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit"
 
 32:                                               ; preds = %17
   %33 = load i8, ptr %16, align 1, !range !119, !noundef !3
   br label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit": ; preds = %31, %22, %22, %22, %32
-  %.sroa.04.1 = phi i8 [ %.sroa.04.039, %32 ], [ %26, %22 ], [ %26, %22 ], [ %26, %22 ], [ %26, %31 ]
-  %.sroa.03.1 = phi i1 [ %.sroa.03.040, %32 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %31 ]
-  %.sroa.01.0 = phi i8 [ %33, %32 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ %.sink.i.sroa.phi.sroa.speculated, %31 ]
+"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h8cef7078fe704a2eE.exit": ; preds = %31, %22, %22, %22, %30, %32
+  %.sroa.04.1 = phi i8 [ %.sroa.04.039, %32 ], [ %26, %30 ], [ %26, %22 ], [ %26, %22 ], [ %26, %22 ], [ %26, %31 ]
+  %.sroa.03.1 = phi i1 [ %.sroa.03.040, %32 ], [ true, %30 ], [ true, %22 ], [ true, %22 ], [ true, %22 ], [ true, %31 ]
+  %.sroa.01.0 = phi i8 [ %33, %32 ], [ %.sroa.529.0.copyload, %30 ], [ 2, %22 ], [ 2, %22 ], [ 2, %22 ], [ %.sroa.630.0.copyload, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not.i = icmp eq i8 %.sroa.0.038, 3
   %spec.select = select i1 %.not.i, i8 %.sroa.01.0, i8 %.sroa.0.038

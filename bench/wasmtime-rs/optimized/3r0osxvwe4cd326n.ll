@@ -26769,7 +26769,7 @@ default.unreachable80:                            ; preds = %23
 
 38:                                               ; preds = %.thread, %53, %25
   %39 = invoke fastcc noundef zeroext i1 @"_ZN94_$LT$cpp_demangle..ast..SimpleOperatorName$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h9c7f676bf3bc1594E"(i8 %27, ptr noalias noundef align 8 dereferenceable(104) %1)
-          to label %54 unwind label %51
+          to label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split" unwind label %51
 
 40:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3093)
@@ -26814,8 +26814,7 @@ default.unreachable80:                            ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br i1 %50, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %38
 
-54:                                               ; preds = %92, %38, %124, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit", %134
-  %.2 = phi i1 [ false, %134 ], [ false, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" ], [ false, %124 ], [ %39, %38 ], [ false, %92 ]
+54:                                               ; preds = %92, %124, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit"
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
 55:                                               ; preds = %23, %23
@@ -27038,10 +27037,10 @@ switch.lookup:                                    ; preds = %78
 
 134:                                              ; preds = %133
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %54
+  br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
-"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %137, %53, %66, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit", %117, %124, %78, %92, %54
-  %.3.ph = phi i1 [ %.2, %54 ], [ true, %92 ], [ true, %78 ], [ true, %124 ], [ true, %117 ], [ true, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" ], [ true, %66 ], [ true, %53 ], [ true, %137 ]
+"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %134, %38, %137, %53, %66, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit", %117, %124, %78, %92, %54
+  %.3.ph = phi i1 [ true, %92 ], [ true, %78 ], [ true, %124 ], [ true, %117 ], [ true, %"_ZN86_$LT$cpp_demangle..ast..TypeHandle$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h36a5d5d576973bccE.exit" ], [ true, %66 ], [ true, %53 ], [ true, %137 ], [ false, %134 ], [ %39, %38 ], [ false, %54 ]
   %135 = load i32, ptr %18, align 8, !noundef !9
   %136 = add i32 %135, -1
   store i32 %136, ptr %18, align 8
@@ -29499,17 +29498,16 @@ define internal fastcc noundef zeroext i1 @"_ZN90_$LT$cpp_demangle..ast..Unresol
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %53, label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split", label %59
 
-59:                                               ; preds = %58, %57, %"_ZN84_$LT$cpp_demangle..ast..Decltype$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4fa5f7c9a47f6833E.exit"
-  %.1 = phi i1 [ %.2.i, %"_ZN84_$LT$cpp_demangle..ast..Decltype$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4fa5f7c9a47f6833E.exit" ], [ false, %57 ], [ false, %58 ]
+59:                                               ; preds = %58, %57
   br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
 "_ZN84_$LT$cpp_demangle..ast..Decltype$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4fa5f7c9a47f6833E.exit": ; preds = %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i", %21
   %.2.i = phi i1 [ true, %21 ], [ %.2.ph.i, %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %59
+  br label %"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split"
 
-"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %57, %54, %58, %59
-  %.3.ph = phi i1 [ %.1, %59 ], [ true, %58 ], [ true, %54 ], [ true, %57 ]
+"_ZN12cpp_demangle3ast26AutoParseDemangle$LT$W$GT$3new17h396a0fa4f83b052bE.exit.thread.sink.split": ; preds = %"_ZN84_$LT$cpp_demangle..ast..Decltype$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4fa5f7c9a47f6833E.exit", %57, %54, %58, %59
+  %.3.ph = phi i1 [ true, %58 ], [ true, %54 ], [ true, %57 ], [ %.2.i, %"_ZN84_$LT$cpp_demangle..ast..Decltype$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle17h4fa5f7c9a47f6833E.exit" ], [ false, %59 ]
   %60 = load i32, ptr %10, align 8, !noundef !9
   %61 = add i32 %60, -1
   store i32 %61, ptr %10, align 8

@@ -9821,7 +9821,7 @@ tt_face_load_sbix_image.exit.thread41:            ; preds = %51, %95, %28, %14, 
 183:                                              ; preds = %181, %177
   %.1128.i = phi i8 [ %182, %181 ], [ %.0127171.i, %177 ]
   %exitcond.not.i = icmp eq i32 %.0125172.i, 4
-  br i1 %exitcond.not.i, label %.thread.i.loopexit, label %184
+  br i1 %exitcond.not.i, label %.thread.i, label %184
 
 184:                                              ; preds = %183
   %185 = add nuw nsw i32 %.0125172.i, 1
@@ -9896,12 +9896,11 @@ tt_face_load_sbix_image.exit.thread41:            ; preds = %51, %95, %28, %14, 
   tail call void @FT_Stream_ExitFrame(ptr noundef %4) #28
   br label %219
 
-.thread.i.loopexit:                               ; preds = %177, %183
-  %.2.ph.i.ph = phi i32 [ 7, %177 ], [ 3, %183 ]
+.thread.i.loopexit:                               ; preds = %177
   br label %.thread.i
 
-.thread.i:                                        ; preds = %177, %177, %177, %.thread.i.loopexit
-  %.2.ph.i = phi i32 [ %.2.ph.i.ph, %.thread.i.loopexit ], [ 2, %177 ], [ 2, %177 ], [ 2, %177 ]
+.thread.i:                                        ; preds = %183, %177, %177, %177, %.thread.i.loopexit
+  %.2.ph.i = phi i32 [ 2, %177 ], [ 2, %177 ], [ 2, %177 ], [ 3, %183 ], [ 7, %.thread.i.loopexit ]
   tail call void @FT_Stream_ExitFrame(ptr noundef %4) #28
   br label %tt_face_load_sbix_image.exit.thread
 

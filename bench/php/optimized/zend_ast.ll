@@ -2660,7 +2660,7 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   store i32 %180, ptr %181, align 8, !tbaa !44
   %182 = and i32 %180, 65280
   %.not475 = icmp eq i32 %182, 0
-  br i1 %.not475, label %.critedge498, label %183
+  br i1 %.not475, label %.thread908, label %183
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 4
@@ -2676,11 +2676,11 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   %189 = load i32, ptr %178, align 4, !tbaa !59
   %190 = add i32 %189, 1
   store i32 %190, ptr %178, align 4, !tbaa !59
-  br label %.critedge498
+  br label %.thread908
 
 191:                                              ; preds = %183
   tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #17
-  br label %.critedge498
+  br label %.thread908
 
 192:                                              ; preds = %170
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3436,7 +3436,7 @@ zend_ast_evaluate_ex.exit784:                     ; preds = %.thread954, %.split
   store ptr @zend_empty_array, ptr %0, align 8, !tbaa !44
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 7, ptr %525, align 8, !tbaa !44
-  br label %.critedge498
+  br label %.thread908
 
 526:                                              ; preds = %521
   %527 = tail call ptr @_zend_new_array_0() #17
@@ -3445,7 +3445,7 @@ zend_ast_evaluate_ex.exit784:                     ; preds = %.thread954, %.split
   store i32 775, ptr %528, align 8, !tbaa !44
   %529 = load i32, ptr %522, align 8, !tbaa !77
   %.not1044 = icmp eq i32 %529, 0
-  br i1 %.not1044, label %.critedge498, label %.lr.ph1041
+  br i1 %.not1044, label %.thread908, label %.lr.ph1041
 
 .lr.ph1041:                                       ; preds = %526
   %530 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3912,7 +3912,7 @@ zval_ptr_dtor_nogc.exit586:                       ; preds = %zval_ptr_dtor_nogc.
   %727 = load i32, ptr %522, align 8, !tbaa !77
   %728 = zext i32 %727 to i64
   %729 = icmp samesign ult i64 %indvars.iv.next1066, %728
-  br i1 %729, label %535, label %.critedge498
+  br i1 %729, label %535, label %.thread908
 
 730:                                              ; preds = %5
   %731 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4077,9 +4077,8 @@ zval_ptr_dtor_nogc.exit550:                       ; preds = %781, %788, %793
 
 zval_ptr_dtor_nogc.exit547:                       ; preds = %zval_ptr_dtor_nogc.exit550, %797, %802
   %804 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !125
-  %.not449 = icmp ne ptr %804, null
-  %spec.select = sext i1 %.not449 to i32
-  br label %.critedge498
+  %.not449 = icmp eq ptr %804, null
+  br i1 %.not449, label %.thread908, label %.critedge498, !prof !104
 
 805:                                              ; preds = %5
   %806 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 81), align 1, !tbaa !126, !range !123, !noundef !124
@@ -4302,7 +4301,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   %914 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %915 = load i8, ptr %914, align 1, !tbaa !44
   %.not.i533 = icmp eq i8 %915, 0
-  br i1 %.not.i533, label %.critedge498, label %916
+  br i1 %.not.i533, label %.thread908, label %916
 
 916:                                              ; preds = %913
   %917 = load ptr, ptr %7, align 8, !tbaa !44
@@ -4312,12 +4311,12 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   %920 = add i32 %918, -1
   store i32 %920, ptr %917, align 4, !tbaa !59
   %.not3.i534 = icmp eq i32 %920, 0
-  br i1 %.not3.i534, label %921, label %.critedge498
+  br i1 %.not3.i534, label %921, label %.thread908
 
 921:                                              ; preds = %916
   %922 = load ptr, ptr %7, align 8, !tbaa !44
   call void @rc_dtor_func(ptr noundef %922) #17
-  br label %.critedge498
+  br label %.thread908
 
 923:                                              ; preds = %5
   %924 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5011,8 +5010,11 @@ zval_ptr_dtor_nogc.exit505:                       ; preds = %1214, %1217, %1222
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #17
   br label %.critedge498
 
-.critedge498:                                     ; preds = %zval_ptr_dtor_nogc.exit586, %526, %zval_ptr_dtor_nogc.exit547, %913, %916, %921, %524, %.critedge, %191, %177, %zval_ptr_dtor_nogc.exit556, %1233, %207, %392, %445, %zend_ast_evaluate_ex.exit, %zend_ast_evaluate_ex.exit664, %zend_ast_evaluate_ex.exit684, %167, %160, %203, %201, %224, %222, %241, %239, %zend_ast_evaluate_ex.exit694, %zend_ast_evaluate_ex.exit714, %zend_ast_evaluate_ex.exit734, %zval_ptr_dtor_nogc.exit601, %zval_ptr_dtor_nogc.exit598, %zend_ast_evaluate_ex.exit754, %zval_ptr_dtor_nogc.exit595, %zend_ast_evaluate_ex.exit774, %zend_ast_evaluate_ex.exit784, %zend_ast_evaluate_ex.exit827, %zval_ptr_dtor_nogc.exit544, %.split13.i, %38, %41, %46, %zval_ptr_dtor_nogc.exit637, %65, %70, %.split13.i656, %98, %101, %106, %zval_ptr_dtor_nogc.exit628, %124, %129, %145, %153, %158, %275, %278, %283, %zval_ptr_dtor_nogc.exit616, %302, %307, %341, %344, %349, %zval_ptr_dtor_nogc.exit607, %366, %371, %483, %488, %493, %509, %514, %519, %771, %774, %779, %1231, %1226, %zval_ptr_dtor_nogc.exit505, %1202, %1197, %zval_ptr_dtor_nogc.exit511, %1179, %1174, %zval_ptr_dtor_nogc.exit517, %1132, %1127, %zval_ptr_dtor_nogc.exit529, %1108, %1103, %1100, %1027, %.critedge494, %887, %891, %896, %863, %858, %855, %724, %719, %zval_ptr_dtor_nogc.exit562, %674, %669, %zval_ptr_dtor_nogc.exit571, %643, %638, %635, %613, %608, %zval_ptr_dtor_nogc.exit583, %561, %556, %553, %192, %zend_ast_evaluate_ex.exit837, %zend_ast_evaluate_ex.exit867, %923, %934, %1049, %1051, %833, %805, %zval_ptr_dtor_nogc.exit520, %1084, %1076, %1056, %752, %232, %211
-  %.1 = phi i32 [ -1, %192 ], [ -1, %232 ], [ -1, %211 ], [ 0, %752 ], [ -1, %833 ], [ 0, %1056 ], [ 0, %1076 ], [ 0, %1084 ], [ 0, %zval_ptr_dtor_nogc.exit520 ], [ -1, %805 ], [ -1, %923 ], [ -1, %934 ], [ -1, %1051 ], [ 0, %1049 ], [ -1, %.critedge494 ], [ -1, %1027 ], [ -1, %zend_ast_evaluate_ex.exit867 ], [ -1, %zend_ast_evaluate_ex.exit837 ], [ -1, %553 ], [ -1, %556 ], [ -1, %561 ], [ -1, %zval_ptr_dtor_nogc.exit583 ], [ -1, %608 ], [ -1, %613 ], [ -1, %635 ], [ -1, %638 ], [ -1, %643 ], [ -1, %zval_ptr_dtor_nogc.exit571 ], [ -1, %669 ], [ -1, %674 ], [ -1, %zval_ptr_dtor_nogc.exit562 ], [ -1, %719 ], [ -1, %724 ], [ -1, %855 ], [ -1, %858 ], [ -1, %863 ], [ -1, %896 ], [ -1, %891 ], [ -1, %887 ], [ -1, %1100 ], [ -1, %1103 ], [ -1, %1108 ], [ -1, %zval_ptr_dtor_nogc.exit529 ], [ -1, %1127 ], [ -1, %1132 ], [ -1, %zval_ptr_dtor_nogc.exit517 ], [ -1, %1174 ], [ -1, %1179 ], [ -1, %zval_ptr_dtor_nogc.exit511 ], [ -1, %1197 ], [ -1, %1202 ], [ 0, %zval_ptr_dtor_nogc.exit505 ], [ 0, %1226 ], [ 0, %1231 ], [ -1, %1233 ], [ 0, %207 ], [ 0, %392 ], [ 0, %445 ], [ -1, %zval_ptr_dtor_nogc.exit556 ], [ -1, %zend_ast_evaluate_ex.exit ], [ -1, %zend_ast_evaluate_ex.exit664 ], [ -1, %zend_ast_evaluate_ex.exit684 ], [ 0, %167 ], [ 0, %160 ], [ 0, %203 ], [ 0, %201 ], [ 0, %224 ], [ 0, %222 ], [ 0, %241 ], [ 0, %239 ], [ -1, %zend_ast_evaluate_ex.exit694 ], [ -1, %zend_ast_evaluate_ex.exit714 ], [ -1, %zend_ast_evaluate_ex.exit734 ], [ %.484, %zval_ptr_dtor_nogc.exit601 ], [ %.485, %zval_ptr_dtor_nogc.exit598 ], [ -1, %zend_ast_evaluate_ex.exit754 ], [ %.486, %zval_ptr_dtor_nogc.exit595 ], [ -1, %zend_ast_evaluate_ex.exit774 ], [ -1, %zend_ast_evaluate_ex.exit784 ], [ -1, %zend_ast_evaluate_ex.exit827 ], [ 0, %zval_ptr_dtor_nogc.exit544 ], [ -1, %.split13.i ], [ -1, %38 ], [ -1, %41 ], [ -1, %46 ], [ %53, %zval_ptr_dtor_nogc.exit637 ], [ %53, %65 ], [ %53, %70 ], [ -1, %.split13.i656 ], [ -1, %98 ], [ -1, %101 ], [ -1, %106 ], [ %112, %zval_ptr_dtor_nogc.exit628 ], [ %112, %124 ], [ %112, %129 ], [ %150, %145 ], [ %150, %153 ], [ %150, %158 ], [ -1, %275 ], [ -1, %278 ], [ -1, %283 ], [ 0, %zval_ptr_dtor_nogc.exit616 ], [ 0, %302 ], [ 0, %307 ], [ -1, %341 ], [ -1, %344 ], [ -1, %349 ], [ 0, %zval_ptr_dtor_nogc.exit607 ], [ 0, %366 ], [ 0, %371 ], [ %485, %483 ], [ %485, %488 ], [ %485, %493 ], [ %511, %509 ], [ %511, %514 ], [ %511, %519 ], [ -1, %771 ], [ -1, %774 ], [ -1, %779 ], [ 0, %177 ], [ 0, %191 ], [ 0, %.critedge ], [ 0, %524 ], [ 0, %921 ], [ 0, %916 ], [ 0, %913 ], [ %spec.select, %zval_ptr_dtor_nogc.exit547 ], [ 0, %526 ], [ 0, %zval_ptr_dtor_nogc.exit586 ]
+.thread908:                                       ; preds = %zval_ptr_dtor_nogc.exit586, %526, %913, %916, %921, %524, %.critedge, %191, %177, %zval_ptr_dtor_nogc.exit547
+  br label %.critedge498
+
+.critedge498:                                     ; preds = %1231, %1226, %zval_ptr_dtor_nogc.exit505, %1202, %1197, %zval_ptr_dtor_nogc.exit511, %1179, %1174, %zval_ptr_dtor_nogc.exit517, %1132, %1127, %zval_ptr_dtor_nogc.exit529, %1108, %1103, %1100, %1027, %.critedge494, %887, %891, %896, %863, %858, %855, %779, %774, %771, %724, %719, %zval_ptr_dtor_nogc.exit562, %674, %669, %zval_ptr_dtor_nogc.exit571, %643, %638, %635, %613, %608, %zval_ptr_dtor_nogc.exit583, %561, %556, %553, %519, %514, %509, %493, %488, %483, %371, %366, %zval_ptr_dtor_nogc.exit607, %349, %344, %341, %307, %302, %zval_ptr_dtor_nogc.exit616, %283, %278, %275, %192, %158, %153, %145, %129, %124, %zval_ptr_dtor_nogc.exit628, %106, %101, %98, %.split13.i656, %70, %65, %zval_ptr_dtor_nogc.exit637, %46, %41, %38, %.split13.i, %zend_ast_evaluate_ex.exit837, %zval_ptr_dtor_nogc.exit556, %1233, %207, %392, %445, %zend_ast_evaluate_ex.exit, %zend_ast_evaluate_ex.exit664, %zend_ast_evaluate_ex.exit684, %167, %160, %203, %201, %224, %222, %241, %239, %zend_ast_evaluate_ex.exit694, %zend_ast_evaluate_ex.exit714, %zend_ast_evaluate_ex.exit734, %zval_ptr_dtor_nogc.exit601, %zval_ptr_dtor_nogc.exit598, %zend_ast_evaluate_ex.exit754, %zval_ptr_dtor_nogc.exit595, %zend_ast_evaluate_ex.exit774, %zend_ast_evaluate_ex.exit784, %zend_ast_evaluate_ex.exit827, %zval_ptr_dtor_nogc.exit544, %zend_ast_evaluate_ex.exit867, %923, %934, %1049, %1051, %833, %805, %zval_ptr_dtor_nogc.exit547, %.thread908, %zval_ptr_dtor_nogc.exit520, %1084, %1076, %1056, %752, %232, %211
+  %.1 = phi i32 [ -1, %192 ], [ -1, %232 ], [ -1, %211 ], [ 0, %752 ], [ -1, %833 ], [ 0, %1056 ], [ 0, %1076 ], [ 0, %1084 ], [ 0, %zval_ptr_dtor_nogc.exit520 ], [ -1, %zval_ptr_dtor_nogc.exit547 ], [ -1, %805 ], [ -1, %923 ], [ -1, %934 ], [ -1, %1051 ], [ 0, %1049 ], [ -1, %.critedge494 ], [ -1, %1027 ], [ -1, %zend_ast_evaluate_ex.exit867 ], [ -1, %1233 ], [ 0, %207 ], [ 0, %392 ], [ 0, %445 ], [ -1, %zval_ptr_dtor_nogc.exit556 ], [ -1, %zend_ast_evaluate_ex.exit ], [ -1, %zend_ast_evaluate_ex.exit664 ], [ -1, %zend_ast_evaluate_ex.exit684 ], [ 0, %167 ], [ 0, %160 ], [ 0, %203 ], [ 0, %201 ], [ 0, %224 ], [ 0, %222 ], [ 0, %241 ], [ 0, %239 ], [ -1, %zend_ast_evaluate_ex.exit694 ], [ -1, %zend_ast_evaluate_ex.exit714 ], [ -1, %zend_ast_evaluate_ex.exit734 ], [ %.484, %zval_ptr_dtor_nogc.exit601 ], [ %.485, %zval_ptr_dtor_nogc.exit598 ], [ -1, %zend_ast_evaluate_ex.exit754 ], [ %.486, %zval_ptr_dtor_nogc.exit595 ], [ -1, %zend_ast_evaluate_ex.exit774 ], [ -1, %zend_ast_evaluate_ex.exit784 ], [ -1, %zend_ast_evaluate_ex.exit827 ], [ 0, %zval_ptr_dtor_nogc.exit544 ], [ 0, %.thread908 ], [ -1, %zend_ast_evaluate_ex.exit837 ], [ -1, %.split13.i ], [ -1, %38 ], [ -1, %41 ], [ -1, %46 ], [ %53, %zval_ptr_dtor_nogc.exit637 ], [ %53, %65 ], [ %53, %70 ], [ -1, %.split13.i656 ], [ -1, %98 ], [ -1, %101 ], [ -1, %106 ], [ %112, %zval_ptr_dtor_nogc.exit628 ], [ %112, %124 ], [ %112, %129 ], [ %150, %145 ], [ %150, %153 ], [ %150, %158 ], [ -1, %275 ], [ -1, %278 ], [ -1, %283 ], [ 0, %zval_ptr_dtor_nogc.exit616 ], [ 0, %302 ], [ 0, %307 ], [ -1, %341 ], [ -1, %344 ], [ -1, %349 ], [ 0, %zval_ptr_dtor_nogc.exit607 ], [ 0, %366 ], [ 0, %371 ], [ %485, %483 ], [ %485, %488 ], [ %485, %493 ], [ %511, %509 ], [ %511, %514 ], [ %511, %519 ], [ -1, %553 ], [ -1, %556 ], [ -1, %561 ], [ -1, %zval_ptr_dtor_nogc.exit583 ], [ -1, %608 ], [ -1, %613 ], [ -1, %635 ], [ -1, %638 ], [ -1, %643 ], [ -1, %zval_ptr_dtor_nogc.exit571 ], [ -1, %669 ], [ -1, %674 ], [ -1, %zval_ptr_dtor_nogc.exit562 ], [ -1, %719 ], [ -1, %724 ], [ -1, %771 ], [ -1, %774 ], [ -1, %779 ], [ -1, %855 ], [ -1, %858 ], [ -1, %863 ], [ -1, %896 ], [ -1, %891 ], [ -1, %887 ], [ -1, %1100 ], [ -1, %1103 ], [ -1, %1108 ], [ -1, %zval_ptr_dtor_nogc.exit529 ], [ -1, %1127 ], [ -1, %1132 ], [ -1, %zval_ptr_dtor_nogc.exit517 ], [ -1, %1174 ], [ -1, %1179 ], [ -1, %zval_ptr_dtor_nogc.exit511 ], [ -1, %1197 ], [ -1, %1202 ], [ 0, %zval_ptr_dtor_nogc.exit505 ], [ 0, %1226 ], [ 0, %1231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

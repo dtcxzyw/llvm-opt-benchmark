@@ -6542,7 +6542,7 @@ define noundef i32 @_ZN6google8protobuf22Base64UnescapeInternalEPKciPciPKa(ptr n
   br i1 %6, label %.lr.ph, label %.preheader.thread
 
 .preheader367:                                    ; preds = %5
-  br i1 %6, label %.lr.ph549, label %.preheader.thread829
+  br i1 %6, label %.lr.ph549, label %.preheader.thread827
 
 .lr.ph:                                           ; preds = %.preheader374, %100
   %indvars.iv = phi i64 [ %indvars.iv.next, %100 ], [ 0, %.preheader374 ]
@@ -6956,7 +6956,7 @@ switch.early.test.loopexit365:                    ; preds = %_ZN6google8protobuf
   br label %switch.early.test
 
 switch.early.test.loopexit366:                    ; preds = %_ZN6google8protobuf13ascii_isspaceEc.exit314, %151
-  %.lcssa683 = phi i32 [ 3, %_ZN6google8protobuf13ascii_isspaceEc.exit314 ], [ %144, %151 ]
+  %.lcssa681 = phi i32 [ 3, %_ZN6google8protobuf13ascii_isspaceEc.exit314 ], [ %144, %151 ]
   %192 = zext i8 %146 to i32
   br label %switch.early.test
 
@@ -6976,7 +6976,7 @@ switch.early.test.loopexit372:                    ; preds = %_ZN6google8protobuf
   br label %switch.early.test
 
 switch.early.test.loopexit373:                    ; preds = %_ZN6google8protobuf13ascii_isspaceEc.exit, %49
-  %.lcssa719 = phi i32 [ 3, %_ZN6google8protobuf13ascii_isspaceEc.exit ], [ %41, %49 ]
+  %.lcssa717 = phi i32 [ 3, %_ZN6google8protobuf13ascii_isspaceEc.exit ], [ %41, %49 ]
   %199 = trunc nuw nsw i64 %indvars.iv to i32
   %200 = zext i8 %43 to i32
   br label %switch.early.test
@@ -6987,7 +6987,7 @@ switch.early.test:                                ; preds = %switch.early.test.l
   %.2226345 = phi i32 [ %.2226, %.loopexit368 ], [ %189, %switch.early.test.loopexit ], [ %190, %switch.early.test.loopexit363 ], [ %191, %switch.early.test.loopexit365 ], [ %192, %switch.early.test.loopexit366 ], [ %194, %switch.early.test.loopexit369 ], [ %196, %switch.early.test.loopexit370 ], [ %198, %switch.early.test.loopexit372 ], [ %200, %switch.early.test.loopexit373 ]
   %.0229344 = phi i32 [ 0, %.loopexit368 ], [ 3, %switch.early.test.loopexit ], [ 2, %switch.early.test.loopexit363 ], [ 1, %switch.early.test.loopexit365 ], [ 0, %switch.early.test.loopexit366 ], [ 3, %switch.early.test.loopexit369 ], [ 2, %switch.early.test.loopexit370 ], [ 1, %switch.early.test.loopexit372 ], [ 0, %switch.early.test.loopexit373 ]
   %.1234341 = phi i32 [ %.1234, %.loopexit368 ], [ %.2235546, %switch.early.test.loopexit ], [ %.2235546, %switch.early.test.loopexit363 ], [ %.2235546, %switch.early.test.loopexit365 ], [ %.2235546, %switch.early.test.loopexit366 ], [ %193, %switch.early.test.loopexit369 ], [ %195, %switch.early.test.loopexit370 ], [ %197, %switch.early.test.loopexit372 ], [ %199, %switch.early.test.loopexit373 ]
-  %.6254338 = phi i32 [ %.6254, %.loopexit368 ], [ %171, %switch.early.test.loopexit ], [ %162, %switch.early.test.loopexit363 ], [ %153, %switch.early.test.loopexit365 ], [ %.lcssa683, %switch.early.test.loopexit366 ], [ %80, %switch.early.test.loopexit369 ], [ %66, %switch.early.test.loopexit370 ], [ %52, %switch.early.test.loopexit372 ], [ %.lcssa719, %switch.early.test.loopexit373 ]
+  %.6254338 = phi i32 [ %.6254, %.loopexit368 ], [ %171, %switch.early.test.loopexit ], [ %162, %switch.early.test.loopexit363 ], [ %153, %switch.early.test.loopexit365 ], [ %.lcssa681, %switch.early.test.loopexit366 ], [ %80, %switch.early.test.loopexit369 ], [ %66, %switch.early.test.loopexit370 ], [ %52, %switch.early.test.loopexit372 ], [ %.lcssa717, %switch.early.test.loopexit373 ]
   switch i32 %.2226345, label %221 [
     i32 61, label %223
     i32 46, label %223
@@ -7003,7 +7003,7 @@ switch.early.test:                                ; preds = %switch.early.test.l
   %201 = icmp sgt i32 %.14262.ph, 0
   br i1 %201, label %.lr.ph558.lr.ph, label %.fold.split
 
-.preheader.thread829:                             ; preds = %.preheader367
+.preheader.thread827:                             ; preds = %.preheader367
   %202 = icmp sgt i32 %1, 0
   br i1 %202, label %.lr.ph558.us.preheader, label %_ZN6google8protobuf13ascii_isspaceEc.exit318
 
@@ -7022,12 +7022,12 @@ switch.early.test:                                ; preds = %switch.early.test.l
   %.14262.ph354575.ph = phi i32 [ %1, %.preheader.thread ], [ %.14262.ph, %.lr.ph558.lr.ph ]
   br label %.lr.ph558
 
-.lr.ph558.us.preheader:                           ; preds = %.preheader.thread829, %.lr.ph558.lr.ph
-  %.14.ph358579.us.ph = phi ptr [ %0, %.preheader.thread829 ], [ %.14.ph, %.lr.ph558.lr.ph ]
-  %.8222.ph357578.us.ph = phi i32 [ 0, %.preheader.thread829 ], [ %.8222.ph, %.lr.ph558.lr.ph ]
-  %.2231.ph356577.us.ph = phi i32 [ 0, %.preheader.thread829 ], [ %.2231.ph, %.lr.ph558.lr.ph ]
-  %.4237.ph355576.us.ph = phi i32 [ 0, %.preheader.thread829 ], [ %.4237.ph, %.lr.ph558.lr.ph ]
-  %.14262.ph354575.us.ph = phi i32 [ %1, %.preheader.thread829 ], [ %.14262.ph, %.lr.ph558.lr.ph ]
+.lr.ph558.us.preheader:                           ; preds = %.preheader.thread827, %.lr.ph558.lr.ph
+  %.14.ph358579.us.ph = phi ptr [ %0, %.preheader.thread827 ], [ %.14.ph, %.lr.ph558.lr.ph ]
+  %.8222.ph357578.us.ph = phi i32 [ 0, %.preheader.thread827 ], [ %.8222.ph, %.lr.ph558.lr.ph ]
+  %.2231.ph356577.us.ph = phi i32 [ 0, %.preheader.thread827 ], [ %.2231.ph, %.lr.ph558.lr.ph ]
+  %.4237.ph355576.us.ph = phi i32 [ 0, %.preheader.thread827 ], [ %.4237.ph, %.lr.ph558.lr.ph ]
+  %.14262.ph354575.us.ph = phi i32 [ %1, %.preheader.thread827 ], [ %.14262.ph, %.lr.ph558.lr.ph ]
   br label %.lr.ph558.us
 
 .lr.ph558.us:                                     ; preds = %.lr.ph558.us.preheader, %.outer.us
@@ -7071,14 +7071,14 @@ switch.early.test:                                ; preds = %switch.early.test.l
     i8 10, label %_ZN6google8protobuf13ascii_isspaceEc.exit319.us
     i8 9, label %_ZN6google8protobuf13ascii_isspaceEc.exit319.us
     i8 13, label %_ZN6google8protobuf13ascii_isspaceEc.exit319.us
-    i8 0, label %.fold.split.loopexit1201
+    i8 0, label %.fold.split.loopexit1193
     i8 61, label %.fold.split
     i8 46, label %.fold.split
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit319.us:  ; preds = %219, %219, %219, %219, %219, %219
   %220 = icmp samesign ugt i32 %.14262556.us, 1
-  br i1 %220, label %204, label %.fold.split.loopexit1201, !llvm.loop !101
+  br i1 %220, label %204, label %.fold.split, !llvm.loop !101
 
 221:                                              ; preds = %switch.early.test
   %222 = trunc nuw i32 %.2226345 to i8
@@ -7133,14 +7133,14 @@ _ZN6google8protobuf13ascii_isspaceEc.exit318.thread: ; preds = %221, %221, %221,
     i8 10, label %_ZN6google8protobuf13ascii_isspaceEc.exit319
     i8 9, label %_ZN6google8protobuf13ascii_isspaceEc.exit319
     i8 13, label %_ZN6google8protobuf13ascii_isspaceEc.exit319
-    i8 0, label %.fold.split.loopexit1230
+    i8 0, label %.fold.split.loopexit1222
     i8 61, label %.fold.split
     i8 46, label %.fold.split
   ]
 
 _ZN6google8protobuf13ascii_isspaceEc.exit319:     ; preds = %234, %234, %234, %234, %234, %234
   %235 = icmp samesign ugt i32 %.14262556, 1
-  br i1 %235, label %226, label %.fold.split.loopexit1230, !llvm.loop !101
+  br i1 %235, label %226, label %.fold.split, !llvm.loop !101
 
 236:                                              ; preds = %226
   %237 = zext nneg i8 %232 to i32
@@ -7185,20 +7185,18 @@ _ZN6google8protobuf13ascii_isspaceEc.exit319:     ; preds = %234, %234, %234, %2
   %.14262.ph354575 = phi i32 [ %227, %.outer ], [ %.14262.ph354575.ph, %.lr.ph558.preheader ]
   br label %226
 
-.fold.split.loopexit1201:                         ; preds = %219, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us
-  %.13261.ph = phi i32 [ %205, %219 ], [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ]
+.fold.split.loopexit1193:                         ; preds = %219
   br label %.fold.split
 
-.fold.split.loopexit1230:                         ; preds = %234, %_ZN6google8protobuf13ascii_isspaceEc.exit319
-  %.13261.ph1231 = phi i32 [ %227, %234 ], [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit319 ]
+.fold.split.loopexit1222:                         ; preds = %234
   br label %.fold.split
 
-.fold.split:                                      ; preds = %.outer, %.outer.us, %234, %234, %219, %219, %.fold.split.loopexit1230, %.fold.split.loopexit1201, %.preheader, %223
-  %.13261 = phi i32 [ %224, %223 ], [ %.14262.ph, %.preheader ], [ %.13261.ph, %.fold.split.loopexit1201 ], [ %.13261.ph1231, %.fold.split.loopexit1230 ], [ %.14262556.us, %219 ], [ %.14262556.us, %219 ], [ %.14262556, %234 ], [ %.14262556, %234 ], [ %205, %.outer.us ], [ %227, %.outer ]
-  %.3236 = phi i32 [ %.1234339, %223 ], [ %.4237.ph, %.preheader ], [ %.4237.ph355576.us, %.fold.split.loopexit1201 ], [ %.4237.ph355576, %.fold.split.loopexit1230 ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576, %234 ], [ %.4237.ph355576, %234 ], [ %.5238.us, %.outer.us ], [ %.5238, %.outer ]
-  %.1230 = phi i32 [ %.0229342, %223 ], [ %.2231.ph, %.preheader ], [ %.2231.ph356577.us, %.fold.split.loopexit1201 ], [ %.2231.ph356577, %.fold.split.loopexit1230 ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577, %234 ], [ %.2231.ph356577, %234 ], [ %.3232.us, %.outer.us ], [ %.3232, %.outer ]
-  %.7221 = phi i32 [ %.3217347, %223 ], [ %.8222.ph, %.preheader ], [ %.8222.ph357578.us, %.fold.split.loopexit1201 ], [ %.8222.ph357578, %.fold.split.loopexit1230 ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578, %234 ], [ %.8222.ph357578, %234 ], [ %.9223.us, %.outer.us ], [ %.9223, %.outer ]
-  %.13 = phi ptr [ %225, %223 ], [ %.14.ph, %.preheader ], [ %206, %.fold.split.loopexit1201 ], [ %228, %.fold.split.loopexit1230 ], [ %.14557.us, %219 ], [ %.14557.us, %219 ], [ %.14557, %234 ], [ %.14557, %234 ], [ %206, %.outer.us ], [ %228, %.outer ]
+.fold.split:                                      ; preds = %.outer, %_ZN6google8protobuf13ascii_isspaceEc.exit319, %.outer.us, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us, %234, %234, %219, %219, %.fold.split.loopexit1222, %.fold.split.loopexit1193, %.preheader, %223
+  %.13261 = phi i32 [ %224, %223 ], [ %.14262.ph, %.preheader ], [ %.14262556.us, %219 ], [ %.14262556.us, %219 ], [ %.14262556, %234 ], [ %.14262556, %234 ], [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ], [ %205, %.fold.split.loopexit1193 ], [ %205, %.outer.us ], [ 0, %_ZN6google8protobuf13ascii_isspaceEc.exit319 ], [ %227, %.fold.split.loopexit1222 ], [ %227, %.outer ]
+  %.3236 = phi i32 [ %.1234339, %223 ], [ %.4237.ph, %.preheader ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576.us, %219 ], [ %.4237.ph355576, %234 ], [ %.4237.ph355576, %234 ], [ %.4237.ph355576.us, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ], [ %.4237.ph355576.us, %.fold.split.loopexit1193 ], [ %.5238.us, %.outer.us ], [ %.4237.ph355576, %_ZN6google8protobuf13ascii_isspaceEc.exit319 ], [ %.4237.ph355576, %.fold.split.loopexit1222 ], [ %.5238, %.outer ]
+  %.1230 = phi i32 [ %.0229342, %223 ], [ %.2231.ph, %.preheader ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577.us, %219 ], [ %.2231.ph356577, %234 ], [ %.2231.ph356577, %234 ], [ %.2231.ph356577.us, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ], [ %.2231.ph356577.us, %.fold.split.loopexit1193 ], [ %.3232.us, %.outer.us ], [ %.2231.ph356577, %_ZN6google8protobuf13ascii_isspaceEc.exit319 ], [ %.2231.ph356577, %.fold.split.loopexit1222 ], [ %.3232, %.outer ]
+  %.7221 = phi i32 [ %.3217347, %223 ], [ %.8222.ph, %.preheader ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578.us, %219 ], [ %.8222.ph357578, %234 ], [ %.8222.ph357578, %234 ], [ %.8222.ph357578.us, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ], [ %.8222.ph357578.us, %.fold.split.loopexit1193 ], [ %.9223.us, %.outer.us ], [ %.8222.ph357578, %_ZN6google8protobuf13ascii_isspaceEc.exit319 ], [ %.8222.ph357578, %.fold.split.loopexit1222 ], [ %.9223, %.outer ]
+  %.13 = phi ptr [ %225, %223 ], [ %.14.ph, %.preheader ], [ %.14557.us, %219 ], [ %.14557.us, %219 ], [ %.14557, %234 ], [ %.14557, %234 ], [ %206, %_ZN6google8protobuf13ascii_isspaceEc.exit319.us ], [ %206, %.fold.split.loopexit1193 ], [ %206, %.outer.us ], [ %228, %_ZN6google8protobuf13ascii_isspaceEc.exit319 ], [ %228, %.fold.split.loopexit1222 ], [ %228, %.outer ]
   switch i32 %.1230, label %default.unreachable [
     i32 0, label %._crit_edge
     i32 1, label %_ZN6google8protobuf13ascii_isspaceEc.exit318
@@ -7289,8 +7287,8 @@ _ZN6google8protobuf13ascii_isspaceEc.exit320.thread: ; preds = %.lr.ph607, %.lr.
   %286 = select i1 %285, i32 %.6239, i32 -1
   br label %_ZN6google8protobuf13ascii_isspaceEc.exit318
 
-_ZN6google8protobuf13ascii_isspaceEc.exit318:     ; preds = %97, %242, %234, %219, %.lr.ph607, %.preheader.thread, %.preheader.thread829, %._crit_edge, %.critedge.loopexit, %221, %.fold.split, %257, %266
-  %.0245 = phi i32 [ -1, %.fold.split ], [ -1, %257 ], [ -1, %266 ], [ -1, %221 ], [ %.6239, %._crit_edge ], [ %286, %.critedge.loopexit ], [ 0, %.preheader.thread829 ], [ 0, %.preheader.thread ], [ -1, %.lr.ph607 ], [ -1, %219 ], [ -1, %234 ], [ -1, %242 ], [ -1, %97 ]
+_ZN6google8protobuf13ascii_isspaceEc.exit318:     ; preds = %97, %242, %234, %219, %.lr.ph607, %.preheader.thread, %.preheader.thread827, %._crit_edge, %.critedge.loopexit, %221, %.fold.split, %257, %266
+  %.0245 = phi i32 [ -1, %.fold.split ], [ -1, %257 ], [ -1, %266 ], [ -1, %221 ], [ %.6239, %._crit_edge ], [ %286, %.critedge.loopexit ], [ 0, %.preheader.thread827 ], [ 0, %.preheader.thread ], [ -1, %.lr.ph607 ], [ -1, %219 ], [ -1, %234 ], [ -1, %242 ], [ -1, %97 ]
   ret i32 %.0245
 }
 

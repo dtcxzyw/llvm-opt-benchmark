@@ -244,7 +244,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_get_curve(ptr noundef %0,
   %10 = icmp ne ptr %2, null
   %11 = icmp ne ptr %3, null
   %or.cond = or i1 %10, %11
-  br i1 %or.cond, label %12, label %43
+  br i1 %or.cond, label %12, label %44
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %0, align 8, !tbaa !17
@@ -273,13 +273,14 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_get_curve(ptr noundef %0,
   %25 = load ptr, ptr %24, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %27 = tail call i32 %25(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef nonnull %26, ptr noundef nonnull %.030) #4
-  %.not43 = icmp eq i32 %27, 0
-  br i1 %.not43, label %44, label %28
+  %.not43 = icmp ne i32 %27, 0
+  %brmerge.not = and i1 %11, %.not43
+  br i1 %brmerge.not, label %29, label %44
 
-28:                                               ; preds = %22, %21
-  br i1 %11, label %29, label %43
+28:                                               ; preds = %21
+  br i1 %11, label %29, label %44
 
-29:                                               ; preds = %28
+29:                                               ; preds = %22, %28
   %30 = load ptr, ptr %0, align 8, !tbaa !17
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = load ptr, ptr %31, align 8, !tbaa !20
@@ -294,25 +295,27 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_get_curve(ptr noundef %0,
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %38 = tail call ptr @BN_copy(ptr noundef nonnull %2, ptr noundef nonnull %37) #4
-  %.not41 = icmp eq ptr %38, null
-  br i1 %.not41, label %44, label %39
+  %.not41 = icmp ne ptr %38, null
+  %brmerge47.not = and i1 %11, %.not41
+  br i1 %brmerge47.not, label %40, label %44
 
-39:                                               ; preds = %36, %35
-  br i1 %11, label %40, label %43
+39:                                               ; preds = %35
+  br i1 %11, label %40, label %44
 
-40:                                               ; preds = %39
+40:                                               ; preds = %36, %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %42 = tail call ptr @BN_copy(ptr noundef nonnull %3, ptr noundef nonnull %41) #4
   %.not42 = icmp eq ptr %42, null
   br i1 %.not42, label %44, label %43
 
-43:                                               ; preds = %29, %28, %40, %39, %9
-  %.0 = phi ptr [ %.1, %29 ], [ %.1, %28 ], [ null, %40 ], [ null, %39 ], [ null, %9 ]
+43:                                               ; preds = %29, %40
+  %.0 = phi ptr [ %.1, %29 ], [ null, %40 ]
   br label %44
 
-44:                                               ; preds = %40, %36, %29, %22, %43
-  %.029 = phi i32 [ 1, %43 ], [ 0, %29 ], [ 0, %22 ], [ 0, %40 ], [ 0, %36 ]
-  %.2 = phi ptr [ %.0, %43 ], [ %.1, %29 ], [ %.1, %22 ], [ null, %40 ], [ null, %36 ]
+44:                                               ; preds = %36, %22, %9, %39, %28, %40, %29, %43
+  %.029.shrunk = phi i1 [ false, %29 ], [ %.not43, %22 ], [ false, %40 ], [ %.not41, %36 ], [ true, %28 ], [ true, %39 ], [ true, %9 ], [ true, %43 ]
+  %.2 = phi ptr [ %.1, %29 ], [ %.1, %22 ], [ null, %40 ], [ null, %36 ], [ %.1, %28 ], [ null, %39 ], [ null, %9 ], [ %.0, %43 ]
+  %.029 = zext i1 %.029.shrunk to i32
   tail call void @BN_CTX_free(ptr noundef %.2) #4
   br label %45
 
@@ -585,7 +588,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_get_Jprojective_coordinates_GFp
 
 29:                                               ; preds = %23, %22
   %.not53 = icmp eq ptr %4, null
-  br i1 %.not53, label %48, label %30
+  br i1 %.not53, label %49, label %30
 
 30:                                               ; preds = %29
   %31 = load ptr, ptr %0, align 8, !tbaa !17
@@ -618,7 +621,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_get_Jprojective_coordinates_GFp
 
 44:                                               ; preds = %41, %40
   %.not47 = icmp eq ptr %4, null
-  br i1 %.not47, label %48, label %45
+  br i1 %.not47, label %49, label %45
 
 45:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -626,13 +629,13 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_get_Jprojective_coordinates_GFp
   %.not48 = icmp eq ptr %47, null
   br i1 %.not48, label %49, label %48
 
-48:                                               ; preds = %44, %45, %29, %30
-  %.2 = phi ptr [ %.032, %30 ], [ %.032, %29 ], [ null, %45 ], [ null, %44 ]
+48:                                               ; preds = %45, %30
+  %.2 = phi ptr [ %.032, %30 ], [ null, %45 ]
   br label %49
 
-49:                                               ; preds = %45, %41, %37, %30, %23, %16, %48
-  %.1 = phi ptr [ %.2, %48 ], [ %.032, %30 ], [ %.032, %23 ], [ %.032, %16 ], [ null, %45 ], [ null, %41 ], [ null, %37 ]
-  %.0 = phi i32 [ 1, %48 ], [ 0, %30 ], [ 0, %23 ], [ 0, %16 ], [ 0, %45 ], [ 0, %41 ], [ 0, %37 ]
+49:                                               ; preds = %29, %44, %45, %41, %37, %30, %23, %16, %48
+  %.1 = phi ptr [ %.032, %30 ], [ %.032, %23 ], [ %.032, %16 ], [ null, %45 ], [ null, %41 ], [ null, %37 ], [ %.032, %29 ], [ null, %44 ], [ %.2, %48 ]
+  %.0 = phi i32 [ 0, %30 ], [ 0, %23 ], [ 0, %16 ], [ 0, %45 ], [ 0, %41 ], [ 0, %37 ], [ 1, %29 ], [ 1, %44 ], [ 1, %48 ]
   tail call void @BN_CTX_free(ptr noundef %.1) #4
   br label %50
 

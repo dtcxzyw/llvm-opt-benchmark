@@ -1941,15 +1941,14 @@ Py_DECREF.exit.i:                                 ; preds = %43, %40, %36
   br label %whichtable.exit.i.i
 
 58:                                               ; preds = %54
-  br label %59
-
-59:                                               ; preds = %58, %54
-  %.0162.i.i = phi ptr [ %48, %58 ], [ %55, %54 ]
   br label %whichtable.exit.i.i
 
-whichtable.exit.i.i:                              ; preds = %59, %57, %54, %54
-  %.1163.i.i = phi ptr [ %.0162.i.i, %59 ], [ %55, %57 ], [ %55, %54 ], [ %55, %54 ]
-  %.0.i.i.i = phi ptr [ @native_table, %59 ], [ @bigendian_table, %57 ], [ @lilendian_table, %54 ], [ @lilendian_table, %54 ]
+59:                                               ; preds = %54
+  br label %whichtable.exit.i.i
+
+whichtable.exit.i.i:                              ; preds = %59, %58, %57, %54, %54
+  %.1163.i.i = phi ptr [ %55, %57 ], [ %55, %54 ], [ %55, %54 ], [ %48, %58 ], [ %55, %59 ]
+  %.0.i.i.i = phi ptr [ @bigendian_table, %57 ], [ @lilendian_table, %54 ], [ @lilendian_table, %54 ], [ @native_table, %58 ], [ @native_table, %59 ]
   br label %.outer168.i.i
 
 .outer168.i.i:                                    ; preds = %129, %whichtable.exit.i.i

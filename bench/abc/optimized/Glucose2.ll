@@ -15074,7 +15074,7 @@ define linkonce_odr void @_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKey
   %.pre.phi.trans.insert = sext i32 %17 to i64
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %15, i64 %.pre.phi.trans.insert
   %.pre34.pre = load double, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !189
-  br label %50
+  br label %51
 
 21:                                               ; preds = %14
   %22 = sext i32 %19 to i64
@@ -15117,15 +15117,13 @@ _ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit: ; preds = %31
   %49 = icmp sgt i32 %34, %42
   br i1 %49, label %51, label %50
 
-50:                                               ; preds = %._crit_edge, %47, %29, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit
-  %.pre.pre-phi = phi i64 [ %.pre.phi.trans.insert, %._crit_edge ], [ %24, %47 ], [ %24, %29 ], [ %24, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ]
-  %.pre34 = phi double [ %.pre34.pre, %._crit_edge ], [ %27, %47 ], [ %27, %29 ], [ %27, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ]
+50:                                               ; preds = %47, %29, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit
   br label %51
 
-51:                                               ; preds = %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit, %29, %47, %50
-  %52 = phi double [ %26, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %26, %29 ], [ %26, %47 ], [ %.pre34, %50 ]
-  %.pre-phi = phi i64 [ %22, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %22, %29 ], [ %22, %47 ], [ %.pre.pre-phi, %50 ]
-  %53 = phi i32 [ %19, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %19, %29 ], [ %19, %47 ], [ %17, %50 ]
+51:                                               ; preds = %._crit_edge, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit, %29, %47, %50
+  %52 = phi double [ %26, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %26, %29 ], [ %26, %47 ], [ %.pre34.pre, %._crit_edge ], [ %27, %50 ]
+  %.pre-phi = phi i64 [ %22, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %22, %29 ], [ %22, %47 ], [ %.pre.phi.trans.insert, %._crit_edge ], [ %24, %50 ]
+  %53 = phi i32 [ %19, %_ZNK6Gluco26Solver12JustOrderLt2clERKNS0_7JustKeyES4_.exit ], [ %19, %29 ], [ %19, %47 ], [ %17, %._crit_edge ], [ %17, %50 ]
   %54 = getelementptr inbounds %"struct.Gluco2::Solver::JustKey", ptr %15, i64 %.pre-phi
   %55 = fcmp une double %52, %.sroa.0.0.copyload
   br i1 %55, label %56, label %58

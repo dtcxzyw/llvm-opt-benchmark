@@ -2035,8 +2035,8 @@ define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(n
     i8 -57, label %.loopexit97
     i8 -38, label %.thread60
     i8 -39, label %.thread60
-    i8 -32, label %.loopexit100.sink.split
-    i8 -31, label %.loopexit99
+    i8 -32, label %.loopexit100.sink.split.loopexit
+    i8 -31, label %.loopexit100.sink.split
     i8 -30, label %.loopexit.sink.split
     i8 -29, label %.loopexit.sink.split
     i8 -28, label %.loopexit.sink.split
@@ -2115,19 +2115,22 @@ define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(n
     i32 192, label %65
   ]
 
-.loopexit99:                                      ; preds = %27, %30, %23
-  %47 = phi ptr [ %21, %30 ], [ %15, %23 ], [ %18, %27 ]
-  %.0506789 = phi i32 [ %66, %30 ], [ %.05067, %23 ], [ %63, %27 ]
-  %.0476883 = phi i32 [ %.148.jt192, %30 ], [ %.04768, %23 ], [ 217, %27 ]
-  %.0446978 = phi i32 [ %.145.jt192, %30 ], [ %.04469, %23 ], [ %.0446976.ph, %27 ]
+.loopexit99:                                      ; preds = %30, %23
+  %47 = phi ptr [ %21, %30 ], [ %15, %23 ]
+  %.0506789 = phi i32 [ %66, %30 ], [ %.05067, %23 ]
+  %.0476883 = phi i32 [ %.148.jt192, %30 ], [ %.04768, %23 ]
+  %.0446978 = phi i32 [ %.145.jt192, %30 ], [ %.04469, %23 ]
   br label %.loopexit100.sink.split
 
-.loopexit100.sink.split:                          ; preds = %27, %23, %30, %.loopexit99
-  %.sink123 = phi ptr [ %47, %.loopexit99 ], [ %21, %30 ], [ %15, %23 ], [ %18, %27 ]
-  %.sink122 = phi i32 [ 1718188101, %.loopexit99 ], [ 1179207242, %30 ], [ 1179207242, %23 ], [ 1179207242, %27 ]
-  %.0446977.sink = phi i32 [ %.0446978, %.loopexit99 ], [ %.145.jt192, %30 ], [ %.04469, %23 ], [ %.0446976.ph, %27 ]
-  %.0506790.ph = phi i32 [ %.0506789, %.loopexit99 ], [ %66, %30 ], [ %.05067, %23 ], [ %63, %27 ]
-  %.0476884.ph = phi i32 [ %.0476883, %.loopexit99 ], [ %.148.jt192, %30 ], [ %.04768, %23 ], [ 217, %27 ]
+.loopexit100.sink.split.loopexit:                 ; preds = %27
+  br label %.loopexit100.sink.split
+
+.loopexit100.sink.split:                          ; preds = %27, %.loopexit100.sink.split.loopexit, %23, %30, %.loopexit99
+  %.sink123 = phi ptr [ %21, %30 ], [ %15, %23 ], [ %18, %.loopexit100.sink.split.loopexit ], [ %18, %27 ], [ %47, %.loopexit99 ]
+  %.sink122 = phi i32 [ 1179207242, %30 ], [ 1179207242, %23 ], [ 1179207242, %.loopexit100.sink.split.loopexit ], [ 1718188101, %27 ], [ 1718188101, %.loopexit99 ]
+  %.0446977.sink = phi i32 [ %.145.jt192, %30 ], [ %.04469, %23 ], [ %.0446976.ph, %.loopexit100.sink.split.loopexit ], [ %.0446976.ph, %27 ], [ %.0446978, %.loopexit99 ]
+  %.0506790.ph = phi i32 [ %66, %30 ], [ %.05067, %23 ], [ %63, %.loopexit100.sink.split.loopexit ], [ %63, %27 ], [ %.0506789, %.loopexit99 ]
+  %.0476884.ph = phi i32 [ %.148.jt192, %30 ], [ %.04768, %23 ], [ 217, %.loopexit100.sink.split.loopexit ], [ 217, %27 ], [ %.0476883, %.loopexit99 ]
   %48 = getelementptr i8, ptr %.sink123, i64 4
   %49 = load i32, ptr %48, align 1, !tbaa !68
   %50 = icmp eq i32 %49, %.sink122
@@ -2157,7 +2160,7 @@ define internal range(i32 0, 52) i32 @jpeg_probe(ptr noundef readonly captures(n
   %55 = load i16, ptr %54, align 1, !tbaa !68
   %56 = tail call i16 @llvm.bswap.i16(i16 %55)
   %57 = zext i16 %56 to i32
-  %58 = add nsw i32 %.sink125, 1
+  %58 = add i32 %.sink125, 1
   %59 = add i32 %58, %57
   br label %.loopexit
 

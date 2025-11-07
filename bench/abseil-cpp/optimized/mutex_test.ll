@@ -17867,27 +17867,22 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %14, %_ZN4absl12log_
 
 36:                                               ; preds = %_ZN4abslleENS_8DurationES0_.exit
   %37 = icmp eq i32 %.sroa.248.0.copyload.fr, 0
-  br i1 %37, label %.thread, label %40
+  br i1 %37, label %40, label %.thread
 
 38:                                               ; preds = %_ZN4abslleENS_8DurationES0_.exit
   %39 = icmp slt i64 %.sroa.047.0.copyload.fr, 1
-  br i1 %39, label %.thread, label %40
+  br i1 %39, label %40, label %.thread
 
-.thread:                                          ; preds = %18, %36, %38
-  %.sroa.228.0.copyload119140 = phi i32 [ %.sroa.228.0.copyload, %38 ], [ %.sroa.228.0.copyload, %36 ], [ %3, %18 ]
-  %.sroa.027.0.copyload120138 = phi i64 [ %.sroa.027.0.copyload, %38 ], [ %.sroa.027.0.copyload, %36 ], [ -9223372036854775808, %18 ]
-  %.sroa.248.0.copyload121136 = phi i32 [ %.sroa.248.0.copyload.fr, %38 ], [ %.sroa.248.0.copyload.fr, %36 ], [ %1, %18 ]
-  %.sroa.047.0.copyload122134 = phi i64 [ %.sroa.047.0.copyload.fr, %38 ], [ %.sroa.047.0.copyload.fr, %36 ], [ -9223372036854775808, %18 ]
-  %.0123132 = phi i1 [ %.0, %38 ], [ %.0, %36 ], [ true, %18 ]
-  br label %40
+40:                                               ; preds = %36, %38
+  br label %.thread
 
-40:                                               ; preds = %36, %38, %.thread
-  %.sroa.228.0.copyload119139 = phi i32 [ %.sroa.228.0.copyload119140, %.thread ], [ %.sroa.228.0.copyload, %38 ], [ %.sroa.228.0.copyload, %36 ]
-  %.sroa.027.0.copyload120137 = phi i64 [ %.sroa.027.0.copyload120138, %.thread ], [ %.sroa.027.0.copyload, %38 ], [ %.sroa.027.0.copyload, %36 ]
-  %.sroa.248.0.copyload121135 = phi i32 [ %.sroa.248.0.copyload121136, %.thread ], [ %.sroa.248.0.copyload.fr, %38 ], [ %.sroa.248.0.copyload.fr, %36 ]
-  %.sroa.047.0.copyload122133 = phi i64 [ %.sroa.047.0.copyload122134, %.thread ], [ %.sroa.047.0.copyload.fr, %38 ], [ %.sroa.047.0.copyload.fr, %36 ]
-  %.0123131 = phi i1 [ %.0123132, %.thread ], [ %.0, %38 ], [ %.0, %36 ]
-  %41 = phi i32 [ 40000000, %.thread ], [ 600000000, %38 ], [ 600000000, %36 ]
+.thread:                                          ; preds = %18, %36, %38, %40
+  %.sroa.228.0.copyload119139 = phi i32 [ %.sroa.228.0.copyload, %38 ], [ %.sroa.228.0.copyload, %36 ], [ %.sroa.228.0.copyload, %40 ], [ %3, %18 ]
+  %.sroa.027.0.copyload120137 = phi i64 [ %.sroa.027.0.copyload, %38 ], [ %.sroa.027.0.copyload, %36 ], [ %.sroa.027.0.copyload, %40 ], [ -9223372036854775808, %18 ]
+  %.sroa.248.0.copyload121135 = phi i32 [ %.sroa.248.0.copyload.fr, %38 ], [ %.sroa.248.0.copyload.fr, %36 ], [ %.sroa.248.0.copyload.fr, %40 ], [ %1, %18 ]
+  %.sroa.047.0.copyload122133 = phi i64 [ %.sroa.047.0.copyload.fr, %38 ], [ %.sroa.047.0.copyload.fr, %36 ], [ %.sroa.047.0.copyload.fr, %40 ], [ -9223372036854775808, %18 ]
+  %.0123131 = phi i1 [ %.0, %38 ], [ %.0, %36 ], [ %.0, %40 ], [ true, %18 ]
+  %41 = phi i32 [ 600000000, %38 ], [ 600000000, %36 ], [ 40000000, %40 ], [ 40000000, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.047.0.copyload122133, ptr %6, align 8
   %.sroa.210.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -17900,11 +17895,11 @@ _ZN4abslleENS_8DurationES0_.exit:                 ; preds = %14, %_ZN4absl12log_
   %.not.i.i93 = icmp eq i64 %.sroa.011.0.copyload.i88, %.sroa.027.0.copyload120137
   br i1 %.not.i.i93, label %45, label %43
 
-43:                                               ; preds = %40
+43:                                               ; preds = %.thread
   %44 = icmp slt i64 %.sroa.011.0.copyload.i88, %.sroa.027.0.copyload120137
   br i1 %44, label %52, label %65
 
-45:                                               ; preds = %40
+45:                                               ; preds = %.thread
   %46 = icmp eq i64 %.sroa.027.0.copyload120137, -9223372036854775808
   br i1 %46, label %47, label %_ZN4abslgtENS_8DurationES0_.exit
 

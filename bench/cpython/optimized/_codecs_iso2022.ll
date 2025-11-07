@@ -1741,9 +1741,9 @@ PyUnicode_WRITE.exit:                             ; preds = %278, %281, %284
   %306 = sub nsw i64 %.0142167, %304
   br label %307
 
-307:                                              ; preds = %iso2022processesc.exit, %193, %202, %211, %225, %301, %183, %iso2022processesc.exit.thread150, %iso2022processg2.exit, %30, %25
-  %.1143 = phi i64 [ %28, %30 ], [ %28, %25 ], [ %228, %225 ], [ %306, %301 ], [ %179, %iso2022processg2.exit ], [ %188, %183 ], [ %197, %193 ], [ %206, %202 ], [ %214, %211 ], [ %107, %iso2022processesc.exit.thread150 ], [ %.0142167, %iso2022processesc.exit ]
-  %.1104 = phi ptr [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %183 ], [ %.0103168, %193 ], [ %.0103168, %202 ], [ %.0103168, %211 ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %iso2022processesc.exit ]
+307:                                              ; preds = %iso2022processesc.exit, %iso2022processesc.exit.thread150, %iso2022processg2.exit, %193, %202, %211, %225, %301, %183, %30, %25
+  %.1143 = phi i64 [ %228, %225 ], [ %306, %301 ], [ %188, %183 ], [ %197, %193 ], [ %206, %202 ], [ %214, %211 ], [ %28, %30 ], [ %28, %25 ], [ %179, %iso2022processg2.exit ], [ %107, %iso2022processesc.exit.thread150 ], [ %.0142167, %iso2022processesc.exit ]
+  %.1104 = phi ptr [ %.0103168, %225 ], [ %.3106, %301 ], [ %.0103168, %183 ], [ %.0103168, %193 ], [ %.0103168, %202 ], [ %.0103168, %211 ], [ %.0103168, %30 ], [ %.0103168, %25 ], [ %.0103168, %iso2022processg2.exit ], [ %.0103168, %iso2022processesc.exit.thread150 ], [ %.0103168, %iso2022processesc.exit ]
   %308 = icmp sgt i64 %.1143, 0
   br i1 %308, label %15, label %.thread159
 
@@ -2827,7 +2827,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
     i16 24183, label %130
     i16 30246, label %130
     i16 32363, label %130
-    i16 -25827, label %83
+    i16 -25827, label %.fold.split
   ]
 
 .critedge:                                        ; preds = %41, %39
@@ -2898,8 +2898,8 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
   %.not90 = icmp sgt i16 %82, -1
   br i1 %.not90, label %83, label %130
 
-83:                                               ; preds = %41, %78, %59
-  %.0 = phi i16 [ %63, %59 ], [ %82, %78 ], [ -709, %41 ]
+83:                                               ; preds = %78, %59
+  %.0 = phi i16 [ %63, %59 ], [ %82, %78 ]
   br label %130
 
 84:                                               ; preds = %4
@@ -3006,8 +3006,11 @@ find_pairencmap.exit107:                          ; preds = %122
 find_pairencmap.exit107.thread:                   ; preds = %122, %find_pairencmap.exit107
   br label %130
 
-130:                                              ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %find_pairencmap.exit107.thread, %find_pairencmap.exit107, %4, %find_pairencmap.exit, %64, %69, %74, %78, %59, %33, %11, %83, %38
-  %.069 = phi i16 [ -1, %38 ], [ %.0, %83 ], [ -1, %11 ], [ %37, %33 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ %63, %59 ], [ -1, %78 ], [ -1, %74 ], [ -1, %69 ], [ -1, %64 ], [ %109, %find_pairencmap.exit ], [ -1, %4 ], [ -1, %find_pairencmap.exit107.thread ], [ %.fr, %find_pairencmap.exit107 ]
+.fold.split:                                      ; preds = %41
+  br label %130
+
+130:                                              ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %.fold.split, %find_pairencmap.exit107.thread, %find_pairencmap.exit107, %4, %find_pairencmap.exit, %64, %69, %74, %78, %59, %33, %11, %83, %38
+  %.069 = phi i16 [ -1, %38 ], [ -1, %11 ], [ %37, %33 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ -1, %41 ], [ %63, %59 ], [ -1, %78 ], [ -1, %74 ], [ -1, %69 ], [ -1, %64 ], [ %.0, %83 ], [ %109, %find_pairencmap.exit ], [ -1, %4 ], [ -1, %find_pairencmap.exit107.thread ], [ %.fr, %find_pairencmap.exit107 ], [ -709, %.fold.split ]
   ret i16 %.069
 }
 

@@ -3441,8 +3441,8 @@ define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr noundef 
     i8 55, label %4
     i8 100, label %4
     i8 115, label %4
-    i8 104, label %.thread
-    i8 122, label %.thread
+    i8 104, label %39
+    i8 122, label %39
     i8 108, label %35
     i8 45, label %36
   ]
@@ -3450,43 +3450,43 @@ define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr noundef 
 4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = icmp eq i8 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %39, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %9 = load i8, ptr %8, align 1, !tbaa !4
   %.not = icmp eq i8 %9, 45
-  br i1 %.not, label %10, label %.thread
+  br i1 %.not, label %10, label %39
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %.not20 = icmp eq i8 %12, 108
-  br i1 %.not20, label %13, label %.thread
+  br i1 %.not20, label %13, label %39
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %15 = load i8, ptr %14, align 1, !tbaa !4
   %.not21 = icmp eq i8 %15, 45
-  br i1 %.not21, label %16, label %.thread
+  br i1 %.not21, label %16, label %39
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %18 = load i8, ptr %17, align 1, !tbaa !4
-  switch i8 %18, label %.thread [
+  switch i8 %18, label %39 [
     i8 104, label %19
     i8 122, label %31
   ]
 
 19:                                               ; preds = %16
   %20 = icmp eq i8 %3, 115
-  br i1 %20, label %.thread, label %21
+  br i1 %20, label %39, label %21
 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %38, label %25
+  br i1 %24, label %39, label %25
 
 25:                                               ; preds = %21
   %26 = icmp ult i8 %23, 4
@@ -3496,36 +3496,38 @@ define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr noundef 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %29 = load i8, ptr %28, align 1, !tbaa !4
   %30 = icmp eq i8 %29, 32
-  br i1 %30, label %38, label %.thread
+  br i1 %30, label %39, label %.thread
+
+.thread:                                          ; preds = %25, %27
+  br label %39
 
 31:                                               ; preds = %16
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %33 = load i8, ptr %32, align 1, !tbaa !4
   %.not22 = icmp eq i8 %33, 0
-  br i1 %.not22, label %34, label %.thread
+  br i1 %.not22, label %34, label %39
 
 34:                                               ; preds = %31
-  switch i8 %3, label %.thread [
-    i8 115, label %38
-    i8 52, label %38
-    i8 53, label %38
+  switch i8 %3, label %38 [
+    i8 115, label %39
+    i8 52, label %39
+    i8 53, label %39
   ]
 
 35:                                               ; preds = %1
-  br label %.thread
+  br label %39
 
 36:                                               ; preds = %1
-  br label %.thread
+  br label %39
 
 37:                                               ; preds = %1
-  br label %.thread
+  br label %39
 
-.thread:                                          ; preds = %16, %27, %25, %1, %1, %34, %31, %19, %7, %10, %13, %4, %37, %36, %35
-  %.0 = phi i64 [ 4, %37 ], [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ 4, %13 ], [ 4, %19 ], [ 4, %31 ], [ 2, %35 ], [ 3, %36 ], [ 4, %34 ], [ 1, %1 ], [ 1, %1 ], [ 4, %25 ], [ 4, %27 ], [ 4, %16 ]
-  br label %38
+38:                                               ; preds = %34
+  br label %39
 
-38:                                               ; preds = %34, %34, %34, %27, %21, %.thread
-  %.017 = phi i64 [ %.0, %.thread ], [ 0, %21 ], [ 0, %27 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ]
+39:                                               ; preds = %16, %.thread, %35, %36, %37, %4, %13, %10, %7, %19, %31, %1, %1, %34, %34, %34, %27, %21, %38
+  %.017 = phi i64 [ 0, %21 ], [ 0, %27 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ], [ 4, %37 ], [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ 4, %13 ], [ 4, %19 ], [ 4, %31 ], [ 2, %35 ], [ 3, %36 ], [ 1, %1 ], [ 1, %1 ], [ 4, %38 ], [ 4, %.thread ], [ 4, %16 ]
   ret i64 %.017
 }
 

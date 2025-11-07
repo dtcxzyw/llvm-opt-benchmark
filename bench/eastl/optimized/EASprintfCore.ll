@@ -3873,7 +3873,7 @@ for.cond.jt2:                                     ; preds = %for.cond.jt2.prehea
   %1 = load i8, ptr %incdec.ptr22.jt2, align 1
   switch i8 %1, label %while.cond.preheader [
     i8 45, label %for.cond.jt0.preheader
-    i8 43, label %for.inc.loopexit306
+    i8 43, label %for.inc.loopexit307
     i8 32, label %sw.bb3
     i8 35, label %for.inc
     i8 39, label %sw.bb10
@@ -3894,8 +3894,8 @@ for.cond.jt0:                                     ; preds = %for.cond.jt0, %for.
     i8 45, label %for.inc.loopexit
     i8 43, label %for.inc.loopexit283
     i8 32, label %sw.bb3
-    i8 35, label %for.inc
-    i8 39, label %sw.bb10
+    i8 35, label %for.inc.loopexit305
+    i8 39, label %for.inc
     i8 48, label %for.cond.jt0
     i8 42, label %if.then25
   ]
@@ -3921,10 +3921,10 @@ sw.bb3:                                           ; preds = %for.cond.jt2, %for.
 sw.bb9:                                           ; preds = %for.cond
   br label %for.inc
 
-sw.bb10:                                          ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0241 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0232 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0225 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb10:                                          ; preds = %for.cond.jt2, %for.cond
+  %alignmentNonZeroFill.0241 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
+  %pFormatCurrent.0232 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
+  %fd.sroa.0.0225 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 2, %for.cond.jt2 ]
   br label %for.inc
 
 sw.bb11:                                          ; preds = %for.cond
@@ -3940,22 +3940,25 @@ for.cond.jt2.preheader:                           ; preds = %if.end19, %sw.bb11
 if.end19:                                         ; preds = %sw.bb11
   br label %for.cond.jt2.preheader
 
-for.inc.loopexit283:                              ; preds = %for.cond.jt0
-  br label %for.inc
-
 for.inc.loopexit:                                 ; preds = %for.cond.jt0
   br label %for.inc
 
-for.inc.loopexit306:                              ; preds = %for.cond.jt2
+for.inc.loopexit283:                              ; preds = %for.cond.jt0
   br label %for.inc
 
-for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit306, %for.inc.loopexit, %for.inc.loopexit283, %for.cond, %sw.bb3, %sw.bb9, %sw.bb10
-  %pFormatCurrent.0236 = phi ptr [ %pFormatCurrent.0230, %sw.bb3 ], [ %pFormatCurrent.0232, %sw.bb10 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.inc.loopexit283 ], [ %incdec.ptr22.jt0, %for.inc.loopexit ], [ %incdec.ptr22.jt2, %for.inc.loopexit306 ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb9 ]
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb3 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit283 ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit306 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %for.cond.jt0 ], [ %fd.sroa.67.0, %sw.bb9 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit283 ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit306 ], [ 1, %for.cond.jt2 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb9 ]
-  %fd.sroa.13.1 = phi i32 [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb10 ], [ 2, %for.cond ], [ 2, %for.inc.loopexit283 ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb9 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0223, %sw.bb3 ], [ %fd.sroa.0.0225, %sw.bb10 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit283 ], [ 0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb9 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0239, %sw.bb3 ], [ %alignmentNonZeroFill.0241, %sw.bb10 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit283 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit306 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ]
+for.inc.loopexit305:                              ; preds = %for.cond.jt0
+  br label %for.inc
+
+for.inc.loopexit307:                              ; preds = %for.cond.jt2
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit307, %for.inc.loopexit305, %for.inc.loopexit283, %for.inc.loopexit, %for.cond, %sw.bb3, %sw.bb9, %sw.bb10
+  %pFormatCurrent.0236 = phi ptr [ %pFormatCurrent.0230, %sw.bb3 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.inc.loopexit ], [ %incdec.ptr22.jt0, %for.inc.loopexit283 ], [ %incdec.ptr22.jt0, %for.inc.loopexit305 ], [ %incdec.ptr22.jt2, %for.inc.loopexit307 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb9 ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %pFormatCurrent.0232, %sw.bb10 ]
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit283 ], [ %fd.sroa.67.0, %for.inc.loopexit305 ], [ %fd.sroa.67.0, %for.inc.loopexit307 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %sw.bb9 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb10 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit283 ], [ 1, %for.inc.loopexit305 ], [ %fd.sroa.17.0, %for.inc.loopexit307 ], [ 1, %for.cond.jt2 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %for.cond.jt0 ], [ %fd.sroa.17.0, %sw.bb10 ]
+  %fd.sroa.13.1 = phi i32 [ %spec.select147, %sw.bb3 ], [ 2, %for.cond ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit283 ], [ %fd.sroa.13.0, %for.inc.loopexit305 ], [ 2, %for.inc.loopexit307 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb10 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0223, %sw.bb3 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit ], [ 0, %for.inc.loopexit283 ], [ 0, %for.inc.loopexit305 ], [ 2, %for.inc.loopexit307 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb9 ], [ 0, %for.cond.jt0 ], [ %fd.sroa.0.0225, %sw.bb10 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0239, %sw.bb3 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit283 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit305 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit307 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.0241, %sw.bb10 ]
   %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0236, i64 1
   %3 = load i8, ptr %incdec.ptr22, align 1
   br label %for.cond, !llvm.loop !72
@@ -5937,7 +5940,7 @@ for.cond.jt2:                                     ; preds = %for.cond.jt2.prehea
   %1 = load i16, ptr %incdec.ptr22.jt2, align 2
   switch i16 %1, label %while.cond.preheader [
     i16 45, label %for.cond.jt0.preheader
-    i16 43, label %for.inc.loopexit306
+    i16 43, label %for.inc.loopexit307
     i16 32, label %sw.bb3
     i16 35, label %for.inc
     i16 39, label %sw.bb10
@@ -5958,8 +5961,8 @@ for.cond.jt0:                                     ; preds = %for.cond.jt0, %for.
     i16 45, label %for.inc.loopexit
     i16 43, label %for.inc.loopexit283
     i16 32, label %sw.bb3
-    i16 35, label %for.inc
-    i16 39, label %sw.bb10
+    i16 35, label %for.inc.loopexit305
+    i16 39, label %for.inc
     i16 48, label %for.cond.jt0
     i16 42, label %if.then25
   ]
@@ -5985,10 +5988,10 @@ sw.bb3:                                           ; preds = %for.cond.jt2, %for.
 sw.bb9:                                           ; preds = %for.cond
   br label %for.inc
 
-sw.bb10:                                          ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0241 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0232 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0225 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb10:                                          ; preds = %for.cond.jt2, %for.cond
+  %alignmentNonZeroFill.0241 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
+  %pFormatCurrent.0232 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt2, %for.cond.jt2 ]
+  %fd.sroa.0.0225 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 2, %for.cond.jt2 ]
   br label %for.inc
 
 sw.bb11:                                          ; preds = %for.cond
@@ -6004,22 +6007,25 @@ for.cond.jt2.preheader:                           ; preds = %if.end19, %sw.bb11
 if.end19:                                         ; preds = %sw.bb11
   br label %for.cond.jt2.preheader
 
-for.inc.loopexit283:                              ; preds = %for.cond.jt0
-  br label %for.inc
-
 for.inc.loopexit:                                 ; preds = %for.cond.jt0
   br label %for.inc
 
-for.inc.loopexit306:                              ; preds = %for.cond.jt2
+for.inc.loopexit283:                              ; preds = %for.cond.jt0
   br label %for.inc
 
-for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit306, %for.inc.loopexit, %for.inc.loopexit283, %for.cond, %sw.bb3, %sw.bb9, %sw.bb10
-  %pFormatCurrent.0236 = phi ptr [ %pFormatCurrent.0230, %sw.bb3 ], [ %pFormatCurrent.0232, %sw.bb10 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.inc.loopexit283 ], [ %incdec.ptr22.jt0, %for.inc.loopexit ], [ %incdec.ptr22.jt2, %for.inc.loopexit306 ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb9 ]
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb3 ], [ 1, %sw.bb10 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit283 ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit306 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %for.cond.jt0 ], [ %fd.sroa.67.0, %sw.bb9 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %sw.bb10 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit283 ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit306 ], [ 1, %for.cond.jt2 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb9 ]
-  %fd.sroa.13.1 = phi i32 [ %spec.select147, %sw.bb3 ], [ %fd.sroa.13.0, %sw.bb10 ], [ 2, %for.cond ], [ 2, %for.inc.loopexit283 ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb9 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0223, %sw.bb3 ], [ %fd.sroa.0.0225, %sw.bb10 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit283 ], [ 0, %for.inc.loopexit ], [ 2, %for.inc.loopexit306 ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb9 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0239, %sw.bb3 ], [ %alignmentNonZeroFill.0241, %sw.bb10 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit283 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit306 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ]
+for.inc.loopexit305:                              ; preds = %for.cond.jt0
+  br label %for.inc
+
+for.inc.loopexit307:                              ; preds = %for.cond.jt2
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit307, %for.inc.loopexit305, %for.inc.loopexit283, %for.inc.loopexit, %for.cond, %sw.bb3, %sw.bb9, %sw.bb10
+  %pFormatCurrent.0236 = phi ptr [ %pFormatCurrent.0230, %sw.bb3 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr22.jt0, %for.inc.loopexit ], [ %incdec.ptr22.jt0, %for.inc.loopexit283 ], [ %incdec.ptr22.jt0, %for.inc.loopexit305 ], [ %incdec.ptr22.jt2, %for.inc.loopexit307 ], [ %incdec.ptr22.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb9 ], [ %incdec.ptr22.jt0, %for.cond.jt0 ], [ %pFormatCurrent.0232, %sw.bb10 ]
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb3 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit283 ], [ %fd.sroa.67.0, %for.inc.loopexit305 ], [ %fd.sroa.67.0, %for.inc.loopexit307 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %sw.bb9 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb10 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb3 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit283 ], [ 1, %for.inc.loopexit305 ], [ %fd.sroa.17.0, %for.inc.loopexit307 ], [ 1, %for.cond.jt2 ], [ 1, %sw.bb9 ], [ %fd.sroa.17.0, %for.cond.jt0 ], [ %fd.sroa.17.0, %sw.bb10 ]
+  %fd.sroa.13.1 = phi i32 [ %spec.select147, %sw.bb3 ], [ 2, %for.cond ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit283 ], [ %fd.sroa.13.0, %for.inc.loopexit305 ], [ 2, %for.inc.loopexit307 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb10 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0223, %sw.bb3 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit ], [ 0, %for.inc.loopexit283 ], [ 0, %for.inc.loopexit305 ], [ 2, %for.inc.loopexit307 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb9 ], [ 0, %for.cond.jt0 ], [ %fd.sroa.0.0225, %sw.bb10 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0239, %sw.bb3 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit283 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit305 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit307 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb9 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.0241, %sw.bb10 ]
   %incdec.ptr22 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0236, i64 2
   %3 = load i16, ptr %incdec.ptr22, align 2
   br label %for.cond, !llvm.loop !105
@@ -7988,7 +7994,7 @@ for.cond.jt2:                                     ; preds = %for.cond.jt2.prehea
   %1 = load i32, ptr %incdec.ptr21.jt2, align 4
   switch i32 %1, label %while.cond.preheader [
     i32 45, label %for.cond.jt0.preheader
-    i32 43, label %for.inc.loopexit307
+    i32 43, label %for.inc.loopexit308
     i32 32, label %sw.bb2
     i32 35, label %for.inc
     i32 39, label %sw.bb9
@@ -8009,8 +8015,8 @@ for.cond.jt0:                                     ; preds = %for.cond.jt0, %for.
     i32 45, label %for.inc.loopexit
     i32 43, label %for.inc.loopexit284
     i32 32, label %sw.bb2
-    i32 35, label %for.inc
-    i32 39, label %sw.bb9
+    i32 35, label %for.inc.loopexit306
+    i32 39, label %for.inc
     i32 48, label %for.cond.jt0
     i32 42, label %if.then23
   ]
@@ -8035,10 +8041,10 @@ sw.bb2:                                           ; preds = %for.cond.jt2, %for.
 sw.bb8:                                           ; preds = %for.cond
   br label %for.inc
 
-sw.bb9:                                           ; preds = %for.cond.jt2, %for.cond.jt0, %for.cond
-  %alignmentNonZeroFill.0242 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
-  %pFormatCurrent.0233 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ]
-  %fd.sroa.0.0226 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ]
+sw.bb9:                                           ; preds = %for.cond.jt2, %for.cond
+  %alignmentNonZeroFill.0242 = phi i32 [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ]
+  %pFormatCurrent.0233 = phi ptr [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt2, %for.cond.jt2 ]
+  %fd.sroa.0.0226 = phi i32 [ %fd.sroa.0.0, %for.cond ], [ 2, %for.cond.jt2 ]
   br label %for.inc
 
 sw.bb10:                                          ; preds = %for.cond
@@ -8054,22 +8060,25 @@ for.cond.jt2.preheader:                           ; preds = %if.end18, %sw.bb10
 if.end18:                                         ; preds = %sw.bb10
   br label %for.cond.jt2.preheader
 
-for.inc.loopexit284:                              ; preds = %for.cond.jt0
-  br label %for.inc
-
 for.inc.loopexit:                                 ; preds = %for.cond.jt0
   br label %for.inc
 
-for.inc.loopexit307:                              ; preds = %for.cond.jt2
+for.inc.loopexit284:                              ; preds = %for.cond.jt0
   br label %for.inc
 
-for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit307, %for.inc.loopexit, %for.inc.loopexit284, %for.cond, %sw.bb2, %sw.bb8, %sw.bb9
-  %pFormatCurrent.0237 = phi ptr [ %pFormatCurrent.0231, %sw.bb2 ], [ %pFormatCurrent.0233, %sw.bb9 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt0, %for.inc.loopexit284 ], [ %incdec.ptr21.jt0, %for.inc.loopexit ], [ %incdec.ptr21.jt2, %for.inc.loopexit307 ], [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb8 ]
-  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb2 ], [ 1, %sw.bb9 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit284 ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit307 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %for.cond.jt0 ], [ %fd.sroa.67.0, %sw.bb8 ]
-  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %sw.bb9 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit284 ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit307 ], [ 1, %for.cond.jt2 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb8 ]
-  %fd.sroa.13.1 = phi i32 [ %spec.select150, %sw.bb2 ], [ %fd.sroa.13.0, %sw.bb9 ], [ 2, %for.cond ], [ 2, %for.inc.loopexit284 ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit307 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb8 ]
-  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0224, %sw.bb2 ], [ %fd.sroa.0.0226, %sw.bb9 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit284 ], [ 0, %for.inc.loopexit ], [ 2, %for.inc.loopexit307 ], [ 0, %for.cond.jt0 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb8 ]
-  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0240, %sw.bb2 ], [ %alignmentNonZeroFill.0242, %sw.bb9 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit284 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit307 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb8 ]
+for.inc.loopexit306:                              ; preds = %for.cond.jt0
+  br label %for.inc
+
+for.inc.loopexit308:                              ; preds = %for.cond.jt2
+  br label %for.inc
+
+for.inc:                                          ; preds = %for.cond.jt0, %for.cond.jt2, %for.inc.loopexit308, %for.inc.loopexit306, %for.inc.loopexit284, %for.inc.loopexit, %for.cond, %sw.bb2, %sw.bb8, %sw.bb9
+  %pFormatCurrent.0237 = phi ptr [ %pFormatCurrent.0231, %sw.bb2 ], [ %pFormatCurrent.0, %for.cond ], [ %incdec.ptr21.jt0, %for.inc.loopexit ], [ %incdec.ptr21.jt0, %for.inc.loopexit284 ], [ %incdec.ptr21.jt0, %for.inc.loopexit306 ], [ %incdec.ptr21.jt2, %for.inc.loopexit308 ], [ %incdec.ptr21.jt2, %for.cond.jt2 ], [ %pFormatCurrent.0, %sw.bb8 ], [ %incdec.ptr21.jt0, %for.cond.jt0 ], [ %pFormatCurrent.0233, %sw.bb9 ]
+  %fd.sroa.67.1 = phi i8 [ %fd.sroa.67.0, %sw.bb2 ], [ %fd.sroa.67.0, %for.cond ], [ %fd.sroa.67.0, %for.inc.loopexit ], [ %fd.sroa.67.0, %for.inc.loopexit284 ], [ %fd.sroa.67.0, %for.inc.loopexit306 ], [ %fd.sroa.67.0, %for.inc.loopexit308 ], [ %fd.sroa.67.0, %for.cond.jt2 ], [ %fd.sroa.67.0, %sw.bb8 ], [ 1, %for.cond.jt0 ], [ 1, %sw.bb9 ]
+  %fd.sroa.17.1 = phi i8 [ %fd.sroa.17.0, %sw.bb2 ], [ %fd.sroa.17.0, %for.cond ], [ %fd.sroa.17.0, %for.inc.loopexit ], [ %fd.sroa.17.0, %for.inc.loopexit284 ], [ 1, %for.inc.loopexit306 ], [ %fd.sroa.17.0, %for.inc.loopexit308 ], [ 1, %for.cond.jt2 ], [ 1, %sw.bb8 ], [ %fd.sroa.17.0, %for.cond.jt0 ], [ %fd.sroa.17.0, %sw.bb9 ]
+  %fd.sroa.13.1 = phi i32 [ %spec.select150, %sw.bb2 ], [ 2, %for.cond ], [ %fd.sroa.13.0, %for.inc.loopexit ], [ 2, %for.inc.loopexit284 ], [ %fd.sroa.13.0, %for.inc.loopexit306 ], [ 2, %for.inc.loopexit308 ], [ %fd.sroa.13.0, %for.cond.jt2 ], [ %fd.sroa.13.0, %sw.bb8 ], [ %fd.sroa.13.0, %for.cond.jt0 ], [ %fd.sroa.13.0, %sw.bb9 ]
+  %fd.sroa.0.1 = phi i32 [ %fd.sroa.0.0224, %sw.bb2 ], [ %fd.sroa.0.0, %for.cond ], [ 0, %for.inc.loopexit ], [ 0, %for.inc.loopexit284 ], [ 0, %for.inc.loopexit306 ], [ 2, %for.inc.loopexit308 ], [ 2, %for.cond.jt2 ], [ %fd.sroa.0.0, %sw.bb8 ], [ 0, %for.cond.jt0 ], [ %fd.sroa.0.0226, %sw.bb9 ]
+  %alignmentNonZeroFill.2 = phi i32 [ %alignmentNonZeroFill.0240, %sw.bb2 ], [ %alignmentNonZeroFill.0, %for.cond ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit284 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.inc.loopexit306 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.inc.loopexit308 ], [ %alignmentNonZeroFill.2.jt2.ph, %for.cond.jt2 ], [ %alignmentNonZeroFill.0, %sw.bb8 ], [ %alignmentNonZeroFill.2.jt0.ph, %for.cond.jt0 ], [ %alignmentNonZeroFill.0242, %sw.bb9 ]
   %incdec.ptr21 = getelementptr inbounds nuw i8, ptr %pFormatCurrent.0237, i64 4
   %3 = load i32, ptr %incdec.ptr21, align 4
   br label %for.cond, !llvm.loop !139

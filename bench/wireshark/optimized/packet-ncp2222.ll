@@ -12490,38 +12490,36 @@ ncp_error_string.exit:                            ; preds = %.lr.ph, %.lr.ph.i27
   %.0227.ph = phi ptr [ null, %176 ], [ %181, %179 ], [ null, %166 ], [ null, %169 ], [ null, %173 ]
   %182 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %183 = load ptr, ptr %182, align 8
-  br label %187
+  br label %193
 
 184:                                              ; preds = %ncp_error_string.exit
   %185 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %186 = load ptr, ptr %185, align 8
   br i1 %165, label %187, label %193
 
-187:                                              ; preds = %ncp_error_string.exit.thread, %.thread409, %184
-  %188 = phi ptr [ %183, %.thread409 ], [ %186, %184 ], [ %161, %ncp_error_string.exit.thread ]
-  %189 = phi ptr [ %182, %.thread409 ], [ %185, %184 ], [ %160, %ncp_error_string.exit.thread ]
-  %.0227428 = phi ptr [ %.0227.ph, %.thread409 ], [ null, %184 ], [ null, %ncp_error_string.exit.thread ]
-  %.0228426 = phi i32 [ %.0228.ph, %.thread409 ], [ 0, %184 ], [ 0, %ncp_error_string.exit.thread ]
-  %190 = phi i32 [ %164, %.thread409 ], [ %164, %184 ], [ %.ph, %ncp_error_string.exit.thread ]
-  %191 = phi i8 [ %162, %.thread409 ], [ %162, %184 ], [ 1, %ncp_error_string.exit.thread ]
-  %.0234317325337421 = phi ptr [ %.0234317325, %.thread409 ], [ %.0234317325, %184 ], [ %.0234317325.ph, %ncp_error_string.exit.thread ]
-  %.3318322338418 = phi ptr [ %.3318322, %.thread409 ], [ %.3318322, %184 ], [ null, %ncp_error_string.exit.thread ]
-  %192 = phi i1 [ true, %.thread409 ], [ %163, %184 ], [ false, %ncp_error_string.exit.thread ]
-  %.0230339416 = phi ptr [ %.0230, %.thread409 ], [ %.0230, %184 ], [ @.str.15, %ncp_error_string.exit.thread ]
+187:                                              ; preds = %ncp_error_string.exit.thread, %184
+  %188 = phi ptr [ %186, %184 ], [ %161, %ncp_error_string.exit.thread ]
+  %189 = phi ptr [ %185, %184 ], [ %160, %ncp_error_string.exit.thread ]
+  %190 = phi i32 [ %164, %184 ], [ %.ph, %ncp_error_string.exit.thread ]
+  %191 = phi i8 [ %162, %184 ], [ 1, %ncp_error_string.exit.thread ]
+  %.0234317325337421 = phi ptr [ %.0234317325, %184 ], [ %.0234317325.ph, %ncp_error_string.exit.thread ]
+  %.3318322338418 = phi ptr [ %.3318322, %184 ], [ null, %ncp_error_string.exit.thread ]
+  %192 = phi i1 [ %163, %184 ], [ false, %ncp_error_string.exit.thread ]
+  %.0230339416 = phi ptr [ %.0230, %184 ], [ @.str.15, %ncp_error_string.exit.thread ]
   br label %193
 
-193:                                              ; preds = %ncp_error_string.exit.thread, %184, %187
-  %194 = phi ptr [ %188, %187 ], [ %186, %184 ], [ %161, %ncp_error_string.exit.thread ]
-  %195 = phi ptr [ %189, %187 ], [ %185, %184 ], [ %160, %ncp_error_string.exit.thread ]
-  %.0227427 = phi ptr [ %.0227428, %187 ], [ null, %184 ], [ null, %ncp_error_string.exit.thread ]
-  %.0228425 = phi i32 [ %.0228426, %187 ], [ 0, %184 ], [ 0, %ncp_error_string.exit.thread ]
-  %196 = phi i32 [ %190, %187 ], [ %164, %184 ], [ %.ph, %ncp_error_string.exit.thread ]
-  %197 = phi i8 [ %191, %187 ], [ %162, %184 ], [ 1, %ncp_error_string.exit.thread ]
-  %.0234317325337420 = phi ptr [ %.0234317325337421, %187 ], [ %.0234317325, %184 ], [ %.0234317325.ph, %ncp_error_string.exit.thread ]
-  %.3318322338417 = phi ptr [ %.3318322338418, %187 ], [ %.3318322, %184 ], [ null, %ncp_error_string.exit.thread ]
-  %198 = phi i1 [ %192, %187 ], [ %163, %184 ], [ false, %ncp_error_string.exit.thread ]
-  %.0230339415 = phi ptr [ %.0230339416, %187 ], [ %.0230, %184 ], [ @.str.15, %ncp_error_string.exit.thread ]
-  %199 = phi ptr [ @.str.18, %187 ], [ @.str.19, %184 ], [ @.str.19, %ncp_error_string.exit.thread ]
+193:                                              ; preds = %.thread409, %ncp_error_string.exit.thread, %184, %187
+  %194 = phi ptr [ %186, %184 ], [ %161, %ncp_error_string.exit.thread ], [ %183, %.thread409 ], [ %188, %187 ]
+  %195 = phi ptr [ %185, %184 ], [ %160, %ncp_error_string.exit.thread ], [ %182, %.thread409 ], [ %189, %187 ]
+  %.0227427 = phi ptr [ null, %184 ], [ null, %ncp_error_string.exit.thread ], [ %.0227.ph, %.thread409 ], [ null, %187 ]
+  %.0228425 = phi i32 [ 0, %184 ], [ 0, %ncp_error_string.exit.thread ], [ %.0228.ph, %.thread409 ], [ 0, %187 ]
+  %196 = phi i32 [ %164, %184 ], [ %.ph, %ncp_error_string.exit.thread ], [ %164, %.thread409 ], [ %190, %187 ]
+  %197 = phi i8 [ %162, %184 ], [ 1, %ncp_error_string.exit.thread ], [ %162, %.thread409 ], [ %191, %187 ]
+  %.0234317325337420 = phi ptr [ %.0234317325, %184 ], [ %.0234317325.ph, %ncp_error_string.exit.thread ], [ %.0234317325, %.thread409 ], [ %.0234317325337421, %187 ]
+  %.3318322338417 = phi ptr [ %.3318322, %184 ], [ null, %ncp_error_string.exit.thread ], [ %.3318322, %.thread409 ], [ %.3318322338418, %187 ]
+  %198 = phi i1 [ %163, %184 ], [ false, %ncp_error_string.exit.thread ], [ true, %.thread409 ], [ %192, %187 ]
+  %.0230339415 = phi ptr [ %.0230, %184 ], [ @.str.15, %ncp_error_string.exit.thread ], [ %.0230, %.thread409 ], [ %.0230339416, %187 ]
+  %199 = phi ptr [ @.str.19, %184 ], [ @.str.19, %ncp_error_string.exit.thread ], [ @.str.18, %.thread409 ], [ @.str.18, %187 ]
   %.not260 = icmp eq ptr %.0227427, null
   %200 = select i1 %.not260, ptr %.0230339415, ptr %.0227427
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %194, i32 noundef 25, ptr noundef nonnull @.str.17, ptr noundef nonnull %199, ptr noundef %200)

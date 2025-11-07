@@ -372,7 +372,7 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
   br i1 %.not87, label %._crit_edge, label %.lr.ph124, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %90, %85
-  br i1 %.not74, label %99, label %94
+  br i1 %.not74, label %.loopexit, label %94
 
 94:                                               ; preds = %._crit_edge
   %95 = zext i32 %.058.ph.ph to i64
@@ -387,11 +387,11 @@ define hidden i32 @hwloc_decode_from_base64(ptr noundef readonly captures(none) 
 .unreachabledefault91:                            ; preds = %68
   unreachable
 
-99:                                               ; preds = %98, %94, %._crit_edge
+99:                                               ; preds = %98, %94
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %17, %57, %43, %29, %76, %.lr.ph124, %.preheader, %98, %94, %80, %68, %68, %99
-  %.0 = phi i32 [ %.058.ph.ph, %99 ], [ -1, %68 ], [ -1, %68 ], [ -1, %80 ], [ -1, %94 ], [ -1, %98 ], [ -1, %.preheader ], [ -1, %.lr.ph124 ], [ -1, %76 ], [ -1, %29 ], [ -1, %43 ], [ -1, %57 ], [ -1, %17 ], [ -1, %22 ]
+.loopexit:                                        ; preds = %22, %17, %57, %43, %29, %76, %.lr.ph124, %.preheader, %._crit_edge, %98, %94, %80, %68, %68, %99
+  %.0 = phi i32 [ -1, %68 ], [ -1, %68 ], [ -1, %80 ], [ -1, %94 ], [ -1, %98 ], [ %.058.ph.ph, %._crit_edge ], [ %.058.ph.ph, %99 ], [ -1, %.preheader ], [ -1, %.lr.ph124 ], [ -1, %76 ], [ -1, %29 ], [ -1, %43 ], [ -1, %57 ], [ -1, %17 ], [ -1, %22 ]
   ret i32 %.0
 }
 

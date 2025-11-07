@@ -16120,10 +16120,10 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br i1 %.not230, label %.split.preheader, label %.split.us.preheader
 
 .split.preheader:                                 ; preds = %.loopexit
-  br i1 %.not52.us, label %.lr.ph.preheader, label %123
+  br i1 %.not52.us, label %._crit_edge, label %123
 
 .split.us.preheader:                              ; preds = %.loopexit
-  br i1 %.not52.us, label %.lr.ph.preheader, label %58
+  br i1 %.not52.us, label %._crit_edge, label %58
 
 58:                                               ; preds = %.split.us.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -16402,13 +16402,12 @@ _ZNK7testing8internal11MatcherBaseIRKmE15MatchAndExplainES3_PNS_19MatchResultLis
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %135, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.split.us.preheader, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us, %.split.preheader, %138
-  %.us-phi159.ph = phi i1 [ true, %138 ], [ false, %.split.preheader ], [ true, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %.split.us.preheader ]
+.lr.ph.preheader:                                 ; preds = %_ZN7testing25StringMatchResultListenerD2Ev.exit.us, %138
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %138, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us, %.lr.ph.preheader
-  %.us-phi159228 = phi i1 [ %.us-phi159.ph, %.lr.ph.preheader ], [ false, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %138 ]
-  %.us-phi225 = phi i64 [ 0, %.lr.ph.preheader ], [ 1, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ 1, %138 ]
+._crit_edge:                                      ; preds = %.split.preheader, %.split.us.preheader, %138, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us, %.lr.ph.preheader
+  %.us-phi159228 = phi i1 [ false, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ false, %138 ], [ false, %.split.preheader ], [ false, %.split.us.preheader ], [ true, %.lr.ph.preheader ]
+  %.us-phi225 = phi i64 [ 1, %_ZN7testing25StringMatchResultListenerD2Ev.exit.us ], [ 1, %138 ], [ 0, %.split.preheader ], [ 0, %.split.us.preheader ], [ 0, %.lr.ph.preheader ]
   %139 = load ptr, ptr %16, align 8, !tbaa !196
   %140 = load ptr, ptr %15, align 8, !tbaa !179
   %141 = ptrtoint ptr %139 to i64

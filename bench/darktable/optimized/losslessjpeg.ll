@@ -290,17 +290,17 @@ _ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26: ; preds = %46
 
 51:                                               ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26
   %52 = tail call noundef zeroext i1 @_ZN14LibRaw_SOFInfo9parse_sofER12ByteStreamBE(ptr noundef nonnull align 8 dereferenceable(41) %8, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  br i1 %52, label %53, label %.critedge.thread.loopexit70
+  br i1 %52, label %53, label %.critedge.thread
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %29, align 4, !tbaa !38
   %55 = add i32 %54, -17
   %or.cond = icmp ult i32 %55, -5
-  br i1 %or.cond, label %.critedge.thread.loopexit70, label %.critedge
+  br i1 %or.cond, label %.critedge.thread, label %.critedge
 
 56:                                               ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26
   %57 = call noundef zeroext i1 @_ZN24LibRaw_LjpegDecompressor9parse_dhtEPbPA17_jPA256_j(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
-  br i1 %57, label %.critedge, label %.critedge.thread.loopexit70
+  br i1 %57, label %.critedge, label %.critedge.thread
 
 58:                                               ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26
   %59 = tail call noundef i32 @_ZN14LibRaw_SOFInfo9parse_sosER12ByteStreamBE(ptr noundef nonnull align 8 dereferenceable(41) %8, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -312,7 +312,7 @@ _ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26: ; preds = %46
   %62 = add i32 %61, 2
   %63 = load i32, ptr %12, align 8, !tbaa !13
   %64 = icmp ugt i32 %62, %63
-  br i1 %64, label %.critedge.thread.loopexit70, label %.preheader.i.i
+  br i1 %64, label %.critedge.thread, label %.preheader.i.i
 
 65:                                               ; preds = %58
   %66 = lshr i32 %59, 8
@@ -415,12 +415,11 @@ _ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit:    ; preds = %_ZNSt6vectorI9HuffT
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %101, label %_ZNSt6vectorI9HuffTableSaIS0_EE6resizeEm.exit, !llvm.loop !57
 
-.critedge.thread.loopexit70:                      ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %51, %53, %56, %.critedge
-  %.sink.ph = phi i32 [ 6, %51 ], [ 3, %53 ], [ 5, %56 ], [ 4, %.critedge ], [ 8, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ]
+.critedge.thread.loopexit70:                      ; preds = %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.i.i, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %.critedge.thread.loopexit70, %.preheader, %58, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit, %_ZN12ByteStreamBE6get_u8Ev.exit.i, %101
-  %.sink = phi i32 [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 7, %58 ], [ 4, %.preheader ], [ %.sink.ph, %.critedge.thread.loopexit70 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ]
+.critedge.thread:                                 ; preds = %.critedge, %56, %53, %51, %.critedge.i.i, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26, %.critedge.thread.loopexit70, %.preheader, %58, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit, %_ZN12ByteStreamBE6get_u8Ev.exit.i, %101
+  %.sink = phi i32 [ 0, %101 ], [ 2, %_ZN12ByteStreamBE6get_u8Ev.exit.i ], [ 2, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit ], [ 7, %58 ], [ 4, %.preheader ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %_ZN24LibRaw_LjpegDecompressor11next_markerEb.exit26 ], [ 4, %.critedge.i.i ], [ 6, %51 ], [ 3, %53 ], [ 5, %56 ], [ 4, %.critedge ], [ 8, %.critedge.thread.loopexit70 ]
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %.sink, ptr %113, align 8, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

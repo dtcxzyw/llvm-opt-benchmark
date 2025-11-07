@@ -845,7 +845,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %spec.select88 = select i1 %67, i32 %68, i32 %.066105
   br label %69
 
-69:                                               ; preds = %.thread91, %.thread, %32, %51, %26
+69:                                               ; preds = %32, %51, %26, %.thread91, %.thread
   %.268.ph = phi i32 [ %spec.select88, %.thread91 ], [ %spec.select, %.thread ], [ %.066105, %26 ], [ %.066105, %51 ], [ %33, %32 ]
   %70 = add i64 %.078103, 1
   %.not = icmp ugt i64 %70, %9

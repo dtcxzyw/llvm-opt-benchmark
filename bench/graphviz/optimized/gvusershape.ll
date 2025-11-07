@@ -1891,44 +1891,45 @@ find_attribute.exit.thread:                       ; preds = %svg_units_convert.e
   %269 = sitofp i32 %268 to double
   %270 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %269, ptr %270, align 8, !tbaa !28
-  br label %279
+  %271 = fptosi double %.sroa.1356.6 to i32
+  %272 = sitofp i32 %271 to double
+  br label %284
 
 .critedge:                                        ; preds = %14
-  %271 = trunc i8 %.sroa.051.3 to i1
-  %272 = trunc i8 %.sroa.044.3 to i1
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %273, align 8, !tbaa !27
-  %274 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br i1 %272, label %275, label %278
+  %273 = trunc i8 %.sroa.051.3 to i1
+  %274 = trunc i8 %.sroa.044.3 to i1
+  %275 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %275, align 8, !tbaa !27
+  %276 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %277 = fptosi double %.sroa.1356.3 to i32
+  %278 = sitofp i32 %277 to double
+  br i1 %274, label %279, label %282
 
-275:                                              ; preds = %.critedge
-  %276 = fptosi double %.sroa.13.3 to i32
-  %277 = sitofp i32 %276 to double
-  store double %277, ptr %274, align 8, !tbaa !28
-  br i1 %271, label %279, label %281
+279:                                              ; preds = %.critedge
+  %280 = fptosi double %.sroa.13.3 to i32
+  %281 = sitofp i32 %280 to double
+  store double %281, ptr %276, align 8, !tbaa !28
+  br i1 %273, label %283, label %284
 
-278:                                              ; preds = %.critedge
-  store double 0.000000e+00, ptr %274, align 8, !tbaa !28
-  br i1 %271, label %279, label %281
+282:                                              ; preds = %.critedge
+  store double 0.000000e+00, ptr %276, align 8, !tbaa !28
+  br i1 %273, label %283, label %284
 
-279:                                              ; preds = %275, %.thread412, %278
-  %.in.in = phi double [ %.sroa.1356.6, %.thread412 ], [ %.sroa.1356.3, %278 ], [ %.sroa.1356.3, %275 ]
-  %.in = fptosi double %.in.in to i32
-  %280 = sitofp i32 %.in to double
-  br label %281
+283:                                              ; preds = %279, %282
+  br label %284
 
-281:                                              ; preds = %275, %278, %279
-  %282 = phi double [ %280, %279 ], [ 0.000000e+00, %278 ], [ 0.000000e+00, %275 ]
-  %283 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %282, ptr %283, align 8, !tbaa !29
-  br i1 %94, label %284, label %agxbfree.exit
+284:                                              ; preds = %.thread412, %279, %282, %283
+  %285 = phi double [ 0.000000e+00, %282 ], [ 0.000000e+00, %279 ], [ %272, %.thread412 ], [ %278, %283 ]
+  %286 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store double %285, ptr %286, align 8, !tbaa !29
+  br i1 %94, label %287, label %agxbfree.exit
 
-284:                                              ; preds = %281
+287:                                              ; preds = %284
   %.val = load ptr, ptr %4, align 8
   call void @free(ptr noundef %.val) #21
   br label %agxbfree.exit
 
-agxbfree.exit:                                    ; preds = %281, %284
+agxbfree.exit:                                    ; preds = %284, %287
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

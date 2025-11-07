@@ -310,7 +310,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %36 = load i32, ptr %.1145.sink, align 8, !tbaa !10
   %37 = load i32, ptr %.1.sink, align 8, !tbaa !10
   %.not196 = icmp eq i32 %36, %37
-  br i1 %.not196, label %38, label %.loopexit.loopexit
+  br i1 %.not196, label %38, label %.loopexit
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
@@ -323,7 +323,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %44 = load i32, ptr %.1147.sink, align 8, !tbaa !10
   %45 = load i32, ptr %.1.sink, align 8, !tbaa !10
   %.not195 = icmp eq i32 %44, %45
-  br i1 %.not195, label %46, label %.loopexit.loopexit
+  br i1 %.not195, label %46, label %.loopexit
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
@@ -342,7 +342,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 56:                                               ; preds = %51
   %.not194 = icmp sgt i32 %52, %53
-  br i1 %.not194, label %57, label %.loopexit.loopexit
+  br i1 %.not194, label %57, label %.loopexit
 
 57:                                               ; preds = %56
   %58 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
@@ -355,7 +355,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %63 = icmp slt i32 %., %54
   %.not193 = icmp eq i32 %52, %53
   %or.cond = and i1 %.not193, %63
-  br i1 %or.cond, label %64, label %.loopexit.loopexit
+  br i1 %or.cond, label %64, label %.loopexit
 
 64:                                               ; preds = %62
   %65 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
@@ -368,7 +368,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %70 = load i32, ptr %.1149.sink, align 8, !tbaa !10
   %71 = load i32, ptr %.1145.sink, align 8, !tbaa !10
   %.not192 = icmp eq i32 %70, %71
-  br i1 %.not192, label %72, label %.loopexit.loopexit
+  br i1 %.not192, label %72, label %.loopexit
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -387,7 +387,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 82:                                               ; preds = %77
   %83 = icmp slt i32 %78, %79
-  br i1 %83, label %84, label %.loopexit.loopexit
+  br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %82
   %85 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -400,7 +400,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %90 = icmp slt i32 %.201, %80
   %.not190 = icmp eq i32 %78, %79
   %or.cond205 = and i1 %.not190, %90
-  br i1 %or.cond205, label %91, label %.loopexit.loopexit
+  br i1 %or.cond205, label %91, label %.loopexit
 
 91:                                               ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
@@ -413,7 +413,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %97 = load i32, ptr %.1149.sink, align 8, !tbaa !10
   %98 = load i32, ptr %.1147.sink, align 8, !tbaa !10
   %.not189 = icmp eq i32 %97, %98
-  br i1 %.not189, label %99, label %.loopexit.loopexit
+  br i1 %.not189, label %99, label %.loopexit
 
 99:                                               ; preds = %96
   %100 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -432,7 +432,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 109:                                              ; preds = %104
   %.not188 = icmp sgt i32 %105, %106
-  br i1 %.not188, label %110, label %.loopexit.loopexit
+  br i1 %.not188, label %110, label %.loopexit
 
 110:                                              ; preds = %109
   %111 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
@@ -445,7 +445,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %116 = icmp slt i32 %.202, %107
   %.not187 = icmp eq i32 %105, %106
   %or.cond206 = and i1 %.not187, %116
-  br i1 %or.cond206, label %117, label %.loopexit.loopexit
+  br i1 %or.cond206, label %117, label %.loopexit
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -464,7 +464,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 127:                                              ; preds = %122
   %128 = icmp slt i32 %123, %124
-  br i1 %128, label %129, label %.loopexit.loopexit
+  br i1 %128, label %129, label %.loopexit
 
 129:                                              ; preds = %127
   %130 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -477,7 +477,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   %135 = icmp slt i32 %.203, %125
   %.not185 = icmp eq i32 %123, %124
   %or.cond207 = and i1 %.not185, %135
-  br i1 %or.cond207, label %136, label %.loopexit.loopexit
+  br i1 %or.cond207, label %136, label %.loopexit
 
 136:                                              ; preds = %134
   %137 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -504,7 +504,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   br i1 %151, label %152, label %162
 
 152:                                              ; preds = %150
-  br i1 %.not184, label %153, label %.loopexit.loopexit
+  br i1 %.not184, label %153, label %.loopexit
 
 153:                                              ; preds = %152
   %154 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -518,14 +518,14 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   br label %.backedge
 
 162:                                              ; preds = %150
-  br i1 %.not184, label %.loopexit.loopexit, label %163
+  br i1 %.not184, label %.loopexit, label %163
 
 163:                                              ; preds = %162
   br i1 %144, label %164, label %171
 
 164:                                              ; preds = %163
   %165 = icmp sgt i32 %145, %146
-  br i1 %165, label %.loopexit.loopexit, label %166
+  br i1 %165, label %.loopexit, label %166
 
 166:                                              ; preds = %164
   %167 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -542,7 +542,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
   br label %27
 
 171:                                              ; preds = %163
-  br i1 %147, label %.loopexit.loopexit, label %172
+  br i1 %147, label %.loopexit, label %172
 
 172:                                              ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %.1147.sink, i64 32
@@ -557,7 +557,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 179:                                              ; preds = %177
   %.not183 = icmp eq i32 %142, %143
-  br i1 %.not183, label %180, label %.loopexit.loopexit
+  br i1 %.not183, label %180, label %.loopexit
 
 180:                                              ; preds = %179
   %181 = getelementptr inbounds nuw i8, ptr %.1149.sink, i64 32
@@ -568,7 +568,7 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 
 185:                                              ; preds = %177
   %.not182 = icmp eq i32 %145, %146
-  br i1 %.not182, label %186, label %.loopexit.loopexit
+  br i1 %.not182, label %186, label %.loopexit
 
 186:                                              ; preds = %185
   %187 = getelementptr inbounds nuw i8, ptr %.1145.sink, i64 32
@@ -580,12 +580,11 @@ define range(i32 0, 2) i32 @Fxu_PairCompare(ptr noundef readonly captures(none) 
 default.unreachable216:                           ; preds = %27
   unreachable
 
-.loopexit.loopexit:                               ; preds = %27, %35, %43, %56, %62, %69, %82, %89, %96, %109, %115, %127, %134, %152, %162, %164, %171, %179, %185
-  %.0150.ph = phi i32 [ 0, %185 ], [ 0, %179 ], [ 0, %171 ], [ 0, %164 ], [ 0, %162 ], [ 0, %152 ], [ 0, %134 ], [ 0, %127 ], [ 0, %115 ], [ 0, %109 ], [ 0, %96 ], [ 0, %89 ], [ 0, %82 ], [ 0, %69 ], [ 0, %62 ], [ 0, %56 ], [ 0, %43 ], [ 0, %35 ], [ 1, %27 ]
+.loopexit.loopexit:                               ; preds = %27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %27, %27, %27, %27, %27, %27, %.loopexit.loopexit, %5, %2
-  %.0150 = phi i32 [ 0, %2 ], [ 0, %5 ], [ %.0150.ph, %.loopexit.loopexit ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ]
+.loopexit:                                        ; preds = %185, %179, %171, %164, %162, %152, %134, %127, %115, %109, %96, %89, %82, %69, %62, %56, %43, %35, %27, %27, %27, %27, %27, %27, %.loopexit.loopexit, %5, %2
+  %.0150 = phi i32 [ 0, %2 ], [ 0, %5 ], [ 1, %.loopexit.loopexit ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %27 ], [ 0, %35 ], [ 0, %43 ], [ 0, %56 ], [ 0, %62 ], [ 0, %69 ], [ 0, %82 ], [ 0, %89 ], [ 0, %96 ], [ 0, %109 ], [ 0, %115 ], [ 0, %127 ], [ 0, %134 ], [ 0, %152 ], [ 0, %162 ], [ 0, %164 ], [ 0, %171 ], [ 0, %179 ], [ 0, %185 ]
   ret i32 %.0150
 }
 

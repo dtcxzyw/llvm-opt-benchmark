@@ -3397,7 +3397,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   store ptr %52, ptr %53, align 8, !tbaa !97
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2655
   store i8 1, ptr %54, align 1, !tbaa !88
-  br label %.thread432
+  br label %.critedge
 
 55:                                               ; preds = %3
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -3409,7 +3409,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   store ptr null, ptr %58, align 8, !tbaa !7
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2655
   store i8 1, ptr %60, align 1, !tbaa !88
-  br label %.thread432
+  br label %.critedge
 
 61:                                               ; preds = %3
   %.not425 = icmp eq ptr %2, null
@@ -3446,12 +3446,12 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %74 = tail call i32 @Curl_setstropt(ptr noundef nonnull %73, ptr noundef %2)
   %75 = load ptr, ptr %73, align 8, !tbaa !7
   %.not424 = icmp eq ptr %75, null
-  br i1 %.not424, label %.thread432, label %76
+  br i1 %.not424, label %.critedge, label %76
 
 76:                                               ; preds = %72
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 512
   store i64 128, ptr %77, align 8, !tbaa !196
-  br label %.thread432
+  br label %.critedge
 
 78:                                               ; preds = %3
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 5036
@@ -3477,7 +3477,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %91 = load ptr, ptr %89, align 8, !tbaa !7
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4640
   store ptr %91, ptr %92, align 8, !tbaa !197
-  br label %.thread432
+  br label %.critedge
 
 93:                                               ; preds = %3
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 2144
@@ -3542,13 +3542,13 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 122:                                              ; preds = %118, %115
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 2672
   store ptr null, ptr %123, align 8, !tbaa !162
-  br label %.thread432
+  br label %.critedge
 
 124:                                              ; preds = %3
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   %126 = tail call i32 @Curl_setstropt(ptr noundef nonnull %125, ptr noundef %2)
   %.not417 = icmp eq i32 %126, 0
-  br i1 %.not417, label %127, label %.thread432
+  br i1 %.not417, label %127, label %.critedge
 
 127:                                              ; preds = %124
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 2672
@@ -3561,11 +3561,11 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %.not418 = icmp eq ptr %134, null
   %spec.select = select i1 %.not418, i32 27, i32 0
   store ptr %134, ptr %128, align 8, !tbaa !162
-  br label %.thread432
+  br label %.critedge
 
 135:                                              ; preds = %3
   %.not409 = icmp eq ptr %2, null
-  br i1 %.not409, label %.thread432, label %136
+  br i1 %.not409, label %.critedge, label %136
 
 136:                                              ; preds = %135
   %137 = tail call i32 @curl_strequal(ptr noundef nonnull %2, ptr noundef nonnull @.str) #10
@@ -3578,7 +3578,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %141 = load ptr, ptr %140, align 8, !tbaa !162
   tail call void @Curl_cookie_clearall(ptr noundef %141) #10
   %142 = tail call i32 @Curl_share_unlock(ptr noundef %0, i32 noundef 2) #10
-  br label %.thread432
+  br label %.critedge
 
 143:                                              ; preds = %136
   %144 = tail call i32 @curl_strequal(ptr noundef nonnull %2, ptr noundef nonnull @.str.1) #10
@@ -3591,7 +3591,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %148 = load ptr, ptr %147, align 8, !tbaa !162
   tail call void @Curl_cookie_clearsess(ptr noundef %148) #10
   %149 = tail call i32 @Curl_share_unlock(ptr noundef %0, i32 noundef 2) #10
-  br label %.thread432
+  br label %.critedge
 
 150:                                              ; preds = %143
   %151 = tail call i32 @curl_strequal(ptr noundef nonnull %2, ptr noundef nonnull @.str.2) #10
@@ -3600,7 +3600,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 152:                                              ; preds = %150
   tail call void @Curl_flush_cookies(ptr noundef %0, i1 noundef zeroext false) #10
-  br label %.thread432
+  br label %.critedge
 
 153:                                              ; preds = %150
   %154 = tail call i32 @curl_strequal(ptr noundef nonnull %2, ptr noundef nonnull @.str.3) #10
@@ -3609,7 +3609,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 155:                                              ; preds = %153
   tail call void @Curl_cookie_loadfiles(ptr noundef %0) #10
-  br label %.thread432
+  br label %.critedge
 
 156:                                              ; preds = %153
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 2672
@@ -3646,7 +3646,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 173:                                              ; preds = %171, %168
   %174 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 2) #10
-  br label %.thread432
+  br label %.critedge
 
 175:                                              ; preds = %3
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 2024
@@ -3676,37 +3676,37 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 190:                                              ; preds = %3
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 504
   store ptr %2, ptr %191, align 8, !tbaa !199
-  br label %.thread432
+  br label %.critedge
 
 192:                                              ; preds = %3
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr %2, ptr %193, align 8, !tbaa !200
-  br label %.thread432
+  br label %.critedge
 
 194:                                              ; preds = %3
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store ptr %2, ptr %195, align 8, !tbaa !201
-  br label %.thread432
+  br label %.critedge
 
 196:                                              ; preds = %3
   %197 = getelementptr inbounds nuw i8, ptr %0, i64 472
   store ptr %2, ptr %197, align 8, !tbaa !202
-  br label %.thread432
+  br label %.critedge
 
 198:                                              ; preds = %3
   %199 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr %2, ptr %199, align 8, !tbaa !203
-  br label %.thread432
+  br label %.critedge
 
 200:                                              ; preds = %3
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 688
   store ptr %2, ptr %201, align 8, !tbaa !204
-  br label %.thread432
+  br label %.critedge
 
 202:                                              ; preds = %3
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 736
   store ptr %2, ptr %203, align 8, !tbaa !205
-  br label %.thread432
+  br label %.critedge
 
 204:                                              ; preds = %3
   %205 = tail call zeroext i1 @Curl_ssl_supports(ptr noundef %0, i32 noundef 8) #10
@@ -3715,42 +3715,42 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 206:                                              ; preds = %204
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   store ptr %2, ptr %207, align 8, !tbaa !206
-  br label %.thread432
+  br label %.critedge
 
 208:                                              ; preds = %3
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 632
   store ptr %2, ptr %209, align 8, !tbaa !207
-  br label %.thread432
+  br label %.critedge
 
 210:                                              ; preds = %3
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store ptr %2, ptr %211, align 8, !tbaa !208
-  br label %.thread432
+  br label %.critedge
 
 212:                                              ; preds = %3
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 2576
   store ptr %2, ptr %213, align 8, !tbaa !209
-  br label %.thread432
+  br label %.critedge
 
 214:                                              ; preds = %3
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store ptr %2, ptr %215, align 8, !tbaa !210
-  br label %.thread432
+  br label %.critedge
 
 216:                                              ; preds = %3
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 2616
   store ptr %2, ptr %217, align 8, !tbaa !211
-  br label %.thread432
+  br label %.critedge
 
 218:                                              ; preds = %3
   %219 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store ptr %2, ptr %219, align 8, !tbaa !212
-  br label %.thread432
+  br label %.critedge
 
 220:                                              ; preds = %3
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 480
   store ptr %2, ptr %221, align 8, !tbaa !213
-  br label %.thread432
+  br label %.critedge
 
 222:                                              ; preds = %3
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 2088
@@ -3763,7 +3763,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %229 = and i64 %227, -32769
   %230 = or disjoint i64 %229, %228
   store i64 %230, ptr %226, align 2
-  br label %.thread432
+  br label %.critedge
 
 231:                                              ; preds = %3
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 2072
@@ -3799,7 +3799,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %250 = load ptr, ptr %248, align 8, !tbaa !7
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 4632
   store ptr %250, ptr %251, align 8, !tbaa !214
-  br label %.thread432
+  br label %.critedge
 
 252:                                              ; preds = %3
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 2160
@@ -3865,7 +3865,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   tail call void %285(ptr noundef %278) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread432
+  br label %.critedge
 
 286:                                              ; preds = %3
   %287 = getelementptr inbounds nuw i8, ptr %0, i64 2184
@@ -3918,7 +3918,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   store ptr null, ptr %312, align 8, !tbaa !7
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 2608
   store ptr %2, ptr %314, align 8, !tbaa !215
-  br label %.thread432
+  br label %.critedge
 
 315:                                              ; preds = %3
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 1800
@@ -3972,22 +3972,22 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 345:                                              ; preds = %3
   %.not403 = icmp eq ptr %2, null
-  br i1 %.not403, label %.thread432, label %346
+  br i1 %.not403, label %.critedge, label %346
 
 346:                                              ; preds = %345
   %347 = load i8, ptr %2, align 1, !tbaa !195
   %.not404 = icmp eq i8 %347, 0
-  br i1 %.not404, label %.thread432, label %348
+  br i1 %.not404, label %.critedge, label %348
 
 348:                                              ; preds = %346
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 2152
   %350 = tail call i32 @Curl_setstropt(ptr noundef nonnull %349, ptr noundef nonnull %2)
   %.not405 = icmp eq i32 %350, 0
-  br i1 %.not405, label %351, label %.thread432
+  br i1 %.not405, label %351, label %.critedge
 
 351:                                              ; preds = %348
   %352 = tail call i32 @Curl_ssl_set_engine(ptr noundef nonnull %0, ptr noundef nonnull %2) #10
-  br label %.thread432
+  br label %.critedge
 
 353:                                              ; preds = %3
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 2352
@@ -3996,7 +3996,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %357 = load i64, ptr %356, align 2
   %358 = or i64 %357, 281474976710656
   store i64 %358, ptr %356, align 2
-  br label %.thread432
+  br label %.critedge
 
 359:                                              ; preds = %3
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 2040
@@ -4074,7 +4074,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 402:                                              ; preds = %3
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 1736
   store ptr %2, ptr %403, align 8, !tbaa !216
-  br label %.thread432
+  br label %.critedge
 
 404:                                              ; preds = %3
   %405 = getelementptr inbounds nuw i8, ptr %0, i64 2336
@@ -4092,7 +4092,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 411:                                              ; preds = %407
   store i32 -1, ptr %408, align 4, !tbaa !128
-  br label %.thread432
+  br label %.critedge
 
 412:                                              ; preds = %3
   %.not401 = icmp eq ptr %2, null
@@ -4105,7 +4105,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 416:                                              ; preds = %412
   store i32 15, ptr %413, align 8, !tbaa !129
-  br label %.thread432
+  br label %.critedge
 
 417:                                              ; preds = %3
   %418 = getelementptr inbounds nuw i8, ptr %0, i64 2032
@@ -4145,17 +4145,17 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 438:                                              ; preds = %3
   %439 = getelementptr inbounds nuw i8, ptr %0, i64 2472
   store ptr %2, ptr %439, align 8, !tbaa !217
-  br label %.thread432
+  br label %.critedge
 
 440:                                              ; preds = %3
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 2520
   store ptr %2, ptr %441, align 8, !tbaa !218
-  br label %.thread432
+  br label %.critedge
 
 442:                                              ; preds = %3
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 2512
   store ptr %2, ptr %443, align 8, !tbaa !219
-  br label %.thread432
+  br label %.critedge
 
 444:                                              ; preds = %3
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 2248
@@ -4179,7 +4179,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 456:                                              ; preds = %3
   %.not399 = icmp eq ptr %2, null
-  br i1 %.not399, label %.thread432, label %457
+  br i1 %.not399, label %.critedge, label %457
 
 457:                                              ; preds = %456
   %458 = tail call i32 @curl_strequal(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #10
@@ -4188,7 +4188,7 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 459:                                              ; preds = %3
   %.not397 = icmp eq ptr %2, null
-  br i1 %.not397, label %.thread432, label %460
+  br i1 %.not397, label %.critedge, label %460
 
 460:                                              ; preds = %459
   %461 = tail call i32 @curl_strequal(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #10
@@ -4224,17 +4224,17 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
   %481 = and i64 %479, -2251799813685249
   %482 = or disjoint i64 %481, %480
   store i64 %482, ptr %478, align 2
-  br label %.thread432
+  br label %.critedge
 
 483:                                              ; preds = %3
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 704
   store ptr %2, ptr %484, align 8, !tbaa !220
-  br label %.thread432
+  br label %.critedge
 
 485:                                              ; preds = %3
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr %2, ptr %486, align 8, !tbaa !221
-  br label %.thread432
+  br label %.critedge
 
 487:                                              ; preds = %3
   %488 = getelementptr inbounds nuw i8, ptr %0, i64 2680
@@ -4315,19 +4315,18 @@ define internal fastcc i32 @setopt_cptr(ptr noundef %0, i32 noundef range(i32 10
 
 520:                                              ; preds = %517
   %.not388 = icmp eq ptr %2, null
-  br i1 %.not388, label %.thread432, label %521
+  br i1 %.not388, label %.critedge, label %521
 
 521:                                              ; preds = %520
   %522 = load ptr, ptr %513, align 8, !tbaa !141
   %523 = tail call i32 @Curl_altsvc_load(ptr noundef %522, ptr noundef nonnull %2) #10
-  br label %.thread432
-
-.thread432:                                       ; preds = %502, %511, %508, %109, %520, %521, %459, %460, %456, %457, %345, %346, %351, %348, %138, %152, %173, %145, %135, %124, %127, %122, %72, %76, %485, %483, %474, %442, %440, %438, %416, %411, %402, %353, %310, %283, %247, %222, %220, %218, %216, %214, %212, %210, %208, %206, %202, %200, %198, %196, %194, %192, %190, %155, %88, %55, %51, %3, %3
-  %.0354 = phi i32 [ 0, %3 ], [ 0, %3 ], [ %.1355, %51 ], [ 0, %55 ], [ %74, %76 ], [ %74, %72 ], [ %90, %88 ], [ 0, %109 ], [ 0, %122 ], [ %126, %124 ], [ %spec.select, %127 ], [ 0, %138 ], [ 0, %145 ], [ 0, %152 ], [ 0, %155 ], [ 0, %173 ], [ 0, %135 ], [ 0, %190 ], [ 0, %192 ], [ 0, %194 ], [ 0, %196 ], [ 0, %198 ], [ 0, %200 ], [ 0, %202 ], [ 0, %206 ], [ 0, %208 ], [ 0, %210 ], [ 0, %212 ], [ 0, %214 ], [ 0, %216 ], [ 0, %218 ], [ 0, %220 ], [ %224, %222 ], [ %249, %247 ], [ %.4, %283 ], [ 0, %310 ], [ %350, %348 ], [ %352, %351 ], [ 0, %346 ], [ 0, %345 ], [ %355, %353 ], [ 0, %402 ], [ 0, %411 ], [ 0, %416 ], [ 0, %438 ], [ 0, %440 ], [ 0, %442 ], [ 0, %457 ], [ 0, %456 ], [ 0, %460 ], [ 0, %459 ], [ %476, %474 ], [ 0, %483 ], [ 0, %485 ], [ 0, %521 ], [ 0, %520 ], [ 0, %508 ], [ 0, %511 ], [ 0, %502 ]
   br label %.critedge
 
-.critedge:                                        ; preds = %100, %107, %500, %490, %493, %45, %3, %517, %515, %460, %457, %385, %380, %369, %364, %204, %161, %159, %.split362, %.split363, %43, %22, %17, %12, %7, %.thread432, %468, %462, %453, %450, %447, %444, %435, %432, %429, %426, %423, %420, %417, %414, %409, %404, %399, %396, %393, %390, %387, %382, %377, %374, %371, %366, %359, %342, %339, %336, %333, %330, %327, %324, %321, %318, %315, %295, %292, %289, %286, %265, %262, %259, %256, %252, %234, %231, %187, %184, %181, %178, %175, %96, %93, %69, %30, %27, %24, %19, %14, %9
-  %.0 = phi i32 [ %11, %9 ], [ %16, %14 ], [ %21, %19 ], [ %26, %24 ], [ %.0354, %.thread432 ], [ %29, %27 ], [ %32, %30 ], [ %71, %69 ], [ %95, %93 ], [ %98, %96 ], [ %177, %175 ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %233, %231 ], [ %236, %234 ], [ %255, %252 ], [ %258, %256 ], [ %261, %259 ], [ %264, %262 ], [ %267, %265 ], [ %288, %286 ], [ %291, %289 ], [ %294, %292 ], [ %297, %295 ], [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %326, %324 ], [ %329, %327 ], [ %332, %330 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ], [ %363, %359 ], [ %368, %366 ], [ %373, %371 ], [ %376, %374 ], [ %379, %377 ], [ %384, %382 ], [ %389, %387 ], [ %392, %390 ], [ %395, %393 ], [ %398, %396 ], [ %401, %399 ], [ %406, %404 ], [ %410, %409 ], [ %415, %414 ], [ %419, %417 ], [ %422, %420 ], [ %425, %423 ], [ %428, %426 ], [ %431, %429 ], [ %434, %432 ], [ %437, %435 ], [ %446, %444 ], [ %449, %447 ], [ %452, %450 ], [ %455, %453 ], [ %467, %462 ], [ %473, %468 ], [ 4, %7 ], [ 4, %12 ], [ 4, %17 ], [ 4, %22 ], [ 43, %43 ], [ 0, %.split362 ], [ %68, %.split363 ], [ 27, %159 ], [ 43, %161 ], [ 4, %204 ], [ 4, %364 ], [ 4, %369 ], [ 4, %380 ], [ 4, %385 ], [ 43, %457 ], [ 43, %460 ], [ 27, %515 ], [ %519, %517 ], [ 48, %3 ], [ 27, %45 ], [ 27, %500 ], [ 27, %490 ], [ %495, %493 ], [ 43, %100 ], [ 27, %107 ]
+.thread432:                                       ; preds = %502, %511, %508, %109, %460, %457, %3, %3
+  br label %.critedge
+
+.critedge:                                        ; preds = %100, %107, %500, %490, %493, %45, %51, %55, %88, %155, %190, %192, %194, %196, %198, %200, %202, %206, %208, %210, %212, %214, %216, %218, %220, %222, %247, %283, %310, %353, %402, %411, %416, %438, %440, %442, %474, %483, %485, %76, %72, %122, %127, %124, %135, %145, %173, %152, %138, %348, %351, %346, %345, %456, %459, %521, %520, %3, %517, %515, %460, %457, %385, %380, %369, %364, %204, %161, %159, %.split362, %.split363, %43, %22, %17, %12, %7, %.thread432, %468, %462, %453, %450, %447, %444, %435, %432, %429, %426, %423, %420, %417, %414, %409, %404, %399, %396, %393, %390, %387, %382, %377, %374, %371, %366, %359, %342, %339, %336, %333, %330, %327, %324, %321, %318, %315, %295, %292, %289, %286, %265, %262, %259, %256, %252, %234, %231, %187, %184, %181, %178, %175, %96, %93, %69, %30, %27, %24, %19, %14, %9
+  %.0 = phi i32 [ %11, %9 ], [ %16, %14 ], [ %21, %19 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %71, %69 ], [ %95, %93 ], [ %98, %96 ], [ %177, %175 ], [ %180, %178 ], [ %183, %181 ], [ %186, %184 ], [ %189, %187 ], [ %233, %231 ], [ %236, %234 ], [ %255, %252 ], [ %258, %256 ], [ %261, %259 ], [ %264, %262 ], [ %267, %265 ], [ %288, %286 ], [ %291, %289 ], [ %294, %292 ], [ %297, %295 ], [ %317, %315 ], [ %320, %318 ], [ %323, %321 ], [ %326, %324 ], [ %329, %327 ], [ %332, %330 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ], [ %363, %359 ], [ %368, %366 ], [ %373, %371 ], [ %376, %374 ], [ %379, %377 ], [ %384, %382 ], [ %389, %387 ], [ %392, %390 ], [ %395, %393 ], [ %398, %396 ], [ %401, %399 ], [ %406, %404 ], [ %410, %409 ], [ %415, %414 ], [ %419, %417 ], [ %422, %420 ], [ %425, %423 ], [ %428, %426 ], [ %431, %429 ], [ %434, %432 ], [ %437, %435 ], [ %446, %444 ], [ %449, %447 ], [ %452, %450 ], [ %455, %453 ], [ %467, %462 ], [ %473, %468 ], [ 4, %7 ], [ 4, %12 ], [ 4, %17 ], [ 4, %22 ], [ 43, %43 ], [ 0, %.split362 ], [ %68, %.split363 ], [ 27, %159 ], [ 43, %161 ], [ 4, %204 ], [ 4, %364 ], [ 4, %369 ], [ 4, %380 ], [ 4, %385 ], [ 43, %457 ], [ 43, %460 ], [ 27, %515 ], [ %519, %517 ], [ 48, %3 ], [ %.1355, %51 ], [ 0, %55 ], [ %74, %76 ], [ %74, %72 ], [ %90, %88 ], [ 0, %122 ], [ %126, %124 ], [ %spec.select, %127 ], [ 0, %138 ], [ 0, %145 ], [ 0, %152 ], [ 0, %155 ], [ 0, %173 ], [ 0, %135 ], [ 0, %190 ], [ 0, %192 ], [ 0, %194 ], [ 0, %196 ], [ 0, %198 ], [ 0, %200 ], [ 0, %202 ], [ 0, %206 ], [ 0, %208 ], [ 0, %210 ], [ 0, %212 ], [ 0, %214 ], [ 0, %216 ], [ 0, %218 ], [ 0, %220 ], [ %224, %222 ], [ %249, %247 ], [ %.4, %283 ], [ 0, %310 ], [ %350, %348 ], [ %352, %351 ], [ 0, %346 ], [ 0, %345 ], [ %355, %353 ], [ 0, %402 ], [ 0, %411 ], [ 0, %416 ], [ 0, %438 ], [ 0, %440 ], [ 0, %442 ], [ 0, %456 ], [ 0, %459 ], [ %476, %474 ], [ 0, %483 ], [ 0, %485 ], [ 0, %521 ], [ 0, %520 ], [ 0, %.thread432 ], [ 27, %45 ], [ 27, %500 ], [ 27, %490 ], [ %495, %493 ], [ 43, %100 ], [ 27, %107 ]
   ret i32 %.0
 }
 
