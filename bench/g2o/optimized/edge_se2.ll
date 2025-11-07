@@ -1280,16 +1280,14 @@ define linkonce_odr noundef zeroext i1 @_ZN3g2o7EdgeSE223setMeasurementFromState
   %55 = insertelement <2 x double> poison, double %54, i64 0
   %56 = shufflevector <2 x double> %55, <2 x double> poison, <2 x i32> zeroinitializer
   %57 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i6, %56
-  %58 = extractelement <2 x double> %39, i64 1
-  %59 = fneg double %58
-  %60 = insertelement <2 x double> poison, double %59, i64 0
-  %61 = shufflevector <2 x double> %60, <2 x double> poison, <2 x i32> zeroinitializer
-  %62 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i8, %61
-  %63 = fadd <2 x double> %57, %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  store double %.0.i.i4, ptr %64, align 16
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store <2 x double> %63, ptr %65, align 16, !tbaa !81
+  %58 = fneg <2 x double> %39
+  %59 = shufflevector <2 x double> %58, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %60 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i8, %59
+  %61 = fadd <2 x double> %57, %60
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  store double %.0.i.i4, ptr %62, align 16
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store <2 x double> %61, ptr %63, align 16, !tbaa !81
   ret i1 true
 }
 

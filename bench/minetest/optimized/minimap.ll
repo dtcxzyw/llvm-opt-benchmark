@@ -5692,40 +5692,39 @@ for.body:                                         ; preds = %if.end225, %for.bod
   br i1 %tobool213.not, label %if.end225, label %if.then214
 
 if.then214:                                       ; preds = %for.body
-  %167 = extractelement <2 x float> %164, i64 1
-  %168 = fneg nsz float %167
-  %169 = insertelement <2 x float> %164, float %168, i64 0
-  %170 = fmul nsz <2 x float> %162, %169
-  %171 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> zeroinitializer
-  %172 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %171, <2 x float> %163, <2 x float> %170)
+  %167 = fneg nsz <2 x float> %164
+  %168 = shufflevector <2 x float> %164, <2 x float> %167, <2 x i32> <i32 3, i32 1>
+  %169 = fmul nsz <2 x float> %162, %168
+  %170 = shufflevector <2 x float> %164, <2 x float> poison, <2 x i32> zeroinitializer
+  %171 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %170, <2 x float> %163, <2 x float> %169)
   br label %if.end225
 
 if.end225:                                        ; preds = %if.then214, %for.body
-  %173 = phi <2 x float> [ %172, %if.then214 ], [ %164, %for.body ]
-  %174 = fpext <2 x float> %173 to <2 x double>
+  %172 = phi <2 x float> [ %171, %if.then214 ], [ %164, %for.body ]
+  %173 = fpext <2 x float> %172 to <2 x double>
   call void @llvm.lifetime.start.p0(ptr nonnull %dest_rect)
-  %175 = fadd nsz <2 x double> %174, splat (double 5.000000e-01)
-  %176 = load <2 x i32>, ptr %0, align 8, !tbaa !197
-  %177 = load <2 x i32>, ptr %rect, align 8, !tbaa !197
-  %178 = sub nsw <2 x i32> %176, %177
-  %179 = sitofp <2 x i32> %178 to <2 x float>
-  %180 = fpext <2 x float> %179 to <2 x double>
-  %181 = fmul nsz <2 x double> %175, %180
-  %182 = fptrunc <2 x double> %181 to <2 x float>
-  %183 = fadd nsz <2 x float> %158, %182
-  %184 = shufflevector <2 x float> %183, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
-  %185 = fsub nsz <4 x float> %184, %160
-  %186 = fadd nsz <4 x float> %160, %184
-  %187 = shufflevector <4 x float> %185, <4 x float> %186, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
-  %188 = fptosi <4 x float> %187 to <4 x i32>
-  store <4 x i32> %188, ptr %dest_rect, align 16, !tbaa !197
-  %189 = load ptr, ptr %this, align 8, !tbaa !128
+  %174 = fadd nsz <2 x double> %173, splat (double 5.000000e-01)
+  %175 = load <2 x i32>, ptr %0, align 8, !tbaa !197
+  %176 = load <2 x i32>, ptr %rect, align 8, !tbaa !197
+  %177 = sub nsw <2 x i32> %175, %176
+  %178 = sitofp <2 x i32> %177 to <2 x float>
+  %179 = fpext <2 x float> %178 to <2 x double>
+  %180 = fmul nsz <2 x double> %174, %179
+  %181 = fptrunc <2 x double> %180 to <2 x float>
+  %182 = fadd nsz <2 x float> %158, %181
+  %183 = shufflevector <2 x float> %182, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
+  %184 = fsub nsz <4 x float> %183, %160
+  %185 = fadd nsz <4 x float> %160, %183
+  %186 = shufflevector <4 x float> %184, <4 x float> %185, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
+  %187 = fptosi <4 x float> %186 to <4 x i32>
+  store <4 x i32> %187, ptr %dest_rect, align 16, !tbaa !197
+  %188 = load ptr, ptr %this, align 8, !tbaa !128
   %object_marker_red273 = getelementptr inbounds nuw i8, ptr %165, i64 2097320
-  %190 = load ptr, ptr %object_marker_red273, align 8, !tbaa !243
-  %vtable274 = load ptr, ptr %189, align 8, !tbaa !11
+  %189 = load ptr, ptr %object_marker_red273, align 8, !tbaa !243
+  %vtable274 = load ptr, ptr %188, align 8, !tbaa !11
   %vfn275 = getelementptr inbounds nuw i8, ptr %vtable274, i64 400
-  %191 = load ptr, ptr %vfn275, align 8
-  call void %191(ptr noundef nonnull align 8 dereferenceable(8) %189, ptr noundef %190, ptr noundef nonnull align 4 dereferenceable(16) %dest_rect, ptr noundef nonnull align 4 dereferenceable(16) %img_rect, ptr noundef nonnull %dest_rect, ptr noundef nonnull @_ZZN7Minimap11drawMinimapEN3irr4core4rectIiEEE1c, i1 noundef zeroext true)
+  %190 = load ptr, ptr %vfn275, align 8
+  call void %190(ptr noundef nonnull align 8 dereferenceable(8) %188, ptr noundef %189, ptr noundef nonnull align 4 dereferenceable(16) %dest_rect, ptr noundef nonnull align 4 dereferenceable(16) %img_rect, ptr noundef nonnull %dest_rect, ptr noundef nonnull @_ZZN7Minimap11drawMinimapEN3irr4core4rectIiEEE1c, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(ptr nonnull %dest_rect)
   %i.sroa.0.0 = load ptr, ptr %i.sroa.0.0518, align 8, !tbaa !117
   %cmp.i.not = icmp eq ptr %i.sroa.0.0, %m_active_markers

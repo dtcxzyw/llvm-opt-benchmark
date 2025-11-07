@@ -8857,9 +8857,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit68:                  ; preds = %118, %_ZNSt6vectorI
 
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit.i: ; preds = %132
   %170 = fsub double %169, %163
-  %171 = fneg double %168
   %.sroa.058.0.vec.insert.i = insertelement <2 x double> poison, double %170, i64 0
-  %.sroa.058.8.vec.insert.i = insertelement <2 x double> %.sroa.058.0.vec.insert.i, double %171, i64 1
+  %171 = fneg <2 x double> %159
+  %.sroa.058.8.vec.insert.i = shufflevector <2 x double> %.sroa.058.0.vec.insert.i, <2 x double> %171, <2 x i32> <i32 0, i32 2>
   %172 = fmul <2 x double> %.sroa.058.8.vec.insert.i, %.sroa.058.8.vec.insert.i
   %shift218 = shufflevector <2 x double> %172, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %foldExtExtBinop219 = fadd <2 x double> %172, %shift218

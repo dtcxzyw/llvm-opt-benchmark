@@ -88,11 +88,10 @@ define void @_ZNK3g2o6Line3D11toCartesianEv(ptr dead_on_unwind noalias writable 
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4)
   %17 = fneg double %7
   %.sroa.031.8.vec.extract = extractelement <2 x double> %5, i64 1
-  %.sroa.11.48.vec.insert = insertelement <2 x double> poison, double %.sroa.031.8.vec.extract, i64 0
+  %.sroa.11.48.vec.insert = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %.sroa.048.8.vec.insert = insertelement <2 x double> <double 0.000000e+00, double poison>, double %7, i64 1
-  %.sroa.031.0.vec.extract = extractelement <2 x double> %5, i64 0
-  %18 = fneg double %.sroa.031.0.vec.extract
-  %.sroa.11.56.vec.insert = insertelement <2 x double> %.sroa.11.48.vec.insert, double %18, i64 1
+  %18 = fneg <2 x double> %5
+  %.sroa.11.56.vec.insert = shufflevector <2 x double> %.sroa.11.48.vec.insert, <2 x double> %18, <2 x i32> <i32 0, i32 2>
   %19 = fneg double %.sroa.031.8.vec.extract
   %20 = insertelement <2 x double> poison, double %19, i64 0
   %.sroa.5.16.vec.insert = insertelement <2 x double> %20, double %17, i64 1
@@ -417,12 +416,12 @@ _ZN5Eigen5BlockINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi3ELi3ELb0EEaSINS0_IKNS1_IdLi
   %15 = load double, ptr %14, align 16, !tbaa !9
   %16 = fneg double %15
   %.sroa.042.8.vec.extract = extractelement <2 x double> %13, i64 1
-  %.sroa.12.48.vec.insert = insertelement <2 x double> poison, double %.sroa.042.8.vec.extract, i64 0
+  %.sroa.12.48.vec.insert = shufflevector <2 x double> %13, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %.sroa.0.8.vec.insert = insertelement <2 x double> <double 0.000000e+00, double poison>, double %15, i64 1
   %.sroa.7.32.vec.insert = insertelement <2 x double> <double poison, double 0.000000e+00>, double %16, i64 0
   %.sroa.042.0.vec.extract = extractelement <2 x double> %13, i64 0
-  %17 = fneg double %.sroa.042.0.vec.extract
-  %.sroa.12.56.vec.insert = insertelement <2 x double> %.sroa.12.48.vec.insert, double %17, i64 1
+  %17 = fneg <2 x double> %13
+  %.sroa.12.56.vec.insert = shufflevector <2 x double> %.sroa.12.48.vec.insert, <2 x double> %17, <2 x i32> <i32 0, i32 2>
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %19

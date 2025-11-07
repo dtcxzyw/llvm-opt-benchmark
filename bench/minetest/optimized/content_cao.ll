@@ -12530,13 +12530,13 @@ if.then48:                                        ; preds = %if.end43
   %arrayidx33.i.i = getelementptr inbounds nuw i8, ptr %call.i96, i64 24
   store float %conv31.i.i, ptr %arrayidx33.i.i, align 4, !tbaa !34
   %arrayidx38.i.i = getelementptr inbounds nuw i8, ptr %call.i96, i64 32
-  %74 = fneg nsz double %62
-  %75 = insertelement <2 x double> %51, double %52, i64 1
-  %76 = insertelement <2 x double> %64, double %74, i64 1
-  %77 = fmul nsz <2 x double> %75, %76
+  %74 = insertelement <2 x double> %51, double %52, i64 1
+  %75 = fneg nsz <2 x double> %51
+  %76 = shufflevector <2 x double> %64, <2 x double> %75, <2 x i32> <i32 0, i32 2>
+  %77 = fmul nsz <2 x double> %74, %76
   %78 = insertelement <2 x double> poison, double %mul19.i.i, i64 0
   %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = shufflevector <2 x double> %75, <2 x double> %64, <2 x i32> <i32 1, i32 2>
+  %80 = shufflevector <2 x double> %74, <2 x double> %64, <2 x i32> <i32 1, i32 2>
   %81 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %79, <2 x double> %80, <2 x double> %77)
   %82 = fptrunc <2 x double> %81 to <2 x float>
   store <2 x float> %82, ptr %arrayidx38.i.i, align 4, !tbaa !34

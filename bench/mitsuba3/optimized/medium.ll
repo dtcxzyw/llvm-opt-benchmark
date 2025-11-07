@@ -204,10 +204,10 @@ define weak_odr void @_ZNK7mitsuba6MediumIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm
   %45 = insertelement <4 x float> %44, float %41, i64 2
   %46 = fmul contract float %28, %26
   %47 = tail call contract noundef float @llvm.fma.f32(float %28, float %46, float %24)
-  %48 = fneg contract float %28
-  %49 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %30, i64 0
-  %50 = insertelement <4 x float> %49, float %47, i64 1
-  %51 = insertelement <4 x float> %50, float %48, i64 2
+  %48 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %30, i64 0
+  %49 = insertelement <4 x float> %48, float %47, i64 1
+  %50 = fneg contract <4 x float> %bc225
+  %51 = shufflevector <4 x float> %49, <4 x float> %50, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   store <4 x float> %45, ptr %10, align 16
   store <4 x float> %51, ptr %.sroa.2.0..sroa_idx164, align 16
   store <4 x i32> %20, ptr %.sroa.3.0..sroa_idx, align 16

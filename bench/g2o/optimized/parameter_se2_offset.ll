@@ -476,145 +476,143 @@ _ZN5Eigen9TransformIdLi2ELi1ELi0EEaSINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEEERS1_RKN
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store <2 x double> %.sroa.5128.24.vec.insert, ptr %30, align 8, !tbaa !6
   %31 = extractelement <2 x double> %18, i64 0
-  %32 = extractelement <2 x double> %18, i64 1
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 304
-  store double 0.000000e+00, ptr %33, align 16, !tbaa !8
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  store i64 0, ptr %34, align 8
-  store double 1.000000e+00, ptr %35, align 16, !tbaa !8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  store <2 x double> %18, ptr %36, align 16, !tbaa !6
-  %37 = fsub double 0x400921FB54442D18, %.0.i.i.i
-  %38 = tail call double @fmod(double noundef %37, double noundef 0x401921FB54442D18) #17, !tbaa !13, !noalias !93
-  %39 = fcmp ugt double %38, 0.000000e+00
-  %.0.v.i.i = select i1 %39, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %.0.i.i = fadd double %38, %.0.v.i.i
-  %40 = tail call double @sin(double noundef %.0.i.i) #17, !tbaa !13, !noalias !96
-  %41 = tail call double @cos(double noundef %.0.i.i) #17, !tbaa !13, !noalias !96
-  %42 = fneg double %40
-  %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %41, i64 0
-  %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %40, i64 1
-  %.sroa.5.16.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %42, i64 0
-  %.sroa.5.24.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i, double %41, i64 1
-  %43 = fneg double %31
-  %44 = insertelement <2 x double> poison, double %43, i64 0
-  %45 = shufflevector <2 x double> %44, <2 x double> poison, <2 x i32> zeroinitializer
-  %46 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i, %45
-  %47 = fneg double %32
-  %48 = insertelement <2 x double> poison, double %47, i64 0
-  %49 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> zeroinitializer
-  %50 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i, %49
-  %51 = fadd <2 x double> %46, %50
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store double %.0.i.i, ptr %52, align 16
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store <2 x double> %51, ptr %53, align 16, !tbaa !6
-  %54 = tail call double @sin(double noundef %.0.i.i) #17, !tbaa !13, !noalias !107
-  %55 = tail call double @cos(double noundef %.0.i.i) #17, !tbaa !13, !noalias !107
-  %56 = fneg double %54
-  %.sroa.0122.0.vec.insert = insertelement <2 x double> poison, double %55, i64 0
-  %.sroa.0122.8.vec.insert = insertelement <2 x double> %.sroa.0122.0.vec.insert, double %54, i64 1
-  %.sroa.5124.16.vec.insert = insertelement <2 x double> poison, double %56, i64 0
-  %.sroa.5124.24.vec.insert = insertelement <2 x double> %.sroa.5124.16.vec.insert, double %55, i64 1
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store <2 x double> %.sroa.0122.8.vec.insert, ptr %57, align 16, !tbaa !6
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store <2 x double> %.sroa.5124.24.vec.insert, ptr %58, align 8, !tbaa !6
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store double 0.000000e+00, ptr %59, align 16, !tbaa !8
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  store i64 0, ptr %60, align 8
-  store double 1.000000e+00, ptr %61, align 16, !tbaa !8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store <2 x double> %51, ptr %62, align 16, !tbaa !6
-  %63 = load double, ptr %2, align 16, !tbaa !43, !noalias !110
-  %64 = fsub double 0x400921FB54442D18, %63
-  %65 = tail call double @fmod(double noundef %64, double noundef 0x401921FB54442D18) #17, !tbaa !13, !noalias !110
-  %66 = fcmp ugt double %65, 0.000000e+00
-  %.0.v.i.i20 = select i1 %66, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %.0.i.i21 = fadd double %65, %.0.v.i.i20
-  %67 = tail call double @sin(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !113
-  %68 = tail call double @cos(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !113
-  %69 = load double, ptr %7, align 16, !tbaa !8, !noalias !124
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 200
-  %71 = load double, ptr %70, align 8, !tbaa !8, !noalias !124
-  %72 = tail call double @sin(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !125
-  %73 = tail call double @cos(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !125
-  %74 = fneg double %72
-  %.sroa.0.0.vec.insert117 = insertelement <2 x double> poison, double %73, i64 0
-  %.sroa.0.8.vec.insert118 = insertelement <2 x double> %.sroa.0.0.vec.insert117, double %72, i64 1
-  %.sroa.5.16.vec.insert120 = insertelement <2 x double> poison, double %74, i64 0
-  %.sroa.5.24.vec.insert121 = insertelement <2 x double> %.sroa.5.16.vec.insert120, double %73, i64 1
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  store <2 x double> %.sroa.0.8.vec.insert118, ptr %75, align 8, !tbaa !6
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store <2 x double> %.sroa.5.24.vec.insert121, ptr %76, align 16, !tbaa !6
-  %.sroa.0.0.vec.insert.i.i.i.i22 = insertelement <2 x double> poison, double %68, i64 0
-  %.sroa.0.8.vec.insert.i.i.i.i23 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i22, double %67, i64 1
-  %77 = fneg double %69
-  %78 = insertelement <2 x double> poison, double %77, i64 0
-  %79 = shufflevector <2 x double> %78, <2 x double> poison, <2 x i32> zeroinitializer
-  %80 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i23, %79
-  %81 = fneg double %67
-  %.sroa.5.16.vec.insert.i.i.i.i24 = insertelement <2 x double> poison, double %81, i64 0
-  %.sroa.5.24.vec.insert.i.i.i.i25 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i24, double %68, i64 1
-  %82 = fneg double %71
-  %83 = insertelement <2 x double> poison, double %82, i64 0
-  %84 = shufflevector <2 x double> %83, <2 x double> poison, <2 x i32> zeroinitializer
-  %85 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i25, %84
-  %86 = fadd <2 x double> %80, %85
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store double 0.000000e+00, ptr %87, align 8, !tbaa !8
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %88, i8 0, i64 16, i1 false)
-  store double 1.000000e+00, ptr %89, align 8, !tbaa !8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store <2 x double> %86, ptr %90, align 8, !tbaa !6
-  %91 = load double, ptr %2, align 16, !tbaa !43
-  %92 = tail call double @cos(double noundef %91) #17, !tbaa !13
-  %93 = tail call double @sin(double noundef %91) #17, !tbaa !13
-  %94 = fneg double %93
-  %.sroa.099.0.vec.insert = insertelement <2 x double> poison, double %94, i64 0
-  %.sroa.5101.16.vec.insert = insertelement <2 x double> poison, double %92, i64 0
-  %95 = fneg double %92
-  %.sroa.099.8.vec.insert = insertelement <2 x double> %.sroa.099.0.vec.insert, double %95, i64 1
-  %.sroa.5101.24.vec.insert = insertelement <2 x double> %.sroa.5101.16.vec.insert, double %94, i64 1
-  %96 = load double, ptr %5, align 16, !tbaa !43, !noalias !128
-  %97 = tail call double @sin(double noundef %96) #17, !tbaa !13, !noalias !128
-  %98 = tail call double @cos(double noundef %96) #17, !tbaa !13, !noalias !128
-  %99 = fneg double %97
-  %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %98, i64 0
-  %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %97, i64 1
-  %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %99, i64 0
-  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.5.16.vec.insert, double %98, i64 1
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 400
-  %101 = fmul <2 x double> %.sroa.0.8.vec.insert, %.sroa.099.8.vec.insert
-  %102 = fmul <2 x double> %.sroa.099.8.vec.insert, %.sroa.5.24.vec.insert
-  %103 = shufflevector <2 x double> %101, <2 x double> %102, <2 x i32> <i32 0, i32 2>
-  %104 = shufflevector <2 x double> %101, <2 x double> %102, <2 x i32> <i32 1, i32 3>
-  %.sroa.0.8.vec.insert.i.i.i.i47 = fadd <2 x double> %103, %104
-  %105 = fmul <2 x double> %.sroa.0.8.vec.insert, %.sroa.5101.24.vec.insert
-  %106 = fmul <2 x double> %.sroa.5.24.vec.insert, %.sroa.5101.24.vec.insert
-  %107 = shufflevector <2 x double> %105, <2 x double> %106, <2 x i32> <i32 0, i32 2>
-  %108 = shufflevector <2 x double> %105, <2 x double> %106, <2 x i32> <i32 1, i32 3>
-  %.sroa.5.24.vec.insert.i.i.i.i49 = fadd <2 x double> %107, %108
-  store <2 x double> %.sroa.0.8.vec.insert.i.i.i.i47, ptr %100, align 16, !tbaa !6
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store <2 x double> %.sroa.5.24.vec.insert.i.i.i.i49, ptr %109, align 16, !tbaa !6
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 368
-  %111 = tail call double @sin(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !131
-  %112 = tail call double @cos(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !131
-  %113 = fneg double %111
-  store double %112, ptr %110, align 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  store double 0.000000e+00, ptr %32, align 16, !tbaa !8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  store i64 0, ptr %33, align 8
+  store double 1.000000e+00, ptr %34, align 16, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  store <2 x double> %18, ptr %35, align 16, !tbaa !6
+  %36 = fsub double 0x400921FB54442D18, %.0.i.i.i
+  %37 = tail call double @fmod(double noundef %36, double noundef 0x401921FB54442D18) #17, !tbaa !13, !noalias !93
+  %38 = fcmp ugt double %37, 0.000000e+00
+  %.0.v.i.i = select i1 %38, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %.0.i.i = fadd double %37, %.0.v.i.i
+  %39 = tail call double @sin(double noundef %.0.i.i) #17, !tbaa !13, !noalias !96
+  %40 = tail call double @cos(double noundef %.0.i.i) #17, !tbaa !13, !noalias !96
+  %41 = fneg double %39
+  %.sroa.0.0.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %40, i64 0
+  %.sroa.0.8.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i, double %39, i64 1
+  %.sroa.5.16.vec.insert.i.i.i.i = insertelement <2 x double> poison, double %41, i64 0
+  %.sroa.5.24.vec.insert.i.i.i.i = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i, double %40, i64 1
+  %42 = fneg double %31
+  %43 = insertelement <2 x double> poison, double %42, i64 0
+  %44 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
+  %45 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i, %44
+  %46 = fneg <2 x double> %18
+  %47 = shufflevector <2 x double> %46, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %48 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i, %47
+  %49 = fadd <2 x double> %45, %48
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store double %.0.i.i, ptr %50, align 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store <2 x double> %49, ptr %51, align 16, !tbaa !6
+  %52 = tail call double @sin(double noundef %.0.i.i) #17, !tbaa !13, !noalias !107
+  %53 = tail call double @cos(double noundef %.0.i.i) #17, !tbaa !13, !noalias !107
+  %54 = fneg double %52
+  %.sroa.0122.0.vec.insert = insertelement <2 x double> poison, double %53, i64 0
+  %.sroa.0122.8.vec.insert = insertelement <2 x double> %.sroa.0122.0.vec.insert, double %52, i64 1
+  %.sroa.5124.16.vec.insert = insertelement <2 x double> poison, double %54, i64 0
+  %.sroa.5124.24.vec.insert = insertelement <2 x double> %.sroa.5124.16.vec.insert, double %53, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store <2 x double> %.sroa.0122.8.vec.insert, ptr %55, align 16, !tbaa !6
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store <2 x double> %.sroa.5124.24.vec.insert, ptr %56, align 8, !tbaa !6
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store double 0.000000e+00, ptr %57, align 16, !tbaa !8
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  store i64 0, ptr %58, align 8
+  store double 1.000000e+00, ptr %59, align 16, !tbaa !8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store <2 x double> %49, ptr %60, align 16, !tbaa !6
+  %61 = load double, ptr %2, align 16, !tbaa !43, !noalias !110
+  %62 = fsub double 0x400921FB54442D18, %61
+  %63 = tail call double @fmod(double noundef %62, double noundef 0x401921FB54442D18) #17, !tbaa !13, !noalias !110
+  %64 = fcmp ugt double %63, 0.000000e+00
+  %.0.v.i.i20 = select i1 %64, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %.0.i.i21 = fadd double %63, %.0.v.i.i20
+  %65 = tail call double @sin(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !113
+  %66 = tail call double @cos(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !113
+  %67 = load double, ptr %7, align 16, !tbaa !8, !noalias !124
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 200
+  %69 = load double, ptr %68, align 8, !tbaa !8, !noalias !124
+  %70 = tail call double @sin(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !125
+  %71 = tail call double @cos(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !125
+  %72 = fneg double %70
+  %.sroa.0.0.vec.insert117 = insertelement <2 x double> poison, double %71, i64 0
+  %.sroa.0.8.vec.insert118 = insertelement <2 x double> %.sroa.0.0.vec.insert117, double %70, i64 1
+  %.sroa.5.16.vec.insert120 = insertelement <2 x double> poison, double %72, i64 0
+  %.sroa.5.24.vec.insert121 = insertelement <2 x double> %.sroa.5.16.vec.insert120, double %71, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  store <2 x double> %.sroa.0.8.vec.insert118, ptr %73, align 8, !tbaa !6
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store <2 x double> %.sroa.5.24.vec.insert121, ptr %74, align 16, !tbaa !6
+  %.sroa.0.0.vec.insert.i.i.i.i22 = insertelement <2 x double> poison, double %66, i64 0
+  %.sroa.0.8.vec.insert.i.i.i.i23 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i.i22, double %65, i64 1
+  %75 = fneg double %67
+  %76 = insertelement <2 x double> poison, double %75, i64 0
+  %77 = shufflevector <2 x double> %76, <2 x double> poison, <2 x i32> zeroinitializer
+  %78 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i.i.i23, %77
+  %79 = fneg double %65
+  %.sroa.5.16.vec.insert.i.i.i.i24 = insertelement <2 x double> poison, double %79, i64 0
+  %.sroa.5.24.vec.insert.i.i.i.i25 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i.i24, double %66, i64 1
+  %80 = fneg double %69
+  %81 = insertelement <2 x double> poison, double %80, i64 0
+  %82 = shufflevector <2 x double> %81, <2 x double> poison, <2 x i32> zeroinitializer
+  %83 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i.i25, %82
+  %84 = fadd <2 x double> %78, %83
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store double 0.000000e+00, ptr %85, align 8, !tbaa !8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %86, i8 0, i64 16, i1 false)
+  store double 1.000000e+00, ptr %87, align 8, !tbaa !8
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store <2 x double> %84, ptr %88, align 8, !tbaa !6
+  %89 = load double, ptr %2, align 16, !tbaa !43
+  %90 = tail call double @cos(double noundef %89) #17, !tbaa !13
+  %91 = tail call double @sin(double noundef %89) #17, !tbaa !13
+  %92 = fneg double %91
+  %.sroa.099.0.vec.insert = insertelement <2 x double> poison, double %92, i64 0
+  %.sroa.5101.16.vec.insert = insertelement <2 x double> poison, double %90, i64 0
+  %93 = fneg double %90
+  %.sroa.099.8.vec.insert = insertelement <2 x double> %.sroa.099.0.vec.insert, double %93, i64 1
+  %.sroa.5101.24.vec.insert = insertelement <2 x double> %.sroa.5101.16.vec.insert, double %92, i64 1
+  %94 = load double, ptr %5, align 16, !tbaa !43, !noalias !128
+  %95 = tail call double @sin(double noundef %94) #17, !tbaa !13, !noalias !128
+  %96 = tail call double @cos(double noundef %94) #17, !tbaa !13, !noalias !128
+  %97 = fneg double %95
+  %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %96, i64 0
+  %.sroa.0.8.vec.insert = insertelement <2 x double> %.sroa.0.0.vec.insert, double %95, i64 1
+  %.sroa.5.16.vec.insert = insertelement <2 x double> poison, double %97, i64 0
+  %.sroa.5.24.vec.insert = insertelement <2 x double> %.sroa.5.16.vec.insert, double %96, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 400
+  %99 = fmul <2 x double> %.sroa.0.8.vec.insert, %.sroa.099.8.vec.insert
+  %100 = fmul <2 x double> %.sroa.099.8.vec.insert, %.sroa.5.24.vec.insert
+  %101 = shufflevector <2 x double> %99, <2 x double> %100, <2 x i32> <i32 0, i32 2>
+  %102 = shufflevector <2 x double> %99, <2 x double> %100, <2 x i32> <i32 1, i32 3>
+  %.sroa.0.8.vec.insert.i.i.i.i47 = fadd <2 x double> %101, %102
+  %103 = fmul <2 x double> %.sroa.0.8.vec.insert, %.sroa.5101.24.vec.insert
+  %104 = fmul <2 x double> %.sroa.5.24.vec.insert, %.sroa.5101.24.vec.insert
+  %105 = shufflevector <2 x double> %103, <2 x double> %104, <2 x i32> <i32 0, i32 2>
+  %106 = shufflevector <2 x double> %103, <2 x double> %104, <2 x i32> <i32 1, i32 3>
+  %.sroa.5.24.vec.insert.i.i.i.i49 = fadd <2 x double> %105, %106
+  store <2 x double> %.sroa.0.8.vec.insert.i.i.i.i47, ptr %98, align 16, !tbaa !6
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 416
+  store <2 x double> %.sroa.5.24.vec.insert.i.i.i.i49, ptr %107, align 16, !tbaa !6
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 368
+  %109 = tail call double @sin(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !131
+  %110 = tail call double @cos(double noundef %.0.i.i21) #17, !tbaa !13, !noalias !131
+  %111 = fneg double %109
+  store double %110, ptr %108, align 16
   %.sroa.4.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %0, i64 376
-  store double %111, ptr %.sroa.4.0..sroa_idx.i50, align 8
+  store double %109, ptr %.sroa.4.0..sroa_idx.i50, align 8
   %.sroa.5.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  store double %113, ptr %.sroa.5.0..sroa_idx.i51, align 16
+  store double %111, ptr %.sroa.5.0..sroa_idx.i51, align 16
   %.sroa.6.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %0, i64 392
-  store double %112, ptr %.sroa.6.0..sroa_idx.i52, align 8, !tbaa !6
+  store double %110, ptr %.sroa.6.0..sroa_idx.i52, align 8, !tbaa !6
   ret void
 }
 

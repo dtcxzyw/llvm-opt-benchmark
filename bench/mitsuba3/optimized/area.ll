@@ -776,10 +776,10 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %104 = insertelement <4 x float> %103, float %100, i64 2
   %105 = fmul contract float %.sroa.0.4.vec.extract.i, %87
   %106 = call contract noundef float @llvm.fma.f32(float %.sroa.0.4.vec.extract.i, float %105, float %85)
-  %107 = fneg contract float %.sroa.0.4.vec.extract.i
-  %108 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %89, i64 0
-  %109 = insertelement <4 x float> %108, float %106, i64 1
-  %110 = insertelement <4 x float> %109, float %107, i64 2
+  %107 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %89, i64 0
+  %108 = insertelement <4 x float> %107, float %106, i64 1
+  %109 = fneg contract <4 x float> %.sroa.0.i.sroa.5.0
+  %110 = shufflevector <4 x float> %108, <4 x float> %109, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   %111 = getelementptr inbounds nuw i8, ptr %23, i64 96
   store <4 x float> %104, ptr %81, align 16
   store <4 x float> %110, ptr %111, align 16
@@ -1363,10 +1363,10 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   %49 = insertelement <4 x float> %48, float %45, i64 2
   %50 = fmul contract float %.sroa.0.4.vec.extract.i, %32
   %51 = call contract noundef float @llvm.fma.f32(float %.sroa.0.4.vec.extract.i, float %50, float %30)
-  %52 = fneg contract float %.sroa.0.4.vec.extract.i
-  %53 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %34, i64 0
-  %54 = insertelement <4 x float> %53, float %51, i64 1
-  %55 = insertelement <4 x float> %54, float %52, i64 2
+  %52 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %34, i64 0
+  %53 = insertelement <4 x float> %52, float %51, i64 1
+  %54 = fneg contract <4 x float> %.sroa.5.0.copyload
+  %55 = shufflevector <4 x float> %53, <4 x float> %54, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11, i8 0, i64 64, i1 false)
   %56 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %.sroa.18254.0.copyload, <4 x float> %.sroa.5.0.copyload, i8 113)
   %57 = extractelement <4 x float> %56, i64 0
@@ -1766,10 +1766,10 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   %53 = insertelement <4 x float> %52, float %49, i64 2
   %54 = fmul contract float %.sroa.0.4.vec.extract.i, %36
   %55 = tail call contract noundef float @llvm.fma.f32(float %.sroa.0.4.vec.extract.i, float %54, float %34)
-  %56 = fneg contract float %.sroa.0.4.vec.extract.i
-  %57 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %38, i64 0
-  %58 = insertelement <4 x float> %57, float %55, i64 1
-  %59 = insertelement <4 x float> %58, float %56, i64 2
+  %56 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %38, i64 0
+  %57 = insertelement <4 x float> %56, float %55, i64 1
+  %58 = fneg contract <4 x float> %16
+  %59 = shufflevector <4 x float> %57, <4 x float> %58, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 96
   store <4 x float> %53, ptr %30, align 16
   store <4 x float> %59, ptr %60, align 16

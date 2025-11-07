@@ -573,8 +573,8 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %117 = fmul contract float %.sroa.0.4.vec.extract, %114
   %118 = call contract noundef float @llvm.fma.f32(float %.sroa.0.4.vec.extract, float %117, float %112)
   %119 = insertelement <4 x float> %116, float %118, i64 1
-  %120 = fneg contract float %.sroa.0.4.vec.extract
-  %121 = insertelement <4 x float> %119, float %120, i64 2
+  %120 = fneg contract <4 x float> %32
+  %121 = shufflevector <4 x float> %119, <4 x float> %120, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   %122 = insertelement <4 x float> poison, float %103, i64 0
   %123 = shufflevector <4 x float> %122, <4 x float> poison, <4 x i32> zeroinitializer
   %124 = bitcast float %.sroa.0.8.vec.extract to i32

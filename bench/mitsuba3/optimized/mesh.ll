@@ -6340,10 +6340,10 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1071.cr
   %123 = insertelement <4 x float> %122, float %119, i64 2
   %124 = fmul contract float %106, %104
   %125 = tail call contract noundef float @llvm.fma.f32(float %106, float %124, float %102)
-  %126 = fneg contract float %106
-  %127 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %108, i64 0
-  %128 = insertelement <4 x float> %127, float %125, i64 1
-  %129 = insertelement <4 x float> %128, float %126, i64 2
+  %126 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %108, i64 0
+  %127 = insertelement <4 x float> %126, float %125, i64 1
+  %128 = fneg contract <4 x float> %98
+  %129 = shufflevector <4 x float> %127, <4 x float> %128, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   store <4 x float> %123, ptr %51, align 16
   store <4 x float> %129, ptr %52, align 16
   %130 = fsub contract <4 x float> %56, %55

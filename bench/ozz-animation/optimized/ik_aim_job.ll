@@ -277,15 +277,14 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   br i1 %177, label %178, label %182
 
 178:                                              ; preds = %174
-  %.sroa.079.4.vec.extract83 = extractelement <4 x float> %.0, i64 1
-  %179 = fneg float %.sroa.079.4.vec.extract83
-  %180 = insertelement <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, float %179, i64 0
+  %179 = fneg <4 x float> %.0
+  %180 = shufflevector <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x float> %179, <4 x i32> <i32 5, i32 poison, i32 2, i32 3>
   %181 = shufflevector <4 x float> %180, <4 x float> %.0, <4 x i32> <i32 0, i32 4, i32 2, i32 3>
   br label %195
 
 182:                                              ; preds = %174
-  %183 = fneg float %.sroa.079.8.vec.extract
-  %184 = insertelement <4 x float> <float 0.000000e+00, float poison, float poison, float 0.000000e+00>, float %183, i64 1
+  %183 = fneg <4 x float> %.0
+  %184 = shufflevector <4 x float> <float 0.000000e+00, float poison, float poison, float 0.000000e+00>, <4 x float> %183, <4 x i32> <i32 0, i32 6, i32 poison, i32 3>
   %185 = shufflevector <4 x float> %184, <4 x float> %.0, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   br label %195
 

@@ -2278,10 +2278,10 @@ b2GetLengthAndNormalize.exit:                     ; preds = %.thread, %20
 
 25:                                               ; preds = %b2GetLengthAndNormalize.exit
   %.sroa.0.4.vec.extract.i64 = extractelement <2 x float> %.sroa.06.0.i, i64 1
-  %.sroa.01.0.vec.insert.i = insertelement <2 x float> poison, float %.sroa.0.4.vec.extract.i64, i64 0
+  %.sroa.01.0.vec.insert.i = shufflevector <2 x float> %.sroa.06.0.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %.sroa.0.0.vec.extract.i65 = extractelement <2 x float> %.sroa.06.0.i, i64 0
-  %26 = fneg float %.sroa.0.0.vec.extract.i65
-  %.sroa.01.4.vec.insert.i = insertelement <2 x float> %.sroa.01.0.vec.insert.i, float %26, i64 1
+  %26 = fneg <2 x float> %.sroa.06.0.i
+  %.sroa.01.4.vec.insert.i = shufflevector <2 x float> %.sroa.01.0.vec.insert.i, <2 x float> %26, <2 x i32> <i32 0, i32 2>
   %.sroa.0.0.vec.extract.i67 = extractelement <2 x float> %.sroa.028.0.copyload.pre, i64 0
   %27 = fsub float %.sroa.0.0.vec.extract.i59.pre-phi, %.sroa.0.0.vec.extract.i67
   %.sroa.0.4.vec.extract.i70 = extractelement <2 x float> %.sroa.028.0.copyload.pre, i64 1

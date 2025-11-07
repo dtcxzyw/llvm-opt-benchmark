@@ -1326,7 +1326,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %91 = fadd <2 x double> %90, %88
   %92 = fadd <2 x double> %.sroa.438.16.copyload, %91
   %93 = fadd double %.0.i.i.i12, %82
-  br label %122
+  br label %121
 
 _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %3, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %94 = getelementptr inbounds nuw i8, ptr %8, i64 176
@@ -1347,48 +1347,46 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.threa
   %102 = insertelement <2 x double> poison, double %101, i64 0
   %103 = shufflevector <2 x double> %102, <2 x double> poison, <2 x i32> zeroinitializer
   %104 = fmul <2 x double> %103, %.sroa.0.8.vec.insert.i.i.i.i22
-  %.sroa.549.24.vec.extract = extractelement <2 x double> %66, i64 1
-  %105 = fneg double %.sroa.549.24.vec.extract
-  %106 = insertelement <2 x double> poison, double %105, i64 0
-  %107 = shufflevector <2 x double> %106, <2 x double> poison, <2 x i32> zeroinitializer
-  %108 = fmul <2 x double> %107, %.sroa.5.24.vec.insert.i.i.i.i24
-  %109 = fadd <2 x double> %108, %104
-  %110 = load double, ptr %94, align 16, !noalias !251
-  %111 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %.sroa.434.16.copyload = load <2 x double>, ptr %111, align 16, !tbaa !62
-  %112 = tail call double @sin(double noundef %110) #26, !tbaa !56, !noalias !254
-  %113 = tail call double @cos(double noundef %110) #26, !tbaa !56, !noalias !254
-  %114 = fneg double %112
-  %.sroa.0.0.vec.insert.i.i.i25 = insertelement <2 x double> poison, double %113, i64 0
-  %.sroa.0.8.vec.insert.i.i.i26 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i25, double %112, i64 1
-  %.sroa.5.16.vec.insert.i.i.i27 = insertelement <2 x double> poison, double %114, i64 0
-  %.sroa.5.24.vec.insert.i.i.i28 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i27, double %113, i64 1
-  %115 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> zeroinitializer
-  %116 = fmul <2 x double> %115, %.sroa.0.8.vec.insert.i.i.i26
-  %117 = shufflevector <2 x double> %109, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %118 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i28, %117
-  %119 = fadd <2 x double> %118, %116
-  %120 = fadd <2 x double> %.sroa.434.16.copyload, %119
-  %121 = fadd double %.0.i.i20, %110
-  br label %122
+  %105 = fneg <2 x double> %66
+  %106 = shufflevector <2 x double> %105, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %107 = fmul <2 x double> %106, %.sroa.5.24.vec.insert.i.i.i.i24
+  %108 = fadd <2 x double> %107, %104
+  %109 = load double, ptr %94, align 16, !noalias !251
+  %110 = getelementptr inbounds nuw i8, ptr %8, i64 192
+  %.sroa.434.16.copyload = load <2 x double>, ptr %110, align 16, !tbaa !62
+  %111 = tail call double @sin(double noundef %109) #26, !tbaa !56, !noalias !254
+  %112 = tail call double @cos(double noundef %109) #26, !tbaa !56, !noalias !254
+  %113 = fneg double %111
+  %.sroa.0.0.vec.insert.i.i.i25 = insertelement <2 x double> poison, double %112, i64 0
+  %.sroa.0.8.vec.insert.i.i.i26 = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i.i25, double %111, i64 1
+  %.sroa.5.16.vec.insert.i.i.i27 = insertelement <2 x double> poison, double %113, i64 0
+  %.sroa.5.24.vec.insert.i.i.i28 = insertelement <2 x double> %.sroa.5.16.vec.insert.i.i.i27, double %112, i64 1
+  %114 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> zeroinitializer
+  %115 = fmul <2 x double> %114, %.sroa.0.8.vec.insert.i.i.i26
+  %116 = shufflevector <2 x double> %108, <2 x double> poison, <2 x i32> <i32 1, i32 1>
+  %117 = fmul <2 x double> %.sroa.5.24.vec.insert.i.i.i28, %116
+  %118 = fadd <2 x double> %117, %115
+  %119 = fadd <2 x double> %.sroa.434.16.copyload, %118
+  %120 = fadd double %.0.i.i20, %109
+  br label %121
 
-122:                                              ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, %80
-  %.sink69 = phi double [ %121, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %93, %80 ]
+121:                                              ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread, %80
+  %.sink69 = phi double [ %120, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %93, %80 ]
   %.sink64 = phi ptr [ %6, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %8, %80 ]
-  %.sink60 = phi <2 x double> [ %120, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %92, %80 ]
-  %123 = fadd double %.sink69, 0x400921FB54442D18
-  %124 = tail call double @fmod(double noundef %123, double noundef 0x401921FB54442D18) #26, !tbaa !56, !noalias !259
-  %125 = fcmp ugt double %124, 0.000000e+00
-  %.0.v.i.i.i29 = select i1 %125, double 0xC00921FB54442D18, double 0x400921FB54442D18
-  %.0.i.i.i30 = fadd double %124, %.0.v.i.i.i29
-  %126 = getelementptr inbounds nuw i8, ptr %.sink64, i64 176
-  store double %.0.i.i.i30, ptr %126, align 16
-  %127 = getelementptr inbounds nuw i8, ptr %.sink64, i64 192
-  store <2 x double> %.sink60, ptr %127, align 16, !tbaa !62
-  %128 = load ptr, ptr %.sink64, align 16, !tbaa !38
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 216
-  %130 = load ptr, ptr %129, align 8
-  tail call void %130(ptr noundef nonnull align 16 dereferenceable(232) %.sink64)
+  %.sink60 = phi <2 x double> [ %119, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread ], [ %92, %80 ]
+  %122 = fadd double %.sink69, 0x400921FB54442D18
+  %123 = tail call double @fmod(double noundef %122, double noundef 0x401921FB54442D18) #26, !tbaa !56, !noalias !259
+  %124 = fcmp ugt double %123, 0.000000e+00
+  %.0.v.i.i.i29 = select i1 %124, double 0xC00921FB54442D18, double 0x400921FB54442D18
+  %.0.i.i.i30 = fadd double %123, %.0.v.i.i.i29
+  %125 = getelementptr inbounds nuw i8, ptr %.sink64, i64 176
+  store double %.0.i.i.i30, ptr %125, align 16
+  %126 = getelementptr inbounds nuw i8, ptr %.sink64, i64 192
+  store <2 x double> %.sink60, ptr %126, align 16, !tbaa !62
+  %127 = load ptr, ptr %.sink64, align 16, !tbaa !38
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 216
+  %129 = load ptr, ptr %128, align 8
+  tail call void %129(ptr noundef nonnull align 16 dereferenceable(232) %.sink64)
   ret void
 }
 

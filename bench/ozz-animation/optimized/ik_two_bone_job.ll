@@ -600,15 +600,14 @@ _ZN3ozz9animation12_GLOBAL__N_112SoftenTargetERKNS0_12IKTwoBoneJobERKNS1_15IKCon
   br i1 %443, label %444, label %448
 
 444:                                              ; preds = %440
-  %.sroa.027.4.vec.extract31.i = extractelement <4 x float> %429, i64 1
-  %445 = fneg float %.sroa.027.4.vec.extract31.i
-  %446 = insertelement <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, float %445, i64 0
+  %445 = fneg <4 x float> %429
+  %446 = shufflevector <4 x float> <float poison, float poison, float 0.000000e+00, float 0.000000e+00>, <4 x float> %445, <4 x i32> <i32 5, i32 poison, i32 2, i32 3>
   %447 = shufflevector <4 x float> %446, <4 x float> %429, <4 x i32> <i32 0, i32 4, i32 2, i32 3>
   br label %461
 
 448:                                              ; preds = %440
-  %449 = fneg float %.sroa.027.8.vec.extract.i
-  %450 = insertelement <4 x float> <float 0.000000e+00, float poison, float poison, float 0.000000e+00>, float %449, i64 1
+  %449 = fneg <4 x float> %429
+  %450 = shufflevector <4 x float> <float 0.000000e+00, float poison, float poison, float 0.000000e+00>, <4 x float> %449, <4 x i32> <i32 0, i32 6, i32 poison, i32 3>
   %451 = shufflevector <4 x float> %450, <4 x float> %429, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   br label %461
 

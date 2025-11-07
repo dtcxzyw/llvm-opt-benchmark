@@ -518,10 +518,10 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   %167 = insertelement <4 x float> %166, float %163, i64 2
   %168 = fmul contract float %.sroa.0.4.vec.extract.i, %150
   %169 = call contract noundef float @llvm.fma.f32(float %.sroa.0.4.vec.extract.i, float %168, float %148)
-  %170 = fneg contract float %.sroa.0.4.vec.extract.i
-  %171 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %152, i64 0
-  %172 = insertelement <4 x float> %171, float %169, i64 1
-  %173 = insertelement <4 x float> %172, float %170, i64 2
+  %170 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %152, i64 0
+  %171 = insertelement <4 x float> %170, float %169, i64 1
+  %172 = fneg contract <4 x float> %.sroa.5589.48.copyload
+  %173 = shufflevector <4 x float> %171, <4 x float> %172, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11595, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16600, i8 0, i64 20, i1 false)
   store float 0.000000e+00, ptr %31, align 16
@@ -686,10 +686,10 @@ _ZN7mitsuba6VectorIfLm2EECI2N5drjit15StaticArrayImplIfLm2ELb0ES1_iEEIiTnNSt3__19
   %245 = insertelement <4 x float> %244, float %241, i64 2
   %246 = fmul contract float %.sroa.0.4.vec.extract.i491, %228
   %247 = call contract noundef float @llvm.fma.f32(float %.sroa.0.4.vec.extract.i491, float %246, float %226)
-  %248 = fneg contract float %.sroa.0.4.vec.extract.i491
-  %249 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %230, i64 0
-  %250 = insertelement <4 x float> %249, float %247, i64 1
-  %251 = insertelement <4 x float> %250, float %248, i64 2
+  %248 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %230, i64 0
+  %249 = insertelement <4 x float> %248, float %247, i64 1
+  %250 = fneg contract <4 x float> %.sroa.5.48.copyload
+  %251 = shufflevector <4 x float> %249, <4 x float> %250, <4 x i32> <i32 0, i32 1, i32 5, i32 3>
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %.sroa.11, i8 0, i64 64, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %.sroa.16, i8 0, i64 20, i1 false)
   store float 0.000000e+00, ptr %31, align 16
