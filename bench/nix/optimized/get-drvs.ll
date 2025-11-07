@@ -6283,7 +6283,7 @@ _ZN3nix8Bindings4findENS_6SymbolE.exit.thread:    ; preds = %_ZSt11lower_boundIP
   %or.cond139.not = select i1 %70, i1 %.not50, i1 false
   br i1 %or.cond139.not, label %.lr.ph121, label %_ZNK3nix5Value4typeEb.exit55
 
-_ZNK3nix5Value4typeEb.exit61:                     ; preds = %32, %32, %32, %32, %32, %32, %32, %32
+.thread109:                                       ; preds = %32, %32, %32, %32, %32, %32, %32, %32
   br label %_ZNK3nix5Value4typeEb.exit55
 
 _ZNK3nix5Value4typeEb.exit55:                     ; preds = %.lr.ph, %.lr.ph121, %66, %_ZNK3nix5Value9listItemsEv.exit, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread, %32, %32, %32, %32, %_ZNK3nix5Value4typeEb.exit61

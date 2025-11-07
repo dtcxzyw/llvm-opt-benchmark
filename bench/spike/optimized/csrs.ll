@@ -6875,14 +6875,14 @@ define noundef i64 @_ZNK14base_atp_csr_t16compute_new_satpEm(ptr noundef nonnull
   %trunc.not.i = icmp eq i64 %15, 0
   br i1 %trunc.not.i, label %28, label %16
 
-16:                                               ; preds = %14
+.thread26:                                        ; preds = %14
   %17 = and i64 %.fr, 1
   %.not42 = icmp eq i64 %17, 0
   %. = select i1 %.not42, i64 4194303, i64 2151677951
   %18 = or disjoint i64 %13, %.
-  %19 = and i64 %.fr, 1
-  %.not43 = icmp eq i64 %19, 0
-  br i1 %.not43, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %36
+  %18 = and i64 %.fr, 1
+  %.not42 = icmp eq i64 %18, 0
+  br i1 %.not42, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %36
 
 20:                                               ; preds = %2
   %21 = lshr i64 %1, 60
@@ -6890,7 +6890,7 @@ define noundef i64 @_ZNK14base_atp_csr_t16compute_new_satpEm(ptr noundef nonnull
     i64 8, label %22
     i64 9, label %24
     i64 10, label %_ZNK14base_atp_csr_t10satp_validEm.exit
-    i64 0, label %.thread45
+    i64 0, label %.thread48
   ]
 
 22:                                               ; preds = %20
@@ -6911,7 +6911,7 @@ _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %20
 .thread24:                                        ; preds = %_ZNK14base_atp_csr_t10satp_validEm.exit, %22, %24
   br label %.thread
 
-.thread45:                                        ; preds = %20
+.thread48:                                        ; preds = %20
   %27 = or i64 %13, -1152903912420802561
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
 
@@ -6920,8 +6920,8 @@ _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %20
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
 
 .thread:                                          ; preds = %20, %_ZNK14base_atp_csr_t10satp_validEm.exit, %22, %24, %.thread24
-  %.sink46 = phi i64 [ -1152903912420802561, %.thread24 ], [ 17592186044415, %24 ], [ 17592186044415, %22 ], [ 17592186044415, %_ZNK14base_atp_csr_t10satp_validEm.exit ], [ 17592186044415, %20 ]
-  %30 = or i64 %13, %.sink46
+  %.sink = phi i64 [ -1152903912420802561, %.thread24 ], [ 17592186044415, %24 ], [ 17592186044415, %22 ], [ 17592186044415, %_ZNK14base_atp_csr_t10satp_validEm.exit ], [ 17592186044415, %20 ]
+  %30 = or i64 %13, %.sink
   switch i64 %21, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30 [
     i64 8, label %31
     i64 9, label %33
@@ -6932,12 +6932,12 @@ _ZNK14base_atp_csr_t10satp_validEm.exit:          ; preds = %20
 31:                                               ; preds = %.thread
   %32 = and i64 %.fr, 2
   %.not41 = icmp eq i64 %32, 0
-  br i1 %.not41, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %36
+  br i1 %.not41, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
 33:                                               ; preds = %.thread
   %34 = and i64 %.fr, 4
   %.not40 = icmp eq i64 %34, 0
-  br i1 %.not40, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %36
+  br i1 %.not40, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
 _ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %.thread
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
@@ -6945,23 +6945,23 @@ _ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %.thread
 _ZNK14base_atp_csr_t10satp_validEm.exit13:        ; preds = %.thread
   %35 = and i64 %.fr, 8
   %.not39 = icmp eq i64 %35, 0
-  br i1 %.not39, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %36
+  br i1 %.not39, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30, label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
 
-36:                                               ; preds = %33, %31, %16, %_ZNK14base_atp_csr_t10satp_validEm.exit13
-  %37 = phi i64 [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ %18, %16 ], [ %30, %31 ], [ %30, %33 ]
+_ZNK14base_atp_csr_t10satp_validEm.exit13.thread: ; preds = %33, %31, %.thread26, %_ZNK14base_atp_csr_t10satp_validEm.exit13
+  %36 = phi i64 [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ %18, %16 ], [ %30, %31 ], [ %30, %33 ]
   br label %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30
 
-_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30: ; preds = %.thread45, %28, %.thread, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread, %33, %31, %16, %_ZNK14base_atp_csr_t10satp_validEm.exit13, %36
-  %38 = phi i64 [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ %18, %16 ], [ %30, %31 ], [ %30, %33 ], [ %37, %36 ], [ %30, %.thread ], [ %29, %28 ], [ %27, %.thread45 ], [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ]
-  %39 = phi i64 [ -1152921504606846976, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ 2147483648, %16 ], [ -1152921504606846976, %31 ], [ -1152921504606846976, %33 ], [ 0, %36 ], [ -1152921504606846976, %.thread ], [ 0, %28 ], [ 0, %.thread45 ], [ 0, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ]
-  %40 = and i64 %38, %1
-  %41 = load ptr, ptr %0, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(48) %0) #30
-  %45 = and i64 %44, %39
-  %46 = or i64 %45, %40
-  ret i64 %46
+_ZNK14base_atp_csr_t10satp_validEm.exit13.thread30: ; preds = %.thread45, %28, %.thread, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread, %33, %31, %16, %_ZNK14base_atp_csr_t10satp_validEm.exit13, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread
+  %37 = phi i64 [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ %18, %16 ], [ %30, %31 ], [ %30, %33 ], [ %37, %36 ], [ %30, %.thread ], [ %29, %28 ], [ %27, %.thread45 ], [ %30, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ]
+  %38 = phi i64 [ -1152921504606846976, %_ZNK14base_atp_csr_t10satp_validEm.exit13 ], [ 2147483648, %16 ], [ -1152921504606846976, %31 ], [ -1152921504606846976, %33 ], [ 0, %36 ], [ -1152921504606846976, %.thread ], [ 0, %28 ], [ 0, %.thread45 ], [ 0, %_ZNK14base_atp_csr_t10satp_validEm.exit13.thread ]
+  %39 = and i64 %37, %1
+  %40 = load ptr, ptr %0, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %42 = load ptr, ptr %41, align 8
+  %43 = tail call noundef i64 %43(ptr noundef nonnull align 8 dereferenceable(48) %0) #30
+  %44 = and i64 %43, %38
+  %45 = or i64 %44, %39
+  ret i64 %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

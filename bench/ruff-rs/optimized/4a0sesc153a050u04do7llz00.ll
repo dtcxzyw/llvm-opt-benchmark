@@ -64923,7 +64923,7 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules22extraneous_parenthes
   %41 = icmp eq ptr %33, %16
   br i1 %41, label %._crit_edge, label %.lr.ph49.i
 
-.lr.ph49.i:                                       ; preds = %38, %.thread25.thread.i
+.lr.ph49.i:                                       ; preds = %38, %65
   %.sroa.011.047.i = phi i1 [ %.sroa.011.1.i, %.thread25.thread.i ], [ true, %38 ]
   %.sroa.06.046.i = phi i32 [ %.sroa.06.12732.i, %.thread25.thread.i ], [ 1, %38 ]
   %42 = phi ptr [ %43, %.thread25.thread.i ], [ %33, %38 ]
@@ -64968,8 +64968,8 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules22extraneous_parenthes
 .thread25.i:                                      ; preds = %49, %46, %.lr.ph49.i
   %.sroa.06.127.i = phi i32 [ %47, %46 ], [ %50, %49 ], [ %.sroa.06.046.i, %.lr.ph49.i ]
   switch i8 %45, label %65 [
-    i8 9, label %.thread25.thread.i
-    i8 11, label %.thread25.thread.i
+    i8 9, label %65
+    i8 11, label %65
   ]
 
 .lr.ph55.i:                                       ; preds = %55, %63
@@ -64987,10 +64987,10 @@ define hidden void @_ZN11ruff_linter5rules9pyupgrade5rules22extraneous_parenthes
   %64 = icmp eq ptr %60, %16
   br i1 %64, label %.backedge, label %.lr.ph55.i
 
-65:                                               ; preds = %.thread25.i
+.thread25.thread.i:                               ; preds = %.thread25.i
   br label %.thread25.thread.i
 
-.thread25.thread.i:                               ; preds = %65, %.thread25.i, %.thread25.i, %53, %51
+65:                                               ; preds = %.thread25.thread.i, %.thread25.i, %.thread25.i, %53, %51
   %.sroa.06.12732.i = phi i32 [ %.sroa.06.127.i, %.thread25.i ], [ %.sroa.06.127.i, %.thread25.i ], [ %.sroa.06.127.i, %65 ], [ %.sroa.06.046.i, %53 ], [ %.sroa.06.046.i, %51 ]
   %.sroa.011.1.i = phi i1 [ %.sroa.011.047.i, %.thread25.i ], [ %.sroa.011.047.i, %.thread25.i ], [ false, %65 ], [ false, %53 ], [ false, %51 ]
   %66 = icmp eq ptr %43, %16
@@ -65203,7 +65203,7 @@ _ZN11ruff_linter5rules9pyupgrade5rules22extraneous_parentheses28match_extraneous
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.backedge
 
-.backedge:                                        ; preds = %.lr.ph.i, %.thread25.thread.i, %53, %51, %63, %.lr.ph55.i, %26, %55, %133
+.backedge:                                        ; preds = %.lr.ph.i, %65, %53, %51, %63, %.lr.ph55.i, %26, %55, %133
   %.sroa.0.0.be = phi ptr [ %60, %133 ], [ %27, %26 ], [ %43, %55 ], [ %60, %.lr.ph55.i ], [ %60, %63 ], [ %43, %51 ], [ %43, %53 ], [ %43, %.thread25.thread.i ], [ %33, %.lr.ph.i ]
   %137 = icmp eq ptr %.sroa.0.0.be, %16
   br i1 %137, label %._crit_edge, label %26

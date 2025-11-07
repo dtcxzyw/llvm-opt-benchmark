@@ -7714,7 +7714,7 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit61: ; preds = %320,
 
 403:                                              ; preds = %401, %399, %397, %395, %393, %383
   %404 = icmp samesign ult i8 %narrow.i.i.i62, %narrow15.i.i.i63
-  br i1 %404, label %466, label %.thread60
+  br i1 %404, label %.thread82, label %.thread60
 
 405:                                              ; preds = %393
   %406 = getelementptr inbounds nuw i8, ptr %385, i64 2
@@ -7816,19 +7816,19 @@ _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit61: ; preds = %320,
 
 _ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75: ; preds = %405, %422, %433, %444, %455
   %.sroa.0.0.i.i.i64 = phi i1 [ %411, %405 ], [ %428, %422 ], [ %439, %433 ], [ %450, %444 ], [ %461, %455 ]
-  br i1 %.sroa.0.0.i.i.i64, label %466, label %.thread60
+  br i1 %.sroa.0.0.i.i.i64, label %.thread82, label %.thread60
 
 .thread82:                                        ; preds = %416, %429, %440, %451, %462, %413
   br label %.thread60
 
-466:                                              ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75, %403
+.thread82:                                        ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75, %403
   br label %.thread60
 
-.thread60:                                        ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75, %403, %.thread82, %415, %413, %462, %451, %440, %429, %416, %466
-  %467 = phi ptr [ %.sroa.02.046, %416 ], [ %.sroa.02.046, %429 ], [ %.sroa.02.046, %440 ], [ %.sroa.02.046, %451 ], [ %.sroa.02.046, %462 ], [ %.sroa.02.046, %413 ], [ %.sroa.02.046, %415 ], [ %385, %.thread82 ], [ %385, %466 ], [ %.sroa.02.046, %403 ], [ %.sroa.02.046, %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75 ]
-  %468 = phi ptr [ %385, %416 ], [ %385, %429 ], [ %385, %440 ], [ %385, %451 ], [ %385, %462 ], [ %385, %413 ], [ %385, %415 ], [ %.sroa.02.046, %.thread82 ], [ %.sroa.02.046, %466 ], [ %385, %403 ], [ %385, %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75 ]
+.thread60:                                        ; preds = %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75, %403, %.thread82, %415, %413, %462, %451, %440, %429, %416, %.thread82
+  %466 = phi ptr [ %.sroa.02.046, %416 ], [ %.sroa.02.046, %429 ], [ %.sroa.02.046, %440 ], [ %.sroa.02.046, %451 ], [ %.sroa.02.046, %462 ], [ %.sroa.02.046, %413 ], [ %.sroa.02.046, %415 ], [ %385, %.thread82 ], [ %385, %466 ], [ %.sroa.02.046, %403 ], [ %.sroa.02.046, %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75 ]
+  %467 = phi ptr [ %385, %416 ], [ %385, %429 ], [ %385, %440 ], [ %385, %451 ], [ %385, %462 ], [ %385, %413 ], [ %385, %415 ], [ %.sroa.02.046, %.thread82 ], [ %.sroa.02.046, %466 ], [ %385, %403 ], [ %385, %_ZN4core3ops8function5FnMut8call_mut17hafcaa120ddb781dbE.exit75 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %1, ptr noundef nonnull align 1 dereferenceable(3) %.183445, i64 3, i1 false)
-  %469 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %468 = getelementptr inbounds nuw i8, ptr %1, i64 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %469, ptr noundef nonnull align 1 dereferenceable(3) %467, i64 3, i1 false)
   %470 = getelementptr inbounds nuw i8, ptr %1, i64 6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %470, ptr noundef nonnull align 1 dereferenceable(3) %468, i64 3, i1 false)

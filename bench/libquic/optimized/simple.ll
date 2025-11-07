@@ -313,7 +313,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_group_get_curve(ptr noundef %0,
   br label %44
 
 44:                                               ; preds = %36, %22, %9, %39, %28, %40, %29, %43
-  %.029.shrunk = phi i1 [ false, %29 ], [ %.not43, %22 ], [ false, %40 ], [ %.not41, %36 ], [ true, %28 ], [ true, %39 ], [ true, %9 ], [ true, %43 ]
+  %.029 = phi i1 [ false, %29 ], [ %.not43, %22 ], [ false, %40 ], [ %.not41, %36 ], [ true, %28 ], [ true, %39 ], [ true, %9 ], [ true, %43 ]
   %.2 = phi ptr [ %.1, %29 ], [ %.1, %22 ], [ null, %40 ], [ null, %36 ], [ %.1, %28 ], [ null, %39 ], [ null, %9 ], [ %.0, %43 ]
   %.029 = zext i1 %.029.shrunk to i32
   tail call void @BN_CTX_free(ptr noundef %.2) #4

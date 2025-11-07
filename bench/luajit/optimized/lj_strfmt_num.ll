@@ -49,7 +49,7 @@ define internal fastcc ptr @lj_strfmt_wfnum(ptr noundef %0, i32 noundef %1, doub
   %23 = xor i32 %19, 7233902
   %24 = and i32 %1, 2048
   %.not608.not = icmp eq i32 %24, 0
-  br i1 %.not608.not, label %.thread, label %31
+  br i1 %.not608.not, label %.thread, label %.thread
 
 25:                                               ; preds = %17
   %26 = xor i32 %19, 6909542
@@ -64,17 +64,17 @@ define internal fastcc ptr @lj_strfmt_wfnum(ptr noundef %0, i32 noundef %1, doub
 29:                                               ; preds = %27
   %30 = and i32 %1, 2048
   %.not607.not = icmp eq i32 %30, 0
-  br i1 %.not607.not, label %.thread, label %31
+  br i1 %.not607.not, label %.thread, label %.thread
 
-31:                                               ; preds = %22, %29
-  %.0527749 = phi i32 [ %26, %29 ], [ %23, %22 ]
+.thread:                                          ; preds = %22, %29
+  %.0489751 = phi i32 [ %26, %29 ], [ %23, %22 ]
   br label %.thread
 
 .thread:                                          ; preds = %27, %25, %22, %29, %31
   %.0489750 = phi i8 [ 0, %29 ], [ 0, %22 ], [ 32, %31 ], [ 43, %27 ], [ 45, %25 ]
-  %32 = phi i1 [ false, %29 ], [ false, %22 ], [ true, %31 ], [ true, %27 ], [ true, %25 ]
-  %.0527748 = phi i32 [ %26, %29 ], [ %23, %22 ], [ %.0527749, %31 ], [ %26, %27 ], [ %26, %25 ]
-  %33 = phi i32 [ 3, %29 ], [ 3, %22 ], [ 4, %31 ], [ 4, %27 ], [ 4, %25 ]
+  %.0489750 = phi i1 [ false, %29 ], [ false, %22 ], [ true, %31 ], [ true, %27 ], [ true, %25 ]
+  %32 = phi i32 [ %26, %29 ], [ %23, %22 ], [ %.0527749, %31 ], [ %26, %27 ], [ %26, %25 ]
+  %.0527748 = phi i32 [ 3, %29 ], [ 3, %22 ], [ 4, %31 ], [ 4, %27 ], [ 4, %25 ]
   %.not609 = icmp eq ptr %3, null
   br i1 %.not609, label %34, label %lj_buf_more.exit
 

@@ -4606,15 +4606,15 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %180 = load volatile i64, ptr %148, align 8
   %181 = and i64 %180, 4
   %182 = icmp eq i64 %181, 0
-  br i1 %182, label %.lr.ph177, label %.critedge
+  br i1 %182, label %.lr.ph176, label %.critedge
 
 .lr.ph:                                           ; preds = %231
   %183 = load volatile i64, ptr %148, align 8
   %184 = and i64 %183, 4
   %185 = icmp eq i64 %184, 0
-  br i1 %185, label %.lr.ph177, label %.critedge, !llvm.loop !34
+  br i1 %185, label %.lr.ph176, label %.critedge, !llvm.loop !34
 
-.lr.ph177:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph176:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %186 = load i32, ptr %26, align 4
   %187 = icmp eq i32 %186, 0
   %188 = load ptr, ptr %7, align 8
@@ -4624,7 +4624,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %192 = load i64, ptr %191, align 8
   br i1 %187, label %193, label %210
 
-193:                                              ; preds = %.lr.ph177
+193:                                              ; preds = %.lr.ph176
   %194 = getelementptr inbounds nuw i8, ptr %188, i64 136
   %195 = load i64, ptr %194, align 8
   %196 = add i64 %195, %192
@@ -4647,7 +4647,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %209 = sub nsw i64 %200, %208
   br label %220
 
-210:                                              ; preds = %.lr.ph177
+210:                                              ; preds = %.lr.ph176
   %211 = getelementptr inbounds nuw i8, ptr %188, i64 272
   %212 = load ptr, ptr %211, align 8
   %213 = load i64, ptr %212, align 8
@@ -4675,7 +4675,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %227 = load i32, ptr %144, align 8
   switch i32 %227, label %229 [
     i32 7, label %.critedge.loopexit
-    i32 4, label %.critedge.loopexit190
+    i32 4, label %.critedge.loopexit189
     i32 5, label %228
     i32 0, label %.critedge
     i32 1, label %.critedge
@@ -4685,7 +4685,7 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
 
 228:                                              ; preds = %224
   %spec.select = select i1 %146, i64 %221, i64 0
-  %spec.select160 = select i1 %146, i32 -32, i32 0
+  %spec.select159 = select i1 %146, i32 -32, i32 0
   br label %.critedge
 
 229:                                              ; preds = %224
@@ -4696,20 +4696,20 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %232 = load volatile i64, ptr %148, align 8
   %233 = and i64 %232, 131072
   %234 = icmp eq i64 %233, 0
-  br i1 %234, label %.lr.ph, label %..critedge.loopexit_crit_edge179, !prof !36, !llvm.loop !34
+  br i1 %234, label %.lr.ph, label %..critedge.loopexit_crit_edge178, !prof !36, !llvm.loop !34
 
-..critedge.loopexit_crit_edge179:                 ; preds = %231
+..critedge.loopexit_crit_edge178:                 ; preds = %231
   br label %.critedge, !llvm.loop !34
 
 .critedge.loopexit:                               ; preds = %224
   br label %.critedge
 
-.critedge.loopexit190:                            ; preds = %224
+.critedge.loopexit189:                            ; preds = %224
   br label %.critedge
 
-.critedge:                                        ; preds = %229, %220, %.lr.ph, %224, %224, %224, %.critedge.loopexit190, %.lr.ph.preheader, %..critedge.loopexit_crit_edge179, %.critedge.loopexit, %228, %174
+.critedge:                                        ; preds = %229, %220, %.lr.ph, %224, %224, %224, %.critedge.loopexit189, %.lr.ph.preheader, %..critedge.loopexit_crit_edge178, %.critedge.loopexit, %228, %174
   %235 = phi i64 [ 0, %174 ], [ %spec.select, %228 ], [ %221, %..critedge.loopexit_crit_edge179 ], [ 0, %.lr.ph.preheader ], [ %221, %.critedge.loopexit ], [ %221, %224 ], [ %221, %224 ], [ %221, %224 ], [ %221, %.lr.ph ], [ %221, %220 ], [ %221, %229 ], [ %221, %.critedge.loopexit190 ]
-  %236 = phi i32 [ -512, %174 ], [ %spec.select160, %228 ], [ -512, %..critedge.loopexit_crit_edge179 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ], [ -512, %.lr.ph ], [ 0, %220 ], [ -5, %229 ], [ -32, %.critedge.loopexit190 ]
+  %236 = phi i32 [ -512, %174 ], [ %spec.select159, %228 ], [ -512, %..critedge.loopexit_crit_edge179 ], [ -512, %.lr.ph.preheader ], [ -86, %.critedge.loopexit ], [ -77, %224 ], [ -77, %224 ], [ -77, %224 ], [ -512, %.lr.ph ], [ 0, %220 ], [ -5, %229 ], [ -32, %.critedge.loopexit190 ]
   %237 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %149, i32 0, ptr nonnull elementtype(i32) %149) #21, !srcloc !37
   call void @remove_wait_queue(ptr noundef nonnull %151, ptr noundef nonnull %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -4872,10 +4872,10 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   %333 = sext i32 %.ph54.ph to i64
   br label %.thread40.thread
 
-.thread40.thread.loopexit191:                     ; preds = %285
+.thread40.thread.loopexit190:                     ; preds = %285
   br label %.thread40.thread
 
-.thread40.thread:                                 ; preds = %258, %285, %.thread40.thread.loopexit191, %.thread40.thread.loopexit100
+.thread40.thread:                                 ; preds = %258, %285, %.thread40.thread.loopexit190, %.thread40.thread.loopexit100
   %.ph54 = phi i64 [ %333, %.thread40.thread.loopexit100 ], [ -77, %.thread40.thread.loopexit191 ], [ -32, %285 ], [ -16, %258 ]
   store i64 0, ptr %63, align 8
   %.not = icmp eq i64 %.fr57, 0

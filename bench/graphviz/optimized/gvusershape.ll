@@ -1896,26 +1896,26 @@ find_attribute.exit.thread:                       ; preds = %svg_units_convert.e
   br label %284
 
 .critedge:                                        ; preds = %14
-  %273 = trunc i8 %.sroa.051.3 to i1
-  %274 = trunc i8 %.sroa.044.3 to i1
-  %275 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 0, ptr %275, align 8, !tbaa !27
-  %276 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %271 = trunc i8 %.sroa.051.3 to i1
+  %272 = trunc i8 %.sroa.044.3 to i1
+  %273 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 0, ptr %273, align 8, !tbaa !27
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %277 = fptosi double %.sroa.1356.3 to i32
   %278 = sitofp i32 %277 to double
   br i1 %274, label %279, label %282
 
-279:                                              ; preds = %.critedge
+279:; preds = %.critedge
   %280 = fptosi double %.sroa.13.3 to i32
   %281 = sitofp i32 %280 to double
   store double %281, ptr %276, align 8, !tbaa !28
   br i1 %273, label %283, label %284
 
-282:                                              ; preds = %.critedge
+282:; preds = %.critedge
   store double 0.000000e+00, ptr %276, align 8, !tbaa !28
   br i1 %273, label %283, label %284
 
-283:                                              ; preds = %279, %282
+283:; preds = %279, %282
   br label %284
 
 284:                                              ; preds = %.thread412, %279, %282, %283

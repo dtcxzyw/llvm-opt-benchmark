@@ -916,7 +916,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %272 = and i16 %271, 63
   %273 = zext nneg i16 %272 to i32
   %274 = tail call fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_8ArrayRefIPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesES5_E3$_5EEbOT_T0_"(ptr nonnull %1, i64 %2, i32 %273)
-  br i1 %274, label %.thread, label %296
+  br i1 %274, label %.thread283, label %.thread
 
 275:                                              ; preds = %.critedge24
   %276 = load ptr, ptr %1, align 8, !tbaa !3
@@ -930,7 +930,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %281 = call noundef i32 @_ZN4llvm9sandboxir8VecUtils11getNumLanesEPNS0_5ValueE(ptr noundef %280)
   %282 = call noundef i32 @_ZN4llvm9sandboxir8VecUtils11getNumLanesEPNS0_5ValueE(ptr noundef nonnull %276)
   %.not.not = icmp eq i32 %281, %282
-  br i1 %.not.not, label %.thread, label %296
+  br i1 %.not.not, label %.thread283, label %.thread
 
 283:                                              ; preds = %.critedge24
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -938,7 +938,7 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %286 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %287 = load ptr, ptr %286, align 8, !tbaa !90
   %288 = call noundef zeroext i1 @_ZN4llvm9sandboxir8VecUtils14areConsecutiveINS0_8LoadInstEEEbRNS_8ArrayRefIPNS0_5ValueEEERNS_15ScalarEvolutionERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(1344) %285, ptr noundef nonnull align 8 dereferenceable(496) %287)
-  br i1 %288, label %.thread, label %296
+  br i1 %288, label %.thread283, label %.thread
 
 289:                                              ; preds = %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24
   br label %.thread
@@ -952,13 +952,13 @@ _ZN4llvm9sandboxir5Utils15getExpectedTypeEPKNS0_5ValueE.exit114: ; preds = %212,
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %294 = load ptr, ptr %293, align 8, !tbaa !90
   %295 = call noundef zeroext i1 @_ZN4llvm9sandboxir8VecUtils14areConsecutiveINS0_9StoreInstEEEbRNS_8ArrayRefIPNS0_5ValueEEERNS_15ScalarEvolutionERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(1344) %292, ptr noundef nonnull align 8 dereferenceable(496) %294)
-  br i1 %295, label %.thread, label %296
+  br i1 %295, label %.thread283, label %.thread
 
-296:                                              ; preds = %283, %275, %268, %290
+.thread:                                          ; preds = %283, %275, %268, %290
   %.sroa.0163.0281 = phi i64 [ 4294967303, %290 ], [ 4294967297, %268 ], [ 4294967305, %275 ], [ 4294967303, %283 ]
-  br label %.thread
+  br label %.thread283
 
-.thread:                                          ; preds = %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit", %289, %283, %275, %268, %.thread283, %290, %296
+.thread283:                                       ; preds = %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %.critedge24, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit", %289, %283, %275, %268, %.thread283, %290, %.thread
   %.sroa.0163.0.insert.insert = phi i64 [ 7, %290 ], [ 0, %.thread283 ], [ 1, %268 ], [ 9, %275 ], [ 7, %283 ], [ %.sroa.0163.0281, %296 ], [ 4294967298, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_4EEbOT_T0_.exit" ], [ 4294967300, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_3EEbOT_T0_.exit" ], [ 4294967299, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_2EEbOT_T0_.exit" ], [ 4294967298, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_1EEbOT_T0_.exit" ], [ 4294967297, %"_ZN4llvm6any_ofINS_14iterator_rangeIPKPNS_9sandboxir5ValueEEEZNS2_16LegalityAnalysis37notVectorizableBasedOnOpcodesAndTypesENS_8ArrayRefIS4_EEE3$_0EEbOT_T0_.exit" ], [ 4294967306, %289 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ], [ 4294967305, %.critedge24 ]
   ret i64 %.sroa.0163.0.insert.insert
 }

@@ -2827,7 +2827,7 @@ define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captur
     i16 24183, label %130
     i16 30246, label %130
     i16 32363, label %130
-    i16 -25827, label %.fold.split
+    i16 -25827, label %130
   ]
 
 .critedge:                                        ; preds = %41, %39
@@ -3006,7 +3006,7 @@ find_pairencmap.exit107:                          ; preds = %122
 find_pairencmap.exit107.thread:                   ; preds = %122, %find_pairencmap.exit107
   br label %130
 
-.fold.split:                                      ; preds = %41
+130:                                              ; preds = %41
   br label %130
 
 130:                                              ; preds = %41, %41, %41, %41, %41, %41, %41, %41, %41, %41, %.fold.split, %find_pairencmap.exit107.thread, %find_pairencmap.exit107, %4, %find_pairencmap.exit, %64, %69, %74, %78, %59, %33, %11, %83, %38

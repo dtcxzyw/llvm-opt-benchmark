@@ -505,7 +505,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
 
 25:                                               ; preds = %6
   %26 = icmp ult i16 %2, 2
-  br i1 %26, label %480, label %479
+  br i1 %26, label %481, label %479
 
 27:                                               ; preds = %6
   %28 = icmp eq i16 %3, 0
@@ -671,7 +671,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %118 = phi i64 [ %24, %31 ], [ %102, %100 ], [ %24, %96 ], [ %24, %52 ], [ %79, %85 ], [ %24, %35 ], [ %24, %40 ], [ %24, %42 ], [ %24, %47 ], [ %24, %93 ], [ %24, %103 ], [ %24, %108 ], [ %24, %110 ], [ %24, %115 ]
   %119 = load ptr, ptr %16, align 8
   %120 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %119) #20, !srcloc !5
-  br label %480
+  br label %481
 
 121:                                              ; preds = %6
   %122 = load i32, ptr %8, align 8
@@ -703,11 +703,11 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %141 = select i1 %140, i16 10, i16 9
   %142 = getelementptr inbounds nuw i8, ptr %4, i64 3
   store i16 %141, ptr %142, align 1
-  br label %480
+  br label %481
 
 143:                                              ; preds = %6
   store i32 0, ptr %4, align 1
-  br label %480
+  br label %481
 
 144:                                              ; preds = %6
   %145 = icmp eq i16 %3, 0
@@ -1037,11 +1037,11 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %342 = or i32 %337, 262144
   %343 = select i1 %341, i32 %337, i32 %342
   store i32 %343, ptr %4, align 1
-  br label %480
+  br label %481
 
 344:                                              ; preds = %6
   %345 = icmp ult i16 %2, 2
-  br i1 %345, label %480, label %479
+  br i1 %345, label %481, label %479
 
 346:                                              ; preds = %6
   %347 = and i16 %3, 255
@@ -1062,7 +1062,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %357 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %349) #20, !srcloc !5
   %358 = and i32 %357, 268435456
   %359 = icmp eq i32 %358, 0
-  br i1 %359, label %._crit_edge, label %480
+  br i1 %359, label %._crit_edge, label %481
 
 ._crit_edge:                                      ; preds = %346, %356, %351
   %360 = icmp eq i16 %347, 0
@@ -1075,7 +1075,7 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %365 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %20) #20, !srcloc !5
   %366 = and i32 %365, 8192
   %367 = icmp eq i32 %366, 0
-  br i1 %367, label %368, label %480
+  br i1 %367, label %368, label %481
 
 368:                                              ; preds = %363
   %369 = and i32 %365, -10479
@@ -1266,16 +1266,16 @@ define dso_local noundef range(i32 -32, 1) i32 @ehci_hub_control(ptr noundef %0,
   %476 = phi i64 [ %416, %414 ], [ %24, %410 ], [ %24, %370 ], [ %407, %406 ], [ %24, %433 ], [ %24, %439 ], [ %466, %.loopexit ], [ %466, %471 ]
   %477 = load ptr, ptr %16, align 8
   %478 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %477) #20, !srcloc !5
-  br label %480
+  br label %481
 
 479:                                              ; preds = %344, %25
   br label %480
 
-480:                                              ; preds = %6, %27, %31, %49, %60, %144, %245, %265, %._crit_edge, %368, %375, %417, %440, %479, %475, %363, %356, %344, %330, %143, %121, %117, %25
-  %481 = phi i32 [ 0, %363 ], [ 0, %475 ], [ 0, %344 ], [ 0, %330 ], [ 0, %143 ], [ 0, %121 ], [ 0, %117 ], [ 0, %25 ], [ -19, %356 ], [ -32, %440 ], [ -32, %417 ], [ -32, %375 ], [ -32, %368 ], [ -32, %._crit_edge ], [ -32, %265 ], [ -32, %245 ], [ -32, %144 ], [ -32, %60 ], [ -32, %49 ], [ -32, %31 ], [ -32, %27 ], [ -32, %6 ], [ -32, %479 ]
-  %482 = phi i64 [ %24, %363 ], [ %476, %475 ], [ %24, %344 ], [ %197, %330 ], [ %24, %143 ], [ %24, %121 ], [ %118, %117 ], [ %24, %25 ], [ %24, %356 ], [ %24, %440 ], [ %24, %417 ], [ %24, %375 ], [ %24, %368 ], [ %24, %._crit_edge ], [ %197, %265 ], [ %197, %245 ], [ %24, %144 ], [ %24, %60 ], [ %24, %49 ], [ %24, %31 ], [ %24, %27 ], [ %24, %6 ], [ %24, %479 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %23, i64 noundef %482) #20
-  ret i32 %481
+481:                                              ; preds = %6, %27, %31, %49, %60, %144, %245, %265, %._crit_edge, %368, %375, %417, %440, %479, %475, %363, %356, %344, %330, %143, %121, %117, %25
+  %482 = phi i32 [ 0, %363 ], [ 0, %475 ], [ 0, %344 ], [ 0, %330 ], [ 0, %143 ], [ 0, %121 ], [ 0, %117 ], [ 0, %25 ], [ -19, %356 ], [ -32, %440 ], [ -32, %417 ], [ -32, %375 ], [ -32, %368 ], [ -32, %._crit_edge ], [ -32, %265 ], [ -32, %245 ], [ -32, %144 ], [ -32, %60 ], [ -32, %49 ], [ -32, %31 ], [ -32, %27 ], [ -32, %6 ], [ -32, %479 ]
+  %483 = phi i64 [ %24, %363 ], [ %476, %475 ], [ %24, %344 ], [ %197, %330 ], [ %24, %143 ], [ %24, %121 ], [ %118, %117 ], [ %24, %25 ], [ %24, %356 ], [ %24, %440 ], [ %24, %417 ], [ %24, %375 ], [ %24, %368 ], [ %24, %._crit_edge ], [ %197, %265 ], [ %197, %245 ], [ %24, %144 ], [ %24, %60 ], [ %24, %49 ], [ %24, %31 ], [ %24, %27 ], [ %24, %6 ], [ %24, %479 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %23, i64 noundef %483) #20
+  ret i32 %482
 }
 
 ; Function Attrs: null_pointer_is_valid

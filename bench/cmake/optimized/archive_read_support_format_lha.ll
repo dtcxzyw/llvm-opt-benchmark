@@ -3486,7 +3486,7 @@ define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr noundef 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load i8, ptr %22, align 1, !tbaa !4
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %39, label %25
+  br i1 %24, label %38, label %25
 
 25:                                               ; preds = %21
   %26 = icmp ult i8 %23, 4
@@ -3496,7 +3496,7 @@ define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr noundef 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 19
   %29 = load i8, ptr %28, align 1, !tbaa !4
   %30 = icmp eq i8 %29, 32
-  br i1 %30, label %39, label %.thread
+  br i1 %30, label %38, label %.thread
 
 .thread:                                          ; preds = %25, %27
   br label %39
@@ -3509,9 +3509,9 @@ define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr noundef 
 
 34:                                               ; preds = %31
   switch i8 %3, label %38 [
-    i8 115, label %39
-    i8 52, label %39
-    i8 53, label %39
+    i8 115, label %38
+    i8 52, label %38
+    i8 53, label %38
   ]
 
 35:                                               ; preds = %1
@@ -3523,10 +3523,10 @@ define internal fastcc range(i64 0, 5) i64 @lha_check_header_format(ptr noundef 
 37:                                               ; preds = %1
   br label %39
 
-38:                                               ; preds = %34
+.thread:                                          ; preds = %34
   br label %39
 
-39:                                               ; preds = %16, %.thread, %35, %36, %37, %4, %13, %10, %7, %19, %31, %1, %1, %34, %34, %34, %27, %21, %38
+38:                                               ; preds = %16, %.thread, %35, %36, %37, %4, %13, %10, %7, %19, %31, %1, %1, %34, %34, %34, %27, %21, %.thread
   %.017 = phi i64 [ 0, %21 ], [ 0, %27 ], [ 0, %34 ], [ 0, %34 ], [ 0, %34 ], [ 4, %37 ], [ 4, %4 ], [ 4, %7 ], [ 4, %10 ], [ 4, %13 ], [ 4, %19 ], [ 4, %31 ], [ 2, %35 ], [ 3, %36 ], [ 1, %1 ], [ 1, %1 ], [ 4, %38 ], [ 4, %.thread ], [ 4, %16 ]
   ret i64 %.017
 }

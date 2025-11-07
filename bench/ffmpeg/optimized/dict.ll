@@ -253,8 +253,8 @@ av_dict_iterate.exit:                             ; preds = %75
 
 .critedge.loopexit56:                             ; preds = %80
   %88 = or i8 %85, %83
-  %or.cond132 = icmp eq i8 %88, 0
-  br i1 %or.cond132, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.split
+  %or.cond129 = icmp eq i8 %88, 0
+  br i1 %or.cond129, label %av_dict_iterate.exit.thread, label %.lr.ph.split.split.split
 
 av_dict_iterate.exit.thread:                      ; preds = %av_dict_iterate.exit, %75, %.critedge.loopexit56, %av_dict_iterate.exit.us75, %.critedge.loopexit56.us, %54, %av_dict_iterate.exit.us, %17, %.critedge.loopexit.us, %.preheader57, %4
   %.0 = phi ptr [ null, %4 ], [ null, %.preheader57 ], [ null, %17 ], [ null, %av_dict_iterate.exit.us ], [ %20, %.critedge.loopexit.us ], [ null, %av_dict_iterate.exit.us75 ], [ %57, %.critedge.loopexit56.us ], [ null, %54 ], [ null, %av_dict_iterate.exit ], [ null, %75 ], [ %78, %.critedge.loopexit56 ]

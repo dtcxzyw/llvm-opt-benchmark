@@ -20980,7 +20980,7 @@ _ZNK8facebook5velox9TimestampltERKS1_.exit.i:     ; preds = %lor.rhs.i
   br label %_ZSt3minIN8facebook5velox9TimestampEERKT_S5_S5_.exit
 
 _ZSt3minIN8facebook5velox9TimestampEERKT_S5_S5_.exit: ; preds = %_ZNK8facebook5velox9TimestampltERKS1_.exit.i, %_ZNK8facebook5velox9TimestampltERKS1_.exit.thread, %if.end.i
-  %1 = phi i1 [ true, %if.end.i ], [ false, %_ZNK8facebook5velox9TimestampltERKS1_.exit.thread ], [ %cmp7.i, %_ZNK8facebook5velox9TimestampltERKS1_.exit.i ]
+  %2 = phi i1 [ true, %if.end.i ], [ false, %_ZNK8facebook5velox9TimestampltERKS1_.exit.thread ], [ %cmp7.i, %_ZNK8facebook5velox9TimestampltERKS1_.exit.i ]
   %.sroa.phi.sroa.speculated = phi i64 [ %.fr6.i, %if.end.i ], [ %spec.select, %_ZNK8facebook5velox9TimestampltERKS1_.exit.thread ], [ %spec.select197, %_ZNK8facebook5velox9TimestampltERKS1_.exit.i ]
   %.sroa.speculated163 = phi i64 [ %start.coerce0, %if.end.i ], [ %end.coerce0, %_ZNK8facebook5velox9TimestampltERKS1_.exit.thread ], [ %start.coerce0, %_ZNK8facebook5velox9TimestampltERKS1_.exit.i ]
   %conv.i = sext i64 %.sroa.speculated163 to i128
@@ -20988,8 +20988,8 @@ _ZSt3minIN8facebook5velox9TimestampEERKT_S5_S5_.exit: ; preds = %_ZNK8facebook5v
   %div.i = udiv i64 %.sroa.phi.sroa.speculated, 1000000
   %conv2.i = zext nneg i64 %div.i to i128
   %add.i42 = add nsw i128 %mul.i, %conv2.i
-  %2 = add nsw i128 %add.i42, -9223372036854775808
-  %or.cond.i = icmp ult i128 %2, -18446744073709551616
+  %3 = add nsw i128 %add.i42, -9223372036854775808
+  %or.cond.i = icmp ult i128 %3, -18446744073709551616
   br i1 %or.cond.i, label %if.then.i, label %_ZNK8facebook5velox9Timestamp8toMillisEv.exit
 
 if.then.i:                                        ; preds = %_ZSt3minIN8facebook5velox9TimestampEERKT_S5_S5_.exit
@@ -20998,17 +20998,17 @@ if.then.i:                                        ; preds = %_ZSt3minIN8facebook
 
 _ZNK8facebook5velox9Timestamp8toMillisEv.exit:    ; preds = %_ZSt3minIN8facebook5velox9TimestampEERKT_S5_S5_.exit
   %cmp7.i.i52 = icmp ult i64 %.fr6.i, %.fr.i
-  %or.cond199 = and i1 %cmp.i, %cmp7.i.i52
-  %or.cond200 = or i1 %cmp.i39, %or.cond199
-  %.sroa.phi153.sroa.speculated = select i1 %or.cond200, i64 %.fr.i, i64 %.fr6.i
-  %.sroa.speculated = select i1 %or.cond200, i64 %end.coerce0, i64 %start.coerce0
+  %or.cond196 = and i1 %cmp.i, %cmp7.i.i52
+  %or.cond197 = or i1 %cmp.i39, %or.cond196
+  %.sroa.phi153.sroa.speculated = select i1 %or.cond197, i64 %.fr.i, i64 %.fr6.i
+  %.sroa.speculated = select i1 %or.cond197, i64 %end.coerce0, i64 %start.coerce0
   %conv.i54 = sext i64 %.sroa.speculated to i128
   %mul.i55 = mul nsw i128 %conv.i54, 1000
   %div.i57 = udiv i64 %.sroa.phi153.sroa.speculated, 1000000
   %conv2.i58 = zext nneg i64 %div.i57 to i128
   %add.i59 = add nsw i128 %mul.i55, %conv2.i58
-  %3 = add nsw i128 %add.i59, -9223372036854775808
-  %or.cond.i60 = icmp ult i128 %3, -18446744073709551616
+  %4 = add nsw i128 %add.i59, -9223372036854775808
+  %or.cond.i60 = icmp ult i128 %4, -18446744073709551616
   br i1 %or.cond.i60, label %if.then.i63, label %_ZNK8facebook5velox9Timestamp8toMillisEv.exit64
 
 if.then.i63:                                      ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit
@@ -21047,10 +21047,10 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit64:  ; preds = %_ZNK8facebook5velox
   %div5.i.i = udiv i32 %conv2.i.i, 36524
   %div7.i.i = udiv i32 %conv2.i.i, 146096
   %.neg = add i32 %div5.i.i, %conv2.i.i
-  %4 = add nuw nsw i32 %div7.i.i, %div3.i.i
-  %sub8.i.i = sub i32 %.neg, %4
+  %5 = add nuw nsw i32 %div7.i.i, %div3.i.i
+  %sub8.i.i = sub i32 %.neg, %5
   %div9.i.i = udiv i32 %sub8.i.i, 365
-  %5 = trunc nsw i64 %div.i.i to i32
+  %6 = trunc nsw i64 %div.i.i to i32
   %div15.i.i = udiv i32 %sub8.i.i, 1460
   %div17.i.i = udiv i32 %sub8.i.i, 36500
   %mul14.neg.i.i = mul i32 %div9.i.i, -365
@@ -21067,9 +21067,9 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit64:  ; preds = %_ZNK8facebook5velox
   %cond34.v.i.i = select i1 %cmp28.i.i, i32 3, i32 -9
   %cond34.i.i = add nsw i32 %cond34.v.i.i, %div22.i.i
   %cmp35.i.i = icmp ult i32 %cond34.i.i, 3
-  %conv36.i.i.neg207 = sext i1 %cmp35.i.i to i32
+  %conv36.i.i.neg204 = sext i1 %cmp35.i.i to i32
   %sub26.i.i = add i32 %sub19.i.i, 1
-  %6 = sub i32 %sub26.i.i, %div25.i.i
+  %7 = sub i32 %sub26.i.i, %div25.i.i
   %conv.i.i75 = sext i32 %spec.select.i.i73 to i64
   %add.i.i76 = add nsw i64 %conv.i.i75, 719468
   %cmp.i.i77 = icmp sgt i32 %spec.select.i.i73, -719469
@@ -21082,13 +21082,13 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit64:  ; preds = %_ZNK8facebook5velox
   %div3.i.i84 = udiv i32 %conv2.i.i83, 1460
   %div5.i.i85 = udiv i32 %conv2.i.i83, 36524
   %div7.i.i86 = udiv i32 %conv2.i.i83, 146096
-  %.neg205 = add i32 %div5.i.i85, %conv2.i.i83
-  %7 = add nuw nsw i32 %div7.i.i86, %div3.i.i84
-  %sub8.i.i88 = sub i32 %.neg205, %7
+  %.neg202 = add i32 %div5.i.i85, %conv2.i.i83
+  %8 = add nuw nsw i32 %div7.i.i86, %div3.i.i84
+  %sub8.i.i88 = sub i32 %.neg202, %8
   %div9.i.i89 = udiv i32 %sub8.i.i88, 365
-  %8 = trunc nsw i64 %div.i.i80 to i32
-  %9 = mul nsw i32 %8, 400
-  %conv13.i.i90 = add nsw i32 %div9.i.i89, %9
+  %9 = trunc nsw i64 %div.i.i80 to i32
+  %10 = mul nsw i32 %9, 400
+  %conv13.i.i90 = add nsw i32 %div9.i.i89, %10
   %div15.i.i91 = udiv i32 %sub8.i.i88, 1460
   %div17.i.i92 = udiv i32 %sub8.i.i88, 36500
   %mul14.neg.i.i93 = mul i32 %div9.i.i89, -365
@@ -21108,22 +21108,22 @@ _ZNK8facebook5velox9Timestamp8toMillisEv.exit64:  ; preds = %_ZNK8facebook5velox
   %conv36.i.i107 = zext i1 %cmp35.i.i106 to i32
   %add37.i.i108 = add nsw i32 %conv13.i.i90, %conv36.i.i107
   %sub26.i.i109 = add i32 %sub19.i.i96, 1
-  %10 = sub i32 %sub26.i.i109, %div25.i.i102
+  %11 = sub i32 %sub26.i.i109, %div25.i.i102
   %toCalDate.i.sroa.3.0.extract.trunc = trunc i32 %cond34.i.i105 to i8
   %mul.i.i.i.neg.i.i = mul nsw i64 %conv.i.i, -86400000
   %sub.i.i119 = add i64 %mul.i.i.i.neg.i.i, %conv7.i
   %mul.i.i.i.neg.i.i123 = mul nsw i64 %conv.i.i75, -86400000
   %sub.i.i124 = add i64 %mul.i.i.i.neg.i.i123, %conv7.i62
-  %conv.i125 = and i32 %6, 255
+  %conv.i125 = and i32 %7, 255
   %conv.i127 = and i32 %cond34.i.i, 255
-  %conv.i130 = and i32 %10, 255
+  %conv.i130 = and i32 %11, 255
   %conv.i133 = and i32 %cond34.i.i105, 255
   %cmp.i.i.not.i.i = icmp eq i8 %toCalDate.i.sroa.3.0.extract.trunc, 2
   br i1 %cmp.i.i.not.i.i, label %lor.lhs.false.i.i, label %land.lhs.true.i.i
 
 lor.lhs.false.i.i:                                ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit64
-  %11 = and i32 %add37.i.i108, 3
-  %cmp.i.i.i = icmp eq i32 %11, 0
+  %12 = and i32 %add37.i.i108, 3
+  %cmp.i.i.i = icmp eq i32 %12, 0
   br i1 %cmp.i.i.i, label %land.rhs.i.i.i, label %cond.true.i.i
 
 land.rhs.i.i.i:                                   ; preds = %lor.lhs.false.i.i
@@ -21135,24 +21135,24 @@ land.rhs.i.i.i:                                   ; preds = %lor.lhs.false.i.i
   br i1 %or.cond.i.i, label %_ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit, label %cond.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %_ZNK8facebook5velox9Timestamp8toMillisEv.exit64
-  %12 = add i8 %toCalDate.i.sroa.3.0.extract.trunc, -1
-  %spec.select.i.i.i.i = icmp ult i8 %12, 12
+  %13 = add i8 %toCalDate.i.sroa.3.0.extract.trunc, -1
+  %spec.select.i.i.i.i = icmp ult i8 %13, 12
   br i1 %spec.select.i.i.i.i, label %cond.true.i.i, label %_ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i, %land.rhs.i.i.i, %lor.lhs.false.i.i
-  %13 = add nsw i32 %conv.i133, -1
-  %idxprom.i.i = zext i32 %13 to i64
+  %14 = add nsw i32 %conv.i133, -1
+  %idxprom.i.i = zext i32 %14 to i64
   %arrayidx.i.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
-  %14 = load i8, ptr %arrayidx.i.i, align 1
-  %15 = zext i8 %14 to i32
+  %15 = load i8, ptr %arrayidx.i.i, align 1
+  %16 = zext i8 %15 to i32
   br label %_ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit
 
 _ZN4date14year_month_dayC2ERKNS_19year_month_day_lastE.exit: ; preds = %land.rhs.i.i.i, %land.lhs.true.i.i, %cond.true.i.i
-  %retval.sroa.0.0.i.i = phi i32 [ %15, %cond.true.i.i ], [ 29, %land.lhs.true.i.i ], [ 29, %land.rhs.i.i.i ]
-  %.neg206 = mul nsw i32 %5, -400
-  %conv13.i.i.neg = add nsw i32 %.neg206, %add37.i.i108
+  %retval.sroa.0.0.i.i = phi i32 [ %16, %cond.true.i.i ], [ 29, %land.lhs.true.i.i ], [ 29, %land.rhs.i.i.i ]
+  %.neg203 = mul nsw i32 %6, -400
+  %conv13.i.i.neg = add nsw i32 %.neg203, %add37.i.i108
   %add37.i.i.neg = sub nsw i32 %conv13.i.i.neg, %div9.i.i
-  %sub.i = add nsw i32 %add37.i.i.neg, %conv36.i.i.neg207
+  %sub.i = add nsw i32 %add37.i.i.neg, %conv36.i.i.neg204
   %mul129.i = mul nsw i32 %sub.i, 12
   %add.i = sub nsw i32 %conv.i133, %conv.i127
   %sub132.i = add nsw i32 %add.i, %mul129.i
@@ -21174,19 +21174,19 @@ if.then146.i:                                     ; preds = %lor.lhs.false140.i,
 
 cond.end.i:                                       ; preds = %if.then146.i, %lor.lhs.false140.i
   %diff.i.0 = phi i64 [ %dec.i, %if.then146.i ], [ %conv133.i, %lor.lhs.false140.i ]
-  %16 = sub nsw i64 0, %diff.i.0
-  %mul151.i = select i1 %1, i64 %diff.i.0, i64 %16
-  %17 = trunc i64 %mul151.i to i32
+  %17 = sub nsw i64 0, %diff.i.0
+  %mul151.i = select i1 %2, i64 %diff.i.0, i64 %17
+  %18 = trunc i64 %mul151.i to i32
   br label %_ZN8facebook5velox9functions13diffTimestampENS1_12_GLOBAL__N_112DateTimeUnitERKNS0_9TimestampES6_.exit
 
 _ZN8facebook5velox9functions13diffTimestampENS1_12_GLOBAL__N_112DateTimeUnitERKNS0_9TimestampES6_.exit: ; preds = %entry, %cond.end.i
-  %retval.i.0 = phi i32 [ %17, %cond.end.i ], [ 0, %entry ]
-  %div208 = sdiv i32 %retval.i.0, %step
-  %div.sext = sext i32 %div208 to i64
+  %retval.i.0 = phi i32 [ %18, %cond.end.i ], [ 0, %entry ]
+  %div205 = sdiv i32 %retval.i.0, %step
+  %div.sext = sext i32 %div205 to i64
   %add = add nsw i64 %div.sext, 1
-  %18 = ashr i64 %add, 63
+  %19 = ashr i64 %add, 63
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %add, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %18, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %19, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

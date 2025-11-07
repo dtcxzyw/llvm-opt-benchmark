@@ -4111,18 +4111,18 @@ ubidi_getCustomizedClass_77.exit.i:               ; preds = %108, %104
   %trunc.i = select i1 %110, i8 10, i8 %111
   switch i8 %trunc.i, label %77 [
     i8 0, label %_ZL10lastL_R_ALP5UBiDi.exit
-    i8 13, label %_ZL10lastL_R_ALP5UBiDi.exit.loopexit283
-    i8 1, label %_ZL10lastL_R_ALP5UBiDi.exit.loopexit283
+    i8 13, label %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286
+    i8 1, label %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286
     i8 7, label %_ZL10lastL_R_ALP5UBiDi.exit.loopexit
   ]
 
 _ZL10lastL_R_ALP5UBiDi.exit.loopexit:             ; preds = %77, %ubidi_getCustomizedClass_77.exit.i
   br label %_ZL10lastL_R_ALP5UBiDi.exit
 
-_ZL10lastL_R_ALP5UBiDi.exit.loopexit283:          ; preds = %ubidi_getCustomizedClass_77.exit.i, %ubidi_getCustomizedClass_77.exit.i
+_ZL10lastL_R_ALP5UBiDi.exit.loopexit286:          ; preds = %ubidi_getCustomizedClass_77.exit.i, %ubidi_getCustomizedClass_77.exit.i
   br label %_ZL10lastL_R_ALP5UBiDi.exit
 
-_ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomizedClass_77.exit.i, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit283, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit, %68, %46
+_ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomizedClass_77.exit.i, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit286, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit, %68, %46
   %.0 = phi i8 [ %3, %68 ], [ %3, %46 ], [ %3, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit ], [ 1, %_ZL10lastL_R_ALP5UBiDi.exit.loopexit283 ], [ 0, %ubidi_getCustomizedClass_77.exit.i ]
   %112 = getelementptr inbounds i8, ptr %8, i64 %53
   %113 = load i8, ptr %112, align 1, !tbaa !59
@@ -4160,8 +4160,8 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   store i32 -1, ptr %135, align 8, !tbaa !129
   %136 = icmp eq i8 %113, 17
   %narrow = add nuw nsw i8 %.0, 1
-  %narrow221 = select i1 %136, i8 %narrow, i8 0
-  %.1186 = zext nneg i8 %narrow221 to i16
+  %narrow224 = select i1 %136, i8 %narrow, i8 0
+  %.1186 = zext nneg i8 %narrow224 to i16
   %137 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 0, ptr %137, align 4, !tbaa !133
   call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext %.0, i32 noundef %1, i32 noundef %1)
@@ -4170,8 +4170,8 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
 138:                                              ; preds = %134, %119
   %.0185 = phi i16 [ %129, %119 ], [ %.1186, %134 ]
   %.0177 = phi i32 [ %127, %119 ], [ %1, %134 ]
-  %.not195227 = icmp sgt i32 %1, %2
-  br i1 %.not195227, label %.critedge._crit_edge, label %.lr.ph
+  %.not195230 = icmp sgt i32 %1, %2
+  br i1 %.not195230, label %.critedge._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %138
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 324
@@ -4182,35 +4182,35 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   br label %143
 
 143:                                              ; preds = %.lr.ph, %194
-  %indvars.iv244 = phi i64 [ %53, %.lr.ph ], [ %indvars.iv.next245, %194 ]
-  %.0168235 = phi i32 [ -1, %.lr.ph ], [ %.1169, %194 ]
-  %.0170234 = phi i8 [ 1, %.lr.ph ], [ %.1171, %194 ]
-  %.1178230 = phi i32 [ %.0177, %.lr.ph ], [ %.2179, %194 ]
-  %.0180229 = phi i32 [ %1, %.lr.ph ], [ %.1181, %194 ]
-  %.2187228 = phi i16 [ %.0185, %.lr.ph ], [ %181, %194 ]
-  %.not196 = icmp slt i64 %indvars.iv244, %140
-  br i1 %.not196, label %156, label %.preheader222
+  %indvars.iv247 = phi i64 [ %53, %.lr.ph ], [ %indvars.iv.next248, %194 ]
+  %.0168238 = phi i32 [ -1, %.lr.ph ], [ %.1169, %194 ]
+  %.0170237 = phi i8 [ 1, %.lr.ph ], [ %.1171, %194 ]
+  %.1178233 = phi i32 [ %.0177, %.lr.ph ], [ %.2179, %194 ]
+  %.0180232 = phi i32 [ %1, %.lr.ph ], [ %.1181, %194 ]
+  %.2187231 = phi i16 [ %.0185, %.lr.ph ], [ %181, %194 ]
+  %.not196 = icmp slt i64 %indvars.iv247, %140
+  br i1 %.not196, label %156, label %.preheader225
 
-.preheader222:                                    ; preds = %143, %145
+.preheader225:                                    ; preds = %143, %145
   %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ %140, %143 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %144 = icmp sgt i64 %indvars.iv.next, %53
   br i1 %144, label %145, label %.critedge
 
-145:                                              ; preds = %.preheader222
+145:                                              ; preds = %.preheader225
   %146 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next
   %147 = load i8, ptr %146, align 1, !tbaa !59
   %148 = zext nneg i8 %147 to i64
   %149 = shl nuw i64 1, %148
   %150 = and i64 %149, 382976
   %.not198 = icmp eq i64 %150, 0
-  br i1 %.not198, label %.critedge.split.loop.exit270, label %.preheader222, !llvm.loop !134
+  br i1 %.not198, label %.critedge.split.loop.exit273, label %.preheader225, !llvm.loop !134
 
-.critedge.split.loop.exit270:                     ; preds = %145
+.critedge.split.loop.exit273:                     ; preds = %145
   %151 = trunc nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader222, %.critedge.split.loop.exit270
+.critedge:                                        ; preds = %.preheader225, %.critedge.split.loop.exit273
   %.0167.lcssa = phi i32 [ %151, %.critedge.split.loop.exit270 ], [ %smin, %.preheader222 ]
   %152 = sext i32 %.0167.lcssa to i64
   %153 = getelementptr inbounds i8, ptr %8, i64 %152
@@ -4220,7 +4220,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   br i1 %or.cond, label %.critedge._crit_edge, label %174
 
 156:                                              ; preds = %143
-  %157 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv244
+  %157 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv247
   %158 = load i8, ptr %157, align 1, !tbaa !59
   %159 = icmp eq i8 %158, 7
   br i1 %159, label %160, label %161
@@ -4239,18 +4239,18 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   ]
 
 163:                                              ; preds = %162
-  %164 = sext i32 %.0168235 to i64
-  %.not197 = icmp slt i64 %indvars.iv244, %164
+  %164 = sext i32 %.0168238 to i64
+  %.not197 = icmp slt i64 %indvars.iv247, %164
   br i1 %.not197, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %163, %166
-  %indvars.iv246 = phi i64 [ %indvars.iv.next247, %166 ], [ %indvars.iv244, %163 ]
-  %indvars.iv.next247 = add nsw i64 %indvars.iv246, 1
-  %165 = icmp slt i64 %indvars.iv.next247, %140
+  %indvars.iv249 = phi i64 [ %indvars.iv.next250, %166 ], [ %indvars.iv247, %163 ]
+  %indvars.iv.next250 = add nsw i64 %indvars.iv249, 1
+  %165 = icmp slt i64 %indvars.iv.next250, %140
   br i1 %165, label %166, label %.thread
 
 166:                                              ; preds = %.preheader
-  %167 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next247
+  %167 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next250
   %168 = load i8, ptr %167, align 1, !tbaa !59
   switch i8 %168, label %.preheader [
     i8 13, label %.loopexit.loopexit
@@ -4259,24 +4259,24 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   ], !llvm.loop !135
 
 .loopexit.loopexit:                               ; preds = %166, %166, %166
-  %169 = trunc nsw i64 %indvars.iv.next247 to i32
+  %169 = trunc nsw i64 %indvars.iv.next250 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %163
-  %.3173 = phi i8 [ %.0170234, %163 ], [ %168, %.loopexit.loopexit ]
-  %.3 = phi i32 [ %.0168235, %163 ], [ %169, %.loopexit.loopexit ]
+  %.3173 = phi i8 [ %.0170237, %163 ], [ %168, %.loopexit.loopexit ]
+  %.3 = phi i32 [ %.0168238, %163 ], [ %169, %.loopexit.loopexit ]
   %.3173.fr = freeze i8 %.3173
   %170 = icmp eq i8 %.3173.fr, 13
-  %spec.select220 = select i1 %170, i8 5, i8 2
+  %spec.select223 = select i1 %170, i8 5, i8 2
   br label %.thread
 
 .fold.split:                                      ; preds = %162
   br label %.thread
 
 .thread:                                          ; preds = %.preheader, %.loopexit, %162, %.fold.split, %161
-  %.2172 = phi i8 [ %.0170234, %161 ], [ %.0170234, %162 ], [ %.0170234, %.fold.split ], [ %.3173.fr, %.loopexit ], [ 1, %.preheader ]
-  %.2 = phi i32 [ %.0168235, %161 ], [ %.0168235, %162 ], [ %.0168235, %.fold.split ], [ %.3, %.loopexit ], [ %2, %.preheader ]
-  %.0165 = phi i8 [ %158, %161 ], [ 1, %162 ], [ %158, %.fold.split ], [ %spec.select220, %.loopexit ], [ 2, %.preheader ]
+  %.2172 = phi i8 [ %.0170237, %161 ], [ %.0170237, %162 ], [ %.0170237, %.fold.split ], [ %.3173.fr, %.loopexit ], [ 1, %.preheader ]
+  %.2 = phi i32 [ %.0168238, %161 ], [ %.0168238, %162 ], [ %.0168238, %.fold.split ], [ %.3, %.loopexit ], [ %2, %.preheader ]
+  %.0165 = phi i8 [ %158, %161 ], [ 1, %162 ], [ %158, %.fold.split ], [ %spec.select223, %.loopexit ], [ 2, %.preheader ]
   %171 = zext i8 %.0165 to i64
   %172 = getelementptr inbounds nuw i8, ptr @_ZL9groupProp, i64 %171
   %173 = load i8, ptr %172, align 1, !tbaa !59
@@ -4284,9 +4284,9 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
 
 174:                                              ; preds = %.critedge, %.thread
   %.2184 = phi i8 [ %4, %.critedge ], [ %173, %.thread ]
-  %.1171 = phi i8 [ %.0170234, %.critedge ], [ %.2172, %.thread ]
-  %.1169 = phi i32 [ %.0168235, %.critedge ], [ %.2, %.thread ]
-  %175 = zext i16 %.2187228 to i64
+  %.1171 = phi i8 [ %.0170237, %.critedge ], [ %.2172, %.thread ]
+  %.1169 = phi i32 [ %.0168238, %.critedge ], [ %.2, %.thread ]
+  %175 = zext i16 %.2187231 to i64
   %176 = getelementptr inbounds nuw [16 x i8], ptr @_ZL11impTabProps, i64 %175
   %177 = zext i8 %.2184 to i64
   %178 = getelementptr inbounds nuw i8, ptr %176, i64 %177
@@ -4295,7 +4295,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   %181 = zext nneg i8 %180 to i16
   %182 = lshr i8 %179, 5
   %183 = zext nneg i8 %182 to i16
-  %184 = icmp eq i64 %indvars.iv244, %140
+  %184 = icmp eq i64 %indvars.iv247, %140
   %185 = icmp ult i8 %179, 32
   %or.cond11 = select i1 %184, i1 %185, i1 false
   %spec.store.select = select i1 %or.cond11, i16 1, i16 %183
@@ -4305,7 +4305,7 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
 186:                                              ; preds = %174
   %187 = getelementptr inbounds nuw i8, ptr %176, i64 15
   %188 = load i8, ptr %187, align 1, !tbaa !59
-  %189 = trunc nsw i64 %indvars.iv244 to i32
+  %189 = trunc nsw i64 %indvars.iv247 to i32
   switch i16 %spec.store.select, label %193 [
     i16 1, label %190
     i16 2, label %194
@@ -4314,16 +4314,16 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   ]
 
 190:                                              ; preds = %186
-  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext %188, i32 noundef %.1178230, i32 noundef %189)
+  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext %188, i32 noundef %.1178233, i32 noundef %189)
   br label %194
 
 191:                                              ; preds = %186
-  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext %188, i32 noundef %.1178230, i32 noundef %.0180229)
-  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext 4, i32 noundef %.0180229, i32 noundef %189)
+  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext %188, i32 noundef %.1178233, i32 noundef %.0180232)
+  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext 4, i32 noundef %.0180232, i32 noundef %189)
   br label %194
 
 192:                                              ; preds = %186
-  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext %188, i32 noundef %.1178230, i32 noundef %.0180229)
+  call fastcc void @_ZL18processPropertySeqP5UBiDiP8LevStatehii(ptr noundef %0, ptr noundef %6, i8 noundef zeroext %188, i32 noundef %.1178233, i32 noundef %.0180232)
   br label %194
 
 193:                                              ; preds = %186
@@ -4331,16 +4331,16 @@ _ZL10lastL_R_ALP5UBiDi.exit:                      ; preds = %ubidi_getCustomized
   unreachable
 
 194:                                              ; preds = %186, %174, %192, %191, %190
-  %.1181 = phi i32 [ %.0180229, %190 ], [ %.0180229, %191 ], [ %189, %192 ], [ %.0180229, %174 ], [ %189, %186 ]
-  %.2179 = phi i32 [ %189, %190 ], [ %189, %191 ], [ %.0180229, %192 ], [ %.1178230, %174 ], [ %.1178230, %186 ]
-  %indvars.iv.next245 = add nsw i64 %indvars.iv244, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next245 to i32
+  %.1181 = phi i32 [ %.0180232, %190 ], [ %.0180232, %191 ], [ %189, %192 ], [ %.0180232, %174 ], [ %189, %186 ]
+  %.2179 = phi i32 [ %189, %190 ], [ %189, %191 ], [ %.0180232, %192 ], [ %.1178233, %174 ], [ %.1178233, %186 ]
+  %indvars.iv.next248 = add nsw i64 %indvars.iv247, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next248 to i32
   %exitcond.not = icmp eq i32 %142, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge._crit_edge, label %143, !llvm.loop !136
 
 .critedge._crit_edge:                             ; preds = %194, %.critedge, %138
-  %.2187.lcssa = phi i16 [ %.0185, %138 ], [ %.2187228, %.critedge ], [ %181, %194 ]
-  %.1178.lcssa = phi i32 [ %.0177, %138 ], [ %.1178230, %.critedge ], [ %.2179, %194 ]
+  %.2187.lcssa = phi i16 [ %.0185, %138 ], [ %.2187231, %.critedge ], [ %181, %194 ]
+  %.1178.lcssa = phi i32 [ %.0177, %138 ], [ %.1178233, %.critedge ], [ %.2179, %194 ]
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %196 = load i32, ptr %195, align 4, !tbaa !51
   %197 = icmp eq i32 %2, %196
@@ -4422,40 +4422,40 @@ ubidi_getCustomizedClass_77.exit.i208:            ; preds = %236, %232
     i8 5, label %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit274
   ]
 
-_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit274:   ; preds = %ubidi_getCustomizedClass_77.exit.i208
+_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit277:   ; preds = %ubidi_getCustomizedClass_77.exit.i208
   br label %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit
 
 _ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit:      ; preds = %ubidi_getCustomizedClass_77.exit.i208, %ubidi_getCustomizedClass_77.exit.i208
   br label %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit
 
-_ZL17firstL_R_AL_EN_ANP5UBiDi.exit:               ; preds = %207, %ubidi_getCustomizedClass_77.exit.i208, %ubidi_getCustomizedClass_77.exit.i208, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit274, %198, %.critedge._crit_edge
+_ZL17firstL_R_AL_EN_ANP5UBiDi.exit:               ; preds = %207, %ubidi_getCustomizedClass_77.exit.i208, %ubidi_getCustomizedClass_77.exit.i208, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit277, %198, %.critedge._crit_edge
   %.0163 = phi i8 [ %4, %198 ], [ %4, %.critedge._crit_edge ], [ 3, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit274 ], [ %trunc.i210, %ubidi_getCustomizedClass_77.exit.i208 ], [ %trunc.i210, %ubidi_getCustomizedClass_77.exit.i208 ], [ %4, %207 ], [ 1, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit.loopexit ]
   %240 = sext i32 %2 to i64
   %241 = add i32 %2, -1
-  %smin251 = tail call i32 @llvm.smin.i32(i32 %1, i32 %241)
+  %smin254 = tail call i32 @llvm.smin.i32(i32 %1, i32 %241)
   br label %242
 
 242:                                              ; preds = %244, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit
-  %indvars.iv249 = phi i64 [ %indvars.iv.next250, %244 ], [ %240, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit ]
-  %indvars.iv.next250 = add nsw i64 %indvars.iv249, -1
-  %243 = icmp sgt i64 %indvars.iv.next250, %53
+  %indvars.iv252 = phi i64 [ %indvars.iv.next253, %244 ], [ %240, %_ZL17firstL_R_AL_EN_ANP5UBiDi.exit ]
+  %indvars.iv.next253 = add nsw i64 %indvars.iv252, -1
+  %243 = icmp sgt i64 %indvars.iv.next253, %53
   br i1 %243, label %244, label %.critedge13
 
 244:                                              ; preds = %242
-  %245 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next250
+  %245 = getelementptr inbounds i8, ptr %8, i64 %indvars.iv.next253
   %246 = load i8, ptr %245, align 1, !tbaa !59
   %247 = zext nneg i8 %246 to i64
   %248 = shl nuw i64 1, %247
   %249 = and i64 %248, 382976
   %.not200 = icmp eq i64 %249, 0
-  br i1 %.not200, label %.critedge13.split.loop.exit272, label %242, !llvm.loop !137
+  br i1 %.not200, label %.critedge13.split.loop.exit275, label %242, !llvm.loop !137
 
-.critedge13.split.loop.exit272:                   ; preds = %244
-  %250 = trunc nsw i64 %indvars.iv.next250 to i32
+.critedge13.split.loop.exit275:                   ; preds = %244
+  %250 = trunc nsw i64 %indvars.iv.next253 to i32
   br label %.critedge13
 
-.critedge13:                                      ; preds = %242, %.critedge13.split.loop.exit272
-  %.1176.lcssa = phi i32 [ %250, %.critedge13.split.loop.exit272 ], [ %smin251, %242 ]
+.critedge13:                                      ; preds = %242, %.critedge13.split.loop.exit275
+  %.1176.lcssa = phi i32 [ %250, %.critedge13.split.loop.exit272 ], [ %smin254, %242 ]
   %251 = sext i32 %.1176.lcssa to i64
   %252 = getelementptr inbounds i8, ptr %8, i64 %251
   %253 = load i8, ptr %252, align 1, !tbaa !59

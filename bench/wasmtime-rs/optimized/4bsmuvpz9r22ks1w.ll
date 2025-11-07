@@ -10466,7 +10466,7 @@ _ZN17cranelift_codegen2ir5types4Type5bytes17h2a049200537afc31E.exit344: ; preds 
   ]
 
 .invoke1166.loopexit1377:                         ; preds = %436, %460
-  %.ph = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.195, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.195, %436 ]
+  %.ph1378 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.195, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.195, %436 ]
   %.ph1378 = phi i64 [ 19, %460 ], [ 19, %436 ]
   %.ph1379 = phi ptr [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.198, %460 ], [ @anon.7173b3c5b10b09ddf4bd2faf440a3554.196, %436 ]
   br label %.invoke1166

@@ -3980,8 +3980,8 @@ define dso_local i32 @nfs4_discover_server_trunking(ptr noundef %0, ptr noundef 
     i32 -10017, label %.loopexit
     i32 -10016, label %.loopexit
     i32 -10021, label %.thread.loopexit
-    i32 -127, label %.thread.loopexit84
-    i32 -10027, label %.thread.loopexit84
+    i32 -127, label %.thread.loopexit88
+    i32 -10027, label %.thread.loopexit88
   ]
 
 29:                                               ; preds = %28
@@ -4024,9 +4024,9 @@ define dso_local i32 @nfs4_discover_server_trunking(ptr noundef %0, ptr noundef 
 .loopexit:                                        ; preds = %28, %28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %14, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %.pre44 = load i32, ptr %.phi.trans.insert43, align 8
-  %51 = icmp eq i32 %.pre44, 1
+  %.phi.trans.insert45 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %.pre46 = load i32, ptr %.phi.trans.insert45, align 8
+  %51 = icmp eq i32 %.pre46, 1
   br i1 %51, label %.thread, label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %44, %.loopexit
@@ -4055,10 +4055,10 @@ define dso_local i32 @nfs4_discover_server_trunking(ptr noundef %0, ptr noundef 
 .thread.loopexit:                                 ; preds = %28
   br label %.thread
 
-.thread.loopexit84:                               ; preds = %28, %28
+.thread.loopexit88:                               ; preds = %28, %28
   br label %.thread
 
-.thread:                                          ; preds = %.loopexit, %44, %58, %39, %29, %34, %28, %28, %28, %.thread.loopexit84, %.thread.loopexit, %2, %63, %55
+.thread:                                          ; preds = %.loopexit, %44, %58, %39, %29, %34, %28, %28, %28, %.thread.loopexit88, %.thread.loopexit, %2, %63, %55
   %65 = phi i32 [ -5, %63 ], [ %57, %55 ], [ -2, %2 ], [ -93, %.thread.loopexit ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ -110, %29 ], [ -2, %34 ], [ -127, %.thread.loopexit84 ], [ -2, %39 ], [ -2, %58 ], [ -13, %44 ], [ -1, %.loopexit ]
   tail call void @mutex_unlock(ptr noundef nonnull @nfs_clid_init_mutex) #17
   ret i32 %65

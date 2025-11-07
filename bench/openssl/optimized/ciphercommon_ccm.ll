@@ -605,7 +605,7 @@ define internal fastcc range(i32 0, 2) i32 @ccm_cipher_internal(ptr noundef %0, 
   %8 = load i8, ptr %0, align 8
   %9 = and i8 %8, 2
   %.not = icmp eq i8 %9, 0
-  br i1 %.not, label %129, label %10
+  br i1 %.not, label %128, label %10
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -740,7 +740,7 @@ ccm_set_iv.exit:                                  ; preds = %78
   %85 = load i8, ptr %0, align 8
   %86 = or i8 %85, 16
   store i8 %86, ptr %0, align 8
-  br label %128
+  br label %.sink.split
 
 87:                                               ; preds = %77
   %88 = and i8 %8, 16
@@ -818,16 +818,16 @@ ccm_set_iv.exit68:                                ; preds = %97
   store i8 %127, ptr %0, align 8
   br label %.sink.split
 
-128:                                              ; preds = %ccm_set_iv.exit, %91
+.sink.split:                                      ; preds = %ccm_set_iv.exit, %91
   br label %.sink.split
 
-.sink.split:                                      ; preds = %128, %73, %87, %91, %109, %116, %118, %125, %113, %70, %78, %97, %65, %61, %56, %40, %28, %17, %13
+.sink.split:; preds = %.sink.split, %73, %87, %91, %109, %116, %118, %125, %113, %70, %78, %97, %65, %61, %56, %40, %28, %17, %13
   %.1.sink = phi i64 [ 0, %13 ], [ 0, %17 ], [ 0, %56 ], [ 0, %40 ], [ %64, %61 ], [ %spec.select54.i, %65 ], [ 0, %28 ], [ 0, %87 ], [ 0, %91 ], [ 0, %109 ], [ 0, %118 ], [ 0, %116 ], [ 0, %73 ], [ %4, %125 ], [ %4, %113 ], [ 0, %70 ], [ %4, %128 ], [ 0, %78 ], [ 0, %97 ]
   %.0.ph = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %56 ], [ 0, %40 ], [ 1, %61 ], [ %spec.select.i, %65 ], [ 0, %28 ], [ 0, %87 ], [ 0, %91 ], [ 0, %109 ], [ 0, %118 ], [ 0, %116 ], [ 0, %73 ], [ 1, %125 ], [ 1, %113 ], [ 1, %70 ], [ 1, %128 ], [ 0, %78 ], [ 0, %97 ]
   store i64 %.1.sink, ptr %2, align 8, !tbaa !19
-  br label %129
+  br label %128
 
-129:                                              ; preds = %.sink.split, %5
+128:                                              ; preds = %.sink.split, %5
   %.0 = phi i32 [ 0, %5 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

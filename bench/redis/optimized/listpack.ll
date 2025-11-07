@@ -2059,7 +2059,7 @@ define internal fastcc range(i32 0, 2) i32 @lpEncodeGetType(ptr noundef nonnull 
 
 10:                                               ; preds = %7
   switch i8 %9, label %.thread73.i [
-    i8 48, label %lpStringToInt64.exit.thread24
+    i8 48, label %lpStringToInt64.exit.thread20
     i8 45, label %.loopexit.thread
   ]
 
@@ -2083,12 +2083,12 @@ define internal fastcc range(i32 0, 2) i32 @lpEncodeGetType(ptr noundef nonnull 
 .thread73.i:                                      ; preds = %10
   %15 = add i8 %9, -49
   %or.cond5677.i = icmp ult i8 %15, 9
-  br i1 %or.cond5677.i, label %lpStringToInt64.exit.thread19, label %.loopexit.thread
+  br i1 %or.cond5677.i, label %.thread90.i, label %.loopexit.thread
 
-lpStringToInt64.exit.thread19:                    ; preds = %.thread73.i
+.thread90.i:                                      ; preds = %.thread73.i
   %narrow85.i = add nsw i8 %9, -48
   %16 = zext nneg i8 %narrow85.i to i64
-  br label %lpStringToInt64.exit.thread24
+  br label %lpStringToInt64.exit.thread20
 
 17:                                               ; preds = %12
   %narrow.i = add nsw i8 %13, -48
@@ -2139,26 +2139,26 @@ lpStringToInt64.exit.thread19:                    ; preds = %.thread73.i
   br i1 %36, label %.loopexit, label %lpStringToInt64.exit
 
 lpStringToInt64.exit:                             ; preds = %35, %33
-  %.015 = phi i64 [ %34, %33 ], [ %.0.lcssa.i, %35 ]
-  %or.cond.i13 = icmp ult i64 %.015, 128
-  br i1 %or.cond.i13, label %lpStringToInt64.exit.thread24, label %40
+  %.sink.i = phi i64 [ %34, %33 ], [ %.0.lcssa.i, %35 ]
+  %or.cond.i13 = icmp ult i64 %.sink.i, 128
+  br i1 %or.cond.i13, label %lpStringToInt64.exit.thread20, label %40
 
-lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt64.exit.thread19, %lpStringToInt64.exit
-  %.01523 = phi i64 [ %16, %lpStringToInt64.exit.thread19 ], [ %.015, %lpStringToInt64.exit ], [ 0, %10 ]
+lpStringToInt64.exit.thread20:                    ; preds = %10, %.thread90.i, %lpStringToInt64.exit
+  %.sink.i23 = phi i64 [ %16, %lpStringToInt64.exit.thread19 ], [ %.sink.i, %lpStringToInt64.exit ], [ 0, %10 ]
   %.not110.i = icmp eq ptr %2, null
   br i1 %.not110.i, label %39, label %37
 
-37:                                               ; preds = %lpStringToInt64.exit.thread24
-  %38 = trunc nuw nsw i64 %.01523 to i8
+37:                                               ; preds = %lpStringToInt64.exit.thread20
+  %38 = trunc nuw nsw i64 %.sink.i23 to i8
   store i8 %38, ptr %2, align 1, !tbaa !5
   br label %39
 
-39:                                               ; preds = %37, %lpStringToInt64.exit.thread24
+39:                                               ; preds = %37, %lpStringToInt64.exit.thread20
   %.not111.i = icmp eq ptr %3, null
   br i1 %.not111.i, label %lpEncodeIntegerGetType.exit, label %lpEncodeIntegerGetType.exit.sink.split
 
 40:                                               ; preds = %lpStringToInt64.exit
-  %41 = add i64 %.015, 4096
+  %41 = add i64 %.sink.i, 4096
   %or.cond3.i = icmp ult i64 %41, 8192
   br i1 %or.cond3.i, label %42, label %52
 
@@ -2167,14 +2167,14 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
   br i1 %.not108.i, label %51, label %43
 
 43:                                               ; preds = %42
-  %44 = lshr i64 %.015, 50
+  %44 = lshr i64 %.sink.i, 50
   %45 = and i64 %44, 8192
-  %spec.select.i = add nsw i64 %45, %.015
+  %spec.select.i = add nsw i64 %45, %.sink.i
   %46 = lshr i64 %spec.select.i, 8
   %47 = trunc nuw nsw i64 %46 to i8
   %48 = or i8 %47, -64
   store i8 %48, ptr %2, align 1, !tbaa !5
-  %49 = trunc i64 %.015 to i8
+  %49 = trunc i64 %.sink.i to i8
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %49, ptr %50, align 1, !tbaa !5
   br label %51
@@ -2184,7 +2184,7 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
   br i1 %.not109.i, label %lpEncodeIntegerGetType.exit, label %lpEncodeIntegerGetType.exit.sink.split
 
 52:                                               ; preds = %40
-  %53 = add i64 %.015, 32768
+  %53 = add i64 %.sink.i, 32768
   %or.cond5.i = icmp ult i64 %53, 65536
   br i1 %or.cond5.i, label %54, label %59
 
@@ -2195,7 +2195,7 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
 55:                                               ; preds = %54
   store i8 -15, ptr %2, align 1, !tbaa !5
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %57 = trunc nsw i64 %.015 to i16
+  %57 = trunc nsw i64 %.sink.i to i16
   store i16 %57, ptr %56, align 1
   br label %58
 
@@ -2204,7 +2204,7 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
   br i1 %.not107.i, label %lpEncodeIntegerGetType.exit, label %lpEncodeIntegerGetType.exit.sink.split
 
 59:                                               ; preds = %52
-  %60 = add i64 %.015, 8388608
+  %60 = add i64 %.sink.i, 8388608
   %or.cond7.i = icmp ult i64 %60, 16777216
   br i1 %or.cond7.i, label %61, label %72
 
@@ -2214,14 +2214,14 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
 
 62:                                               ; preds = %61
   store i8 -14, ptr %2, align 1, !tbaa !5
-  %63 = trunc i64 %.015 to i8
+  %63 = trunc i64 %.sink.i to i8
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 %63, ptr %64, align 1, !tbaa !5
-  %65 = lshr i64 %.015, 8
+  %65 = lshr i64 %.sink.i, 8
   %66 = trunc i64 %65 to i8
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i8 %66, ptr %67, align 1, !tbaa !5
-  %68 = lshr i64 %.015, 16
+  %68 = lshr i64 %.sink.i, 16
   %69 = trunc i64 %68 to i8
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 3
   store i8 %69, ptr %70, align 1, !tbaa !5
@@ -2232,7 +2232,7 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
   br i1 %.not105.i, label %lpEncodeIntegerGetType.exit, label %lpEncodeIntegerGetType.exit.sink.split
 
 72:                                               ; preds = %59
-  %73 = add i64 %.015, 2147483648
+  %73 = add i64 %.sink.i, 2147483648
   %or.cond9.i = icmp ult i64 %73, 4294967296
   %.not102.i = icmp eq ptr %2, null
   br i1 %or.cond9.i, label %74, label %79
@@ -2243,7 +2243,7 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
 75:                                               ; preds = %74
   store i8 -13, ptr %2, align 1, !tbaa !5
   %76 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %77 = trunc nsw i64 %.015 to i32
+  %77 = trunc nsw i64 %.sink.i to i32
   store i32 %77, ptr %76, align 1
   br label %78
 
@@ -2257,7 +2257,7 @@ lpStringToInt64.exit.thread24:                    ; preds = %10, %lpStringToInt6
 80:                                               ; preds = %79
   store i8 -12, ptr %2, align 1, !tbaa !5
   %81 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  store i64 %.015, ptr %81, align 1
+  store i64 %.sink.i, ptr %81, align 1
   br label %82
 
 82:                                               ; preds = %80, %79
@@ -4903,23 +4903,23 @@ define dso_local range(i32 0, 2) i32 @lpCompare(ptr noundef readonly captures(no
 
 .critedge58.i:                                    ; preds = %97, %86
   %.0.lcssa.i = phi i64 [ %87, %86 ], [ %98, %97 ]
-  br i1 %.not59.i, label %100, label %103
+  br i1 %.not59.i, label %100, label %104
 
 100:                                              ; preds = %.critedge58.i
   %101 = icmp ult i64 %.0.lcssa.i, -9223372036854775807
   %102 = sub i64 0, %.0.lcssa.i
   br label %lpStringToInt64.exit
 
-103:                                              ; preds = %.critedge58.i
-  %104 = icmp slt i64 %.0.lcssa.i, 0
-  br i1 %104, label %lpStringToInt64.exit, label %.critedge.sink.split.i
+104:                                              ; preds = %.critedge58.i
+  %105 = icmp slt i64 %.0.lcssa.i, 0
+  br i1 %105, label %lpStringToInt64.exit, label %.critedge.sink.split.i
 
-.critedge.sink.split.i:                           ; preds = %103, %79
+.critedge.sink.split.i:                           ; preds = %104, %79
   %.sink.i = phi i64 [ 0, %79 ], [ %.0.lcssa.i, %103 ]
   br label %lpStringToInt64.exit
 
 lpStringToInt64.exit:                             ; preds = %.lr.ph.i, %92, %100, %.thread90.i, %72, %79, %81, %.thread73.i, %103, %.critedge.sink.split.i
-  %.0 = phi i64 [ undef, %72 ], [ undef, %.thread73.i ], [ undef, %79 ], [ undef, %103 ], [ undef, %81 ], [ %85, %.thread90.i ], [ %.sink.i, %.critedge.sink.split.i ], [ %102, %100 ], [ undef, %92 ], [ undef, %.lr.ph.i ]
+  %.010.shrunk = phi i64 [ undef, %72 ], [ undef, %.thread73.i ], [ undef, %79 ], [ undef, %103 ], [ undef, %81 ], [ %85, %.thread90.i ], [ %.sink.i, %.critedge.sink.split.i ], [ %102, %100 ], [ undef, %92 ], [ undef, %.lr.ph.i ]
   %.045.i = phi i1 [ false, %72 ], [ false, %.thread73.i ], [ false, %79 ], [ false, %103 ], [ false, %81 ], [ true, %.thread90.i ], [ true, %.critedge.sink.split.i ], [ %101, %100 ], [ false, %92 ], [ false, %.lr.ph.i ]
   %105 = icmp eq i64 %.062.i.i, %.0
   %narrow = select i1 %.045.i, i1 %105, i1 false

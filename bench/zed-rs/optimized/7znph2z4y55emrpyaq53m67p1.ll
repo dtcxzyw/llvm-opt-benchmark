@@ -28546,7 +28546,7 @@ tailrecurse.us:                                   ; preds = %4, %_ZN6ignore9giti
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us", %tailrecurse.us
   %11 = load i64, ptr %.tr.us, align 8, !range !54, !noundef !4
   switch i64 %11, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us.unreachabledefault" [
-    i64 0, label %.split12.us.loopexit34
+    i64 0, label %.split12.us.loopexit38
     i64 1, label %12
     i64 2, label %.split12.us
   ]
@@ -28601,7 +28601,7 @@ tailrecurse:                                      ; preds = %4, %_ZN6ignore9giti
   %.tr = phi ptr [ %60, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.thread ], [ %0, %4 ]
   %36 = load i64, ptr %.tr, align 8, !range !54, !noundef !4
   switch i64 %36, label %default.unreachable [
-    i64 0, label %.split12.us.loopexit35
+    i64 0, label %.split12.us.loopexit40
     i64 1, label %37
     i64 2, label %.split12.us
   ]
@@ -28647,13 +28647,13 @@ _ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit: ; preds = %"_ZN
     i64 2, label %.split12.us.loopexit35
   ]
 
-.split12.us.loopexit34:                           ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us", %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us
+.split12.us.loopexit38:                           ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us", %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us
   br label %.split12.us
 
-.split12.us.loopexit35:                           ; preds = %tailrecurse, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit
+.split12.us.loopexit40:                           ; preds = %tailrecurse, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit
   br label %.split12.us
 
-.split12.us:                                      ; preds = %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit, %tailrecurse, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us", %.split12.us.loopexit35, %.split12.us.loopexit34
+.split12.us:                                      ; preds = %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit, %tailrecurse, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us", %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us", %.split12.us.loopexit40, %.split12.us.loopexit38
   %.sroa.0.0 = phi i1 [ false, %.split12.us.loopexit34 ], [ false, %.split12.us.loopexit35 ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.thread.us" ], [ true, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17he2debabd90ff5e33E.exit.us" ], [ true, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit.us ], [ true, %tailrecurse ], [ true, %_ZN6ignore9gitignore9Gitignore7matched17h5c0b2dcbbeee74aeE.exit ]
   ret i1 %.sroa.0.0
 

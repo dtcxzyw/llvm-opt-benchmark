@@ -2660,7 +2660,7 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   store i32 %180, ptr %181, align 8, !tbaa !44
   %182 = and i32 %180, 65280
   %.not475 = icmp eq i32 %182, 0
-  br i1 %.not475, label %.thread908, label %183
+  br i1 %.not475, label %.critedge498, label %183
 
 183:                                              ; preds = %177
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 4
@@ -2676,11 +2676,11 @@ zend_ast_evaluate_ex.exit684:                     ; preds = %.thread903, %.split
   %189 = load i32, ptr %178, align 4, !tbaa !59
   %190 = add i32 %189, 1
   store i32 %190, ptr %178, align 4, !tbaa !59
-  br label %.thread908
+  br label %.critedge498
 
 191:                                              ; preds = %183
   tail call void @zval_copy_ctor_func(ptr noundef nonnull %0) #17
-  br label %.thread908
+  br label %.critedge498
 
 192:                                              ; preds = %170
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3436,7 +3436,7 @@ zend_ast_evaluate_ex.exit784:                     ; preds = %.thread954, %.split
   store ptr @zend_empty_array, ptr %0, align 8, !tbaa !44
   %525 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 7, ptr %525, align 8, !tbaa !44
-  br label %.thread908
+  br label %.critedge498
 
 526:                                              ; preds = %521
   %527 = tail call ptr @_zend_new_array_0() #17
@@ -3445,7 +3445,7 @@ zend_ast_evaluate_ex.exit784:                     ; preds = %.thread954, %.split
   store i32 775, ptr %528, align 8, !tbaa !44
   %529 = load i32, ptr %522, align 8, !tbaa !77
   %.not1044 = icmp eq i32 %529, 0
-  br i1 %.not1044, label %.thread908, label %.lr.ph1041
+  br i1 %.not1044, label %.critedge498, label %.lr.ph1041
 
 .lr.ph1041:                                       ; preds = %526
   %530 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3912,7 +3912,7 @@ zval_ptr_dtor_nogc.exit586:                       ; preds = %zval_ptr_dtor_nogc.
   %727 = load i32, ptr %522, align 8, !tbaa !77
   %728 = zext i32 %727 to i64
   %729 = icmp samesign ult i64 %indvars.iv.next1066, %728
-  br i1 %729, label %535, label %.thread908
+  br i1 %729, label %535, label %.critedge498
 
 730:                                              ; preds = %5
   %731 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -4301,7 +4301,7 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   %914 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %915 = load i8, ptr %914, align 1, !tbaa !44
   %.not.i533 = icmp eq i8 %915, 0
-  br i1 %.not.i533, label %.thread908, label %916
+  br i1 %.not.i533, label %.critedge498, label %916
 
 916:                                              ; preds = %913
   %917 = load ptr, ptr %7, align 8, !tbaa !44
@@ -4311,12 +4311,12 @@ zend_ast_evaluate_ex.exit837:                     ; preds = %.thread987, %.split
   %920 = add i32 %918, -1
   store i32 %920, ptr %917, align 4, !tbaa !59
   %.not3.i534 = icmp eq i32 %920, 0
-  br i1 %.not3.i534, label %921, label %.thread908
+  br i1 %.not3.i534, label %921, label %.critedge498
 
 921:                                              ; preds = %916
   %922 = load ptr, ptr %7, align 8, !tbaa !44
   call void @rc_dtor_func(ptr noundef %922) #17
-  br label %.thread908
+  br label %.critedge498
 
 923:                                              ; preds = %5
   %924 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5010,7 +5010,7 @@ zval_ptr_dtor_nogc.exit505:                       ; preds = %1214, %1217, %1222
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.6) #17
   br label %.critedge498
 
-.thread908:                                       ; preds = %zval_ptr_dtor_nogc.exit586, %526, %913, %916, %921, %524, %.critedge, %191, %177, %zval_ptr_dtor_nogc.exit547
+.critedge498:                                     ; preds = %zval_ptr_dtor_nogc.exit586, %526, %913, %916, %921, %524, %.critedge, %191, %177, %zval_ptr_dtor_nogc.exit547
   br label %.critedge498
 
 .critedge498:                                     ; preds = %1231, %1226, %zval_ptr_dtor_nogc.exit505, %1202, %1197, %zval_ptr_dtor_nogc.exit511, %1179, %1174, %zval_ptr_dtor_nogc.exit517, %1132, %1127, %zval_ptr_dtor_nogc.exit529, %1108, %1103, %1100, %1027, %.critedge494, %887, %891, %896, %863, %858, %855, %779, %774, %771, %724, %719, %zval_ptr_dtor_nogc.exit562, %674, %669, %zval_ptr_dtor_nogc.exit571, %643, %638, %635, %613, %608, %zval_ptr_dtor_nogc.exit583, %561, %556, %553, %519, %514, %509, %493, %488, %483, %371, %366, %zval_ptr_dtor_nogc.exit607, %349, %344, %341, %307, %302, %zval_ptr_dtor_nogc.exit616, %283, %278, %275, %192, %158, %153, %145, %129, %124, %zval_ptr_dtor_nogc.exit628, %106, %101, %98, %.split13.i656, %70, %65, %zval_ptr_dtor_nogc.exit637, %46, %41, %38, %.split13.i, %zend_ast_evaluate_ex.exit837, %zval_ptr_dtor_nogc.exit556, %1233, %207, %392, %445, %zend_ast_evaluate_ex.exit, %zend_ast_evaluate_ex.exit664, %zend_ast_evaluate_ex.exit684, %167, %160, %203, %201, %224, %222, %241, %239, %zend_ast_evaluate_ex.exit694, %zend_ast_evaluate_ex.exit714, %zend_ast_evaluate_ex.exit734, %zval_ptr_dtor_nogc.exit601, %zval_ptr_dtor_nogc.exit598, %zend_ast_evaluate_ex.exit754, %zval_ptr_dtor_nogc.exit595, %zend_ast_evaluate_ex.exit774, %zend_ast_evaluate_ex.exit784, %zend_ast_evaluate_ex.exit827, %zval_ptr_dtor_nogc.exit544, %zend_ast_evaluate_ex.exit867, %923, %934, %1049, %1051, %833, %805, %zval_ptr_dtor_nogc.exit547, %.thread908, %zval_ptr_dtor_nogc.exit520, %1084, %1076, %1056, %752, %232, %211

@@ -21305,9 +21305,9 @@ _ZN4fish8builtins8argparse15is_implicit_int17h7cf4621e53e5b9d3E.exit.thread.i.i:
   br label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %.noexc102.i.i, %1665, %1630, %1475
-  %.sroa.817.1119.i.i = phi i64 [ 8589934592, %1630 ], [ 8589934592, %1475 ], [ %1392, %1665 ], [ %1537, %.noexc102.i.i ]
+  %.sroa.817.1120.i.i = phi i64 [ 8589934592, %1630 ], [ 8589934592, %1475 ], [ %1392, %1665 ], [ %1537, %.noexc102.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53), !noalias !2986
-  %1666 = or i64 %.sroa.817.1119.i.i, 1
+  %1666 = or i64 %.sroa.817.1120.i.i, 1
   br label %1667
 
 1667:                                             ; preds = %.thread.i.i, %split.i.i

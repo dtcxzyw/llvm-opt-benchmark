@@ -22109,15 +22109,15 @@ default.unreachable:                              ; preds = %107, %"_ZN5alloc5sl
   %56 = xor i1 %.sroa.0.0.i.i, true
   %57 = zext i1 %56 to i64
   %58 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %57
-  %.85 = select i1 %53, i64 192, i64 128
-  %.86 = select i1 %53, i64 2, i64 3
+  %.83 = select i1 %53, i64 192, i64 128
+  %.84 = select i1 %53, i64 2, i64 3
   br label %59
 
 59:                                               ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit35", %.thread, %.thread11
-  %.sink = phi i64 [ 192, %.thread ], [ 128, %.thread11 ], [ %.85, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit35" ]
+  %.sink = phi i64 [ 192, %.thread ], [ 128, %.thread11 ], [ %.83, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit35" ]
   %60 = phi ptr [ %36, %.thread ], [ %41, %.thread11 ], [ %55, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit35" ]
   %61 = phi ptr [ %39, %.thread ], [ %44, %.thread11 ], [ %58, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit35" ]
-  %62 = phi i64 [ 2, %.thread ], [ 3, %.thread11 ], [ %.86, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit35" ]
+  %62 = phi i64 [ 2, %.thread ], [ 3, %.thread11 ], [ %.84, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit35" ]
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
   %64 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %0, i64 %62
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2772)
@@ -22182,20 +22182,20 @@ default.unreachable:                              ; preds = %107, %"_ZN5alloc5sl
   %.neg.i.i48 = sext i1 %94 to i8
   %95 = add nsw i8 %.neg.i.i48, %90
   switch i8 %95, label %default.unreachable [
-    i8 -1, label %.thread42
+    i8 -1, label %.thread71
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit57"
-    i8 1, label %.thread52
+    i8 1, label %.thread42
   ]
 
-.thread42:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit46"
+.thread71:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit46"
   %.19 = select i1 %.sroa.0.0.i.i38, ptr %63, ptr %60
-  %.sroa.02.045 = select i1 %.sroa.0.0.i.i38, ptr %60, ptr %63
+  %.sroa.02.05074 = select i1 %.sroa.0.0.i.i38, ptr %60, ptr %63
   br label %107
 
-.thread52:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit46"
+.thread42:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit46"
   %.27 = select i1 %.sroa.0.0.i.i38, ptr %63, ptr %60
-  %.sroa.02.055 = select i1 %.sroa.0.0.i.i38, ptr %60, ptr %61
-  %.sroa.09.056 = select i1 %.sroa.0.0.i.i38, ptr %61, ptr %63
+  %.sroa.02.045 = select i1 %.sroa.0.0.i.i38, ptr %60, ptr %61
+  %.sroa.09.046 = select i1 %.sroa.0.0.i.i38, ptr %61, ptr %63
   br label %107
 
 "_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit57": ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit46"
@@ -22210,16 +22210,16 @@ default.unreachable:                              ; preds = %107, %"_ZN5alloc5sl
   %..i.i.i.i54 = tail call i64 @llvm.umin.i64(i64 %.val8.i.i51, i64 %.val10.i.i53)
   %100 = sub i64 %.val8.i.i51, %.val10.i.i53
   %101 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i50, ptr nonnull readonly align 1 %.val9.i.i52, i64 %..i.i.i.i54), !alias.scope !2804, !noalias !2803
-  %.fr80 = freeze i32 %101
-  %102 = sext i32 %.fr80 to i64
-  %103 = icmp eq i32 %.fr80, 0
+  %.fr79 = freeze i32 %101
+  %102 = sext i32 %.fr79 to i64
+  %103 = icmp eq i32 %.fr79, 0
   %spec.store.select.i.i.i.i55 = select i1 %103, i64 %100, i64 %102
   %104 = icmp slt i64 %spec.store.select.i.i.i.i55, 0
   %. = select i1 %.sroa.0.0.i.i38, ptr %63, ptr %60
   br i1 %104, label %105, label %106
 
 105:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit57"
-  %.sroa.02.058 = select i1 %.sroa.0.0.i.i38, ptr %60, ptr %63
+  %.sroa.02.050 = select i1 %.sroa.0.0.i.i38, ptr %60, ptr %63
   br label %107
 
 106:                                              ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit57"
@@ -22228,10 +22228,10 @@ default.unreachable:                              ; preds = %107, %"_ZN5alloc5sl
   br label %107
 
 107:                                              ; preds = %105, %106, %.thread42, %.thread52
-  %.sroa.02.050 = phi ptr [ %.sroa.02.0, %106 ], [ %.sroa.02.055, %.thread52 ], [ %.sroa.02.045, %.thread42 ], [ %.sroa.02.058, %105 ]
+  %.sroa.02.049 = phi ptr [ %.sroa.02.0, %106 ], [ %.sroa.02.045, %.thread52 ], [ %.sroa.02.05074, %.thread42 ], [ %.sroa.02.050, %105 ]
   %.233348 = phi ptr [ %., %106 ], [ %.27, %.thread52 ], [ %.19, %.thread42 ], [ %., %105 ]
   %108 = phi ptr [ %64, %106 ], [ %64, %.thread52 ], [ %61, %.thread42 ], [ %61, %105 ]
-  %109 = phi ptr [ %.sroa.09.0, %106 ], [ %.sroa.09.056, %.thread52 ], [ %64, %.thread42 ], [ %64, %105 ]
+  %109 = phi ptr [ %.sroa.09.0, %106 ], [ %.sroa.09.046, %.thread52 ], [ %64, %.thread42 ], [ %64, %105 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2808)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2811)
   %.val.i58 = load ptr, ptr %.0.val, align 8, !noalias !2813, !nonnull !4, !align !37, !noundef !4
@@ -22242,14 +22242,14 @@ default.unreachable:                              ; preds = %107, %"_ZN5alloc5sl
   %112 = tail call noundef i32 @_ZN4call4room4Room13role_for_user17hea016fffd90c01d8E(ptr noundef nonnull align 8 %.val.i58, i64 noundef %111), !range !2464, !noalias !2821
   %113 = icmp eq i32 %112, 2
   %114 = zext i1 %113 to i8
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.02.050, i64 48
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.02.049, i64 48
   %116 = load i64, ptr %115, align 8, !alias.scope !2820, !noalias !2819, !noundef !4
   %117 = tail call noundef i32 @_ZN4call4room4Room13role_for_user17hea016fffd90c01d8E(ptr noundef nonnull align 8 %.val.i58, i64 noundef %116), !range !2464, !noalias !2821
   %118 = icmp eq i32 %117, 2
   %.neg.i.i59 = sext i1 %118 to i8
   %119 = add nsw i8 %.neg.i.i59, %114
   switch i8 %119, label %default.unreachable [
-    i8 -1, label %.thread70
+    i8 -1, label %.thread67
     i8 0, label %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit68"
     i8 1, label %.thread73
   ]
@@ -22262,24 +22262,24 @@ default.unreachable:                              ; preds = %107, %"_ZN5alloc5sl
   %.val.i.i61 = load ptr, ptr %120, align 8, !alias.scope !2819, !noalias !2820, !nonnull !4, !noundef !4
   %121 = getelementptr inbounds nuw i8, ptr %109, i64 40
   %.val8.i.i62 = load i64, ptr %121, align 8, !alias.scope !2819, !noalias !2820, !noundef !4
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.02.050, i64 32
+  %122 = getelementptr inbounds nuw i8, ptr %.sroa.02.049, i64 32
   %.val9.i.i63 = load ptr, ptr %122, align 8, !alias.scope !2820, !noalias !2819, !nonnull !4, !noundef !4
-  %123 = getelementptr inbounds nuw i8, ptr %.sroa.02.050, i64 40
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.02.049, i64 40
   %.val10.i.i64 = load i64, ptr %123, align 8, !alias.scope !2820, !noalias !2819, !noundef !4
   %..i.i.i.i65 = tail call i64 @llvm.umin.i64(i64 %.val8.i.i62, i64 %.val10.i.i64)
   %124 = sub i64 %.val8.i.i62, %.val10.i.i64
   %125 = tail call i32 @memcmp(ptr nonnull readonly align 1 %.val.i.i61, ptr nonnull readonly align 1 %.val9.i.i63, i64 %..i.i.i.i65), !alias.scope !2822, !noalias !2821
-  %.fr82 = freeze i32 %125
-  %126 = sext i32 %.fr82 to i64
-  %127 = icmp eq i32 %.fr82, 0
+  %.fr81 = freeze i32 %125
+  %126 = sext i32 %.fr81 to i64
+  %127 = icmp eq i32 %.fr81, 0
   %spec.store.select.i.i.i.i66 = select i1 %127, i64 %124, i64 %126
   %128 = icmp slt i64 %spec.store.select.i.i.i.i66, 0
   %spec.select = select i1 %128, ptr %109, ptr %.sroa.02.050
   %spec.select84 = select i1 %128, ptr %.sroa.02.050, ptr %109
   br label %.thread70
 
-.thread70:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit68", %107, %.thread73
-  %129 = phi ptr [ %.sroa.02.050, %.thread73 ], [ %109, %107 ], [ %spec.select, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit68" ]
+.thread67:                                        ; preds = %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit68", %107, %.thread73
+  %129 = phi ptr [ %.sroa.02.049, %.thread73 ], [ %109, %107 ], [ %spec.select, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit68" ]
   %130 = phi ptr [ %109, %.thread73 ], [ %.sroa.02.050, %107 ], [ %spec.select84, %"_ZN5alloc5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7sort_by28_$u7b$$u7b$closure$u7d$$u7d$17hafb8abca44840661E.exit68" ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(64) %.233348, i64 64, i1 false)
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 64
