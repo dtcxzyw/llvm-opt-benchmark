@@ -636,7 +636,7 @@ define void @lv_draw_sw_blend_image_to_rgb888(ptr noundef readonly %0, i32 nound
   %113 = mul nuw nsw i32 %110, %112
   %114 = add nuw nsw i32 %113, %111
   %115 = lshr i32 %114, 8
-  %116 = trunc i32 %115 to i8
+  %116 = trunc nuw i32 %115 to i8
   store i8 %116, ptr %51, align 1, !tbaa !19
   %117 = mul nuw nsw i32 %.sroa.8.0.in.i.us.i, %.sroa.6.0.insert.ext.us.i
   %118 = getelementptr inbounds nuw i8, ptr %51, i64 1
@@ -644,7 +644,7 @@ define void @lv_draw_sw_blend_image_to_rgb888(ptr noundef readonly %0, i32 nound
   %120 = mul nuw nsw i32 %110, %119
   %121 = add nuw nsw i32 %117, %120
   %122 = lshr i32 %121, 8
-  %123 = trunc i32 %122 to i8
+  %123 = trunc nuw i32 %122 to i8
   store i8 %123, ptr %118, align 1, !tbaa !19
   %124 = mul nuw nsw i32 %.sroa.13.0.in.i.us.i, %.sroa.6.0.insert.ext.us.i
   %125 = getelementptr inbounds nuw i8, ptr %51, i64 2
@@ -652,7 +652,7 @@ define void @lv_draw_sw_blend_image_to_rgb888(ptr noundef readonly %0, i32 nound
   %127 = mul nuw nsw i32 %110, %126
   %128 = add nuw nsw i32 %124, %127
   %129 = lshr i32 %128, 8
-  %130 = trunc i32 %129 to i8
+  %130 = trunc nuw i32 %129 to i8
   store i8 %130, ptr %125, align 1, !tbaa !19
   br label %blend_non_normal_pixel.exit.us.i
 
@@ -1288,7 +1288,7 @@ lv_color_24_24_mix.exit185.us.i:                  ; preds = %374, %345, %324
   %491 = mul nuw nsw i32 %488, %490
   %492 = add nuw nsw i32 %491, %489
   %493 = lshr i32 %492, 8
-  %494 = trunc i32 %493 to i8
+  %494 = trunc nuw i32 %493 to i8
   store i8 %494, ptr %426, align 1, !tbaa !19
   %495 = mul nuw nsw i32 %.sroa.8.0.in.i.us.i20, %.sroa.4.0.us.i
   %496 = getelementptr inbounds nuw i8, ptr %426, i64 1
@@ -1296,7 +1296,7 @@ lv_color_24_24_mix.exit185.us.i:                  ; preds = %374, %345, %324
   %498 = mul nuw nsw i32 %488, %497
   %499 = add nuw nsw i32 %495, %498
   %500 = lshr i32 %499, 8
-  %501 = trunc i32 %500 to i8
+  %501 = trunc nuw i32 %500 to i8
   store i8 %501, ptr %496, align 1, !tbaa !19
   %502 = mul nuw nsw i32 %.sroa.13.0.in.i.us.i21, %.sroa.4.0.us.i
   %503 = getelementptr inbounds nuw i8, ptr %426, i64 2
@@ -1304,7 +1304,7 @@ lv_color_24_24_mix.exit185.us.i:                  ; preds = %374, %345, %324
   %505 = mul nuw nsw i32 %488, %504
   %506 = add nuw nsw i32 %502, %505
   %507 = lshr i32 %506, 8
-  %508 = trunc i32 %507 to i8
+  %508 = trunc nuw i32 %507 to i8
   store i8 %508, ptr %503, align 1, !tbaa !19
   br label %blend_non_normal_pixel.exit.us.i25
 
@@ -1492,7 +1492,7 @@ lv_color_24_24_mix.exit.us.i:                     ; preds = %569, %535, %525
   %606 = mul nuw nsw i32 %600, %605
   %607 = add nuw nsw i32 %606, %603
   %608 = lshr i32 %607, 8
-  %609 = trunc i32 %608 to i8
+  %609 = trunc nuw i32 %608 to i8
   store i8 %609, ptr %590, align 1, !tbaa !19
   %610 = getelementptr inbounds nuw i8, ptr %588, i64 1
   %611 = load i8, ptr %610, align 1, !tbaa !19
@@ -1504,7 +1504,7 @@ lv_color_24_24_mix.exit.us.i:                     ; preds = %569, %535, %525
   %617 = mul nuw nsw i32 %600, %616
   %618 = add nuw nsw i32 %617, %613
   %619 = lshr i32 %618, 8
-  %620 = trunc i32 %619 to i8
+  %620 = trunc nuw i32 %619 to i8
   store i8 %620, ptr %614, align 1, !tbaa !19
   %621 = getelementptr inbounds nuw i8, ptr %588, i64 2
   %622 = load i8, ptr %621, align 1, !tbaa !19
@@ -1516,7 +1516,7 @@ lv_color_24_24_mix.exit.us.i:                     ; preds = %569, %535, %525
   %628 = mul nuw nsw i32 %600, %627
   %629 = add nuw nsw i32 %628, %624
   %630 = lshr i32 %629, 8
-  %631 = trunc i32 %630 to i8
+  %631 = trunc nuw i32 %630 to i8
   store i8 %631, ptr %625, align 1, !tbaa !19
   br label %lv_color_24_24_mix.exit164.us.i
 
@@ -1715,7 +1715,7 @@ lv_color_24_24_mix.exit165.us.i:                  ; preds = %699, %666, %651
   %741 = mul nuw nsw i32 %735, %740
   %742 = add nuw nsw i32 %741, %738
   %743 = lshr i32 %742, 8
-  %744 = trunc i32 %743 to i8
+  %744 = trunc nuw i32 %743 to i8
   store i8 %744, ptr %721, align 1, !tbaa !19
   %745 = getelementptr inbounds nuw i8, ptr %719, i64 1
   %746 = load i8, ptr %745, align 1, !tbaa !19
@@ -1727,7 +1727,7 @@ lv_color_24_24_mix.exit165.us.i:                  ; preds = %699, %666, %651
   %752 = mul nuw nsw i32 %735, %751
   %753 = add nuw nsw i32 %752, %748
   %754 = lshr i32 %753, 8
-  %755 = trunc i32 %754 to i8
+  %755 = trunc nuw i32 %754 to i8
   store i8 %755, ptr %749, align 1, !tbaa !19
   %756 = getelementptr inbounds nuw i8, ptr %719, i64 2
   %757 = load i8, ptr %756, align 1, !tbaa !19
@@ -1739,7 +1739,7 @@ lv_color_24_24_mix.exit165.us.i:                  ; preds = %699, %666, %651
   %763 = mul nuw nsw i32 %735, %762
   %764 = add nuw nsw i32 %763, %759
   %765 = lshr i32 %764, 8
-  %766 = trunc i32 %765 to i8
+  %766 = trunc nuw i32 %765 to i8
   store i8 %766, ptr %760, align 1, !tbaa !19
   br label %lv_color_24_24_mix.exit166.us.i
 
@@ -1921,7 +1921,7 @@ lv_color_24_24_mix.exit166.us.i:                  ; preds = %767, %734, %718
   %874 = mul nuw nsw i32 %871, %873
   %875 = add nuw nsw i32 %874, %872
   %876 = lshr i32 %875, 8
-  %877 = trunc i32 %876 to i8
+  %877 = trunc nuw i32 %876 to i8
   store i8 %877, ptr %818, align 1, !tbaa !19
   %878 = mul nuw nsw i32 %.sroa.8.0.in.i.us.i44, %.sroa.6.0.insert.ext.us.i41
   %879 = getelementptr inbounds nuw i8, ptr %818, i64 1
@@ -1929,7 +1929,7 @@ lv_color_24_24_mix.exit166.us.i:                  ; preds = %767, %734, %718
   %881 = mul nuw nsw i32 %871, %880
   %882 = add nuw nsw i32 %878, %881
   %883 = lshr i32 %882, 8
-  %884 = trunc i32 %883 to i8
+  %884 = trunc nuw i32 %883 to i8
   store i8 %884, ptr %879, align 1, !tbaa !19
   %885 = mul nuw nsw i32 %.sroa.13.0.in.i.us.i45, %.sroa.6.0.insert.ext.us.i41
   %886 = getelementptr inbounds nuw i8, ptr %818, i64 2
@@ -1937,7 +1937,7 @@ lv_color_24_24_mix.exit166.us.i:                  ; preds = %767, %734, %718
   %888 = mul nuw nsw i32 %871, %887
   %889 = add nuw nsw i32 %885, %888
   %890 = lshr i32 %889, 8
-  %891 = trunc i32 %890 to i8
+  %891 = trunc nuw i32 %890 to i8
   store i8 %891, ptr %886, align 1, !tbaa !19
   br label %blend_non_normal_pixel.exit.us.i49
 
@@ -2489,7 +2489,7 @@ lv_color_8_24_mix.exit167.us.i:                   ; preds = %1084, %1059, %1045
   %1194 = mul nuw nsw i32 %1191, %1193
   %1195 = add nuw nsw i32 %1194, %1192
   %1196 = lshr i32 %1195, 8
-  %1197 = trunc i32 %1196 to i8
+  %1197 = trunc nuw i32 %1196 to i8
   store i8 %1197, ptr %1138, align 1, !tbaa !19
   %1198 = mul nuw nsw i32 %.sroa.8.0.in.i.us.i71, %.sroa.6.0.us.i68
   %1199 = getelementptr inbounds nuw i8, ptr %1138, i64 1
@@ -2497,7 +2497,7 @@ lv_color_8_24_mix.exit167.us.i:                   ; preds = %1084, %1059, %1045
   %1201 = mul nuw nsw i32 %1191, %1200
   %1202 = add nuw nsw i32 %1198, %1201
   %1203 = lshr i32 %1202, 8
-  %1204 = trunc i32 %1203 to i8
+  %1204 = trunc nuw i32 %1203 to i8
   store i8 %1204, ptr %1199, align 1, !tbaa !19
   %1205 = mul nuw nsw i32 %.sroa.13.0.in.i.us.i72, %.sroa.6.0.us.i68
   %1206 = getelementptr inbounds nuw i8, ptr %1138, i64 2
@@ -2505,7 +2505,7 @@ lv_color_8_24_mix.exit167.us.i:                   ; preds = %1084, %1059, %1045
   %1208 = mul nuw nsw i32 %1191, %1207
   %1209 = add nuw nsw i32 %1205, %1208
   %1210 = lshr i32 %1209, 8
-  %1211 = trunc i32 %1210 to i8
+  %1211 = trunc nuw i32 %1210 to i8
   store i8 %1211, ptr %1206, align 1, !tbaa !19
   br label %blend_non_normal_pixel.exit.us.i76
 
@@ -2680,7 +2680,7 @@ lv_color_8_24_mix.exit.us.i:                      ; preds = %1264, %1239, %1228
   %1296 = mul nuw nsw i32 %1291, %1295
   %1297 = add nuw nsw i32 %1296, %1293
   %1298 = lshr i32 %1297, 8
-  %1299 = trunc i32 %1298 to i8
+  %1299 = trunc nuw i32 %1298 to i8
   store i8 %1299, ptr %1281, align 1, !tbaa !19
   %1300 = getelementptr inbounds nuw i8, ptr %1281, i64 1
   %1301 = load i8, ptr %1300, align 1, !tbaa !19
@@ -2688,7 +2688,7 @@ lv_color_8_24_mix.exit.us.i:                      ; preds = %1264, %1239, %1228
   %1303 = mul nuw nsw i32 %1291, %1302
   %1304 = add nuw nsw i32 %1303, %1293
   %1305 = lshr i32 %1304, 8
-  %1306 = trunc i32 %1305 to i8
+  %1306 = trunc nuw i32 %1305 to i8
   store i8 %1306, ptr %1300, align 1, !tbaa !19
   %1307 = getelementptr inbounds nuw i8, ptr %1281, i64 2
   %1308 = load i8, ptr %1307, align 1, !tbaa !19
@@ -2696,7 +2696,7 @@ lv_color_8_24_mix.exit.us.i:                      ; preds = %1264, %1239, %1228
   %1310 = mul nuw nsw i32 %1291, %1309
   %1311 = add nuw nsw i32 %1310, %1293
   %1312 = lshr i32 %1311, 8
-  %1313 = trunc i32 %1312 to i8
+  %1313 = trunc nuw i32 %1312 to i8
   store i8 %1313, ptr %1307, align 1, !tbaa !19
   br label %lv_color_8_24_mix.exit167.us.i98
 
@@ -2879,7 +2879,7 @@ lv_color_8_24_mix.exit168.us.i:                   ; preds = %1370, %1345, %1328
   %1407 = mul nuw nsw i32 %1402, %1406
   %1408 = add nuw nsw i32 %1407, %1404
   %1409 = lshr i32 %1408, 8
-  %1410 = trunc i32 %1409 to i8
+  %1410 = trunc nuw i32 %1409 to i8
   store i8 %1410, ptr %1388, align 1, !tbaa !19
   %1411 = getelementptr inbounds nuw i8, ptr %1388, i64 1
   %1412 = load i8, ptr %1411, align 1, !tbaa !19
@@ -2887,7 +2887,7 @@ lv_color_8_24_mix.exit168.us.i:                   ; preds = %1370, %1345, %1328
   %1414 = mul nuw nsw i32 %1402, %1413
   %1415 = add nuw nsw i32 %1414, %1404
   %1416 = lshr i32 %1415, 8
-  %1417 = trunc i32 %1416 to i8
+  %1417 = trunc nuw i32 %1416 to i8
   store i8 %1417, ptr %1411, align 1, !tbaa !19
   %1418 = getelementptr inbounds nuw i8, ptr %1388, i64 2
   %1419 = load i8, ptr %1418, align 1, !tbaa !19
@@ -2895,7 +2895,7 @@ lv_color_8_24_mix.exit168.us.i:                   ; preds = %1370, %1345, %1328
   %1421 = mul nuw nsw i32 %1402, %1420
   %1422 = add nuw nsw i32 %1421, %1404
   %1423 = lshr i32 %1422, 8
-  %1424 = trunc i32 %1423 to i8
+  %1424 = trunc nuw i32 %1423 to i8
   store i8 %1424, ptr %1418, align 1, !tbaa !19
   br label %lv_color_8_24_mix.exit169.us.i
 
@@ -3081,7 +3081,7 @@ lv_color_8_24_mix.exit169.us.i:                   ; preds = %1425, %1401, %1384
   %1538 = mul nuw nsw i32 %1535, %1537
   %1539 = add nuw nsw i32 %1538, %1536
   %1540 = lshr i32 %1539, 8
-  %1541 = trunc i32 %1540 to i8
+  %1541 = trunc nuw i32 %1540 to i8
   store i8 %1541, ptr %1479, align 1, !tbaa !19
   %1542 = mul nuw nsw i32 %.sroa.8.0.in.i.us.i107, %.sroa.8.0.insert.ext.us.i
   %1543 = getelementptr inbounds nuw i8, ptr %1479, i64 1
@@ -3089,7 +3089,7 @@ lv_color_8_24_mix.exit169.us.i:                   ; preds = %1425, %1401, %1384
   %1545 = mul nuw nsw i32 %1535, %1544
   %1546 = add nuw nsw i32 %1542, %1545
   %1547 = lshr i32 %1546, 8
-  %1548 = trunc i32 %1547 to i8
+  %1548 = trunc nuw i32 %1547 to i8
   store i8 %1548, ptr %1543, align 1, !tbaa !19
   %1549 = mul nuw nsw i32 %.sroa.13.0.in.i.us.i108, %.sroa.8.0.insert.ext.us.i
   %1550 = getelementptr inbounds nuw i8, ptr %1479, i64 2
@@ -3097,7 +3097,7 @@ lv_color_8_24_mix.exit169.us.i:                   ; preds = %1425, %1401, %1384
   %1552 = mul nuw nsw i32 %1535, %1551
   %1553 = add nuw nsw i32 %1549, %1552
   %1554 = lshr i32 %1553, 8
-  %1555 = trunc i32 %1554 to i8
+  %1555 = trunc nuw i32 %1554 to i8
   store i8 %1555, ptr %1550, align 1, !tbaa !19
   br label %blend_non_normal_pixel.exit.us.i112
 
@@ -3637,7 +3637,7 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   %107 = mul nuw nsw i32 %104, %106
   %108 = add nuw nsw i32 %107, %105
   %109 = lshr i32 %108, 8
-  %110 = trunc i32 %109 to i8
+  %110 = trunc nuw i32 %109 to i8
   store i8 %110, ptr %51, align 1, !tbaa !19
   %111 = mul nuw nsw i32 %.sroa.8.0.in.i.us, %.sroa.6.0.insert.ext.us
   %112 = getelementptr inbounds nuw i8, ptr %51, i64 1
@@ -3645,7 +3645,7 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   %114 = mul nuw nsw i32 %104, %113
   %115 = add nuw nsw i32 %111, %114
   %116 = lshr i32 %115, 8
-  %117 = trunc i32 %116 to i8
+  %117 = trunc nuw i32 %116 to i8
   store i8 %117, ptr %112, align 1, !tbaa !19
   %118 = mul nuw nsw i32 %.sroa.13.0.in.i.us, %.sroa.6.0.insert.ext.us
   %119 = getelementptr inbounds nuw i8, ptr %51, i64 2
@@ -3653,7 +3653,7 @@ define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(no
   %121 = mul nuw nsw i32 %104, %120
   %122 = add nuw nsw i32 %118, %121
   %123 = lshr i32 %122, 8
-  %124 = trunc i32 %123 to i8
+  %124 = trunc nuw i32 %123 to i8
   store i8 %124, ptr %119, align 1, !tbaa !19
   br label %blend_non_normal_pixel.exit.us
 

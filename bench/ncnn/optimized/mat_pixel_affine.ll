@@ -538,7 +538,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %21
   %152 = mul nuw nsw i32 %151, %120
   %153 = add nuw nsw i32 %152, %143
   %154 = lshr i32 %153, 15
-  %155 = trunc i32 %154 to i8
+  %155 = trunc nuw i32 %154 to i8
   store i8 %155, ptr %.2639, align 1, !tbaa !13
   %156 = getelementptr inbounds nuw i8, ptr %.2639, i64 1
   %indvars.iv.next670 = add nuw nsw i64 %indvars.iv669, 1
@@ -659,7 +659,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %21
   %215 = mul nuw nsw i32 %214, %180
   %216 = add nuw nsw i32 %215, %206
   %217 = lshr i32 %216, 15
-  %218 = trunc i32 %217 to i8
+  %218 = trunc nuw i32 %217 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %173, %177
@@ -781,7 +781,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %21
   %278 = mul nuw nsw i32 %277, %243
   %279 = add nuw nsw i32 %278, %269
   %280 = lshr i32 %279, 15
-  %281 = trunc i32 %280 to i8
+  %281 = trunc nuw i32 %280 to i8
   br label %.sink.split714
 
 .sink.split714:                                   ; preds = %236, %240
@@ -1107,7 +1107,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %156 = mul nuw nsw i32 %155, %123
   %157 = add nuw nsw i32 %156, %147
   %158 = lshr i32 %157, 15
-  %159 = trunc i32 %158 to i8
+  %159 = trunc nuw i32 %158 to i8
   store i8 %159, ptr %.2691, align 1, !tbaa !13
   %160 = getelementptr inbounds nuw i8, ptr %131, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !13
@@ -1133,7 +1133,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %181 = mul nuw nsw i32 %180, %123
   %182 = add nuw nsw i32 %181, %170
   %183 = lshr i32 %182, 15
-  %184 = trunc i32 %183 to i8
+  %184 = trunc nuw i32 %183 to i8
   %185 = getelementptr inbounds nuw i8, ptr %.2691, i64 1
   store i8 %184, ptr %185, align 1, !tbaa !13
   %186 = getelementptr inbounds nuw i8, ptr %.2691, i64 2
@@ -1263,7 +1263,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %252 = mul nuw nsw i32 %251, %216
   %253 = add nuw nsw i32 %252, %243
   %254 = lshr i32 %253, 15
-  %255 = trunc i32 %254 to i8
+  %255 = trunc nuw i32 %254 to i8
   store i8 %255, ptr %.4688, align 1, !tbaa !13
   %.sroa.gep664 = getelementptr inbounds nuw i8, ptr %226, i64 1
   %.sroa.gep665 = getelementptr inbounds nuw i8, ptr %214, i64 1
@@ -1294,7 +1294,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %273 = mul nuw nsw i32 %272, %216
   %274 = add nuw nsw i32 %273, %264
   %275 = lshr i32 %274, 15
-  %276 = trunc i32 %275 to i8
+  %276 = trunc nuw i32 %275 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %207, %213
@@ -1420,7 +1420,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %340 = mul nuw nsw i32 %339, %304
   %341 = add nuw nsw i32 %340, %331
   %342 = lshr i32 %341, 15
-  %343 = trunc i32 %342 to i8
+  %343 = trunc nuw i32 %342 to i8
   store i8 %343, ptr %.5698, align 1, !tbaa !13
   %.sroa.gep656 = getelementptr inbounds nuw i8, ptr %314, i64 1
   %.sroa.gep657 = getelementptr inbounds nuw i8, ptr %302, i64 1
@@ -1451,7 +1451,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %361 = mul nuw nsw i32 %360, %304
   %362 = add nuw nsw i32 %361, %352
   %363 = lshr i32 %362, 15
-  %364 = trunc i32 %363 to i8
+  %364 = trunc nuw i32 %363 to i8
   br label %.sink.split767
 
 .sink.split767:                                   ; preds = %295, %301
@@ -1779,7 +1779,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %156 = mul nuw nsw i32 %155, %123
   %157 = add nuw nsw i32 %156, %147
   %158 = lshr i32 %157, 15
-  %159 = trunc i32 %158 to i8
+  %159 = trunc nuw i32 %158 to i8
   store i8 %159, ptr %.2755, align 1, !tbaa !13
   %160 = getelementptr inbounds nuw i8, ptr %131, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !13
@@ -1805,7 +1805,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %181 = mul nuw nsw i32 %180, %123
   %182 = add nuw nsw i32 %181, %170
   %183 = lshr i32 %182, 15
-  %184 = trunc i32 %183 to i8
+  %184 = trunc nuw i32 %183 to i8
   %185 = getelementptr inbounds nuw i8, ptr %.2755, i64 1
   store i8 %184, ptr %185, align 1, !tbaa !13
   %186 = getelementptr inbounds nuw i8, ptr %131, i64 2
@@ -1832,7 +1832,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %207 = mul nuw nsw i32 %206, %123
   %208 = add nuw nsw i32 %207, %196
   %209 = lshr i32 %208, 15
-  %210 = trunc i32 %209 to i8
+  %210 = trunc nuw i32 %209 to i8
   %211 = getelementptr inbounds nuw i8, ptr %.2755, i64 2
   store i8 %210, ptr %211, align 1, !tbaa !13
   %212 = getelementptr inbounds nuw i8, ptr %.2755, i64 3
@@ -1968,7 +1968,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %282 = mul nuw nsw i32 %281, %246
   %283 = add nuw nsw i32 %282, %273
   %284 = lshr i32 %283, 15
-  %285 = trunc i32 %284 to i8
+  %285 = trunc nuw i32 %284 to i8
   store i8 %285, ptr %.4752, align 1, !tbaa !13
   %.sroa.gep727 = getelementptr inbounds nuw i8, ptr %256, i64 1
   %.sroa.gep728 = getelementptr inbounds nuw i8, ptr %244, i64 1
@@ -1999,7 +1999,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %303 = mul nuw nsw i32 %302, %246
   %304 = add nuw nsw i32 %303, %294
   %305 = lshr i32 %304, 15
-  %306 = trunc i32 %305 to i8
+  %306 = trunc nuw i32 %305 to i8
   %307 = getelementptr inbounds nuw i8, ptr %.4752, i64 1
   store i8 %306, ptr %307, align 1, !tbaa !13
   %.sroa.gep725 = getelementptr inbounds nuw i8, ptr %256, i64 2
@@ -2031,7 +2031,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %325 = mul nuw nsw i32 %324, %246
   %326 = add nuw nsw i32 %325, %316
   %327 = lshr i32 %326, 15
-  %328 = trunc i32 %327 to i8
+  %328 = trunc nuw i32 %327 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %235, %243
@@ -2160,7 +2160,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %394 = mul nuw nsw i32 %393, %358
   %395 = add nuw nsw i32 %394, %385
   %396 = lshr i32 %395, 15
-  %397 = trunc i32 %396 to i8
+  %397 = trunc nuw i32 %396 to i8
   store i8 %397, ptr %.5762, align 1, !tbaa !13
   %.sroa.gep707 = getelementptr inbounds nuw i8, ptr %368, i64 1
   %.sroa.gep708 = getelementptr inbounds nuw i8, ptr %356, i64 1
@@ -2191,7 +2191,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %415 = mul nuw nsw i32 %414, %358
   %416 = add nuw nsw i32 %415, %406
   %417 = lshr i32 %416, 15
-  %418 = trunc i32 %417 to i8
+  %418 = trunc nuw i32 %417 to i8
   %419 = getelementptr inbounds nuw i8, ptr %.5762, i64 1
   store i8 %418, ptr %419, align 1, !tbaa !13
   %.sroa.gep705 = getelementptr inbounds nuw i8, ptr %368, i64 2
@@ -2223,7 +2223,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %22
   %437 = mul nuw nsw i32 %436, %358
   %438 = add nuw nsw i32 %437, %428
   %439 = lshr i32 %438, 15
-  %440 = trunc i32 %439 to i8
+  %440 = trunc nuw i32 %439 to i8
   br label %.sink.split831
 
 .sink.split831:                                   ; preds = %347, %355
@@ -2552,7 +2552,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %158 = mul nuw nsw i32 %157, %125
   %159 = add nuw nsw i32 %158, %149
   %160 = lshr i32 %159, 15
-  %161 = trunc i32 %160 to i8
+  %161 = trunc nuw i32 %160 to i8
   store i8 %161, ptr %.2819, align 1, !tbaa !13
   %162 = getelementptr inbounds nuw i8, ptr %133, i64 1
   %163 = load i8, ptr %162, align 1, !tbaa !13
@@ -2578,7 +2578,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %183 = mul nuw nsw i32 %182, %125
   %184 = add nuw nsw i32 %183, %172
   %185 = lshr i32 %184, 15
-  %186 = trunc i32 %185 to i8
+  %186 = trunc nuw i32 %185 to i8
   %187 = getelementptr inbounds nuw i8, ptr %.2819, i64 1
   store i8 %186, ptr %187, align 1, !tbaa !13
   %188 = getelementptr inbounds nuw i8, ptr %133, i64 2
@@ -2605,7 +2605,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %209 = mul nuw nsw i32 %208, %125
   %210 = add nuw nsw i32 %209, %198
   %211 = lshr i32 %210, 15
-  %212 = trunc i32 %211 to i8
+  %212 = trunc nuw i32 %211 to i8
   %213 = getelementptr inbounds nuw i8, ptr %.2819, i64 2
   store i8 %212, ptr %213, align 1, !tbaa !13
   %214 = getelementptr inbounds nuw i8, ptr %133, i64 3
@@ -2632,7 +2632,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %235 = mul nuw nsw i32 %234, %125
   %236 = add nuw nsw i32 %235, %224
   %237 = lshr i32 %236, 15
-  %238 = trunc i32 %237 to i8
+  %238 = trunc nuw i32 %237 to i8
   %239 = getelementptr inbounds nuw i8, ptr %.2819, i64 3
   store i8 %238, ptr %239, align 1, !tbaa !13
   %240 = getelementptr inbounds nuw i8, ptr %.2819, i64 4
@@ -2774,7 +2774,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %314 = mul nuw nsw i32 %313, %278
   %315 = add nuw nsw i32 %314, %305
   %316 = lshr i32 %315, 15
-  %317 = trunc i32 %316 to i8
+  %317 = trunc nuw i32 %316 to i8
   store i8 %317, ptr %.4816, align 1, !tbaa !13
   %.sroa.gep791 = getelementptr inbounds nuw i8, ptr %288, i64 1
   %.sroa.gep792 = getelementptr inbounds nuw i8, ptr %276, i64 1
@@ -2805,7 +2805,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %335 = mul nuw nsw i32 %334, %278
   %336 = add nuw nsw i32 %335, %326
   %337 = lshr i32 %336, 15
-  %338 = trunc i32 %337 to i8
+  %338 = trunc nuw i32 %337 to i8
   %339 = getelementptr inbounds nuw i8, ptr %.4816, i64 1
   store i8 %338, ptr %339, align 1, !tbaa !13
   %.sroa.gep788 = getelementptr inbounds nuw i8, ptr %288, i64 2
@@ -2837,7 +2837,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %357 = mul nuw nsw i32 %356, %278
   %358 = add nuw nsw i32 %357, %348
   %359 = lshr i32 %358, 15
-  %360 = trunc i32 %359 to i8
+  %360 = trunc nuw i32 %359 to i8
   %361 = getelementptr inbounds nuw i8, ptr %.4816, i64 2
   store i8 %360, ptr %361, align 1, !tbaa !13
   %.sroa.gep786 = getelementptr inbounds nuw i8, ptr %288, i64 3
@@ -2869,7 +2869,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %379 = mul nuw nsw i32 %378, %278
   %380 = add nuw nsw i32 %379, %370
   %381 = lshr i32 %380, 15
-  %382 = trunc i32 %381 to i8
+  %382 = trunc nuw i32 %381 to i8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %265, %275
@@ -3001,7 +3001,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %450 = mul nuw nsw i32 %449, %414
   %451 = add nuw nsw i32 %450, %441
   %452 = lshr i32 %451, 15
-  %453 = trunc i32 %452 to i8
+  %453 = trunc nuw i32 %452 to i8
   store i8 %453, ptr %.5826, align 1, !tbaa !13
   %.sroa.gep759 = getelementptr inbounds nuw i8, ptr %424, i64 1
   %.sroa.gep760 = getelementptr inbounds nuw i8, ptr %412, i64 1
@@ -3032,7 +3032,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %471 = mul nuw nsw i32 %470, %414
   %472 = add nuw nsw i32 %471, %462
   %473 = lshr i32 %472, 15
-  %474 = trunc i32 %473 to i8
+  %474 = trunc nuw i32 %473 to i8
   %475 = getelementptr inbounds nuw i8, ptr %.5826, i64 1
   store i8 %474, ptr %475, align 1, !tbaa !13
   %.sroa.gep756 = getelementptr inbounds nuw i8, ptr %424, i64 2
@@ -3064,7 +3064,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %493 = mul nuw nsw i32 %492, %414
   %494 = add nuw nsw i32 %493, %484
   %495 = lshr i32 %494, 15
-  %496 = trunc i32 %495 to i8
+  %496 = trunc nuw i32 %495 to i8
   %497 = getelementptr inbounds nuw i8, ptr %.5826, i64 2
   store i8 %496, ptr %497, align 1, !tbaa !13
   %.sroa.gep754 = getelementptr inbounds nuw i8, ptr %424, i64 3
@@ -3096,7 +3096,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %23
   %515 = mul nuw nsw i32 %514, %414
   %516 = add nuw nsw i32 %515, %506
   %517 = lshr i32 %516, 15
-  %518 = trunc i32 %517 to i8
+  %518 = trunc nuw i32 %517 to i8
   br label %.sink.split895
 
 .sink.split895:                                   ; preds = %401, %411

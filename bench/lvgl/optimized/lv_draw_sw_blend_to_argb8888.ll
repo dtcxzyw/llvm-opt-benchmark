@@ -3040,7 +3040,7 @@ lv_color_8_32_mix.exit.us.i:                      ; preds = %.sink.split.i.us.i1
   %1136 = mul nuw nsw i32 %1130, %1135
   %1137 = add nuw nsw i32 %1136, %1132
   %1138 = lshr i32 %1137, 8
-  %1139 = trunc i32 %1138 to i8
+  %1139 = trunc nuw i32 %1138 to i8
   store i8 %1139, ptr %1133, align 1, !tbaa !48
   %1140 = getelementptr inbounds nuw i8, ptr %1119, i64 1
   %1141 = load i8, ptr %1140, align 1, !tbaa !49
@@ -3048,14 +3048,14 @@ lv_color_8_32_mix.exit.us.i:                      ; preds = %.sink.split.i.us.i1
   %1143 = mul nuw nsw i32 %1130, %1142
   %1144 = add nuw nsw i32 %1143, %1132
   %1145 = lshr i32 %1144, 8
-  %1146 = trunc i32 %1145 to i8
+  %1146 = trunc nuw i32 %1145 to i8
   store i8 %1146, ptr %1140, align 1, !tbaa !49
   %1147 = load i8, ptr %1119, align 1, !tbaa !50
   %1148 = zext i8 %1147 to i32
   %1149 = mul nuw nsw i32 %1130, %1148
   %1150 = add nuw nsw i32 %1149, %1132
   %1151 = lshr i32 %1150, 8
-  %1152 = trunc i32 %1151 to i8
+  %1152 = trunc nuw i32 %1151 to i8
   br label %.sink.split.i166.us.i
 
 1153:                                             ; preds = %1126
@@ -3243,7 +3243,7 @@ lv_color_8_32_mix.exit171.us.i:                   ; preds = %.sink.split.i169.us
   %1245 = mul nuw nsw i32 %1239, %1244
   %1246 = add nuw nsw i32 %1245, %1241
   %1247 = lshr i32 %1246, 8
-  %1248 = trunc i32 %1247 to i8
+  %1248 = trunc nuw i32 %1247 to i8
   store i8 %1248, ptr %1242, align 1, !tbaa !48
   %1249 = getelementptr inbounds nuw i8, ptr %1224, i64 1
   %1250 = load i8, ptr %1249, align 1, !tbaa !49
@@ -3251,14 +3251,14 @@ lv_color_8_32_mix.exit171.us.i:                   ; preds = %.sink.split.i169.us
   %1252 = mul nuw nsw i32 %1239, %1251
   %1253 = add nuw nsw i32 %1252, %1241
   %1254 = lshr i32 %1253, 8
-  %1255 = trunc i32 %1254 to i8
+  %1255 = trunc nuw i32 %1254 to i8
   store i8 %1255, ptr %1249, align 1, !tbaa !49
   %1256 = load i8, ptr %1224, align 1, !tbaa !50
   %1257 = zext i8 %1256 to i32
   %1258 = mul nuw nsw i32 %1239, %1257
   %1259 = add nuw nsw i32 %1258, %1241
   %1260 = lshr i32 %1259, 8
-  %1261 = trunc i32 %1260 to i8
+  %1261 = trunc nuw i32 %1260 to i8
   br label %.sink.split.i172.us.i
 
 1262:                                             ; preds = %1235

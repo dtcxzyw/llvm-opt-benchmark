@@ -1504,7 +1504,7 @@ define internal noundef ptr @interpolate_bilinear16(ptr noundef returned writeon
   %45 = add nuw nsw i64 %.reass64, %.reass62
   %46 = add nuw nsw i64 %45, %42
   %47 = lshr i64 %46, 32
-  %48 = trunc i64 %47 to i16
+  %48 = trunc nuw i64 %47 to i16
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   store i16 %48, ptr %49, align 1, !tbaa !78
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2

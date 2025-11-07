@@ -1595,7 +1595,7 @@ tdsc_load_cursor.exit.i:                          ; preds = %652, %480, %459, %b
   %730 = mul nuw nsw i32 %729, %724
   %731 = add nuw nsw i32 %730, %726
   %732 = lshr i32 %731, 8
-  %733 = trunc i32 %732 to i8
+  %733 = trunc nuw i32 %732 to i8
   store i8 %733, ptr %721, align 1, !tbaa !59
   %734 = getelementptr inbounds nuw i8, ptr %721, i64 1
   %735 = load i8, ptr %734, align 1, !tbaa !59
@@ -1607,7 +1607,7 @@ tdsc_load_cursor.exit.i:                          ; preds = %652, %480, %459, %b
   %741 = mul nuw nsw i32 %740, %724
   %742 = add nuw nsw i32 %741, %737
   %743 = lshr i32 %742, 8
-  %744 = trunc i32 %743 to i8
+  %744 = trunc nuw i32 %743 to i8
   store i8 %744, ptr %734, align 1, !tbaa !59
   %745 = getelementptr inbounds nuw i8, ptr %721, i64 2
   %746 = load i8, ptr %745, align 1, !tbaa !59
@@ -1619,7 +1619,7 @@ tdsc_load_cursor.exit.i:                          ; preds = %652, %480, %459, %b
   %752 = mul nuw nsw i32 %751, %724
   %753 = add nuw nsw i32 %752, %748
   %754 = lshr i32 %753, 8
-  %755 = trunc i32 %754 to i8
+  %755 = trunc nuw i32 %754 to i8
   store i8 %755, ptr %745, align 1, !tbaa !59
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %715
