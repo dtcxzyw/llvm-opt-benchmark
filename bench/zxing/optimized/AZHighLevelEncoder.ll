@@ -1653,140 +1653,142 @@ _ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE9push_backEOS2_.exit: ; preds = %11
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %23 = load i32, ptr %22, align 4, !tbaa !39
   switch i32 %23, label %24 [
-    i32 0, label %27
-    i32 31, label %27
+    i32 0, label %25
+    i32 31, label %25
+    i32 62, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %21
+  br label %25
+
 24:                                               ; preds = %21
-  %25 = icmp eq i32 %23, 62
-  %26 = select i1 %25, i32 9, i32 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %21, %21, %24
-  %28 = phi i32 [ %26, %24 ], [ 18, %21 ], [ 18, %21 ]
+25:                                               ; preds = %switch.edge, %21, %21, %24
+  %26 = phi i32 [ 8, %24 ], [ 18, %21 ], [ 18, %21 ], [ 9, %switch.edge ]
   invoke void @_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4) #17
-          to label %29 unwind label %59
+          to label %27 unwind label %57
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.0, ptr %30, align 8, !tbaa !38
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %32 = load i32, ptr %22, align 4, !tbaa !39
-  %33 = add nsw i32 %32, 1
-  store i32 %33, ptr %31, align 4, !tbaa !39
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %35 = add nsw i32 %28, %.023
-  store i32 %35, ptr %34, align 8, !tbaa !20
-  %36 = icmp eq i32 %33, 2078
-  br i1 %36, label %37, label %70
+27:                                               ; preds = %25
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %.0, ptr %28, align 8, !tbaa !38
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %30 = load i32, ptr %22, align 4, !tbaa !39
+  %31 = add nsw i32 %30, 1
+  store i32 %31, ptr %29, align 4, !tbaa !39
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = add nsw i32 %26, %.023
+  store i32 %33, ptr %32, align 8, !tbaa !20
+  %34 = icmp eq i32 %31, 2078
+  br i1 %34, label %35, label %68
 
-37:                                               ; preds = %29
+35:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %38 = add nsw i32 %2, 1
-  invoke fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %38) #17
-          to label %39 unwind label %61
+  %36 = add nsw i32 %2, 1
+  invoke fastcc void @_ZN5ZXing5AztecL14EndBinaryShiftERKNS0_13EncodingStateEi(ptr dead_on_unwind noalias writable align 8 %6, ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %36) #17
+          to label %37 unwind label %59
 
-39:                                               ; preds = %37
-  %40 = load ptr, ptr %0, align 8, !tbaa !35
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !37
-  %44 = load ptr, ptr %6, align 8, !tbaa !35
-  store ptr %44, ptr %0, align 8, !tbaa !35
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %46 = load ptr, ptr %45, align 8, !tbaa !36
-  store ptr %46, ptr %41, align 8, !tbaa !36
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !37
-  store ptr %48, ptr %42, align 8, !tbaa !37
-  %.not.i.i.i.i32 = icmp eq ptr %40, null
+37:                                               ; preds = %35
+  %38 = load ptr, ptr %0, align 8, !tbaa !35
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = load ptr, ptr %40, align 8, !tbaa !37
+  %42 = load ptr, ptr %6, align 8, !tbaa !35
+  store ptr %42, ptr %0, align 8, !tbaa !35
+  %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !36
+  store ptr %44, ptr %39, align 8, !tbaa !36
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %46 = load ptr, ptr %45, align 8, !tbaa !37
+  store ptr %46, ptr %40, align 8, !tbaa !37
+  %.not.i.i.i.i32 = icmp eq ptr %38, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %6, i8 0, i64 24, i1 false)
   br i1 %.not.i.i.i.i32, label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit.thread, label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit
 
-_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit.thread: ; preds = %39
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(12) %49, i64 12, i1 false)
+_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit.thread: ; preds = %37
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(12) %47, i64 12, i1 false)
   br label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit
 
-_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit: ; preds = %39
-  %50 = ptrtoint ptr %43 to i64
-  %51 = ptrtoint ptr %40 to i64
-  %52 = sub i64 %50, %51
-  call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %52) #18
+_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit: ; preds = %37
+  %48 = ptrtoint ptr %41 to i64
+  %49 = ptrtoint ptr %38 to i64
+  %50 = sub i64 %48, %49
+  call void @_ZdlPvm(ptr noundef nonnull %38, i64 noundef %50) #18
   %.pr = load ptr, ptr %6, align 8, !tbaa !35
-  %53 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %30, ptr noundef nonnull align 8 dereferenceable(12) %53, i64 12, i1 false)
+  %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(12) %51, i64 12, i1 false)
   %.not.i.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i, label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit, label %54
+  br i1 %.not.i.i.i.i, label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit, label %52
 
-54:                                               ; preds = %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit
-  %55 = load ptr, ptr %47, align 8, !tbaa !37
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %.pr to i64
-  %58 = sub i64 %56, %57
-  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %58) #18
+52:                                               ; preds = %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit
+  %53 = load ptr, ptr %45, align 8, !tbaa !37
+  %54 = ptrtoint ptr %53 to i64
+  %55 = ptrtoint ptr %.pr to i64
+  %56 = sub i64 %54, %55
+  call void @_ZdlPvm(ptr noundef nonnull %.pr, i64 noundef %56) #18
   br label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit
 
-_ZN5ZXing5Aztec13EncodingStateD2Ev.exit:          ; preds = %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit.thread, %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit, %54
+_ZN5ZXing5Aztec13EncodingStateD2Ev.exit:          ; preds = %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit.thread, %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EE14_M_move_assignEOS4_St17integral_constantIbLb1EE.exit, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %70
+  br label %68
 
-59:                                               ; preds = %27
+57:                                               ; preds = %25
+  %58 = landingpad { ptr, i32 }
+          cleanup
+  br label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29
+
+59:                                               ; preds = %35
   %60 = landingpad { ptr, i32 }
           cleanup
-  br label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29
-
-61:                                               ; preds = %37
-  %62 = landingpad { ptr, i32 }
-          cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %63 = load ptr, ptr %0, align 8, !tbaa !35
-  %.not.i.i.i.i28 = icmp eq ptr %63, null
-  br i1 %.not.i.i.i.i28, label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29, label %64
+  %61 = load ptr, ptr %0, align 8, !tbaa !35
+  %.not.i.i.i.i28 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i.i28, label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29, label %62
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !37
-  %67 = ptrtoint ptr %66 to i64
-  %68 = ptrtoint ptr %63 to i64
-  %69 = sub i64 %67, %68
-  call void @_ZdlPvm(ptr noundef nonnull %63, i64 noundef %69) #18
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %64 = load ptr, ptr %63, align 8, !tbaa !37
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ptrtoint ptr %61 to i64
+  %67 = sub i64 %65, %66
+  call void @_ZdlPvm(ptr noundef nonnull %61, i64 noundef %67) #18
   br label %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29
 
-70:                                               ; preds = %29, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit
-  %71 = load ptr, ptr %4, align 8, !tbaa !35
-  %.not.i.i.i = icmp eq ptr %71, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit, label %72
+68:                                               ; preds = %27, %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit
+  %69 = load ptr, ptr %4, align 8, !tbaa !35
+  %.not.i.i.i = icmp eq ptr %69, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit, label %70
 
-72:                                               ; preds = %70
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %74 = load ptr, ptr %73, align 8, !tbaa !37
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %71 to i64
-  %77 = sub i64 %75, %76
-  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #18
+70:                                               ; preds = %68
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !37
+  %73 = ptrtoint ptr %72 to i64
+  %74 = ptrtoint ptr %69 to i64
+  %75 = sub i64 %73, %74
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #18
   br label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit
 
-_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit: ; preds = %70, %72
+_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit: ; preds = %68, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29:        ; preds = %64, %61, %59, %19
-  %.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %60, %59 ], [ %62, %61 ], [ %62, %64 ]
-  %78 = load ptr, ptr %4, align 8, !tbaa !35
-  %.not.i.i.i30 = icmp eq ptr %78, null
-  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit31, label %79
+_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29:        ; preds = %62, %59, %57, %19
+  %.pn.pn = phi { ptr, i32 } [ %20, %19 ], [ %58, %57 ], [ %60, %59 ], [ %60, %62 ]
+  %76 = load ptr, ptr %4, align 8, !tbaa !35
+  %.not.i.i.i30 = icmp eq ptr %76, null
+  br i1 %.not.i.i.i30, label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit31, label %77
 
-79:                                               ; preds = %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29
-  %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %81 = load ptr, ptr %80, align 8, !tbaa !37
-  %82 = ptrtoint ptr %81 to i64
-  %83 = ptrtoint ptr %78 to i64
-  %84 = sub i64 %82, %83
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %84) #18
+77:                                               ; preds = %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !37
+  %80 = ptrtoint ptr %79 to i64
+  %81 = ptrtoint ptr %76 to i64
+  %82 = sub i64 %80, %81
+  call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %82) #18
   br label %_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit31
 
-_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit31: ; preds = %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29, %79
+_ZNSt6vectorIN5ZXing5Aztec5TokenESaIS2_EED2Ev.exit31: ; preds = %_ZN5ZXing5Aztec13EncodingStateD2Ev.exit29, %77
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn.pn
 }

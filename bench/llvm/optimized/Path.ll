@@ -10127,103 +10127,92 @@ _ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb.exit: ; preds = %_ZN4llv
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { i32, ptr } @_ZN4llvm3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %"class.llvm::SmallString.10", align 8
-  switch i32 %3, label %9 [
-    i32 1, label %11
-    i32 2, label %8
-  ]
-
-8:                                                ; preds = %6
-  br label %11
-
-9:                                                ; preds = %6
-  %10 = icmp eq i32 %3, 3
-  %spec.select.i = select i1 %10, i32 2, i32 0
-  br label %11
-
-11:                                               ; preds = %9, %8, %6
-  %.0.i = phi i32 [ 1, %8 ], [ 0, %6 ], [ %spec.select.i, %9 ]
-  %12 = and i32 %4, 4
-  %.not.i = icmp eq i32 %12, 0
+  %switch.selectcmp.i = icmp eq i32 %3, 2
+  %switch.select.i = zext i1 %switch.selectcmp.i to i32
+  %switch.selectcmp26.i = icmp eq i32 %3, 3
+  %switch.select27.i = select i1 %switch.selectcmp26.i, i32 2, i32 %switch.select.i
+  %8 = and i32 %4, 4
+  %.not.i = icmp eq i32 %8, 0
   %spec.select24.i = select i1 %.not.i, i32 %2, i32 3
   switch i32 %spec.select24.i, label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit [
-    i32 1, label %13
-    i32 0, label %15
-    i32 3, label %17
+    i32 1, label %9
+    i32 0, label %11
+    i32 3, label %13
   ]
 
-13:                                               ; preds = %11
-  %14 = or disjoint i32 %.0.i, 192
+9:                                                ; preds = %6
+  %10 = or disjoint i32 %switch.select27.i, 192
   br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
 
-15:                                               ; preds = %11
-  %16 = or disjoint i32 %.0.i, 576
+11:                                               ; preds = %6
+  %12 = or disjoint i32 %switch.select27.i, 576
   br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
 
-17:                                               ; preds = %11
-  %18 = or disjoint i32 %.0.i, 64
+13:                                               ; preds = %6
+  %14 = or disjoint i32 %switch.select27.i, 64
   br label %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
 
-_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit: ; preds = %11, %13, %15, %17
-  %.1.i = phi i32 [ %14, %13 ], [ %16, %15 ], [ %18, %17 ], [ %.0.i, %11 ]
-  %19 = shl nuw nsw i32 %12, 8
-  %20 = shl i32 %4, 15
-  %21 = and i32 %20, 524288
-  %22 = or disjoint i32 %21, %19
-  %spec.select25.i = xor i32 %22, 524288
+_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit: ; preds = %6, %9, %11, %13
+  %.1.i = phi i32 [ %10, %9 ], [ %12, %11 ], [ %14, %13 ], [ %switch.select27.i, %6 ]
+  %15 = shl nuw nsw i32 %8, 8
+  %16 = shl i32 %4, 15
+  %17 = and i32 %16, 524288
+  %18 = or disjoint i32 %17, %15
+  %spec.select25.i = xor i32 %18, 524288
   %.3.i = or i32 %.1.i, %spec.select25.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store ptr %23, ptr %7, align 8, !tbaa !34
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 0, ptr %24, align 8, !tbaa !36
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 128, ptr %25, align 8, !tbaa !37
-  %26 = call { ptr, i64 } @_ZNK4llvm5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %7) #32
-  %27 = extractvalue { ptr, i64 } %26, 0
-  %28 = tail call ptr @__errno_location() #36
-  br label %29
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %19, ptr %7, align 8, !tbaa !34
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 0, ptr %20, align 8, !tbaa !36
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i64 128, ptr %21, align 8, !tbaa !37
+  %22 = call { ptr, i64 } @_ZNK4llvm5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(24) %7) #32
+  %23 = extractvalue { ptr, i64 } %22, 0
+  %24 = tail call ptr @__errno_location() #36
+  br label %25
 
-29:                                               ; preds = %32, %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
-  store i32 0, ptr %28, align 4, !tbaa !99
-  %30 = call noundef i32 (ptr, i32, ...) @open(ptr noundef %27, i32 noundef %.3.i, i32 noundef %5) #32
-  %31 = icmp eq i32 %30, -1
-  br i1 %31, label %32, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
+25:                                               ; preds = %28, %_ZN4llvm3sys2fsL15nativeOpenFlagsENS1_19CreationDispositionENS1_9OpenFlagsENS1_10FileAccessE.exit
+  store i32 0, ptr %24, align 4, !tbaa !99
+  %26 = call noundef i32 (ptr, i32, ...) @open(ptr noundef %23, i32 noundef %.3.i, i32 noundef %5) #32
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %28, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
 
-32:                                               ; preds = %29
-  %33 = load i32, ptr %28, align 4, !tbaa !99
-  %34 = icmp eq i32 %33, 4
-  br i1 %34, label %29, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread", !llvm.loop !218
+28:                                               ; preds = %25
+  %29 = load i32, ptr %24, align 4, !tbaa !99
+  %30 = icmp eq i32 %29, 4
+  br i1 %30, label %25, label %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread", !llvm.loop !218
 
-"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread": ; preds = %32
+"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread": ; preds = %28
   store i32 -1, ptr %1, align 4, !tbaa !99
-  br label %36
+  br label %32
 
-"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit": ; preds = %29
-  store i32 %30, ptr %1, align 4, !tbaa !99
-  %35 = icmp slt i32 %30, 0
-  br i1 %35, label %36, label %39
+"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit": ; preds = %25
+  store i32 %26, ptr %1, align 4, !tbaa !99
+  %31 = icmp slt i32 %26, 0
+  br i1 %31, label %32, label %35
 
-36:                                               ; preds = %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread", %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
-  %37 = load i32, ptr %28, align 4, !tbaa !99
-  %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #36
-  br label %41
+32:                                               ; preds = %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit.thread", %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
+  %33 = load i32, ptr %24, align 4, !tbaa !99
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() #36
+  br label %37
 
-39:                                               ; preds = %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
-  %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #36
-  br label %41
+35:                                               ; preds = %"_ZN4llvm3sys16RetryAfterSignalIiZNS0_2fs8openFileERKNS_5TwineERiNS2_19CreationDispositionENS2_10FileAccessENS2_9OpenFlagsEjE3$_0JEEEDcRKT_RKT0_DpRKT1_.exit"
+  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #36
+  br label %37
 
-41:                                               ; preds = %39, %36
-  %.sroa.04.0 = phi i32 [ %37, %36 ], [ 0, %39 ]
-  %.sroa.3.0 = phi ptr [ %38, %36 ], [ %40, %39 ]
-  %42 = load ptr, ptr %7, align 8, !tbaa !34
-  %43 = icmp eq ptr %42, %23
-  br i1 %43, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %44
+37:                                               ; preds = %35, %32
+  %.sroa.04.0 = phi i32 [ %33, %32 ], [ 0, %35 ]
+  %.sroa.3.0 = phi ptr [ %34, %32 ], [ %36, %35 ]
+  %38 = load ptr, ptr %7, align 8, !tbaa !34
+  %39 = icmp eq ptr %38, %19
+  br i1 %39, label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit, label %40
 
-44:                                               ; preds = %41
-  call void @free(ptr noundef %42) #32
+40:                                               ; preds = %37
+  call void @free(ptr noundef %38) #32
   br label %_ZN4llvm11SmallVectorIcLj128EED2Ev.exit
 
-_ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %41, %44
+_ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %37, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.fca.0.insert = insertvalue { i32, ptr } poison, i32 %.sroa.04.0, 0
   %.fca.1.insert = insertvalue { i32, ptr } %.fca.0.insert, ptr %.sroa.3.0, 1

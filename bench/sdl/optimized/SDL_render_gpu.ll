@@ -299,13 +299,13 @@ define internal zeroext i1 @GPU_CreateTexture(ptr noundef readonly captures(none
 PixFormatToTexFormat.exit:                        ; preds = %3
   %9 = tail call ptr @SDL_GetPixelFormatName_REAL(i32 noundef %7) #11
   %10 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.9, ptr noundef %9) #11
-  br label %80
+  br label %77
 
 11:                                               ; preds = %8, %3, %3
   %.0.i.ph = phi i32 [ 12, %3 ], [ 12, %3 ], [ 4, %8 ]
   %12 = tail call noalias dereferenceable_or_null(48) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 48) #12
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %80, label %13
+  br i1 %.not, label %77, label %13
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -321,132 +321,131 @@ PixFormatToTexFormat.exit:                        ; preds = %3
   %.mask = and i32 %20, -268435456
   %.not60 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not59, %.not60
-  br i1 %or.cond, label %25, label %21
+  br i1 %or.cond, label %23, label %21
 
 21:                                               ; preds = %17
   switch i32 %20, label %22 [
-    i32 844715353, label %27
-    i32 1498831189, label %27
-    i32 1431918169, label %27
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 22:                                               ; preds = %21
-  %23 = icmp eq i32 %20, 808530000
-  %24 = select i1 %23, i32 2, i32 1
-  br label %27
+  br label %switch.edge
 
-25:                                               ; preds = %17
-  %26 = and i32 %20, 255
-  br label %27
+23:                                               ; preds = %17
+  %24 = and i32 %20, 255
+  br label %switch.edge
 
-27:                                               ; preds = %22, %21, %21, %21, %25
-  %28 = phi i32 [ %26, %25 ], [ 2, %21 ], [ %24, %22 ], [ 2, %21 ], [ 2, %21 ]
-  %29 = mul i32 %28, %19
-  %30 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i32 %29, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load i32, ptr %31, align 8
-  %33 = sext i32 %32 to i64
-  %34 = sext i32 %29 to i64
-  %35 = mul nsw i64 %33, %34
-  switch i32 %20, label %45 [
-    i32 842094169, label %36
-    i32 1448433993, label %36
+switch.edge:                                      ; preds = %21, %22, %21, %21, %21, %23
+  %25 = phi i32 [ %24, %23 ], [ 2, %21 ], [ 1, %22 ], [ 2, %21 ], [ 2, %21 ], [ 2, %21 ]
+  %26 = mul i32 %25, %19
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i32 %26, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = load i32, ptr %28, align 8
+  %30 = sext i32 %29 to i64
+  %31 = sext i32 %26 to i64
+  %32 = mul nsw i64 %30, %31
+  switch i32 %20, label %42 [
+    i32 842094169, label %33
+    i32 1448433993, label %33
   ]
 
-36:                                               ; preds = %27, %27
-  %37 = add nsw i32 %32, 1
-  %38 = sdiv i32 %37, 2
-  %39 = add nsw i32 %29, 1
-  %40 = sdiv i32 %39, 2
-  %41 = shl nsw i32 %40, 1
-  %42 = mul i32 %41, %38
-  %43 = sext i32 %42 to i64
-  %44 = add nsw i64 %35, %43
-  br label %45
+33:                                               ; preds = %switch.edge, %switch.edge
+  %34 = add nsw i32 %29, 1
+  %35 = sdiv i32 %34, 2
+  %36 = add nsw i32 %26, 1
+  %37 = sdiv i32 %36, 2
+  %38 = shl nsw i32 %37, 1
+  %39 = mul i32 %38, %35
+  %40 = sext i32 %39 to i64
+  %41 = add nsw i64 %32, %40
+  br label %42
 
-45:                                               ; preds = %27, %36
-  %.0 = phi i64 [ %44, %36 ], [ %35, %27 ]
-  switch i32 %20, label %55 [
-    i32 842094158, label %46
-    i32 825382478, label %46
+42:                                               ; preds = %switch.edge, %33
+  %.0 = phi i64 [ %41, %33 ], [ %32, %switch.edge ]
+  switch i32 %20, label %52 [
+    i32 842094158, label %43
+    i32 825382478, label %43
   ]
 
-46:                                               ; preds = %45, %45
-  %47 = add nsw i32 %32, 1
-  %48 = sdiv i32 %47, 2
-  %49 = add nsw i32 %29, 1
-  %50 = sdiv i32 %49, 2
-  %51 = shl nsw i32 %50, 1
-  %52 = mul i32 %51, %48
-  %53 = sext i32 %52 to i64
-  %54 = add nsw i64 %.0, %53
-  br label %55
+43:                                               ; preds = %42, %42
+  %44 = add nsw i32 %29, 1
+  %45 = sdiv i32 %44, 2
+  %46 = add nsw i32 %26, 1
+  %47 = sdiv i32 %46, 2
+  %48 = shl nsw i32 %47, 1
+  %49 = mul i32 %48, %45
+  %50 = sext i32 %49 to i64
+  %51 = add nsw i64 %.0, %50
+  br label %52
 
-55:                                               ; preds = %45, %46
-  %.1 = phi i64 [ %54, %46 ], [ %.0, %45 ]
-  %56 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %.1) #12
-  %57 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store ptr %56, ptr %57, align 8
-  %.not61.not = icmp eq ptr %56, null
-  br i1 %.not61.not, label %58, label %..critedge_crit_edge
+52:                                               ; preds = %42, %43
+  %.1 = phi i64 [ %51, %43 ], [ %.0, %42 ]
+  %53 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %.1) #12
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store ptr %53, ptr %54, align 8
+  %.not61.not = icmp eq ptr %53, null
+  br i1 %.not61.not, label %55, label %..critedge_crit_edge
 
-..critedge_crit_edge:                             ; preds = %55
+..critedge_crit_edge:                             ; preds = %52
   %.pre = load i32, ptr %14, align 4
   br label %.critedge
 
-58:                                               ; preds = %55
+55:                                               ; preds = %52
   tail call void @SDL_free_REAL(ptr noundef nonnull %12) #11
-  br label %80
+  br label %77
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %13
-  %59 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %15, %13 ]
-  %60 = icmp eq i32 %59, 2
-  %spec.select = select i1 %60, i32 3, i32 1
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  store ptr %12, ptr %61, align 8
+  %56 = phi i32 [ %.pre, %..critedge_crit_edge ], [ %15, %13 ]
+  %57 = icmp eq i32 %56, 2
+  %spec.select = select i1 %57, i32 3, i32 1
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  store ptr %12, ptr %58, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
-  %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.0.i.ph, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 1, ptr %63, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 1, ptr %64, align 4
-  %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %spec.select, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %67 = load i32, ptr %66, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %.0.i.ph, ptr %59, align 4
+  %60 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 1, ptr %60, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 1, ptr %61, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 %spec.select, ptr %62, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %64 = load i32, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store i32 %64, ptr %65, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %67, ptr %68, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %70, ptr %71, align 4
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 %.0.i.ph, ptr %72, align 8
-  %73 = load ptr, ptr %6, align 8
-  %74 = call ptr @SDL_CreateGPUTexture_REAL(ptr noundef %73, ptr noundef nonnull %4) #11
-  store ptr %74, ptr %12, align 8
-  %.not62 = icmp ne ptr %74, null
-  br i1 %.not62, label %.sink.split, label %79
+  %69 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 %.0.i.ph, ptr %69, align 8
+  %70 = load ptr, ptr %6, align 8
+  %71 = call ptr @SDL_CreateGPUTexture_REAL(ptr noundef %70, ptr noundef nonnull %4) #11
+  store ptr %71, ptr %12, align 8
+  %.not62 = icmp ne ptr %71, null
+  br i1 %.not62, label %.sink.split, label %76
 
 .sink.split:                                      ; preds = %.critedge
-  %75 = load i32, ptr %1, align 8
-  %76 = add i32 %75, -372645892
-  %switch.and = and i32 %76, -4194305
+  %72 = load i32, ptr %1, align 8
+  %73 = add i32 %72, -372645892
+  %switch.and = and i32 %73, -4194305
   %switch.selectcmp = icmp eq i32 %switch.and, 0
-  %77 = select i1 %switch.selectcmp, i32 2, i32 1
-  %78 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 %77, ptr %78, align 4
-  br label %79
+  %74 = select i1 %switch.selectcmp, i32 2, i32 1
+  %75 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 %74, ptr %75, align 4
+  br label %76
 
-79:                                               ; preds = %.sink.split, %.critedge
+76:                                               ; preds = %.sink.split, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %80
+  br label %77
 
-80:                                               ; preds = %58, %11, %79, %PixFormatToTexFormat.exit
-  %.051 = phi i1 [ %10, %PixFormatToTexFormat.exit ], [ %.not62, %79 ], [ false, %58 ], [ false, %11 ]
+77:                                               ; preds = %55, %11, %76, %PixFormatToTexFormat.exit
+  %.051 = phi i1 [ %10, %PixFormatToTexFormat.exit ], [ %.not62, %76 ], [ false, %55 ], [ false, %11 ]
   ret i1 %.051
 }
 
@@ -464,137 +463,136 @@ define internal zeroext i1 @GPU_UpdateTexture(ptr noundef readonly captures(none
   %.mask = and i32 %13, -268435456
   %.not50 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not, %.not50
-  br i1 %or.cond, label %18, label %14
+  br i1 %or.cond, label %16, label %14
 
 14:                                               ; preds = %5
   switch i32 %13, label %15 [
-    i32 844715353, label %20
-    i32 1498831189, label %20
-    i32 1431918169, label %20
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 15:                                               ; preds = %14
-  %16 = icmp eq i32 %13, 808530000
-  %17 = select i1 %16, i32 2, i32 1
-  br label %20
+  br label %switch.edge
 
-18:                                               ; preds = %5
-  %19 = and i32 %13, 255
-  br label %20
+16:                                               ; preds = %5
+  %17 = and i32 %13, 255
+  %18 = zext nneg i32 %17 to i64
+  br label %switch.edge
 
-20:                                               ; preds = %15, %14, %14, %14, %18
-  %21 = phi i32 [ %19, %18 ], [ 2, %14 ], [ %17, %15 ], [ 2, %14 ], [ 2, %14 ]
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %23 = load i32, ptr %22, align 4
-  %24 = sext i32 %23 to i64
-  %25 = zext nneg i32 %21 to i64
-  %26 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %24, i64 %25)
-  %27 = extractvalue { i64, i1 } %26, 1
-  %28 = extractvalue { i64, i1 } %26, 0
-  br i1 %27, label %36, label %29
+switch.edge:                                      ; preds = %14, %15, %14, %14, %14, %16
+  %19 = phi i64 [ %18, %16 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ]
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %21 = load i32, ptr %20, align 4
+  %22 = sext i32 %21 to i64
+  %23 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %22, i64 %19)
+  %24 = extractvalue { i64, i1 } %23, 1
+  %25 = extractvalue { i64, i1 } %23, 0
+  br i1 %24, label %33, label %26
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %31 to i64
-  %33 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %32, i64 %28)
-  %34 = extractvalue { i64, i1 } %33, 1
-  %35 = extractvalue { i64, i1 } %33, 0
-  br i1 %34, label %36, label %38
+26:                                               ; preds = %switch.edge
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %28 = load i32, ptr %27, align 4
+  %29 = sext i32 %28 to i64
+  %30 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %29, i64 %25)
+  %31 = extractvalue { i64, i1 } %30, 1
+  %32 = extractvalue { i64, i1 } %30, 0
+  br i1 %31, label %33, label %35
 
-36:                                               ; preds = %29, %20
-  %37 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #11
-  br label %79
+33:                                               ; preds = %26, %switch.edge
+  %34 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.10) #11
+  br label %76
 
-38:                                               ; preds = %29
+35:                                               ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 0, ptr %39, align 4
-  %40 = trunc i64 %35 to i32
-  %41 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %40, ptr %41, align 4
+  %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 0, ptr %36, align 4
+  %37 = trunc i64 %32 to i32
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %37, ptr %38, align 4
   store i32 0, ptr %6, align 4
-  %42 = load ptr, ptr %10, align 8
-  %43 = call ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef %42, ptr noundef nonnull %6) #11
-  %44 = icmp ne ptr %43, null
-  br i1 %44, label %45, label %78
+  %39 = load ptr, ptr %10, align 8
+  %40 = call ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef %39, ptr noundef nonnull %6) #11
+  %41 = icmp ne ptr %40, null
+  br i1 %41, label %42, label %75
 
-45:                                               ; preds = %38
-  %46 = load ptr, ptr %10, align 8
-  %47 = call ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef %46, ptr noundef nonnull %43, i1 noundef zeroext false) #11
-  %48 = sext i32 %4 to i64
-  %49 = icmp eq i64 %28, %48
-  br i1 %49, label %52, label %.preheader
+42:                                               ; preds = %35
+  %43 = load ptr, ptr %10, align 8
+  %44 = call ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef %43, ptr noundef nonnull %40, i1 noundef zeroext false) #11
+  %45 = sext i32 %4 to i64
+  %46 = icmp eq i64 %25, %45
+  br i1 %46, label %49, label %.preheader
 
-.preheader:                                       ; preds = %45
-  %50 = load i32, ptr %30, align 4
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %42
+  %47 = load i32, ptr %27, align 4
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %.lr.ph, label %.loopexit
 
-52:                                               ; preds = %45
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %3, i64 %35, i1 false)
+49:                                               ; preds = %42
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %3, i64 %32, i1 false)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.04458 = phi i32 [ %55, %.lr.ph ], [ 0, %.preheader ]
-  %.04557 = phi ptr [ %54, %.lr.ph ], [ %3, %.preheader ]
-  %.04656 = phi ptr [ %53, %.lr.ph ], [ %47, %.preheader ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04656, ptr align 1 %.04557, i64 %28, i1 false)
-  %53 = getelementptr inbounds nuw i8, ptr %.04656, i64 %28
-  %54 = getelementptr inbounds i8, ptr %.04557, i64 %48
-  %55 = add nuw nsw i32 %.04458, 1
-  %56 = load i32, ptr %30, align 4
-  %57 = icmp slt i32 %55, %56
-  br i1 %57, label %.lr.ph, label %.loopexit, !llvm.loop !3
+  %.04458 = phi i32 [ %52, %.lr.ph ], [ 0, %.preheader ]
+  %.04557 = phi ptr [ %51, %.lr.ph ], [ %3, %.preheader ]
+  %.04656 = phi ptr [ %50, %.lr.ph ], [ %44, %.preheader ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.04656, ptr align 1 %.04557, i64 %25, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %.04656, i64 %25
+  %51 = getelementptr inbounds i8, ptr %.04557, i64 %45
+  %52 = add nuw nsw i32 %.04458, 1
+  %53 = load i32, ptr %27, align 4
+  %54 = icmp slt i32 %52, %53
+  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !3
 
-.loopexit:                                        ; preds = %.lr.ph, %.preheader, %52
-  %58 = load ptr, ptr %10, align 8
-  call void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef %58, ptr noundef nonnull %43) #11
-  %59 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  %60 = load ptr, ptr %59, align 8
-  %61 = call ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %60) #11
+.loopexit:                                        ; preds = %.lr.ph, %.preheader, %49
+  %55 = load ptr, ptr %10, align 8
+  call void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef %55, ptr noundef nonnull %40) #11
+  %56 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  %57 = load ptr, ptr %56, align 8
+  %58 = call ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %57) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %62 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %62, i8 0, i64 16, i1 false)
-  store ptr %43, ptr %7, align 8
-  %63 = load i32, ptr %30, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 %63, ptr %64, align 8
-  %65 = load i32, ptr %22, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 %65, ptr %66, align 4
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %59, i8 0, i64 16, i1 false)
+  store ptr %40, ptr %7, align 8
+  %60 = load i32, ptr %27, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 %60, ptr %61, align 8
+  %62 = load i32, ptr %20, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 %62, ptr %63, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %67 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
-  %68 = load ptr, ptr %12, align 8
-  store ptr %68, ptr %8, align 8
-  %69 = load i32, ptr %2, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 %69, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %8, i64 20
-  store i32 %72, ptr %73, align 4
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 28
-  store i32 %65, ptr %74, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i32 %63, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 36
-  store i32 1, ptr %76, align 4
-  call void @SDL_UploadToGPUTexture_REAL(ptr noundef %61, ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext false) #11
-  call void @SDL_EndGPUCopyPass_REAL(ptr noundef %61) #11
-  %77 = load ptr, ptr %10, align 8
-  call void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef %77, ptr noundef nonnull %43) #11
+  %64 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  %65 = load ptr, ptr %12, align 8
+  store ptr %65, ptr %8, align 8
+  %66 = load i32, ptr %2, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 %66, ptr %67, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 20
+  store i32 %69, ptr %70, align 4
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 28
+  store i32 %62, ptr %71, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i32 %60, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 36
+  store i32 1, ptr %73, align 4
+  call void @SDL_UploadToGPUTexture_REAL(ptr noundef %58, ptr noundef nonnull %7, ptr noundef nonnull %8, i1 noundef zeroext false) #11
+  call void @SDL_EndGPUCopyPass_REAL(ptr noundef %58) #11
+  %74 = load ptr, ptr %10, align 8
+  call void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef %74, ptr noundef nonnull %40) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %78
+  br label %75
 
-78:                                               ; preds = %38, %.loopexit
+75:                                               ; preds = %35, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %79
+  br label %76
 
-79:                                               ; preds = %78, %36
-  %.0 = phi i1 [ %44, %78 ], [ %37, %36 ]
+76:                                               ; preds = %75, %33
+  %.0 = phi i1 [ %41, %75 ], [ %34, %33 ]
   ret i1 %.0
 }
 
@@ -616,35 +614,34 @@ define internal noundef zeroext i1 @GPU_LockTexture(ptr readnone captures(none) 
   %.mask = and i32 %16, -268435456
   %.not17 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not, %.not17
-  br i1 %or.cond, label %21, label %17
+  br i1 %or.cond, label %19, label %17
 
 17:                                               ; preds = %5
   switch i32 %16, label %18 [
-    i32 844715353, label %23
-    i32 1498831189, label %23
-    i32 1431918169, label %23
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 18:                                               ; preds = %17
-  %19 = icmp eq i32 %16, 808530000
-  %20 = select i1 %19, i32 2, i32 1
-  br label %23
+  br label %switch.edge
 
-21:                                               ; preds = %5
-  %22 = and i32 %16, 255
-  br label %23
+19:                                               ; preds = %5
+  %20 = and i32 %16, 255
+  br label %switch.edge
 
-23:                                               ; preds = %18, %17, %17, %17, %21
-  %24 = phi i32 [ %22, %21 ], [ 2, %17 ], [ %20, %18 ], [ 2, %17 ], [ 2, %17 ]
-  %25 = mul nsw i32 %14, %12
-  %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i8, ptr %10, i64 %26
-  %28 = mul i32 %24, %15
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %29
-  store ptr %30, ptr %3, align 8
-  %31 = load i32, ptr %13, align 8
-  store i32 %31, ptr %4, align 4
+switch.edge:                                      ; preds = %17, %18, %17, %17, %17, %19
+  %21 = phi i32 [ %20, %19 ], [ 2, %17 ], [ 1, %18 ], [ 2, %17 ], [ 2, %17 ], [ 2, %17 ]
+  %22 = mul nsw i32 %14, %12
+  %23 = sext i32 %22 to i64
+  %24 = getelementptr inbounds i8, ptr %10, i64 %23
+  %25 = mul i32 %21, %15
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  store ptr %27, ptr %3, align 8
+  %28 = load i32, ptr %13, align 8
+  store i32 %28, ptr %4, align 4
   ret i1 true
 }
 
@@ -665,33 +662,32 @@ define internal void @GPU_UnlockTexture(ptr noundef readonly captures(none) %0, 
   %.mask = and i32 %13, -268435456
   %.not18 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not, %.not18
-  br i1 %or.cond, label %18, label %14
+  br i1 %or.cond, label %16, label %14
 
 14:                                               ; preds = %2
   switch i32 %13, label %15 [
-    i32 844715353, label %20
-    i32 1498831189, label %20
-    i32 1431918169, label %20
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 15:                                               ; preds = %14
-  %16 = icmp eq i32 %13, 808530000
-  %17 = select i1 %16, i32 2, i32 1
-  br label %20
+  br label %switch.edge
 
-18:                                               ; preds = %2
-  %19 = and i32 %13, 255
-  br label %20
+16:                                               ; preds = %2
+  %17 = and i32 %13, 255
+  br label %switch.edge
 
-20:                                               ; preds = %15, %14, %14, %14, %18
-  %21 = phi i32 [ %19, %18 ], [ 2, %14 ], [ %17, %15 ], [ 2, %14 ], [ 2, %14 ]
-  %22 = mul nsw i32 %11, %9
-  %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i8, ptr %7, i64 %23
-  %25 = mul i32 %21, %12
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
-  %28 = tail call zeroext i1 @GPU_UpdateTexture(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %27, i32 noundef %11)
+switch.edge:                                      ; preds = %14, %15, %14, %14, %14, %16
+  %18 = phi i32 [ %17, %16 ], [ 2, %14 ], [ 1, %15 ], [ 2, %14 ], [ 2, %14 ], [ 2, %14 ]
+  %19 = mul nsw i32 %11, %9
+  %20 = sext i32 %19 to i64
+  %21 = getelementptr inbounds i8, ptr %7, i64 %20
+  %22 = mul i32 %18, %12
+  %23 = zext i32 %22 to i64
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
+  %25 = tail call zeroext i1 @GPU_UpdateTexture(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef %24, i32 noundef %11)
   ret void
 }
 
@@ -1627,7 +1623,7 @@ define internal ptr @GPU_RenderReadPixels(ptr noundef readonly captures(none) %0
 
 TexFormatToPixFormat.exit:                        ; preds = %11
   %24 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.14) #11
-  br label %110
+  br label %107
 
 TexFormatToPixFormat.exit.thread:                 ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 280
@@ -1642,166 +1638,165 @@ TexFormatToPixFormat.exit.thread:                 ; preds = %2
 
 29:                                               ; preds = %TexFormatToPixFormat.exit.thread
   switch i32 %28, label %30 [
-    i32 1498831189, label %34
-    i32 1431918169, label %34
-    i32 844715353, label %34
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 844715353, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 30:                                               ; preds = %29
-  %31 = icmp eq i32 %28, 808530000
-  %32 = select i1 %31, i32 2, i32 1
-  br label %34
+  br label %switch.edge
 
 TexFormatToPixFormat.exit.thread.thread:          ; preds = %16, %17, %18, %19, %20, %21, %22, %23, %11, %11, %11, %11, %TexFormatToPixFormat.exit.thread
   %.06793 = phi ptr [ %27, %TexFormatToPixFormat.exit.thread ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %11 ], [ %13, %23 ], [ %13, %22 ], [ %13, %21 ], [ %13, %20 ], [ %13, %19 ], [ %13, %18 ], [ %13, %17 ], [ %13, %16 ]
   %.06891 = phi i32 [ %28, %TexFormatToPixFormat.exit.thread ], [ 376840196, %11 ], [ 376840196, %11 ], [ 376840196, %11 ], [ 376840196, %11 ], [ 455114768, %23 ], [ 438321160, %22 ], [ 404766728, %21 ], [ 376905732, %20 ], [ 360845314, %19 ], [ 360976386, %18 ], [ 357896194, %17 ], [ 372645892, %16 ]
-  %33 = and i32 %.06891, 255
-  br label %34
+  %31 = and i32 %.06891, 255
+  %32 = zext nneg i32 %31 to i64
+  br label %switch.edge
 
-34:                                               ; preds = %30, %29, %29, %29, %TexFormatToPixFormat.exit.thread.thread
-  %.06792 = phi ptr [ %.06793, %TexFormatToPixFormat.exit.thread.thread ], [ %27, %29 ], [ %27, %30 ], [ %27, %29 ], [ %27, %29 ]
-  %.06890 = phi i32 [ %.06891, %TexFormatToPixFormat.exit.thread.thread ], [ %28, %29 ], [ %28, %30 ], [ %28, %29 ], [ %28, %29 ]
-  %35 = phi i32 [ %33, %TexFormatToPixFormat.exit.thread.thread ], [ 2, %29 ], [ %32, %30 ], [ 2, %29 ], [ 2, %29 ]
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %37 to i64
-  %39 = zext nneg i32 %35 to i64
-  %40 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %38, i64 %39)
-  %41 = extractvalue { i64, i1 } %40, 1
-  %42 = extractvalue { i64, i1 } %40, 0
-  br i1 %41, label %50, label %43
+switch.edge:                                      ; preds = %29, %30, %29, %29, %29, %TexFormatToPixFormat.exit.thread.thread
+  %.06792 = phi ptr [ %.06793, %TexFormatToPixFormat.exit.thread.thread ], [ %27, %29 ], [ %27, %30 ], [ %27, %29 ], [ %27, %29 ], [ %27, %29 ]
+  %.06890 = phi i32 [ %.06891, %TexFormatToPixFormat.exit.thread.thread ], [ %28, %29 ], [ %28, %30 ], [ %28, %29 ], [ %28, %29 ], [ %28, %29 ]
+  %33 = phi i64 [ %32, %TexFormatToPixFormat.exit.thread.thread ], [ 2, %29 ], [ 1, %30 ], [ 2, %29 ], [ 2, %29 ], [ 2, %29 ]
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %35 = load i32, ptr %34, align 4
+  %36 = sext i32 %35 to i64
+  %37 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %36, i64 %33)
+  %38 = extractvalue { i64, i1 } %37, 1
+  %39 = extractvalue { i64, i1 } %37, 0
+  br i1 %38, label %47, label %40
 
-43:                                               ; preds = %34
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %45 = load i32, ptr %44, align 4
-  %46 = sext i32 %45 to i64
-  %47 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %46, i64 %42)
-  %48 = extractvalue { i64, i1 } %47, 1
-  %49 = extractvalue { i64, i1 } %47, 0
-  br i1 %48, label %50, label %52
+40:                                               ; preds = %switch.edge
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %42 = load i32, ptr %41, align 4
+  %43 = sext i32 %42 to i64
+  %44 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 range(i64 -2147483648, 2147483648) %43, i64 %39)
+  %45 = extractvalue { i64, i1 } %44, 1
+  %46 = extractvalue { i64, i1 } %44, 0
+  br i1 %45, label %47, label %49
 
-50:                                               ; preds = %43, %34
-  %51 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #11
-  br label %110
+47:                                               ; preds = %40, %switch.edge
+  %48 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #11
+  br label %107
 
-52:                                               ; preds = %43
-  %53 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %37, i32 noundef %45, i32 noundef %.06890) #11
-  %.not75 = icmp eq ptr %53, null
-  br i1 %.not75, label %110, label %54
+49:                                               ; preds = %40
+  %50 = tail call ptr @SDL_CreateSurface_REAL(i32 noundef %35, i32 noundef %42, i32 noundef %.06890) #11
+  %.not75 = icmp eq ptr %50, null
+  br i1 %.not75, label %107, label %51
 
-54:                                               ; preds = %52
+51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %55 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %55, align 4
-  %56 = trunc i64 %49 to i32
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %56, ptr %57, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %52, align 4
+  %53 = trunc i64 %46 to i32
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %53, ptr %54, align 4
   store i32 1, ptr %3, align 4
-  %58 = load ptr, ptr %8, align 8
-  %59 = call ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef %58, ptr noundef nonnull %3) #11
-  %.not76 = icmp eq ptr %59, null
-  br i1 %.not76, label %109, label %60
+  %55 = load ptr, ptr %8, align 8
+  %56 = call ptr @SDL_CreateGPUTransferBuffer_REAL(ptr noundef %55, ptr noundef nonnull %3) #11
+  %.not76 = icmp eq ptr %56, null
+  br i1 %.not76, label %106, label %57
 
-60:                                               ; preds = %54
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %62) #11
+57:                                               ; preds = %51
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 160
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @SDL_BeginGPUCopyPass_REAL(ptr noundef %59) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %64 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  %61 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %61, i8 0, i64 24, i1 false)
   store ptr %.06792, ptr %4, align 8
-  %65 = load i32, ptr %1, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %65, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %68, ptr %69, align 4
-  %70 = load i32, ptr %36, align 4
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 %70, ptr %71, align 4
-  %72 = load i32, ptr %44, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i32 %72, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 36
-  store i32 1, ptr %74, align 4
+  %62 = load i32, ptr %1, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 %62, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %65 = load i32, ptr %64, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %65, ptr %66, align 4
+  %67 = load i32, ptr %34, align 4
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 %67, ptr %68, align 4
+  %69 = load i32, ptr %41, align 4
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i32 %69, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 36
+  store i32 1, ptr %71, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, i8 0, i64 16, i1 false)
-  store ptr %59, ptr %5, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %72, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %70, ptr %77, align 4
-  call void @SDL_DownloadFromGPUTexture_REAL(ptr noundef %63, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
-  call void @SDL_EndGPUCopyPass_REAL(ptr noundef %63) #11
+  %72 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
+  store ptr %56, ptr %5, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 %69, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %67, ptr %74, align 4
+  call void @SDL_DownloadFromGPUTexture_REAL(ptr noundef %60, ptr noundef nonnull %4, ptr noundef nonnull %5) #11
+  call void @SDL_EndGPUCopyPass_REAL(ptr noundef %60) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %78 = load ptr, ptr %61, align 8
-  %79 = call ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %78) #11
-  store ptr %79, ptr %6, align 8
-  %80 = load ptr, ptr %8, align 8
-  %81 = call zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef %80, i1 noundef zeroext true, ptr noundef nonnull %6, i32 noundef 1) #11
-  %82 = load ptr, ptr %8, align 8
-  %83 = load ptr, ptr %6, align 8
-  call void @SDL_ReleaseGPUFence_REAL(ptr noundef %82, ptr noundef %83) #11
-  %84 = load ptr, ptr %8, align 8
-  %85 = call ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef %84) #11
-  store ptr %85, ptr %61, align 8
-  %86 = load ptr, ptr %8, align 8
-  %87 = call ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef %86, ptr noundef nonnull %59, i1 noundef zeroext false) #11
-  %88 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %89 = load i32, ptr %88, align 8
-  %90 = sext i32 %89 to i64
-  %91 = icmp eq i64 %42, %90
-  br i1 %91, label %92, label %95
+  %75 = load ptr, ptr %58, align 8
+  %76 = call ptr @SDL_SubmitGPUCommandBufferAndAcquireFence_REAL(ptr noundef %75) #11
+  store ptr %76, ptr %6, align 8
+  %77 = load ptr, ptr %8, align 8
+  %78 = call zeroext i1 @SDL_WaitForGPUFences_REAL(ptr noundef %77, i1 noundef zeroext true, ptr noundef nonnull %6, i32 noundef 1) #11
+  %79 = load ptr, ptr %8, align 8
+  %80 = load ptr, ptr %6, align 8
+  call void @SDL_ReleaseGPUFence_REAL(ptr noundef %79, ptr noundef %80) #11
+  %81 = load ptr, ptr %8, align 8
+  %82 = call ptr @SDL_AcquireGPUCommandBuffer_REAL(ptr noundef %81) #11
+  store ptr %82, ptr %58, align 8
+  %83 = load ptr, ptr %8, align 8
+  %84 = call ptr @SDL_MapGPUTransferBuffer_REAL(ptr noundef %83, ptr noundef nonnull %56, i1 noundef zeroext false) #11
+  %85 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %86 = load i32, ptr %85, align 8
+  %87 = sext i32 %86 to i64
+  %88 = icmp eq i64 %39, %87
+  br i1 %88, label %89, label %92
 
-92:                                               ; preds = %60
-  %93 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %94 = load ptr, ptr %93, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %94, ptr align 1 %87, i64 %49, i1 false)
+89:                                               ; preds = %57
+  %90 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %91 = load ptr, ptr %90, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %91, ptr align 1 %84, i64 %46, i1 false)
   br label %.loopexit
 
-95:                                               ; preds = %60
-  %96 = load i32, ptr %44, align 4
-  %97 = icmp sgt i32 %96, 0
-  br i1 %97, label %.lr.ph.preheader, label %.loopexit
+92:                                               ; preds = %57
+  %93 = load i32, ptr %41, align 4
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.lr.ph.preheader, label %.loopexit
 
-.lr.ph.preheader:                                 ; preds = %95
-  %98 = getelementptr inbounds nuw i8, ptr %53, i64 24
-  %99 = load ptr, ptr %98, align 8
+.lr.ph.preheader:                                 ; preds = %92
+  %95 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %96 = load ptr, ptr %95, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.096 = phi i32 [ %104, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.06495 = phi ptr [ %102, %.lr.ph ], [ %99, %.lr.ph.preheader ]
-  %.06594 = phi ptr [ %103, %.lr.ph ], [ %87, %.lr.ph.preheader ]
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.06495, ptr align 1 %.06594, i64 %42, i1 false)
-  %100 = load i32, ptr %88, align 8
-  %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i8, ptr %.06495, i64 %101
-  %103 = getelementptr inbounds nuw i8, ptr %.06594, i64 %42
-  %104 = add nuw nsw i32 %.096, 1
-  %105 = load i32, ptr %44, align 4
-  %106 = icmp slt i32 %104, %105
-  br i1 %106, label %.lr.ph, label %.loopexit, !llvm.loop !10
+  %.096 = phi i32 [ %101, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.06495 = phi ptr [ %99, %.lr.ph ], [ %96, %.lr.ph.preheader ]
+  %.06594 = phi ptr [ %100, %.lr.ph ], [ %84, %.lr.ph.preheader ]
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.06495, ptr align 1 %.06594, i64 %39, i1 false)
+  %97 = load i32, ptr %85, align 8
+  %98 = sext i32 %97 to i64
+  %99 = getelementptr inbounds i8, ptr %.06495, i64 %98
+  %100 = getelementptr inbounds nuw i8, ptr %.06594, i64 %39
+  %101 = add nuw nsw i32 %.096, 1
+  %102 = load i32, ptr %41, align 4
+  %103 = icmp slt i32 %101, %102
+  br i1 %103, label %.lr.ph, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.lr.ph, %95, %92
-  %107 = load ptr, ptr %8, align 8
-  call void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef %107, ptr noundef nonnull %59) #11
-  %108 = load ptr, ptr %8, align 8
-  call void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef %108, ptr noundef nonnull %59) #11
+.loopexit:                                        ; preds = %.lr.ph, %92, %89
+  %104 = load ptr, ptr %8, align 8
+  call void @SDL_UnmapGPUTransferBuffer_REAL(ptr noundef %104, ptr noundef nonnull %56) #11
+  %105 = load ptr, ptr %8, align 8
+  call void @SDL_ReleaseGPUTransferBuffer_REAL(ptr noundef %105, ptr noundef nonnull %56) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %109
+  br label %106
 
-109:                                              ; preds = %54, %.loopexit
-  %.3 = phi ptr [ %53, %.loopexit ], [ null, %54 ]
+106:                                              ; preds = %51, %.loopexit
+  %.3 = phi ptr [ %50, %.loopexit ], [ null, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %110
+  br label %107
 
-110:                                              ; preds = %50, %52, %109, %TexFormatToPixFormat.exit
-  %.066 = phi ptr [ null, %TexFormatToPixFormat.exit ], [ null, %50 ], [ %.3, %109 ], [ null, %52 ]
+107:                                              ; preds = %47, %49, %106, %TexFormatToPixFormat.exit
+  %.066 = phi ptr [ null, %TexFormatToPixFormat.exit ], [ null, %47 ], [ %.3, %106 ], [ null, %49 ]
   ret ptr %.066
 }
 

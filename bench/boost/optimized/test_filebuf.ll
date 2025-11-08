@@ -23213,11 +23213,10 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6nowide13basic_filebufIcSt11cha
     i32 28, label %.fold.split29
     i32 60, label %.fold.split30
     i32 29, label %.fold.split31
+    i32 13, label %.fold.split31
   ]
 
 2:                                                ; preds = %1
-  %3 = icmp eq i32 %0, 13
-  %.str.89. = select i1 %3, ptr @.str.89, ptr null
   br label %.fold.split
 
 .fold.split19:                                    ; preds = %1
@@ -23247,14 +23246,14 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6nowide13basic_filebufIcSt11cha
 .fold.split30:                                    ; preds = %1
   br label %.fold.split
 
-.fold.split31:                                    ; preds = %1
+.fold.split31:                                    ; preds = %1, %1
   br label %.fold.split
 
 .fold.split32:                                    ; preds = %1, %1
   br label %.fold.split
 
 .fold.split:                                      ; preds = %1, %1, %.fold.split32, %.fold.split31, %.fold.split30, %.fold.split29, %.fold.split28, %.fold.split25, %.fold.split24, %.fold.split22, %.fold.split21, %.fold.split20, %.fold.split19, %2
-  %.0 = phi ptr [ @.str.78, %1 ], [ %.str.89., %2 ], [ @.str.80, %.fold.split19 ], [ @.str.81, %.fold.split20 ], [ @.str.82, %.fold.split21 ], [ @.str.83, %.fold.split22 ], [ @.str.84, %.fold.split24 ], [ @.str.85, %.fold.split25 ], [ @.str.86, %.fold.split28 ], [ @.str.87, %.fold.split29 ], [ @.str.88, %.fold.split30 ], [ @.str.89, %.fold.split31 ], [ @.str.79, %.fold.split32 ], [ @.str.78, %1 ]
+  %.0 = phi ptr [ @.str.78, %1 ], [ null, %2 ], [ @.str.80, %.fold.split19 ], [ @.str.81, %.fold.split20 ], [ @.str.82, %.fold.split21 ], [ @.str.83, %.fold.split22 ], [ @.str.84, %.fold.split24 ], [ @.str.85, %.fold.split25 ], [ @.str.86, %.fold.split28 ], [ @.str.87, %.fold.split29 ], [ @.str.88, %.fold.split30 ], [ @.str.89, %.fold.split31 ], [ @.str.79, %.fold.split32 ], [ @.str.78, %1 ]
   ret ptr %.0
 }
 

@@ -1094,645 +1094,644 @@ GLES2_ActivateRenderer.exit:                      ; preds = %18, %8, %13
   %.mask = and i32 %37, -268435456
   %.not170 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not169, %.not170
-  br i1 %or.cond, label %66, label %62
+  br i1 %or.cond, label %64, label %62
 
 62:                                               ; preds = %59
   switch i32 %37, label %63 [
-    i32 844715353, label %68
-    i32 1498831189, label %68
-    i32 1431918169, label %68
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 63:                                               ; preds = %62
-  %64 = icmp eq i32 %37, 808530000
-  %65 = select i1 %64, i32 2, i32 1
-  br label %68
+  br label %switch.edge
 
-66:                                               ; preds = %59
-  %67 = and i32 %37, 255
-  br label %68
+64:                                               ; preds = %59
+  %65 = and i32 %37, 255
+  br label %switch.edge
 
-68:                                               ; preds = %63, %62, %62, %62, %66
-  %69 = phi i32 [ %67, %66 ], [ 2, %62 ], [ %65, %63 ], [ 2, %62 ], [ 2, %62 ]
-  %70 = mul i32 %69, %61
-  %71 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  store i32 %70, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %73 = load i32, ptr %72, align 8
-  %74 = sext i32 %73 to i64
-  %75 = sext i32 %70 to i64
-  %76 = mul nsw i64 %74, %75
-  switch i32 %37, label %95 [
-    i32 1448433993, label %77
-    i32 842094169, label %77
-    i32 842094158, label %86
-    i32 825382478, label %86
+switch.edge:                                      ; preds = %62, %63, %62, %62, %62, %64
+  %66 = phi i32 [ %65, %64 ], [ 2, %62 ], [ 1, %63 ], [ 2, %62 ], [ 2, %62 ], [ 2, %62 ]
+  %67 = mul i32 %66, %61
+  %68 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  store i32 %67, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = load i32, ptr %69, align 8
+  %71 = sext i32 %70 to i64
+  %72 = sext i32 %67 to i64
+  %73 = mul nsw i64 %71, %72
+  switch i32 %37, label %92 [
+    i32 1448433993, label %74
+    i32 842094169, label %74
+    i32 842094158, label %83
+    i32 825382478, label %83
   ]
 
-77:                                               ; preds = %68, %68
-  %78 = add nsw i32 %73, 1
-  %79 = sdiv i32 %78, 2
-  %80 = add nsw i32 %70, 1
-  %81 = sdiv i32 %80, 2
-  %82 = shl nsw i32 %81, 1
-  %83 = mul i32 %82, %79
-  %84 = sext i32 %83 to i64
-  %85 = add nsw i64 %76, %84
-  br label %95
+74:                                               ; preds = %switch.edge, %switch.edge
+  %75 = add nsw i32 %70, 1
+  %76 = sdiv i32 %75, 2
+  %77 = add nsw i32 %67, 1
+  %78 = sdiv i32 %77, 2
+  %79 = shl nsw i32 %78, 1
+  %80 = mul i32 %79, %76
+  %81 = sext i32 %80 to i64
+  %82 = add nsw i64 %73, %81
+  br label %92
 
-86:                                               ; preds = %68, %68
-  %87 = add nsw i32 %73, 1
-  %88 = sdiv i32 %87, 2
-  %89 = add nsw i32 %70, 1
-  %90 = sdiv i32 %89, 2
-  %91 = shl nsw i32 %90, 1
-  %92 = mul i32 %91, %88
-  %93 = sext i32 %92 to i64
-  %94 = add nsw i64 %76, %93
-  br label %95
+83:                                               ; preds = %switch.edge, %switch.edge
+  %84 = add nsw i32 %70, 1
+  %85 = sdiv i32 %84, 2
+  %86 = add nsw i32 %67, 1
+  %87 = sdiv i32 %86, 2
+  %88 = shl nsw i32 %87, 1
+  %89 = mul i32 %88, %85
+  %90 = sext i32 %89 to i64
+  %91 = add nsw i64 %73, %90
+  br label %92
 
-95:                                               ; preds = %68, %86, %77
-  %.0 = phi i64 [ %85, %77 ], [ %94, %86 ], [ %76, %68 ]
-  %96 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %.0) #11
-  %97 = getelementptr inbounds nuw i8, ptr %35, i64 24
-  store ptr %96, ptr %97, align 8
-  %.not171.not = icmp eq ptr %96, null
-  br i1 %.not171.not, label %98, label %.critedge
+92:                                               ; preds = %switch.edge, %83, %74
+  %.0 = phi i64 [ %82, %74 ], [ %91, %83 ], [ %73, %switch.edge ]
+  %93 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %.0) #11
+  %94 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  store ptr %93, ptr %94, align 8
+  %.not171.not = icmp eq ptr %93, null
+  br i1 %.not171.not, label %95, label %.critedge
 
-98:                                               ; preds = %95
+95:                                               ; preds = %92
   tail call void @SDL_free_REAL(ptr noundef nonnull %35) #10
   br label %GL_CheckAllErrors.exit197
 
-.critedge:                                        ; preds = %95, %36
+.critedge:                                        ; preds = %92, %36
   %.val = load ptr, ptr %4, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %100 = load i8, ptr %99, align 8, !range !5, !noundef !6
-  %101 = trunc nuw i8 %100 to i1
-  br i1 %101, label %.preheader.i, label %GL_CheckAllErrors.exit
+  %96 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %97 = load i8, ptr %96, align 8, !range !5, !noundef !6
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %.preheader.i, label %GL_CheckAllErrors.exit
 
 .preheader.i:                                     ; preds = %.critedge
-  %102 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 %103() #10
-  %.not5.i = icmp eq i32 %104, 0
+  %99 = getelementptr inbounds nuw i8, ptr %.val, i64 200
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call i32 %100() #10
+  %.not5.i = icmp eq i32 %101, 0
   br i1 %.not5.i, label %GL_CheckAllErrors.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %110
-  %105 = phi i32 [ %113, %110 ], [ %104, %.preheader.i ]
-  %.0166.i = phi ptr [ %spec.select, %110 ], [ @.str.5, %.preheader.i ]
-  %106 = load i8, ptr %.0166.i, align 1
-  %107 = icmp eq i8 %106, 0
-  %spec.select = select i1 %107, ptr @.str.101, ptr %.0166.i
-  %switch.tableidx = add i32 %105, -1280
-  %108 = icmp ult i32 %switch.tableidx, 6
-  br i1 %108, label %switch.lookup, label %110
+.lr.ph.i:                                         ; preds = %.preheader.i, %107
+  %102 = phi i32 [ %110, %107 ], [ %101, %.preheader.i ]
+  %.0166.i = phi ptr [ %spec.select, %107 ], [ @.str.5, %.preheader.i ]
+  %103 = load i8, ptr %.0166.i, align 1
+  %104 = icmp eq i8 %103, 0
+  %spec.select = select i1 %104, ptr @.str.101, ptr %.0166.i
+  %switch.tableidx = add i32 %102, -1280
+  %105 = icmp ult i32 %switch.tableidx, 6
+  br i1 %105, label %switch.lookup, label %107
 
 switch.lookup:                                    ; preds = %.lr.ph.i
-  %109 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %109
+  %106 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %106
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %110
+  br label %107
 
-110:                                              ; preds = %.lr.ph.i, %switch.lookup
+107:                                              ; preds = %.lr.ph.i, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.108, %.lr.ph.i ]
-  %111 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.6, i32 noundef 1687, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i, i32 noundef %105) #10
-  %112 = load ptr, ptr %102, align 8
-  %113 = tail call i32 %112() #10
-  %.not.i188 = icmp eq i32 %113, 0
+  %108 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.6, i32 noundef 1687, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i, i32 noundef %102) #10
+  %109 = load ptr, ptr %99, align 8
+  %110 = tail call i32 %109() #10
+  %.not.i188 = icmp eq i32 %110, 0
   br i1 %.not.i188, label %GL_CheckAllErrors.exit, label %.lr.ph.i
 
-GL_CheckAllErrors.exit:                           ; preds = %110, %.critedge, %.preheader.i
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %115 = load i32, ptr %114, align 4
-  %116 = sitofp i32 %115 to float
-  %117 = getelementptr inbounds nuw i8, ptr %35, i64 56
-  %118 = getelementptr inbounds nuw i8, ptr %35, i64 64
-  store float %116, ptr %118, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %120 = load i32, ptr %119, align 8
-  %121 = sitofp i32 %120 to float
-  %122 = getelementptr inbounds nuw i8, ptr %35, i64 68
+GL_CheckAllErrors.exit:                           ; preds = %107, %.critedge, %.preheader.i
+  %111 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %112 = load i32, ptr %111, align 4
+  %113 = sitofp i32 %112 to float
+  %114 = getelementptr inbounds nuw i8, ptr %35, i64 56
+  %115 = getelementptr inbounds nuw i8, ptr %35, i64 64
+  store float %113, ptr %115, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %117 = load i32, ptr %116, align 8
+  %118 = sitofp i32 %117 to float
+  %119 = getelementptr inbounds nuw i8, ptr %35, i64 68
+  store float %118, ptr %119, align 4
+  %120 = fdiv float 1.000000e+00, %113
+  store float %120, ptr %114, align 8
+  %121 = fdiv float 1.000000e+00, %118
+  %122 = getelementptr inbounds nuw i8, ptr %35, i64 60
   store float %121, ptr %122, align 4
-  %123 = fdiv float 1.000000e+00, %116
-  store float %123, ptr %117, align 8
-  %124 = fdiv float 1.000000e+00, %121
-  %125 = getelementptr inbounds nuw i8, ptr %35, i64 60
-  store float %124, ptr %125, align 4
-  %126 = load i8, ptr %46, align 4, !range !5, !noundef !6
-  %127 = trunc nuw i8 %126 to i1
-  br i1 %127, label %128, label %225
+  %123 = load i8, ptr %46, align 4, !range !5, !noundef !6
+  %124 = trunc nuw i8 %123 to i1
+  br i1 %124, label %125, label %222
 
-128:                                              ; preds = %GL_CheckAllErrors.exit
-  %129 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.68, i64 noundef 0) #10
-  %130 = trunc i64 %129 to i32
-  store i32 %130, ptr %52, align 8
-  %.not174 = icmp eq i32 %130, 0
-  br i1 %.not174, label %133, label %131
+125:                                              ; preds = %GL_CheckAllErrors.exit
+  %126 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.68, i64 noundef 0) #10
+  %127 = trunc i64 %126 to i32
+  store i32 %127, ptr %52, align 8
+  %.not174 = icmp eq i32 %127, 0
+  br i1 %.not174, label %130, label %128
 
-131:                                              ; preds = %128
-  %132 = getelementptr inbounds nuw i8, ptr %35, i64 44
-  store i32 1, ptr %132, align 4
+128:                                              ; preds = %125
+  %129 = getelementptr inbounds nuw i8, ptr %35, i64 44
+  store i32 1, ptr %129, align 4
   br label %GL_CheckAllErrors.exit197.thread
 
-133:                                              ; preds = %128
-  %134 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %135 = load ptr, ptr %134, align 8
-  tail call void %135(i32 noundef 1, ptr noundef nonnull %52) #10
+130:                                              ; preds = %125
+  %131 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %132 = load ptr, ptr %131, align 8
+  tail call void %132(i32 noundef 1, ptr noundef nonnull %52) #10
   %.val179 = load ptr, ptr %4, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %.val179, i64 8
-  %137 = load i8, ptr %136, align 8, !range !5, !noundef !6
-  %138 = trunc nuw i8 %137 to i1
-  br i1 %138, label %.preheader.i190, label %GL_CheckAllErrors.exit197.thread
+  %133 = getelementptr inbounds nuw i8, ptr %.val179, i64 8
+  %134 = load i8, ptr %133, align 8, !range !5, !noundef !6
+  %135 = trunc nuw i8 %134 to i1
+  br i1 %135, label %.preheader.i190, label %GL_CheckAllErrors.exit197.thread
 
-.preheader.i190:                                  ; preds = %133
-  %139 = getelementptr inbounds nuw i8, ptr %.val179, i64 200
-  %140 = load ptr, ptr %139, align 8
-  %141 = tail call i32 %140() #10
-  %.not5.i191 = icmp eq i32 %141, 0
+.preheader.i190:                                  ; preds = %130
+  %136 = getelementptr inbounds nuw i8, ptr %.val179, i64 200
+  %137 = load ptr, ptr %136, align 8
+  %138 = tail call i32 %137() #10
+  %.not5.i191 = icmp eq i32 %138, 0
   br i1 %.not5.i191, label %GL_CheckAllErrors.exit197.thread, label %.lr.ph.i192
 
-.lr.ph.i192:                                      ; preds = %.preheader.i190, %145
-  %142 = phi i32 [ %148, %145 ], [ %141, %.preheader.i190 ]
-  %switch.tableidx338 = add i32 %142, -1280
-  %143 = icmp ult i32 %switch.tableidx338, 6
-  br i1 %143, label %switch.lookup339, label %145
+.lr.ph.i192:                                      ; preds = %.preheader.i190, %142
+  %139 = phi i32 [ %145, %142 ], [ %138, %.preheader.i190 ]
+  %switch.tableidx338 = add i32 %139, -1280
+  %140 = icmp ult i32 %switch.tableidx338, 6
+  br i1 %140, label %switch.lookup339, label %142
 
 switch.lookup339:                                 ; preds = %.lr.ph.i192
-  %144 = zext nneg i32 %switch.tableidx338 to i64
-  %switch.gep340 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %144
+  %141 = zext nneg i32 %switch.tableidx338 to i64
+  %switch.gep340 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %141
   %switch.load341 = load ptr, ptr %switch.gep340, align 8
-  br label %145
+  br label %142
 
-145:                                              ; preds = %.lr.ph.i192, %switch.lookup339
+142:                                              ; preds = %.lr.ph.i192, %switch.lookup339
   %.0.i.i195 = phi ptr [ %switch.load341, %switch.lookup339 ], [ @.str.108, %.lr.ph.i192 ]
-  %146 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1701, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i195, i32 noundef %142) #10
-  %147 = load ptr, ptr %139, align 8
-  %148 = tail call i32 %147() #10
-  %.not.i196 = icmp eq i32 %148, 0
+  %143 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1701, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i195, i32 noundef %139) #10
+  %144 = load ptr, ptr %136, align 8
+  %145 = tail call i32 %144() #10
+  %.not.i196 = icmp eq i32 %145, 0
   br i1 %.not.i196, label %GL_CheckAllErrors.exit197, label %.lr.ph.i192
 
-GL_CheckAllErrors.exit197.thread:                 ; preds = %.preheader.i190, %133, %131
-  %149 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %150 = load ptr, ptr %149, align 8
-  tail call void %150(i32 noundef 33986) #10
-  %151 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %152 = load ptr, ptr %151, align 8
-  %153 = load i32, ptr %40, align 8
-  %154 = load i32, ptr %52, align 8
-  tail call void %152(i32 noundef %153, i32 noundef %154) #10
-  %155 = getelementptr inbounds nuw i8, ptr %5, i64 296
-  %156 = load ptr, ptr %155, align 8
-  %157 = load i32, ptr %40, align 8
-  %158 = load i32, ptr %114, align 4
+GL_CheckAllErrors.exit197.thread:                 ; preds = %.preheader.i190, %130, %128
+  %146 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %147 = load ptr, ptr %146, align 8
+  tail call void %147(i32 noundef 33986) #10
+  %148 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %149 = load ptr, ptr %148, align 8
+  %150 = load i32, ptr %40, align 8
+  %151 = load i32, ptr %52, align 8
+  tail call void %149(i32 noundef %150, i32 noundef %151) #10
+  %152 = getelementptr inbounds nuw i8, ptr %5, i64 296
+  %153 = load ptr, ptr %152, align 8
+  %154 = load i32, ptr %40, align 8
+  %155 = load i32, ptr %111, align 4
+  %156 = add nsw i32 %155, 1
+  %157 = sdiv i32 %156, 2
+  %158 = load i32, ptr %116, align 8
   %159 = add nsw i32 %158, 1
   %160 = sdiv i32 %159, 2
-  %161 = load i32, ptr %119, align 8
-  %162 = add nsw i32 %161, 1
-  %163 = sdiv i32 %162, 2
-  tail call void %156(i32 noundef %157, i32 noundef 0, i32 noundef %.0162266, i32 noundef %160, i32 noundef %163, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
-  %164 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
-  %165 = load i32, ptr %52, align 8
-  %166 = zext i32 %165 to i64
-  %167 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %164, ptr noundef nonnull @.str.70, i64 noundef %166) #10
-  %168 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.71, i64 noundef 0) #10
-  %169 = trunc i64 %168 to i32
-  store i32 %169, ptr %51, align 8
-  %.not175 = icmp eq i32 %169, 0
-  br i1 %.not175, label %172, label %170
+  tail call void %153(i32 noundef %154, i32 noundef 0, i32 noundef %.0162266, i32 noundef %157, i32 noundef %160, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
+  %161 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
+  %162 = load i32, ptr %52, align 8
+  %163 = zext i32 %162 to i64
+  %164 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %161, ptr noundef nonnull @.str.70, i64 noundef %163) #10
+  %165 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.71, i64 noundef 0) #10
+  %166 = trunc i64 %165 to i32
+  store i32 %166, ptr %51, align 8
+  %.not175 = icmp eq i32 %166, 0
+  br i1 %.not175, label %169, label %167
 
-170:                                              ; preds = %GL_CheckAllErrors.exit197.thread
-  %171 = getelementptr inbounds nuw i8, ptr %35, i64 52
-  store i32 1, ptr %171, align 4
+167:                                              ; preds = %GL_CheckAllErrors.exit197.thread
+  %168 = getelementptr inbounds nuw i8, ptr %35, i64 52
+  store i32 1, ptr %168, align 4
   br label %GL_CheckAllErrors.exit206.thread
 
-172:                                              ; preds = %GL_CheckAllErrors.exit197.thread
-  %173 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %174 = load ptr, ptr %173, align 8
-  tail call void %174(i32 noundef 1, ptr noundef nonnull %51) #10
+169:                                              ; preds = %GL_CheckAllErrors.exit197.thread
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %171 = load ptr, ptr %170, align 8
+  tail call void %171(i32 noundef 1, ptr noundef nonnull %51) #10
   %.val180 = load ptr, ptr %4, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %.val180, i64 8
-  %176 = load i8, ptr %175, align 8, !range !5, !noundef !6
-  %177 = trunc nuw i8 %176 to i1
-  br i1 %177, label %.preheader.i199, label %GL_CheckAllErrors.exit206.thread
+  %172 = getelementptr inbounds nuw i8, ptr %.val180, i64 8
+  %173 = load i8, ptr %172, align 8, !range !5, !noundef !6
+  %174 = trunc nuw i8 %173 to i1
+  br i1 %174, label %.preheader.i199, label %GL_CheckAllErrors.exit206.thread
 
-.preheader.i199:                                  ; preds = %172
-  %178 = getelementptr inbounds nuw i8, ptr %.val180, i64 200
-  %179 = load ptr, ptr %178, align 8
-  %180 = tail call i32 %179() #10
-  %.not5.i200 = icmp eq i32 %180, 0
+.preheader.i199:                                  ; preds = %169
+  %175 = getelementptr inbounds nuw i8, ptr %.val180, i64 200
+  %176 = load ptr, ptr %175, align 8
+  %177 = tail call i32 %176() #10
+  %.not5.i200 = icmp eq i32 %177, 0
   br i1 %.not5.i200, label %GL_CheckAllErrors.exit206.thread, label %.lr.ph.i201
 
-.lr.ph.i201:                                      ; preds = %.preheader.i199, %184
-  %181 = phi i32 [ %187, %184 ], [ %180, %.preheader.i199 ]
-  %switch.tableidx342 = add i32 %181, -1280
-  %182 = icmp ult i32 %switch.tableidx342, 6
-  br i1 %182, label %switch.lookup343, label %184
+.lr.ph.i201:                                      ; preds = %.preheader.i199, %181
+  %178 = phi i32 [ %184, %181 ], [ %177, %.preheader.i199 ]
+  %switch.tableidx342 = add i32 %178, -1280
+  %179 = icmp ult i32 %switch.tableidx342, 6
+  br i1 %179, label %switch.lookup343, label %181
 
 switch.lookup343:                                 ; preds = %.lr.ph.i201
-  %183 = zext nneg i32 %switch.tableidx342 to i64
-  %switch.gep344 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %183
+  %180 = zext nneg i32 %switch.tableidx342 to i64
+  %switch.gep344 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %180
   %switch.load345 = load ptr, ptr %switch.gep344, align 8
-  br label %184
+  br label %181
 
-184:                                              ; preds = %.lr.ph.i201, %switch.lookup343
+181:                                              ; preds = %.lr.ph.i201, %switch.lookup343
   %.0.i.i204 = phi ptr [ %switch.load345, %switch.lookup343 ], [ @.str.108, %.lr.ph.i201 ]
-  %185 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1715, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i204, i32 noundef %181) #10
-  %186 = load ptr, ptr %178, align 8
-  %187 = tail call i32 %186() #10
-  %.not.i205 = icmp eq i32 %187, 0
+  %182 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1715, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i204, i32 noundef %178) #10
+  %183 = load ptr, ptr %175, align 8
+  %184 = tail call i32 %183() #10
+  %.not.i205 = icmp eq i32 %184, 0
   br i1 %.not.i205, label %GL_CheckAllErrors.exit197, label %.lr.ph.i201
 
-GL_CheckAllErrors.exit206.thread:                 ; preds = %.preheader.i199, %172, %170
-  %188 = load ptr, ptr %149, align 8
-  tail call void %188(i32 noundef 33985) #10
-  %189 = load ptr, ptr %151, align 8
+GL_CheckAllErrors.exit206.thread:                 ; preds = %.preheader.i199, %169, %167
+  %185 = load ptr, ptr %146, align 8
+  tail call void %185(i32 noundef 33985) #10
+  %186 = load ptr, ptr %148, align 8
+  %187 = load i32, ptr %40, align 8
+  %188 = load i32, ptr %51, align 8
+  tail call void %186(i32 noundef %187, i32 noundef %188) #10
+  %189 = load ptr, ptr %152, align 8
   %190 = load i32, ptr %40, align 8
-  %191 = load i32, ptr %51, align 8
-  tail call void %189(i32 noundef %190, i32 noundef %191) #10
-  %192 = load ptr, ptr %155, align 8
-  %193 = load i32, ptr %40, align 8
-  %194 = load i32, ptr %114, align 4
+  %191 = load i32, ptr %111, align 4
+  %192 = add nsw i32 %191, 1
+  %193 = sdiv i32 %192, 2
+  %194 = load i32, ptr %116, align 8
   %195 = add nsw i32 %194, 1
   %196 = sdiv i32 %195, 2
-  %197 = load i32, ptr %119, align 8
-  %198 = add nsw i32 %197, 1
-  %199 = sdiv i32 %198, 2
-  tail call void %192(i32 noundef %193, i32 noundef 0, i32 noundef %.0162266, i32 noundef %196, i32 noundef %199, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
+  tail call void %189(i32 noundef %190, i32 noundef 0, i32 noundef %.0162266, i32 noundef %193, i32 noundef %196, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
   %.val181 = load ptr, ptr %4, align 8
-  %200 = getelementptr inbounds nuw i8, ptr %.val181, i64 8
-  %201 = load i8, ptr %200, align 8, !range !5, !noundef !6
-  %202 = trunc nuw i8 %201 to i1
-  br i1 %202, label %.preheader.i208, label %213
+  %197 = getelementptr inbounds nuw i8, ptr %.val181, i64 8
+  %198 = load i8, ptr %197, align 8, !range !5, !noundef !6
+  %199 = trunc nuw i8 %198 to i1
+  br i1 %199, label %.preheader.i208, label %210
 
 .preheader.i208:                                  ; preds = %GL_CheckAllErrors.exit206.thread
-  %203 = getelementptr inbounds nuw i8, ptr %.val181, i64 200
-  %204 = load ptr, ptr %203, align 8
-  %205 = tail call i32 %204() #10
-  %.not5.i209 = icmp eq i32 %205, 0
-  br i1 %.not5.i209, label %213, label %.lr.ph.i210
+  %200 = getelementptr inbounds nuw i8, ptr %.val181, i64 200
+  %201 = load ptr, ptr %200, align 8
+  %202 = tail call i32 %201() #10
+  %.not5.i209 = icmp eq i32 %202, 0
+  br i1 %.not5.i209, label %210, label %.lr.ph.i210
 
-.lr.ph.i210:                                      ; preds = %.preheader.i208, %209
-  %206 = phi i32 [ %212, %209 ], [ %205, %.preheader.i208 ]
-  %switch.tableidx346 = add i32 %206, -1280
-  %207 = icmp ult i32 %switch.tableidx346, 6
-  br i1 %207, label %switch.lookup347, label %209
+.lr.ph.i210:                                      ; preds = %.preheader.i208, %206
+  %203 = phi i32 [ %209, %206 ], [ %202, %.preheader.i208 ]
+  %switch.tableidx346 = add i32 %203, -1280
+  %204 = icmp ult i32 %switch.tableidx346, 6
+  br i1 %204, label %switch.lookup347, label %206
 
 switch.lookup347:                                 ; preds = %.lr.ph.i210
-  %208 = zext nneg i32 %switch.tableidx346 to i64
-  %switch.gep348 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %208
+  %205 = zext nneg i32 %switch.tableidx346 to i64
+  %switch.gep348 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %205
   %switch.load349 = load ptr, ptr %switch.gep348, align 8
-  br label %209
+  br label %206
 
-209:                                              ; preds = %.lr.ph.i210, %switch.lookup347
+206:                                              ; preds = %.lr.ph.i210, %switch.lookup347
   %.0.i.i213 = phi ptr [ %switch.load349, %switch.lookup347 ], [ @.str.108, %.lr.ph.i210 ]
-  %210 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.6, i32 noundef 1722, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i213, i32 noundef %206) #10
-  %211 = load ptr, ptr %203, align 8
-  %212 = tail call i32 %211() #10
-  %.not.i214 = icmp eq i32 %212, 0
+  %207 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.6, i32 noundef 1722, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i213, i32 noundef %203) #10
+  %208 = load ptr, ptr %200, align 8
+  %209 = tail call i32 %208() #10
+  %.not.i214 = icmp eq i32 %209, 0
   br i1 %.not.i214, label %GL_CheckAllErrors.exit197, label %.lr.ph.i210
 
-213:                                              ; preds = %GL_CheckAllErrors.exit206.thread, %.preheader.i208
-  %214 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
-  %215 = load i32, ptr %51, align 8
-  %216 = zext i32 %215 to i64
-  %217 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %214, ptr noundef nonnull @.str.73, i64 noundef %216) #10
-  %218 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %219 = load i32, ptr %218, align 8
-  %220 = load i32, ptr %114, align 4
-  %221 = load i32, ptr %119, align 8
-  %222 = tail call ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %219, i32 noundef %220, i32 noundef %221, i32 noundef 8) #10
-  %.not176 = icmp eq ptr %222, null
-  br i1 %.not176, label %223, label %289
+210:                                              ; preds = %GL_CheckAllErrors.exit206.thread, %.preheader.i208
+  %211 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
+  %212 = load i32, ptr %51, align 8
+  %213 = zext i32 %212 to i64
+  %214 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %211, ptr noundef nonnull @.str.73, i64 noundef %213) #10
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %216 = load i32, ptr %215, align 8
+  %217 = load i32, ptr %111, align 4
+  %218 = load i32, ptr %116, align 8
+  %219 = tail call ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %216, i32 noundef %217, i32 noundef %218, i32 noundef 8) #10
+  %.not176 = icmp eq ptr %219, null
+  br i1 %.not176, label %220, label %286
 
-223:                                              ; preds = %213
-  %224 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.74) #10
+220:                                              ; preds = %210
+  %221 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.74) #10
   br label %GL_CheckAllErrors.exit197
 
-225:                                              ; preds = %GL_CheckAllErrors.exit
-  %226 = load i8, ptr %50, align 1, !range !5, !noundef !6
-  %227 = trunc nuw i8 %226 to i1
-  br i1 %227, label %228, label %289
+222:                                              ; preds = %GL_CheckAllErrors.exit
+  %223 = load i8, ptr %50, align 1, !range !5, !noundef !6
+  %224 = trunc nuw i8 %223 to i1
+  br i1 %224, label %225, label %286
+
+225:                                              ; preds = %222
+  %226 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.75, i64 noundef 0) #10
+  %227 = trunc i64 %226 to i32
+  store i32 %227, ptr %51, align 8
+  %.not172 = icmp eq i32 %227, 0
+  br i1 %.not172, label %230, label %228
 
 228:                                              ; preds = %225
-  %229 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.75, i64 noundef 0) #10
-  %230 = trunc i64 %229 to i32
-  store i32 %230, ptr %51, align 8
-  %.not172 = icmp eq i32 %230, 0
-  br i1 %.not172, label %233, label %231
-
-231:                                              ; preds = %228
-  %232 = getelementptr inbounds nuw i8, ptr %35, i64 52
-  store i32 1, ptr %232, align 4
+  %229 = getelementptr inbounds nuw i8, ptr %35, i64 52
+  store i32 1, ptr %229, align 4
   br label %GL_CheckAllErrors.exit224.thread
 
-233:                                              ; preds = %228
-  %234 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %235 = load ptr, ptr %234, align 8
-  tail call void %235(i32 noundef 1, ptr noundef nonnull %51) #10
+230:                                              ; preds = %225
+  %231 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %232 = load ptr, ptr %231, align 8
+  tail call void %232(i32 noundef 1, ptr noundef nonnull %51) #10
   %.val182 = load ptr, ptr %4, align 8
-  %236 = getelementptr inbounds nuw i8, ptr %.val182, i64 8
-  %237 = load i8, ptr %236, align 8, !range !5, !noundef !6
-  %238 = trunc nuw i8 %237 to i1
-  br i1 %238, label %.preheader.i217, label %GL_CheckAllErrors.exit224.thread
+  %233 = getelementptr inbounds nuw i8, ptr %.val182, i64 8
+  %234 = load i8, ptr %233, align 8, !range !5, !noundef !6
+  %235 = trunc nuw i8 %234 to i1
+  br i1 %235, label %.preheader.i217, label %GL_CheckAllErrors.exit224.thread
 
-.preheader.i217:                                  ; preds = %233
-  %239 = getelementptr inbounds nuw i8, ptr %.val182, i64 200
-  %240 = load ptr, ptr %239, align 8
-  %241 = tail call i32 %240() #10
-  %.not5.i218 = icmp eq i32 %241, 0
+.preheader.i217:                                  ; preds = %230
+  %236 = getelementptr inbounds nuw i8, ptr %.val182, i64 200
+  %237 = load ptr, ptr %236, align 8
+  %238 = tail call i32 %237() #10
+  %.not5.i218 = icmp eq i32 %238, 0
   br i1 %.not5.i218, label %GL_CheckAllErrors.exit224.thread, label %.lr.ph.i219
 
-.lr.ph.i219:                                      ; preds = %.preheader.i217, %245
-  %242 = phi i32 [ %248, %245 ], [ %241, %.preheader.i217 ]
-  %switch.tableidx350 = add i32 %242, -1280
-  %243 = icmp ult i32 %switch.tableidx350, 6
-  br i1 %243, label %switch.lookup351, label %245
+.lr.ph.i219:                                      ; preds = %.preheader.i217, %242
+  %239 = phi i32 [ %245, %242 ], [ %238, %.preheader.i217 ]
+  %switch.tableidx350 = add i32 %239, -1280
+  %240 = icmp ult i32 %switch.tableidx350, 6
+  br i1 %240, label %switch.lookup351, label %242
 
 switch.lookup351:                                 ; preds = %.lr.ph.i219
-  %244 = zext nneg i32 %switch.tableidx350 to i64
-  %switch.gep352 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %244
+  %241 = zext nneg i32 %switch.tableidx350 to i64
+  %switch.gep352 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %241
   %switch.load353 = load ptr, ptr %switch.gep352, align 8
-  br label %245
+  br label %242
 
-245:                                              ; preds = %.lr.ph.i219, %switch.lookup351
+242:                                              ; preds = %.lr.ph.i219, %switch.lookup351
   %.0.i.i222 = phi ptr [ %switch.load353, %switch.lookup351 ], [ @.str.108, %.lr.ph.i219 ]
-  %246 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1736, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i222, i32 noundef %242) #10
-  %247 = load ptr, ptr %239, align 8
-  %248 = tail call i32 %247() #10
-  %.not.i223 = icmp eq i32 %248, 0
+  %243 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1736, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i222, i32 noundef %239) #10
+  %244 = load ptr, ptr %236, align 8
+  %245 = tail call i32 %244() #10
+  %.not.i223 = icmp eq i32 %245, 0
   br i1 %.not.i223, label %GL_CheckAllErrors.exit197, label %.lr.ph.i219
 
-GL_CheckAllErrors.exit224.thread:                 ; preds = %.preheader.i217, %233, %231
-  %249 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %250 = load ptr, ptr %249, align 8
-  tail call void %250(i32 noundef 33985) #10
-  %251 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %252 = load ptr, ptr %251, align 8
-  %253 = load i32, ptr %40, align 8
-  %254 = load i32, ptr %51, align 8
-  tail call void %252(i32 noundef %253, i32 noundef %254) #10
-  %255 = getelementptr inbounds nuw i8, ptr %5, i64 296
-  %256 = load ptr, ptr %255, align 8
-  %257 = load i32, ptr %40, align 8
-  %258 = load i32, ptr %114, align 4
+GL_CheckAllErrors.exit224.thread:                 ; preds = %.preheader.i217, %230, %228
+  %246 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %247 = load ptr, ptr %246, align 8
+  tail call void %247(i32 noundef 33985) #10
+  %248 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %249 = load ptr, ptr %248, align 8
+  %250 = load i32, ptr %40, align 8
+  %251 = load i32, ptr %51, align 8
+  tail call void %249(i32 noundef %250, i32 noundef %251) #10
+  %252 = getelementptr inbounds nuw i8, ptr %5, i64 296
+  %253 = load ptr, ptr %252, align 8
+  %254 = load i32, ptr %40, align 8
+  %255 = load i32, ptr %111, align 4
+  %256 = add nsw i32 %255, 1
+  %257 = sdiv i32 %256, 2
+  %258 = load i32, ptr %116, align 8
   %259 = add nsw i32 %258, 1
   %260 = sdiv i32 %259, 2
-  %261 = load i32, ptr %119, align 8
-  %262 = add nsw i32 %261, 1
-  %263 = sdiv i32 %262, 2
-  tail call void %256(i32 noundef %257, i32 noundef 0, i32 noundef 6410, i32 noundef %260, i32 noundef %263, i32 noundef 0, i32 noundef 6410, i32 noundef 5121, ptr noundef null) #10
+  tail call void %253(i32 noundef %254, i32 noundef 0, i32 noundef 6410, i32 noundef %257, i32 noundef %260, i32 noundef 0, i32 noundef 6410, i32 noundef 5121, ptr noundef null) #10
   %.val183 = load ptr, ptr %4, align 8
-  %264 = getelementptr inbounds nuw i8, ptr %.val183, i64 8
-  %265 = load i8, ptr %264, align 8, !range !5, !noundef !6
-  %266 = trunc nuw i8 %265 to i1
-  br i1 %266, label %.preheader.i226, label %277
+  %261 = getelementptr inbounds nuw i8, ptr %.val183, i64 8
+  %262 = load i8, ptr %261, align 8, !range !5, !noundef !6
+  %263 = trunc nuw i8 %262 to i1
+  br i1 %263, label %.preheader.i226, label %274
 
 .preheader.i226:                                  ; preds = %GL_CheckAllErrors.exit224.thread
-  %267 = getelementptr inbounds nuw i8, ptr %.val183, i64 200
-  %268 = load ptr, ptr %267, align 8
-  %269 = tail call i32 %268() #10
-  %.not5.i227 = icmp eq i32 %269, 0
-  br i1 %.not5.i227, label %277, label %.lr.ph.i228
+  %264 = getelementptr inbounds nuw i8, ptr %.val183, i64 200
+  %265 = load ptr, ptr %264, align 8
+  %266 = tail call i32 %265() #10
+  %.not5.i227 = icmp eq i32 %266, 0
+  br i1 %.not5.i227, label %274, label %.lr.ph.i228
 
-.lr.ph.i228:                                      ; preds = %.preheader.i226, %273
-  %270 = phi i32 [ %276, %273 ], [ %269, %.preheader.i226 ]
-  %switch.tableidx354 = add i32 %270, -1280
-  %271 = icmp ult i32 %switch.tableidx354, 6
-  br i1 %271, label %switch.lookup355, label %273
+.lr.ph.i228:                                      ; preds = %.preheader.i226, %270
+  %267 = phi i32 [ %273, %270 ], [ %266, %.preheader.i226 ]
+  %switch.tableidx354 = add i32 %267, -1280
+  %268 = icmp ult i32 %switch.tableidx354, 6
+  br i1 %268, label %switch.lookup355, label %270
 
 switch.lookup355:                                 ; preds = %.lr.ph.i228
-  %272 = zext nneg i32 %switch.tableidx354 to i64
-  %switch.gep356 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %272
+  %269 = zext nneg i32 %switch.tableidx354 to i64
+  %switch.gep356 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %269
   %switch.load357 = load ptr, ptr %switch.gep356, align 8
-  br label %273
+  br label %270
 
-273:                                              ; preds = %.lr.ph.i228, %switch.lookup355
+270:                                              ; preds = %.lr.ph.i228, %switch.lookup355
   %.0.i.i231 = phi ptr [ %switch.load357, %switch.lookup355 ], [ @.str.108, %.lr.ph.i228 ]
-  %274 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.6, i32 noundef 1743, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i231, i32 noundef %270) #10
-  %275 = load ptr, ptr %267, align 8
-  %276 = tail call i32 %275() #10
-  %.not.i232 = icmp eq i32 %276, 0
+  %271 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.6, i32 noundef 1743, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i231, i32 noundef %267) #10
+  %272 = load ptr, ptr %264, align 8
+  %273 = tail call i32 %272() #10
+  %.not.i232 = icmp eq i32 %273, 0
   br i1 %.not.i232, label %GL_CheckAllErrors.exit197, label %.lr.ph.i228
 
-277:                                              ; preds = %GL_CheckAllErrors.exit224.thread, %.preheader.i226
-  %278 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
-  %279 = load i32, ptr %51, align 8
-  %280 = zext i32 %279 to i64
-  %281 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %278, ptr noundef nonnull @.str.76, i64 noundef %280) #10
-  %282 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %283 = load i32, ptr %282, align 8
-  %284 = load i32, ptr %114, align 4
-  %285 = load i32, ptr %119, align 8
-  %286 = tail call ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %283, i32 noundef %284, i32 noundef %285, i32 noundef 8) #10
-  %.not173 = icmp eq ptr %286, null
-  br i1 %.not173, label %287, label %289
+274:                                              ; preds = %GL_CheckAllErrors.exit224.thread, %.preheader.i226
+  %275 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
+  %276 = load i32, ptr %51, align 8
+  %277 = zext i32 %276 to i64
+  %278 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %275, ptr noundef nonnull @.str.76, i64 noundef %277) #10
+  %279 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %280 = load i32, ptr %279, align 8
+  %281 = load i32, ptr %111, align 4
+  %282 = load i32, ptr %116, align 8
+  %283 = tail call ptr @SDL_GetYCbCRtoRGBConversionMatrix(i32 noundef %280, i32 noundef %281, i32 noundef %282, i32 noundef 8) #10
+  %.not173 = icmp eq ptr %283, null
+  br i1 %.not173, label %284, label %286
 
-287:                                              ; preds = %277
-  %288 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.74) #10
+284:                                              ; preds = %274
+  %285 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.74) #10
   br label %GL_CheckAllErrors.exit197
 
-289:                                              ; preds = %225, %277, %213
-  %290 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.77, i64 noundef 0) #10
-  %291 = trunc i64 %290 to i32
-  store i32 %291, ptr %35, align 8
-  %.not177 = icmp eq i32 %291, 0
-  br i1 %.not177, label %294, label %292
+286:                                              ; preds = %222, %274, %210
+  %287 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %2, ptr noundef nonnull @.str.77, i64 noundef 0) #10
+  %288 = trunc i64 %287 to i32
+  store i32 %288, ptr %35, align 8
+  %.not177 = icmp eq i32 %288, 0
+  br i1 %.not177, label %291, label %289
 
-292:                                              ; preds = %289
-  %293 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i8 1, ptr %293, align 4
+289:                                              ; preds = %286
+  %290 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i8 1, ptr %290, align 4
   br label %GL_CheckAllErrors.exit242.thread
 
-294:                                              ; preds = %289
-  %295 = getelementptr inbounds nuw i8, ptr %5, i64 184
-  %296 = load ptr, ptr %295, align 8
-  tail call void %296(i32 noundef 1, ptr noundef nonnull %35) #10
+291:                                              ; preds = %286
+  %292 = getelementptr inbounds nuw i8, ptr %5, i64 184
+  %293 = load ptr, ptr %292, align 8
+  tail call void %293(i32 noundef 1, ptr noundef nonnull %35) #10
   %.val184 = load ptr, ptr %4, align 8
-  %297 = getelementptr inbounds nuw i8, ptr %.val184, i64 8
-  %298 = load i8, ptr %297, align 8, !range !5, !noundef !6
-  %299 = trunc nuw i8 %298 to i1
-  br i1 %299, label %.preheader.i235, label %GL_CheckAllErrors.exit242.thread
+  %294 = getelementptr inbounds nuw i8, ptr %.val184, i64 8
+  %295 = load i8, ptr %294, align 8, !range !5, !noundef !6
+  %296 = trunc nuw i8 %295 to i1
+  br i1 %296, label %.preheader.i235, label %GL_CheckAllErrors.exit242.thread
 
-.preheader.i235:                                  ; preds = %294
-  %300 = getelementptr inbounds nuw i8, ptr %.val184, i64 200
-  %301 = load ptr, ptr %300, align 8
-  %302 = tail call i32 %301() #10
-  %.not5.i236 = icmp eq i32 %302, 0
+.preheader.i235:                                  ; preds = %291
+  %297 = getelementptr inbounds nuw i8, ptr %.val184, i64 200
+  %298 = load ptr, ptr %297, align 8
+  %299 = tail call i32 %298() #10
+  %.not5.i236 = icmp eq i32 %299, 0
   br i1 %.not5.i236, label %GL_CheckAllErrors.exit242.thread, label %.lr.ph.i237
 
-.lr.ph.i237:                                      ; preds = %.preheader.i235, %306
-  %303 = phi i32 [ %309, %306 ], [ %302, %.preheader.i235 ]
-  %switch.tableidx358 = add i32 %303, -1280
-  %304 = icmp ult i32 %switch.tableidx358, 6
-  br i1 %304, label %switch.lookup359, label %306
+.lr.ph.i237:                                      ; preds = %.preheader.i235, %303
+  %300 = phi i32 [ %306, %303 ], [ %299, %.preheader.i235 ]
+  %switch.tableidx358 = add i32 %300, -1280
+  %301 = icmp ult i32 %switch.tableidx358, 6
+  br i1 %301, label %switch.lookup359, label %303
 
 switch.lookup359:                                 ; preds = %.lr.ph.i237
-  %305 = zext nneg i32 %switch.tableidx358 to i64
-  %switch.gep360 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %305
+  %302 = zext nneg i32 %switch.tableidx358 to i64
+  %switch.gep360 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %302
   %switch.load361 = load ptr, ptr %switch.gep360, align 8
-  br label %306
+  br label %303
 
-306:                                              ; preds = %.lr.ph.i237, %switch.lookup359
+303:                                              ; preds = %.lr.ph.i237, %switch.lookup359
   %.0.i.i240 = phi ptr [ %switch.load361, %switch.lookup359 ], [ @.str.108, %.lr.ph.i237 ]
-  %307 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1759, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i240, i32 noundef %303) #10
-  %308 = load ptr, ptr %300, align 8
-  %309 = tail call i32 %308() #10
-  %.not.i241 = icmp eq i32 %309, 0
+  %304 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.6, i32 noundef 1759, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i240, i32 noundef %300) #10
+  %305 = load ptr, ptr %297, align 8
+  %306 = tail call i32 %305() #10
+  %.not.i241 = icmp eq i32 %306, 0
   br i1 %.not.i241, label %GL_CheckAllErrors.exit197, label %.lr.ph.i237
 
-GL_CheckAllErrors.exit242.thread:                 ; preds = %.preheader.i235, %294, %292
-  %310 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  store ptr %35, ptr %310, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %312 = load ptr, ptr %311, align 8
-  tail call void %312(i32 noundef 33984) #10
-  %313 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %314 = load ptr, ptr %313, align 8
-  %315 = load i32, ptr %40, align 8
-  %316 = load i32, ptr %35, align 8
-  tail call void %314(i32 noundef %315, i32 noundef %316) #10
-  %317 = load i32, ptr %1, align 8
-  %.not178 = icmp eq i32 %317, 542328143
-  br i1 %.not178, label %GL_CheckAllErrors.exit251.thread, label %318
+GL_CheckAllErrors.exit242.thread:                 ; preds = %.preheader.i235, %291, %289
+  %307 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  store ptr %35, ptr %307, align 8
+  %308 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %309 = load ptr, ptr %308, align 8
+  tail call void %309(i32 noundef 33984) #10
+  %310 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %311 = load ptr, ptr %310, align 8
+  %312 = load i32, ptr %40, align 8
+  %313 = load i32, ptr %35, align 8
+  tail call void %311(i32 noundef %312, i32 noundef %313) #10
+  %314 = load i32, ptr %1, align 8
+  %.not178 = icmp eq i32 %314, 542328143
+  br i1 %.not178, label %GL_CheckAllErrors.exit251.thread, label %315
 
-318:                                              ; preds = %GL_CheckAllErrors.exit242.thread
-  %319 = getelementptr inbounds nuw i8, ptr %5, i64 296
-  %320 = load ptr, ptr %319, align 8
-  %321 = load i32, ptr %40, align 8
-  %322 = load i32, ptr %114, align 4
-  %323 = load i32, ptr %119, align 8
-  tail call void %320(i32 noundef %321, i32 noundef 0, i32 noundef %.0162266, i32 noundef %322, i32 noundef %323, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
+315:                                              ; preds = %GL_CheckAllErrors.exit242.thread
+  %316 = getelementptr inbounds nuw i8, ptr %5, i64 296
+  %317 = load ptr, ptr %316, align 8
+  %318 = load i32, ptr %40, align 8
+  %319 = load i32, ptr %111, align 4
+  %320 = load i32, ptr %116, align 8
+  tail call void %317(i32 noundef %318, i32 noundef 0, i32 noundef %.0162266, i32 noundef %319, i32 noundef %320, i32 noundef 0, i32 noundef %.0162266, i32 noundef %.0161267, ptr noundef null) #10
   %.val185 = load ptr, ptr %4, align 8
-  %324 = getelementptr inbounds nuw i8, ptr %.val185, i64 8
-  %325 = load i8, ptr %324, align 8, !range !5, !noundef !6
-  %326 = trunc nuw i8 %325 to i1
-  br i1 %326, label %.preheader.i244, label %GL_CheckAllErrors.exit251.thread
+  %321 = getelementptr inbounds nuw i8, ptr %.val185, i64 8
+  %322 = load i8, ptr %321, align 8, !range !5, !noundef !6
+  %323 = trunc nuw i8 %322 to i1
+  br i1 %323, label %.preheader.i244, label %GL_CheckAllErrors.exit251.thread
 
-.preheader.i244:                                  ; preds = %318
-  %327 = getelementptr inbounds nuw i8, ptr %.val185, i64 200
-  %328 = load ptr, ptr %327, align 8
-  %329 = tail call i32 %328() #10
-  %.not5.i245 = icmp eq i32 %329, 0
+.preheader.i244:                                  ; preds = %315
+  %324 = getelementptr inbounds nuw i8, ptr %.val185, i64 200
+  %325 = load ptr, ptr %324, align 8
+  %326 = tail call i32 %325() #10
+  %.not5.i245 = icmp eq i32 %326, 0
   br i1 %.not5.i245, label %GL_CheckAllErrors.exit251.thread, label %.lr.ph.i246
 
-.lr.ph.i246:                                      ; preds = %.preheader.i244, %333
-  %330 = phi i32 [ %336, %333 ], [ %329, %.preheader.i244 ]
-  %switch.tableidx362 = add i32 %330, -1280
-  %331 = icmp ult i32 %switch.tableidx362, 6
-  br i1 %331, label %switch.lookup363, label %333
+.lr.ph.i246:                                      ; preds = %.preheader.i244, %330
+  %327 = phi i32 [ %333, %330 ], [ %326, %.preheader.i244 ]
+  %switch.tableidx362 = add i32 %327, -1280
+  %328 = icmp ult i32 %switch.tableidx362, 6
+  br i1 %328, label %switch.lookup363, label %330
 
 switch.lookup363:                                 ; preds = %.lr.ph.i246
-  %332 = zext nneg i32 %switch.tableidx362 to i64
-  %switch.gep364 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %332
+  %329 = zext nneg i32 %switch.tableidx362 to i64
+  %switch.gep364 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %329
   %switch.load365 = load ptr, ptr %switch.gep364, align 8
-  br label %333
+  br label %330
 
-333:                                              ; preds = %.lr.ph.i246, %switch.lookup363
+330:                                              ; preds = %.lr.ph.i246, %switch.lookup363
   %.0.i.i249 = phi ptr [ %switch.load365, %switch.lookup363 ], [ @.str.108, %.lr.ph.i246 ]
-  %334 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.6, i32 noundef 1768, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i249, i32 noundef %330) #10
-  %335 = load ptr, ptr %327, align 8
-  %336 = tail call i32 %335() #10
-  %.not.i250 = icmp eq i32 %336, 0
+  %331 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.72, ptr noundef nonnull @.str.6, i32 noundef 1768, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i249, i32 noundef %327) #10
+  %332 = load ptr, ptr %324, align 8
+  %333 = tail call i32 %332() #10
+  %.not.i250 = icmp eq i32 %333, 0
   br i1 %.not.i250, label %GL_CheckAllErrors.exit197, label %.lr.ph.i246
 
-GL_CheckAllErrors.exit251.thread:                 ; preds = %.preheader.i244, %318, %GL_CheckAllErrors.exit242.thread
-  %337 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
-  %338 = load i32, ptr %35, align 8
-  %339 = zext i32 %338 to i64
-  %340 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %337, ptr noundef nonnull @.str.78, i64 noundef %339) #10
-  %341 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
-  %342 = load i32, ptr %40, align 8
-  %343 = zext i32 %342 to i64
-  %344 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %341, ptr noundef nonnull @.str.79, i64 noundef %343) #10
-  %345 = load i32, ptr %56, align 4
-  %346 = icmp eq i32 %345, 2
-  br i1 %346, label %347, label %GLES2_GetFBO.exit
+GL_CheckAllErrors.exit251.thread:                 ; preds = %.preheader.i244, %315, %GL_CheckAllErrors.exit242.thread
+  %334 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
+  %335 = load i32, ptr %35, align 8
+  %336 = zext i32 %335 to i64
+  %337 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %334, ptr noundef nonnull @.str.78, i64 noundef %336) #10
+  %338 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %1) #10
+  %339 = load i32, ptr %40, align 8
+  %340 = zext i32 %339 to i64
+  %341 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %338, ptr noundef nonnull @.str.79, i64 noundef %340) #10
+  %342 = load i32, ptr %56, align 4
+  %343 = icmp eq i32 %342, 2
+  br i1 %343, label %344, label %GLES2_GetFBO.exit
 
-347:                                              ; preds = %GL_CheckAllErrors.exit251.thread
-  %348 = load ptr, ptr %4, align 8
-  %349 = load i32, ptr %114, align 4
-  %350 = load i32, ptr %119, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %348, i64 472
-  %.024.i = load ptr, ptr %351, align 8
+344:                                              ; preds = %GL_CheckAllErrors.exit251.thread
+  %345 = load ptr, ptr %4, align 8
+  %346 = load i32, ptr %111, align 4
+  %347 = load i32, ptr %116, align 8
+  %348 = getelementptr inbounds nuw i8, ptr %345, i64 472
+  %.024.i = load ptr, ptr %348, align 8
   %.not25.i = icmp eq ptr %.024.i, null
   br i1 %.not25.i, label %.critedge22.i, label %.lr.ph.i252
 
-.lr.ph.i252:                                      ; preds = %347, %.critedge2.i
-  %.026.i = phi ptr [ %.0.i253, %.critedge2.i ], [ %.024.i, %347 ]
-  %352 = load i32, ptr %.026.i, align 8
-  %.not20.i = icmp eq i32 %352, %349
-  br i1 %.not20.i, label %353, label %.critedge2.i
+.lr.ph.i252:                                      ; preds = %344, %.critedge2.i
+  %.026.i = phi ptr [ %.0.i253, %.critedge2.i ], [ %.024.i, %344 ]
+  %349 = load i32, ptr %.026.i, align 8
+  %.not20.i = icmp eq i32 %349, %346
+  br i1 %.not20.i, label %350, label %.critedge2.i
 
-353:                                              ; preds = %.lr.ph.i252
-  %354 = getelementptr inbounds nuw i8, ptr %.026.i, i64 4
-  %355 = load i32, ptr %354, align 4
-  %.not21.i = icmp eq i32 %355, %350
+350:                                              ; preds = %.lr.ph.i252
+  %351 = getelementptr inbounds nuw i8, ptr %.026.i, i64 4
+  %352 = load i32, ptr %351, align 4
+  %.not21.i = icmp eq i32 %352, %347
   br i1 %.not21.i, label %GLES2_GetFBO.exit, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %353, %.lr.ph.i252
-  %356 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
-  %.0.i253 = load ptr, ptr %356, align 8
+.critedge2.i:                                     ; preds = %350, %.lr.ph.i252
+  %353 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
+  %.0.i253 = load ptr, ptr %353, align 8
   %.not.i254 = icmp eq ptr %.0.i253, null
   br i1 %.not.i254, label %.critedge22.i, label %.lr.ph.i252, !llvm.loop !8
 
-.critedge22.i:                                    ; preds = %.critedge2.i, %347
-  %357 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #10
-  store i32 %349, ptr %357, align 8
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 4
-  store i32 %350, ptr %358, align 4
-  %359 = getelementptr inbounds nuw i8, ptr %348, i64 176
-  %360 = load ptr, ptr %359, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %357, i64 8
-  tail call void %360(i32 noundef 1, ptr noundef nonnull %361) #10
-  %362 = load ptr, ptr %351, align 8
-  %363 = getelementptr inbounds nuw i8, ptr %357, i64 16
-  store ptr %362, ptr %363, align 8
-  store ptr %357, ptr %351, align 8
+.critedge22.i:                                    ; preds = %.critedge2.i, %344
+  %354 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef 24) #10
+  store i32 %346, ptr %354, align 8
+  %355 = getelementptr inbounds nuw i8, ptr %354, i64 4
+  store i32 %347, ptr %355, align 4
+  %356 = getelementptr inbounds nuw i8, ptr %345, i64 176
+  %357 = load ptr, ptr %356, align 8
+  %358 = getelementptr inbounds nuw i8, ptr %354, i64 8
+  tail call void %357(i32 noundef 1, ptr noundef nonnull %358) #10
+  %359 = load ptr, ptr %348, align 8
+  %360 = getelementptr inbounds nuw i8, ptr %354, i64 16
+  store ptr %359, ptr %360, align 8
+  store ptr %354, ptr %348, align 8
   br label %GLES2_GetFBO.exit
 
-GLES2_GetFBO.exit:                                ; preds = %353, %GL_CheckAllErrors.exit251.thread, %.critedge22.i
-  %.sink = phi ptr [ %357, %.critedge22.i ], [ null, %GL_CheckAllErrors.exit251.thread ], [ %.026.i, %353 ]
-  %364 = getelementptr inbounds nuw i8, ptr %35, i64 88
-  store ptr %.sink, ptr %364, align 8
+GLES2_GetFBO.exit:                                ; preds = %350, %GL_CheckAllErrors.exit251.thread, %.critedge22.i
+  %.sink = phi ptr [ %354, %.critedge22.i ], [ null, %GL_CheckAllErrors.exit251.thread ], [ %.026.i, %350 ]
+  %361 = getelementptr inbounds nuw i8, ptr %35, i64 88
+  store ptr %.sink, ptr %361, align 8
   %.val186 = load ptr, ptr %4, align 8
-  %365 = getelementptr inbounds nuw i8, ptr %.val186, i64 8
-  %366 = load i8, ptr %365, align 8, !range !5, !noundef !6
-  %367 = trunc nuw i8 %366 to i1
-  br i1 %367, label %.preheader.i256, label %GL_CheckAllErrors.exit197
+  %362 = getelementptr inbounds nuw i8, ptr %.val186, i64 8
+  %363 = load i8, ptr %362, align 8, !range !5, !noundef !6
+  %364 = trunc nuw i8 %363 to i1
+  br i1 %364, label %.preheader.i256, label %GL_CheckAllErrors.exit197
 
 .preheader.i256:                                  ; preds = %GLES2_GetFBO.exit
-  %368 = getelementptr inbounds nuw i8, ptr %.val186, i64 200
-  %369 = load ptr, ptr %368, align 8
-  %370 = tail call i32 %369() #10
-  %.not5.i257 = icmp eq i32 %370, 0
+  %365 = getelementptr inbounds nuw i8, ptr %.val186, i64 200
+  %366 = load ptr, ptr %365, align 8
+  %367 = tail call i32 %366() #10
+  %.not5.i257 = icmp eq i32 %367, 0
   br i1 %.not5.i257, label %GL_CheckAllErrors.exit197, label %.lr.ph.i258
 
-.lr.ph.i258:                                      ; preds = %.preheader.i256, %376
-  %371 = phi i32 [ %379, %376 ], [ %370, %.preheader.i256 ]
-  %.0166.i259 = phi ptr [ %spec.select282, %376 ], [ @.str.5, %.preheader.i256 ]
-  %372 = load i8, ptr %.0166.i259, align 1
-  %373 = icmp eq i8 %372, 0
-  %spec.select282 = select i1 %373, ptr @.str.101, ptr %.0166.i259
-  %switch.tableidx366 = add i32 %371, -1280
-  %374 = icmp ult i32 %switch.tableidx366, 6
-  br i1 %374, label %switch.lookup367, label %376
+.lr.ph.i258:                                      ; preds = %.preheader.i256, %373
+  %368 = phi i32 [ %376, %373 ], [ %367, %.preheader.i256 ]
+  %.0166.i259 = phi ptr [ %spec.select282, %373 ], [ @.str.5, %.preheader.i256 ]
+  %369 = load i8, ptr %.0166.i259, align 1
+  %370 = icmp eq i8 %369, 0
+  %spec.select282 = select i1 %370, ptr @.str.101, ptr %.0166.i259
+  %switch.tableidx366 = add i32 %368, -1280
+  %371 = icmp ult i32 %switch.tableidx366, 6
+  br i1 %371, label %switch.lookup367, label %373
 
 switch.lookup367:                                 ; preds = %.lr.ph.i258
-  %375 = zext nneg i32 %switch.tableidx366 to i64
-  %switch.gep368 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %375
+  %372 = zext nneg i32 %switch.tableidx366 to i64
+  %switch.gep368 = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %372
   %switch.load369 = load ptr, ptr %switch.gep368, align 8
-  br label %376
+  br label %373
 
-376:                                              ; preds = %.lr.ph.i258, %switch.lookup367
+373:                                              ; preds = %.lr.ph.i258, %switch.lookup367
   %.0.i.i261 = phi ptr [ %switch.load369, %switch.lookup367 ], [ @.str.108, %.lr.ph.i258 ]
-  %377 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull %spec.select282, ptr noundef nonnull @.str.6, i32 noundef 1781, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i261, i32 noundef %371) #10
-  %378 = load ptr, ptr %368, align 8
-  %379 = tail call i32 %378() #10
-  %.not.i262 = icmp eq i32 %379, 0
+  %374 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull %spec.select282, ptr noundef nonnull @.str.6, i32 noundef 1781, ptr noundef nonnull @__func__.GLES2_CreateTexture, ptr noundef nonnull %.0.i.i261, i32 noundef %368) #10
+  %375 = load ptr, ptr %365, align 8
+  %376 = tail call i32 %375() #10
+  %.not.i262 = icmp eq i32 %376, 0
   br i1 %.not.i262, label %GL_CheckAllErrors.exit197, label %.lr.ph.i258
 
-GL_CheckAllErrors.exit197:                        ; preds = %245, %273, %145, %184, %209, %306, %333, %376, %.preheader.i256, %GLES2_GetFBO.exit, %98, %.thread, %287, %223, %33, %28
-  %.0163 = phi i1 [ %29, %28 ], [ %34, %33 ], [ %224, %223 ], [ %288, %287 ], [ false, %98 ], [ false, %.thread ], [ true, %GLES2_GetFBO.exit ], [ true, %.preheader.i256 ], [ false, %376 ], [ false, %333 ], [ false, %306 ], [ false, %209 ], [ false, %184 ], [ false, %145 ], [ false, %273 ], [ false, %245 ]
+GL_CheckAllErrors.exit197:                        ; preds = %242, %270, %142, %181, %206, %303, %330, %373, %.preheader.i256, %GLES2_GetFBO.exit, %95, %.thread, %284, %220, %33, %28
+  %.0163 = phi i1 [ %29, %28 ], [ %34, %33 ], [ %221, %220 ], [ %285, %284 ], [ false, %95 ], [ false, %.thread ], [ true, %GLES2_GetFBO.exit ], [ true, %.preheader.i256 ], [ false, %373 ], [ false, %330 ], [ false, %303 ], [ false, %206 ], [ false, %181 ], [ false, %142 ], [ false, %270 ], [ false, %242 ]
   ret i1 %.0163
 }
 
@@ -1808,349 +1807,348 @@ GLES2_ActivateRenderer.exit:                      ; preds = %22, %12, %17
   %.mask = and i32 %49, -268435456
   %.not84 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not, %.not84
-  br i1 %or.cond, label %54, label %50
+  br i1 %or.cond, label %52, label %50
 
 50:                                               ; preds = %32
   switch i32 %49, label %51 [
-    i32 844715353, label %56
-    i32 1498831189, label %56
-    i32 1431918169, label %56
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 51:                                               ; preds = %50
-  %52 = icmp eq i32 %49, 808530000
-  %53 = select i1 %52, i32 2, i32 1
-  br label %56
+  br label %switch.edge
 
-54:                                               ; preds = %32
-  %55 = and i32 %49, 255
-  br label %56
+52:                                               ; preds = %32
+  %53 = and i32 %49, 255
+  br label %switch.edge
 
-56:                                               ; preds = %51, %50, %50, %50, %54
-  %57 = phi i32 [ %55, %54 ], [ 2, %50 ], [ %53, %51 ], [ 2, %50 ], [ 2, %50 ]
-  %58 = icmp eq i32 %43, 0
-  %59 = icmp eq i32 %44, 0
-  %or.cond.i = or i1 %58, %59
-  %60 = icmp eq i32 %57, 0
-  %or.cond3.i = or i1 %or.cond.i, %60
-  br i1 %or.cond3.i, label %GLES2_TexSubImage2D.exit, label %61
+switch.edge:                                      ; preds = %50, %51, %50, %50, %50, %52
+  %54 = phi i32 [ %53, %52 ], [ 2, %50 ], [ 1, %51 ], [ 2, %50 ], [ 2, %50 ], [ 2, %50 ]
+  %55 = icmp eq i32 %43, 0
+  %56 = icmp eq i32 %44, 0
+  %or.cond.i = or i1 %55, %56
+  %57 = icmp eq i32 %54, 0
+  %or.cond3.i = or i1 %or.cond.i, %57
+  br i1 %or.cond3.i, label %GLES2_TexSubImage2D.exit, label %58
 
-61:                                               ; preds = %56
-  %62 = sext i32 %43 to i64
-  %63 = zext nneg i32 %57 to i64
-  %64 = mul nsw i64 %63, %62
-  %65 = sext i32 %4 to i64
-  %.not.i85 = icmp eq i64 %64, %65
-  br i1 %.not.i85, label %.thread.i, label %68
+58:                                               ; preds = %switch.edge
+  %59 = sext i32 %43 to i64
+  %60 = zext nneg i32 %54 to i64
+  %61 = mul nsw i64 %60, %59
+  %62 = sext i32 %4 to i64
+  %.not.i85 = icmp eq i64 %61, %62
+  br i1 %.not.i85, label %.thread.i, label %65
 
-.thread.i:                                        ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %67 = load ptr, ptr %66, align 8
-  tail call void %67(i32 noundef %39, i32 noundef 0, i32 noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %48, ptr noundef %3) #10
+.thread.i:                                        ; preds = %58
+  %63 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %64 = load ptr, ptr %63, align 8
+  tail call void %64(i32 noundef %39, i32 noundef 0, i32 noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %48, ptr noundef %3) #10
   br label %GLES2_TexSubImage2D.exit
 
-68:                                               ; preds = %61
-  %69 = sext i32 %44 to i64
-  %70 = mul i64 %64, %69
-  %71 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %70) #10
-  %.not47.i = icmp eq ptr %71, null
+65:                                               ; preds = %58
+  %66 = sext i32 %44 to i64
+  %67 = mul i64 %61, %66
+  %68 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %67) #10
+  %.not47.i = icmp eq ptr %68, null
   br i1 %.not47.i, label %GLES2_TexSubImage2D.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %68
-  %72 = icmp sgt i32 %44, 0
-  br i1 %72, label %.lr.ph.i, label %._crit_edge.i
+.preheader.i:                                     ; preds = %65
+  %69 = icmp sgt i32 %44, 0
+  br i1 %69, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
-  %.054.i = phi i32 [ %75, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %.153.i = phi ptr [ %73, %.lr.ph.i ], [ %71, %.preheader.i ]
-  %.04052.i = phi ptr [ %74, %.lr.ph.i ], [ %3, %.preheader.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i, ptr align 1 %.04052.i, i64 %64, i1 false)
-  %73 = getelementptr inbounds nuw i8, ptr %.153.i, i64 %64
-  %74 = getelementptr inbounds i8, ptr %.04052.i, i64 %65
-  %75 = add nuw nsw i32 %.054.i, 1
-  %exitcond.not.i = icmp eq i32 %75, %44
+  %.054.i = phi i32 [ %72, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.153.i = phi ptr [ %70, %.lr.ph.i ], [ %68, %.preheader.i ]
+  %.04052.i = phi ptr [ %71, %.lr.ph.i ], [ %3, %.preheader.i ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i, ptr align 1 %.04052.i, i64 %61, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %.153.i, i64 %61
+  %71 = getelementptr inbounds i8, ptr %.04052.i, i64 %62
+  %72 = add nuw nsw i32 %.054.i, 1
+  %exitcond.not.i = icmp eq i32 %72, %44
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !9
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %77 = load ptr, ptr %76, align 8
-  tail call void %77(i32 noundef %39, i32 noundef 0, i32 noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %48, ptr noundef nonnull %71) #10
-  tail call void @SDL_free_REAL(ptr noundef nonnull %71) #10
+  %73 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %74 = load ptr, ptr %73, align 8
+  tail call void %74(i32 noundef %39, i32 noundef 0, i32 noundef %40, i32 noundef %42, i32 noundef %43, i32 noundef %44, i32 noundef %46, i32 noundef %48, ptr noundef nonnull %68) #10
+  tail call void @SDL_free_REAL(ptr noundef nonnull %68) #10
   br label %GLES2_TexSubImage2D.exit
 
-GLES2_TexSubImage2D.exit:                         ; preds = %56, %.thread.i, %68, %._crit_edge.i
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 36
-  %79 = load i8, ptr %78, align 4, !range !5, !noundef !6
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %166
+GLES2_TexSubImage2D.exit:                         ; preds = %switch.edge, %.thread.i, %65, %._crit_edge.i
+  %75 = getelementptr inbounds nuw i8, ptr %9, i64 36
+  %76 = load i8, ptr %75, align 4, !range !5, !noundef !6
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %78, label %163
 
-81:                                               ; preds = %GLES2_TexSubImage2D.exit
-  %82 = load i32, ptr %29, align 4
-  %83 = mul nsw i32 %82, %4
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %3, i64 %84
-  %86 = load i32, ptr %1, align 8
-  %87 = icmp eq i32 %86, 842094169
-  %88 = load ptr, ptr %34, align 8
+78:                                               ; preds = %GLES2_TexSubImage2D.exit
+  %79 = load i32, ptr %29, align 4
+  %80 = mul nsw i32 %79, %4
+  %81 = sext i32 %80 to i64
+  %82 = getelementptr inbounds i8, ptr %3, i64 %81
+  %83 = load i32, ptr %1, align 8
+  %84 = icmp eq i32 %83, 842094169
+  %85 = load ptr, ptr %34, align 8
+  %86 = load i32, ptr %36, align 8
+  %. = select i1 %84, i64 40, i64 48
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 %.
+  %88 = load i32, ptr %87, align 8
+  tail call void %85(i32 noundef %86, i32 noundef %88) #10
   %89 = load i32, ptr %36, align 8
-  %. = select i1 %87, i64 40, i64 48
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 %.
-  %91 = load i32, ptr %90, align 8
-  tail call void %88(i32 noundef %89, i32 noundef %91) #10
-  %92 = load i32, ptr %36, align 8
-  %93 = load i32, ptr %2, align 4
-  %94 = sdiv i32 %93, 2
-  %95 = load i32, ptr %41, align 4
+  %90 = load i32, ptr %2, align 4
+  %91 = sdiv i32 %90, 2
+  %92 = load i32, ptr %41, align 4
+  %93 = sdiv i32 %92, 2
+  %94 = load i32, ptr %25, align 4
+  %95 = add nsw i32 %94, 1
   %96 = sdiv i32 %95, 2
-  %97 = load i32, ptr %25, align 4
+  %97 = load i32, ptr %29, align 4
   %98 = add nsw i32 %97, 1
   %99 = sdiv i32 %98, 2
-  %100 = load i32, ptr %29, align 4
-  %101 = add nsw i32 %100, 1
-  %102 = sdiv i32 %101, 2
-  %103 = load i32, ptr %45, align 4
-  %104 = load i32, ptr %47, align 8
-  %105 = add nsw i32 %4, 1
-  %106 = sdiv i32 %105, 2
-  %.off133 = add i32 %97, 2
-  %107 = icmp ult i32 %.off133, 3
-  %.off134 = add i32 %100, 2
-  %108 = icmp ult i32 %.off134, 3
-  %or.cond.i86 = or i1 %107, %108
-  br i1 %or.cond.i86, label %GLES2_TexSubImage2D.exit99, label %109
+  %100 = load i32, ptr %45, align 4
+  %101 = load i32, ptr %47, align 8
+  %102 = add nsw i32 %4, 1
+  %103 = sdiv i32 %102, 2
+  %.off133 = add i32 %94, 2
+  %104 = icmp ult i32 %.off133, 3
+  %.off134 = add i32 %97, 2
+  %105 = icmp ult i32 %.off134, 3
+  %or.cond.i86 = or i1 %104, %105
+  br i1 %or.cond.i86, label %GLES2_TexSubImage2D.exit99, label %106
 
-109:                                              ; preds = %81
-  %110 = sext i32 %99 to i64
-  %111 = sext i32 %106 to i64
-  %.not.i88 = icmp eq i32 %99, %106
-  br i1 %.not.i88, label %.thread.i98, label %114
+106:                                              ; preds = %78
+  %107 = sext i32 %96 to i64
+  %108 = sext i32 %103 to i64
+  %.not.i88 = icmp eq i32 %96, %103
+  br i1 %.not.i88, label %.thread.i98, label %111
 
-.thread.i98:                                      ; preds = %109
-  %112 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %113 = load ptr, ptr %112, align 8
-  tail call void %113(i32 noundef %92, i32 noundef 0, i32 noundef %94, i32 noundef %96, i32 noundef %106, i32 noundef %102, i32 noundef %103, i32 noundef %104, ptr noundef %85) #10
+.thread.i98:                                      ; preds = %106
+  %109 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %110 = load ptr, ptr %109, align 8
+  tail call void %110(i32 noundef %89, i32 noundef 0, i32 noundef %91, i32 noundef %93, i32 noundef %103, i32 noundef %99, i32 noundef %100, i32 noundef %101, ptr noundef %82) #10
   br label %GLES2_TexSubImage2D.exit99
 
-114:                                              ; preds = %109
-  %115 = sext i32 %102 to i64
-  %116 = mul nsw i64 %115, %110
-  %117 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %116) #10
-  %.not47.i89 = icmp eq ptr %117, null
+111:                                              ; preds = %106
+  %112 = sext i32 %99 to i64
+  %113 = mul nsw i64 %112, %107
+  %114 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %113) #10
+  %.not47.i89 = icmp eq ptr %114, null
   br i1 %.not47.i89, label %GLES2_TexSubImage2D.exit99, label %.preheader.i90
 
-.preheader.i90:                                   ; preds = %114
-  %118 = icmp sgt i32 %100, 0
-  br i1 %118, label %.lr.ph.i93, label %._crit_edge.i91
+.preheader.i90:                                   ; preds = %111
+  %115 = icmp sgt i32 %97, 0
+  br i1 %115, label %.lr.ph.i93, label %._crit_edge.i91
 
 .lr.ph.i93:                                       ; preds = %.preheader.i90, %.lr.ph.i93
-  %.054.i94 = phi i32 [ %121, %.lr.ph.i93 ], [ 0, %.preheader.i90 ]
-  %.153.i95 = phi ptr [ %119, %.lr.ph.i93 ], [ %117, %.preheader.i90 ]
-  %.04052.i96 = phi ptr [ %120, %.lr.ph.i93 ], [ %85, %.preheader.i90 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i95, ptr align 1 %.04052.i96, i64 %110, i1 false)
-  %119 = getelementptr inbounds nuw i8, ptr %.153.i95, i64 %110
-  %120 = getelementptr inbounds i8, ptr %.04052.i96, i64 %111
-  %121 = add nuw nsw i32 %.054.i94, 1
-  %exitcond.not.i97 = icmp eq i32 %121, %102
+  %.054.i94 = phi i32 [ %118, %.lr.ph.i93 ], [ 0, %.preheader.i90 ]
+  %.153.i95 = phi ptr [ %116, %.lr.ph.i93 ], [ %114, %.preheader.i90 ]
+  %.04052.i96 = phi ptr [ %117, %.lr.ph.i93 ], [ %82, %.preheader.i90 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i95, ptr align 1 %.04052.i96, i64 %107, i1 false)
+  %116 = getelementptr inbounds nuw i8, ptr %.153.i95, i64 %107
+  %117 = getelementptr inbounds i8, ptr %.04052.i96, i64 %108
+  %118 = add nuw nsw i32 %.054.i94, 1
+  %exitcond.not.i97 = icmp eq i32 %118, %99
   br i1 %exitcond.not.i97, label %._crit_edge.i91, label %.lr.ph.i93, !llvm.loop !9
 
 ._crit_edge.i91:                                  ; preds = %.lr.ph.i93, %.preheader.i90
-  %122 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %123 = load ptr, ptr %122, align 8
-  tail call void %123(i32 noundef %92, i32 noundef 0, i32 noundef %94, i32 noundef %96, i32 noundef %99, i32 noundef %102, i32 noundef %103, i32 noundef %104, ptr noundef nonnull %117) #10
-  tail call void @SDL_free_REAL(ptr noundef nonnull %117) #10
+  %119 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %120 = load ptr, ptr %119, align 8
+  tail call void %120(i32 noundef %89, i32 noundef 0, i32 noundef %91, i32 noundef %93, i32 noundef %96, i32 noundef %99, i32 noundef %100, i32 noundef %101, ptr noundef nonnull %114) #10
+  tail call void @SDL_free_REAL(ptr noundef nonnull %114) #10
   br label %GLES2_TexSubImage2D.exit99
 
-GLES2_TexSubImage2D.exit99:                       ; preds = %81, %.thread.i98, %114, %._crit_edge.i91
-  %124 = load i32, ptr %29, align 4
-  %125 = add nsw i32 %124, 1
-  %126 = sdiv i32 %125, 2
-  %127 = mul nsw i32 %126, %106
-  %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds i8, ptr %85, i64 %128
-  %130 = load i32, ptr %1, align 8
-  %131 = icmp eq i32 %130, 842094169
-  %132 = load ptr, ptr %34, align 8
+GLES2_TexSubImage2D.exit99:                       ; preds = %78, %.thread.i98, %111, %._crit_edge.i91
+  %121 = load i32, ptr %29, align 4
+  %122 = add nsw i32 %121, 1
+  %123 = sdiv i32 %122, 2
+  %124 = mul nsw i32 %123, %103
+  %125 = sext i32 %124 to i64
+  %126 = getelementptr inbounds i8, ptr %82, i64 %125
+  %127 = load i32, ptr %1, align 8
+  %128 = icmp eq i32 %127, 842094169
+  %129 = load ptr, ptr %34, align 8
+  %130 = load i32, ptr %36, align 8
+  %.159 = select i1 %128, i64 48, i64 40
+  %131 = getelementptr inbounds nuw i8, ptr %9, i64 %.159
+  %132 = load i32, ptr %131, align 8
+  tail call void %129(i32 noundef %130, i32 noundef %132) #10
   %133 = load i32, ptr %36, align 8
-  %.159 = select i1 %131, i64 48, i64 40
-  %134 = getelementptr inbounds nuw i8, ptr %9, i64 %.159
-  %135 = load i32, ptr %134, align 8
-  tail call void %132(i32 noundef %133, i32 noundef %135) #10
-  %136 = load i32, ptr %36, align 8
-  %137 = load i32, ptr %2, align 4
-  %138 = sdiv i32 %137, 2
-  %139 = load i32, ptr %41, align 4
+  %134 = load i32, ptr %2, align 4
+  %135 = sdiv i32 %134, 2
+  %136 = load i32, ptr %41, align 4
+  %137 = sdiv i32 %136, 2
+  %138 = load i32, ptr %25, align 4
+  %139 = add nsw i32 %138, 1
   %140 = sdiv i32 %139, 2
-  %141 = load i32, ptr %25, align 4
+  %141 = load i32, ptr %29, align 4
   %142 = add nsw i32 %141, 1
   %143 = sdiv i32 %142, 2
-  %144 = load i32, ptr %29, align 4
-  %145 = add nsw i32 %144, 1
-  %146 = sdiv i32 %145, 2
-  %147 = load i32, ptr %45, align 4
-  %148 = load i32, ptr %47, align 8
-  %.off135 = add i32 %141, 2
-  %149 = icmp ult i32 %.off135, 3
-  %.off136 = add i32 %144, 2
-  %150 = icmp ult i32 %.off136, 3
-  %or.cond.i100 = or i1 %149, %150
-  br i1 %or.cond.i100, label %GLES2_TexSubImage2D.exit113, label %151
+  %144 = load i32, ptr %45, align 4
+  %145 = load i32, ptr %47, align 8
+  %.off135 = add i32 %138, 2
+  %146 = icmp ult i32 %.off135, 3
+  %.off136 = add i32 %141, 2
+  %147 = icmp ult i32 %.off136, 3
+  %or.cond.i100 = or i1 %146, %147
+  br i1 %or.cond.i100, label %GLES2_TexSubImage2D.exit113, label %148
 
-151:                                              ; preds = %GLES2_TexSubImage2D.exit99
-  %152 = sext i32 %143 to i64
-  %153 = sext i32 %106 to i64
-  %.not.i102 = icmp eq i32 %143, %106
-  br i1 %.not.i102, label %.thread.i112, label %156
+148:                                              ; preds = %GLES2_TexSubImage2D.exit99
+  %149 = sext i32 %140 to i64
+  %150 = sext i32 %103 to i64
+  %.not.i102 = icmp eq i32 %140, %103
+  br i1 %.not.i102, label %.thread.i112, label %153
 
-.thread.i112:                                     ; preds = %151
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %155 = load ptr, ptr %154, align 8
-  tail call void %155(i32 noundef %136, i32 noundef 0, i32 noundef %138, i32 noundef %140, i32 noundef %106, i32 noundef %146, i32 noundef %147, i32 noundef %148, ptr noundef %129) #10
+.thread.i112:                                     ; preds = %148
+  %151 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %152 = load ptr, ptr %151, align 8
+  tail call void %152(i32 noundef %133, i32 noundef 0, i32 noundef %135, i32 noundef %137, i32 noundef %103, i32 noundef %143, i32 noundef %144, i32 noundef %145, ptr noundef %126) #10
   br label %GLES2_TexSubImage2D.exit113
 
-156:                                              ; preds = %151
-  %157 = sext i32 %146 to i64
-  %158 = mul nsw i64 %157, %152
-  %159 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %158) #10
-  %.not47.i103 = icmp eq ptr %159, null
+153:                                              ; preds = %148
+  %154 = sext i32 %143 to i64
+  %155 = mul nsw i64 %154, %149
+  %156 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %155) #10
+  %.not47.i103 = icmp eq ptr %156, null
   br i1 %.not47.i103, label %GLES2_TexSubImage2D.exit113, label %.preheader.i104
 
-.preheader.i104:                                  ; preds = %156
-  %160 = icmp sgt i32 %144, 0
-  br i1 %160, label %.lr.ph.i107, label %._crit_edge.i105
+.preheader.i104:                                  ; preds = %153
+  %157 = icmp sgt i32 %141, 0
+  br i1 %157, label %.lr.ph.i107, label %._crit_edge.i105
 
 .lr.ph.i107:                                      ; preds = %.preheader.i104, %.lr.ph.i107
-  %.054.i108 = phi i32 [ %163, %.lr.ph.i107 ], [ 0, %.preheader.i104 ]
-  %.153.i109 = phi ptr [ %161, %.lr.ph.i107 ], [ %159, %.preheader.i104 ]
-  %.04052.i110 = phi ptr [ %162, %.lr.ph.i107 ], [ %129, %.preheader.i104 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i109, ptr align 1 %.04052.i110, i64 %152, i1 false)
-  %161 = getelementptr inbounds nuw i8, ptr %.153.i109, i64 %152
-  %162 = getelementptr inbounds i8, ptr %.04052.i110, i64 %153
-  %163 = add nuw nsw i32 %.054.i108, 1
-  %exitcond.not.i111 = icmp eq i32 %163, %146
+  %.054.i108 = phi i32 [ %160, %.lr.ph.i107 ], [ 0, %.preheader.i104 ]
+  %.153.i109 = phi ptr [ %158, %.lr.ph.i107 ], [ %156, %.preheader.i104 ]
+  %.04052.i110 = phi ptr [ %159, %.lr.ph.i107 ], [ %126, %.preheader.i104 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i109, ptr align 1 %.04052.i110, i64 %149, i1 false)
+  %158 = getelementptr inbounds nuw i8, ptr %.153.i109, i64 %149
+  %159 = getelementptr inbounds i8, ptr %.04052.i110, i64 %150
+  %160 = add nuw nsw i32 %.054.i108, 1
+  %exitcond.not.i111 = icmp eq i32 %160, %143
   br i1 %exitcond.not.i111, label %._crit_edge.i105, label %.lr.ph.i107, !llvm.loop !9
 
 ._crit_edge.i105:                                 ; preds = %.lr.ph.i107, %.preheader.i104
-  %164 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %165 = load ptr, ptr %164, align 8
-  tail call void %165(i32 noundef %136, i32 noundef 0, i32 noundef %138, i32 noundef %140, i32 noundef %143, i32 noundef %146, i32 noundef %147, i32 noundef %148, ptr noundef nonnull %159) #10
-  tail call void @SDL_free_REAL(ptr noundef nonnull %159) #10
+  %161 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %162 = load ptr, ptr %161, align 8
+  tail call void %162(i32 noundef %133, i32 noundef 0, i32 noundef %135, i32 noundef %137, i32 noundef %140, i32 noundef %143, i32 noundef %144, i32 noundef %145, ptr noundef nonnull %156) #10
+  tail call void @SDL_free_REAL(ptr noundef nonnull %156) #10
   br label %GLES2_TexSubImage2D.exit113
 
-166:                                              ; preds = %GLES2_TexSubImage2D.exit
-  %167 = getelementptr inbounds nuw i8, ptr %9, i64 37
-  %168 = load i8, ptr %167, align 1, !range !5, !noundef !6
-  %169 = trunc nuw i8 %168 to i1
-  br i1 %169, label %170, label %GLES2_TexSubImage2D.exit113
+163:                                              ; preds = %GLES2_TexSubImage2D.exit
+  %164 = getelementptr inbounds nuw i8, ptr %9, i64 37
+  %165 = load i8, ptr %164, align 1, !range !5, !noundef !6
+  %166 = trunc nuw i8 %165 to i1
+  br i1 %166, label %167, label %GLES2_TexSubImage2D.exit113
 
-170:                                              ; preds = %166
-  %171 = load i32, ptr %29, align 4
-  %172 = mul nsw i32 %171, %4
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr inbounds i8, ptr %3, i64 %173
-  %175 = load ptr, ptr %34, align 8
+167:                                              ; preds = %163
+  %168 = load i32, ptr %29, align 4
+  %169 = mul nsw i32 %168, %4
+  %170 = sext i32 %169 to i64
+  %171 = getelementptr inbounds i8, ptr %3, i64 %170
+  %172 = load ptr, ptr %34, align 8
+  %173 = load i32, ptr %36, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %9, i64 48
+  %175 = load i32, ptr %174, align 8
+  tail call void %172(i32 noundef %173, i32 noundef %175) #10
   %176 = load i32, ptr %36, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %178 = load i32, ptr %177, align 8
-  tail call void %175(i32 noundef %176, i32 noundef %178) #10
-  %179 = load i32, ptr %36, align 8
-  %180 = load i32, ptr %2, align 4
-  %181 = sdiv i32 %180, 2
-  %182 = load i32, ptr %41, align 4
+  %177 = load i32, ptr %2, align 4
+  %178 = sdiv i32 %177, 2
+  %179 = load i32, ptr %41, align 4
+  %180 = sdiv i32 %179, 2
+  %181 = load i32, ptr %25, align 4
+  %182 = add nsw i32 %181, 1
   %183 = sdiv i32 %182, 2
-  %184 = load i32, ptr %25, align 4
+  %184 = load i32, ptr %29, align 4
   %185 = add nsw i32 %184, 1
   %186 = sdiv i32 %185, 2
-  %187 = load i32, ptr %29, align 4
-  %188 = add nsw i32 %187, 1
-  %189 = sdiv i32 %188, 2
-  %.off = add i32 %184, 2
-  %190 = icmp ult i32 %.off, 3
-  %.off132 = add i32 %187, 2
-  %191 = icmp ult i32 %.off132, 3
-  %or.cond.i114 = or i1 %190, %191
-  br i1 %or.cond.i114, label %GLES2_TexSubImage2D.exit113, label %192
+  %.off = add i32 %181, 2
+  %187 = icmp ult i32 %.off, 3
+  %.off132 = add i32 %184, 2
+  %188 = icmp ult i32 %.off132, 3
+  %or.cond.i114 = or i1 %187, %188
+  br i1 %or.cond.i114, label %GLES2_TexSubImage2D.exit113, label %189
 
-192:                                              ; preds = %170
-  %193 = add nsw i32 %4, 1
-  %194 = sdiv i32 %193, 2
-  %195 = shl nsw i32 %194, 1
-  %196 = sext i32 %186 to i64
-  %197 = shl nsw i64 %196, 1
-  %198 = sext i32 %195 to i64
-  %.not.i116 = icmp eq i64 %197, %198
-  br i1 %.not.i116, label %.thread.i126, label %201
+189:                                              ; preds = %167
+  %190 = add nsw i32 %4, 1
+  %191 = sdiv i32 %190, 2
+  %192 = shl nsw i32 %191, 1
+  %193 = sext i32 %183 to i64
+  %194 = shl nsw i64 %193, 1
+  %195 = sext i32 %192 to i64
+  %.not.i116 = icmp eq i64 %194, %195
+  br i1 %.not.i116, label %.thread.i126, label %198
 
-.thread.i126:                                     ; preds = %192
-  %199 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %200 = load ptr, ptr %199, align 8
-  tail call void %200(i32 noundef %179, i32 noundef 0, i32 noundef %181, i32 noundef %183, i32 noundef %186, i32 noundef %189, i32 noundef 6410, i32 noundef 5121, ptr noundef %174) #10
+.thread.i126:                                     ; preds = %189
+  %196 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %197 = load ptr, ptr %196, align 8
+  tail call void %197(i32 noundef %176, i32 noundef 0, i32 noundef %178, i32 noundef %180, i32 noundef %183, i32 noundef %186, i32 noundef 6410, i32 noundef 5121, ptr noundef %171) #10
   br label %GLES2_TexSubImage2D.exit113
 
-201:                                              ; preds = %192
-  %202 = sext i32 %189 to i64
-  %203 = mul nsw i64 %197, %202
-  %204 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %203) #10
-  %.not47.i117 = icmp eq ptr %204, null
+198:                                              ; preds = %189
+  %199 = sext i32 %186 to i64
+  %200 = mul nsw i64 %194, %199
+  %201 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %200) #10
+  %.not47.i117 = icmp eq ptr %201, null
   br i1 %.not47.i117, label %GLES2_TexSubImage2D.exit113, label %.preheader.i118
 
-.preheader.i118:                                  ; preds = %201
-  %205 = icmp sgt i32 %187, 0
-  br i1 %205, label %.lr.ph.i121, label %._crit_edge.i119
+.preheader.i118:                                  ; preds = %198
+  %202 = icmp sgt i32 %184, 0
+  br i1 %202, label %.lr.ph.i121, label %._crit_edge.i119
 
 .lr.ph.i121:                                      ; preds = %.preheader.i118, %.lr.ph.i121
-  %.054.i122 = phi i32 [ %208, %.lr.ph.i121 ], [ 0, %.preheader.i118 ]
-  %.153.i123 = phi ptr [ %206, %.lr.ph.i121 ], [ %204, %.preheader.i118 ]
-  %.04052.i124 = phi ptr [ %207, %.lr.ph.i121 ], [ %174, %.preheader.i118 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i123, ptr align 1 %.04052.i124, i64 %197, i1 false)
-  %206 = getelementptr inbounds nuw i8, ptr %.153.i123, i64 %197
-  %207 = getelementptr inbounds i8, ptr %.04052.i124, i64 %198
-  %208 = add nuw nsw i32 %.054.i122, 1
-  %exitcond.not.i125 = icmp eq i32 %208, %189
+  %.054.i122 = phi i32 [ %205, %.lr.ph.i121 ], [ 0, %.preheader.i118 ]
+  %.153.i123 = phi ptr [ %203, %.lr.ph.i121 ], [ %201, %.preheader.i118 ]
+  %.04052.i124 = phi ptr [ %204, %.lr.ph.i121 ], [ %171, %.preheader.i118 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.153.i123, ptr align 1 %.04052.i124, i64 %194, i1 false)
+  %203 = getelementptr inbounds nuw i8, ptr %.153.i123, i64 %194
+  %204 = getelementptr inbounds i8, ptr %.04052.i124, i64 %195
+  %205 = add nuw nsw i32 %.054.i122, 1
+  %exitcond.not.i125 = icmp eq i32 %205, %186
   br i1 %exitcond.not.i125, label %._crit_edge.i119, label %.lr.ph.i121, !llvm.loop !9
 
 ._crit_edge.i119:                                 ; preds = %.lr.ph.i121, %.preheader.i118
-  %209 = getelementptr inbounds nuw i8, ptr %7, i64 312
-  %210 = load ptr, ptr %209, align 8
-  tail call void %210(i32 noundef %179, i32 noundef 0, i32 noundef %181, i32 noundef %183, i32 noundef %186, i32 noundef %189, i32 noundef 6410, i32 noundef 5121, ptr noundef nonnull %204) #10
-  tail call void @SDL_free_REAL(ptr noundef nonnull %204) #10
+  %206 = getelementptr inbounds nuw i8, ptr %7, i64 312
+  %207 = load ptr, ptr %206, align 8
+  tail call void %207(i32 noundef %176, i32 noundef 0, i32 noundef %178, i32 noundef %180, i32 noundef %183, i32 noundef %186, i32 noundef 6410, i32 noundef 5121, ptr noundef nonnull %201) #10
+  tail call void @SDL_free_REAL(ptr noundef nonnull %201) #10
   br label %GLES2_TexSubImage2D.exit113
 
-GLES2_TexSubImage2D.exit113:                      ; preds = %._crit_edge.i119, %201, %.thread.i126, %170, %._crit_edge.i105, %156, %.thread.i112, %GLES2_TexSubImage2D.exit99, %166
+GLES2_TexSubImage2D.exit113:                      ; preds = %._crit_edge.i119, %198, %.thread.i126, %167, %._crit_edge.i105, %153, %.thread.i112, %GLES2_TexSubImage2D.exit99, %163
   %.val = load ptr, ptr %6, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %212 = load i8, ptr %211, align 8, !range !5, !noundef !6
-  %213 = trunc nuw i8 %212 to i1
-  br i1 %213, label %.preheader.i129, label %GL_CheckAllErrors.exit
+  %208 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %209 = load i8, ptr %208, align 8, !range !5, !noundef !6
+  %210 = trunc nuw i8 %209 to i1
+  br i1 %210, label %.preheader.i129, label %GL_CheckAllErrors.exit
 
 .preheader.i129:                                  ; preds = %GLES2_TexSubImage2D.exit113
-  %214 = getelementptr inbounds nuw i8, ptr %.val, i64 200
-  %215 = load ptr, ptr %214, align 8
-  %216 = tail call i32 %215() #10
-  %.not5.i = icmp eq i32 %216, 0
+  %211 = getelementptr inbounds nuw i8, ptr %.val, i64 200
+  %212 = load ptr, ptr %211, align 8
+  %213 = tail call i32 %212() #10
+  %.not5.i = icmp eq i32 %213, 0
   br i1 %.not5.i, label %GL_CheckAllErrors.exit, label %.lr.ph.i130
 
-.lr.ph.i130:                                      ; preds = %.preheader.i129, %220
-  %217 = phi i32 [ %223, %220 ], [ %216, %.preheader.i129 ]
-  %switch.tableidx = add i32 %217, -1280
-  %218 = icmp ult i32 %switch.tableidx, 6
-  br i1 %218, label %switch.lookup, label %220
+.lr.ph.i130:                                      ; preds = %.preheader.i129, %217
+  %214 = phi i32 [ %220, %217 ], [ %213, %.preheader.i129 ]
+  %switch.tableidx = add i32 %214, -1280
+  %215 = icmp ult i32 %switch.tableidx, 6
+  br i1 %215, label %switch.lookup, label %217
 
 switch.lookup:                                    ; preds = %.lr.ph.i130
-  %219 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %219
+  %216 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.GL_CheckAllErrors, i64 %216
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %220
+  br label %217
 
-220:                                              ; preds = %.lr.ph.i130, %switch.lookup
+217:                                              ; preds = %.lr.ph.i130, %switch.lookup
   %.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.108, %.lr.ph.i130 ]
-  %221 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.6, i32 noundef 1893, ptr noundef nonnull @__func__.GLES2_UpdateTexture, ptr noundef nonnull %.0.i.i, i32 noundef %217) #10
-  %222 = load ptr, ptr %214, align 8
-  %223 = tail call i32 %222() #10
-  %.not.i131 = icmp eq i32 %223, 0
+  %218 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.6, i32 noundef 1893, ptr noundef nonnull @__func__.GLES2_UpdateTexture, ptr noundef nonnull %.0.i.i, i32 noundef %214) #10
+  %219 = load ptr, ptr %211, align 8
+  %220 = tail call i32 %219() #10
+  %.not.i131 = icmp eq i32 %220, 0
   br i1 %.not.i131, label %GL_CheckAllErrors.exit, label %.lr.ph.i130
 
-GL_CheckAllErrors.exit:                           ; preds = %220, %.preheader.i129, %GLES2_TexSubImage2D.exit113, %GLES2_ActivateRenderer.exit, %28
-  %.0 = phi i1 [ true, %28 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit113 ], [ true, %.preheader.i129 ], [ false, %220 ]
+GL_CheckAllErrors.exit:                           ; preds = %217, %.preheader.i129, %GLES2_TexSubImage2D.exit113, %GLES2_ActivateRenderer.exit, %28
+  %.0 = phi i1 [ true, %28 ], [ true, %GLES2_ActivateRenderer.exit ], [ true, %GLES2_TexSubImage2D.exit113 ], [ true, %.preheader.i129 ], [ false, %217 ]
   ret i1 %.0
 }
 
@@ -2674,35 +2672,34 @@ define internal noundef zeroext i1 @GLES2_LockTexture(ptr readnone captures(none
   %.mask = and i32 %15, -268435456
   %.not15 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not, %.not15
-  br i1 %or.cond, label %20, label %16
+  br i1 %or.cond, label %18, label %16
 
 16:                                               ; preds = %5
   switch i32 %15, label %17 [
-    i32 844715353, label %22
-    i32 1498831189, label %22
-    i32 1431918169, label %22
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 17:                                               ; preds = %16
-  %18 = icmp eq i32 %15, 808530000
-  %19 = select i1 %18, i32 2, i32 1
-  br label %22
+  br label %switch.edge
 
-20:                                               ; preds = %5
-  %21 = and i32 %15, 255
-  br label %22
+18:                                               ; preds = %5
+  %19 = and i32 %15, 255
+  br label %switch.edge
 
-22:                                               ; preds = %17, %16, %16, %16, %20
-  %23 = phi i32 [ %21, %20 ], [ 2, %16 ], [ %19, %17 ], [ 2, %16 ], [ 2, %16 ]
-  %24 = mul nsw i32 %13, %11
-  %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %9, i64 %25
-  %27 = mul i32 %23, %14
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
-  store ptr %29, ptr %3, align 8
-  %30 = load i32, ptr %10, align 8
-  store i32 %30, ptr %4, align 4
+switch.edge:                                      ; preds = %16, %17, %16, %16, %16, %18
+  %20 = phi i32 [ %19, %18 ], [ 2, %16 ], [ 1, %17 ], [ 2, %16 ], [ 2, %16 ], [ 2, %16 ]
+  %21 = mul nsw i32 %13, %11
+  %22 = sext i32 %21 to i64
+  %23 = getelementptr inbounds i8, ptr %9, i64 %22
+  %24 = mul i32 %20, %14
+  %25 = zext i32 %24 to i64
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 %25
+  store ptr %26, ptr %3, align 8
+  %27 = load i32, ptr %10, align 8
+  store i32 %27, ptr %4, align 4
   ret i1 true
 }
 

@@ -2296,8 +2296,8 @@ define hidden noundef ptr @_ZN18ConstraintCastNode18make_cast_for_typeEP4NodeS1_
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp ne i32 %7, 3
-  %.not58 = icmp eq ptr %2, null
-  %.not = or i1 %.not58, %8
+  %.not61 = icmp eq ptr %2, null
+  %.not = or i1 %.not61, %8
   br i1 %.not, label %31, label %9
 
 9:                                                ; preds = %5
@@ -2331,15 +2331,15 @@ define hidden noundef ptr @_ZN18ConstraintCastNode18make_cast_for_typeEP4NodeS1_
 _ZN4NodenwEm.exit:                                ; preds = %25, %27
   %.0.i.i.i = phi ptr [ %21, %25 ], [ %28, %27 ]
   %29 = icmp eq ptr %.0.i.i.i, null
-  br i1 %29, label %119, label %30
+  br i1 %29, label %117, label %30
 
 30:                                               ; preds = %_ZN4NodenwEm.exit
   tail call void @_ZN10CastIINodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEbPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(81) %.0.i.i.i, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, i1 noundef zeroext false, ptr noundef %4)
-  br label %119
+  br label %117
 
 31:                                               ; preds = %5
   %32 = icmp ne i32 %7, 4
-  %.not42 = or i1 %.not58, %32
+  %.not42 = or i1 %.not61, %32
   br i1 %.not42, label %55, label %33
 
 33:                                               ; preds = %31
@@ -2373,136 +2373,136 @@ _ZN4NodenwEm.exit:                                ; preds = %25, %27
 _ZN4NodenwEm.exit50:                              ; preds = %49, %51
   %.0.i.i.i49 = phi ptr [ %45, %49 ], [ %52, %51 ]
   %53 = icmp eq ptr %.0.i.i.i49, null
-  br i1 %53, label %119, label %54
+  br i1 %53, label %117, label %54
 
 54:                                               ; preds = %_ZN4NodenwEm.exit50
   tail call void @_ZN10CastLLNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i49, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
-  br label %119
+  br label %117
 
 55:                                               ; preds = %31
   %56 = add i32 %7, -34
-  %57 = icmp ult i32 %56, -3
-  %.not43 = or i1 %.not58, %57
-  br i1 %.not43, label %80, label %58
+  %switch.i = icmp ult i32 %56, -3
+  %.not43 = or i1 %.not61, %switch.i
+  br i1 %.not43, label %79, label %57
 
-58:                                               ; preds = %55
-  %59 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 1808
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 128
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 728
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 40
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = ptrtoint ptr %68 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  %.not.i.i.i51 = icmp ult i64 %73, 80
-  br i1 %.not.i.i.i51, label %76, label %74
+57:                                               ; preds = %55
+  %58 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1808
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 128
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 728
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %69 = load ptr, ptr %68, align 8
+  %70 = ptrtoint ptr %67 to i64
+  %71 = ptrtoint ptr %69 to i64
+  %72 = sub i64 %70, %71
+  %.not.i.i.i51 = icmp ult i64 %72, 80
+  br i1 %.not.i.i.i51, label %75, label %73
 
-74:                                               ; preds = %58
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 80
-  store ptr %75, ptr %69, align 8
+73:                                               ; preds = %57
+  %74 = getelementptr inbounds nuw i8, ptr %69, i64 80
+  store ptr %74, ptr %68, align 8
   br label %_ZN4NodenwEm.exit53
 
-76:                                               ; preds = %58
-  %77 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %66, i64 noundef 80, i32 noundef 0) #6
+75:                                               ; preds = %57
+  %76 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %65, i64 noundef 80, i32 noundef 0) #6
   br label %_ZN4NodenwEm.exit53
 
-_ZN4NodenwEm.exit53:                              ; preds = %74, %76
-  %.0.i.i.i52 = phi ptr [ %70, %74 ], [ %77, %76 ]
-  %78 = icmp eq ptr %.0.i.i.i52, null
-  br i1 %78, label %119, label %79
+_ZN4NodenwEm.exit53:                              ; preds = %73, %75
+  %.0.i.i.i52 = phi ptr [ %69, %73 ], [ %76, %75 ]
+  %77 = icmp eq ptr %.0.i.i.i52, null
+  br i1 %77, label %117, label %78
 
-79:                                               ; preds = %_ZN4NodenwEm.exit53
+78:                                               ; preds = %_ZN4NodenwEm.exit53
   tail call void @_ZN10CastFFNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i52, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
-  br label %119
+  br label %117
 
-80:                                               ; preds = %55
-  %81 = add i32 %7, -37
-  %82 = icmp ult i32 %81, -3
-  %.not44 = or i1 %.not58, %82
-  br i1 %.not44, label %105, label %83
+79:                                               ; preds = %55
+  %80 = add i32 %7, -37
+  %switch.i55 = icmp ult i32 %80, -3
+  %.not44 = or i1 %.not61, %switch.i55
+  br i1 %.not44, label %103, label %81
 
-83:                                               ; preds = %80
-  %84 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+81:                                               ; preds = %79
+  %82 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %83 = load ptr, ptr %82, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 1808
   %85 = load ptr, ptr %84, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 1808
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 128
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %87, i64 128
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 728
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 728
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 40
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 40
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %96 = ptrtoint ptr %93 to i64
-  %97 = ptrtoint ptr %95 to i64
-  %98 = sub i64 %96, %97
-  %.not.i.i.i54 = icmp ult i64 %98, 80
-  br i1 %.not.i.i.i54, label %101, label %99
+  %94 = ptrtoint ptr %91 to i64
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %.not.i.i.i57 = icmp ult i64 %96, 80
+  br i1 %.not.i.i.i57, label %99, label %97
 
-99:                                               ; preds = %83
-  %100 = getelementptr inbounds nuw i8, ptr %95, i64 80
-  store ptr %100, ptr %94, align 8
-  br label %_ZN4NodenwEm.exit56
+97:                                               ; preds = %81
+  %98 = getelementptr inbounds nuw i8, ptr %93, i64 80
+  store ptr %98, ptr %92, align 8
+  br label %_ZN4NodenwEm.exit59
 
-101:                                              ; preds = %83
-  %102 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %91, i64 noundef 80, i32 noundef 0) #6
-  br label %_ZN4NodenwEm.exit56
+99:                                               ; preds = %81
+  %100 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %89, i64 noundef 80, i32 noundef 0) #6
+  br label %_ZN4NodenwEm.exit59
 
-_ZN4NodenwEm.exit56:                              ; preds = %99, %101
-  %.0.i.i.i55 = phi ptr [ %95, %99 ], [ %102, %101 ]
-  %103 = icmp eq ptr %.0.i.i.i55, null
-  br i1 %103, label %119, label %104
+_ZN4NodenwEm.exit59:                              ; preds = %97, %99
+  %.0.i.i.i58 = phi ptr [ %93, %97 ], [ %100, %99 ]
+  %101 = icmp eq ptr %.0.i.i.i58, null
+  br i1 %101, label %117, label %102
 
-104:                                              ; preds = %_ZN4NodenwEm.exit56
-  tail call void @_ZN10CastDDNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i55, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
-  br label %119
+102:                                              ; preds = %_ZN4NodenwEm.exit59
+  tail call void @_ZN10CastDDNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %.0.i.i.i58, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
+  br label %117
 
-105:                                              ; preds = %80
-  %106 = add i32 %7, -18
-  %or.cond.i = icmp ult i32 %106, -7
-  %.not45 = or i1 %.not58, %or.cond.i
-  br i1 %.not45, label %111, label %107
+103:                                              ; preds = %79
+  %104 = add i32 %7, -18
+  %or.cond.i = icmp ult i32 %104, -7
+  %.not45 = or i1 %.not61, %or.cond.i
+  br i1 %.not45, label %109, label %105
 
-107:                                              ; preds = %105
-  %108 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 80) #6
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %119, label %110
+105:                                              ; preds = %103
+  %106 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 80) #6
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %117, label %108
 
-110:                                              ; preds = %107
-  tail call void @_ZN10CastVVNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %108, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
-  br label %119
+108:                                              ; preds = %105
+  tail call void @_ZN10CastVVNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %106, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
+  br label %117
 
-111:                                              ; preds = %105
-  %112 = add i32 %7, -27
-  %or.cond.i57 = icmp ult i32 %112, -9
-  %.not46 = or i1 %.not58, %or.cond.i57
-  br i1 %.not46, label %117, label %113
+109:                                              ; preds = %103
+  %110 = add i32 %7, -27
+  %or.cond.i60 = icmp ult i32 %110, -9
+  %.not46 = or i1 %.not61, %or.cond.i60
+  br i1 %.not46, label %115, label %111
 
-113:                                              ; preds = %111
-  %114 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 80) #6
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %119, label %116
+111:                                              ; preds = %109
+  %112 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 80) #6
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %117, label %114
 
-116:                                              ; preds = %113
-  tail call void @_ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %114, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
-  br label %119
+114:                                              ; preds = %111
+  tail call void @_ZN10CastPPNodeC2EP4NodeS1_PK4TypeN18ConstraintCastNode14DependencyTypeEPK9TypeTuple(ptr noundef nonnull align 8 dereferenceable(80) %112, ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3, ptr noundef %4)
+  br label %117
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %118, align 1
+115:                                              ; preds = %109
+  %116 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %116, align 1
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 470, ptr noundef nonnull @.str.5) #7
   unreachable
 
-119:                                              ; preds = %113, %116, %107, %110, %_ZN4NodenwEm.exit56, %104, %_ZN4NodenwEm.exit53, %79, %_ZN4NodenwEm.exit50, %54, %_ZN4NodenwEm.exit, %30
-  %.0 = phi ptr [ %.0.i.i.i, %30 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i49, %54 ], [ null, %_ZN4NodenwEm.exit50 ], [ %.0.i.i.i52, %79 ], [ null, %_ZN4NodenwEm.exit53 ], [ %.0.i.i.i55, %104 ], [ null, %_ZN4NodenwEm.exit56 ], [ %108, %110 ], [ null, %107 ], [ %114, %116 ], [ null, %113 ]
+117:                                              ; preds = %111, %114, %105, %108, %_ZN4NodenwEm.exit59, %102, %_ZN4NodenwEm.exit53, %78, %_ZN4NodenwEm.exit50, %54, %_ZN4NodenwEm.exit, %30
+  %.0 = phi ptr [ %.0.i.i.i, %30 ], [ null, %_ZN4NodenwEm.exit ], [ %.0.i.i.i49, %54 ], [ null, %_ZN4NodenwEm.exit50 ], [ %.0.i.i.i52, %78 ], [ null, %_ZN4NodenwEm.exit53 ], [ %.0.i.i.i58, %102 ], [ null, %_ZN4NodenwEm.exit59 ], [ %106, %108 ], [ null, %105 ], [ %112, %114 ], [ null, %111 ]
   ret ptr %.0
 }
 

@@ -455,232 +455,234 @@ define dso_local void @intel_dsi_log_params(ptr noundef readonly captures(none) 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %32 = load i32, ptr %31, align 8
   switch i32 %32, label %33 [
-    i32 1, label %37
-    i32 2, label %36
+    i32 1, label %35
+    i32 2, label %34
+    i32 3, label %switch.edge
   ]
+
+switch.edge:                                      ; preds = %29
+  br label %35
 
 33:                                               ; preds = %29
-  %34 = icmp eq i32 %32, 3
-  %35 = select i1 %34, ptr @.str.7, ptr @.str.8
-  br label %37
+  br label %35
 
-36:                                               ; preds = %29
-  br label %37
+34:                                               ; preds = %29
+  br label %35
 
-37:                                               ; preds = %36, %33, %29
-  %38 = phi ptr [ @.str.5, %29 ], [ %35, %33 ], [ @.str.6, %36 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef nonnull %38) #8
-  br i1 %3, label %55, label %39
+35:                                               ; preds = %switch.edge, %29, %34, %33
+  %36 = phi ptr [ @.str.5, %29 ], [ @.str.8, %33 ], [ @.str.6, %34 ], [ @.str.7, %switch.edge ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef nonnull %36) #8
+  br i1 %3, label %53, label %37
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %43 = load i16, ptr %42, align 8
-  %44 = zext i16 %43 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %41, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %44) #8
-  %45 = load ptr, ptr %40, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %47 = load i16, ptr %46, align 8
-  %48 = zext i16 %47 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %45, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %48) #8
-  %49 = load ptr, ptr %40, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %51 = load i8, ptr %50, align 4
-  %52 = icmp eq i8 %51, 0
-  %53 = select i1 %52, ptr @.str.96, ptr @.str.95
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %49, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %53) #8
-  %54 = load ptr, ptr %40, align 8
-  br label %66
+37:                                               ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %41 = load i16, ptr %40, align 8
+  %42 = zext i16 %41 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %39, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %42) #8
+  %43 = load ptr, ptr %38, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %45 = load i16, ptr %44, align 8
+  %46 = zext i16 %45 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %43, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %46) #8
+  %47 = load ptr, ptr %38, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 580
+  %49 = load i8, ptr %48, align 4
+  %50 = icmp eq i8 %49, 0
+  %51 = select i1 %50, ptr @.str.96, ptr @.str.95
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %47, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %51) #8
+  %52 = load ptr, ptr %38, align 8
+  br label %64
 
-55:                                               ; preds = %37
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 632
-  %57 = load i16, ptr %56, align 8
-  %58 = zext i16 %57 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %58) #8
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %60 = load i16, ptr %59, align 8
-  %61 = zext i16 %60 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %61) #8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 580
-  %63 = load i8, ptr %62, align 4
-  %64 = icmp eq i8 %63, 0
-  %65 = select i1 %64, ptr @.str.96, ptr @.str.95
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %65) #8
-  br label %66
+53:                                               ; preds = %35
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 632
+  %55 = load i16, ptr %54, align 8
+  %56 = zext i16 %55 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.9, i32 noundef %56) #8
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 616
+  %58 = load i16, ptr %57, align 8
+  %59 = zext i16 %58 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.10, i32 noundef %59) #8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 580
+  %61 = load i8, ptr %60, align 4
+  %62 = icmp eq i8 %61, 0
+  %63 = select i1 %62, ptr @.str.96, ptr @.str.95
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.11, ptr noundef nonnull %63) #8
+  br label %64
 
-66:                                               ; preds = %55, %39
-  %67 = phi ptr [ %54, %39 ], [ null, %55 ]
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 581
-  %69 = load i8, ptr %68, align 1
-  %70 = icmp eq i8 %69, 0
-  %71 = select i1 %70, ptr @.str.95, ptr @.str.96
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %67, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef nonnull %71) #8
-  br i1 %3, label %75, label %72
+64:                                               ; preds = %53, %37
+  %65 = phi ptr [ %52, %37 ], [ null, %53 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 581
+  %67 = load i8, ptr %66, align 1
+  %68 = icmp eq i8 %67, 0
+  %69 = select i1 %68, ptr @.str.95, ptr @.str.96
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %65, i32 noundef 2, ptr noundef nonnull @.str.12, ptr noundef nonnull %69) #8
+  br i1 %3, label %73, label %70
 
-72:                                               ; preds = %66
-  %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %74 = load ptr, ptr %73, align 8
-  br label %75
+70:                                               ; preds = %64
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %72 = load ptr, ptr %71, align 8
+  br label %73
 
-75:                                               ; preds = %72, %66
-  %76 = phi ptr [ %74, %72 ], [ null, %66 ]
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  %78 = load i16, ptr %77, align 8
-  %79 = icmp eq i16 %78, 0
-  %80 = select i1 %79, ptr @.str.15, ptr @.str.14
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %76, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %80) #8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 583
-  %82 = load i8, ptr %81, align 1
-  switch i8 %82, label %95 [
-    i8 1, label %83
-    i8 2, label %89
+73:                                               ; preds = %70, %64
+  %74 = phi ptr [ %72, %70 ], [ null, %64 ]
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 560
+  %76 = load i16, ptr %75, align 8
+  %77 = icmp eq i16 %76, 0
+  %78 = select i1 %77, ptr @.str.15, ptr @.str.14
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %74, i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull %78) #8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 583
+  %80 = load i8, ptr %79, align 1
+  switch i8 %80, label %93 [
+    i8 1, label %81
+    i8 2, label %87
   ]
 
-83:                                               ; preds = %75
-  br i1 %3, label %87, label %84
+81:                                               ; preds = %73
+  br i1 %3, label %85, label %82
 
-84:                                               ; preds = %83
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %86 = load ptr, ptr %85, align 8
-  br label %87
+82:                                               ; preds = %81
+  %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %84 = load ptr, ptr %83, align 8
+  br label %85
 
-87:                                               ; preds = %84, %83
-  %88 = phi ptr [ %86, %84 ], [ null, %83 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %88, i32 noundef 2, ptr noundef nonnull @.str.16) #8
-  br label %101
-
-89:                                               ; preds = %75
-  br i1 %3, label %93, label %90
-
-90:                                               ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %92 = load ptr, ptr %91, align 8
-  br label %93
-
-93:                                               ; preds = %90, %89
-  %94 = phi ptr [ %92, %90 ], [ null, %89 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %94, i32 noundef 2, ptr noundef nonnull @.str.17) #8
-  br label %101
-
-95:                                               ; preds = %75
-  br i1 %3, label %99, label %96
-
-96:                                               ; preds = %95
-  %97 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %98 = load ptr, ptr %97, align 8
+85:                                               ; preds = %82, %81
+  %86 = phi ptr [ %84, %82 ], [ null, %81 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %86, i32 noundef 2, ptr noundef nonnull @.str.16) #8
   br label %99
 
-99:                                               ; preds = %96, %95
-  %100 = phi ptr [ %98, %96 ], [ null, %95 ]
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %100, i32 noundef 2, ptr noundef nonnull @.str.18) #8
-  br label %101
+87:                                               ; preds = %73
+  br i1 %3, label %91, label %88
 
-101:                                              ; preds = %99, %93, %87
-  br i1 %3, label %.thread7, label %130
+88:                                               ; preds = %87
+  %89 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %90 = load ptr, ptr %89, align 8
+  br label %91
 
-.thread7:                                         ; preds = %101
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  %103 = load i32, ptr %102, align 4
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %103) #8
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 582
-  %105 = load i8, ptr %104, align 2
-  %106 = zext i8 %105 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %106) #8
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  %108 = load i16, ptr %107, align 4
-  %109 = zext i16 %108 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %109) #8
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 614
-  %111 = load i16, ptr %110, align 2
-  %112 = zext i16 %111 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef %112) #8
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %114 = load i16, ptr %113, align 8
-  %115 = zext i16 %114 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %115) #8
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 618
-  %117 = load i16, ptr %116, align 2
-  %118 = zext i16 %117 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %118) #8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %120 = load i16, ptr %119, align 8
-  %121 = zext i16 %120 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %121) #8
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %123 = load i32, ptr %122, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %123) #8
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %125 = load i16, ptr %124, align 4
-  %126 = zext i16 %125 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %126) #8
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 622
-  %128 = load i16, ptr %127, align 2
-  %129 = zext i16 %128 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %129) #8
-  br label %171
+91:                                               ; preds = %88, %87
+  %92 = phi ptr [ %90, %88 ], [ null, %87 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %92, i32 noundef 2, ptr noundef nonnull @.str.17) #8
+  br label %99
 
-130:                                              ; preds = %101
-  %131 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 572
-  %134 = load i32, ptr %133, align 4
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %132, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %134) #8
-  %135 = load ptr, ptr %131, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 582
-  %137 = load i8, ptr %136, align 2
-  %138 = zext i8 %137 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %135, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %138) #8
-  %139 = load ptr, ptr %131, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %0, i64 612
-  %141 = load i16, ptr %140, align 4
-  %142 = zext i16 %141 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %139, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %142) #8
-  %143 = load ptr, ptr %131, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %0, i64 614
-  %145 = load i16, ptr %144, align 2
-  %146 = zext i16 %145 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %143, i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef %146) #8
-  %147 = load ptr, ptr %131, align 8
-  %148 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %149 = load i16, ptr %148, align 8
-  %150 = zext i16 %149 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %147, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %150) #8
-  %151 = load ptr, ptr %131, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 618
-  %153 = load i16, ptr %152, align 2
-  %154 = zext i16 %153 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %151, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %154) #8
-  %155 = load ptr, ptr %131, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %157 = load i16, ptr %156, align 8
-  %158 = zext i16 %157 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %155, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %158) #8
-  %159 = load ptr, ptr %131, align 8
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  %161 = load i32, ptr %160, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %159, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %161) #8
-  %162 = load ptr, ptr %131, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 620
-  %164 = load i16, ptr %163, align 4
-  %165 = zext i16 %164 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %162, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %165) #8
-  %166 = load ptr, ptr %131, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 622
-  %168 = load i16, ptr %167, align 2
-  %169 = zext i16 %168 to i32
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %166, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %169) #8
-  %170 = load ptr, ptr %131, align 8
-  br label %171
+93:                                               ; preds = %73
+  br i1 %3, label %97, label %94
 
-171:                                              ; preds = %.thread7, %130
-  %172 = phi ptr [ %170, %130 ], [ null, %.thread7 ]
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 604
-  %174 = load i32, ptr %173, align 4
-  %175 = and i32 %174, 8
-  %176 = icmp eq i32 %175, 0
-  %177 = select i1 %176, ptr @.str.95, ptr @.str.96
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %172, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull %177) #8
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %96 = load ptr, ptr %95, align 8
+  br label %97
+
+97:                                               ; preds = %94, %93
+  %98 = phi ptr [ %96, %94 ], [ null, %93 ]
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %98, i32 noundef 2, ptr noundef nonnull @.str.18) #8
+  br label %99
+
+99:                                               ; preds = %97, %91, %85
+  br i1 %3, label %.thread7, label %128
+
+.thread7:                                         ; preds = %99
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 572
+  %101 = load i32, ptr %100, align 4
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %101) #8
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 582
+  %103 = load i8, ptr %102, align 2
+  %104 = zext i8 %103 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %104) #8
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 612
+  %106 = load i16, ptr %105, align 4
+  %107 = zext i16 %106 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %107) #8
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 614
+  %109 = load i16, ptr %108, align 2
+  %110 = zext i16 %109 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef %110) #8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %112 = load i16, ptr %111, align 8
+  %113 = zext i16 %112 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %113) #8
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 618
+  %115 = load i16, ptr %114, align 2
+  %116 = zext i16 %115 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %116) #8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %118 = load i16, ptr %117, align 8
+  %119 = zext i16 %118 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %119) #8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %121 = load i32, ptr %120, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %121) #8
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 620
+  %123 = load i16, ptr %122, align 4
+  %124 = zext i16 %123 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %124) #8
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 622
+  %126 = load i16, ptr %125, align 2
+  %127 = zext i16 %126 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %127) #8
+  br label %169
+
+128:                                              ; preds = %99
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 572
+  %132 = load i32, ptr %131, align 4
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %130, i32 noundef 2, ptr noundef nonnull @.str.19, i32 noundef %132) #8
+  %133 = load ptr, ptr %129, align 8
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 582
+  %135 = load i8, ptr %134, align 2
+  %136 = zext i8 %135 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %133, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %136) #8
+  %137 = load ptr, ptr %129, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 612
+  %139 = load i16, ptr %138, align 4
+  %140 = zext i16 %139 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %137, i32 noundef 2, ptr noundef nonnull @.str.21, i32 noundef %140) #8
+  %141 = load ptr, ptr %129, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 614
+  %143 = load i16, ptr %142, align 2
+  %144 = zext i16 %143 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %141, i32 noundef 2, ptr noundef nonnull @.str.22, i32 noundef %144) #8
+  %145 = load ptr, ptr %129, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %147 = load i16, ptr %146, align 8
+  %148 = zext i16 %147 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %145, i32 noundef 2, ptr noundef nonnull @.str.23, i32 noundef %148) #8
+  %149 = load ptr, ptr %129, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 618
+  %151 = load i16, ptr %150, align 2
+  %152 = zext i16 %151 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %149, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %152) #8
+  %153 = load ptr, ptr %129, align 8
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 608
+  %155 = load i16, ptr %154, align 8
+  %156 = zext i16 %155 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %153, i32 noundef 2, ptr noundef nonnull @.str.25, i32 noundef %156) #8
+  %157 = load ptr, ptr %129, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  %159 = load i32, ptr %158, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %157, i32 noundef 2, ptr noundef nonnull @.str.26, i32 noundef %159) #8
+  %160 = load ptr, ptr %129, align 8
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 620
+  %162 = load i16, ptr %161, align 4
+  %163 = zext i16 %162 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %160, i32 noundef 2, ptr noundef nonnull @.str.27, i32 noundef %163) #8
+  %164 = load ptr, ptr %129, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 622
+  %166 = load i16, ptr %165, align 2
+  %167 = zext i16 %166 to i32
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %164, i32 noundef 2, ptr noundef nonnull @.str.28, i32 noundef %167) #8
+  %168 = load ptr, ptr %129, align 8
+  br label %169
+
+169:                                              ; preds = %.thread7, %128
+  %170 = phi ptr [ %168, %128 ], [ null, %.thread7 ]
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 604
+  %172 = load i32, ptr %171, align 4
+  %173 = and i32 %172, 8
+  %174 = icmp eq i32 %173, 0
+  %175 = select i1 %174, ptr @.str.95, ptr @.str.96
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %170, i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull %175) #8
   ret void
 }
 

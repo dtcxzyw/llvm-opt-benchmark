@@ -7080,148 +7080,150 @@ _Z17is_reference_type9BasicTypeb.exit.i:          ; preds = %6
   switch i8 %25, label %32 [
     i8 11, label %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
     i8 7, label %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
+    i8 14, label %switch.edge.i
   ]
 
-32:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit.i
-  %33 = icmp eq i8 %25, 14
-  %_ZL10epsilonCTS._ZL4vCTS.i = select i1 %33, ptr @_ZL10epsilonCTS, ptr @_ZL4vCTS
+switch.edge.i:                                    ; preds = %_Z17is_reference_type9BasicTypeb.exit.i
   br label %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
 
-_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit: ; preds = %27, %_Z17is_reference_type9BasicTypeb.exit.i, %_Z17is_reference_type9BasicTypeb.exit.i, %32
-  %.0.i = phi ptr [ %7, %27 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit.i ], [ %_ZL10epsilonCTS._ZL4vCTS.i, %32 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit.i ]
+32:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit.i
+  br label %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
+
+_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit: ; preds = %27, %_Z17is_reference_type9BasicTypeb.exit.i, %_Z17is_reference_type9BasicTypeb.exit.i, %switch.edge.i, %32
+  %.0.i = phi ptr [ %7, %27 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit.i ], [ @_ZL4vCTS, %32 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit.i ], [ @_ZL10epsilonCTS, %switch.edge.i ]
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %34, label %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
+  br i1 %.not, label %33, label %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
 
-34:                                               ; preds = %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
-  %35 = load i32, ptr %.0.i, align 4
-  %36 = icmp eq i32 %35, 0
-  br i1 %36, label %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit, label %.lr.ph.i
+33:                                               ; preds = %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
+  %34 = load i32, ptr %.0.i, align 4
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %34, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %34 ]
-  %37 = phi i32 [ %40, %.lr.ph.i ], [ %35, %34 ]
-  %38 = getelementptr inbounds nuw %class.CellTypeState, ptr %8, i64 %indvars.iv.i
-  store i32 %37, ptr %38, align 4
+.lr.ph.i:                                         ; preds = %33, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %33 ]
+  %36 = phi i32 [ %39, %.lr.ph.i ], [ %34, %33 ]
+  %37 = getelementptr inbounds nuw %class.CellTypeState, ptr %8, i64 %indvars.iv.i
+  store i32 %36, ptr %37, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %39 = getelementptr inbounds nuw %class.CellTypeState, ptr %.0.i, i64 %indvars.iv.next.i
-  %40 = load i32, ptr %39, align 4
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !49
+  %38 = getelementptr inbounds nuw %class.CellTypeState, ptr %.0.i, i64 %indvars.iv.next.i
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !49
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %42 = trunc nuw nsw i64 %indvars.iv.next.i to i32
+  %41 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   br label %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
 
-_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit: ; preds = %._crit_edge.loopexit.i, %34, %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
-  %.016 = phi ptr [ %.0.i, %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit ], [ @_ZL10epsilonCTS, %34 ], [ @_ZL10epsilonCTS, %._crit_edge.loopexit.i ]
-  %.0 = phi i32 [ 0, %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit ], [ 0, %34 ], [ %42, %._crit_edge.loopexit.i ]
+_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit: ; preds = %._crit_edge.loopexit.i, %33, %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit
+  %.016 = phi ptr [ %.0.i, %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit ], [ @_ZL10epsilonCTS, %33 ], [ @_ZL10epsilonCTS, %._crit_edge.loopexit.i ]
+  %.0 = phi i32 [ 0, %_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP13CellTypeState.exit ], [ 0, %33 ], [ %41, %._crit_edge.loopexit.i ]
   %.not17 = icmp eq i32 %2, 0
-  br i1 %.not17, label %43, label %48
+  br i1 %.not17, label %42, label %47
 
-43:                                               ; preds = %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
-  %44 = add nsw i32 %.0, 1
-  %45 = sext i32 %.0 to i64
-  %46 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %45
-  %47 = load i32, ptr @_ZN13CellTypeState3refE, align 4
-  store i32 %47, ptr %46, align 4
-  br label %48
+42:                                               ; preds = %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
+  %43 = add nsw i32 %.0, 1
+  %44 = sext i32 %.0 to i64
+  %45 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %44
+  %46 = load i32, ptr @_ZN13CellTypeState3refE, align 4
+  store i32 %46, ptr %45, align 4
+  br label %47
 
-48:                                               ; preds = %43, %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
-  %.1 = phi i32 [ %.0, %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit ], [ %44, %43 ]
-  %49 = sext i32 %.1 to i64
-  %50 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %49
-  %51 = load i32, ptr @_ZN13CellTypeState6bottomE, align 4
-  store i32 %51, ptr %50, align 4
-  %52 = load i32, ptr %8, align 16
-  %53 = icmp eq i32 %52, 0
-  br i1 %53, label %_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i, label %.lr.ph.i.i
+47:                                               ; preds = %42, %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit
+  %.1 = phi i32 [ %.0, %_ZN14GenerateOopMap8copy_ctsEP13CellTypeStateS1_.exit ], [ %43, %42 ]
+  %48 = sext i32 %.1 to i64
+  %49 = getelementptr inbounds %class.CellTypeState, ptr %8, i64 %48
+  %50 = load i32, ptr @_ZN13CellTypeState6bottomE, align 4
+  store i32 %50, ptr %49, align 4
+  %51 = load i32, ptr %8, align 16
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %57
+.lr.ph.i.i:                                       ; preds = %47
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %56
 
-57:                                               ; preds = %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i, %.lr.ph.i.i
-  %58 = phi i32 [ %52, %.lr.ph.i.i ], [ %73, %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i ]
-  %.03.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %59, %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i ]
-  %59 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 4
-  %60 = load i32, ptr %54, align 8
-  %61 = icmp slt i32 %60, 1
-  br i1 %61, label %62, label %63
+56:                                               ; preds = %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i, %.lr.ph.i.i
+  %57 = phi i32 [ %51, %.lr.ph.i.i ], [ %72, %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i ]
+  %.03.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %58, %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i ]
+  %58 = getelementptr inbounds nuw i8, ptr %.03.i.i, i64 4
+  %59 = load i32, ptr %53, align 8
+  %60 = icmp slt i32 %59, 1
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %57
+61:                                               ; preds = %56
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap3popEv.exit.i.i.i
 
-63:                                               ; preds = %57
-  %64 = load ptr, ptr %55, align 8
-  %65 = load i32, ptr %56, align 8
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds %class.CellTypeState, ptr %64, i64 %66
-  %68 = add nsw i32 %60, -1
-  store i32 %68, ptr %54, align 8
-  %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw %class.CellTypeState, ptr %67, i64 %69
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %54, align 8
+  %64 = load i32, ptr %55, align 8
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds %class.CellTypeState, ptr %63, i64 %65
+  %67 = add nsw i32 %59, -1
+  store i32 %67, ptr %53, align 8
+  %68 = zext nneg i32 %67 to i64
+  %69 = getelementptr inbounds nuw %class.CellTypeState, ptr %66, i64 %68
   br label %_ZN14GenerateOopMap3popEv.exit.i.i.i
 
-_ZN14GenerateOopMap3popEv.exit.i.i.i:             ; preds = %63, %62
-  %.sroa.0.0.in.i.i.i.i = phi ptr [ @_ZL6valCTS, %62 ], [ %70, %63 ]
+_ZN14GenerateOopMap3popEv.exit.i.i.i:             ; preds = %62, %61
+  %.sroa.0.0.in.i.i.i.i = phi ptr [ @_ZL6valCTS, %61 ], [ %69, %62 ]
   %.sroa.0.0.i.i.i.i = load i32, ptr %.sroa.0.0.in.i.i.i.i, align 4
-  %71 = xor i32 %.sroa.0.0.i.i.i.i, %58
-  %72 = icmp ult i32 %71, 268435456
-  br i1 %72, label %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i, label %_ZNK13CellTypeState7to_charEv.exit.i.i.i.i
+  %70 = xor i32 %.sroa.0.0.i.i.i.i, %57
+  %71 = icmp ult i32 %70, 268435456
+  br i1 %71, label %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i, label %_ZNK13CellTypeState7to_charEv.exit.i.i.i.i
 
 _ZNK13CellTypeState7to_charEv.exit.i.i.i.i:       ; preds = %_ZN14GenerateOopMap3popEv.exit.i.i.i
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i
 
 _ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i: ; preds = %_ZNK13CellTypeState7to_charEv.exit.i.i.i.i, %_ZN14GenerateOopMap3popEv.exit.i.i.i
-  %73 = load i32, ptr %59, align 4
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i, label %57, !llvm.loop !37
+  %72 = load i32, ptr %58, align 4
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i, label %56, !llvm.loop !37
 
-_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i: ; preds = %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i, %48
-  %75 = load i32, ptr %.016, align 4
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %_ZN14GenerateOopMap2ppEP13CellTypeStateS1_.exit, label %.lr.ph.i3.i
+_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i: ; preds = %_ZN14GenerateOopMap5ppop1E13CellTypeState.exit.i.i, %47
+  %74 = load i32, ptr %.016, align 4
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %_ZN14GenerateOopMap2ppEP13CellTypeStateS1_.exit, label %.lr.ph.i3.i
 
 .lr.ph.i3.i:                                      ; preds = %_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %81
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %80
 
-81:                                               ; preds = %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i, %.lr.ph.i3.i
-  %82 = phi i32 [ %75, %.lr.ph.i3.i ], [ %95, %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i ]
-  %.03.i4.i = phi ptr [ %.016, %.lr.ph.i3.i ], [ %83, %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i ]
-  %83 = getelementptr inbounds nuw i8, ptr %.03.i4.i, i64 4
-  %84 = load i32, ptr %77, align 8
-  %85 = load i32, ptr %78, align 4
-  %.not.i.i.i.i = icmp slt i32 %84, %85
-  br i1 %.not.i.i.i.i, label %87, label %86
+80:                                               ; preds = %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i, %.lr.ph.i3.i
+  %81 = phi i32 [ %74, %.lr.ph.i3.i ], [ %94, %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i ]
+  %.03.i4.i = phi ptr [ %.016, %.lr.ph.i3.i ], [ %82, %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i ]
+  %82 = getelementptr inbounds nuw i8, ptr %.03.i4.i, i64 4
+  %83 = load i32, ptr %76, align 8
+  %84 = load i32, ptr %77, align 4
+  %.not.i.i.i.i = icmp slt i32 %83, %84
+  br i1 %.not.i.i.i.i, label %86, label %85
 
-86:                                               ; preds = %81
+85:                                               ; preds = %80
   tail call void (ptr, ptr, ...) @_ZN14GenerateOopMap12report_errorEPKcz(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull @.str.78)
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i
 
-87:                                               ; preds = %81
-  %88 = load ptr, ptr %79, align 8
-  %89 = load i32, ptr %80, align 8
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds %class.CellTypeState, ptr %88, i64 %90
-  %92 = add nsw i32 %84, 1
-  store i32 %92, ptr %77, align 8
-  %93 = sext i32 %84 to i64
-  %94 = getelementptr inbounds %class.CellTypeState, ptr %91, i64 %93
-  store i32 %82, ptr %94, align 4
+86:                                               ; preds = %80
+  %87 = load ptr, ptr %78, align 8
+  %88 = load i32, ptr %79, align 8
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds %class.CellTypeState, ptr %87, i64 %89
+  %91 = add nsw i32 %83, 1
+  store i32 %91, ptr %76, align 8
+  %92 = sext i32 %83 to i64
+  %93 = getelementptr inbounds %class.CellTypeState, ptr %90, i64 %92
+  store i32 %81, ptr %93, align 4
   br label %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i
 
-_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i: ; preds = %87, %86
-  %95 = load i32, ptr %83, align 4
-  %96 = icmp eq i32 %95, 0
-  br i1 %96, label %_ZN14GenerateOopMap2ppEP13CellTypeStateS1_.exit, label %81, !llvm.loop !38
+_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i: ; preds = %86, %85
+  %94 = load i32, ptr %82, align 4
+  %95 = icmp eq i32 %94, 0
+  br i1 %95, label %_ZN14GenerateOopMap2ppEP13CellTypeStateS1_.exit, label %80, !llvm.loop !38
 
 _ZN14GenerateOopMap2ppEP13CellTypeStateS1_.exit:  ; preds = %_ZN14GenerateOopMap6ppush1E13CellTypeState.exit.i.i, %_ZN14GenerateOopMap4ppopEP13CellTypeState.exit.i
   ret void
@@ -8192,21 +8194,23 @@ define hidden noundef ptr @_ZN14GenerateOopMap19signature_to_effectEPK6SymboliP1
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %14 = load i32, ptr @_ZN13CellTypeState6bottomE, align 4
   store i32 %14, ptr %13, align 4
-  br label %17
+  br label %16
 
 _Z17is_reference_type9BasicTypeb.exit:            ; preds = %4
   switch i8 %8, label %15 [
-    i8 11, label %17
-    i8 7, label %17
+    i8 11, label %16
+    i8 7, label %16
+    i8 14, label %switch.edge
   ]
 
-15:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit
-  %16 = icmp eq i8 %8, 14
-  %_ZL10epsilonCTS._ZL4vCTS = select i1 %16, ptr @_ZL10epsilonCTS, ptr @_ZL4vCTS
-  br label %17
+switch.edge:                                      ; preds = %_Z17is_reference_type9BasicTypeb.exit
+  br label %16
 
-17:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit, %_Z17is_reference_type9BasicTypeb.exit, %15, %10
-  %.0 = phi ptr [ %3, %10 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit ], [ %_ZL10epsilonCTS._ZL4vCTS, %15 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit ]
+15:                                               ; preds = %_Z17is_reference_type9BasicTypeb.exit
+  br label %16
+
+16:                                               ; preds = %switch.edge, %_Z17is_reference_type9BasicTypeb.exit, %_Z17is_reference_type9BasicTypeb.exit, %15, %10
+  %.0 = phi ptr [ %3, %10 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit ], [ @_ZL4vCTS, %15 ], [ @_ZL5vvCTS, %_Z17is_reference_type9BasicTypeb.exit ], [ @_ZL10epsilonCTS, %switch.edge ]
   ret ptr %.0
 }
 

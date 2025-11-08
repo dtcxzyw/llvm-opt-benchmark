@@ -94,57 +94,61 @@ define internal range(i32 0, 2) i32 @ecx_pub_encode(ptr noundef %0, ptr noundef 
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = load i32, ptr %9, align 8, !tbaa !25
   switch i32 %10, label %11 [
-    i32 1034, label %14
-    i32 1087, label %14
+    i32 1034, label %12
+    i32 1087, label %12
+    i32 1035, label %switch.edge
   ]
+
+switch.edge:                                      ; preds = %6
+  br label %12
 
 11:                                               ; preds = %6
-  %12 = icmp eq i32 %10, 1035
-  %13 = select i1 %12, i64 56, i64 57
-  br label %14
+  br label %12
 
-14:                                               ; preds = %6, %6, %11
-  %15 = phi i64 [ %13, %11 ], [ 32, %6 ], [ 32, %6 ]
-  %16 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %7, i64 noundef %15, ptr noundef nonnull @.str.8, i32 noundef 41) #8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %31, label %18
+12:                                               ; preds = %switch.edge, %6, %6, %11
+  %13 = phi i64 [ 57, %11 ], [ 32, %6 ], [ 32, %6 ], [ 56, %switch.edge ]
+  %14 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %7, i64 noundef %13, ptr noundef nonnull @.str.8, i32 noundef 41) #8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %27, label %16
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %8, align 8, !tbaa !12
-  %20 = load i32, ptr %19, align 8, !tbaa !25
-  %21 = tail call ptr @OBJ_nid2obj(i32 noundef %20) #8
-  %22 = load ptr, ptr %8, align 8, !tbaa !12
-  %23 = load i32, ptr %22, align 8, !tbaa !25
-  switch i32 %23, label %24 [
-    i32 1034, label %27
-    i32 1087, label %27
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %8, align 8, !tbaa !12
+  %18 = load i32, ptr %17, align 8, !tbaa !25
+  %19 = tail call ptr @OBJ_nid2obj(i32 noundef %18) #8
+  %20 = load ptr, ptr %8, align 8, !tbaa !12
+  %21 = load i32, ptr %20, align 8, !tbaa !25
+  switch i32 %21, label %22 [
+    i32 1034, label %23
+    i32 1087, label %23
+    i32 1035, label %switch.edge18
   ]
 
-24:                                               ; preds = %18
-  %25 = icmp eq i32 %23, 1035
-  %26 = select i1 %25, i32 56, i32 57
-  br label %27
+switch.edge18:                                    ; preds = %16
+  br label %23
 
-27:                                               ; preds = %18, %18, %24
-  %28 = phi i32 [ %26, %24 ], [ 32, %18 ], [ 32, %18 ]
-  %29 = tail call i32 @X509_PUBKEY_set0_param(ptr noundef %0, ptr noundef %21, i32 noundef -1, ptr noundef null, ptr noundef nonnull %16, i32 noundef %28) #8
-  %.not = icmp eq i32 %29, 0
-  br i1 %.not, label %30, label %31
+22:                                               ; preds = %16
+  br label %23
 
-30:                                               ; preds = %27
-  tail call void @CRYPTO_free(ptr noundef nonnull %16, ptr noundef nonnull @.str.8, i32 noundef 47) #8
+23:                                               ; preds = %switch.edge18, %16, %16, %22
+  %24 = phi i32 [ 57, %22 ], [ 32, %16 ], [ 32, %16 ], [ 56, %switch.edge18 ]
+  %25 = tail call i32 @X509_PUBKEY_set0_param(ptr noundef %0, ptr noundef %19, i32 noundef -1, ptr noundef null, ptr noundef nonnull %14, i32 noundef %24) #8
+  %.not = icmp eq i32 %25, 0
+  br i1 %.not, label %26, label %27
+
+26:                                               ; preds = %23
+  tail call void @CRYPTO_free(ptr noundef nonnull %14, ptr noundef nonnull @.str.8, i32 noundef 47) #8
   br label %.sink.split
 
-.sink.split:                                      ; preds = %2, %30
-  %.sink20 = phi i32 [ 48, %30 ], [ 37, %2 ]
-  %.sink = phi i32 [ 524299, %30 ], [ 116, %2 ]
+.sink.split:                                      ; preds = %2, %26
+  %.sink21 = phi i32 [ 48, %26 ], [ 37, %2 ]
+  %.sink = phi i32 [ 524299, %26 ], [ 116, %2 ]
   tail call void @ERR_new() #8
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef %.sink20, ptr noundef nonnull @__func__.ecx_pub_encode) #8
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef %.sink21, ptr noundef nonnull @__func__.ecx_pub_encode) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #8
-  br label %31
+  br label %27
 
-31:                                               ; preds = %.sink.split, %27, %14
-  %.0 = phi i32 [ 0, %14 ], [ 1, %27 ], [ 0, %.sink.split ]
+27:                                               ; preds = %.sink.split, %23, %12
+  %.0 = phi i32 [ 0, %12 ], [ 1, %23 ], [ 0, %.sink.split ]
   ret i32 %.0
 }
 
@@ -157,7 +161,7 @@ define internal range(i32 -2, 2) i32 @ecx_pub_cmp(ptr noundef readonly captures(
   %7 = icmp eq ptr %4, null
   %8 = icmp eq ptr %6, null
   %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %23, label %9
+  br i1 %or.cond, label %21, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 17
@@ -166,24 +170,26 @@ define internal range(i32 -2, 2) i32 @ecx_pub_cmp(ptr noundef readonly captures(
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %14 = load i32, ptr %13, align 8, !tbaa !25
   switch i32 %14, label %15 [
-    i32 1034, label %18
-    i32 1087, label %18
+    i32 1034, label %16
+    i32 1087, label %16
+    i32 1035, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %9
+  br label %16
+
 15:                                               ; preds = %9
-  %16 = icmp eq i32 %14, 1035
-  %17 = select i1 %16, i64 56, i64 57
-  br label %18
+  br label %16
 
-18:                                               ; preds = %9, %9, %15
-  %19 = phi i64 [ %17, %15 ], [ 32, %9 ], [ 32, %9 ]
-  %20 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %19) #8
-  %21 = icmp eq i32 %20, 0
-  %22 = zext i1 %21 to i32
-  br label %23
+16:                                               ; preds = %switch.edge, %9, %9, %15
+  %17 = phi i64 [ 57, %15 ], [ 32, %9 ], [ 32, %9 ], [ 56, %switch.edge ]
+  %18 = tail call i32 @CRYPTO_memcmp(ptr noundef nonnull %10, ptr noundef nonnull %11, i64 noundef %17) #8
+  %19 = icmp eq i32 %18, 0
+  %20 = zext i1 %19 to i32
+  br label %21
 
-23:                                               ; preds = %2, %18
-  %.0 = phi i32 [ %22, %18 ], [ -2, %2 ]
+21:                                               ; preds = %2, %16
+  %.0 = phi i32 [ %20, %16 ], [ -2, %2 ]
   ret i32 %.0
 }
 
@@ -215,7 +221,7 @@ define internal range(i32 0, 2) i32 @ecx_priv_encode(ptr noundef %0, ptr noundef
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef 106, ptr noundef nonnull @__func__.ecx_priv_encode) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 123, ptr noundef null) #8
-  br label %36
+  br label %34
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -224,50 +230,52 @@ define internal range(i32 0, 2) i32 @ecx_priv_encode(ptr noundef %0, ptr noundef
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = load i32, ptr %16, align 8, !tbaa !25
   switch i32 %17, label %18 [
-    i32 1034, label %21
-    i32 1087, label %21
+    i32 1034, label %19
+    i32 1087, label %19
+    i32 1035, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %13
+  br label %19
+
 18:                                               ; preds = %13
-  %19 = icmp eq i32 %17, 1035
-  %20 = select i1 %19, i32 56, i32 57
-  br label %21
+  br label %19
 
-21:                                               ; preds = %13, %13, %18
-  %22 = phi i32 [ %20, %18 ], [ 32, %13 ], [ 32, %13 ]
-  store i32 %22, ptr %3, align 8, !tbaa !32
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i64 0, ptr %23, align 8, !tbaa !33
-  %24 = call i32 @i2d_ASN1_OCTET_STRING(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
-  %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %27
+19:                                               ; preds = %switch.edge, %13, %13, %18
+  %20 = phi i32 [ 57, %18 ], [ 32, %13 ], [ 32, %13 ], [ 56, %switch.edge ]
+  store i32 %20, ptr %3, align 8, !tbaa !32
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i64 0, ptr %21, align 8, !tbaa !33
+  %22 = call i32 @i2d_ASN1_OCTET_STRING(ptr noundef nonnull %3, ptr noundef nonnull %4) #8
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %24, label %25
 
-26:                                               ; preds = %21
+24:                                               ; preds = %19
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef 116, ptr noundef nonnull @__func__.ecx_priv_encode) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524301, ptr noundef null) #8
-  br label %36
+  br label %34
 
-27:                                               ; preds = %21
-  %28 = load ptr, ptr %15, align 8, !tbaa !12
-  %29 = load i32, ptr %28, align 8, !tbaa !25
-  %30 = call ptr @OBJ_nid2obj(i32 noundef %29) #8
-  %31 = load ptr, ptr %4, align 8, !tbaa !8
-  %32 = call i32 @PKCS8_pkey_set0(ptr noundef %0, ptr noundef %30, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %31, i32 noundef %24) #8
-  %.not = icmp eq i32 %32, 0
-  br i1 %.not, label %33, label %36
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %15, align 8, !tbaa !12
+  %27 = load i32, ptr %26, align 8, !tbaa !25
+  %28 = call ptr @OBJ_nid2obj(i32 noundef %27) #8
+  %29 = load ptr, ptr %4, align 8, !tbaa !8
+  %30 = call i32 @PKCS8_pkey_set0(ptr noundef %0, ptr noundef %28, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef %29, i32 noundef %22) #8
+  %.not = icmp eq i32 %30, 0
+  br i1 %.not, label %31, label %34
 
-33:                                               ; preds = %27
-  %34 = load ptr, ptr %4, align 8, !tbaa !8
-  %35 = zext nneg i32 %24 to i64
-  call void @CRYPTO_clear_free(ptr noundef %34, i64 noundef %35, ptr noundef nonnull @.str.8, i32 noundef 122) #8
+31:                                               ; preds = %25
+  %32 = load ptr, ptr %4, align 8, !tbaa !8
+  %33 = zext nneg i32 %22 to i64
+  call void @CRYPTO_clear_free(ptr noundef %32, i64 noundef %33, ptr noundef nonnull @.str.8, i32 noundef 122) #8
   call void @ERR_new() #8
   call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef 123, ptr noundef nonnull @__func__.ecx_priv_encode) #8
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524301, ptr noundef null) #8
-  br label %36
+  br label %34
 
-36:                                               ; preds = %27, %33, %26, %12
-  %.0 = phi i32 [ 0, %12 ], [ 0, %26 ], [ 0, %33 ], [ 1, %27 ]
+34:                                               ; preds = %25, %31, %24, %12
+  %.0 = phi i32 [ 0, %12 ], [ 0, %24 ], [ 0, %31 ], [ 1, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
@@ -285,18 +293,20 @@ define internal range(i32 32, 58) i32 @ecx_size(ptr noundef readonly captures(no
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = load i32, ptr %3, align 8, !tbaa !25
   switch i32 %4, label %5 [
-    i32 1034, label %8
-    i32 1087, label %8
+    i32 1034, label %6
+    i32 1087, label %6
+    i32 1035, label %switch.edge
   ]
 
-5:                                                ; preds = %1
-  %6 = icmp eq i32 %4, 1035
-  %7 = select i1 %6, i32 56, i32 57
-  br label %8
+switch.edge:                                      ; preds = %1
+  br label %6
 
-8:                                                ; preds = %1, %1, %5
-  %9 = phi i32 [ %7, %5 ], [ 32, %1 ], [ 32, %1 ]
-  ret i32 %9
+5:                                                ; preds = %1
+  br label %6
+
+6:                                                ; preds = %switch.edge, %1, %1, %5
+  %7 = phi i32 [ 57, %5 ], [ 32, %1 ], [ 32, %1 ], [ 56, %switch.edge ]
+  ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -380,37 +390,41 @@ define internal range(i32 -2, 58) i32 @ecx_ctrl(ptr noundef %0, i32 noundef %1, 
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = load i32, ptr %21, align 8, !tbaa !25
   switch i32 %22, label %23 [
-    i32 1034, label %26
-    i32 1087, label %26
+    i32 1034, label %24
+    i32 1087, label %24
+    i32 1035, label %switch.edge
   ]
+
+switch.edge:                                      ; preds = %18
+  br label %24
 
 23:                                               ; preds = %18
-  %24 = icmp eq i32 %22, 1035
-  %25 = select i1 %24, i64 56, i64 57
-  br label %26
+  br label %24
 
-26:                                               ; preds = %18, %18, %23
-  %27 = phi i64 [ %25, %23 ], [ 32, %18 ], [ 32, %18 ]
-  %28 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %19, i64 noundef %27, ptr noundef nonnull @.str.8, i32 noundef 233) #8
-  store ptr %28, ptr %3, align 8, !tbaa !8
-  %.not25.not = icmp eq ptr %28, null
-  br i1 %.not25.not, label %.thread, label %29
+24:                                               ; preds = %switch.edge, %18, %18, %23
+  %25 = phi i64 [ 57, %23 ], [ 32, %18 ], [ 32, %18 ], [ 56, %switch.edge ]
+  %26 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %19, i64 noundef %25, ptr noundef nonnull @.str.8, i32 noundef 233) #8
+  store ptr %26, ptr %3, align 8, !tbaa !8
+  %.not25.not = icmp eq ptr %26, null
+  br i1 %.not25.not, label %.thread, label %27
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %20, align 8, !tbaa !12
-  %31 = load i32, ptr %30, align 8, !tbaa !25
-  switch i32 %31, label %32 [
+27:                                               ; preds = %24
+  %28 = load ptr, ptr %20, align 8, !tbaa !12
+  %29 = load i32, ptr %28, align 8, !tbaa !25
+  switch i32 %29, label %30 [
     i32 1034, label %.thread
     i32 1087, label %.thread
+    i32 1035, label %switch.edge27
   ]
 
-32:                                               ; preds = %29
-  %33 = icmp eq i32 %31, 1035
-  %34 = select i1 %33, i32 56, i32 57
+switch.edge27:                                    ; preds = %27
   br label %.thread
 
-.thread:                                          ; preds = %29, %29, %32, %15, %26, %4, %11, %5
-  %.1 = phi i32 [ 1, %11 ], [ 0, %5 ], [ -2, %4 ], [ 0, %26 ], [ 0, %15 ], [ 32, %29 ], [ 32, %29 ], [ %34, %32 ]
+30:                                               ; preds = %27
+  br label %.thread
+
+.thread:                                          ; preds = %switch.edge27, %27, %27, %30, %15, %24, %4, %11, %5
+  %.1 = phi i32 [ 1, %11 ], [ 0, %5 ], [ -2, %4 ], [ 0, %24 ], [ 0, %15 ], [ 56, %switch.edge27 ], [ 32, %27 ], [ 32, %27 ], [ 57, %30 ]
   ret i32 %.1
 }
 
@@ -485,76 +499,82 @@ define internal range(i32 0, 2) i32 @ecx_get_priv_key(ptr noundef readonly captu
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = load i32, ptr %9, align 8, !tbaa !25
   switch i32 %10, label %11 [
-    i32 1034, label %14
-    i32 1087, label %14
+    i32 1034, label %12
+    i32 1087, label %12
+    i32 1035, label %switch.edge
   ]
+
+switch.edge:                                      ; preds = %7
+  br label %12
 
 11:                                               ; preds = %7
-  %12 = icmp eq i32 %10, 1035
-  %13 = select i1 %12, i64 56, i64 57
-  br label %14
+  br label %12
 
-14:                                               ; preds = %7, %7, %11
-  %15 = phi i64 [ %13, %11 ], [ 32, %7 ], [ 32, %7 ]
-  store i64 %15, ptr %2, align 8, !tbaa !35
-  br label %39
+12:                                               ; preds = %switch.edge, %7, %7, %11
+  %13 = phi i64 [ 57, %11 ], [ 32, %7 ], [ 32, %7 ], [ 56, %switch.edge ]
+  store i64 %13, ptr %2, align 8, !tbaa !35
+  br label %33
 
-16:                                               ; preds = %3
-  %17 = icmp eq ptr %5, null
-  br i1 %17, label %39, label %18
+14:                                               ; preds = %3
+  %15 = icmp eq ptr %5, null
+  br i1 %15, label %33, label %16
 
-18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %20 = load ptr, ptr %19, align 8, !tbaa !28
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %39, label %22
+16:                                               ; preds = %14
+  %17 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %18 = load ptr, ptr %17, align 8, !tbaa !28
+  %19 = icmp eq ptr %18, null
+  br i1 %19, label %33, label %20
 
-22:                                               ; preds = %18
-  %23 = load i64, ptr %2, align 8, !tbaa !35
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %25 = load ptr, ptr %24, align 8, !tbaa !12
-  %26 = load i32, ptr %25, align 8, !tbaa !25
-  switch i32 %26, label %27 [
-    i32 1034, label %30
-    i32 1087, label %30
+20:                                               ; preds = %16
+  %21 = load i64, ptr %2, align 8, !tbaa !35
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !12
+  %24 = load i32, ptr %23, align 8, !tbaa !25
+  switch i32 %24, label %25 [
+    i32 1034, label %26
+    i32 1087, label %26
+    i32 1035, label %switch.edge24
   ]
 
-27:                                               ; preds = %22
-  %28 = icmp eq i32 %26, 1035
-  %29 = select i1 %28, i64 56, i64 57
-  br label %30
+switch.edge24:                                    ; preds = %20
+  br label %26
 
-30:                                               ; preds = %22, %22, %27
-  %31 = phi i64 [ %29, %27 ], [ 32, %22 ], [ 32, %22 ]
-  %32 = icmp ult i64 %23, %31
-  br i1 %32, label %39, label %33
+25:                                               ; preds = %20
+  br label %26
 
-33:                                               ; preds = %30
-  switch i32 %26, label %34 [
-    i32 1034, label %37
-    i32 1087, label %37
+26:                                               ; preds = %switch.edge24, %20, %20, %25
+  %27 = phi i64 [ 57, %25 ], [ 32, %20 ], [ 32, %20 ], [ 56, %switch.edge24 ]
+  %28 = icmp ult i64 %21, %27
+  br i1 %28, label %33, label %29
+
+29:                                               ; preds = %26
+  switch i32 %24, label %30 [
+    i32 1034, label %31
+    i32 1087, label %31
+    i32 1035, label %switch.edge25
   ]
 
-34:                                               ; preds = %33
-  %35 = icmp eq i32 %26, 1035
-  %36 = select i1 %35, i64 56, i64 57
-  br label %37
+switch.edge25:                                    ; preds = %29
+  br label %31
 
-37:                                               ; preds = %33, %33, %34
-  %38 = phi i64 [ %36, %34 ], [ 32, %33 ], [ 32, %33 ]
-  store i64 %38, ptr %2, align 8, !tbaa !35
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %20, i64 %38, i1 false)
-  br label %39
+30:                                               ; preds = %29
+  br label %31
 
-39:                                               ; preds = %16, %18, %30, %37, %14
-  %.0 = phi i32 [ 1, %14 ], [ 1, %37 ], [ 0, %30 ], [ 0, %18 ], [ 0, %16 ]
+31:                                               ; preds = %switch.edge25, %29, %29, %30
+  %32 = phi i64 [ 57, %30 ], [ 32, %29 ], [ 32, %29 ], [ 56, %switch.edge25 ]
+  store i64 %32, ptr %2, align 8, !tbaa !35
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %18, i64 %32, i1 false)
+  br label %33
+
+33:                                               ; preds = %14, %16, %26, %31, %12
+  %.0 = phi i32 [ 1, %12 ], [ 1, %31 ], [ 0, %26 ], [ 0, %16 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -563,71 +583,77 @@ define internal range(i32 0, 2) i32 @ecx_get_pub_key(ptr noundef readonly captur
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = icmp eq ptr %1, null
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %14
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !12
   %10 = load i32, ptr %9, align 8, !tbaa !25
   switch i32 %10, label %11 [
-    i32 1034, label %14
-    i32 1087, label %14
+    i32 1034, label %12
+    i32 1087, label %12
+    i32 1035, label %switch.edge
   ]
+
+switch.edge:                                      ; preds = %7
+  br label %12
 
 11:                                               ; preds = %7
-  %12 = icmp eq i32 %10, 1035
-  %13 = select i1 %12, i64 56, i64 57
-  br label %14
+  br label %12
 
-14:                                               ; preds = %7, %7, %11
-  %15 = phi i64 [ %13, %11 ], [ 32, %7 ], [ 32, %7 ]
-  store i64 %15, ptr %2, align 8, !tbaa !35
-  br label %36
+12:                                               ; preds = %switch.edge, %7, %7, %11
+  %13 = phi i64 [ 57, %11 ], [ 32, %7 ], [ 32, %7 ], [ 56, %switch.edge ]
+  store i64 %13, ptr %2, align 8, !tbaa !35
+  br label %30
 
-16:                                               ; preds = %3
-  %17 = icmp eq ptr %5, null
-  br i1 %17, label %36, label %18
+14:                                               ; preds = %3
+  %15 = icmp eq ptr %5, null
+  br i1 %15, label %30, label %16
 
-18:                                               ; preds = %16
-  %19 = load i64, ptr %2, align 8, !tbaa !35
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = load ptr, ptr %20, align 8, !tbaa !12
-  %22 = load i32, ptr %21, align 8, !tbaa !25
-  switch i32 %22, label %23 [
-    i32 1034, label %26
-    i32 1087, label %26
+16:                                               ; preds = %14
+  %17 = load i64, ptr %2, align 8, !tbaa !35
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !12
+  %20 = load i32, ptr %19, align 8, !tbaa !25
+  switch i32 %20, label %21 [
+    i32 1034, label %22
+    i32 1087, label %22
+    i32 1035, label %switch.edge23
   ]
 
-23:                                               ; preds = %18
-  %24 = icmp eq i32 %22, 1035
-  %25 = select i1 %24, i64 56, i64 57
-  br label %26
+switch.edge23:                                    ; preds = %16
+  br label %22
 
-26:                                               ; preds = %18, %18, %23
-  %27 = phi i64 [ %25, %23 ], [ 32, %18 ], [ 32, %18 ]
-  %28 = icmp ult i64 %19, %27
-  br i1 %28, label %36, label %29
+21:                                               ; preds = %16
+  br label %22
 
-29:                                               ; preds = %26
-  switch i32 %22, label %30 [
-    i32 1034, label %33
-    i32 1087, label %33
+22:                                               ; preds = %switch.edge23, %16, %16, %21
+  %23 = phi i64 [ 57, %21 ], [ 32, %16 ], [ 32, %16 ], [ 56, %switch.edge23 ]
+  %24 = icmp ult i64 %17, %23
+  br i1 %24, label %30, label %25
+
+25:                                               ; preds = %22
+  switch i32 %20, label %26 [
+    i32 1034, label %27
+    i32 1087, label %27
+    i32 1035, label %switch.edge24
   ]
 
-30:                                               ; preds = %29
-  %31 = icmp eq i32 %22, 1035
-  %32 = select i1 %31, i64 56, i64 57
-  br label %33
+switch.edge24:                                    ; preds = %25
+  br label %27
 
-33:                                               ; preds = %29, %29, %30
-  %34 = phi i64 [ %32, %30 ], [ 32, %29 ], [ 32, %29 ]
-  store i64 %34, ptr %2, align 8, !tbaa !35
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %35, i64 %34, i1 false)
-  br label %36
+26:                                               ; preds = %25
+  br label %27
 
-36:                                               ; preds = %16, %26, %33, %14
-  %.0 = phi i32 [ 1, %14 ], [ 1, %33 ], [ 0, %26 ], [ 0, %16 ]
+27:                                               ; preds = %switch.edge24, %25, %25, %26
+  %28 = phi i64 [ 57, %26 ], [ 32, %25 ], [ 32, %25 ], [ 56, %switch.edge24 ]
+  store i64 %28, ptr %2, align 8, !tbaa !35
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 dereferenceable(1) %29, i64 %28, i1 false)
+  br label %30
+
+30:                                               ; preds = %14, %22, %27, %12
+  %.0 = phi i32 [ 1, %12 ], [ 1, %27 ], [ 0, %22 ], [ 0, %14 ]
   ret i32 %.0
 }
 
@@ -907,7 +933,7 @@ define internal fastcc range(i32 0, 2) i32 @ecx_key_print(ptr noundef %0, ptr no
   %10 = tail call ptr @OBJ_nid2ln(i32 noundef %9) #8
   %.not = icmp eq i32 %3, 0
   %11 = icmp eq ptr %6, null
-  br i1 %.not, label %38, label %12
+  br i1 %.not, label %36, label %12
 
 12:                                               ; preds = %4
   br i1 %11, label %17, label %13
@@ -921,80 +947,84 @@ define internal fastcc range(i32 0, 2) i32 @ecx_key_print(ptr noundef %0, ptr no
 17:                                               ; preds = %13, %12
   %18 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.9, i32 noundef %2, ptr noundef nonnull @.str.10) #8
   %19 = icmp sgt i32 %18, 0
-  br label %60
+  br label %56
 
 20:                                               ; preds = %13
   %21 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.11, i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef %10) #8
   %22 = icmp slt i32 %21, 1
-  br i1 %22, label %60, label %23
+  br i1 %22, label %56, label %23
 
 23:                                               ; preds = %20
   %24 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.12, i32 noundef %2, ptr noundef nonnull @.str.10) #8
   %25 = icmp slt i32 %24, 1
-  br i1 %25, label %60, label %26
+  br i1 %25, label %56, label %26
 
 26:                                               ; preds = %23
   %27 = load ptr, ptr %14, align 8, !tbaa !28
   %28 = load ptr, ptr %7, align 8, !tbaa !12
   %29 = load i32, ptr %28, align 8, !tbaa !25
   switch i32 %29, label %30 [
-    i32 1034, label %33
-    i32 1087, label %33
+    i32 1034, label %31
+    i32 1087, label %31
+    i32 1035, label %switch.edge
   ]
+
+switch.edge:                                      ; preds = %26
+  br label %31
 
 30:                                               ; preds = %26
-  %31 = icmp eq i32 %29, 1035
-  %32 = select i1 %31, i64 56, i64 57
-  br label %33
+  br label %31
 
-33:                                               ; preds = %26, %26, %30
-  %34 = phi i64 [ %32, %30 ], [ 32, %26 ], [ 32, %26 ]
-  %35 = add nsw i32 %2, 4
-  %36 = tail call i32 @ASN1_buf_print(ptr noundef %0, ptr noundef %27, i64 noundef %34, i32 noundef %35) #8
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %60, label %45
+31:                                               ; preds = %switch.edge, %26, %26, %30
+  %32 = phi i64 [ 57, %30 ], [ 32, %26 ], [ 32, %26 ], [ 56, %switch.edge ]
+  %33 = add nsw i32 %2, 4
+  %34 = tail call i32 @ASN1_buf_print(ptr noundef %0, ptr noundef %27, i64 noundef %32, i32 noundef %33) #8
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %56, label %43
 
-38:                                               ; preds = %4
-  br i1 %11, label %39, label %42
+36:                                               ; preds = %4
+  br i1 %11, label %37, label %40
 
-39:                                               ; preds = %38
-  %40 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2, ptr noundef nonnull @.str.10) #8
-  %41 = icmp sgt i32 %40, 0
-  br label %60
+37:                                               ; preds = %36
+  %38 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2, ptr noundef nonnull @.str.10) #8
+  %39 = icmp sgt i32 %38, 0
+  br label %56
 
-42:                                               ; preds = %38
-  %43 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef %10) #8
-  %44 = icmp slt i32 %43, 1
-  br i1 %44, label %60, label %45
+40:                                               ; preds = %36
+  %41 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef %2, ptr noundef nonnull @.str.10, ptr noundef %10) #8
+  %42 = icmp slt i32 %41, 1
+  br i1 %42, label %56, label %43
 
-45:                                               ; preds = %42, %33
-  %46 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %2, ptr noundef nonnull @.str.10) #8
-  %47 = icmp slt i32 %46, 1
-  br i1 %47, label %60, label %48
+43:                                               ; preds = %40, %31
+  %44 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.15, i32 noundef %2, ptr noundef nonnull @.str.10) #8
+  %45 = icmp slt i32 %44, 1
+  br i1 %45, label %56, label %46
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 17
-  %50 = load ptr, ptr %7, align 8, !tbaa !12
-  %51 = load i32, ptr %50, align 8, !tbaa !25
-  switch i32 %51, label %52 [
-    i32 1034, label %55
-    i32 1087, label %55
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 17
+  %48 = load ptr, ptr %7, align 8, !tbaa !12
+  %49 = load i32, ptr %48, align 8, !tbaa !25
+  switch i32 %49, label %50 [
+    i32 1034, label %51
+    i32 1087, label %51
+    i32 1035, label %switch.edge36
   ]
 
-52:                                               ; preds = %48
-  %53 = icmp eq i32 %51, 1035
-  %54 = select i1 %53, i64 56, i64 57
-  br label %55
+switch.edge36:                                    ; preds = %46
+  br label %51
 
-55:                                               ; preds = %48, %48, %52
-  %56 = phi i64 [ %54, %52 ], [ 32, %48 ], [ 32, %48 ]
-  %57 = add nsw i32 %2, 4
-  %58 = tail call i32 @ASN1_buf_print(ptr noundef %0, ptr noundef nonnull %49, i64 noundef %56, i32 noundef %57) #8
-  %59 = icmp ne i32 %58, 0
-  br label %60
+50:                                               ; preds = %46
+  br label %51
 
-60:                                               ; preds = %55, %45, %42, %39, %33, %23, %20, %17
-  %.0.shrunk = phi i1 [ %19, %17 ], [ false, %20 ], [ false, %23 ], [ false, %33 ], [ %41, %39 ], [ false, %42 ], [ false, %45 ], [ %59, %55 ]
+51:                                               ; preds = %switch.edge36, %46, %46, %50
+  %52 = phi i64 [ 57, %50 ], [ 32, %46 ], [ 32, %46 ], [ 56, %switch.edge36 ]
+  %53 = add nsw i32 %2, 4
+  %54 = tail call i32 @ASN1_buf_print(ptr noundef %0, ptr noundef nonnull %47, i64 noundef %52, i32 noundef %53) #8
+  %55 = icmp ne i32 %54, 0
+  br label %56
+
+56:                                               ; preds = %51, %43, %40, %37, %31, %23, %20, %17
+  %.0.shrunk = phi i1 [ %19, %17 ], [ false, %20 ], [ false, %23 ], [ false, %31 ], [ %39, %37 ], [ false, %40 ], [ false, %43 ], [ %55, %51 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -1038,48 +1068,47 @@ define internal fastcc range(i32 0, 2) i32 @ecx_generic_import_from(ptr noundef 
   switch i32 %2, label %10 [
     i32 1087, label %7
     i32 1034, label %7
+    i32 1035, label %switch.edge
   ]
 
 7:                                                ; preds = %3, %3
   %8 = icmp eq i32 %2, 1034
   %9 = select i1 %8, i32 0, i32 2
-  br label %13
+  br label %switch.edge
 
 10:                                               ; preds = %3
-  %11 = icmp eq i32 %2, 1035
-  %12 = select i1 %11, i32 1, i32 3
-  br label %13
+  br label %switch.edge
 
-13:                                               ; preds = %10, %7
-  %14 = phi i32 [ %9, %7 ], [ %12, %10 ]
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %16 = load ptr, ptr %15, align 8, !tbaa !47
-  %17 = tail call ptr @ossl_ecx_key_new(ptr noundef %6, i32 noundef %14, i32 noundef 0, ptr noundef %16) #8
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %20
+switch.edge:                                      ; preds = %3, %10, %7
+  %11 = phi i32 [ %9, %7 ], [ 3, %10 ], [ 1, %3 ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !47
+  %14 = tail call ptr @ossl_ecx_key_new(ptr noundef %6, i32 noundef %11, i32 noundef 0, ptr noundef %13) #8
+  %15 = icmp eq ptr %14, null
+  br i1 %15, label %16, label %17
 
-19:                                               ; preds = %13
+16:                                               ; preds = %switch.edge
   tail call void @ERR_new() #8
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.8, i32 noundef 393, ptr noundef nonnull @__func__.ecx_generic_import_from) #8
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 5, i32 noundef 524304, ptr noundef null) #8
-  br label %25
+  br label %22
 
-20:                                               ; preds = %13
-  %21 = tail call i32 @ossl_ecx_key_fromdata(ptr noundef nonnull %17, ptr noundef %0, i32 noundef 1) #8
-  %.not = icmp eq i32 %21, 0
-  br i1 %.not, label %24, label %22
+17:                                               ; preds = %switch.edge
+  %18 = tail call i32 @ossl_ecx_key_fromdata(ptr noundef nonnull %14, ptr noundef %0, i32 noundef 1) #8
+  %.not = icmp eq i32 %18, 0
+  br i1 %.not, label %21, label %19
 
-22:                                               ; preds = %20
-  %23 = tail call i32 @EVP_PKEY_assign(ptr noundef %4, i32 noundef %2, ptr noundef nonnull %17) #8
-  %.not18 = icmp eq i32 %23, 0
-  br i1 %.not18, label %24, label %25
+19:                                               ; preds = %17
+  %20 = tail call i32 @EVP_PKEY_assign(ptr noundef %4, i32 noundef %2, ptr noundef nonnull %14) #8
+  %.not18 = icmp eq i32 %20, 0
+  br i1 %.not18, label %21, label %22
 
-24:                                               ; preds = %22, %20
-  tail call void @ossl_ecx_key_free(ptr noundef nonnull %17) #8
-  br label %25
+21:                                               ; preds = %19, %17
+  tail call void @ossl_ecx_key_free(ptr noundef nonnull %14) #8
+  br label %22
 
-25:                                               ; preds = %22, %24, %19
-  %.0 = phi i32 [ 0, %19 ], [ 0, %24 ], [ 1, %22 ]
+22:                                               ; preds = %19, %21, %16
+  %.0 = phi i32 [ 0, %16 ], [ 0, %21 ], [ 1, %19 ]
   ret i32 %.0
 }
 

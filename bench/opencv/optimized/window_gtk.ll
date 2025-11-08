@@ -498,6 +498,9 @@ $_ZZN2cv4impl11GTKTrackbar8setRangeERKNS_5RangeEE16__cv_check__2314 = comdat any
 @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_window_gtk.cpp, ptr null }]
+@switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv = private unnamed_addr constant [3 x i32] [i32 1, i32 3, i32 2], align 4
+@switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.3 = private unnamed_addr constant [3 x i32] [i32 4, i32 6, i32 5], align 4
+@switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4 = private unnamed_addr constant [3 x i32] [i32 7, i32 9, i32 8], align 4
 
 @_ZN8CvWindowD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN8CvWindowD2Ev
 
@@ -9815,24 +9818,24 @@ define internal noundef i32 @_ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv(ptr nound
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
-  br i1 %or.cond, label %6, label %.thread126
+  br i1 %or.cond, label %6, label %.thread128
 
 6:                                                ; preds = %3
   %7 = load i32, ptr %2, align 8, !tbaa !217
   %.not = icmp eq i32 %7, 4325442
-  br i1 %.not, label %8, label %.thread126
+  br i1 %.not, label %8, label %.thread128
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !71
   %.not104 = icmp eq ptr %10, %0
-  br i1 %.not104, label %11, label %.thread126
+  br i1 %.not104, label %11, label %.thread128
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !153
   %.not105 = icmp eq ptr %13, null
-  br i1 %.not105, label %.thread126, label %14
+  br i1 %.not105, label %.thread128, label %14
 
 14:                                               ; preds = %11
   %15 = load i64, ptr @_ZZ22cvImageWidget_get_typevE10image_type, align 8, !tbaa !3
@@ -9849,12 +9852,12 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
   %19 = phi i64 [ %18, %16 ], [ %15, %14 ]
   %20 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %19)
   %21 = load i32, ptr %1, align 8, !tbaa !58
-  switch i32 %21, label %.thread126 [
+  switch i32 %21, label %.thread128 [
     i32 3, label %22
     i32 4, label %35
     i32 7, label %35
     i32 5, label %35
-    i32 31, label %64
+    i32 31, label %58
   ]
 
 22:                                               ; preds = %_Z22cvImageWidget_get_typev.exit
@@ -9887,246 +9890,227 @@ _Z22cvImageWidget_get_typev.exit:                 ; preds = %14, %16
   %44 = fptosi double %43 to i32
   %45 = sitofp i32 %44 to float
   %.sroa.055.4.vec.insert63 = insertelement <2 x float> %.sroa.055.0.vec.insert58, float %45, i64 1
-  switch i32 %21, label %.thread126 [
+  switch i32 %21, label %.thread128 [
     i32 4, label %46
-    i32 7, label %52
-    i32 5, label %58
+    i32 7, label %50
+    i32 5, label %54
   ]
 
 46:                                               ; preds = %35
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %48 = load i32, ptr %47, align 4, !tbaa !227
-  switch i32 %48, label %49 [
-    i32 1, label %.thread132
-    i32 2, label %.fold.split
+  %switch.tableidx = add i32 %48, -1
+  %49 = icmp ult i32 %switch.tableidx, 3
+  br i1 %49, label %.thread134.sink.split, label %.thread134
+
+50:                                               ; preds = %35
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %52 = load i32, ptr %51, align 4, !tbaa !227
+  %switch.tableidx155 = add i32 %52, -1
+  %53 = icmp ult i32 %switch.tableidx155, 3
+  br i1 %53, label %.thread134.sink.split, label %.thread134
+
+54:                                               ; preds = %35
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %56 = load i32, ptr %55, align 4, !tbaa !227
+  %switch.tableidx159 = add i32 %56, -1
+  %57 = icmp ult i32 %switch.tableidx159, 3
+  br i1 %57, label %.thread134.sink.split, label %.thread134
+
+58:                                               ; preds = %_Z22cvImageWidget_get_typev.exit
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %60 = load double, ptr %59, align 8, !tbaa !228
+  %61 = tail call double @llvm.floor.f64(double %60)
+  %62 = fptosi double %61 to i32
+  %63 = sitofp i32 %62 to float
+  %.sroa.055.0.vec.insert60 = insertelement <2 x float> poison, float %63, i64 0
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %65 = load double, ptr %64, align 8, !tbaa !231
+  %66 = tail call double @llvm.floor.f64(double %65)
+  %67 = fptosi double %66 to i32
+  %68 = sitofp i32 %67 to float
+  %.sroa.055.4.vec.insert65 = insertelement <2 x float> %.sroa.055.0.vec.insert60, float %68, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %70 = load double, ptr %69, align 8, !tbaa !58
+  %71 = fcmp oeq double %70, 0.000000e+00
+  %72 = select i1 %71, i32 10, i32 11
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %74 = load i32, ptr %73, align 8, !tbaa !58
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %76 = load i32, ptr %75, align 4, !tbaa !58
+  switch i32 %76, label %.thread [
+    i32 4, label %77
+    i32 2, label %83
+    i32 0, label %84
+    i32 3, label %85
+    i32 1, label %86
   ]
 
-49:                                               ; preds = %46
-  %50 = icmp eq i32 %48, 3
-  %51 = select i1 %50, i32 2, i32 0
-  br label %.thread132
-
-.fold.split:                                      ; preds = %46
-  br label %.thread132
-
-52:                                               ; preds = %35
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %54 = load i32, ptr %53, align 4, !tbaa !227
-  switch i32 %54, label %55 [
-    i32 1, label %.thread132
-    i32 2, label %.fold.split116
-  ]
-
-55:                                               ; preds = %52
-  %56 = icmp eq i32 %54, 3
-  %57 = select i1 %56, i32 5, i32 0
-  br label %.thread132
-
-.fold.split116:                                   ; preds = %52
-  br label %.thread132
-
-58:                                               ; preds = %35
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %60 = load i32, ptr %59, align 4, !tbaa !227
-  switch i32 %60, label %61 [
-    i32 1, label %.thread132
-    i32 2, label %.fold.split117
-  ]
-
-61:                                               ; preds = %58
-  %62 = icmp eq i32 %60, 3
-  %63 = select i1 %62, i32 8, i32 0
-  br label %.thread132
-
-.fold.split117:                                   ; preds = %58
-  br label %.thread132
-
-64:                                               ; preds = %_Z22cvImageWidget_get_typev.exit
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %66 = load double, ptr %65, align 8, !tbaa !228
-  %67 = tail call double @llvm.floor.f64(double %66)
-  %68 = fptosi double %67 to i32
-  %69 = sitofp i32 %68 to float
-  %.sroa.055.0.vec.insert60 = insertelement <2 x float> poison, float %69, i64 0
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %71 = load double, ptr %70, align 8, !tbaa !231
-  %72 = tail call double @llvm.floor.f64(double %71)
-  %73 = fptosi double %72 to i32
-  %74 = sitofp i32 %73 to float
-  %.sroa.055.4.vec.insert65 = insertelement <2 x float> %.sroa.055.0.vec.insert60, float %74, i64 1
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %76 = load double, ptr %75, align 8, !tbaa !58
-  %77 = fcmp oeq double %76, 0.000000e+00
-  %78 = select i1 %77, i32 10, i32 11
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %80 = load i32, ptr %79, align 8, !tbaa !58
-  %81 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %82 = load i32, ptr %81, align 4, !tbaa !58
-  switch i32 %82, label %.thread [
-    i32 4, label %83
-    i32 2, label %89
-    i32 0, label %90
-    i32 3, label %91
-    i32 1, label %92
-  ]
-
-83:                                               ; preds = %64
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %85 = load double, ptr %84, align 8, !tbaa !58
-  %86 = fadd double %76, %85
-  %87 = fptosi double %86 to i32
-  %88 = shl i32 %87, 16
+77:                                               ; preds = %58
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %79 = load double, ptr %78, align 8, !tbaa !58
+  %80 = fadd double %70, %79
+  %81 = fptosi double %80 to i32
+  %82 = shl i32 %81, 16
   br label %.thread
 
-89:                                               ; preds = %64
+83:                                               ; preds = %58
   br label %.thread
 
-90:                                               ; preds = %64
+84:                                               ; preds = %58
   br label %.thread
 
-91:                                               ; preds = %64
+85:                                               ; preds = %58
   br label %.thread
 
-92:                                               ; preds = %64
+86:                                               ; preds = %58
   br label %.thread
 
-.thread132:                                       ; preds = %46, %49, %.fold.split, %52, %55, %.fold.split116, %58, %61, %.fold.split117
-  %.1.ph = phi i32 [ 9, %.fold.split117 ], [ %63, %61 ], [ 7, %58 ], [ 6, %.fold.split116 ], [ %57, %55 ], [ 4, %52 ], [ 3, %.fold.split ], [ %51, %49 ], [ %48, %46 ]
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %94 = load i32, ptr %93, align 8, !tbaa !232
+.thread134.sink.split:                            ; preds = %54, %50, %46
+  %switch.tableidx159.sink = phi i32 [ %switch.tableidx, %46 ], [ %switch.tableidx155, %50 ], [ %switch.tableidx159, %54 ]
+  %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink = phi ptr [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv, %46 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.3, %50 ], [ @switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4, %54 ]
+  %87 = zext nneg i32 %switch.tableidx159.sink to i64
+  %switch.gep161 = getelementptr inbounds nuw i32, ptr %switch.table._ZL10icvOnMouseP10_GtkWidgetP9_GdkEventPv.4.sink, i64 %87
+  %switch.load162 = load i32, ptr %switch.gep161, align 4
+  br label %.thread134
+
+.thread134:                                       ; preds = %.thread134.sink.split, %54, %50, %46
+  %.1.ph = phi i32 [ 0, %46 ], [ 0, %50 ], [ 0, %54 ], [ %switch.load162, %.thread134.sink.split ]
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %89 = load i32, ptr %88, align 8, !tbaa !232
   br label %.thread
 
-.thread:                                          ; preds = %92, %91, %90, %89, %83, %64, %22, %.thread132
-  %.sroa.055.0125 = phi <2 x float> [ %.sroa.055.4.vec.insert63, %.thread132 ], [ %.sroa.055.4.vec.insert65, %83 ], [ %.sroa.055.4.vec.insert65, %90 ], [ %.sroa.055.4.vec.insert65, %92 ], [ %.sroa.055.4.vec.insert65, %64 ], [ %.sroa.055.4.vec.insert65, %89 ], [ %.sroa.055.4.vec.insert65, %91 ], [ %.sroa.055.4.vec.insert, %22 ]
-  %.093124 = phi i32 [ %.1.ph, %.thread132 ], [ %78, %83 ], [ %78, %90 ], [ %78, %92 ], [ %78, %64 ], [ 11, %89 ], [ 11, %91 ], [ 0, %22 ]
-  %.094123 = phi i32 [ %94, %.thread132 ], [ %80, %83 ], [ %80, %90 ], [ %80, %92 ], [ %80, %64 ], [ %80, %89 ], [ %80, %91 ], [ %34, %22 ]
-  %.095122 = phi i32 [ 0, %.thread132 ], [ %88, %83 ], [ -65536, %90 ], [ 65536, %92 ], [ 0, %64 ], [ -65536, %89 ], [ 65536, %91 ], [ 0, %22 ]
-  %95 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %96 = load i32, ptr %95, align 8, !tbaa !12
-  %97 = and i32 %96, 1
-  %98 = icmp eq i32 %97, 0
-  %99 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %100 = load ptr, ptr %99, align 8, !tbaa !81
-  br i1 %98, label %101, label %148
+.thread:                                          ; preds = %86, %85, %84, %83, %77, %58, %22, %.thread134
+  %.sroa.055.0127 = phi <2 x float> [ %.sroa.055.4.vec.insert63, %.thread134 ], [ %.sroa.055.4.vec.insert65, %77 ], [ %.sroa.055.4.vec.insert65, %84 ], [ %.sroa.055.4.vec.insert65, %86 ], [ %.sroa.055.4.vec.insert65, %58 ], [ %.sroa.055.4.vec.insert65, %83 ], [ %.sroa.055.4.vec.insert65, %85 ], [ %.sroa.055.4.vec.insert, %22 ]
+  %.093126 = phi i32 [ %.1.ph, %.thread134 ], [ %72, %77 ], [ %72, %84 ], [ %72, %86 ], [ %72, %58 ], [ 11, %83 ], [ 11, %85 ], [ 0, %22 ]
+  %.094125 = phi i32 [ %89, %.thread134 ], [ %74, %77 ], [ %74, %84 ], [ %74, %86 ], [ %74, %58 ], [ %74, %83 ], [ %74, %85 ], [ %34, %22 ]
+  %.095124 = phi i32 [ 0, %.thread134 ], [ %82, %77 ], [ -65536, %84 ], [ 65536, %86 ], [ 0, %58 ], [ -65536, %83 ], [ 65536, %85 ], [ 0, %22 ]
+  %90 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %91 = load i32, ptr %90, align 8, !tbaa !12
+  %92 = and i32 %91, 1
+  %93 = icmp eq i32 %92, 0
+  %94 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %95 = load ptr, ptr %94, align 8, !tbaa !81
+  br i1 %93, label %96, label %143
 
-101:                                              ; preds = %.thread
-  %.not106 = icmp eq ptr %100, null
-  br i1 %.not106, label %.thread147, label %106
+96:                                               ; preds = %.thread
+  %.not106 = icmp eq ptr %95, null
+  br i1 %.not106, label %.thread149, label %101
 
-.thread147:                                       ; preds = %101
-  %102 = shufflevector <2 x float> %.sroa.055.0125, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %103 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %102)
-  %104 = shufflevector <2 x float> %.sroa.055.0125, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+.thread149:                                       ; preds = %96
+  %97 = shufflevector <2 x float> %.sroa.055.0127, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %98 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %97)
+  %99 = shufflevector <2 x float> %.sroa.055.0127, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %100 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %99)
+  br label %157
+
+101:                                              ; preds = %96
+  %102 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %103 = load ptr, ptr %102, align 8, !tbaa !80
+  %.not107 = icmp eq ptr %103, null
+  br i1 %.not107, label %.thread152, label %.thread141
+
+.thread152:                                       ; preds = %101
+  %104 = shufflevector <2 x float> %.sroa.055.0127, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
   %105 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %104)
-  br label %162
+  %106 = shufflevector <2 x float> %.sroa.055.0127, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %107 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %106)
+  br label %148
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  %108 = load ptr, ptr %107, align 8, !tbaa !80
-  %.not107 = icmp eq ptr %108, null
-  br i1 %.not107, label %.thread150, label %.thread139
+.thread141:                                       ; preds = %101
+  %108 = tail call i32 @gtk_widget_get_allocated_width(ptr noundef nonnull %0)
+  %109 = load ptr, ptr %102, align 8, !tbaa !80
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 36
+  %111 = load i32, ptr %110, align 4, !tbaa !58
+  %112 = sub nsw i32 %108, %111
+  %113 = sdiv i32 %112, 2
+  %114 = tail call i32 @gtk_widget_get_allocated_height(ptr noundef nonnull %0)
+  %115 = load ptr, ptr %102, align 8, !tbaa !80
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 32
+  %117 = load i32, ptr %116, align 8, !tbaa !58
+  %118 = sub nsw i32 %114, %117
+  %119 = sdiv i32 %118, 2
+  %.sroa.055.0.vec.extract = extractelement <2 x float> %.sroa.055.0127, i64 0
+  %120 = sitofp i32 %113 to float
+  %121 = fsub float %.sroa.055.0.vec.extract, %120
+  %122 = load ptr, ptr %94, align 8, !tbaa !81
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 36
+  %124 = load i32, ptr %123, align 4, !tbaa !58
+  %125 = sitofp i32 %124 to float
+  %126 = fmul float %121, %125
+  %127 = getelementptr inbounds nuw i8, ptr %115, i64 36
+  %128 = load i32, ptr %127, align 4, !tbaa !58
+  %129 = sitofp i32 %128 to float
+  %130 = fdiv float %126, %129
+  %131 = tail call float @llvm.floor.f32(float %130)
+  %132 = fptosi float %131 to i32
+  %.sroa.055.4.vec.extract = extractelement <2 x float> %.sroa.055.0127, i64 1
+  %133 = sitofp i32 %119 to float
+  %134 = fsub float %.sroa.055.4.vec.extract, %133
+  %135 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %136 = load i32, ptr %135, align 8, !tbaa !58
+  %137 = sitofp i32 %136 to float
+  %138 = fmul float %134, %137
+  %139 = sitofp i32 %117 to float
+  %140 = fdiv float %138, %139
+  %141 = tail call float @llvm.floor.f32(float %140)
+  %142 = fptosi float %141 to i32
+  br label %148
 
-.thread150:                                       ; preds = %106
-  %109 = shufflevector <2 x float> %.sroa.055.0125, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %110 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %109)
-  %111 = shufflevector <2 x float> %.sroa.055.0125, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %112 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %111)
-  br label %153
+143:                                              ; preds = %.thread
+  %144 = shufflevector <2 x float> %.sroa.055.0127, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
+  %145 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %144)
+  %146 = shufflevector <2 x float> %.sroa.055.0127, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %147 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %146)
+  %.not108 = icmp eq ptr %95, null
+  br i1 %.not108, label %157, label %148
 
-.thread139:                                       ; preds = %106
-  %113 = tail call i32 @gtk_widget_get_allocated_width(ptr noundef nonnull %0)
-  %114 = load ptr, ptr %107, align 8, !tbaa !80
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 36
-  %116 = load i32, ptr %115, align 4, !tbaa !58
-  %117 = sub nsw i32 %113, %116
-  %118 = sdiv i32 %117, 2
-  %119 = tail call i32 @gtk_widget_get_allocated_height(ptr noundef nonnull %0)
-  %120 = load ptr, ptr %107, align 8, !tbaa !80
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
-  %122 = load i32, ptr %121, align 8, !tbaa !58
-  %123 = sub nsw i32 %119, %122
-  %124 = sdiv i32 %123, 2
-  %.sroa.055.0.vec.extract = extractelement <2 x float> %.sroa.055.0125, i64 0
-  %125 = sitofp i32 %118 to float
-  %126 = fsub float %.sroa.055.0.vec.extract, %125
-  %127 = load ptr, ptr %99, align 8, !tbaa !81
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 36
-  %129 = load i32, ptr %128, align 4, !tbaa !58
-  %130 = sitofp i32 %129 to float
-  %131 = fmul float %126, %130
-  %132 = getelementptr inbounds nuw i8, ptr %120, i64 36
-  %133 = load i32, ptr %132, align 4, !tbaa !58
-  %134 = sitofp i32 %133 to float
-  %135 = fdiv float %131, %134
-  %136 = tail call float @llvm.floor.f32(float %135)
-  %137 = fptosi float %136 to i32
-  %.sroa.055.4.vec.extract = extractelement <2 x float> %.sroa.055.0125, i64 1
-  %138 = sitofp i32 %124 to float
-  %139 = fsub float %.sroa.055.4.vec.extract, %138
-  %140 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  %141 = load i32, ptr %140, align 8, !tbaa !58
-  %142 = sitofp i32 %141 to float
-  %143 = fmul float %139, %142
-  %144 = sitofp i32 %122 to float
-  %145 = fdiv float %143, %144
-  %146 = tail call float @llvm.floor.f32(float %145)
-  %147 = fptosi float %146 to i32
-  br label %153
+148:                                              ; preds = %.thread152, %.thread141, %143
+  %.sroa.7.0147 = phi i32 [ %142, %.thread141 ], [ %147, %143 ], [ %107, %.thread152 ]
+  %.sroa.052.0145 = phi i32 [ %132, %.thread141 ], [ %145, %143 ], [ %105, %.thread152 ]
+  %149 = phi ptr [ %122, %.thread141 ], [ %95, %143 ], [ %95, %.thread152 ]
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 36
+  %151 = load i32, ptr %150, align 4, !tbaa !58
+  %152 = icmp ult i32 %.sroa.052.0145, %151
+  br i1 %152, label %153, label %.thread128
 
-148:                                              ; preds = %.thread
-  %149 = shufflevector <2 x float> %.sroa.055.0125, <2 x float> poison, <4 x i32> <i32 0, i32 poison, i32 poison, i32 poison>
-  %150 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %149)
-  %151 = shufflevector <2 x float> %.sroa.055.0125, <2 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %152 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %151)
-  %.not108 = icmp eq ptr %100, null
-  br i1 %.not108, label %162, label %153
+153:                                              ; preds = %148
+  %154 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %155 = load i32, ptr %154, align 8, !tbaa !58
+  %156 = icmp ult i32 %.sroa.7.0147, %155
+  br i1 %156, label %157, label %.thread128
 
-153:                                              ; preds = %.thread150, %.thread139, %148
-  %.sroa.7.0145 = phi i32 [ %147, %.thread139 ], [ %152, %148 ], [ %112, %.thread150 ]
-  %.sroa.052.0143 = phi i32 [ %137, %.thread139 ], [ %150, %148 ], [ %110, %.thread150 ]
-  %154 = phi ptr [ %127, %.thread139 ], [ %100, %148 ], [ %100, %.thread150 ]
-  %155 = getelementptr inbounds nuw i8, ptr %154, i64 36
-  %156 = load i32, ptr %155, align 4, !tbaa !58
-  %157 = icmp ult i32 %.sroa.052.0143, %156
-  br i1 %157, label %158, label %.thread126
+157:                                              ; preds = %.thread149, %153, %143
+  %.sroa.7.0148 = phi i32 [ %.sroa.7.0147, %153 ], [ %147, %143 ], [ %100, %.thread149 ]
+  %.sroa.052.0146 = phi i32 [ %.sroa.052.0145, %153 ], [ %145, %143 ], [ %98, %.thread149 ]
+  %158 = lshr i32 %.094125, 8
+  %.lobit = and i32 %158, 1
+  %159 = lshr i32 %.094125, 7
+  %160 = and i32 %159, 4
+  %161 = lshr i32 %.094125, 9
+  %162 = and i32 %161, 2
+  %163 = tail call i32 @gtk_accelerator_get_default_mod_mask()
+  %164 = and i32 %163, %.094125
+  %165 = shl i32 %164, 4
+  %166 = and i32 %165, 16
+  %167 = shl i32 %164, 1
+  %168 = and i32 %167, 8
+  %169 = shl i32 %164, 2
+  %170 = or i32 %169, %167
+  %171 = and i32 %170, 32
+  %172 = or disjoint i32 %160, %.095124
+  %173 = or disjoint i32 %172, %.lobit
+  %174 = or disjoint i32 %173, %162
+  %175 = or disjoint i32 %174, %168
+  %176 = or disjoint i32 %175, %166
+  %177 = or disjoint i32 %176, %171
+  %178 = load ptr, ptr %12, align 8, !tbaa !153
+  %179 = getelementptr inbounds nuw i8, ptr %2, i64 88
+  %180 = load ptr, ptr %179, align 8, !tbaa !154
+  tail call void %178(i32 noundef %.093126, i32 noundef %.sroa.052.0146, i32 noundef %.sroa.7.0148, i32 noundef %177, ptr noundef %180)
+  br label %.thread128
 
-158:                                              ; preds = %153
-  %159 = getelementptr inbounds nuw i8, ptr %154, i64 32
-  %160 = load i32, ptr %159, align 8, !tbaa !58
-  %161 = icmp ult i32 %.sroa.7.0145, %160
-  br i1 %161, label %162, label %.thread126
-
-162:                                              ; preds = %.thread147, %158, %148
-  %.sroa.7.0146 = phi i32 [ %.sroa.7.0145, %158 ], [ %152, %148 ], [ %105, %.thread147 ]
-  %.sroa.052.0144 = phi i32 [ %.sroa.052.0143, %158 ], [ %150, %148 ], [ %103, %.thread147 ]
-  %163 = lshr i32 %.094123, 8
-  %.lobit = and i32 %163, 1
-  %164 = lshr i32 %.094123, 7
-  %165 = and i32 %164, 4
-  %166 = lshr i32 %.094123, 9
-  %167 = and i32 %166, 2
-  %168 = tail call i32 @gtk_accelerator_get_default_mod_mask()
-  %169 = and i32 %168, %.094123
-  %170 = shl i32 %169, 4
-  %171 = and i32 %170, 16
-  %172 = shl i32 %169, 1
-  %173 = and i32 %172, 8
-  %174 = shl i32 %169, 2
-  %175 = or i32 %174, %172
-  %176 = and i32 %175, 32
-  %177 = or disjoint i32 %165, %.095122
-  %178 = or disjoint i32 %177, %.lobit
-  %179 = or disjoint i32 %178, %167
-  %180 = or disjoint i32 %179, %173
-  %181 = or disjoint i32 %180, %171
-  %182 = or disjoint i32 %181, %176
-  %183 = load ptr, ptr %12, align 8, !tbaa !153
-  %184 = getelementptr inbounds nuw i8, ptr %2, i64 88
-  %185 = load ptr, ptr %184, align 8, !tbaa !154
-  tail call void %183(i32 noundef %.093124, i32 noundef %.sroa.052.0144, i32 noundef %.sroa.7.0146, i32 noundef %182, ptr noundef %185)
-  br label %.thread126
-
-.thread126:                                       ; preds = %35, %_Z22cvImageWidget_get_typev.exit, %162, %158, %153, %3, %6, %8, %11
+.thread128:                                       ; preds = %35, %_Z22cvImageWidget_get_typev.exit, %157, %153, %148, %3, %6, %8, %11
   ret i32 0
 }
 

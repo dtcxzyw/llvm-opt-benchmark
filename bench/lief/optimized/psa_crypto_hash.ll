@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.mbedtls_sha512_context }
 %struct.mbedtls_sha512_context = type { [2 x i64], [8 x i64], [128 x i8], i32 }
 
-@switch.table.mbedtls_psa_hash_finish = private unnamed_addr constant [16 x i64] [i64 16, i64 20, i64 20, i64 poison, i64 poison, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 poison, i64 poison, i64 28, i64 32, i64 48], align 8
+@switch.table.mbedtls_psa_hash_finish = private unnamed_addr constant [17 x i64] [i64 16, i64 20, i64 20, i64 0, i64 0, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 0, i64 0, i64 28, i64 32, i64 48, i64 64], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -137, 1) i32 @mbedtls_psa_hash_abort(ptr noundef %0) local_unnamed_addr #0 {
@@ -404,109 +404,97 @@ define hidden i32 @mbedtls_psa_hash_finish(ptr noundef %0, ptr noundef %1, i64 n
   %5 = load i32, ptr %0, align 8, !tbaa !3
   %trunc = trunc i32 %5 to i8
   %switch.tableidx = add i8 %trunc, -3
-  %6 = icmp ult i8 %switch.tableidx, 16
-  br i1 %6, label %switch.hole_check, label %7
+  %6 = icmp ult i8 %switch.tableidx, 17
+  br i1 %6, label %switch.lookup, label %8
 
-7:                                                ; preds = %switch.hole_check, %4
-  %8 = and i32 %5, 255
-  %9 = icmp eq i32 %8, 19
-  %10 = select i1 %9, i64 64, i64 0
-  br label %12
-
-switch.hole_check:                                ; preds = %4
-  %switch.maskindex = zext nneg i8 %switch.tableidx to i16
-  %switch.shifted = lshr i16 -6169, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %7
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_psa_hash_finish, i64 %11
+switch.lookup:                                    ; preds = %4
+  %7 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_psa_hash_finish, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %12
+  br label %8
 
-12:                                               ; preds = %switch.lookup, %7
-  %13 = phi i64 [ %10, %7 ], [ %switch.load, %switch.lookup ]
+8:                                                ; preds = %4, %switch.lookup
+  %9 = phi i64 [ %switch.load, %switch.lookup ], [ 0, %4 ]
   store i64 %2, ptr %3, align 8, !tbaa !8
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %15, label %14
+  br i1 %.not, label %11, label %10
 
-14:                                               ; preds = %12
+10:                                               ; preds = %8
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 33, i64 %2, i1 false)
-  br label %15
+  br label %11
 
-15:                                               ; preds = %14, %12
-  %16 = icmp ult i64 %2, %13
-  br i1 %16, label %.thread, label %17
+11:                                               ; preds = %10, %8
+  %12 = icmp ult i64 %2, %9
+  br i1 %12, label %.thread, label %13
 
-17:                                               ; preds = %15
-  %18 = load i32, ptr %0, align 8, !tbaa !3
-  switch i32 %18, label %.thread [
-    i32 33554435, label %19
-    i32 33554436, label %22
-    i32 33554437, label %25
-    i32 33554440, label %28
-    i32 33554441, label %31
-    i32 33554442, label %34
-    i32 33554443, label %37
-    i32 33554448, label %40
-    i32 33554449, label %40
-    i32 33554450, label %40
-    i32 33554451, label %40
+13:                                               ; preds = %11
+  %14 = load i32, ptr %0, align 8, !tbaa !3
+  switch i32 %14, label %.thread [
+    i32 33554435, label %15
+    i32 33554436, label %18
+    i32 33554437, label %21
+    i32 33554440, label %24
+    i32 33554441, label %27
+    i32 33554442, label %30
+    i32 33554443, label %33
+    i32 33554448, label %36
+    i32 33554449, label %36
+    i32 33554450, label %36
+    i32 33554451, label %36
   ]
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = tail call i32 @mbedtls_md5_finish(ptr noundef nonnull %20, ptr noundef %1) #4
-  br label %43
+15:                                               ; preds = %13
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = tail call i32 @mbedtls_md5_finish(ptr noundef nonnull %16, ptr noundef %1) #4
+  br label %39
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = tail call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %23, ptr noundef %1) #4
-  br label %43
+18:                                               ; preds = %13
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %20 = tail call i32 @mbedtls_ripemd160_finish(ptr noundef nonnull %19, ptr noundef %1) #4
+  br label %39
 
-25:                                               ; preds = %17
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %27 = tail call i32 @mbedtls_sha1_finish(ptr noundef nonnull %26, ptr noundef %1) #4
-  br label %43
+21:                                               ; preds = %13
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = tail call i32 @mbedtls_sha1_finish(ptr noundef nonnull %22, ptr noundef %1) #4
+  br label %39
 
-28:                                               ; preds = %17
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = tail call i32 @mbedtls_sha256_finish(ptr noundef nonnull %29, ptr noundef %1) #4
-  br label %43
+24:                                               ; preds = %13
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = tail call i32 @mbedtls_sha256_finish(ptr noundef nonnull %25, ptr noundef %1) #4
+  br label %39
 
-31:                                               ; preds = %17
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = tail call i32 @mbedtls_sha256_finish(ptr noundef nonnull %32, ptr noundef %1) #4
-  br label %43
+27:                                               ; preds = %13
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = tail call i32 @mbedtls_sha256_finish(ptr noundef nonnull %28, ptr noundef %1) #4
+  br label %39
 
-34:                                               ; preds = %17
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %36 = tail call i32 @mbedtls_sha512_finish(ptr noundef nonnull %35, ptr noundef %1) #4
-  br label %43
+30:                                               ; preds = %13
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = tail call i32 @mbedtls_sha512_finish(ptr noundef nonnull %31, ptr noundef %1) #4
+  br label %39
 
-37:                                               ; preds = %17
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %39 = tail call i32 @mbedtls_sha512_finish(ptr noundef nonnull %38, ptr noundef %1) #4
-  br label %43
+33:                                               ; preds = %13
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = tail call i32 @mbedtls_sha512_finish(ptr noundef nonnull %34, ptr noundef %1) #4
+  br label %39
 
-40:                                               ; preds = %17, %17, %17, %17
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %42 = tail call i32 @mbedtls_sha3_finish(ptr noundef nonnull %41, ptr noundef %1, i64 noundef %2) #4
-  br label %43
+36:                                               ; preds = %13, %13, %13, %13
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %38 = tail call i32 @mbedtls_sha3_finish(ptr noundef nonnull %37, ptr noundef %1, i64 noundef %2) #4
+  br label %39
 
-43:                                               ; preds = %19, %22, %25, %28, %31, %34, %37, %40
-  %.043 = phi i32 [ %21, %19 ], [ %24, %22 ], [ %27, %25 ], [ %30, %28 ], [ %33, %31 ], [ %36, %34 ], [ %39, %37 ], [ %42, %40 ]
-  %44 = tail call i32 @mbedtls_to_psa_error(i32 noundef %.043) #4
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %.thread
+39:                                               ; preds = %15, %18, %21, %24, %27, %30, %33, %36
+  %.043 = phi i32 [ %17, %15 ], [ %20, %18 ], [ %23, %21 ], [ %26, %24 ], [ %29, %27 ], [ %32, %30 ], [ %35, %33 ], [ %38, %36 ]
+  %40 = tail call i32 @mbedtls_to_psa_error(i32 noundef %.043) #4
+  %41 = icmp eq i32 %40, 0
+  br i1 %41, label %42, label %.thread
 
-46:                                               ; preds = %43
-  store i64 %13, ptr %3, align 8, !tbaa !8
+42:                                               ; preds = %39
+  store i64 %9, ptr %3, align 8, !tbaa !8
   br label %.thread
 
-.thread:                                          ; preds = %15, %43, %46, %17
-  %.0 = phi i32 [ -137, %17 ], [ 0, %46 ], [ %44, %43 ], [ -138, %15 ]
+.thread:                                          ; preds = %11, %39, %42, %13
+  %.0 = phi i32 [ -137, %13 ], [ 0, %42 ], [ %40, %39 ], [ -138, %11 ]
   ret i32 %.0
 }
 

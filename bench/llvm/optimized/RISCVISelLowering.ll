@@ -116453,11 +116453,13 @@ define dso_local noundef range(i32 0, 25) i32 @_ZNK4llvm19RISCVTargetLowering25g
     i8 109, label %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split4
     i8 111, label %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split
     i8 88, label %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split2
+    i8 112, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %5
+  br label %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit
+
 _ZN4llvmeqENS_9StringRefES0_.exit22.i:            ; preds = %5
-  %7 = icmp eq i8 %6, 112
-  %spec.select.i = select i1 %7, i32 24, i32 0
   br label %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit
 
 _ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split: ; preds = %5
@@ -116469,8 +116471,8 @@ _ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.sp
 _ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split4: ; preds = %5
   br label %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit
 
-_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit: ; preds = %5, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split4, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split2, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split, %_ZN4llvmeqENS_9StringRefES0_.exit22.i, %3
-  %.0 = phi i32 [ 7, %5 ], [ %spec.select.i, %_ZN4llvmeqENS_9StringRefES0_.exit22.i ], [ 0, %3 ], [ 5, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split ], [ 19, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split2 ], [ 4, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split4 ]
+_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit: ; preds = %5, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split4, %switch.edge, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split2, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split, %_ZN4llvmeqENS_9StringRefES0_.exit22.i, %3
+  %.0 = phi i32 [ 7, %5 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit22.i ], [ 0, %3 ], [ 5, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split ], [ 19, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split2 ], [ 24, %switch.edge ], [ 4, %_ZNK4llvm14TargetLowering25getInlineAsmMemConstraintENS_9StringRefE.exit.fold.split4 ]
   ret i32 %.0
 }
 

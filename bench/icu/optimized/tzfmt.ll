@@ -107,6 +107,7 @@ $_ZTSN6icu_777UMemoryE = comdat any
 @switch.table._ZN6icu_7714TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode = private unnamed_addr constant [6 x i32] [i32 1, i32 2, i32 1, i32 2, i32 0, i32 0], align 4
 @switch.table._ZN6icu_7714TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode = private unnamed_addr constant [3 x i32] [i32 1, i32 3, i32 7], align 4
 @switch.table._ZN6icu_7714TimeZoneFormat11getTimeTypeE17UTimeZoneNameType = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 0, i32 1, i32 2], align 4
+@switch.table._ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13UnicodeStringEiaRi.2 = private unnamed_addr constant [5 x i32] [i32 1, i32 -1, i32 1, i32 -1, i32 1], align 4
 
 @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev = weak_odr unnamed_addr alias void (ptr), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ev
 @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ei10UErrorCode = weak_odr unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6icu_7715MaybeStackArrayIcLi40EEC2Ei10UErrorCode
@@ -8420,8 +8421,8 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13Unicod
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 960
   br label %13
 
-13:                                               ; preds = %5, %26
-  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %26 ]
+13:                                               ; preds = %5, %switch.edge
+  %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %switch.edge ]
   %14 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22PARSE_GMT_OFFSET_TYPESE, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = zext nneg i32 %15 to i64
@@ -8429,108 +8430,102 @@ define noundef i32 @_ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13Unicod
   %18 = load ptr, ptr %17, align 8, !tbaa !38
   %19 = call noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERKNS_13UnicodeStringEiPNS_7UVectorEaRiS6_S6_(ptr noundef nonnull align 8 dereferenceable(1024) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef %18, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %26, label %21
+  br i1 %20, label %switch.edge, label %21
 
 21:                                               ; preds = %13
-  %22 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %22, label %23 [
-    i32 4, label %27
-    i32 2, label %27
-  ]
+  %22 = icmp samesign ult i64 %indvars.iv, 5
+  br i1 %22, label %switch.lookup, label %23
 
-23:                                               ; preds = %21
-  %24 = icmp eq i64 %indvars.iv, 0
-  %25 = select i1 %24, i32 1, i32 -1
-  br label %27
-
-26:                                               ; preds = %13
+switch.edge:                                      ; preds = %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %.not, label %.thread72, label %13, !llvm.loop !98
+  br i1 %.not, label %.thread70, label %13, !llvm.loop !98
 
-27:                                               ; preds = %23, %21, %21
-  %.248.ph = phi i32 [ 1, %21 ], [ %25, %23 ], [ 1, %21 ]
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 1008
-  %29 = load i8, ptr %28, align 8
-  %.not55 = icmp eq i8 %29, 0
-  br i1 %.not55, label %.thread67, label %30
+switch.lookup:                                    ; preds = %21
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13UnicodeStringEiaRi.2, i64 %indvars.iv
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %23
 
-30:                                               ; preds = %27
+23:                                               ; preds = %21, %switch.lookup
+  %.248.ph = phi i32 [ %switch.load, %switch.lookup ], [ -1, %21 ]
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1008
+  %25 = load i8, ptr %24, align 8
+  %.not55 = icmp eq i8 %25, 0
+  br i1 %.not55, label %.thread65, label %26
+
+26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 0, ptr %10, align 4, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !12
-  br label %31
+  br label %27
 
-31:                                               ; preds = %30, %44
-  %indvars.iv87 = phi i64 [ 0, %30 ], [ %indvars.iv.next88, %44 ]
-  %32 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22PARSE_GMT_OFFSET_TYPESE, i64 %indvars.iv87
-  %33 = load i32, ptr %32, align 4, !tbaa !12
-  %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %12, i64 %34
-  %36 = load ptr, ptr %35, align 8, !tbaa !38
-  %37 = call noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERKNS_13UnicodeStringEiPNS_7UVectorEaRiS6_S6_(ptr noundef nonnull align 8 dereferenceable(1024) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef %36, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
-  %38 = icmp slt i32 %37, 1
-  br i1 %38, label %44, label %39
+27:                                               ; preds = %26, %switch.edge58
+  %indvars.iv85 = phi i64 [ 0, %26 ], [ %indvars.iv.next86, %switch.edge58 ]
+  %28 = getelementptr inbounds nuw i32, ptr @_ZN6icu_77L22PARSE_GMT_OFFSET_TYPESE, i64 %indvars.iv85
+  %29 = load i32, ptr %28, align 4, !tbaa !12
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr inbounds nuw ptr, ptr %12, i64 %30
+  %32 = load ptr, ptr %31, align 8, !tbaa !38
+  %33 = call noundef i32 @_ZNK6icu_7714TimeZoneFormat28parseOffsetFieldsWithPatternERKNS_13UnicodeStringEiPNS_7UVectorEaRiS6_S6_(ptr noundef nonnull align 8 dereferenceable(1024) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef %32, i8 noundef signext 1, ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %11)
+  %34 = icmp slt i32 %33, 1
+  br i1 %34, label %switch.edge58, label %35
 
-39:                                               ; preds = %31
-  %40 = trunc nuw nsw i64 %indvars.iv87 to i32
-  switch i32 %40, label %41 [
-    i32 4, label %.thread65
-    i32 2, label %.thread65
-  ]
+35:                                               ; preds = %27
+  %36 = icmp samesign ult i64 %indvars.iv85, 5
+  br i1 %36, label %switch.lookup99, label %switch.edge58.thread
 
-41:                                               ; preds = %39
-  %42 = icmp eq i64 %indvars.iv87, 0
-  %43 = select i1 %42, i32 1, i32 -1
-  br label %.thread65
+switch.edge58:                                    ; preds = %27
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %.not56 = icmp eq i64 %indvars.iv.next86, 6
+  br i1 %.not56, label %switch.edge58.thread, label %27, !llvm.loop !99
 
-44:                                               ; preds = %31
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %.not56 = icmp eq i64 %indvars.iv.next88, 6
-  br i1 %.not56, label %.thread65, label %31, !llvm.loop !99
+switch.lookup99:                                  ; preds = %35
+  %switch.gep100 = getelementptr inbounds nuw i32, ptr @switch.table._ZNK6icu_7714TimeZoneFormat17parseOffsetFieldsERKNS_13UnicodeStringEiaRi.2, i64 %indvars.iv85
+  %switch.load101 = load i32, ptr %switch.gep100, align 4
+  br label %switch.edge58.thread
 
-.thread65:                                        ; preds = %44, %39, %39, %41
-  %.142 = phi i32 [ %43, %41 ], [ 1, %39 ], [ 1, %39 ], [ 1, %44 ]
-  %45 = icmp sgt i32 %37, %19
-  br i1 %45, label %46, label %50
+switch.edge58.thread:                             ; preds = %switch.edge58, %35, %switch.lookup99
+  %.142 = phi i32 [ %switch.load101, %switch.lookup99 ], [ -1, %35 ], [ 1, %switch.edge58 ]
+  %37 = icmp sgt i32 %33, %19
+  br i1 %37, label %38, label %42
 
-46:                                               ; preds = %.thread65
-  %47 = load i32, ptr %9, align 4, !tbaa !12
-  store i32 %47, ptr %6, align 4, !tbaa !12
-  %48 = load i32, ptr %10, align 4, !tbaa !12
-  store i32 %48, ptr %7, align 4, !tbaa !12
-  %49 = load i32, ptr %11, align 4, !tbaa !12
-  store i32 %49, ptr %8, align 4, !tbaa !12
-  br label %50
+38:                                               ; preds = %switch.edge58.thread
+  %39 = load i32, ptr %9, align 4, !tbaa !12
+  store i32 %39, ptr %6, align 4, !tbaa !12
+  %40 = load i32, ptr %10, align 4, !tbaa !12
+  store i32 %40, ptr %7, align 4, !tbaa !12
+  %41 = load i32, ptr %11, align 4, !tbaa !12
+  store i32 %41, ptr %8, align 4, !tbaa !12
+  br label %42
 
-50:                                               ; preds = %.thread65, %46
-  %.4 = phi i32 [ %.142, %46 ], [ %.248.ph, %.thread65 ]
-  %.3 = phi i32 [ %37, %46 ], [ %19, %.thread65 ]
+42:                                               ; preds = %switch.edge58.thread, %38
+  %.4 = phi i32 [ %.142, %38 ], [ %.248.ph, %switch.edge58.thread ]
+  %.3 = phi i32 [ %33, %38 ], [ %19, %switch.edge58.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread67
+  br label %.thread65
 
-.thread67:                                        ; preds = %50, %27
-  %.271 = phi i32 [ %.3, %50 ], [ %19, %27 ]
-  %.34970 = phi i32 [ %.4, %50 ], [ %.248.ph, %27 ]
-  %51 = load i32, ptr %6, align 4, !tbaa !12
-  %52 = mul nsw i32 %51, 60
-  %53 = load i32, ptr %7, align 4, !tbaa !12
-  %54 = add nsw i32 %52, %53
-  %55 = mul nsw i32 %54, 60
-  %56 = load i32, ptr %8, align 4, !tbaa !12
-  %57 = add nsw i32 %55, %56
-  %58 = mul nsw i32 %.34970, 1000
-  %59 = mul i32 %58, %57
-  store i32 %.271, ptr %4, align 4, !tbaa !12
-  br label %.thread72
+.thread65:                                        ; preds = %42, %23
+  %.269 = phi i32 [ %.3, %42 ], [ %19, %23 ]
+  %.34968 = phi i32 [ %.4, %42 ], [ %.248.ph, %23 ]
+  %43 = load i32, ptr %6, align 4, !tbaa !12
+  %44 = mul nsw i32 %43, 60
+  %45 = load i32, ptr %7, align 4, !tbaa !12
+  %46 = add nsw i32 %44, %45
+  %47 = mul nsw i32 %46, 60
+  %48 = load i32, ptr %8, align 4, !tbaa !12
+  %49 = add nsw i32 %47, %48
+  %50 = mul i32 %.34968, 1000
+  %51 = mul i32 %50, %49
+  store i32 %.269, ptr %4, align 4, !tbaa !12
+  br label %.thread70
 
-.thread72:                                        ; preds = %26, %.thread67
-  %.039 = phi i32 [ %59, %.thread67 ], [ 0, %26 ]
+.thread70:                                        ; preds = %switch.edge, %.thread65
+  %.039 = phi i32 [ %51, %.thread65 ], [ 0, %switch.edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

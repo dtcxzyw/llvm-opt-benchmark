@@ -1997,19 +1997,10 @@ define noundef range(i64 2, 4) i64 @_ZNK8QuantLib13HestonProcess7factorsEv(ptr n
 entry:
   %discretization_ = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load i32, ptr %discretization_, align 8, !tbaa !69
-  switch i32 %0, label %lor.rhs [
-    i32 6, label %lor.end
-    i32 8, label %lor.end
-  ]
-
-lor.rhs:                                          ; preds = %entry
-  %cmp5 = icmp eq i32 %0, 7
-  %1 = select i1 %cmp5, i64 3, i64 2
-  br label %lor.end
-
-lor.end:                                          ; preds = %entry, %entry, %lor.rhs
-  %cond = phi i64 [ 3, %entry ], [ %1, %lor.rhs ], [ 3, %entry ]
-  ret i64 %cond
+  %.off = add i32 %0, -6
+  %switch = icmp ult i32 %.off, 3
+  %spec.select = select i1 %switch, i64 3, i64 2
+  ret i64 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable

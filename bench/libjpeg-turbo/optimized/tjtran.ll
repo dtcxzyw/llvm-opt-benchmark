@@ -125,6 +125,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.57 = private unnamed_addr constant [6 x i8] c"-trim\00", align 1
 @str.58 = private unnamed_addr constant [76 x i8] c"    If necessary, trim the partial iMCUs at the right or bottom edge of the\00", align 1
 @str.59 = private unnamed_addr constant [51 x i8] c"    image to make the requested transform perfect\0A\00", align 1
+@switch.table.main = private unnamed_addr constant [6 x i32] [i32 4, i32 poison, i32 poison, i32 1, i32 6, i32 5], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -581,7 +582,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %197 = icmp eq i32 %192, 1
   %198 = icmp eq i32 %.0481.lcssa, 1
   %or.cond33 = select i1 %197, i1 true, i1 %198
-  br i1 %or.cond33, label %493, label %199
+  br i1 %or.cond33, label %491, label %199
 
 199:                                              ; preds = %191, %.thread786
   %200 = icmp sgt i32 %.0481.lcssa, -1
@@ -601,7 +602,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %210 = icmp eq i32 %205, 1
   %211 = icmp eq i32 %.0481.lcssa, 1
   %or.cond35 = select i1 %210, i1 true, i1 %211
-  br i1 %or.cond35, label %493, label %212
+  br i1 %or.cond35, label %491, label %212
 
 212:                                              ; preds = %204, %201, %199
   %213 = icmp sgt i32 %.0468.lcssa, -1
@@ -621,7 +622,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %223 = icmp eq i32 %218, 1
   %224 = icmp eq i32 %.0481.lcssa, 1
   %or.cond37 = select i1 %223, i1 true, i1 %224
-  br i1 %or.cond37, label %493, label %225
+  br i1 %or.cond37, label %491, label %225
 
 225:                                              ; preds = %217, %214, %212
   %226 = icmp sgt i32 %.0466.lcssa, -1
@@ -641,7 +642,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %236 = icmp eq i32 %231, 1
   %237 = icmp eq i32 %.0481.lcssa, 1
   %or.cond39 = select i1 %236, i1 true, i1 %237
-  br i1 %or.cond39, label %493, label %238
+  br i1 %or.cond39, label %491, label %238
 
 238:                                              ; preds = %230, %227, %225
   %239 = icmp sgt i32 %.0472.lcssa, -1
@@ -661,7 +662,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %249 = icmp eq i32 %244, 1
   %250 = icmp eq i32 %.0481.lcssa, 1
   %or.cond41 = select i1 %249, i1 true, i1 %250
-  br i1 %or.cond41, label %493, label %251
+  br i1 %or.cond41, label %491, label %251
 
 251:                                              ; preds = %243, %240, %238
   %252 = icmp sgt i32 %.0475.lcssa, -1
@@ -681,7 +682,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %262 = icmp eq i32 %257, 1
   %263 = icmp eq i32 %.0481.lcssa, 1
   %or.cond43 = select i1 %262, i1 true, i1 %263
-  br i1 %or.cond43, label %493, label %264
+  br i1 %or.cond43, label %491, label %264
 
 264:                                              ; preds = %256, %253, %251
   %265 = icmp sgt i32 %.0464.lcssa, -1
@@ -701,7 +702,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %275 = icmp eq i32 %270, 1
   %276 = icmp eq i32 %.0481.lcssa, 1
   %or.cond45 = select i1 %275, i1 true, i1 %276
-  br i1 %or.cond45, label %493, label %277
+  br i1 %or.cond45, label %491, label %277
 
 277:                                              ; preds = %269, %266, %264
   %278 = call i32 @tj3Set(ptr noundef %189, i32 noundef 25, i32 noundef %.2480) #17
@@ -717,7 +718,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %286 = icmp eq i32 %281, 1
   %287 = icmp eq i32 %.0481.lcssa, 1
   %or.cond47 = select i1 %286, i1 true, i1 %287
-  br i1 %or.cond47, label %493, label %288
+  br i1 %or.cond47, label %491, label %288
 
 288:                                              ; preds = %280, %277
   %289 = sext i32 %.0459.lcssa to i64
@@ -732,7 +733,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %296 = load i32, ptr %295, align 4, !tbaa !15
   %297 = call ptr @strerror(i32 noundef %296) #17
   %298 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 291, ptr noundef nonnull @.str.43, ptr noundef %297)
-  br label %493
+  br label %491
 
 299:                                              ; preds = %288
   %300 = call i32 @fseek(ptr noundef nonnull %292, i64 noundef 0, i32 noundef 2)
@@ -754,7 +755,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %310 = load i32, ptr %309, align 4, !tbaa !15
   %311 = call ptr @strerror(i32 noundef %310) #17
   %312 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 294, ptr noundef nonnull @.str.44, ptr noundef %311)
-  br label %493
+  br label %491
 
 313:                                              ; preds = %305
   %314 = icmp eq i64 %303, 0
@@ -762,7 +763,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 315:                                              ; preds = %313
   %316 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 296, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45)
-  br label %493
+  br label %491
 
 317:                                              ; preds = %313
   %318 = call ptr @tj3Alloc(i64 noundef %303) #17
@@ -774,7 +775,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %322 = load i32, ptr %321, align 4, !tbaa !15
   %323 = call ptr @strerror(i32 noundef %322) #17
   %324 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 299, ptr noundef nonnull @.str.46, ptr noundef %323)
-  br label %493
+  br label %491
 
 325:                                              ; preds = %317
   %326 = call i64 @fread(ptr noundef nonnull %318, i64 noundef %303, i64 noundef 1, ptr noundef nonnull %292)
@@ -786,7 +787,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %330 = load i32, ptr %329, align 4, !tbaa !15
   %331 = call ptr @strerror(i32 noundef %330) #17
   %332 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 301, ptr noundef nonnull @.str.47, ptr noundef %331)
-  br label %493
+  br label %491
 
 333:                                              ; preds = %325
   %334 = call i32 @fclose(ptr noundef nonnull %292)
@@ -803,7 +804,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %343 = icmp eq i32 %338, 1
   %344 = icmp eq i32 %.0481.lcssa, 1
   %or.cond49 = select i1 %343, i1 true, i1 %344
-  br i1 %or.cond49, label %493, label %345
+  br i1 %or.cond49, label %491, label %345
 
 345:                                              ; preds = %337, %333
   %346 = call i32 @tj3Get(ptr noundef %189, i32 noundef 4) #17
@@ -814,7 +815,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %spec.store.select50 = select i1 %.not578, i32 %346, i32 3
   %350 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %351 = load i32, ptr %350, align 8, !tbaa !14
-  switch i32 %351, label %357 [
+  switch i32 %351, label %355 [
     i32 7, label %352
     i32 5, label %352
     i32 4, label %352
@@ -822,261 +823,258 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   ]
 
 352:                                              ; preds = %345, %345, %345, %345
-  switch i32 %spec.store.select50, label %355 [
-    i32 1, label %357
-    i32 4, label %353
-    i32 5, label %354
-  ]
+  %switch.tableidx = add i32 %spec.store.select50, -1
+  %353 = icmp ult i32 %switch.tableidx, 6
+  %switch.maskindex = trunc i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 57, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  %or.cond810 = select i1 %353, i1 %switch.lobit, i1 false
+  br i1 %or.cond810, label %switch.lookup, label %355
 
-353:                                              ; preds = %352
-  br label %357
+switch.lookup:                                    ; preds = %352
+  %354 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %354
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %355
 
-354:                                              ; preds = %352
-  br label %357
+355:                                              ; preds = %352, %switch.lookup, %345
+  %.0483 = phi i32 [ %spec.store.select50, %345 ], [ %switch.load, %switch.lookup ], [ %spec.store.select50, %352 ]
+  %356 = call i32 @tj3Set(ptr noundef %189, i32 noundef 12, i32 noundef %.0470.lcssa) #17
+  %357 = icmp slt i32 %356, 0
+  br i1 %357, label %358, label %366
 
-355:                                              ; preds = %352
-  %356 = icmp eq i32 %spec.store.select50, 6
-  %spec.store.select60 = select i1 %356, i32 5, i32 %spec.store.select50
-  br label %357
+358:                                              ; preds = %355
+  %359 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
+  %360 = icmp eq i32 %359, 0
+  %361 = select i1 %360, ptr @.str.31, ptr @.str.32
+  %362 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
+  %363 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %361, i32 noundef 318, ptr noundef nonnull @.str.49, ptr noundef %362)
+  %364 = icmp eq i32 %359, 1
+  %365 = icmp eq i32 %.0481.lcssa, 1
+  %or.cond62 = select i1 %364, i1 true, i1 %365
+  br i1 %or.cond62, label %491, label %366
 
-357:                                              ; preds = %352, %345, %354, %355, %353
-  %.0483 = phi i32 [ 1, %353 ], [ 6, %354 ], [ %spec.store.select60, %355 ], [ %spec.store.select50, %345 ], [ 4, %352 ]
-  %358 = call i32 @tj3Set(ptr noundef %189, i32 noundef 12, i32 noundef %.0470.lcssa) #17
-  %359 = icmp slt i32 %358, 0
-  br i1 %359, label %360, label %368
+366:                                              ; preds = %358, %355
+  %367 = call i32 @tj3Set(ptr noundef %189, i32 noundef 14, i32 noundef %.0462.lcssa) #17
+  %368 = icmp slt i32 %367, 0
+  br i1 %368, label %369, label %377
 
-360:                                              ; preds = %357
-  %361 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
-  %362 = icmp eq i32 %361, 0
-  %363 = select i1 %362, ptr @.str.31, ptr @.str.32
-  %364 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
-  %365 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %363, i32 noundef 318, ptr noundef nonnull @.str.49, ptr noundef %364)
-  %366 = icmp eq i32 %361, 1
-  %367 = icmp eq i32 %.0481.lcssa, 1
-  %or.cond62 = select i1 %366, i1 true, i1 %367
-  br i1 %or.cond62, label %493, label %368
+369:                                              ; preds = %366
+  %370 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
+  %371 = icmp eq i32 %370, 0
+  %372 = select i1 %371, ptr @.str.31, ptr @.str.32
+  %373 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
+  %374 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %372, i32 noundef 320, ptr noundef nonnull @.str.50, ptr noundef %373)
+  %375 = icmp eq i32 %370, 1
+  %376 = icmp eq i32 %.0481.lcssa, 1
+  %or.cond64 = select i1 %375, i1 true, i1 %376
+  br i1 %or.cond64, label %491, label %377
 
-368:                                              ; preds = %360, %357
-  %369 = call i32 @tj3Set(ptr noundef %189, i32 noundef 14, i32 noundef %.0462.lcssa) #17
-  %370 = icmp slt i32 %369, 0
-  br i1 %370, label %371, label %379
+377:                                              ; preds = %369, %366
+  %378 = load i32, ptr %3, align 8, !tbaa !18
+  %379 = icmp ne i32 %378, 0
+  %380 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %381 = load i32, ptr %380, align 4
+  %382 = icmp ne i32 %381, 0
+  %or.cond68 = select i1 %379, i1 true, i1 %382
+  %383 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %384 = load i32, ptr %383, align 8
+  %385 = icmp ne i32 %384, 0
+  %or.cond72 = select i1 %or.cond68, i1 true, i1 %385
+  %386 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %387 = load i32, ptr %386, align 4
+  %388 = icmp ne i32 %387, 0
+  %or.cond76 = select i1 %or.cond72, i1 true, i1 %388
+  br i1 %or.cond76, label %389, label %404
 
-371:                                              ; preds = %368
-  %372 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
-  %373 = icmp eq i32 %372, 0
-  %374 = select i1 %373, ptr @.str.31, ptr @.str.32
-  %375 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
-  %376 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %374, i32 noundef 320, ptr noundef nonnull @.str.50, ptr noundef %375)
-  %377 = icmp eq i32 %372, 1
-  %378 = icmp eq i32 %.0481.lcssa, 1
-  %or.cond64 = select i1 %377, i1 true, i1 %378
-  br i1 %or.cond64, label %493, label %379
+389:                                              ; preds = %377
+  %390 = icmp eq i32 %.0483, -1
+  br i1 %390, label %402, label %.thread
 
-379:                                              ; preds = %371, %368
-  %380 = load i32, ptr %3, align 8, !tbaa !18
-  %381 = icmp ne i32 %380, 0
-  %382 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %383 = load i32, ptr %382, align 4
-  %384 = icmp ne i32 %383, 0
-  %or.cond68 = select i1 %381, i1 true, i1 %384
-  %385 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %386 = load i32, ptr %385, align 8
-  %387 = icmp ne i32 %386, 0
-  %or.cond72 = select i1 %or.cond68, i1 true, i1 %387
-  %388 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %389 = load i32, ptr %388, align 4
-  %390 = icmp ne i32 %389, 0
-  %or.cond76 = select i1 %or.cond72, i1 true, i1 %390
-  br i1 %or.cond76, label %391, label %406
+.thread:                                          ; preds = %389
+  %391 = sext i32 %.0483 to i64
+  %392 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %391
+  %393 = load i32, ptr %392, align 4, !tbaa !15
+  %394 = srem i32 %378, %393
+  %395 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %391
+  %396 = load i32, ptr %395, align 4, !tbaa !15
+  %397 = srem i32 %381, %396
+  %398 = sub nsw i32 %378, %394
+  store i32 %398, ptr %3, align 8, !tbaa !18
+  %399 = add nsw i32 %394, %384
+  store i32 %399, ptr %383, align 8, !tbaa !19
+  %400 = sub nsw i32 %381, %397
+  store i32 %400, ptr %380, align 4, !tbaa !20
+  %401 = add nsw i32 %397, %387
+  store i32 %401, ptr %386, align 4, !tbaa !21
+  br label %404
 
-391:                                              ; preds = %379
-  %392 = icmp eq i32 %.0483, -1
-  br i1 %392, label %404, label %.thread
+402:                                              ; preds = %389
+  %403 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 327, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52)
+  br label %491
 
-.thread:                                          ; preds = %391
-  %393 = sext i32 %.0483 to i64
-  %394 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %393
-  %395 = load i32, ptr %394, align 4, !tbaa !15
-  %396 = srem i32 %380, %395
-  %397 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %393
-  %398 = load i32, ptr %397, align 4, !tbaa !15
-  %399 = srem i32 %383, %398
-  %400 = sub nsw i32 %380, %396
-  store i32 %400, ptr %3, align 8, !tbaa !18
-  %401 = add nsw i32 %396, %386
-  store i32 %401, ptr %385, align 8, !tbaa !19
-  %402 = sub nsw i32 %383, %399
-  store i32 %402, ptr %382, align 4, !tbaa !20
-  %403 = add nsw i32 %399, %389
-  store i32 %403, ptr %388, align 4, !tbaa !21
-  br label %406
+404:                                              ; preds = %.thread, %377
+  br i1 %.not577, label %460, label %405
 
-404:                                              ; preds = %391
-  %405 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 327, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52)
-  br label %493
+405:                                              ; preds = %404
+  %406 = call noalias ptr @fopen(ptr noundef nonnull %.0484.lcssa775808, ptr noundef nonnull @.str.41)
+  %407 = icmp eq ptr %406, null
+  br i1 %407, label %408, label %413
 
-406:                                              ; preds = %.thread, %379
-  br i1 %.not577, label %462, label %407
+408:                                              ; preds = %405
+  %409 = tail call ptr @__errno_location() #18
+  %410 = load i32, ptr %409, align 4, !tbaa !15
+  %411 = call ptr @strerror(i32 noundef %410) #17
+  %412 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 338, ptr noundef nonnull @.str.53, ptr noundef %411)
+  br label %491
 
-407:                                              ; preds = %406
-  %408 = call noalias ptr @fopen(ptr noundef nonnull %.0484.lcssa775808, ptr noundef nonnull @.str.41)
-  %409 = icmp eq ptr %408, null
-  br i1 %409, label %410, label %415
+413:                                              ; preds = %405
+  %414 = call i32 @fseek(ptr noundef nonnull %406, i64 noundef 0, i32 noundef 2)
+  %415 = icmp slt i32 %414, 0
+  br i1 %415, label %422, label %416
 
-410:                                              ; preds = %407
-  %411 = tail call ptr @__errno_location() #18
-  %412 = load i32, ptr %411, align 4, !tbaa !15
-  %413 = call ptr @strerror(i32 noundef %412) #17
-  %414 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 338, ptr noundef nonnull @.str.53, ptr noundef %413)
-  br label %493
+416:                                              ; preds = %413
+  %417 = call i64 @ftell(ptr noundef nonnull %406)
+  %418 = icmp slt i64 %417, 0
+  br i1 %418, label %422, label %419
 
-415:                                              ; preds = %407
-  %416 = call i32 @fseek(ptr noundef nonnull %408, i64 noundef 0, i32 noundef 2)
-  %417 = icmp slt i32 %416, 0
-  br i1 %417, label %424, label %418
+419:                                              ; preds = %416
+  %420 = call i32 @fseek(ptr noundef nonnull %406, i64 noundef 0, i32 noundef 0)
+  %421 = icmp slt i32 %420, 0
+  br i1 %421, label %422, label %427
 
-418:                                              ; preds = %415
-  %419 = call i64 @ftell(ptr noundef nonnull %408)
-  %420 = icmp slt i64 %419, 0
-  br i1 %420, label %424, label %421
+422:                                              ; preds = %419, %416, %413
+  %423 = tail call ptr @__errno_location() #18
+  %424 = load i32, ptr %423, align 4, !tbaa !15
+  %425 = call ptr @strerror(i32 noundef %424) #17
+  %426 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 341, ptr noundef nonnull @.str.54, ptr noundef %425)
+  br label %491
 
-421:                                              ; preds = %418
-  %422 = call i32 @fseek(ptr noundef nonnull %408, i64 noundef 0, i32 noundef 0)
-  %423 = icmp slt i32 %422, 0
-  br i1 %423, label %424, label %429
+427:                                              ; preds = %419
+  %428 = icmp eq i64 %417, 0
+  br i1 %428, label %429, label %431
 
-424:                                              ; preds = %421, %418, %415
-  %425 = tail call ptr @__errno_location() #18
-  %426 = load i32, ptr %425, align 4, !tbaa !15
-  %427 = call ptr @strerror(i32 noundef %426) #17
-  %428 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 341, ptr noundef nonnull @.str.54, ptr noundef %427)
-  br label %493
+429:                                              ; preds = %427
+  %430 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 343, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55)
+  br label %491
 
-429:                                              ; preds = %421
-  %430 = icmp eq i64 %419, 0
-  br i1 %430, label %431, label %433
+431:                                              ; preds = %427
+  %432 = call noalias ptr @malloc(i64 noundef %417) #19
+  %433 = icmp eq ptr %432, null
+  br i1 %433, label %434, label %439
 
-431:                                              ; preds = %429
-  %432 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 343, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55)
-  br label %493
+434:                                              ; preds = %431
+  %435 = tail call ptr @__errno_location() #18
+  %436 = load i32, ptr %435, align 4, !tbaa !15
+  %437 = call ptr @strerror(i32 noundef %436) #17
+  %438 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 346, ptr noundef nonnull @.str.56, ptr noundef %437)
+  br label %491
 
-433:                                              ; preds = %429
-  %434 = call noalias ptr @malloc(i64 noundef %419) #19
-  %435 = icmp eq ptr %434, null
-  br i1 %435, label %436, label %441
+439:                                              ; preds = %431
+  %440 = call i64 @fread(ptr noundef nonnull %432, i64 noundef %417, i64 noundef 1, ptr noundef nonnull %406)
+  %441 = icmp eq i64 %440, 0
+  br i1 %441, label %442, label %447
 
-436:                                              ; preds = %433
-  %437 = tail call ptr @__errno_location() #18
-  %438 = load i32, ptr %437, align 4, !tbaa !15
-  %439 = call ptr @strerror(i32 noundef %438) #17
-  %440 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 346, ptr noundef nonnull @.str.56, ptr noundef %439)
-  br label %493
+442:                                              ; preds = %439
+  %443 = tail call ptr @__errno_location() #18
+  %444 = load i32, ptr %443, align 4, !tbaa !15
+  %445 = call ptr @strerror(i32 noundef %444) #17
+  %446 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 348, ptr noundef nonnull @.str.57, ptr noundef %445)
+  br label %491
 
-441:                                              ; preds = %433
-  %442 = call i64 @fread(ptr noundef nonnull %434, i64 noundef %419, i64 noundef 1, ptr noundef nonnull %408)
-  %443 = icmp eq i64 %442, 0
-  br i1 %443, label %444, label %449
+447:                                              ; preds = %439
+  %448 = call i32 @fclose(ptr noundef nonnull %406)
+  %449 = call i32 @tj3SetICCProfile(ptr noundef %189, ptr noundef nonnull %432, i64 noundef %417) #17
+  %450 = icmp slt i32 %449, 0
+  br i1 %450, label %451, label %459
 
-444:                                              ; preds = %441
-  %445 = tail call ptr @__errno_location() #18
-  %446 = load i32, ptr %445, align 4, !tbaa !15
-  %447 = call ptr @strerror(i32 noundef %446) #17
-  %448 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 348, ptr noundef nonnull @.str.57, ptr noundef %447)
-  br label %493
+451:                                              ; preds = %447
+  %452 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
+  %453 = icmp eq i32 %452, 0
+  %454 = select i1 %453, ptr @.str.31, ptr @.str.32
+  %455 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
+  %456 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %454, i32 noundef 351, ptr noundef nonnull @.str.58, ptr noundef %455)
+  %457 = icmp eq i32 %452, 1
+  %458 = icmp eq i32 %.0481.lcssa, 1
+  %or.cond78 = select i1 %457, i1 true, i1 %458
+  br i1 %or.cond78, label %491, label %459
 
-449:                                              ; preds = %441
-  %450 = call i32 @fclose(ptr noundef nonnull %408)
-  %451 = call i32 @tj3SetICCProfile(ptr noundef %189, ptr noundef nonnull %434, i64 noundef %419) #17
-  %452 = icmp slt i32 %451, 0
-  br i1 %452, label %453, label %461
+459:                                              ; preds = %451, %447
+  call void @free(ptr noundef nonnull %432) #17
+  br label %460
 
-453:                                              ; preds = %449
-  %454 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
-  %455 = icmp eq i32 %454, 0
-  %456 = select i1 %455, ptr @.str.31, ptr @.str.32
-  %457 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
-  %458 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %456, i32 noundef 351, ptr noundef nonnull @.str.58, ptr noundef %457)
-  %459 = icmp eq i32 %454, 1
-  %460 = icmp eq i32 %.0481.lcssa, 1
-  %or.cond78 = select i1 %459, i1 true, i1 %460
-  br i1 %or.cond78, label %493, label %461
+460:                                              ; preds = %459, %404
+  %461 = call i32 @tj3Transform(ptr noundef %189, ptr noundef nonnull %318, i64 noundef %303, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
+  %462 = icmp slt i32 %461, 0
+  br i1 %462, label %463, label %471
 
-461:                                              ; preds = %453, %449
-  call void @free(ptr noundef nonnull %434) #17
-  br label %462
+463:                                              ; preds = %460
+  %464 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
+  %465 = icmp eq i32 %464, 0
+  %466 = select i1 %465, ptr @.str.31, ptr @.str.32
+  %467 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
+  %468 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %466, i32 noundef 357, ptr noundef nonnull @.str.59, ptr noundef %467)
+  %469 = icmp eq i32 %464, 1
+  %470 = icmp eq i32 %.0481.lcssa, 1
+  %or.cond80 = select i1 %469, i1 true, i1 %470
+  br i1 %or.cond80, label %491, label %471
 
-462:                                              ; preds = %461, %406
-  %463 = call i32 @tj3Transform(ptr noundef %189, ptr noundef nonnull %318, i64 noundef %303, i32 noundef 1, ptr noundef nonnull %5, ptr noundef nonnull %4, ptr noundef nonnull %3) #17
-  %464 = icmp slt i32 %463, 0
-  br i1 %464, label %465, label %473
-
-465:                                              ; preds = %462
-  %466 = call i32 @tj3GetErrorCode(ptr noundef %189) #17
-  %467 = icmp eq i32 %466, 0
-  %468 = select i1 %467, ptr @.str.31, ptr @.str.32
-  %469 = call ptr @tj3GetErrorStr(ptr noundef %189) #17
-  %470 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull %468, i32 noundef 357, ptr noundef nonnull @.str.59, ptr noundef %469)
-  %471 = icmp eq i32 %466, 1
-  %472 = icmp eq i32 %.0481.lcssa, 1
-  %or.cond80 = select i1 %471, i1 true, i1 %472
-  br i1 %or.cond80, label %493, label %473
-
-473:                                              ; preds = %465, %462
+471:                                              ; preds = %463, %460
   call void @tj3Free(ptr noundef nonnull %318) #17
-  %474 = getelementptr i8, ptr %290, i64 8
-  %475 = load ptr, ptr %474, align 8, !tbaa !4
-  %476 = call noalias ptr @fopen(ptr noundef %475, ptr noundef nonnull @.str.60)
-  %477 = icmp eq ptr %476, null
-  br i1 %477, label %478, label %483
+  %472 = getelementptr i8, ptr %290, i64 8
+  %473 = load ptr, ptr %472, align 8, !tbaa !4
+  %474 = call noalias ptr @fopen(ptr noundef %473, ptr noundef nonnull @.str.60)
+  %475 = icmp eq ptr %474, null
+  br i1 %475, label %476, label %481
 
-478:                                              ; preds = %473
-  %479 = tail call ptr @__errno_location() #18
-  %480 = load i32, ptr %479, align 4, !tbaa !15
-  %481 = call ptr @strerror(i32 noundef %480) #17
-  %482 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 361, ptr noundef nonnull @.str.61, ptr noundef %481)
-  br label %493
+476:                                              ; preds = %471
+  %477 = tail call ptr @__errno_location() #18
+  %478 = load i32, ptr %477, align 4, !tbaa !15
+  %479 = call ptr @strerror(i32 noundef %478) #17
+  %480 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 361, ptr noundef nonnull @.str.61, ptr noundef %479)
+  br label %491
 
-483:                                              ; preds = %473
-  %484 = load ptr, ptr %5, align 8, !tbaa !4
-  %485 = load i64, ptr %4, align 8, !tbaa !22
-  %486 = call i64 @fwrite(ptr noundef %484, i64 noundef %485, i64 noundef 1, ptr noundef nonnull %476)
-  %487 = icmp eq i64 %486, 0
-  br i1 %487, label %488, label %493
+481:                                              ; preds = %471
+  %482 = load ptr, ptr %5, align 8, !tbaa !4
+  %483 = load i64, ptr %4, align 8, !tbaa !22
+  %484 = call i64 @fwrite(ptr noundef %482, i64 noundef %483, i64 noundef 1, ptr noundef nonnull %474)
+  %485 = icmp eq i64 %484, 0
+  br i1 %485, label %486, label %491
 
-488:                                              ; preds = %483
-  %489 = tail call ptr @__errno_location() #18
-  %490 = load i32, ptr %489, align 4, !tbaa !15
-  %491 = call ptr @strerror(i32 noundef %490) #17
-  %492 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 363, ptr noundef nonnull @.str.62, ptr noundef %491)
-  br label %493
+486:                                              ; preds = %481
+  %487 = tail call ptr @__errno_location() #18
+  %488 = load i32, ptr %487, align 4, !tbaa !15
+  %489 = call ptr @strerror(i32 noundef %488) #17
+  %490 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, i32 noundef 363, ptr noundef nonnull @.str.62, ptr noundef %489)
+  br label %491
 
-493:                                              ; preds = %404, %465, %453, %371, %360, %337, %280, %269, %256, %243, %230, %217, %204, %191, %483, %488, %478, %444, %436, %431, %424, %410, %328, %320, %315, %308, %294
-  %.0505 = phi ptr [ null, %294 ], [ null, %308 ], [ null, %315 ], [ null, %320 ], [ %318, %328 ], [ %318, %410 ], [ %318, %424 ], [ %318, %431 ], [ %318, %436 ], [ %318, %444 ], [ null, %478 ], [ null, %488 ], [ null, %483 ], [ %318, %465 ], [ %318, %453 ], [ %318, %404 ], [ %318, %371 ], [ %318, %360 ], [ %318, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
-  %.0503 = phi ptr [ null, %294 ], [ null, %308 ], [ null, %315 ], [ null, %320 ], [ null, %328 ], [ null, %410 ], [ null, %424 ], [ null, %431 ], [ null, %436 ], [ %434, %444 ], [ null, %478 ], [ null, %488 ], [ null, %483 ], [ null, %465 ], [ %434, %453 ], [ null, %404 ], [ null, %371 ], [ null, %360 ], [ null, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
-  %.0502 = phi ptr [ null, %294 ], [ %292, %308 ], [ %292, %315 ], [ %292, %320 ], [ %292, %328 ], [ null, %410 ], [ null, %424 ], [ null, %431 ], [ null, %436 ], [ null, %444 ], [ null, %478 ], [ %476, %488 ], [ %476, %483 ], [ null, %465 ], [ null, %453 ], [ null, %404 ], [ null, %371 ], [ null, %360 ], [ null, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
-  %.0500 = phi ptr [ null, %294 ], [ null, %308 ], [ null, %315 ], [ null, %320 ], [ null, %328 ], [ null, %410 ], [ %408, %424 ], [ %408, %431 ], [ %408, %436 ], [ %408, %444 ], [ null, %478 ], [ null, %488 ], [ null, %483 ], [ null, %465 ], [ null, %453 ], [ null, %404 ], [ null, %371 ], [ null, %360 ], [ null, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
-  %.2 = phi i32 [ -1, %294 ], [ -1, %308 ], [ -1, %315 ], [ -1, %320 ], [ -1, %328 ], [ -1, %410 ], [ -1, %424 ], [ -1, %431 ], [ -1, %436 ], [ -1, %444 ], [ -1, %478 ], [ -1, %488 ], [ 0, %483 ], [ -1, %465 ], [ -1, %453 ], [ -1, %404 ], [ -1, %371 ], [ -1, %360 ], [ -1, %337 ], [ -1, %280 ], [ -1, %269 ], [ -1, %256 ], [ -1, %243 ], [ -1, %230 ], [ -1, %217 ], [ -1, %204 ], [ -1, %191 ]
+491:                                              ; preds = %402, %463, %451, %369, %358, %337, %280, %269, %256, %243, %230, %217, %204, %191, %481, %486, %476, %442, %434, %429, %422, %408, %328, %320, %315, %308, %294
+  %.0505 = phi ptr [ null, %294 ], [ null, %308 ], [ null, %315 ], [ null, %320 ], [ %318, %328 ], [ %318, %408 ], [ %318, %422 ], [ %318, %429 ], [ %318, %434 ], [ %318, %442 ], [ null, %476 ], [ null, %486 ], [ null, %481 ], [ %318, %463 ], [ %318, %451 ], [ %318, %402 ], [ %318, %369 ], [ %318, %358 ], [ %318, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
+  %.0503 = phi ptr [ null, %294 ], [ null, %308 ], [ null, %315 ], [ null, %320 ], [ null, %328 ], [ null, %408 ], [ null, %422 ], [ null, %429 ], [ null, %434 ], [ %432, %442 ], [ null, %476 ], [ null, %486 ], [ null, %481 ], [ null, %463 ], [ %432, %451 ], [ null, %402 ], [ null, %369 ], [ null, %358 ], [ null, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
+  %.0502 = phi ptr [ null, %294 ], [ %292, %308 ], [ %292, %315 ], [ %292, %320 ], [ %292, %328 ], [ null, %408 ], [ null, %422 ], [ null, %429 ], [ null, %434 ], [ null, %442 ], [ null, %476 ], [ %474, %486 ], [ %474, %481 ], [ null, %463 ], [ null, %451 ], [ null, %402 ], [ null, %369 ], [ null, %358 ], [ null, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
+  %.0500 = phi ptr [ null, %294 ], [ null, %308 ], [ null, %315 ], [ null, %320 ], [ null, %328 ], [ null, %408 ], [ %406, %422 ], [ %406, %429 ], [ %406, %434 ], [ %406, %442 ], [ null, %476 ], [ null, %486 ], [ null, %481 ], [ null, %463 ], [ null, %451 ], [ null, %402 ], [ null, %369 ], [ null, %358 ], [ null, %337 ], [ null, %280 ], [ null, %269 ], [ null, %256 ], [ null, %243 ], [ null, %230 ], [ null, %217 ], [ null, %204 ], [ null, %191 ]
+  %.2 = phi i32 [ -1, %294 ], [ -1, %308 ], [ -1, %315 ], [ -1, %320 ], [ -1, %328 ], [ -1, %408 ], [ -1, %422 ], [ -1, %429 ], [ -1, %434 ], [ -1, %442 ], [ -1, %476 ], [ -1, %486 ], [ 0, %481 ], [ -1, %463 ], [ -1, %451 ], [ -1, %402 ], [ -1, %369 ], [ -1, %358 ], [ -1, %337 ], [ -1, %280 ], [ -1, %269 ], [ -1, %256 ], [ -1, %243 ], [ -1, %230 ], [ -1, %217 ], [ -1, %204 ], [ -1, %191 ]
   call void @tj3Destroy(ptr noundef %189) #17
   call void @tj3Free(ptr noundef %.0505) #17
   %.not579 = icmp eq ptr %.0500, null
-  br i1 %.not579, label %496, label %494
+  br i1 %.not579, label %494, label %492
 
-494:                                              ; preds = %493
-  %495 = call i32 @fclose(ptr noundef nonnull %.0500)
-  br label %496
+492:                                              ; preds = %491
+  %493 = call i32 @fclose(ptr noundef nonnull %.0500)
+  br label %494
 
-496:                                              ; preds = %494, %493
+494:                                              ; preds = %492, %491
   call void @free(ptr noundef %.0503) #17
   %.not580 = icmp eq ptr %.0502, null
-  br i1 %.not580, label %499, label %497
+  br i1 %.not580, label %497, label %495
 
-497:                                              ; preds = %496
-  %498 = call i32 @fclose(ptr noundef nonnull %.0502)
-  br label %499
+495:                                              ; preds = %494
+  %496 = call i32 @fclose(ptr noundef nonnull %.0502)
+  br label %497
 
-499:                                              ; preds = %497, %496
-  %500 = load ptr, ptr %5, align 8, !tbaa !4
-  call void @tj3Free(ptr noundef %500) #17
+497:                                              ; preds = %495, %494
+  %498 = load ptr, ptr %5, align 8, !tbaa !4
+  call void @tj3Free(ptr noundef %498) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

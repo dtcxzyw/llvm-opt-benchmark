@@ -100,11 +100,11 @@ define hidden zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef %0, ptr noundef 
   %.not74 = icmp ne i32 %27, 0
   %.mask = and i32 %27, -268435456
   %.not75 = icmp ne i32 %.mask, 268435456
-  %or.cond.not97 = and i1 %.not74, %.not75
+  %or.cond.not98 = and i1 %.not74, %.not75
   %28 = and i32 %27, 63488
   %29 = icmp eq i32 %28, 0
-  %or.cond92 = or i1 %.not75, %29
-  br i1 %or.cond92, label %.critedge, label %57
+  %or.cond93 = or i1 %.not75, %29
+  br i1 %or.cond93, label %.critedge, label %switch.edge
 
 .critedge:                                        ; preds = %25
   %30 = icmp eq i32 %2, 1
@@ -131,11 +131,11 @@ define hidden zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef %0, ptr noundef 
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %44 = load i32, ptr %43, align 4
   %45 = icmp ne i32 %44, %15
-  %brmerge = or i1 %or.cond.not97, %45
+  %brmerge = or i1 %or.cond.not98, %45
   %46 = and i32 %27, 65280
   %47 = icmp ne i32 %46, 1024
-  %or.cond96.not = or i1 %47, %brmerge
-  br i1 %or.cond96.not, label %.critedge87, label %.critedge88
+  %or.cond97.not = or i1 %47, %brmerge
+  br i1 %or.cond97.not, label %.critedge87, label %.critedge88
 
 .critedge88:                                      ; preds = %42
   %48 = shl i32 %3, 4
@@ -153,103 +153,102 @@ define hidden zeroext i1 @SDL_FillSurfaceRects_REAL(ptr noundef %0, ptr noundef 
   %56 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.5) #5
   br label %.loopexit
 
-57:                                               ; preds = %25
+switch.edge:                                      ; preds = %25
   %trunc = trunc i32 %27 to i8
-  switch i8 %trunc, label %67 [
-    i8 1, label %58
-    i8 2, label %63
-    i8 3, label %69
-    i8 4, label %66
+  switch i8 %trunc, label %66 [
+    i8 1, label %57
+    i8 2, label %62
+    i8 3, label %68
+    i8 4, label %65
   ]
 
-58:                                               ; preds = %57
-  %59 = shl i32 %3, 8
-  %60 = or i32 %59, %3
-  %61 = shl i32 %60, 16
-  %62 = or i32 %61, %60
-  br label %69
+57:                                               ; preds = %switch.edge
+  %58 = shl i32 %3, 8
+  %59 = or i32 %58, %3
+  %60 = shl i32 %59, 16
+  %61 = or i32 %60, %59
+  br label %68
 
-63:                                               ; preds = %57
-  %64 = shl i32 %3, 16
-  %65 = or i32 %64, %3
-  br label %69
+62:                                               ; preds = %switch.edge
+  %63 = shl i32 %3, 16
+  %64 = or i32 %63, %3
+  br label %68
 
-66:                                               ; preds = %57
-  br label %69
+65:                                               ; preds = %switch.edge
+  br label %68
 
-67:                                               ; preds = %57
-  %68 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6) #5
+66:                                               ; preds = %switch.edge
+  %67 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.6) #5
   br label %.loopexit
 
-69:                                               ; preds = %57, %58, %63, %66
-  %.067 = phi ptr [ @SDL_FillSurfaceRect1, %58 ], [ @SDL_FillSurfaceRect2, %63 ], [ @SDL_FillSurfaceRect4, %66 ], [ @SDL_FillSurfaceRect3, %57 ]
-  %.064 = phi i32 [ %62, %58 ], [ %65, %63 ], [ %3, %66 ], [ %3, %57 ]
-  %70 = icmp sgt i32 %2, 0
-  br i1 %70, label %.lr.ph, label %.loopexit
+68:                                               ; preds = %switch.edge, %57, %62, %65
+  %.067 = phi ptr [ @SDL_FillSurfaceRect1, %57 ], [ @SDL_FillSurfaceRect2, %62 ], [ @SDL_FillSurfaceRect4, %65 ], [ @SDL_FillSurfaceRect3, %switch.edge ]
+  %.064 = phi i32 [ %61, %57 ], [ %64, %62 ], [ %3, %65 ], [ %3, %switch.edge ]
+  %69 = icmp sgt i32 %2, 0
+  br i1 %69, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 12
+.lr.ph:                                           ; preds = %68
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  %71 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %76
+  br label %75
 
-76:                                               ; preds = %.lr.ph, %101
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %77 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %1, i64 %indvars.iv
-  %78 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %77, ptr noundef nonnull %71, ptr noundef nonnull %5) #5
-  br i1 %78, label %79, label %101
+75:                                               ; preds = %.lr.ph, %97
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
+  %76 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %1, i64 %indvars.iv
+  %77 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %76, ptr noundef nonnull %70, ptr noundef nonnull %5) #5
+  br i1 %77, label %78, label %97
 
-79:                                               ; preds = %76
-  %80 = load ptr, ptr %18, align 8
-  %81 = load i32, ptr %72, align 4
-  %82 = load i32, ptr %73, align 8
-  %83 = mul nsw i32 %82, %81
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i8, ptr %80, i64 %84
-  %86 = load i32, ptr %5, align 4
-  %87 = load i32, ptr %26, align 4
-  %.not79 = icmp eq i32 %87, 0
-  %.mask81 = and i32 %87, -268435456
+78:                                               ; preds = %75
+  %79 = load ptr, ptr %18, align 8
+  %80 = load i32, ptr %71, align 4
+  %81 = load i32, ptr %72, align 8
+  %82 = mul nsw i32 %81, %80
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %79, i64 %83
+  %85 = load i32, ptr %5, align 4
+  %86 = load i32, ptr %26, align 4
+  %.not79 = icmp eq i32 %86, 0
+  %.mask81 = and i32 %86, -268435456
   %.not80 = icmp eq i32 %.mask81, 268435456
   %or.cond90 = or i1 %.not79, %.not80
-  br i1 %or.cond90, label %92, label %88
+  br i1 %or.cond90, label %89, label %87
 
-88:                                               ; preds = %79
-  switch i32 %87, label %89 [
-    i32 844715353, label %94
-    i32 1498831189, label %94
-    i32 1431918169, label %94
+87:                                               ; preds = %78
+  switch i32 %86, label %88 [
+    i32 844715353, label %switch.edge91
+    i32 1498831189, label %switch.edge91
+    i32 1431918169, label %switch.edge91
+    i32 808530000, label %switch.edge91
   ]
 
-89:                                               ; preds = %88
-  %90 = icmp eq i32 %87, 808530000
-  %91 = select i1 %90, i32 2, i32 1
-  br label %94
+88:                                               ; preds = %87
+  br label %switch.edge91
 
-92:                                               ; preds = %79
-  %93 = and i32 %87, 255
-  br label %94
+89:                                               ; preds = %78
+  %90 = and i32 %86, 255
+  br label %switch.edge91
 
-94:                                               ; preds = %89, %88, %88, %88, %92
-  %95 = phi i32 [ %93, %92 ], [ 2, %88 ], [ %91, %89 ], [ 2, %88 ], [ 2, %88 ]
-  %96 = mul i32 %95, %86
-  %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %85, i64 %97
-  %99 = load i32, ptr %74, align 4
-  %100 = load i32, ptr %75, align 4
-  call void %.067(ptr noundef %98, i32 noundef %82, i32 noundef %.064, i32 noundef %99, i32 noundef %100) #5, !callees !3
-  br label %101
+switch.edge91:                                    ; preds = %87, %88, %87, %87, %87, %89
+  %91 = phi i32 [ %90, %89 ], [ 2, %87 ], [ 1, %88 ], [ 2, %87 ], [ 2, %87 ], [ 2, %87 ]
+  %92 = mul i32 %91, %85
+  %93 = zext i32 %92 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %84, i64 %93
+  %95 = load i32, ptr %73, align 4
+  %96 = load i32, ptr %74, align 4
+  call void %.067(ptr noundef %94, i32 noundef %81, i32 noundef %.064, i32 noundef %95, i32 noundef %96) #5, !callees !3
+  br label %97
 
-101:                                              ; preds = %76, %94
+97:                                               ; preds = %75, %switch.edge91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %76, !llvm.loop !4
+  br i1 %exitcond.not, label %.loopexit, label %75, !llvm.loop !4
 
-.loopexit:                                        ; preds = %101, %69, %.critedge88, %9, %13, %67, %.critedge87, %23, %20, %7
-  %.0 = phi i1 [ %56, %.critedge87 ], [ %68, %67 ], [ %24, %23 ], [ %21, %20 ], [ %8, %7 ], [ true, %13 ], [ true, %9 ], [ true, %.critedge88 ], [ true, %69 ], [ true, %101 ]
+.loopexit:                                        ; preds = %97, %68, %.critedge88, %9, %13, %66, %.critedge87, %23, %20, %7
+  %.0 = phi i1 [ %56, %.critedge87 ], [ %67, %66 ], [ %24, %23 ], [ %21, %20 ], [ %8, %7 ], [ true, %13 ], [ true, %9 ], [ true, %.critedge88 ], [ true, %68 ], [ true, %97 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }

@@ -424,7 +424,7 @@ _ZN5boost3log11v2_mt_posix10attributes15utc_time_traits9get_clockEv.exit: ; pred
 
 13:                                               ; preds = %12
   %14 = icmp eq i64 %.sroa.0.0.copyload.i716.i.i, 9223372036854775807
-  br i1 %14, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
+  br i1 %14, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i
 
 15:                                               ; preds = %12
   %16 = icmp eq i64 %.sroa.0.0.copyload.i716.i.i, -9223372036854775808
@@ -433,29 +433,29 @@ _ZN5boost3log11v2_mt_posix10attributes15utc_time_traits9get_clockEv.exit: ; pred
 17:                                               ; preds = %12
   switch i64 %.sroa.0.0.copyload.i716.i.i, label %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i [
     i64 9223372036854775807, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
-    i64 -9223372036854775808, label %.thread26.i.i
+    i64 -9223372036854775808, label %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i
   ]
-
-.thread26.i.i:                                    ; preds = %17
-  br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
 
 _ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i: ; preds = %17
   %18 = sub nsw i64 %4, %.sroa.0.0.copyload.i716.i.i
   %switch.selectcmp.i.i = icmp eq i64 %18, -9223372036854775808
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i64 -9223372036854775808, i64 9223372036854775806
-  %switch.selectcmp37.i.i = icmp eq i64 %18, 9223372036854775807
-  %switch.select38.i.i = select i1 %switch.selectcmp37.i.i, i64 9223372036854775807, i64 %switch.select.i.i
+  %switch.selectcmp32.i.i = icmp eq i64 %18, 9223372036854775807
+  %switch.select33.i.i = select i1 %switch.selectcmp32.i.i, i64 9223372036854775807, i64 %switch.select.i.i
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
 
 _ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i: ; preds = %15, %13, %.thread.i.i.i, %9
+  br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
+
+_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i: ; preds = %17, %13
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
 
 19:                                               ; preds = %7
   %20 = sub nsw i64 %4, %.sroa.0.0.copyload.i716.i.i
   br label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit
 
-_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit: ; preds = %13, %15, %17, %.thread26.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i, %19
-  %.sroa.015.0.i.i = phi i64 [ 9223372036854775806, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i ], [ 9223372036854775807, %.thread26.i.i ], [ -9223372036854775808, %17 ], [ 9223372036854775807, %13 ], [ -9223372036854775808, %15 ], [ %switch.select38.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i ], [ %20, %19 ]
+_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix15attribute_value4implEED2Ev.exit: ; preds = %15, %17, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i, %19
+  %.sroa.015.0.i.i = phi i64 [ 9223372036854775807, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.i.i ], [ 9223372036854775806, %_ZN5boost9date_time11int_adapterIlE10to_specialEl.exit.thread.i.i ], [ -9223372036854775808, %17 ], [ -9223372036854775808, %15 ], [ %switch.select33.i.i, %_ZNK5boost9date_time11int_adapterIlEmiIlEES2_RKNS1_IT_EE.exit.i.i ], [ %20, %19 ]
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 0, ptr %21, align 4, !tbaa !3
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix10attributes20attribute_value_implINS_10posix_time13time_durationEEE, i64 16), ptr %3, align 8, !tbaa !8

@@ -642,8 +642,8 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clang7Code
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 82
   %9 = load i32, ptr %8, align 2
   %10 = and i32 %9, 524288
-  %.not41 = icmp eq i32 %10, 0
-  br i1 %.not41, label %14, label %11
+  %.not39 = icmp eq i32 %10, 0
+  br i1 %.not39, label %14, label %11
 
 11:                                               ; preds = %7
   %12 = getelementptr i8, ptr %4, i64 248
@@ -664,7 +664,7 @@ define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZN5clang7Code
   %19 = getelementptr i8, ptr %4, i64 264
   %.val26 = load i32, ptr %19, align 8
   %.264.val.fr.i = freeze i32 %.val26
-  br i1 %.not19, label %76, label %20
+  br i1 %.not19, label %74, label %20
 
 20:                                               ; preds = %14
   %21 = icmp eq i32 %.260.val.fr.i, 14
@@ -736,12 +736,12 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i:    ; preds = %26, %26
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %52 = load i32, ptr %51, align 4, !tbaa !349
-  switch i32 %52, label %75 [
+  switch i32 %52, label %73 [
     i32 1, label %53
     i32 0, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
     i32 2, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
     i32 3, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
-    i32 5, label %58
+    i32 5, label %56
     i32 4, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
     i32 6, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
   ]
@@ -750,122 +750,108 @@ _ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i:    ; preds = %26, %26
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 192
   %.val11.i34 = load i64, ptr %54, align 8
   %55 = and i64 %.val11.i34, 3584
-  switch i64 %55, label %56 [
-    i64 512, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
-    i64 1536, label %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i.i35
-  ]
-
-56:                                               ; preds = %53
-  %57 = icmp eq i64 %55, 1024
-  %_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE._ZN5clang7CodeGen13EHPersonality5GNU_CE.i.i = select i1 %57, ptr @_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE, ptr @_ZN5clang7CodeGen13EHPersonality5GNU_CE
+  %switch.selectcmp.i.i = icmp eq i64 %55, 1024
+  %switch.select.i.i = select i1 %switch.selectcmp.i.i, ptr @_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE, ptr @_ZN5clang7CodeGen13EHPersonality5GNU_CE
+  %switch.selectcmp1.i.i = icmp eq i64 %55, 512
+  %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, ptr @_ZN5clang7CodeGen13EHPersonality10GNU_C_SJLJE, ptr %switch.select.i.i
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
-_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i.i35: ; preds = %53
-  br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
+56:                                               ; preds = %50
+  %57 = icmp eq i32 %.264.val.fr.i, 29
+  %58 = icmp eq i32 %.264.val.fr.i, 1
+  %59 = or i1 %57, %58
+  %or.cond2.i = and i1 %21, %59
+  br i1 %or.cond2.i, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %60
 
-58:                                               ; preds = %50
-  %59 = icmp eq i32 %.264.val.fr.i, 29
-  %60 = icmp eq i32 %.264.val.fr.i, 1
-  %61 = or i1 %59, %60
-  %or.cond2.i = and i1 %21, %61
-  br i1 %or.cond2.i, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %62
-
-62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 364
-  %64 = load i64, ptr %63, align 4
-  %65 = trunc i64 %64 to i32
-  switch i32 %65, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit [
+60:                                               ; preds = %56
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 364
+  %62 = load i64, ptr %61, align 4
+  %63 = trunc i64 %62 to i32
+  switch i32 %63, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit [
     i32 0, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
-    i32 1, label %66
+    i32 1, label %64
   ]
 
-66:                                               ; preds = %62
-  %67 = and i64 %64, 9223372032559808512
-  %68 = icmp samesign ult i64 %67, 30064771072
-  br i1 %68, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
+64:                                               ; preds = %60
+  %65 = and i64 %62, 9223372032559808512
+  %66 = icmp samesign ult i64 %65, 30064771072
+  br i1 %66, label %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
-_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i:        ; preds = %66, %62, %50, %50
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %70 = load i64, ptr %69, align 8
-  %71 = and i64 %70, 3584
-  %72 = icmp eq i64 %71, 512
-  br i1 %72, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %73
+_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i:        ; preds = %64, %60, %50, %50
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 192
+  %68 = load i64, ptr %67, align 8
+  %69 = and i64 %68, 3584
+  %70 = icmp eq i64 %69, 512
+  br i1 %70, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %71
 
-73:                                               ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
-  %74 = icmp eq i64 %71, 1024
-  %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i = select i1 %74, ptr @_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE, ptr @_ZN5clang7CodeGen13EHPersonality8GNU_ObjCE
+71:                                               ; preds = %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i
+  %72 = icmp eq i64 %69, 1024
+  %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i = select i1 %72, ptr @_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE, ptr @_ZN5clang7CodeGen13EHPersonality8GNU_ObjCE
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
-75:                                               ; preds = %50
+73:                                               ; preds = %50
   unreachable
 
-76:                                               ; preds = %14
-  br i1 %.not20, label %91, label %77
+74:                                               ; preds = %14
+  br i1 %.not20, label %89, label %75
 
-77:                                               ; preds = %76
-  %78 = getelementptr i8, ptr %6, i64 192
-  %.val24 = load i64, ptr %78, align 8
-  %79 = icmp eq i32 %.260.val.fr.i, 14
-  %80 = icmp eq i32 %.264.val.fr.i, 27
-  %81 = icmp eq i32 %.264.val.fr.i, 0
-  %82 = or i1 %80, %81
-  %or.cond.i36 = and i1 %79, %82
-  br i1 %or.cond.i36, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %83
+75:                                               ; preds = %74
+  %76 = getelementptr i8, ptr %6, i64 192
+  %.val24 = load i64, ptr %76, align 8
+  %77 = icmp eq i32 %.260.val.fr.i, 14
+  %78 = icmp eq i32 %.264.val.fr.i, 27
+  %79 = icmp eq i32 %.264.val.fr.i, 0
+  %80 = or i1 %78, %79
+  %or.cond.i35 = and i1 %77, %80
+  br i1 %or.cond.i35, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %81
 
-83:                                               ; preds = %77
-  %84 = icmp eq i32 %.260.val.fr.i, 19
-  br i1 %84, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %85
+81:                                               ; preds = %75
+  %82 = icmp eq i32 %.260.val.fr.i, 19
+  br i1 %82, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %83
 
-85:                                               ; preds = %83
-  %86 = and i64 %.val24, 3584
-  %87 = add nsw i64 %86, -512
-  %88 = icmp ult i64 %87, 2048
-  br i1 %88, label %switch.lookup45, label %89
+83:                                               ; preds = %81
+  %84 = and i64 %.val24, 3584
+  %85 = add nsw i64 %84, -512
+  %86 = icmp ult i64 %85, 2048
+  br i1 %86, label %switch.lookup43, label %87
 
-89:                                               ; preds = %85
-  %90 = icmp eq i32 %.260.val.fr.i, 15
-  %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i = select i1 %90, ptr @_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE, ptr @_ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE
+87:                                               ; preds = %83
+  %88 = icmp eq i32 %.260.val.fr.i, 15
+  %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i = select i1 %88, ptr @_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE, ptr @_ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
-91:                                               ; preds = %76
-  %92 = icmp eq i32 %.260.val.fr.i, 14
-  %93 = icmp eq i32 %.264.val.fr.i, 27
-  %94 = icmp eq i32 %.264.val.fr.i, 0
-  %95 = or i1 %93, %94
-  %or.cond.i38 = and i1 %92, %95
-  br i1 %or.cond.i38, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %96
+89:                                               ; preds = %74
+  %90 = icmp eq i32 %.260.val.fr.i, 14
+  %91 = icmp eq i32 %.264.val.fr.i, 27
+  %92 = icmp eq i32 %.264.val.fr.i, 0
+  %93 = or i1 %91, %92
+  %or.cond.i37 = and i1 %90, %93
+  br i1 %or.cond.i37, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit, label %94
 
-96:                                               ; preds = %91
-  %97 = getelementptr i8, ptr %6, i64 192
-  %.val27 = load i64, ptr %97, align 8
-  %98 = and i64 %.val27, 3584
-  switch i64 %98, label %99 [
-    i64 512, label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
-    i64 1536, label %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i39
-  ]
-
-99:                                               ; preds = %96
-  %100 = icmp eq i64 %98, 1024
-  %_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE._ZN5clang7CodeGen13EHPersonality5GNU_CE.i = select i1 %100, ptr @_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE, ptr @_ZN5clang7CodeGen13EHPersonality5GNU_CE
-  br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
-
-_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i39: ; preds = %96
+94:                                               ; preds = %89
+  %95 = getelementptr i8, ptr %6, i64 192
+  %.val27 = load i64, ptr %95, align 8
+  %96 = and i64 %.val27, 3584
+  %switch.selectcmp.i = icmp eq i64 %96, 1024
+  %switch.select.i = select i1 %switch.selectcmp.i, ptr @_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE, ptr @_ZN5clang7CodeGen13EHPersonality5GNU_CE
+  %switch.selectcmp1.i = icmp eq i64 %96, 512
+  %switch.select2.i = select i1 %switch.selectcmp1.i, ptr @_ZN5clang7CodeGen13EHPersonality10GNU_C_SJLJE, ptr %switch.select.i
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
 switch.lookup:                                    ; preds = %31
-  %101 = lshr exact i64 %34, 6
-  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 %101
+  %97 = lshr exact i64 %34, 6
+  %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 %97
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
-switch.lookup45:                                  ; preds = %85
-  %102 = lshr exact i64 %87, 6
-  %switch.gep46 = getelementptr inbounds nuw i8, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 %102
-  %switch.load47 = load ptr, ptr %switch.gep46, align 8
+switch.lookup43:                                  ; preds = %83
+  %98 = lshr exact i64 %85, 6
+  %switch.gep44 = getelementptr inbounds nuw i8, ptr @switch.table._ZN5clang7CodeGen13CodeGenModule19SimplifyPersonalityEv, i64 %98
+  %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit
 
-_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit: ; preds = %switch.lookup45, %switch.lookup, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i39, %99, %96, %91, %89, %83, %77, %73, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, %66, %62, %58, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i.i35, %56, %53, %50, %50, %50, %49, %46, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i, %38, %36, %29, %26, %26, %26, %25, %11
-  %.0 = phi ptr [ %_ZN5clang7CodeGen13EHPersonality19MSVC_except_handlerE._ZN5clang7CodeGen13EHPersonality23MSVC_C_specific_handlerE.i, %11 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %29 ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i.i, %36 ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i20.i, %46 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %25 ], [ %spec.select.i, %38 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %50 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %50 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %50 ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i, %73 ], [ @_ZN5clang7CodeGen13EHPersonality10GNU_C_SJLJE, %53 ], [ %_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE._ZN5clang7CodeGen13EHPersonality5GNU_CE.i.i, %56 ], [ @_ZN5clang7CodeGen13EHPersonality5GNU_CE, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i.i35 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %49 ], [ @_ZN5clang7CodeGen13EHPersonality17GNU_CPlusPlus_SEHE, %58 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %62 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %66 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %83 ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i, %89 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %77 ], [ @_ZN5clang7CodeGen13EHPersonality10GNU_C_SJLJE, %96 ], [ %_ZN5clang7CodeGen13EHPersonality9GNU_C_SEHE._ZN5clang7CodeGen13EHPersonality5GNU_CE.i, %99 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %91 ], [ @_ZN5clang7CodeGen13EHPersonality5GNU_CE, %_ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit.thread.fold.split.i39 ], [ %switch.load, %switch.lookup ], [ %switch.load47, %switch.lookup45 ]
+_ZL20getObjCXXPersonalityRKN5clang10TargetInfoERKNS_11LangOptionsE.exit: ; preds = %switch.lookup43, %switch.lookup, %94, %89, %87, %81, %75, %71, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i, %64, %60, %56, %53, %50, %50, %50, %49, %46, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i, %38, %36, %29, %26, %26, %26, %25, %11
+  %.0 = phi ptr [ %_ZN5clang7CodeGen13EHPersonality19MSVC_except_handlerE._ZN5clang7CodeGen13EHPersonality23MSVC_C_specific_handlerE.i, %11 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %29 ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i.i, %36 ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i19.i ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i20.i, %46 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %25 ], [ %spec.select.i, %38 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %26 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %50 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %50 ], [ @_ZN5clang7CodeGen13EHPersonality9NeXT_ObjCE, %50 ], [ @_ZN5clang7CodeGen13EHPersonality13GNU_ObjC_SJLJE, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.i ], [ %_ZN5clang7CodeGen13EHPersonality12GNU_ObjC_SEHE._ZN5clang7CodeGen13EHPersonality8GNU_ObjCE.i, %71 ], [ %switch.select2.i.i, %53 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %49 ], [ @_ZN5clang7CodeGen13EHPersonality17GNU_CPlusPlus_SEHE, %56 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %60 ], [ @_ZN5clang7CodeGen13EHPersonality12GNUstep_ObjCE, %64 ], [ @_ZN5clang7CodeGen13EHPersonality12XL_CPlusPlusE, %81 ], [ %_ZN5clang7CodeGen13EHPersonality13ZOS_CPlusPlusE._ZN5clang7CodeGen13EHPersonality13GNU_CPlusPlusE.i, %87 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %75 ], [ @_ZN5clang7CodeGen13EHPersonality21MSVC_CxxFrameHandler3E, %89 ], [ %switch.select2.i, %94 ], [ %switch.load, %switch.lookup ], [ %switch.load45, %switch.lookup43 ]
   ret ptr %.0
 }
 

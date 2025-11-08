@@ -2818,12 +2818,12 @@ SDL_InvalidateMap.exit:                           ; preds = %15, %18
   %.mask = and i32 %27, -268435456
   %.not73 = icmp eq i32 %.mask, 268435456
   %or.cond86 = or i1 %.not72, %.not73
-  br i1 %or.cond86, label %28, label %318
+  br i1 %or.cond86, label %28, label %314
 
 28:                                               ; preds = %SDL_InvalidateMap.exit
   %29 = lshr i32 %27, 24
   %30 = and i32 %29, 15
-  switch i32 %30, label %318 [
+  switch i32 %30, label %314 [
     i32 1, label %31
     i32 12, label %31
     i32 2, label %31
@@ -2996,11 +2996,11 @@ SDL_FindColor.exit.loopexit.us.i:                 ; preds = %104, %101
   %109 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %110 = load i8, ptr %109, align 4
   %.not79 = icmp eq i8 %108, %110
-  br i1 %.not79, label %328, label %111
+  br i1 %.not79, label %324, label %111
 
 111:                                              ; preds = %106
   store i32 0, ptr %3, align 8
-  br label %328
+  br label %324
 
 112:                                              ; preds = %33
   %.not.i90 = icmp eq ptr %22, null
@@ -3034,324 +3034,323 @@ SDL_FindColor.exit.loopexit.us.i:                 ; preds = %104, %101
   %132 = and i32 %32, 255
   %133 = icmp eq i32 %132, 3
   %spec.select.i = select i1 %133, i32 4, i32 %132
-  br label %137
+  %134 = zext nneg i32 %spec.select.i to i64
+  br label %switch.edge.i
 
 .critedge.i:                                      ; preds = %.thread102
-  switch i32 %32, label %134 [
-    i32 844715353, label %137
-    i32 1498831189, label %137
-    i32 1431918169, label %137
+  switch i32 %32, label %135 [
+    i32 844715353, label %switch.edge.i
+    i32 1498831189, label %switch.edge.i
+    i32 1431918169, label %switch.edge.i
+    i32 808530000, label %switch.edge.i
   ]
 
-134:                                              ; preds = %.critedge.i
-  %135 = icmp eq i32 %32, 808530000
-  %136 = select i1 %135, i32 2, i32 1
-  br label %137
+135:                                              ; preds = %.critedge.i
+  br label %switch.edge.i
 
-137:                                              ; preds = %134, %.critedge.i, %.critedge.i, %.critedge.i, %123
-  %138 = phi i8 [ %114, %.critedge.i ], [ %114, %134 ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %131, %123 ]
-  %139 = phi i8 [ %116, %.critedge.i ], [ %116, %134 ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %129, %123 ]
-  %140 = phi i8 [ %118, %.critedge.i ], [ %118, %134 ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %127, %123 ]
-  %141 = phi i8 [ %120, %.critedge.i ], [ %120, %134 ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %125, %123 ]
-  %142 = phi i32 [ 2, %.critedge.i ], [ %136, %134 ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ %spec.select.i, %123 ]
-  %143 = zext nneg i32 %142 to i64
-  %144 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 256, i64 noundef %143) #16
-  %.not114.i = icmp eq ptr %144, null
+switch.edge.i:                                    ; preds = %135, %.critedge.i, %.critedge.i, %.critedge.i, %.critedge.i, %123
+  %136 = phi i8 [ %114, %.critedge.i ], [ %114, %135 ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %114, %.critedge.i ], [ %131, %123 ]
+  %137 = phi i8 [ %116, %.critedge.i ], [ %116, %135 ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %116, %.critedge.i ], [ %129, %123 ]
+  %138 = phi i8 [ %118, %.critedge.i ], [ %118, %135 ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %118, %.critedge.i ], [ %127, %123 ]
+  %139 = phi i8 [ %120, %.critedge.i ], [ %120, %135 ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %120, %.critedge.i ], [ %125, %123 ]
+  %140 = phi i64 [ 2, %.critedge.i ], [ 1, %135 ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ 2, %.critedge.i ], [ %134, %123 ]
+  %141 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 256, i64 noundef %140) #16
+  %.not114.i = icmp eq ptr %141, null
   br i1 %.not114.i, label %Map1toN.exit.thread, label %.preheader.i91
 
-.preheader.i91:                                   ; preds = %137
-  %145 = load i32, ptr %22, align 8
-  %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %.lr.ph.i92, label %Map1toN.exit.thread107
+.preheader.i91:                                   ; preds = %switch.edge.i
+  %142 = load i32, ptr %22, align 8
+  %143 = icmp sgt i32 %142, 0
+  br i1 %143, label %.lr.ph.i92, label %Map1toN.exit.thread107
 
 Map1toN.exit.thread107:                           ; preds = %.preheader.i91
-  store ptr %144, ptr %12, align 8
-  br label %328
+  store ptr %141, ptr %12, align 8
+  br label %324
 
 .lr.ph.i92:                                       ; preds = %.preheader.i91
-  %147 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = zext i8 %138 to i16
-  %150 = zext i8 %139 to i16
-  %151 = zext i8 %140 to i16
-  %152 = zext i8 %141 to i16
-  %153 = load i32, ptr %24, align 4
-  %.not115.i = icmp eq i32 %153, 0
-  %.mask117.i = and i32 %153, -268435456
+  %144 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %145 = load ptr, ptr %144, align 8
+  %146 = zext i8 %136 to i16
+  %147 = zext i8 %137 to i16
+  %148 = zext i8 %138 to i16
+  %149 = zext i8 %139 to i16
+  %150 = load i32, ptr %24, align 4
+  %.not115.i = icmp eq i32 %150, 0
+  %.mask117.i = and i32 %150, -268435456
   %.not116.i = icmp eq i32 %.mask117.i, 268435456
   %or.cond130.i = or i1 %.not115.i, %.not116.i
-  %trunc.i = trunc i32 %153 to i8
-  %154 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %155 = getelementptr inbounds nuw i8, ptr %24, i64 28
-  %156 = getelementptr inbounds nuw i8, ptr %24, i64 25
-  %157 = getelementptr inbounds nuw i8, ptr %24, i64 29
-  %158 = getelementptr inbounds nuw i8, ptr %24, i64 26
-  %159 = getelementptr inbounds nuw i8, ptr %24, i64 30
-  %160 = getelementptr inbounds nuw i8, ptr %24, i64 27
-  %161 = getelementptr inbounds nuw i8, ptr %24, i64 31
-  %wide.trip.count.i93 = zext nneg i32 %145 to i64
-  br label %162
+  %trunc.i = trunc i32 %150 to i8
+  %151 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %152 = getelementptr inbounds nuw i8, ptr %24, i64 28
+  %153 = getelementptr inbounds nuw i8, ptr %24, i64 25
+  %154 = getelementptr inbounds nuw i8, ptr %24, i64 29
+  %155 = getelementptr inbounds nuw i8, ptr %24, i64 26
+  %156 = getelementptr inbounds nuw i8, ptr %24, i64 30
+  %157 = getelementptr inbounds nuw i8, ptr %24, i64 27
+  %158 = getelementptr inbounds nuw i8, ptr %24, i64 31
+  %wide.trip.count.i93 = zext nneg i32 %142 to i64
+  br label %159
 
-162:                                              ; preds = %317, %.lr.ph.i92
-  %indvars.iv.i94 = phi i64 [ 0, %.lr.ph.i92 ], [ %indvars.iv.next.i95, %317 ]
-  %163 = getelementptr inbounds nuw %struct.SDL_Color, ptr %148, i64 %indvars.iv.i94
-  %164 = load i8, ptr %163, align 1
-  %165 = zext i8 %164 to i16
-  %166 = mul nuw i16 %165, %149
-  %167 = udiv i16 %166, 255
-  %168 = trunc nuw i16 %167 to i8
-  %169 = getelementptr inbounds nuw i8, ptr %163, i64 1
-  %170 = load i8, ptr %169, align 1
-  %171 = zext i8 %170 to i16
-  %172 = mul nuw i16 %171, %150
-  %173 = udiv i16 %172, 255
-  %174 = trunc nuw i16 %173 to i8
-  %175 = getelementptr inbounds nuw i8, ptr %163, i64 2
-  %176 = load i8, ptr %175, align 1
-  %177 = zext i8 %176 to i16
-  %178 = mul nuw i16 %177, %151
-  %179 = udiv i16 %178, 255
-  %180 = trunc nuw i16 %179 to i8
-  %181 = getelementptr inbounds nuw i8, ptr %163, i64 3
-  %182 = load i8, ptr %181, align 1
-  %183 = zext i8 %182 to i16
-  %184 = mul nuw i16 %183, %152
-  %185 = udiv i16 %184, 255
-  br i1 %or.cond130.i, label %187, label %186
+159:                                              ; preds = %313, %.lr.ph.i92
+  %indvars.iv.i94 = phi i64 [ 0, %.lr.ph.i92 ], [ %indvars.iv.next.i95, %313 ]
+  %160 = getelementptr inbounds nuw %struct.SDL_Color, ptr %145, i64 %indvars.iv.i94
+  %161 = load i8, ptr %160, align 1
+  %162 = zext i8 %161 to i16
+  %163 = mul nuw i16 %162, %146
+  %164 = udiv i16 %163, 255
+  %165 = trunc nuw i16 %164 to i8
+  %166 = getelementptr inbounds nuw i8, ptr %160, i64 1
+  %167 = load i8, ptr %166, align 1
+  %168 = zext i8 %167 to i16
+  %169 = mul nuw i16 %168, %147
+  %170 = udiv i16 %169, 255
+  %171 = trunc nuw i16 %170 to i8
+  %172 = getelementptr inbounds nuw i8, ptr %160, i64 2
+  %173 = load i8, ptr %172, align 1
+  %174 = zext i8 %173 to i16
+  %175 = mul nuw i16 %174, %148
+  %176 = udiv i16 %175, 255
+  %177 = trunc nuw i16 %176 to i8
+  %178 = getelementptr inbounds nuw i8, ptr %160, i64 3
+  %179 = load i8, ptr %178, align 1
+  %180 = zext i8 %179 to i16
+  %181 = mul nuw i16 %180, %149
+  %182 = udiv i16 %181, 255
+  br i1 %or.cond130.i, label %switch.edge131.i, label %183
 
-186:                                              ; preds = %162
-  switch i32 %153, label %.thread131.i [
-    i32 844715353, label %.thread.i
-    i32 1498831189, label %.thread.i
-    i32 1431918169, label %.thread.i
-    i32 808530000, label %.thread.i
+183:                                              ; preds = %159
+  switch i32 %150, label %switch.edge131.thread.i [
+    i32 844715353, label %switch.edge131.thread132.i
+    i32 1498831189, label %switch.edge131.thread132.i
+    i32 1431918169, label %switch.edge131.thread132.i
+    i32 808530000, label %switch.edge131.thread132.i
   ]
 
-187:                                              ; preds = %162
-  switch i8 %trunc.i, label %317 [
-    i8 1, label %.thread131.i
-    i8 2, label %.thread.i
-    i8 3, label %264
-    i8 4, label %279
+switch.edge131.i:                                 ; preds = %159
+  switch i8 %trunc.i, label %313 [
+    i8 1, label %switch.edge131.thread.i
+    i8 2, label %switch.edge131.thread132.i
+    i8 3, label %260
+    i8 4, label %275
   ]
 
-.thread131.i:                                     ; preds = %187, %186
-  %188 = zext nneg i16 %167 to i32
-  %189 = load i8, ptr %154, align 4
-  %190 = zext i8 %189 to i32
-  %191 = sub nsw i32 8, %190
-  %192 = lshr i32 %188, %191
-  %193 = load i8, ptr %155, align 4
-  %194 = zext nneg i8 %193 to i32
-  %195 = shl i32 %192, %194
-  %196 = zext nneg i16 %173 to i32
-  %197 = load i8, ptr %156, align 1
-  %198 = zext i8 %197 to i32
-  %199 = sub nsw i32 8, %198
-  %200 = lshr i32 %196, %199
-  %201 = load i8, ptr %157, align 1
-  %202 = zext nneg i8 %201 to i32
-  %203 = shl i32 %200, %202
-  %204 = or i32 %203, %195
-  %205 = zext nneg i16 %179 to i32
-  %206 = load i8, ptr %158, align 2
-  %207 = zext i8 %206 to i32
-  %208 = sub nsw i32 8, %207
-  %209 = lshr i32 %205, %208
-  %210 = load i8, ptr %159, align 2
-  %211 = zext nneg i8 %210 to i32
-  %212 = shl i32 %209, %211
-  %213 = or i32 %204, %212
-  %214 = zext nneg i16 %185 to i32
-  %215 = load i8, ptr %160, align 1
-  %216 = zext i8 %215 to i32
-  %217 = sub nsw i32 8, %216
-  %218 = lshr i32 %214, %217
-  %219 = load i8, ptr %161, align 1
-  %220 = zext nneg i8 %219 to i32
-  %221 = shl i32 %218, %220
-  %222 = or i32 %213, %221
-  %223 = trunc i32 %222 to i8
-  %224 = mul nuw nsw i64 %indvars.iv.i94, %143
-  %225 = getelementptr inbounds nuw i8, ptr %144, i64 %224
-  store i8 %223, ptr %225, align 1
-  br label %317
+switch.edge131.thread.i:                          ; preds = %switch.edge131.i, %183
+  %184 = zext nneg i16 %164 to i32
+  %185 = load i8, ptr %151, align 4
+  %186 = zext i8 %185 to i32
+  %187 = sub nsw i32 8, %186
+  %188 = lshr i32 %184, %187
+  %189 = load i8, ptr %152, align 4
+  %190 = zext nneg i8 %189 to i32
+  %191 = shl i32 %188, %190
+  %192 = zext nneg i16 %170 to i32
+  %193 = load i8, ptr %153, align 1
+  %194 = zext i8 %193 to i32
+  %195 = sub nsw i32 8, %194
+  %196 = lshr i32 %192, %195
+  %197 = load i8, ptr %154, align 1
+  %198 = zext nneg i8 %197 to i32
+  %199 = shl i32 %196, %198
+  %200 = or i32 %199, %191
+  %201 = zext nneg i16 %176 to i32
+  %202 = load i8, ptr %155, align 2
+  %203 = zext i8 %202 to i32
+  %204 = sub nsw i32 8, %203
+  %205 = lshr i32 %201, %204
+  %206 = load i8, ptr %156, align 2
+  %207 = zext nneg i8 %206 to i32
+  %208 = shl i32 %205, %207
+  %209 = or i32 %200, %208
+  %210 = zext nneg i16 %182 to i32
+  %211 = load i8, ptr %157, align 1
+  %212 = zext i8 %211 to i32
+  %213 = sub nsw i32 8, %212
+  %214 = lshr i32 %210, %213
+  %215 = load i8, ptr %158, align 1
+  %216 = zext nneg i8 %215 to i32
+  %217 = shl i32 %214, %216
+  %218 = or i32 %209, %217
+  %219 = trunc i32 %218 to i8
+  %220 = mul nuw nsw i64 %indvars.iv.i94, %140
+  %221 = getelementptr inbounds nuw i8, ptr %141, i64 %220
+  store i8 %219, ptr %221, align 1
+  br label %313
 
-.thread.i:                                        ; preds = %187, %186, %186, %186, %186
-  %226 = zext nneg i16 %167 to i32
-  %227 = load i8, ptr %154, align 4
-  %228 = zext i8 %227 to i32
-  %229 = sub nsw i32 8, %228
-  %230 = lshr i32 %226, %229
-  %231 = load i8, ptr %155, align 4
-  %232 = zext nneg i8 %231 to i32
-  %233 = shl i32 %230, %232
-  %234 = zext nneg i16 %173 to i32
-  %235 = load i8, ptr %156, align 1
-  %236 = zext i8 %235 to i32
-  %237 = sub nsw i32 8, %236
-  %238 = lshr i32 %234, %237
-  %239 = load i8, ptr %157, align 1
-  %240 = zext nneg i8 %239 to i32
-  %241 = shl i32 %238, %240
-  %242 = or i32 %241, %233
-  %243 = zext nneg i16 %179 to i32
-  %244 = load i8, ptr %158, align 2
-  %245 = zext i8 %244 to i32
-  %246 = sub nsw i32 8, %245
-  %247 = lshr i32 %243, %246
-  %248 = load i8, ptr %159, align 2
-  %249 = zext nneg i8 %248 to i32
-  %250 = shl i32 %247, %249
-  %251 = or i32 %242, %250
-  %252 = zext nneg i16 %185 to i32
-  %253 = load i8, ptr %160, align 1
-  %254 = zext i8 %253 to i32
-  %255 = sub nsw i32 8, %254
-  %256 = lshr i32 %252, %255
-  %257 = load i8, ptr %161, align 1
-  %258 = zext nneg i8 %257 to i32
-  %259 = shl i32 %256, %258
-  %260 = or i32 %251, %259
-  %261 = trunc i32 %260 to i16
-  %262 = mul nuw nsw i64 %indvars.iv.i94, %143
-  %263 = getelementptr inbounds nuw i8, ptr %144, i64 %262
-  store i16 %261, ptr %263, align 2
-  br label %317
+switch.edge131.thread132.i:                       ; preds = %switch.edge131.i, %183, %183, %183, %183
+  %222 = zext nneg i16 %164 to i32
+  %223 = load i8, ptr %151, align 4
+  %224 = zext i8 %223 to i32
+  %225 = sub nsw i32 8, %224
+  %226 = lshr i32 %222, %225
+  %227 = load i8, ptr %152, align 4
+  %228 = zext nneg i8 %227 to i32
+  %229 = shl i32 %226, %228
+  %230 = zext nneg i16 %170 to i32
+  %231 = load i8, ptr %153, align 1
+  %232 = zext i8 %231 to i32
+  %233 = sub nsw i32 8, %232
+  %234 = lshr i32 %230, %233
+  %235 = load i8, ptr %154, align 1
+  %236 = zext nneg i8 %235 to i32
+  %237 = shl i32 %234, %236
+  %238 = or i32 %237, %229
+  %239 = zext nneg i16 %176 to i32
+  %240 = load i8, ptr %155, align 2
+  %241 = zext i8 %240 to i32
+  %242 = sub nsw i32 8, %241
+  %243 = lshr i32 %239, %242
+  %244 = load i8, ptr %156, align 2
+  %245 = zext nneg i8 %244 to i32
+  %246 = shl i32 %243, %245
+  %247 = or i32 %238, %246
+  %248 = zext nneg i16 %182 to i32
+  %249 = load i8, ptr %157, align 1
+  %250 = zext i8 %249 to i32
+  %251 = sub nsw i32 8, %250
+  %252 = lshr i32 %248, %251
+  %253 = load i8, ptr %158, align 1
+  %254 = zext nneg i8 %253 to i32
+  %255 = shl i32 %252, %254
+  %256 = or i32 %247, %255
+  %257 = trunc i32 %256 to i16
+  %258 = mul nuw nsw i64 %indvars.iv.i94, %140
+  %259 = getelementptr inbounds nuw i8, ptr %141, i64 %258
+  store i16 %257, ptr %259, align 2
+  br label %313
 
-264:                                              ; preds = %187
-  %265 = mul nuw nsw i64 %indvars.iv.i94, %143
-  %266 = getelementptr inbounds nuw i8, ptr %144, i64 %265
-  %267 = load i8, ptr %155, align 4
+260:                                              ; preds = %switch.edge131.i
+  %261 = mul nuw nsw i64 %indvars.iv.i94, %140
+  %262 = getelementptr inbounds nuw i8, ptr %141, i64 %261
+  %263 = load i8, ptr %152, align 4
+  %264 = lshr i8 %263, 3
+  %265 = zext nneg i8 %264 to i64
+  %266 = getelementptr inbounds nuw i8, ptr %262, i64 %265
+  store i8 %165, ptr %266, align 1
+  %267 = load i8, ptr %154, align 1
   %268 = lshr i8 %267, 3
   %269 = zext nneg i8 %268 to i64
-  %270 = getelementptr inbounds nuw i8, ptr %266, i64 %269
-  store i8 %168, ptr %270, align 1
-  %271 = load i8, ptr %157, align 1
+  %270 = getelementptr inbounds nuw i8, ptr %262, i64 %269
+  store i8 %171, ptr %270, align 1
+  %271 = load i8, ptr %156, align 2
   %272 = lshr i8 %271, 3
   %273 = zext nneg i8 %272 to i64
-  %274 = getelementptr inbounds nuw i8, ptr %266, i64 %273
-  store i8 %174, ptr %274, align 1
-  %275 = load i8, ptr %159, align 2
-  %276 = lshr i8 %275, 3
-  %277 = zext nneg i8 %276 to i64
-  %278 = getelementptr inbounds nuw i8, ptr %266, i64 %277
-  store i8 %180, ptr %278, align 1
-  br label %317
+  %274 = getelementptr inbounds nuw i8, ptr %262, i64 %273
+  store i8 %177, ptr %274, align 1
+  br label %313
 
-279:                                              ; preds = %187
-  %280 = zext nneg i16 %167 to i32
-  %281 = load i8, ptr %154, align 4
-  %282 = zext i8 %281 to i32
-  %283 = sub nsw i32 8, %282
-  %284 = lshr i32 %280, %283
-  %285 = load i8, ptr %155, align 4
-  %286 = zext nneg i8 %285 to i32
-  %287 = shl i32 %284, %286
-  %288 = zext nneg i16 %173 to i32
-  %289 = load i8, ptr %156, align 1
-  %290 = zext i8 %289 to i32
-  %291 = sub nsw i32 8, %290
-  %292 = lshr i32 %288, %291
-  %293 = load i8, ptr %157, align 1
-  %294 = zext nneg i8 %293 to i32
-  %295 = shl i32 %292, %294
-  %296 = or i32 %295, %287
-  %297 = zext nneg i16 %179 to i32
-  %298 = load i8, ptr %158, align 2
-  %299 = zext i8 %298 to i32
-  %300 = sub nsw i32 8, %299
-  %301 = lshr i32 %297, %300
-  %302 = load i8, ptr %159, align 2
-  %303 = zext nneg i8 %302 to i32
-  %304 = shl i32 %301, %303
-  %305 = or i32 %296, %304
-  %306 = zext nneg i16 %185 to i32
-  %307 = load i8, ptr %160, align 1
-  %308 = zext i8 %307 to i32
-  %309 = sub nsw i32 8, %308
-  %310 = lshr i32 %306, %309
-  %311 = load i8, ptr %161, align 1
-  %312 = zext nneg i8 %311 to i32
-  %313 = shl i32 %310, %312
-  %314 = or i32 %305, %313
-  %315 = mul nuw nsw i64 %indvars.iv.i94, %143
-  %316 = getelementptr inbounds nuw i8, ptr %144, i64 %315
-  store i32 %314, ptr %316, align 4
-  br label %317
+275:                                              ; preds = %switch.edge131.i
+  %276 = zext nneg i16 %164 to i32
+  %277 = load i8, ptr %151, align 4
+  %278 = zext i8 %277 to i32
+  %279 = sub nsw i32 8, %278
+  %280 = lshr i32 %276, %279
+  %281 = load i8, ptr %152, align 4
+  %282 = zext nneg i8 %281 to i32
+  %283 = shl i32 %280, %282
+  %284 = zext nneg i16 %170 to i32
+  %285 = load i8, ptr %153, align 1
+  %286 = zext i8 %285 to i32
+  %287 = sub nsw i32 8, %286
+  %288 = lshr i32 %284, %287
+  %289 = load i8, ptr %154, align 1
+  %290 = zext nneg i8 %289 to i32
+  %291 = shl i32 %288, %290
+  %292 = or i32 %291, %283
+  %293 = zext nneg i16 %176 to i32
+  %294 = load i8, ptr %155, align 2
+  %295 = zext i8 %294 to i32
+  %296 = sub nsw i32 8, %295
+  %297 = lshr i32 %293, %296
+  %298 = load i8, ptr %156, align 2
+  %299 = zext nneg i8 %298 to i32
+  %300 = shl i32 %297, %299
+  %301 = or i32 %292, %300
+  %302 = zext nneg i16 %182 to i32
+  %303 = load i8, ptr %157, align 1
+  %304 = zext i8 %303 to i32
+  %305 = sub nsw i32 8, %304
+  %306 = lshr i32 %302, %305
+  %307 = load i8, ptr %158, align 1
+  %308 = zext nneg i8 %307 to i32
+  %309 = shl i32 %306, %308
+  %310 = or i32 %301, %309
+  %311 = mul nuw nsw i64 %indvars.iv.i94, %140
+  %312 = getelementptr inbounds nuw i8, ptr %141, i64 %311
+  store i32 %310, ptr %312, align 4
+  br label %313
 
-317:                                              ; preds = %279, %264, %.thread.i, %.thread131.i, %187
+313:                                              ; preds = %275, %260, %switch.edge131.thread132.i, %switch.edge131.thread.i, %switch.edge131.i
   %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94, 1
   %exitcond.not.i96 = icmp eq i64 %indvars.iv.next.i95, %wide.trip.count.i93
-  br i1 %exitcond.not.i96, label %Map1toN.exit, label %162, !llvm.loop !17
+  br i1 %exitcond.not.i96, label %Map1toN.exit, label %159, !llvm.loop !17
 
-Map1toN.exit.thread:                              ; preds = %121, %137
+Map1toN.exit.thread:                              ; preds = %121, %switch.edge.i
   store ptr null, ptr %12, align 8
   br label %.thread126
 
-Map1toN.exit:                                     ; preds = %317
-  store ptr %144, ptr %12, align 8
-  br label %328
+Map1toN.exit:                                     ; preds = %313
+  store ptr %141, ptr %12, align 8
+  br label %324
 
-318:                                              ; preds = %28, %SDL_InvalidateMap.exit
-  %319 = load i32, ptr %24, align 4
-  %.not81 = icmp eq i32 %319, 0
-  %.mask83 = and i32 %319, -268435456
+314:                                              ; preds = %28, %SDL_InvalidateMap.exit
+  %315 = load i32, ptr %24, align 4
+  %.not81 = icmp eq i32 %315, 0
+  %.mask83 = and i32 %315, -268435456
   %.not82 = icmp eq i32 %.mask83, 268435456
   %or.cond88 = or i1 %.not81, %.not82
-  br i1 %or.cond88, label %320, label %325
+  br i1 %or.cond88, label %316, label %321
 
-320:                                              ; preds = %318
-  %321 = lshr i32 %319, 24
-  %322 = and i32 %321, 15
-  switch i32 %322, label %325 [
-    i32 1, label %323
-    i32 12, label %323
-    i32 2, label %323
-    i32 3, label %323
+316:                                              ; preds = %314
+  %317 = lshr i32 %315, 24
+  %318 = and i32 %317, 15
+  switch i32 %318, label %321 [
+    i32 1, label %319
+    i32 12, label %319
+    i32 2, label %319
+    i32 3, label %319
   ]
 
-323:                                              ; preds = %320, %320, %320, %320
-  %324 = tail call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @SDL_HashID, ptr noundef nonnull @SDL_KeyMatchID, ptr noundef null, ptr noundef null) #15
-  store ptr %324, ptr %16, align 8
-  br label %328
+319:                                              ; preds = %316, %316, %316, %316
+  %320 = tail call ptr @SDL_CreateHashTable(i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull @SDL_HashID, ptr noundef nonnull @SDL_KeyMatchID, ptr noundef null, ptr noundef null) #15
+  store ptr %320, ptr %16, align 8
+  br label %324
 
-325:                                              ; preds = %320, %318
-  %326 = icmp eq ptr %20, %24
-  br i1 %326, label %327, label %328
+321:                                              ; preds = %316, %314
+  %322 = icmp eq ptr %20, %24
+  br i1 %322, label %323, label %324
 
-327:                                              ; preds = %325
+323:                                              ; preds = %321
   store i32 1, ptr %3, align 8
+  br label %324
+
+324:                                              ; preds = %Map1toN.exit, %Map1toN.exit.thread107, %319, %323, %321, %111, %106
+  %.not84 = icmp eq ptr %26, null
+  br i1 %.not84, label %328, label %325
+
+325:                                              ; preds = %324
+  %326 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %327 = load i32, ptr %326, align 8
   br label %328
 
-328:                                              ; preds = %Map1toN.exit, %Map1toN.exit.thread107, %323, %327, %325, %111, %106
-  %.not84 = icmp eq ptr %26, null
-  br i1 %.not84, label %332, label %329
+328:                                              ; preds = %324, %325
+  %.sink = phi i32 [ %327, %325 ], [ 0, %324 ]
+  store i32 %.sink, ptr %11, align 8
+  %.not85 = icmp eq ptr %22, null
+  br i1 %.not85, label %332, label %329
 
 329:                                              ; preds = %328
-  %330 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %330 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %331 = load i32, ptr %330, align 8
   br label %332
 
 332:                                              ; preds = %328, %329
-  %.sink = phi i32 [ %331, %329 ], [ 0, %328 ]
-  store i32 %.sink, ptr %11, align 8
-  %.not85 = icmp eq ptr %22, null
-  br i1 %.not85, label %336, label %333
-
-333:                                              ; preds = %332
-  %334 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %335 = load i32, ptr %334, align 8
-  br label %336
-
-336:                                              ; preds = %332, %333
-  %.sink110 = phi i32 [ %335, %333 ], [ 0, %332 ]
+  %.sink110 = phi i32 [ %331, %329 ], [ 0, %328 ]
   store i32 %.sink110, ptr %10, align 4
-  %337 = tail call zeroext i1 @SDL_CalculateBlit(ptr noundef nonnull %0, ptr noundef %1) #15
+  %333 = tail call zeroext i1 @SDL_CalculateBlit(ptr noundef nonnull %0, ptr noundef %1) #15
   br label %.thread126
 
-.thread126:                                       ; preds = %.loopexit.thread, %Map1toN.exit.thread, %336
-  %.0 = phi i1 [ %337, %336 ], [ false, %Map1toN.exit.thread ], [ false, %.loopexit.thread ]
+.thread126:                                       ; preds = %.loopexit.thread, %Map1toN.exit.thread, %332
+  %.0 = phi i1 [ %333, %332 ], [ false, %Map1toN.exit.thread ], [ false, %.loopexit.thread ]
   ret i1 %.0
 }
 

@@ -10192,9 +10192,9 @@ define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_available(ptr noundef
   %14 = icmp eq ptr %1, null
   br i1 %14, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %13, %51
-  %15 = phi ptr [ %53, %51 ], [ %0, %13 ]
-  %16 = phi i32 [ %45, %51 ], [ 0, %13 ]
+.split.us:                                        ; preds = %13, %49
+  %15 = phi ptr [ %51, %49 ], [ %0, %13 ]
+  %16 = phi i32 [ %43, %49 ], [ 0, %13 ]
   %17 = call i32 @pcie_capability_read_word(ptr noundef nonnull %15, i32 noundef 18, ptr noundef nonnull %5) #27
   %18 = load i16, ptr %5, align 2
   %19 = and i16 %18, 15
@@ -10206,278 +10206,286 @@ define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_available(ptr noundef
   %25 = and i16 %24, 63
   %26 = zext nneg i16 %25 to i32
   switch i8 %22, label %31 [
-    i8 25, label %34
+    i8 25, label %32
     i8 24, label %30
     i8 23, label %29
     i8 22, label %28
     i8 21, label %27
+    i8 20, label %switch.edge.us
   ]
 
+switch.edge.us:                                   ; preds = %.split.us
+  br label %32
+
 27:                                               ; preds = %.split.us
-  br label %34
+  br label %32
 
 28:                                               ; preds = %.split.us
-  br label %34
+  br label %32
 
 29:                                               ; preds = %.split.us
-  br label %34
+  br label %32
 
 30:                                               ; preds = %.split.us
-  br label %34
+  br label %32
 
 31:                                               ; preds = %.split.us
-  %32 = icmp eq i8 %22, 20
-  %33 = select i1 %32, i32 2000, i32 0
-  br label %34
+  br label %32
 
-34:                                               ; preds = %31, %30, %29, %28, %27, %.split.us
-  %35 = phi i32 [ 64000, %.split.us ], [ %33, %31 ], [ 31507, %30 ], [ 15753, %29 ], [ 7876, %28 ], [ 4000, %27 ]
-  %36 = mul nuw nsw i32 %35, %26
-  %37 = icmp ne i32 %16, 0
-  %38 = icmp ugt i32 %36, %16
-  %39 = select i1 %37, i1 %38, i1 false
-  br i1 %39, label %44, label %40
+32:                                               ; preds = %31, %30, %29, %28, %27, %switch.edge.us, %.split.us
+  %33 = phi i32 [ 64000, %.split.us ], [ 0, %31 ], [ 31507, %30 ], [ 15753, %29 ], [ 7876, %28 ], [ 4000, %27 ], [ 2000, %switch.edge.us ]
+  %34 = mul nuw nsw i32 %33, %26
+  %35 = icmp ne i32 %16, 0
+  %36 = icmp ugt i32 %34, %16
+  %37 = select i1 %35, i1 %36, i1 false
+  br i1 %37, label %42, label %38
 
-40:                                               ; preds = %34
-  br i1 %6, label %42, label %41
+38:                                               ; preds = %32
+  br i1 %6, label %40, label %39
+
+39:                                               ; preds = %38
+  store i32 %23, ptr %2, align 4
+  br label %40
+
+40:                                               ; preds = %39, %38
+  br i1 %9, label %42, label %41
 
 41:                                               ; preds = %40
-  store i32 %23, ptr %2, align 4
+  store i32 %26, ptr %3, align 4
   br label %42
 
-42:                                               ; preds = %41, %40
-  br i1 %9, label %44, label %43
-
-43:                                               ; preds = %42
-  store i32 %26, ptr %3, align 4
-  br label %44
-
-44:                                               ; preds = %43, %42, %34
-  %45 = phi i32 [ %36, %43 ], [ %36, %42 ], [ %16, %34 ]
-  %46 = getelementptr inbounds nuw i8, ptr %15, i64 16
+42:                                               ; preds = %41, %40, %32
+  %43 = phi i32 [ %34, %41 ], [ %34, %40 ], [ %16, %32 ]
+  %44 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread, label %51
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %.thread, label %49
 
-51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 56
-  %53 = load ptr, ptr %52, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %.thread, label %.split.us, !llvm.loop !90
+49:                                               ; preds = %42
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 56
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %.thread, label %.split.us, !llvm.loop !90
 
 .split:                                           ; preds = %13
   br i1 %6, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %88
-  %55 = phi ptr [ %90, %88 ], [ %0, %.split ]
-  %56 = phi i32 [ %82, %88 ], [ 0, %.split ]
-  %57 = call i32 @pcie_capability_read_word(ptr noundef nonnull %55, i32 noundef 18, ptr noundef nonnull %5) #27
-  %58 = load i16, ptr %5, align 2
-  %59 = and i16 %58, 15
-  %60 = zext nneg i16 %59 to i64
-  %61 = getelementptr i8, ptr @pcie_link_speed, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = lshr i16 %58, 4
-  %64 = and i16 %63, 63
-  %65 = zext nneg i16 %64 to i32
-  switch i8 %62, label %70 [
-    i8 25, label %73
-    i8 24, label %69
-    i8 23, label %68
-    i8 22, label %67
-    i8 21, label %66
+.split.split.us:                                  ; preds = %.split, %84
+  %53 = phi ptr [ %86, %84 ], [ %0, %.split ]
+  %54 = phi i32 [ %78, %84 ], [ 0, %.split ]
+  %55 = call i32 @pcie_capability_read_word(ptr noundef nonnull %53, i32 noundef 18, ptr noundef nonnull %5) #27
+  %56 = load i16, ptr %5, align 2
+  %57 = and i16 %56, 15
+  %58 = zext nneg i16 %57 to i64
+  %59 = getelementptr i8, ptr @pcie_link_speed, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = lshr i16 %56, 4
+  %62 = and i16 %61, 63
+  %63 = zext nneg i16 %62 to i32
+  switch i8 %60, label %68 [
+    i8 25, label %69
+    i8 24, label %67
+    i8 23, label %66
+    i8 22, label %65
+    i8 21, label %64
+    i8 20, label %switch.edge.us7
   ]
 
+switch.edge.us7:                                  ; preds = %.split.split.us
+  br label %69
+
+64:                                               ; preds = %.split.split.us
+  br label %69
+
+65:                                               ; preds = %.split.split.us
+  br label %69
+
 66:                                               ; preds = %.split.split.us
-  br label %73
+  br label %69
 
 67:                                               ; preds = %.split.split.us
-  br label %73
+  br label %69
 
 68:                                               ; preds = %.split.split.us
-  br label %73
+  br label %69
 
-69:                                               ; preds = %.split.split.us
-  br label %73
+69:                                               ; preds = %68, %67, %66, %65, %64, %switch.edge.us7, %.split.split.us
+  %70 = phi i32 [ 64000, %.split.split.us ], [ 0, %68 ], [ 31507, %67 ], [ 15753, %66 ], [ 7876, %65 ], [ 4000, %64 ], [ 2000, %switch.edge.us7 ]
+  %71 = mul nuw nsw i32 %70, %63
+  %72 = icmp ne i32 %54, 0
+  %73 = icmp ugt i32 %71, %54
+  %74 = select i1 %72, i1 %73, i1 false
+  br i1 %74, label %77, label %75
 
-70:                                               ; preds = %.split.split.us
-  %71 = icmp eq i8 %62, 20
-  %72 = select i1 %71, i32 2000, i32 0
-  br label %73
+75:                                               ; preds = %69
+  store ptr %53, ptr %1, align 8
+  br i1 %9, label %77, label %76
 
-73:                                               ; preds = %70, %69, %68, %67, %66, %.split.split.us
-  %74 = phi i32 [ 64000, %.split.split.us ], [ %72, %70 ], [ 31507, %69 ], [ 15753, %68 ], [ 7876, %67 ], [ 4000, %66 ]
-  %75 = mul nuw nsw i32 %74, %65
-  %76 = icmp ne i32 %56, 0
-  %77 = icmp ugt i32 %75, %56
-  %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %81, label %79
+76:                                               ; preds = %75
+  store i32 %63, ptr %3, align 4
+  br label %77
 
-79:                                               ; preds = %73
-  store ptr %55, ptr %1, align 8
-  br i1 %9, label %81, label %80
+77:                                               ; preds = %76, %75, %69
+  %78 = phi i32 [ %71, %76 ], [ %71, %75 ], [ %54, %69 ]
+  %79 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  br i1 %83, label %.thread, label %84
 
-80:                                               ; preds = %79
-  store i32 %65, ptr %3, align 4
-  br label %81
-
-81:                                               ; preds = %80, %79, %73
-  %82 = phi i32 [ %75, %80 ], [ %75, %79 ], [ %56, %73 ]
-  %83 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
+84:                                               ; preds = %77
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %.thread, label %88
-
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds nuw i8, ptr %84, i64 56
-  %90 = load ptr, ptr %89, align 8
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %.thread, label %.split.split.us, !llvm.loop !90
+  br i1 %87, label %.thread, label %.split.split.us, !llvm.loop !90
 
 .split.split:                                     ; preds = %.split
   br i1 %9, label %.split.split.split.us, label %.split.split.split
 
-.split.split.split.us:                            ; preds = %.split.split, %125
-  %92 = phi ptr [ %127, %125 ], [ %0, %.split.split ]
-  %93 = phi i32 [ %119, %125 ], [ 0, %.split.split ]
-  %94 = call i32 @pcie_capability_read_word(ptr noundef nonnull %92, i32 noundef 18, ptr noundef nonnull %5) #27
-  %95 = load i16, ptr %5, align 2
-  %96 = and i16 %95, 15
-  %97 = zext nneg i16 %96 to i64
-  %98 = getelementptr i8, ptr @pcie_link_speed, i64 %97
-  %99 = load i8, ptr %98, align 1
-  %100 = zext i8 %99 to i32
-  %101 = lshr i16 %95, 4
-  %102 = and i16 %101, 63
-  %103 = zext nneg i16 %102 to i32
-  switch i8 %99, label %108 [
-    i8 25, label %111
-    i8 24, label %107
-    i8 23, label %106
-    i8 22, label %105
-    i8 21, label %104
+.split.split.split.us:                            ; preds = %.split.split, %119
+  %88 = phi ptr [ %121, %119 ], [ %0, %.split.split ]
+  %89 = phi i32 [ %113, %119 ], [ 0, %.split.split ]
+  %90 = call i32 @pcie_capability_read_word(ptr noundef nonnull %88, i32 noundef 18, ptr noundef nonnull %5) #27
+  %91 = load i16, ptr %5, align 2
+  %92 = and i16 %91, 15
+  %93 = zext nneg i16 %92 to i64
+  %94 = getelementptr i8, ptr @pcie_link_speed, i64 %93
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i32
+  %97 = lshr i16 %91, 4
+  %98 = and i16 %97, 63
+  %99 = zext nneg i16 %98 to i32
+  switch i8 %95, label %104 [
+    i8 25, label %105
+    i8 24, label %103
+    i8 23, label %102
+    i8 22, label %101
+    i8 21, label %100
+    i8 20, label %switch.edge.us10
   ]
+
+switch.edge.us10:                                 ; preds = %.split.split.split.us
+  br label %105
+
+100:                                              ; preds = %.split.split.split.us
+  br label %105
+
+101:                                              ; preds = %.split.split.split.us
+  br label %105
+
+102:                                              ; preds = %.split.split.split.us
+  br label %105
+
+103:                                              ; preds = %.split.split.split.us
+  br label %105
 
 104:                                              ; preds = %.split.split.split.us
-  br label %111
+  br label %105
 
-105:                                              ; preds = %.split.split.split.us
-  br label %111
+105:                                              ; preds = %104, %103, %102, %101, %100, %switch.edge.us10, %.split.split.split.us
+  %106 = phi i32 [ 64000, %.split.split.split.us ], [ 0, %104 ], [ 31507, %103 ], [ 15753, %102 ], [ 7876, %101 ], [ 4000, %100 ], [ 2000, %switch.edge.us10 ]
+  %107 = mul nuw nsw i32 %106, %99
+  %108 = icmp ne i32 %89, 0
+  %109 = icmp ugt i32 %107, %89
+  %110 = select i1 %108, i1 %109, i1 false
+  br i1 %110, label %112, label %111
 
-106:                                              ; preds = %.split.split.split.us
-  br label %111
+111:                                              ; preds = %105
+  store ptr %88, ptr %1, align 8
+  store i32 %96, ptr %2, align 4
+  br label %112
 
-107:                                              ; preds = %.split.split.split.us
-  br label %111
+112:                                              ; preds = %111, %105
+  %113 = phi i32 [ %107, %111 ], [ %89, %105 ]
+  %114 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %115 = load ptr, ptr %114, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
+  %117 = load ptr, ptr %116, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %.thread, label %119
 
-108:                                              ; preds = %.split.split.split.us
-  %109 = icmp eq i8 %99, 20
-  %110 = select i1 %109, i32 2000, i32 0
-  br label %111
-
-111:                                              ; preds = %108, %107, %106, %105, %104, %.split.split.split.us
-  %112 = phi i32 [ 64000, %.split.split.split.us ], [ %110, %108 ], [ 31507, %107 ], [ 15753, %106 ], [ 7876, %105 ], [ 4000, %104 ]
-  %113 = mul nuw nsw i32 %112, %103
-  %114 = icmp ne i32 %93, 0
-  %115 = icmp ugt i32 %113, %93
-  %116 = select i1 %114, i1 %115, i1 false
-  br i1 %116, label %118, label %117
-
-117:                                              ; preds = %111
-  store ptr %92, ptr %1, align 8
-  store i32 %100, ptr %2, align 4
-  br label %118
-
-118:                                              ; preds = %117, %111
-  %119 = phi i32 [ %113, %117 ], [ %93, %111 ]
-  %120 = getelementptr inbounds nuw i8, ptr %92, i64 16
+119:                                              ; preds = %112
+  %120 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
-  %123 = load ptr, ptr %122, align 8
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %.thread, label %125
+  %122 = icmp eq ptr %121, null
+  br i1 %122, label %.thread, label %.split.split.split.us, !llvm.loop !90
 
-125:                                              ; preds = %118
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 56
-  %127 = load ptr, ptr %126, align 8
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %.thread, label %.split.split.split.us, !llvm.loop !90
-
-.split.split.split:                               ; preds = %.split.split, %162
-  %129 = phi ptr [ %164, %162 ], [ %0, %.split.split ]
-  %130 = phi i32 [ %156, %162 ], [ 0, %.split.split ]
-  %131 = call i32 @pcie_capability_read_word(ptr noundef nonnull %129, i32 noundef 18, ptr noundef nonnull %5) #27
-  %132 = load i16, ptr %5, align 2
-  %133 = and i16 %132, 15
-  %134 = zext nneg i16 %133 to i64
-  %135 = getelementptr i8, ptr @pcie_link_speed, i64 %134
-  %136 = load i8, ptr %135, align 1
-  %137 = zext i8 %136 to i32
-  %138 = lshr i16 %132, 4
-  %139 = and i16 %138, 63
-  %140 = zext nneg i16 %139 to i32
-  switch i8 %136, label %141 [
-    i8 25, label %148
-    i8 24, label %144
-    i8 23, label %145
-    i8 22, label %146
-    i8 21, label %147
+.split.split.split:                               ; preds = %.split.split, %154
+  %123 = phi ptr [ %156, %154 ], [ %0, %.split.split ]
+  %124 = phi i32 [ %148, %154 ], [ 0, %.split.split ]
+  %125 = call i32 @pcie_capability_read_word(ptr noundef nonnull %123, i32 noundef 18, ptr noundef nonnull %5) #27
+  %126 = load i16, ptr %5, align 2
+  %127 = and i16 %126, 15
+  %128 = zext nneg i16 %127 to i64
+  %129 = getelementptr i8, ptr @pcie_link_speed, i64 %128
+  %130 = load i8, ptr %129, align 1
+  %131 = zext i8 %130 to i32
+  %132 = lshr i16 %126, 4
+  %133 = and i16 %132, 63
+  %134 = zext nneg i16 %133 to i32
+  switch i8 %130, label %135 [
+    i8 25, label %140
+    i8 24, label %136
+    i8 23, label %137
+    i8 22, label %138
+    i8 21, label %139
+    i8 20, label %switch.edge
   ]
 
-141:                                              ; preds = %.split.split.split
-  %142 = icmp eq i8 %136, 20
-  %143 = select i1 %142, i32 2000, i32 0
-  br label %148
+switch.edge:                                      ; preds = %.split.split.split
+  br label %140
 
-144:                                              ; preds = %.split.split.split
-  br label %148
+135:                                              ; preds = %.split.split.split
+  br label %140
 
-145:                                              ; preds = %.split.split.split
-  br label %148
+136:                                              ; preds = %.split.split.split
+  br label %140
 
-146:                                              ; preds = %.split.split.split
-  br label %148
+137:                                              ; preds = %.split.split.split
+  br label %140
 
-147:                                              ; preds = %.split.split.split
-  br label %148
+138:                                              ; preds = %.split.split.split
+  br label %140
 
-148:                                              ; preds = %147, %146, %145, %144, %141, %.split.split.split
-  %149 = phi i32 [ 64000, %.split.split.split ], [ %143, %141 ], [ 31507, %144 ], [ 15753, %145 ], [ 7876, %146 ], [ 4000, %147 ]
-  %150 = mul nuw nsw i32 %149, %140
-  %151 = icmp ne i32 %130, 0
-  %152 = icmp ugt i32 %150, %130
-  %153 = select i1 %151, i1 %152, i1 false
-  br i1 %153, label %155, label %154
+139:                                              ; preds = %.split.split.split
+  br label %140
 
-154:                                              ; preds = %148
-  store ptr %129, ptr %1, align 8
-  store i32 %137, ptr %2, align 4
-  store i32 %140, ptr %3, align 4
-  br label %155
+140:                                              ; preds = %switch.edge, %.split.split.split, %139, %138, %137, %136, %135
+  %141 = phi i32 [ 64000, %.split.split.split ], [ 0, %135 ], [ 31507, %136 ], [ 15753, %137 ], [ 7876, %138 ], [ 4000, %139 ], [ 2000, %switch.edge ]
+  %142 = mul nuw nsw i32 %141, %134
+  %143 = icmp ne i32 %124, 0
+  %144 = icmp ugt i32 %142, %124
+  %145 = select i1 %143, i1 %144, i1 false
+  br i1 %145, label %147, label %146
 
-155:                                              ; preds = %154, %148
-  %156 = phi i32 [ %150, %154 ], [ %130, %148 ]
-  %157 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
-  %160 = load ptr, ptr %159, align 8
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %.thread, label %162
+146:                                              ; preds = %140
+  store ptr %123, ptr %1, align 8
+  store i32 %131, ptr %2, align 4
+  store i32 %134, ptr %3, align 4
+  br label %147
 
-162:                                              ; preds = %155
-  %163 = getelementptr inbounds nuw i8, ptr %158, i64 56
-  %164 = load ptr, ptr %163, align 8
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %.thread, label %.split.split.split, !llvm.loop !90
+147:                                              ; preds = %146, %140
+  %148 = phi i32 [ %142, %146 ], [ %124, %140 ]
+  %149 = getelementptr inbounds nuw i8, ptr %123, i64 16
+  %150 = load ptr, ptr %149, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %152 = load ptr, ptr %151, align 8
+  %153 = icmp eq ptr %152, null
+  br i1 %153, label %.thread, label %154
 
-.thread:                                          ; preds = %162, %155, %125, %118, %81, %88, %51, %44, %11
-  %166 = phi i32 [ 0, %11 ], [ %45, %44 ], [ %45, %51 ], [ %82, %88 ], [ %82, %81 ], [ %119, %118 ], [ %119, %125 ], [ %156, %155 ], [ %156, %162 ]
+154:                                              ; preds = %147
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 56
+  %156 = load ptr, ptr %155, align 8
+  %157 = icmp eq ptr %156, null
+  br i1 %157, label %.thread, label %.split.split.split, !llvm.loop !90
+
+.thread:                                          ; preds = %154, %147, %119, %112, %77, %84, %49, %42, %11
+  %158 = phi i32 [ 0, %11 ], [ %43, %42 ], [ %43, %49 ], [ %78, %84 ], [ %78, %77 ], [ %113, %112 ], [ %113, %119 ], [ %148, %147 ], [ %148, %154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %166
+  ret i32 %158
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -10568,42 +10576,44 @@ define dso_local range(i32 0, 4032001) i32 @pcie_bandwidth_capable(ptr noundef %
   %45 = load i32, ptr %1, align 4
   %46 = icmp eq i32 %45, 255
   %47 = select i1 %46, i1 true, i1 %41
-  br i1 %47, label %59, label %48
+  br i1 %47, label %57, label %48
 
 48:                                               ; preds = %37
   switch i32 %45, label %49 [
-    i32 25, label %56
-    i32 24, label %52
-    i32 23, label %53
-    i32 22, label %54
-    i32 21, label %55
+    i32 25, label %54
+    i32 24, label %50
+    i32 23, label %51
+    i32 22, label %52
+    i32 21, label %53
+    i32 20, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %48
+  br label %54
+
 49:                                               ; preds = %48
-  %50 = icmp eq i32 %45, 20
-  %51 = select i1 %50, i32 2000, i32 0
-  br label %56
+  br label %54
+
+50:                                               ; preds = %48
+  br label %54
+
+51:                                               ; preds = %48
+  br label %54
 
 52:                                               ; preds = %48
-  br label %56
+  br label %54
 
 53:                                               ; preds = %48
-  br label %56
+  br label %54
 
-54:                                               ; preds = %48
-  br label %56
+54:                                               ; preds = %switch.edge, %48, %53, %52, %51, %50, %49
+  %55 = phi i32 [ 64000, %48 ], [ 0, %49 ], [ 31507, %50 ], [ 15753, %51 ], [ 7876, %52 ], [ 4000, %53 ], [ 2000, %switch.edge ]
+  %56 = mul nuw nsw i32 %55, %43
+  br label %57
 
-55:                                               ; preds = %48
-  br label %56
-
-56:                                               ; preds = %55, %54, %53, %52, %49, %48
-  %57 = phi i32 [ 64000, %48 ], [ %51, %49 ], [ 31507, %52 ], [ 15753, %53 ], [ 7876, %54 ], [ 4000, %55 ]
-  %58 = mul nuw nsw i32 %57, %43
-  br label %59
-
-59:                                               ; preds = %56, %37
-  %60 = phi i32 [ %58, %56 ], [ 0, %37 ]
-  ret i32 %60
+57:                                               ; preds = %54, %37
+  %58 = phi i32 [ %56, %54 ], [ 0, %37 ]
+  ret i32 %58
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -10619,12 +10629,12 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   %7 = icmp eq ptr %0, null
   br i1 %7, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %2, %47
-  %8 = phi i32 [ %38, %47 ], [ 255, %2 ]
-  %9 = phi i32 [ %39, %47 ], [ 255, %2 ]
-  %10 = phi ptr [ %40, %47 ], [ null, %2 ]
-  %11 = phi ptr [ %49, %47 ], [ %0, %2 ]
-  %12 = phi i32 [ %41, %47 ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %45
+  %8 = phi i32 [ %36, %45 ], [ 255, %2 ]
+  %9 = phi i32 [ %37, %45 ], [ 255, %2 ]
+  %10 = phi ptr [ %38, %45 ], [ null, %2 ]
+  %11 = phi ptr [ %47, %45 ], [ %0, %2 ]
+  %12 = phi i32 [ %39, %45 ], [ 0, %2 ]
   %13 = call i32 @pcie_capability_read_word(ptr noundef nonnull %11, i32 noundef 18, ptr noundef nonnull %3) #27
   %14 = load i16, ptr %3, align 2
   %15 = and i16 %14, 15
@@ -10636,116 +10646,118 @@ define dso_local void @__pcie_print_link_status(ptr noundef %0, i1 noundef zeroe
   %21 = and i16 %20, 63
   %22 = zext nneg i16 %21 to i32
   switch i8 %18, label %23 [
-    i8 25, label %30
-    i8 24, label %26
-    i8 23, label %27
-    i8 22, label %28
-    i8 21, label %29
+    i8 25, label %28
+    i8 24, label %24
+    i8 23, label %25
+    i8 22, label %26
+    i8 21, label %27
+    i8 20, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %.preheader
+  br label %28
+
 23:                                               ; preds = %.preheader
-  %24 = icmp eq i8 %18, 20
-  %25 = select i1 %24, i32 2000, i32 0
-  br label %30
+  br label %28
+
+24:                                               ; preds = %.preheader
+  br label %28
+
+25:                                               ; preds = %.preheader
+  br label %28
 
 26:                                               ; preds = %.preheader
-  br label %30
+  br label %28
 
 27:                                               ; preds = %.preheader
-  br label %30
+  br label %28
 
-28:                                               ; preds = %.preheader
-  br label %30
+28:                                               ; preds = %switch.edge, %.preheader, %27, %26, %25, %24, %23
+  %29 = phi i32 [ 64000, %.preheader ], [ 0, %23 ], [ 31507, %24 ], [ 15753, %25 ], [ 7876, %26 ], [ 4000, %27 ], [ 2000, %switch.edge ]
+  %30 = mul nuw nsw i32 %29, %22
+  %31 = icmp ne i32 %12, 0
+  %32 = icmp ugt i32 %30, %12
+  %33 = select i1 %31, i1 %32, i1 false
+  br i1 %33, label %35, label %34
 
-29:                                               ; preds = %.preheader
-  br label %30
+34:                                               ; preds = %28
+  br label %35
 
-30:                                               ; preds = %29, %28, %27, %26, %23, %.preheader
-  %31 = phi i32 [ 64000, %.preheader ], [ %25, %23 ], [ 31507, %26 ], [ 15753, %27 ], [ 7876, %28 ], [ 4000, %29 ]
-  %32 = mul nuw nsw i32 %31, %22
-  %33 = icmp ne i32 %12, 0
-  %34 = icmp ugt i32 %32, %12
-  %35 = select i1 %33, i1 %34, i1 false
-  br i1 %35, label %37, label %36
-
-36:                                               ; preds = %30
-  br label %37
-
-37:                                               ; preds = %36, %30
-  %38 = phi i32 [ %8, %30 ], [ %22, %36 ]
-  %39 = phi i32 [ %9, %30 ], [ %19, %36 ]
-  %40 = phi ptr [ %10, %30 ], [ %11, %36 ]
-  %41 = phi i32 [ %12, %30 ], [ %32, %36 ]
-  %42 = getelementptr inbounds nuw i8, ptr %11, i64 16
+35:                                               ; preds = %34, %28
+  %36 = phi i32 [ %8, %28 ], [ %22, %34 ]
+  %37 = phi i32 [ %9, %28 ], [ %19, %34 ]
+  %38 = phi ptr [ %10, %28 ], [ %11, %34 ]
+  %39 = phi i32 [ %12, %28 ], [ %30, %34 ]
+  %40 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread, label %47
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %.thread, label %45
 
-47:                                               ; preds = %37
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 56
-  %49 = load ptr, ptr %48, align 8
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread, label %.preheader, !llvm.loop !90
+45:                                               ; preds = %35
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 56
+  %47 = load ptr, ptr %46, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %.thread, label %.preheader, !llvm.loop !90
 
-.thread:                                          ; preds = %37, %47, %2
-  %51 = phi i32 [ 255, %2 ], [ %38, %47 ], [ %38, %37 ]
-  %52 = phi i32 [ 255, %2 ], [ %39, %47 ], [ %39, %37 ]
-  %53 = phi ptr [ null, %2 ], [ %40, %47 ], [ %40, %37 ]
-  %54 = phi i32 [ 0, %2 ], [ %41, %47 ], [ %41, %37 ]
+.thread:                                          ; preds = %35, %45, %2
+  %49 = phi i32 [ 255, %2 ], [ %36, %45 ], [ %36, %35 ]
+  %50 = phi i32 [ 255, %2 ], [ %37, %45 ], [ %37, %35 ]
+  %51 = phi ptr [ null, %2 ], [ %38, %45 ], [ %38, %35 ]
+  %52 = phi i32 [ 0, %2 ], [ %39, %45 ], [ %39, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %55 = icmp uge i32 %54, %6
-  %56 = and i1 %1, %55
-  br i1 %56, label %57, label %64
+  %53 = icmp uge i32 %52, %6
+  %54 = and i1 %1, %53
+  br i1 %54, label %55, label %62
 
-57:                                               ; preds = %.thread
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %59 = udiv i32 %6, 1000
-  %60 = urem i32 %6, 1000
-  %61 = load i32, ptr %5, align 4
-  %62 = call ptr @pci_speed_string(i32 noundef %61) #27
-  %63 = load i32, ptr %4, align 4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %58, ptr noundef nonnull @.str.45, i32 noundef %59, i32 noundef %60, ptr noundef %62, i32 noundef %63) #28
-  br label %85
+55:                                               ; preds = %.thread
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %57 = udiv i32 %6, 1000
+  %58 = urem i32 %6, 1000
+  %59 = load i32, ptr %5, align 4
+  %60 = call ptr @pci_speed_string(i32 noundef %59) #27
+  %61 = load i32, ptr %4, align 4
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %56, ptr noundef nonnull @.str.45, i32 noundef %57, i32 noundef %58, ptr noundef %60, i32 noundef %61) #28
+  br label %83
 
-64:                                               ; preds = %.thread
-  br i1 %55, label %85, label %65
+62:                                               ; preds = %.thread
+  br i1 %53, label %83, label %63
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %.frozen31 = freeze i32 %54
-  %67 = udiv i32 %.frozen31, 1000
-  %68 = mul i32 %67, 1000
-  %.decomposed32 = sub i32 %.frozen31, %68
-  %69 = call ptr @pci_speed_string(i32 noundef %52) #27
-  %70 = icmp eq ptr %53, null
-  br i1 %70, label %78, label %71
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %.frozen31 = freeze i32 %52
+  %65 = udiv i32 %.frozen31, 1000
+  %66 = mul i32 %65, 1000
+  %.decomposed32 = sub i32 %.frozen31, %66
+  %67 = call ptr @pci_speed_string(i32 noundef %50) #27
+  %68 = icmp eq ptr %51, null
+  br i1 %68, label %76, label %69
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds nuw i8, ptr %53, i64 264
-  %73 = load ptr, ptr %72, align 8
-  %74 = icmp eq ptr %73, null
-  br i1 %74, label %75, label %78
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %51, i64 264
+  %71 = load ptr, ptr %70, align 8
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %76
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i8, ptr %53, i64 184
-  %77 = load ptr, ptr %76, align 8
-  br label %78
+73:                                               ; preds = %69
+  %74 = getelementptr inbounds nuw i8, ptr %51, i64 184
+  %75 = load ptr, ptr %74, align 8
+  br label %76
 
-78:                                               ; preds = %75, %71, %65
-  %79 = phi ptr [ @.str.47, %65 ], [ %77, %75 ], [ %73, %71 ]
+76:                                               ; preds = %73, %69, %63
+  %77 = phi ptr [ @.str.47, %63 ], [ %75, %73 ], [ %71, %69 ]
   %.frozen = freeze i32 %6
-  %80 = udiv i32 %.frozen, 1000
-  %81 = mul i32 %80, 1000
-  %.decomposed = sub i32 %.frozen, %81
-  %82 = load i32, ptr %5, align 4
-  %83 = call ptr @pci_speed_string(i32 noundef %82) #27
-  %84 = load i32, ptr %4, align 4
-  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %66, ptr noundef nonnull @.str.46, i32 noundef %67, i32 noundef %.decomposed32, ptr noundef %69, i32 noundef %51, ptr noundef %79, i32 noundef %80, i32 noundef %.decomposed, ptr noundef %83, i32 noundef %84) #28
-  br label %85
+  %78 = udiv i32 %.frozen, 1000
+  %79 = mul i32 %78, 1000
+  %.decomposed = sub i32 %.frozen, %79
+  %80 = load i32, ptr %5, align 4
+  %81 = call ptr @pci_speed_string(i32 noundef %80) #27
+  %82 = load i32, ptr %4, align 4
+  call void (ptr, ptr, ...) @_dev_info(ptr noundef nonnull %64, ptr noundef nonnull @.str.46, i32 noundef %65, i32 noundef %.decomposed32, ptr noundef %67, i32 noundef %49, ptr noundef %77, i32 noundef %78, i32 noundef %.decomposed, ptr noundef %81, i32 noundef %82) #28
+  br label %83
 
-85:                                               ; preds = %78, %64, %57
+83:                                               ; preds = %76, %62, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

@@ -704,9 +704,9 @@ define dso_local noalias noundef ptr @server_test(ptr noundef captures(none) ini
   %33 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @myVerifyAction)
   store i32 0, ptr %33, align 4, !tbaa !4
   %34 = icmp eq ptr %31, null
-  br i1 %34, label %err_sys_ex.exit.thread.thread2865, label %.lr.ph
+  br i1 %34, label %err_sys_ex.exit.thread.thread2866, label %.lr.ph
 
-err_sys_ex.exit.thread.thread2865:                ; preds = %1
+err_sys_ex.exit.thread.thread2866:                ; preds = %1
   store ptr null, ptr @myoptarg, align 8, !tbaa !27
   store i32 0, ptr @myoptind, align 4, !tbaa !4
   br label %err_sys_ex.exit513
@@ -1509,9 +1509,10 @@ mygetopt_long.exit.thread613:                     ; preds = %86, %mygetopt_long.
   br i1 %.not440, label %err_sys_ex.exit, label %302
 
 302:                                              ; preds = %301
-  switch i32 %.03291560, label %314 [
+  switch i32 %.03291560, label %err_sys_ex.exit [
     i32 3, label %err_sys_ex.exit.thread.thread
     i32 4, label %303
+    i32 2, label %err_sys_ex.exit.thread.thread
   ]
 
 303:                                              ; preds = %302
@@ -1538,1893 +1539,1888 @@ mygetopt_long.exit.thread613:                     ; preds = %86, %mygetopt_long.
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.38) #24
   unreachable
 
-314:                                              ; preds = %302
-  %315 = icmp eq i32 %.03291560, 2
-  %spec.store.select = select i1 %315, i32 -1, i32 %.03291560
-  br label %err_sys_ex.exit
-
-err_sys_ex.exit:                                  ; preds = %310, %307, %306, %301, %314
-  %.2 = phi i32 [ %spec.store.select, %314 ], [ %.03291560, %301 ], [ 4, %306 ], [ 4, %307 ], [ 4, %310 ]
-  %316 = icmp sgt i32 %.2, 3
-  %317 = icmp eq i32 %.03751518, 0
-  %not. = xor i1 %316, true
-  %or.cond15 = or i1 %317, %not.
+err_sys_ex.exit:                                  ; preds = %302, %310, %307, %306, %301
+  %.032980926992752 = phi i32 [ %.03291560, %302 ], [ 4, %310 ], [ 4, %307 ], [ 4, %306 ], [ %.03291560, %301 ]
+  %314 = icmp sgt i32 %.032980926992752, 3
+  %315 = icmp eq i32 %.03751518, 0
+  %not. = xor i1 %314, true
+  %or.cond15 = or i1 %315, %not.
   %.b431 = load i1, ptr @quieter, align 4
   %or.cond81 = select i1 %or.cond15, i1 true, i1 %.b431
-  br i1 %or.cond81, label %err_sys_ex.exit.thread, label %318
+  br i1 %or.cond81, label %err_sys_ex.exit.thread, label %316
 
-318:                                              ; preds = %err_sys_ex.exit
-  %319 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %320 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 51, i64 1, ptr %319) #23
+316:                                              ; preds = %err_sys_ex.exit
+  %317 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %318 = tail call i64 @fwrite(ptr nonnull @.str.39, i64 51, i64 1, ptr %317) #23
   br label %err_sys_ex.exit.thread
 
-err_sys_ex.exit.thread:                           ; preds = %318, %err_sys_ex.exit
-  switch i32 %.2, label %err_sys_ex.exit.thread.thread [
+err_sys_ex.exit.thread:                           ; preds = %316, %err_sys_ex.exit
+  switch i32 %.032980926992752, label %err_sys_ex.exit.thread.thread [
     i32 2, label %err_sys_ex.exit513
-    i32 3, label %321
-    i32 4, label %322
-    i32 -98, label %323
+    i32 3, label %319
+    i32 4, label %320
+    i32 -98, label %321
   ]
 
+319:                                              ; preds = %err_sys_ex.exit.thread
+  br label %err_sys_ex.exit513
+
+320:                                              ; preds = %err_sys_ex.exit.thread
+  br label %err_sys_ex.exit513
+
 321:                                              ; preds = %err_sys_ex.exit.thread
-  br label %err_sys_ex.exit513
+  br i1 %.not440, label %err_sys_ex.exit513, label %322
 
-322:                                              ; preds = %err_sys_ex.exit.thread
-  br label %err_sys_ex.exit513
+322:                                              ; preds = %321
+  %323 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %324 = icmp eq i32 %323, 1
+  br i1 %324, label %325, label %329
 
-323:                                              ; preds = %err_sys_ex.exit.thread
-  br i1 %.not440, label %err_sys_ex.exit513, label %324
-
-324:                                              ; preds = %323
-  %325 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %326 = icmp eq i32 %325, 1
-  br i1 %326, label %327, label %331
-
-327:                                              ; preds = %324
+325:                                              ; preds = %322
   %.b2.i505 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i505, label %err_sys_ex.exit513.thread, label %328
+  br i1 %.b2.i505, label %err_sys_ex.exit513.thread, label %326
 
-328:                                              ; preds = %327
-  %329 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %330 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %329, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.40) #22
+326:                                              ; preds = %325
+  %327 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %328 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %327, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.40) #22
   %.b.pr.i506 = load i1, ptr @quieter, align 4
   br i1 %.b.pr.i506, label %.critedge504, label %.critedge504.sink.split
 
-331:                                              ; preds = %324
+329:                                              ; preds = %322
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.40) #24
   unreachable
 
-err_sys_ex.exit.thread.thread:                    ; preds = %300, %302, %err_sys_ex.exit.thread
-  %332 = phi i1 [ %316, %err_sys_ex.exit.thread ], [ false, %302 ], [ false, %300 ]
-  %333 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %334 = icmp eq i32 %333, 1
-  br i1 %334, label %335, label %339
+err_sys_ex.exit.thread.thread:                    ; preds = %302, %300, %302, %err_sys_ex.exit.thread
+  %330 = phi i1 [ %314, %err_sys_ex.exit.thread ], [ false, %302 ], [ false, %300 ], [ false, %302 ]
+  %331 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %332 = icmp eq i32 %331, 1
+  br i1 %332, label %333, label %337
 
-335:                                              ; preds = %err_sys_ex.exit.thread.thread
+333:                                              ; preds = %err_sys_ex.exit.thread.thread
   %.b2.i508 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i508, label %err_sys_ex.exit513.thread, label %336
+  br i1 %.b2.i508, label %err_sys_ex.exit513.thread, label %334
 
-336:                                              ; preds = %335
-  %337 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %338 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %337, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.41) #22
+334:                                              ; preds = %333
+  %335 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %336 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %335, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.41) #22
   %.b.pr.i509 = load i1, ptr @quieter, align 4
   br i1 %.b.pr.i509, label %.critedge504, label %.critedge504.sink.split
 
-339:                                              ; preds = %err_sys_ex.exit.thread.thread
+337:                                              ; preds = %err_sys_ex.exit.thread.thread
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.41) #24
   unreachable
 
-.critedge504.sink.split:                          ; preds = %336, %328
-  %.ph = phi i1 [ false, %328 ], [ %332, %336 ]
-  %340 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %341 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %340) #23
+.critedge504.sink.split:                          ; preds = %334, %326
+  %.ph = phi i1 [ false, %326 ], [ %330, %334 ]
+  %338 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %339 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %338) #23
   br label %.critedge504
 
-.critedge504:                                     ; preds = %.critedge504.sink.split, %336, %328
-  %342 = phi i1 [ %332, %336 ], [ false, %328 ], [ %.ph, %.critedge504.sink.split ]
+.critedge504:                                     ; preds = %.critedge504.sink.split, %334, %326
+  %340 = phi i1 [ %330, %334 ], [ false, %326 ], [ %.ph, %.critedge504.sink.split ]
   %.pr = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %343 = icmp eq i32 %.pr, 1
-  br i1 %343, label %.critedge504.thread, label %350
+  %341 = icmp eq i32 %.pr, 1
+  br i1 %341, label %.critedge504.thread, label %348
 
 .critedge504.thread:                              ; preds = %.critedge504
   %.b2.i511.pr = load i1, ptr @quieter, align 4
-  br i1 %.b2.i511.pr, label %err_sys_ex.exit513.thread, label %344
+  br i1 %.b2.i511.pr, label %err_sys_ex.exit513.thread, label %342
 
-344:                                              ; preds = %.critedge504.thread
-  %345 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %346 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %345, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.42) #22
+342:                                              ; preds = %.critedge504.thread
+  %343 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %344 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %343, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.42) #22
   %.b.pr.i512 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i512, label %err_sys_ex.exit513.thread, label %347
+  br i1 %.b.pr.i512, label %err_sys_ex.exit513.thread, label %345
 
-347:                                              ; preds = %344
-  %348 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %349 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %348) #23
+345:                                              ; preds = %342
+  %346 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %347 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %346) #23
   br label %err_sys_ex.exit513.thread
 
-350:                                              ; preds = %.critedge504
+348:                                              ; preds = %.critedge504
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.42) #24
   unreachable
 
-err_sys_ex.exit513:                               ; preds = %err_sys_ex.exit.thread.thread2865, %300, %323, %err_sys_ex.exit.thread, %322, %321
-  %.03267692710 = phi i32 [ %.03261564, %322 ], [ %.03261564, %err_sys_ex.exit.thread ], [ %.03261564, %323 ], [ %.03261564, %300 ], [ -99, %err_sys_ex.exit.thread.thread2865 ], [ %.03261564, %321 ]
-  %.03277892704 = phi i32 [ %.03271562, %322 ], [ %.03271562, %err_sys_ex.exit.thread ], [ %.03271562, %323 ], [ %.03271562, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03271562, %321 ]
-  %.03318292697 = phi i32 [ %.03311558, %322 ], [ %.03311558, %err_sys_ex.exit.thread ], [ %.03311558, %323 ], [ %.03311558, %300 ], [ 1, %err_sys_ex.exit.thread.thread2865 ], [ %.03311558, %321 ]
-  %.03348492691 = phi i32 [ %.03341556, %322 ], [ %.03341556, %err_sys_ex.exit.thread ], [ %.03341556, %323 ], [ %.03341556, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03341556, %321 ]
-  %.03398692685 = phi i32 [ %.03391554, %322 ], [ %.03391554, %err_sys_ex.exit.thread ], [ %.03391554, %323 ], [ %.03391554, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03391554, %321 ]
-  %.03418892679 = phi i32 [ %.03411552, %322 ], [ %.03411552, %err_sys_ex.exit.thread ], [ %.03411552, %323 ], [ %.03411552, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03411552, %321 ]
-  %.03439092673 = phi i32 [ %.03431550, %322 ], [ %.03431550, %err_sys_ex.exit.thread ], [ %.03431550, %323 ], [ %.03431550, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03431550, %321 ]
-  %.03459292667 = phi i32 [ %.03451548, %322 ], [ %.03451548, %err_sys_ex.exit.thread ], [ %.03451548, %323 ], [ %.03451548, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03451548, %321 ]
-  %.03479492661 = phi i32 [ %.03471546, %322 ], [ %.03471546, %err_sys_ex.exit.thread ], [ %.03471546, %323 ], [ %.03471546, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03471546, %321 ]
-  %.03519892654 = phi i32 [ %.03511542, %322 ], [ %.03511542, %err_sys_ex.exit.thread ], [ %.03511542, %323 ], [ %.03511542, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03511542, %321 ]
-  %.035310092648 = phi i32 [ %.03531540, %322 ], [ %.03531540, %err_sys_ex.exit.thread ], [ %.03531540, %323 ], [ %.03531540, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03531540, %321 ]
-  %.035510292642 = phi i32 [ %.03551538, %322 ], [ %.03551538, %err_sys_ex.exit.thread ], [ %.03551538, %323 ], [ %.03551538, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03551538, %321 ]
-  %.035710492636 = phi i32 [ %.03571536, %322 ], [ %.03571536, %err_sys_ex.exit.thread ], [ %.03571536, %323 ], [ %.03571536, %300 ], [ 1, %err_sys_ex.exit.thread.thread2865 ], [ %.03571536, %321 ]
-  %.035910692630 = phi i32 [ %.03591534, %322 ], [ %.03591534, %err_sys_ex.exit.thread ], [ %.03591534, %323 ], [ %.03591534, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03591534, %321 ]
-  %.036110892624 = phi i32 [ %.03611532, %322 ], [ %.03611532, %err_sys_ex.exit.thread ], [ %.03611532, %323 ], [ %.03611532, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03611532, %321 ]
-  %.036311092618 = phi i32 [ %.03631530, %322 ], [ %.03631530, %err_sys_ex.exit.thread ], [ %.03631530, %323 ], [ %.03631530, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03631530, %321 ]
-  %.036511292612 = phi i32 [ %.03651528, %322 ], [ %.03651528, %err_sys_ex.exit.thread ], [ %.03651528, %323 ], [ %.03651528, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03651528, %321 ]
-  %.036711492606 = phi i32 [ %.03671526, %322 ], [ %.03671526, %err_sys_ex.exit.thread ], [ %.03671526, %323 ], [ %.03671526, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03671526, %321 ]
-  %.036911692600 = phi i32 [ %.03691524, %322 ], [ %.03691524, %err_sys_ex.exit.thread ], [ %.03691524, %323 ], [ %.03691524, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03691524, %321 ]
-  %.037111892594 = phi i32 [ %.03711522, %322 ], [ %.03711522, %err_sys_ex.exit.thread ], [ %.03711522, %323 ], [ %.03711522, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03711522, %321 ]
-  %.037312092588 = phi ptr [ %.03731520, %322 ], [ %.03731520, %err_sys_ex.exit.thread ], [ %.03731520, %323 ], [ %.03731520, %300 ], [ null, %err_sys_ex.exit.thread.thread2865 ], [ %.03731520, %321 ]
-  %.037512292582 = phi i32 [ %.03751518, %322 ], [ %.03751518, %err_sys_ex.exit.thread ], [ %.03751518, %323 ], [ %.03751518, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03751518, %321 ]
-  %.037812492576 = phi ptr [ %.03781516, %322 ], [ %.03781516, %err_sys_ex.exit.thread ], [ %.03781516, %323 ], [ %.03781516, %300 ], [ @.str.12, %err_sys_ex.exit.thread.thread2865 ], [ %.03781516, %321 ]
-  %.038012692570 = phi ptr [ %.03801514, %322 ], [ %.03801514, %err_sys_ex.exit.thread ], [ %.03801514, %323 ], [ %.03801514, %300 ], [ @.str.15, %err_sys_ex.exit.thread.thread2865 ], [ %.03801514, %321 ]
-  %.038212892564 = phi ptr [ %.03821512, %322 ], [ %.03821512, %err_sys_ex.exit.thread ], [ %.03821512, %323 ], [ %.03821512, %300 ], [ @.str.14, %err_sys_ex.exit.thread.thread2865 ], [ %.03821512, %321 ]
-  %.038413092558 = phi ptr [ %.03841510, %322 ], [ %.03841510, %err_sys_ex.exit.thread ], [ %.03841510, %323 ], [ %.03841510, %300 ], [ @.str.13, %err_sys_ex.exit.thread.thread2865 ], [ %.03841510, %321 ]
-  %.038613292552 = phi i32 [ %.03861508, %322 ], [ %.03861508, %err_sys_ex.exit.thread ], [ %.03861508, %323 ], [ %.03861508, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.03861508, %321 ]
-  %.038813492546 = phi ptr [ %.03881506, %322 ], [ %.03881506, %err_sys_ex.exit.thread ], [ %.03881506, %323 ], [ %.03881506, %300 ], [ null, %err_sys_ex.exit.thread.thread2865 ], [ %.03881506, %321 ]
-  %.039013692540 = phi i32 [ %.03901504, %322 ], [ %.03901504, %err_sys_ex.exit.thread ], [ %.03901504, %323 ], [ %.03901504, %300 ], [ 1, %err_sys_ex.exit.thread.thread2865 ], [ %.03901504, %321 ]
-  %.039413892534 = phi ptr [ %.03941502, %322 ], [ %.03941502, %err_sys_ex.exit.thread ], [ %.03941502, %323 ], [ %.03941502, %300 ], [ null, %err_sys_ex.exit.thread.thread2865 ], [ %.03941502, %321 ]
-  %.040314092528 = phi i32 [ %.04031500, %322 ], [ %.04031500, %err_sys_ex.exit.thread ], [ %.04031500, %323 ], [ %.04031500, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.04031500, %321 ]
-  %.040614292522 = phi i32 [ %.04061498, %322 ], [ %.04061498, %err_sys_ex.exit.thread ], [ %.04061498, %323 ], [ %.04061498, %300 ], [ 16384, %err_sys_ex.exit.thread.thread2865 ], [ %.04061498, %321 ]
-  %.040914492516 = phi i64 [ %.04091496, %322 ], [ %.04091496, %err_sys_ex.exit.thread ], [ %.04091496, %323 ], [ %.04091496, %300 ], [ 0, %err_sys_ex.exit.thread.thread2865 ], [ %.04091496, %321 ]
-  %.041114692510 = phi i32 [ %.04111494, %322 ], [ %.04111494, %err_sys_ex.exit.thread ], [ %.04111494, %323 ], [ %.04111494, %300 ], [ 1024, %err_sys_ex.exit.thread.thread2865 ], [ %.04111494, %321 ]
-  %.014892504 = phi i16 [ %.01492, %322 ], [ %.01492, %err_sys_ex.exit.thread ], [ %.01492, %323 ], [ %.01492, %300 ], [ 11111, %err_sys_ex.exit.thread.thread2865 ], [ %.01492, %321 ]
-  %351 = phi i1 [ true, %322 ], [ %316, %err_sys_ex.exit.thread ], [ false, %323 ], [ false, %300 ], [ false, %err_sys_ex.exit.thread.thread2865 ], [ false, %321 ]
-  %.0324 = phi ptr [ @wolfTLSv1_3_server_method_ex, %322 ], [ @wolfTLSv1_1_server_method_ex, %err_sys_ex.exit.thread ], [ @wolfSSLv23_server_method_ex, %323 ], [ @wolfTLSv1_2_server_method_ex, %300 ], [ @wolfTLSv1_2_server_method_ex, %err_sys_ex.exit.thread.thread2865 ], [ @wolfTLSv1_2_server_method_ex, %321 ]
-  %352 = tail call ptr %.0324(ptr noundef null) #21, !callees !42
-  %353 = tail call ptr @wolfSSL_CTX_new(ptr noundef %352) #21
-  %354 = icmp eq ptr %353, null
-  br i1 %354, label %err_sys_ex.exit513.thread, label %err_sys_ex.exit516
+err_sys_ex.exit513:                               ; preds = %err_sys_ex.exit.thread.thread2866, %300, %321, %err_sys_ex.exit.thread, %320, %319
+  %.03267692710 = phi i32 [ %.03261564, %320 ], [ %.03261564, %err_sys_ex.exit.thread ], [ %.03261564, %321 ], [ %.03261564, %300 ], [ -99, %err_sys_ex.exit.thread.thread2866 ], [ %.03261564, %319 ]
+  %.03277892704 = phi i32 [ %.03271562, %320 ], [ %.03271562, %err_sys_ex.exit.thread ], [ %.03271562, %321 ], [ %.03271562, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03271562, %319 ]
+  %.03318292697 = phi i32 [ %.03311558, %320 ], [ %.03311558, %err_sys_ex.exit.thread ], [ %.03311558, %321 ], [ %.03311558, %300 ], [ 1, %err_sys_ex.exit.thread.thread2866 ], [ %.03311558, %319 ]
+  %.03348492691 = phi i32 [ %.03341556, %320 ], [ %.03341556, %err_sys_ex.exit.thread ], [ %.03341556, %321 ], [ %.03341556, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03341556, %319 ]
+  %.03398692685 = phi i32 [ %.03391554, %320 ], [ %.03391554, %err_sys_ex.exit.thread ], [ %.03391554, %321 ], [ %.03391554, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03391554, %319 ]
+  %.03418892679 = phi i32 [ %.03411552, %320 ], [ %.03411552, %err_sys_ex.exit.thread ], [ %.03411552, %321 ], [ %.03411552, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03411552, %319 ]
+  %.03439092673 = phi i32 [ %.03431550, %320 ], [ %.03431550, %err_sys_ex.exit.thread ], [ %.03431550, %321 ], [ %.03431550, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03431550, %319 ]
+  %.03459292667 = phi i32 [ %.03451548, %320 ], [ %.03451548, %err_sys_ex.exit.thread ], [ %.03451548, %321 ], [ %.03451548, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03451548, %319 ]
+  %.03479492661 = phi i32 [ %.03471546, %320 ], [ %.03471546, %err_sys_ex.exit.thread ], [ %.03471546, %321 ], [ %.03471546, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03471546, %319 ]
+  %.03519892654 = phi i32 [ %.03511542, %320 ], [ %.03511542, %err_sys_ex.exit.thread ], [ %.03511542, %321 ], [ %.03511542, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03511542, %319 ]
+  %.035310092648 = phi i32 [ %.03531540, %320 ], [ %.03531540, %err_sys_ex.exit.thread ], [ %.03531540, %321 ], [ %.03531540, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03531540, %319 ]
+  %.035510292642 = phi i32 [ %.03551538, %320 ], [ %.03551538, %err_sys_ex.exit.thread ], [ %.03551538, %321 ], [ %.03551538, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03551538, %319 ]
+  %.035710492636 = phi i32 [ %.03571536, %320 ], [ %.03571536, %err_sys_ex.exit.thread ], [ %.03571536, %321 ], [ %.03571536, %300 ], [ 1, %err_sys_ex.exit.thread.thread2866 ], [ %.03571536, %319 ]
+  %.035910692630 = phi i32 [ %.03591534, %320 ], [ %.03591534, %err_sys_ex.exit.thread ], [ %.03591534, %321 ], [ %.03591534, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03591534, %319 ]
+  %.036110892624 = phi i32 [ %.03611532, %320 ], [ %.03611532, %err_sys_ex.exit.thread ], [ %.03611532, %321 ], [ %.03611532, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03611532, %319 ]
+  %.036311092618 = phi i32 [ %.03631530, %320 ], [ %.03631530, %err_sys_ex.exit.thread ], [ %.03631530, %321 ], [ %.03631530, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03631530, %319 ]
+  %.036511292612 = phi i32 [ %.03651528, %320 ], [ %.03651528, %err_sys_ex.exit.thread ], [ %.03651528, %321 ], [ %.03651528, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03651528, %319 ]
+  %.036711492606 = phi i32 [ %.03671526, %320 ], [ %.03671526, %err_sys_ex.exit.thread ], [ %.03671526, %321 ], [ %.03671526, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03671526, %319 ]
+  %.036911692600 = phi i32 [ %.03691524, %320 ], [ %.03691524, %err_sys_ex.exit.thread ], [ %.03691524, %321 ], [ %.03691524, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03691524, %319 ]
+  %.037111892594 = phi i32 [ %.03711522, %320 ], [ %.03711522, %err_sys_ex.exit.thread ], [ %.03711522, %321 ], [ %.03711522, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03711522, %319 ]
+  %.037312092588 = phi ptr [ %.03731520, %320 ], [ %.03731520, %err_sys_ex.exit.thread ], [ %.03731520, %321 ], [ %.03731520, %300 ], [ null, %err_sys_ex.exit.thread.thread2866 ], [ %.03731520, %319 ]
+  %.037512292582 = phi i32 [ %.03751518, %320 ], [ %.03751518, %err_sys_ex.exit.thread ], [ %.03751518, %321 ], [ %.03751518, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03751518, %319 ]
+  %.037812492576 = phi ptr [ %.03781516, %320 ], [ %.03781516, %err_sys_ex.exit.thread ], [ %.03781516, %321 ], [ %.03781516, %300 ], [ @.str.12, %err_sys_ex.exit.thread.thread2866 ], [ %.03781516, %319 ]
+  %.038012692570 = phi ptr [ %.03801514, %320 ], [ %.03801514, %err_sys_ex.exit.thread ], [ %.03801514, %321 ], [ %.03801514, %300 ], [ @.str.15, %err_sys_ex.exit.thread.thread2866 ], [ %.03801514, %319 ]
+  %.038212892564 = phi ptr [ %.03821512, %320 ], [ %.03821512, %err_sys_ex.exit.thread ], [ %.03821512, %321 ], [ %.03821512, %300 ], [ @.str.14, %err_sys_ex.exit.thread.thread2866 ], [ %.03821512, %319 ]
+  %.038413092558 = phi ptr [ %.03841510, %320 ], [ %.03841510, %err_sys_ex.exit.thread ], [ %.03841510, %321 ], [ %.03841510, %300 ], [ @.str.13, %err_sys_ex.exit.thread.thread2866 ], [ %.03841510, %319 ]
+  %.038613292552 = phi i32 [ %.03861508, %320 ], [ %.03861508, %err_sys_ex.exit.thread ], [ %.03861508, %321 ], [ %.03861508, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.03861508, %319 ]
+  %.038813492546 = phi ptr [ %.03881506, %320 ], [ %.03881506, %err_sys_ex.exit.thread ], [ %.03881506, %321 ], [ %.03881506, %300 ], [ null, %err_sys_ex.exit.thread.thread2866 ], [ %.03881506, %319 ]
+  %.039013692540 = phi i32 [ %.03901504, %320 ], [ %.03901504, %err_sys_ex.exit.thread ], [ %.03901504, %321 ], [ %.03901504, %300 ], [ 1, %err_sys_ex.exit.thread.thread2866 ], [ %.03901504, %319 ]
+  %.039413892534 = phi ptr [ %.03941502, %320 ], [ %.03941502, %err_sys_ex.exit.thread ], [ %.03941502, %321 ], [ %.03941502, %300 ], [ null, %err_sys_ex.exit.thread.thread2866 ], [ %.03941502, %319 ]
+  %.040314092528 = phi i32 [ %.04031500, %320 ], [ %.04031500, %err_sys_ex.exit.thread ], [ %.04031500, %321 ], [ %.04031500, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.04031500, %319 ]
+  %.040614292522 = phi i32 [ %.04061498, %320 ], [ %.04061498, %err_sys_ex.exit.thread ], [ %.04061498, %321 ], [ %.04061498, %300 ], [ 16384, %err_sys_ex.exit.thread.thread2866 ], [ %.04061498, %319 ]
+  %.040914492516 = phi i64 [ %.04091496, %320 ], [ %.04091496, %err_sys_ex.exit.thread ], [ %.04091496, %321 ], [ %.04091496, %300 ], [ 0, %err_sys_ex.exit.thread.thread2866 ], [ %.04091496, %319 ]
+  %.041114692510 = phi i32 [ %.04111494, %320 ], [ %.04111494, %err_sys_ex.exit.thread ], [ %.04111494, %321 ], [ %.04111494, %300 ], [ 1024, %err_sys_ex.exit.thread.thread2866 ], [ %.04111494, %319 ]
+  %.014892504 = phi i16 [ %.01492, %320 ], [ %.01492, %err_sys_ex.exit.thread ], [ %.01492, %321 ], [ %.01492, %300 ], [ 11111, %err_sys_ex.exit.thread.thread2866 ], [ %.01492, %319 ]
+  %349 = phi i1 [ true, %320 ], [ %314, %err_sys_ex.exit.thread ], [ false, %321 ], [ false, %300 ], [ false, %err_sys_ex.exit.thread.thread2866 ], [ false, %319 ]
+  %.0324 = phi ptr [ @wolfTLSv1_3_server_method_ex, %320 ], [ @wolfTLSv1_1_server_method_ex, %err_sys_ex.exit.thread ], [ @wolfSSLv23_server_method_ex, %321 ], [ @wolfTLSv1_2_server_method_ex, %300 ], [ @wolfTLSv1_2_server_method_ex, %err_sys_ex.exit.thread.thread2866 ], [ @wolfTLSv1_2_server_method_ex, %319 ]
+  %350 = tail call ptr %.0324(ptr noundef null) #21, !callees !42
+  %351 = tail call ptr @wolfSSL_CTX_new(ptr noundef %350) #21
+  %352 = icmp eq ptr %351, null
+  br i1 %352, label %err_sys_ex.exit513.thread, label %err_sys_ex.exit516
 
-err_sys_ex.exit513.thread:                        ; preds = %335, %327, %347, %344, %.critedge504.thread, %err_sys_ex.exit513
-  %.03267692708 = phi i32 [ %.03267692710, %err_sys_ex.exit513 ], [ %.03261564, %347 ], [ %.03261564, %344 ], [ %.03261564, %.critedge504.thread ], [ %.03261564, %335 ], [ %.03261564, %327 ]
-  %.03277892702 = phi i32 [ %.03277892704, %err_sys_ex.exit513 ], [ %.03271562, %347 ], [ %.03271562, %344 ], [ %.03271562, %.critedge504.thread ], [ %.03271562, %335 ], [ %.03271562, %327 ]
-  %.03318292695 = phi i32 [ %.03318292697, %err_sys_ex.exit513 ], [ %.03311558, %347 ], [ %.03311558, %344 ], [ %.03311558, %.critedge504.thread ], [ %.03311558, %335 ], [ %.03311558, %327 ]
-  %.03348492689 = phi i32 [ %.03348492691, %err_sys_ex.exit513 ], [ %.03341556, %347 ], [ %.03341556, %344 ], [ %.03341556, %.critedge504.thread ], [ %.03341556, %335 ], [ %.03341556, %327 ]
-  %.03398692683 = phi i32 [ %.03398692685, %err_sys_ex.exit513 ], [ %.03391554, %347 ], [ %.03391554, %344 ], [ %.03391554, %.critedge504.thread ], [ %.03391554, %335 ], [ %.03391554, %327 ]
-  %.03418892677 = phi i32 [ %.03418892679, %err_sys_ex.exit513 ], [ %.03411552, %347 ], [ %.03411552, %344 ], [ %.03411552, %.critedge504.thread ], [ %.03411552, %335 ], [ %.03411552, %327 ]
-  %.03439092671 = phi i32 [ %.03439092673, %err_sys_ex.exit513 ], [ %.03431550, %347 ], [ %.03431550, %344 ], [ %.03431550, %.critedge504.thread ], [ %.03431550, %335 ], [ %.03431550, %327 ]
-  %.03459292665 = phi i32 [ %.03459292667, %err_sys_ex.exit513 ], [ %.03451548, %347 ], [ %.03451548, %344 ], [ %.03451548, %.critedge504.thread ], [ %.03451548, %335 ], [ %.03451548, %327 ]
-  %.03479492659 = phi i32 [ %.03479492661, %err_sys_ex.exit513 ], [ %.03471546, %347 ], [ %.03471546, %344 ], [ %.03471546, %.critedge504.thread ], [ %.03471546, %335 ], [ %.03471546, %327 ]
-  %.03519892652 = phi i32 [ %.03519892654, %err_sys_ex.exit513 ], [ %.03511542, %347 ], [ %.03511542, %344 ], [ %.03511542, %.critedge504.thread ], [ %.03511542, %335 ], [ %.03511542, %327 ]
-  %.035310092646 = phi i32 [ %.035310092648, %err_sys_ex.exit513 ], [ %.03531540, %347 ], [ %.03531540, %344 ], [ %.03531540, %.critedge504.thread ], [ %.03531540, %335 ], [ %.03531540, %327 ]
-  %.035510292640 = phi i32 [ %.035510292642, %err_sys_ex.exit513 ], [ %.03551538, %347 ], [ %.03551538, %344 ], [ %.03551538, %.critedge504.thread ], [ %.03551538, %335 ], [ %.03551538, %327 ]
-  %.035710492634 = phi i32 [ %.035710492636, %err_sys_ex.exit513 ], [ %.03571536, %347 ], [ %.03571536, %344 ], [ %.03571536, %.critedge504.thread ], [ %.03571536, %335 ], [ %.03571536, %327 ]
-  %.035910692628 = phi i32 [ %.035910692630, %err_sys_ex.exit513 ], [ %.03591534, %347 ], [ %.03591534, %344 ], [ %.03591534, %.critedge504.thread ], [ %.03591534, %335 ], [ %.03591534, %327 ]
-  %.036110892622 = phi i32 [ %.036110892624, %err_sys_ex.exit513 ], [ %.03611532, %347 ], [ %.03611532, %344 ], [ %.03611532, %.critedge504.thread ], [ %.03611532, %335 ], [ %.03611532, %327 ]
-  %.036311092616 = phi i32 [ %.036311092618, %err_sys_ex.exit513 ], [ %.03631530, %347 ], [ %.03631530, %344 ], [ %.03631530, %.critedge504.thread ], [ %.03631530, %335 ], [ %.03631530, %327 ]
-  %.036511292610 = phi i32 [ %.036511292612, %err_sys_ex.exit513 ], [ %.03651528, %347 ], [ %.03651528, %344 ], [ %.03651528, %.critedge504.thread ], [ %.03651528, %335 ], [ %.03651528, %327 ]
-  %.036711492604 = phi i32 [ %.036711492606, %err_sys_ex.exit513 ], [ %.03671526, %347 ], [ %.03671526, %344 ], [ %.03671526, %.critedge504.thread ], [ %.03671526, %335 ], [ %.03671526, %327 ]
-  %.036911692598 = phi i32 [ %.036911692600, %err_sys_ex.exit513 ], [ %.03691524, %347 ], [ %.03691524, %344 ], [ %.03691524, %.critedge504.thread ], [ %.03691524, %335 ], [ %.03691524, %327 ]
-  %.037111892592 = phi i32 [ %.037111892594, %err_sys_ex.exit513 ], [ %.03711522, %347 ], [ %.03711522, %344 ], [ %.03711522, %.critedge504.thread ], [ %.03711522, %335 ], [ %.03711522, %327 ]
-  %.037312092586 = phi ptr [ %.037312092588, %err_sys_ex.exit513 ], [ %.03731520, %347 ], [ %.03731520, %344 ], [ %.03731520, %.critedge504.thread ], [ %.03731520, %335 ], [ %.03731520, %327 ]
-  %.037512292580 = phi i32 [ %.037512292582, %err_sys_ex.exit513 ], [ %.03751518, %347 ], [ %.03751518, %344 ], [ %.03751518, %.critedge504.thread ], [ %.03751518, %335 ], [ %.03751518, %327 ]
-  %.037812492574 = phi ptr [ %.037812492576, %err_sys_ex.exit513 ], [ %.03781516, %347 ], [ %.03781516, %344 ], [ %.03781516, %.critedge504.thread ], [ %.03781516, %335 ], [ %.03781516, %327 ]
-  %.038012692568 = phi ptr [ %.038012692570, %err_sys_ex.exit513 ], [ %.03801514, %347 ], [ %.03801514, %344 ], [ %.03801514, %.critedge504.thread ], [ %.03801514, %335 ], [ %.03801514, %327 ]
-  %.038212892562 = phi ptr [ %.038212892564, %err_sys_ex.exit513 ], [ %.03821512, %347 ], [ %.03821512, %344 ], [ %.03821512, %.critedge504.thread ], [ %.03821512, %335 ], [ %.03821512, %327 ]
-  %.038413092556 = phi ptr [ %.038413092558, %err_sys_ex.exit513 ], [ %.03841510, %347 ], [ %.03841510, %344 ], [ %.03841510, %.critedge504.thread ], [ %.03841510, %335 ], [ %.03841510, %327 ]
-  %.038613292550 = phi i32 [ %.038613292552, %err_sys_ex.exit513 ], [ %.03861508, %347 ], [ %.03861508, %344 ], [ %.03861508, %.critedge504.thread ], [ %.03861508, %335 ], [ %.03861508, %327 ]
-  %.038813492544 = phi ptr [ %.038813492546, %err_sys_ex.exit513 ], [ %.03881506, %347 ], [ %.03881506, %344 ], [ %.03881506, %.critedge504.thread ], [ %.03881506, %335 ], [ %.03881506, %327 ]
-  %.039013692538 = phi i32 [ %.039013692540, %err_sys_ex.exit513 ], [ %.03901504, %347 ], [ %.03901504, %344 ], [ %.03901504, %.critedge504.thread ], [ %.03901504, %335 ], [ %.03901504, %327 ]
-  %.039413892532 = phi ptr [ %.039413892534, %err_sys_ex.exit513 ], [ %.03941502, %347 ], [ %.03941502, %344 ], [ %.03941502, %.critedge504.thread ], [ %.03941502, %335 ], [ %.03941502, %327 ]
-  %.040314092526 = phi i32 [ %.040314092528, %err_sys_ex.exit513 ], [ %.04031500, %347 ], [ %.04031500, %344 ], [ %.04031500, %.critedge504.thread ], [ %.04031500, %335 ], [ %.04031500, %327 ]
-  %.040614292520 = phi i32 [ %.040614292522, %err_sys_ex.exit513 ], [ %.04061498, %347 ], [ %.04061498, %344 ], [ %.04061498, %.critedge504.thread ], [ %.04061498, %335 ], [ %.04061498, %327 ]
-  %.040914492514 = phi i64 [ %.040914492516, %err_sys_ex.exit513 ], [ %.04091496, %347 ], [ %.04091496, %344 ], [ %.04091496, %.critedge504.thread ], [ %.04091496, %335 ], [ %.04091496, %327 ]
-  %.041114692508 = phi i32 [ %.041114692510, %err_sys_ex.exit513 ], [ %.04111494, %347 ], [ %.04111494, %344 ], [ %.04111494, %.critedge504.thread ], [ %.04111494, %335 ], [ %.04111494, %327 ]
-  %.014892502 = phi i16 [ %.014892504, %err_sys_ex.exit513 ], [ %.01492, %347 ], [ %.01492, %344 ], [ %.01492, %.critedge504.thread ], [ %.01492, %335 ], [ %.01492, %327 ]
-  %355 = phi i1 [ %351, %err_sys_ex.exit513 ], [ %342, %347 ], [ %342, %344 ], [ %342, %.critedge504.thread ], [ %332, %335 ], [ false, %327 ]
-  %356 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %357 = icmp eq i32 %356, 1
-  br i1 %357, label %358, label %365
+err_sys_ex.exit513.thread:                        ; preds = %333, %325, %345, %342, %.critedge504.thread, %err_sys_ex.exit513
+  %.03267692708 = phi i32 [ %.03267692710, %err_sys_ex.exit513 ], [ %.03261564, %345 ], [ %.03261564, %342 ], [ %.03261564, %.critedge504.thread ], [ %.03261564, %333 ], [ %.03261564, %325 ]
+  %.03277892702 = phi i32 [ %.03277892704, %err_sys_ex.exit513 ], [ %.03271562, %345 ], [ %.03271562, %342 ], [ %.03271562, %.critedge504.thread ], [ %.03271562, %333 ], [ %.03271562, %325 ]
+  %.03318292695 = phi i32 [ %.03318292697, %err_sys_ex.exit513 ], [ %.03311558, %345 ], [ %.03311558, %342 ], [ %.03311558, %.critedge504.thread ], [ %.03311558, %333 ], [ %.03311558, %325 ]
+  %.03348492689 = phi i32 [ %.03348492691, %err_sys_ex.exit513 ], [ %.03341556, %345 ], [ %.03341556, %342 ], [ %.03341556, %.critedge504.thread ], [ %.03341556, %333 ], [ %.03341556, %325 ]
+  %.03398692683 = phi i32 [ %.03398692685, %err_sys_ex.exit513 ], [ %.03391554, %345 ], [ %.03391554, %342 ], [ %.03391554, %.critedge504.thread ], [ %.03391554, %333 ], [ %.03391554, %325 ]
+  %.03418892677 = phi i32 [ %.03418892679, %err_sys_ex.exit513 ], [ %.03411552, %345 ], [ %.03411552, %342 ], [ %.03411552, %.critedge504.thread ], [ %.03411552, %333 ], [ %.03411552, %325 ]
+  %.03439092671 = phi i32 [ %.03439092673, %err_sys_ex.exit513 ], [ %.03431550, %345 ], [ %.03431550, %342 ], [ %.03431550, %.critedge504.thread ], [ %.03431550, %333 ], [ %.03431550, %325 ]
+  %.03459292665 = phi i32 [ %.03459292667, %err_sys_ex.exit513 ], [ %.03451548, %345 ], [ %.03451548, %342 ], [ %.03451548, %.critedge504.thread ], [ %.03451548, %333 ], [ %.03451548, %325 ]
+  %.03479492659 = phi i32 [ %.03479492661, %err_sys_ex.exit513 ], [ %.03471546, %345 ], [ %.03471546, %342 ], [ %.03471546, %.critedge504.thread ], [ %.03471546, %333 ], [ %.03471546, %325 ]
+  %.03519892652 = phi i32 [ %.03519892654, %err_sys_ex.exit513 ], [ %.03511542, %345 ], [ %.03511542, %342 ], [ %.03511542, %.critedge504.thread ], [ %.03511542, %333 ], [ %.03511542, %325 ]
+  %.035310092646 = phi i32 [ %.035310092648, %err_sys_ex.exit513 ], [ %.03531540, %345 ], [ %.03531540, %342 ], [ %.03531540, %.critedge504.thread ], [ %.03531540, %333 ], [ %.03531540, %325 ]
+  %.035510292640 = phi i32 [ %.035510292642, %err_sys_ex.exit513 ], [ %.03551538, %345 ], [ %.03551538, %342 ], [ %.03551538, %.critedge504.thread ], [ %.03551538, %333 ], [ %.03551538, %325 ]
+  %.035710492634 = phi i32 [ %.035710492636, %err_sys_ex.exit513 ], [ %.03571536, %345 ], [ %.03571536, %342 ], [ %.03571536, %.critedge504.thread ], [ %.03571536, %333 ], [ %.03571536, %325 ]
+  %.035910692628 = phi i32 [ %.035910692630, %err_sys_ex.exit513 ], [ %.03591534, %345 ], [ %.03591534, %342 ], [ %.03591534, %.critedge504.thread ], [ %.03591534, %333 ], [ %.03591534, %325 ]
+  %.036110892622 = phi i32 [ %.036110892624, %err_sys_ex.exit513 ], [ %.03611532, %345 ], [ %.03611532, %342 ], [ %.03611532, %.critedge504.thread ], [ %.03611532, %333 ], [ %.03611532, %325 ]
+  %.036311092616 = phi i32 [ %.036311092618, %err_sys_ex.exit513 ], [ %.03631530, %345 ], [ %.03631530, %342 ], [ %.03631530, %.critedge504.thread ], [ %.03631530, %333 ], [ %.03631530, %325 ]
+  %.036511292610 = phi i32 [ %.036511292612, %err_sys_ex.exit513 ], [ %.03651528, %345 ], [ %.03651528, %342 ], [ %.03651528, %.critedge504.thread ], [ %.03651528, %333 ], [ %.03651528, %325 ]
+  %.036711492604 = phi i32 [ %.036711492606, %err_sys_ex.exit513 ], [ %.03671526, %345 ], [ %.03671526, %342 ], [ %.03671526, %.critedge504.thread ], [ %.03671526, %333 ], [ %.03671526, %325 ]
+  %.036911692598 = phi i32 [ %.036911692600, %err_sys_ex.exit513 ], [ %.03691524, %345 ], [ %.03691524, %342 ], [ %.03691524, %.critedge504.thread ], [ %.03691524, %333 ], [ %.03691524, %325 ]
+  %.037111892592 = phi i32 [ %.037111892594, %err_sys_ex.exit513 ], [ %.03711522, %345 ], [ %.03711522, %342 ], [ %.03711522, %.critedge504.thread ], [ %.03711522, %333 ], [ %.03711522, %325 ]
+  %.037312092586 = phi ptr [ %.037312092588, %err_sys_ex.exit513 ], [ %.03731520, %345 ], [ %.03731520, %342 ], [ %.03731520, %.critedge504.thread ], [ %.03731520, %333 ], [ %.03731520, %325 ]
+  %.037512292580 = phi i32 [ %.037512292582, %err_sys_ex.exit513 ], [ %.03751518, %345 ], [ %.03751518, %342 ], [ %.03751518, %.critedge504.thread ], [ %.03751518, %333 ], [ %.03751518, %325 ]
+  %.037812492574 = phi ptr [ %.037812492576, %err_sys_ex.exit513 ], [ %.03781516, %345 ], [ %.03781516, %342 ], [ %.03781516, %.critedge504.thread ], [ %.03781516, %333 ], [ %.03781516, %325 ]
+  %.038012692568 = phi ptr [ %.038012692570, %err_sys_ex.exit513 ], [ %.03801514, %345 ], [ %.03801514, %342 ], [ %.03801514, %.critedge504.thread ], [ %.03801514, %333 ], [ %.03801514, %325 ]
+  %.038212892562 = phi ptr [ %.038212892564, %err_sys_ex.exit513 ], [ %.03821512, %345 ], [ %.03821512, %342 ], [ %.03821512, %.critedge504.thread ], [ %.03821512, %333 ], [ %.03821512, %325 ]
+  %.038413092556 = phi ptr [ %.038413092558, %err_sys_ex.exit513 ], [ %.03841510, %345 ], [ %.03841510, %342 ], [ %.03841510, %.critedge504.thread ], [ %.03841510, %333 ], [ %.03841510, %325 ]
+  %.038613292550 = phi i32 [ %.038613292552, %err_sys_ex.exit513 ], [ %.03861508, %345 ], [ %.03861508, %342 ], [ %.03861508, %.critedge504.thread ], [ %.03861508, %333 ], [ %.03861508, %325 ]
+  %.038813492544 = phi ptr [ %.038813492546, %err_sys_ex.exit513 ], [ %.03881506, %345 ], [ %.03881506, %342 ], [ %.03881506, %.critedge504.thread ], [ %.03881506, %333 ], [ %.03881506, %325 ]
+  %.039013692538 = phi i32 [ %.039013692540, %err_sys_ex.exit513 ], [ %.03901504, %345 ], [ %.03901504, %342 ], [ %.03901504, %.critedge504.thread ], [ %.03901504, %333 ], [ %.03901504, %325 ]
+  %.039413892532 = phi ptr [ %.039413892534, %err_sys_ex.exit513 ], [ %.03941502, %345 ], [ %.03941502, %342 ], [ %.03941502, %.critedge504.thread ], [ %.03941502, %333 ], [ %.03941502, %325 ]
+  %.040314092526 = phi i32 [ %.040314092528, %err_sys_ex.exit513 ], [ %.04031500, %345 ], [ %.04031500, %342 ], [ %.04031500, %.critedge504.thread ], [ %.04031500, %333 ], [ %.04031500, %325 ]
+  %.040614292520 = phi i32 [ %.040614292522, %err_sys_ex.exit513 ], [ %.04061498, %345 ], [ %.04061498, %342 ], [ %.04061498, %.critedge504.thread ], [ %.04061498, %333 ], [ %.04061498, %325 ]
+  %.040914492514 = phi i64 [ %.040914492516, %err_sys_ex.exit513 ], [ %.04091496, %345 ], [ %.04091496, %342 ], [ %.04091496, %.critedge504.thread ], [ %.04091496, %333 ], [ %.04091496, %325 ]
+  %.041114692508 = phi i32 [ %.041114692510, %err_sys_ex.exit513 ], [ %.04111494, %345 ], [ %.04111494, %342 ], [ %.04111494, %.critedge504.thread ], [ %.04111494, %333 ], [ %.04111494, %325 ]
+  %.014892502 = phi i16 [ %.014892504, %err_sys_ex.exit513 ], [ %.01492, %345 ], [ %.01492, %342 ], [ %.01492, %.critedge504.thread ], [ %.01492, %333 ], [ %.01492, %325 ]
+  %353 = phi i1 [ %349, %err_sys_ex.exit513 ], [ %340, %345 ], [ %340, %342 ], [ %340, %.critedge504.thread ], [ %330, %333 ], [ false, %325 ]
+  %354 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %355 = icmp eq i32 %354, 1
+  br i1 %355, label %356, label %363
 
-358:                                              ; preds = %err_sys_ex.exit513.thread
+356:                                              ; preds = %err_sys_ex.exit513.thread
   %.b2.i514 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i514, label %err_sys_ex.exit516, label %359
+  br i1 %.b2.i514, label %err_sys_ex.exit516, label %357
 
-359:                                              ; preds = %358
-  %360 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %361 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %360, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.43) #22
+357:                                              ; preds = %356
+  %358 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %359 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %358, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.43) #22
   %.b.pr.i515 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i515, label %err_sys_ex.exit516, label %362
+  br i1 %.b.pr.i515, label %err_sys_ex.exit516, label %360
 
-362:                                              ; preds = %359
-  %363 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %364 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %363) #23
+360:                                              ; preds = %357
+  %361 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %362 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %361) #23
   br label %err_sys_ex.exit516
 
-365:                                              ; preds = %err_sys_ex.exit513.thread
+363:                                              ; preds = %err_sys_ex.exit513.thread
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.43) #24
   unreachable
 
-err_sys_ex.exit516:                               ; preds = %362, %359, %358, %err_sys_ex.exit513
-  %.03267692707 = phi i32 [ %.03267692710, %err_sys_ex.exit513 ], [ %.03267692708, %358 ], [ %.03267692708, %359 ], [ %.03267692708, %362 ]
-  %.03277892701 = phi i32 [ %.03277892704, %err_sys_ex.exit513 ], [ %.03277892702, %358 ], [ %.03277892702, %359 ], [ %.03277892702, %362 ]
-  %.03318292694 = phi i32 [ %.03318292697, %err_sys_ex.exit513 ], [ %.03318292695, %358 ], [ %.03318292695, %359 ], [ %.03318292695, %362 ]
-  %.03348492688 = phi i32 [ %.03348492691, %err_sys_ex.exit513 ], [ %.03348492689, %358 ], [ %.03348492689, %359 ], [ %.03348492689, %362 ]
-  %.03398692682 = phi i32 [ %.03398692685, %err_sys_ex.exit513 ], [ %.03398692683, %358 ], [ %.03398692683, %359 ], [ %.03398692683, %362 ]
-  %.03418892676 = phi i32 [ %.03418892679, %err_sys_ex.exit513 ], [ %.03418892677, %358 ], [ %.03418892677, %359 ], [ %.03418892677, %362 ]
-  %.03439092670 = phi i32 [ %.03439092673, %err_sys_ex.exit513 ], [ %.03439092671, %358 ], [ %.03439092671, %359 ], [ %.03439092671, %362 ]
-  %.03459292664 = phi i32 [ %.03459292667, %err_sys_ex.exit513 ], [ %.03459292665, %358 ], [ %.03459292665, %359 ], [ %.03459292665, %362 ]
-  %.03479492658 = phi i32 [ %.03479492661, %err_sys_ex.exit513 ], [ %.03479492659, %358 ], [ %.03479492659, %359 ], [ %.03479492659, %362 ]
-  %.03519892651 = phi i32 [ %.03519892654, %err_sys_ex.exit513 ], [ %.03519892652, %358 ], [ %.03519892652, %359 ], [ %.03519892652, %362 ]
-  %.035310092645 = phi i32 [ %.035310092648, %err_sys_ex.exit513 ], [ %.035310092646, %358 ], [ %.035310092646, %359 ], [ %.035310092646, %362 ]
-  %.035510292639 = phi i32 [ %.035510292642, %err_sys_ex.exit513 ], [ %.035510292640, %358 ], [ %.035510292640, %359 ], [ %.035510292640, %362 ]
-  %.035710492633 = phi i32 [ %.035710492636, %err_sys_ex.exit513 ], [ %.035710492634, %358 ], [ %.035710492634, %359 ], [ %.035710492634, %362 ]
-  %.035910692627 = phi i32 [ %.035910692630, %err_sys_ex.exit513 ], [ %.035910692628, %358 ], [ %.035910692628, %359 ], [ %.035910692628, %362 ]
-  %.036110892621 = phi i32 [ %.036110892624, %err_sys_ex.exit513 ], [ %.036110892622, %358 ], [ %.036110892622, %359 ], [ %.036110892622, %362 ]
-  %.036311092615 = phi i32 [ %.036311092618, %err_sys_ex.exit513 ], [ %.036311092616, %358 ], [ %.036311092616, %359 ], [ %.036311092616, %362 ]
-  %.036511292609 = phi i32 [ %.036511292612, %err_sys_ex.exit513 ], [ %.036511292610, %358 ], [ %.036511292610, %359 ], [ %.036511292610, %362 ]
-  %.036711492603 = phi i32 [ %.036711492606, %err_sys_ex.exit513 ], [ %.036711492604, %358 ], [ %.036711492604, %359 ], [ %.036711492604, %362 ]
-  %.036911692597 = phi i32 [ %.036911692600, %err_sys_ex.exit513 ], [ %.036911692598, %358 ], [ %.036911692598, %359 ], [ %.036911692598, %362 ]
-  %.037111892591 = phi i32 [ %.037111892594, %err_sys_ex.exit513 ], [ %.037111892592, %358 ], [ %.037111892592, %359 ], [ %.037111892592, %362 ]
-  %.037312092585 = phi ptr [ %.037312092588, %err_sys_ex.exit513 ], [ %.037312092586, %358 ], [ %.037312092586, %359 ], [ %.037312092586, %362 ]
-  %.037512292579 = phi i32 [ %.037512292582, %err_sys_ex.exit513 ], [ %.037512292580, %358 ], [ %.037512292580, %359 ], [ %.037512292580, %362 ]
-  %.037812492573 = phi ptr [ %.037812492576, %err_sys_ex.exit513 ], [ %.037812492574, %358 ], [ %.037812492574, %359 ], [ %.037812492574, %362 ]
-  %.038012692567 = phi ptr [ %.038012692570, %err_sys_ex.exit513 ], [ %.038012692568, %358 ], [ %.038012692568, %359 ], [ %.038012692568, %362 ]
-  %.038212892561 = phi ptr [ %.038212892564, %err_sys_ex.exit513 ], [ %.038212892562, %358 ], [ %.038212892562, %359 ], [ %.038212892562, %362 ]
-  %.038413092555 = phi ptr [ %.038413092558, %err_sys_ex.exit513 ], [ %.038413092556, %358 ], [ %.038413092556, %359 ], [ %.038413092556, %362 ]
-  %.038613292549 = phi i32 [ %.038613292552, %err_sys_ex.exit513 ], [ %.038613292550, %358 ], [ %.038613292550, %359 ], [ %.038613292550, %362 ]
-  %.038813492543 = phi ptr [ %.038813492546, %err_sys_ex.exit513 ], [ %.038813492544, %358 ], [ %.038813492544, %359 ], [ %.038813492544, %362 ]
-  %.039013692537 = phi i32 [ %.039013692540, %err_sys_ex.exit513 ], [ %.039013692538, %358 ], [ %.039013692538, %359 ], [ %.039013692538, %362 ]
-  %.039413892531 = phi ptr [ %.039413892534, %err_sys_ex.exit513 ], [ %.039413892532, %358 ], [ %.039413892532, %359 ], [ %.039413892532, %362 ]
-  %.040314092525 = phi i32 [ %.040314092528, %err_sys_ex.exit513 ], [ %.040314092526, %358 ], [ %.040314092526, %359 ], [ %.040314092526, %362 ]
-  %.040614292519 = phi i32 [ %.040614292522, %err_sys_ex.exit513 ], [ %.040614292520, %358 ], [ %.040614292520, %359 ], [ %.040614292520, %362 ]
-  %.040914492513 = phi i64 [ %.040914492516, %err_sys_ex.exit513 ], [ %.040914492514, %358 ], [ %.040914492514, %359 ], [ %.040914492514, %362 ]
-  %.041114692507 = phi i32 [ %.041114692510, %err_sys_ex.exit513 ], [ %.041114692508, %358 ], [ %.041114692508, %359 ], [ %.041114692508, %362 ]
-  %.014892501 = phi i16 [ %.014892504, %err_sys_ex.exit513 ], [ %.014892502, %358 ], [ %.014892502, %359 ], [ %.014892502, %362 ]
-  %366 = phi i1 [ %351, %err_sys_ex.exit513 ], [ %355, %358 ], [ %355, %359 ], [ %355, %362 ]
-  %.0325624 = phi ptr [ %353, %err_sys_ex.exit513 ], [ null, %358 ], [ null, %359 ], [ null, %362 ]
+err_sys_ex.exit516:                               ; preds = %360, %357, %356, %err_sys_ex.exit513
+  %.03267692707 = phi i32 [ %.03267692710, %err_sys_ex.exit513 ], [ %.03267692708, %356 ], [ %.03267692708, %357 ], [ %.03267692708, %360 ]
+  %.03277892701 = phi i32 [ %.03277892704, %err_sys_ex.exit513 ], [ %.03277892702, %356 ], [ %.03277892702, %357 ], [ %.03277892702, %360 ]
+  %.03318292694 = phi i32 [ %.03318292697, %err_sys_ex.exit513 ], [ %.03318292695, %356 ], [ %.03318292695, %357 ], [ %.03318292695, %360 ]
+  %.03348492688 = phi i32 [ %.03348492691, %err_sys_ex.exit513 ], [ %.03348492689, %356 ], [ %.03348492689, %357 ], [ %.03348492689, %360 ]
+  %.03398692682 = phi i32 [ %.03398692685, %err_sys_ex.exit513 ], [ %.03398692683, %356 ], [ %.03398692683, %357 ], [ %.03398692683, %360 ]
+  %.03418892676 = phi i32 [ %.03418892679, %err_sys_ex.exit513 ], [ %.03418892677, %356 ], [ %.03418892677, %357 ], [ %.03418892677, %360 ]
+  %.03439092670 = phi i32 [ %.03439092673, %err_sys_ex.exit513 ], [ %.03439092671, %356 ], [ %.03439092671, %357 ], [ %.03439092671, %360 ]
+  %.03459292664 = phi i32 [ %.03459292667, %err_sys_ex.exit513 ], [ %.03459292665, %356 ], [ %.03459292665, %357 ], [ %.03459292665, %360 ]
+  %.03479492658 = phi i32 [ %.03479492661, %err_sys_ex.exit513 ], [ %.03479492659, %356 ], [ %.03479492659, %357 ], [ %.03479492659, %360 ]
+  %.03519892651 = phi i32 [ %.03519892654, %err_sys_ex.exit513 ], [ %.03519892652, %356 ], [ %.03519892652, %357 ], [ %.03519892652, %360 ]
+  %.035310092645 = phi i32 [ %.035310092648, %err_sys_ex.exit513 ], [ %.035310092646, %356 ], [ %.035310092646, %357 ], [ %.035310092646, %360 ]
+  %.035510292639 = phi i32 [ %.035510292642, %err_sys_ex.exit513 ], [ %.035510292640, %356 ], [ %.035510292640, %357 ], [ %.035510292640, %360 ]
+  %.035710492633 = phi i32 [ %.035710492636, %err_sys_ex.exit513 ], [ %.035710492634, %356 ], [ %.035710492634, %357 ], [ %.035710492634, %360 ]
+  %.035910692627 = phi i32 [ %.035910692630, %err_sys_ex.exit513 ], [ %.035910692628, %356 ], [ %.035910692628, %357 ], [ %.035910692628, %360 ]
+  %.036110892621 = phi i32 [ %.036110892624, %err_sys_ex.exit513 ], [ %.036110892622, %356 ], [ %.036110892622, %357 ], [ %.036110892622, %360 ]
+  %.036311092615 = phi i32 [ %.036311092618, %err_sys_ex.exit513 ], [ %.036311092616, %356 ], [ %.036311092616, %357 ], [ %.036311092616, %360 ]
+  %.036511292609 = phi i32 [ %.036511292612, %err_sys_ex.exit513 ], [ %.036511292610, %356 ], [ %.036511292610, %357 ], [ %.036511292610, %360 ]
+  %.036711492603 = phi i32 [ %.036711492606, %err_sys_ex.exit513 ], [ %.036711492604, %356 ], [ %.036711492604, %357 ], [ %.036711492604, %360 ]
+  %.036911692597 = phi i32 [ %.036911692600, %err_sys_ex.exit513 ], [ %.036911692598, %356 ], [ %.036911692598, %357 ], [ %.036911692598, %360 ]
+  %.037111892591 = phi i32 [ %.037111892594, %err_sys_ex.exit513 ], [ %.037111892592, %356 ], [ %.037111892592, %357 ], [ %.037111892592, %360 ]
+  %.037312092585 = phi ptr [ %.037312092588, %err_sys_ex.exit513 ], [ %.037312092586, %356 ], [ %.037312092586, %357 ], [ %.037312092586, %360 ]
+  %.037512292579 = phi i32 [ %.037512292582, %err_sys_ex.exit513 ], [ %.037512292580, %356 ], [ %.037512292580, %357 ], [ %.037512292580, %360 ]
+  %.037812492573 = phi ptr [ %.037812492576, %err_sys_ex.exit513 ], [ %.037812492574, %356 ], [ %.037812492574, %357 ], [ %.037812492574, %360 ]
+  %.038012692567 = phi ptr [ %.038012692570, %err_sys_ex.exit513 ], [ %.038012692568, %356 ], [ %.038012692568, %357 ], [ %.038012692568, %360 ]
+  %.038212892561 = phi ptr [ %.038212892564, %err_sys_ex.exit513 ], [ %.038212892562, %356 ], [ %.038212892562, %357 ], [ %.038212892562, %360 ]
+  %.038413092555 = phi ptr [ %.038413092558, %err_sys_ex.exit513 ], [ %.038413092556, %356 ], [ %.038413092556, %357 ], [ %.038413092556, %360 ]
+  %.038613292549 = phi i32 [ %.038613292552, %err_sys_ex.exit513 ], [ %.038613292550, %356 ], [ %.038613292550, %357 ], [ %.038613292550, %360 ]
+  %.038813492543 = phi ptr [ %.038813492546, %err_sys_ex.exit513 ], [ %.038813492544, %356 ], [ %.038813492544, %357 ], [ %.038813492544, %360 ]
+  %.039013692537 = phi i32 [ %.039013692540, %err_sys_ex.exit513 ], [ %.039013692538, %356 ], [ %.039013692538, %357 ], [ %.039013692538, %360 ]
+  %.039413892531 = phi ptr [ %.039413892534, %err_sys_ex.exit513 ], [ %.039413892532, %356 ], [ %.039413892532, %357 ], [ %.039413892532, %360 ]
+  %.040314092525 = phi i32 [ %.040314092528, %err_sys_ex.exit513 ], [ %.040314092526, %356 ], [ %.040314092526, %357 ], [ %.040314092526, %360 ]
+  %.040614292519 = phi i32 [ %.040614292522, %err_sys_ex.exit513 ], [ %.040614292520, %356 ], [ %.040614292520, %357 ], [ %.040614292520, %360 ]
+  %.040914492513 = phi i64 [ %.040914492516, %err_sys_ex.exit513 ], [ %.040914492514, %356 ], [ %.040914492514, %357 ], [ %.040914492514, %360 ]
+  %.041114692507 = phi i32 [ %.041114692510, %err_sys_ex.exit513 ], [ %.041114692508, %356 ], [ %.041114692508, %357 ], [ %.041114692508, %360 ]
+  %.014892501 = phi i16 [ %.014892504, %err_sys_ex.exit513 ], [ %.014892502, %356 ], [ %.014892502, %357 ], [ %.014892502, %360 ]
+  %364 = phi i1 [ %349, %err_sys_ex.exit513 ], [ %353, %356 ], [ %353, %357 ], [ %353, %360 ]
+  %.0325624 = phi ptr [ %351, %err_sys_ex.exit513 ], [ null, %356 ], [ null, %357 ], [ null, %360 ]
   %.not443 = icmp eq i32 %.03267692707, -99
-  br i1 %.not443, label %err_sys_ex.exit519, label %367
+  br i1 %.not443, label %err_sys_ex.exit519, label %365
 
-367:                                              ; preds = %err_sys_ex.exit516
-  %368 = tail call i32 @wolfSSL_CTX_SetMinVersion(ptr noundef %.0325624, i32 noundef %.03267692707) #21
-  %.not444 = icmp eq i32 %368, 1
-  br i1 %.not444, label %err_sys_ex.exit519, label %369
+365:                                              ; preds = %err_sys_ex.exit516
+  %366 = tail call i32 @wolfSSL_CTX_SetMinVersion(ptr noundef %.0325624, i32 noundef %.03267692707) #21
+  %.not444 = icmp eq i32 %366, 1
+  br i1 %.not444, label %err_sys_ex.exit519, label %367
 
-369:                                              ; preds = %367
-  %370 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %371 = icmp eq i32 %370, 1
-  br i1 %371, label %372, label %379
+367:                                              ; preds = %365
+  %368 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %369 = icmp eq i32 %368, 1
+  br i1 %369, label %370, label %377
 
-372:                                              ; preds = %369
+370:                                              ; preds = %367
   %.b2.i517 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i517, label %err_sys_ex.exit519, label %373
+  br i1 %.b2.i517, label %err_sys_ex.exit519, label %371
 
-373:                                              ; preds = %372
-  %374 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %375 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %374, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.44) #22
+371:                                              ; preds = %370
+  %372 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %373 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %372, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.44) #22
   %.b.pr.i518 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i518, label %err_sys_ex.exit519, label %376
+  br i1 %.b.pr.i518, label %err_sys_ex.exit519, label %374
 
-376:                                              ; preds = %373
-  %377 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %378 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %377) #23
+374:                                              ; preds = %371
+  %375 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %376 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %375) #23
   br label %err_sys_ex.exit519
 
-379:                                              ; preds = %369
+377:                                              ; preds = %367
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.44) #24
   unreachable
 
-err_sys_ex.exit519:                               ; preds = %376, %373, %372, %367, %err_sys_ex.exit516
+err_sys_ex.exit519:                               ; preds = %374, %371, %370, %365, %err_sys_ex.exit516
   %.not445 = icmp eq i32 %.035910692627, 0
-  br i1 %.not445, label %381, label %380
+  br i1 %.not445, label %379, label %378
 
-380:                                              ; preds = %err_sys_ex.exit519
+378:                                              ; preds = %err_sys_ex.exit519
   tail call void @wolfSSL_CTX_SetIOSend(ptr noundef %.0325624, ptr noundef nonnull @SimulateWantWriteIOSendCb) #21
-  br label %381
+  br label %379
 
-381:                                              ; preds = %380, %err_sys_ex.exit519
-  %382 = icmp eq ptr %.038813492543, null
-  %383 = icmp ne i32 %.038613292549, 0
-  %or.cond17 = or i1 %382, %383
-  br i1 %or.cond17, label %err_sys_ex.exit522, label %384
+379:                                              ; preds = %378, %err_sys_ex.exit519
+  %380 = icmp eq ptr %.038813492543, null
+  %381 = icmp ne i32 %.038613292549, 0
+  %or.cond17 = or i1 %380, %381
+  br i1 %or.cond17, label %err_sys_ex.exit522, label %382
 
-384:                                              ; preds = %381
-  %385 = tail call i32 @wolfSSL_CTX_set_cipher_list(ptr noundef %.0325624, ptr noundef nonnull %.038813492543) #21
-  %.not446 = icmp eq i32 %385, 1
-  br i1 %.not446, label %err_sys_ex.exit522, label %386
+382:                                              ; preds = %379
+  %383 = tail call i32 @wolfSSL_CTX_set_cipher_list(ptr noundef %.0325624, ptr noundef nonnull %.038813492543) #21
+  %.not446 = icmp eq i32 %383, 1
+  br i1 %.not446, label %err_sys_ex.exit522, label %384
 
-386:                                              ; preds = %384
-  %387 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %388 = icmp eq i32 %387, 1
-  br i1 %388, label %389, label %396
+384:                                              ; preds = %382
+  %385 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %386 = icmp eq i32 %385, 1
+  br i1 %386, label %387, label %394
 
-389:                                              ; preds = %386
+387:                                              ; preds = %384
   %.b2.i520 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i520, label %err_sys_ex.exit522, label %390
+  br i1 %.b2.i520, label %err_sys_ex.exit522, label %388
 
-390:                                              ; preds = %389
-  %391 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %392 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %391, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.45) #22
+388:                                              ; preds = %387
+  %389 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %389, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.45) #22
   %.b.pr.i521 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i521, label %err_sys_ex.exit522, label %393
+  br i1 %.b.pr.i521, label %err_sys_ex.exit522, label %391
 
-393:                                              ; preds = %390
-  %394 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %395 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %394) #23
+391:                                              ; preds = %388
+  %392 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %393 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %392) #23
   br label %err_sys_ex.exit522
 
-396:                                              ; preds = %386
+394:                                              ; preds = %384
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.45) #24
   unreachable
 
-err_sys_ex.exit522:                               ; preds = %393, %390, %389, %384, %381
+err_sys_ex.exit522:                               ; preds = %391, %388, %387, %382, %379
   %.not447 = icmp eq i32 %.036110892621, 0
-  br i1 %.not447, label %399, label %397
+  br i1 %.not447, label %397, label %395
 
-397:                                              ; preds = %err_sys_ex.exit522
-  %398 = tail call i32 @wolfSSL_CTX_set_group_messages(ptr noundef %.0325624) #21
-  br label %399
+395:                                              ; preds = %err_sys_ex.exit522
+  %396 = tail call i32 @wolfSSL_CTX_set_group_messages(ptr noundef %.0325624) #21
+  br label %397
 
-399:                                              ; preds = %397, %err_sys_ex.exit522
-  %400 = icmp eq i32 %.03459292664, 0
-  %401 = icmp ne i32 %.03479492658, 0
-  %or.cond19 = or i1 %400, %401
-  %402 = icmp ne i32 %.03418892676, 1
-  %or.cond23.not = and i1 %or.cond19, %402
-  br i1 %or.cond23.not, label %403, label %err_sys_ex.exit525
+397:                                              ; preds = %395, %err_sys_ex.exit522
+  %398 = icmp eq i32 %.03459292664, 0
+  %399 = icmp ne i32 %.03479492658, 0
+  %or.cond19 = or i1 %398, %399
+  %400 = icmp ne i32 %.03418892676, 1
+  %or.cond23.not = and i1 %or.cond19, %400
+  br i1 %or.cond23.not, label %401, label %err_sys_ex.exit525
 
-403:                                              ; preds = %399
-  %404 = tail call i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %.0325624, ptr noundef %.038212892561) #21
-  %.not449 = icmp eq i32 %404, 1
-  br i1 %.not449, label %err_sys_ex.exit525, label %405
+401:                                              ; preds = %397
+  %402 = tail call i32 @wolfSSL_CTX_use_certificate_chain_file(ptr noundef %.0325624, ptr noundef %.038212892561) #21
+  %.not449 = icmp eq i32 %402, 1
+  br i1 %.not449, label %err_sys_ex.exit525, label %403
 
-405:                                              ; preds = %403
-  %406 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %407 = icmp eq i32 %406, 1
-  br i1 %407, label %408, label %415
+403:                                              ; preds = %401
+  %404 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %405 = icmp eq i32 %404, 1
+  br i1 %405, label %406, label %413
 
-408:                                              ; preds = %405
+406:                                              ; preds = %403
   %.b2.i523 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i523, label %err_sys_ex.exit525, label %409
+  br i1 %.b2.i523, label %err_sys_ex.exit525, label %407
 
-409:                                              ; preds = %408
-  %410 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %411 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %410, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.46) #22
+407:                                              ; preds = %406
+  %408 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %409 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %408, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.46) #22
   %.b.pr.i524 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i524, label %err_sys_ex.exit525, label %412
+  br i1 %.b.pr.i524, label %err_sys_ex.exit525, label %410
 
-412:                                              ; preds = %409
-  %413 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %414 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %413) #23
+410:                                              ; preds = %407
+  %411 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %412 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %411) #23
   br label %err_sys_ex.exit525
 
-415:                                              ; preds = %405
+413:                                              ; preds = %403
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.46) #24
   unreachable
 
-err_sys_ex.exit525:                               ; preds = %412, %409, %408, %403, %399
-  %416 = trunc i32 %.041114692507 to i16
-  %417 = tail call i32 @wolfSSL_CTX_SetMinDhKey_Sz(ptr noundef %.0325624, i16 noundef zeroext %416) #21
-  %.not450 = icmp eq i32 %417, 1
-  br i1 %.not450, label %err_sys_ex.exit528, label %418
+err_sys_ex.exit525:                               ; preds = %410, %407, %406, %401, %397
+  %414 = trunc i32 %.041114692507 to i16
+  %415 = tail call i32 @wolfSSL_CTX_SetMinDhKey_Sz(ptr noundef %.0325624, i16 noundef zeroext %414) #21
+  %.not450 = icmp eq i32 %415, 1
+  br i1 %.not450, label %err_sys_ex.exit528, label %416
 
-418:                                              ; preds = %err_sys_ex.exit525
-  %419 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %420 = icmp eq i32 %419, 1
-  br i1 %420, label %421, label %428
+416:                                              ; preds = %err_sys_ex.exit525
+  %417 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %418 = icmp eq i32 %417, 1
+  br i1 %418, label %419, label %426
 
-421:                                              ; preds = %418
+419:                                              ; preds = %416
   %.b2.i526 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i526, label %err_sys_ex.exit528, label %422
+  br i1 %.b2.i526, label %err_sys_ex.exit528, label %420
 
-422:                                              ; preds = %421
-  %423 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %424 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %423, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.47) #22
+420:                                              ; preds = %419
+  %421 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %422 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %421, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.47) #22
   %.b.pr.i527 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i527, label %err_sys_ex.exit528, label %425
+  br i1 %.b.pr.i527, label %err_sys_ex.exit528, label %423
 
-425:                                              ; preds = %422
-  %426 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %427 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %426) #23
+423:                                              ; preds = %420
+  %424 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %425 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %424) #23
   br label %err_sys_ex.exit528
 
-428:                                              ; preds = %418
+426:                                              ; preds = %416
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.47) #24
   unreachable
 
-err_sys_ex.exit528:                               ; preds = %425, %422, %421, %err_sys_ex.exit525
-  %429 = tail call i32 @wolfSSL_CTX_SetMinRsaKey_Sz(ptr noundef %.0325624, i16 noundef signext 1024) #21
-  %.not451 = icmp eq i32 %429, 1
-  br i1 %.not451, label %err_sys_ex.exit531, label %430
+err_sys_ex.exit528:                               ; preds = %423, %420, %419, %err_sys_ex.exit525
+  %427 = tail call i32 @wolfSSL_CTX_SetMinRsaKey_Sz(ptr noundef %.0325624, i16 noundef signext 1024) #21
+  %.not451 = icmp eq i32 %427, 1
+  br i1 %.not451, label %err_sys_ex.exit531, label %428
 
-430:                                              ; preds = %err_sys_ex.exit528
-  %431 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %432 = icmp eq i32 %431, 1
-  br i1 %432, label %433, label %440
+428:                                              ; preds = %err_sys_ex.exit528
+  %429 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %430 = icmp eq i32 %429, 1
+  br i1 %430, label %431, label %438
 
-433:                                              ; preds = %430
+431:                                              ; preds = %428
   %.b2.i529 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i529, label %err_sys_ex.exit531, label %434
+  br i1 %.b2.i529, label %err_sys_ex.exit531, label %432
 
-434:                                              ; preds = %433
-  %435 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %436 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %435, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.48) #22
+432:                                              ; preds = %431
+  %433 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %434 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %433, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.48) #22
   %.b.pr.i530 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i530, label %err_sys_ex.exit531, label %437
+  br i1 %.b.pr.i530, label %err_sys_ex.exit531, label %435
 
-437:                                              ; preds = %434
-  %438 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %439 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %438) #23
+435:                                              ; preds = %432
+  %436 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %437 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %436) #23
   br label %err_sys_ex.exit531
 
-440:                                              ; preds = %430
+438:                                              ; preds = %428
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.48) #24
   unreachable
 
-err_sys_ex.exit531:                               ; preds = %437, %434, %433, %err_sys_ex.exit528
-  %441 = tail call i32 @wolfSSL_CTX_SetMinEccKey_Sz(ptr noundef %.0325624, i16 noundef signext 224) #21
-  %.not452 = icmp eq i32 %441, 1
-  br i1 %.not452, label %err_sys_ex.exit534, label %442
+err_sys_ex.exit531:                               ; preds = %435, %432, %431, %err_sys_ex.exit528
+  %439 = tail call i32 @wolfSSL_CTX_SetMinEccKey_Sz(ptr noundef %.0325624, i16 noundef signext 224) #21
+  %.not452 = icmp eq i32 %439, 1
+  br i1 %.not452, label %err_sys_ex.exit534, label %440
 
-442:                                              ; preds = %err_sys_ex.exit531
-  %443 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %444 = icmp eq i32 %443, 1
-  br i1 %444, label %445, label %452
+440:                                              ; preds = %err_sys_ex.exit531
+  %441 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %442 = icmp eq i32 %441, 1
+  br i1 %442, label %443, label %450
 
-445:                                              ; preds = %442
+443:                                              ; preds = %440
   %.b2.i532 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i532, label %err_sys_ex.exit534, label %446
+  br i1 %.b2.i532, label %err_sys_ex.exit534, label %444
 
-446:                                              ; preds = %445
-  %447 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %448 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %447, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.49) #22
+444:                                              ; preds = %443
+  %445 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %446 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %445, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.49) #22
   %.b.pr.i533 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i533, label %err_sys_ex.exit534, label %449
+  br i1 %.b.pr.i533, label %err_sys_ex.exit534, label %447
 
-449:                                              ; preds = %446
-  %450 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %451 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %450) #23
+447:                                              ; preds = %444
+  %448 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %449 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %448) #23
   br label %err_sys_ex.exit534
 
-452:                                              ; preds = %442
+450:                                              ; preds = %440
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.49) #24
   unreachable
 
-err_sys_ex.exit534:                               ; preds = %449, %446, %445, %err_sys_ex.exit531
-  br i1 %or.cond23.not, label %453, label %err_sys_ex.exit537
+err_sys_ex.exit534:                               ; preds = %447, %444, %443, %err_sys_ex.exit531
+  br i1 %or.cond23.not, label %451, label %err_sys_ex.exit537
 
-453:                                              ; preds = %err_sys_ex.exit534
-  %454 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %.0325624, ptr noundef %.038012692567, i32 noundef 1) #21
-  %.not453 = icmp eq i32 %454, 1
-  br i1 %.not453, label %err_sys_ex.exit537, label %455
+451:                                              ; preds = %err_sys_ex.exit534
+  %452 = tail call i32 @wolfSSL_CTX_use_PrivateKey_file(ptr noundef %.0325624, ptr noundef %.038012692567, i32 noundef 1) #21
+  %.not453 = icmp eq i32 %452, 1
+  br i1 %.not453, label %err_sys_ex.exit537, label %453
 
-455:                                              ; preds = %453
-  %456 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %457 = icmp eq i32 %456, 1
-  br i1 %457, label %458, label %465
+453:                                              ; preds = %451
+  %454 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %455 = icmp eq i32 %454, 1
+  br i1 %455, label %456, label %463
 
-458:                                              ; preds = %455
+456:                                              ; preds = %453
   %.b2.i535 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i535, label %err_sys_ex.exit537, label %459
+  br i1 %.b2.i535, label %err_sys_ex.exit537, label %457
 
-459:                                              ; preds = %458
-  %460 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %461 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %460, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.50) #22
+457:                                              ; preds = %456
+  %458 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %459 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %458, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.50) #22
   %.b.pr.i536 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i536, label %err_sys_ex.exit537, label %462
+  br i1 %.b.pr.i536, label %err_sys_ex.exit537, label %460
 
-462:                                              ; preds = %459
-  %463 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %464 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %463) #23
+460:                                              ; preds = %457
+  %461 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %462 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %461) #23
   br label %err_sys_ex.exit537
 
-465:                                              ; preds = %455
+463:                                              ; preds = %453
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.50) #24
   unreachable
 
-err_sys_ex.exit537:                               ; preds = %462, %459, %458, %453, %err_sys_ex.exit534
+err_sys_ex.exit537:                               ; preds = %460, %457, %456, %451, %err_sys_ex.exit534
   %.not454 = icmp eq i32 %.036511292609, 0
-  br i1 %.not454, label %468, label %466
+  br i1 %.not454, label %466, label %464
 
-466:                                              ; preds = %err_sys_ex.exit537
-  %467 = tail call i32 @wolfSSL_CTX_mutual_auth(ptr noundef %.0325624, i32 noundef 1) #21
-  br label %468
+464:                                              ; preds = %err_sys_ex.exit537
+  %465 = tail call i32 @wolfSSL_CTX_mutual_auth(ptr noundef %.0325624, i32 noundef 1) #21
+  br label %466
 
-468:                                              ; preds = %466, %err_sys_ex.exit537
-  %469 = tail call i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef %.0325624, i16 noundef zeroext 0) #21
-  %.not455 = icmp eq i32 %469, 1
-  br i1 %.not455, label %err_sys_ex.exit540, label %470
+466:                                              ; preds = %464, %err_sys_ex.exit537
+  %467 = tail call i32 @wolfSSL_CTX_SetTmpEC_DHE_Sz(ptr noundef %.0325624, i16 noundef zeroext 0) #21
+  %.not455 = icmp eq i32 %467, 1
+  br i1 %.not455, label %err_sys_ex.exit540, label %468
 
-470:                                              ; preds = %468
-  %471 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %472 = icmp eq i32 %471, 1
-  br i1 %472, label %473, label %480
+468:                                              ; preds = %466
+  %469 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %470 = icmp eq i32 %469, 1
+  br i1 %470, label %471, label %478
 
-473:                                              ; preds = %470
+471:                                              ; preds = %468
   %.b2.i538 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i538, label %err_sys_ex.exit540, label %474
+  br i1 %.b2.i538, label %err_sys_ex.exit540, label %472
 
-474:                                              ; preds = %473
-  %475 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %476 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %475, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.51) #22
+472:                                              ; preds = %471
+  %473 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %474 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %473, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.51) #22
   %.b.pr.i539 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i539, label %err_sys_ex.exit540, label %477
+  br i1 %.b.pr.i539, label %err_sys_ex.exit540, label %475
 
-477:                                              ; preds = %474
-  %478 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %479 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %478) #23
+475:                                              ; preds = %472
+  %476 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %477 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %476) #23
   br label %err_sys_ex.exit540
 
-480:                                              ; preds = %470
+478:                                              ; preds = %468
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.51) #24
   unreachable
 
-err_sys_ex.exit540:                               ; preds = %477, %474, %473, %468
+err_sys_ex.exit540:                               ; preds = %475, %472, %471, %466
   %.not456 = icmp ne i32 %.03318292694, 0
   %brmerge.not = and i1 %or.cond19, %.not456
-  br i1 %brmerge.not, label %481, label %err_sys_ex.exit543
+  br i1 %brmerge.not, label %479, label %err_sys_ex.exit543
 
-481:                                              ; preds = %err_sys_ex.exit540
-  %482 = select i1 %401, i32 17, i32 3
-  %483 = load i32, ptr %33, align 4, !tbaa !4
-  %484 = and i32 %483, -3
-  %485 = icmp eq i32 %484, 1
-  %486 = select i1 %485, ptr @myVerify, ptr null
-  tail call void @wolfSSL_CTX_set_verify(ptr noundef %.0325624, i32 noundef %482, ptr noundef %486) #21
-  %487 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %.0325624, ptr noundef %.038413092555, ptr noundef null, i32 noundef 0) #21
-  %.not457 = icmp eq i32 %487, 1
-  br i1 %.not457, label %err_sys_ex.exit543, label %488
+479:                                              ; preds = %err_sys_ex.exit540
+  %480 = select i1 %399, i32 17, i32 3
+  %481 = load i32, ptr %33, align 4, !tbaa !4
+  %482 = and i32 %481, -3
+  %483 = icmp eq i32 %482, 1
+  %484 = select i1 %483, ptr @myVerify, ptr null
+  tail call void @wolfSSL_CTX_set_verify(ptr noundef %.0325624, i32 noundef %480, ptr noundef %484) #21
+  %485 = tail call i32 @wolfSSL_CTX_load_verify_locations_ex(ptr noundef %.0325624, ptr noundef %.038413092555, ptr noundef null, i32 noundef 0) #21
+  %.not457 = icmp eq i32 %485, 1
+  br i1 %.not457, label %err_sys_ex.exit543, label %486
 
-488:                                              ; preds = %481
-  %489 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %490 = icmp eq i32 %489, 1
-  br i1 %490, label %491, label %498
+486:                                              ; preds = %479
+  %487 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %488 = icmp eq i32 %487, 1
+  br i1 %488, label %489, label %496
 
-491:                                              ; preds = %488
+489:                                              ; preds = %486
   %.b2.i541 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i541, label %err_sys_ex.exit543, label %492
+  br i1 %.b2.i541, label %err_sys_ex.exit543, label %490
 
-492:                                              ; preds = %491
-  %493 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %494 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %493, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.52) #22
+490:                                              ; preds = %489
+  %491 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %492 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %491, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.52) #22
   %.b.pr.i542 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i542, label %err_sys_ex.exit543, label %495
+  br i1 %.b.pr.i542, label %err_sys_ex.exit543, label %493
 
-495:                                              ; preds = %492
-  %496 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %497 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %496) #23
+493:                                              ; preds = %490
+  %494 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %495 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %494) #23
   br label %err_sys_ex.exit543
 
-498:                                              ; preds = %488
+496:                                              ; preds = %486
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.52) #24
   unreachable
 
-err_sys_ex.exit543:                               ; preds = %495, %492, %491, %481, %err_sys_ex.exit540
+err_sys_ex.exit543:                               ; preds = %493, %490, %489, %479, %err_sys_ex.exit540
   %.not458 = icmp eq ptr %.037312092585, null
-  br i1 %.not458, label %err_sys_ex.exit546, label %499
+  br i1 %.not458, label %err_sys_ex.exit546, label %497
 
-499:                                              ; preds = %err_sys_ex.exit543
-  %500 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037312092585) #25
-  %501 = trunc i64 %500 to i16
-  %502 = tail call i32 @wolfSSL_CTX_UseSNI(ptr noundef %.0325624, i8 noundef zeroext 0, ptr noundef nonnull %.037312092585, i16 noundef zeroext %501) #21
-  %.not459 = icmp eq i32 %502, 1
-  br i1 %.not459, label %err_sys_ex.exit546, label %503
+497:                                              ; preds = %err_sys_ex.exit543
+  %498 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.037312092585) #25
+  %499 = trunc i64 %498 to i16
+  %500 = tail call i32 @wolfSSL_CTX_UseSNI(ptr noundef %.0325624, i8 noundef zeroext 0, ptr noundef nonnull %.037312092585, i16 noundef zeroext %499) #21
+  %.not459 = icmp eq i32 %500, 1
+  br i1 %.not459, label %err_sys_ex.exit546, label %501
 
-503:                                              ; preds = %499
-  %504 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %505 = icmp eq i32 %504, 1
-  br i1 %505, label %506, label %513
+501:                                              ; preds = %497
+  %502 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %503 = icmp eq i32 %502, 1
+  br i1 %503, label %504, label %511
 
-506:                                              ; preds = %503
+504:                                              ; preds = %501
   %.b2.i544 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i544, label %err_sys_ex.exit546, label %507
+  br i1 %.b2.i544, label %err_sys_ex.exit546, label %505
 
-507:                                              ; preds = %506
-  %508 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %509 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %508, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.53) #22
+505:                                              ; preds = %504
+  %506 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %507 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %506, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.53) #22
   %.b.pr.i545 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i545, label %err_sys_ex.exit546, label %510
+  br i1 %.b.pr.i545, label %err_sys_ex.exit546, label %508
 
-510:                                              ; preds = %507
-  %511 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %512 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %511) #23
+508:                                              ; preds = %505
+  %509 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %510 = tail call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %509) #23
   br label %err_sys_ex.exit546
 
-513:                                              ; preds = %503
+511:                                              ; preds = %501
   tail call fastcc void @err_sys(ptr noundef nonnull @.str.53) #24
   unreachable
 
-err_sys_ex.exit546:                               ; preds = %510, %507, %506, %499, %err_sys_ex.exit543
+err_sys_ex.exit546:                               ; preds = %508, %505, %504, %497, %err_sys_ex.exit543
   %.not460 = icmp eq i32 %.037111892591, 0
-  br i1 %.not460, label %516, label %514
+  br i1 %.not460, label %514, label %512
 
-514:                                              ; preds = %err_sys_ex.exit546
-  %515 = tail call i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef %.0325624) #21
-  br label %516
+512:                                              ; preds = %err_sys_ex.exit546
+  %513 = tail call i32 @wolfSSL_CTX_no_dhe_psk(ptr noundef %.0325624) #21
+  br label %514
 
-516:                                              ; preds = %514, %err_sys_ex.exit546
+514:                                              ; preds = %512, %err_sys_ex.exit546
   %.not461 = icmp eq i32 %.036911692597, 0
-  br i1 %.not461, label %519, label %517
+  br i1 %.not461, label %517, label %515
 
-517:                                              ; preds = %516
-  %518 = tail call i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef %.0325624) #21
-  br label %519
+515:                                              ; preds = %514
+  %516 = tail call i32 @wolfSSL_CTX_only_dhe_psk(ptr noundef %.0325624) #21
+  br label %517
 
-519:                                              ; preds = %517, %516
-  %520 = icmp ne i32 %.03418892676, 0
-  %or.cond43 = and i1 %or.cond19, %520
+517:                                              ; preds = %515, %514
+  %518 = icmp ne i32 %.03418892676, 0
+  %or.cond43 = and i1 %or.cond19, %518
   %.not465 = icmp eq i32 %.03398692682, 0
-  %521 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %519 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not467.not = icmp eq ptr %.039413892531, null
   %.not.i556 = icmp eq i32 %.03519892651, 0
   %.not.not.i.i = icmp eq i32 %.03348492688, 0
-  %522 = getelementptr inbounds nuw i8, ptr %16, i64 2
-  %523 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %524 = getelementptr inbounds nuw i8, ptr %12, i64 2
-  %525 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  %526 = icmp ne ptr %.038813492543, null
-  %or.cond57 = select i1 %or.cond19, i1 true, i1 %526
+  %520 = getelementptr inbounds nuw i8, ptr %16, i64 2
+  %521 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  %522 = getelementptr inbounds nuw i8, ptr %12, i64 2
+  %523 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %524 = icmp ne ptr %.038813492543, null
+  %or.cond57 = select i1 %or.cond19, i1 true, i1 %524
   %.not469 = icmp eq i32 %.035710492633, 0
   %.not470 = icmp eq i32 %.035310092645, 0
-  %527 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %528 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %525 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %526 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.not473 = icmp eq i32 %.03439092670, 0
-  %529 = icmp eq i32 %.040314092525, 0
-  %530 = icmp eq i64 %.040914492513, 0
-  %or.cond63 = select i1 %529, i1 %530, i1 false
+  %527 = icmp eq i32 %.040314092525, 0
+  %528 = icmp eq i64 %.040914492513, 0
+  %or.cond63 = select i1 %527, i1 %528, i1 false
   %.not484 = icmp eq i32 %.036711492603, 0
   %.not485 = icmp eq i32 %.03277892701, 0
-  %531 = icmp ne i32 %.036311092615, 0
-  %532 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %533 = icmp eq i32 %.037512292579, 1
+  %529 = icmp ne i32 %.036311092615, 0
+  %530 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %531 = icmp eq i32 %.037512292579, 1
   br label %.outer.outer
 
-.outer.outer:                                     ; preds = %1025, %519
-  %.0606.ph.ph = phi i32 [ %.2608, %1025 ], [ -1, %519 ]
-  %.2437.ph.ph = phi i16 [ %.3438, %1025 ], [ %.014892501, %519 ]
-  %.not47.i.ph.ph = phi i1 [ true, %1025 ], [ false, %519 ]
-  %.0396.ph.ph = phi i32 [ %.5, %1025 ], [ 0, %519 ]
-  %.2392.ph.ph = phi i32 [ %1026, %1025 ], [ %.039013692537, %519 ]
-  %534 = icmp sgt i32 %.2392.ph.ph, 0
+.outer.outer:                                     ; preds = %1023, %517
+  %.0606.ph.ph = phi i32 [ %.2608, %1023 ], [ -1, %517 ]
+  %.2437.ph.ph = phi i16 [ %.3438, %1023 ], [ %.014892501, %517 ]
+  %.not47.i.ph.ph = phi i1 [ true, %1023 ], [ false, %517 ]
+  %.0396.ph.ph = phi i32 [ %.5, %1023 ], [ 0, %517 ]
+  %.2392.ph.ph = phi i32 [ %1024, %1023 ], [ %.039013692537, %517 ]
+  %532 = icmp sgt i32 %.2392.ph.ph, 0
   br label %.outer
 
-.outer:                                           ; preds = %.outer.outer, %1024
-  %.0606.ph = phi i32 [ %.2608, %1024 ], [ %.0606.ph.ph, %.outer.outer ]
-  %.2437.ph = phi i16 [ %.3438, %1024 ], [ %.2437.ph.ph, %.outer.outer ]
-  %.not47.i.ph = phi i1 [ true, %1024 ], [ %.not47.i.ph.ph, %.outer.outer ]
-  %.0396.ph = phi i32 [ %.5, %1024 ], [ %.0396.ph.ph, %.outer.outer ]
-  br label %535
+.outer:                                           ; preds = %.outer.outer, %1022
+  %.0606.ph = phi i32 [ %.2608, %1022 ], [ %.0606.ph.ph, %.outer.outer ]
+  %.2437.ph = phi i16 [ %.3438, %1022 ], [ %.2437.ph.ph, %.outer.outer ]
+  %.not47.i.ph = phi i1 [ true, %1022 ], [ %.not47.i.ph.ph, %.outer.outer ]
+  %.0396.ph = phi i32 [ %.5, %1022 ], [ %.0396.ph.ph, %.outer.outer ]
+  br label %533
 
-535:                                              ; preds = %.outer, %.thread2938
-  %.0606 = phi i32 [ %.2608, %.thread2938 ], [ %.0606.ph, %.outer ]
-  %.2437 = phi i16 [ %.3438, %.thread2938 ], [ %.2437.ph, %.outer ]
-  %.not47.i = phi i1 [ true, %.thread2938 ], [ %.not47.i.ph, %.outer ]
-  %.0396 = phi i32 [ %.5, %.thread2938 ], [ %.0396.ph, %.outer ]
-  %536 = phi i1 [ false, %.thread2938 ], [ true, %.outer ]
-  %537 = call ptr @wolfSSL_new(ptr noundef %.0325624) #21
-  %538 = icmp eq ptr %537, null
-  br i1 %538, label %539, label %err_sys_ex.exit549
+533:                                              ; preds = %.outer, %.thread2939
+  %.0606 = phi i32 [ %.2608, %.thread2939 ], [ %.0606.ph, %.outer ]
+  %.2437 = phi i16 [ %.3438, %.thread2939 ], [ %.2437.ph, %.outer ]
+  %.not47.i = phi i1 [ true, %.thread2939 ], [ %.not47.i.ph, %.outer ]
+  %.0396 = phi i32 [ %.5, %.thread2939 ], [ %.0396.ph, %.outer ]
+  %534 = phi i1 [ false, %.thread2939 ], [ true, %.outer ]
+  %535 = call ptr @wolfSSL_new(ptr noundef %.0325624) #21
+  %536 = icmp eq ptr %535, null
+  br i1 %536, label %537, label %err_sys_ex.exit549
 
-539:                                              ; preds = %535
-  %540 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %541 = icmp eq i32 %540, 1
-  br i1 %541, label %542, label %549
+537:                                              ; preds = %533
+  %538 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %539 = icmp eq i32 %538, 1
+  br i1 %539, label %540, label %547
 
-542:                                              ; preds = %539
+540:                                              ; preds = %537
   %.b2.i547 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i547, label %err_sys_ex.exit549, label %543
+  br i1 %.b2.i547, label %err_sys_ex.exit549, label %541
 
-543:                                              ; preds = %542
-  %544 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %545 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %544, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.55) #22
+541:                                              ; preds = %540
+  %542 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %543 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %542, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.55) #22
   %.b.pr.i548 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i548, label %err_sys_ex.exit549, label %546
+  br i1 %.b.pr.i548, label %err_sys_ex.exit549, label %544
 
-546:                                              ; preds = %543
-  %547 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %548 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %547) #23
+544:                                              ; preds = %541
+  %545 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %546 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %545) #23
   br label %err_sys_ex.exit549
 
-549:                                              ; preds = %539
+547:                                              ; preds = %537
   call fastcc void @err_sys(ptr noundef nonnull @.str.55) #24
   unreachable
 
-err_sys_ex.exit549:                               ; preds = %546, %543, %542, %535
-  br i1 %or.cond43, label %550, label %.critedge500
+err_sys_ex.exit549:                               ; preds = %544, %541, %540, %533
+  br i1 %or.cond43, label %548, label %.critedge500
 
-550:                                              ; preds = %err_sys_ex.exit549
-  %551 = call i32 @wolfSSL_use_certificate_chain_file(ptr noundef %537, ptr noundef %.038212892561) #21
-  %.not462 = icmp eq i32 %551, 1
-  br i1 %.not462, label %err_sys_ex.exit552, label %552
+548:                                              ; preds = %err_sys_ex.exit549
+  %549 = call i32 @wolfSSL_use_certificate_chain_file(ptr noundef %535, ptr noundef %.038212892561) #21
+  %.not462 = icmp eq i32 %549, 1
+  br i1 %.not462, label %err_sys_ex.exit552, label %550
 
-552:                                              ; preds = %550
-  %553 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %554 = icmp eq i32 %553, 1
-  br i1 %554, label %555, label %562
+550:                                              ; preds = %548
+  %551 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %552 = icmp eq i32 %551, 1
+  br i1 %552, label %553, label %560
 
-555:                                              ; preds = %552
+553:                                              ; preds = %550
   %.b2.i550 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i550, label %err_sys_ex.exit552, label %556
+  br i1 %.b2.i550, label %err_sys_ex.exit552, label %554
 
-556:                                              ; preds = %555
-  %557 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %558 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %557, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.46) #22
+554:                                              ; preds = %553
+  %555 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %556 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %555, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.46) #22
   %.b.pr.i551 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i551, label %err_sys_ex.exit552, label %559
+  br i1 %.b.pr.i551, label %err_sys_ex.exit552, label %557
 
-559:                                              ; preds = %556
-  %560 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %561 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %560) #23
+557:                                              ; preds = %554
+  %558 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %559 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %558) #23
   br label %err_sys_ex.exit552
 
-562:                                              ; preds = %552
+560:                                              ; preds = %550
   call fastcc void @err_sys(ptr noundef nonnull @.str.46) #24
   unreachable
 
-err_sys_ex.exit552:                               ; preds = %550, %555, %556, %559
-  %563 = call i32 @wolfSSL_use_PrivateKey_file(ptr noundef %537, ptr noundef %.038012692567, i32 noundef 1) #21
-  %.not463 = icmp eq i32 %563, 1
-  br i1 %.not463, label %.critedge500, label %564
+err_sys_ex.exit552:                               ; preds = %548, %553, %554, %557
+  %561 = call i32 @wolfSSL_use_PrivateKey_file(ptr noundef %535, ptr noundef %.038012692567, i32 noundef 1) #21
+  %.not463 = icmp eq i32 %561, 1
+  br i1 %.not463, label %.critedge500, label %562
 
-564:                                              ; preds = %err_sys_ex.exit552
-  %565 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %566 = icmp eq i32 %565, 1
-  br i1 %566, label %567, label %574
+562:                                              ; preds = %err_sys_ex.exit552
+  %563 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %564 = icmp eq i32 %563, 1
+  br i1 %564, label %565, label %572
 
-567:                                              ; preds = %564
+565:                                              ; preds = %562
   %.b2.i553 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i553, label %.critedge500, label %568
+  br i1 %.b2.i553, label %.critedge500, label %566
 
-568:                                              ; preds = %567
-  %569 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %570 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %569, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.56) #22
+566:                                              ; preds = %565
+  %567 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %568 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %567, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.56) #22
   %.b.pr.i554 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i554, label %.critedge500, label %571
+  br i1 %.b.pr.i554, label %.critedge500, label %569
 
-571:                                              ; preds = %568
-  %572 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %573 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %572) #23
+569:                                              ; preds = %566
+  %570 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %571 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %570) #23
   br label %.critedge500
 
-574:                                              ; preds = %564
+572:                                              ; preds = %562
   call fastcc void @err_sys(ptr noundef nonnull @.str.56) #24
   unreachable
 
-.critedge500:                                     ; preds = %571, %568, %567, %err_sys_ex.exit549, %err_sys_ex.exit552
-  %575 = call i32 @wolfSSL_SetHsDoneCb(ptr noundef %537, ptr noundef nonnull @myHsDoneCb, ptr noundef null) #21
-  br i1 %366, label %576, label %598
+.critedge500:                                     ; preds = %569, %566, %565, %err_sys_ex.exit549, %err_sys_ex.exit552
+  %573 = call i32 @wolfSSL_SetHsDoneCb(ptr noundef %535, ptr noundef nonnull @myHsDoneCb, ptr noundef null) #21
+  br i1 %364, label %574, label %596
 
-576:                                              ; preds = %.critedge500
-  %577 = load i32, ptr %25, align 4, !tbaa !4
-  %578 = icmp sgt i32 %577, 0
-  br i1 %578, label %579, label %587
+574:                                              ; preds = %.critedge500
+  %575 = load i32, ptr %25, align 4, !tbaa !4
+  %576 = icmp sgt i32 %575, 0
+  br i1 %576, label %577, label %585
 
-579:                                              ; preds = %576
-  %580 = trunc i32 %577 to i16
-  %581 = call i32 @wolfSSL_UseKeyShare(ptr noundef %537, i16 noundef zeroext %580) #21
-  %582 = icmp eq i32 %581, 1
-  br i1 %582, label %584, label %583
+577:                                              ; preds = %574
+  %578 = trunc i32 %575 to i16
+  %579 = call i32 @wolfSSL_UseKeyShare(ptr noundef %535, i16 noundef zeroext %578) #21
+  %580 = icmp eq i32 %579, 1
+  br i1 %580, label %582, label %581
 
-583:                                              ; preds = %579
+581:                                              ; preds = %577
   call fastcc void @err_sys(ptr noundef nonnull @.str.57) #24
   unreachable
 
-584:                                              ; preds = %579
-  %585 = call i32 @wolfSSL_set_groups(ptr noundef %537, ptr noundef nonnull %25, i32 noundef 1) #21
-  %.not464 = icmp eq i32 %585, 1
-  br i1 %.not464, label %598, label %586
+582:                                              ; preds = %577
+  %583 = call i32 @wolfSSL_set_groups(ptr noundef %535, ptr noundef nonnull %25, i32 noundef 1) #21
+  %.not464 = icmp eq i32 %583, 1
+  br i1 %.not464, label %596, label %584
 
-586:                                              ; preds = %584
+584:                                              ; preds = %582
   call fastcc void @err_sys(ptr noundef nonnull @.str.58) #24
   unreachable
 
-587:                                              ; preds = %576
+585:                                              ; preds = %574
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %20, i8 0, i64 16, i1 false)
   switch i32 %.035510292639, label %SetKeyShare.exit [
-    i32 2, label %588
-    i32 1, label %592
+    i32 2, label %586
+    i32 1, label %590
   ]
 
-588:                                              ; preds = %587
-  %589 = call i32 @wolfSSL_UseKeyShare(ptr noundef %537, i16 noundef zeroext 23) #21
-  %590 = icmp eq i32 %589, 1
-  br i1 %590, label %.thread.i, label %591
+586:                                              ; preds = %585
+  %587 = call i32 @wolfSSL_UseKeyShare(ptr noundef %535, i16 noundef zeroext 23) #21
+  %588 = icmp eq i32 %587, 1
+  br i1 %588, label %.thread.i, label %589
 
-591:                                              ; preds = %588
+589:                                              ; preds = %586
   call fastcc void @err_sys(ptr noundef nonnull @.str.189) #24
   unreachable
 
-592:                                              ; preds = %587
-  %593 = call i32 @wolfSSL_UseKeyShare(ptr noundef %537, i16 noundef zeroext 256) #21
-  %594 = icmp eq i32 %593, 1
-  br i1 %594, label %.thread.i, label %595
+590:                                              ; preds = %585
+  %591 = call i32 @wolfSSL_UseKeyShare(ptr noundef %535, i16 noundef zeroext 256) #21
+  %592 = icmp eq i32 %591, 1
+  br i1 %592, label %.thread.i, label %593
 
-595:                                              ; preds = %592
+593:                                              ; preds = %590
   call fastcc void @err_sys(ptr noundef nonnull @.str.190) #24
   unreachable
 
-.thread.i:                                        ; preds = %592, %588
-  %storemerge.i = phi i32 [ 23, %588 ], [ 256, %592 ]
+.thread.i:                                        ; preds = %590, %586
+  %storemerge.i = phi i32 [ 23, %586 ], [ 256, %590 ]
   store i32 %storemerge.i, ptr %20, align 16, !tbaa !4
-  %596 = call i32 @wolfSSL_set_groups(ptr noundef %537, ptr noundef nonnull %20, i32 noundef 1) #21
-  %.not21.i = icmp eq i32 %596, 1
-  br i1 %.not21.i, label %SetKeyShare.exit, label %597
+  %594 = call i32 @wolfSSL_set_groups(ptr noundef %535, ptr noundef nonnull %20, i32 noundef 1) #21
+  %.not21.i = icmp eq i32 %594, 1
+  br i1 %.not21.i, label %SetKeyShare.exit, label %595
 
-597:                                              ; preds = %.thread.i
+595:                                              ; preds = %.thread.i
   call fastcc void @err_sys(ptr noundef nonnull @.str.192) #24
   unreachable
 
-SetKeyShare.exit:                                 ; preds = %587, %.thread.i
+SetKeyShare.exit:                                 ; preds = %585, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %598
+  br label %596
 
-598:                                              ; preds = %SetKeyShare.exit, %584, %.critedge500
-  br i1 %.not465, label %601, label %599
+596:                                              ; preds = %SetKeyShare.exit, %582, %.critedge500
+  br i1 %.not465, label %599, label %597
 
-599:                                              ; preds = %598
-  %600 = call i32 @wolfSSL_AllowEncryptThenMac(ptr noundef %537, i32 noundef 0) #21
-  br label %601
+597:                                              ; preds = %596
+  %598 = call i32 @wolfSSL_AllowEncryptThenMac(ptr noundef %535, i32 noundef 0) #21
+  br label %599
 
-601:                                              ; preds = %599, %598
-  %602 = load ptr, ptr %521, align 8, !tbaa !43
-  %.not466 = icmp eq ptr %602, null
-  br i1 %.not466, label %605, label %603
+599:                                              ; preds = %597, %596
+  %600 = load ptr, ptr %519, align 8, !tbaa !43
+  %.not466 = icmp eq ptr %600, null
+  br i1 %.not466, label %603, label %601
 
-603:                                              ; preds = %601
-  %604 = getelementptr inbounds nuw i8, ptr %602, i64 8
-  store ptr %.039413892531, ptr %604, align 8, !tbaa !44
-  br label %605
+601:                                              ; preds = %599
+  %602 = getelementptr inbounds nuw i8, ptr %600, i64 8
+  store ptr %.039413892531, ptr %602, align 8, !tbaa !44
+  br label %603
 
-605:                                              ; preds = %603, %601
+603:                                              ; preds = %601, %599
   store i32 16, ptr %22, align 4, !tbaa !4
-  br i1 %.not.i556, label %671, label %606
+  br i1 %.not.i556, label %669, label %604
 
-606:                                              ; preds = %605
+604:                                              ; preds = %603
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  br i1 %.not.not.i.i, label %607, label %616
+  br i1 %.not.not.i.i, label %605, label %614
 
-607:                                              ; preds = %606
-  %608 = tail call ptr @__ctype_b_loc() #28
-  %609 = load ptr, ptr %608, align 8, !tbaa !47
-  %610 = getelementptr inbounds nuw i8, ptr %609, i64 98
-  %611 = load i16, ptr %610, align 2, !tbaa !49
-  %612 = and i16 %611, 1024
-  %.not18.i.i.i = icmp eq i16 %612, 0
-  br i1 %.not18.i.i.i, label %624, label %613
+605:                                              ; preds = %604
+  %606 = tail call ptr @__ctype_b_loc() #28
+  %607 = load ptr, ptr %606, align 8, !tbaa !47
+  %608 = getelementptr inbounds nuw i8, ptr %607, i64 98
+  %609 = load i16, ptr %608, align 2, !tbaa !49
+  %610 = and i16 %609, 1024
+  %.not18.i.i.i = icmp eq i16 %610, 0
+  br i1 %.not18.i.i.i, label %622, label %611
 
-613:                                              ; preds = %607
-  %614 = call ptr @gethostbyname(ptr noundef nonnull @.str.180) #21
-  %.not19.i.i.i = icmp eq ptr %614, null
-  br i1 %.not19.i.i.i, label %615, label %617
+611:                                              ; preds = %605
+  %612 = call ptr @gethostbyname(ptr noundef nonnull @.str.180) #21
+  %.not19.i.i.i = icmp eq ptr %612, null
+  br i1 %.not19.i.i.i, label %613, label %615
 
-615:                                              ; preds = %613
+613:                                              ; preds = %611
   call fastcc void @err_sys(ptr noundef nonnull @.str.186) #24
   unreachable
 
-616:                                              ; preds = %606
+614:                                              ; preds = %604
   store i16 2, ptr %16, align 4, !tbaa !50
   %rev.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
-  store i16 %rev.i.i.i.i, ptr %522, align 2, !tbaa !53
+  store i16 %rev.i.i.i.i, ptr %520, align 2, !tbaa !53
   br label %build_addr.exit.i.i
 
-617:                                              ; preds = %613
-  %618 = getelementptr inbounds nuw i8, ptr %614, i64 24
-  %619 = load ptr, ptr %618, align 8, !tbaa !54
-  %620 = load ptr, ptr %619, align 8, !tbaa !27
-  %621 = getelementptr inbounds nuw i8, ptr %614, i64 20
-  %622 = load i32, ptr %621, align 4, !tbaa !56
-  %623 = sext i32 %622 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %523, ptr align 1 %620, i64 %623, i1 false)
+615:                                              ; preds = %611
+  %616 = getelementptr inbounds nuw i8, ptr %612, i64 24
+  %617 = load ptr, ptr %616, align 8, !tbaa !54
+  %618 = load ptr, ptr %617, align 8, !tbaa !27
+  %619 = getelementptr inbounds nuw i8, ptr %612, i64 20
+  %620 = load i32, ptr %619, align 4, !tbaa !56
+  %621 = sext i32 %620 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %521, ptr align 1 %618, i64 %621, i1 false)
   store i16 2, ptr %16, align 4, !tbaa !50
   %rev.i22.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
-  store i16 %rev.i22.i.i.i, ptr %522, align 2, !tbaa !53
+  store i16 %rev.i22.i.i.i, ptr %520, align 2, !tbaa !53
   br label %build_addr.exit.i.i
 
-624:                                              ; preds = %607
+622:                                              ; preds = %605
   store i16 2, ptr %16, align 4, !tbaa !50
   %rev.i2226.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
-  store i16 %rev.i2226.i.i.i, ptr %522, align 2, !tbaa !53
-  %625 = call i32 @inet_addr(ptr noundef nonnull @.str.180) #21
-  store i32 %625, ptr %523, align 4, !tbaa !57
+  store i16 %rev.i2226.i.i.i, ptr %520, align 2, !tbaa !53
+  %623 = call i32 @inet_addr(ptr noundef nonnull @.str.180) #21
+  store i32 %623, ptr %521, align 4, !tbaa !57
   br label %build_addr.exit.i.i
 
-build_addr.exit.i.i:                              ; preds = %624, %617, %616
-  %626 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #21
-  %627 = icmp slt i32 %626, -1
-  br i1 %627, label %628, label %tcp_socket.exit.i.i
+build_addr.exit.i.i:                              ; preds = %622, %615, %614
+  %624 = call i32 @socket(i32 noundef 2, i32 noundef 2, i32 noundef 17) #21
+  %625 = icmp slt i32 %624, -1
+  br i1 %625, label %626, label %tcp_socket.exit.i.i
 
-628:                                              ; preds = %build_addr.exit.i.i
+626:                                              ; preds = %build_addr.exit.i.i
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.187) #24
   unreachable
 
 tcp_socket.exit.i.i:                              ; preds = %build_addr.exit.i.i
-  %629 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
+  %627 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store i32 1, ptr %17, align 4, !tbaa !4
-  %630 = call i32 @setsockopt(i32 noundef %626, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %17, i32 noundef 4) #21
-  %631 = icmp slt i32 %630, 0
-  br i1 %631, label %632, label %633
+  %628 = call i32 @setsockopt(i32 noundef %624, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %17, i32 noundef 4) #21
+  %629 = icmp slt i32 %628, 0
+  br i1 %629, label %630, label %631
 
-632:                                              ; preds = %tcp_socket.exit.i.i
+630:                                              ; preds = %tcp_socket.exit.i.i
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.181) #24
   unreachable
 
-633:                                              ; preds = %tcp_socket.exit.i.i
+631:                                              ; preds = %tcp_socket.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i32 1, ptr %18, align 4, !tbaa !4
-  %634 = call i32 @setsockopt(i32 noundef %626, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %18, i32 noundef 4) #21
-  %635 = icmp slt i32 %634, 0
-  br i1 %635, label %636, label %637
+  %632 = call i32 @setsockopt(i32 noundef %624, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %18, i32 noundef 4) #21
+  %633 = icmp slt i32 %632, 0
+  br i1 %633, label %634, label %635
 
-636:                                              ; preds = %633
+634:                                              ; preds = %631
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.182) #24
   unreachable
 
-637:                                              ; preds = %633
+635:                                              ; preds = %631
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %638 = call i32 @bind(i32 noundef %626, ptr noundef nonnull %16, i32 noundef 16) #21
-  %.not36.i.i = icmp eq i32 %638, 0
-  br i1 %.not36.i.i, label %640, label %639
+  %636 = call i32 @bind(i32 noundef %624, ptr noundef nonnull %16, i32 noundef 16) #21
+  %.not36.i.i = icmp eq i32 %636, 0
+  br i1 %.not36.i.i, label %638, label %637
 
-639:                                              ; preds = %637
+637:                                              ; preds = %635
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.183) #24
   unreachable
 
-640:                                              ; preds = %637
-  %641 = icmp eq i16 %.2437, 0
-  br i1 %641, label %642, label %646
+638:                                              ; preds = %635
+  %639 = icmp eq i16 %.2437, 0
+  br i1 %639, label %640, label %644
 
-642:                                              ; preds = %640
+640:                                              ; preds = %638
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 16, ptr %19, align 4, !tbaa !4
-  %643 = call i32 @getsockname(i32 noundef %626, ptr noundef nonnull %16, ptr noundef nonnull %19) #21
-  %644 = icmp eq i32 %643, 0
-  %645 = load i16, ptr %522, align 2
-  %rev.i.i.i = call i16 @llvm.bswap.i16(i16 %645)
-  %.1.i.i = select i1 %644, i16 %rev.i.i.i, i16 0
+  %641 = call i32 @getsockname(i32 noundef %624, ptr noundef nonnull %16, ptr noundef nonnull %19) #21
+  %642 = icmp eq i32 %641, 0
+  %643 = load i16, ptr %520, align 2
+  %rev.i.i.i = call i16 @llvm.bswap.i16(i16 %643)
+  %.1.i.i = select i1 %642, i16 %rev.i.i.i, i16 0
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %646
+  br label %644
 
-646:                                              ; preds = %640, %642
-  %.0.i.i = phi i16 [ %.1.i.i, %642 ], [ %.2437, %640 ]
-  %647 = load ptr, ptr %521, align 8, !tbaa !43
-  %.not38.i.i = icmp eq ptr %647, null
-  br i1 %.not38.i.i, label %668, label %648
+644:                                              ; preds = %638, %640
+  %.0.i.i = phi i16 [ %.1.i.i, %640 ], [ %.2437, %638 ]
+  %645 = load ptr, ptr %519, align 8, !tbaa !43
+  %.not38.i.i = icmp eq ptr %645, null
+  br i1 %.not38.i.i, label %666, label %646
 
-648:                                              ; preds = %646
-  %649 = getelementptr inbounds nuw i8, ptr %647, i64 56
-  %650 = call i32 @wolfSSL_CondStart(ptr noundef nonnull %649) #21
-  %.not39.i.i = icmp eq i32 %650, 0
-  br i1 %.not39.i.i, label %655, label %651
+646:                                              ; preds = %644
+  %647 = getelementptr inbounds nuw i8, ptr %645, i64 56
+  %648 = call i32 @wolfSSL_CondStart(ptr noundef nonnull %647) #21
+  %.not39.i.i = icmp eq i32 %648, 0
+  br i1 %.not39.i.i, label %653, label %649
 
-651:                                              ; preds = %648
-  %652 = tail call ptr @__errno_location() #28
-  store i32 %650, ptr %652, align 4, !tbaa !4
-  %653 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %654 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %653, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1709, i32 noundef %650, ptr noundef nonnull @.str.195) #22
+649:                                              ; preds = %646
+  %650 = tail call ptr @__errno_location() #28
+  store i32 %648, ptr %650, align 4, !tbaa !4
+  %651 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %652 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %651, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1709, i32 noundef %648, ptr noundef nonnull @.str.195) #22
   call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
   unreachable
 
-655:                                              ; preds = %648
-  store i16 1, ptr %647, align 8, !tbaa !58
-  %656 = getelementptr inbounds nuw i8, ptr %647, i64 2
-  store i16 %.0.i.i, ptr %656, align 2, !tbaa !59
-  %657 = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %649) #21
-  %.not40.i.i = icmp eq i32 %657, 0
-  br i1 %.not40.i.i, label %662, label %658
+653:                                              ; preds = %646
+  store i16 1, ptr %645, align 8, !tbaa !58
+  %654 = getelementptr inbounds nuw i8, ptr %645, i64 2
+  store i16 %.0.i.i, ptr %654, align 2, !tbaa !59
+  %655 = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %647) #21
+  %.not40.i.i = icmp eq i32 %655, 0
+  br i1 %.not40.i.i, label %660, label %656
 
-658:                                              ; preds = %655
-  %659 = tail call ptr @__errno_location() #28
-  store i32 %657, ptr %659, align 4, !tbaa !4
-  %660 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %661 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %660, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1715, i32 noundef %657, ptr noundef nonnull @.str.197) #22
+656:                                              ; preds = %653
+  %657 = tail call ptr @__errno_location() #28
+  store i32 %655, ptr %657, align 4, !tbaa !4
+  %658 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %659 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %658, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1715, i32 noundef %655, ptr noundef nonnull @.str.197) #22
   call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
   unreachable
 
-662:                                              ; preds = %655
-  %663 = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %649) #21
-  %.not41.i.i = icmp eq i32 %663, 0
-  br i1 %.not41.i.i, label %udp_accept.exit.i, label %664
+660:                                              ; preds = %653
+  %661 = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %647) #21
+  %.not41.i.i = icmp eq i32 %661, 0
+  br i1 %.not41.i.i, label %udp_accept.exit.i, label %662
 
-664:                                              ; preds = %662
-  %665 = tail call ptr @__errno_location() #28
-  store i32 %663, ptr %665, align 4, !tbaa !4
-  %666 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %667 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %666, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1716, i32 noundef %663, ptr noundef nonnull @.str.198) #22
+662:                                              ; preds = %660
+  %663 = tail call ptr @__errno_location() #28
+  store i32 %661, ptr %663, align 4, !tbaa !4
+  %664 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %665 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %664, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1716, i32 noundef %661, ptr noundef nonnull @.str.198) #22
   call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
   unreachable
 
-668:                                              ; preds = %646
-  %669 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %670 = call i64 @fwrite(ptr nonnull @.str.203, i64 54, i64 1, ptr %669) #23
+666:                                              ; preds = %644
+  %667 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %668 = call i64 @fwrite(ptr nonnull @.str.203, i64 54, i64 1, ptr %667) #23
   br label %udp_accept.exit.i
 
-udp_accept.exit.i:                                ; preds = %668, %662
+udp_accept.exit.i:                                ; preds = %666, %660
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %tcp_accept.exit
 
-671:                                              ; preds = %605
-  br i1 %.not47.i, label %.thread79.i, label %672
+669:                                              ; preds = %603
+  br i1 %.not47.i, label %.thread79.i, label %670
 
-672:                                              ; preds = %671
+670:                                              ; preds = %669
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  br i1 %.not.not.i.i, label %673, label %682
+  br i1 %.not.not.i.i, label %671, label %680
 
-673:                                              ; preds = %672
-  %674 = tail call ptr @__ctype_b_loc() #28
-  %675 = load ptr, ptr %674, align 8, !tbaa !47
-  %676 = getelementptr inbounds nuw i8, ptr %675, i64 98
-  %677 = load i16, ptr %676, align 2, !tbaa !49
-  %678 = and i16 %677, 1024
-  %.not18.i.i61.i = icmp eq i16 %678, 0
-  br i1 %.not18.i.i61.i, label %690, label %679
+671:                                              ; preds = %670
+  %672 = tail call ptr @__ctype_b_loc() #28
+  %673 = load ptr, ptr %672, align 8, !tbaa !47
+  %674 = getelementptr inbounds nuw i8, ptr %673, i64 98
+  %675 = load i16, ptr %674, align 2, !tbaa !49
+  %676 = and i16 %675, 1024
+  %.not18.i.i61.i = icmp eq i16 %676, 0
+  br i1 %.not18.i.i61.i, label %688, label %677
 
-679:                                              ; preds = %673
-  %680 = call ptr @gethostbyname(ptr noundef nonnull @.str.180) #21
-  %.not19.i.i62.i = icmp eq ptr %680, null
-  br i1 %.not19.i.i62.i, label %681, label %683
+677:                                              ; preds = %671
+  %678 = call ptr @gethostbyname(ptr noundef nonnull @.str.180) #21
+  %.not19.i.i62.i = icmp eq ptr %678, null
+  br i1 %.not19.i.i62.i, label %679, label %681
 
-681:                                              ; preds = %679
+679:                                              ; preds = %677
   call fastcc void @err_sys(ptr noundef nonnull @.str.186) #24
   unreachable
 
-682:                                              ; preds = %672
+680:                                              ; preds = %670
   store i16 2, ptr %12, align 4, !tbaa !50
   %rev.i.i.i57.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
-  store i16 %rev.i.i.i57.i, ptr %524, align 2, !tbaa !53
+  store i16 %rev.i.i.i57.i, ptr %522, align 2, !tbaa !53
   br label %build_addr.exit.i58.i
 
-683:                                              ; preds = %679
-  %684 = getelementptr inbounds nuw i8, ptr %680, i64 24
-  %685 = load ptr, ptr %684, align 8, !tbaa !54
-  %686 = load ptr, ptr %685, align 8, !tbaa !27
-  %687 = getelementptr inbounds nuw i8, ptr %680, i64 20
-  %688 = load i32, ptr %687, align 4, !tbaa !56
-  %689 = sext i32 %688 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %525, ptr align 1 %686, i64 %689, i1 false)
+681:                                              ; preds = %677
+  %682 = getelementptr inbounds nuw i8, ptr %678, i64 24
+  %683 = load ptr, ptr %682, align 8, !tbaa !54
+  %684 = load ptr, ptr %683, align 8, !tbaa !27
+  %685 = getelementptr inbounds nuw i8, ptr %678, i64 20
+  %686 = load i32, ptr %685, align 4, !tbaa !56
+  %687 = sext i32 %686 to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %523, ptr align 1 %684, i64 %687, i1 false)
   store i16 2, ptr %12, align 4, !tbaa !50
   %rev.i22.i.i63.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
-  store i16 %rev.i22.i.i63.i, ptr %524, align 2, !tbaa !53
+  store i16 %rev.i22.i.i63.i, ptr %522, align 2, !tbaa !53
   br label %build_addr.exit.i58.i
 
-690:                                              ; preds = %673
+688:                                              ; preds = %671
   store i16 2, ptr %12, align 4, !tbaa !50
   %rev.i2226.i.i64.i = call noundef i16 @llvm.bswap.i16(i16 %.2437)
-  store i16 %rev.i2226.i.i64.i, ptr %524, align 2, !tbaa !53
-  %691 = call i32 @inet_addr(ptr noundef nonnull @.str.180) #21
-  store i32 %691, ptr %525, align 4, !tbaa !57
+  store i16 %rev.i2226.i.i64.i, ptr %522, align 2, !tbaa !53
+  %689 = call i32 @inet_addr(ptr noundef nonnull @.str.180) #21
+  store i32 %689, ptr %523, align 4, !tbaa !57
   br label %build_addr.exit.i58.i
 
-build_addr.exit.i58.i:                            ; preds = %690, %683, %682
-  %692 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #21
-  %693 = icmp slt i32 %692, -1
-  br i1 %693, label %694, label %695
+build_addr.exit.i58.i:                            ; preds = %688, %681, %680
+  %690 = call i32 @socket(i32 noundef 2, i32 noundef 1, i32 noundef 6) #21
+  %691 = icmp slt i32 %690, -1
+  br i1 %691, label %692, label %693
 
-694:                                              ; preds = %build_addr.exit.i58.i
+692:                                              ; preds = %build_addr.exit.i58.i
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.187) #24
   unreachable
 
-695:                                              ; preds = %build_addr.exit.i58.i
-  %696 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
+693:                                              ; preds = %build_addr.exit.i58.i
+  %694 = call ptr @signal(i32 noundef 13, ptr noundef nonnull inttoptr (i64 1 to ptr)) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 1, ptr %11, align 4, !tbaa !4
-  %697 = call i32 @setsockopt(i32 noundef %692, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 4) #21
-  %698 = icmp slt i32 %697, 0
-  br i1 %698, label %699, label %tcp_socket.exit.i59.i
+  %695 = call i32 @setsockopt(i32 noundef %690, i32 noundef 6, i32 noundef 1, ptr noundef nonnull %11, i32 noundef 4) #21
+  %696 = icmp slt i32 %695, 0
+  br i1 %696, label %697, label %tcp_socket.exit.i59.i
 
-699:                                              ; preds = %695
+697:                                              ; preds = %693
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.188) #24
   unreachable
 
-tcp_socket.exit.i59.i:                            ; preds = %695
+tcp_socket.exit.i59.i:                            ; preds = %693
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 1, ptr %13, align 4, !tbaa !4
-  %700 = call i32 @setsockopt(i32 noundef %692, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %13, i32 noundef 4) #21
-  %701 = icmp slt i32 %700, 0
-  br i1 %701, label %702, label %703
+  %698 = call i32 @setsockopt(i32 noundef %690, i32 noundef 1, i32 noundef 2, ptr noundef nonnull %13, i32 noundef 4) #21
+  %699 = icmp slt i32 %698, 0
+  br i1 %699, label %700, label %701
 
-702:                                              ; preds = %tcp_socket.exit.i59.i
+700:                                              ; preds = %tcp_socket.exit.i59.i
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.181) #24
   unreachable
 
-703:                                              ; preds = %tcp_socket.exit.i59.i
+701:                                              ; preds = %tcp_socket.exit.i59.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i32 1, ptr %14, align 4, !tbaa !4
-  %704 = call i32 @setsockopt(i32 noundef %692, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %14, i32 noundef 4) #21
-  %705 = icmp slt i32 %704, 0
-  br i1 %705, label %706, label %707
+  %702 = call i32 @setsockopt(i32 noundef %690, i32 noundef 1, i32 noundef 15, ptr noundef nonnull %14, i32 noundef 4) #21
+  %703 = icmp slt i32 %702, 0
+  br i1 %703, label %704, label %705
 
-706:                                              ; preds = %703
+704:                                              ; preds = %701
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.182) #24
   unreachable
 
-707:                                              ; preds = %703
+705:                                              ; preds = %701
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %708 = call i32 @bind(i32 noundef %692, ptr noundef nonnull %12, i32 noundef 16) #21
-  %.not18.i.i = icmp eq i32 %708, 0
-  br i1 %.not18.i.i, label %710, label %709
+  %706 = call i32 @bind(i32 noundef %690, ptr noundef nonnull %12, i32 noundef 16) #21
+  %.not18.i.i = icmp eq i32 %706, 0
+  br i1 %.not18.i.i, label %708, label %707
 
-709:                                              ; preds = %707
+707:                                              ; preds = %705
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.183) #24
   unreachable
 
-710:                                              ; preds = %707
-  %711 = call i32 @listen(i32 noundef %692, i32 noundef 5) #21
-  %.not19.i.i = icmp eq i32 %711, 0
-  br i1 %.not19.i.i, label %713, label %712
+708:                                              ; preds = %705
+  %709 = call i32 @listen(i32 noundef %690, i32 noundef 5) #21
+  %.not19.i.i = icmp eq i32 %709, 0
+  br i1 %.not19.i.i, label %711, label %710
 
-712:                                              ; preds = %710
+710:                                              ; preds = %708
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.184) #24
   unreachable
 
-713:                                              ; preds = %710
-  %714 = icmp eq i16 %.2437, 0
-  br i1 %714, label %715, label %719
+711:                                              ; preds = %708
+  %712 = icmp eq i16 %.2437, 0
+  br i1 %712, label %713, label %717
 
-715:                                              ; preds = %713
+713:                                              ; preds = %711
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 16, ptr %15, align 4, !tbaa !4
-  %716 = call i32 @getsockname(i32 noundef %692, ptr noundef nonnull %12, ptr noundef nonnull %15) #21
-  %717 = icmp eq i32 %716, 0
-  %718 = load i16, ptr %524, align 2
-  %rev.i.i60.i = call i16 @llvm.bswap.i16(i16 %718)
-  %.068.i = select i1 %717, i16 %rev.i.i60.i, i16 0
+  %714 = call i32 @getsockname(i32 noundef %690, ptr noundef nonnull %12, ptr noundef nonnull %15) #21
+  %715 = icmp eq i32 %714, 0
+  %716 = load i16, ptr %522, align 2
+  %rev.i.i60.i = call i16 @llvm.bswap.i16(i16 %716)
+  %.068.i = select i1 %715, i16 %rev.i.i60.i, i16 0
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %719
+  br label %717
 
-719:                                              ; preds = %713, %715
-  %.169.i = phi i16 [ %.068.i, %715 ], [ %.2437, %713 ]
+717:                                              ; preds = %711, %713
+  %.169.i = phi i16 [ %.068.i, %713 ], [ %.2437, %711 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %720 = load ptr, ptr %521, align 8, !tbaa !43
-  %.not49.i = icmp eq ptr %720, null
-  br i1 %.not49.i, label %741, label %721
+  %718 = load ptr, ptr %519, align 8, !tbaa !43
+  %.not49.i = icmp eq ptr %718, null
+  br i1 %.not49.i, label %739, label %719
 
-721:                                              ; preds = %719
-  %722 = getelementptr inbounds nuw i8, ptr %720, i64 56
-  %723 = call i32 @wolfSSL_CondStart(ptr noundef nonnull %722) #21
-  %.not50.i = icmp eq i32 %723, 0
-  br i1 %.not50.i, label %728, label %724
+719:                                              ; preds = %717
+  %720 = getelementptr inbounds nuw i8, ptr %718, i64 56
+  %721 = call i32 @wolfSSL_CondStart(ptr noundef nonnull %720) #21
+  %.not50.i = icmp eq i32 %721, 0
+  br i1 %.not50.i, label %726, label %722
 
-724:                                              ; preds = %721
-  %725 = tail call ptr @__errno_location() #28
-  store i32 %723, ptr %725, align 4, !tbaa !4
-  %726 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %727 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %726, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1750, i32 noundef %723, ptr noundef nonnull @.str.195) #22
+722:                                              ; preds = %719
+  %723 = tail call ptr @__errno_location() #28
+  store i32 %721, ptr %723, align 4, !tbaa !4
+  %724 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %725 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %724, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1750, i32 noundef %721, ptr noundef nonnull @.str.195) #22
   call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
   unreachable
 
-728:                                              ; preds = %721
-  store i16 1, ptr %720, align 8, !tbaa !58
-  %729 = getelementptr inbounds nuw i8, ptr %720, i64 2
-  store i16 %.169.i, ptr %729, align 2, !tbaa !59
-  %730 = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %722) #21
-  %.not51.i = icmp eq i32 %730, 0
-  br i1 %.not51.i, label %735, label %731
+726:                                              ; preds = %719
+  store i16 1, ptr %718, align 8, !tbaa !58
+  %727 = getelementptr inbounds nuw i8, ptr %718, i64 2
+  store i16 %.169.i, ptr %727, align 2, !tbaa !59
+  %728 = call i32 @wolfSSL_CondSignal(ptr noundef nonnull %720) #21
+  %.not51.i = icmp eq i32 %728, 0
+  br i1 %.not51.i, label %733, label %729
 
-731:                                              ; preds = %728
-  %732 = tail call ptr @__errno_location() #28
-  store i32 %730, ptr %732, align 4, !tbaa !4
-  %733 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %734 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %733, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1755, i32 noundef %730, ptr noundef nonnull @.str.197) #22
+729:                                              ; preds = %726
+  %730 = tail call ptr @__errno_location() #28
+  store i32 %728, ptr %730, align 4, !tbaa !4
+  %731 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %732 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %731, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1755, i32 noundef %728, ptr noundef nonnull @.str.197) #22
   call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
   unreachable
 
-735:                                              ; preds = %728
-  %736 = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %722) #21
-  %.not52.i = icmp eq i32 %736, 0
-  br i1 %.not52.i, label %741, label %737
+733:                                              ; preds = %726
+  %734 = call i32 @wolfSSL_CondEnd(ptr noundef nonnull %720) #21
+  %.not52.i = icmp eq i32 %734, 0
+  br i1 %.not52.i, label %739, label %735
 
-737:                                              ; preds = %735
-  %738 = tail call ptr @__errno_location() #28
-  store i32 %736, ptr %738, align 4, !tbaa !4
-  %739 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %740 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %739, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1756, i32 noundef %736, ptr noundef nonnull @.str.198) #22
+735:                                              ; preds = %733
+  %736 = tail call ptr @__errno_location() #28
+  store i32 %734, ptr %736, align 4, !tbaa !4
+  %737 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %738 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %737, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1756, i32 noundef %734, ptr noundef nonnull @.str.198) #22
   call fastcc void @err_sys(ptr noundef nonnull @.str.196) #24
   unreachable
 
-741:                                              ; preds = %735, %719
-  br i1 %.not467.not, label %.thread79.i, label %742
+739:                                              ; preds = %733, %717
+  br i1 %.not467.not, label %.thread79.i, label %740
 
-742:                                              ; preds = %741
-  %743 = load ptr, ptr %521, align 8, !tbaa !43
-  %.not54.i = icmp eq ptr %743, null
-  br i1 %.not54.i, label %.thread79.i, label %744
+740:                                              ; preds = %739
+  %741 = load ptr, ptr %519, align 8, !tbaa !43
+  %.not54.i = icmp eq ptr %741, null
+  br i1 %.not54.i, label %.thread79.i, label %742
 
-744:                                              ; preds = %742
-  %745 = getelementptr inbounds nuw i8, ptr %743, i64 8
-  %746 = load ptr, ptr %745, align 8, !tbaa !44
-  %747 = call noalias ptr @fopen(ptr noundef %746, ptr noundef nonnull @.str.199)
-  %.not55.i = icmp eq ptr %747, null
-  br i1 %.not55.i, label %.thread79.i, label %748
+742:                                              ; preds = %740
+  %743 = getelementptr inbounds nuw i8, ptr %741, i64 8
+  %744 = load ptr, ptr %743, align 8, !tbaa !44
+  %745 = call noalias ptr @fopen(ptr noundef %744, ptr noundef nonnull @.str.199)
+  %.not55.i = icmp eq ptr %745, null
+  br i1 %.not55.i, label %.thread79.i, label %746
 
-748:                                              ; preds = %744
-  %749 = zext i16 %.169.i to i32
-  %750 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %747, ptr noundef nonnull @.str.200, i32 noundef %749) #21
-  %751 = icmp slt i32 %750, 0
-  br i1 %751, label %752, label %757
+746:                                              ; preds = %742
+  %747 = zext i16 %.169.i to i32
+  %748 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %745, ptr noundef nonnull @.str.200, i32 noundef %747) #21
+  %749 = icmp slt i32 %748, 0
+  br i1 %749, label %750, label %755
 
-752:                                              ; preds = %748
-  %753 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %754 = tail call ptr @__errno_location() #28
-  %755 = load i32, ptr %754, align 4, !tbaa !4
-  %756 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %753, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1777, i32 noundef %755, ptr noundef nonnull @.str.201) #22
+750:                                              ; preds = %746
+  %751 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %752 = tail call ptr @__errno_location() #28
+  %753 = load i32, ptr %752, align 4, !tbaa !4
+  %754 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %751, ptr noundef nonnull @.str.193, ptr noundef nonnull @.str.194, i32 noundef 1777, i32 noundef %753, ptr noundef nonnull @.str.201) #22
   call fastcc void @err_sys(ptr noundef nonnull @.str.202) #24
   unreachable
 
-757:                                              ; preds = %748
-  %758 = call i32 @fclose(ptr noundef nonnull %747)
+755:                                              ; preds = %746
+  %756 = call i32 @fclose(ptr noundef nonnull %745)
   br label %.thread79.i
 
-.thread79.i:                                      ; preds = %757, %744, %742, %741, %671
-  %.1607 = phi i32 [ %.0606, %671 ], [ %692, %741 ], [ %692, %742 ], [ %692, %744 ], [ %692, %757 ]
-  %759 = call i32 @accept(i32 noundef %.1607, ptr noundef nonnull %21, ptr noundef nonnull %22) #21
-  %760 = icmp slt i32 %759, -1
-  br i1 %760, label %761, label %tcp_accept.exit
+.thread79.i:                                      ; preds = %755, %742, %740, %739, %669
+  %.1607 = phi i32 [ %.0606, %669 ], [ %690, %739 ], [ %690, %740 ], [ %690, %742 ], [ %690, %755 ]
+  %757 = call i32 @accept(i32 noundef %.1607, ptr noundef nonnull %21, ptr noundef nonnull %22) #21
+  %758 = icmp slt i32 %757, -1
+  br i1 %758, label %759, label %tcp_accept.exit
 
-761:                                              ; preds = %.thread79.i
+759:                                              ; preds = %.thread79.i
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.54) #24
   unreachable
 
 tcp_accept.exit:                                  ; preds = %udp_accept.exit.i, %.thread79.i
-  %.2608 = phi i32 [ %.1607, %.thread79.i ], [ %626, %udp_accept.exit.i ]
-  %.0605 = phi i32 [ %759, %.thread79.i ], [ %626, %udp_accept.exit.i ]
-  %762 = icmp eq i16 %.2437, 0
-  br i1 %762, label %763, label %766
+  %.2608 = phi i32 [ %.1607, %.thread79.i ], [ %624, %udp_accept.exit.i ]
+  %.0605 = phi i32 [ %757, %.thread79.i ], [ %624, %udp_accept.exit.i ]
+  %760 = icmp eq i16 %.2437, 0
+  br i1 %760, label %761, label %764
 
-763:                                              ; preds = %tcp_accept.exit
-  %764 = getelementptr inbounds nuw i8, ptr %602, i64 2
-  %765 = load i16, ptr %764, align 2, !tbaa !59
-  br label %766
+761:                                              ; preds = %tcp_accept.exit
+  %762 = getelementptr inbounds nuw i8, ptr %600, i64 2
+  %763 = load i16, ptr %762, align 2, !tbaa !59
+  br label %764
 
-766:                                              ; preds = %763, %tcp_accept.exit
-  %.3438 = phi i16 [ %765, %763 ], [ %.2437, %tcp_accept.exit ]
-  %767 = call i32 @wolfSSL_set_fd(ptr noundef %537, i32 noundef %.0605) #21
-  %.not468 = icmp eq i32 %767, 1
-  br i1 %.not468, label %err_sys_ex.exit560, label %768
+764:                                              ; preds = %761, %tcp_accept.exit
+  %.3438 = phi i16 [ %763, %761 ], [ %.2437, %tcp_accept.exit ]
+  %765 = call i32 @wolfSSL_set_fd(ptr noundef %535, i32 noundef %.0605) #21
+  %.not468 = icmp eq i32 %765, 1
+  br i1 %.not468, label %err_sys_ex.exit560, label %766
 
-768:                                              ; preds = %766
-  %769 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %770 = icmp eq i32 %769, 1
-  br i1 %770, label %771, label %778
+766:                                              ; preds = %764
+  %767 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %768 = icmp eq i32 %767, 1
+  br i1 %768, label %769, label %776
 
-771:                                              ; preds = %768
+769:                                              ; preds = %766
   %.b2.i557 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i557, label %err_sys_ex.exit560, label %772
+  br i1 %.b2.i557, label %err_sys_ex.exit560, label %770
 
-772:                                              ; preds = %771
-  %773 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %774 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %773, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.59) #22
+770:                                              ; preds = %769
+  %771 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %772 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %771, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.59) #22
   %.b.pr.i558 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i558, label %err_sys_ex.exit560, label %775
+  br i1 %.b.pr.i558, label %err_sys_ex.exit560, label %773
 
-775:                                              ; preds = %772
-  %776 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %777 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %776) #23
+773:                                              ; preds = %770
+  %774 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %775 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %774) #23
   br label %err_sys_ex.exit560
 
-778:                                              ; preds = %768
+776:                                              ; preds = %766
   call fastcc void @err_sys(ptr noundef nonnull @.str.59) #24
   unreachable
 
-err_sys_ex.exit560:                               ; preds = %775, %772, %771, %766
-  br i1 %or.cond57, label %779, label %783
+err_sys_ex.exit560:                               ; preds = %773, %770, %769, %764
+  br i1 %or.cond57, label %777, label %781
 
-779:                                              ; preds = %err_sys_ex.exit560
-  %780 = call i32 @wolfSSL_SetTmpDH_file(ptr noundef %537, ptr noundef %.037812492573, i32 noundef 1) #21
-  br i1 %.not469, label %781, label %783
+777:                                              ; preds = %err_sys_ex.exit560
+  %778 = call i32 @wolfSSL_SetTmpDH_file(ptr noundef %535, ptr noundef %.037812492573, i32 noundef 1) #21
+  br i1 %.not469, label %779, label %781
 
-781:                                              ; preds = %779
-  %782 = call i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef %537, i32 noundef 0) #21
-  br label %783
+779:                                              ; preds = %777
+  %780 = call i32 @wolfSSL_SetEnableDhKeyTest(ptr noundef %535, i32 noundef 0) #21
+  br label %781
 
-783:                                              ; preds = %779, %781, %err_sys_ex.exit560
-  br i1 %.not470, label %.preheader648, label %784
+781:                                              ; preds = %777, %779, %err_sys_ex.exit560
+  br i1 %.not470, label %.preheader648, label %782
 
-784:                                              ; preds = %783
-  %785 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.0605, i32 noundef 3, i32 noundef 0) #21
-  %786 = icmp slt i32 %785, 0
-  br i1 %786, label %787, label %788
+782:                                              ; preds = %781
+  %783 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.0605, i32 noundef 3, i32 noundef 0) #21
+  %784 = icmp slt i32 %783, 0
+  br i1 %784, label %785, label %786
 
-787:                                              ; preds = %784
+785:                                              ; preds = %782
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.204) #24
   unreachable
 
-788:                                              ; preds = %784
-  %789 = or i32 %785, 2048
-  %790 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.0605, i32 noundef 4, i32 noundef %789) #21
-  %791 = icmp slt i32 %790, 0
-  br i1 %791, label %792, label %tcp_set_nonblocking.exit
+786:                                              ; preds = %782
+  %787 = or i32 %783, 2048
+  %788 = call i32 (i32, i32, ...) @fcntl(i32 noundef %.0605, i32 noundef 4, i32 noundef %787) #21
+  %789 = icmp slt i32 %788, 0
+  br i1 %789, label %790, label %tcp_set_nonblocking.exit
 
-792:                                              ; preds = %788
+790:                                              ; preds = %786
   call fastcc void @err_sys_with_errno(ptr noundef nonnull @.str.205) #24
   unreachable
 
-tcp_set_nonblocking.exit:                         ; preds = %788
-  %793 = call i32 @wolfSSL_accept(ptr noundef %537) #21
-  %794 = call i32 @wolfSSL_get_error(ptr noundef %537, i32 noundef 0) #21
-  %795 = call i32 @wolfSSL_get_fd(ptr noundef %537) #21
-  %.not32.i = icmp ne i32 %793, 1
-  %796 = and i32 %794, -2
-  %797 = icmp eq i32 %796, 2
-  %or.cond3133.i = select i1 %.not32.i, i1 %797, i1 false
+tcp_set_nonblocking.exit:                         ; preds = %786
+  %791 = call i32 @wolfSSL_accept(ptr noundef %535) #21
+  %792 = call i32 @wolfSSL_get_error(ptr noundef %535, i32 noundef 0) #21
+  %793 = call i32 @wolfSSL_get_fd(ptr noundef %535) #21
+  %.not32.i = icmp ne i32 %791, 1
+  %794 = and i32 %792, -2
+  %795 = icmp eq i32 %794, 2
+  %or.cond3133.i = select i1 %.not32.i, i1 %795, i1 false
   br i1 %or.cond3133.i, label %.lr.ph.i, label %NonBlockingSSL_Accept.exit
 
 .lr.ph.i:                                         ; preds = %tcp_set_nonblocking.exit
-  %798 = srem i32 %795, 64
-  %799 = zext nneg i32 %798 to i64
-  %800 = shl nuw i64 1, %799
-  %801 = sdiv i32 %795, 64
-  %802 = sext i32 %801 to i64
-  %803 = getelementptr inbounds i64, ptr %5, i64 %802
-  %804 = add nsw i32 %795, 1
-  %805 = getelementptr inbounds i64, ptr %6, i64 %802
-  %806 = getelementptr inbounds i64, ptr %8, i64 %802
-  %807 = getelementptr inbounds i64, ptr %9, i64 %802
-  br label %808
+  %796 = srem i32 %793, 64
+  %797 = zext nneg i32 %796 to i64
+  %798 = shl nuw i64 1, %797
+  %799 = sdiv i32 %793, 64
+  %800 = sext i32 %799 to i64
+  %801 = getelementptr inbounds i64, ptr %5, i64 %800
+  %802 = add nsw i32 %793, 1
+  %803 = getelementptr inbounds i64, ptr %6, i64 %800
+  %804 = getelementptr inbounds i64, ptr %8, i64 %800
+  %805 = getelementptr inbounds i64, ptr %9, i64 %800
+  br label %806
 
-808:                                              ; preds = %852, %.lr.ph.i
-  %.035.i = phi i32 [ %793, %.lr.ph.i ], [ %.1.i, %852 ]
-  %.02434.i = phi i32 [ %794, %.lr.ph.i ], [ %.125.i, %852 ]
-  %809 = icmp eq i32 %.02434.i, 3
-  br i1 %809, label %810, label %826
+806:                                              ; preds = %850, %.lr.ph.i
+  %.035.i = phi i32 [ %791, %.lr.ph.i ], [ %.1.i, %850 ]
+  %.02434.i = phi i32 [ %792, %.lr.ph.i ], [ %.125.i, %850 ]
+  %807 = icmp eq i32 %.02434.i, 3
+  br i1 %807, label %808, label %824
 
-810:                                              ; preds = %808
+808:                                              ; preds = %806
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 1, ptr %10, align 8, !tbaa !11
-  store i64 0, ptr %528, align 8, !tbaa !14
+  store i64 0, ptr %526, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !tbaa !15
-  %811 = load i64, ptr %806, align 8, !tbaa !15
-  %812 = or i64 %811, %800
-  store i64 %812, ptr %806, align 8, !tbaa !15
+  %809 = load i64, ptr %804, align 8, !tbaa !15
+  %810 = or i64 %809, %798
+  store i64 %810, ptr %804, align 8, !tbaa !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %9, i8 0, i64 128, i1 false), !tbaa !15
-  %813 = load i64, ptr %807, align 8, !tbaa !15
-  %814 = or i64 %813, %800
-  store i64 %814, ptr %807, align 8, !tbaa !15
-  %815 = call i32 @select(i32 noundef %804, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #21
-  %816 = icmp eq i32 %815, 0
-  br i1 %816, label %tcp_select_tx.exit.i, label %817
+  %811 = load i64, ptr %805, align 8, !tbaa !15
+  %812 = or i64 %811, %798
+  store i64 %812, ptr %805, align 8, !tbaa !15
+  %813 = call i32 @select(i32 noundef %802, ptr noundef null, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #21
+  %814 = icmp eq i32 %813, 0
+  br i1 %814, label %tcp_select_tx.exit.i, label %815
 
-817:                                              ; preds = %810
-  %818 = icmp sgt i32 %815, 0
-  br i1 %818, label %819, label %825
+815:                                              ; preds = %808
+  %816 = icmp sgt i32 %813, 0
+  br i1 %816, label %817, label %823
 
-819:                                              ; preds = %817
-  %820 = load i64, ptr %806, align 8, !tbaa !15
-  %821 = and i64 %820, %800
-  %.not33.i.i.i = icmp eq i64 %821, 0
-  br i1 %.not33.i.i.i, label %822, label %tcp_select_tx.exit.i
+817:                                              ; preds = %815
+  %818 = load i64, ptr %804, align 8, !tbaa !15
+  %819 = and i64 %818, %798
+  %.not33.i.i.i = icmp eq i64 %819, 0
+  br i1 %.not33.i.i.i, label %820, label %tcp_select_tx.exit.i
 
-822:                                              ; preds = %819
-  %823 = load i64, ptr %807, align 8, !tbaa !15
-  %824 = and i64 %823, %800
-  %.not34.i.i.i = icmp eq i64 %824, 0
-  br i1 %.not34.i.i.i, label %825, label %tcp_select_tx.exit.i
+820:                                              ; preds = %817
+  %821 = load i64, ptr %805, align 8, !tbaa !15
+  %822 = and i64 %821, %798
+  %.not34.i.i.i = icmp eq i64 %822, 0
+  br i1 %.not34.i.i.i, label %823, label %tcp_select_tx.exit.i
 
-825:                                              ; preds = %822, %817
+823:                                              ; preds = %820, %815
   br label %tcp_select_tx.exit.i
 
-tcp_select_tx.exit.i:                             ; preds = %825, %822, %819, %810
-  %.0.i.i.i = phi i32 [ 0, %825 ], [ 1, %810 ], [ 4, %822 ], [ 3, %819 ]
+tcp_select_tx.exit.i:                             ; preds = %823, %820, %817, %808
+  %.0.i.i.i = phi i32 [ 0, %823 ], [ 1, %808 ], [ 4, %820 ], [ 3, %817 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %842
+  br label %840
 
-826:                                              ; preds = %808
+824:                                              ; preds = %806
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 1, ptr %7, align 8, !tbaa !11
-  store i64 0, ptr %527, align 8, !tbaa !14
+  store i64 0, ptr %525, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %5, i8 0, i64 128, i1 false), !tbaa !15
-  %827 = load i64, ptr %803, align 8, !tbaa !15
-  %828 = or i64 %827, %800
-  store i64 %828, ptr %803, align 8, !tbaa !15
+  %825 = load i64, ptr %801, align 8, !tbaa !15
+  %826 = or i64 %825, %798
+  store i64 %826, ptr %801, align 8, !tbaa !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !tbaa !15
-  %829 = load i64, ptr %805, align 8, !tbaa !15
-  %830 = or i64 %829, %800
-  store i64 %830, ptr %805, align 8, !tbaa !15
-  %831 = call i32 @select(i32 noundef %804, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
-  %832 = icmp eq i32 %831, 0
-  br i1 %832, label %tcp_select.exit.i, label %833
+  %827 = load i64, ptr %803, align 8, !tbaa !15
+  %828 = or i64 %827, %798
+  store i64 %828, ptr %803, align 8, !tbaa !15
+  %829 = call i32 @select(i32 noundef %802, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %6, ptr noundef nonnull %7) #21
+  %830 = icmp eq i32 %829, 0
+  br i1 %830, label %tcp_select.exit.i, label %831
 
-833:                                              ; preds = %826
-  %834 = icmp sgt i32 %831, 0
-  br i1 %834, label %835, label %841
+831:                                              ; preds = %824
+  %832 = icmp sgt i32 %829, 0
+  br i1 %832, label %833, label %839
 
-835:                                              ; preds = %833
-  %836 = load i64, ptr %803, align 8, !tbaa !15
-  %837 = and i64 %836, %800
-  %.not33.i.i28.i = icmp eq i64 %837, 0
-  br i1 %.not33.i.i28.i, label %838, label %tcp_select.exit.i
+833:                                              ; preds = %831
+  %834 = load i64, ptr %801, align 8, !tbaa !15
+  %835 = and i64 %834, %798
+  %.not33.i.i28.i = icmp eq i64 %835, 0
+  br i1 %.not33.i.i28.i, label %836, label %tcp_select.exit.i
 
-838:                                              ; preds = %835
-  %839 = load i64, ptr %805, align 8, !tbaa !15
-  %840 = and i64 %839, %800
-  %.not34.i.i29.i = icmp eq i64 %840, 0
-  br i1 %.not34.i.i29.i, label %841, label %tcp_select.exit.i
+836:                                              ; preds = %833
+  %837 = load i64, ptr %803, align 8, !tbaa !15
+  %838 = and i64 %837, %798
+  %.not34.i.i29.i = icmp eq i64 %838, 0
+  br i1 %.not34.i.i29.i, label %839, label %tcp_select.exit.i
 
-841:                                              ; preds = %838, %833
+839:                                              ; preds = %836, %831
   br label %tcp_select.exit.i
 
-tcp_select.exit.i:                                ; preds = %841, %838, %835, %826
-  %.0.i.i27.i = phi i32 [ 0, %841 ], [ 1, %826 ], [ 4, %838 ], [ 2, %835 ]
+tcp_select.exit.i:                                ; preds = %839, %836, %833, %824
+  %.0.i.i27.i = phi i32 [ 0, %839 ], [ 1, %824 ], [ 4, %836 ], [ 2, %833 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %842
+  br label %840
 
-842:                                              ; preds = %tcp_select.exit.i, %tcp_select_tx.exit.i
+840:                                              ; preds = %tcp_select.exit.i, %tcp_select_tx.exit.i
   %.023.i = phi i32 [ %.0.i.i.i, %tcp_select_tx.exit.i ], [ %.0.i.i27.i, %tcp_select.exit.i ]
-  %843 = and i32 %.023.i, 6
-  %or.cond.i = icmp eq i32 %843, 2
-  %844 = icmp eq i32 %.023.i, 4
-  %or.cond3.i561 = or i1 %844, %or.cond.i
-  br i1 %or.cond3.i561, label %845, label %848
+  %841 = and i32 %.023.i, 6
+  %or.cond.i = icmp eq i32 %841, 2
+  %842 = icmp eq i32 %.023.i, 4
+  %or.cond3.i561 = or i1 %842, %or.cond.i
+  br i1 %or.cond3.i561, label %843, label %846
 
-845:                                              ; preds = %842
-  %846 = call i32 @wolfSSL_accept(ptr noundef %537) #21
-  %847 = call i32 @wolfSSL_get_error(ptr noundef %537, i32 noundef 0) #21
-  br label %852
+843:                                              ; preds = %840
+  %844 = call i32 @wolfSSL_accept(ptr noundef %535) #21
+  %845 = call i32 @wolfSSL_get_error(ptr noundef %535, i32 noundef 0) #21
+  br label %850
 
-848:                                              ; preds = %842
-  %849 = icmp eq i32 %.023.i, 1
-  br i1 %849, label %850, label %NonBlockingSSL_Accept.exit.thread
+846:                                              ; preds = %840
+  %847 = icmp eq i32 %.023.i, 1
+  br i1 %847, label %848, label %NonBlockingSSL_Accept.exit.thread
 
-850:                                              ; preds = %848
-  %851 = call i32 @wolfSSL_dtls(ptr noundef %537) #21
-  %.not26.i = icmp eq i32 %851, 0
-  br i1 %.not26.i, label %852, label %NonBlockingSSL_Accept.exit.thread
+848:                                              ; preds = %846
+  %849 = call i32 @wolfSSL_dtls(ptr noundef %535) #21
+  %.not26.i = icmp eq i32 %849, 0
+  br i1 %.not26.i, label %850, label %NonBlockingSSL_Accept.exit.thread
 
-852:                                              ; preds = %850, %845
-  %.125.i = phi i32 [ %847, %845 ], [ 2, %850 ]
-  %.1.i = phi i32 [ %846, %845 ], [ %.035.i, %850 ]
+850:                                              ; preds = %848, %843
+  %.125.i = phi i32 [ %845, %843 ], [ 2, %848 ]
+  %.1.i = phi i32 [ %844, %843 ], [ %.035.i, %848 ]
   %.not.i562 = icmp ne i32 %.1.i, 1
-  %853 = and i32 %.125.i, -2
-  %854 = icmp eq i32 %853, 2
-  %or.cond31.i = select i1 %.not.i562, i1 %854, i1 false
-  br i1 %or.cond31.i, label %808, label %NonBlockingSSL_Accept.exit, !llvm.loop !60
+  %851 = and i32 %.125.i, -2
+  %852 = icmp eq i32 %851, 2
+  %or.cond31.i = select i1 %.not.i562, i1 %852, i1 false
+  br i1 %or.cond31.i, label %806, label %NonBlockingSSL_Accept.exit, !llvm.loop !60
 
-.preheader648:                                    ; preds = %783, %856
-  %855 = call i32 @wolfSSL_accept(ptr noundef %537) #21
-  %.not471 = icmp eq i32 %855, 1
-  br i1 %.not471, label %err_sys_ex.exit566, label %856
+.preheader648:                                    ; preds = %781, %854
+  %853 = call i32 @wolfSSL_accept(ptr noundef %535) #21
+  %.not471 = icmp eq i32 %853, 1
+  br i1 %.not471, label %err_sys_ex.exit566, label %854
 
-856:                                              ; preds = %.preheader648
-  %857 = call i32 @wolfSSL_get_error(ptr noundef %537, i32 noundef 0) #21
-  %858 = icmp eq i32 %857, -108
-  br i1 %858, label %.preheader648, label %NonBlockingSSL_Accept.exit.thread, !llvm.loop !61
+854:                                              ; preds = %.preheader648
+  %855 = call i32 @wolfSSL_get_error(ptr noundef %535, i32 noundef 0) #21
+  %856 = icmp eq i32 %855, -108
+  br i1 %856, label %.preheader648, label %NonBlockingSSL_Accept.exit.thread, !llvm.loop !61
 
-NonBlockingSSL_Accept.exit:                       ; preds = %852, %tcp_set_nonblocking.exit
-  %.0400 = phi i32 [ %793, %tcp_set_nonblocking.exit ], [ %.1.i, %852 ]
+NonBlockingSSL_Accept.exit:                       ; preds = %850, %tcp_set_nonblocking.exit
+  %.0400 = phi i32 [ %791, %tcp_set_nonblocking.exit ], [ %.1.i, %850 ]
   %.not472 = icmp eq i32 %.0400, 1
   br i1 %.not472, label %err_sys_ex.exit566, label %NonBlockingSSL_Accept.exit.thread
 
-NonBlockingSSL_Accept.exit.thread:                ; preds = %848, %850, %856, %NonBlockingSSL_Accept.exit
-  %859 = call i32 @wolfSSL_get_error(ptr noundef %537, i32 noundef 0) #21
+NonBlockingSSL_Accept.exit.thread:                ; preds = %846, %848, %854, %NonBlockingSSL_Accept.exit
+  %857 = call i32 @wolfSSL_get_error(ptr noundef %535, i32 noundef 0) #21
   %.b433 = load i1, ptr @quieter, align 4
-  br i1 %.b433, label %865, label %860
+  br i1 %.b433, label %863, label %858
 
-860:                                              ; preds = %NonBlockingSSL_Accept.exit.thread
-  %861 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %862 = sext i32 %859 to i64
-  %863 = call ptr @wolfSSL_ERR_error_string(i64 noundef %862, ptr noundef nonnull %24) #21
-  %864 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %861, ptr noundef nonnull @.str.60, i32 noundef %859, ptr noundef %863) #22
-  br label %865
+858:                                              ; preds = %NonBlockingSSL_Accept.exit.thread
+  %859 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %860 = sext i32 %857 to i64
+  %861 = call ptr @wolfSSL_ERR_error_string(i64 noundef %860, ptr noundef nonnull %24) #21
+  %862 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %859, ptr noundef nonnull @.str.60, i32 noundef %857, ptr noundef %861) #22
+  br label %863
 
-865:                                              ; preds = %860, %NonBlockingSSL_Accept.exit.thread
-  br i1 %.not473, label %866, label %877
+863:                                              ; preds = %858, %NonBlockingSSL_Accept.exit.thread
+  br i1 %.not473, label %864, label %875
 
-866:                                              ; preds = %865
-  %867 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %868 = icmp eq i32 %867, 1
-  br i1 %868, label %869, label %876
+864:                                              ; preds = %863
+  %865 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %866 = icmp eq i32 %865, 1
+  br i1 %866, label %867, label %874
 
-869:                                              ; preds = %866
+867:                                              ; preds = %864
   %.b2.i563 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i563, label %err_sys_ex.exit566, label %870
+  br i1 %.b2.i563, label %err_sys_ex.exit566, label %868
 
-870:                                              ; preds = %869
-  %871 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %872 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %871, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.61) #22
+868:                                              ; preds = %867
+  %869 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %870 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %869, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.61) #22
   %.b.pr.i564 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i564, label %err_sys_ex.exit566, label %873
+  br i1 %.b.pr.i564, label %err_sys_ex.exit566, label %871
 
-873:                                              ; preds = %870
-  %874 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %875 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %874) #23
+871:                                              ; preds = %868
+  %872 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %873 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %872) #23
   br label %err_sys_ex.exit566
 
-876:                                              ; preds = %866
+874:                                              ; preds = %864
   call fastcc void @err_sys(ptr noundef nonnull @.str.61) #24
   unreachable
 
-877:                                              ; preds = %865
-  call void @wolfSSL_free(ptr noundef %537) #21
+875:                                              ; preds = %863
+  call void @wolfSSL_free(ptr noundef %535) #21
   call void @wolfSSL_CTX_free(ptr noundef %.0325624) #21
-  %878 = call i32 @close(i32 noundef %.0605) #21
-  %879 = call i32 @close(i32 noundef %.2608) #21
-  br label %1030
+  %876 = call i32 @close(i32 noundef %.0605) #21
+  %877 = call i32 @close(i32 noundef %.2608) #21
+  br label %1028
 
-err_sys_ex.exit566:                               ; preds = %.preheader648, %873, %870, %869, %NonBlockingSSL_Accept.exit
-  %.3399 = phi i32 [ %.0396, %NonBlockingSSL_Accept.exit ], [ %859, %869 ], [ %859, %870 ], [ %859, %873 ], [ 0, %.preheader648 ]
-  %880 = load i32, ptr @lng_index, align 4, !tbaa !4
-  %881 = sext i32 %880 to i64
-  %882 = getelementptr inbounds [9 x ptr], ptr @client_showpeer_msg, i64 %881
-  %883 = load ptr, ptr %882, align 8, !tbaa !27
-  %884 = call ptr @wolfSSL_get_version(ptr noundef %537) #21
-  %885 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %883, ptr noundef %884)
-  %886 = call ptr @wolfSSL_get_current_cipher(ptr noundef %537) #21
-  %887 = getelementptr inbounds nuw i8, ptr %882, i64 8
-  %888 = load ptr, ptr %887, align 8, !tbaa !27
-  %889 = call ptr @wolfSSL_CIPHER_get_name(ptr noundef %886) #21
-  %890 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %888, ptr noundef %889)
-  %891 = call ptr @wolfSSL_get_curve_name(ptr noundef %537) #21
-  %.not.i567 = icmp eq ptr %891, null
-  br i1 %.not.i567, label %896, label %892
+err_sys_ex.exit566:                               ; preds = %.preheader648, %871, %868, %867, %NonBlockingSSL_Accept.exit
+  %.3399 = phi i32 [ %.0396, %NonBlockingSSL_Accept.exit ], [ %857, %867 ], [ %857, %868 ], [ %857, %871 ], [ 0, %.preheader648 ]
+  %878 = load i32, ptr @lng_index, align 4, !tbaa !4
+  %879 = sext i32 %878 to i64
+  %880 = getelementptr inbounds [9 x ptr], ptr @client_showpeer_msg, i64 %879
+  %881 = load ptr, ptr %880, align 8, !tbaa !27
+  %882 = call ptr @wolfSSL_get_version(ptr noundef %535) #21
+  %883 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %881, ptr noundef %882)
+  %884 = call ptr @wolfSSL_get_current_cipher(ptr noundef %535) #21
+  %885 = getelementptr inbounds nuw i8, ptr %880, i64 8
+  %886 = load ptr, ptr %885, align 8, !tbaa !27
+  %887 = call ptr @wolfSSL_CIPHER_get_name(ptr noundef %884) #21
+  %888 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %886, ptr noundef %887)
+  %889 = call ptr @wolfSSL_get_curve_name(ptr noundef %535) #21
+  %.not.i567 = icmp eq ptr %889, null
+  br i1 %.not.i567, label %894, label %890
 
-892:                                              ; preds = %err_sys_ex.exit566
-  %893 = getelementptr inbounds nuw i8, ptr %882, i64 24
-  %894 = load ptr, ptr %893, align 8, !tbaa !27
-  %895 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %894, ptr noundef nonnull %891)
-  br label %903
+890:                                              ; preds = %err_sys_ex.exit566
+  %891 = getelementptr inbounds nuw i8, ptr %880, i64 24
+  %892 = load ptr, ptr %891, align 8, !tbaa !27
+  %893 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, ptr noundef %892, ptr noundef nonnull %889)
+  br label %901
 
-896:                                              ; preds = %err_sys_ex.exit566
-  %897 = call i32 @wolfSSL_GetDhKey_Sz(ptr noundef %537) #21
-  %898 = icmp sgt i32 %897, 0
-  br i1 %898, label %899, label %903
+894:                                              ; preds = %err_sys_ex.exit566
+  %895 = call i32 @wolfSSL_GetDhKey_Sz(ptr noundef %535) #21
+  %896 = icmp sgt i32 %895, 0
+  br i1 %896, label %897, label %901
 
-899:                                              ; preds = %896
-  %900 = getelementptr inbounds nuw i8, ptr %882, i64 32
-  %901 = load ptr, ptr %900, align 8, !tbaa !27
-  %902 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.206, ptr noundef %901, i32 noundef %897)
-  br label %903
+897:                                              ; preds = %894
+  %898 = getelementptr inbounds nuw i8, ptr %880, i64 32
+  %899 = load ptr, ptr %898, align 8, !tbaa !27
+  %900 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.206, ptr noundef %899, i32 noundef %895)
+  br label %901
 
-903:                                              ; preds = %899, %896, %892
-  %904 = call i32 @wolfSSL_session_reused(ptr noundef %537) #21
-  %.not14.i = icmp eq i32 %904, 0
-  br i1 %.not14.i, label %showPeerEx.exit, label %905
+901:                                              ; preds = %897, %894, %890
+  %902 = call i32 @wolfSSL_session_reused(ptr noundef %535) #21
+  %.not14.i = icmp eq i32 %902, 0
+  br i1 %.not14.i, label %showPeerEx.exit, label %903
 
-905:                                              ; preds = %903
-  %906 = getelementptr inbounds nuw i8, ptr %882, i64 40
-  %907 = load ptr, ptr %906, align 8, !tbaa !27
-  %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %907)
+903:                                              ; preds = %901
+  %904 = getelementptr inbounds nuw i8, ptr %880, i64 40
+  %905 = load ptr, ptr %904, align 8, !tbaa !27
+  %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %905)
   br label %showPeerEx.exit
 
-showPeerEx.exit:                                  ; preds = %903, %905
-  %908 = call i32 @wolfSSL_state(ptr noundef %537) #21
-  %.not474 = icmp eq i32 %908, 0
-  br i1 %.not474, label %err_sys_ex.exit571, label %909
+showPeerEx.exit:                                  ; preds = %901, %903
+  %906 = call i32 @wolfSSL_state(ptr noundef %535) #21
+  %.not474 = icmp eq i32 %906, 0
+  br i1 %.not474, label %err_sys_ex.exit571, label %907
 
-909:                                              ; preds = %showPeerEx.exit
-  %910 = load i32, ptr @runWithErrors, align 4, !tbaa !4
-  %911 = icmp eq i32 %910, 1
-  br i1 %911, label %912, label %919
+907:                                              ; preds = %showPeerEx.exit
+  %908 = load i32, ptr @runWithErrors, align 4, !tbaa !4
+  %909 = icmp eq i32 %908, 1
+  br i1 %909, label %910, label %917
 
-912:                                              ; preds = %909
+910:                                              ; preds = %907
   %.b2.i568 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i568, label %err_sys_ex.exit571, label %913
+  br i1 %.b2.i568, label %err_sys_ex.exit571, label %911
 
-913:                                              ; preds = %912
-  %914 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %915 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %914, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.62) #22
+911:                                              ; preds = %910
+  %912 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %913 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %912, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.62) #22
   %.b.pr.i569 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i569, label %err_sys_ex.exit571, label %916
+  br i1 %.b.pr.i569, label %err_sys_ex.exit571, label %914
 
-916:                                              ; preds = %913
-  %917 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %918 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %917) #23
+914:                                              ; preds = %911
+  %915 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %916 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %915) #23
   br label %err_sys_ex.exit571
 
-919:                                              ; preds = %909
+917:                                              ; preds = %907
   call fastcc void @err_sys(ptr noundef nonnull @.str.62) #24
   unreachable
 
-err_sys_ex.exit571:                               ; preds = %916, %913, %912, %showPeerEx.exit
-  br i1 %or.cond17, label %974, label %920
+err_sys_ex.exit571:                               ; preds = %914, %911, %910, %showPeerEx.exit
+  br i1 %or.cond17, label %972, label %918
 
-920:                                              ; preds = %err_sys_ex.exit571
+918:                                              ; preds = %err_sys_ex.exit571
   %strchr = call ptr @strchr(ptr nonnull dereferenceable(1) %.038813492543, i32 58)
   %.not475 = icmp eq ptr %strchr, null
-  br i1 %.not475, label %921, label %974
+  br i1 %.not475, label %919, label %972
 
-921:                                              ; preds = %920
-  %922 = call ptr @wolfSSL_get_current_cipher(ptr noundef %537) #21
+919:                                              ; preds = %918
+  %920 = call ptr @wolfSSL_get_current_cipher(ptr noundef %535) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %.not476 = icmp eq ptr %922, null
-  br i1 %.not476, label %err_sys_ex.exit579, label %923
+  %.not476 = icmp eq ptr %920, null
+  br i1 %.not476, label %err_sys_ex.exit579, label %921
 
-923:                                              ; preds = %921
-  %924 = call i32 @wolfSSL_get_cipher_suite_from_name(ptr noundef nonnull %.038813492543, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28) #21
-  %925 = icmp eq i32 %924, 0
-  br i1 %925, label %926, label %err_sys_ex.exit579
+921:                                              ; preds = %919
+  %922 = call i32 @wolfSSL_get_cipher_suite_from_name(ptr noundef nonnull %.038813492543, ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull %28) #21
+  %923 = icmp eq i32 %922, 0
+  br i1 %923, label %924, label %err_sys_ex.exit579
 
-926:                                              ; preds = %923
-  %927 = call i32 @wolfSSL_CIPHER_get_id(ptr noundef nonnull %922) #21
-  %928 = lshr i32 %927, 8
-  %929 = trunc i32 %928 to i8
-  %930 = trunc i32 %927 to i8
-  %931 = call ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext %929, i8 noundef zeroext %930) #21
-  %932 = call ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext %929, i8 noundef zeroext %930) #21
-  %933 = icmp eq ptr %931, null
-  br i1 %933, label %934, label %err_sys_ex.exit575
+924:                                              ; preds = %921
+  %925 = call i32 @wolfSSL_CIPHER_get_id(ptr noundef nonnull %920) #21
+  %926 = lshr i32 %925, 8
+  %927 = trunc i32 %926 to i8
+  %928 = trunc i32 %925 to i8
+  %929 = call ptr @wolfSSL_get_cipher_name_from_suite(i8 noundef zeroext %927, i8 noundef zeroext %928) #21
+  %930 = call ptr @wolfSSL_get_cipher_name_iana_from_suite(i8 noundef zeroext %927, i8 noundef zeroext %928) #21
+  %931 = icmp eq ptr %929, null
+  br i1 %931, label %932, label %err_sys_ex.exit575
 
-934:                                              ; preds = %926
-  %935 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %936 = icmp eq i32 %935, 1
-  br i1 %936, label %937, label %944
+932:                                              ; preds = %924
+  %933 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %934 = icmp eq i32 %933, 1
+  br i1 %934, label %935, label %942
 
-937:                                              ; preds = %934
+935:                                              ; preds = %932
   %.b2.i572 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i572, label %err_sys_ex.exit575, label %938
+  br i1 %.b2.i572, label %err_sys_ex.exit575, label %936
 
-938:                                              ; preds = %937
-  %939 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %940 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %939, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.64) #22
+936:                                              ; preds = %935
+  %937 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %938 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %937, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.64) #22
   %.b.pr.i573 = load i1, ptr @quieter, align 4
-  br i1 %.b.pr.i573, label %err_sys_ex.exit575, label %941
+  br i1 %.b.pr.i573, label %err_sys_ex.exit575, label %939
 
-941:                                              ; preds = %938
-  %942 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %943 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %942) #23
+939:                                              ; preds = %936
+  %940 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %941 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %940) #23
   br label %err_sys_ex.exit575
 
-944:                                              ; preds = %934
+942:                                              ; preds = %932
   call fastcc void @err_sys(ptr noundef nonnull @.str.64) #24
   unreachable
 
-err_sys_ex.exit575:                               ; preds = %941, %938, %937, %926
-  %945 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038813492543, ptr noundef nonnull dereferenceable(1) %931) #25
-  %.not477 = icmp eq i32 %945, 0
-  br i1 %.not477, label %err_sys_ex.exit579, label %946
+err_sys_ex.exit575:                               ; preds = %939, %936, %935, %924
+  %943 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038813492543, ptr noundef nonnull dereferenceable(1) %929) #25
+  %.not477 = icmp eq i32 %943, 0
+  br i1 %.not477, label %err_sys_ex.exit579, label %944
 
-946:                                              ; preds = %err_sys_ex.exit575
-  %947 = icmp eq ptr %932, null
-  br i1 %947, label %950, label %948
+944:                                              ; preds = %err_sys_ex.exit575
+  %945 = icmp eq ptr %930, null
+  br i1 %945, label %948, label %946
 
-948:                                              ; preds = %946
-  %949 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038813492543, ptr noundef nonnull dereferenceable(1) %932) #25
-  %.not478 = icmp eq i32 %949, 0
-  br i1 %.not478, label %err_sys_ex.exit579, label %950
+946:                                              ; preds = %944
+  %947 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.038813492543, ptr noundef nonnull dereferenceable(1) %930) #25
+  %.not478 = icmp eq i32 %947, 0
+  br i1 %.not478, label %err_sys_ex.exit579, label %948
 
-950:                                              ; preds = %948, %946
-  %951 = load i32, ptr %28, align 4, !tbaa !4
-  %952 = and i32 %951, 1
-  %.not479 = icmp eq i32 %952, 0
-  br i1 %.not479, label %953, label %961
+948:                                              ; preds = %946, %944
+  %949 = load i32, ptr %28, align 4, !tbaa !4
+  %950 = and i32 %949, 1
+  %.not479 = icmp eq i32 %950, 0
+  br i1 %.not479, label %951, label %959
 
-953:                                              ; preds = %950
-  %954 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %955 = icmp eq i32 %954, 1
-  br i1 %955, label %956, label %960
+951:                                              ; preds = %948
+  %952 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %953 = icmp eq i32 %952, 1
+  br i1 %953, label %954, label %958
 
-956:                                              ; preds = %953
+954:                                              ; preds = %951
   %.b2.i576 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i576, label %err_sys_ex.exit579, label %957
+  br i1 %.b2.i576, label %err_sys_ex.exit579, label %955
 
-957:                                              ; preds = %956
-  %958 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %959 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %958, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.65) #22
+955:                                              ; preds = %954
+  %956 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %957 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %956, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.65) #22
   %.b.pr.i577 = load i1, ptr @quieter, align 4
   br i1 %.b.pr.i577, label %err_sys_ex.exit579, label %err_sys_ex.exit579.sink.split
 
-960:                                              ; preds = %953
+958:                                              ; preds = %951
   call fastcc void @err_sys(ptr noundef nonnull @.str.65) #24
   unreachable
 
-961:                                              ; preds = %950
-  %962 = load i8, ptr %26, align 1, !tbaa !29
-  %.not480 = icmp eq i8 %962, %929
-  %963 = load i8, ptr %27, align 1
-  %.not481 = icmp eq i8 %963, %930
+959:                                              ; preds = %948
+  %960 = load i8, ptr %26, align 1, !tbaa !29
+  %.not480 = icmp eq i8 %960, %927
+  %961 = load i8, ptr %27, align 1
+  %.not481 = icmp eq i8 %961, %928
   %or.cond502 = select i1 %.not480, i1 %.not481, i1 false
-  br i1 %or.cond502, label %err_sys_ex.exit579, label %964
+  br i1 %or.cond502, label %err_sys_ex.exit579, label %962
 
-964:                                              ; preds = %961
-  %965 = load i32, ptr @catastrophic, align 4, !tbaa !4
-  %966 = icmp eq i32 %965, 1
-  br i1 %966, label %967, label %971
+962:                                              ; preds = %959
+  %963 = load i32, ptr @catastrophic, align 4, !tbaa !4
+  %964 = icmp eq i32 %963, 1
+  br i1 %964, label %965, label %969
 
-967:                                              ; preds = %964
+965:                                              ; preds = %962
   %.b2.i580 = load i1, ptr @quieter, align 4
-  br i1 %.b2.i580, label %err_sys_ex.exit579, label %968
+  br i1 %.b2.i580, label %err_sys_ex.exit579, label %966
 
-968:                                              ; preds = %967
-  %969 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %970 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %969, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.66) #22
+966:                                              ; preds = %965
+  %967 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %968 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %967, ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.66) #22
   %.b.pr.i581 = load i1, ptr @quieter, align 4
   br i1 %.b.pr.i581, label %err_sys_ex.exit579, label %err_sys_ex.exit579.sink.split
 
-971:                                              ; preds = %964
+969:                                              ; preds = %962
   call fastcc void @err_sys(ptr noundef nonnull @.str.66) #24
   unreachable
 
-err_sys_ex.exit579.sink.split:                    ; preds = %968, %957
-  %972 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %973 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %972) #23
+err_sys_ex.exit579.sink.split:                    ; preds = %966, %955
+  %970 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %971 = call i64 @fwrite(ptr nonnull @.str.70, i64 32, i64 1, ptr %970) #23
   br label %err_sys_ex.exit579
 
-err_sys_ex.exit579:                               ; preds = %err_sys_ex.exit579.sink.split, %968, %967, %957, %956, %err_sys_ex.exit575, %948, %961, %923, %921
+err_sys_ex.exit579:                               ; preds = %err_sys_ex.exit579.sink.split, %966, %965, %955, %954, %err_sys_ex.exit575, %946, %959, %921, %919
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %974
+  br label %972
 
-974:                                              ; preds = %err_sys_ex.exit579, %920, %err_sys_ex.exit571
-  br i1 %or.cond63, label %975, label %977
+972:                                              ; preds = %err_sys_ex.exit579, %918, %err_sys_ex.exit571
+  br i1 %or.cond63, label %973, label %975
 
-975:                                              ; preds = %974
-  call fastcc void @ServerRead(ptr noundef %537, ptr noundef %23)
-  %976 = call i32 @wolfSSL_get_error(ptr noundef %537, i32 noundef 0) #21
-  br label %977
+973:                                              ; preds = %972
+  call fastcc void @ServerRead(ptr noundef %535, ptr noundef %23)
+  %974 = call i32 @wolfSSL_get_error(ptr noundef %535, i32 noundef 0) #21
+  br label %975
 
-977:                                              ; preds = %975, %974
-  %.4 = phi i32 [ %976, %975 ], [ %.3399, %974 ]
-  %978 = or i32 %.4, %.040314092525
-  %or.cond65 = icmp eq i32 %978, 0
-  %or.cond67 = select i1 %or.cond65, i1 %530, i1 false
-  br i1 %or.cond67, label %979, label %985
+975:                                              ; preds = %973, %972
+  %.4 = phi i32 [ %974, %973 ], [ %.3399, %972 ]
+  %976 = or i32 %.4, %.040314092525
+  %or.cond65 = icmp eq i32 %976, 0
+  %or.cond67 = select i1 %or.cond65, i1 %528, i1 false
+  br i1 %or.cond67, label %977, label %983
 
-979:                                              ; preds = %977
-  br i1 %.not484, label %982, label %980
+977:                                              ; preds = %975
+  br i1 %.not484, label %980, label %978
 
-980:                                              ; preds = %979
-  %981 = call i32 @wolfSSL_update_keys(ptr noundef %537) #21
-  br label %982
+978:                                              ; preds = %977
+  %979 = call i32 @wolfSSL_update_keys(ptr noundef %535) #21
+  br label %980
 
-982:                                              ; preds = %980, %979
+980:                                              ; preds = %978, %977
   br i1 %.not485, label %.split414, label %.split
 
-.split414:                                        ; preds = %982
-  call fastcc void @ServerWrite(ptr noundef %537, ptr noundef nonnull @kReplyMsg, i32 noundef 22)
-  br label %983
+.split414:                                        ; preds = %980
+  call fastcc void @ServerWrite(ptr noundef %535, ptr noundef nonnull @kReplyMsg, i32 noundef 22)
+  br label %981
 
-.split:                                           ; preds = %982
-  call fastcc void @ServerWrite(ptr noundef %537, ptr noundef nonnull @kHttpServerMsg, i32 noundef 225)
-  br label %983
+.split:                                           ; preds = %980
+  call fastcc void @ServerWrite(ptr noundef %535, ptr noundef nonnull @kHttpServerMsg, i32 noundef 225)
+  br label %981
 
-983:                                              ; preds = %.split, %.split414
-  br i1 %.not484, label %992, label %984
+981:                                              ; preds = %.split, %.split414
+  br i1 %.not484, label %990, label %982
 
-984:                                              ; preds = %983
-  call fastcc void @ServerRead(ptr noundef %537, ptr noundef %23)
-  br label %992
+982:                                              ; preds = %981
+  call fastcc void @ServerRead(ptr noundef %535, ptr noundef %23)
+  br label %990
 
-985:                                              ; preds = %977
-  switch i32 %.4, label %992 [
-    i32 6, label %986
-    i32 0, label %986
+983:                                              ; preds = %975
+  switch i32 %.4, label %990 [
+    i32 6, label %984
+    i32 0, label %984
   ]
 
-986:                                              ; preds = %985, %985
-  %987 = call i32 @ServerEchoData(ptr noundef %537, i32 noundef %.0605, i32 noundef %.040314092525, i32 noundef %.040614292519, i64 noundef %.040914492513)
-  %988 = icmp eq i32 %987, 6
-  %or.cond73 = and i1 %988, %.not473
-  %.not482483 = icmp eq i32 %987, 0
+984:                                              ; preds = %983, %983
+  %985 = call i32 @ServerEchoData(ptr noundef %535, i32 noundef %.0605, i32 noundef %.040314092525, i32 noundef %.040614292519, i64 noundef %.040914492513)
+  %986 = icmp eq i32 %985, 6
+  %or.cond73 = and i1 %986, %.not473
+  %.not482483 = icmp eq i32 %985, 0
   %.not482 = or i1 %.not482483, %or.cond73
-  br i1 %.not482, label %992, label %989
+  br i1 %.not482, label %990, label %987
 
-989:                                              ; preds = %986
-  call void @wolfSSL_free(ptr noundef %537) #21
+987:                                              ; preds = %984
+  call void @wolfSSL_free(ptr noundef %535) #21
   call void @wolfSSL_CTX_free(ptr noundef %.0325624) #21
-  %990 = call i32 @close(i32 noundef %.0605) #21
-  %991 = call i32 @close(i32 noundef %.2608) #21
-  br label %1030
+  %988 = call i32 @close(i32 noundef %.0605) #21
+  %989 = call i32 @close(i32 noundef %.2608) #21
+  br label %1028
 
-992:                                              ; preds = %985, %984, %983, %986
-  %.5 = phi i32 [ 0, %986 ], [ %.4, %985 ], [ 0, %983 ], [ 0, %984 ]
-  %993 = call i32 @wolfSSL_shutdown(ptr noundef %537) #21
-  %994 = icmp eq i32 %993, 2
-  %or.cond75 = select i1 %531, i1 %994, i1 false
-  br i1 %or.cond75, label %.preheader, label %.thread2938
+990:                                              ; preds = %983, %982, %981, %984
+  %.5 = phi i32 [ 0, %984 ], [ %.4, %983 ], [ 0, %981 ], [ 0, %982 ]
+  %991 = call i32 @wolfSSL_shutdown(ptr noundef %535) #21
+  %992 = icmp eq i32 %991, 2
+  %or.cond75 = select i1 %529, i1 %992, i1 false
+  br i1 %or.cond75, label %.preheader, label %.thread2939
 
-.preheader:                                       ; preds = %992, %1013
-  %995 = call i32 @wolfSSL_get_fd(ptr noundef %537) #21
+.preheader:                                       ; preds = %990, %1011
+  %993 = call i32 @wolfSSL_get_fd(ptr noundef %535) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 2, ptr %4, align 8, !tbaa !11
-  store i64 0, ptr %532, align 8, !tbaa !14
+  store i64 0, ptr %530, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false), !tbaa !15
-  %996 = srem i32 %995, 64
-  %997 = zext nneg i32 %996 to i64
-  %998 = shl nuw i64 1, %997
-  %999 = sdiv i32 %995, 64
-  %1000 = sext i32 %999 to i64
-  %1001 = getelementptr inbounds i64, ptr %2, i64 %1000
-  %1002 = load i64, ptr %1001, align 8, !tbaa !15
-  %1003 = or i64 %1002, %998
-  store i64 %1003, ptr %1001, align 8, !tbaa !15
+  %994 = srem i32 %993, 64
+  %995 = zext nneg i32 %994 to i64
+  %996 = shl nuw i64 1, %995
+  %997 = sdiv i32 %993, 64
+  %998 = sext i32 %997 to i64
+  %999 = getelementptr inbounds i64, ptr %2, i64 %998
+  %1000 = load i64, ptr %999, align 8, !tbaa !15
+  %1001 = or i64 %1000, %996
+  store i64 %1001, ptr %999, align 8, !tbaa !15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %3, i8 0, i64 128, i1 false), !tbaa !15
-  %1004 = add nsw i32 %995, 1
-  %1005 = getelementptr inbounds i64, ptr %3, i64 %1000
-  %1006 = load i64, ptr %1005, align 8, !tbaa !15
-  %1007 = or i64 %1006, %998
-  store i64 %1007, ptr %1005, align 8, !tbaa !15
-  %1008 = call i32 @select(i32 noundef %1004, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
-  %1009 = icmp sgt i32 %1008, 0
-  br i1 %1009, label %1010, label %tcp_select.exit.thread
+  %1002 = add nsw i32 %993, 1
+  %1003 = getelementptr inbounds i64, ptr %3, i64 %998
+  %1004 = load i64, ptr %1003, align 8, !tbaa !15
+  %1005 = or i64 %1004, %996
+  store i64 %1005, ptr %1003, align 8, !tbaa !15
+  %1006 = call i32 @select(i32 noundef %1002, ptr noundef nonnull %2, ptr noundef null, ptr noundef nonnull %3, ptr noundef nonnull %4) #21
+  %1007 = icmp sgt i32 %1006, 0
+  br i1 %1007, label %1008, label %tcp_select.exit.thread
 
-1010:                                             ; preds = %.preheader
-  %1011 = load i64, ptr %1001, align 8, !tbaa !15
-  %1012 = and i64 %1011, %998
-  %.not33.i.i = icmp eq i64 %1012, 0
-  br i1 %.not33.i.i, label %tcp_select.exit.thread, label %1013
+1008:                                             ; preds = %.preheader
+  %1009 = load i64, ptr %999, align 8, !tbaa !15
+  %1010 = and i64 %1009, %996
+  %.not33.i.i = icmp eq i64 %1010, 0
+  br i1 %.not33.i.i, label %tcp_select.exit.thread, label %1011
 
-tcp_select.exit.thread:                           ; preds = %1010, %.preheader
+tcp_select.exit.thread:                           ; preds = %1008, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %1019
+  br label %1017
 
-1013:                                             ; preds = %1010
+1011:                                             ; preds = %1008
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %1014 = call i32 @wolfSSL_shutdown(ptr noundef %537) #21
-  switch i32 %1014, label %1015 [
+  %1012 = call i32 @wolfSSL_shutdown(ptr noundef %535) #21
+  switch i32 %1012, label %1013 [
     i32 1, label %.thread636
     i32 2, label %.preheader
   ]
 
-.thread636:                                       ; preds = %1013
+.thread636:                                       ; preds = %1011
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  br label %.thread2938
+  br label %.thread2939
 
-1015:                                             ; preds = %1013
+1013:                                             ; preds = %1011
   %.b432 = load i1, ptr @quieter, align 4
-  br i1 %.b432, label %.thread2938, label %1016
+  br i1 %.b432, label %.thread2939, label %1014
 
-1016:                                             ; preds = %1015
-  %1017 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %1018 = call i64 @fwrite(ptr nonnull @.str.68, i64 30, i64 1, ptr %1017) #23
-  br label %1019
+1014:                                             ; preds = %1013
+  %1015 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %1016 = call i64 @fwrite(ptr nonnull @.str.68, i64 30, i64 1, ptr %1015) #23
+  br label %1017
 
-1019:                                             ; preds = %tcp_select.exit.thread, %1016
+1017:                                             ; preds = %tcp_select.exit.thread, %1014
   %.b.pr = load i1, ptr @quieter, align 4
-  br i1 %.b.pr, label %.thread2938, label %1020
+  br i1 %.b.pr, label %.thread2939, label %1018
 
-1020:                                             ; preds = %1019
-  %1021 = load ptr, ptr @stderr, align 8, !tbaa !8
-  %1022 = call i64 @fwrite(ptr nonnull @.str.68, i64 30, i64 1, ptr %1021) #23
-  br label %.thread2938
+1018:                                             ; preds = %1017
+  %1019 = load ptr, ptr @stderr, align 8, !tbaa !8
+  %1020 = call i64 @fwrite(ptr nonnull @.str.68, i64 30, i64 1, ptr %1019) #23
+  br label %.thread2939
 
-.thread2938:                                      ; preds = %1015, %.thread636, %1019, %1020, %992
-  call void @wolfSSL_free(ptr noundef %537) #21
-  %1023 = call i32 @close(i32 noundef %.0605) #21
-  %or.cond77 = and i1 %533, %536
-  br i1 %or.cond77, label %535, label %1024
+.thread2939:                                      ; preds = %1013, %.thread636, %1017, %1018, %990
+  call void @wolfSSL_free(ptr noundef %535) #21
+  %1021 = call i32 @close(i32 noundef %.0605) #21
+  %or.cond77 = and i1 %531, %534
+  br i1 %or.cond77, label %533, label %1022
 
-1024:                                             ; preds = %.thread2938
-  br i1 %534, label %1025, label %.outer
+1022:                                             ; preds = %.thread2939
+  br i1 %532, label %1023, label %.outer
 
-1025:                                             ; preds = %1024
-  %1026 = add nsw i32 %.2392.ph.ph, -1
-  %1027 = icmp eq i32 %1026, 0
-  br i1 %1027, label %1028, label %.outer.outer
+1023:                                             ; preds = %1022
+  %1024 = add nsw i32 %.2392.ph.ph, -1
+  %1025 = icmp eq i32 %1024, 0
+  br i1 %1025, label %1026, label %.outer.outer
 
-1028:                                             ; preds = %1025
-  %1029 = call i32 @close(i32 noundef %.2608) #21
+1026:                                             ; preds = %1023
+  %1027 = call i32 @close(i32 noundef %.2608) #21
   call void @wolfSSL_CTX_free(ptr noundef %.0325624) #21
-  br label %1030
+  br label %1028
 
-1030:                                             ; preds = %1028, %989, %877
-  %.sink3745 = phi i32 [ 0, %1028 ], [ %987, %989 ], [ %859, %877 ]
-  store i32 %.sink3745, ptr %32, align 8, !tbaa !26
+1028:                                             ; preds = %1026, %987, %875
+  %.sink3746 = phi i32 [ 0, %1026 ], [ %985, %987 ], [ %857, %875 ]
+  store i32 %.sink3746, ptr %32, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)

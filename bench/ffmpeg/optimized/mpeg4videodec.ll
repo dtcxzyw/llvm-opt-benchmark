@@ -236,6 +236,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ff_mb_type_b_tab = external constant [4 x [2 x i8]], align 1
 @mb_type_b_map = internal constant [4 x i16] [i16 12544, i16 12296, i16 8200, i16 4104], align 2
 @switch.table.ff_mpeg4_parse_picture_header = private unnamed_addr constant [20 x ptr] [ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46], align 8
+@switch.table.ff_mpeg4_parse_picture_header.5 = private unnamed_addr constant [3 x i32] [i32 73, i32 80, i32 66], align 4
 
 ; Function Attrs: nounwind uwtable
 define void @ff_mpeg4_mcsel_motion(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
@@ -8647,30 +8648,28 @@ check_marker.exit344.i:                           ; preds = %2485, %check_marker
   br label %decode_studio_vop_header.exit
 
 .thread346.i:                                     ; preds = %2637, %2635, %2620
-  %2650 = phi i32 [ %2645, %2637 ], [ 1, %2635 ], [ 1, %2620 ]
-  %2651 = phi i32 [ %2630, %2637 ], [ %2630, %2635 ], [ 1, %2620 ]
-  %2652 = phi i32 [ 66, %2637 ], [ 83, %2635 ], [ 83, %2620 ]
-  %2653 = load ptr, ptr %1904, align 8, !tbaa !61
-  %2654 = getelementptr inbounds nuw i8, ptr %2653, i64 524
-  %2655 = load i32, ptr %2654, align 4, !tbaa !158
-  %2656 = and i32 %2655, 1
-  %.not317.i = icmp eq i32 %2656, 0
-  br i1 %.not317.i, label %2695, label %2657
+  %2650 = phi i32 [ 1, %2620 ], [ %2645, %2637 ], [ 1, %2635 ]
+  %2651 = phi i32 [ 1, %2620 ], [ %2630, %2637 ], [ %2630, %2635 ]
+  %2652 = load ptr, ptr %1904, align 8, !tbaa !61
+  %2653 = getelementptr inbounds nuw i8, ptr %2652, i64 524
+  %2654 = load i32, ptr %2653, align 4, !tbaa !158
+  %2655 = and i32 %2654, 1
+  %.not317.i = icmp eq i32 %2655, 0
+  br i1 %.not317.i, label %2695, label %2656
 
-2657:                                             ; preds = %.thread346.i
-  switch i32 %2621, label %2658 [
-    i32 1, label %2659
-    i32 2, label %.fold.split.i
-  ]
+2656:                                             ; preds = %.thread346.i
+  %switch.tableidx480 = add i32 %2621, -1
+  %2657 = icmp ult i32 %switch.tableidx480, 3
+  br i1 %2657, label %switch.lookup481, label %2659
 
-2658:                                             ; preds = %2657
+switch.lookup481:                                 ; preds = %2656
+  %2658 = zext nneg i32 %switch.tableidx480 to i64
+  %switch.gep482 = getelementptr inbounds nuw i32, ptr @switch.table.ff_mpeg4_parse_picture_header.5, i64 %2658
+  %switch.load483 = load i32, ptr %switch.gep482, align 4
   br label %2659
 
-.fold.split.i:                                    ; preds = %2657
-  br label %2659
-
-2659:                                             ; preds = %.fold.split.i, %2658, %2657
-  %2660 = phi i32 [ 73, %2657 ], [ %2652, %2658 ], [ 80, %.fold.split.i ]
+2659:                                             ; preds = %2656, %switch.lookup481
+  %2660 = phi i32 [ %switch.load483, %switch.lookup481 ], [ 83, %2656 ]
   %2661 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %2662 = load i32, ptr %2661, align 4, !tbaa !108
   %2663 = getelementptr inbounds nuw i8, ptr %0, i64 4192
@@ -8707,7 +8706,7 @@ check_marker.exit344.i:                           ; preds = %2485, %check_marker
   %2692 = load i32, ptr %2691, align 4, !tbaa !189
   %2693 = getelementptr inbounds nuw i8, ptr %0, i64 4064
   %2694 = load i64, ptr %2693, align 8, !tbaa !210
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2653, i32 noundef 48, ptr noundef nonnull @.str.154, i32 noundef %2613, i32 noundef %2651, i32 noundef %2650, i32 noundef %2660, i32 noundef %2662, i32 noundef %2664, i32 noundef %2665, i32 noundef %2667, i32 noundef %2670, i32 noundef %2671, i32 noundef %2673, i32 noundef %2675, i32 noundef %2677, i32 noundef %2679, i32 noundef %2681, ptr noundef nonnull %2684, i32 noundef %2686, i32 noundef %2688, i32 noundef %2690, i32 noundef %2692, i64 noundef %2694, i32 noundef %2261) #16
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %2652, i32 noundef 48, ptr noundef nonnull @.str.154, i32 noundef %2613, i32 noundef %2651, i32 noundef %2650, i32 noundef %2660, i32 noundef %2662, i32 noundef %2664, i32 noundef %2665, i32 noundef %2667, i32 noundef %2670, i32 noundef %2671, i32 noundef %2673, i32 noundef %2675, i32 noundef %2677, i32 noundef %2679, i32 noundef %2681, ptr noundef nonnull %2684, i32 noundef %2686, i32 noundef %2688, i32 noundef %2690, i32 noundef %2692, i64 noundef %2694, i32 noundef %2261) #16
   br label %2695
 
 2695:                                             ; preds = %2659, %.thread346.i

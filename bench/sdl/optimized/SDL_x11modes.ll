@@ -1112,7 +1112,7 @@ X11_InitModes_XRandR.exit:                        ; preds = %25
 .thread:                                          ; preds = %X11_InitModes_XRandR.exit, %X11_InitModes_XRandR.exit.thread, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %258
+  br label %255
 
 CheckXRandR.exit.thread:                          ; preds = %16, %1, %139, %X11_InitModes_XRandR.exit, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1184,78 +1184,77 @@ CheckXRandR.exit.thread:                          ; preds = %16, %1, %139, %X11_
   %221 = load i32, ptr %220, align 4
   %222 = getelementptr inbounds nuw i8, ptr %213, i64 16
   store i32 %221, ptr %222, align 8
-  br i1 %or.cond66.i, label %227, label %223
+  br i1 %or.cond66.i, label %225, label %223
 
 223:                                              ; preds = %217
   switch i32 %202, label %224 [
-    i32 1498831189, label %229
-    i32 1431918169, label %229
-    i32 844715353, label %229
+    i32 1498831189, label %switch.edge.i
+    i32 1431918169, label %switch.edge.i
+    i32 844715353, label %switch.edge.i
+    i32 808530000, label %switch.edge.i
   ]
 
 224:                                              ; preds = %223
-  %225 = icmp eq i32 %202, 808530000
-  %226 = select i1 %225, i32 2, i32 1
-  br label %229
+  br label %switch.edge.i
 
-227:                                              ; preds = %217
-  %228 = and i32 %202, 255
-  br label %229
+225:                                              ; preds = %217
+  %226 = shl nuw i32 %202, 3
+  %227 = and i32 %226, 2040
+  br label %switch.edge.i
 
-229:                                              ; preds = %227, %224, %223, %223, %223
-  %230 = phi i32 [ %228, %227 ], [ 2, %223 ], [ %226, %224 ], [ 2, %223 ], [ 2, %223 ]
-  %231 = shl nuw nsw i32 %230, 3
-  %232 = load ptr, ptr @X11_XListPixmapFormats, align 8
-  %233 = call ptr %232(ptr noundef nonnull %191, ptr noundef nonnull %2) #8
-  %.not65.i = icmp eq ptr %233, null
-  br i1 %.not65.i, label %247, label %.preheader.i
+switch.edge.i:                                    ; preds = %225, %224, %223, %223, %223, %223
+  %228 = phi i32 [ %227, %225 ], [ 16, %223 ], [ 8, %224 ], [ 16, %223 ], [ 16, %223 ], [ 16, %223 ]
+  %229 = load ptr, ptr @X11_XListPixmapFormats, align 8
+  %230 = call ptr %229(ptr noundef nonnull %191, ptr noundef nonnull %2) #8
+  %.not65.i = icmp eq ptr %230, null
+  br i1 %.not65.i, label %244, label %.preheader.i
 
-.preheader.i:                                     ; preds = %229
-  %234 = load i32, ptr %2, align 4
-  %235 = icmp sgt i32 %234, 0
-  br i1 %235, label %.lr.ph.i, label %.loopexit.i
+.preheader.i:                                     ; preds = %switch.edge.i
+  %231 = load i32, ptr %2, align 4
+  %232 = icmp sgt i32 %231, 0
+  br i1 %232, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %236 = load i32, ptr %220, align 4
-  %wide.trip.count.i12 = zext nneg i32 %234 to i64
-  br label %238
+  %233 = load i32, ptr %220, align 4
+  %wide.trip.count.i12 = zext nneg i32 %231 to i64
+  br label %235
 
-237:                                              ; preds = %238
+234:                                              ; preds = %235
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, %wide.trip.count.i12
-  br i1 %exitcond.not.i15, label %.loopexit.i, label %238, !llvm.loop !19
+  br i1 %exitcond.not.i15, label %.loopexit.i, label %235, !llvm.loop !19
 
-238:                                              ; preds = %237, %.lr.ph.i
-  %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i14, %237 ]
-  %239 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %233, i64 %indvars.iv.i13
-  %240 = load i32, ptr %239, align 4
-  %241 = icmp eq i32 %240, %236
-  br i1 %241, label %242, label %237
+235:                                              ; preds = %234, %.lr.ph.i
+  %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i14, %234 ]
+  %236 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %230, i64 %indvars.iv.i13
+  %237 = load i32, ptr %236, align 4
+  %238 = icmp eq i32 %237, %233
+  br i1 %238, label %239, label %234
 
-242:                                              ; preds = %238
-  %243 = getelementptr inbounds nuw i8, ptr %239, i64 8
-  %244 = load i32, ptr %243, align 4
+239:                                              ; preds = %235
+  %240 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %241 = load i32, ptr %240, align 4
   br label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %237, %242, %.preheader.i
-  %.1.i = phi i32 [ %244, %242 ], [ %231, %.preheader.i ], [ %231, %237 ]
-  %245 = load ptr, ptr @X11_XFree, align 8
-  %246 = call i32 %245(ptr noundef nonnull %233) #8
-  br label %247
+.loopexit.i:                                      ; preds = %234, %239, %.preheader.i
+  %.1.i = phi i32 [ %241, %239 ], [ %228, %.preheader.i ], [ %228, %234 ]
+  %242 = load ptr, ptr @X11_XFree, align 8
+  %243 = call i32 %242(ptr noundef nonnull %230) #8
+  br label %244
 
-247:                                              ; preds = %.loopexit.i, %229
-  %.052.i = phi i32 [ %.1.i, %.loopexit.i ], [ %231, %229 ]
-  %248 = getelementptr inbounds nuw i8, ptr %213, i64 20
-  store i32 %.052.i, ptr %248, align 4
-  %249 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  store i32 0, ptr %249, align 8
-  %250 = getelementptr inbounds nuw i8, ptr %213, i64 28
-  store i32 0, ptr %250, align 4
-  %251 = getelementptr inbounds nuw i8, ptr %213, i64 40
-  store i8 0, ptr %251, align 8
+244:                                              ; preds = %.loopexit.i, %switch.edge.i
+  %.052.i = phi i32 [ %.1.i, %.loopexit.i ], [ %228, %switch.edge.i ]
+  %245 = getelementptr inbounds nuw i8, ptr %213, i64 20
+  store i32 %.052.i, ptr %245, align 4
+  %246 = getelementptr inbounds nuw i8, ptr %213, i64 24
+  store i32 0, ptr %246, align 8
+  %247 = getelementptr inbounds nuw i8, ptr %213, i64 28
+  store i32 0, ptr %247, align 4
+  %248 = getelementptr inbounds nuw i8, ptr %213, i64 40
+  store i8 0, ptr %248, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 128, i1 false)
-  %252 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @.str.21, ptr %252, align 8
+  %249 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @.str.21, ptr %249, align 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i32 %202, ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1266,23 +1265,23 @@ CheckXRandR.exit.thread:                          ; preds = %16, %1, %139, %X11_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx.i, i8 0, i64 16, i1 false)
   %.sroa.720.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 64
   store ptr %215, ptr %.sroa.720.0..sroa_idx.i, align 8
-  %253 = getelementptr inbounds nuw i8, ptr %4, i64 128
-  store ptr %213, ptr %253, align 8
-  %254 = call fastcc float @GetGlobalContentScale(ptr noundef %0)
-  %255 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  store float %254, ptr %255, align 8
-  %256 = call i32 @SDL_AddVideoDisplay(ptr noundef nonnull %4, i1 noundef zeroext true) #8
-  %257 = icmp ne i32 %256, 0
+  %250 = getelementptr inbounds nuw i8, ptr %4, i64 128
+  store ptr %213, ptr %250, align 8
+  %251 = call fastcc float @GetGlobalContentScale(ptr noundef %0)
+  %252 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  store float %251, ptr %252, align 8
+  %253 = call i32 @SDL_AddVideoDisplay(ptr noundef nonnull %4, i1 noundef zeroext true) #8
+  %254 = icmp ne i32 %253, 0
   br label %X11_InitModes_StdXlib.exit
 
-X11_InitModes_StdXlib.exit:                       ; preds = %199, %206, %208, %216, %247
-  %.0.i10 = phi i1 [ false, %216 ], [ %207, %206 ], [ %200, %199 ], [ false, %208 ], [ %257, %247 ]
+X11_InitModes_StdXlib.exit:                       ; preds = %199, %206, %208, %216, %244
+  %.0.i10 = phi i1 [ false, %216 ], [ %207, %206 ], [ %200, %199 ], [ false, %208 ], [ %254, %244 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %258
+  br label %255
 
-258:                                              ; preds = %.thread, %X11_InitModes_StdXlib.exit
+255:                                              ; preds = %.thread, %X11_InitModes_StdXlib.exit
   %.1 = phi i1 [ %.0.i10, %X11_InitModes_StdXlib.exit ], [ true, %.thread ]
   ret i1 %.1
 }
@@ -1927,187 +1926,186 @@ define internal fastcc noundef zeroext i1 @X11_FillXRandRDisplayInfo(ptr noundef
   %switch.shifted = lshr i16 2055, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond2 = select i1 %19, i1 %switch.lobit, i1 false
-  br i1 %or.cond2, label %switch.lookup, label %24
+  br i1 %or.cond2, label %switch.lookup, label %22
 
 20:                                               ; preds = %14
   switch i32 %15, label %21 [
-    i32 1498831189, label %26
-    i32 1431918169, label %26
-    i32 844715353, label %26
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 844715353, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 21:                                               ; preds = %20
-  %22 = icmp eq i32 %15, 808530000
-  %23 = select i1 %22, i32 2, i32 1
-  br label %26
+  br label %switch.edge
 
-24:                                               ; preds = %16
-  %25 = and i32 %15, 255
-  br label %26
+22:                                               ; preds = %16
+  %23 = shl nuw i32 %15, 3
+  %24 = and i32 %23, 2040
+  br label %switch.edge
 
-26:                                               ; preds = %21, %20, %20, %20, %24
-  %27 = phi i32 [ %25, %24 ], [ 2, %20 ], [ %23, %21 ], [ 2, %20 ], [ 2, %20 ]
-  %28 = shl nuw nsw i32 %27, 3
-  %29 = load ptr, ptr @X11_XListPixmapFormats, align 8
-  %30 = call ptr %29(ptr noundef %1, ptr noundef nonnull %10) #8
-  %.not114 = icmp eq ptr %30, null
-  br i1 %.not114, label %45, label %.preheader
+switch.edge:                                      ; preds = %20, %21, %20, %20, %20, %22
+  %25 = phi i32 [ %24, %22 ], [ 16, %20 ], [ 8, %21 ], [ 16, %20 ], [ 16, %20 ], [ 16, %20 ]
+  %26 = load ptr, ptr @X11_XListPixmapFormats, align 8
+  %27 = call ptr %26(ptr noundef %1, ptr noundef nonnull %10) #8
+  %.not114 = icmp eq ptr %27, null
+  br i1 %.not114, label %42, label %.preheader
 
-.preheader:                                       ; preds = %26
-  %31 = load i32, ptr %10, align 4
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %switch.edge
+  %28 = load i32, ptr %10, align 4
+  %29 = icmp sgt i32 %28, 0
+  br i1 %29, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %33 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %34 = load i32, ptr %33, align 4
-  %wide.trip.count = zext nneg i32 %31 to i64
-  br label %36
+  %30 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %31 = load i32, ptr %30, align 4
+  %wide.trip.count = zext nneg i32 %28 to i64
+  br label %33
 
-35:                                               ; preds = %36
+32:                                               ; preds = %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %36, !llvm.loop !24
+  br i1 %exitcond.not, label %.loopexit, label %33, !llvm.loop !24
 
-36:                                               ; preds = %.lr.ph, %35
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %37 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %30, i64 %indvars.iv
-  %38 = load i32, ptr %37, align 4
-  %39 = icmp eq i32 %38, %34
-  br i1 %39, label %40, label %35
+33:                                               ; preds = %.lr.ph, %32
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
+  %34 = getelementptr inbounds nuw %struct.XPixmapFormatValues, ptr %27, i64 %indvars.iv
+  %35 = load i32, ptr %34, align 4
+  %36 = icmp eq i32 %35, %31
+  br i1 %36, label %37, label %32
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %42 = load i32, ptr %41, align 4
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %39 = load i32, ptr %38, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %35, %.preheader, %40
-  %.1 = phi i32 [ %42, %40 ], [ %28, %.preheader ], [ %28, %35 ]
-  %43 = load ptr, ptr @X11_XFree, align 8
-  %44 = call i32 %43(ptr noundef nonnull %30) #8
-  br label %45
+.loopexit:                                        ; preds = %32, %.preheader, %37
+  %.1 = phi i32 [ %39, %37 ], [ %25, %.preheader ], [ %25, %32 ]
+  %40 = load ptr, ptr @X11_XFree, align 8
+  %41 = call i32 %40(ptr noundef nonnull %27) #8
+  br label %42
 
-45:                                               ; preds = %.loopexit, %26
-  %.099 = phi i32 [ %.1, %.loopexit ], [ %28, %26 ]
-  %46 = load ptr, ptr @X11_XRRGetOutputInfo, align 8
-  %47 = call ptr %46(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %3) #8
-  %.not115 = icmp eq ptr %47, null
-  br i1 %.not115, label %55, label %48
+42:                                               ; preds = %.loopexit, %switch.edge
+  %.099 = phi i32 [ %.1, %.loopexit ], [ %25, %switch.edge ]
+  %43 = load ptr, ptr @X11_XRRGetOutputInfo, align 8
+  %44 = call ptr %43(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %3) #8
+  %.not115 = icmp eq ptr %44, null
+  br i1 %.not115, label %52, label %45
+
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %47 = load i64, ptr %46, align 8
+  %.not116 = icmp eq i64 %47, 0
+  br i1 %.not116, label %52, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %50 = load i64, ptr %49, align 8
-  %.not116 = icmp eq i64 %50, 0
-  br i1 %.not116, label %55, label %51
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 48
+  %50 = load i16, ptr %49, align 8
+  %51 = icmp eq i16 %50, 1
+  br i1 %51, label %52, label %54
 
-51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 48
-  %53 = load i16, ptr %52, align 8
-  %54 = icmp eq i16 %53, 1
-  br i1 %54, label %55, label %57
-
-55:                                               ; preds = %51, %48, %45
-  %56 = load ptr, ptr @X11_XRRFreeOutputInfo, align 8
-  call void %56(ptr noundef %47) #8
+52:                                               ; preds = %48, %45, %42
+  %53 = load ptr, ptr @X11_XRRFreeOutputInfo, align 8
+  call void %53(ptr noundef %44) #8
   br label %switch.lookup
 
-57:                                               ; preds = %51
-  %58 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %60 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %6, ptr noundef %59, i64 noundef 128) #8
-  %61 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %62 = load i64, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %64 = load i64, ptr %63, align 8
-  %65 = load i64, ptr %49, align 8
-  %66 = load ptr, ptr @X11_XRRFreeOutputInfo, align 8
-  call void %66(ptr noundef nonnull %47) #8
-  %67 = load ptr, ptr @X11_XRRGetCrtcInfo, align 8
-  %68 = call ptr %67(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %65) #8
-  %.not117 = icmp eq ptr %68, null
-  br i1 %.not117, label %switch.lookup, label %69
+54:                                               ; preds = %48
+  %55 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %56 = load ptr, ptr %55, align 8
+  %57 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %6, ptr noundef %56, i64 noundef 128) #8
+  %58 = getelementptr inbounds nuw i8, ptr %44, i64 32
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %61 = load i64, ptr %60, align 8
+  %62 = load i64, ptr %46, align 8
+  %63 = load ptr, ptr @X11_XRRFreeOutputInfo, align 8
+  call void %63(ptr noundef nonnull %44) #8
+  %64 = load ptr, ptr @X11_XRRGetCrtcInfo, align 8
+  %65 = call ptr %64(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %62) #8
+  %.not117 = icmp eq ptr %65, null
+  br i1 %.not117, label %switch.lookup, label %66
 
-69:                                               ; preds = %57
+66:                                               ; preds = %54
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, i8 0, i64 32, i1 false)
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 24
-  %71 = load i64, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  %73 = load i32, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 %73, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %68, i64 20
-  %76 = load i32, ptr %75, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 %76, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %15, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %80 = load i32, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  %82 = load i32, ptr %81, align 4
-  %83 = load ptr, ptr @X11_XRRFreeCrtcInfo, align 8
-  call void %83(ptr noundef nonnull %68) #8
-  %84 = call noalias dereferenceable_or_null(72) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 72) #9
-  %.not118 = icmp eq ptr %84, null
-  br i1 %.not118, label %switch.lookup, label %85
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %68 = load i64, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  %70 = load i32, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 %70, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 20
+  %73 = load i32, ptr %72, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 %73, ptr %74, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %15, ptr %75, align 4
+  %76 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %77 = load i32, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %65, i64 12
+  %79 = load i32, ptr %78, align 4
+  %80 = load ptr, ptr @X11_XRRFreeCrtcInfo, align 8
+  call void %80(ptr noundef nonnull %65) #8
+  %81 = call noalias dereferenceable_or_null(72) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 72) #9
+  %.not118 = icmp eq ptr %81, null
+  br i1 %.not118, label %switch.lookup, label %82
 
-85:                                               ; preds = %69
-  %86 = call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #9
-  %.not119 = icmp eq ptr %86, null
-  br i1 %.not119, label %87, label %88
+82:                                               ; preds = %66
+  %83 = call noalias dereferenceable_or_null(8) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 8) #9
+  %.not119 = icmp eq ptr %83, null
+  br i1 %.not119, label %84, label %85
 
-87:                                               ; preds = %85
-  call void @SDL_free_REAL(ptr noundef nonnull %84) #8
+84:                                               ; preds = %82
+  call void @SDL_free_REAL(ptr noundef nonnull %81) #8
   br label %switch.lookup
 
-88:                                               ; preds = %85
-  store i64 %71, ptr %86, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %86, ptr %89, align 8
-  store i32 %2, ptr %84, align 8
-  %90 = load ptr, ptr %9, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %9, i64 20
-  %93 = load i32, ptr %92, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  store i32 %93, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %84, i64 20
-  store i32 %.099, ptr %95, align 4
-  %96 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  store i32 %80, ptr %96, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %84, i64 28
-  store i32 %82, ptr %97, align 4
-  %98 = getelementptr inbounds nuw i8, ptr %84, i64 40
-  store i8 1, ptr %98, align 8
-  %99 = getelementptr inbounds nuw i8, ptr %84, i64 48
-  store i64 %3, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %84, i64 56
-  %101 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %100, ptr noundef nonnull %6, i64 noundef 16) #8
-  %102 = call fastcc zeroext i1 @SetXRandRModeInfo(ptr noundef %1, ptr noundef %4, i64 noundef %65, i64 noundef %71, ptr noundef %8)
-  call fastcc void @SetXRandRDisplayName(ptr noundef %1, i64 noundef %12, ptr noundef %6, i64 noundef %3, i64 noundef %62, i64 noundef %64)
+85:                                               ; preds = %82
+  store i64 %68, ptr %83, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %83, ptr %86, align 8
+  store i32 %2, ptr %81, align 8
+  %87 = load ptr, ptr %9, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  store ptr %87, ptr %88, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %9, i64 20
+  %90 = load i32, ptr %89, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %81, i64 16
+  store i32 %90, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 20
+  store i32 %.099, ptr %92, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %81, i64 24
+  store i32 %77, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 28
+  store i32 %79, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %81, i64 40
+  store i8 1, ptr %95, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %81, i64 48
+  store i64 %3, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %81, i64 56
+  %98 = call i64 @SDL_strlcpy_REAL(ptr noundef nonnull %97, ptr noundef nonnull %6, i64 noundef 16) #8
+  %99 = call fastcc zeroext i1 @SetXRandRModeInfo(ptr noundef %1, ptr noundef %4, i64 noundef %62, i64 noundef %68, ptr noundef %8)
+  call fastcc void @SetXRandRDisplayName(ptr noundef %1, i64 noundef %12, ptr noundef %6, i64 noundef %3, i64 noundef %59, i64 noundef %61)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %5, i8 0, i64 136, i1 false)
-  %103 = load i8, ptr %6, align 1
-  %.not120 = icmp eq i8 %103, 0
-  br i1 %.not120, label %106, label %104
+  %100 = load i8, ptr %6, align 1
+  %.not120 = icmp eq i8 %100, 0
+  br i1 %.not120, label %103, label %101
 
-104:                                              ; preds = %88
-  %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %6, ptr %105, align 8
-  br label %106
+101:                                              ; preds = %85
+  %102 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %6, ptr %102, align 8
+  br label %103
 
-106:                                              ; preds = %104, %88
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %107, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
-  %108 = call fastcc float @GetGlobalContentScale(ptr noundef %0)
-  %109 = getelementptr inbounds nuw i8, ptr %5, i64 88
-  store float %108, ptr %109, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  store ptr %84, ptr %110, align 8
+103:                                              ; preds = %101, %85
+  %104 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull align 8 dereferenceable(40) %8, i64 40, i1 false)
+  %105 = call fastcc float @GetGlobalContentScale(ptr noundef %0)
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 88
+  store float %105, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  store ptr %81, ptr %107, align 8
   br label %switch.lookup
 
-switch.lookup:                                    ; preds = %16, %69, %57, %7, %106, %87, %55
-  %.0100 = phi i1 [ false, %55 ], [ true, %106 ], [ false, %87 ], [ false, %7 ], [ false, %57 ], [ false, %69 ], [ false, %16 ]
+switch.lookup:                                    ; preds = %16, %66, %54, %7, %103, %84, %52
+  %.0100 = phi i1 [ false, %52 ], [ true, %103 ], [ false, %84 ], [ false, %7 ], [ false, %54 ], [ false, %66 ], [ false, %16 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

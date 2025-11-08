@@ -2656,7 +2656,7 @@ IsSupportedFormat.exit279:                        ; preds = %172
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %177 = load ptr, ptr %176, align 8
   %178 = tail call zeroext i1 %177(ptr noundef %0, ptr noundef nonnull %74, i32 noundef %1) #15
-  br i1 %178, label %256, label %179
+  br i1 %178, label %253, label %179
 
 179:                                              ; preds = %IsSupportedFormat.exit279
   tail call void @SDL_DestroyTexture_REAL(ptr noundef nonnull %74)
@@ -2753,7 +2753,7 @@ IsSupportedFormat.exit279:                        ; preds = %172
   store ptr %74, ptr %115, align 8
   %230 = load i32, ptr %74, align 8
   switch i32 %230, label %231 [
-    i32 1196444237, label %256
+    i32 1196444237, label %253
     i32 0, label %237
   ]
 
@@ -2768,7 +2768,7 @@ IsSupportedFormat.exit279:                        ; preds = %172
   %235 = getelementptr inbounds nuw i8, ptr %74, i64 224
   store ptr %234, ptr %235, align 8
   %.not256 = icmp eq ptr %234, null
-  br i1 %.not256, label %236, label %256
+  br i1 %.not256, label %236, label %253
 
 236:                                              ; preds = %232
   tail call void @SDL_DestroyTexture_REAL(ptr noundef nonnull %74)
@@ -2776,72 +2776,71 @@ IsSupportedFormat.exit279:                        ; preds = %172
 
 237:                                              ; preds = %226, %231
   %238 = icmp eq i32 %6, 1
-  br i1 %238, label %239, label %256
+  br i1 %238, label %239, label %253
 
 239:                                              ; preds = %237
-  br i1 %or.cond258, label %244, label %240
+  br i1 %or.cond258, label %switch.edge, label %240
 
 240:                                              ; preds = %239
   switch i32 %.0219, label %241 [
-    i32 1498831189, label %244
-    i32 1431918169, label %244
-    i32 844715353, label %244
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 844715353, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 241:                                              ; preds = %240
-  %242 = icmp eq i32 %.0219, 808530000
-  %243 = select i1 %242, i32 2, i32 1
-  br label %244
+  br label %switch.edge
 
-244:                                              ; preds = %239, %241, %240, %240, %240
-  %245 = phi i32 [ 2, %240 ], [ %243, %241 ], [ 2, %240 ], [ 2, %240 ], [ %27, %239 ]
-  %246 = mul i32 %245, %8
-  %247 = add i32 %246, 3
-  %248 = and i32 %247, -4
-  %249 = getelementptr inbounds nuw i8, ptr %74, i64 240
-  store i32 %248, ptr %249, align 8
-  %250 = sext i32 %248 to i64
-  %251 = and i64 %9, 2147483647
-  %252 = mul nsw i64 %251, %250
-  %253 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %252) #17
-  %254 = getelementptr inbounds nuw i8, ptr %74, i64 232
-  store ptr %253, ptr %254, align 8
-  %.not255 = icmp eq ptr %253, null
-  br i1 %.not255, label %255, label %256
+switch.edge:                                      ; preds = %239, %240, %241, %240, %240, %240
+  %242 = phi i32 [ 2, %240 ], [ 1, %241 ], [ 2, %240 ], [ 2, %240 ], [ 2, %240 ], [ %27, %239 ]
+  %243 = mul i32 %242, %8
+  %244 = add i32 %243, 3
+  %245 = and i32 %244, -4
+  %246 = getelementptr inbounds nuw i8, ptr %74, i64 240
+  store i32 %245, ptr %246, align 8
+  %247 = sext i32 %245 to i64
+  %248 = and i64 %9, 2147483647
+  %249 = mul nsw i64 %248, %247
+  %250 = tail call noalias ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef %249) #17
+  %251 = getelementptr inbounds nuw i8, ptr %74, i64 232
+  store ptr %250, ptr %251, align 8
+  %.not255 = icmp eq ptr %250, null
+  br i1 %.not255, label %252, label %253
 
-255:                                              ; preds = %244
+252:                                              ; preds = %switch.edge
   tail call void @SDL_DestroyTexture_REAL(ptr noundef nonnull %74)
   br label %.critedge268
 
-256:                                              ; preds = %226, %232, %244, %237, %IsSupportedFormat.exit279
-  %257 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %74)
-  %258 = load i32, ptr %80, align 8
+253:                                              ; preds = %226, %232, %switch.edge, %237, %IsSupportedFormat.exit279
+  %254 = tail call i32 @SDL_GetTextureProperties_REAL(ptr noundef nonnull %74)
+  %255 = load i32, ptr %80, align 8
+  %256 = zext i32 %255 to i64
+  %257 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.44, i64 noundef %256) #15
+  %258 = load i32, ptr %74, align 8
   %259 = zext i32 %258 to i64
-  %260 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %257, ptr noundef nonnull @.str.44, i64 noundef %259) #15
-  %261 = load i32, ptr %74, align 8
+  %260 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.45, i64 noundef %259) #15
+  %261 = load i32, ptr %81, align 4
   %262 = zext i32 %261 to i64
-  %263 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %257, ptr noundef nonnull @.str.45, i64 noundef %262) #15
-  %264 = load i32, ptr %81, align 4
-  %265 = zext i32 %264 to i64
-  %266 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %257, ptr noundef nonnull @.str.46, i64 noundef %265) #15
-  %267 = load i32, ptr %82, align 4
+  %263 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.46, i64 noundef %262) #15
+  %264 = load i32, ptr %82, align 4
+  %265 = sext i32 %264 to i64
+  %266 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.47, i64 noundef %265) #15
+  %267 = load i32, ptr %83, align 8
   %268 = sext i32 %267 to i64
-  %269 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %257, ptr noundef nonnull @.str.47, i64 noundef %268) #15
-  %270 = load i32, ptr %83, align 8
-  %271 = sext i32 %270 to i64
-  %272 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %257, ptr noundef nonnull @.str.48, i64 noundef %271) #15
-  %273 = load float, ptr %154, align 4
-  %274 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %257, ptr noundef nonnull @.str.49, float noundef %273) #15
-  %275 = load float, ptr %158, align 8
-  %276 = fcmp ogt float %275, 0.000000e+00
-  br i1 %276, label %277, label %.critedge268
+  %269 = tail call zeroext i1 @SDL_SetNumberProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.48, i64 noundef %268) #15
+  %270 = load float, ptr %154, align 4
+  %271 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.49, float noundef %270) #15
+  %272 = load float, ptr %158, align 8
+  %273 = fcmp ogt float %272, 0.000000e+00
+  br i1 %273, label %274, label %.critedge268
 
-277:                                              ; preds = %256
-  %278 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %257, ptr noundef nonnull @.str.50, float noundef %275) #15
+274:                                              ; preds = %253
+  %275 = tail call zeroext i1 @SDL_SetFloatProperty_REAL(i32 noundef %254, ptr noundef nonnull @.str.50, float noundef %272) #15
   br label %.critedge268
 
-.critedge268:                                     ; preds = %70, %179, %72, %277, %256, %207, %255, %236, %48, %.loopexit, %29, %18, %12
-  %.0 = phi ptr [ null, %18 ], [ null, %29 ], [ null, %48 ], [ null, %.loopexit ], [ null, %12 ], [ null, %70 ], [ null, %179 ], [ null, %72 ], [ %74, %277 ], [ %74, %256 ], [ null, %207 ], [ null, %255 ], [ null, %236 ]
+.critedge268:                                     ; preds = %70, %179, %72, %274, %253, %207, %252, %236, %48, %.loopexit, %29, %18, %12
+  %.0 = phi ptr [ null, %18 ], [ null, %29 ], [ null, %48 ], [ null, %.loopexit ], [ null, %12 ], [ null, %70 ], [ null, %179 ], [ null, %72 ], [ %74, %274 ], [ %74, %253 ], [ null, %207 ], [ null, %252 ], [ null, %236 ]
   ret ptr %.0
 }
 
@@ -4464,7 +4463,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
 
 10:                                               ; preds = %4
   %11 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
-  br label %96
+  br label %93
 
 12:                                               ; preds = %4
   %.not = icmp eq ptr %2, null
@@ -4472,7 +4471,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
 
 13:                                               ; preds = %12
   %14 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.56) #15
-  br label %96
+  br label %93
 
 15:                                               ; preds = %12
   %.not27 = icmp eq i32 %3, 0
@@ -4480,7 +4479,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
 
 16:                                               ; preds = %15
   %17 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.57) #15
-  br label %96
+  br label %93
 
 18:                                               ; preds = %15
   store i32 0, ptr %8, align 4
@@ -4499,7 +4498,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %18
   %27 = call zeroext i1 @SDL_GetRectIntersection_REAL(ptr noundef nonnull %1, ptr noundef nonnull %8, ptr noundef nonnull %8) #15
-  br i1 %27, label %._crit_edge, label %96
+  br i1 %27, label %._crit_edge, label %93
 
 ._crit_edge:                                      ; preds = %26
   %.pre = load i32, ptr %22, align 4
@@ -4512,7 +4511,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   %31 = icmp eq i32 %30, 0
   %32 = icmp eq i32 %29, 0
   %or.cond = select i1 %31, i1 true, i1 %32
-  br i1 %or.cond, label %96, label %33
+  br i1 %or.cond, label %93, label %33
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -4520,7 +4519,7 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   %.not29 = icmp eq ptr %35, null
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %37 = load ptr, ptr %36, align 8
-  br i1 %.not29, label %84, label %38
+  br i1 %.not29, label %81, label %38
 
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -4569,48 +4568,47 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   %.mask.i = and i32 %60, -268435456
   %.not52.i = icmp eq i32 %.mask.i, 268435456
   %or.cond.i = or i1 %.not.i, %.not52.i
-  br i1 %or.cond.i, label %65, label %61
+  br i1 %or.cond.i, label %63, label %61
 
 61:                                               ; preds = %59
   switch i32 %60, label %62 [
-    i32 844715353, label %67
-    i32 1498831189, label %67
-    i32 1431918169, label %67
+    i32 844715353, label %switch.edge.i
+    i32 1498831189, label %switch.edge.i
+    i32 1431918169, label %switch.edge.i
+    i32 808530000, label %switch.edge.i
   ]
 
 62:                                               ; preds = %61
-  %63 = icmp eq i32 %60, 808530000
-  %64 = select i1 %63, i32 2, i32 1
-  br label %67
+  br label %switch.edge.i
 
-65:                                               ; preds = %59
-  %66 = and i32 %60, 255
-  br label %67
+63:                                               ; preds = %59
+  %64 = and i32 %60, 255
+  br label %switch.edge.i
 
-67:                                               ; preds = %65, %62, %61, %61, %61
-  %68 = phi i32 [ %66, %65 ], [ 2, %61 ], [ %64, %62 ], [ 2, %61 ], [ 2, %61 ]
-  %69 = mul i32 %68, %42
-  %70 = add i32 %69, 3
-  %71 = and i32 %70, -4
-  %72 = sext i32 %44 to i64
-  %73 = sext i32 %71 to i64
-  %74 = mul nsw i64 %73, %72
-  %.not53.i = icmp eq i64 %74, 0
-  br i1 %.not53.i, label %SDL_UpdateTextureYUV.exit, label %75
+switch.edge.i:                                    ; preds = %63, %62, %61, %61, %61, %61
+  %65 = phi i32 [ %64, %63 ], [ 2, %61 ], [ 1, %62 ], [ 2, %61 ], [ 2, %61 ], [ 2, %61 ]
+  %66 = mul i32 %65, %42
+  %67 = add i32 %66, 3
+  %68 = and i32 %67, -4
+  %69 = sext i32 %44 to i64
+  %70 = sext i32 %68 to i64
+  %71 = mul nsw i64 %70, %69
+  %.not53.i = icmp eq i64 %71, 0
+  br i1 %.not53.i, label %SDL_UpdateTextureYUV.exit, label %72
 
-75:                                               ; preds = %67
-  %76 = call noalias ptr @SDL_malloc_REAL(i64 noundef %74) #15
-  %.not54.not.i = icmp eq ptr %76, null
-  br i1 %.not54.not.i, label %SDL_UpdateTextureYUV.exit, label %77
+72:                                               ; preds = %switch.edge.i
+  %73 = call noalias ptr @SDL_malloc_REAL(i64 noundef %71) #15
+  %.not54.not.i = icmp eq ptr %73, null
+  br i1 %.not54.not.i, label %SDL_UpdateTextureYUV.exit, label %74
 
-77:                                               ; preds = %75
-  %78 = load ptr, ptr %34, align 8
-  %79 = load i32, ptr %37, align 8
-  %80 = load i32, ptr %43, align 4
-  %81 = load i32, ptr %45, align 4
-  %82 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %78, ptr noundef nonnull %5, i32 noundef %79, i32 noundef %80, i32 noundef %81, ptr noundef nonnull %76, i32 noundef %71) #15
-  %83 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %37, ptr noundef nonnull %5, ptr noundef nonnull %76, i32 noundef %71)
-  call void @SDL_free_REAL(ptr noundef nonnull %76) #15
+74:                                               ; preds = %72
+  %75 = load ptr, ptr %34, align 8
+  %76 = load i32, ptr %37, align 8
+  %77 = load i32, ptr %43, align 4
+  %78 = load i32, ptr %45, align 4
+  %79 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %75, ptr noundef nonnull %5, i32 noundef %76, i32 noundef %77, i32 noundef %78, ptr noundef nonnull %73, i32 noundef %68) #15
+  %80 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %37, ptr noundef nonnull %5, ptr noundef nonnull %73, i32 noundef %68)
+  call void @SDL_free_REAL(ptr noundef nonnull %73) #15
   br label %SDL_UpdateTextureYUV.exit
 
 .critedge.i:                                      ; preds = %49
@@ -4618,35 +4616,35 @@ define hidden zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef %0, ptr noundef %1,
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %SDL_UpdateTextureYUV.exit
 
-SDL_UpdateTextureYUV.exit:                        ; preds = %38, %51, %67, %75, %77, %.critedge.i
-  %.0.i = phi i1 [ false, %38 ], [ false, %.critedge.i ], [ false, %75 ], [ true, %67 ], [ true, %77 ], [ true, %51 ]
+SDL_UpdateTextureYUV.exit:                        ; preds = %38, %51, %switch.edge.i, %72, %74, %.critedge.i
+  %.0.i = phi i1 [ false, %38 ], [ false, %.critedge.i ], [ false, %72 ], [ true, %switch.edge.i ], [ true, %74 ], [ true, %51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %96
+  br label %93
 
-84:                                               ; preds = %33
+81:                                               ; preds = %33
   %.not30 = icmp eq ptr %37, null
-  br i1 %.not30, label %87, label %85
+  br i1 %.not30, label %84, label %82
 
-85:                                               ; preds = %84
-  %86 = call fastcc zeroext i1 @SDL_UpdateTextureNative(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %2, i32 noundef %3)
-  br label %96
+82:                                               ; preds = %81
+  %83 = call fastcc zeroext i1 @SDL_UpdateTextureNative(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %2, i32 noundef %3)
+  br label %93
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr i8, ptr %0, i64 272
-  %.val31 = load i32, ptr %90, align 8
-  %91 = call fastcc zeroext i1 @FlushRenderCommandsIfTextureNeeded(ptr %89, i32 %.val31)
-  br i1 %91, label %92, label %96
+84:                                               ; preds = %81
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr i8, ptr %0, i64 272
+  %.val31 = load i32, ptr %87, align 8
+  %88 = call fastcc zeroext i1 @FlushRenderCommandsIfTextureNeeded(ptr %86, i32 %.val31)
+  br i1 %88, label %89, label %93
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 112
-  %94 = load ptr, ptr %93, align 8
-  %95 = call zeroext i1 %94(ptr noundef %89, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef %3) #15
-  br label %96
+89:                                               ; preds = %84
+  %90 = getelementptr inbounds nuw i8, ptr %86, i64 112
+  %91 = load ptr, ptr %90, align 8
+  %92 = call zeroext i1 %91(ptr noundef %86, ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef nonnull %2, i32 noundef %3) #15
+  br label %93
 
-96:                                               ; preds = %92, %87, %28, %26, %85, %SDL_UpdateTextureYUV.exit, %16, %13, %10
-  %.0 = phi i1 [ %.0.i, %SDL_UpdateTextureYUV.exit ], [ %86, %85 ], [ %17, %16 ], [ %14, %13 ], [ false, %10 ], [ true, %26 ], [ true, %28 ], [ %95, %92 ], [ false, %87 ]
+93:                                               ; preds = %89, %84, %28, %26, %82, %SDL_UpdateTextureYUV.exit, %16, %13, %10
+  %.0 = phi i1 [ %.0.i, %SDL_UpdateTextureYUV.exit ], [ %83, %82 ], [ %17, %16 ], [ %14, %13 ], [ false, %10 ], [ true, %26 ], [ true, %28 ], [ %92, %89 ], [ false, %84 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.0
 }
@@ -4707,52 +4705,51 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNative(ptr noundef r
   %.mask = and i32 %33, -268435456
   %.not57 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not56, %.not57
-  br i1 %or.cond, label %38, label %34
+  br i1 %or.cond, label %36, label %34
 
 34:                                               ; preds = %32
   switch i32 %33, label %35 [
-    i32 844715353, label %40
-    i32 1498831189, label %40
-    i32 1431918169, label %40
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 35:                                               ; preds = %34
-  %36 = icmp eq i32 %33, 808530000
-  %37 = select i1 %36, i32 2, i32 1
-  br label %40
+  br label %switch.edge
 
-38:                                               ; preds = %32
-  %39 = and i32 %33, 255
-  br label %40
+36:                                               ; preds = %32
+  %37 = and i32 %33, 255
+  br label %switch.edge
 
-40:                                               ; preds = %35, %34, %34, %34, %38
-  %41 = phi i32 [ %39, %38 ], [ 2, %34 ], [ %37, %35 ], [ 2, %34 ], [ 2, %34 ]
-  %42 = mul i32 %41, %10
-  %43 = add i32 %42, 3
-  %44 = and i32 %43, -4
-  %.not58 = icmp eq i32 %44, 0
-  br i1 %.not58, label %.critedge61, label %45
+switch.edge:                                      ; preds = %34, %35, %34, %34, %34, %36
+  %38 = phi i32 [ %37, %36 ], [ 2, %34 ], [ 1, %35 ], [ 2, %34 ], [ 2, %34 ], [ 2, %34 ]
+  %39 = mul i32 %38, %10
+  %40 = add i32 %39, 3
+  %41 = and i32 %40, -4
+  %.not58 = icmp eq i32 %41, 0
+  br i1 %.not58, label %.critedge61, label %42
 
-45:                                               ; preds = %40
-  %46 = sext i32 %44 to i64
-  %47 = sext i32 %13 to i64
-  %48 = mul nsw i64 %46, %47
-  %49 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %48) #15
-  %.not59.not = icmp eq ptr %49, null
-  br i1 %.not59.not, label %.critedge61, label %50
+42:                                               ; preds = %switch.edge
+  %43 = sext i32 %41 to i64
+  %44 = sext i32 %13 to i64
+  %45 = mul nsw i64 %43, %44
+  %46 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %45) #15
+  %.not59.not = icmp eq ptr %46, null
+  br i1 %.not59.not, label %.critedge61, label %47
 
-50:                                               ; preds = %45
-  %51 = load i32, ptr %9, align 4
-  %52 = load i32, ptr %12, align 4
-  %53 = load i32, ptr %0, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
+47:                                               ; preds = %42
+  %48 = load i32, ptr %9, align 4
+  %49 = load i32, ptr %12, align 4
+  %50 = load i32, ptr %0, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %52 = load i32, ptr %51, align 8
+  %53 = load i32, ptr %8, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %55 = load i32, ptr %54, align 8
-  %56 = load i32, ptr %8, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %58 = load i32, ptr %57, align 8
-  %59 = tail call zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %55, i32 noundef 0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %56, i32 noundef %58, i32 noundef 0, ptr noundef nonnull %49, i32 noundef %44) #15
-  %60 = tail call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %49, i32 noundef %44)
-  tail call void @SDL_free_REAL(ptr noundef nonnull %49) #15
+  %56 = tail call zeroext i1 @SDL_ConvertPixelsAndColorspace_REAL(i32 noundef %48, i32 noundef %49, i32 noundef %50, i32 noundef %52, i32 noundef 0, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %53, i32 noundef %55, i32 noundef 0, ptr noundef nonnull %46, i32 noundef %41) #15
+  %57 = tail call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %8, ptr noundef nonnull %1, ptr noundef nonnull %46, i32 noundef %41)
+  tail call void @SDL_free_REAL(ptr noundef nonnull %46) #15
   br label %.critedge61
 
 .critedge:                                        ; preds = %18
@@ -4760,8 +4757,8 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNative(ptr noundef r
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge61
 
-.critedge61:                                      ; preds = %20, %50, %40, %45, %.critedge, %4, %11
-  %.0 = phi i1 [ true, %11 ], [ true, %4 ], [ false, %.critedge ], [ false, %45 ], [ true, %40 ], [ true, %50 ], [ true, %20 ]
+.critedge61:                                      ; preds = %20, %47, %switch.edge, %42, %.critedge, %4, %11
+  %.0 = phi i1 [ true, %11 ], [ true, %4 ], [ false, %.critedge ], [ false, %42 ], [ true, %switch.edge ], [ true, %47 ], [ true, %20 ]
   ret i1 %.0
 }
 
@@ -5020,46 +5017,45 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureYUVPlanar(ptr nounde
   %.mask = and i32 %40, -268435456
   %.not61 = icmp eq i32 %.mask, 268435456
   %or.cond64 = or i1 %.not60, %.not61
-  br i1 %or.cond64, label %45, label %41
+  br i1 %or.cond64, label %43, label %41
 
 41:                                               ; preds = %39
   switch i32 %40, label %42 [
-    i32 844715353, label %47
-    i32 1498831189, label %47
-    i32 1431918169, label %47
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 42:                                               ; preds = %41
-  %43 = icmp eq i32 %40, 808530000
-  %44 = select i1 %43, i32 2, i32 1
-  br label %47
+  br label %switch.edge
 
-45:                                               ; preds = %39
-  %46 = and i32 %40, 255
-  br label %47
+43:                                               ; preds = %39
+  %44 = and i32 %40, 255
+  br label %switch.edge
 
-47:                                               ; preds = %42, %41, %41, %41, %45
-  %48 = phi i32 [ %46, %45 ], [ 2, %41 ], [ %44, %42 ], [ 2, %41 ], [ 2, %41 ]
-  %49 = mul i32 %48, %20
-  %50 = add i32 %49, 3
-  %51 = and i32 %50, -4
-  %52 = sext i32 %23 to i64
-  %53 = sext i32 %51 to i64
-  %54 = mul nsw i64 %53, %52
-  %.not62 = icmp eq i64 %54, 0
-  br i1 %.not62, label %.critedge66, label %55
+switch.edge:                                      ; preds = %41, %42, %41, %41, %41, %43
+  %45 = phi i32 [ %44, %43 ], [ 2, %41 ], [ 1, %42 ], [ 2, %41 ], [ 2, %41 ], [ 2, %41 ]
+  %46 = mul i32 %45, %20
+  %47 = add i32 %46, 3
+  %48 = and i32 %47, -4
+  %49 = sext i32 %23 to i64
+  %50 = sext i32 %48 to i64
+  %51 = mul nsw i64 %50, %49
+  %.not62 = icmp eq i64 %51, 0
+  br i1 %.not62, label %.critedge66, label %52
 
-55:                                               ; preds = %47
-  %56 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %54) #15
-  %.not63.not = icmp eq ptr %56, null
-  br i1 %.not63.not, label %.critedge66, label %57
+52:                                               ; preds = %switch.edge
+  %53 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %51) #15
+  %.not63.not = icmp eq ptr %53, null
+  br i1 %.not63.not, label %.critedge66, label %54
 
-57:                                               ; preds = %55
-  %58 = load ptr, ptr %14, align 8
-  %59 = load i32, ptr %13, align 8
-  %60 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %58, ptr noundef nonnull %9, i32 noundef %59, i32 noundef %20, i32 noundef %23, ptr noundef nonnull %56, i32 noundef %51) #15
-  %61 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %56, i32 noundef %51)
-  call void @SDL_free_REAL(ptr noundef nonnull %56) #15
+54:                                               ; preds = %52
+  %55 = load ptr, ptr %14, align 8
+  %56 = load i32, ptr %13, align 8
+  %57 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %55, ptr noundef nonnull %9, i32 noundef %56, i32 noundef %20, i32 noundef %23, ptr noundef nonnull %53, i32 noundef %48) #15
+  %58 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %13, ptr noundef nonnull %9, ptr noundef nonnull %53, i32 noundef %48)
+  call void @SDL_free_REAL(ptr noundef nonnull %53) #15
   br label %.critedge66
 
 .critedge:                                        ; preds = %29
@@ -5067,8 +5063,8 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureYUVPlanar(ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge66
 
-.critedge66:                                      ; preds = %31, %57, %47, %55, %.critedge, %17, %8
-  %.0 = phi i1 [ false, %8 ], [ true, %17 ], [ false, %.critedge ], [ false, %55 ], [ true, %47 ], [ true, %57 ], [ true, %31 ]
+.critedge66:                                      ; preds = %31, %54, %switch.edge, %52, %.critedge, %17, %8
+  %.0 = phi i1 [ false, %8 ], [ true, %17 ], [ false, %.critedge ], [ false, %52 ], [ true, %switch.edge ], [ true, %54 ], [ true, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i1 %.0
 }
@@ -5258,46 +5254,45 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNVPlanar(ptr noundef
   %.mask = and i32 %38, -268435456
   %.not59 = icmp eq i32 %.mask, 268435456
   %or.cond62 = or i1 %.not58, %.not59
-  br i1 %or.cond62, label %43, label %39
+  br i1 %or.cond62, label %41, label %39
 
 39:                                               ; preds = %37
   switch i32 %38, label %40 [
-    i32 844715353, label %45
-    i32 1498831189, label %45
-    i32 1431918169, label %45
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 40:                                               ; preds = %39
-  %41 = icmp eq i32 %38, 808530000
-  %42 = select i1 %41, i32 2, i32 1
-  br label %45
+  br label %switch.edge
 
-43:                                               ; preds = %37
-  %44 = and i32 %38, 255
-  br label %45
+41:                                               ; preds = %37
+  %42 = and i32 %38, 255
+  br label %switch.edge
 
-45:                                               ; preds = %40, %39, %39, %39, %43
-  %46 = phi i32 [ %44, %43 ], [ 2, %39 ], [ %42, %40 ], [ 2, %39 ], [ 2, %39 ]
-  %47 = mul i32 %46, %18
-  %48 = add i32 %47, 3
-  %49 = and i32 %48, -4
-  %50 = sext i32 %21 to i64
-  %51 = sext i32 %49 to i64
-  %52 = mul nsw i64 %51, %50
-  %.not60 = icmp eq i64 %52, 0
-  br i1 %.not60, label %.critedge64, label %53
+switch.edge:                                      ; preds = %39, %40, %39, %39, %39, %41
+  %43 = phi i32 [ %42, %41 ], [ 2, %39 ], [ 1, %40 ], [ 2, %39 ], [ 2, %39 ], [ 2, %39 ]
+  %44 = mul i32 %43, %18
+  %45 = add i32 %44, 3
+  %46 = and i32 %45, -4
+  %47 = sext i32 %21 to i64
+  %48 = sext i32 %46 to i64
+  %49 = mul nsw i64 %48, %47
+  %.not60 = icmp eq i64 %49, 0
+  br i1 %.not60, label %.critedge64, label %50
 
-53:                                               ; preds = %45
-  %54 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %52) #15
-  %.not61.not = icmp eq ptr %54, null
-  br i1 %.not61.not, label %.critedge64, label %55
+50:                                               ; preds = %switch.edge
+  %51 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %49) #15
+  %.not61.not = icmp eq ptr %51, null
+  br i1 %.not61.not, label %.critedge64, label %52
 
-55:                                               ; preds = %53
-  %56 = load ptr, ptr %12, align 8
-  %57 = load i32, ptr %11, align 8
-  %58 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %56, ptr noundef nonnull %7, i32 noundef %57, i32 noundef %18, i32 noundef %21, ptr noundef nonnull %54, i32 noundef %49) #15
-  %59 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %54, i32 noundef %49)
-  call void @SDL_free_REAL(ptr noundef nonnull %54) #15
+52:                                               ; preds = %50
+  %53 = load ptr, ptr %12, align 8
+  %54 = load i32, ptr %11, align 8
+  %55 = call zeroext i1 @SDL_SW_CopyYUVToRGB(ptr noundef %53, ptr noundef nonnull %7, i32 noundef %54, i32 noundef %18, i32 noundef %21, ptr noundef nonnull %51, i32 noundef %46) #15
+  %56 = call zeroext i1 @SDL_UpdateTexture_REAL(ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %51, i32 noundef %46)
+  call void @SDL_free_REAL(ptr noundef nonnull %51) #15
   br label %.critedge64
 
 .critedge:                                        ; preds = %27
@@ -5305,8 +5300,8 @@ define internal fastcc noundef zeroext i1 @SDL_UpdateTextureNVPlanar(ptr noundef
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge64
 
-.critedge64:                                      ; preds = %29, %55, %45, %53, %.critedge, %15, %6
-  %.0 = phi i1 [ false, %6 ], [ true, %15 ], [ false, %.critedge ], [ false, %53 ], [ true, %45 ], [ true, %55 ], [ true, %29 ]
+.critedge64:                                      ; preds = %29, %52, %switch.edge, %50, %.critedge, %15, %6
+  %.0 = phi i1 [ false, %6 ], [ true, %15 ], [ false, %.critedge ], [ false, %50 ], [ true, %switch.edge ], [ true, %52 ], [ true, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -5322,7 +5317,7 @@ define hidden zeroext i1 @SDL_LockTexture_REAL(ptr noundef %0, ptr noundef %1, p
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
-  br label %114
+  br label %112
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -5332,7 +5327,7 @@ define hidden zeroext i1 @SDL_LockTexture_REAL(ptr noundef %0, ptr noundef %1, p
 
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.68) #15
-  br label %114
+  br label %112
 
 14:                                               ; preds = %9
   %.not27 = icmp eq ptr %1, null
@@ -5409,7 +5404,7 @@ FlushRenderCommandsIfTextureNeeded.exit:          ; preds = %34, %44
   store i8 0, ptr %52, align 2
   %53 = getelementptr inbounds nuw i8, ptr %.val31, i64 619
   store i8 0, ptr %53, align 1
-  br i1 %41, label %FlushRenderCommandsIfTextureNeeded.exit.FlushRenderCommandsIfTextureNeeded.exit.thread_crit_edge, label %114
+  br i1 %41, label %FlushRenderCommandsIfTextureNeeded.exit.FlushRenderCommandsIfTextureNeeded.exit.thread_crit_edge, label %112
 
 FlushRenderCommandsIfTextureNeeded.exit.FlushRenderCommandsIfTextureNeeded.exit.thread_crit_edge: ; preds = %FlushRenderCommandsIfTextureNeeded.exit
   %.val33.pre = load ptr, ptr %23, align 8
@@ -5418,13 +5413,13 @@ FlushRenderCommandsIfTextureNeeded.exit.FlushRenderCommandsIfTextureNeeded.exit.
 FlushRenderCommandsIfTextureNeeded.exit.thread:   ; preds = %FlushRenderCommandsIfTextureNeeded.exit.FlushRenderCommandsIfTextureNeeded.exit.thread_crit_edge, %31, %25
   %.val33 = phi ptr [ %.val33.pre, %FlushRenderCommandsIfTextureNeeded.exit.FlushRenderCommandsIfTextureNeeded.exit.thread_crit_edge ], [ %24, %31 ], [ %24, %25 ]
   %54 = call zeroext i1 @SDL_SW_LockYUVTexture(ptr noundef %.val33, ptr noundef nonnull %.025, ptr noundef %2, ptr noundef %3) #15
-  br label %114
+  br label %112
 
 55:                                               ; preds = %22
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %57 = load ptr, ptr %56, align 8
   %.not29 = icmp eq ptr %57, null
-  br i1 %.not29, label %81, label %58
+  br i1 %.not29, label %79, label %58
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 244
@@ -5440,97 +5435,96 @@ FlushRenderCommandsIfTextureNeeded.exit.thread:   ; preds = %FlushRenderCommands
   %.mask.i = and i32 %66, -268435456
   %.not16.i = icmp eq i32 %.mask.i, 268435456
   %or.cond.i = or i1 %.not.i, %.not16.i
-  br i1 %or.cond.i, label %71, label %67
+  br i1 %or.cond.i, label %69, label %67
 
 67:                                               ; preds = %58
   switch i32 %66, label %68 [
     i32 844715353, label %SDL_LockTextureNative.exit
     i32 1498831189, label %SDL_LockTextureNative.exit
     i32 1431918169, label %SDL_LockTextureNative.exit
+    i32 808530000, label %SDL_LockTextureNative.exit
   ]
 
 68:                                               ; preds = %67
-  %69 = icmp eq i32 %66, 808530000
-  %70 = select i1 %69, i32 2, i32 1
   br label %SDL_LockTextureNative.exit
 
-71:                                               ; preds = %58
-  %72 = and i32 %66, 255
+69:                                               ; preds = %58
+  %70 = and i32 %66, 255
   br label %SDL_LockTextureNative.exit
 
-SDL_LockTextureNative.exit:                       ; preds = %67, %67, %67, %68, %71
-  %73 = phi i32 [ %72, %71 ], [ 2, %67 ], [ %70, %68 ], [ 2, %67 ], [ 2, %67 ]
-  %74 = mul nsw i32 %64, %62
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i8, ptr %61, i64 %75
-  %77 = mul i32 %73, %65
-  %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 %78
-  store ptr %79, ptr %2, align 8
-  %80 = load i32, ptr %63, align 8
-  store i32 %80, ptr %3, align 4
-  br label %114
+SDL_LockTextureNative.exit:                       ; preds = %67, %67, %67, %67, %68, %69
+  %71 = phi i32 [ %70, %69 ], [ 2, %67 ], [ 1, %68 ], [ 2, %67 ], [ 2, %67 ], [ 2, %67 ]
+  %72 = mul nsw i32 %64, %62
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds i8, ptr %61, i64 %73
+  %75 = mul i32 %71, %65
+  %76 = zext i32 %75 to i64
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 %76
+  store ptr %77, ptr %2, align 8
+  %78 = load i32, ptr %63, align 8
+  store i32 %78, ptr %3, align 4
+  br label %112
 
-81:                                               ; preds = %55
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr i8, ptr %0, i64 272
-  %.val30 = load i32, ptr %84, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %83, i64 560
-  %86 = load i32, ptr %85, align 8
-  %87 = icmp eq i32 %.val30, %86
-  br i1 %87, label %88, label %FlushRenderCommandsIfTextureNeeded.exit37.thread
+79:                                               ; preds = %55
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr i8, ptr %0, i64 272
+  %.val30 = load i32, ptr %82, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 560
+  %84 = load i32, ptr %83, align 8
+  %85 = icmp eq i32 %.val30, %84
+  br i1 %85, label %86, label %FlushRenderCommandsIfTextureNeeded.exit37.thread
 
-88:                                               ; preds = %81
-  %89 = getelementptr inbounds nuw i8, ptr %83, i64 536
-  %90 = load ptr, ptr %89, align 8
-  %.not.i.i35 = icmp eq ptr %90, null
-  br i1 %.not.i.i35, label %FlushRenderCommandsIfTextureNeeded.exit37.thread, label %91
+86:                                               ; preds = %79
+  %87 = getelementptr inbounds nuw i8, ptr %81, i64 536
+  %88 = load ptr, ptr %87, align 8
+  %.not.i.i35 = icmp eq ptr %88, null
+  br i1 %.not.i.i35, label %FlushRenderCommandsIfTextureNeeded.exit37.thread, label %89
 
-91:                                               ; preds = %88
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 104
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %81, i64 104
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %81, i64 624
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %83, i64 624
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %83, i64 632
-  %97 = load i64, ptr %96, align 8
-  %98 = tail call zeroext i1 %93(ptr noundef nonnull %83, ptr noundef nonnull %90, ptr noundef %95, i64 noundef %97) #15
-  %99 = getelementptr inbounds nuw i8, ptr %83, i64 544
-  %100 = load ptr, ptr %99, align 8
-  %.not22.i.i36 = icmp eq ptr %100, null
-  br i1 %.not22.i.i36, label %FlushRenderCommandsIfTextureNeeded.exit37, label %101
+  %94 = getelementptr inbounds nuw i8, ptr %81, i64 632
+  %95 = load i64, ptr %94, align 8
+  %96 = tail call zeroext i1 %91(ptr noundef nonnull %81, ptr noundef nonnull %88, ptr noundef %93, i64 noundef %95) #15
+  %97 = getelementptr inbounds nuw i8, ptr %81, i64 544
+  %98 = load ptr, ptr %97, align 8
+  %.not22.i.i36 = icmp eq ptr %98, null
+  br i1 %.not22.i.i36, label %FlushRenderCommandsIfTextureNeeded.exit37, label %99
 
-101:                                              ; preds = %91
-  %102 = getelementptr inbounds nuw i8, ptr %83, i64 552
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %100, i64 80
-  store ptr %103, ptr %104, align 8
-  %105 = load ptr, ptr %89, align 8
-  store ptr %105, ptr %102, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
+99:                                               ; preds = %89
+  %100 = getelementptr inbounds nuw i8, ptr %81, i64 552
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %98, i64 80
+  store ptr %101, ptr %102, align 8
+  %103 = load ptr, ptr %87, align 8
+  store ptr %103, ptr %100, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
   br label %FlushRenderCommandsIfTextureNeeded.exit37
 
-FlushRenderCommandsIfTextureNeeded.exit37:        ; preds = %91, %101
-  store i64 0, ptr %96, align 8
-  %106 = load i32, ptr %85, align 8
-  %107 = add i32 %106, 1
-  store i32 %107, ptr %85, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %83, i64 617
+FlushRenderCommandsIfTextureNeeded.exit37:        ; preds = %89, %99
+  store i64 0, ptr %94, align 8
+  %104 = load i32, ptr %83, align 8
+  %105 = add i32 %104, 1
+  store i32 %105, ptr %83, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %81, i64 617
+  store i8 0, ptr %106, align 1
+  %107 = getelementptr inbounds nuw i8, ptr %81, i64 618
+  store i8 0, ptr %107, align 2
+  %108 = getelementptr inbounds nuw i8, ptr %81, i64 619
   store i8 0, ptr %108, align 1
-  %109 = getelementptr inbounds nuw i8, ptr %83, i64 618
-  store i8 0, ptr %109, align 2
-  %110 = getelementptr inbounds nuw i8, ptr %83, i64 619
-  store i8 0, ptr %110, align 1
-  br i1 %98, label %FlushRenderCommandsIfTextureNeeded.exit37.thread, label %114
+  br i1 %96, label %FlushRenderCommandsIfTextureNeeded.exit37.thread, label %112
 
-FlushRenderCommandsIfTextureNeeded.exit37.thread: ; preds = %88, %81, %FlushRenderCommandsIfTextureNeeded.exit37
-  %111 = getelementptr inbounds nuw i8, ptr %83, i64 136
-  %112 = load ptr, ptr %111, align 8
-  %113 = call zeroext i1 %112(ptr noundef nonnull %83, ptr noundef nonnull %0, ptr noundef nonnull %.025, ptr noundef %2, ptr noundef %3) #15
-  br label %114
+FlushRenderCommandsIfTextureNeeded.exit37.thread: ; preds = %86, %79, %FlushRenderCommandsIfTextureNeeded.exit37
+  %109 = getelementptr inbounds nuw i8, ptr %81, i64 136
+  %110 = load ptr, ptr %109, align 8
+  %111 = call zeroext i1 %110(ptr noundef nonnull %81, ptr noundef nonnull %0, ptr noundef nonnull %.025, ptr noundef %2, ptr noundef %3) #15
+  br label %112
 
-114:                                              ; preds = %FlushRenderCommandsIfTextureNeeded.exit37.thread, %FlushRenderCommandsIfTextureNeeded.exit37, %FlushRenderCommandsIfTextureNeeded.exit, %SDL_LockTextureNative.exit, %FlushRenderCommandsIfTextureNeeded.exit.thread, %12, %7
-  %.0 = phi i1 [ %13, %12 ], [ %54, %FlushRenderCommandsIfTextureNeeded.exit.thread ], [ true, %SDL_LockTextureNative.exit ], [ false, %7 ], [ false, %FlushRenderCommandsIfTextureNeeded.exit ], [ %113, %FlushRenderCommandsIfTextureNeeded.exit37.thread ], [ false, %FlushRenderCommandsIfTextureNeeded.exit37 ]
+112:                                              ; preds = %FlushRenderCommandsIfTextureNeeded.exit37.thread, %FlushRenderCommandsIfTextureNeeded.exit37, %FlushRenderCommandsIfTextureNeeded.exit, %SDL_LockTextureNative.exit, %FlushRenderCommandsIfTextureNeeded.exit.thread, %12, %7
+  %.0 = phi i1 [ %13, %12 ], [ %54, %FlushRenderCommandsIfTextureNeeded.exit.thread ], [ true, %SDL_LockTextureNative.exit ], [ false, %7 ], [ false, %FlushRenderCommandsIfTextureNeeded.exit ], [ %111, %FlushRenderCommandsIfTextureNeeded.exit37.thread ], [ false, %FlushRenderCommandsIfTextureNeeded.exit37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %.0
 }
@@ -5615,13 +5609,13 @@ define hidden void @SDL_UnlockTexture_REAL(ptr noundef %0) local_unnamed_addr #0
 
 8:                                                ; preds = %1
   %9 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.52) #15
-  br label %79
+  br label %76
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4
   %.not = icmp eq i32 %12, 1
-  br i1 %.not, label %13, label %79
+  br i1 %.not, label %13, label %76
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 224
@@ -5666,11 +5660,11 @@ SDL_UnlockTextureYUV.exit:                        ; preds = %18, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %76
+  br label %73
 
 35:                                               ; preds = %13
   %.not13 = icmp eq ptr %17, null
-  br i1 %.not13, label %71, label %36
+  br i1 %.not13, label %68, label %36
 
 36:                                               ; preds = %35
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -5693,66 +5687,65 @@ SDL_UnlockTextureYUV.exit:                        ; preds = %18, %27
   %.mask.i = and i32 %48, -268435456
   %.not22.i = icmp eq i32 %.mask.i, 268435456
   %or.cond.i = or i1 %.not.i, %.not22.i
-  br i1 %or.cond.i, label %53, label %49
+  br i1 %or.cond.i, label %51, label %49
 
 49:                                               ; preds = %36
   switch i32 %48, label %50 [
-    i32 844715353, label %55
-    i32 1498831189, label %55
-    i32 1431918169, label %55
+    i32 844715353, label %switch.edge.i
+    i32 1498831189, label %switch.edge.i
+    i32 1431918169, label %switch.edge.i
+    i32 808530000, label %switch.edge.i
   ]
 
 50:                                               ; preds = %49
-  %51 = icmp eq i32 %48, 808530000
-  %52 = select i1 %51, i32 2, i32 1
-  br label %55
+  br label %switch.edge.i
 
-53:                                               ; preds = %36
-  %54 = and i32 %48, 255
-  br label %55
+51:                                               ; preds = %36
+  %52 = and i32 %48, 255
+  br label %switch.edge.i
 
-55:                                               ; preds = %53, %50, %49, %49, %49
-  %56 = phi i32 [ %54, %53 ], [ 2, %49 ], [ %52, %50 ], [ 2, %49 ], [ 2, %49 ]
-  %57 = call zeroext i1 @SDL_LockTexture_REAL(ptr noundef nonnull %17, ptr noundef nonnull %37, ptr noundef nonnull %2, ptr noundef nonnull %3)
-  br i1 %57, label %58, label %SDL_UnlockTextureNative.exit
+switch.edge.i:                                    ; preds = %51, %50, %49, %49, %49, %49
+  %53 = phi i32 [ %52, %51 ], [ 2, %49 ], [ 1, %50 ], [ 2, %49 ], [ 2, %49 ], [ 2, %49 ]
+  %54 = call zeroext i1 @SDL_LockTexture_REAL(ptr noundef nonnull %17, ptr noundef nonnull %37, ptr noundef nonnull %2, ptr noundef nonnull %3)
+  br i1 %54, label %55, label %SDL_UnlockTextureNative.exit
 
-58:                                               ; preds = %55
-  %59 = mul i32 %56, %47
-  %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i8, ptr %46, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 252
-  %63 = load i32, ptr %62, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %65 = load i32, ptr %64, align 4
-  %66 = load i32, ptr %0, align 8
-  %67 = load i32, ptr %17, align 8
-  %68 = load ptr, ptr %2, align 8
-  %69 = load i32, ptr %3, align 4
-  %70 = call zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef %63, i32 noundef %65, i32 noundef %66, ptr noundef %61, i32 noundef %43, i32 noundef %67, ptr noundef %68, i32 noundef %69) #15
+55:                                               ; preds = %switch.edge.i
+  %56 = mul i32 %53, %47
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw i8, ptr %46, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 252
+  %60 = load i32, ptr %59, align 4
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %62 = load i32, ptr %61, align 4
+  %63 = load i32, ptr %0, align 8
+  %64 = load i32, ptr %17, align 8
+  %65 = load ptr, ptr %2, align 8
+  %66 = load i32, ptr %3, align 4
+  %67 = call zeroext i1 @SDL_ConvertPixels_REAL(i32 noundef %60, i32 noundef %62, i32 noundef %63, ptr noundef %58, i32 noundef %43, i32 noundef %64, ptr noundef %65, i32 noundef %66) #15
   call void @SDL_UnlockTexture_REAL(ptr noundef nonnull %17)
   br label %SDL_UnlockTextureNative.exit
 
-SDL_UnlockTextureNative.exit:                     ; preds = %55, %58
+SDL_UnlockTextureNative.exit:                     ; preds = %switch.edge.i, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %76
+  br label %73
 
-71:                                               ; preds = %35
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 144
+68:                                               ; preds = %35
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 144
+  %72 = load ptr, ptr %71, align 8
+  tail call void %72(ptr noundef %70, ptr noundef nonnull %0) #15
+  br label %73
+
+73:                                               ; preds = %SDL_UnlockTextureNative.exit, %68, %SDL_UnlockTextureYUV.exit
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %75 = load ptr, ptr %74, align 8
-  tail call void %75(ptr noundef %73, ptr noundef nonnull %0) #15
+  call void @SDL_DestroySurface_REAL(ptr noundef %75) #15
+  store ptr null, ptr %74, align 8
   br label %76
 
-76:                                               ; preds = %SDL_UnlockTextureNative.exit, %71, %SDL_UnlockTextureYUV.exit
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %78 = load ptr, ptr %77, align 8
-  call void @SDL_DestroySurface_REAL(ptr noundef %78) #15
-  store ptr null, ptr %77, align 8
-  br label %79
-
-79:                                               ; preds = %10, %76, %8
+76:                                               ; preds = %10, %73, %8
   ret void
 }
 
