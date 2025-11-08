@@ -4555,9 +4555,7 @@ _ZN4llvm15LegalizeRuleSet9minScalarEjNS_3LLTE.exit2273: ; preds = %_ZNSt14_Funct
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
-  %.sroa.41572.0.insert.shift = select i1 %1759, i64 0, i64 4294967296
-  %.sroa.01571.0.insert.ext = zext i1 %1759 to i64
-  %.sroa.01571.0.insert.insert = or disjoint i64 %.sroa.41572.0.insert.shift, %.sroa.01571.0.insert.ext
+  %.sroa.01571.0.insert.insert = select i1 %1759, i64 1, i64 4294967296
   store i64 0, ptr %526, align 8
   store i64 %.sroa.01571.0.insert.insert, ptr %322, align 8
   store ptr @"_ZNSt17_Function_handlerIFbRKN4llvm13LegalityQueryEEZNS0_16X86LegalizerInfoC1ERKNS0_12X86SubtargetERKNS0_16X86TargetMachineEE3$_2E9_M_invokeERKSt9_Any_dataS3_", ptr %525, align 8, !tbaa !171

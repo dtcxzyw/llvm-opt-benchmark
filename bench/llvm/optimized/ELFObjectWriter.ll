@@ -2641,9 +2641,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringR
   store i64 0, ptr %290, align 8, !tbaa !433
   store i64 128, ptr %291, align 8, !tbaa !434
   %switch.selectcmp23.i = icmp eq i32 %354, 2
-  %.sroa.233.0.insert.ext.i = select i1 %switch.selectcmp23.i, i64 21474836480, i64 25769803776
-  %.sroa.032.0.insert.ext.i = zext i1 %switch.selectcmp23.i to i64
-  %.sroa.032.0.insert.insert.i = or disjoint i64 %.sroa.233.0.insert.ext.i, %.sroa.032.0.insert.ext.i
+  %.sroa.032.0.insert.insert.i = select i1 %switch.selectcmp23.i, i64 21474836481, i64 25769803776
   call void @_ZN4llvm11compression8compressENS0_6ParamsENS_8ArrayRefIhEERNS_15SmallVectorImplIhEE(i64 %.sroa.032.0.insert.insert.i, i8 0, ptr %358, i64 %359, ptr noundef nonnull align 8 dereferenceable(24) %49) #20
   %360 = load i64, ptr %282, align 8, !tbaa !433
   %.sroa.0.0.copyload.i26.i = load i8, ptr %321, align 8, !tbaa !17
