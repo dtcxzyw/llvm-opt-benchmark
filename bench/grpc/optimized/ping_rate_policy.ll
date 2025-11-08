@@ -250,44 +250,44 @@ _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread: ; preds = %54, %_Z
   ]
 
 59:                                               ; preds = %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread
-  %spec.select = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.04.0.copyload, i64 60000)
+  %60 = tail call i64 @llvm.sadd.sat.i64(i64 %.sroa.04.0.copyload, i64 60000)
   br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26
 
 _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26: ; preds = %59, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread
   %.0.i.i25 = phi i64 [ %.sroa.04.0.copyload, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ], [ %spec.select, %59 ]
-  %60 = icmp sgt i64 %.0.i.i25, %32
-  br i1 %60, label %61, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46
+  %61 = icmp sgt i64 %.0.i.i25, %32
+  br i1 %61, label %62, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46
 
-61:                                               ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26
+62:                                               ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26
   %cond49 = icmp eq i64 %32, -9223372036854775808
   br i1 %cond49, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, label %.thread.i31
 
-.thread.i31:                                      ; preds = %61
-  %62 = sub nsw i64 0, %32
-  %63 = icmp eq i64 %.0.i.i25, 9223372036854775807
-  %64 = icmp eq i64 %32, -9223372036854775807
-  %or.cond.i.i32 = or i1 %64, %63
-  br i1 %or.cond.i.i32, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, label %65
+.thread.i31:                                      ; preds = %62
+  %63 = sub nsw i64 0, %32
+  %64 = icmp eq i64 %.0.i.i25, 9223372036854775807
+  %65 = icmp eq i64 %32, -9223372036854775807
+  %or.cond.i.i32 = or i1 %65, %64
+  br i1 %or.cond.i.i32, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, label %66
 
-65:                                               ; preds = %.thread.i31
-  %66 = icmp sgt i64 %.0.i.i25, 0
-  br i1 %66, label %67, label %70
+66:                                               ; preds = %.thread.i31
+  %67 = icmp sgt i64 %.0.i.i25, 0
+  br i1 %67, label %68, label %71
 
-67:                                               ; preds = %65
-  %68 = sub nuw nsw i64 9223372036854775807, %.0.i.i25
-  %69 = icmp slt i64 %68, %62
-  br i1 %69, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, label %73
+68:                                               ; preds = %66
+  %69 = sub nuw nsw i64 9223372036854775807, %.0.i.i25
+  %70 = icmp slt i64 %69, %63
+  br i1 %70, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, label %74
 
-70:                                               ; preds = %65
-  %71 = sub nsw i64 -9223372036854775808, %.0.i.i25
-  %72 = icmp sgt i64 %71, %62
-  br i1 %72, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, label %73
+71:                                               ; preds = %66
+  %72 = sub nsw i64 -9223372036854775808, %.0.i.i25
+  %73 = icmp sgt i64 %72, %63
+  br i1 %73, label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, label %74
 
-73:                                               ; preds = %70, %67
-  %74 = sub i64 %.0.i.i25, %32
+74:                                               ; preds = %71, %68
+  %75 = sub i64 %.0.i.i25, %32
   br label %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split
 
-_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split: ; preds = %73, %70, %67, %.thread.i31, %61, %47, %44, %41, %.thread.i, %34
+_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split: ; preds = %74, %71, %68, %.thread.i31, %62, %47, %44, %41, %.thread.i, %34
   %.sink55 = phi i64 [ %2, %34 ], [ %2, %.thread.i ], [ %2, %41 ], [ %2, %44 ], [ %2, %47 ], [ 60000, %61 ], [ 60000, %.thread.i31 ], [ 60000, %67 ], [ 60000, %70 ], [ 60000, %73 ]
   %.sink54 = phi i64 [ %35, %34 ], [ %35, %.thread.i ], [ %35, %41 ], [ %35, %44 ], [ %35, %47 ], [ %.sroa.04.0.copyload, %61 ], [ %.sroa.04.0.copyload, %.thread.i31 ], [ %.sroa.04.0.copyload, %67 ], [ %.sroa.04.0.copyload, %70 ], [ %.sroa.04.0.copyload, %73 ]
   %.sroa.04.0.i.sink = phi i64 [ 9223372036854775807, %34 ], [ 9223372036854775807, %.thread.i ], [ 9223372036854775807, %41 ], [ -9223372036854775808, %44 ], [ %48, %47 ], [ 9223372036854775807, %61 ], [ 9223372036854775807, %.thread.i31 ], [ 9223372036854775807, %67 ], [ -9223372036854775808, %70 ], [ %74, %73 ]
@@ -300,8 +300,8 @@ _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split: ; pre
 
 _ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46: ; preds = %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split, %49, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit, %57, %4
   %.sink = phi i8 [ 1, %4 ], [ 1, %57 ], [ 1, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit ], [ 0, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread ], [ 0, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit26 ], [ 0, %49 ], [ 2, %_ZN9grpc_core31IsMaxPingsWoDataThrottleEnabledEv.exit.thread46.sink.split ]
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 %.sink, ptr %75, align 8, !tbaa !24
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 %.sink, ptr %76, align 8, !tbaa !24
   ret void
 }
 

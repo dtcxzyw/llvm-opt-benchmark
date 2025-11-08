@@ -1030,14 +1030,14 @@ _PyIndex_Check.exit.thread.i:                     ; preds = %_PyIndex_Check.exit
 
 23:                                               ; preds = %18
   %or.cond.i = icmp ugt i64 %19, 255
-  br i1 %or.cond.i, label %.thread.i, label %parse_args_finds_byte.exit.thread39
+  br i1 %or.cond.i, label %.thread.i, label %parse_args_finds_byte.exit.thread40
 
 .thread.i:                                        ; preds = %23, %21
   %24 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !28
   tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.7) #14
   br label %parse_args_finds_byte.exit.thread
 
-parse_args_finds_byte.exit.thread39:              ; preds = %23
+parse_args_finds_byte.exit.thread40:              ; preds = %23
   %25 = trunc nuw i64 %19 to i8
   store i8 %25, ptr %6, align 1, !tbaa !4
   br label %32
@@ -1057,8 +1057,8 @@ parse_args_finds_byte.exit:                       ; preds = %5
   %31 = load i64, ptr %30, align 8, !tbaa !21
   br label %32
 
-32:                                               ; preds = %parse_args_finds_byte.exit.thread39, %parse_args_finds_byte.exit, %28
-  %.not2843 = phi i1 [ false, %28 ], [ true, %parse_args_finds_byte.exit ], [ true, %parse_args_finds_byte.exit.thread39 ]
+32:                                               ; preds = %parse_args_finds_byte.exit.thread40, %parse_args_finds_byte.exit, %28
+  %.not2844 = phi i1 [ false, %28 ], [ true, %parse_args_finds_byte.exit ], [ true, %parse_args_finds_byte.exit.thread39 ]
   %.020 = phi ptr [ %29, %28 ], [ %6, %parse_args_finds_byte.exit ], [ %6, %parse_args_finds_byte.exit.thread39 ]
   %.019 = phi i64 [ %31, %28 ], [ 1, %parse_args_finds_byte.exit ], [ 1, %parse_args_finds_byte.exit.thread39 ]
   %33 = icmp sgt i64 %4, %1
@@ -1086,28 +1086,28 @@ parse_args_finds_byte.exit:                       ; preds = %5
 
 44:                                               ; preds = %38
   %45 = icmp eq i64 %.019, 0
-  br i1 %45, label %46, label %48
+  br i1 %45, label %46, label %49
 
 46:                                               ; preds = %44
   %47 = call i64 @llvm.sadd.sat.i64(i64 %42, i64 1)
   br label %stringlib_count.exit
 
-48:                                               ; preds = %44
-  %49 = call fastcc i64 @fastsearch(ptr noundef %41, i64 noundef %42, ptr noundef %.020, i64 noundef %.019, i64 noundef 9223372036854775807, i32 noundef 0)
-  %..i = call i64 @llvm.smax.i64(i64 %49, i64 0)
+49:                                               ; preds = %44
+  %50 = call fastcc i64 @fastsearch(ptr noundef %41, i64 noundef %42, ptr noundef %.020, i64 noundef %.019, i64 noundef 9223372036854775807, i32 noundef 0)
+  %..i = call i64 @llvm.smax.i64(i64 %50, i64 0)
   br label %stringlib_count.exit
 
-stringlib_count.exit:                             ; preds = %38, %46, %48
+stringlib_count.exit:                             ; preds = %38, %46, %49
   %.0.i31 = phi i64 [ %47, %46 ], [ 0, %38 ], [ %..i, %48 ]
-  %50 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.i31) #14
-  br i1 %.not2843, label %parse_args_finds_byte.exit.thread, label %51
+  %51 = call ptr @PyLong_FromSsize_t(i64 noundef %.0.i31) #14
+  br i1 %.not2844, label %parse_args_finds_byte.exit.thread, label %52
 
-51:                                               ; preds = %stringlib_count.exit
+52:                                               ; preds = %stringlib_count.exit
   call void @PyBuffer_Release(ptr noundef nonnull %7) #14
   br label %parse_args_finds_byte.exit.thread
 
-parse_args_finds_byte.exit.thread:                ; preds = %21, %.thread.i, %_PyIndex_Check.exit.thread.i, %stringlib_count.exit, %51, %26
-  %.0 = phi ptr [ null, %26 ], [ %50, %51 ], [ %50, %stringlib_count.exit ], [ null, %_PyIndex_Check.exit.thread.i ], [ null, %.thread.i ], [ null, %21 ]
+parse_args_finds_byte.exit.thread:                ; preds = %21, %.thread.i, %_PyIndex_Check.exit.thread.i, %stringlib_count.exit, %52, %26
+  %.0 = phi ptr [ null, %26 ], [ %51, %51 ], [ %51, %stringlib_count.exit ], [ null, %_PyIndex_Check.exit.thread.i ], [ null, %.thread.i ], [ null, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.0

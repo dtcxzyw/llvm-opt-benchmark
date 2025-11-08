@@ -1867,7 +1867,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %.critedge8, %23
   %28 = call i64 %27(ptr noundef nonnull align 8 dereferenceable(8) %25)
   %.off = add i64 %28, -9223372036854775807
   %switch = icmp ult i64 %.off, 2
-  %spec.select = call i64 @llvm.sadd.sat.i64(i64 %28, i64 1000)
+  %29 = call i64 @llvm.sadd.sat.i64(i64 %28, i64 1000)
   %.0.i.i = select i1 %switch, i64 %28, i64 %spec.select
   ret i64 %.0.i.i
 }

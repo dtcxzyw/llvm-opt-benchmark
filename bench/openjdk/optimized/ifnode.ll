@@ -1125,16 +1125,16 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %spec.select62 = tail call i32 @llvm.sadd.sat.i32(i32 %55, i32 1)
   %119 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 28
-  %121 = load i32, ptr %120, align 4
+  %120 = load i32, ptr %120, align 4
   br label %126
 
-122:                                              ; preds = %53
+122:; preds = %53
   %123 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 28
-  %125 = load i32, ptr %124, align 4
+  %124 = load i32, ptr %124, align 4
   br label %126
 
-126:                                              ; preds = %109, %53, %122, %118, %114
+126:; preds = %109, %53, %122, %118, %114
   %.045 = phi i32 [ %57, %53 ], [ %57, %114 ], [ %121, %118 ], [ %125, %122 ], [ %spec.select, %109 ]
   %.044 = phi i32 [ %55, %53 ], [ %117, %114 ], [ %spec.select62, %118 ], [ %55, %122 ], [ %112, %109 ]
   %127 = getelementptr inbounds nuw i8, ptr %49, i64 20
@@ -1143,7 +1143,7 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %130 = tail call noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %.044, i32 noundef %.045, i32 noundef %129) #9
   br label %131
 
-131:                                              ; preds = %3, %7, %22, %27, %38, %32, %17, %12, %53, %66, %78, %83, %99, %126, %103, %91
+131:; preds = %3, %7, %22, %27, %38, %32, %17, %12, %53, %66, %78, %83, %99, %126, %103, %91
   %.0 = phi ptr [ %130, %126 ], [ %98, %91 ], [ %108, %103 ], [ null, %99 ], [ null, %83 ], [ null, %78 ], [ null, %66 ], [ %49, %53 ], [ null, %12 ], [ null, %17 ], [ null, %32 ], [ null, %38 ], [ null, %27 ], [ null, %22 ], [ null, %7 ], [ null, %3 ]
   ret ptr %.0
 }

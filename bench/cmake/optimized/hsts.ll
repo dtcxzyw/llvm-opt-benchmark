@@ -26,12 +26,12 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @Curl_hsts_init() local_unnamed_addr #0 {
   %1 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !4
-  %2 = tail call ptr %1(i64 noundef 1, i64 noundef 48) #10
+  %2 = tail call ptr %1(i64 noundef 1, i64 noundef 48) #9
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
 
 3:                                                ; preds = %0
-  tail call void @Curl_llist_init(ptr noundef nonnull %2, ptr noundef null) #10
+  tail call void @Curl_llist_init(ptr noundef nonnull %2, ptr noundef null) #9
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -47,20 +47,20 @@ define dso_local void @Curl_hsts_cleanup(ptr noundef captures(none) %0) local_un
   br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call ptr @Curl_llist_head(ptr noundef nonnull %2) #10
+  %4 = tail call ptr @Curl_llist_head(ptr noundef nonnull %2) #9
   %.not1213 = icmp eq ptr %4, null
   br i1 %.not1213, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.014 = phi ptr [ %6, %.lr.ph ], [ %4, %3 ]
-  %5 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.014) #10
-  %6 = tail call ptr @Curl_node_next(ptr noundef nonnull %.014) #10
+  %5 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.014) #9
+  %6 = tail call ptr @Curl_node_next(ptr noundef nonnull %.014) #9
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !10
-  tail call void %7(ptr noundef %9) #10
+  tail call void %7(ptr noundef %9) #9
   %10 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  tail call void %10(ptr noundef %5) #10
+  tail call void %10(ptr noundef %5) #9
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
@@ -68,9 +68,9 @@ define dso_local void @Curl_hsts_cleanup(ptr noundef captures(none) %0) local_un
   %11 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  tail call void %11(ptr noundef %13) #10
+  tail call void %11(ptr noundef %13) #9
   %14 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  tail call void %14(ptr noundef nonnull %2) #10
+  tail call void %14(ptr noundef nonnull %2) #9
   store ptr null, ptr %0, align 8, !tbaa !8
   br label %15
 
@@ -90,8 +90,8 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !24
-  %6 = tail call i64 @time(ptr noundef null) #10
-  %7 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef %1) #10
+  %6 = tail call i64 @time(ptr noundef null) #9
+  %7 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef %1) #9
   br i1 %7, label %.loopexit, label %.preheader113
 
 .preheader113:                                    ; preds = %3, %.critedge14
@@ -114,7 +114,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %8, !llvm.loop !26
 
 .critedge:                                        ; preds = %8
-  %11 = call i32 @curl_strnequal(ptr noundef nonnull @.str, ptr noundef nonnull %.176, i64 noundef 7) #10
+  %11 = call i32 @curl_strnequal(ptr noundef nonnull @.str, ptr noundef nonnull %.176, i64 noundef 7) #9
   %.not95 = icmp eq i32 %11, 0
   br i1 %.not95, label %31, label %12
 
@@ -156,7 +156,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   %20 = icmp eq i8 %19, 34
   %21 = getelementptr inbounds nuw i8, ptr %.378.pn, i64 2
   %spec.select = select i1 %20, ptr %21, ptr %.4
-  %22 = call i32 @curlx_strtoofft(ptr noundef nonnull %spec.select, ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %4) #10
+  %22 = call i32 @curlx_strtoofft(ptr noundef nonnull %spec.select, ptr noundef nonnull %5, i32 noundef 10, ptr noundef nonnull %4) #9
   switch i32 %22, label %.critedge110 [
     i32 1, label %23
     i32 0, label %24
@@ -185,7 +185,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br label %.critedge12
 
 31:                                               ; preds = %.critedge
-  %32 = call i32 @curl_strnequal(ptr noundef nonnull @.str.1, ptr noundef nonnull %.176, i64 noundef 17) #10
+  %32 = call i32 @curl_strnequal(ptr noundef nonnull @.str.1, ptr noundef nonnull %.176, i64 noundef 17) #9
   %.not96 = icmp eq i32 %32, 0
   br i1 %.not96, label %.preheader, label %33
 
@@ -250,42 +250,42 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_parse(ptr noundef %0, ptr nound
   br i1 %.not107, label %.loopexit, label %50
 
 50:                                               ; preds = %48
-  call void @Curl_node_remove(ptr noundef nonnull %49) #10
+  call void @Curl_node_remove(ptr noundef nonnull %49) #9
   %51 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !10
-  call void %51(ptr noundef %53) #10
+  call void %51(ptr noundef %53) #9
   %54 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  call void %54(ptr noundef nonnull %49) #10
+  call void %54(ptr noundef nonnull %49) #9
   br label %.loopexit
 
 55:                                               ; preds = %46
   %storemerge = call i64 @llvm.sadd.sat.i64(i64 %6, i64 %47)
   store i64 %storemerge, ptr %4, align 8, !tbaa !24
-  %56 = call ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
-  %.not108 = icmp eq ptr %56, null
-  br i1 %.not108, label %61, label %57
+  %59 = call ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
+  %.not108 = icmp eq ptr %59, null
+  br i1 %.not108, label %64, label %60
 
-57:                                               ; preds = %55
-  %58 = load i64, ptr %4, align 8, !tbaa !24
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 48
-  store i64 %58, ptr %59, align 8, !tbaa !33
-  %60 = getelementptr inbounds nuw i8, ptr %56, i64 40
-  store i8 %.180, ptr %60, align 8, !tbaa !34
+60:                                               ; preds = %55
+  %61 = load i64, ptr %4, align 8, !tbaa !24
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 48
+  store i64 %61, ptr %62, align 8, !tbaa !33
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 40
+  store i8 %.180, ptr %63, align 8, !tbaa !34
   br label %.loopexit
 
-61:                                               ; preds = %55
-  %62 = trunc nuw i8 %.180 to i1
-  %63 = load i64, ptr %4, align 8, !tbaa !24
-  %64 = call fastcc i32 @hsts_create(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %62, i64 noundef %63)
+64:                                               ; preds = %55
+  %65 = trunc nuw i8 %.180 to i1
+  %66 = load i64, ptr %4, align 8, !tbaa !24
+  %67 = call fastcc i32 @hsts_create(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %65, i64 noundef %66)
   br label %.loopexit
 
 .critedge110:                                     ; preds = %26, %.critedge8, %12, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %33, %48, %50, %44, %.critedge110, %3, %57, %61
-  %.0 = phi i32 [ 0, %57 ], [ %64, %61 ], [ 0, %3 ], [ 43, %.critedge110 ], [ 43, %44 ], [ 0, %50 ], [ 0, %48 ], [ 43, %33 ]
+.loopexit:                                        ; preds = %33, %48, %50, %44, %.critedge110, %3, %60, %64
+  %.0 = phi i32 [ 0, %57 ], [ %67, %61 ], [ 0, %3 ], [ 43, %.critedge110 ], [ 43, %44 ], [ 0, %50 ], [ 0, %48 ], [ 43, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }
@@ -305,8 +305,8 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
   br i1 %.not, label %.thread75, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i64 @time(ptr noundef null) #10
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %5 = tail call i64 @time(ptr noundef null) #9
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %7 = add i64 %6, -1
   %or.cond = icmp ult i64 %7, 256
   br i1 %or.cond, label %8, label %.thread75
@@ -317,7 +317,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = icmp eq i8 %11, 46
   %spec.select = select i1 %12, i64 %7, i64 %6
-  %13 = tail call ptr @Curl_llist_head(ptr noundef nonnull %0) #10
+  %13 = tail call ptr @Curl_llist_head(ptr noundef nonnull %0) #9
   %.not5880 = icmp eq ptr %13, null
   br i1 %.not5880, label %.thread75, label %.lr.ph
 
@@ -328,27 +328,27 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
   %.24583.us = phi ptr [ %.346.ph.us, %45 ], [ null, %.lr.ph ]
   %.05082.us = phi i64 [ %.151.ph.us, %45 ], [ 0, %.lr.ph ]
   %.05481.us = phi ptr [ %15, %45 ], [ %13, %.lr.ph ]
-  %14 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.05481.us) #10
-  %15 = tail call ptr @Curl_node_next(ptr noundef nonnull %.05481.us) #10
+  %14 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.05481.us) #9
+  %15 = tail call ptr @Curl_node_next(ptr noundef nonnull %.05481.us) #9
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %17 = load i64, ptr %16, align 8, !tbaa !33
   %.not59.us = icmp sgt i64 %17, %5
   br i1 %.not59.us, label %23, label %18
 
 18:                                               ; preds = %.lr.ph.split.us
-  tail call void @Curl_node_remove(ptr noundef nonnull %14) #10
+  tail call void @Curl_node_remove(ptr noundef nonnull %14) #9
   %19 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %21 = load ptr, ptr %20, align 8, !tbaa !10
-  tail call void %19(ptr noundef %21) #10
+  tail call void %19(ptr noundef %21) #9
   %22 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  tail call void %22(ptr noundef nonnull %14) #10
+  tail call void %22(ptr noundef nonnull %14) #9
   br label %45
 
 23:                                               ; preds = %.lr.ph.split.us
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !10
-  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #11
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #10
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %28 = load i8, ptr %27, align 8, !tbaa !34, !range !35, !noundef !36
   %29 = trunc nuw i8 %28 to i1
@@ -365,7 +365,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %31
-  %38 = tail call i32 @curl_strnequal(ptr noundef nonnull %33, ptr noundef nonnull %25, i64 noundef %26) #10
+  %38 = tail call i32 @curl_strnequal(ptr noundef nonnull %33, ptr noundef nonnull %25, i64 noundef %26) #9
   %.not60.us = icmp ne i32 %38, 0
   %39 = icmp ugt i64 %26, %.05082.us
   %or.cond63.us = select i1 %.not60.us, i1 %39, i1 false
@@ -381,7 +381,7 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %24, align 8, !tbaa !10
-  %44 = tail call i32 @curl_strnequal(ptr noundef nonnull %1, ptr noundef %43, i64 noundef %spec.select) #10
+  %44 = tail call i32 @curl_strnequal(ptr noundef nonnull %1, ptr noundef %43, i64 noundef %spec.select) #9
   %.not61.us = icmp eq i32 %44, 0
   br i1 %.not61.us, label %45, label %.thread75
 
@@ -393,32 +393,32 @@ define dso_local ptr @Curl_hsts(ptr noundef %0, ptr noundef %1, i1 noundef zeroe
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %62
   %.05481 = phi ptr [ %47, %62 ], [ %13, %.lr.ph ]
-  %46 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.05481) #10
-  %47 = tail call ptr @Curl_node_next(ptr noundef nonnull %.05481) #10
+  %46 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.05481) #9
+  %47 = tail call ptr @Curl_node_next(ptr noundef nonnull %.05481) #9
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %49 = load i64, ptr %48, align 8, !tbaa !33
   %.not59 = icmp sgt i64 %49, %5
   br i1 %.not59, label %55, label %50
 
 50:                                               ; preds = %.lr.ph.split
-  tail call void @Curl_node_remove(ptr noundef nonnull %46) #10
+  tail call void @Curl_node_remove(ptr noundef nonnull %46) #9
   %51 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !10
-  tail call void %51(ptr noundef %53) #10
+  tail call void %51(ptr noundef %53) #9
   %54 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  tail call void %54(ptr noundef nonnull %46) #10
+  tail call void %54(ptr noundef nonnull %46) #9
   br label %62
 
 55:                                               ; preds = %.lr.ph.split
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %57 = load ptr, ptr %56, align 8, !tbaa !10
-  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #11
+  %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #10
   %59 = icmp eq i64 %spec.select, %58
   br i1 %59, label %60, label %62
 
 60:                                               ; preds = %55
-  %61 = tail call i32 @curl_strnequal(ptr noundef nonnull %1, ptr noundef nonnull %57, i64 noundef %spec.select) #10
+  %61 = tail call i32 @curl_strnequal(ptr noundef nonnull %1, ptr noundef nonnull %57, i64 noundef %spec.select) #9
   %.not61 = icmp eq i32 %61, 0
   br i1 %.not61, label %62, label %.thread75
 
@@ -436,7 +436,7 @@ declare void @Curl_node_remove(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 28) i32 @hsts_create(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
   %5 = zext i1 %2 to i8
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %.thread, label %7
 
@@ -455,18 +455,18 @@ define internal fastcc range(i32 0, 28) i32 @hsts_create(ptr noundef %0, ptr nou
 .thread32:                                        ; preds = %7, %12
   %.02235 = phi i64 [ %13, %12 ], [ %6, %7 ]
   %14 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !4
-  %15 = tail call ptr %14(i64 noundef 1, i64 noundef 56) #10
+  %15 = tail call ptr %14(i64 noundef 1, i64 noundef 56) #9
   %.not28 = icmp eq ptr %15, null
   br i1 %.not28, label %.thread, label %16
 
 16:                                               ; preds = %.thread32
-  %17 = tail call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.02235) #10
+  %17 = tail call ptr @Curl_memdup0(ptr noundef nonnull %1, i64 noundef %.02235) #9
   %.not29 = icmp eq ptr %17, null
   br i1 %.not29, label %18, label %.critedge
 
 18:                                               ; preds = %16
   %19 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  tail call void %19(ptr noundef nonnull %15) #10
+  tail call void %19(ptr noundef nonnull %15) #9
   br label %.thread
 
 .critedge:                                        ; preds = %16
@@ -476,7 +476,7 @@ define internal fastcc range(i32 0, 28) i32 @hsts_create(ptr noundef %0, ptr nou
   store i64 %3, ptr %21, align 8, !tbaa !33
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 40
   store i8 %5, ptr %22, align 8, !tbaa !34
-  tail call void @Curl_llist_append(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %15) #10
+  tail call void @Curl_llist_append(ptr noundef %0, ptr noundef nonnull %15, ptr noundef nonnull %15) #9
   br label %.thread
 
 .thread:                                          ; preds = %4, %12, %.critedge, %18, %.thread32
@@ -526,14 +526,14 @@ define dso_local i32 @Curl_hsts_save(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not56, label %81, label %22
 
 22:                                               ; preds = %20
-  %23 = call i32 @Curl_fopen(ptr noundef %0, ptr noundef nonnull %.040, ptr noundef nonnull %7, ptr noundef nonnull %8) #10
+  %23 = call i32 @Curl_fopen(ptr noundef %0, ptr noundef nonnull %.040, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
   %.not57 = icmp eq i32 %23, 0
   br i1 %.not57, label %24, label %78
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %7, align 8, !tbaa !39
   %26 = call i64 @fwrite(ptr nonnull @.str.2, i64 111, i64 1, ptr %25)
-  %27 = call ptr @Curl_llist_head(ptr noundef nonnull %1) #10
+  %27 = call ptr @Curl_llist_head(ptr noundef nonnull %1) #9
   %.not5879 = icmp eq ptr %27, null
   br i1 %.not5879, label %.loopexit, label %.lr.ph
 
@@ -547,8 +547,8 @@ define dso_local i32 @Curl_hsts_save(ptr noundef %0, ptr noundef %1, ptr noundef
 
 33:                                               ; preds = %.lr.ph, %hsts_out.exit
   %.04480 = phi ptr [ %27, %.lr.ph ], [ %35, %hsts_out.exit ]
-  %34 = call ptr @Curl_node_elem(ptr noundef nonnull %.04480) #10
-  %35 = call ptr @Curl_node_next(ptr noundef nonnull %.04480) #10
+  %34 = call ptr @Curl_node_elem(ptr noundef nonnull %.04480) #9
+  %35 = call ptr @Curl_node_next(ptr noundef nonnull %.04480) #9
   %36 = load ptr, ptr %7, align 8, !tbaa !39
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 48
@@ -557,7 +557,7 @@ define dso_local i32 @Curl_hsts_save(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i, label %57, label %39
 
 39:                                               ; preds = %33
-  %40 = call i32 @Curl_gmtime(i64 noundef %38, ptr noundef nonnull %6) #10
+  %40 = call i32 @Curl_gmtime(i64 noundef %38, ptr noundef nonnull %6) #9
   %.not13.i = icmp eq i32 %40, 0
   br i1 %.not13.i, label %41, label %hsts_out.exit.thread
 
@@ -580,7 +580,7 @@ hsts_out.exit.thread:                             ; preds = %39
   %53 = load i32, ptr %31, align 8, !tbaa !45
   %54 = load i32, ptr %32, align 4, !tbaa !46
   %55 = load i32, ptr %6, align 8, !tbaa !47
-  %56 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %36, ptr noundef nonnull @.str.3, ptr noundef nonnull %45, ptr noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef %55) #10
+  %56 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %36, ptr noundef nonnull @.str.3, ptr noundef nonnull %45, ptr noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef %52, i32 noundef %53, i32 noundef %54, i32 noundef %55) #9
   br label %hsts_out.exit
 
 57:                                               ; preds = %33
@@ -590,7 +590,7 @@ hsts_out.exit.thread:                             ; preds = %39
   %61 = select i1 %60, ptr @.str.4, ptr @.str.5
   %62 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %63 = load ptr, ptr %62, align 8, !tbaa !10
-  %64 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %36, ptr noundef nonnull @.str.6, ptr noundef nonnull %61, ptr noundef %63, ptr noundef nonnull @.str.7) #10
+  %64 = call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef %36, ptr noundef nonnull @.str.6, ptr noundef nonnull %61, ptr noundef %63, ptr noundef nonnull @.str.7) #9
   br label %hsts_out.exit
 
 hsts_out.exit:                                    ; preds = %41, %57
@@ -609,7 +609,7 @@ hsts_out.exit:                                    ; preds = %41, %57
   br i1 %or.cond3, label %70, label %72
 
 70:                                               ; preds = %.loopexit
-  %71 = call i32 @Curl_rename(ptr noundef nonnull %68, ptr noundef nonnull %.040) #10
+  %71 = call i32 @Curl_rename(ptr noundef nonnull %68, ptr noundef nonnull %.040) #9
   %.not60 = icmp eq i32 %71, 0
   %spec.select63 = select i1 %.not60, i32 0, i32 23
   %.pre = load ptr, ptr %8, align 8
@@ -624,14 +624,14 @@ hsts_out.exit:                                    ; preds = %41, %57
   br i1 %or.cond5, label %76, label %78
 
 76:                                               ; preds = %72
-  %77 = call i32 @unlink(ptr noundef nonnull %73) #10
+  %77 = call i32 @unlink(ptr noundef nonnull %73) #9
   br label %78
 
 78:                                               ; preds = %72, %76, %22
   %.143 = phi i32 [ %23, %22 ], [ %.4, %76 ], [ %.4, %72 ]
   %79 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %80 = load ptr, ptr %8, align 8, !tbaa !29
-  call void %79(ptr noundef %80) #10
+  call void %79(ptr noundef %80) #9
   br label %81
 
 81:                                               ; preds = %14, %20, %78
@@ -643,11 +643,11 @@ hsts_out.exit:                                    ; preds = %41, %57
 
 84:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %85 = call i64 @Curl_llist_count(ptr noundef nonnull %1) #10
+  %85 = call i64 @Curl_llist_count(ptr noundef nonnull %1) #9
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 %85, ptr %86, align 8, !tbaa !109
   store i64 0, ptr %9, align 8, !tbaa !111
-  %87 = call ptr @Curl_llist_head(ptr noundef nonnull %1) #10
+  %87 = call ptr @Curl_llist_head(ptr noundef nonnull %1) #9
   %.not6285 = icmp eq ptr %87, null
   br i1 %.not6285, label %.thread, label %.lr.ph87
 
@@ -665,14 +665,14 @@ hsts_out.exit:                                    ; preds = %41, %57
 
 97:                                               ; preds = %.lr.ph87, %123
   %.14586 = phi ptr [ %87, %.lr.ph87 ], [ %99, %123 ]
-  %98 = call ptr @Curl_node_elem(ptr noundef nonnull %.14586) #10
-  %99 = call ptr @Curl_node_next(ptr noundef nonnull %.14586) #10
+  %98 = call ptr @Curl_node_elem(ptr noundef nonnull %.14586) #9
+  %99 = call ptr @Curl_node_next(ptr noundef nonnull %.14586) #9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %101 = load ptr, ptr %100, align 8, !tbaa !10
   store ptr %101, ptr %4, align 8, !tbaa !112
-  %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #11
+  %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %101) #10
   store i64 %102, ptr %88, align 8, !tbaa !114
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 40
   %104 = load i8, ptr %103, align 8, !tbaa !34, !range !35, !noundef !36
@@ -683,7 +683,7 @@ hsts_out.exit:                                    ; preds = %41, %57
   br i1 %.not.i64, label %119, label %107
 
 107:                                              ; preds = %97
-  %108 = call i32 @Curl_gmtime(i64 noundef %106, ptr noundef nonnull %5) #10
+  %108 = call i32 @Curl_gmtime(i64 noundef %106, ptr noundef nonnull %5) #9
   %.not16.i = icmp eq i32 %108, 0
   br i1 %.not16.i, label %109, label %hsts_push.exit.thread
 
@@ -701,17 +701,17 @@ hsts_push.exit.thread:                            ; preds = %107
   %115 = load i32, ptr %94, align 8, !tbaa !45
   %116 = load i32, ptr %95, align 4, !tbaa !46
   %117 = load i32, ptr %5, align 8, !tbaa !47
-  %118 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %90, i64 noundef 18, ptr noundef nonnull @.str.8, i32 noundef %111, i32 noundef %113, i32 noundef %114, i32 noundef %115, i32 noundef %116, i32 noundef %117) #10
+  %118 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %90, i64 noundef 18, ptr noundef nonnull @.str.8, i32 noundef %111, i32 noundef %113, i32 noundef %114, i32 noundef %115, i32 noundef %116, i32 noundef %117) #9
   br label %hsts_push.exit
 
 119:                                              ; preds = %97
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %90, ptr noundef nonnull align 1 dereferenceable(10) @.str.7, i64 10, i1 false) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %90, ptr noundef nonnull align 1 dereferenceable(10) @.str.7, i64 10, i1 false) #9
   br label %hsts_push.exit
 
 hsts_push.exit:                                   ; preds = %109, %119
   %120 = load ptr, ptr %82, align 8, !tbaa !48
   %121 = load ptr, ptr %96, align 8, !tbaa !115
-  %122 = call i32 %120(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef %121) #10
+  %122 = call i32 %120(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %9, ptr noundef %121) #9
   %.not77 = icmp eq i32 %122, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -761,9 +761,9 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
   %7 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !20
-  tail call void %7(ptr noundef %9) #10
+  tail call void %7(ptr noundef %9) #9
   %10 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !4
-  %11 = tail call ptr %10(ptr noundef %2) #10
+  %11 = tail call ptr %10(ptr noundef %2) #9
   store ptr %11, ptr %8, align 8, !tbaa !20
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %hsts_load.exit, label %12
@@ -775,13 +775,13 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
 
 14:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @Curl_dyn_init(ptr noundef nonnull %6, i64 noundef 4095) #10
-  %15 = call i32 @Curl_get_line(ptr noundef nonnull %6, ptr noundef nonnull %13) #10
+  call void @Curl_dyn_init(ptr noundef nonnull %6, i64 noundef 4095) #9
+  %15 = call i32 @Curl_get_line(ptr noundef nonnull %6, ptr noundef nonnull %13) #9
   %.not2327.i = icmp eq i32 %15, 0
   br i1 %.not2327.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %.loopexit.i
-  %16 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %6) #10
+  %16 = call ptr @Curl_dyn_ptr(ptr noundef nonnull %6) #9
   br label %17
 
 17:                                               ; preds = %.critedge2.i, %.lr.ph.i
@@ -798,14 +798,14 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
   br label %17, !llvm.loop !117
 
 20:                                               ; preds = %17
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #11
+  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #10
   %22 = icmp ult i64 %21, 2
   br i1 %22, label %.loopexit.i, label %23, !llvm.loop !118
 
 23:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %24 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
+  %24 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull readonly %.0.i, ptr noundef nonnull @.str.10, ptr noundef nonnull %4, ptr noundef nonnull %5) #9
   %25 = icmp eq i32 %24, 2
   br i1 %25, label %26, label %hsts_add.exit.i
 
@@ -815,7 +815,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
   br i1 %.not.i.i, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = call i64 @Curl_getdate_capped(ptr noundef nonnull %5) #10
+  %28 = call i64 @Curl_getdate_capped(ptr noundef nonnull %5) #9
   br label %29
 
 29:                                               ; preds = %27, %26
@@ -830,7 +830,7 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
 
 34:                                               ; preds = %29
   %35 = zext i1 %32 to i8
-  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel) #11
+  %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel) #10
   %.not.i.i.i = icmp eq i64 %36, 0
   br i1 %.not.i.i.i, label %hsts_add.exit.i, label %37
 
@@ -849,18 +849,18 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
 .thread32.i.i.i:                                  ; preds = %42, %37
   %.02235.i.i.i = phi i64 [ %43, %42 ], [ %36, %37 ]
   %44 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !4
-  %45 = call ptr %44(i64 noundef 1, i64 noundef 56) #10
+  %45 = call ptr %44(i64 noundef 1, i64 noundef 56) #9
   %.not28.i.i.i = icmp eq ptr %45, null
   br i1 %.not28.i.i.i, label %hsts_add.exit.i, label %46
 
 46:                                               ; preds = %.thread32.i.i.i
-  %47 = call ptr @Curl_memdup0(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 noundef %.02235.i.i.i) #10
+  %47 = call ptr @Curl_memdup0(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 noundef %.02235.i.i.i) #9
   %.not29.i.i.i = icmp eq ptr %47, null
   br i1 %.not29.i.i.i, label %48, label %.critedge.i.i.i
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  call void %49(ptr noundef nonnull %45) #10
+  call void %49(ptr noundef nonnull %45) #9
   br label %hsts_add.exit.i
 
 .critedge.i.i.i:                                  ; preds = %46
@@ -870,13 +870,13 @@ define dso_local range(i32 0, 28) i32 @Curl_hsts_loadfile(ptr readnone captures(
   store i64 %30, ptr %51, align 8, !tbaa !33
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 40
   store i8 %35, ptr %52, align 8, !tbaa !34
-  call void @Curl_llist_append(ptr noundef %1, ptr noundef nonnull %45, ptr noundef nonnull %45) #10
+  call void @Curl_llist_append(ptr noundef %1, ptr noundef nonnull %45, ptr noundef nonnull %45) #9
   br label %hsts_add.exit.i
 
 53:                                               ; preds = %29
   %54 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %55 = load ptr, ptr %54, align 8, !tbaa !10
-  %56 = call i32 @curl_strequal(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr noundef %55) #10
+  %56 = call i32 @curl_strequal(ptr noundef nonnull %spec.select.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr noundef %55) #9
   %.not28.i.i = icmp eq i32 %56, 0
   br i1 %.not28.i.i, label %hsts_add.exit.i, label %57
 
@@ -896,12 +896,12 @@ hsts_add.exit.i:                                  ; preds = %61, %57, %53, %.cri
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %17, %hsts_add.exit.i, %20
-  %62 = call i32 @Curl_get_line(ptr noundef nonnull %6, ptr noundef nonnull %13) #10
+  %62 = call i32 @Curl_get_line(ptr noundef nonnull %6, ptr noundef nonnull %13) #9
   %.not23.i = icmp eq i32 %62, 0
   br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i, %14
-  call void @Curl_dyn_free(ptr noundef nonnull %6) #10
+  call void @Curl_dyn_free(ptr noundef nonnull %6) #9
   %63 = call i32 @fclose(ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %hsts_load.exit
@@ -943,7 +943,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
   store i8 0, ptr %10, align 1, !tbaa !25
   store i8 0, ptr %3, align 16, !tbaa !25
   %16 = load ptr, ptr %11, align 8, !tbaa !120
-  %17 = call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %16) #10
+  %17 = call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %16) #9
   switch i32 %17, label %.thread45.sink.split.i.loopexit [
     i32 0, label %18
     i32 2, label %.thread45.sink.split.i
@@ -961,7 +961,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
   br i1 %.not22.i, label %25, label %23
 
 23:                                               ; preds = %21
-  %24 = call i64 @Curl_getdate_capped(ptr noundef nonnull %10) #10
+  %24 = call i64 @Curl_getdate_capped(ptr noundef nonnull %10) #9
   %.pre49.i = load ptr, ptr %4, align 8, !tbaa !112
   br label %25
 
@@ -970,7 +970,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
   %.018.i = phi i64 [ %24, %23 ], [ 9223372036854775807, %21 ]
   %27 = load i8, ptr %9, align 8
   %28 = and i8 %27, 1
-  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #11
+  %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #10
   %.not.i.i = icmp eq i64 %29, 0
   br i1 %.not.i.i, label %46, label %30
 
@@ -989,18 +989,18 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
 .thread32.i.i:                                    ; preds = %35, %30
   %.02235.i.i = phi i64 [ %36, %35 ], [ %29, %30 ]
   %37 = load ptr, ptr @Curl_ccalloc, align 8, !tbaa !4
-  %38 = call ptr %37(i64 noundef 1, i64 noundef 56) #10
+  %38 = call ptr %37(i64 noundef 1, i64 noundef 56) #9
   %.not28.i.i = icmp eq ptr %38, null
   br i1 %.not28.i.i, label %.thread45.sink.split.i, label %39
 
 39:                                               ; preds = %.thread32.i.i
-  %40 = call ptr @Curl_memdup0(ptr noundef nonnull %26, i64 noundef %.02235.i.i) #10
+  %40 = call ptr @Curl_memdup0(ptr noundef nonnull %26, i64 noundef %.02235.i.i) #9
   %.not29.i.i = icmp eq ptr %40, null
   br i1 %.not29.i.i, label %41, label %.critedge.i.i
 
 41:                                               ; preds = %39
   %42 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
-  call void %42(ptr noundef nonnull %38) #10
+  call void %42(ptr noundef nonnull %38) #9
   br label %.thread45.sink.split.i
 
 .critedge.i.i:                                    ; preds = %39
@@ -1010,7 +1010,7 @@ define dso_local range(i32 0, 44) i32 @Curl_hsts_loadcb(ptr noundef %0, ptr noun
   store i64 %.018.i, ptr %44, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 40
   store i8 %28, ptr %45, align 8, !tbaa !34
-  call void @Curl_llist_append(ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef nonnull %38) #10
+  call void @Curl_llist_append(ptr noundef nonnull %1, ptr noundef nonnull %38, ptr noundef nonnull %38) #9
   br label %46
 
 46:                                               ; preds = %.critedge.i.i, %35, %25
@@ -1042,7 +1042,7 @@ define dso_local void @Curl_hsts_loadfiles(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not, label %15, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @Curl_share_lock(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 2) #10
+  %5 = tail call i32 @Curl_share_lock(ptr noundef nonnull %0, i32 noundef 7, i32 noundef 2) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2584
   br label %7
 
@@ -1057,7 +1057,7 @@ define dso_local void @Curl_hsts_loadfiles(ptr noundef %0) local_unnamed_addr #0
   br i1 %.not10, label %13, label %7, !llvm.loop !126
 
 13:                                               ; preds = %7
-  %14 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 7) #10
+  %14 = tail call i32 @Curl_share_unlock(ptr noundef nonnull %0, i32 noundef 7) #9
   br label %15
 
 15:                                               ; preds = %13, %1

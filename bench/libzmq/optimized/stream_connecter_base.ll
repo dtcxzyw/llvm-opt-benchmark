@@ -279,7 +279,7 @@ define void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load i32, ptr %3, align 8, !tbaa !84
   %5 = icmp sgt i32 %4, 0
-  br i1 %5, label %6, label %38
+  br i1 %5, label %6, label %41
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 356
@@ -316,17 +316,17 @@ define void @_ZN3zmq23stream_connecter_base_t19add_reconnect_timerEv(ptr noundef
 
 _ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit: ; preds = %13, %18
   %.0.i = phi i32 [ %..06.i, %13 ], [ %spec.select9.i, %18 ]
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 1448
-  tail call void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %23, i32 noundef %.0.i, i32 noundef 1)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 1520
-  %25 = load ptr, ptr %24, align 8, !tbaa !72
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1448
+  tail call void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16) %26, i32 noundef %.0.i, i32 noundef 1)
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 1520
+  %28 = load ptr, ptr %27, align 8, !tbaa !72
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 1488
-  call void @_ZN3zmq38make_unconnected_connect_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %26)
-  invoke void @_ZN3zmq13socket_base_t21event_connect_retriedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %25, ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %.0.i)
-          to label %27 unwind label %36
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1488
+  call void @_ZN3zmq38make_unconnected_connect_endpoint_pairERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"struct.zmq::endpoint_uri_pair_t") align 8 %2, ptr noundef nonnull align 8 dereferenceable(32) %29)
+  invoke void @_ZN3zmq13socket_base_t21event_connect_retriedERKNS_19endpoint_uri_pair_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %28, ptr noundef nonnull align 8 dereferenceable(68) %2, i32 noundef %.0.i)
+          to label %27 unwind label %39
 
-27:                                               ; preds = %_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !80
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -338,29 +338,29 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %32 = load ptr, ptr %2, align 8, !tbaa !80
-  %33 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %34 = icmp eq ptr %32, %33
-  br i1 %34, label %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
+  %35 = load ptr, ptr %2, align 8, !tbaa !80
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %37 = icmp eq ptr %35, %36
+  br i1 %37, label %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %32) #20
+  call void @_ZdlPv(ptr noundef %35) #20
   br label %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit
 
 _ZN3zmq19endpoint_uri_pair_tD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 1529
-  store i8 1, ptr %35, align 1, !tbaa !74
-  br label %38
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 1529
+  store i8 1, ptr %38, align 1, !tbaa !74
+  br label %41
 
-36:                                               ; preds = %_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit
-  %37 = landingpad { ptr, i32 }
+39:                                               ; preds = %_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv.exit
+  %40 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3zmq19endpoint_uri_pair_tD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %2) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %37
+  resume { ptr, i32 } %40
 
-38:                                               ; preds = %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit, %1
+41:                                               ; preds = %_ZN3zmq19endpoint_uri_pair_tD2Ev.exit, %1
   ret void
 }
 
@@ -508,7 +508,7 @@ define noundef i32 @_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv(pt
   %.06 = select i1 %7, i32 %10, i32 %spec.select
   %..06 = tail call i32 @llvm.smin.i32(i32 %.06, i32 %3)
   store i32 %..06, ptr %5, align 4, !tbaa !75
-  br label %23
+  br label %26
 
 13:                                               ; preds = %1
   br i1 %7, label %14, label %17
@@ -528,7 +528,7 @@ define noundef i32 @_ZN3zmq23stream_connecter_base_t21get_new_reconnect_ivlEv(pt
   %spec.select9 = tail call i32 @llvm.sadd.sat.i32(i32 %21, i32 %22)
   br label %23
 
-23:                                               ; preds = %17, %8
+26:                                               ; preds = %17, %8
   %.0 = phi i32 [ %..06, %8 ], [ %spec.select9, %17 ]
   ret i32 %.0
 }
