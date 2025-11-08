@@ -959,14 +959,14 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %132, label %7
+  br i1 %.not, label %131, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 31
   %11 = icmp eq i32 %10, 21
-  br i1 %11, label %12, label %132
+  br i1 %11, label %12, label %131
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -974,14 +974,14 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %.not56 = icmp eq ptr %16, null
-  br i1 %.not56, label %132, label %17
+  br i1 %.not56, label %131, label %17
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 44
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 511
   %21 = icmp eq i32 %20, 256
-  br i1 %21, label %22, label %132
+  br i1 %21, label %22, label %131
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -989,14 +989,14 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %.not57 = icmp eq ptr %26, null
-  br i1 %.not57, label %132, label %27
+  br i1 %.not57, label %131, label %27
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 44
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %29, 255
   %31 = icmp eq i32 %30, 192
-  br i1 %31, label %32, label %132
+  br i1 %31, label %32, label %131
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1004,7 +1004,7 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %1
-  br i1 %37, label %38, label %132
+  br i1 %37, label %38, label %131
 
 38:                                               ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -1023,7 +1023,7 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %52 = icmp ne i32 %51, 3
   %.not5864 = icmp eq ptr %49, null
   %.not58 = or i1 %.not5864, %52
-  br i1 %.not58, label %132, label %53
+  br i1 %.not58, label %131, label %53
 
 53:                                               ; preds = %38
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 24
@@ -1038,13 +1038,13 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %63 = load i32, ptr %62, align 4
   %64 = xor i32 %63, 4
   %65 = select i1 %61, i32 %63, i32 %64
-  switch i32 %65, label %127 [
+  switch i32 %65, label %126 [
     i32 4, label %66
-    i32 0, label %132
+    i32 0, label %131
     i32 3, label %109
     i32 5, label %114
     i32 1, label %118
-    i32 7, label %123
+    i32 7, label %122
   ]
 
 66:                                               ; preds = %53
@@ -1061,20 +1061,20 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %77 = icmp ne i32 %76, 3
   %.not6165 = icmp eq ptr %74, null
   %.not61 = or i1 %.not6165, %77
-  br i1 %.not61, label %132, label %78
+  br i1 %.not61, label %131, label %78
 
 78:                                               ; preds = %66
   %79 = load ptr, ptr %74, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 64
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef zeroext i1 %81(ptr noundef nonnull align 8 dereferenceable(32) %74) #9
-  br i1 %82, label %132, label %83
+  br i1 %82, label %131, label %83
 
 83:                                               ; preds = %78
   %84 = load i32, ptr %54, align 8
   %85 = load i32, ptr %56, align 4
   %86 = icmp eq i32 %84, %85
-  br i1 %86, label %87, label %132
+  br i1 %86, label %87, label %131
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %74, i64 24
@@ -1090,13 +1090,13 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %96 = load i16, ptr %95, align 4
   %97 = sext i16 %96 to i32
   %98 = tail call noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %92, i32 noundef %94, i32 noundef %97) #9
-  br label %132
+  br label %131
 
 99:                                               ; preds = %87
   %100 = getelementptr inbounds nuw i8, ptr %74, i64 28
   %101 = load i32, ptr %100, align 4
   %102 = icmp eq i32 %101, %57
-  br i1 %102, label %103, label %132
+  br i1 %102, label %103, label %131
 
 103:                                              ; preds = %99
   %104 = add nsw i32 %57, -1
@@ -1104,7 +1104,7 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %106 = load i16, ptr %105, align 4
   %107 = sext i16 %106 to i32
   %108 = tail call noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %89, i32 noundef %104, i32 noundef %107) #9
-  br label %132
+  br label %131
 
 109:                                              ; preds = %53
   %110 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
@@ -1113,40 +1113,38 @@ define hidden noundef ptr @_ZN6IfNode17filtered_int_typeEP8PhaseGVNP4NodeS3_(ptr
   %.not60 = icmp eq i32 %57, -2147483648
   %113 = add nsw i32 %57, -1
   %spec.select = select i1 %.not60, i32 -2147483648, i32 %113
-  br label %127
+  br label %126
 
 114:                                              ; preds = %53
   %115 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load i32, ptr %116, align 8
-  br label %127
+  br label %126
 
 118:                                              ; preds = %53
-  %.not59 = icmp eq i32 %55, 2147483647
-  %119 = add nsw i32 %55, 1
-  %spec.select62 = select i1 %.not59, i32 2147483647, i32 %119
-  %120 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 28
-  %122 = load i32, ptr %121, align 4
-  br label %127
+  %spec.select62 = tail call i32 @llvm.sadd.sat.i32(i32 %55, i32 1)
+  %119 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 28
+  %121 = load i32, ptr %120, align 4
+  br label %126
 
-123:                                              ; preds = %53
-  %124 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 28
-  %126 = load i32, ptr %125, align 4
-  br label %127
+122:                                              ; preds = %53
+  %123 = load ptr, ptr @_ZN7TypeInt3INTE, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 28
+  %125 = load i32, ptr %124, align 4
+  br label %126
 
-127:                                              ; preds = %109, %53, %123, %118, %114
-  %.045 = phi i32 [ %57, %53 ], [ %57, %114 ], [ %122, %118 ], [ %126, %123 ], [ %spec.select, %109 ]
-  %.044 = phi i32 [ %55, %53 ], [ %117, %114 ], [ %spec.select62, %118 ], [ %55, %123 ], [ %112, %109 ]
-  %128 = getelementptr inbounds nuw i8, ptr %49, i64 20
-  %129 = load i16, ptr %128, align 4
-  %130 = sext i16 %129 to i32
-  %131 = tail call noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %.044, i32 noundef %.045, i32 noundef %130) #9
-  br label %132
+126:                                              ; preds = %109, %53, %122, %118, %114
+  %.045 = phi i32 [ %57, %53 ], [ %57, %114 ], [ %121, %118 ], [ %125, %122 ], [ %spec.select, %109 ]
+  %.044 = phi i32 [ %55, %53 ], [ %117, %114 ], [ %spec.select62, %118 ], [ %55, %122 ], [ %112, %109 ]
+  %127 = getelementptr inbounds nuw i8, ptr %49, i64 20
+  %128 = load i16, ptr %127, align 4
+  %129 = sext i16 %128 to i32
+  %130 = tail call noundef ptr @_ZN7TypeInt4makeEiii(i32 noundef %.044, i32 noundef %.045, i32 noundef %129) #9
+  br label %131
 
-132:                                              ; preds = %3, %7, %22, %27, %38, %32, %17, %12, %53, %66, %78, %83, %99, %127, %103, %91
-  %.0 = phi ptr [ %131, %127 ], [ %98, %91 ], [ %108, %103 ], [ null, %99 ], [ null, %83 ], [ null, %78 ], [ null, %66 ], [ %49, %53 ], [ null, %12 ], [ null, %17 ], [ null, %32 ], [ null, %38 ], [ null, %27 ], [ null, %22 ], [ null, %7 ], [ null, %3 ]
+131:                                              ; preds = %3, %7, %22, %27, %38, %32, %17, %12, %53, %66, %78, %83, %99, %126, %103, %91
+  %.0 = phi ptr [ %130, %126 ], [ %98, %91 ], [ %108, %103 ], [ null, %99 ], [ null, %83 ], [ null, %78 ], [ null, %66 ], [ %49, %53 ], [ null, %12 ], [ null, %17 ], [ null, %32 ], [ null, %38 ], [ null, %27 ], [ null, %22 ], [ null, %7 ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -8602,6 +8600,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #7
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.sadd.sat.i32(i32, i32) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

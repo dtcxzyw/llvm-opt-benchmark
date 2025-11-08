@@ -64,7 +64,7 @@ define internal i32 @mace_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %9) #5
   %21 = sub nsw i32 %9, %19
   %.not76 = icmp eq i32 %21, 0
-  br i1 %.not76, label %216, label %22
+  br i1 %.not76, label %215, label %22
 
 22:                                               ; preds = %20, %4
   %.067 = phi i32 [ %21, %20 ], [ %9, %4 ]
@@ -77,7 +77,7 @@ define internal i32 @mace_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %26, ptr %27, align 8, !tbaa !33
   %28 = tail call i32 @ff_get_buffer(ptr noundef nonnull %0, ptr noundef %1, i32 noundef 0) #5
   %29 = icmp slt i32 %28, 0
-  br i1 %29, label %216, label %30
+  br i1 %29, label %215, label %30
 
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -242,7 +242,7 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
 
 .split.us:                                        ; preds = %.preheader.us97, %.split85.us
   %indvars.iv106 = phi i64 [ 0, %.preheader.us97 ], [ %indvars.iv.next107, %.split85.us ]
-  %.187.us = phi ptr [ %.06692.us98, %.preheader.us97 ], [ %211, %.split85.us ]
+  %.187.us = phi ptr [ %.06692.us98, %.preheader.us97 ], [ %210, %.split85.us ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv106
   %118 = load i8, ptr %gep, align 1, !tbaa !40
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -268,7 +268,7 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
 
 125:                                              ; preds = %chomp6.exit.us, %.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %chomp6.exit.us ], [ 0, %.split.us ]
-  %.283.us = phi ptr [ %211, %chomp6.exit.us ], [ %.187.us, %.split.us ]
+  %.283.us = phi ptr [ %210, %chomp6.exit.us ], [ %.187.us, %.split.us ]
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1, !tbaa !40
   %128 = zext i8 %127 to i32
@@ -328,74 +328,73 @@ read_table.exit.i.us:                             ; preds = %147, %138
   br label %chomp6.exit.us
 
 168:                                              ; preds = %read_table.exit.i.us
-  %169 = tail call i16 @llvm.smin.i16(i16 %164, i16 32261)
-  %spec.select.i.us = add nsw i16 %169, 506
+  %spec.select.i.us = tail call i16 @llvm.sadd.sat.i16(i16 %164, i16 506)
   br label %chomp6.exit.us
 
 chomp6.exit.us:                                   ; preds = %168, %165
   %.sink.i.us = phi i16 [ %spec.select.i.us, %168 ], [ %spec.select45.i.us, %165 ]
   store i16 %.sink.i.us, ptr %113, align 2, !tbaa !56
-  %170 = sext i16 %.0.i.i78.us to i32
-  %171 = load i16, ptr %114, align 2, !tbaa !49
-  %172 = sext i16 %171 to i32
-  %173 = add nsw i32 %172, %170
-  %174 = icmp sgt i32 %173, 32767
-  %175 = icmp slt i32 %173, -32768
-  %176 = trunc nsw i32 %173 to i16
-  %spec.select.i39.i.us = select i1 %175, i16 -32767, i16 %176
-  %.0.i40.i.us = select i1 %174, i16 32767, i16 %spec.select.i39.i.us
-  %177 = sext i16 %.0.i40.i.us to i32
-  %178 = sext i16 %.sink.i.us to i32
-  %179 = mul nsw i32 %177, %178
-  %180 = lshr i32 %179, 15
-  %181 = trunc i32 %180 to i16
-  store i16 %181, ptr %114, align 2, !tbaa !49
-  %182 = ashr i16 %.0.i40.i.us, 1
-  %183 = zext i16 %161 to i32
-  %184 = load i16, ptr %115, align 2, !tbaa !57
-  %185 = sext i16 %184 to i32
-  %186 = add nsw i32 %185, %183
-  %187 = sext i16 %182 to i32
-  %188 = sub nsw i32 %185, %187
-  %189 = ashr i32 %188, 2
-  %190 = sub nsw i32 %186, %189
-  %191 = and i32 %190, 65280
-  %192 = lshr i32 %190, 8
-  %193 = and i32 %192, 255
-  %194 = or disjoint i32 %193, %191
-  %195 = trunc nuw i32 %194 to i16
-  store i16 %195, ptr %.283.us, align 2, !tbaa !47
-  %196 = load i16, ptr %112, align 2, !tbaa !55
-  %197 = zext i16 %196 to i32
-  %198 = add nsw i32 %187, %197
-  %199 = load i16, ptr %115, align 2, !tbaa !57
-  %200 = sext i16 %199 to i32
-  %201 = sub nsw i32 %200, %187
-  %202 = ashr i32 %201, 2
-  %203 = add nsw i32 %198, %202
-  %204 = and i32 %203, 65280
-  %205 = lshr i32 %203, 8
-  %206 = and i32 %205, 255
-  %207 = or disjoint i32 %206, %204
-  %208 = trunc nuw i32 %207 to i16
-  %209 = getelementptr inbounds nuw i8, ptr %.283.us, i64 2
-  store i16 %208, ptr %209, align 2, !tbaa !47
-  %210 = load i16, ptr %112, align 2, !tbaa !55
-  store i16 %210, ptr %115, align 2, !tbaa !57
-  store i16 %182, ptr %112, align 2, !tbaa !55
-  %211 = getelementptr inbounds nuw i16, ptr %.283.us, i64 %42
+  %169 = sext i16 %.0.i.i78.us to i32
+  %170 = load i16, ptr %114, align 2, !tbaa !49
+  %171 = sext i16 %170 to i32
+  %172 = add nsw i32 %171, %169
+  %173 = icmp sgt i32 %172, 32767
+  %174 = icmp slt i32 %172, -32768
+  %175 = trunc nsw i32 %172 to i16
+  %spec.select.i39.i.us = select i1 %174, i16 -32767, i16 %175
+  %.0.i40.i.us = select i1 %173, i16 32767, i16 %spec.select.i39.i.us
+  %176 = sext i16 %.0.i40.i.us to i32
+  %177 = sext i16 %.sink.i.us to i32
+  %178 = mul nsw i32 %176, %177
+  %179 = lshr i32 %178, 15
+  %180 = trunc i32 %179 to i16
+  store i16 %180, ptr %114, align 2, !tbaa !49
+  %181 = ashr i16 %.0.i40.i.us, 1
+  %182 = zext i16 %161 to i32
+  %183 = load i16, ptr %115, align 2, !tbaa !57
+  %184 = sext i16 %183 to i32
+  %185 = add nsw i32 %184, %182
+  %186 = sext i16 %181 to i32
+  %187 = sub nsw i32 %184, %186
+  %188 = ashr i32 %187, 2
+  %189 = sub nsw i32 %185, %188
+  %190 = and i32 %189, 65280
+  %191 = lshr i32 %189, 8
+  %192 = and i32 %191, 255
+  %193 = or disjoint i32 %192, %190
+  %194 = trunc nuw i32 %193 to i16
+  store i16 %194, ptr %.283.us, align 2, !tbaa !47
+  %195 = load i16, ptr %112, align 2, !tbaa !55
+  %196 = zext i16 %195 to i32
+  %197 = add nsw i32 %186, %196
+  %198 = load i16, ptr %115, align 2, !tbaa !57
+  %199 = sext i16 %198 to i32
+  %200 = sub nsw i32 %199, %186
+  %201 = ashr i32 %200, 2
+  %202 = add nsw i32 %197, %201
+  %203 = and i32 %202, 65280
+  %204 = lshr i32 %202, 8
+  %205 = and i32 %204, 255
+  %206 = or disjoint i32 %205, %203
+  %207 = trunc nuw i32 %206 to i16
+  %208 = getelementptr inbounds nuw i8, ptr %.283.us, i64 2
+  store i16 %207, ptr %208, align 2, !tbaa !47
+  %209 = load i16, ptr %112, align 2, !tbaa !55
+  store i16 %209, ptr %115, align 2, !tbaa !57
+  store i16 %181, ptr %112, align 2, !tbaa !55
+  %210 = getelementptr inbounds nuw i16, ptr %.283.us, i64 %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split85.us, label %125, !llvm.loop !50
 
 .preheader.us97:                                  ; preds = %.preheader.lr.ph.us, %.split89.us
-  %.06692.us98 = phi ptr [ %110, %.preheader.lr.ph.us ], [ %211, %.split89.us ]
+  %.06692.us98 = phi ptr [ %110, %.preheader.lr.ph.us ], [ %210, %.split89.us ]
   %.07191.us99 = phi i32 [ 0, %.preheader.lr.ph.us ], [ %117, %.split89.us ]
-  %212 = mul nuw nsw i32 %.07191.us99, %11
-  %213 = add nuw i32 %212, %116
-  %214 = shl i32 %213, %17
-  %215 = sext i32 %214 to i64
-  %invariant.gep = getelementptr i8, ptr %7, i64 %215
+  %211 = mul nuw nsw i32 %.07191.us99, %11
+  %212 = add nuw i32 %211, %116
+  %213 = shl i32 %212, %17
+  %214 = sext i32 %213 to i64
+  %invariant.gep = getelementptr i8, ptr %7, i64 %214
   br label %.split.us
 
 ._crit_edge.split.us100:                          ; preds = %.split89.us
@@ -405,9 +404,9 @@ chomp6.exit.us:                                   ; preds = %168, %165
 
 ._crit_edge96:                                    ; preds = %._crit_edge.split.us100, %._crit_edge.split.us.us.us, %.lr.ph, %30
   store i32 1, ptr %2, align 4, !tbaa !58
-  br label %216
+  br label %215
 
-216:                                              ; preds = %22, %20, %._crit_edge96
+215:                                              ; preds = %22, %20, %._crit_edge96
   %.0 = phi i32 [ %.067, %._crit_edge96 ], [ -1094995529, %20 ], [ %28, %22 ]
   ret i32 %.0
 }
@@ -426,7 +425,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #3
 declare i16 @llvm.smax.i16(i16, i16) #4
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #4
+declare i16 @llvm.sadd.sat.i16(i16, i16) #4
 
 attributes #0 = { cold mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

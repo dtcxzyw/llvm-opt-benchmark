@@ -33685,20 +33685,18 @@ set_sr_golomb.exit:                               ; preds = %put_bits.exit.i.i, 
 
 116:                                              ; preds = %114
   %117 = load i8, ptr %4, align 2, !tbaa !299
-  %118 = icmp eq i8 %117, 127
-  %119 = add i8 %117, 1
-  %spec.select43.i = select i1 %118, i8 127, i8 %119
+  %spec.select43.i = tail call i8 @llvm.sadd.sat.i8(i8 %117, i8 1)
   store i8 %spec.select43.i, ptr %4, align 2, !tbaa !299
-  %120 = sub nsw i32 %.035.i, %106
-  %121 = tail call i32 @llvm.smin.i32(i32 %120, i32 0)
+  %118 = sub nsw i32 %.035.i, %106
+  %119 = tail call i32 @llvm.smin.i32(i32 %118, i32 0)
   br label %update_vlc_state.exit
 
 update_vlc_state.exit:                            ; preds = %108, %114, %116
-  %.1.i = phi i32 [ %113, %108 ], [ %121, %116 ], [ %.035.i, %114 ]
-  %122 = trunc nsw i32 %.1.i to i16
-  store i16 %122, ptr %18, align 4, !tbaa !304
-  %123 = trunc i32 %106 to i8
-  store i8 %123, ptr %10, align 1, !tbaa !301
+  %.1.i = phi i32 [ %113, %108 ], [ %119, %116 ], [ %.035.i, %114 ]
+  %120 = trunc nsw i32 %.1.i to i16
+  store i16 %120, ptr %18, align 4, !tbaa !304
+  %121 = trunc i32 %106 to i8
+  store i8 %121, ptr %10, align 1, !tbaa !301
   ret void
 }
 
@@ -33738,6 +33736,9 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smax.i8(i8, i8) #18
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.sadd.sat.i8(i8, i8) #18
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #18

@@ -7035,35 +7035,33 @@ zend_hash_real_init_mixed.exit:                   ; preds = %120, %103, %145, %.
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %164 = load i64, ptr %163, align 8, !tbaa !30
   %.not127.i = icmp slt i64 %1, %164
-  br i1 %.not127.i, label %168, label %165
+  br i1 %.not127.i, label %167, label %165
 
 165:                                              ; preds = %zend_hash_real_init_mixed.exit
-  %.not128.i = icmp eq i64 %1, 9223372036854775807
-  %166 = add nsw i64 %1, 1
-  %167 = select i1 %.not128.i, i64 9223372036854775807, i64 %166
-  store i64 %167, ptr %163, align 8, !tbaa !30
-  br label %168
+  %166 = tail call i64 @llvm.sadd.sat.i64(i64 %1, i64 1)
+  store i64 %166, ptr %163, align 8, !tbaa !30
+  br label %167
 
-168:                                              ; preds = %165, %zend_hash_real_init_mixed.exit
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %170 = load i32, ptr %169, align 4, !tbaa !28
-  %171 = add i32 %170, 1
-  store i32 %171, ptr %169, align 4, !tbaa !28
-  %172 = getelementptr inbounds nuw i8, ptr %156, i64 16
-  store i64 %1, ptr %172, align 8, !tbaa !23
-  %173 = getelementptr inbounds nuw i8, ptr %156, i64 24
-  store ptr null, ptr %173, align 8, !tbaa !18
-  %174 = load ptr, ptr %2, align 8, !tbaa !5
-  %175 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %176 = load i32, ptr %175, align 8, !tbaa !5
-  store ptr %174, ptr %156, align 8, !tbaa !5
+167:                                              ; preds = %165, %zend_hash_real_init_mixed.exit
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %169 = load i32, ptr %168, align 4, !tbaa !28
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %168, align 4, !tbaa !28
+  %171 = getelementptr inbounds nuw i8, ptr %156, i64 16
+  store i64 %1, ptr %171, align 8, !tbaa !23
+  %172 = getelementptr inbounds nuw i8, ptr %156, i64 24
+  store ptr null, ptr %172, align 8, !tbaa !18
+  %173 = load ptr, ptr %2, align 8, !tbaa !5
+  %174 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %175 = load i32, ptr %174, align 8, !tbaa !5
+  store ptr %173, ptr %156, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit.sink.split
 
-_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %168, %.loopexit
-  %.sink21 = phi ptr [ %26, %.loopexit ], [ %156, %168 ]
-  %.sink = phi i32 [ %42, %.loopexit ], [ %176, %168 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
-  store i32 %.sink, ptr %177, align 8, !tbaa !5
+_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %167, %.loopexit
+  %.sink21 = phi ptr [ %26, %.loopexit ], [ %156, %167 ]
+  %.sink = phi i32 [ %42, %.loopexit ], [ %175, %167 ]
+  %176 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
+  store i32 %.sink, ptr %176, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit
 
 _zend_hash_index_add_or_update_i.exit:            ; preds = %138, %_zend_hash_index_add_or_update_i.exit.sink.split, %12
@@ -7394,35 +7392,33 @@ zend_hash_real_init_mixed.exit:                   ; preds = %120, %103, %128, %1
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %147 = load i64, ptr %146, align 8, !tbaa !30
   %.not127.i = icmp slt i64 %1, %147
-  br i1 %.not127.i, label %151, label %148
+  br i1 %.not127.i, label %150, label %148
 
 148:                                              ; preds = %zend_hash_real_init_mixed.exit
-  %.not128.i = icmp eq i64 %1, 9223372036854775807
-  %149 = add nsw i64 %1, 1
-  %150 = select i1 %.not128.i, i64 9223372036854775807, i64 %149
-  store i64 %150, ptr %146, align 8, !tbaa !30
-  br label %151
+  %149 = tail call i64 @llvm.sadd.sat.i64(i64 %1, i64 1)
+  store i64 %149, ptr %146, align 8, !tbaa !30
+  br label %150
 
-151:                                              ; preds = %148, %zend_hash_real_init_mixed.exit
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %153 = load i32, ptr %152, align 4, !tbaa !28
-  %154 = add i32 %153, 1
-  store i32 %154, ptr %152, align 4, !tbaa !28
-  %155 = getelementptr inbounds nuw i8, ptr %139, i64 16
-  store i64 %1, ptr %155, align 8, !tbaa !23
-  %156 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  store ptr null, ptr %156, align 8, !tbaa !18
-  %157 = load ptr, ptr %2, align 8, !tbaa !5
-  %158 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %159 = load i32, ptr %158, align 8, !tbaa !5
-  store ptr %157, ptr %139, align 8, !tbaa !5
+150:                                              ; preds = %148, %zend_hash_real_init_mixed.exit
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %152 = load i32, ptr %151, align 4, !tbaa !28
+  %153 = add i32 %152, 1
+  store i32 %153, ptr %151, align 4, !tbaa !28
+  %154 = getelementptr inbounds nuw i8, ptr %139, i64 16
+  store i64 %1, ptr %154, align 8, !tbaa !23
+  %155 = getelementptr inbounds nuw i8, ptr %139, i64 24
+  store ptr null, ptr %155, align 8, !tbaa !18
+  %156 = load ptr, ptr %2, align 8, !tbaa !5
+  %157 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %158 = load i32, ptr %157, align 8, !tbaa !5
+  store ptr %156, ptr %139, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit.sink.split
 
-_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %151, %.loopexit
-  %.sink13 = phi ptr [ %26, %.loopexit ], [ %139, %151 ]
-  %.sink = phi i32 [ %42, %.loopexit ], [ %159, %151 ]
-  %160 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
-  store i32 %.sink, ptr %160, align 8, !tbaa !5
+_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %150, %.loopexit
+  %.sink13 = phi ptr [ %26, %.loopexit ], [ %139, %150 ]
+  %.sink = phi i32 [ %42, %.loopexit ], [ %158, %150 ]
+  %159 = getelementptr inbounds nuw i8, ptr %.sink13, i64 8
+  store i32 %.sink, ptr %159, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit
 
 _zend_hash_index_add_or_update_i.exit:            ; preds = %_zend_hash_index_add_or_update_i.exit.sink.split, %12
@@ -7723,35 +7719,33 @@ zend_hash_real_init_mixed.exit:                   ; preds = %121, %104, %146, %.
   store i32 %148, ptr %163, align 4, !tbaa !17
   %164 = load i64, ptr %3, align 8, !tbaa !30
   %.not127.i = icmp slt i64 %spec.store.select.i, %164
-  br i1 %.not127.i, label %168, label %165
+  br i1 %.not127.i, label %167, label %165
 
 165:                                              ; preds = %zend_hash_real_init_mixed.exit
-  %.not128.i = icmp eq i64 %spec.store.select.i, 9223372036854775807
-  %166 = add i64 %spec.store.select.i, 1
-  %167 = select i1 %.not128.i, i64 9223372036854775807, i64 %166
-  store i64 %167, ptr %3, align 8, !tbaa !30
-  br label %168
+  %166 = tail call i64 @llvm.sadd.sat.i64(i64 %spec.store.select.i, i64 1)
+  store i64 %166, ptr %3, align 8, !tbaa !30
+  br label %167
 
-168:                                              ; preds = %165, %zend_hash_real_init_mixed.exit
-  %169 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %170 = load i32, ptr %169, align 4, !tbaa !28
-  %171 = add i32 %170, 1
-  store i32 %171, ptr %169, align 4, !tbaa !28
-  %172 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  store i64 %spec.store.select.i, ptr %172, align 8, !tbaa !23
-  %173 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  store ptr null, ptr %173, align 8, !tbaa !18
-  %174 = load ptr, ptr %1, align 8, !tbaa !5
-  %175 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %176 = load i32, ptr %175, align 8, !tbaa !5
-  store ptr %174, ptr %157, align 8, !tbaa !5
+167:                                              ; preds = %165, %zend_hash_real_init_mixed.exit
+  %168 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %169 = load i32, ptr %168, align 4, !tbaa !28
+  %170 = add i32 %169, 1
+  store i32 %170, ptr %168, align 4, !tbaa !28
+  %171 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  store i64 %spec.store.select.i, ptr %171, align 8, !tbaa !23
+  %172 = getelementptr inbounds nuw i8, ptr %157, i64 24
+  store ptr null, ptr %172, align 8, !tbaa !18
+  %173 = load ptr, ptr %1, align 8, !tbaa !5
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %175 = load i32, ptr %174, align 8, !tbaa !5
+  store ptr %173, ptr %157, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit.sink.split
 
-_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %168, %.loopexit
-  %.sink20 = phi ptr [ %28, %.loopexit ], [ %157, %168 ]
-  %.sink = phi i32 [ %43, %.loopexit ], [ %176, %168 ]
-  %177 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
-  store i32 %.sink, ptr %177, align 8, !tbaa !5
+_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %167, %.loopexit
+  %.sink20 = phi ptr [ %28, %.loopexit ], [ %157, %167 ]
+  %.sink = phi i32 [ %43, %.loopexit ], [ %175, %167 ]
+  %176 = getelementptr inbounds nuw i8, ptr %.sink20, i64 8
+  store i32 %.sink, ptr %176, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit
 
 _zend_hash_index_add_or_update_i.exit:            ; preds = %139, %_zend_hash_index_add_or_update_i.exit.sink.split, %14
@@ -7984,35 +7978,33 @@ zend_hash_real_init_mixed.exit:                   ; preds = %107, %90, %115, %11
   store i32 %117, ptr %132, align 4, !tbaa !17
   %133 = load i64, ptr %3, align 8, !tbaa !30
   %.not127.i = icmp slt i64 %spec.store.select.i, %133
-  br i1 %.not127.i, label %137, label %134
+  br i1 %.not127.i, label %136, label %134
 
 134:                                              ; preds = %zend_hash_real_init_mixed.exit
-  %.not128.i = icmp eq i64 %spec.store.select.i, 9223372036854775807
-  %135 = add i64 %spec.store.select.i, 1
-  %136 = select i1 %.not128.i, i64 9223372036854775807, i64 %135
-  store i64 %136, ptr %3, align 8, !tbaa !30
-  br label %137
+  %135 = tail call i64 @llvm.sadd.sat.i64(i64 %spec.store.select.i, i64 1)
+  store i64 %135, ptr %3, align 8, !tbaa !30
+  br label %136
 
-137:                                              ; preds = %134, %zend_hash_real_init_mixed.exit
-  %138 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %139 = load i32, ptr %138, align 4, !tbaa !28
-  %140 = add i32 %139, 1
-  store i32 %140, ptr %138, align 4, !tbaa !28
-  %141 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store i64 %spec.store.select.i, ptr %141, align 8, !tbaa !23
-  %142 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  store ptr null, ptr %142, align 8, !tbaa !18
-  %143 = load ptr, ptr %1, align 8, !tbaa !5
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %145 = load i32, ptr %144, align 8, !tbaa !5
-  store ptr %143, ptr %126, align 8, !tbaa !5
+136:                                              ; preds = %134, %zend_hash_real_init_mixed.exit
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %138 = load i32, ptr %137, align 4, !tbaa !28
+  %139 = add i32 %138, 1
+  store i32 %139, ptr %137, align 4, !tbaa !28
+  %140 = getelementptr inbounds nuw i8, ptr %126, i64 16
+  store i64 %spec.store.select.i, ptr %140, align 8, !tbaa !23
+  %141 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  store ptr null, ptr %141, align 8, !tbaa !18
+  %142 = load ptr, ptr %1, align 8, !tbaa !5
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %144 = load i32, ptr %143, align 8, !tbaa !5
+  store ptr %142, ptr %126, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit
 
-_zend_hash_index_add_or_update_i.exit:            ; preds = %14, %137
-  %.sink10 = phi ptr [ %17, %14 ], [ %126, %137 ]
-  %.sink = phi i32 [ %27, %14 ], [ %145, %137 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
-  store i32 %.sink, ptr %146, align 8, !tbaa !5
+_zend_hash_index_add_or_update_i.exit:            ; preds = %14, %136
+  %.sink10 = phi ptr [ %17, %14 ], [ %126, %136 ]
+  %.sink = phi i32 [ %27, %14 ], [ %144, %136 ]
+  %145 = getelementptr inbounds nuw i8, ptr %.sink10, i64 8
+  store i32 %.sink, ptr %145, align 8, !tbaa !5
   ret ptr %.sink10
 }
 
@@ -8325,35 +8317,33 @@ zend_hash_real_init_mixed.exit:                   ; preds = %127, %110, %152, %.
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %171 = load i64, ptr %170, align 8, !tbaa !30
   %.not127.i = icmp slt i64 %1, %171
-  br i1 %.not127.i, label %175, label %172
+  br i1 %.not127.i, label %174, label %172
 
 172:                                              ; preds = %zend_hash_real_init_mixed.exit
-  %.not128.i = icmp eq i64 %1, 9223372036854775807
-  %173 = add nsw i64 %1, 1
-  %174 = select i1 %.not128.i, i64 9223372036854775807, i64 %173
-  store i64 %174, ptr %170, align 8, !tbaa !30
-  br label %175
+  %173 = tail call i64 @llvm.sadd.sat.i64(i64 %1, i64 1)
+  store i64 %173, ptr %170, align 8, !tbaa !30
+  br label %174
 
-175:                                              ; preds = %172, %zend_hash_real_init_mixed.exit
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %177 = load i32, ptr %176, align 4, !tbaa !28
-  %178 = add i32 %177, 1
-  store i32 %178, ptr %176, align 4, !tbaa !28
-  %179 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store i64 %1, ptr %179, align 8, !tbaa !23
-  %180 = getelementptr inbounds nuw i8, ptr %163, i64 24
-  store ptr null, ptr %180, align 8, !tbaa !18
-  %181 = load ptr, ptr %2, align 8, !tbaa !5
-  %182 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %183 = load i32, ptr %182, align 8, !tbaa !5
-  store ptr %181, ptr %163, align 8, !tbaa !5
+174:                                              ; preds = %172, %zend_hash_real_init_mixed.exit
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %176 = load i32, ptr %175, align 4, !tbaa !28
+  %177 = add i32 %176, 1
+  store i32 %177, ptr %175, align 4, !tbaa !28
+  %178 = getelementptr inbounds nuw i8, ptr %163, i64 16
+  store i64 %1, ptr %178, align 8, !tbaa !23
+  %179 = getelementptr inbounds nuw i8, ptr %163, i64 24
+  store ptr null, ptr %179, align 8, !tbaa !18
+  %180 = load ptr, ptr %2, align 8, !tbaa !5
+  %181 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %182 = load i32, ptr %181, align 8, !tbaa !5
+  store ptr %180, ptr %163, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit
 
-_zend_hash_index_add_or_update_i.exit:            ; preds = %21, %.loopexit, %175
-  %.0110.i.sink = phi ptr [ %.0110.i, %21 ], [ %33, %.loopexit ], [ %163, %175 ]
-  %.sink = phi i32 [ %24, %21 ], [ %49, %.loopexit ], [ %183, %175 ]
-  %184 = getelementptr inbounds nuw i8, ptr %.0110.i.sink, i64 8
-  store i32 %.sink, ptr %184, align 8, !tbaa !5
+_zend_hash_index_add_or_update_i.exit:            ; preds = %21, %.loopexit, %174
+  %.0110.i.sink = phi ptr [ %.0110.i, %21 ], [ %33, %.loopexit ], [ %163, %174 ]
+  %.sink = phi i32 [ %24, %21 ], [ %49, %.loopexit ], [ %182, %174 ]
+  %183 = getelementptr inbounds nuw i8, ptr %.0110.i.sink, i64 8
+  store i32 %.sink, ptr %183, align 8, !tbaa !5
   ret ptr %.0110.i.sink
 }
 
@@ -8644,30 +8634,28 @@ zend_hash_real_init_mixed.exit:                   ; preds = %116, %99, %141, %._
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %160 = load i64, ptr %159, align 8, !tbaa !30
   %.not127.i = icmp slt i64 %1, %160
-  br i1 %.not127.i, label %164, label %161
+  br i1 %.not127.i, label %163, label %161
 
 161:                                              ; preds = %zend_hash_real_init_mixed.exit
-  %.not128.i = icmp eq i64 %1, 9223372036854775807
-  %162 = add nsw i64 %1, 1
-  %163 = select i1 %.not128.i, i64 9223372036854775807, i64 %162
-  store i64 %163, ptr %159, align 8, !tbaa !30
-  br label %164
+  %162 = tail call i64 @llvm.sadd.sat.i64(i64 %1, i64 1)
+  store i64 %162, ptr %159, align 8, !tbaa !30
+  br label %163
 
-164:                                              ; preds = %161, %zend_hash_real_init_mixed.exit
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %166 = load i32, ptr %165, align 4, !tbaa !28
-  %167 = add i32 %166, 1
-  store i32 %167, ptr %165, align 4, !tbaa !28
-  %168 = getelementptr inbounds nuw i8, ptr %152, i64 16
-  store i64 %1, ptr %168, align 8, !tbaa !23
-  %169 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  store ptr null, ptr %169, align 8, !tbaa !18
+163:                                              ; preds = %161, %zend_hash_real_init_mixed.exit
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %165 = load i32, ptr %164, align 4, !tbaa !28
+  %166 = add i32 %165, 1
+  store i32 %166, ptr %164, align 4, !tbaa !28
+  %167 = getelementptr inbounds nuw i8, ptr %152, i64 16
+  store i64 %1, ptr %167, align 8, !tbaa !23
+  %168 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  store ptr null, ptr %168, align 8, !tbaa !18
   br label %_zend_hash_index_add_or_update_i.exit.sink.split
 
-_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %164, %.loopexit
-  %.sink21 = phi ptr [ %25, %.loopexit ], [ %152, %164 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
-  store i32 1, ptr %170, align 8, !tbaa !5
+_zend_hash_index_add_or_update_i.exit.sink.split: ; preds = %163, %.loopexit
+  %.sink21 = phi ptr [ %25, %.loopexit ], [ %152, %163 ]
+  %169 = getelementptr inbounds nuw i8, ptr %.sink21, i64 8
+  store i32 1, ptr %169, align 8, !tbaa !5
   br label %_zend_hash_index_add_or_update_i.exit
 
 _zend_hash_index_add_or_update_i.exit:            ; preds = %134, %_zend_hash_index_add_or_update_i.exit.sink.split, %11
@@ -17983,6 +17971,9 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #25
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #26
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.sadd.sat.i64(i64, i64) #26
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27

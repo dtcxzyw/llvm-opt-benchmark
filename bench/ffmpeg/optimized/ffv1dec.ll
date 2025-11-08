@@ -7508,26 +7508,24 @@ get_sr_golomb.exit:                               ; preds = %33, %42
   br i1 %83, label %84, label %update_vlc_state.exit
 
 84:                                               ; preds = %82
-  %85 = icmp eq i8 %69, 127
-  %86 = add i8 %69, 1
-  %spec.select43.i = select i1 %85, i8 127, i8 %86
+  %spec.select43.i = tail call i8 @llvm.sadd.sat.i8(i8 %69, i8 1)
   store i8 %spec.select43.i, ptr %68, align 2, !tbaa !203
-  %87 = sub nsw i32 %.035.i, %75
-  %88 = tail call i32 @llvm.smin.i32(i32 %87, i32 0)
+  %85 = sub nsw i32 %.035.i, %75
+  %86 = tail call i32 @llvm.smin.i32(i32 %85, i32 0)
   br label %update_vlc_state.exit
 
 update_vlc_state.exit:                            ; preds = %77, %82, %84
-  %.1.i = phi i32 [ %81, %77 ], [ %88, %84 ], [ %.035.i, %82 ]
-  %89 = sext i8 %69 to i32
-  %90 = add nsw i32 %67, %89
-  %91 = sub i32 32, %2
-  %sext.i = shl i32 %90, %91
-  %92 = ashr exact i32 %sext.i, %91
-  %93 = trunc nsw i32 %.1.i to i16
-  store i16 %93, ptr %61, align 4, !tbaa !202
-  %94 = trunc i32 %75 to i8
-  store i8 %94, ptr %4, align 1, !tbaa !198
-  ret i32 %92
+  %.1.i = phi i32 [ %81, %77 ], [ %86, %84 ], [ %.035.i, %82 ]
+  %87 = sext i8 %69 to i32
+  %88 = add nsw i32 %67, %87
+  %89 = sub i32 32, %2
+  %sext.i = shl i32 %88, %89
+  %90 = ashr exact i32 %sext.i, %89
+  %91 = trunc nsw i32 %.1.i to i16
+  store i16 %91, ptr %61, align 4, !tbaa !202
+  %92 = trunc i32 %75 to i8
+  store i8 %92, ptr %4, align 1, !tbaa !198
+  ret i32 %90
 }
 
 declare void @ff_ffv1_compute_bits_per_plane(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -7557,6 +7555,9 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.smax.i8(i8, i8) #10
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.sadd.sat.i8(i8, i8) #10
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
