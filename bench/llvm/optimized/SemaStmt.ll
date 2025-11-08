@@ -650,6 +650,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.29 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZSt7nothrow = external global %"struct.std::nothrow_t", align 1
 @.str.30 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
+@switch.table._ZN12_GLOBAL__N_114DiagnoseUnusedERN5clang4SemaEPKNS0_4ExprESt8optionalIjE = private unnamed_addr constant [7 x i32] [i32 3, i32 2, i32 2, i32 2, i32 2, i32 0, i32 1], align 4
 @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb = private unnamed_addr constant [3 x i64] [i64 26, i64 30, i64 13], align 8
 @switch.table._ZN5clang4Sema23ActOnCapScopeReturnStmtENS_14SourceLocationEPNS_4ExprERNS0_15NamedReturnInfoEb.354 = private unnamed_addr constant [3 x ptr] [ptr @.str.24, ptr @.str.25, ptr @.str.26], align 8
 @switch.table._ZN5clang4Sema15ActOnReturnStmtENS_14SourceLocationEPNS_4ExprEPNS_5ScopeE = private unnamed_addr constant [3 x i64] [i64 9, i64 8, i64 8], align 8
@@ -993,21 +994,18 @@ _ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %3
   br i1 %86, label %87, label %_ZL24DiagnoseUnusedComparisonRN5clang4SemaEPKNS_4ExprE.exit
 
 87:                                               ; preds = %81
-  switch i32 %84, label %88 [
-    i32 14, label %90
-    i32 15, label %.fold.split.i
-  ]
+  %switch.tableidx = add nsw i32 %84, -9
+  %88 = icmp ult i32 %switch.tableidx, 7
+  br i1 %88, label %switch.lookup, label %90
 
-88:                                               ; preds = %87
-  %89 = icmp eq i32 %84, 9
-  %..i = select i1 %89, i32 3, i32 2
+switch.lookup:                                    ; preds = %87
+  %89 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_114DiagnoseUnusedERN5clang4SemaEPKNS0_4ExprESt8optionalIjE, i64 %89
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %90
 
-.fold.split.i:                                    ; preds = %87
-  br label %90
-
-90:                                               ; preds = %.fold.split.i, %88, %87
-  %.136.i = phi i32 [ 0, %87 ], [ %..i, %88 ], [ 1, %.fold.split.i ]
+90:                                               ; preds = %87, %switch.lookup
+  %.136.i = phi i32 [ %switch.load, %switch.lookup ], [ 2, %87 ]
   %91 = getelementptr inbounds nuw i8, ptr %.1, i64 4
   %92 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   br label %113

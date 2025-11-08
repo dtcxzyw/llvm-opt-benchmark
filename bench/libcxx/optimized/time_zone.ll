@@ -15738,8 +15738,6 @@ _ZNSt3__111__formatter14__float_bufferIfED2B8ne210000Ev.exit142: ; preds = %.loo
 define linkonce_odr hidden ptr @_ZNSt3__111__formatter34__format_floating_point_non_finiteB8ne210000INS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEcEET_S7_NS_13__format_spec23__parsed_specificationsIT0_EEbb(ptr %0, i64 %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
   %6 = alloca [4 x i8], align 1
   %.sroa.012.0.extract.trunc = trunc i64 %1 to i8
-  %.sroa.6.0.extract.shift = lshr i64 %1, 8
-  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br i1 %3, label %.sink.split.i, label %7
 
@@ -15762,38 +15760,31 @@ define linkonce_odr hidden ptr @_ZNSt3__111__formatter34__format_floating_point_
 
 _ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit: ; preds = %7, %.sink.split.i
   %.0.i = phi ptr [ %6, %7 ], [ %11, %.sink.split.i ]
-  switch i8 %.sroa.6.0.extract.trunc, label %12 [
-    i8 16, label %15
-    i8 14, label %15
-    i8 12, label %15
-  ]
-
-12:                                               ; preds = %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit
-  %13 = icmp eq i8 %.sroa.6.0.extract.trunc, 18
-  %14 = select i1 %13, i64 6, i64 0
-  br label %15
-
-15:                                               ; preds = %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit, %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit, %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit, %12
-  %16 = phi i64 [ 6, %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit ], [ %14, %12 ], [ 6, %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit ], [ 6, %_ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7same_asIcNS_11conditionalIXsr21__is_primary_templateINS_15iterator_traitsIu14__remove_cvrefIT_EEEEE5valueENS_26indirectly_readable_traitsIS6_EES7_E4type10value_typeEEEES5_S5_bNS_13__format_spec6__signE.exit ]
-  %17 = select i1 %4, i64 3, i64 0
-  %18 = getelementptr inbounds nuw i8, ptr @.str.78, i64 %16
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0.i, ptr noundef nonnull align 1 dereferenceable(3) %19, i64 3, i1 false)
-  %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
-  %21 = and i8 %.sroa.012.0.extract.trunc, 7
-  %22 = icmp eq i8 %21, 4
-  %23 = and i64 %1, 248
-  %24 = or disjoint i64 %23, 3
+  %.sroa.6.0.extract.shift = lshr i64 %1, 8
+  %.sroa.6.0.extract.trunc = trunc i64 %.sroa.6.0.extract.shift to i8
+  %12 = add i8 %.sroa.6.0.extract.trunc, -12
+  %switch.and = and i8 %12, -7
+  %switch.selectcmp = icmp eq i8 %switch.and, 0
+  %13 = select i1 %switch.selectcmp, i64 6, i64 0
+  %14 = select i1 %4, i64 3, i64 0
+  %15 = getelementptr inbounds nuw i8, ptr @.str.78, i64 %13
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %14
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.0.i, ptr noundef nonnull align 1 dereferenceable(3) %16, i64 3, i1 false)
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
+  %18 = and i8 %.sroa.012.0.extract.trunc, 7
+  %19 = icmp eq i8 %18, 4
+  %20 = and i64 %1, 248
+  %21 = or disjoint i64 %20, 3
   %.sroa.6.0.insert.insert = and i64 %1, -256
-  %25 = and i64 %1, 255
-  %.sroa.012.0.insert.ext = select i1 %22, i64 %24, i64 %25
+  %22 = and i64 %1, 255
+  %.sroa.012.0.insert.ext = select i1 %19, i64 %21, i64 %22
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.012.0.insert.ext, %.sroa.6.0.insert.insert
-  %26 = ptrtoint ptr %20 to i64
-  %27 = ptrtoint ptr %6 to i64
-  %28 = sub i64 %26, %27
-  %29 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr nonnull %6, i64 %28, ptr %0, i64 %.sroa.012.0.insert.insert, i64 %2, i64 noundef %28)
+  %23 = ptrtoint ptr %17 to i64
+  %24 = ptrtoint ptr %6 to i64
+  %25 = sub i64 %23, %24
+  %26 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr nonnull %6, i64 %25, ptr %0, i64 %.sroa.012.0.insert.insert, i64 %2, i64 noundef %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %29
+  ret ptr %26
 }
 
 ; Function Attrs: mustprogress uwtable

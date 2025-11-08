@@ -15860,21 +15860,21 @@ select.unfold:                                    ; preds = %34, %27, %25, %30, 
 
 .preheader:                                       ; preds = %41
   %43 = call ptr @SDL_strchr_REAL(ptr noundef nonnull %42, i32 noundef 44) #19
-  %.not189270 = icmp eq ptr %43, null
-  br i1 %.not189270, label %._crit_edge, label %.lr.ph
+  %.not189271 = icmp eq ptr %43, null
+  br i1 %.not189271, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %51
   %44 = phi ptr [ %52, %51 ], [ %43, %.preheader ]
-  %.0151271 = phi ptr [ %.1152, %51 ], [ %42, %.preheader ]
+  %.0151272 = phi ptr [ %.1152, %51 ], [ %42, %.preheader ]
   store i8 0, ptr %44, align 1
-  %45 = call i32 @SDL_strcasecmp_REAL(ptr noundef %.0151271, ptr noundef nonnull @.str.159) #19
+  %45 = call i32 @SDL_strcasecmp_REAL(ptr noundef %.0151272, ptr noundef nonnull @.str.159) #19
   %46 = icmp eq i32 %45, 0
   store i8 44, ptr %44, align 1
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %.lr.ph
   %48 = call i64 @SDL_strlen_REAL(ptr noundef nonnull @.str.159) #19
-  call void @llvm.memset.p0.i64(ptr align 1 %.0151271, i8 120, i64 %48, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %.0151272, i8 120, i64 %48, i1 false)
   br label %51
 
 49:                                               ; preds = %.lr.ph
@@ -15882,7 +15882,7 @@ select.unfold:                                    ; preds = %34, %27, %25, %30, 
   br label %51
 
 51:                                               ; preds = %49, %47
-  %.1152 = phi ptr [ %.0151271, %47 ], [ %50, %49 ]
+  %.1152 = phi ptr [ %.0151272, %47 ], [ %50, %49 ]
   %52 = call ptr @SDL_strchr_REAL(ptr noundef %.1152, i32 noundef 44) #19
   %.not189 = icmp eq ptr %52, null
   br i1 %.not189, label %._crit_edge, label %.lr.ph, !llvm.loop !51
@@ -15909,15 +15909,15 @@ select.unfold:                                    ; preds = %34, %27, %25, %30, 
 .thread231:                                       ; preds = %.thread221, %select.unfold, %41
   %58 = call i32 @SDL_GetNumRenderDrivers_REAL() #19
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph273, label %._crit_edge274
+  br i1 %59, label %.lr.ph274, label %._crit_edge275
 
-.lr.ph273:                                        ; preds = %.thread231, %select.unfold241
-  %.0135272 = phi i32 [ %65, %select.unfold241 ], [ 0, %.thread231 ]
-  %60 = call ptr @SDL_GetRenderDriver_REAL(i32 noundef %.0135272) #19
+.lr.ph274:                                        ; preds = %.thread231, %select.unfold241
+  %.0135273 = phi i32 [ %65, %select.unfold241 ], [ 0, %.thread231 ]
+  %60 = call ptr @SDL_GetRenderDriver_REAL(i32 noundef %.0135273) #19
   %.not191 = icmp eq ptr %60, null
   br i1 %.not191, label %select.unfold241, label %61
 
-61:                                               ; preds = %.lr.ph273
+61:                                               ; preds = %.lr.ph274
   %62 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull %60, ptr noundef nonnull @.str.159) #19
   %.not192 = icmp eq i32 %62, 0
   br i1 %.not192, label %select.unfold241, label %63
@@ -15927,12 +15927,12 @@ select.unfold:                                    ; preds = %34, %27, %25, %30, 
   %.not193 = icmp eq ptr %64, null
   br i1 %.not193, label %select.unfold241, label %.thread253
 
-select.unfold241:                                 ; preds = %63, %61, %.lr.ph273
-  %65 = add nuw nsw i32 %.0135272, 1
+select.unfold241:                                 ; preds = %63, %61, %.lr.ph274
+  %65 = add nuw nsw i32 %.0135273, 1
   %exitcond.not = icmp eq i32 %65, %58
-  br i1 %exitcond.not, label %._crit_edge274, label %.lr.ph273, !llvm.loop !52
+  br i1 %exitcond.not, label %._crit_edge275, label %.lr.ph274, !llvm.loop !52
 
-._crit_edge274:                                   ; preds = %select.unfold241, %.thread231
+._crit_edge275:                                   ; preds = %select.unfold241, %.thread231
   %66 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.164) #19
   br label %.thread258
 
@@ -15984,17 +15984,17 @@ select.unfold241:                                 ; preds = %63, %61, %.lr.ph273
   store ptr null, ptr %82, align 8
   %84 = load i32, ptr %76, align 4
   store i32 %84, ptr %2, align 4
-  %.not199275 = icmp eq i32 %84, 0
-  br i1 %.not199275, label %.loopexit, label %.lr.ph278
+  %.not199276 = icmp eq i32 %84, 0
+  br i1 %.not199276, label %.loopexit, label %.lr.ph279
 
-.lr.ph278:                                        ; preds = %81
+.lr.ph279:                                        ; preds = %81
   %85 = and i64 %23, 1073741824
   %86 = icmp eq i64 %85, 0
   br label %87
 
-87:                                               ; preds = %.lr.ph278, %104
-  %indvars.iv = phi i64 [ 0, %.lr.ph278 ], [ %indvars.iv.next, %104 ]
-  %88 = phi i32 [ %84, %.lr.ph278 ], [ %106, %104 ]
+87:                                               ; preds = %.lr.ph279, %104
+  %indvars.iv = phi i64 [ 0, %.lr.ph279 ], [ %indvars.iv.next, %104 ]
+  %88 = phi i32 [ %84, %.lr.ph279 ], [ %106, %104 ]
   %.mask = and i32 %88, -268435456
   %.not200 = icmp ne i32 %.mask, 268435456
   %89 = and i32 %88, 252641280
@@ -16012,30 +16012,30 @@ select.unfold241:                                 ; preds = %63, %61, %.lr.ph273
 94:                                               ; preds = %90
   %.off215 = add nsw i32 %92, -4
   %switch216 = icmp ult i32 %.off215, 3
-  br i1 %switch216, label %switch.edge, label %95
+  br i1 %switch216, label %switch.edge269, label %95
 
 95:                                               ; preds = %94
   %.off217 = add nsw i32 %92, -7
   %switch218 = icmp ult i32 %.off217, 5
-  br i1 %switch218, label %96, label %switch.edge.thr_comm300
+  br i1 %switch218, label %96, label %switch.edge269.thr_comm301
 
 96:                                               ; preds = %95
   %97 = lshr i32 %88, 20
   %98 = and i32 %97, 15
-  switch i32 %98, label %switch.edge.thr_comm300 [
-    i32 3, label %switch.edge.thr_comm
-    i32 2, label %switch.edge.thr_comm
-    i32 6, label %switch.edge.thr_comm
-    i32 5, label %switch.edge.thr_comm
+  switch i32 %98, label %switch.edge269.thr_comm301 [
+    i32 3, label %switch.edge269.thr_comm
+    i32 2, label %switch.edge269.thr_comm
+    i32 6, label %switch.edge269.thr_comm
+    i32 5, label %switch.edge269.thr_comm
   ]
 
-switch.edge.thr_comm:                             ; preds = %96, %96, %96, %96
+switch.edge269.thr_comm:                          ; preds = %96, %96, %96, %96
   br i1 %86, label %104, label %103
 
-switch.edge.thr_comm300:                          ; preds = %96, %95
+switch.edge269.thr_comm301:                       ; preds = %96, %95
   br i1 %86, label %103, label %104
 
-switch.edge:                                      ; preds = %94
+switch.edge269:                                   ; preds = %94
   %99 = lshr i32 %88, 20
   %100 = and i32 %99, 15
   %101 = add nsw i32 %100, -3
@@ -16044,11 +16044,11 @@ switch.edge:                                      ; preds = %94
   %102 = xor i1 %86, %switch.selectcmp
   br i1 %102, label %103, label %104
 
-103:                                              ; preds = %switch.edge.thr_comm300, %switch.edge.thr_comm, %switch.edge
+103:                                              ; preds = %switch.edge269.thr_comm301, %switch.edge269.thr_comm, %switch.edge269
   store i32 %88, ptr %2, align 4
   br label %.loopexit
 
-104:                                              ; preds = %switch.edge.thr_comm300, %switch.edge.thr_comm, %90, %switch.edge, %87
+104:                                              ; preds = %switch.edge269.thr_comm301, %switch.edge269.thr_comm, %90, %switch.edge269, %87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next
   %106 = load i32, ptr %105, align 4
@@ -16071,54 +16071,53 @@ switch.edge:                                      ; preds = %94
   %.mask204 = and i32 %113, -268435456
   %.not203 = icmp eq i32 %.mask204, 268435456
   %or.cond210 = or i1 %.not202, %.not203
-  br i1 %or.cond210, label %118, label %114
+  br i1 %or.cond210, label %116, label %114
 
 114:                                              ; preds = %112
   switch i32 %113, label %115 [
-    i32 844715353, label %120
-    i32 1498831189, label %120
-    i32 1431918169, label %120
+    i32 844715353, label %switch.edge
+    i32 1498831189, label %switch.edge
+    i32 1431918169, label %switch.edge
+    i32 808530000, label %switch.edge
   ]
 
 115:                                              ; preds = %114
-  %116 = icmp eq i32 %113, 808530000
-  %117 = select i1 %116, i32 2, i32 1
-  br label %120
+  br label %switch.edge
 
-118:                                              ; preds = %112
-  %119 = and i32 %113, 255
-  br label %120
+116:                                              ; preds = %112
+  %117 = and i32 %113, 255
+  br label %switch.edge
 
-120:                                              ; preds = %115, %114, %114, %114, %118
-  %121 = phi i32 [ %119, %118 ], [ 2, %114 ], [ %117, %115 ], [ 2, %114 ], [ 2, %114 ]
-  %122 = getelementptr inbounds nuw i8, ptr %.0133, i64 28
-  store i32 %121, ptr %122, align 4
-  %123 = load i32, ptr %6, align 4
-  %124 = mul nsw i32 %123, %121
-  %125 = add nsw i32 %124, 3
-  %126 = and i32 %125, -4
-  %127 = getelementptr inbounds nuw i8, ptr %.0133, i64 24
-  store i32 %126, ptr %127, align 8
-  %128 = load i32, ptr %7, align 4
-  %129 = sext i32 %128 to i64
-  %130 = sext i32 %126 to i64
-  %131 = mul nsw i64 %130, %129
-  %132 = call i64 @llvm.umax.i64(i64 %131, i64 1)
-  %133 = call noalias ptr @SDL_malloc_REAL(i64 noundef %132) #19
-  store ptr %133, ptr %82, align 8
-  %.not206.not = icmp eq ptr %133, null
-  br i1 %.not206.not, label %.thread258, label %134
+switch.edge:                                      ; preds = %114, %115, %114, %114, %114, %116
+  %118 = phi i32 [ %117, %116 ], [ 2, %114 ], [ 1, %115 ], [ 2, %114 ], [ 2, %114 ], [ 2, %114 ]
+  %119 = getelementptr inbounds nuw i8, ptr %.0133, i64 28
+  store i32 %118, ptr %119, align 4
+  %120 = load i32, ptr %6, align 4
+  %121 = mul nsw i32 %120, %118
+  %122 = add nsw i32 %121, 3
+  %123 = and i32 %122, -4
+  %124 = getelementptr inbounds nuw i8, ptr %.0133, i64 24
+  store i32 %123, ptr %124, align 8
+  %125 = load i32, ptr %7, align 4
+  %126 = sext i32 %125 to i64
+  %127 = sext i32 %123 to i64
+  %128 = mul nsw i64 %127, %126
+  %129 = call i64 @llvm.umax.i64(i64 %128, i64 1)
+  %130 = call noalias ptr @SDL_malloc_REAL(i64 noundef %129) #19
+  store ptr %130, ptr %82, align 8
+  %.not206.not = icmp eq ptr %130, null
+  br i1 %.not206.not, label %.thread258, label %131
 
-134:                                              ; preds = %120
-  store ptr %133, ptr %3, align 8
-  %135 = load i32, ptr %127, align 8
-  store i32 %135, ptr %4, align 4
-  %136 = load ptr, ptr %.0133, align 8
-  %137 = call zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef %136, ptr noundef null) #19
+131:                                              ; preds = %switch.edge
+  store ptr %130, ptr %3, align 8
+  %132 = load i32, ptr %124, align 8
+  store i32 %132, ptr %4, align 4
+  %133 = load ptr, ptr %.0133, align 8
+  %134 = call zeroext i1 @SDL_SetRenderViewport_REAL(ptr noundef %133, ptr noundef null) #19
   br label %.thread258
 
-.thread258:                                       ; preds = %.thread235, %._crit_edge274, %68, %71, %.loopexit, %73, %120, %134
-  %.4 = phi i1 [ true, %134 ], [ false, %120 ], [ false, %73 ], [ false, %.loopexit ], [ false, %.thread235 ], [ %66, %._crit_edge274 ], [ false, %68 ], [ false, %71 ]
+.thread258:                                       ; preds = %.thread235, %._crit_edge275, %68, %71, %.loopexit, %73, %switch.edge, %131
+  %.4 = phi i1 [ true, %131 ], [ false, %switch.edge ], [ false, %73 ], [ false, %.loopexit ], [ false, %.thread235 ], [ %66, %._crit_edge275 ], [ false, %68 ], [ false, %71 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i1 %.4

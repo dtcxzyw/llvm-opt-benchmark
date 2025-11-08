@@ -4105,6 +4105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2797 = private unnamed_addr constant [11 x i8] c"%s UUID %s\00", align 1
 @pfcp_stat_msg_idx_hash = internal unnamed_addr global ptr null, align 8
 @.str.2798 = private unnamed_addr constant [14 x i8] c"PFCP Requests\00", align 1
+@switch.table.dissect_pfcp_flags_and_fields = private unnamed_addr constant [4 x i32] [i32 1, i32 0, i32 3, i32 4], align 4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden void @proto_register_pfcp() local_unnamed_addr #0 {
@@ -15630,9 +15631,9 @@ define internal fastcc i32 @dissect_pfcp_flags_and_fields(ptr noundef %0, ptr no
   br i1 %.not53, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.thread
-  %12 = phi ptr [ %47, %.thread ], [ %11, %8 ]
-  %13 = phi i64 [ %45, %.thread ], [ 0, %8 ]
-  %.04055 = phi i32 [ %44, %.thread ], [ 0, %8 ]
+  %12 = phi ptr [ %46, %.thread ], [ %11, %8 ]
+  %13 = phi i64 [ %44, %.thread ], [ 0, %8 ]
+  %.04055 = phi i32 [ %43, %.thread ], [ 0, %8 ]
   %.04154 = phi i32 [ %.243, %.thread ], [ 4, %8 ]
   %14 = getelementptr ptr, ptr %5, i64 %13
   %15 = load ptr, ptr %14, align 8
@@ -15651,7 +15652,7 @@ define internal fastcc i32 @dissect_pfcp_flags_and_fields(ptr noundef %0, ptr no
 
 25:                                               ; preds = %17
   %.not48 = icmp ult i32 %.04154, %3
-  br i1 %.not48, label %26, label %41
+  br i1 %.not48, label %26, label %40
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %14, align 8
@@ -15659,43 +15660,40 @@ define internal fastcc i32 @dissect_pfcp_flags_and_fields(ptr noundef %0, ptr no
   %29 = call ptr @proto_registrar_get_nth(i32 noundef %28)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8
-  switch i32 %31, label %32 [
-    i32 4, label %35
-    i32 6, label %.fold.split
-  ]
+  %switch.tableidx = add i32 %31, -4
+  %32 = icmp ult i32 %switch.tableidx, 4
+  br i1 %32, label %switch.lookup, label %34
 
-32:                                               ; preds = %26
-  %33 = icmp eq i32 %31, 7
-  %34 = select i1 %33, i32 4, i32 0
-  br label %35
+switch.lookup:                                    ; preds = %26
+  %33 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_pfcp_flags_and_fields, i64 %33
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %34
 
-.fold.split:                                      ; preds = %26
-  br label %35
-
-35:                                               ; preds = %26, %.fold.split, %32
-  %36 = phi i32 [ 1, %26 ], [ %34, %32 ], [ 3, %.fold.split ]
-  %37 = load ptr, ptr %14, align 8
-  %38 = load i32, ptr %37, align 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %.04154, i32 noundef %36, i32 noundef 0)
-  %40 = add i32 %36, %.04154
+34:                                               ; preds = %26, %switch.lookup
+  %35 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %26 ]
+  %36 = load ptr, ptr %14, align 8
+  %37 = load i32, ptr %36, align 4
+  %38 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %.04154, i32 noundef %35, i32 noundef 0)
+  %39 = add i32 %35, %.04154
   br label %.thread
 
-41:                                               ; preds = %25
-  %42 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_encoding_error, ptr noundef %0, i32 noundef 0, i32 noundef %3)
-  %43 = call i32 @tvb_reported_length(ptr noundef %0)
+40:                                               ; preds = %25
+  %41 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_encoding_error, ptr noundef %0, i32 noundef 0, i32 noundef %3)
+  %42 = call i32 @tvb_reported_length(ptr noundef %0)
   br label %.loopexit
 
-.thread:                                          ; preds = %17, %35, %.lr.ph
-  %.243 = phi i32 [ %.04154, %.lr.ph ], [ %.04154, %17 ], [ %40, %35 ]
-  %44 = add i32 %.04055, 1
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr ptr, ptr %4, i64 %45
-  %47 = load ptr, ptr %46, align 8
-  %.not = icmp eq ptr %47, null
+.thread:                                          ; preds = %17, %34, %.lr.ph
+  %.243 = phi i32 [ %.04154, %.lr.ph ], [ %.04154, %17 ], [ %39, %34 ]
+  %43 = add i32 %.04055, 1
+  %44 = sext i32 %43 to i64
+  %45 = getelementptr ptr, ptr %4, i64 %44
+  %46 = load ptr, ptr %45, align 8
+  %.not = icmp eq ptr %46, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !31
 
-.loopexit:                                        ; preds = %.thread, %8, %41
-  %spec.select = phi i32 [ %43, %41 ], [ 4, %8 ], [ %.243, %.thread ]
+.loopexit:                                        ; preds = %.thread, %8, %40
+  %spec.select = phi i32 [ %42, %40 ], [ 4, %8 ], [ %.243, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %spec.select
 }

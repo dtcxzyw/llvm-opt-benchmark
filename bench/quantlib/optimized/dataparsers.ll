@@ -2515,7 +2515,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %lor.l
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i10.i.i = icmp eq i32 %3, -1
-  br i1 %cmp.i10.i.i, label %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, label %invoke.cont25
+  br i1 %cmp.i10.i.i, label %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, label %sw.bb4.i.i.i.i
 
 land.lhs.true14.i.i:                              ; preds = %if.end.i.i
   %cmp.i12.i.i = icmp eq i32 %3, 0
@@ -2524,25 +2524,25 @@ land.lhs.true14.i.i:                              ; preds = %if.end.i.i
 if.end23.i.i:                                     ; preds = %if.end.i.i
   switch i32 %3, label %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i [
     i32 -1, label %invoke.cont25
-    i32 0, label %if.end3.i.i.thread.i
+    i32 0, label %sw.bb4.i.i.i.i
   ]
-
-if.end3.i.i.thread.i:                             ; preds = %if.end23.i.i
-  br label %invoke.cont25
 
 _ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i: ; preds = %if.end23.i.i
   %sub.i.i = sub i32 %0, %3
   %switch.selectcmp.i = icmp eq i32 %0, %3
   %switch.select.i = select i1 %switch.selectcmp.i, i64 -9223372036854775808, i64 9223372036854775806
-  %switch.selectcmp22.i = icmp eq i32 %sub.i.i, -1
-  %switch.select23.i = select i1 %switch.selectcmp22.i, i64 9223372036854775807, i64 %switch.select.i
+  %switch.selectcmp16.i = icmp eq i32 %sub.i.i, -1
+  %switch.select17.i = select i1 %switch.selectcmp16.i, i64 9223372036854775807, i64 %switch.select.i
   br label %invoke.cont25
 
 _ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i: ; preds = %land.lhs.true14.i.i, %land.lhs.true.i.i, %lor.lhs.false4.i.i, %if.then.i.i
   br label %invoke.cont25
 
-invoke.cont25:                                    ; preds = %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i, %if.end3.i.i.thread.i, %if.end23.i.i, %land.lhs.true14.i.i, %land.lhs.true.i.i, %if.then.i
-  %retval.sroa.0.0.i = phi i64 [ %sub.i, %if.then.i ], [ 9223372036854775806, %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i ], [ 9223372036854775807, %if.end3.i.i.thread.i ], [ -9223372036854775808, %if.end23.i.i ], [ 9223372036854775807, %land.lhs.true.i.i ], [ -9223372036854775808, %land.lhs.true14.i.i ], [ %switch.select23.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i ]
+sw.bb4.i.i.i.i:                                   ; preds = %if.end23.i.i, %land.lhs.true.i.i
+  br label %invoke.cont25
+
+invoke.cont25:                                    ; preds = %sw.bb4.i.i.i.i, %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i, %if.end23.i.i, %land.lhs.true14.i.i, %if.then.i
+  %retval.sroa.0.0.i = phi i64 [ %sub.i, %if.then.i ], [ 9223372036854775807, %sw.bb4.i.i.i.i ], [ 9223372036854775806, %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i ], [ -9223372036854775808, %if.end23.i.i ], [ -9223372036854775808, %land.lhs.true14.i.i ], [ %switch.select17.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp12)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp31)
   invoke void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp31, i32 noundef 1, i32 noundef 1, i32 noundef 1901)

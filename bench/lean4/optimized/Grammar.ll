@@ -1480,7 +1480,7 @@ define zeroext range(i8 0, 2) i8 @l_Lake_Toml_isEscapeChar(i32 noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @l_Lake_Toml_isEscapeChar___boxed(ptr noundef %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @l_Lake_Toml_isEscapeChar___boxed(ptr noundef %0) local_unnamed_addr #1 {
   %2 = ptrtoint ptr %0 to i64
   %3 = lshr i64 %2, 1
   %4 = trunc i64 %3 to i32
@@ -1514,17 +1514,16 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
     i32 102, label %l_Lake_Toml_isEscapeChar.exit
     i32 114, label %l_Lake_Toml_isEscapeChar.exit
     i32 34, label %l_Lake_Toml_isEscapeChar.exit
+    i32 92, label %l_Lake_Toml_isEscapeChar.exit
   ]
 
 13:                                               ; preds = %lean_dec.exit
-  %14 = icmp eq i32 %4, 92
-  %15 = select i1 %14, i64 3, i64 1
   br label %l_Lake_Toml_isEscapeChar.exit
 
-l_Lake_Toml_isEscapeChar.exit:                    ; preds = %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %13
-  %.5.i = phi i64 [ %15, %13 ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ]
-  %16 = inttoptr i64 %.5.i to ptr
-  ret ptr %16
+l_Lake_Toml_isEscapeChar.exit:                    ; preds = %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %13
+  %.5.i = phi i64 [ 1, %13 ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ]
+  %14 = inttoptr i64 %.5.i to ptr
+  ret ptr %14
 }
 
 ; Function Attrs: nounwind uwtable

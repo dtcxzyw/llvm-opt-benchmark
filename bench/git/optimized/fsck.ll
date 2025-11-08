@@ -753,7 +753,7 @@ define internal fastcc i32 @fsck_vreport(ptr noundef %0, ptr noundef %1, i32 nou
   %16 = icmp ne i32 %15, 0
   %17 = icmp eq i32 %13, 4
   %or.cond.i = select i1 %16, i1 %17, i1 false
-  br i1 %or.cond.i, label %.thread, label %fsck_msg_type.exit
+  br i1 %or.cond.i, label %fsck_msg_type.exit.thread, label %fsck_msg_type.exit
 
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i32, ptr %8, i64 %9
@@ -762,20 +762,20 @@ define internal fastcc i32 @fsck_vreport(ptr noundef %0, ptr noundef %1, i32 nou
 
 fsck_msg_type.exit:                               ; preds = %10, %18
   %.0.i = phi i32 [ %20, %18 ], [ %13, %10 ]
-  switch i32 %.0.i, label %.thread.fold.split [
+  switch i32 %.0.i, label %21 [
     i32 0, label %30
-    i32 2, label %.thread
-    i32 1, label %21
+    i32 2, label %fsck_msg_type.exit.thread
+    i32 1, label %switch.edge
   ]
 
+switch.edge:                                      ; preds = %fsck_msg_type.exit
+  br label %fsck_msg_type.exit.thread
+
 21:                                               ; preds = %fsck_msg_type.exit
-  br label %.thread
+  br label %fsck_msg_type.exit.thread
 
-.thread.fold.split:                               ; preds = %fsck_msg_type.exit
-  br label %.thread
-
-.thread:                                          ; preds = %fsck_msg_type.exit, %.thread.fold.split, %10, %21
-  %.014 = phi i32 [ 3, %fsck_msg_type.exit ], [ 4, %21 ], [ 3, %10 ], [ %.0.i, %.thread.fold.split ]
+fsck_msg_type.exit.thread:                        ; preds = %10, %switch.edge, %fsck_msg_type.exit, %21
+  %.014 = phi i32 [ 3, %fsck_msg_type.exit ], [ 4, %switch.edge ], [ %.0.i, %21 ], [ 3, %10 ]
   tail call fastcc void @prepare_msg_ids()
   %22 = getelementptr inbounds nuw %struct.anon, ptr @msg_id_info, i64 %9
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -790,8 +790,8 @@ fsck_msg_type.exit:                               ; preds = %10, %18
   call void @strbuf_release(ptr noundef nonnull %6) #16
   br label %30
 
-30:                                               ; preds = %fsck_msg_type.exit, %.thread
-  %.0 = phi i32 [ %29, %.thread ], [ %.0.i, %fsck_msg_type.exit ]
+30:                                               ; preds = %fsck_msg_type.exit, %fsck_msg_type.exit.thread
+  %.0 = phi i32 [ %29, %fsck_msg_type.exit.thread ], [ %.0.i, %fsck_msg_type.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

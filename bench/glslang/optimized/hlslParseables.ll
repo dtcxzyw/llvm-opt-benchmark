@@ -1734,7 +1734,7 @@ switch.early.test:                                ; preds = %28
     i8 85, label %.thread351
   ]
 
-30:                                               ; preds = %29, %switch.early.test, %_ZN12_GLOBAL__N_113IsTextureTypeEc.exit
+30:                                               ; preds = %switch.early.test, %29, %_ZN12_GLOBAL__N_113IsTextureTypeEc.exit
   %.0328 = phi i32 [ %3, %switch.early.test ], [ %4, %_ZN12_GLOBAL__N_113IsTextureTypeEc.exit ], [ %3, %29 ]
   %.0 = phi i32 [ %4, %switch.early.test ], [ %3, %_ZN12_GLOBAL__N_113IsTextureTypeEc.exit ], [ %4, %29 ]
   %spec.select.idx = zext i1 %7 to i64
