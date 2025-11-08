@@ -1522,8 +1522,8 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 l_Lake_Toml_isEscapeChar.exit:                    ; preds = %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %lean_dec.exit, %13
   %.5.i = phi i64 [ 1, %13 ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ], [ 3, %lean_dec.exit ]
-  %14 = inttoptr i64 %.5.i to ptr
-  ret ptr %14
+  %16 = inttoptr i64 %.5.i to ptr
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable

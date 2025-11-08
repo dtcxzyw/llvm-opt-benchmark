@@ -693,7 +693,7 @@ define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noun
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @skb_cow_data(ptr noundef %1, i32 noundef 0, ptr noundef nonnull %3) #12
   %9 = icmp slt i32 %8, 0
-  br i1 %9, label %191, label %10
+  br i1 %9, label %194, label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -744,7 +744,7 @@ define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noun
   %56 = zext i32 %55 to i64
   %57 = call noalias align 8 ptr @__kmalloc(i64 noundef %56, i32 noundef 2080) #15
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %191, label %59
+  br i1 %58, label %194, label %59
 
 59:                                               ; preds = %10
   %60 = getelementptr i8, ptr %57, i64 8
@@ -917,14 +917,14 @@ define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noun
   %182 = call i32 @crypto_ahash_digest(ptr noundef %73) #12
   switch i32 %182, label %183 [
     i32 0, label %184
-    i32 -115, label %191
+    i32 -115, label %194
     i32 -28, label %switch.edge
   ]
 
 183:                                              ; preds = %172
   br label %switch.edge
 
-184:                                              ; preds = %172
+184:; preds = %172
   %185 = load i32, ptr %91, align 4
   %186 = sext i32 %185 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %90, ptr align 1 %64, i64 %186, i1 false)
@@ -932,20 +932,20 @@ define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noun
   store i64 %187, ptr %97, align 4
   br i1 %111, label %switch.edge, label %188
 
-188:                                              ; preds = %184
+188:; preds = %184
   %189 = getelementptr inbounds nuw i8, ptr %97, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %189, ptr align 8 %60, i64 %61, i1 false)
   br label %switch.edge
 
-switch.edge:                                      ; preds = %172, %188, %184, %183, %117, %112
+switch.edge:; preds = %172, %188, %184, %183, %117, %112
   %190 = phi i32 [ %115, %112 ], [ %141, %117 ], [ %182, %183 ], [ 0, %188 ], [ 0, %184 ], [ 1, %172 ]
   call void @kfree(ptr noundef nonnull %57) #12
-  br label %191
+  br label %194
 
-191:                                              ; preds = %172, %switch.edge, %10, %2
-  %192 = phi i32 [ %8, %2 ], [ %190, %switch.edge ], [ -12, %10 ], [ %182, %172 ]
+194:                                              ; preds = %172, %switch.edge, %10, %2
+  %195 = phi i32 [ %8, %2 ], [ %190, %switch.edge ], [ -12, %10 ], [ %182, %172 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %192
+  ret i32 %195
 }
 
 ; Function Attrs: null_pointer_is_valid

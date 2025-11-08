@@ -3162,16 +3162,16 @@ define range(i32 0, -65535) i32 @_ZNK8WasmEdge4Host4WASI5INode12sockShutdownE16_
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %6, label %12
 
-6:                                                ; preds = %2
-  %7 = tail call ptr @__errno_location() #26
-  %8 = load i32, ptr %7, align 4
-  %9 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %8) #25
-  %10 = zext i16 %9 to i32
-  %11 = shl nuw i32 %10, 16
-  br label %12
+10:                                               ; preds = %2
+  %11 = tail call ptr @__errno_location() #26
+  %12 = load i32, ptr %11, align 4
+  %13 = tail call noundef zeroext i16 @_ZN8WasmEdge4Host4WASI6detail9fromErrNoEi(i32 noundef %12) #25
+  %14 = zext i16 %13 to i32
+  %15 = shl nuw i32 %14, 16
+  br label %16
 
-12:                                               ; preds = %2, %6
-  %.sroa.06.0.insert.insert = phi i32 [ %11, %6 ], [ 1, %2 ]
+16:                                               ; preds = %2, %10
+  %.sroa.06.0.insert.insert = phi i32 [ %15, %6 ], [ 1, %2 ]
   ret i32 %.sroa.06.0.insert.insert
 }
 

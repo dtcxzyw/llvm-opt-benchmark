@@ -6878,22 +6878,22 @@ define hidden noundef range(i32 0, 3) i32 @_ZNK5clang6driver10toolchains13MSVCTo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i32, ptr %3, align 4, !tbaa !428
   %5 = icmp eq i32 %4, 5
-  br i1 %5, label %switch.edge, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i32, ptr %7, align 8, !tbaa !59
   switch i32 %8, label %9 [
-    i32 38, label %switch.edge
-    i32 1, label %switch.edge
-    i32 35, label %switch.edge
+    i32 38, label %11
+    i32 1, label %11
+    i32 35, label %11
     i32 3, label %switch.edge
   ]
 
 9:                                                ; preds = %6
-  br label %switch.edge
+  br label %11
 
-switch.edge:                                      ; preds = %6, %6, %6, %6, %9, %2
+11:                                               ; preds = %6, %6, %6, %6, %9, %2
   %.0 = phi i32 [ 0, %2 ], [ 2, %6 ], [ 0, %9 ], [ 2, %6 ], [ 2, %6 ], [ 2, %6 ]
   ret i32 %.0
 }

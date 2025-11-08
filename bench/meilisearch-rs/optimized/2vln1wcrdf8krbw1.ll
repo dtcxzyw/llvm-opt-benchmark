@@ -88017,7 +88017,7 @@ define hidden void @"_ZN88_$LT$meilisearch_types..error..ResponseError$u20$as$u2
 .body:                                            ; preds = %33, %14
   %.pn = phi { ptr, i32 } [ %34, %33 ], [ %15, %14 ]
   invoke void @"_ZN4core3ptr53drop_in_place$LT$meilisearch..error..PayloadError$GT$17he4e6aa51c60ee2efE.llvm.8666068179502612882"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1) #72
-          to label %39 unwind label %37
+          to label %39 unwind label %39
 
 20:                                               ; preds = %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -88075,18 +88075,18 @@ switch.lookup:                                    ; preds = %26
   invoke void @_ZN17meilisearch_types5error13ResponseError8from_msg17ha0da58b382bd3403E(ptr noalias noundef nonnull sret([104 x i8]) align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6, i8 noundef %.sroa.0.0.i)
           to label %36 unwind label %33
 
-36:                                               ; preds = %"_ZN88_$LT$meilisearch..error..PayloadError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc7cf355ddb62403bE.exit"
+38:                                               ; preds = %"_ZN88_$LT$meilisearch..error..PayloadError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc7cf355ddb62403bE.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @"_ZN4core3ptr53drop_in_place$LT$meilisearch..error..PayloadError$GT$17he4e6aa51c60ee2efE.llvm.8666068179502612882"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 
-37:                                               ; preds = %.body
-  %38 = landingpad { ptr, i32 }
+39:                                               ; preds = %.body
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #71
   unreachable
 
-39:                                               ; preds = %.body
+41:                                               ; preds = %.body
   resume { ptr, i32 } %.pn
 }
 
@@ -93897,9 +93897,9 @@ define noundef range(i8 0, -110) i8 @"_ZN96_$LT$meilisearch..error..MeilisearchH
     i8 16, label %19
     i8 17, label %22
     i8 18, label %10
-    i8 19, label %36
+    i8 19, label %38
     i8 20, label %10
-    i8 21, label %39
+    i8 21, label %41
   ]
 
 default.unreachable1:                             ; preds = %22, %1
@@ -93987,10 +93987,10 @@ default.unreachable1:                             ; preds = %22, %1
 
 36:                                               ; preds = %1
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = tail call noundef i8 @"_ZN112_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hca70a8c489e5f488E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %37), !range !15285
+  %40 = tail call noundef i8 @"_ZN112_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hca70a8c489e5f488E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %37), !range !15285
   br label %"_ZN88_$LT$meilisearch..error..PayloadError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc7cf355ddb62403bE.exit"
 
-39:                                               ; preds = %1
+41:                                               ; preds = %1
   br label %"_ZN88_$LT$meilisearch..error..PayloadError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc7cf355ddb62403bE.exit"
 
 switch.lookup:                                    ; preds = %29
@@ -93999,8 +93999,8 @@ switch.lookup:                                    ; preds = %29
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %"_ZN88_$LT$meilisearch..error..PayloadError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc7cf355ddb62403bE.exit"
 
-"_ZN88_$LT$meilisearch..error..PayloadError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc7cf355ddb62403bE.exit": ; preds = %29, %switch.lookup, %35, %34, %33, %25, %22, %1, %39, %36, %19, %16, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
-  %.sroa.0.0 = phi i8 [ 3, %3 ], [ 36, %4 ], [ 5, %5 ], [ 40, %6 ], [ 64, %7 ], [ -125, %8 ], [ -119, %9 ], [ 26, %10 ], [ -120, %11 ], [ 105, %12 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %38, %36 ], [ -124, %39 ], [ 126, %1 ], [ 120, %33 ], [ -125, %34 ], [ 26, %35 ], [ %..i, %25 ], [ 3, %22 ], [ %switch.load, %switch.lookup ], [ 3, %29 ]
+"_ZN88_$LT$meilisearch..error..PayloadError$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17hc7cf355ddb62403bE.exit": ; preds = %29, %switch.lookup, %35, %34, %33, %25, %22, %1, %41, %38, %19, %16, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3
+  %.sroa.0.0 = phi i8 [ 3, %3 ], [ 36, %4 ], [ 5, %5 ], [ 40, %6 ], [ 64, %7 ], [ -125, %8 ], [ -119, %9 ], [ 26, %10 ], [ -120, %11 ], [ 105, %12 ], [ %15, %13 ], [ %18, %16 ], [ %21, %19 ], [ %40, %36 ], [ -124, %39 ], [ 126, %1 ], [ 120, %33 ], [ -125, %34 ], [ 26, %35 ], [ %..i, %25 ], [ 3, %22 ], [ %switch.load, %switch.lookup ], [ 3, %29 ]
   ret i8 %.sroa.0.0
 }
 
@@ -94020,7 +94020,7 @@ define noundef range(i8 3, -112) i8 @"_ZN88_$LT$meilisearch..error..PayloadError
   switch i64 %2, label %default.unreachable4 [
     i64 0, label %3
     i64 1, label %7
-    i64 2, label %switch.edge
+    i64 2, label %15
     i64 3, label %11
     i64 4, label %12
     i64 5, label %13
@@ -94034,23 +94034,23 @@ default.unreachable4:                             ; preds = %1
   %5 = load i8, ptr %4, align 8, !range !4215, !noundef !4
   %6 = icmp eq i8 %5, 7
   %. = select i1 %6, i8 -120, i8 26
-  br label %switch.edge
+  br label %15
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8, !range !87, !noundef !4
   %switch.tableidx = add nsw i8 %9, -7
   %10 = icmp ult i8 %switch.tableidx, 9
-  br i1 %10, label %switch.lookup, label %switch.edge
+  br i1 %10, label %switch.lookup, label %15
 
 11:                                               ; preds = %1
-  br label %switch.edge
+  br label %15
 
 12:                                               ; preds = %1
-  br label %switch.edge
+  br label %15
 
 13:                                               ; preds = %1
-  br label %switch.edge
+  br label %15
 
 switch.lookup:                                    ; preds = %7
   %14 = zext nneg i8 %switch.tableidx to i64
@@ -94058,7 +94058,7 @@ switch.lookup:                                    ; preds = %7
   %switch.load = load i8, ptr %switch.gep, align 1
   br label %switch.edge
 
-switch.edge:                                      ; preds = %7, %switch.lookup, %1, %3, %13, %12, %11
+15:                                               ; preds = %7, %switch.lookup, %1, %3, %13, %12, %11
   %.sroa.0.0 = phi i8 [ 120, %11 ], [ -125, %12 ], [ 26, %13 ], [ %., %3 ], [ 3, %1 ], [ %switch.load, %switch.lookup ], [ 3, %7 ]
   ret i8 %.sroa.0.0
 }

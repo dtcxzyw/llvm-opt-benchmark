@@ -2515,7 +2515,7 @@ if.end.i.i:                                       ; preds = %if.then.i.i, %lor.l
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
   %cmp.i10.i.i = icmp eq i32 %3, -1
-  br i1 %cmp.i10.i.i, label %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, label %sw.bb4.i.i.i.i
+  br i1 %cmp.i10.i.i, label %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, label %invoke.cont25
 
 land.lhs.true14.i.i:                              ; preds = %if.end.i.i
   %cmp.i12.i.i = icmp eq i32 %3, 0
@@ -2531,14 +2531,14 @@ _ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i: ; preds = %if.e
   %sub.i.i = sub i32 %0, %3
   %switch.selectcmp.i = icmp eq i32 %0, %3
   %switch.select.i = select i1 %switch.selectcmp.i, i64 -9223372036854775808, i64 9223372036854775806
-  %switch.selectcmp16.i = icmp eq i32 %sub.i.i, -1
-  %switch.select17.i = select i1 %switch.selectcmp16.i, i64 9223372036854775807, i64 %switch.select.i
+  %switch.selectcmp22.i = icmp eq i32 %sub.i.i, -1
+  %switch.select23.i = select i1 %switch.selectcmp22.i, i64 9223372036854775807, i64 %switch.select.i
   br label %invoke.cont25
 
 _ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i: ; preds = %land.lhs.true14.i.i, %land.lhs.true.i.i, %lor.lhs.false4.i.i, %if.then.i.i
   br label %invoke.cont25
 
-sw.bb4.i.i.i.i:                                   ; preds = %if.end23.i.i, %land.lhs.true.i.i
+invoke.cont25:                                    ; preds = %if.end23.i.i, %land.lhs.true.i.i
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %sw.bb4.i.i.i.i, %_ZNK5boost9date_time11int_adapterIjE10as_specialEv.exit.thread.i, %_ZNK5boost9date_time11int_adapterIjEmiIjEES2_RKNS1_IT_EE.exit.i, %if.end23.i.i, %land.lhs.true14.i.i, %if.then.i

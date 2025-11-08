@@ -2140,15 +2140,15 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__p
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 4
   %8 = icmp ult i32 %7, 3
-  br i1 %8, label %switch.lookup, label %10
+  br i1 %8, label %8, label %10
 
-switch.lookup:                                    ; preds = %2
+8:                                                ; preds = %2
   %9 = zext nneg i32 %7 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZStlsISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_17UsdStageLoadRules4RuleEEENSt9enable_ifIXclsr3pxrE16Tf_IsOstreamableIT_EEERSoE4typeES8_RKSt6vectorIS7_SaIS7_EE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
-10:                                               ; preds = %2, %switch.lookup
+10:; preds = %2, %8
   %11 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %2 ]
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %11)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.8)
@@ -2177,32 +2177,32 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt4pa
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit
-  %.sroa.08.012 = phi ptr [ %18, %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit ], [ %4, %2 ]
+  %.sroa.08.012 = phi ptr [ %19, %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit ], [ %4, %2 ]
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.2)
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.08.012)
   %9 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull @.str.3)
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
   %11 = load i32, ptr %10, align 4
   %12 = icmp ult i32 %11, 3
-  br i1 %12, label %switch.lookup, label %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit
+  br i1 %12, label %8, label %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit
 
-switch.lookup:                                    ; preds = %.lr.ph
+.fold.split.i:                                    ; preds = %.lr.ph
   %13 = zext nneg i32 %11 to i64
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZStlsISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS1_17UsdStageLoadRules4RuleEEENSt9enable_ifIXclsr3pxrE16Tf_IsOstreamableIT_EEERSoE4typeES8_RKSt6vectorIS7_SaIS7_EE, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit: ; preds = %.lr.ph, %switch.lookup
-  %14 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %.lr.ph ]
-  %15 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %14)
-  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.8)
-  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.16)
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 12
-  %.not = icmp eq ptr %18, %6
+_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit: ; preds = %.lr.ph, %.fold.split.i
+  %15 = phi ptr [ %switch.load, %switch.lookup ], [ @.str.7, %.lr.ph ]
+  %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %15)
+  %17 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str.8)
+  %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.16)
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 12
+  %.not = icmp eq ptr %19, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKSt4pairINS_7SdfPathENS_17UsdStageLoadRules4RuleEE.exit, %2
-  %19 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.17)
+  %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.17)
   ret ptr %0
 }
 

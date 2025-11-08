@@ -15776,15 +15776,15 @@ _ZNSt3__111__formatter13__insert_signB8ne210000ITkNS_19contiguous_iteratorEPcQ7s
   %20 = and i64 %1, 248
   %21 = or disjoint i64 %20, 3
   %.sroa.6.0.insert.insert = and i64 %1, -256
-  %22 = and i64 %1, 255
-  %.sroa.012.0.insert.ext = select i1 %19, i64 %21, i64 %22
+  %25 = and i64 %1, 255
+  %.sroa.012.0.insert.ext = select i1 %19, i64 %21, i64 %25
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.012.0.insert.ext, %.sroa.6.0.insert.insert
-  %23 = ptrtoint ptr %17 to i64
-  %24 = ptrtoint ptr %6 to i64
-  %25 = sub i64 %23, %24
-  %26 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr nonnull %6, i64 %25, ptr %0, i64 %.sroa.012.0.insert.insert, i64 %2, i64 noundef %25)
+  %26 = ptrtoint ptr %17 to i64
+  %27 = ptrtoint ptr %6 to i64
+  %28 = sub i64 %26, %27
+  %29 = call ptr @_ZNSt3__111__formatter7__writeB8ne210000IccTkNS_15output_iteratorIRKT_EENS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEEEDtfp0_ENS_17basic_string_viewIS3_NS_11char_traitsIS3_EEEET1_NS_13__format_spec23__parsed_specificationsIT0_EEl(ptr nonnull %6, i64 %28, ptr %0, i64 %.sroa.012.0.insert.insert, i64 %2, i64 noundef %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret ptr %26
+  ret ptr %29
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -439,7 +439,7 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
   %spec.select42 = select i1 %or.cond3, i32 %11, i32 %0
   br label %.loopexit
 
-.preheader:                                       ; preds = %2, %41
+.preheader:                                       ; preds = %2, %42
   %.03246 = phi i32 [ %.1, %41 ], [ 369, %2 ]
   %.03345 = phi i32 [ %.134, %41 ], [ 0, %2 ]
   %12 = add i32 %.03246, %.03345
@@ -453,7 +453,7 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
 
 19:                                               ; preds = %.preheader
   %20 = add nsw i32 %13, -1
-  br label %41
+  br label %42
 
 21:                                               ; preds = %.preheader
   %22 = lshr i32 %16, 8
@@ -464,12 +464,12 @@ define dso_local i32 @lre_canonicalize(i32 noundef %0, i32 noundef %1) local_unn
 
 25:                                               ; preds = %21
   %26 = add nuw i32 %13, 1
-  br label %41
+  br label %42
 
 27:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not.i = icmp eq i32 %1, 0
-  br i1 %.not.i, label %36, label %28
+  br i1 %.not.i, label %37, label %28
 
 28:                                               ; preds = %27
   %29 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %0, i32 noundef 2, i32 noundef %13, i32 noundef %16)
@@ -496,27 +496,27 @@ switch.edge.i:                                    ; preds = %33
 35:                                               ; preds = %33
   br label %lre_case_folding_entry.exit
 
-36:                                               ; preds = %27
-  %37 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %0, i32 noundef 0, i32 noundef %13, i32 noundef %16)
-  %38 = icmp eq i32 %37, 1
-  %39 = load i32, ptr %3, align 4
-  %40 = icmp ugt i32 %39, 127
-  %or.cond4.i = select i1 %38, i1 %40, i1 false
-  %spec.select23.i = select i1 %or.cond4.i, i32 %39, i32 %0
+37:                                               ; preds = %27
+  %38 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %0, i32 noundef 0, i32 noundef %13, i32 noundef %16)
+  %39 = icmp eq i32 %38, 1
+  %40 = load i32, ptr %3, align 4
+  %41 = icmp ugt i32 %40, 127
+  %or.cond4.i = select i1 %39, i1 %41, i1 false
+  %spec.select23.i = select i1 %or.cond4.i, i32 %40, i32 %0
   br label %lre_case_folding_entry.exit
 
-lre_case_folding_entry.exit:                      ; preds = %31, %33, %34, %switch.edge.i, %35, %36
+lre_case_folding_entry.exit:                      ; preds = %31, %33, %34, %switch.edge.i, %35, %37
   %.0.i = phi i32 [ %32, %31 ], [ 912, %34 ], [ %0, %35 ], [ 64261, %33 ], [ 944, %switch.edge.i ], [ %spec.select23.i, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-41:                                               ; preds = %25, %19
+42:                                               ; preds = %25, %19
   %.134 = phi i32 [ %.03345, %19 ], [ %26, %25 ]
   %.1 = phi i32 [ %20, %19 ], [ %.03246, %25 ]
   %.not.not = icmp sgt i32 %.134, %.1
   br i1 %.not.not, label %.loopexit, label %.preheader, !llvm.loop !16
 
-.loopexit:                                        ; preds = %41, %lre_case_folding_entry.exit, %9, %6
+.loopexit:                                        ; preds = %42, %lre_case_folding_entry.exit, %9, %6
   %.136 = phi i32 [ %spec.select, %6 ], [ %spec.select42, %9 ], [ %.0.i, %lre_case_folding_entry.exit ], [ %0, %41 ]
   ret i32 %.136
 }
@@ -2735,8 +2735,8 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   %.phi.trans.insert.i86 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %89
 
-89:                                               ; preds = %.lr.ph134, %148
-  %90 = phi i32 [ %85, %.lr.ph134 ], [ %149, %148 ]
+89:                                               ; preds = %.lr.ph134, %149
+  %90 = phi i32 [ %85, %.lr.ph134 ], [ %150, %148 ]
   %.phi.trans.insert.i86.promoted = phi ptr [ null, %.lr.ph134 ], [ %.phi.trans.insert.i86.promoted152, %148 ]
   %.promoted120 = phi i32 [ 0, %.lr.ph134 ], [ %.promoted120150, %148 ]
   %.promoted = phi i32 [ 0, %.lr.ph134 ], [ %.lcssa104, %148 ]
@@ -2745,7 +2745,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   %.057131 = phi i32 [ 2136624, %.lr.ph134 ], [ %.158.lcssa, %148 ]
   %.060130 = phi i32 [ 65, %.lr.ph134 ], [ %.161.lcssa, %148 ]
   %.063129 = phi i32 [ 0, %.lr.ph134 ], [ %.164.lcssa, %148 ]
-  %.066128 = phi i32 [ 0, %.lr.ph134 ], [ %150, %148 ]
+  %.066128 = phi i32 [ 0, %.lr.ph134 ], [ %151, %148 ]
   %.067127 = phi i32 [ 26, %.lr.ph134 ], [ %.168.lcssa, %148 ]
   %91 = zext i32 %.066128 to i64
   %92 = getelementptr inbounds nuw i32, ptr %87, i64 %91
@@ -2755,19 +2755,19 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   %96 = getelementptr inbounds nuw i32, ptr %87, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !7
   %98 = icmp ult i32 %93, %97
-  br i1 %98, label %.preheader, label %148
+  br i1 %98, label %.preheader, label %149
 
 .preheader:                                       ; preds = %89, %cr_add_interval.exit
   %.pre.i87126 = phi ptr [ %.pre.i87125, %cr_add_interval.exit ], [ %.phi.trans.insert.i86.promoted, %89 ]
   %..i.i.i89123 = phi i32 [ %..i.i.i89122, %cr_add_interval.exit ], [ %.promoted120, %89 ]
   %.1111 = phi i32 [ %.2, %cr_add_interval.exit ], [ %.052133, %89 ]
   %.154110 = phi i32 [ %.255, %cr_add_interval.exit ], [ %.053132, %89 ]
-  %.056109 = phi i32 [ %147, %cr_add_interval.exit ], [ %93, %89 ]
+  %.056109 = phi i32 [ %148, %cr_add_interval.exit ], [ %93, %89 ]
   %.158108 = phi i32 [ %.259.lcssa, %cr_add_interval.exit ], [ %.057131, %89 ]
   %.161107 = phi i32 [ %.262.lcssa, %cr_add_interval.exit ], [ %.060130, %89 ]
   %.164106 = phi i32 [ %.265.lcssa, %cr_add_interval.exit ], [ %.063129, %89 ]
   %.168105 = phi i32 [ %.269.lcssa, %cr_add_interval.exit ], [ %.067127, %89 ]
-  %99 = phi i32 [ %146, %cr_add_interval.exit ], [ %.promoted, %89 ]
+  %99 = phi i32 [ %147, %cr_add_interval.exit ], [ %.promoted, %89 ]
   %.not7898 = icmp uge i32 %.056109, %.161107
   %100 = add nuw nsw i32 %.161107, %.168105
   %101 = icmp ult i32 %.056109, %100
@@ -2795,7 +2795,7 @@ define dso_local range(i32 -1, 1) i32 @cr_regexp_canonicalize(ptr noundef captur
   %.262.lcssa = phi i32 [ %.161107, %.preheader ], [ %106, %.lr.ph ]
   %.259.lcssa = phi i32 [ %.158108, %.preheader ], [ %105, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  br i1 %.not, label %119, label %111
+  br i1 %.not, label %120, label %111
 
 111:                                              ; preds = %._crit_edge
   %112 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %.056109, i32 noundef 2, i32 noundef %.265.lcssa, i32 noundef %.259.lcssa)
@@ -2822,85 +2822,85 @@ switch.edge.i:                                    ; preds = %116
 118:                                              ; preds = %116
   br label %lre_case_folding_entry.exit
 
-119:                                              ; preds = %._crit_edge
-  %120 = icmp samesign ult i32 %.056109, 128
-  br i1 %120, label %121, label %124, !prof !50
+120:                                              ; preds = %._crit_edge
+  %121 = icmp samesign ult i32 %.056109, 128
+  br i1 %121, label %122, label %125, !prof !50
 
-121:                                              ; preds = %119
-  %122 = add nsw i32 %.056109, -97
-  %or.cond.i = icmp ult i32 %122, 26
-  %123 = add nsw i32 %.056109, -32
-  %spec.select.i = select i1 %or.cond.i, i32 %123, i32 %.056109
+122:                                              ; preds = %120
+  %123 = add nsw i32 %.056109, -97
+  %or.cond.i = icmp ult i32 %123, 26
+  %124 = add nsw i32 %.056109, -32
+  %spec.select.i = select i1 %or.cond.i, i32 %124, i32 %.056109
   br label %lre_case_folding_entry.exit
 
-124:                                              ; preds = %119
-  %125 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %.056109, i32 noundef 0, i32 noundef %.265.lcssa, i32 noundef %.259.lcssa)
-  %126 = icmp eq i32 %125, 1
-  %127 = load i32, ptr %3, align 4
-  %128 = icmp ugt i32 %127, 127
-  %or.cond4.i = select i1 %126, i1 %128, i1 false
-  %spec.select23.i = select i1 %or.cond4.i, i32 %127, i32 %.056109
+125:                                              ; preds = %120
+  %126 = call fastcc i32 @lre_case_conv_entry(ptr noundef nonnull %3, i32 noundef range(i32 0, 131198) %.056109, i32 noundef 0, i32 noundef %.265.lcssa, i32 noundef %.259.lcssa)
+  %127 = icmp eq i32 %126, 1
+  %128 = load i32, ptr %3, align 4
+  %129 = icmp ugt i32 %128, 127
+  %or.cond4.i = select i1 %127, i1 %129, i1 false
+  %spec.select23.i = select i1 %or.cond4.i, i32 %128, i32 %.056109
   br label %lre_case_folding_entry.exit
 
-lre_case_folding_entry.exit:                      ; preds = %114, %116, %117, %switch.edge.i, %118, %121, %124
+lre_case_folding_entry.exit:                      ; preds = %114, %116, %117, %switch.edge.i, %118, %122, %125
   %.0.i84 = phi i32 [ %115, %114 ], [ 912, %117 ], [ %.056109, %118 ], [ 64261, %116 ], [ 944, %switch.edge.i ], [ %spec.select.i, %121 ], [ %spec.select23.i, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %129 = icmp eq i32 %.154110, -1
-  br i1 %129, label %cr_add_interval.exit, label %130
+  %130 = icmp eq i32 %.154110, -1
+  br i1 %130, label %cr_add_interval.exit, label %131
 
-130:                                              ; preds = %lre_case_folding_entry.exit
-  %131 = icmp eq i32 %.1111, %.0.i84
-  br i1 %131, label %cr_add_interval.exit, label %132
+131:                                              ; preds = %lre_case_folding_entry.exit
+  %132 = icmp eq i32 %.1111, %.0.i84
+  br i1 %132, label %cr_add_interval.exit, label %133
 
-132:                                              ; preds = %130
-  %133 = add i32 %99, 2
-  %134 = icmp sgt i32 %133, %..i.i.i89123
-  br i1 %134, label %135, label %._crit_edge.i85
+133:                                              ; preds = %131
+  %134 = add i32 %99, 2
+  %135 = icmp sgt i32 %134, %..i.i.i89123
+  br i1 %135, label %136, label %._crit_edge.i85
 
-135:                                              ; preds = %132
-  %136 = mul i32 %..i.i.i89123, 3
-  %137 = sdiv i32 %136, 2
-  %..i.i.i89 = tail call range(i32 -1073741824, -2147483648) i32 @llvm.smax.i32(i32 %133, i32 range(i32 -1073741824, 1073741824) %137)
-  %138 = sext i32 %..i.i.i89 to i64
-  %139 = shl nsw i64 %138, 2
-  %140 = tail call ptr %13(ptr noundef %9, ptr noundef %.pre.i87126, i64 noundef %139) #21
-  %.not.i.i90 = icmp eq ptr %140, null
+136:                                              ; preds = %133
+  %137 = mul i32 %..i.i.i89123, 3
+  %138 = sdiv i32 %137, 2
+  %..i.i.i89 = tail call range(i32 -1073741824, -2147483648) i32 @llvm.smax.i32(i32 %134, i32 range(i32 -1073741824, 1073741824) %138)
+  %139 = sext i32 %..i.i.i89 to i64
+  %140 = shl nsw i64 %139, 2
+  %141 = tail call ptr %13(ptr noundef %9, ptr noundef %.pre.i87126, i64 noundef %140) #21
+  %.not.i.i90 = icmp eq ptr %141, null
   br i1 %.not.i.i90, label %cr_add_interval.exit, label %._crit_edge.i85
 
-._crit_edge.i85:                                  ; preds = %135, %132
-  %.pre.i87124 = phi ptr [ %.pre.i87126, %132 ], [ %140, %135 ]
+._crit_edge.i85:                                  ; preds = %136, %133
+  %.pre.i87124 = phi ptr [ %.pre.i87126, %132 ], [ %141, %135 ]
   %..i.i.i89121 = phi i32 [ %..i.i.i89123, %132 ], [ %..i.i.i89, %135 ]
-  %141 = add i32 %99, 1
-  %142 = sext i32 %99 to i64
-  %143 = getelementptr inbounds i32, ptr %.pre.i87124, i64 %142
-  store i32 %.154110, ptr %143, align 4, !tbaa !7
-  %144 = sext i32 %141 to i64
-  %145 = getelementptr inbounds i32, ptr %.pre.i87124, i64 %144
-  store i32 %.1111, ptr %145, align 4, !tbaa !7
+  %142 = add i32 %99, 1
+  %143 = sext i32 %99 to i64
+  %144 = getelementptr inbounds i32, ptr %.pre.i87124, i64 %143
+  store i32 %.154110, ptr %144, align 4, !tbaa !7
+  %145 = sext i32 %142 to i64
+  %146 = getelementptr inbounds i32, ptr %.pre.i87124, i64 %145
+  store i32 %.1111, ptr %146, align 4, !tbaa !7
   br label %cr_add_interval.exit
 
-cr_add_interval.exit:                             ; preds = %._crit_edge.i85, %135, %130, %lre_case_folding_entry.exit
+cr_add_interval.exit:                             ; preds = %._crit_edge.i85, %136, %131, %lre_case_folding_entry.exit
   %.pre.i87125 = phi ptr [ %.pre.i87126, %lre_case_folding_entry.exit ], [ %.pre.i87126, %130 ], [ %.pre.i87126, %135 ], [ %.pre.i87124, %._crit_edge.i85 ]
   %..i.i.i89122 = phi i32 [ %..i.i.i89123, %lre_case_folding_entry.exit ], [ %..i.i.i89123, %130 ], [ %..i.i.i89123, %135 ], [ %..i.i.i89121, %._crit_edge.i85 ]
-  %146 = phi i32 [ %99, %lre_case_folding_entry.exit ], [ %99, %130 ], [ %99, %135 ], [ %133, %._crit_edge.i85 ]
+  %147 = phi i32 [ %99, %lre_case_folding_entry.exit ], [ %99, %130 ], [ %99, %135 ], [ %134, %._crit_edge.i85 ]
   %.255 = phi i32 [ %.0.i84, %lre_case_folding_entry.exit ], [ %.154110, %130 ], [ %.0.i84, %135 ], [ %.0.i84, %._crit_edge.i85 ]
   %.2.in = phi i32 [ %.0.i84, %lre_case_folding_entry.exit ], [ %.1111, %130 ], [ %.0.i84, %135 ], [ %.0.i84, %._crit_edge.i85 ]
   %.2 = add i32 %.2.in, 1
-  %147 = add i32 %.056109, 1
-  %exitcond.not = icmp eq i32 %147, %97
+  %148 = add i32 %.056109, 1
+  %exitcond.not = icmp eq i32 %148, %97
   br i1 %exitcond.not, label %._crit_edge112, label %.preheader, !llvm.loop !51
 
 ._crit_edge112:                                   ; preds = %cr_add_interval.exit
   store i32 %..i.i.i89122, ptr %88, align 4
   store ptr %.pre.i87125, ptr %.phi.trans.insert.i86, align 8
   %.pre = load i32, ptr %4, align 8, !tbaa !26
-  br label %148
+  br label %149
 
-148:                                              ; preds = %._crit_edge112, %89
-  %149 = phi i32 [ %.pre, %._crit_edge112 ], [ %90, %89 ]
+149:                                              ; preds = %._crit_edge112, %89
+  %150 = phi i32 [ %.pre, %._crit_edge112 ], [ %90, %89 ]
   %.phi.trans.insert.i86.promoted152 = phi ptr [ %.pre.i87125, %._crit_edge112 ], [ %.phi.trans.insert.i86.promoted, %89 ]
   %.promoted120150 = phi i32 [ %..i.i.i89122, %._crit_edge112 ], [ %.promoted120, %89 ]
-  %.lcssa104 = phi i32 [ %146, %._crit_edge112 ], [ %.promoted, %89 ]
+  %.lcssa104 = phi i32 [ %147, %._crit_edge112 ], [ %.promoted, %89 ]
   %.168.lcssa = phi i32 [ %.269.lcssa, %._crit_edge112 ], [ %.067127, %89 ]
   %.164.lcssa = phi i32 [ %.265.lcssa, %._crit_edge112 ], [ %.063129, %89 ]
   %.161.lcssa = phi i32 [ %.262.lcssa, %._crit_edge112 ], [ %.060130, %89 ]
@@ -2908,76 +2908,76 @@ cr_add_interval.exit:                             ; preds = %._crit_edge.i85, %1
   %.154.lcssa = phi i32 [ %.255, %._crit_edge112 ], [ %.053132, %89 ]
   %.1.lcssa = phi i32 [ %.2, %._crit_edge112 ], [ %.052133, %89 ]
   store i32 %.lcssa104, ptr %6, align 8
-  %150 = add i32 %.066128, 2
-  %151 = icmp ult i32 %150, %149
-  br i1 %151, label %89, label %._crit_edge135, !llvm.loop !52
+  %151 = add i32 %.066128, 2
+  %152 = icmp ult i32 %151, %150
+  br i1 %152, label %89, label %._crit_edge135, !llvm.loop !52
 
-._crit_edge135:                                   ; preds = %148
+._crit_edge135:                                   ; preds = %149
   %.not75 = icmp eq i32 %.154.lcssa, -1
-  br i1 %.not75, label %._crit_edge135.thread, label %152
+  br i1 %.not75, label %._crit_edge135.thread, label %153
 
-152:                                              ; preds = %._crit_edge135
-  %153 = call fastcc i32 @cr_add_interval(ptr noundef nonnull %6, i32 noundef %.154.lcssa, i32 noundef %.1.lcssa)
-  %.not76 = icmp eq i32 %153, 0
+153:                                              ; preds = %._crit_edge135
+  %154 = call fastcc i32 @cr_add_interval(ptr noundef nonnull %6, i32 noundef %.154.lcssa, i32 noundef %.1.lcssa)
+  %.not76 = icmp eq i32 %154, 0
   br i1 %.not76, label %._crit_edge135.thread, label %.cr_invert.exit_crit_edge154
 
-.cr_invert.exit_crit_edge154:                     ; preds = %152
+.cr_invert.exit_crit_edge154:                     ; preds = %153
   %.phi.trans.insert155 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.pre156 = load ptr, ptr %.phi.trans.insert155, align 8, !tbaa !24
   br label %cr_invert.exit
 
-._crit_edge135.thread:                            ; preds = %.preheader93, %152, %._crit_edge135
+._crit_edge135.thread:                            ; preds = %.preheader93, %153, %._crit_edge135
   call fastcc void @cr_sort_and_remove_overlap(ptr noundef %6)
   store i32 0, ptr %0, align 8, !tbaa !26
-  %154 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !24
-  %156 = load i32, ptr %6, align 8, !tbaa !26
-  %157 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %158 = load ptr, ptr %157, align 8, !tbaa !24
-  %159 = load i32, ptr %7, align 8, !tbaa !26
-  %160 = tail call i32 @cr_op(ptr noundef nonnull %0, ptr noundef %155, i32 noundef %156, ptr noundef %158, i32 noundef %159, i32 noundef 0)
-  %.not77 = icmp eq i32 %160, 0
-  br i1 %.not77, label %161, label %cr_invert.exit
+  %155 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !24
+  %157 = load i32, ptr %6, align 8, !tbaa !26
+  %158 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %159 = load ptr, ptr %158, align 8, !tbaa !24
+  %160 = load i32, ptr %7, align 8, !tbaa !26
+  %161 = tail call i32 @cr_op(ptr noundef nonnull %0, ptr noundef %156, i32 noundef %157, ptr noundef %159, i32 noundef %160, i32 noundef 0)
+  %.not77 = icmp eq i32 %161, 0
+  br i1 %.not77, label %162, label %cr_invert.exit
 
-161:                                              ; preds = %._crit_edge135.thread
-  %162 = load ptr, ptr %16, align 8, !tbaa !23
-  %163 = load ptr, ptr %15, align 8, !tbaa !19
-  %164 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !24
-  %166 = tail call ptr %162(ptr noundef %163, ptr noundef %165, i64 noundef 0) #21
-  %167 = load ptr, ptr %14, align 8, !tbaa !23
-  %168 = load ptr, ptr %12, align 8, !tbaa !19
-  %169 = tail call ptr %167(ptr noundef %168, ptr noundef nonnull %44, i64 noundef 0) #21
-  %170 = load ptr, ptr %18, align 8, !tbaa !23
-  %171 = load ptr, ptr %17, align 8, !tbaa !19
-  %172 = tail call ptr %170(ptr noundef %171, ptr noundef %155, i64 noundef 0) #21
-  %173 = load ptr, ptr %20, align 8, !tbaa !23
-  %174 = load ptr, ptr %19, align 8, !tbaa !19
-  %175 = tail call ptr %173(ptr noundef %174, ptr noundef %158, i64 noundef 0) #21
-  br label %194
+162:                                              ; preds = %._crit_edge135.thread
+  %163 = load ptr, ptr %16, align 8, !tbaa !23
+  %164 = load ptr, ptr %15, align 8, !tbaa !19
+  %165 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %166 = load ptr, ptr %165, align 8, !tbaa !24
+  %167 = tail call ptr %162(ptr noundef %164, ptr noundef %166, i64 noundef 0) #21
+  %168 = load ptr, ptr %14, align 8, !tbaa !23
+  %169 = load ptr, ptr %12, align 8, !tbaa !19
+  %170 = tail call ptr %167(ptr noundef %169, ptr noundef nonnull %44, i64 noundef 0) #21
+  %171 = load ptr, ptr %18, align 8, !tbaa !23
+  %172 = load ptr, ptr %17, align 8, !tbaa !19
+  %173 = tail call ptr %170(ptr noundef %172, ptr noundef %156, i64 noundef 0) #21
+  %174 = load ptr, ptr %20, align 8, !tbaa !23
+  %175 = load ptr, ptr %19, align 8, !tbaa !19
+  %176 = tail call ptr %173(ptr noundef %175, ptr noundef %159, i64 noundef 0) #21
+  br label %195
 
 cr_invert.exit:                                   ; preds = %2, %.cr_invert.exit_crit_edge154, %36, %._crit_edge135.thread, %.loopexit, %25
-  %176 = phi ptr [ null, %36 ], [ %155, %._crit_edge135.thread ], [ %.pre156, %.cr_invert.exit_crit_edge154 ], [ null, %.loopexit ], [ null, %25 ], [ null, %2 ]
-  %177 = phi ptr [ %24, %36 ], [ %44, %._crit_edge135.thread ], [ %44, %.cr_invert.exit_crit_edge154 ], [ %44, %.loopexit ], [ %24, %25 ], [ %24, %2 ]
-  %178 = load ptr, ptr %16, align 8, !tbaa !23
-  %179 = load ptr, ptr %15, align 8, !tbaa !19
-  %180 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %181 = load ptr, ptr %180, align 8, !tbaa !24
-  %182 = tail call ptr %178(ptr noundef %179, ptr noundef %181, i64 noundef 0) #21
-  %183 = load ptr, ptr %14, align 8, !tbaa !23
-  %184 = load ptr, ptr %12, align 8, !tbaa !19
-  %185 = tail call ptr %183(ptr noundef %184, ptr noundef %177, i64 noundef 0) #21
-  %186 = load ptr, ptr %18, align 8, !tbaa !23
-  %187 = load ptr, ptr %17, align 8, !tbaa !19
-  %188 = tail call ptr %186(ptr noundef %187, ptr noundef %176, i64 noundef 0) #21
-  %189 = load ptr, ptr %20, align 8, !tbaa !23
-  %190 = load ptr, ptr %19, align 8, !tbaa !19
-  %191 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %192 = load ptr, ptr %191, align 8, !tbaa !24
-  %193 = tail call ptr %189(ptr noundef %190, ptr noundef %192, i64 noundef 0) #21
-  br label %194
+  %177 = phi ptr [ null, %36 ], [ %156, %._crit_edge135.thread ], [ %.pre156, %.cr_invert.exit_crit_edge154 ], [ null, %.loopexit ], [ null, %25 ], [ null, %2 ]
+  %178 = phi ptr [ %24, %36 ], [ %44, %._crit_edge135.thread ], [ %44, %.cr_invert.exit_crit_edge154 ], [ %44, %.loopexit ], [ %24, %25 ], [ %24, %2 ]
+  %179 = load ptr, ptr %16, align 8, !tbaa !23
+  %180 = load ptr, ptr %15, align 8, !tbaa !19
+  %181 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %182 = load ptr, ptr %181, align 8, !tbaa !24
+  %183 = tail call ptr %178(ptr noundef %180, ptr noundef %182, i64 noundef 0) #21
+  %184 = load ptr, ptr %14, align 8, !tbaa !23
+  %185 = load ptr, ptr %12, align 8, !tbaa !19
+  %186 = tail call ptr %183(ptr noundef %185, ptr noundef %178, i64 noundef 0) #21
+  %187 = load ptr, ptr %18, align 8, !tbaa !23
+  %188 = load ptr, ptr %17, align 8, !tbaa !19
+  %189 = tail call ptr %186(ptr noundef %188, ptr noundef %177, i64 noundef 0) #21
+  %190 = load ptr, ptr %20, align 8, !tbaa !23
+  %191 = load ptr, ptr %19, align 8, !tbaa !19
+  %192 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %193 = load ptr, ptr %192, align 8, !tbaa !24
+  %194 = tail call ptr %189(ptr noundef %191, ptr noundef %193, i64 noundef 0) #21
+  br label %195
 
-194:                                              ; preds = %cr_invert.exit, %161
+195:                                              ; preds = %cr_invert.exit, %162
   %.0 = phi i32 [ -1, %cr_invert.exit ], [ 0, %161 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

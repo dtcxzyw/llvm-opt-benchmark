@@ -796,11 +796,11 @@ define hidden i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1) local_unnam
     i32 14, label %33
     i32 1, label %33
     i32 10, label %42
-    i32 12, label %46
-    i32 0, label %46
-    i32 15, label %46
-    i32 9, label %46
-    i32 13, label %46
+    i32 12, label %48
+    i32 0, label %48
+    i32 15, label %48
+    i32 9, label %48
+    i32 13, label %48
   ]
 
 6:                                                ; preds = %2, %2
@@ -905,13 +905,13 @@ resolve_unparsed.exit:                            ; preds = %19, %26, %27
 45:                                               ; preds = %42
   br label %get_function_ftype.exit
 
-46:                                               ; preds = %2, %2, %2, %2, %2
-  %47 = tail call i32 @stnode_type_id(ptr noundef %1)
-  %48 = tail call ptr @sttype_name(i32 noundef %47)
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 838, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.6, ptr noundef %48) #7
+48:                                               ; preds = %2, %2, %2, %2, %2
+  %49 = tail call i32 @stnode_type_id(ptr noundef %1)
+  %50 = tail call ptr @sttype_name(i32 noundef %49)
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 838, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.6, ptr noundef %50) #7
   unreachable
 
-49:                                               ; preds = %2
+51:                                               ; preds = %2
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 841, ptr noundef nonnull @__func__.get_logical_ftype, ptr noundef nonnull @.str.3) #7
   unreachable
 
@@ -1012,18 +1012,18 @@ define hidden range(i32 26, 31) i32 @check_slice(ptr noundef %0, ptr noundef %1,
 39:                                               ; preds = %21, %10, %30
   %.0 = phi i32 [ %12, %10 ], [ %22, %21 ], [ %31, %30 ]
   switch i32 %.0, label %.thread [
-    i32 45, label %switch.edge
-    i32 43, label %switch.edge
-    i32 28, label %switch.edge
-    i32 27, label %switch.edge
-    i32 26, label %switch.edge
-    i32 39, label %switch.edge
+    i32 45, label %.thread46
+    i32 43, label %.thread46
+    i32 28, label %.thread46
+    i32 27, label %.thread46
+    i32 26, label %.thread46
+    i32 39, label %.thread46
   ]
 
-.thread:                                          ; preds = %3, %39
-  br label %switch.edge
+.thread46.fold.split:                             ; preds = %3, %39
+  br label %.thread46
 
-switch.edge:                                      ; preds = %39, %39, %39, %39, %39, %39, %.thread
+.thread46:                                        ; preds = %39, %39, %39, %39, %39, %39, %.thread46.fold.split
   %40 = phi i32 [ 26, %39 ], [ 30, %.thread ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ], [ 26, %39 ]
   ret i32 %40
 }

@@ -647,7 +647,7 @@ define internal range(i32 1, 3) i32 @ZombieAcquireFrame(ptr noundef captures(non
     i32 1448433993, label %16
     i32 842094158, label %16
     i32 825382478, label %16
-    i32 0, label %22
+    i32 0, label %24
   ]
 
 16:                                               ; preds = %7, %7, %7, %7
@@ -658,57 +658,57 @@ define internal range(i32 1, 3) i32 @ZombieAcquireFrame(ptr noundef captures(non
 19:                                               ; preds = %7
   %.mask.i = and i32 %15, -268435456
   %.not20.i = icmp eq i32 %.mask.i, 268435456
-  br i1 %.not20.i, label %22, label %20
+  br i1 %.not20.i, label %24, label %20
 
 20:                                               ; preds = %19
   switch i32 %15, label %21 [
-    i32 1498831189, label %switch.edge.i
-    i32 1431918169, label %switch.edge.i
-    i32 844715353, label %switch.edge.i
+    i32 1498831189, label %26
+    i32 1431918169, label %26
+    i32 844715353, label %26
     i32 808530000, label %switch.edge.i
   ]
 
 21:                                               ; preds = %20
-  br label %switch.edge.i
+  br label %26
 
-22:                                               ; preds = %19, %7
-  %23 = and i32 %15, 255
+24:                                               ; preds = %19, %7
+  %25 = and i32 %15, 255
   %24 = zext nneg i32 %23 to i64
   br label %switch.edge.i
 
-switch.edge.i:                                    ; preds = %22, %21, %20, %20, %20, %20
-  %25 = phi i64 [ %24, %22 ], [ 2, %20 ], [ 1, %21 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ]
+26:                                               ; preds = %24, %21, %20, %20, %20, %20
+  %27 = phi i64 [ %24, %22 ], [ 2, %20 ], [ 1, %21 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ]
   %26 = mul i64 %25, %14
   br label %GetFrameBufLen.exit
 
-GetFrameBufLen.exit:                              ; preds = %16, %switch.edge.i
+GetFrameBufLen.exit:                              ; preds = %16, %26
   %.0.i = phi i64 [ %26, %switch.edge.i ], [ %18, %16 ]
-  %27 = tail call i64 @SDL_GetSIMDAlignment_REAL() #11
-  %28 = tail call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %27, i64 noundef %.0.i) #11
-  store ptr %28, ptr %5, align 8
-  %.not63.not = icmp eq ptr %28, null
-  br i1 %.not63.not, label %53, label %29
+  %30 = tail call i64 @SDL_GetSIMDAlignment_REAL() #11
+  %31 = tail call noalias ptr @SDL_aligned_alloc_REAL(i64 noundef %30, i64 noundef %.0.i) #11
+  store ptr %31, ptr %5, align 8
+  %.not63.not = icmp eq ptr %31, null
+  br i1 %.not63.not, label %56, label %32
 
-29:                                               ; preds = %GetFrameBufLen.exit
-  %30 = load i32, ptr %4, align 4
-  switch i32 %30, label %52 [
-    i32 842094169, label %31
-    i32 1448433993, label %31
-    i32 842094158, label %31
-    i32 825382478, label %31
-    i32 844715353, label %39
-    i32 1431918169, label %39
+32:                                               ; preds = %GetFrameBufLen.exit
+  %33 = load i32, ptr %4, align 4
+  switch i32 %33, label %52 [
+    i32 842094169, label %34
+    i32 1448433993, label %34
+    i32 842094158, label %34
+    i32 825382478, label %34
+    i32 844715353, label %42
+    i32 1431918169, label %42
     i32 1498831189, label %.preheader
   ]
 
-.preheader:                                       ; preds = %29
+.preheader:                                       ; preds = %32
   %.not74 = icmp eq i64 %.0.i, 0
   br i1 %.not74, label %.thread, label %.lr.ph
 
-31:                                               ; preds = %29, %29, %29, %29
-  %32 = load i32, ptr %8, align 4
-  %33 = load i32, ptr %11, align 4
-  %34 = mul nsw i32 %33, %32
+34:                                               ; preds = %32, %32, %32, %32
+  %35 = load i32, ptr %8, align 4
+  %36 = load i32, ptr %11, align 4
+  %37 = mul nsw i32 %36, %35
   %35 = sext i32 %34 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %35, i1 false)
   %36 = getelementptr inbounds i8, ptr %28, i64 %35
@@ -717,70 +717,70 @@ GetFrameBufLen.exit:                              ; preds = %16, %switch.edge.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %36, i8 -128, i64 %38, i1 false)
   br label %.thread
 
-39:                                               ; preds = %29, %29
+42:                                               ; preds = %32, %32
   %.not75 = icmp eq i64 %.0.i, 0
   br i1 %.not75, label %.thread, label %.lr.ph73
 
-.lr.ph73:                                         ; preds = %39, %.lr.ph73
-  %.05772 = phi i64 [ %44, %.lr.ph73 ], [ 0, %39 ]
-  %40 = getelementptr inbounds nuw i8, ptr %28, i64 %.05772
-  store i8 0, ptr %40, align 1
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 1
-  store i8 -128, ptr %41, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 2
-  store i8 0, ptr %42, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 3
-  store i8 -128, ptr %43, align 1
-  %44 = add nuw i64 %.05772, 4
-  %45 = icmp ult i64 %44, %.0.i
-  br i1 %45, label %.lr.ph73, label %.thread, !llvm.loop !5
+.lr.ph73:                                         ; preds = %42, %.lr.ph73
+  %.05772 = phi i64 [ %47, %.lr.ph73 ], [ 0, %39 ]
+  %43 = getelementptr inbounds nuw i8, ptr %31, i64 %.05772
+  store i8 0, ptr %43, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
+  store i8 -128, ptr %44, align 1
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 2
+  store i8 0, ptr %45, align 1
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 3
+  store i8 -128, ptr %46, align 1
+  %47 = add nuw i64 %.05772, 4
+  %48 = icmp ult i64 %47, %.0.i
+  br i1 %48, label %.lr.ph73, label %.thread, !llvm.loop !5
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.071 = phi i64 [ %50, %.lr.ph ], [ 0, %.preheader ]
-  %46 = getelementptr inbounds nuw i8, ptr %28, i64 %.071
-  store i8 -128, ptr %46, align 1
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
-  store i8 0, ptr %47, align 1
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  store i8 -128, ptr %48, align 1
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 3
-  store i8 0, ptr %49, align 1
-  %50 = add nuw i64 %.071, 4
-  %51 = icmp ult i64 %50, %.0.i
-  br i1 %51, label %.lr.ph, label %.thread, !llvm.loop !6
+  %.071 = phi i64 [ %53, %.lr.ph ], [ 0, %.preheader ]
+  %49 = getelementptr inbounds nuw i8, ptr %31, i64 %.071
+  store i8 -128, ptr %49, align 1
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
+  store i8 0, ptr %50, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  store i8 -128, ptr %51, align 1
+  %52 = getelementptr inbounds nuw i8, ptr %49, i64 3
+  store i8 0, ptr %52, align 1
+  %53 = add nuw i64 %.071, 4
+  %54 = icmp ult i64 %53, %.0.i
+  br i1 %54, label %.lr.ph, label %.thread, !llvm.loop !6
 
-52:                                               ; preds = %29
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %.0.i, i1 false)
+55:                                               ; preds = %32
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %.0.i, i1 false)
   br label %.thread
 
-53:                                               ; preds = %GetFrameBufLen.exit
+56:                                               ; preds = %GetFrameBufLen.exit
   store i64 0, ptr %2, align 8
-  br label %63
+  br label %67
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph73, %.preheader, %39, %52, %31, %3
-  %54 = tail call i64 @SDL_GetTicksNS_REAL() #11
-  store i64 %54, ptr %2, align 8
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %55, ptr %56, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  %58 = load i32, ptr %57, align 4
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %58, ptr %59, align 8
-  %60 = load i32, ptr %4, align 4
-  %.not64 = icmp eq i32 %60, 0
-  %.mask = and i32 %60, -268435456
+.thread:                                          ; preds = %.lr.ph, %.lr.ph73, %.preheader, %42, %55, %34, %3
+  %57 = tail call i64 @SDL_GetTicksNS_REAL() #11
+  store i64 %57, ptr %2, align 8
+  %58 = load ptr, ptr %5, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %58, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %61 = load i32, ptr %60, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %61, ptr %62, align 8
+  %63 = load i32, ptr %4, align 4
+  %.not64 = icmp eq i32 %63, 0
+  %.mask = and i32 %63, -268435456
   %.not65 = icmp eq i32 %.mask, 268435456
   %or.cond = or i1 %.not64, %.not65
-  br i1 %or.cond, label %switch.edge, label %63
+  br i1 %or.cond, label %64, label %67
 
-switch.edge:                                      ; preds = %.thread
-  %61 = and i32 %60, 255
-  %62 = mul i32 %61, %58
-  store i32 %62, ptr %59, align 8
-  br label %63
+64:                                               ; preds = %.thread
+  %65 = and i32 %63, 255
+  %66 = mul i32 %65, %61
+  store i32 %66, ptr %62, align 8
+  br label %67
 
-63:                                               ; preds = %53, %switch.edge, %.thread
+67:                                               ; preds = %56, %64, %.thread
   %.1 = phi i32 [ 1, %53 ], [ 2, %.thread ], [ 2, %switch.edge ]
   ret i32 %.1
 }

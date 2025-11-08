@@ -1494,18 +1494,18 @@ thread-pre-split:                                 ; preds = %42
   %47 = phi i32 [ %.pr, %thread-pre-split ], [ %34, %33 ]
   %switch.tableidx = add i32 %47, -4
   %48 = icmp ult i32 %switch.tableidx, 6
-  br i1 %48, label %switch.lookup, label %50
+  br i1 %48, label %.fold.split46, label %50
 
 .fold.split:                                      ; preds = %20
   br label %50
 
-switch.lookup:                                    ; preds = %46
+.fold.split46:                                    ; preds = %46
   %49 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SSL_get_error, i64 %49
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %50
 
-50:                                               ; preds = %46, %switch.lookup, %20, %.fold.split, %44, %31, %40, %36, %27, %23, %14, %6, %2, %19
+50:                                               ; preds = %46, %.fold.split46, %20, %.fold.split, %44, %31, %40, %36, %27, %23, %14, %6, %2, %19
   %.0 = phi i32 [ 5, %19 ], [ 0, %2 ], [ %., %6 ], [ 6, %14 ], [ 11, %20 ], [ 2, %23 ], [ 3, %27 ], [ 3, %36 ], [ 2, %40 ], [ %switch.select41, %31 ], [ %switch.select45, %44 ], [ 12, %.fold.split ], [ %switch.load, %switch.lookup ], [ 5, %46 ]
   ret i32 %.0
 }

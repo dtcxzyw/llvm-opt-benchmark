@@ -342,7 +342,7 @@ define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(addres
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 181, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 102, ptr noundef null) #4
-  br label %76
+  br label %79
 
 28:                                               ; preds = %21, %7
   %.060 = phi i32 [ %.161, %21 ], [ %3, %7 ]
@@ -357,42 +357,42 @@ define ptr @ossl_ecx_key_op(ptr noundef %0, ptr noundef readonly captures(addres
 
 31:                                               ; preds = %28, %28
   %32 = select i1 %29, i32 0, i32 2
-  br label %switch.edge
+  br label %36
 
 33:                                               ; preds = %28
-  br label %switch.edge
+  br label %36
 
-switch.edge:                                      ; preds = %28, %33, %31
-  %34 = phi i32 [ %32, %31 ], [ 3, %33 ], [ 1, %28 ]
-  %35 = call ptr @ossl_ecx_key_new(ptr noundef %5, i32 noundef %34, i32 noundef 1, ptr noundef %6) #4
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %38
+36:                                               ; preds = %28, %33, %31
+  %37 = phi i32 [ %32, %31 ], [ 3, %33 ], [ 1, %28 ]
+  %38 = call ptr @ossl_ecx_key_new(ptr noundef %5, i32 noundef %37, i32 noundef 1, ptr noundef %6) #4
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %40, label %38
 
-37:                                               ; preds = %switch.edge
+40:                                               ; preds = %36
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 188, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 524304, ptr noundef null) #4
   br label %76
 
-38:                                               ; preds = %switch.edge
+65:                                               ; preds = %36
   %39 = icmp eq i32 %4, 0
   br i1 %39, label %40, label %43
 
-40:                                               ; preds = %38
+72:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 17
   %42 = sext i32 %2 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr align 1 %1, i64 %42, i1 false)
   br label %76
 
-43:                                               ; preds = %38
-  %44 = call ptr @ossl_ecx_key_allocate_privkey(ptr noundef nonnull %35) #4
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %.sink.split, label %46
+76:                                               ; preds = %65
+  %77 = call ptr @ossl_ecx_key_allocate_privkey(ptr noundef nonnull %38) #4
+  %.not72 = icmp eq ptr %77, null
+  br i1 %.not72, label %.sink.split, label %46
 
 46:                                               ; preds = %43
   br i1 %.not, label %47, label %69
 
-47:                                               ; preds = %46
+.sink.split:                                      ; preds = %46
   %.not71 = icmp eq i32 %.060, 0
   br i1 %.not71, label %73, label %48
 
@@ -449,11 +449,11 @@ switch.edge:                                      ; preds = %28, %33, %31
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink76, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink, ptr noundef null) #4
-  br label %75
+  br label %78
 
-75:                                               ; preds = %.sink.split, %48
-  call void @ossl_ecx_key_free(ptr noundef nonnull %35) #4
-  br label %76
+78:                                               ; preds = %.sink.split, %48
+  call void @ossl_ecx_key_free(ptr noundef nonnull %38) #4
+  br label %79
 
 .critedge:                                        ; preds = %16, %10
   %.sink77 = phi i32 [ 169, %10 ], [ 175, %16 ]
@@ -461,10 +461,10 @@ switch.edge:                                      ; preds = %28, %33, %31
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink77, ptr noundef nonnull @__func__.ossl_ecx_key_op) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef 102, ptr noundef null) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %76
+  br label %79
 
-76:                                               ; preds = %40, %73, %.critedge, %75, %37, %27
-  %.1 = phi ptr [ null, %27 ], [ null, %37 ], [ null, %75 ], [ null, %.critedge ], [ %35, %73 ], [ %35, %40 ]
+79:                                               ; preds = %40, %73, %.critedge, %78, %40, %27
+  %.1 = phi ptr [ null, %27 ], [ null, %37 ], [ null, %75 ], [ null, %.critedge ], [ %38, %73 ], [ %38, %40 ]
   ret ptr %.1
 }
 

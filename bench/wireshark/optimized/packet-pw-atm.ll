@@ -481,9 +481,9 @@ thread-pre-split:                                 ; preds = %39, %34
   %57 = phi i32 [ %.pre, %44 ], [ %42, %41 ]
   switch i32 %57, label %58 [
     i32 1, label %62
-    i32 3, label %.thread134
-    i32 4, label %.thread134
-    i32 6, label %.thread134
+    i32 3, label %.thread136
+    i32 4, label %.thread136
+    i32 6, label %.thread136
   ]
 
 58:                                               ; preds = %56
@@ -491,12 +491,12 @@ thread-pre-split:                                 ; preds = %39, %34
   %60 = load i8, ptr @pref_n1_cw_extend_cw_length_with_rsvd, align 1, !range !6
   %61 = trunc nuw i8 %60 to i1
   %or.cond = select i1 %59, i1 true, i1 %61
-  br i1 %or.cond, label %64, label %.thread134
+  br i1 %or.cond, label %64, label %.thread136
 
 62:                                               ; preds = %56
   %.old = load i8, ptr @pref_n1_cw_extend_cw_length_with_rsvd, align 1, !range !6, !noundef !7
   %.old1 = trunc nuw i8 %.old to i1
-  br i1 %.old1, label %.thread, label %.thread134
+  br i1 %.old1, label %.thread, label %.thread136
 
 .thread:                                          ; preds = %62
   %63 = load i32, ptr @hf_pref_cw_rsvlen, align 4
@@ -507,9 +507,9 @@ thread-pre-split:                                 ; preds = %39, %34
   %66 = load i8, ptr @pref_aal5_sdu_extend_cw_length_with_rsvd, align 1, !range !6
   %67 = trunc nuw i8 %66 to i1
   %or.cond4 = select i1 %65, i1 true, i1 %67
-  br i1 %or.cond4, label %proto_item_set_hidden.exit130, label %.thread134
+  br i1 %or.cond4, label %proto_item_set_hidden.exit132, label %.thread136
 
-.thread134:                                       ; preds = %64, %58, %62, %56, %56, %56
+.thread136:                                       ; preds = %64, %58, %62, %56, %56, %56
   %hf_pref_cw_rsv.sink = phi ptr [ @hf_generic_cw_rsv, %56 ], [ @hf_generic_cw_rsv, %56 ], [ @hf_generic_cw_rsv, %56 ], [ @hf_pref_cw_rsv, %62 ], [ @hf_pref_cw_rsv, %58 ], [ @hf_pref_cw_rsv, %64 ]
   %.sink153 = phi i32 [ 0, %56 ], [ 0, %56 ], [ 0, %56 ], [ 1, %62 ], [ 1, %58 ], [ 1, %64 ]
   %68 = load i32, ptr %hf_pref_cw_rsv.sink, align 4
@@ -519,38 +519,38 @@ thread-pre-split:                                 ; preds = %39, %34
   %.not118 = icmp eq i32 %71, 0
   br i1 %.not118, label %74, label %72
 
-72:                                               ; preds = %.thread134
+72:                                               ; preds = %.thread136
   %73 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %69, ptr noundef nonnull @ei_cw_bits03)
-  br label %proto_item_set_hidden.exit130
+  br label %proto_item_set_hidden.exit132
 
-74:                                               ; preds = %.thread134
-  %.not.i128 = icmp eq ptr %69, null
-  br i1 %.not.i128, label %proto_item_set_hidden.exit130, label %75
+74:                                               ; preds = %.thread136
+  %.not.i130 = icmp eq ptr %69, null
+  br i1 %.not.i130, label %proto_item_set_hidden.exit132, label %75
 
 75:                                               ; preds = %74
   %76 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %77 = load ptr, ptr %76, align 8
-  %.not5.i129 = icmp eq ptr %77, null
-  br i1 %.not5.i129, label %proto_item_set_hidden.exit130, label %78
+  %.not5.i131 = icmp eq ptr %77, null
+  br i1 %.not5.i131, label %proto_item_set_hidden.exit132, label %78
 
 78:                                               ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %80 = load i32, ptr %79, align 4
   %81 = or i32 %80, 1
   store i32 %81, ptr %79, align 4
-  br label %proto_item_set_hidden.exit130
+  br label %proto_item_set_hidden.exit132
 
-proto_item_set_hidden.exit130:                    ; preds = %78, %75, %74, %72, %64
-  %.pr135 = load i32, ptr %32, align 4
-  switch i32 %.pr135, label %115 [
+proto_item_set_hidden.exit132:                    ; preds = %78, %75, %74, %72, %64
+  %.pr137 = load i32, ptr %32, align 4
+  switch i32 %.pr137, label %115 [
     i32 1, label %82
     i32 2, label %82
     i32 5, label %82
   ]
 
-82:                                               ; preds = %proto_item_set_hidden.exit130, %proto_item_set_hidden.exit130, %proto_item_set_hidden.exit130
+82:                                               ; preds = %proto_item_set_hidden.exit132, %proto_item_set_hidden.exit132, %proto_item_set_hidden.exit132
   %83 = load i32, ptr @hf_pref_cw_len, align 4
-  %.off124 = add nsw i32 %.pr135, -1
+  %.off124 = add nsw i32 %.pr137, -1
   %switch125 = icmp samesign ult i32 %.off124, 2
   %84 = load i32, ptr @hf_pref_cw_rsvlen, align 4
   br i1 %switch125, label %85, label %87
@@ -624,12 +624,12 @@ thread-pre-split139:                              ; preds = %111, %108
 115:                                              ; preds = %thread-pre-split139, %proto_item_set_hidden.exit130
   %116 = phi i32 [ %.pr140, %thread-pre-split139 ], [ %.pr135, %proto_item_set_hidden.exit130 ]
   %117 = load i32, ptr @hf_cw_seq, align 4
-  %switch.tableidx = add i32 %116, -3
-  %118 = icmp ult i32 %switch.tableidx, 4
+  %.off126 = add i32 %116, -3
+  %switch127 = icmp ult i32 %.off126, 4
   br i1 %118, label %switch.lookup, label %switch.edge
 
-switch.lookup:                                    ; preds = %115
-  %119 = zext nneg i32 %switch.tableidx to i64
+switch.lookup:; preds = %115
+  %119 = zext nneg i32 %.off126 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_control_word, i64 %119
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %switch.edge
@@ -638,9 +638,9 @@ switch.edge:                                      ; preds = %115, %switch.lookup
   %120 = phi i32 [ %switch.load, %switch.lookup ], [ 2, %115 ]
   %121 = tail call ptr @proto_tree_add_item(ptr noundef %16, i32 noundef %117, ptr noundef %0, i32 noundef %120, i32 noundef 2, i32 noundef 0)
   %122 = load i32, ptr %32, align 4
-  %.off126 = add i32 %122, -3
-  %switch127 = icmp ult i32 %.off126, 2
-  br i1 %switch127, label %123, label %130
+  %.off128 = add i32 %122, -3
+  %switch129 = icmp ult i32 %.off128, 2
+  br i1 %switch129, label %123, label %130
 
 123:                                              ; preds = %switch.edge
   %124 = load i32, ptr @hf_gen_cw_atmbyte, align 4
