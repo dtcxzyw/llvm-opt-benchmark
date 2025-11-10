@@ -2243,7 +2243,7 @@ define dso_local void @_ZN4llvm17DbgVariableRecord25replaceVariableLocationOpEjP
   tail call void @_ZN4llvm14DebugValueUser17untrackDebugValueEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0) #18
   store ptr %18, ptr %5, align 8, !tbaa !45
   tail call void @_ZN4llvm14DebugValueUser15trackDebugValueEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0) #18
-  br label %91
+  br label %90
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2288,11 +2288,11 @@ _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit: ; preds = %35
   %40 = load i32, ptr %39, align 8, !tbaa !101
   %41 = zext i32 %40 to i64
   %42 = icmp samesign ult i64 %indvars.iv, %41
-  br i1 %42, label %59, label %44
+  br i1 %42, label %58, label %44
 
 _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread: ; preds = %35
   %43 = icmp eq i64 %indvars.iv, 0
-  br i1 %43, label %.thread21, label %.thread
+  br i1 %43, label %.thread21, label %.sink.split.i
 
 44:                                               ; preds = %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit
   %45 = getelementptr inbounds nuw i8, ptr %36, i64 128
@@ -2300,108 +2300,102 @@ _ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread: ; preds =
   %47 = load ptr, ptr %46, align 8, !tbaa !102
   br label %.sink.split.i
 
-.thread:                                          ; preds = %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread
-  %48 = add i8 %37, -36
-  %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %48, -31
-  call void @llvm.assume(i1 %switch.i.i.i.i.i.i.i.i.i)
-  br label %.sink.split.i
-
-.sink.split.i:                                    ; preds = %.thread, %44
-  %.sink16.i = phi ptr [ %47, %44 ], [ %36, %.thread ]
-  %49 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
-  %50 = load ptr, ptr %49, align 8, !tbaa !104
-  %51 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %50) #18
-  %52 = load ptr, ptr %4, align 8, !tbaa !60
-  %53 = load i32, ptr %21, align 8, !tbaa !101
-  %54 = zext i32 %53 to i64
-  %55 = call noundef ptr @_ZN4llvm9DIArgList3getERNS_11LLVMContextENS_8ArrayRefIPNS_15ValueAsMetadataEEE(ptr noundef nonnull align 8 dereferenceable(8) %51, ptr %52, i64 %54) #18
+.sink.split.i:                                    ; preds = %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread, %44
+  %.sink16.i = phi ptr [ %47, %44 ], [ %36, %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread ]
+  %48 = getelementptr inbounds nuw i8, ptr %.sink16.i, i64 128
+  %49 = load ptr, ptr %48, align 8, !tbaa !104
+  %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(24) %49) #18
+  %51 = load ptr, ptr %4, align 8, !tbaa !60
+  %52 = load i32, ptr %21, align 8, !tbaa !101
+  %53 = zext i32 %52 to i64
+  %54 = call noundef ptr @_ZN4llvm9DIArgList3getERNS_11LLVMContextENS_8ArrayRefIPNS_15ValueAsMetadataEEE(ptr noundef nonnull align 8 dereferenceable(8) %50, ptr %51, i64 %53) #18
   call void @_ZN4llvm14DebugValueUser17untrackDebugValueEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0) #18
-  store ptr %55, ptr %5, align 8, !tbaa !45
+  store ptr %54, ptr %5, align 8, !tbaa !45
   call void @_ZN4llvm14DebugValueUser15trackDebugValueEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0) #18
-  %56 = load ptr, ptr %4, align 8, !tbaa !60
-  %57 = icmp eq ptr %56, %20
-  br i1 %57, label %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit, label %58
+  %55 = load ptr, ptr %4, align 8, !tbaa !60
+  %56 = icmp eq ptr %55, %20
+  br i1 %56, label %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit, label %57
 
-58:                                               ; preds = %.sink.split.i
-  call void @free(ptr noundef %56) #18
+57:                                               ; preds = %.sink.split.i
+  call void @free(ptr noundef %55) #18
   br label %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %.sink.split.i, %58
+_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit: ; preds = %.sink.split.i, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %91
+  br label %90
 
-59:                                               ; preds = %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit
-  %60 = icmp eq i64 %indvars.iv, %33
-  br i1 %60, label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16, label %61
+58:                                               ; preds = %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit
+  %59 = icmp eq i64 %indvars.iv, %33
+  br i1 %59, label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16, label %60
 
 .thread21:                                        ; preds = %_ZNK4llvm17DbgVariableRecord25getNumVariableLocationOpsEv.exit.thread
   br i1 %34, label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16, label %.thread22
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  %63 = load ptr, ptr %62, align 8, !tbaa !60
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
-  %65 = load ptr, ptr %64, align 8, !tbaa !102
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %62 = load ptr, ptr %61, align 8, !tbaa !60
+  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %64 = load ptr, ptr %63, align 8, !tbaa !102
   br label %.sink.split.i10
 
 .thread22:                                        ; preds = %.thread21
-  %66 = add i8 %37, -5
-  %switch.i.i.i.i.i.i.i.i.i9 = icmp ult i8 %66, 31
+  %65 = add i8 %37, -5
+  %switch.i.i.i.i.i.i.i.i.i9 = icmp ult i8 %65, 31
   br i1 %switch.i.i.i.i.i.i.i.i.i9, label %_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13, label %.sink.split.i10
 
-.sink.split.i10:                                  ; preds = %.thread22, %61
-  %.sink16.i11 = phi ptr [ %65, %61 ], [ %36, %.thread22 ]
-  %67 = getelementptr inbounds nuw i8, ptr %.sink16.i11, i64 128
-  %68 = load ptr, ptr %67, align 8, !tbaa !104
+.sink.split.i10:                                  ; preds = %.thread22, %60
+  %.sink16.i11 = phi ptr [ %64, %60 ], [ %36, %.thread22 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sink16.i11, i64 128
+  %67 = load ptr, ptr %66, align 8, !tbaa !104
   br label %_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13
 
 _ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13: ; preds = %.thread22, %.sink.split.i10
-  %.0.i12 = phi ptr [ null, %.thread22 ], [ %68, %.sink.split.i10 ]
-  %69 = load i8, ptr %.0.i12, align 8, !tbaa !120
-  %70 = icmp eq i8 %69, 24
-  br i1 %70, label %71, label %76
+  %.0.i12 = phi ptr [ null, %.thread22 ], [ %67, %.sink.split.i10 ]
+  %68 = load i8, ptr %.0.i12, align 8, !tbaa !120
+  %69 = icmp eq i8 %68, 24
+  br i1 %69, label %70, label %75
 
-71:                                               ; preds = %_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !26
-  %74 = load i8, ptr %73, align 4, !tbaa !99
-  %75 = add i8 %74, -1
-  %spec.select.i.i.i.i.i.i.i.i.i14 = icmp ult i8 %75, 2
-  %spec.select.i.i.i15 = select i1 %spec.select.i.i.i.i.i.i.i.i.i14, ptr %73, ptr null
+70:                                               ; preds = %_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 24
+  %72 = load ptr, ptr %71, align 8, !tbaa !26
+  %73 = load i8, ptr %72, align 4, !tbaa !99
+  %74 = add i8 %73, -1
+  %spec.select.i.i.i.i.i.i.i.i.i14 = icmp ult i8 %74, 2
+  %spec.select.i.i.i15 = select i1 %spec.select.i.i.i.i.i.i.i.i.i14, ptr %72, ptr null
   br label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16
 
-76:                                               ; preds = %_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13
-  %77 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %.0.i12) #18
+75:                                               ; preds = %_ZNK4llvm17DbgVariableRecord21getVariableLocationOpEj.exit13
+  %76 = call noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef nonnull %.0.i12) #18
   br label %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16
 
-_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16:      ; preds = %76, %71, %.thread21, %59
-  %78 = phi ptr [ %32, %59 ], [ %32, %.thread21 ], [ %spec.select.i.i.i15, %71 ], [ %77, %76 ]
-  %79 = load i32, ptr %21, align 8, !tbaa !101
-  %80 = load i32, ptr %22, align 4, !tbaa !121
-  %.not.i.i.not.i = icmp ult i32 %79, %80
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit, label %81, !prof !122
+_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16:      ; preds = %75, %70, %.thread21, %58
+  %77 = phi ptr [ %32, %58 ], [ %32, %.thread21 ], [ %spec.select.i.i.i15, %70 ], [ %76, %75 ]
+  %78 = load i32, ptr %21, align 8, !tbaa !101
+  %79 = load i32, ptr %22, align 4, !tbaa !121
+  %.not.i.i.not.i = icmp ult i32 %78, %79
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit, label %80, !prof !122
 
-81:                                               ; preds = %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16
-  %82 = zext i32 %79 to i64
-  %83 = add nuw nsw i64 %82, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %83, i64 noundef 8) #18
+80:                                               ; preds = %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16
+  %81 = zext i32 %78 to i64
+  %82 = add nuw nsw i64 %81, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %20, i64 noundef %82, i64 noundef 8) #18
   %.pre.i = load i32, ptr %21, align 8, !tbaa !101
   br label %_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit: ; preds = %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16, %81
-  %84 = phi i32 [ %79, %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16 ], [ %.pre.i, %81 ]
-  %85 = load ptr, ptr %4, align 8, !tbaa !60
-  %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw ptr, ptr %85, i64 %86
-  %88 = ptrtoint ptr %78 to i64
-  store i64 %88, ptr %87, align 1
-  %89 = load i32, ptr %21, align 8, !tbaa !101
-  %90 = add i32 %89, 1
-  store i32 %90, ptr %21, align 8, !tbaa !101
+_ZN4llvm23SmallVectorTemplateBaseIPNS_15ValueAsMetadataELb1EE9push_backES2_.exit: ; preds = %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16, %80
+  %83 = phi i32 [ %78, %_ZN4llvmL13getAsMetadataEPNS_5ValueE.exit16 ], [ %.pre.i, %80 ]
+  %84 = load ptr, ptr %4, align 8, !tbaa !60
+  %85 = zext i32 %83 to i64
+  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
+  %87 = ptrtoint ptr %77 to i64
+  store i64 %87, ptr %86, align 1
+  %88 = load i32, ptr %21, align 8, !tbaa !101
+  %89 = add i32 %88, 1
+  store i32 %89, ptr %21, align 8, !tbaa !101
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %35, !llvm.loop !123
 
-91:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit, %17
+90:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_15ValueAsMetadataELj4EED2Ev.exit, %17
   ret void
 }
 

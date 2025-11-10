@@ -33590,7 +33590,6 @@ _ZN5clang4Decl14getDeclContextEv.exit.i.us:       ; preds = %57, %52
   %.sroa.020.2.ph.i.us = phi i32 [ undef, %64 ], [ %.028.i.us, %.lr.ph.i.us ]
   %75 = zext i32 %.sroa.020.2.ph.i.us to i64
   %76 = or disjoint i64 %75, 4294967296
-  call void @llvm.assume(i1 %.not15.i.us)
   br label %_ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit.us
 
 _ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit.us: ; preds = %._crit_edge.loopexit.i.us, %_ZN5clang4Decl14getDeclContextEv.exit.i.us
@@ -33650,7 +33649,6 @@ _ZN5clang4Decl14getDeclContextEv.exit.i66.us:     ; preds = %82, %_ZN5clang11AST
   %.sroa.020.2.ph.i80.us = phi i32 [ undef, %89 ], [ %.028.i73.us, %.lr.ph.i71.us ]
   %100 = zext i32 %.sroa.020.2.ph.i80.us to i64
   %101 = or disjoint i64 %100, 4294967296
-  call void @llvm.assume(i1 %.not15.i74.us)
   br label %_ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit81.us
 
 _ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit81.us: ; preds = %._crit_edge.loopexit.i79.us, %_ZN5clang4Decl14getDeclContextEv.exit.i66.us
@@ -34598,7 +34596,6 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %1, %7
   %.sroa.020.2.ph = phi i32 [ %.028, %.lr.ph ], [ undef, %14 ]
   %25 = zext i32 %.sroa.020.2.ph to i64
   %26 = or disjoint i64 %25, 4294967296
-  tail call void @llvm.assume(i1 %.not15)
   br label %27
 
 27:                                               ; preds = %_ZN5clang4Decl14getDeclContextEv.exit, %._crit_edge.loopexit
@@ -34755,7 +34752,6 @@ _ZN5clang4Decl14getDeclContextEv.exit.i:          ; preds = %52, %47
   %.sroa.020.2.ph.i = phi i32 [ undef, %59 ], [ %.028.i, %.lr.ph.i ]
   %70 = zext i32 %.sroa.020.2.ph.i to i64
   %71 = or disjoint i64 %70, 4294967296
-  call void @llvm.assume(i1 %.not15.i)
   br label %_ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit
 
 _ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.i, %._crit_edge.loopexit.i
@@ -34815,7 +34811,6 @@ _ZN5clang4Decl14getDeclContextEv.exit.i59:        ; preds = %77, %_ZN5clang11AST
   %.sroa.020.2.ph.i73 = phi i32 [ undef, %84 ], [ %.028.i66, %.lr.ph.i64 ]
   %95 = zext i32 %.sroa.020.2.ph.i73 to i64
   %96 = or disjoint i64 %95, 4294967296
-  call void @llvm.assume(i1 %.not15.i67)
   br label %_ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit74
 
 _ZN5clang11ASTImporter13getFieldIndexEPNS_4DeclE.exit74: ; preds = %_ZN5clang4Decl14getDeclContextEv.exit.i59, %._crit_edge.loopexit.i72

@@ -35439,8 +35439,6 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6a
   br label %47
 
 78:                                               ; preds = %71
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %79 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %80 = load i8, ptr %79, align 1, !noalias !12016, !noundef !3
   %81 = icmp sgt i8 %80, -1
@@ -35745,8 +35743,6 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %20
 
 52:                                               ; preds = %45
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  tail call void @llvm.assume(i1 %cond.i.i)
   %53 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %54 = load i8, ptr %53, align 1, !noalias !12116, !noundef !3
   %55 = icmp sgt i8 %54, -1
@@ -35945,8 +35941,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %14
 
 46:                                               ; preds = %39
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %47 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %48 = load i8, ptr %47, align 1, !noundef !3
   %49 = icmp sgt i8 %48, -1
@@ -36075,8 +36069,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %17
 
 48:                                               ; preds = %41
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %49 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %50 = load i8, ptr %49, align 1, !noundef !3
   %51 = icmp sgt i8 %50, -1
@@ -36200,8 +36192,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %17
 
 48:                                               ; preds = %41
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %49 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %50 = load i8, ptr %49, align 1, !noundef !3
   %51 = icmp sgt i8 %50, -1

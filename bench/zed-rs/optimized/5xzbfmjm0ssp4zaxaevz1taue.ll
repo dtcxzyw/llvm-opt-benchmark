@@ -2842,8 +2842,6 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
   br label %233
 
 264:                                              ; preds = %258
-  %cond.i.i.i = icmp ne i64 %.sroa.01.1.i.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i.i)
   %265 = getelementptr inbounds i8, ptr %.val.i.i, i64 %.sroa.6.1.i.i.i
   %266 = load i8, ptr %265, align 1, !noundef !7
   %267 = icmp sgt i8 %266, -1
@@ -3098,8 +3096,6 @@ select.unfold179:                                 ; preds = %187, %._crit_edge.i
   br label %335
 
 365:                                              ; preds = %359
-  %cond.i.i.i122 = icmp ne i64 %.sroa.01.1.i.i.i120, 0
-  call void @llvm.assume(i1 %cond.i.i.i122)
   %366 = getelementptr inbounds i8, ptr %.val.i.i101, i64 %.sroa.6.1.i.i.i119
   %367 = load i8, ptr %366, align 1, !noalias !614, !noundef !7
   %368 = icmp sgt i8 %367, -1
@@ -4464,8 +4460,6 @@ define hidden { ptr, ptr } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br label %18
 
 49:                                               ; preds = %43
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  tail call void @llvm.assume(i1 %cond.i.i)
   %50 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %51 = load i8, ptr %50, align 1, !noalias !971, !noundef !7
   %52 = icmp sgt i8 %51, -1

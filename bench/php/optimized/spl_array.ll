@@ -1655,112 +1655,110 @@ instanceof_function.exit.thread:                  ; preds = %32, %instanceof_fun
   %.0107 = phi ptr [ %62, %.lr.ph ], [ %0, %54 ]
   %61 = getelementptr inbounds nuw i8, ptr %.0107, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !4
-  %63 = icmp ne ptr %62, null
-  %.not82 = xor i1 %63, true
-  %64 = icmp eq ptr %62, %55
-  %or.cond = or i1 %64, %.not82
-  %65 = icmp eq ptr %62, %56
-  %or.cond85 = select i1 %or.cond, i1 true, i1 %65
-  %66 = icmp eq ptr %62, %57
-  %or.cond87 = select i1 %or.cond85, i1 true, i1 %66
+  %.not123 = icmp eq ptr %62, null
+  %63 = icmp eq ptr %62, %55
+  %or.cond = or i1 %63, %.not123
+  %64 = icmp eq ptr %62, %56
+  %or.cond85 = select i1 %or.cond, i1 true, i1 %64
+  %65 = icmp eq ptr %62, %57
+  %or.cond87 = select i1 %or.cond85, i1 true, i1 %65
   br i1 %or.cond87, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  tail call void @llvm.assume(i1 %63)
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %68 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %67, ptr noundef nonnull @.str.32, i64 noundef 9) #13
-  %.not.i = icmp eq ptr %68, null
-  br i1 %.not.i, label %zend_hash_str_find_ptr.exit, label %69
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %67 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %66, ptr noundef nonnull @.str.32, i64 noundef 9) #13
+  %.not.i = icmp eq ptr %67, null
+  br i1 %.not.i, label %zend_hash_str_find_ptr.exit, label %68
 
-69:                                               ; preds = %._crit_edge
-  %70 = load ptr, ptr %68, align 8, !tbaa !4, !nonnull !42, !noundef !42
+68:                                               ; preds = %._crit_edge
+  %69 = load ptr, ptr %67, align 8, !tbaa !4, !nonnull !42, !noundef !42
   br label %zend_hash_str_find_ptr.exit
 
-zend_hash_str_find_ptr.exit:                      ; preds = %._crit_edge, %69
-  %.0.i = phi ptr [ %70, %69 ], [ null, %._crit_edge ]
-  %71 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %.0.i, ptr %71, align 8, !tbaa !23
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %73 = load ptr, ptr %72, align 8, !tbaa !4
-  %74 = icmp eq ptr %73, %62
-  %spec.store.select = select i1 %74, ptr null, ptr %.0.i
-  store ptr %spec.store.select, ptr %71, align 8
-  %75 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %67, ptr noundef nonnull @.str.33, i64 noundef 9) #13
-  %.not.i92 = icmp eq ptr %75, null
-  br i1 %.not.i92, label %zend_hash_str_find_ptr.exit94, label %76
+zend_hash_str_find_ptr.exit:                      ; preds = %._crit_edge, %68
+  %.0.i = phi ptr [ %69, %68 ], [ null, %._crit_edge ]
+  %70 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store ptr %.0.i, ptr %70, align 8, !tbaa !23
+  %71 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !4
+  %73 = icmp eq ptr %72, %62
+  %spec.store.select = select i1 %73, ptr null, ptr %.0.i
+  store ptr %spec.store.select, ptr %70, align 8
+  %74 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %66, ptr noundef nonnull @.str.33, i64 noundef 9) #13
+  %.not.i92 = icmp eq ptr %74, null
+  br i1 %.not.i92, label %zend_hash_str_find_ptr.exit94, label %75
 
-76:                                               ; preds = %zend_hash_str_find_ptr.exit
-  %77 = load ptr, ptr %75, align 8, !tbaa !4, !nonnull !42, !noundef !42
+75:                                               ; preds = %zend_hash_str_find_ptr.exit
+  %76 = load ptr, ptr %74, align 8, !tbaa !4, !nonnull !42, !noundef !42
   br label %zend_hash_str_find_ptr.exit94
 
-zend_hash_str_find_ptr.exit94:                    ; preds = %zend_hash_str_find_ptr.exit, %76
-  %.0.i93 = phi ptr [ %77, %76 ], [ null, %zend_hash_str_find_ptr.exit ]
-  %78 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  store ptr %.0.i93, ptr %78, align 8, !tbaa !46
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i93, i64 16
-  %80 = load ptr, ptr %79, align 8, !tbaa !4
-  %81 = icmp eq ptr %80, %62
-  %spec.store.select90 = select i1 %81, ptr null, ptr %.0.i93
-  store ptr %spec.store.select90, ptr %78, align 8
-  %82 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %67, ptr noundef nonnull @.str.34, i64 noundef 12) #13
-  %.not.i95 = icmp eq ptr %82, null
-  br i1 %.not.i95, label %zend_hash_str_find_ptr.exit97, label %83
+zend_hash_str_find_ptr.exit94:                    ; preds = %zend_hash_str_find_ptr.exit, %75
+  %.0.i93 = phi ptr [ %76, %75 ], [ null, %zend_hash_str_find_ptr.exit ]
+  %77 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  store ptr %.0.i93, ptr %77, align 8, !tbaa !46
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i93, i64 16
+  %79 = load ptr, ptr %78, align 8, !tbaa !4
+  %80 = icmp eq ptr %79, %62
+  %spec.store.select90 = select i1 %80, ptr null, ptr %.0.i93
+  store ptr %spec.store.select90, ptr %77, align 8
+  %81 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %66, ptr noundef nonnull @.str.34, i64 noundef 12) #13
+  %.not.i95 = icmp eq ptr %81, null
+  br i1 %.not.i95, label %zend_hash_str_find_ptr.exit97, label %82
 
-83:                                               ; preds = %zend_hash_str_find_ptr.exit94
-  %84 = load ptr, ptr %82, align 8, !tbaa !4, !nonnull !42, !noundef !42
+82:                                               ; preds = %zend_hash_str_find_ptr.exit94
+  %83 = load ptr, ptr %81, align 8, !tbaa !4, !nonnull !42, !noundef !42
   br label %zend_hash_str_find_ptr.exit97
 
-zend_hash_str_find_ptr.exit97:                    ; preds = %zend_hash_str_find_ptr.exit94, %83
-  %.0.i96 = phi ptr [ %84, %83 ], [ null, %zend_hash_str_find_ptr.exit94 ]
-  %85 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store ptr %.0.i96, ptr %85, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i96, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !4
-  %88 = icmp eq ptr %87, %62
-  %spec.store.select88 = select i1 %88, ptr null, ptr %.0.i96
-  store ptr %spec.store.select88, ptr %85, align 8
-  %89 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %67, ptr noundef nonnull @.str.35, i64 noundef 11) #13
-  %.not.i98 = icmp eq ptr %89, null
-  br i1 %.not.i98, label %zend_hash_str_find_ptr.exit100, label %90
+zend_hash_str_find_ptr.exit97:                    ; preds = %zend_hash_str_find_ptr.exit94, %82
+  %.0.i96 = phi ptr [ %83, %82 ], [ null, %zend_hash_str_find_ptr.exit94 ]
+  %84 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  store ptr %.0.i96, ptr %84, align 8, !tbaa !10
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i96, i64 16
+  %86 = load ptr, ptr %85, align 8, !tbaa !4
+  %87 = icmp eq ptr %86, %62
+  %spec.store.select88 = select i1 %87, ptr null, ptr %.0.i96
+  store ptr %spec.store.select88, ptr %84, align 8
+  %88 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %66, ptr noundef nonnull @.str.35, i64 noundef 11) #13
+  %.not.i98 = icmp eq ptr %88, null
+  br i1 %.not.i98, label %zend_hash_str_find_ptr.exit100, label %89
 
-90:                                               ; preds = %zend_hash_str_find_ptr.exit97
-  %91 = load ptr, ptr %89, align 8, !tbaa !4, !nonnull !42, !noundef !42
+89:                                               ; preds = %zend_hash_str_find_ptr.exit97
+  %90 = load ptr, ptr %88, align 8, !tbaa !4, !nonnull !42, !noundef !42
   br label %zend_hash_str_find_ptr.exit100
 
-zend_hash_str_find_ptr.exit100:                   ; preds = %zend_hash_str_find_ptr.exit97, %90
-  %.0.i99 = phi ptr [ %91, %90 ], [ null, %zend_hash_str_find_ptr.exit97 ]
-  %92 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  store ptr %.0.i99, ptr %92, align 8, !tbaa !51
-  %93 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 16
-  %94 = load ptr, ptr %93, align 8, !tbaa !4
-  %95 = icmp eq ptr %94, %62
-  %spec.store.select91 = select i1 %95, ptr null, ptr %.0.i99
-  store ptr %spec.store.select91, ptr %92, align 8
-  %96 = load ptr, ptr @zend_known_strings, align 8, !tbaa !92
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 576
-  %98 = load ptr, ptr %97, align 8, !tbaa !94
-  %99 = tail call ptr @zend_hash_find(ptr noundef nonnull %67, ptr noundef %98) #13
-  %.not.i101 = icmp eq ptr %99, null
-  br i1 %.not.i101, label %zend_hash_find_ptr.exit, label %100
+zend_hash_str_find_ptr.exit100:                   ; preds = %zend_hash_str_find_ptr.exit97, %89
+  %.0.i99 = phi ptr [ %90, %89 ], [ null, %zend_hash_str_find_ptr.exit97 ]
+  %91 = getelementptr inbounds nuw i8, ptr %14, i64 72
+  store ptr %.0.i99, ptr %91, align 8, !tbaa !51
+  %92 = getelementptr inbounds nuw i8, ptr %.0.i99, i64 16
+  %93 = load ptr, ptr %92, align 8, !tbaa !4
+  %94 = icmp eq ptr %93, %62
+  %spec.store.select91 = select i1 %94, ptr null, ptr %.0.i99
+  store ptr %spec.store.select91, ptr %91, align 8
+  %95 = load ptr, ptr @zend_known_strings, align 8, !tbaa !92
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 576
+  %97 = load ptr, ptr %96, align 8, !tbaa !94
+  %98 = tail call ptr @zend_hash_find(ptr noundef nonnull %66, ptr noundef %97) #13
+  %.not.i101 = icmp eq ptr %98, null
+  br i1 %.not.i101, label %zend_hash_find_ptr.exit, label %99
 
-100:                                              ; preds = %zend_hash_str_find_ptr.exit100
-  %101 = load ptr, ptr %99, align 8, !tbaa !4, !nonnull !42, !noundef !42
+99:                                               ; preds = %zend_hash_str_find_ptr.exit100
+  %100 = load ptr, ptr %98, align 8, !tbaa !4, !nonnull !42, !noundef !42
   br label %zend_hash_find_ptr.exit
 
-zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit100, %100
-  %.0.i102 = phi ptr [ %101, %100 ], [ null, %zend_hash_str_find_ptr.exit100 ]
-  %102 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store ptr %.0.i102, ptr %102, align 8, !tbaa !95
-  %103 = getelementptr inbounds nuw i8, ptr %.0.i102, i64 16
-  %104 = load ptr, ptr %103, align 8, !tbaa !4
-  %105 = icmp eq ptr %104, %62
-  %spec.store.select89 = select i1 %105, ptr null, ptr %.0.i102
-  store ptr %spec.store.select89, ptr %102, align 8
+zend_hash_find_ptr.exit:                          ; preds = %zend_hash_str_find_ptr.exit100, %99
+  %.0.i102 = phi ptr [ %100, %99 ], [ null, %zend_hash_str_find_ptr.exit100 ]
+  %101 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  store ptr %.0.i102, ptr %101, align 8, !tbaa !95
+  %102 = getelementptr inbounds nuw i8, ptr %.0.i102, i64 16
+  %103 = load ptr, ptr %102, align 8, !tbaa !4
+  %104 = icmp eq ptr %103, %62
+  %spec.store.select89 = select i1 %104, ptr null, ptr %.0.i102
+  store ptr %spec.store.select89, ptr %101, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %54, %zend_hash_find_ptr.exit
-  %106 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  store i32 -1, ptr %106, align 8, !tbaa !52
+  %105 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  store i32 -1, ptr %105, align 8, !tbaa !52
   ret ptr %15
 }
 

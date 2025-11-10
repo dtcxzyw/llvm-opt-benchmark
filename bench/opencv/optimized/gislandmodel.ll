@@ -16062,8 +16062,8 @@ define void @_ZN2cv5gimpl12GIslandModel10producerOfERKN3ade15ConstTypedGraphIJNS
   %20 = load ptr, ptr %.sroa.097.0165, align 8, !tbaa !225, !noalias !585
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.097.0165, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !11, !noalias !585
-  %.not.i.i.i.i.i.i.i = icmp ne ptr %22, null
-  br i1 %.not.i.i.i.i.i.i.i, label %23, label %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit
+  %.not.i.i.i.i.i.i.i.not = icmp eq ptr %22, null
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade4util5Range13IterableRangeINS1_8MapRangeINS1_9IterRangeIN9__gnu_cxx17__normal_iteratorIPKSt10shared_ptrINS_4NodeEESt6vectorIS9_SaIS9_EEEESF_EENS_5Graph12HandleMapperEEEE8iteratordeEv.exit, label %23
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -16181,7 +16181,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i: ; preds = %66, %
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8, !noalias !595
   call void %72(ptr noundef nonnull align 8 dereferenceable(16) %59) #30, !noalias !595
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 73:                                               ; preds = %53, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -16274,7 +16274,7 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
   %110 = inttoptr i64 %109 to ptr
   store ptr %20, ptr %6, align 8, !tbaa !134, !noalias !597
   store ptr %22, ptr %17, align 8, !tbaa !41, !noalias !597
-  br i1 %.not.i.i.i.i.i.i.i, label %111, label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i17
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEEC2ERKS2_.exit.i17, label %111
 
 111:                                              ; preds = %108
   %112 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -16362,7 +16362,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i20: ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
   %150 = load ptr, ptr %149, align 8, !noalias !597
   call void %150(ptr noundef nonnull align 8 dereferenceable(16) %137) #30, !noalias !597
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 151:                                              ; preds = %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i25, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -16450,7 +16450,6 @@ _ZNKSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Met
 
 185:                                              ; preds = %.loopexit105
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i)
   %186 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %187 = load atomic i32, ptr %186 monotonic, align 8, !noalias !600
   br label %188
@@ -16681,32 +16680,32 @@ _ZN3ade6HandleINS_4EdgeEED2Ev.exit6.i:            ; preds = %281, %_ZN9__gnu_cxx
 .loopexit109:                                     ; preds = %78
   %lpad.loopexit111 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 .loopexit.split-lp110.loopexit:                   ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i
   %lpad.loopexit114 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 .loopexit.split-lp110.loopexit.split-lp:          ; preds = %81
   %lpad.loopexit.split-lp115 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 .loopexit:                                        ; preds = %156
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZNKSt8__detail15_Hashtable_baseIN3ade7details10MetadataIdESt4pairIKS3_St10unique_ptrINS2_8Metadata18MetadataHolderBaseESt14default_deleteIS8_EEENS_10_Select1stESt8equal_toIS3_ENS7_6IdHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS5_mRKNS_16_Hash_node_valueISC_Lb1EEE.exit.i.i.i.i.i.i38
   %lpad.loopexit106 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %159
   %lpad.loopexit.split-lp107 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 286:                                              ; preds = %213
   %287 = landingpad { ptr, i32 }
@@ -16729,7 +16728,7 @@ _ZN3ade6HandleINS_4EdgeEED2Ev.exit6.i:            ; preds = %281, %_ZN9__gnu_cxx
   br label %.critedge
 
 291:                                              ; preds = %.loopexit113, %.loopexit105
-  br i1 %.not.i.i.i.i.i.i.i, label %292, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit, label %292
 
 292:                                              ; preds = %291
   %293 = getelementptr inbounds nuw i8, ptr %22, i64 12
@@ -16766,7 +16765,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit:               ; preds = %291, %_ZN9__gnu_cxx
 
 .body:                                            ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i20, %135, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i, %57
   %.pn = phi { ptr, i32 } [ %58, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i ], [ %58, %57 ], [ %136, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i6.i20 ], [ %136, %135 ]
-  br i1 %.not.i.i.i.i.i.i.i, label %.body.thread, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76
+  br i1 %.not.i.i.i.i.i.i.i.not, label %_ZN3ade6HandleINS_4NodeEED2Ev.exit76, label %.body.thread
 
 .body.thread:                                     ; preds = %286, %.body69, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit, %.loopexit.split-lp110.loopexit.split-lp, %.loopexit.split-lp110.loopexit, %.loopexit109, %147, %69, %.body
   %.pn221 = phi { ptr, i32 } [ %.pn, %.body ], [ %58, %69 ], [ %136, %147 ], [ %lpad.loopexit111, %.loopexit109 ], [ %lpad.loopexit114, %.loopexit.split-lp110.loopexit ], [ %lpad.loopexit.split-lp115, %.loopexit.split-lp110.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit106, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp107, %.loopexit.split-lp.loopexit.split-lp ], [ %287, %286 ], [ %eh.lpad-body70, %.body69 ]

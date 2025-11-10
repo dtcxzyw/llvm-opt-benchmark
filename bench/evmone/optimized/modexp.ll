@@ -5663,7 +5663,6 @@ _ZN4intx8internal9normalizeILj320ELj128EEENS0_19normalized_div_argsIXT_EXT0_EEER
 
 _ZN4intx8internal9normalizeILj320ELj128EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %62, %68
   %70 = phi i32 [ %storemerge.i.lcssa31, %62 ], [ %69, %68 ]
-  tail call void @llvm.assume(i1 %.not55.not.not.not)
   %71 = icmp sgt i32 %70, -1
   tail call void @llvm.assume(i1 %71)
   %.not = icmp samesign ugt i32 %70, %storemerge51.i.lcssa33
@@ -7601,7 +7600,6 @@ _ZN4intx8internal9normalizeILj576ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEER
 
 _ZN4intx8internal9normalizeILj576ELj256EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
   %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
-  tail call void @llvm.assume(i1 %.not60.not.not.not)
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -9472,7 +9470,6 @@ _ZN4intx8internal9normalizeILj1088ELj512EEENS0_19normalized_div_argsIXT_EXT0_EEE
 
 _ZN4intx8internal9normalizeILj1088ELj512EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
   %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
-  tail call void @llvm.assume(i1 %.not60.not.not.not)
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -11486,7 +11483,6 @@ _ZN4intx8internal9normalizeILj2112ELj1024EEENS0_19normalized_div_argsIXT_EXT0_EE
 
 _ZN4intx8internal9normalizeILj2112ELj1024EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
   %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
-  tail call void @llvm.assume(i1 %.not60.not.not.not)
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -13500,7 +13496,6 @@ _ZN4intx8internal9normalizeILj4160ELj2048EEENS0_19normalized_div_argsIXT_EXT0_EE
 
 _ZN4intx8internal9normalizeILj4160ELj2048EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
   %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
-  tail call void @llvm.assume(i1 %.not60.not.not.not)
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34
@@ -15514,7 +15509,6 @@ _ZN4intx8internal9normalizeILj16448ELj8192EEENS0_19normalized_div_argsIXT_EXT0_E
 
 _ZN4intx8internal9normalizeILj16448ELj8192EEENS0_19normalized_div_argsIXT_EXT0_EEERKNS_4uintIXT_EEERKNS4_IXT0_EEE.exit: ; preds = %66, %72
   %74 = phi i32 [ %storemerge.i.lcssa32, %66 ], [ %73, %72 ]
-  tail call void @llvm.assume(i1 %.not60.not.not.not)
   %75 = icmp sgt i32 %74, -1
   tail call void @llvm.assume(i1 %75)
   %.not = icmp samesign ugt i32 %74, %storemerge51.i.lcssa34

@@ -16115,8 +16115,8 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat15getExactLog2AbsEv(ptr 
   %.02039 = phi i32 [ %39, %38 ], [ 0, %.critedge ]
   %30 = getelementptr inbounds nuw i64, ptr %.0.i.i, i64 %indvars.iv47
   %31 = load i64, ptr %30, align 8, !tbaa !36
-  %.not30.not.not.not.not = icmp ne i64 %31, 0
-  br i1 %.not30.not.not.not.not, label %32, label %38
+  %.not30.not.not.not = icmp eq i64 %31, 0
+  br i1 %.not30.not.not.not, label %38, label %32
 
 32:                                               ; preds = %.preheader
   %33 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %31, i1 true)
@@ -16125,21 +16125,16 @@ define dso_local noundef i32 @_ZNK4llvm6detail9IEEEFloat15getExactLog2AbsEv(ptr 
   %35 = add i32 %reass.sub, 1
   %36 = add i32 %35, %.02039
   %37 = add i32 %36, %34
-  br label %.loopexit
+  br label %.loopexit33
 
 38:                                               ; preds = %.preheader
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %39 = add nuw i32 %.02039, 64
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count
-  br i1 %exitcond51.not, label %.loopexit, label %.preheader, !llvm.loop !440
+  br i1 %exitcond51.not, label %.loopexit33, label %.preheader, !llvm.loop !440
 
-.loopexit:                                        ; preds = %38, %32
-  %.3 = phi i32 [ %37, %32 ], [ -2147483648, %38 ]
-  tail call void @llvm.assume(i1 %.not30.not.not.not.not)
-  br label %.loopexit33
-
-.loopexit33:                                      ; preds = %19, %.loopexit, %.critedge, %1
-  %.024 = phi i32 [ -2147483648, %1 ], [ %.3, %.loopexit ], [ %27, %.critedge ], [ -2147483648, %19 ]
+.loopexit33:                                      ; preds = %19, %38, %32, %.critedge, %1
+  %.024 = phi i32 [ -2147483648, %1 ], [ %27, %.critedge ], [ %37, %32 ], [ -2147483648, %38 ], [ -2147483648, %19 ]
   ret i32 %.024
 }
 

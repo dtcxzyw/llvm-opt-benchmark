@@ -515,30 +515,28 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17h06ac551774210734E.
   br label %26
 
 64:                                               ; preds = %54
-  %65 = icmp eq i64 %.sroa.01.1, 1
-  call void @llvm.assume(i1 %65)
   %.val13 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %66 = getelementptr inbounds i8, ptr %.val13, i64 %.sroa.4.1
-  %67 = load i8, ptr %66, align 1, !noundef !3
-  %68 = icmp sgt i8 %67, -1
-  br i1 %68, label %69, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit
+  %65 = getelementptr inbounds i8, ptr %.val13, i64 %.sroa.4.1
+  %66 = load i8, ptr %65, align 1, !noundef !3
+  %67 = icmp sgt i8 %66, -1
+  br i1 %67, label %68, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit
 
-69:                                               ; preds = %64
+68:                                               ; preds = %64
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817h343310b47306cbb9E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %.val13)
-  %70 = load <2 x i64>, ptr %6, align 16
-  store <2 x i64> %70, ptr %5, align 16
-  %71 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %5)
-  %72 = trunc i32 %71 to i16
-  %.not.i = icmp ne i16 %72, 0
-  %73 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %72, i1 true)
-  %74 = zext nneg i16 %73 to i64
+  %69 = load <2 x i64>, ptr %6, align 16
+  store <2 x i64> %69, ptr %5, align 16
+  %70 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h4e30675482c76e33E(ptr nonnull align 16 %5)
+  %71 = trunc i32 %70 to i16
+  %.not.i = icmp ne i16 %71, 0
+  %72 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %71, i1 true)
+  %73 = zext nneg i16 %72 to i64
   call void @llvm.assume(i1 %.not.i)
   br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit
 
-_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit: ; preds = %64, %69
-  %.0.i = phi i64 [ %74, %69 ], [ %.sroa.4.1, %64 ]
+_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit: ; preds = %64, %68
+  %.0.i = phi i64 [ %73, %68 ], [ %.sroa.4.1, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
@@ -546,9 +544,9 @@ _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit: ; pr
 .loopexit:                                        ; preds = %38, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit
   %.sroa.3.0 = phi i64 [ %.0.i, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit ], [ %41, %38 ]
   %.sroa.0.0 = phi i64 [ 1, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hb35084e813bf3b0eE.exit ], [ 0, %38 ]
-  %75 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %76 = insertvalue { i64, i64 } %75, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %76
+  %74 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %75 = insertvalue { i64, i64 } %74, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %75
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

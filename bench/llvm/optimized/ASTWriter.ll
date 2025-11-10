@@ -40530,7 +40530,6 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit300:       ; preds = %_ZN4llvm11SmallVect
   br i1 %or.cond.i.i, label %_ZN4llvm15concat_iteratorIN12_GLOBAL__N_114InputFileEntryEJN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEES9_EEppEv.exit, label %576
 
 _ZN4llvm15concat_iteratorIN12_GLOBAL__N_114InputFileEntryEJN9__gnu_cxx17__normal_iteratorIPS2_St6vectorIS2_SaIS2_EEEES9_EEppEv.exit: ; preds = %586
-  call void @llvm.assume(i1 %588)
   %.val.i.i.pre = load ptr, ptr %7, align 8
   %.val3.i.i.pre = load ptr, ptr %172, align 8, !tbaa !1081
   br label %340

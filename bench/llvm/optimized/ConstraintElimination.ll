@@ -13944,7 +13944,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit.i: ; preds
   br i1 %or.cond.i.i, label %_ZN4llvm15concat_iteratorIN12_GLOBAL__N_111DecompEntryEJPS2_S3_EEppEv.exit, label %"_ZZNK12_GLOBAL__N_114ConstraintInfo13getConstraintEN4llvm7CmpInst9PredicateEPNS1_5ValueES5_RNS1_15SmallVectorImplIS5_EEbENK3$_0clES5_.exit"
 
 _ZN4llvm15concat_iteratorIN12_GLOBAL__N_111DecompEntryEJPS2_S3_EEppEv.exit: ; preds = %239
-  call void @llvm.assume(i1 %241)
   %.val.i.i.pre = load ptr, ptr %22, align 8
   %.val3.i.i.pre = load ptr, ptr %103, align 8, !tbaa !611
   br label %117

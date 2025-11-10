@@ -7003,45 +7003,28 @@ entry:
 
 sub_0:                                            ; preds = %entry, %_ZN3irr4core6stringIcED2Ev.exit.jt0
   %.pre19 = phi ptr [ %.pre, %_ZN3irr4core6stringIcED2Ev.exit.jt0 ], [ %.pre18, %entry ]
-  %3 = phi i64 [ %9, %_ZN3irr4core6stringIcED2Ev.exit.jt0 ], [ %1, %entry ]
-  %4 = load i8, ptr %.pre19, align 1
-  %.not = icmp eq i8 %4, 123
+  %3 = load i8, ptr %.pre19, align 1
+  %.not = icmp eq i8 %3, 123
   br i1 %.not, label %sub_1, label %cleanup.jt0
 
 sub_1:                                            ; preds = %sub_0
-  %5 = getelementptr inbounds nuw i8, ptr %.pre19, i64 1
-  %6 = load i8, ptr %5, align 1
-  %7 = icmp eq i8 %6, 0
-  br i1 %7, label %cleanup.jt3, label %cleanup.jt0
+  %4 = getelementptr inbounds nuw i8, ptr %.pre19, i64 1
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %cleanup.jt3, label %cleanup.jt0
 
 cleanup.jt3:                                      ; preds = %sub_1
   %cmp.i.i.i.i.jt3 = icmp eq ptr %.pre19, %0
-  br i1 %cmp.i.i.i.i.jt3, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt3, label %if.then.i.i.i.jt3
+  br i1 %cmp.i.i.i.i.jt3, label %_ZN3irr4core6stringIcED2Ev.exit.jt3, label %if.then.i.i.i.jt3
 
 cleanup.jt0:                                      ; preds = %sub_0, %sub_1
   %cmp.i.i.i.i.jt0 = icmp eq ptr %.pre19, %0
-  br i1 %cmp.i.i.i.i.jt0, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt0, label %if.then.i.i.i.jt0
+  br i1 %cmp.i.i.i.i.jt0, label %_ZN3irr4core6stringIcED2Ev.exit.jt0, label %if.then.i.i.i.jt0
 
 cleanup.jt1:                                      ; preds = %_ZN3irr4core6stringIcED2Ev.exit.jt0, %entry
-  %.lcssa = phi i64 [ %1, %entry ], [ %9, %_ZN3irr4core6stringIcED2Ev.exit.jt0 ]
   %.pre.lcssa = phi ptr [ %.pre18, %entry ], [ %.pre, %_ZN3irr4core6stringIcED2Ev.exit.jt0 ]
   %cmp.i.i.i.i.jt1 = icmp eq ptr %.pre.lcssa, %0
-  br i1 %cmp.i.i.i.i.jt1, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt1, label %if.then.i.i.i.jt1
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt3: ; preds = %cleanup.jt3
-  %cmp3.i.i.i.i.jt3 = icmp ult i64 %3, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.jt3)
-  br label %_ZN3irr4core6stringIcED2Ev.exit.jt3
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt0: ; preds = %cleanup.jt0
-  %cmp3.i.i.i.i.jt0 = icmp ult i64 %3, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.jt0)
-  br label %_ZN3irr4core6stringIcED2Ev.exit.jt0
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt1: ; preds = %cleanup.jt1
-  %cmp3.i.i.i.i.jt1 = icmp ult i64 %.lcssa, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i.i.jt1)
-  br label %_ZN3irr4core6stringIcED2Ev.exit.jt1
+  br i1 %cmp.i.i.i.i.jt1, label %_ZN3irr4core6stringIcED2Ev.exit.jt1, label %if.then.i.i.i.jt1
 
 if.then.i.i.i.jt3:                                ; preds = %cleanup.jt3
   call void @_ZdlPv(ptr noundef nonnull %.pre19) #23
@@ -7055,23 +7038,23 @@ if.then.i.i.i.jt1:                                ; preds = %cleanup.jt1
   call void @_ZdlPv(ptr noundef %.pre.lcssa) #23
   br label %_ZN3irr4core6stringIcED2Ev.exit.jt1
 
-_ZN3irr4core6stringIcED2Ev.exit.jt3:              ; preds = %if.then.i.i.i.jt3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt3
+_ZN3irr4core6stringIcED2Ev.exit.jt3:              ; preds = %cleanup.jt3, %if.then.i.i.i.jt3
   call void @llvm.lifetime.end.p0(ptr nonnull %t)
   %_M_string_length.i.i27 = getelementptr inbounds nuw i8, ptr %t7, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %t7, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %t7, i64 16
   br label %while.cond
 
-_ZN3irr4core6stringIcED2Ev.exit.jt0:              ; preds = %if.then.i.i.i.jt0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt0
+_ZN3irr4core6stringIcED2Ev.exit.jt0:              ; preds = %cleanup.jt0, %if.then.i.i.i.jt0
   call void @llvm.lifetime.end.p0(ptr nonnull %t)
   call void @llvm.lifetime.start.p0(ptr nonnull %t)
   call void @_ZN3irr5scene16CXMeshFileLoader12getNextTokenEv(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::string") align 8 %t, ptr noundef nonnull align 8 dereferenceable(138) %this)
-  %9 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !10
-  %10 = and i64 %9, 4294967295
-  %cmp = icmp eq i64 %10, 0
+  %8 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !10
+  %9 = and i64 %8, 4294967295
+  %cmp = icmp eq i64 %9, 0
   %.pre = load ptr, ptr %t, align 8, !tbaa !29
   br i1 %cmp, label %cleanup.jt1, label %sub_0
 
-_ZN3irr4core6stringIcED2Ev.exit.jt1:              ; preds = %if.then.i.i.i.jt1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.jt1
+_ZN3irr4core6stringIcED2Ev.exit.jt1:              ; preds = %cleanup.jt1, %if.then.i.i.i.jt1
   call void @llvm.lifetime.end.p0(ptr nonnull %t)
   br label %return
 
@@ -7083,48 +7066,48 @@ while.cond:                                       ; preds = %_ZN3irr4core6string
 while.body6:                                      ; preds = %while.cond
   call void @llvm.lifetime.start.p0(ptr nonnull %t7)
   call void @_ZN3irr5scene16CXMeshFileLoader12getNextTokenEv(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::string") align 8 %t7, ptr noundef nonnull align 8 dereferenceable(138) %this)
-  %11 = load i64, ptr %_M_string_length.i.i27, align 8, !tbaa !10
-  %12 = and i64 %11, 4294967295
-  %cmp9.not = icmp eq i64 %12, 0
+  %10 = load i64, ptr %_M_string_length.i.i27, align 8, !tbaa !10
+  %11 = and i64 %10, 4294967295
+  %cmp9.not = icmp eq i64 %11, 0
   %.pre41 = load ptr, ptr %t7, align 8, !tbaa !29
   br i1 %cmp9.not, label %cleanup18, label %sub_01
 
 sub_01:                                           ; preds = %while.body6
-  %13 = load i8, ptr %.pre41, align 1
-  switch i8 %13, label %if.else.tail [
+  %12 = load i8, ptr %.pre41, align 1
+  switch i8 %12, label %if.else.tail [
     i8 123, label %if.end11.tail
     i8 125, label %sub_15
   ]
 
 if.end11.tail:                                    ; preds = %sub_01
-  %14 = getelementptr inbounds nuw i8, ptr %.pre41, i64 1
-  %15 = load i8, ptr %14, align 1
-  %16 = icmp eq i8 %15, 0
-  br i1 %16, label %if.then13, label %if.else.tail
+  %13 = getelementptr inbounds nuw i8, ptr %.pre41, i64 1
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %if.then13, label %if.else.tail
 
 if.then13:                                        ; preds = %if.end11.tail
   %inc = add i32 %counter.0, 1
   br label %cleanup18
 
 sub_15:                                           ; preds = %sub_01
-  %17 = getelementptr inbounds nuw i8, ptr %.pre41, i64 1
-  %18 = load i8, ptr %17, align 1
-  %19 = icmp eq i8 %18, 0
-  %20 = sext i1 %19 to i32
+  %16 = getelementptr inbounds nuw i8, ptr %.pre41, i64 1
+  %17 = load i8, ptr %16, align 1
+  %18 = icmp eq i8 %17, 0
+  %19 = sext i1 %18 to i32
   br label %if.else.tail
 
 if.else.tail:                                     ; preds = %sub_01, %if.end11.tail, %sub_15
-  %tobool3.not.i32 = phi i32 [ %20, %sub_15 ], [ 0, %if.end11.tail ], [ 0, %sub_01 ]
+  %tobool3.not.i32 = phi i32 [ %19, %sub_15 ], [ 0, %if.end11.tail ], [ 0, %sub_01 ]
   %spec.select = add i32 %tobool3.not.i32, %counter.0
   br label %cleanup18
 
 cleanup18:                                        ; preds = %if.else.tail, %if.then13, %while.body6
   %counter.2 = phi i32 [ %counter.0, %while.body6 ], [ %inc, %if.then13 ], [ %spec.select, %if.else.tail ]
-  %cmp.i.i.i.i33 = icmp eq ptr %.pre41, %8
+  %cmp.i.i.i.i33 = icmp eq ptr %.pre41, %7
   br i1 %cmp.i.i.i.i33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35, label %if.then.i.i.i34
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i35: ; preds = %cleanup18
-  %cmp3.i.i.i.i37 = icmp ult i64 %11, 16
+  %cmp3.i.i.i.i37 = icmp ult i64 %10, 16
   call void @llvm.assume(i1 %cmp3.i.i.i.i37)
   br label %_ZN3irr4core6stringIcED2Ev.exit38
 

@@ -7535,7 +7535,7 @@ define dso_local range(i32 -1, 1) i32 @zend_handle_undef_args(ptr noundef %0) lo
   %5 = load ptr, ptr %4, align 8, !tbaa !54
   %6 = load i8, ptr %5, align 8, !tbaa !55
   %7 = icmp eq i8 %6, 2
-  br i1 %7, label %8, label %129
+  br i1 %7, label %8, label %128
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -7553,7 +7553,7 @@ define dso_local range(i32 -1, 1) i32 @zend_handle_undef_args(ptr noundef %0) lo
   br label %17
 
 17:                                               ; preds = %.lr.ph216, %.critedge
-  %.0143214 = phi i32 [ 0, %.lr.ph216 ], [ %128, %.critedge ]
+  %.0143214 = phi i32 [ 0, %.lr.ph216 ], [ %127, %.critedge ]
   %18 = sext i32 %.0143214 to i64
   %19 = getelementptr %struct._zval_struct, ptr %0, i64 %18
   %20 = getelementptr i8, ptr %19, i64 80
@@ -7749,248 +7749,246 @@ zval_ptr_dtor_nogc.exit:                          ; preds = %100, %104
   br label %.critedge
 
 111:                                              ; preds = %24
-  %112 = icmp eq i8 %29, 63
-  call void @llvm.assume(i1 %112)
-  %113 = load ptr, ptr %14, align 8, !tbaa !57
-  %114 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %114, ptr %14, align 8, !tbaa !57
+  %112 = load ptr, ptr %14, align 8, !tbaa !57
+  %113 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %113, ptr %14, align 8, !tbaa !57
   store ptr %27, ptr %0, align 8, !tbaa !58
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  %115 = load ptr, ptr @zend_ce_argument_count_error, align 8, !tbaa !96
-  %116 = add nuw i32 %.0143214, 1
-  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %115, i32 noundef %116, ptr noundef nonnull @.str.53) #32
-  %117 = load ptr, ptr %14, align 8, !tbaa !57
-  store ptr %117, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %113, ptr %14, align 8, !tbaa !57
-  %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
-  %.not.i170 = icmp eq ptr %118, null
-  br i1 %.not.i170, label %.critedge.thread, label %119, !prof !49
+  %114 = load ptr, ptr @zend_ce_argument_count_error, align 8, !tbaa !96
+  %115 = add nuw i32 %.0143214, 1
+  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %114, i32 noundef %115, ptr noundef nonnull @.str.53) #32
+  %116 = load ptr, ptr %14, align 8, !tbaa !57
+  store ptr %116, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %112, ptr %14, align 8, !tbaa !57
+  %117 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
+  %.not.i170 = icmp eq ptr %117, null
+  br i1 %.not.i170, label %.critedge.thread, label %118, !prof !49
 
-119:                                              ; preds = %111
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 24
-  %121 = load ptr, ptr %120, align 8, !tbaa !54
-  %122 = load i8, ptr %121, align 8, !tbaa !55
-  %.not6.i171 = icmp eq i8 %122, 1
-  br i1 %.not6.i171, label %.critedge.thread, label %123
+118:                                              ; preds = %111
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
+  %120 = load ptr, ptr %119, align 8, !tbaa !54
+  %121 = load i8, ptr %120, align 8, !tbaa !55
+  %.not6.i171 = icmp eq i8 %121, 1
+  br i1 %.not6.i171, label %.critedge.thread, label %122
 
-123:                                              ; preds = %119
-  %124 = load ptr, ptr %117, align 8, !tbaa !58
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 28
-  %126 = load i8, ptr %125, align 4, !tbaa !124
-  %.not.i.i172 = icmp eq i8 %126, -107
-  br i1 %.not.i.i172, label %.critedge.thread, label %127
+122:                                              ; preds = %118
+  %123 = load ptr, ptr %116, align 8, !tbaa !58
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 28
+  %125 = load i8, ptr %124, align 4, !tbaa !124
+  %.not.i.i172 = icmp eq i8 %125, -107
+  br i1 %.not.i.i172, label %.critedge.thread, label %126
 
-127:                                              ; preds = %123
-  store ptr %124, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %117, align 8, !tbaa !58
+126:                                              ; preds = %122
+  store ptr %123, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
+  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %116, align 8, !tbaa !58
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %17, %105, %108, %zval_ptr_dtor_nogc.exit, %65
-  %128 = add nuw i32 %.0143214, 1
-  %exitcond226.not = icmp eq i32 %128, %10
+  %127 = add nuw i32 %.0143214, 1
+  %exitcond226.not = icmp eq i32 %127, %10
   br i1 %exitcond226.not, label %.critedge.thread, label %17
 
-129:                                              ; preds = %1
-  %130 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %131 = load i32, ptr %130, align 4, !tbaa !55
-  %132 = and i32 %131, 67108864
-  %.not = icmp eq i32 %132, 0
-  br i1 %.not, label %133, label %.critedge.thread
+128:                                              ; preds = %1
+  %129 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %130 = load i32, ptr %129, align 4, !tbaa !55
+  %131 = and i32 %130, 67108864
+  %.not = icmp eq i32 %131, 0
+  br i1 %.not, label %132, label %.critedge.thread
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %135 = load i32, ptr %134, align 4, !tbaa !55
-  %.not193210.not = icmp eq i32 %135, 0
+132:                                              ; preds = %128
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %134 = load i32, ptr %133, align 4, !tbaa !55
+  %.not193210.not = icmp eq i32 %134, 0
   br i1 %.not193210.not, label %.critedge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %133
-  %136 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %137 = getelementptr inbounds nuw i8, ptr %5, i64 36
-  %138 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %140 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %141
+.lr.ph:                                           ; preds = %132
+  %135 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %136 = getelementptr inbounds nuw i8, ptr %5, i64 36
+  %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  br label %140
 
-141:                                              ; preds = %.lr.ph, %end_fake_frame.exit177.thread188
-  %.0155211 = phi i32 [ 0, %.lr.ph ], [ %222, %end_fake_frame.exit177.thread188 ]
-  %142 = sext i32 %.0155211 to i64
-  %143 = getelementptr %struct._zval_struct, ptr %0, i64 %142
-  %144 = getelementptr i8, ptr %143, i64 80
-  %145 = getelementptr i8, ptr %143, i64 88
-  %146 = load i8, ptr %145, align 8, !tbaa !55
-  %147 = icmp eq i8 %146, 0
-  br i1 %147, label %148, label %end_fake_frame.exit177.thread188
+140:                                              ; preds = %.lr.ph, %end_fake_frame.exit177.thread188
+  %.0155211 = phi i32 [ 0, %.lr.ph ], [ %221, %end_fake_frame.exit177.thread188 ]
+  %141 = sext i32 %.0155211 to i64
+  %142 = getelementptr %struct._zval_struct, ptr %0, i64 %141
+  %143 = getelementptr i8, ptr %142, i64 80
+  %144 = getelementptr i8, ptr %142, i64 88
+  %145 = load i8, ptr %144, align 8, !tbaa !55
+  %146 = icmp eq i8 %145, 0
+  br i1 %146, label %147, label %end_fake_frame.exit177.thread188
 
-148:                                              ; preds = %141
-  %149 = load ptr, ptr %136, align 8, !tbaa !55
-  %150 = zext i32 %.0155211 to i64
-  %151 = getelementptr inbounds nuw %struct._zend_internal_arg_info, ptr %149, i64 %150
-  %152 = load i32, ptr %137, align 4, !tbaa !55
-  %153 = icmp ult i32 %.0155211, %152
-  br i1 %153, label %154, label %170
+147:                                              ; preds = %140
+  %148 = load ptr, ptr %135, align 8, !tbaa !55
+  %149 = zext i32 %.0155211 to i64
+  %150 = getelementptr inbounds nuw %struct._zend_internal_arg_info, ptr %148, i64 %149
+  %151 = load i32, ptr %136, align 4, !tbaa !55
+  %152 = icmp ult i32 %.0155211, %151
+  br i1 %152, label %153, label %169
 
-154:                                              ; preds = %148
-  %155 = load ptr, ptr %139, align 8, !tbaa !57
-  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %156, ptr %139, align 8, !tbaa !57
+153:                                              ; preds = %147
+  %154 = load ptr, ptr %138, align 8, !tbaa !57
+  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %155, ptr %138, align 8, !tbaa !57
   store ptr null, ptr %0, align 8, !tbaa !58
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  %157 = load ptr, ptr @zend_ce_argument_count_error, align 8, !tbaa !96
-  %158 = add nuw i32 %.0155211, 1
-  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %157, i32 noundef %158, ptr noundef nonnull @.str.53) #32
-  %159 = load ptr, ptr %139, align 8, !tbaa !57
-  store ptr %159, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %155, ptr %139, align 8, !tbaa !57
-  %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
-  %.not.i174 = icmp eq ptr %160, null
-  br i1 %.not.i174, label %.critedge.thread, label %161, !prof !49
+  %156 = load ptr, ptr @zend_ce_argument_count_error, align 8, !tbaa !96
+  %157 = add nuw i32 %.0155211, 1
+  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %156, i32 noundef %157, ptr noundef nonnull @.str.53) #32
+  %158 = load ptr, ptr %138, align 8, !tbaa !57
+  store ptr %158, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %154, ptr %138, align 8, !tbaa !57
+  %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
+  %.not.i174 = icmp eq ptr %159, null
+  br i1 %.not.i174, label %.critedge.thread, label %160, !prof !49
 
-161:                                              ; preds = %154
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 24
-  %163 = load ptr, ptr %162, align 8, !tbaa !54
-  %164 = load i8, ptr %163, align 8, !tbaa !55
-  %.not6.i175 = icmp eq i8 %164, 1
-  br i1 %.not6.i175, label %.critedge.thread, label %165
+160:                                              ; preds = %153
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 24
+  %162 = load ptr, ptr %161, align 8, !tbaa !54
+  %163 = load i8, ptr %162, align 8, !tbaa !55
+  %.not6.i175 = icmp eq i8 %163, 1
+  br i1 %.not6.i175, label %.critedge.thread, label %164
 
-165:                                              ; preds = %161
-  %166 = load ptr, ptr %159, align 8, !tbaa !58
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 28
-  %168 = load i8, ptr %167, align 4, !tbaa !124
-  %.not.i.i176 = icmp eq i8 %168, -107
-  br i1 %.not.i.i176, label %.critedge.thread, label %169
+164:                                              ; preds = %160
+  %165 = load ptr, ptr %158, align 8, !tbaa !58
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 28
+  %167 = load i8, ptr %166, align 4, !tbaa !124
+  %.not.i.i176 = icmp eq i8 %167, -107
+  br i1 %.not.i.i176, label %.critedge.thread, label %168
 
-169:                                              ; preds = %165
-  store ptr %166, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %159, align 8, !tbaa !58
+168:                                              ; preds = %164
+  store ptr %165, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
+  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %158, align 8, !tbaa !58
   br label %.critedge.thread
 
-170:                                              ; preds = %148
+169:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %171 = call i32 @zend_get_default_from_internal_arg_info(ptr noundef nonnull %3, ptr noundef %151) #32
-  %172 = icmp eq i32 %171, -1
-  br i1 %172, label %173, label %189
+  %170 = call i32 @zend_get_default_from_internal_arg_info(ptr noundef nonnull %3, ptr noundef %150) #32
+  %171 = icmp eq i32 %170, -1
+  br i1 %171, label %172, label %188
 
-173:                                              ; preds = %170
-  %174 = load ptr, ptr %139, align 8, !tbaa !57
-  %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %175, ptr %139, align 8, !tbaa !57
+172:                                              ; preds = %169
+  %173 = load ptr, ptr %138, align 8, !tbaa !57
+  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %174, ptr %138, align 8, !tbaa !57
   store ptr null, ptr %0, align 8, !tbaa !58
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  %176 = load ptr, ptr @zend_ce_argument_count_error, align 8, !tbaa !96
-  %177 = add nuw i32 %.0155211, 1
-  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %176, i32 noundef %177, ptr noundef nonnull @.str.54) #32
-  %178 = load ptr, ptr %139, align 8, !tbaa !57
-  store ptr %178, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %174, ptr %139, align 8, !tbaa !57
-  %179 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
-  %.not.i178 = icmp eq ptr %179, null
-  br i1 %.not.i178, label %end_fake_frame.exit177.thread191, label %180, !prof !49
+  %175 = load ptr, ptr @zend_ce_argument_count_error, align 8, !tbaa !96
+  %176 = add nuw i32 %.0155211, 1
+  call void (ptr, i32, ptr, ...) @zend_argument_error(ptr noundef %175, i32 noundef %176, ptr noundef nonnull @.str.54) #32
+  %177 = load ptr, ptr %138, align 8, !tbaa !57
+  store ptr %177, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %173, ptr %138, align 8, !tbaa !57
+  %178 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
+  %.not.i178 = icmp eq ptr %178, null
+  br i1 %.not.i178, label %end_fake_frame.exit177.thread191, label %179, !prof !49
 
-180:                                              ; preds = %173
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %182 = load ptr, ptr %181, align 8, !tbaa !54
-  %183 = load i8, ptr %182, align 8, !tbaa !55
-  %.not6.i179 = icmp eq i8 %183, 1
-  br i1 %.not6.i179, label %end_fake_frame.exit177.thread191, label %184
+179:                                              ; preds = %172
+  %180 = getelementptr inbounds nuw i8, ptr %177, i64 24
+  %181 = load ptr, ptr %180, align 8, !tbaa !54
+  %182 = load i8, ptr %181, align 8, !tbaa !55
+  %.not6.i179 = icmp eq i8 %182, 1
+  br i1 %.not6.i179, label %end_fake_frame.exit177.thread191, label %183
 
-184:                                              ; preds = %180
-  %185 = load ptr, ptr %178, align 8, !tbaa !58
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 28
-  %187 = load i8, ptr %186, align 4, !tbaa !124
-  %.not.i.i180 = icmp eq i8 %187, -107
-  br i1 %.not.i.i180, label %end_fake_frame.exit177.thread191, label %188
+183:                                              ; preds = %179
+  %184 = load ptr, ptr %177, align 8, !tbaa !58
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 28
+  %186 = load i8, ptr %185, align 4, !tbaa !124
+  %.not.i.i180 = icmp eq i8 %186, -107
+  br i1 %.not.i.i180, label %end_fake_frame.exit177.thread191, label %187
 
-188:                                              ; preds = %184
-  store ptr %185, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %178, align 8, !tbaa !58
+187:                                              ; preds = %183
+  store ptr %184, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
+  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %177, align 8, !tbaa !58
   br label %end_fake_frame.exit177.thread191
 
-189:                                              ; preds = %170
-  %190 = load i8, ptr %138, align 8, !tbaa !55
-  %191 = icmp eq i8 %190, 11
-  br i1 %191, label %192, label %208
+188:                                              ; preds = %169
+  %189 = load i8, ptr %137, align 8, !tbaa !55
+  %190 = icmp eq i8 %189, 11
+  br i1 %190, label %191, label %207
 
-192:                                              ; preds = %189
-  %193 = load ptr, ptr %139, align 8, !tbaa !57
-  %194 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %194, ptr %139, align 8, !tbaa !57
+191:                                              ; preds = %188
+  %192 = load ptr, ptr %138, align 8, !tbaa !57
+  %193 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %193, ptr %138, align 8, !tbaa !57
   store ptr null, ptr %0, align 8, !tbaa !58
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  %195 = load ptr, ptr %140, align 8, !tbaa !55
-  %196 = call i32 @zval_update_constant_ex(ptr noundef nonnull %3, ptr noundef %195) #32
-  %197 = load ptr, ptr %139, align 8, !tbaa !57
-  store ptr %197, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
-  store ptr %193, ptr %139, align 8, !tbaa !57
-  %198 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
-  %.not.i182 = icmp eq ptr %198, null
-  br i1 %.not.i182, label %end_fake_frame.exit185, label %199, !prof !49
+  %194 = load ptr, ptr %139, align 8, !tbaa !55
+  %195 = call i32 @zval_update_constant_ex(ptr noundef nonnull %3, ptr noundef %194) #32
+  %196 = load ptr, ptr %138, align 8, !tbaa !57
+  store ptr %196, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !50
+  store ptr %192, ptr %138, align 8, !tbaa !57
+  %197 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
+  %.not.i182 = icmp eq ptr %197, null
+  br i1 %.not.i182, label %end_fake_frame.exit185, label %198, !prof !49
 
-199:                                              ; preds = %192
-  %200 = getelementptr inbounds nuw i8, ptr %197, i64 24
-  %201 = load ptr, ptr %200, align 8, !tbaa !54
-  %202 = load i8, ptr %201, align 8, !tbaa !55
-  %.not6.i183 = icmp eq i8 %202, 1
-  br i1 %.not6.i183, label %end_fake_frame.exit185, label %203
+198:                                              ; preds = %191
+  %199 = getelementptr inbounds nuw i8, ptr %196, i64 24
+  %200 = load ptr, ptr %199, align 8, !tbaa !54
+  %201 = load i8, ptr %200, align 8, !tbaa !55
+  %.not6.i183 = icmp eq i8 %201, 1
+  br i1 %.not6.i183, label %end_fake_frame.exit185, label %202
 
-203:                                              ; preds = %199
-  %204 = load ptr, ptr %197, align 8, !tbaa !58
-  %205 = getelementptr inbounds nuw i8, ptr %204, i64 28
-  %206 = load i8, ptr %205, align 4, !tbaa !124
-  %.not.i.i184 = icmp eq i8 %206, -107
-  br i1 %.not.i.i184, label %end_fake_frame.exit185, label %207
+202:                                              ; preds = %198
+  %203 = load ptr, ptr %196, align 8, !tbaa !58
+  %204 = getelementptr inbounds nuw i8, ptr %203, i64 28
+  %205 = load i8, ptr %204, align 4, !tbaa !124
+  %.not.i.i184 = icmp eq i8 %205, -107
+  br i1 %.not.i.i184, label %end_fake_frame.exit185, label %206
 
-207:                                              ; preds = %203
-  store ptr %204, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
-  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %197, align 8, !tbaa !58
+206:                                              ; preds = %202
+  store ptr %203, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 976), align 8, !tbaa !131
+  store ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 984), ptr %196, align 8, !tbaa !58
   br label %end_fake_frame.exit185
 
-end_fake_frame.exit185:                           ; preds = %192, %199, %203, %207
-  %.not157 = icmp eq i32 %196, -1
-  br i1 %.not157, label %end_fake_frame.exit177.thread191, label %208
+end_fake_frame.exit185:                           ; preds = %191, %198, %202, %206
+  %.not157 = icmp eq i32 %195, -1
+  br i1 %.not157, label %end_fake_frame.exit177.thread191, label %207
 
-208:                                              ; preds = %189, %end_fake_frame.exit185
-  %209 = load ptr, ptr %3, align 8, !tbaa !55
-  %210 = load i32, ptr %138, align 8, !tbaa !55
-  store ptr %209, ptr %144, align 8, !tbaa !55
-  store i32 %210, ptr %145, align 8, !tbaa !55
-  %211 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %212 = load i32, ptr %211, align 8, !tbaa !210
-  %213 = and i32 %212, 33554432
-  %.not158 = icmp eq i32 %213, 0
-  br i1 %.not158, label %end_fake_frame.exit177, label %214
+207:                                              ; preds = %188, %end_fake_frame.exit185
+  %208 = load ptr, ptr %3, align 8, !tbaa !55
+  %209 = load i32, ptr %137, align 8, !tbaa !55
+  store ptr %208, ptr %143, align 8, !tbaa !55
+  store i32 %209, ptr %144, align 8, !tbaa !55
+  %210 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %211 = load i32, ptr %210, align 8, !tbaa !210
+  %212 = and i32 %211, 33554432
+  %.not158 = icmp eq i32 %212, 0
+  br i1 %.not158, label %end_fake_frame.exit177, label %213
 
-214:                                              ; preds = %208
-  %215 = call noalias ptr @_emalloc_32() #32
-  store i32 1, ptr %215, align 4, !tbaa !56
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 4
-  store i32 26, ptr %216, align 4, !tbaa !55
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
-  %218 = load ptr, ptr %144, align 8, !tbaa !55
-  %219 = load i32, ptr %145, align 8, !tbaa !55
-  store ptr %218, ptr %217, align 8, !tbaa !55
-  %220 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  store i32 %219, ptr %220, align 8, !tbaa !55
-  %221 = getelementptr inbounds nuw i8, ptr %215, i64 24
-  store ptr null, ptr %221, align 8, !tbaa !55
-  store ptr %215, ptr %144, align 8, !tbaa !55
-  store i32 778, ptr %145, align 8, !tbaa !55
+213:                                              ; preds = %207
+  %214 = call noalias ptr @_emalloc_32() #32
+  store i32 1, ptr %214, align 4, !tbaa !56
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
+  store i32 26, ptr %215, align 4, !tbaa !55
+  %216 = getelementptr inbounds nuw i8, ptr %214, i64 8
+  %217 = load ptr, ptr %143, align 8, !tbaa !55
+  %218 = load i32, ptr %144, align 8, !tbaa !55
+  store ptr %217, ptr %216, align 8, !tbaa !55
+  %219 = getelementptr inbounds nuw i8, ptr %214, i64 16
+  store i32 %218, ptr %219, align 8, !tbaa !55
+  %220 = getelementptr inbounds nuw i8, ptr %214, i64 24
+  store ptr null, ptr %220, align 8, !tbaa !55
+  store ptr %214, ptr %143, align 8, !tbaa !55
+  store i32 778, ptr %144, align 8, !tbaa !55
   br label %end_fake_frame.exit177
 
-end_fake_frame.exit177.thread191:                 ; preds = %end_fake_frame.exit185, %173, %180, %184, %188
+end_fake_frame.exit177.thread191:                 ; preds = %end_fake_frame.exit185, %172, %179, %183, %187
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.thread
 
-end_fake_frame.exit177:                           ; preds = %214, %208
+end_fake_frame.exit177:                           ; preds = %213, %207
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %end_fake_frame.exit177.thread188
 
-end_fake_frame.exit177.thread188:                 ; preds = %141, %end_fake_frame.exit177
-  %222 = add nuw i32 %.0155211, 1
-  %exitcond.not = icmp eq i32 %222, %135
-  br i1 %exitcond.not, label %.critedge.thread, label %141
+end_fake_frame.exit177.thread188:                 ; preds = %140, %end_fake_frame.exit177
+  %221 = add nuw i32 %.0155211, 1
+  %exitcond.not = icmp eq i32 %221, %134
+  br i1 %exitcond.not, label %.critedge.thread, label %140
 
-.critedge.thread:                                 ; preds = %end_fake_frame.exit177.thread188, %.critedge, %end_fake_frame.exit177.thread191, %154, %161, %165, %169, %133, %zval_ptr_dtor_nogc.exit.thread, %111, %119, %123, %127, %8, %129
-  %.10 = phi i32 [ 0, %129 ], [ -1, %127 ], [ -1, %123 ], [ -1, %119 ], [ -1, %111 ], [ -1, %zval_ptr_dtor_nogc.exit.thread ], [ 0, %8 ], [ -1, %169 ], [ -1, %165 ], [ -1, %161 ], [ -1, %154 ], [ -1, %end_fake_frame.exit177.thread191 ], [ 0, %133 ], [ 0, %.critedge ], [ 0, %end_fake_frame.exit177.thread188 ]
+.critedge.thread:                                 ; preds = %end_fake_frame.exit177.thread188, %.critedge, %end_fake_frame.exit177.thread191, %153, %160, %164, %168, %132, %zval_ptr_dtor_nogc.exit.thread, %111, %118, %122, %126, %8, %128
+  %.10 = phi i32 [ 0, %128 ], [ -1, %126 ], [ -1, %122 ], [ -1, %118 ], [ -1, %111 ], [ -1, %zval_ptr_dtor_nogc.exit.thread ], [ 0, %8 ], [ -1, %168 ], [ -1, %164 ], [ -1, %160 ], [ -1, %153 ], [ -1, %end_fake_frame.exit177.thread191 ], [ 0, %132 ], [ 0, %.critedge ], [ 0, %end_fake_frame.exit177.thread188 ]
   ret i32 %.10
 }
 

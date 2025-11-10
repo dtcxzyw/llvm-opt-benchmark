@@ -4532,9 +4532,9 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
 
 30:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit"
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h523392ed48102479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
-          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit" unwind label %83
+          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit" unwind label %82
 
-31:                                               ; preds = %79, %._crit_edge, %22
+31:                                               ; preds = %78, %._crit_edge, %22
   %32 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit"
@@ -4554,20 +4554,20 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 32
   br label %41
 
-.loopexit:                                        ; preds = %46, %.noexc27, %58
+.loopexit:                                        ; preds = %46, %.noexc27, %57
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %63, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i", %72
+.loopexit.split-lp:                               ; preds = %63, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i", %71
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %67
-  %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %66
+  %eh.lpad-body = phi { ptr, i32 } [ %67, %66 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5bd35304dac0d655E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef 8, i64 noundef 16)
-          to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit" unwind label %83
+          to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit" unwind label %82
 
 ._crit_edge:                                      ; preds = %61, %33
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 32
@@ -4586,7 +4586,7 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %26
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34": ; preds = %21, %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33", %82, %26
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34": ; preds = %21, %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33", %81, %26
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   ret void
 
@@ -4610,22 +4610,20 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
 
 .noexc28:                                         ; preds = %.noexc27
   %55 = extractvalue { i64, ptr } %54, 0
-  %56 = extractvalue { i64, ptr } %54, 1
-  %57 = icmp eq i64 %55, 0
-  br i1 %57, label %63, label %58
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %63, label %57
 
-58:                                               ; preds = %.noexc28
-  %59 = ptrtoint ptr %56 to i64
+57:                                               ; preds = %.noexc28
+  %58 = extractvalue { i64, ptr } %54, 1
+  %59 = ptrtoint ptr %58 to i64
   %60 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h603e9938fb8ab05cE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %53, i64 noundef %59, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %43)
-          to label %65 unwind label %.loopexit
+          to label %64 unwind label %.loopexit
 
-61:                                               ; preds = %41, %65
+61:                                               ; preds = %41, %64
   %62 = icmp eq ptr %42, %37
   br i1 %62, label %._crit_edge, label %41
 
 63:                                               ; preds = %.noexc28
-  %64 = icmp ne ptr %56, null
-  call void @llvm.assume(i1 %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.038.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4643,27 +4641,27 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
   %.sroa.747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.747.0..sroa_idx, align 8, !noalias !891
   invoke void @_ZN5alloc3fmt6format12format_inner17h961f1f7793bd20f0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
-          to label %66 unwind label %.loopexit.split-lp
+          to label %65 unwind label %.loopexit.split-lp
 
-65:                                               ; preds = %58
+64:                                               ; preds = %57
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %61
 
-66:                                               ; preds = %63
+65:                                               ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !884
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !892
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
-          to label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i" unwind label %67, !noalias !897
+          to label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i" unwind label %66, !noalias !897
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %65
+  %67 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf74e980fe42276e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10) #30
-          to label %.body unwind label %77, !noalias !897
+          to label %.body unwind label %76, !noalias !897
 
-"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i": ; preds = %66
+"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i": ; preds = %65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !898
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !892
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !899
@@ -4671,26 +4669,26 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
           to label %.noexc35 unwind label %.loopexit.split-lp
 
 .noexc35:                                         ; preds = %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i"
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %70 = load i64, ptr %69, align 8, !range !43, !noalias !899, !noundef !3
-  %71 = icmp eq i64 %70, 0
-  br i1 %71, label %79, label %72
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %69 = load i64, ptr %68, align 8, !range !43, !noalias !899, !noundef !3
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %78, label %71
 
-72:                                               ; preds = %.noexc35
-  %73 = load ptr, ptr %4, align 8, !noalias !899, !nonnull !3, !noundef !3
-  %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %75 = load i64, ptr %74, align 8, !noalias !899, !noundef !3
-  %76 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.13882356391718250719"(ptr noalias noundef nonnull readonly align 1 %76, ptr noundef nonnull %73, i64 noundef %70, i64 noundef %75)
-          to label %79 unwind label %.loopexit.split-lp
+71:                                               ; preds = %.noexc35
+  %72 = load ptr, ptr %4, align 8, !noalias !899, !nonnull !3, !noundef !3
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %74 = load i64, ptr %73, align 8, !noalias !899, !noundef !3
+  %75 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.13882356391718250719"(ptr noalias noundef nonnull readonly align 1 %75, ptr noundef nonnull %72, i64 noundef %69, i64 noundef %74)
+          to label %78 unwind label %.loopexit.split-lp
 
-77:                                               ; preds = %67
-  %78 = landingpad { ptr, i32 }
+76:                                               ; preds = %66
+  %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31, !noalias !897
   unreachable
 
-79:                                               ; preds = %72, %.noexc35
+78:                                               ; preds = %71, %.noexc35
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !899
   store i64 0, ptr %0, align 8
   %.sroa.038.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4708,18 +4706,18 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h3219d8b
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5bd35304dac0d655E(ptr noalias noundef nonnull align 8 dereferenceable(32) %12, ptr noalias noundef nonnull readonly align 1 %39, i64 noundef 8, i64 noundef 16)
           to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33" unwind label %31
 
-"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33": ; preds = %79
+"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33": ; preds = %78
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %80 = load i64, ptr %14, align 8, !range !43, !alias.scope !910, !noundef !3
-  %81 = icmp eq i64 %80, -9223372036854775808
-  br i1 %81, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34", label %82
+  %79 = load i64, ptr %14, align 8, !range !43, !alias.scope !910, !noundef !3
+  %80 = icmp eq i64 %79, -9223372036854775808
+  br i1 %80, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34", label %81
 
-82:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33"
+81:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33"
   call void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h523392ed48102479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14)
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34"
 
-83:                                               ; preds = %.body, %30
-  %84 = landingpad { ptr, i32 }
+82:                                               ; preds = %.body, %30
+  %83 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
   unreachable
@@ -4803,9 +4801,9 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
 
 32:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit"
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h523392ed48102479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
-          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit" unwind label %85
+          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit" unwind label %84
 
-33:                                               ; preds = %81, %._crit_edge, %24
+33:                                               ; preds = %80, %._crit_edge, %24
   %34 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit"
@@ -4825,20 +4823,20 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %43
 
-.loopexit:                                        ; preds = %48, %.noexc27, %60
+.loopexit:                                        ; preds = %48, %.noexc27, %59
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %65, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i", %74
+.loopexit.split-lp:                               ; preds = %65, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i", %73
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %69
-  %eh.lpad-body = phi { ptr, i32 } [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %68
+  %eh.lpad-body = phi { ptr, i32 } [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5bd35304dac0d655E(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef 8, i64 noundef 16)
-          to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit" unwind label %85
+          to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit" unwind label %84
 
 ._crit_edge:                                      ; preds = %63, %35
   %42 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -4857,7 +4855,7 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %28
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34": ; preds = %23, %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33", %84, %28
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34": ; preds = %23, %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33", %83, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
@@ -4881,22 +4879,20 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
 
 .noexc28:                                         ; preds = %.noexc27
   %57 = extractvalue { i64, ptr } %56, 0
-  %58 = extractvalue { i64, ptr } %56, 1
-  %59 = icmp eq i64 %57, 0
-  br i1 %59, label %65, label %60
+  %58 = icmp eq i64 %57, 0
+  br i1 %58, label %65, label %59
 
-60:                                               ; preds = %.noexc28
-  %61 = ptrtoint ptr %58 to i64
+59:                                               ; preds = %.noexc28
+  %60 = extractvalue { i64, ptr } %56, 1
+  %61 = ptrtoint ptr %60 to i64
   %62 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h603e9938fb8ab05cE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %55, i64 noundef %61, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %45)
-          to label %67 unwind label %.loopexit
+          to label %66 unwind label %.loopexit
 
-63:                                               ; preds = %43, %67
+63:                                               ; preds = %43, %66
   %64 = icmp eq ptr %44, %39
   br i1 %64, label %._crit_edge, label %43
 
 65:                                               ; preds = %.noexc28
-  %66 = icmp ne ptr %58, null
-  call void @llvm.assume(i1 %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.038.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -4914,27 +4910,27 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
   %.sroa.747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.747.0..sroa_idx, align 8, !noalias !947
   invoke void @_ZN5alloc3fmt6format12format_inner17h961f1f7793bd20f0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
-          to label %68 unwind label %.loopexit.split-lp
+          to label %67 unwind label %.loopexit.split-lp
 
-67:                                               ; preds = %60
+66:                                               ; preds = %59
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %63
 
-68:                                               ; preds = %65
+67:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !940
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !948
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-          to label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i" unwind label %69, !noalias !953
+          to label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i" unwind label %68, !noalias !953
 
-69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %67
+  %69 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf74e980fe42276e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
-          to label %.body unwind label %79, !noalias !953
+          to label %.body unwind label %78, !noalias !953
 
-"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i": ; preds = %68
+"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i": ; preds = %67
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !954
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !948
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !955
@@ -4942,26 +4938,26 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
           to label %.noexc35 unwind label %.loopexit.split-lp
 
 .noexc35:                                         ; preds = %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i"
-  %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %72 = load i64, ptr %71, align 8, !range !43, !noalias !955, !noundef !3
-  %73 = icmp eq i64 %72, 0
-  br i1 %73, label %81, label %74
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %71 = load i64, ptr %70, align 8, !range !43, !noalias !955, !noundef !3
+  %72 = icmp eq i64 %71, 0
+  br i1 %72, label %80, label %73
 
-74:                                               ; preds = %.noexc35
-  %75 = load ptr, ptr %4, align 8, !noalias !955, !nonnull !3, !noundef !3
-  %76 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %77 = load i64, ptr %76, align 8, !noalias !955, !noundef !3
-  %78 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.13882356391718250719"(ptr noalias noundef nonnull readonly align 1 %78, ptr noundef nonnull %75, i64 noundef %72, i64 noundef %77)
-          to label %81 unwind label %.loopexit.split-lp
+73:                                               ; preds = %.noexc35
+  %74 = load ptr, ptr %4, align 8, !noalias !955, !nonnull !3, !noundef !3
+  %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %76 = load i64, ptr %75, align 8, !noalias !955, !noundef !3
+  %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.13882356391718250719"(ptr noalias noundef nonnull readonly align 1 %77, ptr noundef nonnull %74, i64 noundef %71, i64 noundef %76)
+          to label %80 unwind label %.loopexit.split-lp
 
-79:                                               ; preds = %69
-  %80 = landingpad { ptr, i32 }
+78:                                               ; preds = %68
+  %79 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31, !noalias !953
   unreachable
 
-81:                                               ; preds = %74, %.noexc35
+80:                                               ; preds = %73, %.noexc35
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !955
   store i64 0, ptr %0, align 8
   %.sroa.038.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4979,18 +4975,18 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17h7482483
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5bd35304dac0d655E(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef 8, i64 noundef 16)
           to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33" unwind label %33
 
-"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33": ; preds = %81
+"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33": ; preds = %80
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %82 = load i64, ptr %15, align 8, !range !43, !alias.scope !966, !noundef !3
-  %83 = icmp eq i64 %82, -9223372036854775808
-  br i1 %83, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34", label %84
+  %81 = load i64, ptr %15, align 8, !range !43, !alias.scope !966, !noundef !3
+  %82 = icmp eq i64 %81, -9223372036854775808
+  br i1 %82, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34", label %83
 
-84:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33"
+83:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33"
   call void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h523392ed48102479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34"
 
-85:                                               ; preds = %.body, %32
-  %86 = landingpad { ptr, i32 }
+84:                                               ; preds = %.body, %32
+  %85 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
   unreachable
@@ -5072,9 +5068,9 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
 
 31:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit"
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h523392ed48102479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
-          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit" unwind label %84
+          to label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit" unwind label %83
 
-32:                                               ; preds = %80, %._crit_edge, %23
+32:                                               ; preds = %79, %._crit_edge, %23
   %33 = landingpad { ptr, i32 }
           cleanup
   br label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit"
@@ -5094,20 +5090,20 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
   %40 = getelementptr inbounds nuw i8, ptr %13, i64 32
   br label %42
 
-.loopexit:                                        ; preds = %47, %.noexc27, %59
+.loopexit:                                        ; preds = %47, %.noexc27, %58
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %64, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i", %73
+.loopexit.split-lp:                               ; preds = %64, %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i", %72
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %68
-  %eh.lpad-body = phi { ptr, i32 } [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %67
+  %eh.lpad-body = phi { ptr, i32 } [ %68, %67 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5bd35304dac0d655E(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef 8, i64 noundef 16)
-          to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit" unwind label %84
+          to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit" unwind label %83
 
 ._crit_edge:                                      ; preds = %62, %34
   %41 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -5126,7 +5122,7 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %27
 
-"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34": ; preds = %22, %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33", %83, %27
+"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34": ; preds = %22, %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33", %82, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret void
 
@@ -5150,22 +5146,20 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
 
 .noexc28:                                         ; preds = %.noexc27
   %56 = extractvalue { i64, ptr } %55, 0
-  %57 = extractvalue { i64, ptr } %55, 1
-  %58 = icmp eq i64 %56, 0
-  br i1 %58, label %64, label %59
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %64, label %58
 
-59:                                               ; preds = %.noexc28
-  %60 = ptrtoint ptr %57 to i64
+58:                                               ; preds = %.noexc28
+  %59 = extractvalue { i64, ptr } %55, 1
+  %60 = ptrtoint ptr %59 to i64
   %61 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17h603e9938fb8ab05cE.llvm.8717112297715684712"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %54, i64 noundef %60, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %44)
-          to label %66 unwind label %.loopexit
+          to label %65 unwind label %.loopexit
 
-62:                                               ; preds = %42, %66
+62:                                               ; preds = %42, %65
   %63 = icmp eq ptr %43, %38
   br i1 %63, label %._crit_edge, label %42
 
 64:                                               ; preds = %.noexc28
-  %65 = icmp ne ptr %57, null
-  call void @llvm.assume(i1 %65)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.038.sroa.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -5183,27 +5177,27 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
   %.sroa.747.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.747.0..sroa_idx, align 8, !noalias !1003
   invoke void @_ZN5alloc3fmt6format12format_inner17h961f1f7793bd20f0E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
-          to label %67 unwind label %.loopexit.split-lp
+          to label %66 unwind label %.loopexit.split-lp
 
-66:                                               ; preds = %59
+65:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %62
 
-67:                                               ; preds = %64
+66:                                               ; preds = %64
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !996
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1004
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h303c24df2bc9b995E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
-          to label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i" unwind label %68, !noalias !1009
+          to label %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i" unwind label %67, !noalias !1009
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %66
+  %68 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hf74e980fe42276e0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #30
-          to label %.body unwind label %78, !noalias !1009
+          to label %.body unwind label %77, !noalias !1009
 
-"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i": ; preds = %67
+"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i": ; preds = %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.038.sroa.5, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !noalias !1010
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1004
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1011
@@ -5211,26 +5205,26 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
           to label %.noexc35 unwind label %.loopexit.split-lp
 
 .noexc35:                                         ; preds = %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h8fdc08fa99763d62E.llvm.13882356391718250719.exit.i"
-  %70 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %71 = load i64, ptr %70, align 8, !range !43, !noalias !1011, !noundef !3
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %80, label %73
+  %69 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %70 = load i64, ptr %69, align 8, !range !43, !noalias !1011, !noundef !3
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %79, label %72
 
-73:                                               ; preds = %.noexc35
-  %74 = load ptr, ptr %4, align 8, !noalias !1011, !nonnull !3, !noundef !3
-  %75 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %76 = load i64, ptr %75, align 8, !noalias !1011, !noundef !3
-  %77 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.13882356391718250719"(ptr noalias noundef nonnull readonly align 1 %77, ptr noundef nonnull %74, i64 noundef %71, i64 noundef %76)
-          to label %80 unwind label %.loopexit.split-lp
+72:                                               ; preds = %.noexc35
+  %73 = load ptr, ptr %4, align 8, !noalias !1011, !nonnull !3, !noundef !3
+  %74 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %75 = load i64, ptr %74, align 8, !noalias !1011, !noundef !3
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hf0a7074312c07297E.llvm.13882356391718250719"(ptr noalias noundef nonnull readonly align 1 %76, ptr noundef nonnull %73, i64 noundef %70, i64 noundef %75)
+          to label %79 unwind label %.loopexit.split-lp
 
-78:                                               ; preds = %68
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %67
+  %78 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31, !noalias !1009
   unreachable
 
-80:                                               ; preds = %73, %.noexc35
+79:                                               ; preds = %72, %.noexc35
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1011
   store i64 0, ptr %0, align 8
   %.sroa.038.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5248,18 +5242,18 @@ define hidden void @_ZN12uv_workspace9pyproject21deserialize_index_vec17he382914
   invoke void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h5bd35304dac0d655E(ptr noalias noundef nonnull align 8 dereferenceable(32) %13, ptr noalias noundef nonnull readonly align 1 %40, i64 noundef 8, i64 noundef 16)
           to label %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33" unwind label %32
 
-"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33": ; preds = %80
+"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33": ; preds = %79
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %81 = load i64, ptr %15, align 8, !range !43, !alias.scope !1022, !noundef !3
-  %82 = icmp eq i64 %81, -9223372036854775808
-  br i1 %82, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34", label %83
+  %80 = load i64, ptr %15, align 8, !range !43, !alias.scope !1022, !noundef !3
+  %81 = icmp eq i64 %80, -9223372036854775808
+  br i1 %81, label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34", label %82
 
-83:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33"
+82:                                               ; preds = %"_ZN4core3ptr141drop_in_place$LT$std..collections..hash..set..HashSet$LT$$RF$uv_distribution_types..index_name..IndexName$C$rustc_hash..FxBuildHasher$GT$$GT$17h10586979bd755eddE.exit33"
   call void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$17h523392ed48102479E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15)
   br label %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$uv_distribution_types..index..Index$GT$$GT$$GT$17h7f8c1b7336a15f74E.exit34"
 
-84:                                               ; preds = %.body, %31
-  %85 = landingpad { ptr, i32 }
+83:                                               ; preds = %.body, %31
+  %84 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h7e5529b9cf989fd4E() #31
   unreachable

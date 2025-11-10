@@ -257,13 +257,13 @@ define dso_local void @zend_observer_add_begin_handler(ptr noundef readonly capt
 
 24:                                               ; preds = %12
   store ptr %1, ptr %19, align 8, !tbaa !4
-  br label %29
+  br label %.loopexit
 
 .preheader:                                       ; preds = %12, %25
   %.pn = phi ptr [ %.017, %25 ], [ %19, %12 ]
   %.017 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %.not20.not.not.not.not.not = icmp ule ptr %.017, %21
-  br i1 %.not20.not.not.not.not.not, label %25, label %.loopexit
+  %.not20.not.not.not.not = icmp ugt ptr %.017, %21
+  br i1 %.not20.not.not.not.not, label %.loopexit, label %25
 
 25:                                               ; preds = %.preheader
   %26 = load ptr, ptr %.017, align 8, !tbaa !4
@@ -274,11 +274,7 @@ define dso_local void @zend_observer_add_begin_handler(ptr noundef readonly capt
   store ptr %1, ptr %.017, align 8, !tbaa !4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %28
-  tail call void @llvm.assume(i1 %.not20.not.not.not.not.not)
-  br label %29
-
-29:                                               ; preds = %.loopexit, %24
+.loopexit:                                        ; preds = %.preheader, %28, %24
   ret void
 }
 

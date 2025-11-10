@@ -45023,9 +45023,6 @@ for.body:                                         ; preds = %invoke.cont227, %_Z
   br i1 %cmp.i.i.i811, label %if.then.i.i.i820, label %_ZN10TestObjectD2Ev.exit
 
 if.then.i.i.i820:                                 ; preds = %for.body
-  %mul.i.i.mask.i.i821 = and i64 %add.i.i809, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i822 = icmp ne i64 %mul.i.i.mask.i.i821, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i822)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !1791
   unreachable
 
@@ -51416,9 +51413,6 @@ for.body2110:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i.i5141, label %if.then.i.i.i5158, label %_ZN10TestObjectD2Ev.exit5169
 
 if.then.i.i.i5158:                                ; preds = %for.body2110
-  %mul.i.i.mask.i.i5159 = and i64 %add.i.i5139, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i5160 = icmp ne i64 %mul.i.i.mask.i.i5159, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i5160)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !1982
   unreachable
 
@@ -52993,9 +52987,6 @@ for.body2571:                                     ; preds = %_ZN5eastl5tupleIJb1
   br i1 %cmp.i.i.i6196, label %if.then.i.i.i6213, label %_ZN10TestObjectD2Ev.exit6224
 
 if.then.i.i.i6213:                                ; preds = %for.body2571
-  %mul.i.i.mask.i.i6214 = and i64 %add.i.i6194, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i6215 = icmp ne i64 %mul.i.i.mask.i.i6214, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i6215)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2091
   unreachable
 
@@ -54143,9 +54134,6 @@ for.body2958:                                     ; preds = %_ZN10TestObject7IsC
   br i1 %cmp.i.i.i6944, label %if.then.i.i.i6961, label %_ZN10TestObjectD2Ev.exit6972
 
 if.then.i.i.i6961:                                ; preds = %for.body2958
-  %mul.i.i.mask.i.i6962 = and i64 %add.i.i6942, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i6963 = icmp ne i64 %mul.i.i.mask.i.i6962, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i6963)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2164
   unreachable
 
@@ -55171,9 +55159,6 @@ for.body3223:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i.i7712, label %if.then.i.i.i7729, label %_ZN10TestObjectD2Ev.exit7740
 
 if.then.i.i.i7729:                                ; preds = %for.body3223
-  %mul.i.i.mask.i.i7730 = and i64 %add.i.i7710, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i7731 = icmp ne i64 %mul.i.i.mask.i.i7730, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i7731)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2216
   unreachable
 
@@ -58910,9 +58895,6 @@ for.body4201:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i10245, label %if.then.i.i10261, label %_ZN10TestObjectD2Ev.exit10271
 
 if.then.i.i10261:                                 ; preds = %for.body4201
-  %mul.i.i.mask.i10262 = and i64 %add.i10243, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i10263 = icmp ne i64 %mul.i.i.mask.i10262, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i10263)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2351
   unreachable
 
@@ -59248,9 +59230,6 @@ for.body4273:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i10404, label %if.then.i.i10424, label %_ZN10TestObjectD2Ev.exit10435
 
 if.then.i.i10424:                                 ; preds = %for.body4273
-  %mul.i.i.mask.i10425 = and i64 %add.i10402, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i10426 = icmp ne i64 %mul.i.i.mask.i10425, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i10426)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2356
   unreachable
 
@@ -59789,9 +59768,6 @@ for.body4398:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i10652, label %if.then.i.i10672, label %_ZN10TestObjectD2Ev.exit10683
 
 if.then.i.i10672:                                 ; preds = %for.body4398
-  %mul.i.i.mask.i10673 = and i64 %add.i10650, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i10674 = icmp ne i64 %mul.i.i.mask.i10673, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i10674)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2362
   unreachable
 
@@ -62694,9 +62670,6 @@ for.body5305:                                     ; preds = %_ZN10TestObject7IsC
   br i1 %cmp.i.i.i12601, label %if.then.i.i.i12618, label %_ZN10TestObjectD2Ev.exit12629
 
 if.then.i.i.i12618:                               ; preds = %for.body5305
-  %mul.i.i.mask.i.i12619 = and i64 %add.i.i12599, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i12620 = icmp ne i64 %mul.i.i.mask.i.i12619, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i12620)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2485
   unreachable
 
@@ -62742,9 +62715,6 @@ _ZN10TestObjectD2Ev.exit12629:                    ; preds = %for.body5305
   br i1 %cmp.i.i.i12639, label %if.then.i.i.i12656, label %_ZN10TestObjectD2Ev.exit12667
 
 if.then.i.i.i12656:                               ; preds = %_ZN10TestObjectD2Ev.exit12629
-  %mul.i.i.mask.i.i12657 = and i64 %add.i.i12637, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i12658 = icmp ne i64 %mul.i.i.mask.i.i12657, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i12658)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2488
   unreachable
 
@@ -63022,9 +62992,6 @@ for.body5349:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i.i12783, label %if.then.i.i.i12800, label %_ZN10TestObjectD2Ev.exit12811
 
 if.then.i.i.i12800:                               ; preds = %for.body5349
-  %mul.i.i.mask.i.i12801 = and i64 %add.i.i12781, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i12802 = icmp ne i64 %mul.i.i.mask.i.i12801, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i12802)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2498
   unreachable
 
@@ -63071,9 +63038,6 @@ _ZN10TestObjectD2Ev.exit12811:                    ; preds = %for.body5349
   br i1 %cmp.i.i.i12821, label %if.then.i.i.i12838, label %_ZN10TestObjectD2Ev.exit12849
 
 if.then.i.i.i12838:                               ; preds = %_ZN10TestObjectD2Ev.exit12811
-  %mul.i.i.mask.i.i12839 = and i64 %add.i.i12819, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i12840 = icmp ne i64 %mul.i.i.mask.i.i12839, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i12840)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2501
   unreachable
 
@@ -63842,9 +63806,6 @@ for.body5417:                                     ; preds = %_ZN5eastl18fixed_tu
   br i1 %cmp.i.i.i13171, label %if.then.i.i.i13189, label %_ZN10TestObjectD2Ev.exit13198
 
 if.then.i.i.i13189:                               ; preds = %for.body5417
-  %mul.i.i.mask.i.i13190 = and i64 %add.i.i13169, 9223372036854775807
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp ne i64 %mul.i.i.mask.i.i13190, 0
-  call void @llvm.assume(i1 %tobool.not.i.i.i.i.i.i.i.i.i)
   store volatile i32 -559038242, ptr null, align 4294967296, !noalias !2583
   unreachable
 

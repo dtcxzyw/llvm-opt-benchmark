@@ -2564,13 +2564,11 @@ default.unreachable.i.i.i:                        ; preds = %16
   br label %8
 
 25:                                               ; preds = %16
-  %26 = icmp samesign ult i64 %.sroa.8.0.i.i.i, 11
-  tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 56
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he560ea7ff32d4713E.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17he560ea7ff32d4713E.llvm.2651468057167481930.exit": ; preds = %19, %25, %2
-  %.0 = phi ptr [ null, %2 ], [ %27, %25 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %2 ], [ %26, %25 ], [ null, %19 ]
   ret ptr %.0
 }
 
@@ -2860,13 +2858,11 @@ default.unreachable.i.i.i:                        ; preds = %16
   br label %8
 
 25:                                               ; preds = %16
-  %26 = icmp samesign ult i64 %.sroa.8.0.i.i.i, 11
-  tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 56
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 56
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h8ad02d68b5eed3f2E.llvm.2651468057167481930.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h8ad02d68b5eed3f2E.llvm.2651468057167481930.exit": ; preds = %19, %25, %2
-  %.0 = phi ptr [ null, %2 ], [ %27, %25 ], [ null, %19 ]
+  %.0 = phi ptr [ null, %2 ], [ %26, %25 ], [ null, %19 ]
   ret ptr %.0
 }
 

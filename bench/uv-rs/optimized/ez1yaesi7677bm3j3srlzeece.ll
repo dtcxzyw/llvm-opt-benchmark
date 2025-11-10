@@ -4017,8 +4017,6 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %26
 
 60:                                               ; preds = %53
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %61 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %62 = load i8, ptr %61, align 1, !noundef !4
   %63 = icmp sgt i8 %62, -1
@@ -4254,8 +4252,6 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %15
 
 47:                                               ; preds = %40
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %48 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %49 = load i8, ptr %48, align 1, !noalias !694, !noundef !4
   %50 = icmp sgt i8 %49, -1
@@ -6555,8 +6551,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %14
 
 46:                                               ; preds = %39
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %47 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %48 = load i8, ptr %47, align 1, !noundef !4
   %49 = icmp sgt i8 %48, -1
@@ -6682,8 +6676,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %15
 
 49:                                               ; preds = %42
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %50 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %51 = load i8, ptr %50, align 1, !noundef !4
   %52 = icmp sgt i8 %51, -1
@@ -6822,8 +6814,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %13
 
 51:                                               ; preds = %44
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %52 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %53 = load i8, ptr %52, align 1, !noundef !4
   %54 = icmp sgt i8 %53, -1

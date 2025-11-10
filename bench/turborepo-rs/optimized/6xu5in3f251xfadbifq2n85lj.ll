@@ -183,8 +183,6 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTReBQ_EE7reserveNCINvNtB8_
   br label %46
 
 78:                                               ; preds = %72
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %79 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %80 = load i8, ptr %79, align 1, !noalias !57, !noundef !4
   %81 = icmp sgt i8 %80, -1

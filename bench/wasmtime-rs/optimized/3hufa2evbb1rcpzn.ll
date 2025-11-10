@@ -161,7 +161,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h57702325745b5eddE"(ptr nonnull align 8 %15) #10
+  invoke void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h57702325745b5eddE"(ptr nonnull align 8 %15) #9
           to label %139 unwind label %137
 
 .critedge.loopexit:                               ; preds = %135
@@ -369,7 +369,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
 137:                                              ; preds = %.loopexit.split-lp
   %138 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
+  call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #10
   unreachable
 
 139:                                              ; preds = %.loopexit.split-lp
@@ -578,28 +578,26 @@ _ZN9hashbrown3raw13RawTableInner25find_insert_slot_in_group17hfc579ae8efb65440E.
   br label %25
 
 63:                                               ; preds = %55
-  %64 = icmp eq i64 %.sroa.01.1, 1
-  call void @llvm.assume(i1 %64)
   %.val13 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %65 = getelementptr inbounds i8, ptr %.val13, i64 %.sroa.4.1
-  %66 = load i8, ptr %65, align 1, !noundef !3
-  %67 = icmp sgt i8 %66, -1
-  br i1 %67, label %68, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit
+  %64 = getelementptr inbounds i8, ptr %.val13, i64 %.sroa.4.1
+  %65 = load i8, ptr %64, align 1, !noundef !3
+  %66 = icmp sgt i8 %65, -1
+  br i1 %66, label %67, label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit
 
-68:                                               ; preds = %63
+67:                                               ; preds = %63
   call void @_ZN4core9core_arch3x864sse214_mm_load_si12817h01f64efa97b82412E(ptr nonnull sret(<2 x i64>) align 16 %6, ptr nonnull %.val13)
-  %69 = load <2 x i64>, ptr %6, align 16
-  store <2 x i64> %69, ptr %5, align 16
-  %70 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h124a565eccf72137E(ptr nonnull align 16 %5)
-  %71 = trunc i32 %70 to i16
-  %72 = call { i64, i64 } @_ZN9hashbrown3raw7bitmask7BitMask14lowest_set_bit17hdb8ac3b21b23c84fE(i16 %71)
-  %73 = extractvalue { i64, i64 } %72, 1
+  %68 = load <2 x i64>, ptr %6, align 16
+  store <2 x i64> %68, ptr %5, align 16
+  %69 = call i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h124a565eccf72137E(ptr nonnull align 16 %5)
+  %70 = trunc i32 %69 to i16
+  %71 = call { i64, i64 } @_ZN9hashbrown3raw7bitmask7BitMask14lowest_set_bit17hdb8ac3b21b23c84fE(i16 %70)
+  %72 = extractvalue { i64, i64 } %71, 1
   br label %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit
 
-_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit: ; preds = %63, %68
-  %.0.i = phi i64 [ %73, %68 ], [ %.sroa.4.1, %63 ]
+_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit: ; preds = %63, %67
+  %.0.i = phi i64 [ %72, %67 ], [ %.sroa.4.1, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
@@ -607,9 +605,9 @@ _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit: ; pr
 .loopexit:                                        ; preds = %38, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit
   %.sroa.3.0 = phi i64 [ %.0.i, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit ], [ %41, %38 ]
   %.sroa.0.0 = phi i64 [ 1, %_ZN9hashbrown3raw13RawTableInner15fix_insert_slot17haa28188513b87a63E.exit ], [ 0, %38 ]
-  %74 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %75 = insertvalue { i64, i64 } %74, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %75
+  %73 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %74 = insertvalue { i64, i64 } %73, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %74
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
@@ -630,11 +628,8 @@ declare hidden i32 @_ZN4core9core_arch3x864sse217_mm_movemask_epi817h124a565eccf
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { i64, i64 } @_ZN9hashbrown3raw7bitmask7BitMask14lowest_set_bit17hdb8ac3b21b23c84fE(i16) unnamed_addr #1
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: nonlazybind uwtable
-declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #6
+declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17hb4b7953bb6a0524eE"(i64, i64) unnamed_addr #1
@@ -643,10 +638,10 @@ declare hidden i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17for
 declare void @_ZN4core3ptr19swap_nonoverlapping17h6373687bf2667c38E(ptr, ptr, i64) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h57702325745b5eddE"(ptr align 8) unnamed_addr #6
+declare void @"_ZN4core3ptr181drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..rehash_in_place..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h57702325745b5eddE"(ptr align 8) unnamed_addr #5
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
-declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #7
+declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #6
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h870587d61ad656fdE(ptr sret(<2 x i64>) align 16, ptr) unnamed_addr #4
@@ -673,29 +668,28 @@ declare hidden void @_ZN4core9core_arch3x864sse214_mm_cmpeq_epi817hc7c84c5b6c359
 declare hidden { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha695058b5a4f18bdE"(ptr align 2) unnamed_addr #1
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #8
+declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" "target-features"="+sse2" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { cold }
-attributes #11 = { cold noreturn nounwind }
+attributes #5 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #6 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { cold }
+attributes #10 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

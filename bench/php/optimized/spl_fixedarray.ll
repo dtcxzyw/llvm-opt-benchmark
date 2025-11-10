@@ -1771,7 +1771,6 @@ define internal noundef nonnull ptr @spl_fixedarray_new(ptr noundef %0) #0 {
   br i1 %or.cond25.not.i, label %.lr.ph.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  tail call void @llvm.assume(i1 %18)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 576
@@ -2650,7 +2649,6 @@ spl_fixedarray_copy_ctor.exit:                    ; preds = %41, %spl_fixedarray
   br i1 %or.cond25.not, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  tail call void @llvm.assume(i1 %47)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %50 = load ptr, ptr @zend_known_strings, align 8, !tbaa !81
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 576

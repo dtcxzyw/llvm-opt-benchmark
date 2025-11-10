@@ -3160,8 +3160,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %17
 
 48:                                               ; preds = %41
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %49 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %50 = load i8, ptr %49, align 1, !noundef !6
   %51 = icmp sgt i8 %50, -1

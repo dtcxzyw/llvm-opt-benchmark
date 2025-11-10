@@ -35480,52 +35480,50 @@ define internal fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$
   br label %43
 
 73:                                               ; preds = %67
-  %74 = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %74)
-  %75 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
-  %76 = load i8, ptr %75, align 1, !noalias !6876, !noundef !4
-  %77 = icmp sgt i8 %76, -1
-  br i1 %77, label %78, label %84
+  %74 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
+  %75 = load i8, ptr %74, align 1, !noalias !6876, !noundef !4
+  %76 = icmp sgt i8 %75, -1
+  br i1 %76, label %77, label %83
 
-78:                                               ; preds = %73
-  %79 = load <16 x i8>, ptr %.val.i, align 16, !noalias !6892
-  %80 = icmp slt <16 x i8> %79, zeroinitializer
-  %81 = bitcast <16 x i1> %80 to i16
-  %.not.i.i.i = icmp ne i16 %81, 0
-  %82 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %81, i1 true)
-  %83 = zext nneg i16 %82 to i64
+77:                                               ; preds = %73
+  %78 = load <16 x i8>, ptr %.val.i, align 16, !noalias !6892
+  %79 = icmp slt <16 x i8> %78, zeroinitializer
+  %80 = bitcast <16 x i1> %79 to i16
+  %.not.i.i.i = icmp ne i16 %80, 0
+  %81 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %80, i1 true)
+  %82 = zext nneg i16 %81 to i64
   call void @llvm.assume(i1 %.not.i.i.i)
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.i, i64 %83
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.i, i64 %82
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !6895
-  br label %84
+  br label %83
 
-84:                                               ; preds = %78, %73
-  %85 = phi i8 [ %.pre, %78 ], [ %76, %73 ]
-  %.sroa.4.0.ph = phi i64 [ %83, %78 ], [ %.sroa.6.1.i.i, %73 ]
+83:                                               ; preds = %77, %73
+  %84 = phi i8 [ %.pre, %77 ], [ %75, %73 ]
+  %.sroa.4.0.ph = phi i64 [ %82, %77 ], [ %.sroa.6.1.i.i, %73 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6895)
-  %86 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.4.0.ph
-  %87 = and i8 %85, 1
-  %88 = zext nneg i8 %87 to i64
-  %89 = load i64, ptr %35, align 8, !alias.scope !6895, !noundef !4
-  %90 = sub i64 %89, %88
-  store i64 %90, ptr %35, align 8, !alias.scope !6895
-  %91 = add i64 %.sroa.4.0.ph, -16
-  %92 = and i64 %91, %.val4.i
-  store i8 %42, ptr %86, align 1, !noalias !6895
-  %93 = getelementptr i8, ptr %.val.i, i64 %92
-  %94 = getelementptr i8, ptr %93, i64 16
-  store i8 %42, ptr %94, align 1, !noalias !6895
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %96 = load i64, ptr %95, align 8, !alias.scope !6895, !noundef !4
-  %97 = add i64 %96, 1
-  store i64 %97, ptr %95, align 8, !alias.scope !6895
-  %98 = sub nsw i64 0, %.sroa.4.0.ph
-  %99 = getelementptr inbounds i64, ptr %.val.i, i64 %98
-  %100 = getelementptr inbounds i8, ptr %99, i64 -8
-  store i64 %1, ptr %100, align 8, !noalias !6895
+  %85 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.4.0.ph
+  %86 = and i8 %84, 1
+  %87 = zext nneg i8 %86 to i64
+  %88 = load i64, ptr %35, align 8, !alias.scope !6895, !noundef !4
+  %89 = sub i64 %88, %87
+  store i64 %89, ptr %35, align 8, !alias.scope !6895
+  %90 = add i64 %.sroa.4.0.ph, -16
+  %91 = and i64 %90, %.val4.i
+  store i8 %42, ptr %85, align 1, !noalias !6895
+  %92 = getelementptr i8, ptr %.val.i, i64 %91
+  %93 = getelementptr i8, ptr %92, i64 16
+  store i8 %42, ptr %93, align 1, !noalias !6895
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %95 = load i64, ptr %94, align 8, !alias.scope !6895, !noundef !4
+  %96 = add i64 %95, 1
+  store i64 %96, ptr %94, align 8, !alias.scope !6895
+  %97 = sub nsw i64 0, %.sroa.4.0.ph
+  %98 = getelementptr inbounds i64, ptr %.val.i, i64 %97
+  %99 = getelementptr inbounds i8, ptr %98, i64 -8
+  store i64 %1, ptr %99, align 8, !noalias !6895
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h1f2743d4de70bed7E.exit"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h1f2743d4de70bed7E.exit": ; preds = %49, %84
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h1f2743d4de70bed7E.exit": ; preds = %49, %83
   ret i1 %.not.not.i.i.i.not.not.not.not.not
 }
 

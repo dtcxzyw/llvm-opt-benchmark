@@ -6491,8 +6491,6 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   br label %48
 
 79:                                               ; preds = %72
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %80 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %81 = load i8, ptr %80, align 1, !noalias !1435, !noundef !3
   %82 = icmp sgt i8 %81, -1
@@ -6881,8 +6879,6 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
   br label %52
 
 83:                                               ; preds = %76
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %84 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
   %85 = load i8, ptr %84, align 1, !noalias !1567, !noundef !3
   %86 = icmp sgt i8 %85, -1
@@ -7536,8 +7532,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %17
 
 48:                                               ; preds = %41
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %49 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.6.1.i
   %50 = load i8, ptr %49, align 1, !noundef !3
   %51 = icmp sgt i8 %50, -1

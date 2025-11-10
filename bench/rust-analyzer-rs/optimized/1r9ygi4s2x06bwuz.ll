@@ -17929,13 +17929,11 @@ default.unreachable.i.i.i:                        ; preds = %19
   br label %11
 
 34:                                               ; preds = %19
-  %35 = icmp samesign ult i64 %.sroa.8.0.i.i.i, 11
-  tail call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 276
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 276
   br label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd0f67d6ecb975456E.llvm.15594626598014905639.exit"
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hd0f67d6ecb975456E.llvm.15594626598014905639.exit": ; preds = %28, %34, %2
-  %.0 = phi ptr [ null, %2 ], [ %36, %34 ], [ null, %28 ]
+  %.0 = phi ptr [ null, %2 ], [ %35, %34 ], [ null, %28 ]
   ret ptr %.0
 }
 

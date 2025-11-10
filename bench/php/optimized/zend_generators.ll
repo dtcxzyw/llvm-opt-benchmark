@@ -262,8 +262,6 @@ zend_vm_stack_free_call_frame_ex.exit:            ; preds = %31, %40
 
 41:                                               ; preds = %zend_vm_stack_free_call_frame_ex.exit
   store ptr null, ptr %2, align 8, !tbaa !57
-  %42 = icmp eq i64 %22, 0
-  tail call void @llvm.assume(i1 %42)
   ret ptr %23
 }
 

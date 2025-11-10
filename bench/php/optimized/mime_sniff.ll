@@ -228,7 +228,7 @@ zend_string_alloc.exit.i:                         ; preds = %59
   %66 = sub i64 %.043.lcssa181.pre-phi, %65
   %67 = and i64 %66, -8
   %68 = add i64 %67, 32
-  %69 = tail call noalias ptr @_emalloc(i64 noundef %68) #9
+  %69 = tail call noalias ptr @_emalloc(i64 noundef %68) #8
   store i32 1, ptr %69, align 4, !tbaa !7
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
   store i32 22, ptr %70, align 4, !tbaa !4
@@ -238,11 +238,11 @@ zend_string_alloc.exit.i:                         ; preds = %59
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %.0.i68147 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %74 = icmp ult ptr %.0.i68147, %.043.lcssa
-  br i1 %74, label %.lr.ph.preheader.i, label %.loopexit.i
+  br i1 %74, label %.lr.ph.preheader.i, label %collect_an_http_quoted_string_with_extract_value.exit
 
-.lr.ph.preheader.i:                               ; preds = %zend_string_alloc.exit.i, %95
-  %.0.i68149 = phi ptr [ %.0.i68, %95 ], [ %.0.i68147, %zend_string_alloc.exit.i ]
-  %75 = phi i64 [ %98, %95 ], [ 0, %zend_string_alloc.exit.i ]
+.lr.ph.preheader.i:                               ; preds = %zend_string_alloc.exit.i, %93
+  %.0.i68149 = phi ptr [ %.0.i68, %93 ], [ %.0.i68147, %zend_string_alloc.exit.i ]
+  %75 = phi i64 [ %96, %93 ], [ 0, %zend_string_alloc.exit.i ]
   %.077.i150 = ptrtoint ptr %.0.i68149 to i64
   %scevgep.i = getelementptr i8, ptr %.0.i68149, i64 %.043.lcssa181.pre-phi
   %76 = sub i64 0, %.077.i150
@@ -271,200 +271,188 @@ collect_a_sequence_of_code_points.exit.i:         ; preds = %78, %.lr.ph.i, %.lr
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull align 1 %.0.i68149, i64 %81, i1 false)
   %83 = add i64 %81, %75
   %84 = getelementptr inbounds nuw i8, ptr %.0.i68149, i64 %81
-  br i1 %80, label %85, label %.loopexit.i
+  br i1 %80, label %85, label %collect_an_http_quoted_string_with_extract_value.exit
 
 85:                                               ; preds = %collect_a_sequence_of_code_points.exit.i
   %86 = load i8, ptr %84, align 1, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %88 = icmp eq i8 %86, 92
-  br i1 %88, label %89, label %93
+  br i1 %88, label %89, label %collect_an_http_quoted_string_with_extract_value.exit
 
 89:                                               ; preds = %85
   %.not44.i = icmp ult ptr %87, %.043.lcssa
-  br i1 %.not44.i, label %95, label %90
+  br i1 %.not44.i, label %93, label %90
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %73, i64 %83
   store i8 92, ptr %91, align 1, !tbaa !4
   %92 = add i64 %83, 1
-  store i64 %92, ptr %72, align 8, !tbaa !10
   br label %collect_an_http_quoted_string_with_extract_value.exit
 
-93:                                               ; preds = %85
-  store i64 %83, ptr %72, align 8, !tbaa !10
-  %94 = icmp eq i8 %86, 34
-  tail call void @llvm.assume(i1 %94)
-  br label %collect_an_http_quoted_string_with_extract_value.exit
-
-95:                                               ; preds = %89
-  %96 = load i8, ptr %87, align 1, !tbaa !4
-  %97 = getelementptr inbounds nuw i8, ptr %73, i64 %83
-  store i8 %96, ptr %97, align 1, !tbaa !4
-  %98 = add i64 %83, 1
+93:                                               ; preds = %89
+  %94 = load i8, ptr %87, align 1, !tbaa !4
+  %95 = getelementptr inbounds nuw i8, ptr %73, i64 %83
+  store i8 %94, ptr %95, align 1, !tbaa !4
+  %96 = add i64 %83, 1
   %.0.i68 = getelementptr inbounds nuw i8, ptr %84, i64 2
-  %99 = icmp ult ptr %.0.i68, %.043.lcssa
-  br i1 %99, label %.lr.ph.preheader.i, label %.loopexit.i
+  %97 = icmp ult ptr %.0.i68, %.043.lcssa
+  br i1 %97, label %.lr.ph.preheader.i, label %collect_an_http_quoted_string_with_extract_value.exit
 
-.loopexit.i:                                      ; preds = %collect_a_sequence_of_code_points.exit.i, %95, %zend_string_alloc.exit.i
-  %100 = phi ptr [ %.0.i68147, %zend_string_alloc.exit.i ], [ %.0.i68, %95 ], [ %84, %collect_a_sequence_of_code_points.exit.i ]
-  %101 = phi i64 [ 0, %zend_string_alloc.exit.i ], [ %98, %95 ], [ %83, %collect_a_sequence_of_code_points.exit.i ]
-  store i64 %101, ptr %72, align 8, !tbaa !10
-  br label %collect_an_http_quoted_string_with_extract_value.exit
-
-collect_an_http_quoted_string_with_extract_value.exit: ; preds = %90, %93, %.loopexit.i
-  %102 = phi i64 [ %83, %93 ], [ %92, %90 ], [ %101, %.loopexit.i ]
-  %.1.ph.i = phi ptr [ %87, %93 ], [ %87, %90 ], [ %100, %.loopexit.i ]
+collect_an_http_quoted_string_with_extract_value.exit: ; preds = %93, %collect_a_sequence_of_code_points.exit.i, %85, %zend_string_alloc.exit.i, %90
+  %.sink = phi i64 [ %92, %90 ], [ 0, %zend_string_alloc.exit.i ], [ %96, %93 ], [ %83, %collect_a_sequence_of_code_points.exit.i ], [ %83, %85 ]
+  %.1.ph.i = phi ptr [ %87, %90 ], [ %.0.i68147, %zend_string_alloc.exit.i ], [ %.0.i68, %93 ], [ %84, %collect_a_sequence_of_code_points.exit.i ], [ %87, %85 ]
+  store i64 %.sink, ptr %72, align 8, !tbaa !10
   %.1.ph.i194 = ptrtoint ptr %.1.ph.i to i64
-  %103 = getelementptr inbounds nuw i8, ptr %73, i64 %102
-  store i8 0, ptr %103, align 1, !tbaa !4
-  %104 = icmp ult ptr %.1.ph.i, %.043.lcssa
-  br i1 %104, label %.lr.ph156.preheader, label %collect_a_sequence_of_code_points.exit61
+  %98 = getelementptr inbounds nuw i8, ptr %73, i64 %.sink
+  store i8 0, ptr %98, align 1, !tbaa !4
+  %99 = icmp ult ptr %.1.ph.i, %.043.lcssa
+  br i1 %99, label %.lr.ph156.preheader, label %collect_a_sequence_of_code_points.exit61
 
 .lr.ph156.preheader:                              ; preds = %collect_an_http_quoted_string_with_extract_value.exit
   %scevgep193 = getelementptr i8, ptr %.1.ph.i, i64 %.043.lcssa181.pre-phi
-  %105 = sub i64 0, %.1.ph.i194
-  %scevgep195 = getelementptr i8, ptr %scevgep193, i64 %105
+  %100 = sub i64 0, %.1.ph.i194
+  %scevgep195 = getelementptr i8, ptr %scevgep193, i64 %100
   br label %.lr.ph156
 
-.lr.ph156:                                        ; preds = %.lr.ph156.preheader, %107
-  %.0.i60155 = phi ptr [ %108, %107 ], [ %.1.ph.i, %.lr.ph156.preheader ]
-  %106 = load i8, ptr %.0.i60155, align 1, !tbaa !4
-  %.not99 = icmp eq i8 %106, 59
-  br i1 %.not99, label %collect_a_sequence_of_code_points.exit61.loopexit, label %107
+.lr.ph156:                                        ; preds = %.lr.ph156.preheader, %102
+  %.0.i60155 = phi ptr [ %103, %102 ], [ %.1.ph.i, %.lr.ph156.preheader ]
+  %101 = load i8, ptr %.0.i60155, align 1, !tbaa !4
+  %.not99 = icmp eq i8 %101, 59
+  br i1 %.not99, label %collect_a_sequence_of_code_points.exit61.loopexit, label %102
 
-107:                                              ; preds = %.lr.ph156
-  %108 = getelementptr inbounds nuw i8, ptr %.0.i60155, i64 1
-  %exitcond196.not = icmp eq ptr %108, %scevgep195
+102:                                              ; preds = %.lr.ph156
+  %103 = getelementptr inbounds nuw i8, ptr %.0.i60155, i64 1
+  %exitcond196.not = icmp eq ptr %103, %scevgep195
   br i1 %exitcond196.not, label %collect_a_sequence_of_code_points.exit61.loopexit, label %.lr.ph156
 
-collect_a_sequence_of_code_points.exit61.loopexit: ; preds = %107, %.lr.ph156
-  %.0.i60.lcssa.ph = phi ptr [ %.0.i60155, %.lr.ph156 ], [ %scevgep195, %107 ]
+collect_a_sequence_of_code_points.exit61.loopexit: ; preds = %102, %.lr.ph156
+  %.0.i60.lcssa.ph = phi ptr [ %.0.i60155, %.lr.ph156 ], [ %scevgep195, %102 ]
   %.pre200 = ptrtoint ptr %.0.i60.lcssa.ph to i64
   br label %collect_a_sequence_of_code_points.exit61
 
 collect_a_sequence_of_code_points.exit61:         ; preds = %collect_a_sequence_of_code_points.exit61.loopexit, %collect_an_http_quoted_string_with_extract_value.exit
   %.pre-phi201 = phi i64 [ %.pre200, %collect_a_sequence_of_code_points.exit61.loopexit ], [ %.1.ph.i194, %collect_an_http_quoted_string_with_extract_value.exit ]
-  %109 = sub i64 %.pre-phi201, %.1.ph.i194
-  %110 = getelementptr inbounds nuw i8, ptr %.1.ph.i, i64 %109
-  br label %133
+  %104 = sub i64 %.pre-phi201, %.1.ph.i194
+  %105 = getelementptr inbounds nuw i8, ptr %.1.ph.i, i64 %104
+  br label %128
 
-.lr.ph140:                                        ; preds = %.lr.ph140.preheader, %112
-  %.0.i62139 = phi ptr [ %113, %112 ], [ %60, %.lr.ph140.preheader ]
-  %111 = load i8, ptr %.0.i62139, align 1, !tbaa !4
-  %.not98 = icmp eq i8 %111, 59
-  br i1 %.not98, label %collect_a_sequence_of_code_points.exit63, label %112
+.lr.ph140:                                        ; preds = %.lr.ph140.preheader, %107
+  %.0.i62139 = phi ptr [ %108, %107 ], [ %60, %.lr.ph140.preheader ]
+  %106 = load i8, ptr %.0.i62139, align 1, !tbaa !4
+  %.not98 = icmp eq i8 %106, 59
+  br i1 %.not98, label %collect_a_sequence_of_code_points.exit63, label %107
 
-112:                                              ; preds = %.lr.ph140
-  %113 = getelementptr inbounds nuw i8, ptr %.0.i62139, i64 1
-  %exitcond192.not = icmp eq ptr %113, %scevgep191
+107:                                              ; preds = %.lr.ph140
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i62139, i64 1
+  %exitcond192.not = icmp eq ptr %108, %scevgep191
   br i1 %exitcond192.not, label %collect_a_sequence_of_code_points.exit63, label %.lr.ph140
 
-collect_a_sequence_of_code_points.exit63:         ; preds = %.lr.ph140, %112, %.preheader
-  %.0.i62.lcssa = phi ptr [ %60, %.preheader ], [ %scevgep191, %112 ], [ %.0.i62139, %.lr.ph140 ]
-  %114 = ptrtoint ptr %.0.i62.lcssa to i64
-  %115 = ptrtoint ptr %60 to i64
-  %116 = sub i64 %114, %115
-  %117 = and i64 %116, -8
-  %118 = add i64 %117, 32
-  %119 = tail call noalias ptr @_emalloc(i64 noundef %118) #9
-  store i32 1, ptr %119, align 4, !tbaa !7
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  store i32 22, ptr %120, align 4, !tbaa !4
-  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  store i64 0, ptr %121, align 8, !tbaa !13
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  store i64 %116, ptr %122, align 8, !tbaa !10
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %123, ptr nonnull align 1 %60, i64 %116, i1 false)
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %116
-  store i8 0, ptr %124, align 1, !tbaa !4
-  %125 = getelementptr inbounds nuw i8, ptr %60, i64 %53
-  %.not52144 = icmp eq i64 %116, 0
+collect_a_sequence_of_code_points.exit63:         ; preds = %.lr.ph140, %107, %.preheader
+  %.0.i62.lcssa = phi ptr [ %60, %.preheader ], [ %scevgep191, %107 ], [ %.0.i62139, %.lr.ph140 ]
+  %109 = ptrtoint ptr %.0.i62.lcssa to i64
+  %110 = ptrtoint ptr %60 to i64
+  %111 = sub i64 %109, %110
+  %112 = and i64 %111, -8
+  %113 = add i64 %112, 32
+  %114 = tail call noalias ptr @_emalloc(i64 noundef %113) #8
+  store i32 1, ptr %114, align 4, !tbaa !7
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
+  store i32 22, ptr %115, align 4, !tbaa !4
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  store i64 0, ptr %116, align 8, !tbaa !13
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 16
+  store i64 %111, ptr %117, align 8, !tbaa !10
+  %118 = getelementptr inbounds nuw i8, ptr %114, i64 24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %118, ptr nonnull align 1 %60, i64 %111, i1 false)
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 %111
+  store i8 0, ptr %119, align 1, !tbaa !4
+  %120 = getelementptr inbounds nuw i8, ptr %60, i64 %53
+  %.not52144 = icmp eq i64 %111, 0
   br i1 %.not52144, label %.loopexit237, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %collect_a_sequence_of_code_points.exit63
-  %126 = getelementptr i8, ptr %119, i64 23
-  br label %127
+  %121 = getelementptr i8, ptr %114, i64 23
+  br label %122
 
-127:                                              ; preds = %.lr.ph145, %is_http_whitespace.exit69.thread
-  %128 = phi i64 [ %116, %.lr.ph145 ], [ %131, %is_http_whitespace.exit69.thread ]
-  %129 = getelementptr i8, ptr %126, i64 %128
-  %130 = load i8, ptr %129, align 1, !tbaa !4
-  switch i8 %130, label %zend_string_release_ex.exit [
+122:                                              ; preds = %.lr.ph145, %is_http_whitespace.exit69.thread
+  %123 = phi i64 [ %111, %.lr.ph145 ], [ %126, %is_http_whitespace.exit69.thread ]
+  %124 = getelementptr i8, ptr %121, i64 %123
+  %125 = load i8, ptr %124, align 1, !tbaa !4
+  switch i8 %125, label %zend_string_release_ex.exit [
     i8 13, label %is_http_whitespace.exit69.thread
     i8 10, label %is_http_whitespace.exit69.thread
     i8 32, label %is_http_whitespace.exit69.thread
     i8 9, label %is_http_whitespace.exit69.thread
   ]
 
-is_http_whitespace.exit69.thread:                 ; preds = %127, %127, %127, %127
-  %131 = add i64 %128, -1
-  store i64 %131, ptr %122, align 8, !tbaa !10
-  %.not52 = icmp eq i64 %131, 0
-  br i1 %.not52, label %.loopexit237, label %127
+is_http_whitespace.exit69.thread:                 ; preds = %122, %122, %122, %122
+  %126 = add i64 %123, -1
+  store i64 %126, ptr %117, align 8, !tbaa !10
+  %.not52 = icmp eq i64 %126, 0
+  br i1 %.not52, label %.loopexit237, label %122
 
 .loopexit237:                                     ; preds = %is_http_whitespace.exit69.thread, %collect_a_sequence_of_code_points.exit63
-  store i8 0, ptr %123, align 1, !tbaa !4
+  store i8 0, ptr %118, align 1, !tbaa !4
   br label %zend_string_release_ex.exit65.sink.split
 
-zend_string_release_ex.exit:                      ; preds = %127
-  %132 = getelementptr inbounds nuw i8, ptr %123, i64 %128
-  store i8 0, ptr %132, align 1, !tbaa !4
-  br label %133
+zend_string_release_ex.exit:                      ; preds = %122
+  %127 = getelementptr inbounds nuw i8, ptr %118, i64 %123
+  store i8 0, ptr %127, align 1, !tbaa !4
+  br label %128
 
-133:                                              ; preds = %zend_string_release_ex.exit, %collect_a_sequence_of_code_points.exit61
-  %134 = phi i64 [ %102, %collect_a_sequence_of_code_points.exit61 ], [ %128, %zend_string_release_ex.exit ]
-  %.286 = phi ptr [ %110, %collect_a_sequence_of_code_points.exit61 ], [ %125, %zend_string_release_ex.exit ]
-  %.042 = phi ptr [ %69, %collect_a_sequence_of_code_points.exit61 ], [ %119, %zend_string_release_ex.exit ]
-  %135 = icmp eq i64 %53, 7
-  br i1 %135, label %136, label %zend_string_release_ex.exit65.sink.split
+128:                                              ; preds = %zend_string_release_ex.exit, %collect_a_sequence_of_code_points.exit61
+  %129 = phi i64 [ %.sink, %collect_a_sequence_of_code_points.exit61 ], [ %123, %zend_string_release_ex.exit ]
+  %.286 = phi ptr [ %105, %collect_a_sequence_of_code_points.exit61 ], [ %120, %zend_string_release_ex.exit ]
+  %.042 = phi ptr [ %69, %collect_a_sequence_of_code_points.exit61 ], [ %114, %zend_string_release_ex.exit ]
+  %130 = icmp eq i64 %53, 7
+  br i1 %130, label %131, label %zend_string_release_ex.exit65.sink.split
 
-136:                                              ; preds = %133
-  %137 = tail call i32 @strncasecmp(ptr noundef nonnull %46, ptr noundef nonnull @.str, i64 noundef 7) #10
-  %138 = icmp eq i32 %137, 0
-  br i1 %138, label %139, label %zend_string_release_ex.exit65.sink.split
+131:                                              ; preds = %128
+  %132 = tail call i32 @strncasecmp(ptr noundef nonnull %46, ptr noundef nonnull @.str, i64 noundef 7) #9
+  %133 = icmp eq i32 %132, 0
+  br i1 %133, label %134, label %zend_string_release_ex.exit65.sink.split
 
-139:                                              ; preds = %136
-  %.not6.i = icmp eq i64 %134, 0
+134:                                              ; preds = %131
+  %.not6.i = icmp eq i64 %129, 0
   br i1 %.not6.i, label %zend_string_release_ex.exit65.thread92, label %.lr.ph.i70.preheader
 
-.lr.ph.i70.preheader:                             ; preds = %139
-  %140 = getelementptr inbounds nuw i8, ptr %.042, i64 24
+.lr.ph.i70.preheader:                             ; preds = %134
+  %135 = getelementptr inbounds nuw i8, ptr %.042, i64 24
   br label %.lr.ph.i70
 
 .lr.ph.i70:                                       ; preds = %.lr.ph.i70.preheader, %is_http_quoted_string_token.exit.thread.i
-  %.08.i = phi i64 [ %146, %is_http_quoted_string_token.exit.thread.i ], [ %134, %.lr.ph.i70.preheader ]
-  %.047.i = phi ptr [ %147, %is_http_quoted_string_token.exit.thread.i ], [ %140, %.lr.ph.i70.preheader ]
-  %141 = load i8, ptr %.047.i, align 1, !tbaa !4
-  %142 = icmp eq i8 %141, 9
-  br i1 %142, label %is_http_quoted_string_token.exit.thread.i, label %is_http_quoted_string_token.exit.i
+  %.08.i = phi i64 [ %141, %is_http_quoted_string_token.exit.thread.i ], [ %129, %.lr.ph.i70.preheader ]
+  %.047.i = phi ptr [ %142, %is_http_quoted_string_token.exit.thread.i ], [ %135, %.lr.ph.i70.preheader ]
+  %136 = load i8, ptr %.047.i, align 1, !tbaa !4
+  %137 = icmp eq i8 %136, 9
+  br i1 %137, label %is_http_quoted_string_token.exit.thread.i, label %is_http_quoted_string_token.exit.i
 
 is_http_quoted_string_token.exit.i:               ; preds = %.lr.ph.i70
-  %143 = icmp ugt i8 %141, 31
-  %144 = icmp ne i8 %141, 127
-  %145 = and i1 %143, %144
-  br i1 %145, label %is_http_quoted_string_token.exit.thread.i, label %zend_string_release_ex.exit65.sink.split
+  %138 = icmp ugt i8 %136, 31
+  %139 = icmp ne i8 %136, 127
+  %140 = and i1 %138, %139
+  br i1 %140, label %is_http_quoted_string_token.exit.thread.i, label %zend_string_release_ex.exit65.sink.split
 
 is_http_quoted_string_token.exit.thread.i:        ; preds = %is_http_quoted_string_token.exit.i, %.lr.ph.i70
-  %146 = add i64 %.08.i, -1
-  %147 = getelementptr inbounds nuw i8, ptr %.047.i, i64 1
-  %.not.i71 = icmp eq i64 %146, 0
+  %141 = add i64 %.08.i, -1
+  %142 = getelementptr inbounds nuw i8, ptr %.047.i, i64 1
+  %.not.i71 = icmp eq i64 %141, 0
   br i1 %.not.i71, label %zend_string_release_ex.exit65.thread92, label %.lr.ph.i70
 
-zend_string_release_ex.exit65.sink.split:         ; preds = %is_http_quoted_string_token.exit.i, %133, %136, %.loopexit237
-  %.sink247 = phi ptr [ %119, %.loopexit237 ], [ %.042, %136 ], [ %.042, %133 ], [ %.042, %is_http_quoted_string_token.exit.i ]
-  %.1.ph = phi ptr [ %125, %.loopexit237 ], [ %.286, %136 ], [ %.286, %133 ], [ %.286, %is_http_quoted_string_token.exit.i ]
+zend_string_release_ex.exit65.sink.split:         ; preds = %is_http_quoted_string_token.exit.i, %128, %131, %.loopexit237
+  %.sink247 = phi ptr [ %114, %.loopexit237 ], [ %.042, %131 ], [ %.042, %128 ], [ %.042, %is_http_quoted_string_token.exit.i ]
+  %.1.ph = phi ptr [ %120, %.loopexit237 ], [ %.286, %131 ], [ %.286, %128 ], [ %.286, %is_http_quoted_string_token.exit.i ]
   store i32 0, ptr %.sink247, align 4, !tbaa !7
-  tail call void @_efree(ptr noundef nonnull %.sink247) #11
+  tail call void @_efree(ptr noundef nonnull %.sink247) #10
   br label %zend_string_release_ex.exit65
 
 zend_string_release_ex.exit65:                    ; preds = %zend_string_release_ex.exit65.sink.split, %56
   %.1 = phi ptr [ %54, %56 ], [ %.1.ph, %zend_string_release_ex.exit65.sink.split ]
-  %148 = icmp ult ptr %.1, %.043.lcssa
-  br i1 %148, label %37, label %zend_string_release_ex.exit65.thread92
+  %143 = icmp ult ptr %.1, %.043.lcssa
+  br i1 %143, label %37, label %zend_string_release_ex.exit65.thread92
 
-zend_string_release_ex.exit65.thread92:           ; preds = %zend_string_release_ex.exit65, %collect_a_sequence_of_code_points.exit59, %139, %is_http_quoted_string_token.exit.thread.i, %collect_a_sequence_of_code_points.exit.thread, %collect_a_sequence_of_code_points.exit55, %collect_a_sequence_of_code_points.exit
-  %.0 = phi ptr [ null, %collect_a_sequence_of_code_points.exit ], [ null, %collect_a_sequence_of_code_points.exit55 ], [ null, %collect_a_sequence_of_code_points.exit.thread ], [ %.042, %is_http_quoted_string_token.exit.thread.i ], [ null, %zend_string_release_ex.exit65 ], [ null, %collect_a_sequence_of_code_points.exit59 ], [ %.042, %139 ]
+zend_string_release_ex.exit65.thread92:           ; preds = %zend_string_release_ex.exit65, %collect_a_sequence_of_code_points.exit59, %134, %is_http_quoted_string_token.exit.thread.i, %collect_a_sequence_of_code_points.exit.thread, %collect_a_sequence_of_code_points.exit55, %collect_a_sequence_of_code_points.exit
+  %.0 = phi ptr [ null, %collect_a_sequence_of_code_points.exit ], [ null, %collect_a_sequence_of_code_points.exit55 ], [ null, %collect_a_sequence_of_code_points.exit.thread ], [ %.042, %is_http_quoted_string_token.exit.thread.i ], [ null, %zend_string_release_ex.exit65 ], [ null, %collect_a_sequence_of_code_points.exit59 ], [ %.042, %134 ]
   ret ptr %.0
 }
 
@@ -583,7 +571,7 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = load i64, ptr %35, align 8, !tbaa !10
-  %37 = call i32 @zend_binary_strncasecmp(ptr noundef nonnull %34, i64 noundef %36, ptr noundef nonnull %2, i64 noundef 13, i64 noundef 13) #11
+  %37 = call i32 @zend_binary_strncasecmp(ptr noundef nonnull %34, i64 noundef %36, ptr noundef nonnull %2, i64 noundef 13, i64 noundef 13) #10
   %.not46 = icmp eq i32 %37, 0
   br i1 %.not46, label %39, label %.thread50
 
@@ -617,35 +605,31 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 declare i32 @zend_binary_strncasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #5
-
 ; Function Attrs: allocsize(0)
-declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
+declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 
 declare void @_efree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #6 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { nounwind allocsize(0) }
-attributes #10 = { nounwind willreturn memory(read) }
-attributes #11 = { nounwind }
+attributes #5 = { allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind allocsize(0) }
+attributes #9 = { nounwind willreturn memory(read) }
+attributes #10 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

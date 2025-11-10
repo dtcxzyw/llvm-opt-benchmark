@@ -14955,7 +14955,6 @@ _ZNK4llvm15concat_iteratorIKNS_8RegisterEJPS2_S3_EEdeEv.exit: ; preds = %111
   br i1 %or.cond.i.i, label %_ZN4llvm15concat_iteratorIKNS_8RegisterEJPS2_S3_EEppEv.exit, label %114
 
 _ZN4llvm15concat_iteratorIKNS_8RegisterEJPS2_S3_EEppEv.exit: ; preds = %124
-  call void @llvm.assume(i1 %126)
   %.pre = load ptr, ptr %77, align 8, !tbaa !382
   %.pre70 = load ptr, ptr %14, align 8
   br label %84

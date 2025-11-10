@@ -141292,7 +141292,6 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN4
   br i1 %or.cond.i, label %_ZN4llvm15concat_iteratorIPN5clang11BindingDeclEJPKS3_NS_15mapped_iteratorIPKPNS1_4ExprEZNKS1_17DecompositionDecl13flat_bindingsEvEUlS8_E_S3_EES5_EE9incrementIJLm0ELm1ELm2EEEEvSt16integer_sequenceImJXspT_EEE.exit, label %5
 
 _ZN4llvm15concat_iteratorIPN5clang11BindingDeclEJPKS3_NS_15mapped_iteratorIPKPNS1_4ExprEZNKS1_17DecompositionDecl13flat_bindingsEvEUlS8_E_S3_EES5_EE9incrementIJLm0ELm1ELm2EEEEvSt16integer_sequenceImJXspT_EEE.exit: ; preds = %15
-  tail call void @llvm.assume(i1 %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %0
 }

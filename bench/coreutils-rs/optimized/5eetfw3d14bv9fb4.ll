@@ -833,54 +833,52 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %45
 
 77:                                               ; preds = %71
-  %78 = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %78)
-  %79 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
-  %80 = load i8, ptr %79, align 1, !noalias !218, !noundef !10
-  %81 = icmp sgt i8 %80, -1
-  br i1 %81, label %82, label %89
+  %78 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.6.1.i.i
+  %79 = load i8, ptr %78, align 1, !noalias !218, !noundef !10
+  %80 = icmp sgt i8 %79, -1
+  br i1 %80, label %81, label %88
 
-82:                                               ; preds = %77
-  %83 = load <16 x i8>, ptr %.val.i, align 16, !noalias !234
-  %84 = icmp slt <16 x i8> %83, zeroinitializer
-  %85 = bitcast <16 x i1> %84 to i16
-  %86 = icmp ne i16 %85, 0
-  %87 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %85, i1 true)
-  %88 = zext nneg i16 %87 to i64
-  call void @llvm.assume(i1 %86)
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.i, i64 %88
+81:                                               ; preds = %77
+  %82 = load <16 x i8>, ptr %.val.i, align 16, !noalias !234
+  %83 = icmp slt <16 x i8> %82, zeroinitializer
+  %84 = bitcast <16 x i1> %83 to i16
+  %85 = icmp ne i16 %84, 0
+  %86 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %84, i1 true)
+  %87 = zext nneg i16 %86 to i64
+  call void @llvm.assume(i1 %85)
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val.i, i64 %87
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !237
-  br label %89
+  br label %88
 
-89:                                               ; preds = %82, %77
-  %90 = phi i8 [ %.pre, %82 ], [ %80, %77 ]
-  %.sroa.411.0.ph = phi i64 [ %88, %82 ], [ %.sroa.6.1.i.i, %77 ]
+88:                                               ; preds = %81, %77
+  %89 = phi i8 [ %.pre, %81 ], [ %79, %77 ]
+  %.sroa.411.0.ph = phi i64 [ %87, %81 ], [ %.sroa.6.1.i.i, %77 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %91 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.411.0.ph
-  %92 = and i8 %90, 1
-  %93 = zext nneg i8 %92 to i64
-  %94 = load i64, ptr %37, align 8, !alias.scope !237, !noundef !10
-  %95 = sub i64 %94, %93
-  store i64 %95, ptr %37, align 8, !alias.scope !237
-  %96 = add i64 %.sroa.411.0.ph, -16
-  %97 = and i64 %96, %.val4.i
-  store i8 %44, ptr %91, align 1, !noalias !237
-  %98 = getelementptr i8, ptr %.val.i, i64 %97
-  %99 = getelementptr i8, ptr %98, i64 16
-  store i8 %44, ptr %99, align 1, !noalias !237
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %101 = load i64, ptr %100, align 8, !alias.scope !237, !noundef !10
-  %102 = add i64 %101, 1
-  store i64 %102, ptr %100, align 8, !alias.scope !237
-  %103 = sub nsw i64 0, %.sroa.411.0.ph
-  %104 = getelementptr inbounds { { i128, i64, [1 x i64] }, {} }, ptr %.val.i, i64 %103
-  %105 = getelementptr inbounds i8, ptr %104, i64 -32
-  store i128 %1, ptr %105, align 16, !noalias !237
-  %106 = getelementptr inbounds i8, ptr %104, i64 -16
-  store i64 %2, ptr %106, align 16, !noalias !237
+  %90 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.411.0.ph
+  %91 = and i8 %89, 1
+  %92 = zext nneg i8 %91 to i64
+  %93 = load i64, ptr %37, align 8, !alias.scope !237, !noundef !10
+  %94 = sub i64 %93, %92
+  store i64 %94, ptr %37, align 8, !alias.scope !237
+  %95 = add i64 %.sroa.411.0.ph, -16
+  %96 = and i64 %95, %.val4.i
+  store i8 %44, ptr %90, align 1, !noalias !237
+  %97 = getelementptr i8, ptr %.val.i, i64 %96
+  %98 = getelementptr i8, ptr %97, i64 16
+  store i8 %44, ptr %98, align 1, !noalias !237
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %100 = load i64, ptr %99, align 8, !alias.scope !237, !noundef !10
+  %101 = add i64 %100, 1
+  store i64 %101, ptr %99, align 8, !alias.scope !237
+  %102 = sub nsw i64 0, %.sroa.411.0.ph
+  %103 = getelementptr inbounds { { i128, i64, [1 x i64] }, {} }, ptr %.val.i, i64 %102
+  %104 = getelementptr inbounds i8, ptr %103, i64 -32
+  store i128 %1, ptr %104, align 16, !noalias !237
+  %105 = getelementptr inbounds i8, ptr %103, i64 -16
+  store i64 %2, ptr %105, align 16, !noalias !237
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h63ea30c8238e8f58E.exit"
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h63ea30c8238e8f58E.exit": ; preds = %51, %89
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot17h63ea30c8238e8f58E.exit": ; preds = %51, %88
   ret i1 %.not.i.i.i.not.not.not.not.not
 }
 

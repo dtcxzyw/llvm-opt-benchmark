@@ -8384,7 +8384,6 @@ _ZNK4llvm15concat_iteratorIKPNS_10BasicBlockEJSt16reverse_iteratorIN9__gnu_cxx17
   br i1 %or.cond.i.i, label %_ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS2_SaIS2_EEEEES7_EEppEv.exit, label %66
 
 _ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJSt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPS3_St6vectorIS2_SaIS2_EEEEES7_EEppEv.exit: ; preds = %76
-  call void @llvm.assume(i1 %78)
   %.sroa.0.0.copyload.i.i.i.i.i.i.pre = load ptr, ptr %24, align 8, !tbaa !336
   %.pre = load ptr, ptr %14, align 8
   br label %32

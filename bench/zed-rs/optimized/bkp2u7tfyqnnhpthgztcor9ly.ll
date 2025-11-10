@@ -16769,8 +16769,6 @@ define hidden noundef range(i8 0, 4) i8 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$
   br label %26
 
 59:                                               ; preds = %53
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %60 = getelementptr inbounds i8, ptr %24, i64 %.sroa.6.1.i.i
   %61 = load i8, ptr %60, align 1, !noalias !4014, !noundef !4
   %62 = icmp sgt i8 %61, -1
@@ -17057,8 +17055,6 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %15
 
 45:                                               ; preds = %39
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  tail call void @llvm.assume(i1 %cond.i.i)
   %46 = getelementptr inbounds i8, ptr %14, i64 %.sroa.6.1.i.i
   %47 = load i8, ptr %46, align 1, !noalias !4093, !noundef !4
   %48 = icmp sgt i8 %47, -1
@@ -17240,8 +17236,6 @@ define hidden { ptr, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   br label %30
 
 63:                                               ; preds = %57
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  call void @llvm.assume(i1 %cond.i.i)
   %64 = getelementptr inbounds i8, ptr %28, i64 %.sroa.6.1.i.i
   %65 = load i8, ptr %64, align 1, !noalias !4159, !noundef !4
   %66 = icmp sgt i8 %65, -1
@@ -17460,8 +17454,6 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   br label %20
 
 52:                                               ; preds = %46
-  %cond.i.i = icmp ne i64 %.sroa.01.1.i.i, 0
-  tail call void @llvm.assume(i1 %cond.i.i)
   %53 = getelementptr inbounds i8, ptr %19, i64 %.sroa.6.1.i.i
   %54 = load i8, ptr %53, align 1, !noalias !4223, !noundef !4
   %55 = icmp sgt i8 %54, -1
@@ -17975,8 +17967,6 @@ _ZN9hashbrown3raw13RawTableInner15fix_insert_slot17hc6d54d5516b1859cE.exit: ; pr
   br label %12
 
 41:                                               ; preds = %35
-  %cond = icmp ne i64 %.sroa.01.1, 0
-  tail call void @llvm.assume(i1 %cond)
   %42 = getelementptr inbounds i8, ptr %9, i64 %.sroa.6.1
   %43 = load i8, ptr %42, align 1, !noundef !4
   %44 = icmp sgt i8 %43, -1
@@ -18194,8 +18184,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %21
 
 54:                                               ; preds = %48
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  call void @llvm.assume(i1 %cond.i)
   %55 = getelementptr inbounds i8, ptr %16, i64 %.sroa.6.1.i
   %56 = load i8, ptr %55, align 1, !noalias !4422, !noundef !4
   %57 = icmp sgt i8 %56, -1
@@ -18321,8 +18309,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %18
 
 50:                                               ; preds = %44
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %51 = getelementptr inbounds i8, ptr %14, i64 %.sroa.6.1.i
   %52 = load i8, ptr %51, align 1, !noalias !4452, !noundef !4
   %53 = icmp sgt i8 %52, -1
@@ -18437,8 +18423,6 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   br label %16
 
 46:                                               ; preds = %40
-  %cond.i = icmp ne i64 %.sroa.01.1.i, 0
-  tail call void @llvm.assume(i1 %cond.i)
   %47 = getelementptr inbounds i8, ptr %14, i64 %.sroa.6.1.i
   %48 = load i8, ptr %47, align 1, !noalias !4479, !noundef !4
   %49 = icmp sgt i8 %48, -1

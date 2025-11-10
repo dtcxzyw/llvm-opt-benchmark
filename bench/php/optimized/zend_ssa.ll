@@ -3675,7 +3675,6 @@ _zend_ssa_rename_op.exit:                         ; preds = %468, %.thread, %72
 ._crit_edge291.loopexit:                          ; preds = %571, %._crit_edge291.loopexit.split.loop.exit
   %.1244.lcssa.ph = phi i32 [ %572, %._crit_edge291.loopexit.split.loop.exit ], [ %563, %571 ]
   %573 = zext nneg i32 %.1244.lcssa.ph to i64
-  tail call void @llvm.assume(i1 %570)
   %574 = getelementptr inbounds nuw i8, ptr %.0233304, i64 64
   %575 = load i32, ptr %574, align 8, !tbaa !101
   %576 = sext i32 %575 to i64
@@ -3768,7 +3767,6 @@ _zend_ssa_rename_op.exit:                         ; preds = %468, %.thread, %72
 ._crit_edge310.loopexit:                          ; preds = %613, %._crit_edge310.loopexit.split.loop.exit
   %.2245.lcssa.ph = phi i32 [ %614, %._crit_edge310.loopexit.split.loop.exit ], [ %605, %613 ]
   %615 = zext nneg i32 %.2245.lcssa.ph to i64
-  tail call void @llvm.assume(i1 %612)
   %616 = load i32, ptr %595, align 4, !tbaa !102
   %617 = getelementptr inbounds nuw i8, ptr %.0318, i64 96
   %618 = load ptr, ptr %617, align 8, !tbaa !98

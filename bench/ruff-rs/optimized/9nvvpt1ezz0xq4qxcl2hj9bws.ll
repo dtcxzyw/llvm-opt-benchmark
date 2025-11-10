@@ -6832,10 +6832,10 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   invoke fastcc void @"_ZN73_$LT$ruff_db..system..path..SystemPathBuf$u20$as$u20$core..hash..Hash$GT$4hash17h0c62f369aa95d891E"(ptr %.val11, i64 %.val12, ptr noalias noundef align 8 dereferenceable(72) %4)
           to label %16 unwind label %14
 
-"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit": ; preds = %145, %148, %14
-  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi, %148 ], [ %lpad.phi, %145 ]
+"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit": ; preds = %144, %147, %14
+  %.pn = phi { ptr, i32 } [ %15, %14 ], [ %lpad.phi, %147 ], [ %lpad.phi, %144 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h8afc92ed13740d28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #31
-          to label %161 unwind label %159
+          to label %160 unwind label %158
 
 14:                                               ; preds = %90, %3
   %15 = landingpad { ptr, i32 }
@@ -7023,77 +7023,75 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %100
 
 133:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf93d3E.exit.i.i
-  %134 = trunc nuw i64 %.sroa.01.1.i.i to i1
-  call void @llvm.assume(i1 %134)
-  %135 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.4.1.i.i
-  %136 = load i8, ptr %135, align 1, !noalias !811, !noundef !3
-  %137 = icmp sgt i8 %136, -1
-  br i1 %137, label %138, label %149
+  %134 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.sroa.4.1.i.i
+  %135 = load i8, ptr %134, align 1, !noalias !811, !noundef !3
+  %136 = icmp sgt i8 %135, -1
+  br i1 %136, label %137, label %148
 
-138:                                              ; preds = %133
-  %139 = load <16 x i8>, ptr %.val.i, align 16, !noalias !811
-  %140 = icmp slt <16 x i8> %139, zeroinitializer
-  %141 = bitcast <16 x i1> %140 to i16
-  %142 = icmp ne i16 %141, 0
-  call void @llvm.assume(i1 %142)
-  %143 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %141, i1 true)
-  %144 = zext nneg i16 %143 to i64
-  br label %149
+137:                                              ; preds = %133
+  %138 = load <16 x i8>, ptr %.val.i, align 16, !noalias !811
+  %139 = icmp slt <16 x i8> %138, zeroinitializer
+  %140 = bitcast <16 x i1> %139 to i16
+  %141 = icmp ne i16 %140, 0
+  call void @llvm.assume(i1 %141)
+  %142 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %140, i1 true)
+  %143 = zext nneg i16 %142 to i64
+  br label %148
 
 .loopexit:                                        ; preds = %105
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %145
+  br label %144
 
 .loopexit.split-lp:                               ; preds = %95
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %145
+  br label %144
 
-145:                                              ; preds = %.loopexit.split-lp, %.loopexit
+144:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %146 = cmpxchg ptr %87, i64 -4, i64 0 release monotonic, align 8
-  %147 = extractvalue { i64, i1 } %146, 1
-  br i1 %147, label %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit", label %148, !prof !56
+  %145 = cmpxchg ptr %87, i64 -4, i64 0 release monotonic, align 8
+  %146 = extractvalue { i64, i1 } %145, 1
+  br i1 %146, label %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit", label %147, !prof !56
 
-148:                                              ; preds = %145
+147:                                              ; preds = %144
   invoke void @_ZN7dashmap4lock9RawRwLock21unlock_exclusive_slow17hf38477d2d3ac8924E(ptr noundef nonnull align 8 %87)
-          to label %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit" unwind label %159
+          to label %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit" unwind label %158
 
-149:                                              ; preds = %138, %133
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %133 ], [ %144, %138 ]
+148:                                              ; preds = %137, %133
+  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %133 ], [ %143, %137 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %87, ptr %.sroa.44.0..sroa_idx, align 8
-  %150 = inttoptr i64 %79 to ptr
-  %151 = inttoptr i64 %.sroa.3.0.i.i.ph to ptr
-  br label %156
+  %149 = inttoptr i64 %79 to ptr
+  %150 = inttoptr i64 %.sroa.3.0.i.i.ph to ptr
+  br label %155
 
 .loopexit19:                                      ; preds = %.noexc16
-  %152 = load ptr, ptr %91, align 8, !alias.scope !808, !noalias !819, !nonnull !3
-  %153 = sub nsw i64 0, %109
-  %154 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, { { { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { i64, i32, [1 x i32] } } } } }, ptr %152, i64 %153
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %155, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %151 = load ptr, ptr %91, align 8, !alias.scope !808, !noalias !819, !nonnull !3
+  %152 = sub nsw i64 0, %109
+  %153 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, { { { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { i64, i32, [1 x i32] } } } } }, ptr %151, i64 %152
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %154, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %156
+  br label %155
 
-156:                                              ; preds = %.loopexit19, %149
-  %.sink28 = phi ptr [ %150, %149 ], [ %87, %.loopexit19 ]
-  %.sink = phi ptr [ %151, %149 ], [ %154, %.loopexit19 ]
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink28, ptr %157, align 8
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sink, ptr %158, align 8
+155:                                              ; preds = %.loopexit19, %148
+  %.sink28 = phi ptr [ %149, %148 ], [ %87, %.loopexit19 ]
+  %.sink = phi ptr [ %150, %148 ], [ %153, %.loopexit19 ]
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sink28, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.sink, ptr %157, align 8
   ret void
 
-159:                                              ; preds = %148, %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit"
-  %160 = landingpad { ptr, i32 }
+158:                                              ; preds = %147, %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit"
+  %159 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #32
   unreachable
 
-161:                                              ; preds = %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit"
+160:                                              ; preds = %"_ZN4core3ptr246drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..system..os..ListedDirectory$GT$$RP$$GT$$GT$$GT$17hf75a377c3c5806d3E.exit"
   resume { ptr, i32 } %.pn
 }
 
@@ -7118,10 +7116,10 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   invoke fastcc void @"_ZN56_$LT$camino..Utf8PathBuf$u20$as$u20$core..hash..Hash$GT$4hash17hc5465c64e2cec5e9E"(ptr %.val9, i64 %.val10, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
           to label %13 unwind label %11
 
-"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit": ; preds = %80, %83, %11
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %lpad.phi, %83 ], [ %lpad.phi, %80 ]
+"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit": ; preds = %79, %82, %11
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %lpad.phi, %82 ], [ %lpad.phi, %79 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_db..vendored..path..VendoredPathBuf$GT$17heb6b121637db5ff8E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #31
-          to label %96 unwind label %94
+          to label %95 unwind label %93
 
 11:                                               ; preds = %25, %.noexc, %3
   %12 = landingpad { ptr, i32 }
@@ -7244,77 +7242,75 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %35
 
 68:                                               ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf93d3E.exit.i.i
-  %69 = trunc nuw i64 %.sroa.01.1.i.i to i1
-  call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds nuw i8, ptr %.val.i15, i64 %.sroa.4.1.i.i
-  %71 = load i8, ptr %70, align 1, !noalias !831, !noundef !3
-  %72 = icmp sgt i8 %71, -1
-  br i1 %72, label %73, label %84
+  %69 = getelementptr inbounds nuw i8, ptr %.val.i15, i64 %.sroa.4.1.i.i
+  %70 = load i8, ptr %69, align 1, !noalias !831, !noundef !3
+  %71 = icmp sgt i8 %70, -1
+  br i1 %71, label %72, label %83
 
-73:                                               ; preds = %68
-  %74 = load <16 x i8>, ptr %.val.i15, align 16, !noalias !831
-  %75 = icmp slt <16 x i8> %74, zeroinitializer
-  %76 = bitcast <16 x i1> %75 to i16
-  %77 = icmp ne i16 %76, 0
-  call void @llvm.assume(i1 %77)
-  %78 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %76, i1 true)
-  %79 = zext nneg i16 %78 to i64
-  br label %84
+72:                                               ; preds = %68
+  %73 = load <16 x i8>, ptr %.val.i15, align 16, !noalias !831
+  %74 = icmp slt <16 x i8> %73, zeroinitializer
+  %75 = bitcast <16 x i1> %74 to i16
+  %76 = icmp ne i16 %75, 0
+  call void @llvm.assume(i1 %76)
+  %77 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %75, i1 true)
+  %78 = zext nneg i16 %77 to i64
+  br label %83
 
 .loopexit:                                        ; preds = %40
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %79
 
 .loopexit.split-lp:                               ; preds = %30
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %79
 
-80:                                               ; preds = %.loopexit.split-lp, %.loopexit
+79:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %81 = cmpxchg ptr %22, i64 -4, i64 0 release monotonic, align 8
-  %82 = extractvalue { i64, i1 } %81, 1
-  br i1 %82, label %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit", label %83, !prof !56
+  %80 = cmpxchg ptr %22, i64 -4, i64 0 release monotonic, align 8
+  %81 = extractvalue { i64, i1 } %80, 1
+  br i1 %81, label %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit", label %82, !prof !56
 
-83:                                               ; preds = %80
+82:                                               ; preds = %79
   invoke void @_ZN7dashmap4lock9RawRwLock21unlock_exclusive_slow17hf38477d2d3ac8924E(ptr noundef nonnull align 8 %22)
-          to label %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit" unwind label %94
+          to label %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit" unwind label %93
 
-84:                                               ; preds = %73, %68
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %68 ], [ %79, %73 ]
+83:                                               ; preds = %72, %68
+  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %68 ], [ %78, %72 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %.sroa.44.0..sroa_idx, align 8
-  %85 = inttoptr i64 %14 to ptr
-  %86 = inttoptr i64 %.sroa.3.0.i.i.ph to ptr
-  br label %91
+  %84 = inttoptr i64 %14 to ptr
+  %85 = inttoptr i64 %.sroa.3.0.i.i.ph to ptr
+  br label %90
 
 .loopexit20:                                      ; preds = %.noexc17
-  %87 = load ptr, ptr %26, align 8, !alias.scope !828, !noalias !839, !nonnull !3
-  %88 = sub nsw i64 0, %44
-  %89 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %87, i64 %88
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %86 = load ptr, ptr %26, align 8, !alias.scope !828, !noalias !839, !nonnull !3
+  %87 = sub nsw i64 0, %44
+  %88 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %86, i64 %87
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %91
+  br label %90
 
-91:                                               ; preds = %.loopexit20, %84
-  %.sink29 = phi ptr [ %85, %84 ], [ %22, %.loopexit20 ]
-  %.sink = phi ptr [ %86, %84 ], [ %89, %.loopexit20 ]
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink29, ptr %92, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sink, ptr %93, align 8
+90:                                               ; preds = %.loopexit20, %83
+  %.sink29 = phi ptr [ %84, %83 ], [ %22, %.loopexit20 ]
+  %.sink = phi ptr [ %85, %83 ], [ %88, %.loopexit20 ]
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sink29, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.sink, ptr %92, align 8
   ret void
 
-94:                                               ; preds = %83, %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit"
-  %95 = landingpad { ptr, i32 }
+93:                                               ; preds = %82, %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit"
+  %94 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #32
   unreachable
 
-96:                                               ; preds = %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit"
+95:                                               ; preds = %"_ZN4core3ptr234drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..vendored..path..VendoredPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h3731cf2f41dc9d5fE.exit"
   resume { ptr, i32 } %.pn
 }
 
@@ -7339,10 +7335,10 @@ define hidden void @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dash
   invoke fastcc void @"_ZN56_$LT$camino..Utf8PathBuf$u20$as$u20$core..hash..Hash$GT$4hash17hc5465c64e2cec5e9E"(ptr %.val9, i64 %.val10, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
           to label %13 unwind label %11
 
-"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit": ; preds = %82, %85, %11
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %lpad.phi, %85 ], [ %lpad.phi, %82 ]
+"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit": ; preds = %81, %84, %11
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %lpad.phi, %84 ], [ %lpad.phi, %81 ]
   invoke void @"_ZN4core3ptr57drop_in_place$LT$ruff_db..system..path..SystemPathBuf$GT$17h8afc92ed13740d28E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #31
-          to label %98 unwind label %96
+          to label %97 unwind label %95
 
 11:                                               ; preds = %27, %.noexc, %3
   %12 = landingpad { ptr, i32 }
@@ -7466,77 +7462,75 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %37
 
 70:                                               ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf93d3E.exit.i.i
-  %71 = trunc nuw i64 %.sroa.01.1.i.i to i1
-  call void @llvm.assume(i1 %71)
-  %72 = getelementptr inbounds nuw i8, ptr %.val.i13, i64 %.sroa.4.1.i.i
-  %73 = load i8, ptr %72, align 1, !noalias !854, !noundef !3
-  %74 = icmp sgt i8 %73, -1
-  br i1 %74, label %75, label %86
+  %71 = getelementptr inbounds nuw i8, ptr %.val.i13, i64 %.sroa.4.1.i.i
+  %72 = load i8, ptr %71, align 1, !noalias !854, !noundef !3
+  %73 = icmp sgt i8 %72, -1
+  br i1 %73, label %74, label %85
 
-75:                                               ; preds = %70
-  %76 = load <16 x i8>, ptr %.val.i13, align 16, !noalias !854
-  %77 = icmp slt <16 x i8> %76, zeroinitializer
-  %78 = bitcast <16 x i1> %77 to i16
-  %79 = icmp ne i16 %78, 0
-  call void @llvm.assume(i1 %79)
-  %80 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %78, i1 true)
-  %81 = zext nneg i16 %80 to i64
-  br label %86
+74:                                               ; preds = %70
+  %75 = load <16 x i8>, ptr %.val.i13, align 16, !noalias !854
+  %76 = icmp slt <16 x i8> %75, zeroinitializer
+  %77 = bitcast <16 x i1> %76 to i16
+  %78 = icmp ne i16 %77, 0
+  call void @llvm.assume(i1 %78)
+  %79 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %77, i1 true)
+  %80 = zext nneg i16 %79 to i64
+  br label %85
 
 .loopexit:                                        ; preds = %42
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %82
+  br label %81
 
 .loopexit.split-lp:                               ; preds = %32
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %82
+  br label %81
 
-82:                                               ; preds = %.loopexit.split-lp, %.loopexit
+81:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %83 = cmpxchg ptr %24, i64 -4, i64 0 release monotonic, align 8
-  %84 = extractvalue { i64, i1 } %83, 1
-  br i1 %84, label %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit", label %85, !prof !56
+  %82 = cmpxchg ptr %24, i64 -4, i64 0 release monotonic, align 8
+  %83 = extractvalue { i64, i1 } %82, 1
+  br i1 %83, label %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit", label %84, !prof !56
 
-85:                                               ; preds = %82
+84:                                               ; preds = %81
   invoke void @_ZN7dashmap4lock9RawRwLock21unlock_exclusive_slow17hf38477d2d3ac8924E(ptr noundef nonnull align 8 %24)
-          to label %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit" unwind label %96
+          to label %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit" unwind label %95
 
-86:                                               ; preds = %75, %70
-  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %70 ], [ %81, %75 ]
+85:                                               ; preds = %74, %70
+  %.sroa.3.0.i.i.ph = phi i64 [ %.sroa.4.1.i.i, %70 ], [ %80, %74 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %24, ptr %.sroa.44.0..sroa_idx, align 8
-  %87 = inttoptr i64 %14 to ptr
-  %88 = inttoptr i64 %.sroa.3.0.i.i.ph to ptr
-  br label %93
+  %86 = inttoptr i64 %14 to ptr
+  %87 = inttoptr i64 %.sroa.3.0.i.i.ph to ptr
+  br label %92
 
 .loopexit18:                                      ; preds = %.noexc15
-  %89 = load ptr, ptr %28, align 8, !alias.scope !851, !noalias !862, !nonnull !3
-  %90 = sub nsw i64 0, %46
-  %91 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %89, i64 %90
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
+  %88 = load ptr, ptr %28, align 8, !alias.scope !851, !noalias !862, !nonnull !3
+  %89 = sub nsw i64 0, %46
+  %90 = getelementptr inbounds { { { { { { { { { i64, ptr, {} }, {} }, i64 } } } } } }, i32, [1 x i32] }, ptr %88, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %93
+  br label %92
 
-93:                                               ; preds = %.loopexit18, %86
-  %.sink27 = phi ptr [ %87, %86 ], [ %24, %.loopexit18 ]
-  %.sink = phi ptr [ %88, %86 ], [ %91, %.loopexit18 ]
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %.sink27, ptr %94, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.sink, ptr %95, align 8
+92:                                               ; preds = %.loopexit18, %85
+  %.sink27 = phi ptr [ %86, %85 ], [ %24, %.loopexit18 ]
+  %.sink = phi ptr [ %87, %85 ], [ %90, %.loopexit18 ]
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store ptr %.sink27, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.sink, ptr %94, align 8
   ret void
 
-96:                                               ; preds = %85, %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit"
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %84, %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit"
+  %96 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #32
   unreachable
 
-98:                                               ; preds = %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit"
+97:                                               ; preds = %"_ZN4core3ptr230drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..File$GT$$RP$$GT$$GT$$GT$17h10c343a7c09d7a4fE.exit"
   resume { ptr, i32 } %.pn
 }
 
@@ -7648,10 +7642,10 @@ define hidden noundef i32 @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u
   %59 = xor i64 %.sroa.025.0.copyload.i.i.i.i.i.i.i, 1376283091369227076
   br label %62
 
-"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i": ; preds = %143, %140, %60
-  %.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %lpad.phi.i, %143 ], [ %lpad.phi.i, %140 ]
+"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i": ; preds = %142, %139, %60
+  %.pn.i = phi { ptr, i32 } [ %61, %60 ], [ %lpad.phi.i, %142 ], [ %lpad.phi.i, %139 ]
   invoke void @"_ZN4core3ptr64drop_in_place$LT$ruff_db..system..path..SystemVirtualPathBuf$GT$17h1a93abc95bc28d2cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #31
-          to label %148 unwind label %146, !noalias !868
+          to label %147 unwind label %145, !noalias !868
 
 60:                                               ; preds = %84, %3
   %61 = landingpad { ptr, i32 }
@@ -7785,112 +7779,110 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   br label %95
 
 128:                                              ; preds = %_ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf93d3E.exit.i.i.i
-  %129 = trunc nuw i64 %.sroa.01.1.i.i.i to i1
-  call void @llvm.assume(i1 %129)
-  %130 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.sroa.4.1.i.i.i
-  %131 = load i8, ptr %130, align 1, !noalias !908, !noundef !3
-  %132 = icmp sgt i8 %131, -1
-  br i1 %132, label %133, label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit"
+  %129 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %.sroa.4.1.i.i.i
+  %130 = load i8, ptr %129, align 1, !noalias !908, !noundef !3
+  %131 = icmp sgt i8 %130, -1
+  br i1 %131, label %132, label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit"
 
-133:                                              ; preds = %128
-  %134 = load <16 x i8>, ptr %.val.i.i, align 16, !noalias !908
-  %135 = icmp slt <16 x i8> %134, zeroinitializer
-  %136 = bitcast <16 x i1> %135 to i16
-  %137 = icmp ne i16 %136, 0
-  call void @llvm.assume(i1 %137)
-  %138 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %136, i1 true)
-  %139 = zext nneg i16 %138 to i64
+132:                                              ; preds = %128
+  %133 = load <16 x i8>, ptr %.val.i.i, align 16, !noalias !908
+  %134 = icmp slt <16 x i8> %133, zeroinitializer
+  %135 = bitcast <16 x i1> %134 to i16
+  %136 = icmp ne i16 %135, 0
+  call void @llvm.assume(i1 %136)
+  %137 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %135, i1 true)
+  %138 = zext nneg i16 %137 to i64
   br label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit"
 
 .loopexit.i:                                      ; preds = %100
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %139
 
 .loopexit.split-lp.i:                             ; preds = %89
   %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
           cleanup
-  br label %140
+  br label %139
 
-140:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
+139:                                              ; preds = %.loopexit.split-lp.i, %.loopexit.i
   %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
-  %141 = cmpxchg ptr %81, i64 -4, i64 0 release monotonic, align 8, !noalias !877
-  %142 = extractvalue { i64, i1 } %141, 1
-  br i1 %142, label %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i", label %143, !prof !56
+  %140 = cmpxchg ptr %81, i64 -4, i64 0 release monotonic, align 8, !noalias !877
+  %141 = extractvalue { i64, i1 } %140, 1
+  br i1 %141, label %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i", label %142, !prof !56
 
-143:                                              ; preds = %140
+142:                                              ; preds = %139
   invoke void @_ZN7dashmap4lock9RawRwLock21unlock_exclusive_slow17hf38477d2d3ac8924E(ptr noundef nonnull align 8 %81)
-          to label %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i" unwind label %146, !noalias !877
+          to label %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i" unwind label %145, !noalias !877
 
 "_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread": ; preds = %.noexc15.i
-  %144 = load ptr, ptr %85, align 8, !alias.scope !894, !noalias !905, !nonnull !3
-  %145 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } } }, i32, [1 x i32] }, ptr %144, i64 %106
+  %143 = load ptr, ptr %85, align 8, !alias.scope !894, !noalias !905, !nonnull !3
+  %144 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } } }, i32, [1 x i32] }, ptr %143, i64 %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !alias.scope !877, !noalias !871
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %172
+  br label %171
 
-146:                                              ; preds = %143, %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i"
-  %147 = landingpad { ptr, i32 }
+145:                                              ; preds = %142, %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i"
+  %146 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #32, !noalias !868
   unreachable
 
-148:                                              ; preds = %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i"
+147:                                              ; preds = %"_ZN4core3ptr244drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$dashmap..lock..RawRwLock$C$hashbrown..raw..inner..RawTable$LT$$LP$ruff_db..system..path..SystemVirtualPathBuf$C$dashmap..util..SharedValue$LT$ruff_db..files..VirtualFile$GT$$RP$$GT$$GT$$GT$17ha82b511714cd67d7E.exit.i"
   resume { ptr, i32 } %.pn.i
 
-"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit": ; preds = %128, %133
-  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.1.i.i.i, %128 ], [ %139, %133 ]
+"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit": ; preds = %128, %132
+  %.sroa.3.0.i.i.ph.i = phi i64 [ %.sroa.4.1.i.i.i, %128 ], [ %138, %132 ]
   %.sroa.0.0.copyload4 = load i64, ptr %1, align 8, !alias.scope !877, !noalias !871
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !alias.scope !877, !noalias !871
-  %149 = inttoptr i64 %73 to ptr
-  %150 = inttoptr i64 %.sroa.3.0.i.i.ph.i to ptr
+  %148 = inttoptr i64 %73 to ptr
+  %149 = inttoptr i64 %.sroa.3.0.i.i.ph.i to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not = icmp eq i64 %.sroa.0.0.copyload4, -9223372036854775808
-  br i1 %.not, label %172, label %151
+  br i1 %.not, label %171, label %150
 
-151:                                              ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit"
+150:                                              ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !913)
   call void @llvm.experimental.noalias.scope.decl(metadata !916)
-  %152 = load ptr, ptr %85, align 8, !alias.scope !916, !noalias !919, !nonnull !3, !noundef !3
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 %.sroa.3.0.i.i.ph.i
-  %154 = load i8, ptr %153, align 1, !noalias !922, !noundef !3
-  %155 = and i8 %154, 1
-  %156 = zext nneg i8 %155 to i64
-  %157 = load i64, ptr %86, align 8, !alias.scope !916, !noalias !919, !noundef !3
-  %158 = sub i64 %157, %156
-  store i64 %158, ptr %86, align 8, !alias.scope !916, !noalias !919
-  %159 = add i64 %.sroa.3.0.i.i.ph.i, -16
-  %160 = load i64, ptr %91, align 16, !alias.scope !916, !noalias !919, !noundef !3
-  %161 = and i64 %160, %159
-  store i8 %93, ptr %153, align 1, !noalias !922
-  %162 = getelementptr i8, ptr %152, i64 %161
-  %163 = getelementptr i8, ptr %162, i64 16
-  store i8 %93, ptr %163, align 1, !noalias !922
-  %164 = getelementptr inbounds nuw i8, ptr %81, i64 32
-  %165 = load i64, ptr %164, align 32, !alias.scope !916, !noalias !919, !noundef !3
-  %166 = add i64 %165, 1
-  store i64 %166, ptr %164, align 32, !alias.scope !916, !noalias !919
-  %167 = sub nsw i64 0, %.sroa.3.0.i.i.ph.i
-  %168 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } } }, i32, [1 x i32] }, ptr %152, i64 %167
-  %169 = getelementptr inbounds i8, ptr %168, i64 -32
-  store i64 %.sroa.0.0.copyload4, ptr %169, align 8, !noalias !923
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %168, i64 -24
+  %151 = load ptr, ptr %85, align 8, !alias.scope !916, !noalias !919, !nonnull !3, !noundef !3
+  %152 = getelementptr inbounds nuw i8, ptr %151, i64 %.sroa.3.0.i.i.ph.i
+  %153 = load i8, ptr %152, align 1, !noalias !922, !noundef !3
+  %154 = and i8 %153, 1
+  %155 = zext nneg i8 %154 to i64
+  %156 = load i64, ptr %86, align 8, !alias.scope !916, !noalias !919, !noundef !3
+  %157 = sub i64 %156, %155
+  store i64 %157, ptr %86, align 8, !alias.scope !916, !noalias !919
+  %158 = add i64 %.sroa.3.0.i.i.ph.i, -16
+  %159 = load i64, ptr %91, align 16, !alias.scope !916, !noalias !919, !noundef !3
+  %160 = and i64 %159, %158
+  store i8 %93, ptr %152, align 1, !noalias !922
+  %161 = getelementptr i8, ptr %151, i64 %160
+  %162 = getelementptr i8, ptr %161, i64 16
+  store i8 %93, ptr %162, align 1, !noalias !922
+  %163 = getelementptr inbounds nuw i8, ptr %81, i64 32
+  %164 = load i64, ptr %163, align 32, !alias.scope !916, !noalias !919, !noundef !3
+  %165 = add i64 %164, 1
+  store i64 %165, ptr %163, align 32, !alias.scope !916, !noalias !919
+  %166 = sub nsw i64 0, %.sroa.3.0.i.i.ph.i
+  %167 = getelementptr inbounds { { { { { { i64, ptr, {} }, {} }, i64 } } }, i32, [1 x i32] }, ptr %151, i64 %166
+  %168 = getelementptr inbounds i8, ptr %167, i64 -32
+  store i64 %.sroa.0.0.copyload4, ptr %168, align 8, !noalias !923
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %167, i64 -24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %168, i64 -8
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %167, i64 -8
   store i32 %2, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !924
   store ptr %81, ptr %5, align 8, !alias.scope !913, !noalias !925
-  %170 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %169, ptr %170, align 8, !alias.scope !913, !noalias !925
-  %171 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sroa.4.0..sroa_idx.i, ptr %171, align 8, !alias.scope !913, !noalias !925
+  %169 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %168, ptr %169, align 8, !alias.scope !913, !noalias !925
+  %170 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %.sroa.4.0..sroa_idx.i, ptr %170, align 8, !alias.scope !913, !noalias !925
   call void @"_ZN4core3ptr130drop_in_place$LT$dashmap..mapref..one..RefMut$LT$ruff_db..system..path..SystemVirtualPathBuf$C$ruff_db..files..VirtualFile$GT$$GT$17hec51c85cb324620cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %175
+  br label %174
 
-172:                                              ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread", %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit"
-  %.sink.i17 = phi ptr [ %145, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread" ], [ %150, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit" ]
-  %.sink27.i16 = phi ptr [ %81, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread" ], [ %149, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit" ]
+171:                                              ; preds = %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread", %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit"
+  %.sink.i17 = phi ptr [ %144, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread" ], [ %149, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit" ]
+  %.sink27.i16 = phi ptr [ %81, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread" ], [ %148, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit" ]
   %.sroa.8.015 = phi ptr [ %94, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit.thread" ], [ %81, %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$6_entry17h4bd2f865ba86ab7aE.exit" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
@@ -7900,15 +7892,15 @@ _ZN9hashbrown3raw5inner13RawTableInner25find_insert_slot_in_group17h462316f1a2bf
   store ptr %.sink27.i16, ptr %.sroa.9.8..sroa_idx, align 8
   %.sroa.10.8..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %.sink.i17, ptr %.sroa.10.8..sroa_idx, align 8
-  %173 = getelementptr inbounds i8, ptr %.sink.i17, i64 -8
-  %174 = load i32, ptr %173, align 4, !range !104, !noundef !3
-  store i32 %2, ptr %173, align 4
+  %172 = getelementptr inbounds i8, ptr %.sink.i17, i64 -8
+  %173 = load i32, ptr %172, align 4, !range !104, !noundef !3
+  store i32 %2, ptr %172, align 4
   call void @"_ZN4core3ptr139drop_in_place$LT$dashmap..mapref..entry..OccupiedEntry$LT$ruff_db..system..path..SystemVirtualPathBuf$C$ruff_db..files..VirtualFile$GT$$GT$17h81e331b464e4370eE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %175
+  br label %174
 
-175:                                              ; preds = %151, %172
-  %.sroa.0.0 = phi i32 [ 0, %151 ], [ %174, %172 ]
+174:                                              ; preds = %150, %171
+  %.sroa.0.0 = phi i32 [ 0, %150 ], [ %173, %171 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   ret i32 %.sroa.0.0
 }

@@ -217,87 +217,83 @@ define hidden noundef nonnull align 1 ptr @"_ZN4spin4once17Once$LT$T$C$R$GT$18tr
   %2 = alloca ptr, align 8
   %3 = cmpxchg ptr %0, i8 0, i8 1 acquire acquire, align 1
   %4 = extractvalue { i8, i1 } %3, 1
-  %5 = extractvalue { i8, i1 } %3, 0
   br i1 %4, label %._crit_edge, label %.lr.ph
 
-6:                                                ; preds = %.lr.ph
+5:                                                ; preds = %.lr.ph
   unreachable
 
 ._crit_edge:                                      ; preds = %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread", %1
-  %.lcssa = phi i8 [ %5, %1 ], [ %17, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread" ]
-  %7 = icmp ult i8 %.lcssa, 4
-  tail call void @llvm.assume(i1 %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   invoke void @ring_core_0_17_8__OPENSSL_cpuid_setup()
-          to label %10 unwind label %11
+          to label %8 unwind label %9
 
 .lr.ph:                                           ; preds = %1, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread"
-  %8 = phi i8 [ %17, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread" ], [ %5, %1 ]
-  %9 = icmp ult i8 %8, 4
-  tail call void @llvm.assume(i1 %9)
-  switch i8 %8, label %6 [
+  %.pn = phi { i8, i1 } [ %13, %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread" ], [ %3, %1 ]
+  %6 = extractvalue { i8, i1 } %.pn, 0
+  %7 = icmp ult i8 %6, 4
+  tail call void @llvm.assume(i1 %7)
+  switch i8 %6, label %5 [
     i8 0, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread"
     i8 1, label %.preheader
     i8 2, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit"
-    i8 3, label %22
+    i8 3, label %19
   ]
 
-10:                                               ; preds = %._crit_edge
+8:                                                ; preds = %._crit_edge
   store atomic i8 2, ptr %0 release, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit"
 
-"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit": ; preds = %.lr.ph, %.preheader, %10
+"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit": ; preds = %.lr.ph, %.preheader, %8
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 1
   ret ptr %.0
 
-11:                                               ; preds = %._crit_edge
-  %12 = landingpad { ptr, i32 }
+9:                                                ; preds = %._crit_edge
+  %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN60_$LT$spin..once..Finish$u20$as$u20$core..ops..drop..Drop$GT$4drop17h662f8b205b615727E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit" unwind label %13
+          to label %"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit" unwind label %11
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+11:                                               ; preds = %9
+  %12 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #27
   unreachable
 
 "_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread": ; preds = %.preheader, %.lr.ph
-  %15 = cmpxchg ptr %0, i8 0, i8 1 acquire acquire, align 1
-  %16 = extractvalue { i8, i1 } %15, 1
-  %17 = extractvalue { i8, i1 } %15, 0
-  br i1 %16, label %._crit_edge, label %.lr.ph
+  %13 = cmpxchg ptr %0, i8 0, i8 1 acquire acquire, align 1
+  %14 = extractvalue { i8, i1 } %13, 1
+  br i1 %14, label %._crit_edge, label %.lr.ph
 
-.preheader:                                       ; preds = %.lr.ph, %20
-  %18 = load atomic i8, ptr %0 acquire, align 1
-  %19 = icmp ult i8 %18, 4
-  tail call void @llvm.assume(i1 %19)
-  switch i8 %18, label %default.unreachable [
+.preheader:                                       ; preds = %.lr.ph, %17
+  %15 = load atomic i8, ptr %0 acquire, align 1
+  %16 = icmp ult i8 %15, 4
+  tail call void @llvm.assume(i1 %16)
+  switch i8 %15, label %default.unreachable [
     i8 0, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit.thread"
-    i8 1, label %20
+    i8 1, label %17
     i8 2, label %"_ZN4spin4once17Once$LT$T$C$R$GT$4poll17h662873689cc0d10fE.exit"
-    i8 3, label %21
+    i8 3, label %18
   ]
 
 default.unreachable:                              ; preds = %.preheader
   unreachable
 
-20:                                               ; preds = %.preheader
+17:                                               ; preds = %.preheader
   tail call void @llvm.x86.sse2.pause() #18
   br label %.preheader
 
-21:                                               ; preds = %.preheader
+18:                                               ; preds = %.preheader
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a08cbc0fed5954eef0273385eb99bffc.27, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.28) #26
   unreachable
 
-22:                                               ; preds = %.lr.ph
+19:                                               ; preds = %.lr.ph
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a08cbc0fed5954eef0273385eb99bffc.24, i64 noundef 13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a08cbc0fed5954eef0273385eb99bffc.26) #26
   unreachable
 
-"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit": ; preds = %11
-  resume { ptr, i32 } %12
+"_ZN4core3ptr39drop_in_place$LT$spin..once..Finish$GT$17hbe9a70826f92ee99E.exit": ; preds = %9
+  resume { ptr, i32 } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable

@@ -484,57 +484,55 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
   br label %19
 
 54:                                               ; preds = %40
-  %55 = icmp ne i64 %.sroa.01.1.i.i, 0
-  tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds i8, ptr %.val4.i, i64 %.sroa.6.1.i.i
-  %57 = load i8, ptr %56, align 1, !noalias !72, !noundef !5
-  %58 = icmp sgt i8 %57, -1
-  br i1 %58, label %59, label %65
+  %55 = getelementptr inbounds i8, ptr %.val4.i, i64 %.sroa.6.1.i.i
+  %56 = load i8, ptr %55, align 1, !noalias !72, !noundef !5
+  %57 = icmp sgt i8 %56, -1
+  br i1 %57, label %58, label %64
 
-59:                                               ; preds = %54
-  %60 = load <16 x i8>, ptr %.val4.i, align 16, !noalias !88
-  %61 = icmp slt <16 x i8> %60, zeroinitializer
-  %62 = bitcast <16 x i1> %61 to i16
-  %.not.i.i.i = icmp ne i16 %62, 0
-  %63 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %62, i1 true)
-  %64 = zext nneg i16 %63 to i64
+58:                                               ; preds = %54
+  %59 = load <16 x i8>, ptr %.val4.i, align 16, !noalias !88
+  %60 = icmp slt <16 x i8> %59, zeroinitializer
+  %61 = bitcast <16 x i1> %60 to i16
+  %.not.i.i.i = icmp ne i16 %61, 0
+  %62 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %61, i1 true)
+  %63 = zext nneg i16 %62 to i64
   tail call void @llvm.assume(i1 %.not.i.i.i)
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val4.i, i64 %64
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val4.i, i64 %63
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !noalias !91
-  br label %65
+  br label %64
 
-65:                                               ; preds = %59, %54
-  %66 = phi i8 [ %.pre, %59 ], [ %57, %54 ]
-  %.sroa.410.0.ph = phi i64 [ %64, %59 ], [ %.sroa.6.1.i.i, %54 ]
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %68 = load i64, ptr %67, align 8, !noundef !5
+64:                                               ; preds = %58, %54
+  %65 = phi i8 [ %.pre, %58 ], [ %56, %54 ]
+  %.sroa.410.0.ph = phi i64 [ %63, %58 ], [ %.sroa.6.1.i.i, %54 ]
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %67 = load i64, ptr %66, align 8, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
-  %69 = getelementptr inbounds i8, ptr %.val4.i, i64 %.sroa.410.0.ph
-  %70 = and i8 %66, 1
-  %71 = zext nneg i8 %70 to i64
-  %72 = load i64, ptr %9, align 8, !alias.scope !91, !noundef !5
-  %73 = sub i64 %72, %71
-  store i64 %73, ptr %9, align 8, !alias.scope !91
-  %74 = add i64 %.sroa.410.0.ph, -16
-  %75 = and i64 %74, %.val5.i
-  store i8 %16, ptr %69, align 1, !noalias !91
-  %76 = getelementptr i8, ptr %.val4.i, i64 %75
-  %77 = getelementptr i8, ptr %76, i64 16
-  store i8 %16, ptr %77, align 1, !noalias !91
-  %78 = add i64 %68, 1
-  store i64 %78, ptr %67, align 8, !alias.scope !91
-  %79 = sub nsw i64 0, %.sroa.410.0.ph
-  %80 = getelementptr inbounds i64, ptr %.val4.i, i64 %79
-  %81 = getelementptr inbounds i8, ptr %80, i64 -8
-  store i64 %68, ptr %81, align 8, !noalias !91
+  %68 = getelementptr inbounds i8, ptr %.val4.i, i64 %.sroa.410.0.ph
+  %69 = and i8 %65, 1
+  %70 = zext nneg i8 %69 to i64
+  %71 = load i64, ptr %9, align 8, !alias.scope !91, !noundef !5
+  %72 = sub i64 %71, %70
+  store i64 %72, ptr %9, align 8, !alias.scope !91
+  %73 = add i64 %.sroa.410.0.ph, -16
+  %74 = and i64 %73, %.val5.i
+  store i8 %16, ptr %68, align 1, !noalias !91
+  %75 = getelementptr i8, ptr %.val4.i, i64 %74
+  %76 = getelementptr i8, ptr %75, i64 16
+  store i8 %16, ptr %76, align 1, !noalias !91
+  %77 = add i64 %67, 1
+  store i64 %77, ptr %66, align 8, !alias.scope !91
+  %78 = sub nsw i64 0, %.sroa.410.0.ph
+  %79 = getelementptr inbounds i64, ptr %.val4.i, i64 %78
+  %80 = getelementptr inbounds i8, ptr %79, i64 -8
+  store i64 %67, ptr %80, align 8, !noalias !91
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %65
-  %.sroa.3.0 = phi i64 [ %68, %65 ], [ %.val3.i.i.i, %36 ]
-  %.sroa.0.0 = phi i64 [ 1, %65 ], [ 0, %36 ]
-  %82 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %83 = insertvalue { i64, i64 } %82, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %83
+.loopexit:                                        ; preds = %36, %64
+  %.sroa.3.0 = phi i64 [ %67, %64 ], [ %.val3.i.i.i, %36 ]
+  %.sroa.0.0 = phi i64 [ 1, %64 ], [ 0, %36 ]
+  %81 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %82 = insertvalue { i64, i64 } %81, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %82
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

@@ -189014,45 +189014,42 @@ _ZNK5clang6interp7Pointer6isRootEv.exit.i.i4:     ; preds = %_ZNK5clang6interp7P
   %37 = icmp eq i32 %.pre.i.i.i6.pre, %36
   %38 = icmp eq i32 %.pre.i.i.i6.pre, 0
   %spec.select.i.i.i7 = or i1 %38, %37
-  br i1 %spec.select.i.i.i7, label %.thread4.i.i, label %42
+  br i1 %spec.select.i.i.i7, label %.thread4.i.i, label %41
 
 ..thread4_crit_edge.i.i:                          ; preds = %10
-  %39 = and i32 %11, -2
-  %switch.i.i = icmp ne i32 %39, 2
-  call void @llvm.assume(i1 %switch.i.i)
   %.pre.i.i = load ptr, ptr %9, align 8, !tbaa !165
   br label %.thread4.i.i
 
 .thread4.i.i:                                     ; preds = %..thread4_crit_edge.i.i, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i4
-  %40 = phi ptr [ %.pre.i.i, %..thread4_crit_edge.i.i ], [ %13, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i4 ]
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %39 = phi ptr [ %.pre.i.i, %..thread4_crit_edge.i.i ], [ %13, %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i4 ]
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   br label %_ZNK5clang6interp7Pointer9getRecordEv.exit
 
-42:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i4
-  %43 = zext i32 %.pre.i.i.i6.pre to i64
-  %44 = getelementptr inbounds nuw i8, ptr %13, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
+41:                                               ; preds = %_ZNK5clang6interp7Pointer6isRootEv.exit.i.i4
+  %42 = zext i32 %.pre.i.i.i6.pre to i64
+  %43 = getelementptr inbounds nuw i8, ptr %13, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   br label %_ZNK5clang6interp7Pointer9getRecordEv.exit
 
-_ZNK5clang6interp7Pointer9getRecordEv.exit:       ; preds = %10, %.thread4.i.i, %42
-  %.0.i.in.i = phi ptr [ %45, %42 ], [ %41, %.thread4.i.i ], [ %9, %10 ]
+_ZNK5clang6interp7Pointer9getRecordEv.exit:       ; preds = %10, %.thread4.i.i, %41
+  %.0.i.in.i = phi ptr [ %44, %41 ], [ %40, %.thread4.i.i ], [ %9, %10 ]
   %.0.i.i = load ptr, ptr %.0.i.in.i, align 8, !tbaa !170
-  %46 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %47 = load ptr, ptr %46, align 8, !tbaa !4357
-  %48 = call noundef ptr @_ZNK5clang6interp6Record14getVirtualBaseEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(656) %47, ptr noundef %2) #22
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %50 = load ptr, ptr %49, align 8, !tbaa !336
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
+  %46 = load ptr, ptr %45, align 8, !tbaa !4357
+  %47 = call noundef ptr @_ZNK5clang6interp6Record14getVirtualBaseEPKNS_10RecordDeclE(ptr noundef nonnull align 8 dereferenceable(656) %46, ptr noundef %2) #22
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %49 = load ptr, ptr %48, align 8, !tbaa !336
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = load i32, ptr %51, align 8, !tbaa !4358
-  %53 = load i64, ptr %5, align 8, !tbaa !168, !noalias !4361
-  %54 = trunc i64 %53 to i32
-  %55 = add i32 %52, %54
-  %56 = load ptr, ptr %9, align 8, !tbaa !165, !noalias !4361
-  %57 = zext i32 %55 to i64
-  call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %7, ptr noundef %56, i32 noundef %55, i64 noundef %57) #22
-  %58 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef 56) #22
-  call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %58, ptr noundef nonnull align 8 dereferenceable(52) %7) #22
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = load i32, ptr %50, align 8, !tbaa !4358
+  %52 = load i64, ptr %5, align 8, !tbaa !168, !noalias !4361
+  %53 = trunc i64 %52 to i32
+  %54 = add i32 %51, %53
+  %55 = load ptr, ptr %9, align 8, !tbaa !165, !noalias !4361
+  %56 = zext i32 %54 to i64
+  call void @_ZN5clang6interp7PointerC1EPNS0_5BlockEjm(ptr noundef nonnull align 8 dereferenceable(52) %7, ptr noundef %55, i32 noundef %54, i64 noundef %56) #22
+  %57 = call noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16) %49, i64 noundef 56) #22
+  call void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52) %57, ptr noundef nonnull align 8 dereferenceable(52) %7) #22
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %7) #22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN5clang6interp7PointerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %5) #22

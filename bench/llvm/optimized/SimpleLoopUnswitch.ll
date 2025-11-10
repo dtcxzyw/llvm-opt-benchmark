@@ -23266,7 +23266,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_15DomTreeNodeBaseINS_10BasicBlockEEELb1EE9
   br i1 %or.cond.i.i, label %_ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJPS3_S4_EEppEv.exit, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEEEEZL28unswitchNontrivialInvariantsRNS_4LoopERNS_11InstructionENS_8ArrayRefIPS4_EERNS_15IVConditionInfoERNS_13DominatorTreeERNS_8LoopInfoERNS_15AssumptionCacheEPNS_15ScalarEvolutionEPNS_16MemorySSAUpdaterERNS_10LPMUpdaterEbbE3$_0EEbOT_T0_.exit"
 
 _ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJPS3_S4_EEppEv.exit: ; preds = %649
-  call void @llvm.assume(i1 %651)
   %.pre = load ptr, ptr %381, align 8, !tbaa !660
   %.pre2277 = load ptr, ptr %107, align 8
   br label %393
@@ -27097,7 +27096,6 @@ _ZNK4llvm15concat_iteratorIKPNS_10BasicBlockEJPS3_S4_EEdeEv.exit.i: ; preds = %2
   br i1 %or.cond.i.i.i635, label %_ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJPS3_S4_EEppEv.exit.i, label %.preheader.i
 
 _ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJPS3_S4_EEppEv.exit.i: ; preds = %2280
-  call void @llvm.assume(i1 %2282)
   %.pre.i636 = load ptr, ptr %2235, align 8, !tbaa !660
   %.pre46.i = load ptr, ptr %64, align 8
   br label %2242
@@ -32147,7 +32145,6 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_4LoopELj16ENS_12
   br i1 %or.cond.i.i468.i, label %_ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJPS3_S4_PS2_EEppEv.exit.i, label %4501
 
 _ZN4llvm15concat_iteratorIKPNS_10BasicBlockEJPS3_S4_PS2_EEppEv.exit.i: ; preds = %4511
-  call void @llvm.assume(i1 %4513)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   %.pre782.i = load ptr, ptr %2439, align 8, !tbaa !660
   br label %4438
@@ -36699,7 +36696,6 @@ _ZNK4llvm15concat_iteratorIPNS_4LoopEJPS2_S3_EEdeEv.exit: ; preds = %6418
 _ZN4llvm15concat_iteratorIPNS_4LoopEJPS2_S3_EEppEv.exit: ; preds = %6435
   %6438 = icmp eq ptr %6424, null
   %spec.select384 = select i1 %6438, ptr null, ptr %.4
-  call void @llvm.assume(i1 %6437)
   %.pre2302 = load ptr, ptr %6389, align 8, !tbaa !81
   %.pre2303 = load ptr, ptr %121, align 8
   br label %6398
@@ -36886,7 +36882,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4LoopELb1EE9push_backES2_.exit: ; preds = 
   br i1 %or.cond.i.i941, label %_ZN4llvm15concat_iteratorIPNS_4LoopEJPS2_S3_EEppEv.exit942, label %6509
 
 _ZN4llvm15concat_iteratorIPNS_4LoopEJPS2_S3_EEppEv.exit942: ; preds = %6519
-  call void @llvm.assume(i1 %6521)
   %.pre2304 = load ptr, ptr %6453, align 8, !tbaa !81
   %.pre2305 = load ptr, ptr %123, align 8
   br label %6462

@@ -176705,7 +176705,7 @@ define hidden noundef zeroext i1 @_ZN11polars_core9datatypes5dtype11MetaDataExt7
   %32 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i.i, i64 0)
   switch i8 %32, label %33 [
     i8 -1, label %34
-    i8 0, label %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb137e9d1d5013c7fE.exit.i"
+    i8 0, label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h40382e5a54f2a388E.exit"
     i8 1, label %15
   ]
 
@@ -176726,13 +176726,8 @@ define hidden noundef zeroext i1 @_ZN11polars_core9datatypes5dtype11MetaDataExt7
   %41 = add i64 %.sroa.3.0.i.i, -1
   br label %9
 
-"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb137e9d1d5013c7fE.exit.i": ; preds = %17
-  %42 = icmp samesign ult i64 %.sroa.8.0.i.i.i, 11
-  tail call void @llvm.assume(i1 %42)
-  br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h40382e5a54f2a388E.exit"
-
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h40382e5a54f2a388E.exit": ; preds = %34, %1, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb137e9d1d5013c7fE.exit.i"
-  %.sroa.0.0.i = phi i1 [ false, %1 ], [ true, %"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hb137e9d1d5013c7fE.exit.i" ], [ false, %34 ]
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h40382e5a54f2a388E.exit": ; preds = %34, %17, %1
+  %.sroa.0.0.i = phi i1 [ false, %1 ], [ true, %17 ], [ false, %34 ]
   ret i1 %.sroa.0.0.i
 }
 

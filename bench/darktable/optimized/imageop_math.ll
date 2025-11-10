@@ -291,8 +291,8 @@ define void @dt_iop_clip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
 
 ; Function Attrs: nounwind uwtable
 define void @dt_iop_clip_and_zoom(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call ptr @dt_interpolation_new(i32 noundef 2) #9
-  tail call void @dt_interpolation_resample(ptr noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3) #9
+  %5 = tail call ptr @dt_interpolation_new(i32 noundef 2) #8
+  tail call void @dt_interpolation_resample(ptr noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3) #8
   ret void
 }
 
@@ -302,8 +302,8 @@ declare void @dt_interpolation_resample(ptr noundef, ptr noundef, ptr noundef, p
 
 ; Function Attrs: nounwind uwtable
 define void @dt_iop_clip_and_zoom_roi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
-  %5 = tail call ptr @dt_interpolation_new(i32 noundef 2) #9
-  tail call void @dt_interpolation_resample_roi(ptr noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3) #9
+  %5 = tail call ptr @dt_interpolation_new(i32 noundef 2) #8
+  tail call void @dt_interpolation_resample_roi(ptr noundef %5, ptr noundef %0, ptr noundef %2, ptr noundef %1, ptr noundef %3) #8
   ret void
 }
 
@@ -1410,8 +1410,8 @@ FCxtrans.exit.us119.preheader:                    ; preds = %FCxtrans.exit.lr.ph
   br label %FCxtrans.exit.us119
 
 FCxtrans.exit.us119:                              ; preds = %FCxtrans.exit.us119.preheader, %._crit_edge93.split.us129
-  %.066111.us120 = phi ptr [ %84, %._crit_edge93.split.us129 ], [ %43, %FCxtrans.exit.us119.preheader ]
-  %.067110.us121 = phi i32 [ %83, %._crit_edge93.split.us129 ], [ 0, %FCxtrans.exit.us119.preheader ]
+  %.066111.us120 = phi ptr [ %83, %._crit_edge93.split.us129 ], [ %43, %FCxtrans.exit.us119.preheader ]
+  %.067110.us121 = phi i32 [ %82, %._crit_edge93.split.us129 ], [ 0, %FCxtrans.exit.us119.preheader ]
   %.068109.us122 = phi float [ %49, %._crit_edge93.split.us129 ], [ 0.000000e+00, %FCxtrans.exit.us119.preheader ]
   %46 = fsub reassoc nsz arcp contract afn float %.068109.us122, %10
   %47 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %46)
@@ -1430,7 +1430,7 @@ FCxtrans.exit.us119:                              ; preds = %FCxtrans.exit.us119
   br i1 %.not7783.us, label %.preheader.us.us, label %.preheader.lr.ph.split.us127
 
 FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %68
-  %indvars.iv = phi i64 [ %79, %.preheader.us123 ], [ %indvars.iv.next, %68 ]
+  %indvars.iv = phi i64 [ %78, %.preheader.us123 ], [ %indvars.iv.next, %68 ]
   %.185.us = phi i32 [ %.06191.us, %.preheader.us123 ], [ %.2.us, %68 ]
   %.16384.us = phi i32 [ %.06290.us, %.preheader.us123 ], [ %.264.us, %68 ]
   %57 = trunc nuw nsw i64 %indvars.iv to i32
@@ -1485,75 +1485,71 @@ FCxtrans.exit82.us:                               ; preds = %.preheader.us123, %
   br label %.preheader.us98.us
 
 .preheader.us.us:                                 ; preds = %FCxtrans.exit.us119, %.preheader.us.us
-  %.06092.us.us = phi i32 [ %76, %.preheader.us.us ], [ %spec.select.us, %FCxtrans.exit.us119 ]
-  %76 = add nuw nsw i32 %.06092.us.us, 1
-  %.not76.us.us.not = icmp slt i32 %.06092.us.us, %38
-  tail call void @llvm.assume(i1 %.not76.us.us.not)
   br label %.preheader.us.us
 
 .preheader.lr.ph.split.split.us128:               ; preds = %.preheader.lr.ph.split.us127
-  %77 = load i32, ptr %20, align 4, !tbaa !19
-  %invariant.op107.us = add i32 %77, 600
-  %78 = load i32, ptr %3, align 4, !tbaa !20
-  %invariant.op.us = add i32 %78, 600
-  %79 = zext nneg i32 %spec.select78.us to i64
-  %80 = add nuw nsw i32 %52, 1
-  %wide.trip.count = zext nneg i32 %80 to i64
+  %76 = load i32, ptr %20, align 4, !tbaa !19
+  %invariant.op107.us = add i32 %76, 600
+  %77 = load i32, ptr %3, align 4, !tbaa !20
+  %invariant.op.us = add i32 %77, 600
+  %78 = zext nneg i32 %spec.select78.us to i64
+  %79 = add nuw nsw i32 %52, 1
+  %wide.trip.count = zext nneg i32 %79 to i64
   br label %.preheader.us123
 
 ._crit_edge93.split.us129:                        ; preds = %._crit_edge.split.us, %._crit_edge.split.us.us.us
   %.us-phi105.us = phi i32 [ %.264.us.us.us, %._crit_edge.split.us.us.us ], [ %.264.us, %._crit_edge.split.us ]
   %.us-phi106.us = phi i32 [ %.2.us.us.us, %._crit_edge.split.us.us.us ], [ %.2.us, %._crit_edge.split.us ]
-  %81 = udiv i32 %.us-phi106.us, %.us-phi105.us
-  %82 = trunc i32 %81 to i16
-  store i16 %82, ptr %.066111.us120, align 2, !tbaa !16
-  %83 = add nuw nsw i32 %.067110.us121, 1
-  %84 = getelementptr inbounds nuw i8, ptr %.066111.us120, i64 2
-  %exitcond153.not = icmp eq i32 %83, %18
+  %80 = udiv i32 %.us-phi106.us, %.us-phi105.us
+  %81 = trunc i32 %80 to i16
+  store i16 %81, ptr %.066111.us120, align 2, !tbaa !16
+  %82 = add nuw nsw i32 %.067110.us121, 1
+  %83 = getelementptr inbounds nuw i8, ptr %.066111.us120, i64 2
+  %exitcond153.not = icmp eq i32 %82, %18
   br i1 %exitcond153.not, label %._crit_edge.us, label %FCxtrans.exit.us119
 
 .preheader.us98.us:                               ; preds = %.preheader.us98.us.preheader, %._crit_edge.split.us.us.us
   %indvars.iv148 = phi i64 [ %44, %.preheader.us98.us.preheader ], [ %indvars.iv.next149, %._crit_edge.split.us.us.us ]
   %.06191.us100.us = phi i32 [ 0, %.preheader.us98.us.preheader ], [ %.2.us.us.us, %._crit_edge.split.us.us.us ]
   %.06290.us101.us = phi i32 [ 0, %.preheader.us98.us.preheader ], [ %.264.us.us.us, %._crit_edge.split.us.us.us ]
-  %85 = mul nsw i64 %indvars.iv148, %27
-  %86 = trunc i64 %indvars.iv148 to i32
-  %87 = add i32 %86, 600
-  %88 = urem i32 %87, 6
-  %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 %89
-  %invariant.gep167 = getelementptr i16, ptr %1, i64 %85
+  %84 = mul nsw i64 %indvars.iv148, %27
+  %85 = trunc i64 %indvars.iv148 to i32
+  %86 = add i32 %85, 600
+  %87 = urem i32 %86, 6
+  %88 = zext nneg i32 %87 to i64
+  %89 = getelementptr inbounds nuw [6 x i8], ptr %6, i64 %88
+  %invariant.gep167 = getelementptr i16, ptr %1, i64 %84
   br label %FCxtrans.exit82.us.us.us
 
-FCxtrans.exit82.us.us.us:                         ; preds = %103, %.preheader.us98.us
-  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %103 ], [ %74, %.preheader.us98.us ]
-  %.185.us.us.us = phi i32 [ %.2.us.us.us, %103 ], [ %.06191.us100.us, %.preheader.us98.us ]
-  %.16384.us.us.us = phi i32 [ %.264.us.us.us, %103 ], [ %.06290.us101.us, %.preheader.us98.us ]
-  %91 = trunc i64 %indvars.iv143 to i32
-  %92 = add i32 %91, 600
-  %93 = urem i32 %92, 6
-  %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i8, ptr %90, i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !10
-  %97 = icmp eq i8 %96, %56
-  br i1 %97, label %98, label %103
+FCxtrans.exit82.us.us.us:                         ; preds = %102, %.preheader.us98.us
+  %indvars.iv143 = phi i64 [ %indvars.iv.next144, %102 ], [ %74, %.preheader.us98.us ]
+  %.185.us.us.us = phi i32 [ %.2.us.us.us, %102 ], [ %.06191.us100.us, %.preheader.us98.us ]
+  %.16384.us.us.us = phi i32 [ %.264.us.us.us, %102 ], [ %.06290.us101.us, %.preheader.us98.us ]
+  %90 = trunc i64 %indvars.iv143 to i32
+  %91 = add i32 %90, 600
+  %92 = urem i32 %91, 6
+  %93 = zext nneg i32 %92 to i64
+  %94 = getelementptr inbounds nuw i8, ptr %89, i64 %93
+  %95 = load i8, ptr %94, align 1, !tbaa !10
+  %96 = icmp eq i8 %95, %56
+  br i1 %96, label %97, label %102
 
-98:                                               ; preds = %FCxtrans.exit82.us.us.us
+97:                                               ; preds = %FCxtrans.exit82.us.us.us
   %gep168 = getelementptr i16, ptr %invariant.gep167, i64 %indvars.iv143
-  %99 = load i16, ptr %gep168, align 2, !tbaa !16
-  %100 = zext i16 %99 to i32
-  %101 = add i32 %.185.us.us.us, %100
-  %102 = add nsw i32 %.16384.us.us.us, 1
-  br label %103
+  %98 = load i16, ptr %gep168, align 2, !tbaa !16
+  %99 = zext i16 %98 to i32
+  %100 = add i32 %.185.us.us.us, %99
+  %101 = add nsw i32 %.16384.us.us.us, 1
+  br label %102
 
-103:                                              ; preds = %98, %FCxtrans.exit82.us.us.us
-  %.264.us.us.us = phi i32 [ %102, %98 ], [ %.16384.us.us.us, %FCxtrans.exit82.us.us.us ]
-  %.2.us.us.us = phi i32 [ %101, %98 ], [ %.185.us.us.us, %FCxtrans.exit82.us.us.us ]
+102:                                              ; preds = %97, %FCxtrans.exit82.us.us.us
+  %.264.us.us.us = phi i32 [ %101, %97 ], [ %.16384.us.us.us, %FCxtrans.exit82.us.us.us ]
+  %.2.us.us.us = phi i32 [ %100, %97 ], [ %.185.us.us.us, %FCxtrans.exit82.us.us.us ]
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
   br i1 %exitcond147.not, label %._crit_edge.split.us.us.us, label %FCxtrans.exit82.us.us.us
 
-._crit_edge.split.us.us.us:                       ; preds = %103
+._crit_edge.split.us.us.us:                       ; preds = %102
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond152.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count151
   br i1 %exitcond152.not, label %._crit_edge93.split.us129, label %.preheader.us98.us
@@ -3270,9 +3266,6 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #8
-
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #1 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { nounwind uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
@@ -3281,8 +3274,7 @@ attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable "approx-func-fp-math"="true" "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" "unsafe-fp-math"="true" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
